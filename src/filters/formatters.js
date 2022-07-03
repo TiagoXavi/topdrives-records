@@ -1,0 +1,82 @@
+export function toTimeString(input, id) {
+  let num = Number(input);
+  if (input == 0) return "DNF";
+  if (input === null || input === undefined) return "-";
+  if (isNaN(input)) return input;
+  if (id === "testBowl") {
+    if (!isNaN(num)) {
+      return `${Math.floor(num)}`;
+    }
+  }
+  
+  var sec_num = parseInt(input, 10); // don't forget the second param
+  var hours = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - hours * 3600) / 60);
+  var seconds = sec_num - hours * 3600 - minutes * 60;
+  var milesi = parseInt(Vue.options.filters.clearNumber((input - parseInt(input)) * 100));
+
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  if (milesi < 10) {
+    milesi = '0' + milesi;
+  }
+  return minutes + ':' + seconds + ':' + milesi;
+}
+export function toTimeNumber(input, id) {
+  if (input === "DNF" || input == 0) return 0;
+  if (input === "-") return "-";  
+  let result = 0;
+  let arr;
+  try {
+    let num = Number(input);
+    if (id === "testBowl") {
+      if (!isNaN(num)) {
+        // return direto
+        return Math.floor(num);
+      } else {
+        throw new Error("testbowl invalid number");
+      }
+    }
+    if (!input.includes(":")) {
+      if (input.length === 4 && !isNaN(num)) {
+        input = `${input[0]}${input[1]}:${input[2]}${input[3]}`
+      } else if (input.length === 6 && !isNaN(num)) {
+        input = `${input[0]}${input[1]}:${input[2]}${input[3]}:${input[4]}${input[5]}`
+      } else {
+        throw new Error("no ':'");
+      }
+    }
+    arr = input.split(":");
+    arr.reverse();
+    if (arr.includes("")) throw new Error("includes empty string");
+    arr = arr.map(x => Number(x));
+    arr.map(x => {
+      if (isNaN(x)) throw new Error("includes NaN");
+    });
+    if (typeof arr[0] === 'number' && arr[0] <= 99) {
+      result = Vue.options.filters.clearNumber(result + arr[0]*0.01);
+    }
+    if (typeof arr[1] === 'number' && arr[1] <= 59) {
+      result = Vue.options.filters.clearNumber(result + arr[1]);
+    }
+    if (typeof arr[2] === 'number' && arr[2] <= 59) {
+      result = Vue.options.filters.clearNumber(result + arr[2]*60);
+    }    
+
+  } catch (error) {
+    console.log("toTimeNumber", error);
+    console.log("arr", arr);
+    return false;      
+  }
+  return result;
+}
+export function clearNumber(input) {
+  return Number((input).toFixed(2));
+}
