@@ -56,7 +56,6 @@ export default new Vuex.Store({
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
     CHANGE_TIME: (state, obj) => state.toChangeObj = obj,
     CLEAR_EDITABLE: () => {
-      console.log("passei");
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)
       })

@@ -12,6 +12,18 @@
       <div :class="`Car_NumberStars${car.stars}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
       </div>
+      <div class="Car_HeaderToolsHoverContainer" />
+      <div class="Car_HeaderTools">
+        <button class="D_Button Car_HeaderButton Car_HeaderDrag">
+          <div class="Car_DragIcon">
+            <div v-for="n in 9" class="Car_DragDot" />
+          </div>
+        </button>
+        <button class="D_Button Car_HeaderButton" @click="$emit('delete')">
+          <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
+        </button>
+      </div>
+      <div class="Car_HeaderToolsBack" />
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue">{{ car.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
@@ -40,13 +52,6 @@
         Car_HeaderNameBig: car.name.length > 25,
         Car_HeaderNameBigBig: car.name.length > 32
         }" class="Car_HeaderName">{{ car.name }}</div>
-      <div class="Car_HeaderTools">
-        <button class="Car_HeaderButton">
-          <div class="Car_DragIcon">
-            <div v-for="n in 9" class="Car_DragDot" />
-          </div>
-        </button>
-      </div>
     </div>
     <div class="Car_Body">
       <Row
@@ -59,7 +64,7 @@
   </div>
   <div v-else class="Car_Layout">
     <div class="Car_Header Car_AddHeader">
-      <button class="Car_AddButton add" @click="$emit('add')">
+      <button class="D_Button Car_AddButton add" @click="$emit('add')">
         <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
       </button>
     </div>
@@ -93,39 +98,17 @@ export default {
     }
   },
   data() {
-    return {
-      classes: ["F","E","D","C","B","A","S"],
-      classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"]
-      
-      
-    }
+    return {}
   },
   watch: {},
   beforeMount() {},
   mounted() {},
   computed: {
-    resultClass() {
-      let resultClass;
-      let rq = this.car.rq;
-
-      if (this.car.class) {
-        resultClass = this.car.class;
-      } else {
-        if (rq < 20) resultClass = 0;
-        else if (rq < 30) resultClass = 1;
-        else if (rq < 40) resultClass = 2;
-        else if (rq < 50) resultClass = 3;
-        else if (rq < 65) resultClass = 4;
-        else if (rq < 80) resultClass = 5;
-        else resultClass = 6;
-      }
-      return resultClass;
-    },
     carClass() {
-      return this.classes[this.resultClass];
+      return Vue.resolveClass(this.car.rq, this.car.class, "letter");
     },
     carClassColor() {
-      return this.classesColors[this.resultClass];
+      return Vue.resolveClass(this.car.rq, this.car.class, "color");
     }
   },
   methods: {},
@@ -360,20 +343,69 @@ export default {
   background-color: transparent;
   box-shadow: none;
 }
-.Car_DragIcon {
+.Car_HeaderTools {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  width: 50%;
+  height: 35%;
+  bottom: -35%;
+  transition-duration: 0.2s;
+  opacity: 0;
+  z-index: 1;
+}
+.Car_HeaderToolsHoverContainer {
+  width: 50%;
+  height: 40%;
+  bottom: 0;
+}
+.Car_HeaderToolsHoverContainer:hover ~ .Car_HeaderTools,
+.Car_HeaderTools:hover {
+  bottom: 0;
+  opacity: 1;
+}
+.Car_HeaderToolsBack {
+  /* background-image: linear-gradient(0deg, var(--class-color), transparent); */
+  box-shadow: inset 0px 0px 0px -20px var(--class-color);
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 40%;
+  pointer-events: none;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.Car_HeaderToolsHoverContainer:hover ~ .Car_HeaderToolsBack,
+.Car_HeaderTools:hover ~ .Car_HeaderToolsBack {
+  box-shadow: inset 0px -37px 28px -10px var(--class-color);
+}
+.Car_DragIcon {
+  width: 25px;
+  height: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  /* gap: 4px; */
+  gap: 5px;
 }
 .Car_DragDot {
-  background-color: red;
+  background-color: white;
   width: 100%;
   height: 100%;
 }
 .Car_HeaderButton {
-  align-items: stretch;
+  position: relative;
+  --back-color: 0, 0, 0;
+  --back-opac: 0.3;
+  padding: 8px;
+  background-color: rgba(var(--back-color), var(--back-opac));
+}
+.Car_HeaderDrag {
+  cursor: grab;
+}
+.Car_HeaderDrag:active {
+  cursor: grabbing;
+}
+.Car_HeaderIcon {
+  font-size: 25px;
+  color: white;
 }
 </style>

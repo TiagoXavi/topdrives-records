@@ -80,7 +80,7 @@ export default {
           result.push({ text: text, ...x })
         })
       }
-      console.log(result);
+      // console.log(result);
 
       return result;
     }
