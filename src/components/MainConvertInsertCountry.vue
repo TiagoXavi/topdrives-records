@@ -37,107 +37,114 @@ export default {
     let temp2 = null;
 
     this.cars_td.map(x => {
-      if (x.country) return;
-      x.name = `${x.brand} ${x.onlyName}`
-      temp2 = null;
+      if (!x.name) {
+        x.name = `${x.brand} ${x.onlyName}`
+      }
+      
+      if (!x.country) {
 
-      temp = this.cars_full.filter(y => {
-        let Y = y.name.toLowerCase()
-          .replaceAll("é","e")
-          .replaceAll("gumpert","apollo")
-          .replaceAll("renault sport","renault")
-          .replaceAll("mercedes-benz amg","mercedes-benz")
-          .replaceAll("groupe","group")
-          .replaceAll("ë","e")
-          .replaceAll("land rover range rover","land rover")
-          .replaceAll("mclaren mercedes-benz","mclaren")
-          .replaceAll("-"," ")
-          .replaceAll("vauxhall/opel","ggg")
-          .replaceAll("vauxhall opel","ggg")
-          .replaceAll("opel","ggg")
-          .replaceAll("vauxhall","ggg")
-          .replaceAll("fiat abarth","fff")
-          .replaceAll("fiat","fff")
-          .replaceAll("abarth","fff")
-          .replaceAll("supersport","super sport")
-          .replaceAll("ram ram","ram")
-          .trim();
-        let X = x.name.toLowerCase()
-          .replaceAll("é","e")
-          .replaceAll("gumpert","apollo")
-          .replaceAll("renault sport","renault")
-          .replaceAll("mercedes-benz amg","mercedes-benz")
-          .replaceAll("groupe","group")
-          .replaceAll("ë","e")
-          .replaceAll("land rover range rover","land rover")
-          .replaceAll("mclaren mercedes-benz","mclaren")
-          .replaceAll("-"," ")
-          .replaceAll("vauxhall/opel","ggg")
-          .replaceAll("vauxhall opel","ggg")
-          .replaceAll("opel","ggg")
-          .replaceAll("vauxhall","ggg")
-          .replaceAll("fiat abarth","fff")
-          .replaceAll("fiat","fff")
-          .replaceAll("abarth","fff")
-          .replaceAll("supersport","super sport")
-          .replaceAll("ram ram","ram")
-          .trim();
-        
-        if (x.name === 'Mercedes-Benz AMG SLS GT3' && y.name === 'Mercedes-Benz SLS GT3') {
-          return true;
+        temp2 = null;
+  
+        temp = this.cars_full.filter(y => {
+          let Y = y.name.toLowerCase()
+            .replaceAll("é","e")
+            .replaceAll("gumpert","apollo")
+            .replaceAll("renault sport","renault")
+            .replaceAll("mercedes-benz amg","mercedes-benz")
+            .replaceAll("groupe","group")
+            .replaceAll("ë","e")
+            .replaceAll("land rover range rover","land rover")
+            .replaceAll("mclaren mercedes-benz","mclaren")
+            .replaceAll("-"," ")
+            .replaceAll("vauxhall/opel","ggg")
+            .replaceAll("vauxhall opel","ggg")
+            .replaceAll("opel","ggg")
+            .replaceAll("vauxhall","ggg")
+            .replaceAll("fiat abarth","fff")
+            .replaceAll("fiat","fff")
+            .replaceAll("abarth","fff")
+            .replaceAll("supersport","super sport")
+            .replaceAll("ram ram","ram")
+            .trim();
+          let X = x.name.toLowerCase()
+            .replaceAll("é","e")
+            .replaceAll("gumpert","apollo")
+            .replaceAll("renault sport","renault")
+            .replaceAll("mercedes-benz amg","mercedes-benz")
+            .replaceAll("groupe","group")
+            .replaceAll("ë","e")
+            .replaceAll("land rover range rover","land rover")
+            .replaceAll("mclaren mercedes-benz","mclaren")
+            .replaceAll("-"," ")
+            .replaceAll("vauxhall/opel","ggg")
+            .replaceAll("vauxhall opel","ggg")
+            .replaceAll("opel","ggg")
+            .replaceAll("vauxhall","ggg")
+            .replaceAll("fiat abarth","fff")
+            .replaceAll("fiat","fff")
+            .replaceAll("abarth","fff")
+            .replaceAll("supersport","super sport")
+            .replaceAll("ram ram","ram")
+            .trim();
+          
+          if (x.name === 'Mercedes-Benz AMG SLS GT3' && y.name === 'Mercedes-Benz SLS GT3') {
+            return true;
+          }
+          if (x.name === 'Porsche Cayenne GTS' && y.name === 'Porsche Cayenne GTS') {
+            return true;
+          }
+          if (x.name === 'MG Metro 6R4 Clubman' && y.name === "MG Metro 6R4") {
+            return true;
+          }
+          if (x.name === 'Lamborghini Miura SV/J' && y.name === "Lamborghini Miura SV/J") {
+            return true;
+          }
+          if (x.name === "Scuderia Cameron Glickenhaus SCG003S" && y.name === "Scuderia Cameron SCG003S") {
+            return true;
+          }
+          if (x.name === "McLaren P1" && y.name === "McLaren P1 ") {
+            return true;
+          }
+          if (x.name === 'Lamborghini Gallardo LP 570-4 Edizione Tecnica' && y.name === "Lamborghini Gallardo LP570-4 Edizione Tecnica") {
+            return true;
+          }
+          if (x.name === 'Volvo XC40 T5' && y.name === "Volvo XC40 T5 AWD") {
+            return true;
+          }
+          if (x.name === "Chevrolet Camaro ZL1" && y.name === "Chevrolet Camaro ZL1") {
+            return true;
+          }
+          if (x.name === "Ford Mustang GT Power Pack" && y.name === "Ford Mustang GT Power & Perf. Pack") {
+            return true;
+          }
+          
+          return Y === X && y.year === x.year;
+        });
+  
+        if (temp.length === 1) {
+          temp = temp[0]
+        } else {
+          temp2 = temp.find(y => y.year === x.year);
+          if (!temp2) {
+            console.log(x.year);
+            console.log(x.name);
+            debugger
+          } else {
+            temp = temp2;
+          }
         }
-        if (x.name === 'Porsche Cayenne GTS' && y.name === 'Porsche Cayenne GTS') {
-          return true;
-        }
-        if (x.name === 'MG Metro 6R4 Clubman' && y.name === "MG Metro 6R4") {
-          return true;
-        }
-        if (x.name === 'Lamborghini Miura SV/J' && y.name === "Lamborghini Miura SV/J") {
-          return true;
-        }
-        if (x.name === "Scuderia Cameron Glickenhaus SCG003S" && y.name === "Scuderia Cameron SCG003S") {
-          return true;
-        }
-        if (x.name === "McLaren P1" && y.name === "McLaren P1 ") {
-          return true;
-        }
-        if (x.name === 'Lamborghini Gallardo LP 570-4 Edizione Tecnica' && y.name === "Lamborghini Gallardo LP570-4 Edizione Tecnica") {
-          return true;
-        }
-        if (x.name === 'Volvo XC40 T5' && y.name === "Volvo XC40 T5 AWD") {
-          return true;
-        }
-        if (x.name === "Chevrolet Camaro ZL1" && y.name === "Chevrolet Camaro ZL1") {
-          return true;
-        }
-        if (x.name === "Ford Mustang GT Power Pack" && y.name === "Ford Mustang GT Power & Perf. Pack") {
-          return true;
-        }
-        
-        return Y === X && y.year === x.year;
-      });
-
-      if (temp.length === 1) {
-        temp = temp[0]
-      } else {
-        temp2 = temp.find(y => y.year === x.year);
-        if (!temp2) {
+  
+        if (!temp || !temp.name) {
+          // de para
           console.log(x.year);
           console.log(x.name);
-          debugger
-        } else {
-          temp = temp2;
+          debugger;
         }
-      }
+        x.country = temp.country;
+        x.tyres = temp.tyres;
 
-      if (!temp || !temp.name) {
-        // de para
-        console.log(x.year);
-        console.log(x.name);
-        debugger;
-      }
-      x.country = temp.country;
-      x.tyres = temp.tyres;
+        // fim country
+      };
     })
 
     navigator.clipboard.writeText(JSON.stringify(this.cars_td));

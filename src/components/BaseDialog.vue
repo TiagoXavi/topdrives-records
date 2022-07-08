@@ -95,7 +95,7 @@ export default {
   pointer-events: none;
   z-index: -1;
   display: none;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   opacity: 0;
 }
 .BaseDialog_PreActive {
@@ -118,7 +118,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  transition-duration: 0.4s;
+  transition-duration: 0.1s;
 }
 /* .BaseDialog_RealActive .BaseDialog_Back {
   background-color: #000f;

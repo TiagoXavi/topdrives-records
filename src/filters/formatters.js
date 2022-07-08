@@ -1,7 +1,7 @@
 export function toTimeString(input, id) {
+  if (input === null || input === undefined || input === "") return "";
   let num = Number(input);
   if (input == 0) return "DNF";
-  if (input === null || input === undefined) return "-";
   if (isNaN(input)) return input;
   if (id === "testBowl") {
     if (!isNaN(num)) {
@@ -31,7 +31,7 @@ export function toTimeString(input, id) {
 }
 export function toTimeNumber(input, id) {
   if (input === "DNF" || input == 0) return 0;
-  if (input === "-") return "-";  
+  if (input === "") return "";  
   let result = 0;
   let arr;
   try {
@@ -49,6 +49,10 @@ export function toTimeNumber(input, id) {
         input = `${input[0]}${input[1]}:${input[2]}${input[3]}`
       } else if (input.length === 6 && !isNaN(num)) {
         input = `${input[0]}${input[1]}:${input[2]}${input[3]}:${input[4]}${input[5]}`
+      } else if (input.length === 5 && !isNaN(num)) {
+        input = `0${input[0]}:${input[1]}${input[2]}:${input[3]}${input[4]}`
+      } else if (input.length === 3 && !isNaN(num)) {
+        input = `0${input[0]}:${input[1]}${input[2]}`
       } else {
         throw new Error("no ':'");
       }
@@ -62,13 +66,19 @@ export function toTimeNumber(input, id) {
     });
     if (typeof arr[0] === 'number' && arr[0] <= 99) {
       result = Vue.options.filters.clearNumber(result + arr[0]*0.01);
+    } else if (arr[0] !== undefined) {
+      throw new Error("0: not number or bigger than 99")
     }
     if (typeof arr[1] === 'number' && arr[1] <= 59) {
       result = Vue.options.filters.clearNumber(result + arr[1]);
+    } else if (arr[1] !== undefined) {
+      throw new Error("1: not number or bigger than 59")
     }
     if (typeof arr[2] === 'number' && arr[2] <= 59) {
       result = Vue.options.filters.clearNumber(result + arr[2]*60);
-    }    
+    } else if (arr[2] !== undefined) {
+      throw new Error("2: not number or bigger than 59") 
+    }
 
   } catch (error) {
     console.log("toTimeNumber", error);

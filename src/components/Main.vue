@@ -1,7 +1,8 @@
 <template>
-  <div class="Main_Layout" @click="$store.commit('CLEAR_EDITABLE')">
+  <div :class="{ Main_2: inverted }" class="Main_Layout">
     <div class="Main_Body" @click.stop>
       <div class="Main_Backtop"></div>
+      <div class="Main_Corner" @click="toggleSize()"></div>
       <div class="Main_Left">
         <div class="Main_TrackList">
           <Row 
@@ -11,18 +12,20 @@
             type="tracks" />
         </div>
       </div>
-      <div class="Main_Corner" @click="toggleSize()"></div>
-      <div class="Main_Mid" @click="$store.commit('CLEAR_EDITABLE')">
+      <div class="Main_Mid">
         <div class="Main_CarList" @click.stop>
           <template v-for="(car, carIx) in carDetailsList">
             <Car
               :temp="temp"
               :car="car"
+              :index="carIx"
               :trackList="trackSet_DryTwisty"
-              @delete="deleteCar(carIx)" />
+              @delete="deleteCar(carIx)"
+              @newindex="newIndex($event)" />
           </template>
           <Car
-            v-if="carDetailsList.length < 6"
+            v-if="carDetailsList.length < maxCarNumber"
+            index="addCar"
             :car="null"
             @add="openDialog()" />
         </div>
@@ -67,10 +70,10 @@ import Car from './Car.vue'
 import Row from './Row.vue'
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
-import data_cars from '../database/cars_full.json'
+import data_cars from '../database/cars_td.json'
 
 export default {
-  name: 'App',
+  name: 'Main',
   components: {
     Car,
     Row,
@@ -79,90 +82,194 @@ export default {
   },
   data() {
     return {
+      inverted: false,
       temp: 1,
       searchInput: '',
       searchActive: false,
+      nextId: 0,
       searchFocus: false,
       debounceFilter: null,
       searchLoading: false,
       searchResult: [],
+      maxCarNumber: 6,
       carDetailsList: [
         {
-          name: "ASTON MARTIN RAPIDE BERTONE JET 2+2",
-          photo: "https://i.pinimg.com/564x/1b/70/f2/1b70f2da2803b5bae88e7e0d4edbfd28.jpg",
-          rq: "61",
-          tune: 1,
-          year: 2013,
-          country: "GB",
-          topSpeed: 188,
-          acel: 4.7,
-          hand: 83,
-          drive: "RWD",
-          stars: 1,
-          tyres: "PERFORMANCE",
-          times: {
-            carPark: {
-              a00: 723.01,
-              a01: 312,
-            },
-            gForce: {
-              a00: 723,
-              a01: 312,
-            },
-            hairpin: {
-              a00: 723,
-              a01: 312,
-            },
-            indoorKart: {
-              a00: 723,
-            },
-            kart: {
-              a00: 723,
-              a01: 312,
-            },
-            slalom: {
-              a00: 723,
-              a01: 312,
-            },
-            tCircuit: {
-              a00: 65.234,
-              a01: 312,
-            },
-            tRoad: {
-              a00: 0,
-              a01: 312,
-            },
-            fast: {
-              a01: 312,
-            },
-            csSmall: {
-              a00: 723,
-              a01: 312,
-            },
-            csMed: {
-              a00: 723,
-              a01: 312,
-            },
-            testBowl: {
-              a00: 123,
-              a01: 312,
-            },
-          }
+          softId: 141,
+          "class": "B",
+          "photo": "Aston_Martin_Rapide_Bertone_Jet_22_2013_427f.png",
+          "rq": 61,
+          "onlyName": "Rapide Bertone Jet 2+2",
+          "brand": "Aston Martin",
+          "country": "GB",
+          "year": 2013,
+          "tdid": "1753",
+          "abs": true,
+          "tcs": true,
+          "clearance": "low",
+          "keeper": 96,
+          "topSpeed": 188,
+          "acel": 4.7,
+          "hand": 83,
+          "drive": "RWD",
+          "stars": 1,
+          "tyres": "Performance",
+          "mra": 73.18,
+          "weight": 1950,
+          "name": "Aston Martin Rapide Bertone Jet 2+2",
+          data: {
+            323: {
+              info: {
+                "topSpeed": 188,
+                "acel": 4.7,
+                "hand": 83,
+                "stars": 1,
+                "mra": 73.18,
+                "weight": 1950
+              },
+              times: {
+                carPark: {
+                  a00: 723.01,
+                  a01: 312,
+                },
+                gForce: {
+                  a00: 723,
+                  a01: 312,
+                },
+                hairpin: {
+                  a00: 723,
+                  a01: 312,
+                },
+                indoorKart: {
+                  a00: 723,
+                },
+                kart: {
+                  a00: 723,
+                  a01: 312,
+                },
+                slalom: {
+                  a00: 723,
+                  a01: 312,
+                },
+                tCircuit: {
+                  a00: 65.234,
+                  a01: 312,
+                },
+                tRoad: {
+                  a00: 0,
+                  a01: 312,
+                },
+                fast: {
+                  a01: 312,
+                },
+                csSmall: {
+                  a00: 723,
+                  a01: 312,
+                },
+                csMed: {
+                  a00: 723,
+                  a01: 312,
+                },
+                testBowl: {
+                  a00: 123,
+                  a01: 312,
+                },
+              }
+            }
+          },
         },
         {
-          name: "Lotus Elise Sprint",
-          photo: "https://i2.wp.com/www.111racers.com/wp-content/uploads/2020/05/lts_elise_s3_sprint-220_01.jpg",
-          rq: "49",
-          tune: 1,
-          year: 2017,
-          country: "GB",
-          topSpeed: 127,
-          acel: 5.9,
-          hand: 87,
-          drive: "RWD",
-          stars: 2,
-          tyres: "PERFORMANCE",
-        }
+          softId: 1151,
+          "class": "C",
+          "photo": "Lotus_Elise_Sprint_2017_3bc3.png",
+          "rq": 49,
+          "onlyName": "Elise Sprint",
+          "brand": "Lotus",
+          "country": "GB",
+          "tune": null,
+          "year": 2017,
+          "tdid": "1832",
+          "abs": true,
+          "tcs": true,
+          "clearance": "low",
+          "keeper": 99,
+          "topSpeed": 127,
+          "acel": 5.9,
+          "hand": 87,
+          "drive": "RWD",
+          "stars": 3,
+          "tyres": "Performance",
+          "mra": 70.97,
+          "weight": 798,
+          "name": "Lotus Elise Sprint"
+        },
+        {
+          softId: 1111,
+          "class": "E",
+          "photo": "Ford_Explorer_SportTrac_Adrenalin_2008_7b16.png",
+          "rq": 26,
+          "onlyName": "Explorer Sport-Trac Adrenalin",
+          "brand": "Ford",
+          "country": "US",
+          "tune": null,
+          "year": 2008,
+          "tdid": "2825",
+          "abs": true,
+          "tcs": true,
+          "clearance": "high",
+          "keeper": 93,
+          "topSpeed": 98,
+          "acel": 7.5,
+          "hand": 72,
+          "drive": "4WD",
+          "stars": 0,
+          "tyres": "Performance",
+          "mra": 21.34,
+          "weight": 2100,
+          "name": "Ford Explorer Sport-Trac Adrenalin",
+          data: {
+            323: {
+              info: {},
+              times: {}
+            }
+          },
+        },
+        {
+          softId: 333,
+          "class": "D",
+          "photo": "Dodge_Demon_Roadster_2007_9c50.png",
+          "rq": 38,
+          "onlyName": "Demon Roadster",
+          "brand": "Dodge",
+          "country": "US",
+          "tune": null,
+          "year": 2007,
+          "tdid": "2874",
+          "abs": true,
+          "tcs": true,
+          "clearance": "low",
+          "keeper": 95,
+          "topSpeed": 130,
+          "acel": 6.9,
+          "hand": 83,
+          "drive": "RWD",
+          "stars": 0,
+          "tyres": "Performance",
+          "mra": 60.22,
+          "weight": 1179,
+          "name": "Dodge Demon Roadster",
+          data: {
+            233: {
+              times: {
+                carPark: {
+                  a00: 723.01
+                },
+                gForce: {
+                  a00: 723
+                },
+              }
+            }
+          },
+        },
       ],
       all_cars: data_cars,
       trackSet_DryTwisty: [
@@ -271,7 +378,7 @@ export default {
 
     vm.$store.subscribe(mutation => {
       if (mutation.type == "CHANGE_TIME") {
-        let car = vm.carDetailsList.find(x => x.name === mutation.payload.car.name);
+        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
         let NEW = mutation.payload.item;
 
         // set new value
@@ -290,7 +397,8 @@ export default {
   computed: {},
   methods: {
     toggleSize() {
-      // return
+      this.inverted = !this.inverted;
+      return
       if (this.carDetailsList.length > 2) {
         this.carDetailsList = this.carDetailsList.filter((x, ix) => ix < 2)
       } else {
@@ -298,11 +406,11 @@ export default {
           this.carDetailsList.push(this.carDetailsList[1]);
         });
       }
-      if (this.temp === 1) {
-        this.temp = 4;
-      } else {
-        this.temp = 1;
-      }
+      // if (this.temp === 1) {
+      //   this.temp = 4;
+      // } else {
+      //   this.temp = 1;
+      // }
     },
     deleteCar(index) {
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
@@ -312,11 +420,15 @@ export default {
       setTimeout(() => {
         document.querySelector("#SearchInput").focus();
       }, 10);
+      if (this.searchInput && this.searchInput.length > 0) {
+        this.changeFilter();
+      }
     },
     closeDialog() {
-      if (!this.searchFocus) {
-        this.searchActive = false;
-      }
+      this.searchActive = false;
+      // if (!this.searchFocus) {
+        //   this.searchActive = false;
+      // }
     },
     searchBlur() {
       setTimeout(() => {
@@ -339,6 +451,7 @@ export default {
       let searchArr = this.searchInput.toLowerCase().replace(/  +/g, ' ');
       let strIndex = null;
       let prePush;
+      let tryFind;
       if (searchArr === "") {
         this.searchLoading = false;
         return [];
@@ -376,9 +489,63 @@ export default {
 
     },
     addCar(index) {
-      this.carDetailsList.push(this.searchResult[index]);
-      this.searchResult = this.searchResult.filter((x, ix) => ix !== index);
+      if (this.carDetailsList.length < this.maxCarNumber) {
+        this.searchResult[index].softId = this.nextId;
+        this.nextId++;
+        this.carDetailsList.push(JSON.parse(JSON.stringify(this.searchResult[index])));
+
+        this.searchResult = this.searchResult.filter((x, ix) => ix !== index);
+
+        if (this.carDetailsList.length >= this.maxCarNumber) {
+          this.searchActive = false;
+        }
+      }
     },
+    newIndex(obj) {
+      obj.current;
+      obj.new;
+
+      // Position where from the element is
+      // going to move here 'Ruby' is moved
+      // var moveEle = 3;
+
+      // Position at which element is to be moved
+      // here 'Ruby' is moved to  index 1 which is
+      // index of 'Java'
+      // var obj.new = 1;
+
+      // If actual index of moved element is
+      // less than 0 when 'moveEle += array size'
+      while (obj.current < 0)
+      {
+          obj.current += this.carDetailsList.length;
+      }
+
+      // Where the element to be moved f that
+      // index is less than 0 when
+      // 'obj.new += array size'
+      while (obj.new < 0)
+      {
+          obj.new = obj.new + this.carDetailsList.length;
+      }
+
+      // If 'obj.new' is greater than the
+      // size of the array then with need to
+      // push 'undefined' in the array.
+      if (obj.new >= this.carDetailsList.length)
+      {
+          var un = obj.new - this.carDetailsList.length + 1;
+          while (un--)
+          {
+              this.carDetailsList.push(undefined);
+
+          }
+      }
+      // Here element of 'obj.current' is removed and
+      // pushed at 'obj.new' index
+      this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
+
+    }
   },
 }
 </script>
@@ -397,6 +564,8 @@ html, body {
 }
 body {
   font-family: 'Roboto', sans-serif;
+
+  /* main */
   --top-height: 150px;
   --left-width: 200px;
   --cell-width: 230px;
@@ -407,6 +576,19 @@ body {
   --back-l: 15%;
   --d-back: #333;
   --d-text: #999;
+
+  /* car */
+  --card-stat-back-l: 10%;
+  --card-stat-back-a: 0.2;
+  --card-right-width: 20%;
+  --card-left-width: 10%;
+  --card-top-height: 15%;
+  --card-left-height: 28%;
+  --card-stat-div: 0%;
+  --card-font-size: 12px;
+  --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+
+
   font-size: 18px;
   background-color: var(--d-back);
   color: var(--d-text);
@@ -415,6 +597,7 @@ body {
   min-height: 100%;
   max-width: 100%;
   display: flex;
+  -webkit-user-select: none;
 }
 .Main_Body {
   position: relative;
@@ -431,6 +614,9 @@ body {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
   z-index: 10;
   min-height: calc(100% - var(--top-height));
+
+  /* pra preencher mobile */
+  box-shadow: 0px 50vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l));
 }
 .Main_Corner {
   background-color: hsl(var(--back-h), var(--back-s), 10%);
@@ -446,7 +632,7 @@ body {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
   height: var(--top-height);
   width: 100%;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   left: 0;
 }
@@ -480,6 +666,7 @@ body {
 }
 .D_Button:focus {
   outline: none;
+  background-color: rgba(var(--back-color), 0.3);
 }
 .D_Button:hover {
   color: #fff6;
@@ -537,13 +724,16 @@ body {
   overscroll-behavior-block: contain;
   position: relative;
 }
-.Main_SearchMid::-webkit-scrollbar {
+.Main_SearchMid::-webkit-scrollbar,
+body::-webkit-scrollbar {
   width: 18px;
 }
-.Main_SearchMid::-webkit-scrollbar-track {
+.Main_SearchMid::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
   background-color: #0002;
 }
-.Main_SearchMid::-webkit-scrollbar-thumb {
+.Main_SearchMid::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
   background-color: #555;
 }
 .Main_SearchItem {
@@ -596,5 +786,73 @@ body {
   font-weight: normal;
   background-color: #fff1;
   box-shadow: 0px 0px 0px 1px #fff1;
+}
+
+
+.Main_2 {
+  --cell-width: 80px;
+  --top-height: 70px;
+  --left-width: 250px;
+  font-size: 14px;
+}
+.Main_2 .Main_Mid {
+  /* display: none; */
+  height: auto;
+}
+.Main_2 .Main_Left {
+  width: unset;
+  position: static;
+  margin-top: 0;
+  height: var(--top-height);
+  box-shadow: none;
+  min-height: unset;
+  margin-left: var(--left-width);
+  /* margin-top: calc(var(--top-height) - var(--cell-height) - 1px); */
+  z-index: unset;
+}
+.Main_2 .Main_TrackList {
+  display: flex;
+  height: 100%;
+}
+.Main_2 .Row_Layout {
+  display: flex;
+}
+.Main_2 .Main_Body {
+  flex-direction: column;
+}
+.Main_2 .Row_Cell {
+  width: var(--cell-width);
+  height: 100%;
+}
+.Main_2 .Row_Times .Row_Cell {
+  height: var(--cell-height);
+}
+.Main_2 .Row_Content {
+  /* line-height: calc(var(--cell-height) - 12px); */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.Main_2 .Row_ContentEmpty:not(:focus) ~ .Row_Placeholder {
+  display: flex;
+}
+.Main_2 .Row_Placeholder {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.Main_2 .Row_Tracks .Row_Content {
+  text-align: center;
+  white-space: normal;
+}
+.Main_2 .Row_Tracks .Row_Cell {
+  border-right-width: 2px;
+  border-top-width: 2px;
+  border-bottom-width: 0;
+}
+.Main_2 .Row_Layout {
+  display: flex;
+  align-items: stretch;
 }
 </style>

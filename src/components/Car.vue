@@ -1,6 +1,12 @@
 <template>
-  <div v-if="car !== null" class="Car_Layout">
-    <div class="Car_Header" :style="`--class-color: ${carClassColor}; ${car.photo? 'background-image: url('+car.photo+');' : ''}`">
+  <div
+    :id="`Car_Layout${index}`"
+    v-if="car !== null"
+    style="--drag-left: 0;--drag-top: 0;"
+    class="Car_Layout">
+    <div
+      class="Car_Header"
+      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -14,7 +20,7 @@
       </div>
       <div class="Car_HeaderToolsHoverContainer" />
       <div class="Car_HeaderTools">
-        <button class="D_Button Car_HeaderButton Car_HeaderDrag">
+        <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="dragMouseDown($event)">
           <div class="Car_DragIcon">
             <div v-for="n in 9" class="Car_DragDot" />
           </div>
@@ -49,9 +55,14 @@
         <div class="Car_HeaderStatLabel">DRIVE</div>
       </div>
       <div :class="{
-        Car_HeaderNameBig: car.name.length > 25,
-        Car_HeaderNameBigBig: car.name.length > 32
+        Car_HeaderNameBig: car.name.length > 31,
+        Car_HeaderNameBigBig: car.name.length > 37
         }" class="Car_HeaderName">{{ car.name }}</div>
+    </div>
+    <div
+      :style="`--class-color: ${carClassColor}; ${carPhoto}`"
+      class="Car_Header2">
+      <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
     </div>
     <div class="Car_Body">
       <Row
@@ -61,6 +72,7 @@
         :list="trackList"
         type="times" />
     </div>
+    <div class="Car_DragIndicator"></div>
   </div>
   <div v-else class="Car_Layout">
     <div class="Car_Header Car_AddHeader">
@@ -73,6 +85,15 @@
 
 <script>
 import Row from './Row.vue'
+
+var pos1 = 0;
+var pos2 = 0;
+var mouseX = 0;
+var mouseY = 0;
+var elmnt = null;
+var dragNum = 0;
+var lastDragNum = 0;
+
 
 export default {
   name: 'Car',
@@ -95,30 +116,174 @@ export default {
     temp: {
       type: Number,
       default: 1
+    },
+    index: {
+      required: true
     }
   },
   data() {
-    return {}
+    return {
+      
+    }
   },
   watch: {},
   beforeMount() {},
-  mounted() {},
+  mounted() {
+  },
   computed: {
     carClass() {
       return Vue.resolveClass(this.car.rq, this.car.class, "letter");
     },
     carClassColor() {
       return Vue.resolveClass(this.car.rq, this.car.class, "color");
+    },
+    carPhoto() {
+      let parsed;
+      if (this.car.photo) {
+        if (this.car.photo.includes("https://")) parsed = this.car.photo;
+        else {
+          parsed = require('@/imgs/' + this.car.photo);
+        }
+      }
+      return parsed ? 'background-image: url('+parsed+');' : ''
     }
   },
-  methods: {},
+  methods: {
+    // dragElement(elmnt) {
+    //   if (document.getElementById(elmnt.id + "header")) {
+    //     // if present, the header is where you move the DIV from:
+    //     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    //   } else {
+    //     // otherwise, move the DIV from anywhere inside the DIV:
+    //     elmnt.onmousedown = dragMouseDown;
+    //   }
+    // },
+    dragMouseDown(e) {
+      elmnt = document.querySelector('#Car_Layout'+this.index);
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      document.onmouseup = this.closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = this.elementDrag;
+    },
+    elementDrag(e) {
+      // calculate the new cursor position:
+      pos1 = mouseX - e.clientX;
+      pos2 = mouseY - e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // set the element's new position:
+      getComputedStyle(elmnt).getPropertyValue("--drag-left")
+      getComputedStyle(elmnt).getPropertyValue("--drag-top")
+      let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
+      elmnt.style.setProperty("--drag-left", newLeft );
+      elmnt.style.setProperty("--drag-top", getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2 );
+      elmnt.classList.add("Car_Dragging");
+      elmnt.parentElement.classList.add("Car_DraggingParent");
+      
+      let width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2))
+      // console.log(Math.floor(newLeft / width));
+      // console.log(newLeft, width, Math.round(newLeft / width));
+      dragNum = Math.round(newLeft / width);
+      let times = Math.abs(dragNum);
+      let cla = dragNum > 0 ? "Car_PushLeft" : "Car_PushRight";
+      let div;
+
+      if (dragNum !== lastDragNum) {
+        lastDragNum = dragNum;
+
+        document.querySelectorAll(".Car_Layout").forEach(x => {
+          x.classList.remove("Car_PushLeft");
+          x.classList.remove("Car_PushRight");
+        })
+
+        Array.from(Array(times)).map((_, i) => {
+          if (dragNum > 0) div = document.querySelector("#Car_Layout" + (dragNum + this.index - i) )
+          else div = document.querySelector("#Car_Layout" + (dragNum + this.index + i) )
+
+          if (div) {
+            div.classList.add(cla);
+          }
+        });
+      }
+
+
+
+
+      
+
+      // elmnt.style[0] = (elmnt.offsetLeft - pos1);
+      // elmnt.style[1] = (elmnt.offsetTop - pos2);
+    },
+    closeDragElement() {
+      // stop moving when mouse button is released:
+      elmnt.style.setProperty("--drag-left", 0 );
+      elmnt.style.setProperty("--drag-top", 0 );
+      elmnt.classList.remove("Car_Dragging");
+      elmnt.parentElement.classList.remove("Car_DraggingParent");
+      lastDragNum = 0;
+
+      document.querySelectorAll(".Car_Layout").forEach(x => {
+        x.classList.remove("Car_PushLeft");
+        x.classList.remove("Car_PushRight");
+      })
+
+      if (dragNum !== 0) {
+        this.$emit("newindex", { current: this.index, new: this.index + dragNum });
+
+      }
+
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  },
 }
 </script>
 
 <style>
 .Car_Layout {
   width: var(--cell-width);
+  
   /* margin-right: 3px; */
+  transform: translate( calc(var(--drag-left) * 1px), calc(var(--drag-top) * 1px / 7) );
+  position: relative;
+}
+.Car_Dragging {
+  background-color: #242424;
+  box-shadow: 0px 0px 0px 5px #505050;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transition-property: background-color, box-shadow, border-radius;
+  z-index: 200;
+  cursor: grabbing;
+}
+.Car_Dragging .Car_Header {
+  pointer-events: none;
+}
+.Car_DraggingParent > :not(.Car_Dragging) {
+  transition-duration: 0.3s;
+}
+.Car_DragIndicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  background-color: dodgerblue;
+  right: -2px;
+  z-index: 21;
+  display: none;
+}
+/* .Car_Dragging ~ .Car_Layout .Car_DragIndicator {
+  display: block;
+} */
+.Car_PushLeft {
+  transform: translateX(calc(var(--cell-width) * -1));
+}
+.Car_PushRight {
+  transform: translateX(var(--cell-width));
 }
 .Car_Header {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
@@ -130,15 +295,6 @@ export default {
   position: sticky;
   top: 3px;
   z-index: 20;
-  --card-stat-back-l: 10%;
-  --card-stat-back-a: 0.2;
-  --card-right-width: 20%;
-  --card-left-width: 10%;
-  --card-top-height: 15%;
-  --card-left-height: 28%;
-  --card-stat-div: 0%;
-  --card-font-size: 12px;
-  --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
   font-family: 'Roboto Condensed', sans-serif;
   /* background-color: #956363; */
   color: #eee;
@@ -185,7 +341,7 @@ export default {
   right: 0;
   width: 10%;
   height: var(--card-top-height);
-  font-size: 1.1em;
+  font-size: 1.09em;
   font-weight: bold;
   text-align: center;
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.4);
@@ -242,7 +398,7 @@ export default {
   line-height: 1;
 }
 .Car_HeaderNameBig {
-  font-size: 0.9em;
+  font-size: 0.92em;
 }
 .Car_HeaderNameBigBig {
   font-size: 0.7em;
@@ -255,12 +411,15 @@ export default {
   right: calc(var(--card-right-width) + 1%);
   font-weight: 300;
 }
+.Car_HeaderBlockTires > :first-child {
+  text-transform: uppercase;
+}
 .Car_HeaderBlockStars {
   flex-direction: row;
-  gap: 0.8em;
+  gap: 0.9em;
   font-size: 0.6em;
-  bottom: 3%;
-  left: calc(var(--card-left-width) + 2%);
+  bottom: 5%;
+  left: calc(var(--card-left-width) + 3.5%);
   color: var(--class-color);
   filter: drop-shadow(0px 1px 1px #000c);
 }
@@ -364,6 +523,11 @@ export default {
   bottom: 0;
   opacity: 1;
 }
+.Car_HeaderTools:focus-within {
+  transition-duration: 0.0s;
+  bottom: 0;
+  opacity: 1;
+}
 .Car_HeaderToolsBack {
   /* background-image: linear-gradient(0deg, var(--class-color), transparent); */
   box-shadow: inset 0px 0px 0px -20px var(--class-color);
@@ -375,7 +539,8 @@ export default {
   transition-duration: 0.4s;
 }
 .Car_HeaderToolsHoverContainer:hover ~ .Car_HeaderToolsBack,
-.Car_HeaderTools:hover ~ .Car_HeaderToolsBack {
+.Car_HeaderTools:hover ~ .Car_HeaderToolsBack,
+.Car_Header:focus-within .Car_HeaderToolsBack {
   box-shadow: inset 0px -37px 28px -10px var(--class-color);
 }
 .Car_DragIcon {
@@ -391,21 +556,67 @@ export default {
   width: 100%;
   height: 100%;
 }
-.Car_HeaderButton {
+.D_Button.Car_HeaderButton {
   position: relative;
   --back-color: 0, 0, 0;
   --back-opac: 0.3;
   padding: 8px;
-  background-color: rgba(var(--back-color), var(--back-opac));
 }
-.Car_HeaderDrag {
+.D_Button.Car_HeaderDrag {
   cursor: grab;
-}
-.Car_HeaderDrag:active {
-  cursor: grabbing;
 }
 .Car_HeaderIcon {
   font-size: 25px;
   color: white;
+}
+
+
+
+
+.Main_2 .Main_CarList {
+  flex-direction: column;
+}
+.Main_2 .Car_Layout {
+  width: unset;
+  display: flex;
+}
+.Main_2 .Car_Header:not(.Car_AddHeader) {
+  /* width: var(--left-width);
+  font-size: 7px;
+  margin: 3px 0px; */
+  display: none;
+}
+.Car_Header2 {
+  display: none;
+}
+.Main_2 .Car_Header2 {
+  width: var(--left-width);
+  box-shadow: inset 0px -2px 0px 0px #ffffff0d;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  line-height: 1.1;
+  background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
+  padding: 0 6px;
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  background-size: contain;
+  background-position: left;
+  padding-left: calc(var(--cell-height) * 1.7);
+  height: var(--cell-height);
+}
+.Main_2 .Car_Body {
+  display: flex;
+  align-items: stretch;
+}
+.Main_2 .Car_AddHeader {
+  display: flex;
+  align-items: stretch;
+  width: var(--left-width);
+}
+.Car_Header2 b {
+  color: var(--class-color);
+  font-weight: normal;
 }
 </style>
