@@ -67,14 +67,14 @@ export default {
         }, 0);
         setTimeout(() => {
           this.animIntro = false;
-        }, 400);
+        }, 99);
       } else {
         this.animOut = true;
         setTimeout(() => {
           this.animOut = false;
           this.preActive = false;
           this.realActive = false;
-        }, 400);
+        }, 99);
 
       }
     }
@@ -95,7 +95,7 @@ export default {
   pointer-events: none;
   z-index: -1;
   display: none;
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   opacity: 0;
 }
 .BaseDialog_PreActive {
@@ -114,7 +114,7 @@ export default {
   pointer-events: initial;
 }
 .BaseDialog_Back {
-  background-color: #000c;
+  background-color: #0009;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -139,11 +139,18 @@ export default {
   pointer-events: auto;
   border-radius: 10px;
   width: 100%;
+  user-select: text;
 }
 .BaseDialog_Opaque {
   background-color: #333;
 }
 .BaseDialog_Transparent {
 
+}
+.BaseDialog_AnimOut .BaseDialog_Back {
+  pointer-events: auto;
+}
+.Row_DisabledCell {
+      background-image: repeating-linear-gradient( 135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px );
 }
 </style>

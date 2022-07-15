@@ -4,72 +4,18 @@
     v-if="car !== null"
     style="--drag-left: 0;--drag-top: 0;"
     class="Car_Layout">
-    <div
-      class="Car_Header"
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
-      <div class="Car_HeaderBlockTop" />
-      <!-- <div class="Car_HeaderBlockBrand" /> -->
-      <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
-      <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
-      <div class="Car_HeaderBlockTires">
-        <span>{{ car.tyres || "-"  }}</span>
-        <span> Tyres</span>
-      </div>
-      <div :class="`Car_NumberStars${car.stars}`" class="Car_HeaderBlockStars">
-        <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
-      </div>
-      <div class="Car_HeaderToolsHoverContainer" />
-      <div class="Car_HeaderTools">
-        <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="dragMouseDown($event)">
-          <div class="Car_DragIcon">
-            <div v-for="n in 9" class="Car_DragDot" />
-          </div>
-        </button>
-        <button class="D_Button Car_HeaderButton" @click="$emit('delete')">
-          <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
-        </button>
-      </div>
-      <div class="Car_HeaderToolsBack" />
-      <div class="Car_HeaderBlockRQ">
-        <div class="Car_HeaderRQValue">{{ car.rq }}</div>
-        <div class="Car_HeaderRQLabel">RQ</div>
-      </div>
-      <div class="Car_HeaderBlockClass">
-        <div class="Car_HeaderClassBack" />
-        <div class="Car_HeaderClassValue">{{ carClass }}</div>
-      </div>
-      <div class="Car_HeaderBlockTopSpeed">
-        <div class="Car_HeaderStatValue">{{ car.topSpeed || "-" }}</div>
-        <div class="Car_HeaderStatLabel">TOP SPEED</div>
-      </div>
-      <div class="Car_HeaderBlock060">
-        <div class="Car_HeaderStatValue">{{ car.acel || "-" }}</div>
-        <div class="Car_HeaderStatLabel">0-60MPH</div>
-      </div>
-      <div class="Car_HeaderBlockHandling">
-        <div class="Car_HeaderStatValue">{{ car.hand || "-" }}</div>
-        <div class="Car_HeaderStatLabel">HANDLING</div>
-      </div>
-      <div class="Car_HeaderBlockDrive">
-        <div class="Car_HeaderStatValue">{{ car.drive || "-" }}</div>
-        <div class="Car_HeaderStatLabel">DRIVE</div>
-      </div>
-      <div :class="{
-        Car_HeaderNameBig: car.name.length > 31,
-        Car_HeaderNameBigBig: car.name.length > 37
-        }" class="Car_HeaderName">{{ car.name }}</div>
-    </div>
-    <div
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`"
-      class="Car_Header2">
-      <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
-    </div>
+    <BaseCard
+      :car="car"
+      :temp="temp"
+      @dragdown="dragMouseDown($event)"
+      @delete="$emit('delete')" />
     <div class="Car_Body">
       <Row
         v-for="n in temp"
         :car="car"
         :temp="temp"
         :list="trackList"
+        :highlights="highlights"
         type="times" />
     </div>
     <div class="Car_DragIndicator"></div>
@@ -85,6 +31,7 @@
 
 <script>
 import Row from './Row.vue'
+import BaseCard from '@/components/BaseCard.vue';
 
 var pos1 = 0;
 var pos2 = 0;
@@ -98,7 +45,8 @@ var lastDragNum = 0;
 export default {
   name: 'Car',
   components: {
-    Row
+    Row,
+    BaseCard
   },
   props: {
     car: {
@@ -111,6 +59,12 @@ export default {
       type: Array,
       default() {
         return []
+      }
+    },
+    highlights: {
+      type: Object,
+      default() {
+        return {}
       }
     },
     temp: {
@@ -130,24 +84,7 @@ export default {
   beforeMount() {},
   mounted() {
   },
-  computed: {
-    carClass() {
-      return Vue.resolveClass(this.car.rq, this.car.class, "letter");
-    },
-    carClassColor() {
-      return Vue.resolveClass(this.car.rq, this.car.class, "color");
-    },
-    carPhoto() {
-      let parsed;
-      if (this.car.photo) {
-        if (this.car.photo.includes("https://")) parsed = this.car.photo;
-        else {
-          parsed = require('@/imgs/' + this.car.photo);
-        }
-      }
-      return parsed ? 'background-image: url('+parsed+');' : ''
-    }
-  },
+  computed: {},
   methods: {
     // dragElement(elmnt) {
     //   if (document.getElementById(elmnt.id + "header")) {
@@ -423,6 +360,9 @@ export default {
   color: var(--class-color);
   filter: drop-shadow(0px 1px 1px #000c);
 }
+.Row_DialogCardCard .Car_HeaderBlockStars {
+  font-size: 0.8em;
+}
 .Car_HeaderStatValue {
   text-align: right;
   font-size: 1.3em;
@@ -440,6 +380,7 @@ export default {
   font-weight: 300;
   color: #fff;
   opacity: 0.9;
+  display: none;
 }
 .Car_HeaderRQValue {
   font-size: 1.3em;
@@ -488,13 +429,13 @@ export default {
   background-color: hsla(30, 10%, 15%, 0.7);
   backdrop-filter: blur(15px);
 }
-.Car_NumberStars0 .Car_Star {
+.Car_NumberStars :nth-child(3) {
   opacity: 0.2;
 }
-.Car_NumberStars1 .Car_Star:not(:nth-child(1)) {
+.Car_NumberStarsundefined .Car_Star {
   opacity: 0.2;
 }
-.Car_NumberStars2 :nth-child(3) {
+.Car_NumberStars111 .Car_Star:not(:nth-child(1)) {
   opacity: 0.2;
 }
 .Car_AddHeader {

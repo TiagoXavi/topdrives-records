@@ -46,7 +46,7 @@ export default new Vuex.Store({
     tabDynamicValue: 0,
     fullscreen: false,
     ano: null,
-    toChangeObj: {}
+    tuneDialog: false
   },
   mutations: {
     SET_GENERIC: (state, obj) => state[obj.key] = obj.value,
@@ -54,7 +54,10 @@ export default new Vuex.Store({
     SET_GENERIC3: (state, obj) => state[obj.key][obj.key2][obj.key3] = obj.value,
     DEFINE_DIALOG: (state, dialog) => state.mainDialog = dialog,
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
-    CHANGE_TIME: (state, obj) => state.toChangeObj = obj,
+    CHANGE_TIME: (state, obj) => null,
+    CHANGE_TUNE: (state, obj) => null,
+    SHOW_TUNE: (state, obj) => null,
+    CHANGE_STAT: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

@@ -7,43 +7,148 @@
     class="Row_Layout">
     <div
       v-for="(info, fx) in infosResolved"
-      class="Row_Item Row_Cell">
+      class="Row_Item Row_Cell Row_ConfigCell">
       <template v-if="info.type === 'Tune'">
-        <div class="Row_Content">
-          <BaseSelect v-model="selectedTune" :list="tunes" />
-          {{ selectedTune }}
+        <div class="Row_Config">
+          <template v-if="!car.selectedTune">
+            <div class="Row_TuneChooseBox">
+              <button
+                v-for="item in tunes"
+                class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
+                @click="changeTune(item)">{{ item }}</button>
+            </div>
+          </template>
+          <template v-else> 
+            <div class="Row_Tune">{{ car.selectedTune }}</div>
+            <div class="Row_ConfigBox">
+              <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
+              </button>
+            </div>
+          </template>
         </div>
       </template>
       <template v-else>
-        <div class="Row_Content">{{ info }}</div>
+        <div class="Row_Content">{{ ' ' }}</div>
       </template>
     </div>
+
     <div
+      v-if="car.selectedTune || type === 'tracks'"
       v-for="(item, ix) in timesResolved"
-      :class="{
-        Row_ItemError: errorIndex === ix,
-        Row_ItemCorrect: correctIndex === ix
-      }"
+      :class="`
+        ${errorIndex === ix ? 'Row_ItemError' : '' }
+        ${correctIndex === ix ? 'Row_ItemCorrect' : '' }
+        ${true ? 'Row_ColorByIndex' : '' }
+        ${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty' : '' }
+        Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}
+      `"
+      :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
       class="Row_Item Row_Cell">
       <div
-        :class="{ Row_ContentEmpty: item.text === null || item.text === undefined || item.text === '' }"
         :contenteditable="type === 'tracks' ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <div class="Row_Placeholder">-</div>
+      <div v-if="type === 'tracks'" class="Row_Conditions">
+        <div v-if="item.cond === 1" class="Row_Condition Row_C_Wet">WET</div>
+        <div v-if="item.surface === 1" class="Row_Condition Row_C_Dirt">DIRT</div>
+        <div v-if="item.surface === 2" class="Row_Condition Row_C_Gravel">GRAVEL</div>
+        <div v-if="item.surface === 3" class="Row_Condition Row_C_Ice">ICE</div>
+        <div v-if="item.surface === 4" class="Row_Condition Row_C_Mixed">MIXED</div>
+        <div v-if="item.surface === 5" class="Row_Condition Row_C_Sand">SAND</div>
+        <div v-if="item.surface === 6" class="Row_Condition Row_C_Snow">SNOW</div>
+      </div>
     </div>
+    <div v-else class="Row_Item Row_Cell Row_DisabledCell"></div>
+
+    <portal v-if="tuneDialog" to="tunedialog">
+      <div class="Row_DialogLayout">
+        <div class="Row_DialogHeader">
+          <button
+            v-for="item in tunes"
+            :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
+            class="D_Button Row_DialogButtonTune D_ButtonNoActive"
+            @click="changeTune(item)">{{ item }}</button>
+        </div>
+        <div class="Row_DialogBody Space_TopPlus">
+          <div class="Row_DialogCard">
+            <div class="Row_DialogCardLeft">
+              <BaseCard
+                :car="car"
+                :options="false"
+                @dragdown="dragMouseDown($event)"
+                @delete="$emit('delete')" />
+            </div>
+            <div class="Row_DialogCardRight">
+              <BaseText
+                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
+                type="topSpeed"
+                label="Top speed"
+                class="Space_Bottom"
+                placeholder="-"
+                @change="changeStat('topSpeed', $event)" />
+              <BaseText
+                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
+                type="acel"
+                label="0-60mph"
+                class="Space_Bottom"
+                placeholder="-"
+                @change="changeStat('acel', $event)" />
+                {{ card_acel }}
+              <BaseText
+                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
+                type="hand"
+                label="Handling"
+                placeholder="-"
+                @change="changeStat('hand', $event)" />
+            </div>
+          </div>
+        </div>
+        <div class="Row_DialogCardBottom Space_TopPlus">
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">ABS</div>
+            <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue">{{ car.abs ? 'Yes' : 'No' }}</div>
+          </div>
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">TCS</div>
+            <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue">{{ car.tcs ? 'Yes' : 'No' }}</div>
+          </div>
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">Clearance</div>
+            <div class="Row_DialogCardStatValue">{{ car.clearance }}</div>
+          </div>
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">MRA (stock)</div>
+            <div class="Row_DialogCardStatValue">{{ car.mra }}</div>
+          </div>
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">Weight (stock)</div>
+            <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
+          </div>
+        </div>
+      </div>
+    </portal>
+    
   </div>
 </template>
 
 <script>
 import BaseSelect from '@/components/BaseSelect.vue';
+import BaseText from '@/components/BaseText.vue';
+import BaseCard from '@/components/BaseCard.vue';
 
 export default {
   name: 'Row',
   components: {
-    BaseSelect
+    BaseSelect,
+    BaseText,
+    BaseCard
   },
   props: {
     list: {
@@ -53,6 +158,12 @@ export default {
       }
     },
     car: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    highlights: {
       type: Object,
       default() {
         return {}
@@ -72,16 +183,31 @@ export default {
       errorIndex: null,
       correctIndex: null,
       infos: ["Tune"],
-      selectedTune: null,
+      tuneDialog: false,
+      card_speed: null,
+      card_acel: null,
+      card_hand: null,
     }
   },
   watch: {},
   beforeMount() {},
-  mounted() {},
+  mounted() {
+    let vm = this;
+    vm.$store.subscribe(mutation => {
+      if (mutation.type == "SHOW_TUNE") {
+        if (mutation.payload === false) {
+          setTimeout(() => {
+            vm.tuneDialog = false;
+          }, 99);
+        }
+      }
+    }); 
+  },
   computed: {
     timesResolved() {
       let result = [];
       let text;
+      let car;
       if (this.type === "tracks") {
         this.list.map(x => {
           result.push({ text: x.name })
@@ -89,16 +215,23 @@ export default {
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
           text = "";
-          if (this.car.times &&
-              this.car.times[x.id]
+          car = this.car;
+          // if (car.times &&
+          //     car.times[x.id]
+          // ) {
+          if (
+              car.selectedTune &&
+              car.data &&
+              car.data[car.selectedTune] &&
+              car.data[car.selectedTune].times
           ) {
-            text = this.car.times[x.id][`a${x.surface}${x.cond}`];
+            text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
           }
           if (text === undefined || text === null) text = "";
           result.push({ text: text, ...x })
         })
       }
-      // console.log(result);
+      console.log(result);
 
       return result;
     },
@@ -116,10 +249,11 @@ export default {
       }
     },
     tunes() {
-      let result = ["332", "233", "323"];
+      let result = ["332", "323", "233"];
       if (this.car.class === "S") result.push("111");
       return result;
-    }
+    },
+    
   },
   methods: {
     keydown(e, item, ix) {
@@ -164,6 +298,26 @@ export default {
       //   this.$store.commit("CLEAR_EDITABLE");
       //   e.srcElement.setAttribute('contenteditable', true);
       // }
+    },
+    showTuneDialog() {
+      this.tuneDialog = true;
+      this.$store.commit("SHOW_TUNE", true);
+    },
+    changeTune(tune) {
+      this.$store.commit("CHANGE_TUNE", {
+        tune,
+        car: this.car
+      });
+    },
+    changeInput(e) {
+      debugger;
+    },
+    changeStat(type, value) {
+      this.$store.commit("CHANGE_STAT", {
+        type,
+        value,
+        car: this.car
+      });
     }
   },
 }
@@ -190,6 +344,9 @@ export default {
 .Row_Tracks .Row_Cell {
   border-right-width: 0;
 }
+.Row_Times .Row_Cell {
+  letter-spacing: 0.5px;
+}
 .Row_Tracks {
   
 }
@@ -204,6 +361,10 @@ export default {
 }
 .Row_Tracks .Row_Content {
   text-align: left;
+  white-space: normal;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 .Row_Times .Row_Content[contenteditable="true"]:not(:focus) {
   cursor: pointer;
@@ -237,7 +398,7 @@ export default {
   box-sizing: border-box;
   display: none;
 }
-.Row_ContentEmpty:not(:focus) ~ .Row_Placeholder {
+.Row_ContentEmpty .Row_Content:not(:focus) ~ .Row_Placeholder {
   display: block;
 }
 .Row_ItemError {
@@ -251,5 +412,117 @@ export default {
   box-shadow: inset 0px -13px 16px -17px #5fb500, inset 0px -2px 0px 0px #5fb500;
   color: #90df39;
   background-color: #5fb50022;
+}
+.Row_ConfigCell {
+  justify-content: center;
+  background-color: rgba(255,255,255, 0.05);
+}
+.Row_Tracks .Row_ConfigCell {
+  box-shadow: inset -18px 0px 16px -17px #5fb500, inset -3px 0px 0px 0px #5fb500;
+}
+.Row_ConfigIcon {
+  font-size: 24px;
+  color: var(--d-text);
+}
+.Row_ConfigLabel {
+  color: var(--d-text);
+}
+.D_Button.Row_ConfigButton {
+  padding: 0px 6px;
+  --height: 34px;
+}
+.D_Button.Row_DialogButtonTune {
+  color: var(--d-text);
+  font-size: 1.2em;
+  padding: 0 9px;
+  border-radius: 0;
+}
+.Row_DialogHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.D_Button.Row_DialogButtonTuneActive {
+  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+  color: rgb(var(--d-text-green-b));
+}
+.Row_DialogButtonTune s {
+  text-decoration: none;
+  opacity: 0.6;
+}
+.Row_Tune {
+  font-size: 0.9em;
+  flex-grow: 1;
+  text-align: center;
+  padding-left: 36px;
+}
+.Row_Config {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.Row_DialogCardCard {
+  width: 300px !important;
+  height: 184px !important;
+}
+.Row_DialogCardCard .Car_HeaderStatLabel {
+  display: block;
+}
+.Row_DialogCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.Row_DialogCardBottom {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.Row_DialogCardStatLabel {
+  font-size: 0.8em;
+  color: #777;
+}
+.Row_DialogCardStatValue {
+  color: var(--d-text-b);
+}
+.Row_DialogCardStatCorrect {
+  color: rgb(var(--d-text-green));
+}
+.D_Button.Row_TuneChooseButton {
+  background-color: rgba(0,0,0,0.2);
+  font-size: 1em;
+  border-radius: 6px;
+  padding: 0 7px;
+  min-height: calc( var(--height) * 0.8 );
+}
+.Row_TuneChooseBox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.Row_ColorByIndex:not(.Row_ContentEmpty) {
+  /* background-color: rgba(38, 0, 118, calc(1 - var(--color-index) * 0.4)); */
+}
+.Row_ColorByIndex0:not(.Row_ContentEmpty) {
+  background-color: #ffc30014;
+  color: #efe9c0;
+}
+.Row_ColorByIndex1:not(.Row_ContentEmpty) {
+  background-color: #d3f7ff14;
+  color: #d3dee9;
+}
+.Row_ColorByIndex2:not(.Row_ContentEmpty) {
+  background-color: #74340014;
+  color: #dbc0aa;
+}
+
+@media only screen and (max-width: 767px) {
+  .Row_Tracks .Row_Content {
+    white-space: normal;
+    font-size: 0.7em;
+  }
 }
 </style>

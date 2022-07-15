@@ -14,7 +14,14 @@ export default {
   components: {
     // BaseDetalheHeader
   },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
+    value: {
+      required: true
+    },
     list: {
       type: Array,
       default() {

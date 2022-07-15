@@ -2,6 +2,7 @@
 node_modules
 /dist
 */imgs
+*/cards_imgs
 
 
 # local env files

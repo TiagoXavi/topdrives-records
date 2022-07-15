@@ -8,7 +8,7 @@
           <Row 
             v-for="n in temp"
             :temp="temp"
-            :list="trackSet_DryTwisty"
+            :list="currentTrackSet"
             type="tracks" />
         </div>
       </div>
@@ -19,7 +19,8 @@
               :temp="temp"
               :car="car"
               :index="carIx"
-              :trackList="trackSet_DryTwisty"
+              :trackList="currentTrackSet"
+              :highlights="highlights[carIx]"
               @delete="deleteCar(carIx)"
               @newindex="newIndex($event)" />
           </template>
@@ -62,6 +63,17 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="tuneDialogActive"
+      :transparent="false"
+      max-width="400px"
+      @close="closeTune()">
+      <div class="Main_TuneDialog">
+        <portal-target
+          slim
+          name="tunedialog"/>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -92,11 +104,12 @@ export default {
       searchLoading: false,
       searchResult: [],
       maxCarNumber: 6,
+      tuneDialogActive: false,
       carDetailsList: [
         {
           softId: 141,
           "class": "B",
-          "photo": "Aston_Martin_Rapide_Bertone_Jet_22_2013_427f.png",
+          "photo": "Aston_Martin_Rapide_Bertone_Jet_22_2013_427f.jpg",
           "rq": 61,
           "onlyName": "Rapide Bertone Jet 2+2",
           "brand": "Aston Martin",
@@ -111,68 +124,37 @@ export default {
           "acel": 4.7,
           "hand": 83,
           "drive": "RWD",
-          "stars": 1,
           "tyres": "Performance",
           "mra": 73.18,
           "weight": 1950,
           "name": "Aston Martin Rapide Bertone Jet 2+2",
+          selectedTune: "323",
           data: {
             323: {
               info: {
                 "topSpeed": 188,
                 "acel": 4.7,
                 "hand": 83,
-                "stars": 1,
                 "mra": 73.18,
                 "weight": 1950
               },
               times: {
-                carPark: {
-                  a00: 723.01,
-                  a01: 312,
-                },
-                gForce: {
-                  a00: 723,
-                  a01: 312,
-                },
-                hairpin: {
-                  a00: 723,
-                  a01: 312,
-                },
-                indoorKart: {
-                  a00: 723,
-                },
-                kart: {
-                  a00: 723,
-                  a01: 312,
-                },
-                slalom: {
-                  a00: 723,
-                  a01: 312,
-                },
-                tCircuit: {
-                  a00: 65.234,
-                  a01: 312,
-                },
-                tRoad: {
-                  a00: 0,
-                  a01: 312,
-                },
-                fast: {
-                  a01: 312,
-                },
-                csSmall: {
-                  a00: 723,
-                  a01: 312,
-                },
-                csMed: {
-                  a00: 723,
-                  a01: 312,
-                },
-                testBowl: {
-                  a00: 123,
-                  a01: 312,
-                },
+                carPark_a00: 45.49,
+                gForce_a00: 22.48,
+                hairpin_a00: 43.51,
+                indoorKart_a00: 46.68,
+                kart_a00: 38.26,
+                slalom_a00: 29.08,
+                slalom_a01: 34.18,
+                tCircuit_a00: 68.50,
+                tRoad_a00: 71.98,
+                tRoad_a01: 83.33,
+                fast_a00: 66.61,
+                csSmall_a00: 41.98,
+                csMed_a00: 81.07,
+                testBowl_a00: 175,
+                mile4_a00: 12.35,
+                mile2_a00: 19.45
               }
             }
           },
@@ -180,7 +162,7 @@ export default {
         {
           softId: 1151,
           "class": "C",
-          "photo": "Lotus_Elise_Sprint_2017_3bc3.png",
+          "photo": "Lotus_Elise_Sprint_2017_3bc3.jpg",
           "rq": 49,
           "onlyName": "Elise Sprint",
           "brand": "Lotus",
@@ -196,7 +178,6 @@ export default {
           "acel": 5.9,
           "hand": 87,
           "drive": "RWD",
-          "stars": 3,
           "tyres": "Performance",
           "mra": 70.97,
           "weight": 798,
@@ -205,7 +186,7 @@ export default {
         {
           softId: 1111,
           "class": "E",
-          "photo": "Ford_Explorer_SportTrac_Adrenalin_2008_7b16.png",
+          "photo": "Ford_Explorer_SportTrac_Adrenalin_2008_7b16.jpg",
           "rq": 26,
           "onlyName": "Explorer Sport-Trac Adrenalin",
           "brand": "Ford",
@@ -221,22 +202,39 @@ export default {
           "acel": 7.5,
           "hand": 72,
           "drive": "4WD",
-          "stars": 0,
           "tyres": "Performance",
           "mra": 21.34,
           "weight": 2100,
           "name": "Ford Explorer Sport-Trac Adrenalin",
+          selectedTune: "323",
           data: {
             323: {
               info: {},
-              times: {}
+              times: {
+                carPark_a00: 46.13,
+                gForce_a00: 24.71,
+                hairpin_a00: 48.71,
+                indoorKart_a00: 51.78,
+                kart_a00: 42.46,
+                slalom_a00: 31.78,
+                slalom_a01: 35.13,
+                tCircuit_a00: 77.41,
+                tRoad_a00: 79.65,
+                tRoad_a01: 87.57,
+                fast_a00: 76.96,
+                csSmall_a00: 41.13,
+                csMed_a00: 79.48,
+                testBowl_a00: 101,
+                mile4_a00: 14.98,
+                mile2_a00: 24.45
+              }
             }
           },
         },
         {
           softId: 333,
           "class": "D",
-          "photo": "Dodge_Demon_Roadster_2007_9c50.png",
+          "photo": "Dodge_Demon_Roadster_2007_9c50.jpg",
           "rq": 38,
           "onlyName": "Demon Roadster",
           "brand": "Dodge",
@@ -252,20 +250,30 @@ export default {
           "acel": 6.9,
           "hand": 83,
           "drive": "RWD",
-          "stars": 0,
           "tyres": "Performance",
           "mra": 60.22,
           "weight": 1179,
           "name": "Dodge Demon Roadster",
+          selectedTune: "323",
           data: {
-            233: {
+            323: {
               times: {
-                carPark: {
-                  a00: 723.01
-                },
-                gForce: {
-                  a00: 723
-                },
+                carPark_a00: 46.13,
+                gForce_a00: 22.96,
+                hairpin_a00: 46.03,
+                indoorKart_a00: 47.88,
+                kart_a00: 39.85,
+                slalom_a00: 29.35,
+                slalom_a01: 34.23,
+                tCircuit_a00: 71.81,
+                tRoad_a00: 74.95,
+                tRoad_a01: 85.90,
+                fast_a00: 71.76,
+                csSmall_a00: 44.99,
+                csMed_a00: 85.72,
+                testBowl_a00: 132,
+                mile4_a00: 14.30,
+                mile2_a00: 22.65
               }
             }
           },
@@ -279,20 +287,23 @@ export default {
         { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0 },
         { name: "Karting Circuit", id: "kart", surface: 0, cond: 0 },
         { name: "Slalom Test", id: "slalom", surface: 0, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1 },
         { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0 },
         { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1 },
         { name: "Fast Circuit", id: "fast", surface: 0, cond: 0 },
         { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0 },
         { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0 },
         { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
       ],
       trackSet_DryDrag: [
-        { name: "1/4 Mile", id: "4mile", surface: 0, cond: 0 },
-        { name: "1/2 Mile", id: "2mile", surface: 0, cond: 0 },
-        { name: "1 Mile", id: "1mile", surface: 0, cond: 0 },
+        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0 },
+        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0 },
+        { name: "1 Mile", id: "mile1", surface: 0, cond: 0 },
         { name: "0-60mph", id: "drag60", surface: 0, cond: 0 },
         { name: "0-100mph", id: "drag100", surface: 0, cond: 0 },
         { name: "0-150mph", id: "drag150", surface: 0, cond: 0 },
+        { name: "Hill Climb", surface: 0, cond: 0 },
         { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
       ],
       trackSet_WetTwisty: [
@@ -308,7 +319,7 @@ export default {
         { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1 },
       ],
       trackSet_Dirt: [
-        { name: "1 Mile", id: "1mile", surface: 1, cond: 0 },//
+        { name: "1 Mile", id: "mile1", surface: 1, cond: 0 },//
         { name: "Hill Climb", surface: 1, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 1, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0 },//
@@ -318,8 +329,8 @@ export default {
         { name: "Motocross Track", surface: 1, cond: 0 },//
       ],
       trackSet_WetDirt: [
-        { name: "1/4 Mile", id: "4mile", surface: 1, cond: 1 }, //
-        { name: "1/2 Mile", id: "2mile", surface: 1, cond: 1 }, //
+        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1 }, //
+        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1 }, //
         { name: "Hill Climb", surface: 1, cond: 1 },//
         { name: "G-Force Test", id: "gForce", surface: 1, cond: 1 },//
         { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1 },//
@@ -327,9 +338,9 @@ export default {
         { name: "Motocross Track", surface: 1, cond: 1 },//
       ],
       trackSet_Gravel: [
-        { name: "1/4 Mile", id: "4mile", surface: 2, cond: 0 },//
-        { name: "1/2 Mile", id: "2mile", surface: 2, cond: 0 },//
-        { name: "1 Mile", id: "1mile", surface: 2, cond: 0 },//
+        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0 },//
+        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0 },//
+        { name: "1 Mile", id: "mile1", surface: 2, cond: 0 },//
         { name: "Hill Climb", surface: 2, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 2, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0 },//
@@ -337,9 +348,9 @@ export default {
         { name: "Slalom Test", id: "slalom", surface: 2, cond: 0 },//
       ],
       trackSet_Sand: [
-        { name: "1/4 Mile", id: "4mile", surface: 5, cond: 0 },//
-        { name: "1/2 Mile", id: "2mile", surface: 5, cond: 0 },//
-        { name: "1 Mile", id: "1mile", surface: 5, cond: 0 },//
+        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0 },//
+        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0 },//
+        { name: "1 Mile", id: "mile1", surface: 5, cond: 0 },//
         { name: "Hill Climb", surface: 5, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 5, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0 },//
@@ -347,9 +358,9 @@ export default {
         { name: "Slalom Test", id: "slalom", surface: 5, cond: 0 },//
       ],
       trackSet_Snow: [
-        { name: "1/4 Mile", id: "4mile", surface: 6, cond: 0 },//
-        { name: "1/2 Mile", id: "2mile", surface: 6, cond: 0 },//
-        { name: "1 Mile", id: "1mile", surface: 6, cond: 0 },//
+        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0 },//
+        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0 },//
+        { name: "1 Mile", id: "mile1", surface: 6, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 6, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0 },//
         { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0 },//
@@ -357,7 +368,7 @@ export default {
         { name: "Slalom Test", id: "slalom", surface: 6, cond: 0 },//
       ],
       trackSet_Ice: [
-        { name: "1/4 Mile", id: "4mile", surface: 3, cond: 0 },//
+        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },//
         { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },//
       ],
@@ -377,24 +388,108 @@ export default {
     this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
 
     vm.$store.subscribe(mutation => {
+
       if (mutation.type == "CHANGE_TIME") {
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
         let NEW = mutation.payload.item;
 
-        // set new value
-        if (!car.times) {
-          Vue.set(car, "times", {});
-        }
-        if (!car.times[NEW.id]) {
-          Vue.set(car.times, NEW.id, {});
-        }
-        Vue.set(car.times[NEW.id], [`a${NEW.surface}${NEW.cond}`], mutation.payload.number);
+        if (!car.data) Vue.set(car, "data", {});
+        if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
+        if (!car.data[car.selectedTune].times) Vue.set(car.data[car.selectedTune], "times", {});
+
+        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
+        // Vue.set(car.times[NEW.id], [`a${NEW.surface}${NEW.cond}`], mutation.payload.number);
         // console.log(car.times[NEW.id]);
         // console.log(vm.carDetailsList.find(x => x.name === mutation.payload.car.name).times[NEW.id]);
       }
-    });    
+
+      if (mutation.type == "CHANGE_TUNE") {
+        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+        Vue.set(car, "selectedTune", mutation.payload.tune);
+      }
+
+      if (mutation.type == "CHANGE_STAT") {
+        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+
+        if (!car.data) Vue.set(car, "data", {});
+        if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
+        if (!car.data[car.selectedTune].info) Vue.set(car.data[car.selectedTune], "info", {});
+
+        Vue.set(car.data[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
+      }
+
+      if (mutation.type == "SHOW_TUNE") {
+        if (mutation.payload) {
+          vm.tuneDialogActive = true;
+        }
+      }
+
+    });
   },
-  computed: {},
+  computed: {
+    highlights() {
+      let vm = this;
+      let result = [];
+      let sortedByTracks = {};
+
+      // result length = number of cars
+      this.carDetailsList.map(x => {
+        result.push({});
+      });
+
+      // insert every type of track in both result && sortedByTracks
+      this.currentTrackSet.map((x, ix) => {
+        sortedByTracks[`${x.id}_a${x.surface}${x.cond}`] = [];
+        result.map(y => {
+          y[`${x.id}_a${x.surface}${x.cond}`] = null;
+        })
+      });
+      
+      // insere os times de cada carro em suas respectivas trackId
+      this.carDetailsList.map(x => {
+        if ( x.selectedTune && x.data && x.data[x.selectedTune] && x.data[x.selectedTune].times ) {
+          Object.keys( x.data[x.selectedTune].times ).forEach(function (trackId) {
+            if (sortedByTracks[trackId]) {
+              sortedByTracks[trackId].push(x.data[x.selectedTune].times[trackId]);
+            }
+          });
+        }
+      });
+
+      // dá sort nos times e remove duplicates
+      Object.keys( sortedByTracks ).forEach(function (trackId) {
+        sortedByTracks[trackId].sort(function(a, b) {
+          if (trackId.includes('testBowl')) return b - a;
+          return a - b;
+        });
+        sortedByTracks[trackId] = [...new Set(sortedByTracks[trackId])];
+      });
+
+      // preenche result com seus respectivos ranking
+      let tempValue;
+      result.map((x, ix) => {
+        Object.keys( x ).forEach(function (trackId) {
+          if (
+            vm.carDetailsList[ix].data &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times
+            ) {
+            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
+            x[trackId] = sortedByTracks[trackId].indexOf(tempValue);
+          }
+        });
+      })
+
+      // console.log(result);
+      // console.log(sortedByTracks);
+      // debugger;
+
+      return result;
+    },
+    currentTrackSet() {
+      return this.trackSet_DryTwisty;
+    }
+  },
   methods: {
     toggleSize() {
       this.inverted = !this.inverted;
@@ -429,6 +524,11 @@ export default {
       // if (!this.searchFocus) {
         //   this.searchActive = false;
       // }
+    },
+    closeTune() {
+      this.tuneDialogActive = false;
+      this.$store.commit("SHOW_TUNE", false);
+      
     },
     searchBlur() {
       setTimeout(() => {
@@ -505,15 +605,6 @@ export default {
       obj.current;
       obj.new;
 
-      // Position where from the element is
-      // going to move here 'Ruby' is moved
-      // var moveEle = 3;
-
-      // Position at which element is to be moved
-      // here 'Ruby' is moved to  index 1 which is
-      // index of 'Java'
-      // var obj.new = 1;
-
       // If actual index of moved element is
       // less than 0 when 'moveEle += array size'
       while (obj.current < 0)
@@ -526,21 +617,23 @@ export default {
       // 'obj.new += array size'
       while (obj.new < 0)
       {
-          obj.new = obj.new + this.carDetailsList.length;
+          obj.new = 0;
       }
 
       // If 'obj.new' is greater than the
       // size of the array then with need to
       // push 'undefined' in the array.
-      if (obj.new >= this.carDetailsList.length)
+      if (obj.new > this.carDetailsList.length)
       {
-          var un = obj.new - this.carDetailsList.length + 1;
-          while (un--)
-          {
-              this.carDetailsList.push(undefined);
+          obj.new = this.carDetailsList.length;
+          // var un = obj.new - this.carDetailsList.length + 1;
+          // while (un--)
+          // {
+          //     this.carDetailsList.push(undefined);
 
-          }
+          // }
       }
+
       // Here element of 'obj.current' is removed and
       // pushed at 'obj.new' index
       this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
@@ -576,6 +669,9 @@ body {
   --back-l: 15%;
   --d-back: #333;
   --d-text: #999;
+  --d-text-b: #bbb;
+  --d-text-green: 95, 181, 0;
+  --d-text-green-b: 193, 217, 185;
 
   /* car */
   --card-stat-back-l: 10%;
@@ -617,6 +713,7 @@ body {
 
   /* pra preencher mobile */
   box-shadow: 0px 50vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l));
+  user-select: text;
 }
 .Main_Corner {
   background-color: hsl(var(--back-h), var(--back-s), 10%);
@@ -644,6 +741,7 @@ body {
 }
 .Main_CarList {
   display: flex;
+  user-select: text;
 }
 .D_Button {
   background: transparent;
@@ -663,19 +761,30 @@ body {
   --back-color: 255, 255, 255;
   --back-opac: 0.1;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
-.D_Button:focus {
+.D_Button:focus:not(.D_ButtonNoActive) {
   outline: none;
+  background-color: rgba(var(--back-color), 0.3);
+}
+.D_ButtonNoActive {
+  outline: none;
+}
+.D_Button.D_ButtonNoActive:focus {
   background-color: rgba(var(--back-color), 0.3);
 }
 .D_Button:hover {
   color: #fff6;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
-.D_Button:active {
+.D_Button:active:not(.D_ButtonNoActive) {
   transition-duration: 0.0s;
   background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
   transform: translateY(3px);
+}
+.D_ButtonLabel {
+  margin-right: 5px;
+  font-size: 16px;
 }
 .add {
   color: #fff2;
@@ -787,6 +896,26 @@ body::-webkit-scrollbar-thumb {
   background-color: #fff1;
   box-shadow: 0px 0px 0px 1px #fff1;
 }
+.Space_Bottom { 
+  margin-bottom: 10px;
+}
+.Space_Top { 
+  margin-top: 10px;
+}
+.Space_Both { 
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.Space_BottomPlus { 
+  margin-bottom: 20px;
+}
+.Space_TopPlus { 
+  margin-top: 20px;
+}
+.Space_BothPlus { 
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 
 .Main_2 {
@@ -854,5 +983,30 @@ body::-webkit-scrollbar-thumb {
 .Main_2 .Row_Layout {
   display: flex;
   align-items: stretch;
+}
+.Main_2 .Row_ConfigLabel {
+  display: none;
+}
+.Main_2 .Row_ConfigButton {
+  --height: 30px;
+  padding: 0px 4px;
+}
+.Main_2 .Row_ConfigIcon {
+  font-size: 18px;
+}
+.Main_2 .Row_Tracks .Row_ConfigCell {
+  box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500;
+}
+.Main_2 .Row_ConfigCell {
+  width: calc(var(--cell-width) * 2);
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  body {
+    /* --d-back: #504242; */
+    --left-width: 120px;
+  }
 }
 </style>

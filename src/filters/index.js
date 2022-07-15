@@ -6,11 +6,6 @@ import {
 
 export default {
     install(Vue) {
-        /*formatters*/
-        Vue.filter('toTimeString', toTimeString),
-        Vue.filter('toTimeNumber', toTimeNumber),
-        Vue.filter('clearNumber', clearNumber),
-
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
 
@@ -50,13 +45,39 @@ export default {
             }
             if (type === "letter") return classes[resultClass];
             if (type === "color") return classesColors[resultClass];
-        }
+        },
         Vue.resolveCountry = function (country) {
             let countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
             let letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
             
             country = countrys.findIndex(x => x === country);
             return letter[country];
-        }
+        },
+        Vue.resolveStat = function (car, type) {
+            if (car.selectedTune === null || car.selectedTune === undefined) {
+                return car[type] || "-"
+            }
+            if (typeof car.selectedTune !== 'string') return "err"
+            
+            try {
+                if (!car.data[car.selectedTune].info[type]) return "-";
+                return car.data[car.selectedTune].info[type]
+            } catch (error) {
+                return "-"
+            }
+        },
+        Vue.boldTunes = function (tune) {
+            if (typeof tune !== 'string' && tune.length !== 3) return tune;
+
+            return tune.replaceAll('2', '<s>2</s>')
+        },
+
+
+        Vue.filter('toTimeString', toTimeString),
+        Vue.filter('toTimeNumber', toTimeNumber),
+        Vue.filter('clearNumber', clearNumber),
+        Vue.filter('resolveClass', Vue.resolveClass),
+        Vue.filter('resolveStat', Vue.resolveStat)
+        Vue.filter('boldTunes', Vue.boldTunes)
     }
 };
