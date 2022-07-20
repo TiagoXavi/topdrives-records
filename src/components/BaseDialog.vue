@@ -114,7 +114,7 @@ export default {
   pointer-events: initial;
 }
 .BaseDialog_Back {
-  background-color: #0009;
+  background-color: #0007;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -143,6 +143,7 @@ export default {
 }
 .BaseDialog_Opaque {
   background-color: #333;
+  /* box-shadow: 0px 10px 10px 0px #0005; */
 }
 .BaseDialog_Transparent {
 

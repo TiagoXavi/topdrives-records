@@ -7,6 +7,7 @@
     <BaseCard
       :car="car"
       :temp="temp"
+      :fix-back="true"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
@@ -16,11 +17,18 @@
         :temp="temp"
         :list="trackList"
         :highlights="highlights"
+        :hoverIndex="hoverIndex"
+        :carIndex="index"
+        :maxCarNumber="maxCarNumber"
+        @move="moveCar($event)"
         type="times" />
     </div>
     <div class="Car_DragIndicator"></div>
   </div>
-  <div v-else class="Car_Layout">
+  <div
+    v-else
+    class="Car_Layout"
+    @mouseenter="$store.commit('HOVER_INDEX', -1)">
     <div class="Car_Header Car_AddHeader">
       <button class="D_Button Car_AddButton add" @click="$emit('add')">
         <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
@@ -70,6 +78,13 @@ export default {
     temp: {
       type: Number,
       default: 1
+    },
+    hoverIndex: {
+      type: Number,
+      default: -1
+    },
+    maxCarNumber: {
+      required: true
     },
     index: {
       required: true
@@ -175,6 +190,9 @@ export default {
 
       document.onmouseup = null;
       document.onmousemove = null;
+    },
+    moveCar(obj) {
+      this.$emit("newindex", { current: obj.carIndex, new: obj.direction === "left" ? obj.carIndex-1 : obj.carIndex+1 });
     }
   },
 }
@@ -223,7 +241,6 @@ export default {
   transform: translateX(var(--cell-width));
 }
 .Car_Header {
-  background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
   height: calc(var(--top-height) - 6px);
   margin: 3px 2px;
   display: flex;
@@ -455,7 +472,7 @@ export default {
   z-index: 1;
 }
 .Car_HeaderToolsHoverContainer {
-  width: 50%;
+  width: 80%;
   height: 40%;
   bottom: 0;
 }
@@ -514,14 +531,14 @@ export default {
 
 
 
-.Main_2 .Main_CarList {
+.Main_2 .Main_Body .Main_CarList {
   flex-direction: column;
 }
-.Main_2 .Car_Layout {
+.Main_2 .Main_Body .Car_Layout {
   width: unset;
   display: flex;
 }
-.Main_2 .Car_Header:not(.Car_AddHeader) {
+.Main_2 .Main_Body .Car_Header:not(.Car_AddHeader) {
   /* width: var(--left-width);
   font-size: 7px;
   margin: 3px 0px; */
@@ -530,7 +547,7 @@ export default {
 .Car_Header2 {
   display: none;
 }
-.Main_2 .Car_Header2 {
+.Main_2 .Main_Body .Car_Header2 {
   width: var(--left-width);
   box-shadow: inset 0px -2px 0px 0px #ffffff0d;
   box-sizing: border-box;
@@ -547,11 +564,11 @@ export default {
   padding-left: calc(var(--cell-height) * 1.7);
   height: var(--cell-height);
 }
-.Main_2 .Car_Body {
+.Main_2 .Main_Body .Car_Body {
   display: flex;
   align-items: stretch;
 }
-.Main_2 .Car_AddHeader {
+.Main_2 .Main_Body .Car_AddHeader {
   display: flex;
   align-items: stretch;
   width: var(--left-width);

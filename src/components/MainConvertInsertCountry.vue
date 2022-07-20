@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import cars_td from '../database/cars_td.json'
+import cars_td from '../database/cars_final.json'
 import cars_full from '../database/cars_full.json'
 
 export default {

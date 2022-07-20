@@ -5,6 +5,7 @@ import './assets/fonts/style.css';
 import store from "./store";
 import router from "./router";
 import PortalVue from 'portal-vue';
+import 'focus-visible';
 
 
 Vue.config.productionTip = false

@@ -36,15 +36,23 @@
     <div
       v-if="car.selectedTune || type === 'tracks'"
       v-for="(item, ix) in timesResolved"
-      :class="`
-        ${errorIndex === ix ? 'Row_ItemError' : '' }
-        ${correctIndex === ix ? 'Row_ItemCorrect' : '' }
-        ${true ? 'Row_ColorByIndex' : '' }
-        ${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty' : '' }
-        Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}
-      `"
+      :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
+              `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
+              `${true ? 'Row_ColorByIndex ' : '' }`+
+              `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
+              `${item.surface === 0 && item.cond === 0 ? 'Row_Asphalt ' : '' }`+
+              `${item.cond === 1 ? 'Row_Wet ' : '' }`+
+              `${item.surface === 1 ? 'Row_Dirt ' : '' }`+
+              `${item.surface === 2 ? 'Row_Gravel ' : '' }`+
+              `${item.surface === 3 ? 'Row_Ice ' : '' }`+
+              `${item.surface === 4 ? 'Row_Mixed ' : '' }`+
+              `${item.surface === 5 ? 'Row_Sand ' : '' }`+
+              `${item.surface === 6 ? 'Row_Snow ' : '' }`+
+              `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
+              `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
-      class="Row_Item Row_Cell">
+      class="Row_Item Row_Cell"
+      @mouseenter="mouseEnter($event)">
       <div
         :contenteditable="type === 'tracks' ? false : true"
         @blur="blur($event, item, ix)"
@@ -53,19 +61,35 @@
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <div class="Row_Placeholder">-</div>
       <div v-if="type === 'tracks'" class="Row_Conditions">
-        <div v-if="item.cond === 1" class="Row_Condition Row_C_Wet">WET</div>
-        <div v-if="item.surface === 1" class="Row_Condition Row_C_Dirt">DIRT</div>
-        <div v-if="item.surface === 2" class="Row_Condition Row_C_Gravel">GRAVEL</div>
-        <div v-if="item.surface === 3" class="Row_Condition Row_C_Ice">ICE</div>
-        <div v-if="item.surface === 4" class="Row_Condition Row_C_Mixed">MIXED</div>
-        <div v-if="item.surface === 5" class="Row_Condition Row_C_Sand">SAND</div>
-        <div v-if="item.surface === 6" class="Row_Condition Row_C_Snow">SNOW</div>
+        <div v-if="item.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
+        <div v-if="item.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
+        <div v-if="item.surface === 2" style="color: rgb(var(--color-gravel))">GRAVEL</div>
+        <div v-if="item.surface === 3" style="color: rgb(var(--color-ice))">ICE</div>
+        <div v-if="item.surface === 4" style="color: rgb(var(--color-mixed))">MIXED</div>
+        <div v-if="item.surface === 5" style="color: rgb(var(--color-sand))">SAND</div>
+        <div v-if="item.surface === 6" style="color: rgb(var(--color-snow))">SNOW</div>
       </div>
     </div>
-    <div v-else class="Row_Item Row_Cell Row_DisabledCell"></div>
+    <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)"></div>
 
     <portal v-if="tuneDialog" to="tunedialog">
       <div class="Row_DialogLayout">
+        <div class="Row_OrderBox Space_Bottom">
+          <button
+            :disabled="carIndex === 0"
+            :class="{ Row_DialogButtonTuneActive: false }"
+            class="D_Button Row_DialogButtonTune"
+            @click="$emit('move', { carIndex, direction: 'left' })">
+              <i class="ticon-arrow_up_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+          </button>
+          <button
+            :disabled="carIndex === maxCarNumber - 1"
+            :class="{ Row_DialogButtonTuneActive: false }"
+            class="D_Button Row_DialogButtonTune"
+            @click="$emit('move', { carIndex, direction: 'right' })">
+              <i class="ticon-arrow_down_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+          </button>
+        </div>
         <div class="Row_DialogHeader">
           <button
             v-for="item in tunes"
@@ -78,9 +102,7 @@
             <div class="Row_DialogCardLeft">
               <BaseCard
                 :car="car"
-                :options="false"
-                @dragdown="dragMouseDown($event)"
-                @delete="$emit('delete')" />
+                :options="false" />
             </div>
             <div class="Row_DialogCardRight">
               <BaseText
@@ -169,6 +191,14 @@ export default {
         return {}
       }
     },
+    carIndex: {
+      type: Number,
+      default: -1
+    },
+    maxCarNumber: {
+      type: Number,
+      default: -1
+    },
     type: {
       type: String,
       default: "tracks"
@@ -176,6 +206,10 @@ export default {
     temp: {
       type: Number,
       default: 1
+    },
+    hoverIndex: {
+      type: Number,
+      default: -1
     },
   },
   data() {
@@ -210,7 +244,7 @@ export default {
       let car;
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name })
+          result.push({ text: x.name, cond: x.cond, surface: x.surface })
         })
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
@@ -228,7 +262,7 @@ export default {
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x })
+          result.push({ text: text, ...x, cond: x.cond, surface: x.surface })
         })
       }
       console.log(result);
@@ -318,6 +352,12 @@ export default {
         value,
         car: this.car
       });
+    },
+    mouseEnter(e) {
+      var nodes = Array.prototype.slice.call( e.srcElement.parentElement.children );
+      var liRef = e.srcElement;
+
+      this.$store.commit("HOVER_INDEX", nodes.indexOf( liRef ));
     }
   },
 }
@@ -328,13 +368,15 @@ export default {
   white-space: nowrap;
   height: var(--cell-height);
   box-sizing: border-box;
-  border: 2px #ffffff0d solid;
+  /* border: 2px #ffffff0d solid; */
   border-top-width: 0;
   border-left-width: 0;
   display: flex;
   align-items: center;
   transition-duration: 0.3s;
   position: relative;
+  transition-property: set;
+  box-shadow: inset 0px -2px 0px 0px #ffffff07, inset -2px 0px 0px 0px #ffffff07;
 }
 .Car_Dragging + .Car_Layout .Row_Cell,
 .Car_PushLeft + .Car_Layout .Row_Cell,
@@ -347,17 +389,49 @@ export default {
 .Row_Times .Row_Cell {
   letter-spacing: 0.5px;
 }
-.Row_Tracks {
-  
+.Row_Hover:not(:hover) {
+  box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.04);
 }
 .Row_Content {
   text-align: center;
   width: 100%;
   padding: 6px;
-  transition-duration: 0.1s;
+  transition-duration: 0.2s;
+  transition-property: background;
   outline: none;
   height: 100%;
   box-sizing: border-box;
+}
+.Row_ConfigCell {
+  border-bottom-color: #5a5a5a;
+}
+.Row_Tracks .Row_Wet {
+  color: rgb(var(--color-wet));
+  background-color: rgba(var(--color-wet), 0.1);
+}
+.Row_Tracks .Row_Dirt {
+  color: rgb(var(--color-dirt));
+  background-color: rgba(var(--color-dirt), 0.1);
+}
+.Row_Tracks .Row_Gravel {
+  color: rgb(var(--color-gravel));
+  background-color: rgba(var(--color-gravel), 0.1);
+}
+.Row_Tracks .Row_Ice {
+  color: rgb(var(--color-ice));
+  background-color: rgba(var(--color-ice), 0.1);
+}
+.Row_Tracks .Row_Mixed {
+  color: rgb(var(--color-mixed));
+  background-color: rgba(var(--color-mixed), 0.1);
+}
+.Row_Tracks .Row_Sand {
+  color: rgb(var(--color-sand));
+  background-color: rgba(var(--color-sand), 0.1);
+}
+.Row_Tracks .Row_Snow {
+  color: rgb(var(--color-snow));
+  background-color: rgba(var(--color-snow), 0.1);
 }
 .Row_Tracks .Row_Content {
   text-align: left;
@@ -370,7 +444,7 @@ export default {
   cursor: pointer;
 }
 .Row_Times .Row_Content[contenteditable="true"]:hover {
-  box-shadow: 0px 0px 0px 2px #fff2;
+  box-shadow: inset -2px -2px 0px 0px #fff2, 0px -2px 0px 0px #fff2, -2px 0px 0px 0px #fff2;
 }
 .Row_Content:focus {
   /* background-color: #459bd100; */
@@ -418,7 +492,7 @@ export default {
   background-color: rgba(255,255,255, 0.05);
 }
 .Row_Tracks .Row_ConfigCell {
-  box-shadow: inset -18px 0px 16px -17px #5fb500, inset -3px 0px 0px 0px #5fb500;
+  /* box-shadow: inset -18px 0px 16px -17px #5fb500, inset -3px 0px 0px 0px #5fb500; */
 }
 .Row_ConfigIcon {
   font-size: 24px;
@@ -452,7 +526,7 @@ export default {
   opacity: 0.6;
 }
 .Row_Tune {
-  font-size: 0.9em;
+  font-size: 1.1em;
   flex-grow: 1;
   text-align: center;
   padding-left: 36px;
@@ -517,6 +591,22 @@ export default {
 .Row_ColorByIndex2:not(.Row_ContentEmpty) {
   background-color: #74340014;
   color: #dbc0aa;
+}
+.Row_Conditions {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  right: 2px;
+  bottom: 0px;
+}
+.Main_2 .Car_Layout:hover .Row_Item:not(:hover),
+.Main_2 .Car_Layout:hover .Car_Header2 {
+  box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.04);
 }
 
 @media only screen and (max-width: 767px) {

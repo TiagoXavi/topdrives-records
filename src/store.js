@@ -58,6 +58,7 @@ export default new Vuex.Store({
     CHANGE_TUNE: (state, obj) => null,
     SHOW_TUNE: (state, obj) => null,
     CHANGE_STAT: (state, obj) => null,
+    HOVER_INDEX: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

@@ -2,25 +2,36 @@
   <div :class="{ Main_2: inverted }" class="Main_Layout">
     <div class="Main_Body" @click.stop>
       <div class="Main_Backtop"></div>
-      <div class="Main_Corner" @click="toggleSize()"></div>
+      <div class="Main_Corner">
+        <div class="Main_Logo">
+          <div class="Main_LogoPre">Top Drives</div>
+          <Logo />
+        </div>
+        <div class="Main_CornerMid">
+          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMiniPad" @click="optionsDialogActive = true;">Options</button>
+        </div>
+      </div>
       <div class="Main_Left">
         <div class="Main_TrackList">
           <Row 
             v-for="n in temp"
             :temp="temp"
-            :list="currentTrackSet"
+            :list="currentTracks"
+            :hoverIndex="hoverIndex"
             type="tracks" />
         </div>
       </div>
       <div class="Main_Mid">
-        <div class="Main_CarList" @click.stop>
+        <div class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
               :temp="temp"
               :car="car"
               :index="carIx"
-              :trackList="currentTrackSet"
+              :trackList="currentTracks"
               :highlights="highlights[carIx]"
+              :hoverIndex="hoverIndex"
+              :maxCarNumber="maxCarNumber"
               @delete="deleteCar(carIx)"
               @newindex="newIndex($event)" />
           </template>
@@ -28,6 +39,7 @@
             v-if="carDetailsList.length < maxCarNumber"
             index="addCar"
             :car="null"
+            :maxCarNumber="maxCarNumber"
             @add="openDialog()" />
         </div>
       </div>
@@ -74,6 +86,35 @@
           name="tunedialog"/>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="optionsDialogActive"
+      :transparent="false"
+      max-width="400px"
+      @close="updateOptions()">
+      <div class="Main_OptionsDialog">
+        <div class="Main_OptionsItem">
+          <div class="Main_OptionsLabel">Trackset</div>
+          <div class="Main_OptionsButtons">
+            <button
+              v-for="item in tracksButtons"
+              :class="{ D_ButtonActive: item.active }"
+              class="D_Button Main_OptionsButton"
+              @click="stringToggleTrackSet(item.set)">{{ item.name }}</button>
+          </div>
+        </div>
+        <div class="Main_OptionsItem">
+          <div class="Main_OptionsLabel">Display</div>
+          <div class="Main_OptionsButtons">
+            <button :class="{ D_ButtonActive: !inverted }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
+              <i class="ticon-list Main_OptionsIcon" aria-hidden="true"/>
+            </button>
+            <button :class="{ D_ButtonActive: inverted }" class="D_Button Main_OptionsButton" @click="display('vertical')">
+              <i class="ticon-list Main_OptionsIcon" style="transform: rotate(90deg)" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -82,7 +123,9 @@ import Car from './Car.vue'
 import Row from './Row.vue'
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
-import data_cars from '../database/cars_td.json'
+import Logo from './Logo.vue'
+import data_cars from '../database/cars_final.json'
+import default_cars from '../database/default_cars.json'
 
 export default {
   name: 'Main',
@@ -90,7 +133,8 @@ export default {
     Car,
     Row,
     BaseDialog,
-    Loading
+    Loading,
+    Logo
   },
   data() {
     return {
@@ -103,183 +147,29 @@ export default {
       debounceFilter: null,
       searchLoading: false,
       searchResult: [],
-      maxCarNumber: 6,
+      maxCarNumber: 12,
       tuneDialogActive: false,
-      carDetailsList: [
-        {
-          softId: 141,
-          "class": "B",
-          "photo": "Aston_Martin_Rapide_Bertone_Jet_22_2013_427f.jpg",
-          "rq": 61,
-          "onlyName": "Rapide Bertone Jet 2+2",
-          "brand": "Aston Martin",
-          "country": "GB",
-          "year": 2013,
-          "tdid": "1753",
-          "abs": true,
-          "tcs": true,
-          "clearance": "low",
-          "keeper": 96,
-          "topSpeed": 188,
-          "acel": 4.7,
-          "hand": 83,
-          "drive": "RWD",
-          "tyres": "Performance",
-          "mra": 73.18,
-          "weight": 1950,
-          "name": "Aston Martin Rapide Bertone Jet 2+2",
-          selectedTune: "323",
-          data: {
-            323: {
-              info: {
-                "topSpeed": 188,
-                "acel": 4.7,
-                "hand": 83,
-                "mra": 73.18,
-                "weight": 1950
-              },
-              times: {
-                carPark_a00: 45.49,
-                gForce_a00: 22.48,
-                hairpin_a00: 43.51,
-                indoorKart_a00: 46.68,
-                kart_a00: 38.26,
-                slalom_a00: 29.08,
-                slalom_a01: 34.18,
-                tCircuit_a00: 68.50,
-                tRoad_a00: 71.98,
-                tRoad_a01: 83.33,
-                fast_a00: 66.61,
-                csSmall_a00: 41.98,
-                csMed_a00: 81.07,
-                testBowl_a00: 175,
-                mile4_a00: 12.35,
-                mile2_a00: 19.45
-              }
-            }
-          },
-        },
-        {
-          softId: 1151,
-          "class": "C",
-          "photo": "Lotus_Elise_Sprint_2017_3bc3.jpg",
-          "rq": 49,
-          "onlyName": "Elise Sprint",
-          "brand": "Lotus",
-          "country": "GB",
-          "tune": null,
-          "year": 2017,
-          "tdid": "1832",
-          "abs": true,
-          "tcs": true,
-          "clearance": "low",
-          "keeper": 99,
-          "topSpeed": 127,
-          "acel": 5.9,
-          "hand": 87,
-          "drive": "RWD",
-          "tyres": "Performance",
-          "mra": 70.97,
-          "weight": 798,
-          "name": "Lotus Elise Sprint"
-        },
-        {
-          softId: 1111,
-          "class": "E",
-          "photo": "Ford_Explorer_SportTrac_Adrenalin_2008_7b16.jpg",
-          "rq": 26,
-          "onlyName": "Explorer Sport-Trac Adrenalin",
-          "brand": "Ford",
-          "country": "US",
-          "tune": null,
-          "year": 2008,
-          "tdid": "2825",
-          "abs": true,
-          "tcs": true,
-          "clearance": "high",
-          "keeper": 93,
-          "topSpeed": 98,
-          "acel": 7.5,
-          "hand": 72,
-          "drive": "4WD",
-          "tyres": "Performance",
-          "mra": 21.34,
-          "weight": 2100,
-          "name": "Ford Explorer Sport-Trac Adrenalin",
-          selectedTune: "323",
-          data: {
-            323: {
-              info: {},
-              times: {
-                carPark_a00: 46.13,
-                gForce_a00: 24.71,
-                hairpin_a00: 48.71,
-                indoorKart_a00: 51.78,
-                kart_a00: 42.46,
-                slalom_a00: 31.78,
-                slalom_a01: 35.13,
-                tCircuit_a00: 77.41,
-                tRoad_a00: 79.65,
-                tRoad_a01: 87.57,
-                fast_a00: 76.96,
-                csSmall_a00: 41.13,
-                csMed_a00: 79.48,
-                testBowl_a00: 101,
-                mile4_a00: 14.98,
-                mile2_a00: 24.45
-              }
-            }
-          },
-        },
-        {
-          softId: 333,
-          "class": "D",
-          "photo": "Dodge_Demon_Roadster_2007_9c50.jpg",
-          "rq": 38,
-          "onlyName": "Demon Roadster",
-          "brand": "Dodge",
-          "country": "US",
-          "tune": null,
-          "year": 2007,
-          "tdid": "2874",
-          "abs": true,
-          "tcs": true,
-          "clearance": "low",
-          "keeper": 95,
-          "topSpeed": 130,
-          "acel": 6.9,
-          "hand": 83,
-          "drive": "RWD",
-          "tyres": "Performance",
-          "mra": 60.22,
-          "weight": 1179,
-          "name": "Dodge Demon Roadster",
-          selectedTune: "323",
-          data: {
-            323: {
-              times: {
-                carPark_a00: 46.13,
-                gForce_a00: 22.96,
-                hairpin_a00: 46.03,
-                indoorKart_a00: 47.88,
-                kart_a00: 39.85,
-                slalom_a00: 29.35,
-                slalom_a01: 34.23,
-                tCircuit_a00: 71.81,
-                tRoad_a00: 74.95,
-                tRoad_a01: 85.90,
-                fast_a00: 71.76,
-                csSmall_a00: 44.99,
-                csMed_a00: 85.72,
-                testBowl_a00: 132,
-                mile4_a00: 14.30,
-                mile2_a00: 22.65
-              }
-            }
-          },
-        },
-      ],
+      optionsDialogActive: false,
+      hoverIndex: -1,
+      // carDetailsList: default_cars,
+      carDetailsList: [],
       all_cars: data_cars,
+      toLoadTrackSet: null,
+      currentTracks: [],
+      currentTracksSetsNames: [],
+      tracksButtons: [
+        { name: "Dry Twisty", set: "trackSet_DryTwisty", active: false },
+        { name: "Dry City", set: "trackSet_DryCity", active: false },
+        { name: "Dry Drag", set: "trackSet_DryDrag", active: false },
+        { name: "Wet Twisty", set: "trackSet_WetTwisty", active: false },
+        { name: "Wet City", set: "trackSet_WetCity", active: false },
+        { name: "Dirt", set: "trackSet_Dirt", active: false },
+        { name: "Wet Dirt", set: "trackSet_WetDirt", active: false },
+        { name: "Gravel", set: "trackSet_Gravel", active: false },
+        { name: "Sand", set: "trackSet_Sand", active: false },
+        { name: "Snow", set: "trackSet_Snow", active: false },
+        { name: "Ice", set: "trackSet_Ice", active: false },
+      ],
       trackSet_DryTwisty: [
         { name: "Car Park", id: "carPark", surface: 0, cond: 0 },
         { name: "G-Force Test", id: "gForce", surface: 0, cond: 0 },
@@ -287,14 +177,13 @@ export default {
         { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0 },
         { name: "Karting Circuit", id: "kart", surface: 0, cond: 0 },
         { name: "Slalom Test", id: "slalom", surface: 0, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1 },
         { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0 },
         { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1 },
         { name: "Fast Circuit", id: "fast", surface: 0, cond: 0 },
+      ],
+      trackSet_DryCity: [
         { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0 },
         { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0 },
-        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
       ],
       trackSet_DryDrag: [
         { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0 },
@@ -315,6 +204,8 @@ export default {
         { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1 },
         { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1 },
         { name: "Fast Circuit", id: "fast", surface: 0, cond: 1 },
+      ],
+      trackSet_WetCity: [
         { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1 },
         { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1 },
       ],
@@ -382,7 +273,39 @@ export default {
     }
   },
   watch: {},
-  beforeMount() {},
+  beforeMount() {
+    // let dupCouts = {};
+    // this.all_cars.map((x, ix) => {
+    //   dupCouts[`${x.name} ${x.year}`] = ++dupCouts[`${x.name} ${x.year}`] || 0;
+    // })
+    // console.log(this.all_cars.filter(x => dupCouts[`${x.name} ${x.year}`]));
+    // debugger;
+    // nome ideal: `${x.rq} ${x.name} ${x.year}`.replaceAll(" ","")
+
+    // this.all_cars.map(x => {
+    //   x.rid = `${x.rq} ${x.name} ${x.year}`.replaceAll(" ","_")
+    // })
+    // console.log(this.all_cars);
+    // debugger;
+
+
+
+    let display = window.localStorage.getItem("display");
+    if (display) {
+      this.display(display);
+    }
+
+    let tracks = window.localStorage.getItem("tracks");
+    if (tracks) {
+      tracks = JSON.parse(tracks);
+      // this.currentTracks = tracks;
+      this.pushTrackSet(tracks);
+    }
+    if (this.currentTracks.length === 0) {
+      this.pushTrackSet(this.trackSet_DryTwisty);
+    }
+    // this.calcCurrentTracks();
+  },
   mounted() {
     let vm = this;
     this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
@@ -424,6 +347,12 @@ export default {
         }
       }
 
+      if (mutation.type == "HOVER_INDEX") {
+        if (mutation.payload) {
+          vm.hoverIndex = mutation.payload;
+        }
+      }
+
     });
   },
   computed: {
@@ -438,7 +367,7 @@ export default {
       });
 
       // insert every type of track in both result && sortedByTracks
-      this.currentTrackSet.map((x, ix) => {
+      this.currentTracks.map((x, ix) => {
         sortedByTracks[`${x.id}_a${x.surface}${x.cond}`] = [];
         result.map(y => {
           y[`${x.id}_a${x.surface}${x.cond}`] = null;
@@ -486,11 +415,94 @@ export default {
 
       return result;
     },
-    currentTrackSet() {
-      return this.trackSet_DryTwisty;
-    }
   },
   methods: {
+    // calcCurrentTracks() {
+    //   let result = [];
+
+    //   if (this.toLoadTrackSet !== null) {
+    //     result = JSON.parse(JSON.stringify(this.toLoadTrackSet));
+    //     this.toLoadTrackSet = null;
+    //     this.currentTrackSet = result;
+    //   }
+
+    //   this.activeTrackSet.map(x => {
+    //     if (this[x]) {
+    //       this[x].map(y => {
+    //         result.push(y)
+    //       })
+    //     }
+    //   })
+
+    //   window.localStorage.setItem('trackset', JSON.stringify(result));
+    //   this.currentTrackSet = result;
+    // },
+    pushTrackSet(trackset) {
+      let index;
+      trackset.map(x => {
+        index = this.indexOfTrack(x);
+        if (index === -1) {
+          this.currentTracks.push(x)
+        }
+      })
+      this.verifyActiveButtons();
+    },
+    removeTrackSet(trackset) {
+      let index;
+      trackset.map(x => {
+        index = this.indexOfTrack(x);
+        if (index > -1) {
+          this.currentTracks.splice(index, 1);
+        }
+      })
+      this.verifyActiveButtons();
+    },
+    toggleTrackSet(trackset) {
+      let incluedesAll = this.includeAllTracks(trackset);
+      
+      if (incluedesAll && this.currentTracks.length >= trackset.length) {
+        this.removeTrackSet(trackset);
+      } else {
+        this.removeTrackSet(trackset);
+        this.pushTrackSet(trackset);
+      }
+    },
+    stringToggleTrackSet(str) {
+      this.toggleTrackSet(this[str])
+    },
+    indexOfTrack(x) {
+      return this.currentTracks.findIndex(y => {
+        if (`${x.id}_a${x.surface}${x.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+          return true
+        }
+      });
+    },
+    includeAllTracks(trackset) {
+      let incluedesAll = true;
+      let index;
+      trackset.map(x => {
+        index = this.currentTracks.findIndex(y => {
+          if (`${x.id}_a${x.surface}${x.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+            return true
+          }
+        });
+        if (index === -1) incluedesAll = false;
+      })
+      return incluedesAll;
+    },
+    verifyActiveButtons() {
+      this.tracksButtons.map(x => {
+        if (this.includeAllTracks(this[x.set])) {
+          x.active = true;
+        } else {
+          x.active = false;
+        }
+      })
+    },
+    updateOptions() {
+      this.optionsDialogActive = false;
+      window.localStorage.setItem('tracks', JSON.stringify(this.currentTracks));
+    },
     toggleSize() {
       this.inverted = !this.inverted;
       return
@@ -601,9 +613,25 @@ export default {
         }
       }
     },
+    // toggleTrack(set) {
+    //   let index = this.activeTrackSet.indexOf(set);
+
+    //   if (index > -1) {
+    //     this.activeTrackSet.splice(index, 1);
+    //   } else {
+    //     this.activeTrackSet.push(set);
+    //   }
+    // },
+    display(type, save = true) {
+      this.inverted = type === "vertical";
+      if (save) {
+        window.localStorage.setItem('display', type);
+      }
+    },
     newIndex(obj) {
       obj.current;
       obj.new;
+      this.closeTune();
 
       // If actual index of moved element is
       // less than 0 when 'moveEle += array size'
@@ -644,7 +672,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@300;400;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400;700&family=VT323&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&family=Roboto+Condensed:wght@400;700&display=swap');
 
 * {
   background-repeat: no-repeat;
@@ -669,9 +699,18 @@ body {
   --back-l: 15%;
   --d-back: #333;
   --d-text: #999;
-  --d-text-b: #bbb;
+  --d-text-b: #ccc;
   --d-text-green: 95, 181, 0;
   --d-text-green-b: 193, 217, 185;
+
+  /* tracks */
+  --color-wet: 90, 163, 255;
+  --color-dirt: 239, 97, 75;
+  --color-gravel: 197, 177, 120;
+  --color-ice: 112, 215, 255;
+  --color-mixed: 217, 171, 225;
+  --color-sand: 233, 197, 69;
+  --color-snow: 186, 212, 235;
 
   /* car */
   --card-stat-back-l: 10%;
@@ -688,6 +727,8 @@ body {
   font-size: 18px;
   background-color: var(--d-back);
   color: var(--d-text);
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 .Main_Layout {
   min-height: 100%;
@@ -723,6 +764,31 @@ body {
   top: 0;
   left: 0;
   z-index: 30;
+  display: flex;
+  flex-direction: column;
+}
+.Main_CornerMid {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0px 5px 5px 5px;
+  align-items: center;
+}
+.Main_Logo {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.Main_2 .Main_Corner {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+}
+.Main_2 .Main_CornerMid {
+  flex-grow: unset;
+  margin: 5px 5px 5px 0;
+}
+.Main_2 .Main_Logo {
+  flex-grow: 1;
 }
 .Main_Backtop {
   position: fixed;
@@ -762,19 +828,30 @@ body {
   --back-opac: 0.1;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
+  color: var(--d-text-b);
 }
-.D_Button:focus:not(.D_ButtonNoActive) {
+.D_ButtonDark {
+  background-color: rgba(0,0,0,0.2);
+  font-size: 1em;
+  border-radius: 6px;
+  padding: 0 7px;
+  color: var(--d-text-b);
+}
+.D_ButtonDark2 {
+  background-color: rgba(255,255,255,0.06);
+}
+.D_Button.focus-visible:not(.D_ButtonNoActive) {
   outline: none;
   background-color: rgba(var(--back-color), 0.3);
 }
 .D_ButtonNoActive {
   outline: none;
 }
-.D_Button.D_ButtonNoActive:focus {
+.D_Button.D_ButtonNoActive.focus-visible {
   background-color: rgba(var(--back-color), 0.3);
 }
-.D_Button:hover {
-  color: #fff6;
+.D_Button:hover:not(.D_ButtonActive):not([disabled]) {
+  color: #fffc;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
 .D_Button:active:not(.D_ButtonNoActive) {
@@ -785,6 +862,18 @@ body {
 .D_ButtonLabel {
   margin-right: 5px;
   font-size: 16px;
+}
+.D_ButtonActive {
+  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+  color: rgb(var(--d-text-green-b));
+  border-radius: 0;
+}
+.D_ButtonActive:hover {
+  background-color: rgba(var(--d-text-green-b), 0.2);
+}
+.D_Button[disabled] {
+  cursor: initial;
+  opacity: 0.2;
 }
 .add {
   color: #fff2;
@@ -844,6 +933,10 @@ body::-webkit-scrollbar-track {
 .Main_SearchMid::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: #555;
+}
+.Main_SearchMid::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner {
+  background-color: #222;
 }
 .Main_SearchItem {
   padding: 7px 25px;
@@ -914,6 +1007,29 @@ body::-webkit-scrollbar-thumb {
 }
 .Space_BothPlus { 
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+.Main_OptionsDialog {
+  font-size: 18px;
+}
+.Main_OptionsButton {
+  font-size: 16px;
+  padding: 10px;
+  background-color: rgba(var(--back-color), 0.04);
+}
+.Main_OptionsButton > i {
+  font-size: 28px;
+}
+.Main_OptionsButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.Main_OptionsLabel {
+  font-size: 14px;
+}
+.Main_OptionsItem + .Main_OptionsItem {
   margin-top: 20px;
 }
 
@@ -995,10 +1111,18 @@ body::-webkit-scrollbar-thumb {
   font-size: 18px;
 }
 .Main_2 .Row_Tracks .Row_ConfigCell {
-  box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500;
+  /* box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500; */
 }
 .Main_2 .Row_ConfigCell {
   width: calc(var(--cell-width) * 2);
+}
+.Row_OrderBox {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+}
+.Main_2 .Row_OrderBox {
+  display: flex;
 }
 
 

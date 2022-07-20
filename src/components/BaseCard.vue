@@ -1,5 +1,6 @@
 <template>
   <div class="BaseCard_Layout">
+    <div v-if="fixBack" class="BaseCard_FixBack" />
     <div
       class="Car_Header"
       :class="{ Row_DialogCardCard: !options }"
@@ -80,6 +81,10 @@ export default {
       type: Boolean,
       default: true
     },
+    fixBack: {
+      type: Boolean,
+      default: false
+    },
     temp: {
       type: Number,
       default: 1
@@ -113,5 +118,20 @@ export default {
 <style>
 .BaseCard_Layout {
   display: contents;
+}
+.BaseCard_FixBack {
+  background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
+  top: 0;
+  left: 0;
+  position: sticky;
+  width: 100%;
+  height: var(--top-height);
+  z-index: 20;
+}
+.BaseCard_FixBack + .Car_Header {
+  margin-top: calc((var(--top-height) - 3px) * -1);
+}
+.Main_2 .BaseCard_FixBack {
+  display: none;
 }
 </style>
