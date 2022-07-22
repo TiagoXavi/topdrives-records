@@ -8,7 +8,10 @@
           <Logo />
         </div>
         <div class="Main_CornerMid">
-          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMiniPad" @click="optionsDialogActive = true;">Options</button>
+          <BaseAvatar v-if="user && !inverted" :user="user" size="40px" style="margin-right: 10px;" />
+          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMiniPad" @click="optionsDialogActive = true;">
+            <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
+          </button>
         </div>
       </div>
       <div class="Main_Left">
@@ -18,6 +21,7 @@
             :temp="temp"
             :list="currentTracks"
             :hoverIndex="hoverIndex"
+            :loggedin="!!user"
             type="tracks" />
         </div>
       </div>
@@ -32,6 +36,7 @@
               :highlights="highlights[carIx]"
               :hoverIndex="hoverIndex"
               :maxCarNumber="maxCarNumber"
+              :loggedin="!!user"
               @delete="deleteCar(carIx)"
               @newindex="newIndex($event)" />
           </template>
@@ -92,6 +97,15 @@
       max-width="400px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
+        <div v-if="user" class="Main_OptionsItem">
+          <div class="Main_UserCard">
+            <BaseAvatar :user="user" size="46px" />
+            <div style="color: var(--d-text-b);" class="Main_UserName">{{ user.username }}</div>
+          </div>
+        </div>
+        <div v-else class="Main_OptionsItem Main_OptionsLogout">
+          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Login' })">Login</button>
+        </div>
         <div class="Main_OptionsItem">
           <div class="Main_OptionsLabel">Trackset</div>
           <div class="Main_OptionsButtons">
@@ -113,6 +127,9 @@
             </button>
           </div>
         </div>
+        <div v-if="user" class="Main_OptionsItem Main_OptionsLogout">
+          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="logout()">Logout</button>
+        </div>
       </div>
     </BaseDialog>
   </div>
@@ -124,6 +141,7 @@ import Row from './Row.vue'
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
+import BaseAvatar from './BaseAvatar.vue'
 import data_cars from '../database/cars_final.json'
 import default_cars from '../database/default_cars.json'
 
@@ -134,10 +152,12 @@ export default {
     Row,
     BaseDialog,
     Loading,
-    Logo
+    Logo,
+    BaseAvatar
   },
   data() {
     return {
+      unsubscribe: null,
       inverted: false,
       temp: 1,
       searchInput: '',
@@ -151,6 +171,7 @@ export default {
       tuneDialogActive: false,
       optionsDialogActive: false,
       hoverIndex: -1,
+      user: null,
       // carDetailsList: default_cars,
       carDetailsList: [],
       all_cars: data_cars,
@@ -310,7 +331,9 @@ export default {
     let vm = this;
     this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
 
-    vm.$store.subscribe(mutation => {
+    this.getUser();
+
+    vm.unsubscribe = vm.$store.subscribe(mutation => {
 
       if (mutation.type == "CHANGE_TIME") {
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
@@ -327,6 +350,7 @@ export default {
       }
 
       if (mutation.type == "CHANGE_TUNE") {
+        // console.log(vm.carDetailsList.map(x => x.softId));
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
         Vue.set(car, "selectedTune", mutation.payload.tune);
       }
@@ -354,6 +378,9 @@ export default {
       }
 
     });
+  },
+  beforeDestroy() {
+    this.unsubscribe();
   },
   computed: {
     highlights() {
@@ -602,9 +629,10 @@ export default {
     },
     addCar(index) {
       if (this.carDetailsList.length < this.maxCarNumber) {
-        this.searchResult[index].softId = this.nextId;
-        this.nextId++;
         this.carDetailsList.push(JSON.parse(JSON.stringify(this.searchResult[index])));
+        this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
+        this.nextId++;
+        // console.log(this.carDetailsList.map(x => x.softId));
 
         this.searchResult = this.searchResult.filter((x, ix) => ix !== index);
 
@@ -666,6 +694,48 @@ export default {
       // pushed at 'obj.new' index
       this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
 
+    },
+    getUser() {
+      axios.get(Vue.preUrl + "/getUser")
+      .then(res => {
+        if (res.data.username) {
+          this.user = res.data;
+          console.log(res.data);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        // this.$store.commit("DEFINE_SNACK", {
+        //   active: true,
+        //   error: true,
+        //   text: error,
+        //   type: "error"
+        // });
+      });
+    },
+    logout() {
+      axios.delete(Vue.preUrl + "/logout")
+      .then(res => {
+        if (res.data === "OK") {
+          this.user = null;
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: "Logout successful"
+          });
+        } else {
+          throw new Error("Unable to log out");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      });
     }
   },
 }
@@ -702,6 +772,9 @@ body {
   --d-text-b: #ccc;
   --d-text-green: 95, 181, 0;
   --d-text-green-b: 193, 217, 185;
+  --d-text-red: 215, 0, 0;
+  --d-text-red-b: 251, 131, 131;
+  --d-text-yellow: 255, 199, 23;
 
   /* tracks */
   --color-wet: 90, 163, 255;
@@ -782,13 +855,18 @@ body {
 .Main_2 .Main_Corner {
   display: grid;
   grid-template-columns: 1fr max-content;
+  /* grid-template-columns: 65px 1fr; */
 }
 .Main_2 .Main_CornerMid {
   flex-grow: unset;
   margin: 5px 5px 5px 0;
 }
+.Main_2 .Main_LogoPre {
+  display: none;
+}
 .Main_2 .Main_Logo {
-  flex-grow: 1;
+  justify-content: center;
+  /* height: calc(var(--top-height) - 20px); */
 }
 .Main_Backtop {
   position: fixed;
@@ -810,7 +888,7 @@ body {
   user-select: text;
 }
 .D_Button {
-  background: transparent;
+  background-color: transparent;
   border: none;
   text-decoration: none;
   vertical-align: middle;
@@ -874,6 +952,81 @@ body {
 .D_Button[disabled] {
   cursor: initial;
   opacity: 0.2;
+  pointer-events: none;
+}
+.D_Button.D_Button_Loading {
+  position: relative;
+  color: rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+  overflow: hidden;
+}
+.D_Button_Loading::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 7px,
+    rgba(255, 199, 23, 1) 0,
+    rgba(255, 199, 23, 1) 14px
+  );
+  animation: Processamento_Loop 0.6s linear infinite;
+  top: 85%;
+}
+@keyframes Processamento_Loop {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.D_Button.D_Button_Correct {
+  position: relative;
+  color: transparent;
+  background-color: rgba(var(--d-text-green), 0.2);
+  opacity: 0.6;
+}
+.D_Button_Correct::after {
+  content: "Done!";
+  position: absolute;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(var(--d-text-green));
+}
+.D_Button.D_Button_Error {
+  position: relative;
+  color: transparent;
+  background-color: rgba(var(--d-text-red), 0.2);
+  opacity: 0.6;
+}
+.D_Button_Error::after {
+  content: "Error";
+  position: absolute;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(var(--d-text-red));
+}
+
+.D_Link {
+  text-decoration: none;
+  color: var(--d-text);
+  padding: 5px 6px;
+  border-radius: 5px;
+  transition-duration: 0.1s;
+}
+.D_Link:hover,
+.D_Link.focus-visible {
+  outline: none;
+  background-color: rgba(255,255,255,0.06);
 }
 .add {
   color: #fff2;
@@ -1032,6 +1185,23 @@ body::-webkit-scrollbar-corner {
 .Main_OptionsItem + .Main_OptionsItem {
   margin-top: 20px;
 }
+.Main_OptionsLogout {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.Main_UserCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.Main_MenuIcon {
+  font-size: 20px;
+}
+
+
+
 
 
 .Main_2 {

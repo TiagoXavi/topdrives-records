@@ -5,6 +5,9 @@ import Main from "./components/Main.vue";
 import MainConvertCsv from "./components/MainConvertCsv.vue";
 import MainExtractTD from "./components/MainExtractTD.vue";
 import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
+import MainLogin from "./components/MainLogin.vue";
+import MainVerifyEmail from "./components/MainVerifyEmail.vue";
+import MainResetPassword from "./components/MainResetPassword.vue";
 
 Vue.use(VueRouter);
 
@@ -48,6 +51,24 @@ const routes = [
     name: 'Merge',
     title: 'Merge',
     component: MainConvertInsertCountry,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    title: 'Login',
+    component: MainLogin,
+  },
+  {
+    path: '/verifyemail/:token',
+    name: 'VerifyEmail',
+    title: 'VerifyEmail',
+    component: MainVerifyEmail,
+  },
+  {
+    path: '/newpassword/:token',
+    name: 'ResetPassword',
+    title: 'ResetPassword',
+    component: MainResetPassword,
   },
   {
     path: '*',

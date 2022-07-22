@@ -20,6 +20,7 @@
         :hoverIndex="hoverIndex"
         :carIndex="index"
         :maxCarNumber="maxCarNumber"
+        :loggedin="loggedin"
         @move="moveCar($event)"
         type="times" />
     </div>
@@ -88,7 +89,11 @@ export default {
     },
     index: {
       required: true
-    }
+    },
+    loggedin: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {

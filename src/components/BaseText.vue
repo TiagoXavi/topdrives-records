@@ -10,7 +10,7 @@
       :value="value"
       :disabled="disabled"
       :placeholder="placeholder"
-      type="text"
+      :type="intype"
       class="BaseText_Input"
       @change="resolveChange($event.target.value)">
     <div v-if="disabled" class="BaseText_Lock">
@@ -47,6 +47,10 @@ export default {
       type: String,
       default: null
     },
+    intype: {
+      type: String,
+      default: "text"
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -66,27 +70,31 @@ export default {
   computed: {},
   methods: {
     resolveChange(e) {
-      if (typeof e === "string") {
-        var acel = new RegExp(/[0-9]+\.[0-9]/g);
-        var isAcel = acel.test(e);
-        var topHand = new RegExp(/[0-9][0-9]+/g);
-        var isTopHand = topHand.test(e);
-  
-        if ((this.type === "acel" && isAcel) || (this.type === "topSpeed" && isTopHand) || (this.type === "hand" && isTopHand)) {
-          this.$emit('change', e);
-          this.correct = true;
-          setTimeout(() => {
-            this.correct = false;
-          }, 1500);
-          return;
+      if (this.type === "normal") {
+        this.$emit('change', e);
+      } else {
+        if (typeof e === "string") {
+          var acel = new RegExp(/[0-9]+\.[0-9]/g);
+          var isAcel = acel.test(e);
+          var topHand = new RegExp(/[0-9][0-9]+/g);
+          var isTopHand = topHand.test(e);
+    
+          if ((this.type === "acel" && isAcel) || (this.type === "topSpeed" && isTopHand) || (this.type === "hand" && isTopHand)) {
+            this.$emit('change', e);
+            this.correct = true;
+            setTimeout(() => {
+              this.correct = false;
+            }, 1500);
+            return;
+          }
         }
+  
+        this.$emit('change', '');
+        this.pis = true;
+        setTimeout(() => {
+          this.pis = false;
+        }, 1500);
       }
-
-      this.$emit('change', '');
-      this.pis = true;
-      setTimeout(() => {
-        this.pis = false;
-      }, 1500);
     }
   },
 }

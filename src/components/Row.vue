@@ -28,6 +28,13 @@
           </template>
         </div>
       </template>
+      <template v-else-if="loggedin">
+        <div class="Row_SaveAllBox">
+          <button
+            class="D_Button Row_SaveAllButton"
+            @click="saveAll()">Save</button>
+        </div>
+      </template>
       <template v-else>
         <div class="Row_Content">{{ ' ' }}</div>
       </template>
@@ -54,7 +61,7 @@
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)">
       <div
-        :contenteditable="type === 'tracks' ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -107,7 +114,7 @@
             <div class="Row_DialogCardRight">
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed || !loggedin"
                 type="topSpeed"
                 label="Top speed"
                 class="Space_Bottom"
@@ -115,7 +122,7 @@
                 @change="changeStat('topSpeed', $event)" />
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).acel || !loggedin"
                 type="acel"
                 label="0-60mph"
                 class="Space_Bottom"
@@ -124,7 +131,7 @@
                 {{ card_acel }}
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
+                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).hand || !loggedin"
                 type="hand"
                 label="Handling"
                 placeholder="-"
@@ -211,6 +218,10 @@ export default {
       type: Number,
       default: -1
     },
+    loggedin: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -265,7 +276,7 @@ export default {
           result.push({ text: text, ...x, cond: x.cond, surface: x.surface })
         })
       }
-      console.log(result);
+      // console.log(result);
 
       return result;
     },
@@ -358,6 +369,9 @@ export default {
       var liRef = e.srcElement;
 
       this.$store.commit("HOVER_INDEX", nodes.indexOf( liRef ));
+    },
+    saveAll() {
+
     }
   },
 }
@@ -476,20 +490,21 @@ export default {
   display: block;
 }
 .Row_ItemError {
-  transition-duration: 0s;
-  box-shadow: inset 0px -13px 16px -17px #b50000, inset 0px -2px 0px 0px #b50000;
+  transition-duration: 0.1s;
+  box-shadow: inset 0px -13px 16px -17px #b50000, inset 0px -5px 0px 0px #b50000;
   color: #ff9898;
   background-color: #b5000022;
 }
 .Row_ItemCorrect {
-  transition-duration: 0s;
-  box-shadow: inset 0px -13px 16px -17px #5fb500, inset 0px -2px 0px 0px #5fb500;
+  transition-duration: 0.1s;
+  box-shadow: inset 0px -13px 16px -17px #5fb500, inset 0px -5px 0px 0px #5fb500;
   color: #90df39;
   background-color: #5fb50022;
 }
 .Row_ConfigCell {
   justify-content: center;
   background-color: rgba(255,255,255, 0.05);
+  height: calc(var(--cell-height) * 1.3);
 }
 .Row_Tracks .Row_ConfigCell {
   /* box-shadow: inset -18px 0px 16px -17px #5fb500, inset -3px 0px 0px 0px #5fb500; */
@@ -540,6 +555,7 @@ export default {
 .Row_DialogCardCard {
   width: 300px !important;
   height: 184px !important;
+  --card-font-size: 15px;
 }
 .Row_DialogCardCard .Car_HeaderStatLabel {
   display: block;
@@ -580,15 +596,15 @@ export default {
 .Row_ColorByIndex:not(.Row_ContentEmpty) {
   /* background-color: rgba(38, 0, 118, calc(1 - var(--color-index) * 0.4)); */
 }
-.Row_ColorByIndex0:not(.Row_ContentEmpty) {
+.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
   background-color: #ffc30014;
   color: #efe9c0;
 }
-.Row_ColorByIndex1:not(.Row_ContentEmpty) {
+.Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
   background-color: #d3f7ff14;
   color: #d3dee9;
 }
-.Row_ColorByIndex2:not(.Row_ContentEmpty) {
+.Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
   background-color: #74340014;
   color: #dbc0aa;
 }
@@ -604,6 +620,26 @@ export default {
   right: 2px;
   bottom: 0px;
 }
+.Row_SaveAllBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.D_Button.Row_SaveAllButton {
+  --back-color: 49, 141, 8;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 0.7);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+
+
+
+
 .Main_2 .Car_Layout:hover .Row_Item:not(:hover),
 .Main_2 .Car_Layout:hover .Car_Header2 {
   box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.04);
