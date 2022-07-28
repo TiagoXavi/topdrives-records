@@ -71,19 +71,25 @@
         </div>
         <div class="Main_SearchMid">
           <Loading v-if="searchLoading" class="Main_SearchLoading" />
+          <template v-for="(item, index) in searchResult">
+            <button
+              v-if="index < searchMax"
+              :style="{ '--color': item.classColor }"
+              class="Main_SearchItem"
+              @click="addCar(index)">
+              <div class="Main_SearchItemImg">
+                <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
+              </div>
+              <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
+              <div class="Main_SearchItemRight">
+                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>
+              </div>
+            </button>
+          </template>
           <button
-            v-for="(item, index) in searchResult"
-            :style="{ '--color': item.classColor }"
-            class="Main_SearchItem"
-            @click="addCar(index)">
-            <div class="Main_SearchItemImg">
-              <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
-            </div>
-            <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
-            <div class="Main_SearchItemRight">
-              <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>
-            </div>
-          </button>
+            v-if="searchMax === 20 && searchResult.length > 20"
+            class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
+            @click="searchMax = 100">Show more</button>
         </div>
       </div>
     </BaseDialog>
@@ -174,6 +180,7 @@ export default {
       searchFocus: false,
       debounceFilter: null,
       searchLoading: false,
+      searchMax: 20,
       searchResult: [],
       maxCarNumber: 12,
       tuneDialogActive: false,
@@ -643,22 +650,22 @@ export default {
       // console.log("changeFilter");
       // this.searchLoading = false;
       let result = [];
-      // let searchArr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
-      let searchArr = this.searchInput.toLowerCase().replace(/  +/g, ' ');
+      // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
+      let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = null;
       let prePush;
       let tryFind;
-      if (searchArr === "") {
+      if (searchStr === "") {
         this.searchLoading = false;
         return [];
       }
 
       this.all_cars.map((x, ix) => {
-        if (result.length < 20) {
-          strIndex = x.name.toLowerCase().indexOf(searchArr);
+        if (result.length < 100) {
+          strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
           if (strIndex > -1) {
             prePush = JSON.parse(JSON.stringify(x));
-            prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchArr.length)+'</b>'+x.name.substr(strIndex + searchArr.length);
+            prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
             prePush.locatedIndex = strIndex;
             if (x.name[strIndex - 1] === ' ') {
               prePush.locatedPlus = true;
@@ -686,10 +693,10 @@ export default {
         return a.locatedIndex - b.locatedIndex;
       });
 
+      this.searchMax = 20;
 
       this.searchResult = result;
       this.searchLoading = false;
-
 
     },
     addCar(index) {
@@ -1340,6 +1347,12 @@ body::-webkit-scrollbar-corner {
   font-weight: normal;
   background-color: #fff1;
   box-shadow: 0px 0px 0px 1px #fff1;
+}
+.Main_SearchMore {
+  font-size: 18px;
+  margin-top: 11px;
+  margin-left: 62px;
+  padding: 12px 15px;
 }
 .Space_Bottom { 
   margin-bottom: 10px;

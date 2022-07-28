@@ -262,16 +262,13 @@ export default {
   font-family: 'Roboto Condensed', sans-serif;
   /* background-color: #956363; */
   color: #eee;
-  /* background-image: url(https://i.pinimg.com/564x/1b/70/f2/1b70f2da2803b5bae88e7e0d4edbfd28.jpg); */
-  /* background-image: url(https://i2.wp.com/www.111racers.com/wp-content/uploads/2020/05/lts_elise_s3_sprint-220_01.jpg); */
-  /* background-image: url(https://topdrives.club/sites/default/files/pl13/Aston_Martin_Rapide_Bertone_Jet_22_2013_427f.png); */
   background-color: #919191;
   background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.06) 0, rgba(0, 0, 0, 0.06) 30px );
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: inset 0px -24px 28px -20px #000f;
+  /* box-shadow: inset 0px -24px 28px -20px #000f; */
   font-size: var(--card-font-size);
 }
 .Car_Header > * {
