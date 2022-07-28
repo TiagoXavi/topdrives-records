@@ -5,9 +5,12 @@ import Main from "./components/Main.vue";
 import MainConvertCsv from "./components/MainConvertCsv.vue";
 import MainExtractTD from "./components/MainExtractTD.vue";
 import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
+import MainGallery from "./components/MainGallery.vue";
 import MainLogin from "./components/MainLogin.vue";
+import MainRegister from "./components/MainRegister.vue";
 import MainVerifyEmail from "./components/MainVerifyEmail.vue";
 import MainResetPassword from "./components/MainResetPassword.vue";
+import MainAskNewPassword from "./components/MainAskNewPassword.vue";
 
 Vue.use(VueRouter);
 
@@ -34,29 +37,41 @@ const routes = [
     component: Main,
     title: 'Records',
   },
+  // {
+  //   path: '/convert',
+  //   name: 'Convert',
+  //   title: 'Convert',
+  //   component: MainConvertCsv,
+  // },
+  // {
+  //   path: '/extract',
+  //   name: 'Extract',
+  //   title: 'Extract',
+  //   component: MainExtractTD,
+  // },
+  // {
+  //   path: '/merge',
+  //   name: 'Merge',
+  //   title: 'Merge',
+  //   component: MainConvertInsertCountry,
+  // },
   {
-    path: '/convert',
-    name: 'Convert',
-    title: 'Convert',
-    component: MainConvertCsv,
-  },
-  {
-    path: '/extract',
-    name: 'Extract',
-    title: 'Extract',
-    component: MainExtractTD,
-  },
-  {
-    path: '/merge',
-    name: 'Merge',
-    title: 'Merge',
-    component: MainConvertInsertCountry,
+    path: '/gallery',
+    name: 'Gallery',
+    title: 'Gallery',
+    component: MainGallery,
   },
   {
     path: '/login',
     name: 'Login',
     title: 'Login',
     component: MainLogin,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    title: 'Register',
+    component: MainRegister,
   },
   {
     path: '/verifyemail/:token',
@@ -69,6 +84,12 @@ const routes = [
     name: 'ResetPassword',
     title: 'ResetPassword',
     component: MainResetPassword,
+  },
+  {
+    path: '/asknewpassword',
+    name: 'AskNewPassword',
+    title: 'AskNewPassword',
+    component: MainAskNewPassword,
   },
   {
     path: '*',

@@ -8,6 +8,7 @@
       :car="car"
       :temp="temp"
       :fix-back="true"
+      :downloadLoading="downloadLoading"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
@@ -91,6 +92,10 @@ export default {
       required: true
     },
     loggedin: {
+      type: Boolean,
+      default: false
+    },
+    downloadLoading: {
       type: Boolean,
       default: false
     },
@@ -393,16 +398,17 @@ export default {
   padding-right: 4px;
   color: #fff;
   opacity: 0.95;
+  letter-spacing: 0.3px;
 }
 .Car_HeaderStatLabel {
   text-align: right;
-  font-size: 0.65em;
+  font-size: 0.55em;
   line-height: 1;
   padding-right: 4px;
   font-weight: 300;
   color: #fff;
-  opacity: 0.9;
-  display: none;
+  opacity: 0.6;
+  letter-spacing: 0.3px;
 }
 .Car_HeaderRQValue {
   font-size: 1.3em;
@@ -430,20 +436,20 @@ export default {
   color: black;
   font-size: 1.5em;
 }
-.Car_HeaderBlockTopSpeed,
+/* .Car_HeaderBlockTopSpeed,
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
 .Car_HeaderBlockDrive {
   box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09);
-}
+} */
 
-.Car_HeaderBlockTop,
-.Car_HeaderBlockBrand,
-.Car_HeaderBlockYear,
-.Car_HeaderBlockTopSpeed,
+/* .Car_HeaderBlockTopSpeed,
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
-.Car_HeaderBlockDrive {
+.Car_HeaderBlockDrive, */
+.Car_HeaderBlockTop,
+.Car_HeaderBlockBrand,
+.Car_HeaderBlockYear {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
 }
@@ -531,6 +537,33 @@ export default {
 .Car_HeaderIcon {
   font-size: 25px;
   color: white;
+}
+.Car_Loading {
+  overflow: hidden;
+}
+.Car_Loading::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 7px,
+    rgba(255, 199, 23, 1) 0,
+    rgba(255, 199, 23, 1) 14px
+  );
+  animation: Car_Loop 0.6s linear infinite;
+  bottom: 0;
+  left: 0;
+}
+@keyframes Car_Loop {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(-80px);
+  }
 }
 
 

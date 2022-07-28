@@ -117,11 +117,29 @@ export default {
       if (this.snackActive) this.shake();
 
       this.snackActive = true;
-      this.snackText = obj.text.message ? obj.text.message : obj.text;
+      if (obj.text.response && obj.text.response.data && obj.text.response.data.message) {
+        this.snackText = obj.text.response.data.message;
+      } else if (obj.text.message) {
+        this.snackText = obj.text.message;
+      } else {
+        this.snackText = obj.text;
+      }
       this.snackActive = true;
-      if (obj.error) this.snackError = true;
-      else if (obj.correct) this.snackCorrect = true;
-      else this.snackBlue = true;
+      if (obj.error) {
+        this.snackError = true;
+        this.snackCorrect = false;
+        this.snackBlue = false;
+      }
+      else if (obj.correct) {
+        this.snackError = false;
+        this.snackCorrect = true;
+        this.snackBlue = false;
+      }
+      else {
+        this.snackError = false;
+        this.snackCorrect = false;
+        this.snackBlue = true;
+      }
 
       vm.snackTimeout = setTimeout(() => {
         vm.snackActive = false;
@@ -214,4 +232,96 @@ export default {
       transform: translate(8px, 0);
     }
 }
+
+
+.TTT_Box {
+  min-width: 200px;
+}
+.TTT_Top {
+  max-width: 180px;
+  margin: 0 auto;
+}
+.TTT_Layout {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TTT_Mid {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.TTT_Mid .BaseText_Layout {
+  width: 100%;
+}
+.TTT_Top .Main_Logo {
+  margin: 0;
+}
+.TTT_Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.D_Button.TTT_Button {
+  padding: 10px 15px;
+}
+.TTT_Finished {
+  text-align: center;
+}
+.TTT_FinishedText {
+  color: rgb(var(--d-text-green));
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.TTT_FinishedSub {
+  margin-bottom: 30px;
+  color: rgb(var(--d-text-green));
+  background-color: rgb(var(--d-text-green), 0.1);
+  padding: 10px;
+  border-radius: 10px;
+}
+.TTT_Forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px -3px -2px -3px;
+  align-self: flex-end;
+}
+.TTT_ForgotBetween {
+  justify-content: space-between;
+  width: calc(100% + 6px);
+  align-self: center;
+}
+.TTT_SubTitle {
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  max-width: 180px;
+  text-align: center;
+}
+.TTT_SubTitleSpacing {
+
+}
+.TTT_Top .Main_Logo {
+  cursor: pointer;
+}
+.TTT_Tip {
+  font-size: 13px;
+  opacity: 0.6;
+  max-width: 180px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autofill:hover {
+  -webkit-transition: background-color 9999999999s ease-in-out 0s;
+  transition: background-color 9999999999s ease-in-out 0s;
+  -webkit-text-fill-color: #a78724!important;
+  box-shadow: inset 0px 0px 0px 20px #3a320054;
+  caret-color: #a78724;
+}
+
 </style>

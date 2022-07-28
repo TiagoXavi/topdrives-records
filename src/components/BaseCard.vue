@@ -3,7 +3,7 @@
     <div v-if="fixBack" class="BaseCard_FixBack" />
     <div
       class="Car_Header"
-      :class="{ Row_DialogCardCard: !options }"
+      :class="{ Row_DialogCardCard: !options, Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}; ${carPhoto}`">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
@@ -58,6 +58,7 @@
         }" class="Car_HeaderName">{{ car.name }}</div>
     </div>
     <div
+      :class="{ Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}; ${carPhoto}`"
       class="Car_Header2">
       <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
@@ -89,6 +90,10 @@ export default {
       type: Number,
       default: 1
     },
+    downloadLoading: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {}
@@ -105,9 +110,14 @@ export default {
       if (this.car.photo) {
         if (this.car.photo.includes("https://")) parsed = this.car.photo;
         else {
-          parsed = require('@/imgs/' + this.car.photo);
+          try {
+            parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+          } catch (error) {
+            return ''
+          }
         }
       }
+      parsed = parsed.replace("(","\\(").replace(")","\\)");
       return parsed ? 'background-image: url('+parsed+');' : ''
     }
   },

@@ -139,6 +139,7 @@ export default {
   border-radius: 10px;
   width: 100%;
   user-select: text;
+  margin: 10px 10px 40px 10px;
 }
 .BaseDialog_Opaque {
   background-color: #333;

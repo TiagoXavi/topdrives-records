@@ -22,7 +22,10 @@
             :list="currentTracks"
             :hoverIndex="hoverIndex"
             :loggedin="!!user"
-            type="tracks" />
+            :needSave="needSave"
+            :saveLoading="saveLoading"
+            type="tracks"
+            @save="saveAll()" />
         </div>
       </div>
       <div class="Main_Mid">
@@ -37,6 +40,7 @@
               :hoverIndex="hoverIndex"
               :maxCarNumber="maxCarNumber"
               :loggedin="!!user"
+              :downloadLoading="downloadLoading"
               @delete="deleteCar(carIx)"
               @newindex="newIndex($event)" />
           </template>
@@ -72,6 +76,9 @@
             :style="{ '--color': item.classColor }"
             class="Main_SearchItem"
             @click="addCar(index)">
+            <div class="Main_SearchItemImg">
+              <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
+            </div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
             <div class="Main_SearchItemRight">
               <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>
@@ -105,6 +112,7 @@
         </div>
         <div v-else class="Main_OptionsItem Main_OptionsLogout">
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Login' })">Login</button>
+          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Register' })">Register</button>
         </div>
         <div class="Main_OptionsItem">
           <div class="Main_OptionsLabel">Trackset</div>
@@ -172,6 +180,9 @@ export default {
       optionsDialogActive: false,
       hoverIndex: -1,
       user: null,
+      needSave: false,
+      saveLoading: false,
+      downloadLoading: false,
       // carDetailsList: default_cars,
       carDetailsList: [],
       all_cars: data_cars,
@@ -213,7 +224,7 @@ export default {
         { name: "0-60mph", id: "drag60", surface: 0, cond: 0 },
         { name: "0-100mph", id: "drag100", surface: 0, cond: 0 },
         { name: "0-150mph", id: "drag150", surface: 0, cond: 0 },
-        { name: "Hill Climb", surface: 0, cond: 0 },
+        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0 },
         { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
       ],
       trackSet_WetTwisty: [
@@ -232,28 +243,28 @@ export default {
       ],
       trackSet_Dirt: [
         { name: "1 Mile", id: "mile1", surface: 1, cond: 0 },//
-        { name: "Hill Climb", surface: 1, cond: 0 },//
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 1, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0 },//
         { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0 },//
         { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0 },//
         { name: "Slalom Test", id: "slalom", surface: 1, cond: 0 },//
-        { name: "Motocross Track", surface: 1, cond: 0 },//
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 0 },//
       ],
       trackSet_WetDirt: [
         { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1 }, //
         { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1 }, //
-        { name: "Hill Climb", surface: 1, cond: 1 },//
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1 },//
         { name: "G-Force Test", id: "gForce", surface: 1, cond: 1 },//
         { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1 },//
         { name: "Slalom Test", id: "slalom", surface: 1, cond: 1 },//
-        { name: "Motocross Track", surface: 1, cond: 1 },//
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 1 },//
       ],
       trackSet_Gravel: [
         { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0 },//
         { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0 },//
         { name: "1 Mile", id: "mile1", surface: 2, cond: 0 },//
-        { name: "Hill Climb", surface: 2, cond: 0 },//
+        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 2, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0 },//
         { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0 },//
@@ -263,7 +274,7 @@ export default {
         { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0 },//
         { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0 },//
         { name: "1 Mile", id: "mile1", surface: 5, cond: 0 },//
-        { name: "Hill Climb", surface: 5, cond: 0 },//
+        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 5, cond: 0 },//
         { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0 },//
         { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0 },//
@@ -283,6 +294,28 @@ export default {
         { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0 },//
         { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },//
         { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },//
+      ],
+      allTracksIds: [
+          "carPark",
+          "gForce",
+          "hairpin",
+          "indoorKart",
+          "kart",
+          "slalom",
+          "tCircuit",
+          "tRoad",
+          "fast",
+          "csSmall",
+          "csMed",
+          "mile4",
+          "mile2",
+          "mile1",
+          "drag60",
+          "drag100",
+          "drag150",
+          "hClimb",
+          "testBowl",
+          "moto"
       ],
 
       carList: [],
@@ -317,13 +350,28 @@ export default {
     }
 
     let tracks = window.localStorage.getItem("tracks");
+    let tracksClear = [];
     if (tracks) {
       tracks = JSON.parse(tracks);
-      // this.currentTracks = tracks;
-      this.pushTrackSet(tracks);
+      // console.log(tracks.map(x => x.id));
+      tracks.map(x => {
+        this.allTracksIds.find(y => {
+          if (x.id === y) {
+            tracksClear.push(x);
+            return true;
+          }
+        })
+      })
+      // console.log(tracksClear);
+      this.pushTrackSet(tracksClear);
     }
     if (this.currentTracks.length === 0) {
       this.pushTrackSet(this.trackSet_DryTwisty);
+    }
+
+    let cars = window.localStorage.getItem("cars");
+    if (cars) {
+      this.prepareCars(JSON.parse(cars));
     }
     // this.calcCurrentTracks();
   },
@@ -342,17 +390,20 @@ export default {
         if (!car.data) Vue.set(car, "data", {});
         if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
         if (!car.data[car.selectedTune].times) Vue.set(car.data[car.selectedTune], "times", {});
+        /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
+        /**/ if (!car.dataToSave[car.selectedTune]) Vue.set(car.dataToSave, car.selectedTune, {});
+        /**/ if (!car.dataToSave[car.selectedTune].times) Vue.set(car.dataToSave[car.selectedTune], "times", {});
 
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
-        // Vue.set(car.times[NEW.id], [`a${NEW.surface}${NEW.cond}`], mutation.payload.number);
-        // console.log(car.times[NEW.id]);
-        // console.log(vm.carDetailsList.find(x => x.name === mutation.payload.car.name).times[NEW.id]);
+        /**/ Vue.set(car.dataToSave[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
+        vm.needSave = true;
       }
 
       if (mutation.type == "CHANGE_TUNE") {
         // console.log(vm.carDetailsList.map(x => x.softId));
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
         Vue.set(car, "selectedTune", mutation.payload.tune);
+        this.updateCarLocalStorage();
       }
 
       if (mutation.type == "CHANGE_STAT") {
@@ -361,8 +412,13 @@ export default {
         if (!car.data) Vue.set(car, "data", {});
         if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
         if (!car.data[car.selectedTune].info) Vue.set(car.data[car.selectedTune], "info", {});
+        /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
+        /**/ if (!car.dataToSave[car.selectedTune]) Vue.set(car.dataToSave, car.selectedTune, {});
+        /**/ if (!car.dataToSave[car.selectedTune].info) Vue.set(car.dataToSave[car.selectedTune], "info", {});
 
         Vue.set(car.data[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
+        /**/ Vue.set(car.dataToSave[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
+        vm.needSave = true;
       }
 
       if (mutation.type == "SHOW_TUNE") {
@@ -548,6 +604,7 @@ export default {
     },
     deleteCar(index) {
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
+      this.updateCarLocalStorage();
     },
     openDialog() {
       this.searchActive = true;
@@ -613,7 +670,15 @@ export default {
       })
       result.map(x => {
         Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
-        Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));
+        Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
+        try {
+          Vue.set(x, "ridPhoto", '');
+          setTimeout(() => {
+            Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+          }, 1);
+        } catch (error) {
+          Vue.set(x, "ridPhoto", '');
+        }    
       })
       result.sort(function(a, b) {
         if (a.locatedPlus && !b.locatedPlus) return -1;
@@ -639,6 +704,9 @@ export default {
         if (this.carDetailsList.length >= this.maxCarNumber) {
           this.searchActive = false;
         }
+
+        this.updateCarLocalStorage();
+        this.downloadCar(this.carDetailsList[this.carDetailsList.length - 1].rid)
       }
     },
     // toggleTrack(set) {
@@ -693,7 +761,8 @@ export default {
       // Here element of 'obj.current' is removed and
       // pushed at 'obj.new' index
       this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
-
+      
+      this.updateCarLocalStorage();
     },
     getUser() {
       axios.get(Vue.preUrl + "/getUser")
@@ -735,6 +804,123 @@ export default {
           text: error,
           type: "error"
         });
+      });
+    },
+    updateCarLocalStorage() {
+      let toSave = this.carDetailsList.map(x => { 
+        return {
+          rid: x.rid,
+          selectedTune: x.selectedTune
+        }
+      })
+
+      window.localStorage.setItem('cars', JSON.stringify(toSave));
+    },
+    prepareCars(cars) {
+      let result = [];
+      if (cars && cars.length > 0) {
+        
+        cars.map(y => {
+          this.all_cars.map(x => {
+            if (x.rid === y.rid) {
+              result.push(JSON.parse(JSON.stringify(x)));
+              if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
+              result[result.length-1].softId = this.nextId;
+              this.nextId++;
+            }
+          })
+        })
+        
+      }
+      Vue.set(this, "carDetailsList", result);
+      this.downloadDataCars();
+    },
+    saveAll() {
+      this.saveLoading = true;
+      let simplifiedCars = [];
+      this.carDetailsList.map(x => {
+        if (x.dataToSave) {
+          simplifiedCars.push({
+            rid: x.rid,
+            data: x.dataToSave
+          });
+        }
+      });
+
+      axios.post(Vue.preUrl + "/update", simplifiedCars)
+      .then(res => {
+        this.needSave = false;        
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "Successful save"
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.saveLoading = false;
+      });
+
+    },
+    downloadDataCars() {
+      this.downloadLoading = true;
+      let simplifiedCars = this.carDetailsList.map(x => {
+        return {
+          rid: x.rid
+        }
+      });
+
+      axios.post(Vue.preUrl + "/cars", simplifiedCars)
+      .then(res => {        
+        this.applyNewData(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.downloadLoading = false;
+      });
+    },
+    downloadCar(rid) {
+      axios.get(Vue.preUrl + "/car/" + rid)
+      .then(res => {        
+        this.applyNewData([res.data]);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+          this.loading = false;
+      });
+    },
+    applyNewData(newData) {
+      this.carDetailsList.map(x => {
+        newData.map(y => {
+          if (x.rid === y.rid) {
+            if (y.data) Vue.set(x, "data", y.data);
+            if (y.users) Vue.set(x, "users", y.users);
+          }
+        })
       });
     }
   },
@@ -1092,7 +1278,7 @@ body::-webkit-scrollbar-corner {
   background-color: #222;
 }
 .Main_SearchItem {
-  padding: 7px 25px;
+  padding: 7px 25px 7px 0px;
   display: flex;
   width: 100%;
   background: transparent;
@@ -1118,6 +1304,19 @@ body::-webkit-scrollbar-corner {
   height: 5px;
   top: 0;
   left: 0;
+}
+.Main_SearchItemImg {
+  display: flex;
+  height: 36px;
+  margin: -6px 0;
+  width: 53px;
+  border-radius: 0px 3px 3px 0px;
+  overflow: hidden;
+  margin-right: 10px;
+  background-color: #00000038;
+}
+.MainGallery_Img {
+  transform: scale(1.4);
 }
 .Main_SearchItemLeft {
   color: var(--color);
@@ -1189,6 +1388,7 @@ body::-webkit-scrollbar-corner {
   display: flex;
   align-content: center;
   justify-content: center;
+  gap: 10px;
 }
 .Main_UserCard {
   display: flex;

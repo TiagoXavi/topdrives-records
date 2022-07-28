@@ -7,6 +7,7 @@
       "brand": "Bugatti",
       "country": "FR",
       "year": 2019,
+      "tdid": "1082",
       "abs": true,
       "tcs": true,
       "clearance": "low",
@@ -640,7 +641,7 @@
       "mra": 118.23,
       "weight": 1360,
       "name": "Koenigsegg One:1",
-      "rid": "96_Koenigsegg_One:1_2014"
+      "rid": "96_Koenigsegg_One1_2014"
   },
   {
       "class": "S",
@@ -5154,7 +5155,7 @@
       "class": "S",
       "photo": "Volvo_Polestar_1_2020_e15c.png",
       "rq": 85,
-      "onlyName": "Polestar 1",
+      "onlyName": "Concept Coupé",
       "brand": "Volvo",
       "country": "SE",
       "year": 2020,
@@ -5170,8 +5171,8 @@
       "tyres": "Performance",
       "mra": 81.72,
       "weight": 2350,
-      "name": "Volvo Polestar 1",
-      "rid": "85_Volvo_Polestar_1_2020"
+      "name": "Volvo Concept Coupe",
+      "rid": "85_Volvo_Concept_Coupe_2020"
   },
   {
       "class": "S",
@@ -7724,7 +7725,7 @@
       "mra": 106.06,
       "weight": 1150,
       "name": "RUF CTR \"Yellowbird\"",
-      "rid": "79_RUF_CTR_\"Yellowbird\"_1987"
+      "rid": "79_RUF_CTR_Yellowbird_1987"
   },
   {
       "class": "A",
@@ -10599,7 +10600,7 @@
       "mra": 83.96,
       "weight": 1702,
       "name": "Chevrolet Camaro Z/28",
-      "rid": "73_Chevrolet_Camaro_Z/28_2015"
+      "rid": "73_Chevrolet_Camaro_Z28_2015"
   },
   {
       "class": "A",
@@ -11657,7 +11658,7 @@
       "mra": 71.43,
       "weight": 640,
       "name": "Suzuki GSX-R/4",
-      "rid": "72_Suzuki_GSX-R/4_2001"
+      "rid": "72_Suzuki_GSX-R4_2001"
   },
   {
       "class": "A",
@@ -12370,7 +12371,7 @@
       "mra": 80.26,
       "weight": 800,
       "name": "Lamborghini Miura SV/J",
-      "rid": "70_Lamborghini_Miura_SV/J_1971"
+      "rid": "70_Lamborghini_Miura_SVJ_1971"
   },
   {
       "class": "A",
@@ -13865,7 +13866,7 @@
       "mra": 77.63,
       "weight": 1933,
       "name": "Dodge Challenger R/T Scat Pack",
-      "rid": "67_Dodge_Challenger_R/T_Scat_Pack_2018"
+      "rid": "67_Dodge_Challenger_RT_Scat_Pack_2018"
   },
   {
       "class": "A",
@@ -13888,7 +13889,7 @@
       "mra": 78.19,
       "weight": 1971,
       "name": "Dodge Charger R/T Scat Pack",
-      "rid": "67_Dodge_Charger_R/T_Scat_Pack_2015"
+      "rid": "67_Dodge_Charger_RT_Scat_Pack_2015"
   },
   {
       "class": "A",
@@ -14256,7 +14257,7 @@
       "mra": 63.25,
       "weight": 1540,
       "name": "Subaru WRX S4 STI Sport# (VAB)",
-      "rid": "67_Subaru_WRX_S4_STI_Sport#_(VAB)_2020"
+      "rid": "67_Subaru_WRX_S4_STI_Sport_(VAB)_2020"
   },
   {
       "class": "A",
@@ -14417,7 +14418,7 @@
       "mra": 83.33,
       "weight": 690,
       "name": "Fiat X1/9 Dallara",
-      "rid": "66_Fiat_X1/9_Dallara_1975"
+      "rid": "66_Fiat_X19_Dallara_1975"
   },
   {
       "class": "A",
@@ -16234,7 +16235,7 @@
       "mra": 64.71,
       "weight": 1180,
       "name": "Renault Alpine A310 V6 Group 4/B",
-      "rid": "64_Renault_Alpine_A310_V6_Group_4/B_1983"
+      "rid": "64_Renault_Alpine_A310_V6_Group_4B_1983"
   },
   {
       "class": "B",
@@ -17798,7 +17799,7 @@
       "mra": 69.23,
       "weight": 1588,
       "name": "Dodge Viper RT/10",
-      "rid": "61_Dodge_Viper_RT/10_1992"
+      "rid": "61_Dodge_Viper_RT10_1992"
   },
   {
       "class": "B",
@@ -18281,7 +18282,7 @@
       "mra": 66.11,
       "weight": 1722,
       "name": "Dodge Stealth R/T Twin Turbo",
-      "rid": "60_Dodge_Stealth_R/T_Twin_Turbo_1990"
+      "rid": "60_Dodge_Stealth_RT_Twin_Turbo_1990"
   },
   {
       "class": "B",
@@ -21892,7 +21893,7 @@
       "mra": 53.65,
       "weight": 1879,
       "name": "Dodge Nitro R/T",
-      "rid": "55_Dodge_Nitro_R/T_2007"
+      "rid": "55_Dodge_Nitro_RT_2007"
   },
   {
       "class": "B",
@@ -22950,7 +22951,7 @@
       "mra": 83.05,
       "weight": 1273,
       "name": "Chevrolet Cobalt SS S/C",
-      "rid": "53_Chevrolet_Cobalt_SS_S/C_2006"
+      "rid": "53_Chevrolet_Cobalt_SS_SC_2006"
   },
   {
       "class": "B",
@@ -26055,7 +26056,7 @@
       "mra": 67.55,
       "weight": 1828,
       "name": "Dodge Charger R/T",
-      "rid": "48_Dodge_Charger_R/T_2006"
+      "rid": "48_Dodge_Charger_RT_2006"
   },
   {
       "class": "C",
@@ -27642,7 +27643,7 @@
       "mra": 65.22,
       "weight": 1520,
       "name": "Chevrolet Camaro Z/28",
-      "rid": "46_Chevrolet_Camaro_Z/28_1993"
+      "rid": "46_Chevrolet_Camaro_Z28_1993"
   },
   {
       "class": "C",
@@ -28194,7 +28195,7 @@
       "mra": 73.33,
       "weight": 1473,
       "name": "AMC AMX/3",
-      "rid": "45_AMC_AMX/3_1970"
+      "rid": "45_AMC_AMX3_1970"
   },
   {
       "class": "C",
@@ -28401,7 +28402,7 @@
       "mra": 60.92,
       "weight": 1761,
       "name": "Dodge Charger R/T Concept",
-      "rid": "45_Dodge_Charger_R/T_Concept_1999"
+      "rid": "45_Dodge_Charger_RT_Concept_1999"
   },
   {
       "class": "C",
@@ -29091,7 +29092,7 @@
       "mra": 69.51,
       "weight": 1520,
       "name": "Chevrolet Camaro IROC Z/28",
-      "rid": "44_Chevrolet_Camaro_IROC_Z/28_1990"
+      "rid": "44_Chevrolet_Camaro_IROC_Z28_1990"
   },
   {
       "class": "C",
@@ -29183,7 +29184,7 @@
       "mra": 62.7,
       "weight": 1896,
       "name": "Dodge Magnum R/T",
-      "rid": "44_Dodge_Magnum_R/T_2005"
+      "rid": "44_Dodge_Magnum_RT_2005"
   },
   {
       "class": "C",
@@ -30609,7 +30610,7 @@
       "mra": 42.3,
       "weight": 1501,
       "name": "Dodge Caliber R/T AWD",
-      "rid": "42_Dodge_Caliber_R/T_AWD_2007"
+      "rid": "42_Dodge_Caliber_RT_AWD_2007"
   },
   {
       "class": "C",
@@ -30632,7 +30633,7 @@
       "mra": 67.35,
       "weight": 1334,
       "name": "Dodge Daytona IROC R/T",
-      "rid": "42_Dodge_Daytona_IROC_R/T_1992"
+      "rid": "42_Dodge_Daytona_IROC_RT_1992"
   },
   {
       "class": "C",
@@ -30655,7 +30656,7 @@
       "mra": 53.08,
       "weight": 1388,
       "name": "Dodge Spirit R/T",
-      "rid": "42_Dodge_Spirit_R/T_1991"
+      "rid": "42_Dodge_Spirit_RT_1991"
   },
   {
       "class": "C",
@@ -31966,7 +31967,7 @@
       "mra": 54.56,
       "weight": 1618,
       "name": "Dodge Avenger R/T",
-      "rid": "40_Dodge_Avenger_R/T_2013"
+      "rid": "40_Dodge_Avenger_RT_2013"
   },
   {
       "class": "C",
@@ -33024,7 +33025,7 @@
       "mra": 78.1,
       "weight": 1633,
       "name": "Dodge Charger R/T",
-      "rid": "39_Dodge_Charger_R/T_1969"
+      "rid": "39_Dodge_Charger_RT_1969"
   },
   {
       "class": "D",
@@ -37532,7 +37533,7 @@
       "mra": 81.23,
       "weight": 1650,
       "name": "Chevrolet Camaro Z/28",
-      "rid": "33_Chevrolet_Camaro_Z/28_1970"
+      "rid": "33_Chevrolet_Camaro_Z28_1970"
   },
   {
       "class": "D",
@@ -37693,7 +37694,7 @@
       "mra": 52.86,
       "weight": 1465,
       "name": "Dodge Stratus R/T Coupe",
-      "rid": "33_Dodge_Stratus_R/T_Coupe_2004"
+      "rid": "33_Dodge_Stratus_RT_Coupe_2004"
   },
   {
       "class": "D",
@@ -39326,7 +39327,7 @@
       "mra": 56.04,
       "weight": 1119,
       "name": "Dodge Neon R/T Coupe",
-      "rid": "31_Dodge_Neon_R/T_Coupe_1998"
+      "rid": "31_Dodge_Neon_RT_Coupe_1998"
   },
   {
       "class": "D",
@@ -41879,7 +41880,7 @@
       "mra": 55.37,
       "weight": 1794,
       "name": "Dodge Challenger T/A",
-      "rid": "28_Dodge_Challenger_T/A_1970"
+      "rid": "28_Dodge_Challenger_TA_1970"
   },
   {
       "class": "E",
@@ -41902,7 +41903,7 @@
       "mra": 57.77,
       "weight": 1746,
       "name": "Dodge Dakota R/T",
-      "rid": "28_Dodge_Dakota_R/T_1998"
+      "rid": "28_Dodge_Dakota_RT_1998"
   },
   {
       "class": "E",
@@ -42592,7 +42593,7 @@
       "mra": 52.01,
       "weight": 1070,
       "name": "Volkswagen up! GTI",
-      "rid": "28_Volkswagen_up!_GTI_2018"
+      "rid": "28_Volkswagen_up_GTI_2018"
   },
   {
       "class": "E",
@@ -43558,7 +43559,7 @@
       "mra": 63.25,
       "weight": 1557,
       "name": "Chevrolet Camaro Z/28",
-      "rid": "26_Chevrolet_Camaro_Z/28_1977"
+      "rid": "26_Chevrolet_Camaro_Z28_1977"
   },
   {
       "class": "E",
@@ -46180,7 +46181,7 @@
       "mra": 44.35,
       "weight": 920,
       "name": "Vauxhall Opel Kadett GT/E",
-      "rid": "23_Vauxhall_Opel_Kadett_GT/E_1975"
+      "rid": "23_Vauxhall_Opel_Kadett_GTE_1975"
   },
   {
       "class": "E",
@@ -46432,8 +46433,8 @@
       "tyres": "Standard",
       "mra": 50.76,
       "weight": 1500,
-      "name": "Chrysler D’Elegance",
-      "rid": "22_Chrysler_D’Elegance_1952"
+      "name": "Chrysler D Elegance",
+      "rid": "22_Chrysler_D_Elegance_1952"
   },
   {
       "class": "E",
@@ -48204,7 +48205,7 @@
       "mra": 39.33,
       "weight": 880,
       "name": "Fiat X1/9",
-      "rid": "20_Fiat_X1/9_1972"
+      "rid": "20_Fiat_X19_1972"
   },
   {
       "class": "E",
@@ -49722,7 +49723,7 @@
       "mra": 46.83,
       "weight": 1518,
       "name": "Dodge Aspen R/T",
-      "rid": "18_Dodge_Aspen_R/T_1978"
+      "rid": "18_Dodge_Aspen_RT_1978"
   },
   {
       "class": "F",
@@ -50251,7 +50252,7 @@
       "mra": 47.09,
       "weight": 929,
       "name": "Volkswagen up!",
-      "rid": "18_Volkswagen_up!_2013"
+      "rid": "18_Volkswagen_up_2013"
   },
   {
       "class": "F",

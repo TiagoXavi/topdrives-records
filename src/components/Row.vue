@@ -28,11 +28,12 @@
           </template>
         </div>
       </template>
-      <template v-else-if="loggedin">
+      <template v-else-if="loggedin && needSave">
         <div class="Row_SaveAllBox">
           <button
+            :class="{ D_Button_Loading: saveLoading }"
             class="D_Button Row_SaveAllButton"
-            @click="saveAll()">Save</button>
+            @click="$emit('save')">Save</button>
         </div>
       </template>
       <template v-else>
@@ -43,6 +44,7 @@
     <div
       v-if="car.selectedTune || type === 'tracks'"
       v-for="(item, ix) in timesResolved"
+      :data="`${item.id}_a${item.surface}${item.cond}`"
       :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
               `${true ? 'Row_ColorByIndex ' : '' }`+
@@ -161,6 +163,12 @@
             <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
           </div>
         </div>
+        <div v-if="car.users" class="Row_DialogCardUsers Space_TopPlus">
+          <div class="Row_DialogCardStat">
+            <div class="Row_DialogCardStatLabel">Contributors</div>
+            <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">{{ car.users.join(", ") }}</div>
+          </div>
+        </div>
       </div>
     </portal>
     
@@ -222,6 +230,14 @@ export default {
       type: Boolean,
       default: false
     },
+    needSave: {
+      type: Boolean,
+      default: false
+    },
+    saveLoading: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -255,7 +271,7 @@ export default {
       let car;
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name, cond: x.cond, surface: x.surface })
+          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id })
         })
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
@@ -273,7 +289,7 @@ export default {
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x, cond: x.cond, surface: x.surface })
+          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id })
         })
       }
       // console.log(result);
@@ -369,9 +385,6 @@ export default {
       var liRef = e.srcElement;
 
       this.$store.commit("HOVER_INDEX", nodes.indexOf( liRef ));
-    },
-    saveAll() {
-
     }
   },
 }
