@@ -4,6 +4,5 @@ module.exports = defineConfig({
   css: {
     sourceMap: true
   },
-  transpileDependencies: true,
-  publicPath: '/topdrives-records/'
+  transpileDependencies: true
 })
