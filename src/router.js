@@ -97,9 +97,12 @@ const routes = [
   },
 ];
 
+window.envType = process.env.NODE_ENV;
+
 const router = new VueRouter({
     routes,
     mode: 'history',
+    base: process.env.NODE_ENV === "production" ? "/vue-cli-deploy/" : "/"
 });
 
 export default router;
