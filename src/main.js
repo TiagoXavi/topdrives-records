@@ -14,7 +14,12 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
 Vue.use(PortalVue);
-Vue.preUrl = "http://localhost:3000";
+
+if (process.env.NODE_ENV === 'production') {
+  Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
+} else {
+  Vue.preUrl = "http://localhost:3000";
+}
 
 new Vue({
   store,

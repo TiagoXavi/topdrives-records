@@ -107,17 +107,13 @@ export default {
     },
     carPhoto() {
       let parsed;
-      if (this.car.photo) {
-        if (this.car.photo.includes("https://")) parsed = this.car.photo;
-        else {
-          try {
-            parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
-          } catch (error) {
-            return ''
-          }
-        }
+      try {
+        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+      } catch (error) {
+        return ''
       }
-      parsed = parsed.replace("(","\\(").replace(")","\\)");
+      parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
+      parsed = parsed.replaceAll("'","\\'");
       return parsed ? 'background-image: url('+parsed+');' : ''
     }
   },

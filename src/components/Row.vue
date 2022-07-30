@@ -16,6 +16,9 @@
                 v-for="item in tunes"
                 class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
                 @click="changeTune(item)">{{ item }}</button>
+              <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
+              </button>
             </div>
           </template>
           <template v-else> 
@@ -28,16 +31,8 @@
           </template>
         </div>
       </template>
-      <template v-else-if="loggedin && needSave">
-        <div class="Row_SaveAllBox">
-          <button
-            :class="{ D_Button_Loading: saveLoading }"
-            class="D_Button Row_SaveAllButton"
-            @click="$emit('save')">Save</button>
-        </div>
-      </template>
       <template v-else>
-        <div class="Row_Content">{{ ' ' }}</div>
+        <slot name="corner"></slot>
       </template>
     </div>
 
@@ -63,7 +58,7 @@
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && car.users && !car.users.includes(user.username)) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -119,7 +114,7 @@
                 :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed || !loggedin"
                 type="topSpeed"
                 label="Top speed"
-                class="Space_Bottom"
+                class="Space_Bottom Row_FieldStat"
                 placeholder="-"
                 @change="changeStat('topSpeed', $event)" />
               <BaseText
@@ -127,7 +122,7 @@
                 :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).acel || !loggedin"
                 type="acel"
                 label="0-60mph"
-                class="Space_Bottom"
+                class="Space_Bottom Row_FieldStat"
                 placeholder="-"
                 @change="changeStat('acel', $event)" />
                 {{ card_acel }}
@@ -136,6 +131,7 @@
                 :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).hand || !loggedin"
                 type="hand"
                 label="Handling"
+                class="Row_FieldStat"
                 placeholder="-"
                 @change="changeStat('hand', $event)" />
             </div>
@@ -238,6 +234,9 @@ export default {
       type: Boolean,
       default: false
     },
+    user: {
+      required: false
+    }
   },
   data() {
     return {
@@ -320,6 +319,7 @@ export default {
     keydown(e, item, ix) {
       if (e.key === 'Enter') {
         e.preventDefault();
+        e.srcElement.blur();
         this.blur(e, item, ix);        
       }
     },
@@ -328,8 +328,21 @@ export default {
       let number = Vue.options.filters.toTimeNumber(e.srcElement.innerText, item.id);
 
       let roundedOriginal = Math.round(item.text * 1e2) / 1e2;
+      if (item.text === "") roundedOriginal = "";
       if (number === "" && (item.text === "" || item.text === undefined)) {
         // nada
+      } else if (e.srcElement.innerText === "" && item.text !== "" && item.text !== undefined) {
+        // remover tempo
+        this.$store.commit("CHANGE_TIME", {
+          number: undefined,
+          item,
+          car: this.car
+        });
+        e.srcElement.innerText = Vue.options.filters.toTimeString(undefined, item.id);
+        this.errorIndex = ix;
+        setTimeout(() => {
+          this.errorIndex = null;
+        }, 1500);
       } else if (number !== false && number !== roundedOriginal) {
         // mudou
         this.$store.commit("CHANGE_TIME", {
@@ -352,6 +365,20 @@ export default {
       } else {
         e.srcElement.innerText = Vue.options.filters.toTimeString(item.text, item.id);
       }
+    },
+    contextMenu(e, item, ix) {
+      this.$store.commit("CHANGE_TIME", {
+        number: undefined,
+        item,
+        car: this.car
+      });
+      e.srcElement.innerText = Vue.options.filters.toTimeString(undefined, item.id);
+      this.errorIndex = ix;
+      setTimeout(() => {
+        this.errorIndex = null;
+      }, 1500);
+      e.preventDefault();
+      return false;
     },
     click(e, item, ix) {
       if (this.type === 'tracks') return;
@@ -534,7 +561,7 @@ export default {
   --height: 34px;
 }
 .D_Button.Row_DialogButtonTune {
-  color: var(--d-text);
+  color: var(--d-text-b);
   font-size: 1.2em;
   padding: 0 9px;
   border-radius: 0;
@@ -577,12 +604,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .Row_DialogCardBottom {
   display: flex;
-  gap: 25px;
+  gap: 5px 25px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .Row_DialogCardStatLabel {
   font-size: 0.8em;
@@ -593,6 +621,9 @@ export default {
 }
 .Row_DialogCardStatCorrect {
   color: rgb(var(--d-text-green));
+}
+.Row_FieldStat {
+  max-width: 75px;
 }
 .D_Button.Row_TuneChooseButton {
   background-color: rgba(0,0,0,0.2);
@@ -633,22 +664,6 @@ export default {
   right: 2px;
   bottom: 0px;
 }
-.Row_SaveAllBox {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.D_Button.Row_SaveAllButton {
-  --back-color: 49, 141, 8;
-  --back-opac: 1;
-  background-color: rgba(var(--back-color), 0.7);
-  color: white;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 8px 17px;
-  min-height: calc( var(--height) * 0.8 );
-}
 
 
 
@@ -662,6 +677,11 @@ export default {
   .Row_Tracks .Row_Content {
     white-space: normal;
     font-size: 0.7em;
+  }
+  .Row_DialogCardCard {
+    width: 261px !important;
+    height: 161px !important;
+    --card-font-size: 12px;
   }
 }
 </style>

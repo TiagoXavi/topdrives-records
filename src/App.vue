@@ -313,7 +313,7 @@ export default {
   opacity: 0.6;
   max-width: 180px;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autofill:hover {

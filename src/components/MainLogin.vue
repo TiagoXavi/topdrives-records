@@ -25,7 +25,7 @@
           <router-link
             :to="{ name: 'Register' }"
             style="font-size: 13px;"
-            class="D_Link">Register</router-link>
+            class="D_Link">Register?</router-link>
           <router-link
             :to="{ name: 'AskNewPassword' }"
             style="font-size: 13px;"

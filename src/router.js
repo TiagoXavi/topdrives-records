@@ -2,10 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Main from "./components/Main.vue";
-import MainConvertCsv from "./components/MainConvertCsv.vue";
-import MainExtractTD from "./components/MainExtractTD.vue";
-import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
-import MainGallery from "./components/MainGallery.vue";
+// import MainConvertCsv from "./components/MainConvertCsv.vue";
+// import MainExtractTD from "./components/MainExtractTD.vue";
+// import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
+// import MainGallery from "./components/MainGallery.vue";
 import MainLogin from "./components/MainLogin.vue";
 import MainRegister from "./components/MainRegister.vue";
 import MainVerifyEmail from "./components/MainVerifyEmail.vue";
@@ -55,12 +55,12 @@ const routes = [
   //   title: 'Merge',
   //   component: MainConvertInsertCountry,
   // },
-  {
-    path: '/gallery',
-    name: 'Gallery',
-    title: 'Gallery',
-    component: MainGallery,
-  },
+  // {
+  //   path: '/gallery',
+  //   name: 'Gallery',
+  //   title: 'Gallery',
+  //   component: MainGallery,
+  // },
   {
     path: '/login',
     name: 'Login',

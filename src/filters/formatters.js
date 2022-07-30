@@ -30,7 +30,7 @@ export function toTimeString(input, id) {
   return minutes + ':' + seconds + ':' + milesi;
 }
 export function toTimeNumber(input, id) {
-  if (input === "DNF" || input == 0) return 0;
+  if (input === "DNF" || input === "0") return 0;
   if (input === "") return "";  
   let result = 0;
   let arr;

@@ -22,6 +22,7 @@
         :carIndex="index"
         :maxCarNumber="maxCarNumber"
         :loggedin="loggedin"
+        :user="user"
         @move="moveCar($event)"
         type="times" />
     </div>
@@ -87,6 +88,9 @@ export default {
     },
     maxCarNumber: {
       required: true
+    },
+    user: {
+      required: false
     },
     index: {
       required: true

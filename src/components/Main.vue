@@ -1,6 +1,6 @@
 <template>
   <div :class="{ Main_2: inverted }" class="Main_Layout">
-    <div class="Main_Body" @click.stop>
+    <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop>
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
         <div class="Main_Logo">
@@ -9,7 +9,7 @@
         </div>
         <div class="Main_CornerMid">
           <BaseAvatar v-if="user && !inverted" :user="user" size="40px" style="margin-right: 10px;" />
-          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMiniPad" @click="optionsDialogActive = true;">
+          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
             <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
           </button>
         </div>
@@ -22,13 +22,35 @@
             :list="currentTracks"
             :hoverIndex="hoverIndex"
             :loggedin="!!user"
+            :user="user"
             :needSave="needSave"
             :saveLoading="saveLoading"
             type="tracks"
-            @save="saveAll()" />
+            @save="saveAll()">
+            <template slot="corner">
+              <div class="Main_RowCorner">
+                <template v-if="!!user && needSave">
+                  <div class="Main_SaveAllBox">
+                    <button
+                      :class="{ D_Button_Loading: saveLoading }"
+                      class="D_Button Main_SaveAllButton"
+                      @click="saveAll()">Save</button>
+                  </div>
+                </template>
+                <!-- <template v-else-if="carDetailsList.length > 0 && currentTracks.length > 0">
+                  <div class="Main_SaveAllBox">
+                    <button
+                      class="D_Button Main_Share"
+                      @click="shareDialog = true;">Share</button>
+                  </div>
+                </template> -->
+              </div>
+            </template>
+          </Row>
         </div>
+        <div class="Main_Credits">by TiagoXavi</div>
       </div>
-      <div class="Main_Mid">
+      <div v-if="carDetailsList.length > 0" class="Main_Mid">
         <div class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
@@ -40,6 +62,7 @@
               :hoverIndex="hoverIndex"
               :maxCarNumber="maxCarNumber"
               :loggedin="!!user"
+              :user="user"
               :downloadLoading="downloadLoading"
               @delete="deleteCar(carIx)"
               @newindex="newIndex($event)" />
@@ -49,14 +72,36 @@
             index="addCar"
             :car="null"
             :maxCarNumber="maxCarNumber"
-            @add="openDialog()" />
+            @add="openDialogSearch()" />
+        </div>
+      </div>
+      <div v-else class="Main_MidEmpty">
+        <div v-if="!user" class="Main_MidEmptyTitle">Let's start with...</div>
+        <div class="Main_MidEmptyInner">
+          <div v-if="!user" class="Main_MidEmptyItem">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButton"
+              @click="$router.push({ name: 'Login' })">Login</button>
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButton"
+              @click="$router.push({ name: 'Register' })">Register</button>
+          </div>
+          <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
+              @click="openDialogSearch()">
+              <i class="ticon-plus_2 Main_EmptyAddIcon" aria-hidden="true"/>
+              <div class="Main_EmptyAdd">Add car</div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <BaseDialog
       :active="searchActive"
       :transparent="true"
-      @close="closeDialog()">
+      maxWidth="880px"
+      @close="closeDialogSearch()">
       <div class="Main_SearchBody">
         <div class="Main_SearchHeader">
           <input
@@ -69,14 +114,14 @@
             @blur="searchBlur()"
             @input="searchInputFunc($event)">
         </div>
-        <div class="Main_SearchMid">
-          <Loading v-if="searchLoading" class="Main_SearchLoading" />
+        <div v-if="searchResult.length > 0" class="Main_SearchMid">
           <template v-for="(item, index) in searchResult">
             <button
               v-if="index < searchMax"
               :style="{ '--color': item.classColor }"
+              :class="{ Main_SearchItemAdded: item.added }"
               class="Main_SearchItem"
-              @click="addCar(index)">
+              @click="item.added ? '' : addCar(index)">
               <div class="Main_SearchItemImg">
                 <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
               </div>
@@ -91,17 +136,35 @@
             class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
             @click="searchMax = 100">Show more</button>
         </div>
+        <div v-else-if="alreadySearched" class="Main_SearchEmpty">
+          <i class="ticon-search_big Main_SearchEmptyAddIcon" aria-hidden="true"/>
+          <div class="Main_SearchEmptyText">Nothing found</div>
+        </div>
+        <div v-else class="Main_SearchEmpty">
+          <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
+        </div>
       </div>
     </BaseDialog>
     <BaseDialog
       :active="tuneDialogActive"
       :transparent="false"
-      max-width="400px"
+      max-width="420px"
+      min-width="240px"
       @close="closeTune()">
       <div class="Main_TuneDialog">
         <portal-target
           slim
           name="tunedialog"/>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="shareDialog"
+      :transparent="false"
+      max-width="420px"
+      min-width="240px"
+      @close="shareDialog = false;">
+      <div class="Main_ShareDialog">
+        Share
       </div>
     </BaseDialog>
     <BaseDialog
@@ -157,7 +220,6 @@ import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import data_cars from '../database/cars_final.json'
-import default_cars from '../database/default_cars.json'
 
 export default {
   name: 'Main',
@@ -183,6 +245,8 @@ export default {
       searchMax: 20,
       searchResult: [],
       maxCarNumber: 12,
+      alreadySearched: false,
+      shareDialog: false,
       tuneDialogActive: false,
       optionsDialogActive: false,
       hoverIndex: -1,
@@ -403,6 +467,7 @@ export default {
 
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
         /**/ Vue.set(car.dataToSave[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
+        Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username])
         vm.needSave = true;
       }
 
@@ -479,6 +544,8 @@ export default {
       Object.keys( sortedByTracks ).forEach(function (trackId) {
         sortedByTracks[trackId].sort(function(a, b) {
           if (trackId.includes('testBowl')) return b - a;
+          if (a === 0) return 9999999;
+          if (b === 0) return -9999999;
           return a - b;
         });
         sortedByTracks[trackId] = [...new Set(sortedByTracks[trackId])];
@@ -613,7 +680,7 @@ export default {
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
       this.updateCarLocalStorage();
     },
-    openDialog() {
+    openDialogSearch() {
       this.searchActive = true;
       setTimeout(() => {
         document.querySelector("#SearchInput").focus();
@@ -622,7 +689,7 @@ export default {
         this.changeFilter();
       }
     },
-    closeDialog() {
+    closeDialogSearch() {
       this.searchActive = false;
       // if (!this.searchFocus) {
         //   this.searchActive = false;
@@ -697,6 +764,7 @@ export default {
 
       this.searchResult = result;
       this.searchLoading = false;
+      this.alreadySearched = true;
 
     },
     addCar(index) {
@@ -706,7 +774,15 @@ export default {
         this.nextId++;
         // console.log(this.carDetailsList.map(x => x.softId));
 
-        this.searchResult = this.searchResult.filter((x, ix) => ix !== index);
+        this.searchResult.find((x, ix) => {
+          if (ix === index) {
+            Vue.set(x, "added", true);
+            setTimeout(() => {
+              Vue.set(x, "added", false);
+            }, 800);
+            return true;
+          }
+        });
 
         if (this.carDetailsList.length >= this.maxCarNumber) {
           this.searchActive = false;
@@ -885,6 +961,11 @@ export default {
         }
       });
 
+      if (simplifiedCars.length === 0) {
+        this.downloadLoading = false;
+        return;
+      }
+
       axios.post(Vue.preUrl + "/cars", simplifiedCars)
       .then(res => {        
         this.applyNewData(res.data);
@@ -903,6 +984,8 @@ export default {
       });
     },
     downloadCar(rid) {
+      this.downloadLoading = true;
+
       axios.get(Vue.preUrl + "/car/" + rid)
       .then(res => {        
         this.applyNewData([res.data]);
@@ -917,7 +1000,7 @@ export default {
         });
       })
       .then(() => {
-          this.loading = false;
+        this.downloadLoading = false;
       });
     },
     applyNewData(newData) {
@@ -1004,9 +1087,11 @@ body {
 }
 .Main_Body {
   position: relative;
-  /* min-width: 100vw; */
   min-height: 100%;
   display: flex;
+}
+.Main_BodyEmpty {
+  min-width: 100%;
 }
 .Main_Left {
   width: var(--left-width);
@@ -1021,6 +1106,9 @@ body {
   /* pra preencher mobile */
   box-shadow: 0px 50vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l));
   user-select: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .Main_Corner {
   background-color: hsl(var(--back-h), var(--back-s), 10%);
@@ -1075,6 +1163,39 @@ body {
   top: 0;
   /* margin-left: var(--left-width); */
   height: 100%;
+}
+.Main_MidEmpty {
+  padding-top: var(--top-height);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 80px;
+}
+.Main_MidEmptyInner {
+  display: flex;
+  align-items: stretch;
+  --gap: 20px;
+  gap: var(--gap);
+}
+.Main_MidEmptyItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap);
+}
+.D_Button.Main_MidEmptyButton {
+  font-size: 18px;
+  padding: 12px 15px;
+}
+.D_Button.Main_MidEmptyButtonSearch {
+  flex-direction: column;
+  height: 100%;
+  max-height: unset;
+  padding: 14px 15px;
+  gap: 10px;
 }
 .Main_CarList {
   display: flex;
@@ -1242,12 +1363,11 @@ body {
   padding: 25px;
   box-sizing: border-box;
   color: #ccc;
-  --input-color: 100, 100, 100;
-  box-shadow: 0px 3px 0px 0px rgba(var(--input-color), 1);
+  --input-color: 90, 90, 90;
+  box-shadow: inset 0px 0px 0px 3px rgba(var(--input-color), 1);
   transition-duration: 0.2s;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  margin-bottom: 3px;
 }
 .Main_SearchInput:focus {
   outline: none;
@@ -1268,21 +1388,41 @@ body {
   overscroll-behavior-block: contain;
   position: relative;
 }
+.Main_SearchEmpty::-webkit-scrollbar,
 .Main_SearchMid::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 18px;
 }
+.Main_SearchEmpty::-webkit-scrollbar-track,
 .Main_SearchMid::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background-color: #0002;
 }
+.Main_SearchEmpty::-webkit-scrollbar-thumb,
 .Main_SearchMid::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: #555;
 }
+.Main_SearchEmpty::-webkit-scrollbar-corner,
 .Main_SearchMid::-webkit-scrollbar-corner,
 body::-webkit-scrollbar-corner {
   background-color: #222;
+}
+.Main_SearchEmpty {
+  height: 50vh;
+  background-color: var(--d-back);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: scroll;
+}
+.Main_SearchEmptyAddIcon {
+  font-size: 70px;
+  opacity: 0.1;
 }
 .Main_SearchItem {
   padding: 7px 25px 7px 0px;
@@ -1305,6 +1445,9 @@ body::-webkit-scrollbar-corner {
   color: #fff6;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
+.Main_SearchItemAdded {
+  opacity: 0.5;
+}
 .Main_SearchLoading {
   position: fixed;
   width: 100%;
@@ -1314,8 +1457,8 @@ body::-webkit-scrollbar-corner {
 }
 .Main_SearchItemImg {
   display: flex;
-  height: 36px;
-  margin: -6px 0;
+  height: 38px;
+  margin: -7px 0;
   width: 53px;
   border-radius: 0px 3px 3px 0px;
   overflow: hidden;
@@ -1323,7 +1466,7 @@ body::-webkit-scrollbar-corner {
   background-color: #00000038;
 }
 .MainGallery_Img {
-  transform: scale(1.4);
+  transform: scale(1.3);
 }
 .Main_SearchItemLeft {
   color: var(--color);
@@ -1412,6 +1555,39 @@ body::-webkit-scrollbar-corner {
 .Main_MenuIcon {
   font-size: 20px;
 }
+.Main_Credits {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  padding: 7px 0;
+}
+.D_Button.D_ButtonMenu {
+  padding: 11px 11px;
+}
+.Main_SaveAllBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.D_Button.Main_SaveAllButton {
+  --back-color: 49, 141, 8;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 0.7);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+.D_Button.Main_Share {
+  background-color: rgba(0,0,0,0.2);
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+
 
 
 
@@ -1437,6 +1613,10 @@ body::-webkit-scrollbar-corner {
   margin-left: var(--left-width);
   /* margin-top: calc(var(--top-height) - var(--cell-height) - 1px); */
   z-index: unset;
+  display: block;
+}
+.Main_2 .Main_Credits {
+  display: none;
 }
 .Main_2 .Main_TrackList {
   display: flex;
@@ -1507,6 +1687,9 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Row_OrderBox {
   display: flex;
 }
+.Main_2 .Row_TuneChooseBox .Row_ConfigButton:nth-child(5) {
+  display: none;
+}
 
 
 
@@ -1514,6 +1697,11 @@ body::-webkit-scrollbar-corner {
   body {
     /* --d-back: #504242; */
     --left-width: 120px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .Main_MidEmptyItemAdd:first-child .Main_MidEmptyButtonSearch {
+    padding: 44px 55px;
   }
 }
 </style>

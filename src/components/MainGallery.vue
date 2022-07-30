@@ -56,10 +56,6 @@ export default {
       }
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
-      // if (parsed.includes("94_Porsche_935_")) {
-      //   console.log(parsed);
-      //   debugger;
-      // }
       return parsed ? 'background-image: url('+parsed+');' : ''
     }
   },
