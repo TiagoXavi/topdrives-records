@@ -25,11 +25,17 @@
             :user="user"
             :needSave="needSave"
             :saveLoading="saveLoading"
-            type="tracks"
-            @save="saveAll()">
+            type="tracks">
             <template slot="corner">
               <div class="Main_RowCorner">
-                <template v-if="!!user && needSave">
+                <template v-if="!user">
+                  <div class="Main_SaveAllBox">
+                    <button
+                      class="D_Button Main_Share"
+                      @click="$router.push({ name: 'Login' })">Login to edit</button>
+                  </div>
+                </template>
+                <template v-else-if="!!user && needSave">
                   <div class="Main_SaveAllBox">
                     <button
                       :class="{ D_Button_Loading: saveLoading }"
