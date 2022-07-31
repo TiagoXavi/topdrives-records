@@ -566,6 +566,9 @@ export default {
     transform: translateX(-80px);
   }
 }
+.Car_Body {
+  color: #bbb;
+}
 
 
 

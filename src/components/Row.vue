@@ -525,6 +525,7 @@ export default {
   padding: 6px;
   box-sizing: border-box;
   display: none;
+  color: var(--d-text);
 }
 .Row_ContentEmpty .Row_Content:not(:focus) ~ .Row_Placeholder {
   display: block;
@@ -641,16 +642,16 @@ export default {
   /* background-color: rgba(38, 0, 118, calc(1 - var(--color-index) * 0.4)); */
 }
 .Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
-  background-color: #ffc30014;
-  color: #efe9c0;
+  background-color: #ffc3003b;
+  color: #f9efad;
 }
 .Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
   background-color: #d3f7ff14;
   color: #d3dee9;
 }
 .Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
-  background-color: #74340014;
-  color: #dbc0aa;
+  background-color: #74340033;
+  color: #ebc5a6;
 }
 .Row_Conditions {
   font-size: 8px;

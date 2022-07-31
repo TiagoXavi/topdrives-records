@@ -6,8 +6,10 @@ import store from "./store";
 import router from "./router";
 import PortalVue from 'portal-vue';
 import 'focus-visible';
+import LogRocket from 'logrocket';
 
 
+LogRocket.init('detmgd/topdrives-records');
 Vue.config.productionTip = false
 
 window.axios = require('axios');

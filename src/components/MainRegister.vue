@@ -53,10 +53,11 @@
     <div v-else class="TTT_Finished">
       <div class="TTT_FinishedText">Almost done!</div>
       <div class="TTT_FinishedSub">Please, check your email box</div>
+      <div class="TTT_Tip2">spam box too!</div>
       <router-link
         :to="{ name: 'Records' }"
         style="font-size: 14px;"
-        class="D_Link Space_Top">Back to home</router-link>
+        class="D_Link D_LinkPlus Space_Top">Back to home</router-link>
     </div>
   </div>
 </template>

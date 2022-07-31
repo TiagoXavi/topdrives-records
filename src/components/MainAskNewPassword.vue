@@ -34,7 +34,7 @@
       <router-link
         :to="{ name: 'Records' }"
         style="font-size: 14px;"
-        class="D_Link Space_Top">Back to home</router-link>
+        class="D_Link D_LinkPlus Space_Top">Back to home</router-link>
     </div>
   </div>
 </template>

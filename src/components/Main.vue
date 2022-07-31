@@ -226,6 +226,7 @@ import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import data_cars from '../database/cars_final.json'
+import LogRocket from 'logrocket';
 
 export default {
   name: 'Main',
@@ -858,7 +859,11 @@ export default {
       .then(res => {
         if (res.data.username) {
           this.user = res.data;
-          console.log(res.data);
+
+          LogRocket.identify(res.data.username, {
+            email: res.data.email
+          });
+
         }
       })
       .catch(error => {
@@ -1347,6 +1352,9 @@ body {
 .D_Link.focus-visible {
   outline: none;
   background-color: rgba(255,255,255,0.06);
+}
+.D_LinkPlus {
+  background-color: rgba(255,255,255,0.03);
 }
 .add {
   color: #fff2;

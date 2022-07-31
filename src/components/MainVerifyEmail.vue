@@ -27,7 +27,7 @@
       <router-link
         :to="{ name: 'Login' }"
         style="font-size: 14px;"
-        class="D_Link Space_Top">Go to Login</router-link>
+        class="D_Link D_LinkPlus Space_Top">Go to Login</router-link>
     </div>
   </div>
 </template>
