@@ -11,7 +11,7 @@
           <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
             <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
           </button>
-          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true;">
+          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true;">
             <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
           </button>
         </div>
