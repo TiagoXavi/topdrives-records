@@ -259,7 +259,7 @@ import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import data_cars from '../database/cars_final.json'
-import LogRocket, { log } from 'logrocket';
+import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
 import reimg from 'reimg';
 
@@ -2004,8 +2004,11 @@ body::-webkit-scrollbar-corner {
 .Main_BodyPrint .Main_PrintBy {
   display: block;
 }
+.Main_BodyPrint {
+  --card-top-height: 12%;
+}
 .Main_BodyPrint .Car_HeaderName {
-  margin-top: -2px;
+  margin-top: -1px;
 }
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
@@ -2018,6 +2021,9 @@ body::-webkit-scrollbar-corner {
 }
 .Main_Compact .Row_TuneChooseButton {
   display: none;
+}
+.Main_Compact .Car_Loading::after {
+  left: 50%;
 }
 
 
