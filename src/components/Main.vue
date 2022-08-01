@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ Main_2: inverted }" class="Main_Layout">
+  <div :class="{ Main_2: inverted, Main_Compact: compact }" class="Main_Layout">
     <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop>
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
@@ -8,10 +8,16 @@
           <Logo />
         </div>
         <div class="Main_CornerMid">
-          <BaseAvatar v-if="user && !inverted" :user="user" size="40px" style="margin-right: 10px;" />
           <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
             <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
           </button>
+          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true;">
+            <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
+          </button>
+        </div>
+        <div v-if="user && inverted" class="Main_PrintBy">
+          <div class="Main_PrintByLabel">print by</div>
+          <div class="Main_PrintByUser">{{ user.username }}</div>
         </div>
       </div>
       <div class="Main_Left">
@@ -47,14 +53,28 @@
                   <div class="Main_SaveAllBox">
                     <button
                       class="D_Button Main_Share"
-                      @click="shareDialog = true;">Share</button>
+                      @click="sharePrint()">Share</button>
                   </div>
                 </template> -->
+                <div v-if="user && !inverted" class="Main_PrintBy">
+                  <div class="Main_PrintByLabel">print by</div>
+                  <div class="Main_PrintByUser">{{ user.username }}</div>
+                </div>
               </div>
             </template>
           </Row>
         </div>
-        <div class="Main_Credits">by TiagoXavi</div>
+        <div v-if="user && !inverted" class="Main_UserBottom">
+
+          <div class="Main_UserCard">
+            <BaseAvatar :user="user" size="46px" />
+            <div class="Main_UserBlock">
+              <div style="color: var(--d-text-b);" class="Main_UserName">{{ user.username }}</div>
+              <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div v-if="carDetailsList.length > 0" class="Main_Mid">
         <div class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
@@ -76,6 +96,7 @@
           <Car
             v-if="carDetailsList.length < maxCarNumber"
             index="addCar"
+            class="Car_LayoutAddCar"
             :car="null"
             :maxCarNumber="maxCarNumber"
             @add="openDialogSearch()" />
@@ -169,8 +190,17 @@
       max-width="420px"
       min-width="240px"
       @close="shareDialog = false;">
+      <div class="Main_DialogTitle">Share</div>
       <div class="Main_ShareDialog">
-        Share
+        <div class="Main_ShareDownloadBox">
+          <button
+            style="font-size: 16px;"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="sharePrint()">
+            <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
+            <span>Download PNG</span>
+          </button>
+        </div>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -179,10 +209,13 @@
       max-width="400px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
-        <div v-if="user" class="Main_OptionsItem">
+        <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
           <div class="Main_UserCard">
             <BaseAvatar :user="user" size="46px" />
-            <div style="color: var(--d-text-b);" class="Main_UserName">{{ user.username }}</div>
+            <div class="Main_UserBlock">
+              <div style="color: var(--d-text-b);" class="Main_UserName">{{ user.username }}</div>
+              <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
+            </div>
           </div>
         </div>
         <div v-else class="Main_OptionsItem Main_OptionsLogout">
@@ -202,16 +235,16 @@
         <div class="Main_OptionsItem">
           <div class="Main_OptionsLabel">Display</div>
           <div class="Main_OptionsButtons">
-            <button :class="{ D_ButtonActive: !inverted }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
+            <button :class="{ D_ButtonActive: !inverted && !compact }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
               <i class="ticon-list Main_OptionsIcon" aria-hidden="true"/>
+            </button>
+            <button :class="{ D_ButtonActive: !inverted && compact }" class="D_Button Main_OptionsButton" @click="display('horizontal2')">
+              <i class="ticon-list Main_OptionsIcon" style="transform: scaleX(0.5);" aria-hidden="true"/>
             </button>
             <button :class="{ D_ButtonActive: inverted }" class="D_Button Main_OptionsButton" @click="display('vertical')">
               <i class="ticon-list Main_OptionsIcon" style="transform: rotate(90deg)" aria-hidden="true"/>
             </button>
           </div>
-        </div>
-        <div v-if="user" class="Main_OptionsItem Main_OptionsLogout">
-          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="logout()">Logout</button>
         </div>
       </div>
     </BaseDialog>
@@ -226,7 +259,9 @@ import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import data_cars from '../database/cars_final.json'
-import LogRocket from 'logrocket';
+import LogRocket, { log } from 'logrocket';
+import html2canvas from 'html2canvas';
+import reimg from 'reimg';
 
 export default {
   name: 'Main',
@@ -242,6 +277,7 @@ export default {
     return {
       unsubscribe: null,
       inverted: false,
+      compact: false,
       temp: 1,
       searchInput: '',
       searchActive: false,
@@ -256,6 +292,7 @@ export default {
       shareDialog: false,
       tuneDialogActive: false,
       optionsDialogActive: false,
+      printImageDialog: false,
       hoverIndex: -1,
       user: null,
       needSave: false,
@@ -299,7 +336,6 @@ export default {
         { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0 },
         { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0 },
         { name: "1 Mile", id: "mile1", surface: 0, cond: 0 },
-        { name: "0-60mph", id: "drag60", surface: 0, cond: 0 },
         { name: "0-100mph", id: "drag100", surface: 0, cond: 0 },
         { name: "0-150mph", id: "drag150", surface: 0, cond: 0 },
         { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0 },
@@ -474,7 +510,9 @@ export default {
 
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
         /**/ Vue.set(car.dataToSave[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
-        Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username])
+        if (!car.users || !car.users.includes(vm.user.username)) {
+          Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username]);
+        }
         vm.needSave = true;
       }
 
@@ -686,6 +724,7 @@ export default {
     deleteCar(index) {
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
       this.updateCarLocalStorage();
+      this.tuneDialogActive = false;
     },
     openDialogSearch() {
       this.searchActive = true;
@@ -809,7 +848,18 @@ export default {
     //   }
     // },
     display(type, save = true) {
-      this.inverted = type === "vertical";
+      if (type === "vertical") {
+        this.inverted = true;
+        this.compact = false;
+      }
+      if (type === "horizontal") {
+        this.inverted = false;
+        this.compact = false;
+      }
+      if (type === "horizontal2") {
+        this.inverted = false;
+        this.compact = true;
+      }
       if (save) {
         window.localStorage.setItem('display', type);
       }
@@ -1023,6 +1073,74 @@ export default {
           }
         })
       });
+    },
+    sharePrint() {
+      window.scrollTo({ top: 0 });
+      let vm = this;
+      // this.printImageDialog = true;
+      let pose = document.querySelector(".Main_Body");
+      pose.classList.add("Main_BodyPrint");
+      let c_container = document.querySelector('#App_PrintContainer');
+      let currentCanvas = document.querySelector('#printCanvas');
+      c_container.classList.add("App_PrintContainerShow");
+      let mainLayout = document.querySelector(".Main_Layout");
+      let reduceWidth = 0;
+      if (!mainLayout.classList.contains("Main_2")) {
+        // reduceWidth = Number(getComputedStyle(mainLayout).getPropertyValue('--cell-width').trim().replace("px",""));
+      } else {
+        // reduceWidth = 90;
+      }
+      let reduceHeight = 0;
+      let carlistContainer = document.querySelector(".Main_CarList");
+      let backTopContainer = document.querySelector(".Main_Backtop");
+      if (!mainLayout.classList.contains("Main_2")) {
+        reduceHeight = pose.clientHeight - carlistContainer.clientHeight;
+      } else {
+        reduceHeight = pose.clientHeight - backTopContainer.clientHeight - carlistContainer.clientHeight;
+      }
+
+
+
+      let _width = (pose.clientWidth - reduceWidth) * 2;
+      let _height = (pose.clientHeight - reduceHeight) * 2;      
+      
+      let options = {
+        // allowTaint: false,
+        backgroundColor: "#333",
+        canvas: currentCanvas,
+        // foreignObjectRendering: false,
+        // imageTimeout: 15000,
+        // ignoreElements: (element) => false,
+        // logging: true,
+        // onclone: (doc) => {
+        //   console.log(doc);
+        //   doc.querySelectorAll("button").forEach(x => {
+        //     x.remove()
+        //   })
+        // },
+        // proxy: null,
+        // removeContainer: true,
+        scale: 2,
+        // useCORS: false,
+        width: _width,
+        height: _height,
+        // x: Element x-offset,
+        // y: Element y-offset,
+        // scrollX: Element scrollX,
+        // scrollY: Element scrollY,
+        windowWidth: _width,
+        windowHeight: _height,
+      }
+
+      currentCanvas.setAttribute("width", `${_width}`);
+      currentCanvas.setAttribute("height", `${_height}`);
+
+      html2canvas(pose, options).then(function(canvas) {
+        reimg.ReImg.fromCanvas(currentCanvas).downloadPng()
+        c_container.classList.remove("App_PrintContainerShow")
+        
+        document.querySelector(".Main_Body").classList.remove("Main_BodyPrint");
+      });
     }
   },
 }
@@ -1138,6 +1256,7 @@ body {
   flex-grow: 1;
   margin: 0px 5px 5px 5px;
   align-items: center;
+  gap: 5px;
 }
 .Main_Logo {
   margin: 10px 10px;
@@ -1154,7 +1273,7 @@ body {
   margin: 5px 5px 5px 0;
 }
 .Main_2 .Main_LogoPre {
-  display: none;
+  /* display: none; */
 }
 .Main_2 .Main_Logo {
   justify-content: center;
@@ -1241,7 +1360,8 @@ body {
   color: var(--d-text-b);
 }
 .D_ButtonDark2 {
-  background-color: rgba(255,255,255,0.06);
+  background-color: rgba(255,255,255,0.1);
+  --back-opac: 0.2;
 }
 .D_Button.focus-visible:not(.D_ButtonNoActive) {
   outline: none;
@@ -1339,6 +1459,17 @@ body {
   align-content: center;
   justify-content: center;
   color: rgb(var(--d-text-red));
+}
+.D_ButtonLink {
+  color: var(--d-text);
+  padding: 0;
+  height: auto;
+  min-height: auto;
+  width: auto;
+  min-width: auto;
+}
+.D_ButtonIcon {
+  margin-right: 5px;
 }
 
 .D_Link {
@@ -1454,6 +1585,7 @@ body::-webkit-scrollbar-corner {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: var(--d-text);
+  align-items: center;
 }
 .Main_SearchItem:hover {
   color: #fff6;
@@ -1474,6 +1606,7 @@ body::-webkit-scrollbar-corner {
   height: 38px;
   margin: -7px 0;
   width: 53px;
+  min-width: 53px;
   border-radius: 0px 3px 3px 0px;
   overflow: hidden;
   margin-right: 10px;
@@ -1486,18 +1619,24 @@ body::-webkit-scrollbar-corner {
   color: var(--color);
   margin-right: 10px;
   width: 2em;
+  min-width: 2em;
 }
 .Main_SearchItemRight {
-  display: flex;
-  align-items: center;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }
 .Main_SearchItemYear {
   font-size: 0.6em;
-  margin-top: 0.2em;
   box-shadow: 0px 0px 0px 2px #0003;
   background-color: #0003;
-  padding: 1px 2px;
+  padding: 1px 3px;
   margin-left: 0.2em;
+  margin-right: 2px;
 }
 .Main_SearchItemRight b {
   color: #fffa;
@@ -1560,20 +1699,77 @@ body::-webkit-scrollbar-corner {
   justify-content: center;
   gap: 10px;
 }
-.Main_UserCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+
+.Main_UserLogout {
+  margin-bottom: -2px;
+  align-self: flex-start;
+  padding: 2px;
+  font-size: 14px;
 }
 .Main_MenuIcon {
-  font-size: 20px;
+  font-size: 22px;
+}
+.Main_SideBox {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 .Main_Credits {
   font-size: 8px;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
-  padding: 7px 0;
+  padding: 3px;
+}
+.Main_PrintBy {
+  display: none;
+  text-align: center;
+}
+.Main_PrintByLabel {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 3px;
+}
+.Main_PrintByUser {
+  color: rgb(var(--d-text-yellow));
+  max-width: var(--left-width);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 7px;
+  box-sizing: border-box;
+}
+.Main_BodyPrint .Main_Corner .Main_PrintBy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Main_Corner .Main_PrintByLabel {
+  margin-bottom: 0px;
+}
+.Main_Corner .Main_PrintByUser {
+  max-width: 20ch;
+}
+.Main_UserBottom {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding-left: 6px;
+}
+.Main_UserBottom .Main_UserBlock {
+  max-width: calc(100% - 35px);
+}
+.Main_UserName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.Main_UserCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.Main_UserBlock {
+  display: flex;
+  flex-direction: column;
 }
 .D_Button.D_ButtonMenu {
   padding: 11px 11px;
@@ -1600,6 +1796,16 @@ body::-webkit-scrollbar-corner {
   border-radius: 6px;
   padding: 8px 17px;
   min-height: calc( var(--height) * 0.8 );
+}
+.Main_DialogTitle {
+  color: var(--d-text-b);
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+.Main_ShareDownloadBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 
@@ -1630,7 +1836,7 @@ body::-webkit-scrollbar-corner {
   display: block;
 }
 .Main_2 .Main_Credits {
-  display: none;
+  /* display: none; */
 }
 .Main_2 .Main_TrackList {
   display: flex;
@@ -1707,10 +1913,133 @@ body::-webkit-scrollbar-corner {
 
 
 
+
+.Main_Compact .Car_Layout {
+  --card-left-width: 19%;
+  --card-right-width: 31%;
+  --card-top-height: 11.5%;
+  --card-stat-height: 31.9px;
+}
+.Main_Compact .Car_Layout:not(.Car_LayoutAddCar) .Car_Header > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive) {
+  display: none;
+}
+.Main_Compact .Car_Layout {
+  width: 120px;
+}
+.Main_Compact .Car_Layout .Car_HeaderName {
+  font-size: 0.8em;
+  width: calc(100% - 8px);
+  margin-top: 0px;
+}
+.Main_Compact .Car_Layout .Car_HeaderNameBig {
+  font-size: 0.7em;
+}
+.Main_Compact .Car_Layout .Car_HeaderNameBigBig {
+  font-size: 0.6em;
+}
+.Main_Compact .Car_Layout .Car_HeaderBlockTopSpeed,
+.Main_Compact .Car_Layout .Car_HeaderBlock060,
+.Main_Compact .Car_Layout .Car_HeaderBlockHandling,
+.Main_Compact .Car_Layout .Car_HeaderBlockDrive {
+  box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09);
+  backdrop-filter: blur(15px);
+}
+.Main_Compact .Car_Layout .Car_HeaderStatValue,
+.Main_Compact .Car_Layout .Car_HeaderStatLabel {
+  padding-right: 1px;
+}
+
+
+
+
+.Main_BodyPrint .Main_Corner {
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px max-content;
+}
+.Main_BodyPrint .Row_Tune {
+  padding-left: 0px;
+}
+.Main_BodyPrint .Main_Credits {
+  display: none;
+}
+.Main_BodyPrint .Row_DisabledCell {
+  background-color: #00000024;
+}
+.Main_BodyPrint .Row_Cell {
+  border: solid 2px #ffffff07;
+  border-right-width: 0;
+  border-bottom-width: 0;
+}
+.Main_Layout:not(.Main_2) .Main_BodyPrint .Row_Cell:nth-child(3n-1) {
+  border-top-width: 2px;
+  border-top-color: #ffffff1c;
+}
+.Main_2 .Main_BodyPrint .Row_ConfigCell {
+  width: 70px; /* this value is hard coded in sharePrint() */
+}
+.Main_2 .Main_BodyPrint .Car_Layout:nth-child(3n-1) .Row_Cell {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #ffffff1c;
+}
+.Main_2 .Main_BodyPrint .Main_LogoPre {
+  display: none;
+}
+.Main_BodyPrint .Main_UserBottom {
+  display: none;
+}
+.Main_BodyPrint button {
+  display: none;
+}
+.Main_BodyPrint .Main_CornerMid {
+  display: none;
+}
+.Main_BodyPrint .Car_LayoutAddCar {
+  display: none !important;
+}
+.Main_BodyPrint .Main_SaveAllBox {
+  display: none;
+}
+.Main_BodyPrint .Main_PrintBy {
+  display: block;
+}
+.Main_BodyPrint .Car_HeaderName {
+  margin-top: -2px;
+}
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed,
+.Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockHandling,
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockDrive {
+  background-color: hsla(40, 6%, 30%, 0.8);
+}
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed {
+  box-shadow: unset;
+}
+.Main_Compact .Row_TuneChooseButton {
+  display: none;
+}
+
+
+
+
+
 @media only screen and (max-width: 767px) {
   body {
     /* --d-back: #504242; */
     --left-width: 120px;
+  }
+  .Main_BodyPrint {
+    --left-width: 200px;
+  }
+  .Main_CornerMid .BaseAvatar_Layout {
+    display: none;
+  }
+  .Main_UserBottom .BaseAvatar_Layout {
+    --size: 21px !important;
+  }
+  .Main_UserName {
+    font-size: 0.7em;
   }
 }
 @media only screen and (min-width: 768px) {

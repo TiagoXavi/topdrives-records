@@ -78,21 +78,26 @@
 
     <portal v-if="tuneDialog" to="tunedialog">
       <div class="Row_DialogLayout">
-        <div class="Row_OrderBox Space_Bottom">
-          <button
-            :disabled="carIndex === 0"
-            :class="{ Row_DialogButtonTuneActive: false }"
-            class="D_Button Row_DialogButtonTune"
-            @click="$emit('move', { carIndex, direction: 'left' })">
+        <div class="Row_OrderBox">
+          <div class="Row_OrderBoxLayout">
+            <button
+              :disabled="carIndex === 0"
+              class="D_Button Row_DialogButtonTune"
+              @click="$emit('move', { carIndex, direction: 'left' })">
               <i class="ticon-arrow_up_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
-          </button>
-          <button
-            :disabled="carIndex === maxCarNumber - 1"
-            :class="{ Row_DialogButtonTuneActive: false }"
-            class="D_Button Row_DialogButtonTune"
-            @click="$emit('move', { carIndex, direction: 'right' })">
+            </button>
+            <button
+              :disabled="carIndex === maxCarNumber - 1"
+              class="D_Button Row_DialogButtonTune"
+              @click="$emit('move', { carIndex, direction: 'right' })">
               <i class="ticon-arrow_down_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
-          </button>
+            </button>
+            <button
+              class="D_Button Row_DialogButtonTune"
+              @click="$emit('delete')">
+              <i class="ticon-close_3 Row_ConfigIcon " aria-hidden="true"/>
+            </button>
+          </div>
         </div>
         <div class="Row_DialogHeader">
           <button
@@ -664,6 +669,15 @@ export default {
   position: absolute;
   right: 2px;
   bottom: 0px;
+}
+.Row_OrderBoxLayout {
+  padding: 5px;
+  margin-top: -5px;
+  box-shadow: 0px 0px 0px 2px #ffffff21;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
 }
 
 

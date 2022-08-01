@@ -24,6 +24,7 @@
         :loggedin="loggedin"
         :user="user"
         @move="moveCar($event)"
+        @delete="$emit('delete')"
         type="times" />
     </div>
     <div class="Car_DragIndicator"></div>
@@ -410,6 +411,7 @@ export default {
   color: #fff;
   opacity: 0.6;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 .Car_HeaderRQValue {
   font-size: 1.3em;

@@ -18,6 +18,14 @@
         class="App_Snack"
         @click="snackActive = false">{{ snackText }}</div>
     </div>
+    <div id="App_PrintContainer">
+      <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    </div>
+    
+    <!-- <div class="Main_SideBox">
+      <div class="Main_Credits">by TiagoXavi</div>
+    </div> -->
+
   </div>
 </template>
 
@@ -107,6 +115,8 @@ export default {
         vm.letSnack(mutation.payload);
       }
     });
+
+    // window.addEventListener('scroll', this.scroll);
   },
   computed: {},
   methods: {
@@ -151,6 +161,15 @@ export default {
       vm.shakeTimeout = setTimeout(() => {
         vm.snackShake = false;
       }, 800);
+    },
+    scroll(e) {
+      this.letSnack({
+        active: true,
+        error: true,
+        text: "You aren't logged in",
+        type: "error"
+      });
+      console.log(e);
     }
   },
 }
@@ -315,6 +334,12 @@ export default {
   text-align: center;
   margin-top: 8px;
 }
+.TTT_Tip2 {
+  margin-top: -20px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: #c3b364;
+}
 
 input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autofill:hover {
   -webkit-transition: background-color 9999999999s ease-in-out 0s;
@@ -324,4 +349,14 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   caret-color: #a78724;
 }
 
+#App_PrintContainer {
+  display: none;
+  margin-top: 1000px;
+}
+#printCanvas {
+
+}
+#App_PrintContainer.App_PrintContainerShow {
+  display: block;
+}
 </style>

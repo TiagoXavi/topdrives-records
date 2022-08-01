@@ -50,6 +50,8 @@ export default {
 .BaseAvatar_Layout {
   width: var(--size);
   height: var(--size);
+  min-width: var(--size);
+  min-height: var(--size);
   background-color: #1475c1;
   display: flex;
   align-items: center;

@@ -113,6 +113,11 @@ export default {
         return;
       }
       
+      if (this.username.length > 18) {
+        this.putError("Username must have max 18 characters");
+        return;
+      }
+      
       if (!this.password || this.password.length === 0) {
         this.putError("Type password");
         return;
