@@ -33,7 +33,7 @@
             :saveLoading="saveLoading"
             type="tracks">
             <template slot="corner">
-              <div class="Main_RowCorner">
+              <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
                 <template v-if="!user">
                   <div class="Main_SaveAllBox">
                     <button
@@ -118,7 +118,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
               @click="openDialogSearch()">
               <i class="ticon-plus_2 Main_EmptyAddIcon" aria-hidden="true"/>
-              <div class="Main_EmptyAdd">Add car</div>
+              <div class="Main_EmptyAdd">Search car</div>
             </button>
           </div>
         </div>
