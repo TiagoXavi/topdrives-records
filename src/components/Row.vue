@@ -7,15 +7,20 @@
     class="Row_Layout">
     <div
       v-for="(info, fx) in infosResolved"
-      class="Row_Item Row_Cell Row_ConfigCell">
+      class="Row_Item Row_Cell Row_ConfigCell"
+      @mouseleave="mouseLeaveTune($event)">
       <template v-if="info.type === 'Tune'">
         <div class="Row_Config">
-          <template v-if="!car.selectedTune">
+          <template v-if="!car.selectedTune || mouseInsideTuneBox">
             <div class="Row_TuneChooseBox">
               <button
                 v-for="item in tunes"
+                :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
                 class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
-                @click="changeTune(item)">{{ item }}</button>
+                @click="changeTune(item)">
+                {{ item }}
+                <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+                </button>
               <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
                 <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
               </button>
@@ -87,7 +92,7 @@
               <i class="ticon-arrow_up_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
-              :disabled="carIndex === maxCarNumber - 1"
+              :disabled="carIndex >= lastIndex"
               class="D_Button Row_DialogButtonTune"
               @click="$emit('move', { carIndex, direction: 'right' })">
               <i class="ticon-arrow_down_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
@@ -103,8 +108,8 @@
           <button
             v-for="item in tunes"
             :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
-            class="D_Button Row_DialogButtonTune D_ButtonNoActive"
-            @click="changeTune(item)">{{ item }}</button>
+            class="D_Button Row_DialogButtonTune"
+            @click="changeTune(item, false)">{{ item }}</button>
         </div>
         <div class="Row_DialogBody Space_TopPlus">
           <div class="Row_DialogCard">
@@ -180,6 +185,7 @@
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseText from '@/components/BaseText.vue';
 import BaseCard from '@/components/BaseCard.vue';
+import { debug } from 'logrocket';
 
 export default {
   name: 'Row',
@@ -208,6 +214,10 @@ export default {
       }
     },
     carIndex: {
+      type: Number,
+      default: -1
+    },
+    lastIndex: {
       type: Number,
       default: -1
     },
@@ -252,6 +262,7 @@ export default {
       card_speed: null,
       card_acel: null,
       card_hand: null,
+      mouseInsideTuneBox: false
     }
   },
   watch: {},
@@ -318,6 +329,18 @@ export default {
       if (this.car.class === "S") result.push("111");
       return result;
     },
+    tunesCount() {
+      if (!this.car.data) return {};
+      let result = {};
+      this.tunes.map(tune => {
+        if (this.car.data[tune]) {
+          if (this.car.data[tune].times) {
+            result[tune] = Object.keys(this.car.data[tune].times).length;
+          }
+        }
+      })
+      return result;
+    }
     
   },
   methods: {
@@ -396,7 +419,12 @@ export default {
       this.tuneDialog = true;
       this.$store.commit("SHOW_TUNE", true);
     },
-    changeTune(tune) {
+    changeTune(tune, insideBox = true) {
+      if (insideBox) this.mouseInsideTuneBox = true;
+      if (tune === this.car.selectedTune) {
+        tune = undefined
+      }
+
       this.$store.commit("CHANGE_TUNE", {
         tune,
         car: this.car
@@ -415,9 +443,14 @@ export default {
     mouseEnter(e) {
       var nodes = Array.prototype.slice.call( e.srcElement.parentElement.children );
       var liRef = e.srcElement;
+      this.mouseInsideTuneBox = false;
 
       this.$store.commit("HOVER_INDEX", nodes.indexOf( liRef ));
-    }
+    },
+    mouseLeaveTune(e) {
+      this.mouseInsideTuneBox = false;
+    },
+
   },
 }
 </script>
@@ -637,6 +670,7 @@ export default {
   border-radius: 6px;
   padding: 0 7px;
   min-height: calc( var(--height) * 0.8 );
+  position: relative;
 }
 .Row_TuneChooseBox {
   display: flex;

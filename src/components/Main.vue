@@ -37,7 +37,7 @@
                 <template v-if="!user">
                   <div class="Main_SaveAllBox">
                     <button
-                      class="D_Button Main_Share"
+                      class="D_Button Main_LoginToEdit"
                       @click="$router.push({ name: 'Login' })">Login to edit</button>
                   </div>
                 </template>
@@ -83,6 +83,7 @@
               :temp="temp"
               :car="car"
               :index="carIx"
+              :lastIndex="carDetailsList.length - 1"
               :trackList="currentTracks"
               :highlights="highlights[carIx]"
               :hoverIndex="hoverIndex"
@@ -155,7 +156,7 @@
               </div>
               <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
               <div class="Main_SearchItemRight">
-                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else class="Main_SearchItemYear">{{ item.mra }}</span>
+                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
               </div>
             </button>
           </template>
@@ -755,7 +756,7 @@ export default {
       // this.searchLoading = false;
       let result = [];
       // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
-      let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = null;
       let prePush;
       let tryFind;
@@ -1499,6 +1500,17 @@ body {
 .D_ButtonIcon {
   margin-right: 5px;
 }
+.D_ButtonNote {
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  font-size: 9px;
+  background-color: #bd0000;
+  color: white;
+  border-radius: 3px;
+  padding: 2px;
+  padding-right: 2.5px;
+}
 
 .D_Link {
   text-decoration: none;
@@ -1832,6 +1844,16 @@ body::-webkit-scrollbar-corner {
   padding: 8px 17px;
   min-height: calc( var(--height) * 0.8 );
 }
+.D_Button.Main_LoginToEdit {
+  --back-color: 44, 37, 16;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 1);
+  color: rgb(var(--d-text-yellow));
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
 .D_Button.Main_Share {
   background-color: rgba(0,0,0,0.2);
   font-size: 18px;
@@ -1945,6 +1967,7 @@ body::-webkit-scrollbar-corner {
   display: none;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 .Main_2 .Row_OrderBox {
   display: flex;
@@ -1989,6 +2012,12 @@ body::-webkit-scrollbar-corner {
 .Main_Compact .Car_Layout .Car_HeaderStatValue,
 .Main_Compact .Car_Layout .Car_HeaderStatLabel {
   padding-right: 1px;
+}
+.Main_Compact .Row_OrderBox {
+  display: flex;
+}
+.Main_Compact .Row_ConfigIcon {
+  transform: rotate(-90deg);
 }
 
 

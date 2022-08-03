@@ -20,6 +20,7 @@
         :highlights="highlights"
         :hoverIndex="hoverIndex"
         :carIndex="index"
+        :lastIndex="lastIndex"
         :maxCarNumber="maxCarNumber"
         :loggedin="loggedin"
         :user="user"
@@ -95,6 +96,10 @@ export default {
     },
     index: {
       required: true
+    },
+    lastIndex: {
+      type: Number,
+      default: -1
     },
     loggedin: {
       type: Boolean,
