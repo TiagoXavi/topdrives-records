@@ -142,6 +142,7 @@
             @input="searchInputFunc($event)">
         </div>
         <div v-if="searchResult.length > 0" class="Main_SearchMid">
+          <div v-if="showingLastest" class="Main_SearchLastestTitle">Last contributions</div>
           <template v-for="(item, index) in searchResult">
             <button
               v-if="index < searchMax"
@@ -154,7 +155,7 @@
               </div>
               <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
               <div class="Main_SearchItemRight">
-                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>
+                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else class="Main_SearchItemYear">{{ item.mra }}</span>
               </div>
             </button>
           </template>
@@ -287,6 +288,7 @@ export default {
       searchLoading: false,
       searchMax: 20,
       searchResult: [],
+      showingLastest: false,
       maxCarNumber: 12,
       alreadySearched: false,
       shareDialog: false,
@@ -409,28 +411,6 @@ export default {
         { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },//
         { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },//
       ],
-      allTracksIds: [
-          "carPark",
-          "gForce",
-          "hairpin",
-          "indoorKart",
-          "kart",
-          "slalom",
-          "tCircuit",
-          "tRoad",
-          "fast",
-          "csSmall",
-          "csMed",
-          "mile4",
-          "mile2",
-          "mile1",
-          "drag60",
-          "drag100",
-          "drag150",
-          "hClimb",
-          "testBowl",
-          "moto"
-      ],
 
       carList: [],
       //          0         1         2         3       4       5       6
@@ -463,14 +443,25 @@ export default {
       this.display(display);
     }
 
+    let allTracks = [];
+    this.tracksButtons.map(x => {
+      if (this[x.set]) {
+        this[x.set].map(y => {
+          if (!allTracks.includes(y)) {
+            allTracks.push(y);
+          }
+        })
+      }
+    })
+
     let tracks = window.localStorage.getItem("tracks");
     let tracksClear = [];
     if (tracks) {
       tracks = JSON.parse(tracks);
       // console.log(tracks.map(x => x.id));
       tracks.map(x => {
-        this.allTracksIds.find(y => {
-          if (x.id === y) {
+        allTracks.find(y => {
+          if (JSON.stringify(x) === JSON.stringify(y)) {
             tracksClear.push(x);
             return true;
           }
@@ -810,8 +801,40 @@ export default {
 
       this.searchResult = result;
       this.searchLoading = false;
+      this.showingLastest = false;
       this.alreadySearched = true;
 
+    },
+    showLastest(arrayLastest) {
+      let result = [];
+      let prePush;
+      
+      arrayLastest.map(y => {
+        this.all_cars.map(x => {
+          if (x.rid === y.rid) {
+            prePush = JSON.parse(JSON.stringify(x));
+            prePush.locatedName = x.name;
+            prePush.lastestUser = y.user;
+            result.push(prePush);
+          }
+        })
+      })
+      result.map(x => {
+        Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
+        Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
+        try {
+          Vue.set(x, "ridPhoto", '');
+          setTimeout(() => {
+            Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+          }, 1);
+        } catch (error) {
+          Vue.set(x, "ridPhoto", '');
+        }    
+      })
+
+      this.showingLastest = true;
+      this.searchMax = 100;
+      this.searchResult = result;
     },
     addCar(index) {
       if (this.carDetailsList.length < this.maxCarNumber) {
@@ -905,6 +928,7 @@ export default {
       this.updateCarLocalStorage();
     },
     getUser() {
+      // user
       axios.get(Vue.preUrl + "/getUser")
       .then(res => {
         if (res.data.username) {
@@ -918,13 +942,17 @@ export default {
       })
       .catch(error => {
         console.log(error);
-        // this.$store.commit("DEFINE_SNACK", {
-        //   active: true,
-        //   error: true,
-        //   text: error,
-        //   type: "error"
-        // });
       });
+
+      // lastest cars
+      axios.get(Vue.preUrl + "/lastest")
+      .then(res => {
+        this.showLastest(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     },
     logout() {
       axios.delete(Vue.preUrl + "/logout")
@@ -1173,7 +1201,7 @@ body {
   --back-s: 0%;
   --back-l: 15%;
   --d-back: #333;
-  --d-text: #999;
+  --d-text: #aaa;
   --d-text-b: #ccc;
   --d-text-green: 95, 181, 0;
   --d-text-green-b: 193, 217, 185;
@@ -1639,10 +1667,24 @@ body::-webkit-scrollbar-corner {
   margin-right: 2px;
 }
 .Main_SearchItemRight b {
-  color: #fffa;
+  color: #fffd;
   font-weight: normal;
   background-color: #fff1;
   box-shadow: 0px 0px 0px 1px #fff1;
+}
+.Main_SearchResultUser {
+  font-size: 0.8em;
+  margin-left: 0.1em;
+  margin-right: 2px;
+  color: rgb(225 179 33);
+}
+.Main_SearchLastestTitle {
+  font-size: 1.7em;
+  opacity: 0.3;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  white-space: nowrap;
 }
 .Main_SearchMore {
   font-size: 18px;

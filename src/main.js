@@ -8,8 +8,6 @@ import PortalVue from 'portal-vue';
 import 'focus-visible';
 import LogRocket from 'logrocket';
 
-
-LogRocket.init('detmgd/topdrives-records');
 Vue.config.productionTip = false
 
 window.axios = require('axios');
@@ -19,6 +17,7 @@ Vue.use(PortalVue);
 
 if (process.env.NODE_ENV === 'production') {
   Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
+  LogRocket.init('detmgd/topdrives-records');
 } else {
   Vue.preUrl = "http://localhost:3000";
 }
