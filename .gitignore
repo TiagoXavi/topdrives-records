@@ -3,6 +3,7 @@ node_modules
 /dist
 */imgs
 */cards_imgs
+cars_short.json
 
 
 # local env files

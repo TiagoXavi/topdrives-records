@@ -55,15 +55,16 @@ export default {
         },
         Vue.resolveStat = function (car, type) {
             if (car.selectedTune === null || car.selectedTune === undefined) {
-                return car[type] || "-"
+                if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
+                return car[type] || "-";
             }
-            if (typeof car.selectedTune !== 'string') return "err"
+            if (typeof car.selectedTune !== 'string') return "err";
             
             try {
                 if (!car.data[car.selectedTune].info[type]) return "-";
-                return car.data[car.selectedTune].info[type]
+                return car.data[car.selectedTune].info[type];
             } catch (error) {
-                return "-"
+                return "-";
             }
         },
         Vue.boldTunes = function (tune) {

@@ -11,7 +11,7 @@
           <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
             <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
           </button>
-          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true;">
+          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
             <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
           </button>
         </div>
@@ -192,8 +192,8 @@
       max-width="420px"
       min-width="240px"
       @close="shareDialog = false;">
-      <div class="Main_DialogTitle">Share</div>
       <div class="Main_ShareDialog">
+        <div class="Main_DialogTitle">Image</div>
         <div class="Main_ShareDownloadBox">
           <button
             style="font-size: 16px;"
@@ -202,6 +202,21 @@
             <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
             <span>Download PNG</span>
           </button>
+        </div>
+        <div class="Main_DialogTitle">Share link</div>
+        <div class="Main_ShareLinkBox">
+          <textarea
+            v-model="shareUrl"
+            id="shareLinkField"
+            rows="6"
+            class="Main_ShareLinkInput"
+            readonly="readonly" />
+          <button
+            :class="{ D_Button_Correct: copyUrlSucess }"
+            :disabled="copyUrlSucess"
+            style="font-size: 16px;"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="copyUrl()">Copy</button>
         </div>
       </div>
     </BaseDialog>
@@ -301,6 +316,8 @@ export default {
       needSave: false,
       saveLoading: false,
       downloadLoading: false,
+      shareUrl: null,
+      copyUrlSucess: false,
       // carDetailsList: default_cars,
       carDetailsList: [],
       all_cars: data_cars,
@@ -437,8 +454,6 @@ export default {
     // console.log(this.all_cars);
     // debugger;
 
-
-
     let display = window.localStorage.getItem("display");
     if (display) {
       this.display(display);
@@ -454,32 +469,74 @@ export default {
         })
       }
     })
+    
 
-    let tracks = window.localStorage.getItem("tracks");
-    let tracksClear = [];
-    if (tracks) {
-      tracks = JSON.parse(tracks);
-      // console.log(tracks.map(x => x.id));
-      tracks.map(x => {
+    if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
+      // from query string
+
+      let carsFromQuery = [];
+      let tracksFromQuery = [];
+
+      this.$route.query.share.split("~").map(x => {
+        if (x[0] === "C") {
+          carsFromQuery.push({ // car
+            rid: x.substr(1)
+          })
+        } else if (x[0] === "T") {
+          carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
+        } else if (x[0] === "K") {
+          tracksFromQuery.push({ // track
+            id: x.substr(0,x.indexOf("_a")).substr(1),
+            surface: x.substr(x.indexOf("_a")+2,1),
+            cond: x.substr(x.indexOf("_a")+3,1)
+          })
+
+        }
+      })
+
+      let tracksClear = [];
+      tracksFromQuery.map(x => {
         allTracks.find(y => {
-          if (JSON.stringify(x) === JSON.stringify(y)) {
-            tracksClear.push(x);
+          if (x.id === y.id && x.surface == y.surface && x.cond == y.cond) {
+            tracksClear.push(y);
             return true;
           }
         })
       })
-      // console.log(tracksClear);
       this.pushTrackSet(tracksClear);
-    }
-    if (this.currentTracks.length === 0) {
-      this.pushTrackSet(this.trackSet_DryTwisty);
+      this.prepareCars(carsFromQuery);
+
+    } else {
+      // from local storage
+
+      let tracks = window.localStorage.getItem("tracks");
+      let tracksClear = [];
+      if (tracks) {
+        tracks = JSON.parse(tracks);
+        // console.log(tracks.map(x => x.id));
+        tracks.map(x => {
+          allTracks.find(y => {
+            if (JSON.stringify(x) === JSON.stringify(y)) {
+              tracksClear.push(x);
+              return true;
+            }
+          })
+        })
+        // console.log(tracksClear);
+        this.pushTrackSet(tracksClear);
+      }
+      if (this.currentTracks.length === 0) {
+        this.pushTrackSet(this.trackSet_DryTwisty);
+      }
+  
+      let cars = window.localStorage.getItem("cars");
+      if (cars) {
+        this.prepareCars(JSON.parse(cars));
+      }
     }
 
-    let cars = window.localStorage.getItem("cars");
-    if (cars) {
-      this.prepareCars(JSON.parse(cars));
-    }
-    // this.calcCurrentTracks();
+
+    
   },
   mounted() {
     let vm = this;
@@ -631,6 +688,7 @@ export default {
     //   window.localStorage.setItem('trackset', JSON.stringify(result));
     //   this.currentTrackSet = result;
     // },
+
     pushTrackSet(trackset) {
       let index;
       trackset.map(x => {
@@ -1170,6 +1228,29 @@ export default {
         
         document.querySelector(".Main_Body").classList.remove("Main_BodyPrint");
       });
+    },
+    generateUrl() {
+      let result = `${window.location.origin}?share=`;
+      this.currentTracks.map(x => {
+        result += `~K${x.id}_a${x.surface}${x.cond}`
+      });
+      this.carDetailsList.map(x => {
+        result += `~C${x.rid}${x.selectedTune ? '~T'+x.selectedTune : '' }`
+      });
+
+      if (result.length > 2045) {
+        // não dá
+      }
+      this.shareUrl = result;
+
+    },
+    copyUrl() {
+      var copyText = document.getElementById("shareLinkField");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      navigator.clipboard.writeText(copyText.value);
+      this.copyUrlSucess = true;
+      setTimeout(() => { this.copyUrlSucess = false}, 1500);
     }
   },
 }
@@ -1575,21 +1656,25 @@ body {
 }
 .Main_SearchEmpty::-webkit-scrollbar,
 .Main_SearchMid::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 18px;
 }
 .Main_SearchEmpty::-webkit-scrollbar-track,
 .Main_SearchMid::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background-color: #0002;
 }
 .Main_SearchEmpty::-webkit-scrollbar-thumb,
 .Main_SearchMid::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: #555;
 }
 .Main_SearchEmpty::-webkit-scrollbar-corner,
 .Main_SearchMid::-webkit-scrollbar-corner,
+textarea::-webkit-scrollbar-corner,
 body::-webkit-scrollbar-corner {
   background-color: #222;
 }
@@ -1862,14 +1947,36 @@ body::-webkit-scrollbar-corner {
   min-height: calc( var(--height) * 0.8 );
 }
 .Main_DialogTitle {
-  color: var(--d-text-b);
+  color: rgb(var(--d-text-yellow));
   font-size: 1.2em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+.Main_DialogTitle:not(:first-child) {
+  margin-top: 25px;
 }
 .Main_ShareDownloadBox {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.Main_ShareLinkBox {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.Main_ShareLinkInput {
+  background-color: rgba(0,0,0,0.2);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--d-text);
+  padding: 6px;
+  resize: none;
+  margin-top: 2px;
+  flex-grow: 1;
+}
+.Main_ShareLinkInputCorrect {
+
 }
 
 

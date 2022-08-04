@@ -19,7 +19,7 @@
       <div class="TTT_Bottom">
         <button
           :class="{ D_Button_Loading: loading, D_Button_Error: input_error }"
-          :disabled="loading"
+          :disabled="loading || input_error"
           class="D_Button D_ButtonDark TTT_Button"
           @click="validate()">Send</button>
         <router-link
