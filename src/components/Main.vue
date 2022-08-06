@@ -132,17 +132,96 @@
       @close="closeDialogSearch()">
       <div class="Main_SearchBody">
         <div class="Main_SearchHeader">
-          <input
-            v-model="searchInput"
-            id="SearchInput"
-            placeholder="Search"
-            class="Main_SearchInput"
-            type="text"
-            @focus="searchFocus = true;"
-            @blur="searchBlur()"
-            @input="searchInputFunc($event)">
+          <div v-if="!isFiltering" class="Main_SearchFieldBox">
+            <input
+              v-model="searchInput"
+              id="SearchInput"
+              placeholder="Search"
+              class="Main_SearchInput"
+              type="text"
+              @focus="searchFocus = true;"
+              @blur="searchBlur()"
+              @input="searchInputFunc($event)">
+            <button
+              v-if="searchInput && searchInput.length > 0 || alreadySearched"
+              class="D_Button Main_SearchInputClose"
+              @click="searchInput = ''; searchResult = lastestContributionsResolved; alreadySearched = false; showingLastest = true;">
+              <i class="ticon-close_2" aria-hidden="true"/>
+            </button>
+          </div>
+          <!-- <button
+            class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
+            @click="isFiltering = !isFiltering">{{ isFiltering ? 'Done' : 'Filters' }}</button> -->
         </div>
-        <div v-if="searchResult.length > 0" class="Main_SearchMid">
+        <div v-if="isFiltering" class="Main_SearchMid">
+          <div class="Main_FilterItems">
+            <div class="Main_FilterChips Main_FilterClassChips">
+              <template v-for="(item, ix) in searchFilters.classes">
+                <BaseChip
+                  class="Main_ClassChip"
+                  activeClass="Main_ClassChipActive"
+                  :style="`--classC: ${searchFilters.classesColors[ix]}`"
+                  v-model="searchFilters.classesModel"
+                  :value="item" />
+              </template>
+            </div>
+            <BaseDualSlider
+              v-model="searchFilters.rqModel"
+              :min="searchFilters.rqStart"
+              :max="searchFilters.rqEnd"
+              label="RQ"
+              class="Main_FilterSlider" />
+            <BaseDualSlider
+              v-model="searchFilters.yearModel"
+              :min="searchFilters.yearStart"
+              :max="searchFilters.yearEnd"
+              label="Year"
+              class="Main_FilterSlider" />
+            <div class="Main_FilterChips">
+              <template v-for="(item, ix) in searchFilters.classes">
+                <BaseChip
+                  v-model="searchFilters.classesModel"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.topSpeedModel"
+                :min="searchFilters.topSpeedStart"
+                :max="searchFilters.topSpeedEnd"
+                label="Top Speed"
+                class="Main_FilterSlider" />
+              <BaseDualSlider
+                v-model="searchFilters.acelModel"
+                :min="searchFilters.acelStart"
+                :max="searchFilters.acelEnd"
+                :step="0.1"
+                label="0-60mph"
+                class="Main_FilterSlider" />
+            </div>
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.handModel"
+                :min="searchFilters.handStart"
+                :max="searchFilters.handEnd"
+                label="Handling"
+                class="Main_FilterSlider" />
+              <BaseDualSlider
+                v-model="searchFilters.mraModel"
+                :min="searchFilters.mraStart"
+                :max="searchFilters.mraEnd"
+                label="MRA"
+                class="Main_FilterSlider" />
+            </div>
+            <BaseDualSlider
+              v-model="searchFilters.weightModel"
+              :min="searchFilters.weightStart"
+              :max="searchFilters.weightEnd"
+              label="Weight"
+              class="Main_FilterSlider" />
+          </div>
+        </div>
+        <div v-else-if="searchResult.length > 0" class="Main_SearchMid">
           <div v-if="showingLastest" class="Main_SearchLastestTitle">Last contributions</div>
           <template v-for="(item, index) in searchResult">
             <button
@@ -160,10 +239,12 @@
               </div>
             </button>
           </template>
-          <button
-            v-if="searchMax === 20 && searchResult.length > 20"
-            class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
-            @click="searchMax = 100">Show more</button>
+          <div>
+            <button
+              v-if="searchMax === 20 && searchResult.length > 20"
+              class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
+              @click="searchMax = 100">Show more</button>
+          </div>
         </div>
         <div v-else-if="alreadySearched" class="Main_SearchEmpty">
           <i class="ticon-search_big Main_SearchEmptyAddIcon" aria-hidden="true"/>
@@ -275,6 +356,8 @@ import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
+import BaseDualSlider from './BaseDualSlider.vue'
+import BaseChip from './BaseChip.vue'
 import data_cars from '../database/cars_final.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -288,7 +371,9 @@ export default {
     BaseDialog,
     Loading,
     Logo,
-    BaseAvatar
+    BaseAvatar,
+    BaseDualSlider,
+    BaseChip
   },
   data() {
     return {
@@ -298,6 +383,7 @@ export default {
       temp: 1,
       searchInput: '',
       searchActive: false,
+      isFiltering: false,
       nextId: 0,
       searchFocus: false,
       debounceFilter: null,
@@ -318,6 +404,105 @@ export default {
       downloadLoading: false,
       shareUrl: null,
       copyUrlSucess: false,
+      searchFilters: {
+        yearStart: 1934,
+        yearEnd: 2021,
+        yearModel: [1934, 2021],
+        rqStart: 10,
+        rqEnd: 100,
+        rqModel: [10, 100],
+        topSpeedStart: 50,
+        topSpeedEnd: 330,
+        topSpeedModel: [50, 330],
+        acelStart: 1.6,
+        acelEnd: 35,
+        acelModel: [1.6, 35],
+        handStart: 35,
+        handEnd: 100,
+        handModel: [35, 100],
+        mraStart: 0,
+        mraEnd: 130,
+        mraModel: [0, 130],
+        weightStart: 350,
+        weightEnd: 3775,
+        weightModel: [350, 3775],
+        classes: ["F","E","D","C","B","A","S"],
+        classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
+        classesModel: [],
+        tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
+        tyresModel: [],
+        drives: ["FWD", "RWD", "4WD"],
+        drivesModel: [],
+        clearances: ["low", "mid", "high"],
+        clearancesModel: [],
+        countrys: ["JP", "DE", "US", "UK", "IT", "FR", "SE", "NL", "AT", "AU", "HR"],
+        countrysModel: [],
+        brands: [
+          "Acura",
+          "Alfa Romeo",
+          "AMC",
+          "Apollo", // logic "Gumpert"
+          "Ariel",
+          "Aston Martin",
+          "Audi",
+          "Austin",
+          "Bentley",
+          "BMW",
+          "Bugatti",
+          "Buick",
+          "Cadillac",
+          "Caterham",
+          "Chevrolet",
+          "Chrysler",
+          "Citroen",
+          "De Tomaso",
+          "Dodge",
+          "Donkervoort",
+          "DS",
+          "Fiat",
+          "Ford",
+          "GMC",
+          "Honda",
+          "Hummer",
+          "Infiniti",
+          "Jaguar",
+          "Koenigsegg",
+          "KTM",
+          "Lamborghini",
+          "Lancia",
+          "Land Rover",
+          "Lotus",
+          "Maserati",
+          "Mazda",
+          "McLaren",
+          "Mercedes-Benz",
+          "MG",
+          "Mini",
+          "Mitsubishi",
+          "Nissan",
+          "Pagani",
+          "Peugeot",
+          "Plymouth",
+          "Pontiac",
+          "Porsche",
+          "RAM",
+          "Renault",
+          "Rimac",
+          "Rover",
+          "RUF",
+          "SCG", // logic "Scuderia Cameron Glickenhaus"
+          "Smart",
+          "Spyker",
+          "Subaru",
+          "Suzuki",
+          "TVR",
+          "Vauxhall",
+          "Volkswagen",
+          "Volvo"
+        ],
+        brandsModel: [],
+      },
+      lastestContributionsResolved: [],
       // carDetailsList: default_cars,
       carDetailsList: [],
       all_cars: data_cars,
@@ -505,6 +690,8 @@ export default {
       })
       this.pushTrackSet(tracksClear);
       this.prepareCars(carsFromQuery);
+
+      this.$router.replace({'query': null});
 
     } else {
       // from local storage
@@ -893,6 +1080,7 @@ export default {
 
       this.showingLastest = true;
       this.searchMax = 100;
+      this.lastestContributionsResolved = result;
       this.searchResult = result;
     },
     addCar(index) {
@@ -1616,6 +1804,51 @@ body {
 }
 .Main_SearchHeader {
   width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.Main_SearchFieldBox {
+  position: relative;
+  flex-grow: 10;
+}
+.Main_SearchInputClose {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+.Main_SearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
+  transform: translateY(-42%);
+}
+.Main_FiltersButton {
+  border-radius: 0;
+  padding: 0 12px;
+  font-size: 1em;
+  color: var(--d-text-b);
+  --back-opac: 1;
+  --back-h: 203;
+  --back-s: 60%;
+  --back-l: 55%;
+  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) - 10%));
+  border-top-right-radius: 10px;
+  flex-grow: 1;
+  min-height: 74px;
+}
+.Main_FiltersButton:first-child {
+  border-top-left-radius: 10px;
+  font-size: 1.4em;
+}
+.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
+  color: #fff;
+  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) + 3%));
+}
+.Main_FiltersButton.D_ButtonNoActive.focus-visible {
+  color: #fff;
+  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) + 7%));
+}
+.Main_FiltersButton:active {
+  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) - 20%)) !important;
 }
 .Main_SearchBody {
   display: flex;
@@ -1627,17 +1860,22 @@ body {
   background-color: #222;
   border: none;
   padding: 25px;
+  padding-right: 45px;
   box-sizing: border-box;
   color: #ccc;
-  --input-color: 90, 90, 90;
-  box-shadow: inset 0px 0px 0px 3px rgba(var(--input-color), 1);
+  --back-h: 0;
+  --back-s: 0%;
+  --back-l: 35%;
+  box-shadow: inset 0px 0px 0px 3px hsl(var(--back-h), var(--back-s), var(--back-l));
   transition-duration: 0.2s;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
-.Main_SearchInput:focus {
+.Main_SearchInput.focus-visible {
   outline: none;
-  --input-color: 69, 155, 209;
+  --back-h: 203;
+  --back-s: 60%;
+  --back-l: 55%;
   background-color: #102e40;
   color: #fff;
 }
@@ -1712,7 +1950,8 @@ body::-webkit-scrollbar-corner {
   color: var(--d-text);
   align-items: center;
 }
-.Main_SearchItem:hover {
+.Main_SearchItem:hover,
+.Main_SearchItem.focus-visible {
   color: #fff6;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
@@ -1978,6 +2217,48 @@ body::-webkit-scrollbar-corner {
 .Main_ShareLinkInputCorrect {
 
 }
+.Main_FilterSlider {
+}
+.Main_FilterItems {
+  color: var(--d-text-b);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0 20px;
+}
+.Main_FilterSliderLabel {
+  text-align: center;
+  margin-top: 6px;
+}
+.Main_FilterDual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.Main_FilterChips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  gap: 15px;
+}
+.Main_FilterClassChips {
+  max-width: 430px;
+  width: 100%;
+  align-self: center;
+}
+.Main_ClassChip {
+  font-size: 1.2em;
+  transform: skewY(9deg);
+  font-weight: bold;
+  box-shadow: 0px 4px 0px -0.1px var(--classC);
+}
+.BaseChip.Main_ClassChip:hover,
+.BaseChip.Main_ClassChip.focus-visible {
+  box-shadow: 0px 0px 0px 4px var(--classC);
+}
+.Main_ClassChipActive {
+  background-color: var(--classC);
+  color: black;
+}
 
 
 
@@ -2224,6 +2505,9 @@ body::-webkit-scrollbar-corner {
   }
   .Main_UserName {
     font-size: 0.7em;
+  }
+  .Main_FilterClassChips {
+    gap: 5px;
   }
 }
 @media only screen and (min-width: 768px) {
