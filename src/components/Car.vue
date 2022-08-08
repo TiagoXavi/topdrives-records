@@ -521,12 +521,7 @@ export default {
   box-shadow: inset 0px -37px 28px -10px var(--class-color);
 }
 .Car_DragIcon {
-  width: 25px;
-  height: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 5px;
+  transform: rotate(45deg);
 }
 .Car_DragDot {
   background-color: white;

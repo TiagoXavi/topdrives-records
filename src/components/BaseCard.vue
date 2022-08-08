@@ -19,9 +19,7 @@
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
         <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
-          <div class="Car_DragIcon">
-            <div v-for="n in 9" class="Car_DragDot" />
-          </div>
+          <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
         </button>
         <button class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>

@@ -344,6 +344,63 @@
             </button>
           </div>
         </div>
+        <div class="Main_OptionsCredits">
+          <button
+            class="D_Button Main_OptionsButton"
+            @click="aboutDialog = true; optionsDialogActive = false;">
+            <span>About</span>
+            <svg class="Main_FavLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.7 59.8" style="enable-background:new 0 0 54.7 59.8" xml:space="preserve">
+              <path fill="#FFC717" d="m54.7 55.9-.5 1.3c-1 .8-2.3 1.4-4.1 1.9s-3.4.7-5 .7c-3.9 0-7-.8-9.4-2.3-2.3-1.5-4.5-4-6.6-7.6-.1-.1-.2-.2-.3-.5s-.8-1.5-2.1-3.8-2.5-4.2-3.8-5.5c-1.3-1.4-2.5-2-3.7-2h-1.4v20.6H0V0h27.8c7.6 0 13.4 1.7 17.6 5.2 4.1 3.5 6.2 8.3 6.2 14.4 0 1.7-.3 3.7-1 5.8s-1.9 4.1-3.6 5.9c-1.7 1.8-3.8 3.3-6.2 4.4.8.8 1.7 2 2.7 3.6 1.2 2 2.2 3.3 2.8 3.8.7.5 1.4.8 2.2.8.5 0 1.2-.2 2.2-.6l1.1.6 2.9 12zM27.1 26.4c1.7 0 3.2-.5 4.4-1.5 1.2-1 1.8-2.4 1.8-4.2 0-1.9-.6-3.4-1.8-4.5-1.2-1.1-2.7-1.7-4.4-1.7h-9.2v11.9h9.2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="aboutDialog"
+      :transparent="false"
+      max-width="420px"
+      min-width="240px"
+      @close="aboutDialog = false;">
+      <div style="position: relative;">
+        <div class="Main_DialogTitle">About</div>
+
+        <div class="Main_Disclaimer">
+          <div>This project was made by TiagoXavi and is not related to the Hutch Games Ltd.</div>
+          <div>Any problem or suggestion, message me or send an email.</div>
+        </div>
+
+        <div class="D_Center">
+          <a
+            href="https://discordapp.com/channels/@me/479266700462653440/"
+            class="D_Button D_ButtonDark D_ButtonDark2 Space_TopPlus"
+            target="_blank"
+            rel="noopener noreferrer">
+            <span>Message me on Discord</span>
+            <i class="ticon-internal D_ButtonIconRight" aria-hidden="true"/>
+          </a>
+        </div>
+        <div class="D_TextCenter Space_TopPlus">mighty.boy@topdrivesrecords.com</div>
+
+        <div class="Main_AboutFlag">
+          <div class="Main_AboutFlagBox">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 668.6 444.1" style="enable-background:new 0 0 668.6 444.1" xml:space="preserve">
+              <!-- <path style="fill:#149e3e" d="M0 0h668.5c.1 148 .1 296 0 444.1H0V0z"/> -->
+              <path style="fill:#ffde1d" d="M329.9 55c3.4.6 6.2 3.3 9.3 4.9 25.1 15.9 50.3 31.7 75.4 47.6 12.1 7.3 24 15 35.8 22.9 5.2 2.8 10.3 5.9 15.2 9.3 17.4 10.8 34.5 21.9 51.8 32.8 9.6 5.8 19 11.8 28.3 17.9 8.1 4.8 16.1 9.7 23.8 15.1 8.6 5.1 17.2 10.4 25.5 15.9.1.2.2.6.3.8-17.3 11.1-34.7 22.2-52.1 33-12.8 8.9-26.8 16.2-39.5 25.3-8.4 5.3-17.2 10.1-25.3 15.8-4.3 3.1-9.2 5.1-13.4 8.4-20.6 13-41.3 26-61.8 39.2-6.8 3.9-13.3 8-19.8 12.4-17.3 10.6-34.3 21.8-51.5 32.4-.9.7-1.8.7-2.6 0-7.4-4.1-14-9.3-21.5-13.4-4.8-3.8-10.2-6.4-15.2-9.8-36.4-22.6-72.4-45.9-108.8-68.5-6.3-3.6-12-8-18.3-11.5-9.5-6.3-19.1-12.4-28.9-18.3-8-5.3-16.1-10.4-24.4-15.3-10.7-7.5-22-13.9-33-21-3.9-3.2-8.9-4.9-12.4-8.6-.2-1.8 1.7-2.6 2.9-3.6 25.4-15.6 50.3-31.9 75.7-47.6 35.5-22.5 71.2-44.9 106.8-67.3 20.5-12.8 40.7-26.1 61.3-38.7 5.4-3.1 10.5-7.3 16.4-10.1z"/>
+              <defs>
+                <circle id="a" cx="330.1" cy="222.3" r="125.3"/>
+              </defs>
+              <use xlink:href="#a" style="overflow:visible;fill:#0b2675"/>
+              <clipPath id="b">
+                <use xlink:href="#a" style="overflow:visible"/>
+              </clipPath>
+              <g style="clip-path:url(#b)">
+                <path style="fill:#fffffe" d="m224.4 150.5.8-.1c20.7-1.5 41.6-.8 62.3 1.4 47.5 4.9 94.9 19.3 134 47.3 12.8 9 24.2 19.7 34.9 31.1l1.5 1.5c-1.4 16.4-5.9 32.5-13 47.3l.2-1c-.8 0-2.4.1-3.2.2-1.7-3.6-4.5-6.5-7.1-9.5-13.4-15.7-29.6-28.9-47.2-39.7-45.7-27.9-99.4-39.8-152.3-43.5-9.1-.1-18.1-1-27.1-.8 3.7-12.1 9.4-23.5 16.2-34.2z"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
       </div>
     </BaseDialog>
   </div>
@@ -397,6 +454,7 @@ export default {
       tuneDialogActive: false,
       optionsDialogActive: false,
       printImageDialog: false,
+      aboutDialog: false,
       hoverIndex: -1,
       user: null,
       needSave: false,
@@ -1769,6 +1827,9 @@ body {
 .D_ButtonIcon {
   margin-right: 5px;
 }
+.D_ButtonIconRight {
+  margin-left: 5px;
+}
 .D_ButtonNote {
   position: absolute;
   top: -6px;
@@ -2258,6 +2319,47 @@ body::-webkit-scrollbar-corner {
 .Main_ClassChipActive {
   background-color: var(--classC);
   color: black;
+}
+.Main_OptionsCredits {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.Main_FavLogo {
+  width: 18px;
+  margin: -5px 0px -5px 6px;
+}
+.Main_Disclaimer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.D_Center {
+  display: flex;
+  justify-content: center;
+}
+.D_TextCenter {
+  text-align: center;
+}
+.Main_AboutFlag {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.Main_AboutFlagBox {
+  background-color: rgb(20, 158, 62);
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  transform: rotate(45deg);
+  margin-top: 5px;
+  margin-left: -15px;
+}
+.Main_AboutFlagBox svg {
+  width: 30px;
 }
 
 
