@@ -145,13 +145,18 @@
             <button
               v-if="searchInput && searchInput.length > 0 || alreadySearched"
               class="D_Button Main_SearchInputClose"
-              @click="searchInput = ''; searchResult = lastestContributionsResolved; alreadySearched = false; showingLastest = true;">
+              @click="closeFilterText()">
               <i class="ticon-close_2" aria-hidden="true"/>
             </button>
           </div>
-          <!-- <button
+          <button
+            v-if="!isFiltering"
             class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-            @click="isFiltering = !isFiltering">{{ isFiltering ? 'Done' : 'Filters' }}</button> -->
+            @click="isFiltering = !isFiltering;">Filters<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
+          <button
+            v-else
+            class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
+            @click="applyFilter()">Done</button>
         </div>
         <div v-if="isFiltering" class="Main_SearchMid">
           <div class="Main_FilterItems">
@@ -177,12 +182,34 @@
               :max="searchFilters.yearEnd"
               label="Year"
               class="Main_FilterSlider" />
-            <div class="Main_FilterChips">
-              <template v-for="(item, ix) in searchFilters.classes">
-                <BaseChip
-                  v-model="searchFilters.classesModel"
-                  :value="item" />
-              </template>
+            <div class="Main_FilterThree">
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.tyres">
+                  <BaseChip
+                    v-model="searchFilters.tyresModel"
+                    class="BaseChip_MinWidth"
+                    :value="item">{{ item | convertTires }}</BaseChip>
+                </template>
+
+              </div>
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.drives">
+                  <BaseChip
+                    v-model="searchFilters.drivesModel"
+                    class="BaseChip_MinWidth"
+                    :value="item" />
+                </template>
+
+              </div>
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.clearances">
+                  <BaseChip
+                    v-model="searchFilters.clearancesModel"
+                    class="BaseChip_MinWidth"
+                    :value="item">{{ item.toUpperCase() }}</BaseChip>
+                </template>
+
+              </div>
             </div>
             <div class="Main_FilterDual">
               <BaseDualSlider
@@ -219,31 +246,64 @@
               :max="searchFilters.weightEnd"
               label="Weight"
               class="Main_FilterSlider" />
+            <div class="Main_FilterChips2">
+              <template v-for="(item, ix) in searchFilters.countrys">
+                <BaseChip
+                  v-model="searchFilters.countrysModel"
+                  class="BaseChip_ChipFlag"
+                  :value="item" >
+                  <BaseFlag :flag="item" />
+                </BaseChip>
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.brands">
+                <BaseChip
+                  v-model="searchFilters.brandsModel"
+                  class="BaseChip_MinWidth"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="D_Center" style="gap: 15px;">
+              <button
+                class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
+                @click="clearFilter()">Clear</button>
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="applyFilter()">Done</button>
+            </div>
           </div>
         </div>
         <div v-else-if="searchResult.length > 0" class="Main_SearchMid">
           <div v-if="showingLastest" class="Main_SearchLastestTitle">Last contributions</div>
           <template v-for="(item, index) in searchResult">
             <button
-              v-if="index < searchMax"
+              v-if="index < searchMax || showAllFilter"
               :style="{ '--color': item.classColor }"
               :class="{ Main_SearchItemAdded: item.added }"
               class="Main_SearchItem"
               @click="item.added ? '' : addCar(index)">
-              <div class="Main_SearchItemImg">
+              <div v-if="!showAllFilter" class="Main_SearchItemImg">
                 <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
               </div>
+              <div v-else class="Main_ImgPlaceholder"></div>
               <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
               <div class="Main_SearchItemRight">
                 <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
               </div>
             </button>
           </template>
-          <div>
+          <div v-if="!showAllFilter">
+            <template v-if="searchMax > 200">
+              <div class="Main_FilterMaxReached">Showing only 200 cars</div>
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
+                @click="changeFilter(true)">Show all (slow)</button>
+            </template>
             <button
-              v-if="searchMax === 20 && searchResult.length > 20"
+              v-else-if="searchResult.length > searchMax"
               class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
-              @click="searchMax = 100">Show more</button>
+              @click="searchMax = searchMax + 41">Show more</button>
           </div>
         </div>
         <div v-else-if="alreadySearched" class="Main_SearchEmpty">
@@ -415,6 +475,7 @@ import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
+import BaseFlag from './BaseFlag.vue'
 import data_cars from '../database/cars_final.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -430,7 +491,8 @@ export default {
     Logo,
     BaseAvatar,
     BaseDualSlider,
-    BaseChip
+    BaseChip,
+    BaseFlag
   },
   data() {
     return {
@@ -446,6 +508,7 @@ export default {
       debounceFilter: null,
       searchLoading: false,
       searchMax: 20,
+      showAllFilter: false,
       searchResult: [],
       showingLastest: false,
       maxCarNumber: 12,
@@ -462,28 +525,29 @@ export default {
       downloadLoading: false,
       shareUrl: null,
       copyUrlSucess: false,
+      filterCount: 0,
       searchFilters: {
         yearStart: 1934,
         yearEnd: 2021,
-        yearModel: [1934, 2021],
+        yearModel: [],
         rqStart: 10,
         rqEnd: 100,
-        rqModel: [10, 100],
+        rqModel: [],
         topSpeedStart: 50,
         topSpeedEnd: 330,
-        topSpeedModel: [50, 330],
+        topSpeedModel: [],
         acelStart: 1.6,
         acelEnd: 35,
-        acelModel: [1.6, 35],
+        acelModel: [],
         handStart: 35,
         handEnd: 100,
-        handModel: [35, 100],
+        handModel: [],
         mraStart: 0,
         mraEnd: 130,
-        mraModel: [0, 130],
+        mraModel: [],
         weightStart: 350,
         weightEnd: 3775,
-        weightModel: [350, 3775],
+        weightModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
@@ -491,7 +555,7 @@ export default {
         tyresModel: [],
         drives: ["FWD", "RWD", "4WD"],
         drivesModel: [],
-        clearances: ["low", "mid", "high"],
+        clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
         countrys: ["JP", "DE", "US", "UK", "IT", "FR", "SE", "NL", "AT", "AU", "HR"],
         countrysModel: [],
@@ -672,6 +736,38 @@ export default {
         { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },//
         { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },//
       ],
+      customTracks: [
+        { name: "Forest Road", id: "forest", surface: 0, cond: 0 },//
+        { name: "Monaco City Street", id: "mnCity", surface: 0, cond: 0 },//
+        { name: "Monaco City Street Long", id: "mnCityLong", surface: 0, cond: 0 },//
+        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0 },//
+        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0 },//
+        { name: "Monaco Narrow Street", id: "mnNarrow", surface: 0, cond: 0 },//
+        { name: "Waterfront drag", id: "waterDrag", surface: 0, cond: 0 },//
+
+        { name: "Canyon Tour", id: "canyonTour", surface: 0, cond: 0 },//
+        { name: "", id: "mtTwisty", surface: 0, cond: 0 },//
+        { name: "", id: "mtHill", surface: 0, cond: 0 },//
+        { name: "", id: "mtHairpin", surface: 0, cond: 0 },//
+        { name: "", id: "mtTour", surface: 0, cond: 0 },//
+        { name: "", id: "mtIncline", surface: 0, cond: 0 },//
+        { name: "", id: "mtSlalom", surface: 0, cond: 0 },//
+
+        { name: "", id: "northloop", surface: 0, cond: 0 },//
+        { name: "", id: "northloop1", surface: 0, cond: 0 },//
+        { name: "", id: "northloop2", surface: 0, cond: 0 },//
+        { name: "", id: "northloop3", surface: 0, cond: 0 },//
+        { name: "", id: "northloop4", surface: 0, cond: 0 },//
+        { name: "", id: "northloop5", surface: 0, cond: 0 },//
+
+        { name: "", id: "tokyoOffRamp", surface: 0, cond: 0 },//
+        { name: "", id: "tokyoLoop", surface: 0, cond: 0 },//
+        { name: "", id: "tokyoOverpass", surface: 0, cond: 0 },//
+        { name: "", id: "tokyoGforce", surface: 0, cond: 0 },//
+        { name: "", id: "tokyoDrag", surface: 0, cond: 0 },//
+
+        
+      ],
 
       carList: [],
       //          0         1         2         3       4       5       6
@@ -696,6 +792,7 @@ export default {
     // })
     // console.log(this.all_cars);
     // debugger;
+    this.clearFilter();
 
     let display = window.localStorage.getItem("display");
     if (display) {
@@ -1023,8 +1120,11 @@ export default {
     },
     openDialogSearch() {
       this.searchActive = true;
+      this.isFiltering = false;
       setTimeout(() => {
-        document.querySelector("#SearchInput").focus();
+        try {
+          document.querySelector("#SearchInput").focus();  
+        } catch (error) {}
       }, 10);
       if (this.searchInput && this.searchInput.length > 0) {
         this.changeFilter();
@@ -1054,35 +1154,64 @@ export default {
       this.debounceFilter();
       // this.searchLoading = true;
     },
-    changeFilter() {
+    changeFilter(showAll = false) {
       // console.log("changeFilter");
       // this.searchLoading = false;
       let result = [];
       // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-      let strIndex = null;
+      let strIndex = -1;
       let prePush;
       let tryFind;
-      if (searchStr === "") {
+      this.resolveFilterCount();
+      if (searchStr === "" && this.filterCount === 0) {
         this.searchLoading = false;
         return [];
       }
 
+      // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 100) {
-          strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
-          if (strIndex > -1) {
+        if (result.length < 200 || showAll) {
+
+          let shouldPush = false;
+          if (searchStr && searchStr !== "") {
+            strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
+          } else {
+            strIndex = -2;
+          }
+
+          if (this.filterCount > 0) {
+            if (strIndex > -1 || strIndex === -2) {
+              if (this.checkMatchFilter(x)) {
+                shouldPush = true;
+              }
+            }
+          } else {
+            if (strIndex > -1) {
+              shouldPush = true;
+            }
+          }
+
+          if (shouldPush) {
             prePush = JSON.parse(JSON.stringify(x));
-            prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
-            prePush.locatedIndex = strIndex;
-            if (x.name[strIndex - 1] === ' ') {
-              prePush.locatedPlus = true;
+            if (strIndex > -1) {
+              prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
+              prePush.locatedIndex = strIndex;
+              if (x.name[strIndex - 1] === ' ') {
+                prePush.locatedPlus = true;
+              }
+            } else {
+              prePush.locatedName = x.name;
             }
 
             result.push(prePush);
           }
+
+
         }
       })
+
+      // class and photo
       result.map(x => {
         Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
         Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
@@ -1095,11 +1224,15 @@ export default {
           Vue.set(x, "ridPhoto", '');
         }    
       })
-      result.sort(function(a, b) {
-        if (a.locatedPlus && !b.locatedPlus) return -1;
-        if (b.locatedPlus && !a.locatedPlus) return 1;
-        return a.locatedIndex - b.locatedIndex;
-      });
+
+      // inteligent sort
+      if (searchStr && searchStr !== "") {
+        result.sort(function(a, b) {
+          if (a.locatedPlus && !b.locatedPlus) return -1;
+          if (b.locatedPlus && !a.locatedPlus) return 1;
+          return a.locatedIndex - b.locatedIndex;
+        });
+      }
 
       this.searchMax = 20;
 
@@ -1107,6 +1240,7 @@ export default {
       this.searchLoading = false;
       this.showingLastest = false;
       this.alreadySearched = true;
+      this.showAllFilter = showAll;
 
     },
     showLastest(arrayLastest) {
@@ -1381,8 +1515,20 @@ export default {
       this.downloadLoading = true;
 
       axios.get(Vue.preUrl + "/car/" + rid)
-      .then(res => {        
-        this.applyNewData([res.data]);
+      .then(res => {
+        if (
+            res.data === "" ||
+            !res.data.data ||
+            (!res.data.data["233"] && !res.data.data["323"] && !res.data.data["332"] && !res.data.data["111"]) ||
+            (!res.data.data["233"].times && !res.data.data["323"].times && !res.data.data["332"].times && !res.data.data["111"].times)
+          ) {
+          let car = this.carDetailsList.find(x => {
+            return x.rid === rid
+          });
+          Vue.set(car, "isEmpty", true)
+        } else {
+          this.applyNewData([res.data]);
+        }
       })
       .catch(error => {
         console.log(error);
@@ -1497,6 +1643,110 @@ export default {
       navigator.clipboard.writeText(copyText.value);
       this.copyUrlSucess = true;
       setTimeout(() => { this.copyUrlSucess = false}, 1500);
+    },
+    defaultFilters(type) {
+      if (type === "yearModel") return [1934, 2021];
+      if (type === "rqModel") return [10, 100];
+      if (type === "topSpeedModel") return [50, 330];
+      if (type === "acelModel") return [1.6, 35];
+      if (type === "handModel") return [35, 100];
+      if (type === "mraModel") return [0, 130];
+      if (type === "weightModel") return [350, 3775];
+      // if (type === "classesModel") return [];
+      // if (type === "tyresModel") return [];
+      // if (type === "drivesModel") return [];
+      // if (type === "clearancesModel") return [];
+      // if (type === "countrysModel") return [];
+      // if (type === "brandsModel") return [];
+    },
+    clearFilter() {
+      this.searchFilters.yearModel = this.defaultFilters("yearModel");
+      this.searchFilters.rqModel = this.defaultFilters("rqModel");
+      this.searchFilters.topSpeedModel = this.defaultFilters("topSpeedModel");
+      this.searchFilters.acelModel = this.defaultFilters("acelModel");
+      this.searchFilters.handModel = this.defaultFilters("handModel");
+      this.searchFilters.mraModel = this.defaultFilters("mraModel");
+      this.searchFilters.weightModel = this.defaultFilters("weightModel");
+      this.searchFilters.classesModel = [];
+      this.searchFilters.tyresModel = [];
+      this.searchFilters.drivesModel = [];
+      this.searchFilters.clearancesModel = [];
+      this.searchFilters.countrysModel = [];
+      this.searchFilters.brandsModel = [];
+    },
+    resolveFilterCount() {
+      let defaults = {
+        yearModel: this.defaultFilters("yearModel"),
+        rqModel: this.defaultFilters("rqModel"),
+        topSpeedModel: this.defaultFilters("topSpeedModel"),
+        acelModel: this.defaultFilters("acelModel"),
+        handModel: this.defaultFilters("handModel"),
+        mraModel: this.defaultFilters("mraModel"),
+        weightModel: this.defaultFilters("weightModel"),
+        classesModel: [],
+        tyresModel: [],
+        drivesModel: [],
+        clearancesModel: [],
+        countrysModel: [],
+        brandsModel: []
+      }
+      let count = 0;
+
+      let vm = this;
+      Object.keys( this.searchFilters ).forEach(function (key) {
+        if (key.includes("Model")) {
+          if (defaults[key] && JSON.stringify(vm.searchFilters[key]) !== JSON.stringify(defaults[key])) {
+            count++;
+          }
+        }
+      });
+
+      this.filterCount = count;
+    },
+    checkMatchFilter(car) {
+      // between
+      if ( !this.filterCheckBetween(car.year, this.searchFilters.yearModel) ) return false;
+      if ( !this.filterCheckBetween(car.rq, this.searchFilters.rqModel) ) return false;
+      if ( !this.filterCheckBetween(car.topSpeed, this.searchFilters.topSpeedModel) ) return false;
+      if ( JSON.stringify(this.searchFilters.acelModel) !== JSON.stringify(this.defaultFilters("acelModel")) ) {
+        if ( !this.filterCheckBetween(car.acel, this.searchFilters.acelModel) ) return false;
+      }
+      if ( !this.filterCheckBetween(car.hand, this.searchFilters.handModel) ) return false;
+      if ( JSON.stringify(this.searchFilters.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
+        if ( !this.filterCheckBetween(car.mra, this.searchFilters.mraModel) ) return false;
+      }
+      if ( !this.filterCheckBetween(car.weight, this.searchFilters.weightModel) ) return false;
+
+      // includes
+      if ( !this.filterCheckIncludes(car.class, this.searchFilters.classesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.tyres, this.searchFilters.tyresModel) ) return false;
+      if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+      if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
+
+
+      return true;
+    },
+    filterCheckBetween(value, array) {
+      return value >= array[0] && value <= array[1]
+    },
+    filterCheckIncludes(value, array) {
+      if (array.length === 0) return true;
+      return array.includes(value);
+    },
+    applyFilter() {
+      this.changeFilter();
+      this.isFiltering = false;
+      let container = document.querySelector(".Main_SearchMid");
+      container.scrollTo({ top: 0 });
+    },
+    closeFilterText() {
+      this.searchInput = '';
+      this.searchResult = this.lastestContributionsResolved;
+      this.alreadySearched = false;
+      this.showingLastest = true;
+      this.showAllFilter = false;
     }
   },
 }
@@ -1719,6 +1969,13 @@ body {
   background-color: rgba(255,255,255,0.1);
   --back-opac: 0.2;
 }
+.D_ButtonDarkTransparent {
+  background-color: rgba(255,255,255,0.0);
+  --back-opac: 0.2;
+}
+.D_ButtonBig {
+  padding: 12px 15px;
+}
 .D_Button.focus-visible:not(.D_ButtonNoActive) {
   outline: none;
   background-color: rgba(var(--back-color), 0.3);
@@ -1841,6 +2098,22 @@ body {
   padding: 2px;
   padding-right: 2.5px;
 }
+.D_ButtonDarkPrimary {
+  --btn-h: 46;
+  --btn-s: 95%;
+  --btn-l: 54%;
+  background-color: hsl(var(--btn-h), var(--btn-s), var(--btn-l));
+  color: black;
+}
+.D_ButtonDarkPrimary.focus-visible:not(.D_ButtonNoActive) {
+  outline: none;
+  background-color: hsl(var(--btn-h), var(--btn-s), 40%);
+  color: black;
+}
+.D_ButtonDarkPrimary:hover:not(.D_ButtonActive):not([disabled]) {
+  background-color: hsl(var(--btn-h), var(--btn-s), 40%);
+  color: black;
+}
 
 .D_Link {
   text-decoration: none;
@@ -1895,6 +2168,7 @@ body {
   border-top-right-radius: 10px;
   flex-grow: 1;
   min-height: 74px;
+  position: relative;
 }
 .Main_FiltersButton:first-child {
   border-top-left-radius: 10px;
@@ -1910,6 +2184,16 @@ body {
 }
 .Main_FiltersButton:active {
   background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) - 20%)) !important;
+}
+.Main_FiltersButtonCount {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 12px;
+  background-color: #bd0000;
+  color: white;
+  border-radius: 23px;
+  padding: 4px 6px;
 }
 .Main_SearchBody {
   display: flex;
@@ -2088,6 +2372,20 @@ body::-webkit-scrollbar-corner {
   margin-top: 11px;
   margin-left: 62px;
   padding: 12px 15px;
+}
+.Main_FilterMaxReached {
+  margin-top: 11px;
+  margin-left: 62px;
+  padding: 12px 0px;
+  color: rgb(var(--d-text-yellow));
+}
+.Main_ImgPlaceholder {
+  width: 52px;
+  height: 36px;
+  background-color: #222222;
+  margin-right: 10px;
+  margin-top: -6px;
+  margin-bottom: -6px;
 }
 .Space_Bottom { 
   margin-bottom: 10px;
@@ -2296,15 +2594,37 @@ body::-webkit-scrollbar-corner {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
+.Main_FilterThree {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 15px;
+}
 .Main_FilterChips {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
   gap: 15px;
 }
+.Main_FilterChips2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 61px));
+  gap: 15px;
+  justify-content: center;
+}
+.Main_FilterChipsFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 .Main_FilterClassChips {
   max-width: 430px;
   width: 100%;
   align-self: center;
+}
+.Main_FilterChipsInside {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .Main_ClassChip {
   font-size: 1.2em;
@@ -2451,16 +2771,19 @@ body::-webkit-scrollbar-corner {
   /* box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500; */
 }
 .Main_2 .Row_ConfigCell {
-  width: calc(var(--cell-width) * 2);
+  width: calc(var(--cell-width) * 2.1);
 }
 .Row_OrderBox {
-  display: none;
+  display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 10px;
 }
 .Main_2 .Row_OrderBox {
   display: flex;
+}
+.Main_2 .Row_ConfigIcon {
+  transform: rotate(90deg);
 }
 .Main_2 .Row_TuneChooseBox .Row_ConfigButton:nth-child(5) {
   display: none;
@@ -2502,12 +2825,6 @@ body::-webkit-scrollbar-corner {
 .Main_Compact .Car_Layout .Car_HeaderStatValue,
 .Main_Compact .Car_Layout .Car_HeaderStatLabel {
   padding-right: 1px;
-}
-.Main_Compact .Row_OrderBox {
-  display: flex;
-}
-.Main_Compact .Row_ConfigIcon {
-  transform: rotate(-90deg);
 }
 
 
@@ -2571,6 +2888,9 @@ body::-webkit-scrollbar-corner {
 .Main_BodyPrint .Car_HeaderName {
   margin-top: -1px;
 }
+.Main_BodyPrint .Row_EmptyInvite {
+  display: none;
+}
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockHandling,
@@ -2610,6 +2930,12 @@ body::-webkit-scrollbar-corner {
   }
   .Main_FilterClassChips {
     gap: 5px;
+  }
+  .Main_FilterDual {
+    grid-template-columns: 1fr;
+  }
+  .Main_FilterThree {
+    grid-template-columns: 1fr;
   }
 }
 @media only screen and (min-width: 768px) {

@@ -81,6 +81,11 @@
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)"></div>
 
+    <div v-if="car.isEmpty && type === 'times'" class="Row_EmptyInvite">
+      <div>No records</div>
+    </div>
+
+
     <portal v-if="tuneDialog" to="tunedialog">
       <div class="Row_DialogLayout">
         <div class="Row_OrderBox">
@@ -89,13 +94,13 @@
               :disabled="carIndex === 0"
               class="D_Button Row_DialogButtonTune"
               @click="$emit('move', { carIndex, direction: 'left' })">
-              <i class="ticon-arrow_up_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+              <i class="ticon-arrow_left_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
               :disabled="carIndex >= lastIndex"
               class="D_Button Row_DialogButtonTune"
               @click="$emit('move', { carIndex, direction: 'right' })">
-              <i class="ticon-arrow_down_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+              <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
               class="D_Button Row_DialogButtonTune"
@@ -712,6 +717,30 @@ export default {
   border-radius: 5px;
   display: flex;
   gap: 10px;
+}
+.Row_Times {
+  position: relative;
+}
+.Row_EmptyInvite {
+  position: absolute;
+  top: calc(var(--cell-height) * 1.3 + 4%);
+  display: flex;
+  width: 90%;
+  left: 5%;
+  background-color: #00000054;
+  padding: 14px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.Main_2 .Row_EmptyInvite {
+  top: 3px;
+  left: calc(var(--cell-width) * 2.1 + 10px);
+  width: max-content;
+  padding: 5px 15px;
+  justify-content: center;
 }
 
 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640.2 480" style="enable-background:new 0 0 640.2 480" xml:space="preserve">
+  <path style="fill:#fff" d="M.2 0h640v480.1H.2z"/>
+  <path style="fill:#bd3d44" d="M0 0h640.2v36.9H0zM0 73.8h640.2v36.9H0zM0 147.7h640.2v36.9H0zM0 221.5h640.2v36.9H0zM0 295.4h640.2v36.9H0zM0 369.2h640.2v36.9H0zM0 443.1h640.2V480H0z"/>
+  <path style="fill:#192f5d" d="M0 0h309v258.5H0z"/>
+  <g>
+    <circle style="fill:#fff" cx="36.9" cy="35.6" r="14.9"/>
+    <circle style="fill:#fff" cx="95.1" cy="35.6" r="14.9"/>
+    <circle style="fill:#fff" cx="153.4" cy="35.6" r="14.9"/>
+    <circle style="fill:#fff" cx="211.6" cy="35.6" r="14.9"/>
+    <circle style="fill:#fff" cx="269.9" cy="35.6" r="14.9"/>
+    <g>
+      <circle style="fill:#fff" cx="36.9" cy="97.6" r="14.9"/>
+      <circle style="fill:#fff" cx="95.1" cy="97.6" r="14.9"/>
+      <circle style="fill:#fff" cx="153.4" cy="97.6" r="14.9"/>
+      <circle style="fill:#fff" cx="211.6" cy="97.6" r="14.9"/>
+      <circle style="fill:#fff" cx="269.9" cy="97.6" r="14.9"/>
+    </g>
+    <g>
+      <circle style="fill:#fff" cx="36.9" cy="159.7" r="14.9"/>
+      <circle style="fill:#fff" cx="95.1" cy="159.7" r="14.9"/>
+      <circle style="fill:#fff" cx="153.4" cy="159.7" r="14.9"/>
+      <circle style="fill:#fff" cx="211.6" cy="159.7" r="14.9"/>
+      <circle style="fill:#fff" cx="269.9" cy="159.7" r="14.9"/>
+    </g>
+    <g>
+      <circle style="fill:#fff" cx="36.9" cy="221.8" r="14.9"/>
+      <circle style="fill:#fff" cx="95.1" cy="221.8" r="14.9"/>
+      <circle style="fill:#fff" cx="153.4" cy="221.8" r="14.9"/>
+      <circle style="fill:#fff" cx="211.6" cy="221.8" r="14.9"/>
+      <circle style="fill:#fff" cx="269.9" cy="221.8" r="14.9"/>
+    </g>
+  </g>
+</svg>

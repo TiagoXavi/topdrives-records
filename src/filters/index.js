@@ -72,13 +72,21 @@ export default {
 
             return tune.replaceAll('2', '<s>2</s>')
         },
+        Vue.convertTires = function (tyre) {
+            if (tyre === "Performance") return "PER";
+            else if (tyre === "Standard") return "STD";
+            else if (tyre === "All-surface") return "ALL";
+            else if (tyre === "Off-road") return "OFF";
+            else if (tyre === "Slick") return "SLK";
+        },
 
 
         Vue.filter('toTimeString', toTimeString),
         Vue.filter('toTimeNumber', toTimeNumber),
         Vue.filter('clearNumber', clearNumber),
         Vue.filter('resolveClass', Vue.resolveClass),
-        Vue.filter('resolveStat', Vue.resolveStat)
-        Vue.filter('boldTunes', Vue.boldTunes)
+        Vue.filter('resolveStat', Vue.resolveStat),
+        Vue.filter('boldTunes', Vue.boldTunes),
+        Vue.filter('convertTires', Vue.convertTires)
     }
 };

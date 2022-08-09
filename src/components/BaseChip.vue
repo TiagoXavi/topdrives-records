@@ -3,7 +3,7 @@
     :class="`${isSelected ? activeClass : ''}`"
     class="BaseChip"
     @click="toggle">
-    <span class="BaseChip_Text">{{ value }}</span>
+    <span class="BaseChip_Text"><slot>{{ value }}</slot></span>
   </button>
 </template>
 
@@ -118,6 +118,10 @@ export default {
 .BaseChip_Active.focus-visible {
   box-shadow: inset 0px 0px 0px 3px var(--active-color);
 } */
+.BaseChip_MinWidth {
+  width: auto;
+  padding: 7px 13px;
+}
 
 .BaseChip_AddButton {
   margin: 0px;
@@ -134,5 +138,15 @@ export default {
 }
 .BaseChip_Text i + span {
   line-height: 19px;
+}
+.BaseChip_ChipFlag {
+  height: 49px;
+}
+.BaseChip_ChipFlag .BaseChip_Text {
+  width: 100%;
+  height: 100%;
+}
+.BaseChip_ChipFlag svg {
+
 }
 </style>

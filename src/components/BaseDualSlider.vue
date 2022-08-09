@@ -128,6 +128,7 @@ export default {
   width: calc(100% - 30px);
   margin-left: 15px;
   margin-top: 32px;
+  margin-bottom: 12px;
 }
 .BaseDualSlider_Fill {
   position: absolute;
