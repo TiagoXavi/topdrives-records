@@ -103,7 +103,7 @@
               <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
-              class="D_Button Row_DialogButtonTune"
+              class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
               @click="$emit('delete')">
               <i class="ticon-close_3 Row_ConfigIcon " aria-hidden="true"/>
             </button>
@@ -609,6 +609,11 @@ export default {
   font-size: 1.2em;
   padding: 0 9px;
   border-radius: 0;
+}
+.D_Button.Row_DialogButtonClose {
+  background-color: #d5000033;
+  --back-color: 200, 0, 0;
+  --back-opac: 0.4;
 }
 .Row_DialogHeader {
   display: flex;

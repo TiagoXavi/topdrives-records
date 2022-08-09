@@ -621,4 +621,10 @@ export default {
   color: var(--class-color);
   font-weight: normal;
 }
+
+@media (pointer:coarse) {
+  .Car_HeaderToolsHoverContainer {
+    display: none;
+  }
+}
 </style>
