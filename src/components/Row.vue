@@ -81,7 +81,7 @@
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)"></div>
 
-    <div v-if="car.isEmpty && type === 'times'" class="Row_EmptyInvite">
+    <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
       <div>No records</div>
     </div>
 
