@@ -511,7 +511,7 @@ export default {
       showAllFilter: false,
       searchResult: [],
       showingLastest: false,
-      maxCarNumber: 12,
+      maxCarNumber: 24,
       alreadySearched: false,
       shareDialog: false,
       tuneDialogActive: false,
@@ -1520,7 +1520,12 @@ export default {
             res.data === "" ||
             !res.data.data ||
             (!res.data.data["233"] && !res.data.data["323"] && !res.data.data["332"] && !res.data.data["111"]) ||
-            (!res.data.data["233"].times && !res.data.data["323"].times && !res.data.data["332"].times && !res.data.data["111"].times)
+            (
+              (!res.data.data["233"] || !res.data.data["233"].times) &&
+              (!res.data.data["323"] || !res.data.data["323"].times) &&
+              (!res.data.data["332"] || !res.data.data["332"].times) &&
+              (!res.data.data["111"] || !res.data.data["111"].times)
+            )
           ) {
           let car = this.carDetailsList.find(x => {
             return x.rid === rid
