@@ -16,7 +16,8 @@ Vue.use(filters);
 Vue.use(PortalVue);
 
 if (process.env.NODE_ENV === 'production') {
-  Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
+  // Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
+  Vue.preUrl = "https://api.topdrivesrecords.com";
   LogRocket.init('detmgd/topdrives-records');
 } else {
   Vue.preUrl = "http://localhost:3000";

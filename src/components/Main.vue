@@ -1844,7 +1844,7 @@ body {
   min-height: calc(100% - var(--top-height));
 
   /* pra preencher mobile */
-  box-shadow: 0px 50vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l));
+  box-shadow: 0px 50vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l)), 0px 110vh 0px 0px hsl(var(--back-h), var(--back-s), var(--back-l));
   user-select: text;
   display: flex;
   flex-direction: column;
