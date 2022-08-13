@@ -41,11 +41,23 @@
                   :value="item" />
               </template>
             </div>
-            <div style="margin: 10px auto 0 auto;">
+            <div class="Main_FilterChipsInside" style="margin: 10px auto 0 auto;">
               <BaseChip
                 v-model="searchFilters.onlyNewRarityModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
-                :value="true">Rarity changed only</BaseChip>
+                :value="true">Rarity changed</BaseChip>
+              <BaseChip
+                v-model="searchFilters.onlyNewTyresModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">Tyres changed</BaseChip>
+              <BaseChip
+                v-model="searchFilters.onlyNewDriveModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">Drive changed</BaseChip>
+              <BaseChip
+                v-model="searchFilters.onlyNewClearanceModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">Clearance changed</BaseChip>
             </div>
             <BaseDualSlider
               v-model="searchFilters.rqModel"
@@ -322,6 +334,9 @@ export default {
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
         onlyNewRarityModel: [],
+        onlyNewTyresModel: [],
+        onlyNewDriveModel: [],
+        onlyNewClearanceModel: [],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
         tyresModel: [],
         drives: ["FWD", "RWD", "4WD"],
@@ -654,6 +669,9 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.classesModel = [];
       this.searchFilters.onlyNewRarityModel = [];
+      this.searchFilters.onlyNewTyresModel = [];
+      this.searchFilters.onlyNewDriveModel = [];
+      this.searchFilters.onlyNewClearanceModel = [];
       this.searchFilters.tyresModel = [];
       this.searchFilters.drivesModel = [];
       this.searchFilters.clearancesModel = [];
@@ -671,6 +689,9 @@ export default {
         weightModel: this.defaultFilters("weightModel"),
         classesModel: [],
         onlyNewRarityModel: [],
+        onlyNewTyresModel: [],
+        onlyNewDriveModel: [],
+        onlyNewClearanceModel: [],
         tyresModel: [],
         drivesModel: [],
         clearancesModel: [],
@@ -712,9 +733,28 @@ export default {
       if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
       if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
 
+      let oldCar = this.pl14.find(old => old.rid === car.rid);
+
       if ( this.searchFilters.onlyNewRarityModel.includes(true) ) {
-        let oldCar = this.pl14.find(old => old.rid === car.rid);
         if ( oldCar.class === car.class ) {
+          return false;
+        }
+      }
+
+      if ( this.searchFilters.onlyNewTyresModel.includes(true) ) {
+        if ( oldCar.tyres === car.tyres ) {
+          return false;
+        }
+      }
+
+      if ( this.searchFilters.onlyNewDriveModel.includes(true) ) {
+        if ( oldCar.drive === car.drive ) {
+          return false;
+        }
+      }
+
+      if ( this.searchFilters.onlyNewClearanceModel.includes(true) ) {
+        if ( oldCar.clearance === car.clearance ) {
           return false;
         }
       }
