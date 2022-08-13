@@ -543,13 +543,13 @@ export default {
       })
 
       // inteligent sort
-      if (searchStr && searchStr !== "") {
-        result.sort(function(a, b) {
-          if (a.locatedPlus && !b.locatedPlus) return -1;
-          if (b.locatedPlus && !a.locatedPlus) return 1;
-          return a.locatedIndex - b.locatedIndex;
-        });
-      }
+      // if (searchStr && searchStr !== "") {
+      //   result.sort(function(a, b) {
+      //     if (a.locatedPlus && !b.locatedPlus) return -1;
+      //     if (b.locatedPlus && !a.locatedPlus) return 1;
+      //     return a.locatedIndex - b.locatedIndex;
+      //   });
+      // }
 
       this.searchMax = 20;
 
