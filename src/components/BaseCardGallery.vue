@@ -1,10 +1,11 @@
 <template>
-  <div class="BaseCardGallery_Layout">
+  <div class="BaseCardGallery_Layout" ref="container">
     <div v-if="fixBack" class="BaseCardGallery_FixBack" />
     <div
       class="Car_Header BaseCardGallery_Header"
       :class="{ Row_DialogCardCard2: !options, Car_Loading: downloadLoading }"
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
+      :style="`--class-color: ${carClassColor}; --image-src: url(${carPhoto});`"
+      v-lazy:background-image="carPhoto2">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -106,7 +107,16 @@ export default {
       }
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
-      return parsed ? 'background-image: url('+parsed+');' : ''
+      return parsed
+    },
+    carPhoto2() {
+      let parsed;
+      try {
+        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+      } catch (error) {
+        return ''
+      }
+      return parsed
     }
   },
   methods: {},
@@ -150,6 +160,9 @@ export default {
   border-radius: 8px;
   overflow: hidden;
   font-size: var(--card-font-size);
+}
+.MainGallery_Layout .Car_Header[lazy=error] {
+  background-image: var(--image-src) !important;
 }
 .MainGallery_Layout .Car_Header.BaseCardGallery_Header {
   position: relative;

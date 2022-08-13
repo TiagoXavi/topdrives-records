@@ -14652,7 +14652,7 @@
     "hand": 83,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 74.33,
+    "mra": 77.48,
     "weight": 1923,
     "name": "Dodge Challenger SRT 392",
     "rid": "Dodge_Challenger_SRT_392_2015"
@@ -15471,7 +15471,7 @@
     "hand": 82,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 80.97,
+    "mra": 77.63,
     "weight": 1933,
     "name": "Dodge Challenger R/T Scat Pack",
     "rid": "Dodge_Challenger_RT_Scat_Pack_2018"
@@ -21666,7 +21666,7 @@
     "hand": 74,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 64.72,
+    "mra": 51.64,
     "weight": 1949,
     "name": "Ford Edge",
     "rid": "Ford_Edge_2016"
@@ -29730,7 +29730,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 61.97,
+    "mra": 53.08,
     "weight": 1388,
     "name": "Dodge Spirit R/T",
     "rid": "Dodge_Spirit_RT_1991"
@@ -34455,7 +34455,7 @@
     "hand": 76,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 63.84,
+    "mra": 78.66,
     "weight": 1190,
     "name": "Citroen Xsara VTS",
     "rid": "Citroen_Xsara_VTS_1997"
@@ -36576,7 +36576,7 @@
     "hand": 74,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 57.19,
+    "mra": 48.09,
     "weight": 1430,
     "name": "Citroen Grand C4 Picasso BlueHDi 150",
     "rid": "Citroen_Grand_C4_Picasso_2015"
@@ -41070,7 +41070,7 @@
     "hand": 79,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 73.39,
+    "mra": 63.24,
     "weight": 1365,
     "name": "DS 4",
     "rid": "DS_4_2011"
