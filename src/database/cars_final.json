@@ -2606,7 +2606,7 @@
   {
     "class": "S",
     "rq": 88,
-    "onlyName": "Xanavi Nismo Z",
+    "onlyName": "Nismo Z GT500",
     "brand": "Nissan",
     "country": "JP",
     "year": 2004,
@@ -2621,7 +2621,7 @@
     "tyres": "Slick",
     "mra": 100.65,
     "weight": 1100,
-    "name": "Nissan Xanavi Nismo Z",
+    "name": "Nissan Nismo Z GT500",
     "rid": "Nissan_Xanavi_Nismo_Z_2004"
   },
   {
@@ -3060,7 +3060,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 135.59,
+    "mra": 96.67,
     "weight": 1350,
     "name": "Pagani Huayra",
     "rid": "Pagani_Huayra_2016"

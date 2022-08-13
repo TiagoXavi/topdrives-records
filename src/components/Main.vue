@@ -527,26 +527,26 @@ export default {
       copyUrlSucess: false,
       filterCount: 0,
       searchFilters: {
-        yearStart: 1934,
-        yearEnd: 2021,
+        yearStart: 1930,
+        yearEnd: 2022,
         yearModel: [],
         rqStart: 10,
         rqEnd: 100,
         rqModel: [],
         topSpeedStart: 50,
-        topSpeedEnd: 330,
+        topSpeedEnd: 350,
         topSpeedModel: [],
-        acelStart: 1.6,
-        acelEnd: 35,
+        acelStart: 1.0,
+        acelEnd: 40,
         acelModel: [],
-        handStart: 35,
-        handEnd: 100,
+        handStart: 30,
+        handEnd: 110,
         handModel: [],
         mraStart: 0,
-        mraEnd: 130,
+        mraEnd: 150,
         mraModel: [],
-        weightStart: 350,
-        weightEnd: 3775,
+        weightStart: 300,
+        weightEnd: 4000,
         weightModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
@@ -1650,13 +1650,13 @@ export default {
       setTimeout(() => { this.copyUrlSucess = false}, 1500);
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1934, 2021];
+      if (type === "yearModel") return [1930, 2022];
       if (type === "rqModel") return [10, 100];
-      if (type === "topSpeedModel") return [50, 330];
-      if (type === "acelModel") return [1.6, 35];
-      if (type === "handModel") return [35, 100];
-      if (type === "mraModel") return [0, 130];
-      if (type === "weightModel") return [350, 3775];
+      if (type === "topSpeedModel") return [50, 350];
+      if (type === "acelModel") return [1.0, 40];
+      if (type === "handModel") return [30, 110];
+      if (type === "mraModel") return [0, 150];
+      if (type === "weightModel") return [300, 4000];
       // if (type === "classesModel") return [];
       // if (type === "tyresModel") return [];
       // if (type === "drivesModel") return [];
