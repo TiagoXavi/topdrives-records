@@ -267,7 +267,7 @@
     "hand": 89,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 116.86,
+    "mra": 107.18,
     "weight": 1838,
     "name": "Bugatti Veyron 16.4 Super Sport",
     "rid": "Bugatti_Veyron_16.4_Super_Sport_2010"
@@ -561,7 +561,7 @@
     "hand": 88,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 112.26,
+    "mra": 103.14,
     "weight": 1990,
     "name": "Bugatti Veyron 16.4 Grand Sport",
     "rid": "Bugatti_Veyron_16.4_Grand_Sport_2009"
@@ -1527,7 +1527,7 @@
     "hand": 82,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 80,
+    "mra": 68.75,
     "weight": 1942,
     "name": "Alfa Romeo Stelvio Quadrifoglio",
     "rid": "Alfa_Romeo_Stelvio_Quadrifoglio_2018"
@@ -3480,7 +3480,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 90.89,
+    "mra": 71.42,
     "weight": 510,
     "name": "Ariel Atom 3.5",
     "rid": "Ariel_Atom_3.5_2013"
@@ -4635,7 +4635,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 89.39,
+    "mra": 105.11,
     "weight": 1863,
     "name": "Aston Martin DBS Superleggera Volante",
     "rid": "Aston_Martin_DBS_Superleggera_Volante_2019"
@@ -4761,7 +4761,7 @@
     "hand": 90,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 92.66,
+    "mra": 110.39,
     "weight": 1693,
     "name": "Aston Martin DBS Superleggera",
     "rid": "Aston_Martin_DBS_Superleggera_2019"
@@ -5118,7 +5118,7 @@
     "hand": 84,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 77.94,
+    "mra": 95.35,
     "weight": 1935,
     "name": "Audi RS6 Avant",
     "rid": "Audi_RS_6_Avant_(delimited)_2013"
@@ -5454,7 +5454,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 75.56,
+    "mra": 68.09,
     "weight": 462,
     "name": "Ariel Atom 3",
     "rid": "Ariel_Atom_3_2008"
@@ -6777,7 +6777,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": null,
+    "mra": 85,
     "weight": 1434,
     "name": "Chevrolet Corvette Z06 tuned",
     "rid": "Chevrolet_Corvette_Z06_Lingenfelter_2006"
@@ -7344,7 +7344,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 88.1,
+    "mra": 80.88,
     "weight": 1453,
     "name": "Chevrolet Corvette Z06",
     "rid": "Chevrolet_Corvette_Z06_2006"
@@ -11187,7 +11187,7 @@
     "hand": 81,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 73.13,
+    "mra": 80.54,
     "weight": 1940,
     "name": "Audi S8",
     "rid": "Audi_S8_2006"
@@ -11712,7 +11712,7 @@
     "hand": 85,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 76.37,
+    "mra": 79.81,
     "weight": 1671,
     "name": "Chevrolet Camaro SS",
     "rid": "Chevrolet_Camaro_SS_2019"
@@ -14022,7 +14022,7 @@
     "hand": 80,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 71.23,
+    "mra": 78.57,
     "weight": 1970,
     "name": "Audi S6 Avant",
     "rid": "Audi_S6_Avant_2006"
@@ -15072,7 +15072,7 @@
     "hand": 84,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 83.32,
+    "mra": 76.78,
     "weight": 1580,
     "name": "BMW M3",
     "rid": "BMW_M3_2008"
@@ -16668,7 +16668,7 @@
     "hand": 71,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 63.53,
+    "mra": 68.48,
     "weight": 2230,
     "name": "BMW X5 xDrive40e",
     "rid": "BMW_X5_40e_2016"
@@ -27084,7 +27084,7 @@
     "hand": 77,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 58.27,
+    "mra": 53.22,
     "weight": 1000,
     "name": "Alfa Romeo Carabo",
     "rid": "Alfa_Romeo_Carabo_1968"
@@ -35400,7 +35400,7 @@
     "hand": 65,
     "drive": "4WD",
     "tyres": "Standard",
-    "mra": null,
+    "mra": 39.33,
     "weight": 1847,
     "name": "Chevrolet Blazer",
     "rid": "Chevrolet_Blazer_2000"
@@ -35694,7 +35694,7 @@
     "hand": 82,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 79.5,
+    "mra": 60.64,
     "weight": 1014,
     "name": "Vauxhall Chevette HSR",
     "rid": "Vauxhall_Chevette_HSR_1980"
@@ -36555,7 +36555,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": null,
+    "mra": 62.7,
     "weight": 1541,
     "name": "Chevrolet Lumina Z34",
     "rid": "Chevrolet_Lumina_Z34_1991"
@@ -36891,7 +36891,7 @@
     "hand": 70,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 47.53,
+    "mra": 41.36,
     "weight": 1178,
     "name": "Vauxhall Adam Rocks S",
     "rid": "Vauxhall_Adam_Rocks_S_2015"
@@ -49638,7 +49638,7 @@
     "hand": 64,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 48.36,
+    "mra": 62.42,
     "weight": 1038,
     "name": "Alfa Romeo 1750 GTV",
     "rid": "Alfa_Romeo_1750_GTV_1967"

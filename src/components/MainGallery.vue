@@ -67,7 +67,7 @@
             <div class="MainGallery_Old">{{ diff_cars[ix]._clearance }}</div>
           </div>
 
-          <div
+          <!-- <div
             v-if="diff_cars[ix].mra"
             :class="{ MainGallery_ColorUp: diff_cars[ix].mra < diff_cars[ix]._mra }"
             class="MainGallery_Mra MainGallery_Compare">
@@ -75,7 +75,7 @@
             <div class="MainGallery_Old">{{ diff_cars[ix].mra || "?" }}</div>
             <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
             <div class="MainGallery_Old">{{ diff_cars[ix]._mra || "?" }}</div>
-          </div>
+          </div> -->
 
           <div
             v-if="diff_cars[ix].weight"
