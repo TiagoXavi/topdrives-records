@@ -136,6 +136,9 @@ export default {
   /* display: flex; */
   /* align-items: center; */
 }
+.BaseChip_DontCrop .BaseChip_Text {
+  max-width: unset;
+}
 .BaseChip_Text i + span {
   line-height: 19px;
 }

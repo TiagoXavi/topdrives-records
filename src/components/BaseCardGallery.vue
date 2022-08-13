@@ -4,8 +4,7 @@
     <div
       class="Car_Header BaseCardGallery_Header"
       :class="{ Row_DialogCardCard2: !options, Car_Loading: downloadLoading }"
-      :style="`--class-color: ${carClassColor}; --image-src: url(${carPhoto});`"
-      v-lazy:background-image="carPhoto2">
+      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -107,17 +106,8 @@ export default {
       }
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
-      return parsed
+      return parsed ? 'background-image: url('+parsed+');' : ''
     },
-    carPhoto2() {
-      let parsed;
-      try {
-        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
-      } catch (error) {
-        return ''
-      }
-      return parsed
-    }
   },
   methods: {},
 }

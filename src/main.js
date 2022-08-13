@@ -7,7 +7,7 @@ import router from "./router";
 import PortalVue from 'portal-vue';
 import 'focus-visible';
 import LogRocket from 'logrocket';
-import VueLazyload from 'vue-lazyload';
+
 
 Vue.config.productionTip = false
 
@@ -15,7 +15,6 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
 Vue.use(PortalVue);
-Vue.use(VueLazyload);
 
 if (process.env.NODE_ENV === 'production') {
   // Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
