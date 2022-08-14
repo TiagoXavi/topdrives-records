@@ -225,7 +225,7 @@
     "hand": 90,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 115,
+    "mra": null,
     "weight": 1900,
     "name": "Rimac Concept_One",
     "rid": "Rimac_Concept_One_2016"
@@ -267,7 +267,7 @@
     "hand": 89,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 107.18,
+    "mra": null,
     "weight": 1838,
     "name": "Bugatti Veyron 16.4 Super Sport",
     "rid": "Bugatti_Veyron_16.4_Super_Sport_2010"
@@ -540,7 +540,7 @@
     "hand": 88,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 101.85,
+    "mra": null,
     "weight": 1888,
     "name": "Bugatti Veyron 16.4",
     "rid": "Bugatti_Veyron_16.4_2005"
@@ -561,7 +561,7 @@
     "hand": 88,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 103.14,
+    "mra": null,
     "weight": 1990,
     "name": "Bugatti Veyron 16.4 Grand Sport",
     "rid": "Bugatti_Veyron_16.4_Grand_Sport_2009"
@@ -708,7 +708,7 @@
     "hand": 84,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 78.81,
+    "mra": null,
     "weight": 2197,
     "name": "Lamborghini Urus",
     "rid": "Lamborghini_Urus_2018"
@@ -1044,7 +1044,7 @@
     "hand": 93,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 116.56,
+    "mra": null,
     "weight": 1395,
     "name": "Koenigsegg Agera Final",
     "rid": "Koenigsegg_Agera_Final_2016"
@@ -1149,7 +1149,7 @@
     "hand": 93,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 97.53,
+    "mra": null,
     "weight": 1395,
     "name": "Koenigsegg Agera RS",
     "rid": "Koenigsegg_Agera_RS_2015"
@@ -1359,7 +1359,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 97.58,
+    "mra": null,
     "weight": 1435,
     "name": "Koenigsegg Agera R",
     "rid": "Koenigsegg_Agera_R_2014"
@@ -1527,7 +1527,7 @@
     "hand": 82,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 68.75,
+    "mra": null,
     "weight": 1942,
     "name": "Alfa Romeo Stelvio Quadrifoglio",
     "rid": "Alfa_Romeo_Stelvio_Quadrifoglio_2018"
@@ -1737,7 +1737,7 @@
     "hand": 87,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 115.09,
+    "mra": null,
     "weight": 750,
     "name": "Peugeot EX1",
     "rid": "Peugeot_EX1_2010"
@@ -1779,7 +1779,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 87.78,
+    "mra": null,
     "weight": 1419,
     "name": "McLaren 720S",
     "rid": "McLaren_720S_2018"
@@ -1884,7 +1884,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 84.21,
+    "mra": null,
     "weight": 1468,
     "name": "McLaren 720S Spider",
     "rid": "McLaren_720S_Spider_2018"
@@ -1968,7 +1968,7 @@
     "hand": 93,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 91.87,
+    "mra": null,
     "weight": 1280,
     "name": "Pagani Zonda 760RS",
     "rid": "Pagani_Zonda_760RS_2012"
@@ -2304,7 +2304,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 89.7,
+    "mra": null,
     "weight": 1062,
     "name": "McLaren F1 LM",
     "rid": "McLaren_F1_LM_1995"
@@ -2409,7 +2409,7 @@
     "hand": 93,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 92.82,
+    "mra": null,
     "weight": 1385,
     "name": "Ford GT",
     "rid": "Ford_GT_2017"
@@ -2640,7 +2640,7 @@
     "hand": 85,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 95.13,
+    "mra": null,
     "weight": 1995,
     "name": "Porsche Panamera Turbo",
     "rid": "Porsche_Panamera_Turbo_2017"
@@ -2661,7 +2661,7 @@
     "hand": 87,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 81.58,
+    "mra": null,
     "weight": 1468,
     "name": "Bugatti EB110 Super Sport",
     "rid": "Bugatti_EB110_Super_Sport_1992"
@@ -3060,7 +3060,7 @@
     "hand": 92,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 96.67,
+    "mra": null,
     "weight": 1350,
     "name": "Pagani Huayra",
     "rid": "Pagani_Huayra_2016"
@@ -3480,7 +3480,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 71.42,
+    "mra": null,
     "weight": 510,
     "name": "Ariel Atom 3.5",
     "rid": "Ariel_Atom_3.5_2013"
@@ -3501,7 +3501,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 98.91,
+    "mra": null,
     "weight": 1434,
     "name": "McLaren 12C",
     "rid": "McLaren_12C_2011"
@@ -3753,7 +3753,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 100,
+    "mra": null,
     "weight": 1138,
     "name": "McLaren F1",
     "rid": "McLaren_F1_1994"
@@ -3858,7 +3858,7 @@
     "hand": 86,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 75.56,
+    "mra": null,
     "weight": 1618,
     "name": "Bugatti EB110 GT",
     "rid": "Bugatti_EB110_GT_1992"
@@ -3963,7 +3963,7 @@
     "hand": 84,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 82.43,
+    "mra": null,
     "weight": 1970,
     "name": "Porsche Panamera Turbo",
     "rid": "Porsche_Panamera_Turbo_2010"
@@ -4215,7 +4215,7 @@
     "hand": 65,
     "drive": "RWD",
     "tyres": "Slick",
-    "mra": 102.7,
+    "mra": null,
     "weight": 1500,
     "name": "Chevrolet COPO Camaro",
     "rid": "Chevrolet_Copo_Camaro_2018"
@@ -4635,7 +4635,7 @@
     "hand": 89,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 105.11,
+    "mra": null,
     "weight": 1863,
     "name": "Aston Martin DBS Superleggera Volante",
     "rid": "Aston_Martin_DBS_Superleggera_Volante_2019"
@@ -4761,7 +4761,7 @@
     "hand": 90,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 110.39,
+    "mra": null,
     "weight": 1693,
     "name": "Aston Martin DBS Superleggera",
     "rid": "Aston_Martin_DBS_Superleggera_2019"
@@ -5097,7 +5097,7 @@
     "hand": 78,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 62.39,
+    "mra": null,
     "weight": 2345,
     "name": "Mercedes-Benz AMG GLE 63 S",
     "rid": "Mercedes-Benz_AMG_GLE_63_S_2015"
@@ -5202,7 +5202,7 @@
     "hand": 91,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 98.51,
+    "mra": null,
     "weight": 1150,
     "name": "Porsche 911 GT1 Strassenversion",
     "rid": "Porsche_911_GT1_road_car_1997"
@@ -5454,7 +5454,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 68.09,
+    "mra": null,
     "weight": 462,
     "name": "Ariel Atom 3",
     "rid": "Ariel_Atom_3_2008"
@@ -6315,7 +6315,7 @@
     "hand": 86,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 56.46,
+    "mra": null,
     "weight": 1505,
     "name": "Subaru Impreza Cosworth WRX STI CS400 (GR)",
     "rid": "Subaru_Impreza_Cosworth_WRX_STI_CS400_(GR)_2010"
@@ -6777,7 +6777,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 85,
+    "mra": null,
     "weight": 1434,
     "name": "Chevrolet Corvette Z06 tuned",
     "rid": "Chevrolet_Corvette_Z06_Lingenfelter_2006"
@@ -6882,7 +6882,7 @@
     "hand": 76,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 75,
+    "mra": null,
     "weight": 2345,
     "name": "Mercedes-Benz AMG ML 63",
     "rid": "Mercedes-Benz_AMG_ML_63_2012"
@@ -7344,7 +7344,7 @@
     "hand": 88,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 80.88,
+    "mra": null,
     "weight": 1453,
     "name": "Chevrolet Corvette Z06",
     "rid": "Chevrolet_Corvette_Z06_2006"
@@ -8226,7 +8226,7 @@
     "hand": 87,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 48.3,
+    "mra": null,
     "weight": 1590,
     "name": "Mitsubishi Lancer Evo X FQ-300 SST",
     "rid": "Mitsubishi_Lancer_Evo_X_FQ-300_SST_2007"
@@ -11187,7 +11187,7 @@
     "hand": 81,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 80.54,
+    "mra": null,
     "weight": 1940,
     "name": "Audi S8",
     "rid": "Audi_S8_2006"
@@ -11523,7 +11523,7 @@
     "hand": 86,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 95.4,
+    "mra": null,
     "weight": 1315,
     "name": "Porsche Boxster Spyder",
     "rid": "Porsche_Boxster_Spyder_2016"
@@ -12258,7 +12258,7 @@
     "hand": 85,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 70.69,
+    "mra": null,
     "weight": 1695,
     "name": "Aston Martin DBS Carbon Black Edition",
     "rid": "Aston_Martin_DBS_Carbon_Black_Edition_2010"
@@ -14589,7 +14589,7 @@
     "hand": 84,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 83.64,
+    "mra": null,
     "weight": 1785,
     "name": "Aston Martin Virage",
     "rid": "Aston_Martin_Virage_2011"
@@ -14652,7 +14652,7 @@
     "hand": 83,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 77.48,
+    "mra": null,
     "weight": 1923,
     "name": "Dodge Challenger SRT 392",
     "rid": "Dodge_Challenger_SRT_392_2015"
@@ -16437,7 +16437,7 @@
     "hand": 72,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 53.43,
+    "mra": null,
     "weight": 1841,
     "name": "Land Rover Range Rover Velar",
     "rid": "Land_Rover_Range_Rover_Velar_2018"
@@ -16752,7 +16752,7 @@
     "hand": 81,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 52.42,
+    "mra": null,
     "weight": 1291,
     "name": "Lancia Delta Integrale 16v",
     "rid": "Lancia_Delta_Integrale_16v_1989"
@@ -16773,7 +16773,7 @@
     "hand": 72,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 43.34,
+    "mra": null,
     "weight": 1942,
     "name": "Land Rover Discovery Sport P250 AWD",
     "rid": "Land_Rover_Discovery_Sport_P250_AWD_2020"
@@ -17004,7 +17004,7 @@
     "hand": 87,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 66.66,
+    "mra": null,
     "weight": 1380,
     "name": "Nissan Skyline GT-R LM Nismo (R33) Road Car",
     "rid": "Nissan_Skyline_GT-R_LM_Nismo_(R33)_Road_Car_1995"
@@ -17739,7 +17739,7 @@
     "hand": 71,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 72.16,
+    "mra": null,
     "weight": 2102,
     "name": "Volvo XC90 V8",
     "rid": "Volvo_XC90_V8_2010"
@@ -18831,7 +18831,7 @@
     "hand": 73,
     "drive": "RWD",
     "tyres": "Standard",
-    "mra": 89.74,
+    "mra": null,
     "weight": 1320,
     "name": "BMW 328i",
     "rid": "BMW_328i_1995"
@@ -19923,7 +19923,7 @@
     "hand": 81,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 59.43,
+    "mra": null,
     "weight": 1250,
     "name": "Lancia Delta Integrale 8v",
     "rid": "Lancia_Delta_Integrale_8v_1989"
@@ -20427,7 +20427,7 @@
     "hand": 85,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 53.14,
+    "mra": null,
     "weight": 1280,
     "name": "Mazda RX-7 Type RS",
     "rid": "Mazda_RX-7_Type_RS_1998"
@@ -21183,7 +21183,7 @@
     "hand": 74,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 64.86,
+    "mra": null,
     "weight": 1474,
     "name": "Subaru Forester",
     "rid": "Subaru_Forester_2016"
@@ -21666,7 +21666,7 @@
     "hand": 74,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 51.64,
+    "mra": null,
     "weight": 1949,
     "name": "Ford Edge",
     "rid": "Ford_Edge_2016"
@@ -22947,7 +22947,7 @@
     "hand": 73,
     "drive": "4WD",
     "tyres": "Standard",
-    "mra": 45.72,
+    "mra": null,
     "weight": 1575,
     "name": "Volvo 850 AWD",
     "rid": "Volvo_850_AWD_1997"
@@ -23409,7 +23409,7 @@
     "hand": 83,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 63.26,
+    "mra": null,
     "weight": 1525,
     "name": "Nissan 350Z",
     "rid": "Nissan_350Z_2002"
@@ -23703,7 +23703,7 @@
     "hand": 68,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 71.89,
+    "mra": null,
     "weight": 1717,
     "name": "Plymouth Superbird",
     "rid": "Plymouth_Superbird_1970"
@@ -25824,7 +25824,7 @@
     "hand": 79,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 74.58,
+    "mra": null,
     "weight": 1400,
     "name": "Lancia Thema 8.32",
     "rid": "Lancia_Thema_8.32_1986"
@@ -26349,7 +26349,7 @@
     "hand": 76,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 72.84,
+    "mra": null,
     "weight": 1758,
     "name": "Infiniti M35",
     "rid": "Infiniti_M35_2009"
@@ -26370,7 +26370,7 @@
     "hand": 72,
     "drive": "4WD",
     "tyres": "All-surface",
-    "mra": 56.64,
+    "mra": null,
     "weight": 1845,
     "name": "Mitsubishi Outlander PHEV",
     "rid": "Mitsubishi_Outlander_PHEV_2016"
@@ -27084,7 +27084,7 @@
     "hand": 77,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 53.22,
+    "mra": null,
     "weight": 1000,
     "name": "Alfa Romeo Carabo",
     "rid": "Alfa_Romeo_Carabo_1968"
@@ -27126,7 +27126,7 @@
     "hand": 83,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 65.11,
+    "mra": null,
     "weight": 1110,
     "name": "Mitsubishi Colt Ralliart Version-R",
     "rid": "Mitsubishi_Colt_Ralliart_Version-R_2009"
@@ -27189,7 +27189,7 @@
     "hand": 76,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 48.87,
+    "mra": null,
     "weight": 1530,
     "name": "Peugeot 508",
     "rid": "Peugeot_508_2018"
@@ -27924,7 +27924,7 @@
     "hand": 85,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 64.99,
+    "mra": null,
     "weight": 1190,
     "name": "Honda Integra Type R",
     "rid": "Honda_Integra_Type_R_2002"
@@ -28029,7 +28029,7 @@
     "hand": 76,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 67.48,
+    "mra": null,
     "weight": 1342,
     "name": "Volkswagen Jetta",
     "rid": "Volkswagen_Jetta_2019"
@@ -29730,7 +29730,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 53.08,
+    "mra": null,
     "weight": 1388,
     "name": "Dodge Spirit R/T",
     "rid": "Dodge_Spirit_RT_1991"
@@ -29940,7 +29940,7 @@
     "hand": 78,
     "drive": "4WD",
     "tyres": "Performance",
-    "mra": 76.13,
+    "mra": null,
     "weight": 1580,
     "name": "Subaru Alcyone SVX",
     "rid": "Subaru_Alcyone_SVX_1991"
@@ -30633,7 +30633,7 @@
     "hand": 76,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 59.29,
+    "mra": null,
     "weight": 1194,
     "name": "Volkswagen Polo GTI",
     "rid": "Volkswagen_Polo_GTI_2010"
@@ -31389,7 +31389,7 @@
     "hand": 83,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 51.71,
+    "mra": null,
     "weight": 985,
     "name": "Mazda MX-5 BBR Turbo",
     "rid": "Mazda_MX-5_BBR_Turbo_1990"
@@ -31616,11 +31616,11 @@
     "tcs": false,
     "clearance": "Mid",
     "topSpeed": 111,
-    "acel": 11.5,
+    "acel": 10.5,
     "hand": 75,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 43.99,
+    "mra": null,
     "weight": 1270,
     "name": "Nissan Wingroad (Y11)",
     "rid": "Nissan_Wingroad_(Y11)_2001"
@@ -32208,7 +32208,7 @@
     "hand": 80,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 53.21,
+    "mra": null,
     "weight": 1174,
     "name": "Ford Racing Puma",
     "rid": "Ford_Racing_Puma_2000"
@@ -34455,7 +34455,7 @@
     "hand": 76,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 78.66,
+    "mra": null,
     "weight": 1190,
     "name": "Citroen Xsara VTS",
     "rid": "Citroen_Xsara_VTS_1997"
@@ -35400,7 +35400,7 @@
     "hand": 65,
     "drive": "4WD",
     "tyres": "Standard",
-    "mra": 39.33,
+    "mra": null,
     "weight": 1847,
     "name": "Chevrolet Blazer",
     "rid": "Chevrolet_Blazer_2000"
@@ -35694,7 +35694,7 @@
     "hand": 82,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 60.64,
+    "mra": null,
     "weight": 1014,
     "name": "Vauxhall Chevette HSR",
     "rid": "Vauxhall_Chevette_HSR_1980"
@@ -36513,7 +36513,7 @@
     "hand": 71,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 60.87,
+    "mra": null,
     "weight": 1516,
     "name": "Nissan Cefiro 3.0 Brougham VIP (A33)",
     "rid": "Nissan_Cefiro_3.0_Brougham_VIP_(A33)_2002"
@@ -36555,7 +36555,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Performance",
-    "mra": 62.7,
+    "mra": null,
     "weight": 1541,
     "name": "Chevrolet Lumina Z34",
     "rid": "Chevrolet_Lumina_Z34_1991"
@@ -36576,7 +36576,7 @@
     "hand": 74,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 48.09,
+    "mra": null,
     "weight": 1430,
     "name": "Citroen Grand C4 Picasso BlueHDi 150",
     "rid": "Citroen_Grand_C4_Picasso_2015"
@@ -36891,7 +36891,7 @@
     "hand": 70,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 41.36,
+    "mra": null,
     "weight": 1178,
     "name": "Vauxhall Adam Rocks S",
     "rid": "Vauxhall_Adam_Rocks_S_2015"
@@ -38235,7 +38235,7 @@
     "hand": 58,
     "drive": "RWD",
     "tyres": "Standard",
-    "mra": 52.57,
+    "mra": null,
     "weight": 1558,
     "name": "Plymouth Roadrunner 383",
     "rid": "Plymouth_Roadrunner_383_1968"
@@ -40230,7 +40230,7 @@
     "hand": 78,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 59.23,
+    "mra": null,
     "weight": 1221,
     "name": "Mazda RX-7",
     "rid": "Mazda_RX-7_1985"
@@ -41070,7 +41070,7 @@
     "hand": 79,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 63.24,
+    "mra": null,
     "weight": 1365,
     "name": "DS 4",
     "rid": "DS_4_2011"
@@ -41469,7 +41469,7 @@
     "hand": 78,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 59.11,
+    "mra": null,
     "weight": 1040,
     "name": "Lancia Beta Montecarlo",
     "rid": "Lancia_Beta_Montecarlo_1975"
@@ -41637,7 +41637,7 @@
     "hand": 60,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 52.89,
+    "mra": null,
     "weight": 1472,
     "name": "Plymouth Barracuda Fastback",
     "rid": "Plymouth_Barracuda_Fastback_1968"
@@ -41826,7 +41826,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 54.11,
+    "mra": null,
     "weight": 1143,
     "name": "Ford Fiesta",
     "rid": "Ford_Fiesta_2007"
@@ -42351,7 +42351,7 @@
     "hand": 75,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 40.91,
+    "mra": null,
     "weight": 1060,
     "name": "Nissan Micra",
     "rid": "Nissan_Micra_2016"
@@ -46026,7 +46026,7 @@
     "hand": 70,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 53.39,
+    "mra": null,
     "weight": 1162,
     "name": "Honda Jazz Hybrid",
     "rid": "Honda_Jazz_Hybrid_2007"
@@ -46992,7 +46992,7 @@
     "hand": 71,
     "drive": "FWD",
     "tyres": "Standard",
-    "mra": 39.53,
+    "mra": null,
     "weight": 1059,
     "name": "Renault Clio",
     "rid": "Renault_Clio_2016"
@@ -48525,7 +48525,7 @@
     "hand": 69,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 45.78,
+    "mra": null,
     "weight": 905,
     "name": "Lotus Mk1 Cortina",
     "rid": "Lotus_Mk1_Cortina_1967"
@@ -49638,7 +49638,7 @@
     "hand": 64,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 62.42,
+    "mra": null,
     "weight": 1038,
     "name": "Alfa Romeo 1750 GTV",
     "rid": "Alfa_Romeo_1750_GTV_1967"

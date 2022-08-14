@@ -219,8 +219,22 @@
 
             <div
               v-if="diff_searchResult[ix].year"
-              class="MainGallery_Year MainGallery_Color">
+              class="MainGallery_Small MainGallery_Year MainGallery_Color">
               {{ diff_searchResult[ix].year }}
+            </div>
+
+            <div
+              v-if="diff_searchResult[ix].abs !== diff_searchResult[ix]._abs"
+              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._abs }"
+              class="MainGallery_Small MainGallery_Abs MainGallery_Color">
+              ABS
+            </div>
+
+            <div
+              v-if="diff_searchResult[ix].tcs !== diff_searchResult[ix]._tcs"
+              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._tcs }"
+              class="MainGallery_Small MainGallery_Tcs MainGallery_Color">
+              TCS
             </div>
 
             <div
@@ -232,7 +246,7 @@
               <div class="MainGallery_Old">{{ diff_searchResult[ix]._clearance }}</div>
             </div>
 
-            <!-- <div
+            <div
               v-if="diff_searchResult[ix].mra"
               :class="{ MainGallery_ColorUp: diff_searchResult[ix].mra < diff_searchResult[ix]._mra }"
               class="MainGallery_Mra MainGallery_Compare">
@@ -240,7 +254,7 @@
               <div class="MainGallery_Old">{{ diff_searchResult[ix].mra || "?" }}</div>
               <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
               <div class="MainGallery_Old">{{ diff_searchResult[ix]._mra || "?" }}</div>
-            </div> -->
+            </div>
 
             <div
               v-if="diff_searchResult[ix].weight"
@@ -928,16 +942,26 @@ export default {
   right: 121px;
   align-items: center;
 }
-.MainGallery_Year {
+.MainGallery_Small {
   display: inline-flex;
   gap: 6px;
   color: white;
   position: absolute;
-  top: 34px;
-  right: 121px;
   align-items: center;
   z-index: 50;
   font-size: 10px;
+}
+.MainGallery_Year {  
+  top: 34px;
+  right: 121px;  
+}
+.MainGallery_Abs {  
+  top: 34px;
+  right: 360px;  
+}
+.MainGallery_Tcs {  
+  top: 57px;
+  right: 360px;
 }
 .MainGallery_Clearance {
   top: -20px;
