@@ -344,7 +344,7 @@
             <span>Download PNG</span>
           </button>
         </div>
-        <div class="Main_DialogTitle">Share link</div>
+        <div class="Main_DialogTitle">Share comparison</div>
         <div class="Main_ShareLinkBox">
           <textarea
             v-model="shareUrl"
@@ -405,14 +405,40 @@
           </div>
         </div>
         <div class="Main_OptionsCredits">
-          <button
-            class="D_Button Main_OptionsButton"
-            @click="aboutDialog = true; optionsDialogActive = false;">
-            <span>About</span>
-            <svg class="Main_FavLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.7 59.8" style="enable-background:new 0 0 54.7 59.8" xml:space="preserve">
-              <path fill="#FFC717" d="m54.7 55.9-.5 1.3c-1 .8-2.3 1.4-4.1 1.9s-3.4.7-5 .7c-3.9 0-7-.8-9.4-2.3-2.3-1.5-4.5-4-6.6-7.6-.1-.1-.2-.2-.3-.5s-.8-1.5-2.1-3.8-2.5-4.2-3.8-5.5c-1.3-1.4-2.5-2-3.7-2h-1.4v20.6H0V0h27.8c7.6 0 13.4 1.7 17.6 5.2 4.1 3.5 6.2 8.3 6.2 14.4 0 1.7-.3 3.7-1 5.8s-1.9 4.1-3.6 5.9c-1.7 1.8-3.8 3.3-6.2 4.4.8.8 1.7 2 2.7 3.6 1.2 2 2.2 3.3 2.8 3.8.7.5 1.4.8 2.2.8.5 0 1.2-.2 2.2-.6l1.1.6 2.9 12zM27.1 26.4c1.7 0 3.2-.5 4.4-1.5 1.2-1 1.8-2.4 1.8-4.2 0-1.9-.6-3.4-1.8-4.5-1.2-1.1-2.7-1.7-4.4-1.7h-9.2v11.9h9.2z"/>
-            </svg>
-          </button>
+          <div class="D_Center Main_OptionsFooterButtons">
+            <a
+              href="https://discord.gg/gWZ8v9Xf43"
+              class="D_Button Main_OptionsButton"
+              target="_blank"
+              rel="noopener noreferrer">
+              <svg class="Main_DiscordLogo" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)">
+                  <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="#5865F2"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0">
+                    <rect width="71" height="55" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+              <span>Discord server</span>
+            </a>
+            <button
+              class="D_Button Main_OptionsButton"
+              @click="$router.push({ name: 'Gallery' })">
+              <span>PL15 Gallery</span>
+            </button>
+          </div>
+          <div class="D_Center">
+            <button
+              class="D_Button Main_OptionsButton"
+              @click="aboutDialog = true; optionsDialogActive = false;">
+              <span>About</span>
+              <svg class="Main_FavLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.7 59.8" style="enable-background:new 0 0 54.7 59.8" xml:space="preserve">
+                <path fill="#FFC717" d="m54.7 55.9-.5 1.3c-1 .8-2.3 1.4-4.1 1.9s-3.4.7-5 .7c-3.9 0-7-.8-9.4-2.3-2.3-1.5-4.5-4-6.6-7.6-.1-.1-.2-.2-.3-.5s-.8-1.5-2.1-3.8-2.5-4.2-3.8-5.5c-1.3-1.4-2.5-2-3.7-2h-1.4v20.6H0V0h27.8c7.6 0 13.4 1.7 17.6 5.2 4.1 3.5 6.2 8.3 6.2 14.4 0 1.7-.3 3.7-1 5.8s-1.9 4.1-3.6 5.9c-1.7 1.8-3.8 3.3-6.2 4.4.8.8 1.7 2 2.7 3.6 1.2 2 2.2 3.3 2.8 3.8.7.5 1.4.8 2.2.8.5 0 1.2-.2 2.2-.6l1.1.6 2.9 12zM27.1 26.4c1.7 0 3.2-.5 4.4-1.5 1.2-1 1.8-2.4 1.8-4.2 0-1.9-.6-3.4-1.8-4.5-1.2-1.1-2.7-1.7-4.4-1.7h-9.2v11.9h9.2z"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </BaseDialog>
@@ -427,18 +453,7 @@
 
         <div class="Main_Disclaimer">
           <div>This project was made by TiagoXavi and is not related to the Hutch Games Ltd.</div>
-          <div>Any problem or suggestion, message me or send an email.</div>
-        </div>
-
-        <div class="D_Center">
-          <a
-            href="https://discordapp.com/channels/@me/479266700462653440/"
-            class="D_Button D_ButtonDark D_ButtonDark2 Space_TopPlus"
-            target="_blank"
-            rel="noopener noreferrer">
-            <span>Message me on Discord</span>
-            <i class="ticon-internal D_ButtonIconRight" aria-hidden="true"/>
-          </a>
+          <div>Any problem or suggestion, please join the Discord server or send an email.</div>
         </div>
         <div class="D_TextCenter Space_TopPlus">mighty.boy@topdrivesrecords.com</div>
 
@@ -2419,6 +2434,7 @@ body::-webkit-scrollbar-corner {
   font-size: 16px;
   padding: 10px;
   background-color: rgba(var(--back-color), 0.04);
+  box-sizing: border-box;
 }
 .Main_OptionsButton > i {
   font-size: 28px;
@@ -2648,11 +2664,22 @@ body::-webkit-scrollbar-corner {
 .Main_OptionsCredits {
   margin-top: 40px;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Main_OptionsFooterButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .Main_FavLogo {
   width: 18px;
   margin: -5px 0px -5px 6px;
+}
+.Main_DiscordLogo {
+  width: 25px;
+  margin: -5px 6px -5px 0px;
 }
 .Main_Disclaimer {
   display: flex;
