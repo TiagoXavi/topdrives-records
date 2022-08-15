@@ -30,7 +30,7 @@
       <path fill="#f31830" d="M426.662 0H640v480H426.662z"/>
     </g>
   </svg>
-  <svg v-else-if="flag === 'UK'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <svg v-else-if="flag === 'GB'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
     <path style="fill:#006" d="M0 0h640v480H0z"/>
     <path style="fill:#fff" d="M0 346.3v107.4l320-160L212.7 240zM640 453.7V346.3L427.3 240 320 293.7zM640 26.3l-320 160L427.3 240 640 133.7zM0 26.3v107.4L212.7 240 320 186.3z"/>
     <path style="fill:#fff" d="M0 160v160h240v160h160V320h240V160H400V0H240v160z"/>
