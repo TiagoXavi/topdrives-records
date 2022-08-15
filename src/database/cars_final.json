@@ -2052,7 +2052,7 @@
     "hand": 93,
     "drive": "RWD",
     "tyres": "Performance",
-    "mra": 100.72,
+    "mra": null,
     "weight": 1280,
     "name": "Pagani Huayra Roadster",
     "rid": "Pagani_Huayra_Roadster_2017"
