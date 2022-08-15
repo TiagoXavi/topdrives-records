@@ -126,7 +126,7 @@
             <div class="Row_DialogCardRight">
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed || !loggedin"
+                :disabled="!car.selectedTune || !loggedin"
                 type="topSpeed"
                 label="Top speed"
                 class="Space_Bottom Row_FieldStat"
@@ -134,7 +134,7 @@
                 @change="changeStat('topSpeed', $event)" />
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).acel || !loggedin"
+                :disabled="!car.selectedTune || !loggedin"
                 type="acel"
                 label="0-60mph"
                 class="Space_Bottom Row_FieldStat"
@@ -143,7 +143,7 @@
                 {{ card_acel }}
               <BaseText
                 :value="(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
-                :disabled="!car.selectedTune || !!(((car.data || {})[car.selectedTune] || {}).info || {}).hand || !loggedin"
+                :disabled="!car.selectedTune || !loggedin"
                 type="hand"
                 label="Handling"
                 class="Row_FieldStat"
