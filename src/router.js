@@ -3,10 +3,11 @@ import VueRouter from "vue-router";
 
 import Main from "./components/Main.vue";
 // import MainConvertCsv from "./components/MainConvertCsv.vue";
-// import MainExtractTD from "./components/MainExtractTD.vue";
+import MainExtractTD from "./components/MainExtractTD.vue";
 // import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
 import MainGallery from "./components/MainGallery.vue";
 // import MainUpdateRqData from "./components/MainUpdateRqData.vue";
+import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 
 import MainLogin from "./components/MainLogin.vue";
 import MainRegister from "./components/MainRegister.vue";
@@ -45,12 +46,12 @@ const routes = [
   //   title: 'Convert',
   //   component: MainConvertCsv,
   // },
-  // {
-  //   path: '/extract',
-  //   name: 'Extract',
-  //   title: 'Extract',
-  //   component: MainExtractTD,
-  // },
+  {
+    path: '/extract',
+    name: 'Extract',
+    title: 'Extract',
+    component: MainExtractTD,
+  },
   // {
   //   path: '/merge',
   //   name: 'Merge',
@@ -62,6 +63,12 @@ const routes = [
     name: 'Gallery',
     title: 'Gallery',
     component: MainGallery,
+  },
+  {
+    path: '/validatejson',
+    name: 'Validate',
+    title: 'Validate',
+    component: MainValidateFinalJson,
   },
   // {
   //   path: '/newrq',

@@ -58,6 +58,10 @@
                 v-model="searchFilters.onlyNewClearanceModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="true">Clearance changed</BaseChip>
+              <BaseChip
+                v-model="searchFilters.onlyNewCarsModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">New cars</BaseChip>
             </div>
             <BaseDualSlider
               v-model="searchFilters.rqModel"
@@ -170,8 +174,9 @@
         v-for="(car, ix) in searchResult"
         class="MainGallery_Item">
         <div v-if="car.visible">
-
-          <div v-if="Object.keys(diff_searchResult[ix]).length === 0" class="MainGallery_Empty"></div>
+          
+          <div v-if="diff_searchResult[ix].new === true" class="MainGallery_NewCar">New</div>
+          <div v-else-if="Object.keys(diff_searchResult[ix]).length === 0" class="MainGallery_Empty"></div>
           <template v-else>
 
             <div
@@ -351,6 +356,7 @@ export default {
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
+        onlyNewCarsModel: [],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
         tyresModel: [],
         drives: ["FWD", "RWD", "4WD"],
@@ -360,16 +366,19 @@ export default {
         countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR"],
         countrysModel: [],
         brands: [
+          "AC",
           "Acura",
           "Alfa Romeo",
           "AMC",
           "Apollo", // logic "Gumpert"
+          "Arash",
           "Ariel",
           "Aston Martin",
           "Audi",
           "Austin",
           "Bentley",
           "BMW",
+          "Bristol",
           "Bugatti",
           "Buick",
           "Cadillac",
@@ -378,12 +387,16 @@ export default {
           "Chrysler",
           "Citroen",
           "De Tomaso",
+          "DMC",
           "Dodge",
           "Donkervoort",
           "DS",
+          "Eagle",
           "Fiat",
           "Ford",
+          "Geo",
           "GMC",
+          "Hennessey",
           "Honda",
           "Hummer",
           "Infiniti",
@@ -402,6 +415,7 @@ export default {
           "Mini",
           "Mitsubishi",
           "Nissan",
+          "Oldsmobile",
           "Pagani",
           "Peugeot",
           "Plymouth",
@@ -409,18 +423,24 @@ export default {
           "Porsche",
           "RAM",
           "Renault",
+          "Rezvani",
           "Rimac",
           "Rover",
           "RUF",
+          "Saleen",
+          "Saturn",
           "SCG", // logic "Scuderia Cameron Glickenhaus"
           "Smart",
           "Spyker",
           "Subaru",
           "Suzuki",
           "TVR",
+          "Ultima",
           "Vauxhall",
           "Volkswagen",
-          "Volvo"
+          "Volvo",
+          "W Motors",
+          "Zenos"
         ],
         brandsModel: [],
       },
@@ -502,7 +522,7 @@ export default {
 
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 200 || showAll) {
+        if (result.length < 333 || showAll) {
 
           let shouldPush = false;
           if (searchStr && searchStr !== "") {
@@ -581,7 +601,7 @@ export default {
         // if (ix > 200) return;
         let dif = {};
 
-        this.pl14.find(x => {
+        let pl14car = this.pl14.find(x => {
           if (x.rid === y.rid) {
 
             if (x.rq !== y.rq) {
@@ -642,6 +662,9 @@ export default {
 
           }
         })
+        if (!pl14car) {
+          dif.new = true;
+        }
 
         difResult.push(dif);
 
@@ -686,6 +709,7 @@ export default {
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
+      this.searchFilters.onlyNewCarsModel = [];
       this.searchFilters.tyresModel = [];
       this.searchFilters.drivesModel = [];
       this.searchFilters.clearancesModel = [];
@@ -706,6 +730,7 @@ export default {
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
+        onlyNewCarsModel: [],
         tyresModel: [],
         drivesModel: [],
         clearancesModel: [],
@@ -773,6 +798,12 @@ export default {
         }
       }
 
+      if ( this.searchFilters.onlyNewCarsModel.includes(true) ) {
+        if ( !!oldCar ) {
+          return false;
+        }
+      }
+
       return true;
     },
     filterCheckBetween(value, array) {
@@ -785,8 +816,8 @@ export default {
     applyFilter() {
       this.changeFilter();
       this.isFiltering = false;
-      let container = document.querySelector(".Main_SearchMid");
-      container.scrollTo({ top: 0 });
+      // let container = document.querySelector(".Main_SearchMid");
+      // container.scrollTo({ top: 0 });
     },
     closeFilterText() {
       this.searchInput = '';
@@ -840,6 +871,11 @@ export default {
       this.chunkLoaded[chunkId] = true;
       // this.chunkLoaded[chunkId+1] = true;
       
+    },
+    temp(str) {
+      console.log(str);
+      console.log(str.replaceAll("(","").replaceAll(")","").replaceAll(".","").replaceAll("-",""));
+      navigator.clipboard.writeText(str);
     }
   },
 }
@@ -1010,5 +1046,18 @@ export default {
 }
 .MainGallery_Layout .Main_FiltersButton {
   border-top-right-radius: 0px;
+}
+
+.MainGallery_NewCar {
+  color: white;
+  position: absolute;
+  top: 190px;
+  left: 163px;
+  align-items: center;
+  background-color: #007000;
+  padding: 4px 27px;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
 }
 </style>
