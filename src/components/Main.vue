@@ -19,6 +19,9 @@
           <div class="Main_PrintByLabel">print by</div>
           <div class="Main_PrintByUser">{{ user.username }}</div>
         </div>
+        <div class="Main_GamePrintInfo">
+          <div class="Main_GameVersionText">{{ gameVersion }}</div>
+        </div>
       </div>
       <div class="Main_Left">
         <div class="Main_TrackList">
@@ -101,6 +104,10 @@
             :car="null"
             :maxCarNumber="maxCarNumber"
             @add="openDialogSearch()" />
+        </div>
+        
+        <div class="Main_PrintCreditsBottom" :style="`max-width: calc(var(--cell-width) * ${carDetailsList.length})`">
+          <span style="color: rgb(var(--d-text-yellow)); margin-right: 3px;">Contributors: </span>{{ contributorsScreen }}
         </div>
       </div>
       <div v-else class="Main_MidEmpty">
@@ -534,6 +541,7 @@ export default {
       printImageDialog: false,
       aboutDialog: false,
       hoverIndex: -1,
+      gameVersion: "Game v15.00",
       user: null,
       needSave: false,
       saveLoading: false,
@@ -1037,6 +1045,19 @@ export default {
 
       return result;
     },
+    contributorsScreen() {
+      let contritrs = [];
+      this.carDetailsList.map(x => {
+        if (x.users && x.users.length > 0) {
+          contritrs.push(...x.users);
+        }
+      });
+
+      contritrs = [...new Set(contritrs)]
+      return contritrs.join(", ")
+
+
+    }
   },
   methods: {
     // calcCurrentTracks() {
@@ -1605,11 +1626,12 @@ export default {
       }
       let reduceHeight = 0;
       let carlistContainer = document.querySelector(".Main_CarList");
+      let credits = document.querySelector(".Main_PrintCreditsBottom");
       let backTopContainer = document.querySelector(".Main_Backtop");
       if (!mainLayout.classList.contains("Main_2")) {
-        reduceHeight = pose.clientHeight - carlistContainer.clientHeight;
+        reduceHeight = pose.clientHeight - carlistContainer.clientHeight - credits.clientHeight;
       } else {
-        reduceHeight = pose.clientHeight - backTopContainer.clientHeight - carlistContainer.clientHeight;
+        reduceHeight = pose.clientHeight - backTopContainer.clientHeight - carlistContainer.clientHeight - credits.clientHeight;
       }
 
 
@@ -2518,6 +2540,14 @@ body::-webkit-scrollbar-corner {
 .Main_Corner .Main_PrintByLabel {
   margin-bottom: 0px;
 }
+.Main_GamePrintInfo {
+  display: none;
+}
+.Main_PrintCreditsBottom {
+  display: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
 .Main_Corner .Main_PrintByUser {
   max-width: 20ch;
 }
@@ -2872,6 +2902,9 @@ body::-webkit-scrollbar-corner {
 .Main_Compact .Car_Layout .Car_HeaderStatLabel {
   padding-right: 1px;
 }
+.Main_Compact {
+  --cell-width: 120px;
+}
 
 
 
@@ -2951,6 +2984,29 @@ body::-webkit-scrollbar-corner {
 }
 .Main_Compact .Car_Loading::after {
   left: 50%;
+}
+.Main_BodyPrint .Main_GamePrintInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+.Main_2 .Main_BodyPrint .Main_GamePrintInfo {
+  margin-top: 0px;
+}
+.Main_2 .Main_BodyPrint {
+  --top-height: 93px;
+}
+.Main_BodyPrint .Main_Left {
+  justify-content: flex-start;
+}
+.Main_BodyPrint .Main_PrintCreditsBottom {
+  display: block;
+}
+.Main_2 .Main_BodyPrint .Main_PrintCreditsBottom {
+  display: block;
+  max-width: unset !important;
 }
 
 
