@@ -150,10 +150,18 @@
               </template>
             </div>
             <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags">
+                <BaseChip
+                  v-model="searchFilters.tagsModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.brands">
                 <BaseChip
                   v-model="searchFilters.brandsModel"
-                  class="BaseChip_MinWidth"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
                   :value="item" />
               </template>
             </div>
@@ -363,8 +371,51 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR"],
+        countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR", "AE", "BR", "ZA", "CN"],
         countrysModel: [],
+        tags: [
+          "American Dream",
+          "American Frontier",
+          "Around the World",
+          "Call of the Wild",
+          "Christmas Collection",
+          "Concept",
+          "Drivers Choice",
+          "Eco Friendly",
+          "European Revolution",
+          "Famous Tracks",
+          "French Renaissance",
+          "German Renaissance",
+          "Great Exhibition",
+          "Hot Hatch",
+          "Hypercar",
+          "In the Shadows",
+          "Innovative",
+          "Italian Renaissance",
+          "Japan Pro Tour",
+          "Motorsport",
+          "Muscle Car",
+          "Rest of the World",
+          "Ride of the Valkyries",
+          "Riders on the Storm",
+          "Silver Screen",
+          "Sleeper",
+          "Street Racer",
+          "Style Icon",
+          "Sub-Zero",
+          "Summer Games",
+          "Supercar",
+          "Team Favourite",
+          "The Horror Show",
+          "Two Tone",
+          "Ultra Expensive",
+          "Wild Ride",
+          "World Expo",
+          "Year of the Ox",
+          "Year of the Rat",
+          "Year of the Tiger"
+        ],
+        tagsModel: [],
         brands: [
           "AC",
           "Acura",
@@ -714,6 +765,7 @@ export default {
       this.searchFilters.drivesModel = [];
       this.searchFilters.clearancesModel = [];
       this.searchFilters.countrysModel = [];
+      this.searchFilters.tagsModel = [];
       this.searchFilters.brandsModel = [];
     },
     resolveFilterCount() {
@@ -735,6 +787,7 @@ export default {
         drivesModel: [],
         clearancesModel: [],
         countrysModel: [],
+        tagsModel: [],
         brandsModel: []
       }
       let count = 0;
@@ -770,6 +823,7 @@ export default {
       if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
       if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
       if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
 
       let oldCar = this.pl14.find(old => old.rid === car.rid);
@@ -812,6 +866,12 @@ export default {
     filterCheckIncludes(value, array) {
       if (array.length === 0) return true;
       return array.includes(value);
+    },
+    filterCheckIncludesArray(valuesArray, array) {
+      if (array.length === 0) return true;
+      return !!array.find(x => {
+        return valuesArray.includes(x);
+      });
     },
     applyFilter() {
       this.changeFilter();

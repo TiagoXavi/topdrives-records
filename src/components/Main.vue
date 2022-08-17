@@ -264,10 +264,18 @@
               </template>
             </div>
             <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags">
+                <BaseChip
+                  v-model="searchFilters.tagsModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.brands">
                 <BaseChip
                   v-model="searchFilters.brandsModel"
-                  class="BaseChip_MinWidth"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
                   :value="item" />
               </template>
             </div>
@@ -582,6 +590,49 @@ export default {
         clearancesModel: [],
         countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR", "AE", "BR", "ZA", "CN"],
         countrysModel: [],
+        tags: [
+          "American Dream",
+          "American Frontier",
+          "Around the World",
+          "Call of the Wild",
+          "Christmas Collection",
+          "Concept",
+          "Drivers Choice",
+          "Eco Friendly",
+          "European Revolution",
+          "Famous Tracks",
+          "French Renaissance",
+          "German Renaissance",
+          "Great Exhibition",
+          "Hot Hatch",
+          "Hypercar",
+          "In the Shadows",
+          "Innovative",
+          "Italian Renaissance",
+          "Japan Pro Tour",
+          "Motorsport",
+          "Muscle Car",
+          "Rest of the World",
+          "Ride of the Valkyries",
+          "Riders on the Storm",
+          "Silver Screen",
+          "Sleeper",
+          "Street Racer",
+          "Style Icon",
+          "Sub-Zero",
+          "Summer Games",
+          "Supercar",
+          "Team Favourite",
+          "The Horror Show",
+          "Two Tone",
+          "Ultra Expensive",
+          "Wild Ride",
+          "World Expo",
+          "Year of the Ox",
+          "Year of the Rat",
+          "Year of the Tiger"
+        ],
+        tagsModel: [],
         brands: [
           "AC",
           "Acura",
@@ -774,36 +825,57 @@ export default {
         { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },//
       ],
       customTracks: [
-        { name: "Forest Road", id: "forest", surface: 0, cond: 0 },//
-        { name: "Monaco City Street", id: "mnCity", surface: 0, cond: 0 },//
-        { name: "Monaco City Street Long", id: "mnCityLong", surface: 0, cond: 0 },//
-        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0 },//
-        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0 },//
-        { name: "Monaco Narrow Street", id: "mnNarrow", surface: 0, cond: 0 },//
-        { name: "Waterfront drag", id: "waterDrag", surface: 0, cond: 0 },//
+        { name: "G-Force Test (R)", id: "gForcer", surface: 0, cond: 0 },
+        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 0 },
+        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0 },
+        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0 },
 
-        { name: "Canyon Tour", id: "canyonTour", surface: 0, cond: 0 },//
-        { name: "", id: "mtTwisty", surface: 0, cond: 0 },//
-        { name: "", id: "mtHill", surface: 0, cond: 0 },//
-        { name: "", id: "mtHairpin", surface: 0, cond: 0 },//
-        { name: "", id: "mtTour", surface: 0, cond: 0 },//
-        { name: "", id: "mtIncline", surface: 0, cond: 0 },//
-        { name: "", id: "mtSlalom", surface: 0, cond: 0 },//
+        { name: "30-130mph", id: "drag30130", surface: 0, cond: 0 },
+        { name: "75-125mph", id: "drag75125", surface: 0, cond: 0 },
 
-        { name: "", id: "northloop", surface: 0, cond: 0 },//
-        { name: "", id: "northloop1", surface: 0, cond: 0 },//
-        { name: "", id: "northloop2", surface: 0, cond: 0 },//
-        { name: "", id: "northloop3", surface: 0, cond: 0 },//
-        { name: "", id: "northloop4", surface: 0, cond: 0 },//
-        { name: "", id: "northloop5", surface: 0, cond: 0 },//
+        { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0 },
+        { name: "1/2 Mile (R)", id: "mile2r", surface: 0, cond: 0 },
+        { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0 },
+        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0 },
+        { name: "Test Bowl (R)", id: "testBowlr", surface: 0, cond: 0 },
 
-        { name: "", id: "tokyoOffRamp", surface: 0, cond: 0 },//
-        { name: "", id: "tokyoLoop", surface: 0, cond: 0 },//
-        { name: "", id: "tokyoOverpass", surface: 0, cond: 0 },//
-        { name: "", id: "tokyoGforce", surface: 0, cond: 0 },//
-        { name: "", id: "tokyoDrag", surface: 0, cond: 0 },//
+        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 1 },
+        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 1 },
+        { name: "1 Mile", id: "mile1", surface: 0, cond: 1 },
+        { name: "0-100mph", id: "drag100", surface: 0, cond: 1 },
+        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 1 },
+        { name: "0-150mph", id: "drag150", surface: 0, cond: 1 },
+        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 1 },
+        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 1 },
 
-        
+        { name: "Forest Road", id: "forest", surface: 0, cond: 0 },
+        { name: "Monaco City Street", id: "mnCity", surface: 0, cond: 0 },
+        { name: "Monaco City Street Long", id: "mnCityLong", surface: 0, cond: 0 },
+        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0 },
+        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0 },
+        { name: "Monaco Narrow Street", id: "mnNarrow", surface: 0, cond: 0 },
+        { name: "Waterfront drag", id: "waterDrag", surface: 0, cond: 0 },
+
+        { name: "Canyon Tour", id: "canyonTour", surface: 0, cond: 0 },
+        { name: "Mountain Twisty Road", id: "mtTwisty", surface: 0, cond: 0 },
+        { name: "Mountain Hillclimb", id: "mtHill", surface: 0, cond: 0 },
+        { name: "Mountain Hairpin", id: "mtHairpin", surface: 0, cond: 0 },
+        { name: "Mountain Tour", id: "mtTour", surface: 0, cond: 0 },
+        { name: "Mountain Incline Road", id: "mtIncline", surface: 0, cond: 0 },
+        { name: "Mountain Slalom", id: "mtSlalom", surface: 0, cond: 0 },
+
+        { name: "Northloop", id: "northloop", surface: 0, cond: 0 },
+        { name: "Northloop 1", id: "northloop1", surface: 0, cond: 0 },
+        { name: "Northloop 2", id: "northloop2", surface: 0, cond: 0 },
+        { name: "Northloop 3", id: "northloop3", surface: 0, cond: 0 },
+        { name: "Northloop 4", id: "northloop4", surface: 0, cond: 0 },
+        { name: "Northloop 5", id: "northloop5", surface: 0, cond: 0 },
+
+        { name: "Tokyo Off Ramp", id: "tokyoOffRamp", surface: 0, cond: 0 },
+        { name: "Tokyo Loop", id: "tokyoLoop", surface: 0, cond: 0 },
+        { name: "Tokyo Overpass", id: "tokyoOverpass", surface: 0, cond: 0 },
+        { name: "Tokyo G-Force Test", id: "tokyoGforce", surface: 0, cond: 0 },
+        { name: "Tokyo Drag", id: "tokyoDrag", surface: 0, cond: 0 },        
       ],
 
       carList: [],
@@ -1728,6 +1800,7 @@ export default {
       this.searchFilters.drivesModel = [];
       this.searchFilters.clearancesModel = [];
       this.searchFilters.countrysModel = [];
+      this.searchFilters.tagsModel = [];
       this.searchFilters.brandsModel = [];
     },
     resolveFilterCount() {
@@ -1744,6 +1817,7 @@ export default {
         drivesModel: [],
         clearancesModel: [],
         countrysModel: [],
+        tagsModel: [],
         brandsModel: []
       }
       let count = 0;
@@ -1779,6 +1853,7 @@ export default {
       if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
       if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
       if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
 
 
@@ -1790,6 +1865,12 @@ export default {
     filterCheckIncludes(value, array) {
       if (array.length === 0) return true;
       return array.includes(value);
+    },
+    filterCheckIncludesArray(valuesArray, array) {
+      if (array.length === 0) return true;
+      return !!array.find(x => {
+        return valuesArray.includes(x);
+      });
     },
     applyFilter() {
       this.changeFilter();
@@ -2678,6 +2759,7 @@ body::-webkit-scrollbar-corner {
 .Main_FilterChipsFlex {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 5px;
 }
 .Main_FilterClassChips {
