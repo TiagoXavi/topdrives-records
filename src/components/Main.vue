@@ -95,6 +95,7 @@
               :user="user"
               :downloadLoading="downloadLoading"
               @delete="deleteCar(carIx)"
+              @moreTracks="moreTracksCar($event)"
               @newindex="newIndex($event)" />
           </template>
           <Car
@@ -331,6 +332,49 @@
       </div>
     </BaseDialog>
     <BaseDialog
+      :active="customTrackDialog"
+      :transparent="false"
+      max-width="320px"
+      min-width="240px"
+      @close="customTrackDialog = false; optionsDialogActive = true;">
+      <div class="Main_TracksDialog">
+        <div class="Main_AllTracksBox">
+          <div
+            v-for="track in allTracks"
+            :class="`${track.surface === 0 && track.cond === 0 ? 'Row_Asphalt ' : '' }`+
+                    `${track.cond === 1 ? 'Track_Wet ' : '' }`+
+                    `${track.surface === 1 ? 'Track_Dirt ' : '' }`+
+                    `${track.surface === 2 ? 'Track_Gravel ' : '' }`+
+                    `${track.surface === 3 ? 'Track_Ice ' : '' }`+
+                    `${track.surface === 4 ? 'Track_Mixed ' : '' }`+
+                    `${track.surface === 5 ? 'Track_Sand ' : '' }`+
+                    `${track.surface === 6 ? 'Track_Snow ' : '' }`+
+                    `${track.active ? 'Main_CustomTrackActive ' : '' }`"
+            class="Main_CustomTrackItem">
+            <div class="Main_CustomTrackLeft">
+              <div class="Main_CustomTrackName">{{ track.name }}</div>
+              <div class="Main_CustomTrackCond">
+                <div v-if="track.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
+                <div v-if="track.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
+                <div v-if="track.surface === 2" style="color: rgb(var(--color-gravel))">GRAVEL</div>
+                <div v-if="track.surface === 3" style="color: rgb(var(--color-ice))">ICE</div>
+                <div v-if="track.surface === 4" style="color: rgb(var(--color-mixed))">MIXED</div>
+                <div v-if="track.surface === 5" style="color: rgb(var(--color-sand))">SAND</div>
+                <div v-if="track.surface === 6" style="color: rgb(var(--color-snow))">SNOW</div>
+              </div>
+            </div>
+            <div class="Main_CustomTrackRight">
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="toggleTrack(track)">
+                <i class="ticon-correct_1 Main_CustomTrackCorrect" aria-hidden="true"/>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
       :active="tuneDialogActive"
       :transparent="false"
       max-width="420px"
@@ -403,6 +447,9 @@
               :class="{ D_ButtonActive: item.active }"
               class="D_Button Main_OptionsButton"
               @click="stringToggleTrackSet(item.set)">{{ item.name }}</button>
+            <button
+              class="D_Button Main_OptionsButton"
+              @click="customTrackDialog = true; optionsDialogActive = false;">More...</button>
           </div>
         </div>
         <div class="Main_OptionsItem">
@@ -548,6 +595,8 @@ export default {
       optionsDialogActive: false,
       printImageDialog: false,
       aboutDialog: false,
+      customTrackDialog: false,
+      allTracks: [],
       hoverIndex: -1,
       gameVersion: "Game v15.00",
       user: null,
@@ -908,16 +957,19 @@ export default {
       this.display(display);
     }
 
-    let allTracks = [];
     this.tracksButtons.map(x => {
       if (this[x.set]) {
         this[x.set].map(y => {
-          if (!allTracks.includes(y)) {
-            allTracks.push(y);
+          if (!this.allTracks.includes(y)) {
+            this.allTracks.push(y);
           }
         })
       }
     })
+    this.customTracks.map(x => {
+      this.allTracks.push(x);
+    })
+
     
 
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
@@ -945,7 +997,7 @@ export default {
 
       let tracksClear = [];
       tracksFromQuery.map(x => {
-        allTracks.find(y => {
+        this.allTracks.find(y => {
           if (x.id === y.id && x.surface == y.surface && x.cond == y.cond) {
             tracksClear.push(y);
             return true;
@@ -966,7 +1018,8 @@ export default {
         tracks = JSON.parse(tracks);
         // console.log(tracks.map(x => x.id));
         tracks.map(x => {
-          allTracks.find(y => {
+          delete x.active;
+          this.allTracks.find(y => {
             if (JSON.stringify(x) === JSON.stringify(y)) {
               tracksClear.push(x);
               return true;
@@ -1127,7 +1180,8 @@ export default {
 
       contritrs = [...new Set(contritrs)]
       return contritrs.join(", ")
-
+    },
+    listAllTracks() {
 
     }
   },
@@ -1173,6 +1227,18 @@ export default {
       })
       this.verifyActiveButtons();
     },
+    pushTrack(track) {
+      let index = this.indexOfTrack(track);
+      if (index === -1) {
+        this.currentTracks.push(track)
+      }
+    },
+    removeTrack(track) {
+      let index = this.indexOfTrack(track);
+      if (index > -1) {
+        this.currentTracks.splice(index, 1);
+      }
+    },
     toggleTrackSet(trackset) {
       let incluedesAll = this.includeAllTracks(trackset);
       
@@ -1183,8 +1249,31 @@ export default {
         this.pushTrackSet(trackset);
       }
     },
+    toggleTrack(track) {
+      let index = this.currentTracks.findIndex(y => {
+        if (`${track.id}_a${track.surface}${track.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+          return true
+        }
+      });
+      
+      if (index === -1) {
+        this.pushTrack(track);
+      } else {
+        this.removeTrack(track);
+      }      
+      this.verifyActiveButtons();
+    },
     stringToggleTrackSet(str) {
       this.toggleTrackSet(this[str])
+    },
+    moreTracksCar(tracksIds) {
+      tracksIds.map(x => {
+        this.allTracks.map(track => {
+          if (`${track.id}_a${track.surface}${track.cond}` === x) {
+            this.toggleTrack(track);
+          }
+        })
+      })
     },
     indexOfTrack(x) {
       return this.currentTracks.findIndex(y => {
@@ -1212,6 +1301,18 @@ export default {
           x.active = true;
         } else {
           x.active = false;
+        }
+      })
+      this.allTracks.map(x => {
+        let index = this.currentTracks.findIndex(y => {
+          if (`${x.id}_a${x.surface}${x.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+            return true;
+          }
+        });
+        if (index === -1) {
+          Vue.set(x, "active", false);
+        } else {
+          Vue.set(x, "active", true);
         }
       })
     },
@@ -2376,24 +2477,28 @@ body {
 }
 .Main_SearchEmpty::-webkit-scrollbar,
 .Main_SearchMid::-webkit-scrollbar,
+.Main_DarkScroll::-webkit-scrollbar,
 textarea::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 18px;
 }
 .Main_SearchEmpty::-webkit-scrollbar-track,
 .Main_SearchMid::-webkit-scrollbar-track,
+.Main_DarkScroll::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background-color: #0002;
 }
 .Main_SearchEmpty::-webkit-scrollbar-thumb,
 .Main_SearchMid::-webkit-scrollbar-thumb,
+.Main_DarkScroll::-webkit-scrollbar-thumb,
 textarea::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: #555;
 }
 .Main_SearchEmpty::-webkit-scrollbar-corner,
 .Main_SearchMid::-webkit-scrollbar-corner,
+.Main_DarkScroll::-webkit-scrollbar-corner,
 textarea::-webkit-scrollbar-corner,
 body::-webkit-scrollbar-corner {
   background-color: #222;
@@ -2839,7 +2944,40 @@ body::-webkit-scrollbar-corner {
 .Main_AboutFlagBox svg {
   width: 30px;
 }
-
+.Main_CustomTrackItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 20px;
+  transition: all 0.1s, box-shadow 0.1s;
+}
+.Main_CustomTrackItem:hover {
+  box-shadow: inset 0px 60px 0px 0px rgba(255,255,255,0.03);
+}
+.Main_CustomTrackFalse,
+.Main_CustomTrackCorrect {
+  font-size: 35px;
+}
+.Main_CustomTrackCorrect {
+  display: none;
+  margin: -10px;
+  color: rgb(var(--d-text-green));
+}
+.Main_CustomTrackActive .Main_CustomTrackCorrect {
+  display: block;
+}
+.Main_CustomTrackCond {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.Main_AllTracksBox {
+  margin: 0 -20px;
+}
 
 
 
@@ -3089,6 +3227,9 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Main_BodyPrint .Main_PrintCreditsBottom {
   display: block;
   max-width: unset !important;
+}
+.Main_BodyPrint .Row_ShowMoreTracks {
+  display: none;
 }
 
 

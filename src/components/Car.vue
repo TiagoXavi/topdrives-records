@@ -25,6 +25,7 @@
         :loggedin="loggedin"
         :user="user"
         @move="moveCar($event)"
+        @moreTracks="$emit('moreTracks', $event)"
         @delete="$emit('delete')"
         type="times" />
     </div>

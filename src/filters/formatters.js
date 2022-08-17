@@ -3,7 +3,7 @@ export function toTimeString(input, id) {
   let num = Number(input);
   if (input == 0) return "DNF";
   if (isNaN(input)) return input;
-  if (id === "testBowl") {
+  if (id.includes("testBowl")) {
     if (!isNaN(num)) {
       return `${Math.floor(num)}`;
     }
@@ -36,7 +36,7 @@ export function toTimeNumber(input, id) {
   let arr;
   try {
     let num = Number(input);
-    if (id === "testBowl") {
+    if (id.includes("testBowl")) {
       if (!isNaN(num)) {
         // return direto
         return Math.floor(num);

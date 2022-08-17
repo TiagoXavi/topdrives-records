@@ -50,13 +50,13 @@
               `${true ? 'Row_ColorByIndex ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
               `${item.surface === 0 && item.cond === 0 ? 'Row_Asphalt ' : '' }`+
-              `${item.cond === 1 ? 'Row_Wet ' : '' }`+
-              `${item.surface === 1 ? 'Row_Dirt ' : '' }`+
-              `${item.surface === 2 ? 'Row_Gravel ' : '' }`+
-              `${item.surface === 3 ? 'Row_Ice ' : '' }`+
-              `${item.surface === 4 ? 'Row_Mixed ' : '' }`+
-              `${item.surface === 5 ? 'Row_Sand ' : '' }`+
-              `${item.surface === 6 ? 'Row_Snow ' : '' }`+
+              `${item.cond === 1 ? 'Track_Wet ' : '' }`+
+              `${item.surface === 1 ? 'Track_Dirt ' : '' }`+
+              `${item.surface === 2 ? 'Track_Gravel ' : '' }`+
+              `${item.surface === 3 ? 'Track_Ice ' : '' }`+
+              `${item.surface === 4 ? 'Track_Mixed ' : '' }`+
+              `${item.surface === 5 ? 'Track_Sand ' : '' }`+
+              `${item.surface === 6 ? 'Track_Snow ' : '' }`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
@@ -83,6 +83,12 @@
 
     <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
       <div>No records</div>
+    </div>
+
+    <div v-if="nonUsedTracks.length > 0" class="Row_ShowMoreTracks">
+      <button
+        class="D_Button D_ButtonLink Row_ShowMoreButton"
+        @click="$emit('moreTracks', nonUsedTracks)">Show other tracks</button>
     </div>
 
 
@@ -190,7 +196,6 @@
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseText from '@/components/BaseText.vue';
 import BaseCard from '@/components/BaseCard.vue';
-import { debug } from 'logrocket';
 
 export default {
   name: 'Row',
@@ -267,7 +272,8 @@ export default {
       card_speed: null,
       card_acel: null,
       card_hand: null,
-      mouseInsideTuneBox: false
+      mouseInsideTuneBox: false,
+      nonUsedTracks: []
     }
   },
   watch: {},
@@ -289,6 +295,10 @@ export default {
       let result = [];
       let text;
       let car;
+      let timesObjPresent = false;
+      let presentTracks = [];
+      this.nonUsedTracks = [];
+
       if (this.type === "tracks") {
         this.list.map(x => {
           result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id })
@@ -306,6 +316,7 @@ export default {
               car.data[car.selectedTune] &&
               car.data[car.selectedTune].times
           ) {
+            timesObjPresent = true;
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
           }
           if (text === undefined || text === null) text = "";
@@ -313,6 +324,22 @@ export default {
         })
       }
       // console.log(result);
+      if (timesObjPresent) {
+        result.map(x => {
+          presentTracks.push(`${x.id}_a${x.surface}${x.cond}`);
+        })
+
+        let vm = this;
+
+        Object.keys( this.car.data[this.car.selectedTune].times ).forEach(function (key) {
+          let x = vm.car.data[vm.car.selectedTune].times[key]
+          if (!presentTracks.includes(key)) {
+            vm.nonUsedTracks.push(key)
+          }
+
+        });
+        
+      }
 
       return result;
     },
@@ -502,31 +529,38 @@ export default {
 .Row_ConfigCell {
   border-bottom-color: #5a5a5a;
 }
-.Row_Tracks .Row_Wet {
+.Row_Tracks .Track_Wet,
+.Main_AllTracksBox .Track_Wet {
   color: rgb(var(--color-wet));
   background-color: rgba(var(--color-wet), 0.1);
 }
-.Row_Tracks .Row_Dirt {
+.Row_Tracks .Track_Dirt,
+.Main_AllTracksBox .Track_Dirt {
   color: rgb(var(--color-dirt));
   background-color: rgba(var(--color-dirt), 0.1);
 }
-.Row_Tracks .Row_Gravel {
+.Row_Tracks .Track_Gravel,
+.Main_AllTracksBox .Track_Gravel {
   color: rgb(var(--color-gravel));
   background-color: rgba(var(--color-gravel), 0.1);
 }
-.Row_Tracks .Row_Ice {
+.Row_Tracks .Track_Ice,
+.Main_AllTracksBox .Track_Ice {
   color: rgb(var(--color-ice));
   background-color: rgba(var(--color-ice), 0.1);
 }
-.Row_Tracks .Row_Mixed {
+.Row_Tracks .Track_Mixed,
+.Main_AllTracksBox .Track_Mixed {
   color: rgb(var(--color-mixed));
   background-color: rgba(var(--color-mixed), 0.1);
 }
-.Row_Tracks .Row_Sand {
+.Row_Tracks .Track_Sand,
+.Main_AllTracksBox .Track_Sand {
   color: rgb(var(--color-sand));
   background-color: rgba(var(--color-sand), 0.1);
 }
-.Row_Tracks .Row_Snow {
+.Row_Tracks .Track_Snow,
+.Main_AllTracksBox .Track_Snow {
   color: rgb(var(--color-snow));
   background-color: rgba(var(--color-snow), 0.1);
 }
@@ -746,6 +780,15 @@ export default {
   width: max-content;
   padding: 5px 15px;
   justify-content: center;
+}
+.Row_ShowMoreTracks {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+.Row_ShowMoreButton {
+  padding: 8px !important;
+  color: #777 !important;
 }
 
 

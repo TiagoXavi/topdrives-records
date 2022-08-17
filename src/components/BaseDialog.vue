@@ -19,7 +19,7 @@
           BaseDialog_Opaque: !transparent,
           BaseDialog_Transparent: transparent
         }"
-        class="BaseDialog_Box">
+        class="BaseDialog_Box Main_DarkScroll">
         <slot />
       </div>
     </div>
@@ -140,6 +140,9 @@ export default {
   width: 100%;
   user-select: text;
   margin: 10px 10px 40px 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .BaseDialog_Opaque {
   background-color: #333;
