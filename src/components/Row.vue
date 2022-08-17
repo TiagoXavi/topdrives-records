@@ -532,13 +532,12 @@ export default {
 }
 .Row_Tracks .Row_Campaign {
     position: absolute;
-    right: 0;
+    left: 0;
     background: #d3d3d3;
     border: solid 2px #535353;
     color: #535353;
     border-radius: 5px;
     padding: 5px;
-    z-index: 1000;
 }
 .Row_Tracks .Track_Wet,
 .Main_AllTracksBox .Track_Wet {
