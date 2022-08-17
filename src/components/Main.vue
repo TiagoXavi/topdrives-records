@@ -1753,7 +1753,10 @@ export default {
           let car = this.carDetailsList.find(x => {
             return x.rid === rid
           });
-          Vue.set(car, "isEmpty", true)
+          Vue.set(car, "isEmpty", true);
+          if (res && res.data) {
+            this.applyNewData([res.data]);
+          }
         } else {
           this.applyNewData([res.data]);
         }
