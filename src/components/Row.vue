@@ -61,7 +61,7 @@
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
       class="Row_Item Row_Cell"
-      @mouseenter="mouseEnter($event)">
+      @mouseenter="mouseEnter($event)" @mouseover="item.hovered = true" @mouseleave="item.hovered = false">
       <div
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && car.users && !car.users.includes(user.username)) ? false : true"
         @blur="blur($event, item, ix)"
@@ -69,6 +69,7 @@
         @keydown="keydown($event, item, ix)"
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <div class="Row_Placeholder">-</div>
+      <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
       <div v-if="type === 'tracks'" class="Row_Conditions">
         <div v-if="item.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
         <div v-if="item.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
@@ -301,7 +302,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id })
+          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, campaign: x.campaign, hovered: false })
         })
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
@@ -528,6 +529,16 @@ export default {
 }
 .Row_ConfigCell {
   border-bottom-color: #5a5a5a;
+}
+.Row_Tracks .Row_Campaign {
+    position: absolute;
+    right: 0;
+    background: #d3d3d3;
+    border: solid 2px #535353;
+    color: #535353;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1000;
 }
 .Row_Tracks .Track_Wet,
 .Main_AllTracksBox .Track_Wet {
