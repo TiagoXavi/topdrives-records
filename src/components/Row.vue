@@ -61,7 +61,7 @@
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
       class="Row_Item Row_Cell"
-      @mouseenter="mouseEnter($event)" @mouseover="item.hovered = true" @mouseleave="item.hovered = false">
+      @mouseenter="mouseEnter($event)" @mouseover="type === 'tracks' ? item.hovered = true : ''" @mouseleave="item.hovered = false">
       <div
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && car.users && !car.users.includes(user.username)) ? false : true"
         @blur="blur($event, item, ix)"
