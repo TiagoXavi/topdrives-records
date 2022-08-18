@@ -1373,7 +1373,7 @@ export default {
           this.showCarsFix = true;
         })
       }
-      
+
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
@@ -1625,6 +1625,11 @@ export default {
       this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
       
       this.updateCarLocalStorage();
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      })
     },
     getUser() {
       // user
