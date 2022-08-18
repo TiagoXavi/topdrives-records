@@ -61,13 +61,14 @@
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
       class="Row_Item Row_Cell"
-      @mouseenter="mouseEnter($event)" @mouseover="type === 'tracks' ? item.hovered = true : ''" @mouseleave="item.hovered = false">
+      @mouseenter="mouseEnter($event)">
       <div
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && car.users && !car.users.includes(user.username)) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
-        class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
+        class="Row_Content"
+        @mouseover="type === 'tracks' ? item.hovered = true : ''" @mouseleave="item.hovered = false">{{ item.text | toTimeString(item.id) }}</div>
       <div class="Row_Placeholder">-</div>
       <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
       <div v-if="type === 'tracks'" class="Row_Conditions">
@@ -532,12 +533,13 @@ export default {
 }
 .Row_Tracks .Row_Campaign {
     position: absolute;
-    left: 0;
+    right: 0;
     background: #d3d3d3;
     border: solid 2px #535353;
     color: #535353;
     border-radius: 5px;
     padding: 5px;
+    z-index: 1000;
 }
 .Row_Tracks .Track_Wet,
 .Main_AllTracksBox .Track_Wet {
