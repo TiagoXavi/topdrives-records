@@ -85,7 +85,7 @@ export default {
       let vm = this;
       this.loading = true;
       axios.post(Vue.preUrl + "/sendEmailReset", {
-        "email": this.email
+        "email": this.email.toLowerCase()
       })
       .then(res => {
         if (res.data === "OK") {

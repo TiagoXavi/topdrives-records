@@ -105,7 +105,7 @@ export default {
       let vm = this;
       this.loading = true;
       axios.post(Vue.preUrl + "/auth", {
-        "email": this.email,
+        "email": this.email.toLowerCase(),
         "password": this.password
       })
       .then(res => {

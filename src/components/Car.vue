@@ -6,16 +6,13 @@
     class="Car_Layout">
     <BaseCard
       :car="car"
-      :temp="temp"
       :fix-back="true"
       :downloadLoading="downloadLoading"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
       <Row
-        v-for="n in temp"
         :car="car"
-        :temp="temp"
         :list="trackList"
         :highlights="highlights"
         :hoverIndex="hoverIndex"
@@ -80,10 +77,6 @@ export default {
       default() {
         return {}
       }
-    },
-    temp: {
-      type: Number,
-      default: 1
     },
     hoverIndex: {
       type: Number,

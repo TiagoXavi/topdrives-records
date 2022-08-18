@@ -32,6 +32,17 @@ export function toTimeString(input, id) {
 export function toTimeNumber(input, id) {
   if (input === "DNF" || input === "0") return 0;
   if (input === "") return "";  
+
+  if (input.includes(".") && (input.match(/\./g) || []).length === 2) {
+    input = input.replaceAll(".", ":")
+  }
+  if (input.includes(".")) {
+    input = input.replaceAll(".", ":")
+  }
+  if (input.includes(",")) {
+    input = input.replaceAll(",", ":")
+  }
+
   let result = 0;
   let arr;
   try {

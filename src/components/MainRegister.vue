@@ -143,7 +143,7 @@ export default {
       this.loading = true;
       axios.post(Vue.preUrl + "/registration", {
         "username": this.username,
-        "email": this.email,
+        "email": this.email.toLowerCase(),
         "password": this.password
       })
       .then(res => {

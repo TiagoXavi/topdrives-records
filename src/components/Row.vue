@@ -72,6 +72,8 @@
         @mouseleave="item.hovered = false">{{ item.text | toTimeString(item.id) }}</div>
       <div class="Row_Placeholder">-</div>
       <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
       <div v-if="type === 'tracks'" class="Row_Conditions">
         <div v-if="item.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
         <div v-if="item.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
@@ -161,26 +163,43 @@
             </div>
           </div>
         </div>
-        <div class="Row_DialogCardBottom Space_TopPlus">
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">ABS</div>
-            <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue">{{ car.abs ? 'Yes' : 'No' }}</div>
+        <div class="Row_DialogCardDual Space_TopPlus">
+          <div class="Row_DialogCardBottom">
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">ABS</div>
+              <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue">{{ car.abs ? 'Yes' : 'No' }}</div>
+            </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">TCS</div>
+              <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue">{{ car.tcs ? 'Yes' : 'No' }}</div>
+            </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">Clearance</div>
+              <div class="Row_DialogCardStatValue">{{ car.clearance }}</div>
+            </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">MRA (stock)</div>
+              <div class="Row_DialogCardStatValue">{{ car.mra }}</div>
+            </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">Weight (stock)</div>
+              <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
+            </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">Tags</div>
+              <div v-if="car.tags && car.tags.length > 0" class="Row_DialogCardStatValue Row_DialogCardStatTags">{{ car.tags.join(", ") }}</div>
+              <div v-else class="Row_DialogCardStatValue">-</div>
+            </div>
           </div>
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">TCS</div>
-            <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue">{{ car.tcs ? 'Yes' : 'No' }}</div>
-          </div>
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">Clearance</div>
-            <div class="Row_DialogCardStatValue">{{ car.clearance }}</div>
-          </div>
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">MRA (stock)</div>
-            <div class="Row_DialogCardStatValue">{{ car.mra }}</div>
-          </div>
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">Weight (stock)</div>
-            <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
+          <div class="Row_DialogCardExternalBox">
+            <a
+              :href="`https://topdrives.club/vehicle/${car.tdid}`"
+              class="D_Button D_ButtonDark D_ButtonDark2 Row_DialogTdc"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>TDC</span>
+              <i class="ticon-internal Row_DialogExternal" aria-hidden="true"/>
+            </a>
           </div>
         </div>
         <div v-if="car.users" class="Row_DialogCardUsers Space_TopPlus">
@@ -242,10 +261,6 @@ export default {
       type: String,
       default: "tracks"
     },
-    temp: {
-      type: Number,
-      default: 1
-    },
     hoverIndex: {
       type: Number,
       default: -1
@@ -276,10 +291,15 @@ export default {
       card_acel: null,
       card_hand: null,
       mouseInsideTuneBox: false,
-      nonUsedTracks: []
+      nonUsedTracks: [],
+      indexesToClear: []
     }
   },
-  watch: {},
+  watch: {
+    car: function() {
+      // debugger;
+    }
+  },
   beforeMount() {},
   mounted() {
     let vm = this;
@@ -719,6 +739,25 @@ export default {
 .Row_DialogCardStatCorrect {
   color: rgb(var(--d-text-green));
 }
+.Row_DialogExternal {
+  font-size: 16px;
+  margin-left: 4px;
+  opacity: 0.6;
+}
+.Row_DialogTdc.D_Button {
+  align-self: center;
+}
+.Row_DialogCardStatTags {
+  font-size: 0.8em;
+  max-width: 220px;
+}
+.Row_DialogCardDual {
+  display: flex;
+}
+.Row_DialogCardExternalBox {
+  display: flex;
+  align-items: center;
+}
 .Row_FieldStat {
   max-width: 75px;
 }
@@ -803,6 +842,14 @@ export default {
 .Row_ShowMoreButton {
   padding: 8px !important;
   color: #777 !important;
+}
+.Row_xRA {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1;
+  position: absolute;
+  right: 2px;
+  bottom: 0px;
 }
 
 

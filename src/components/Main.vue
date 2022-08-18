@@ -25,9 +25,7 @@
       </div>
       <div class="Main_Left">
         <div class="Main_TrackList">
-          <Row 
-            v-for="n in temp"
-            :temp="temp"
+          <Row
             :list="currentTracks"
             :hoverIndex="hoverIndex"
             :loggedin="!!user"
@@ -80,10 +78,9 @@
         </div>
       </div>
       <div v-if="carDetailsList.length > 0" class="Main_Mid">
-        <div class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
+        <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
-              :temp="temp"
               :car="car"
               :index="carIx"
               :lastIndex="carDetailsList.length - 1"
@@ -94,6 +91,7 @@
               :loggedin="!!user"
               :user="user"
               :downloadLoading="downloadLoading"
+              :key="carIx"
               @delete="deleteCar(carIx)"
               @moreTracks="moreTracksCar($event)"
               @newindex="newIndex($event)" />
@@ -440,7 +438,13 @@
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Register' })">Register</button>
         </div>
         <div class="Main_OptionsItem">
-          <div class="Main_OptionsLabel">Trackset</div>
+          <div class="Main_OptionsLabel">
+            <span>Trackset</span>
+            <button
+              v-if="!needSave"
+              class="D_Button Main_OptionsButton Main_OptionsButtonClear"
+              @click="clearAllTracks()">Clear</button>
+          </div>
           <div class="Main_OptionsButtons">
             <button
               v-for="item in tracksButtons"
@@ -450,6 +454,7 @@
             <button
               class="D_Button Main_OptionsButton"
               @click="customTrackDialog = true; optionsDialogActive = false;">More...</button>
+            
           </div>
         </div>
         <div class="Main_OptionsItem">
@@ -576,7 +581,6 @@ export default {
       unsubscribe: null,
       inverted: false,
       compact: false,
-      temp: 1,
       searchInput: '',
       searchActive: false,
       isFiltering: false,
@@ -600,6 +604,7 @@ export default {
       hoverIndex: -1,
       gameVersion: "Game v15.00",
       user: null,
+      showCarsFix: true,
       needSave: false,
       saveLoading: false,
       downloadLoading: false,
@@ -879,6 +884,12 @@ export default {
         { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0, campaign: 'Chamonix 9' },
         { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0, campaign: 'Midlands 3' },
 
+        
+        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0, campaign: 'London 8' },
+        { name: "0-120mph", id: "drag120", surface: 0, cond: 0 },
+        { name: "0-150-0mph", id: "drag150b", surface: 0, cond: 0 },
+        { name: "0-170mph", id: "drag170", surface: 0, cond: 0 },
+        { name: "0-200mph", id: "drag200", surface: 0, cond: 0 },        
         { name: "30-130mph", id: "drag30130", surface: 0, cond: 0, campaign: 'Tokyo 8' },
         { name: "50-150mph", id: "drag50150", surface: 0, cond: 0, campaign: 'Stuttgart 2' },
         { name: "75-125mph", id: "drag75125", surface: 0, cond: 0, campaign: 'Stuttgart 9' },
@@ -886,16 +897,7 @@ export default {
         { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0, campaign: 'New York 2' },
         { name: "1/2 Mile (R)", id: "mile2r", surface: 0, cond: 0, campaign: false },
         { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0, campaign: 'Bavaria 1' },
-        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0, campaign: 'London 8' },
         { name: "Test Bowl (R)", id: "testBowlr", surface: 0, cond: 0, campaign: 'New York 10' },
-
-        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0, campaign: 'New York 5'},
-        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0, campaign: 'Milan 9' },
-        { name: "1 Mile", id: "mile1", surface: 0, cond: 0, campaign: 'Monaco 10' },
-        { name: "0-100mph", id: "drag100", surface: 0, cond: 0, campaign: 'Midlands 5' },
-        { name: "0-150mph", id: "drag150", surface: 0, cond: 0, campaign:  'Stuttgart 2'},
-        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0, campaign: 'Stuttgart 8'},
-        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0, campaign: 'West Coast 10' },
 
         { name: "Forest Road", id: "forest", surface: 0, cond: 0, campaign: false },
         { name: "Monaco City Street", id: "mnCity", surface: 0, cond: 0, campaign: 'Monte Carlo 1' },
@@ -924,7 +926,35 @@ export default {
         { name: "Tokyo Loop", id: "tokyoLoop", surface: 0, cond: 0 },
         { name: "Tokyo Overpass", id: "tokyoOverpass", surface: 0, cond: 0 },
         { name: "Tokyo G-Force Test", id: "tokyoGforce", surface: 0, cond: 0 },
-        { name: "Tokyo Drag", id: "tokyoDrag", surface: 0, cond: 0 },        
+        { name: "Tokyo Drag", id: "tokyoDrag", surface: 0, cond: 0 },
+
+        // wet
+        { name: "G-Force Test (R)", id: "gForcer", surface: 0, cond: 1 },
+        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 1 },
+        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 1 },
+        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 1 },
+        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 1 },
+        { name: "Test Bowl (R)", id: "testBowlr", surface: 0, cond: 1 },
+
+        // dirt
+        // dirt wet
+
+        // gravel
+        { name: "Test Bowl", id: "testBowl", surface: 2, cond: 0 },
+        { name: "Test Bowl (R)", id: "testBowlr", surface: 2, cond: 0 },
+
+        // snow
+        { name: "Test Bowl", id: "testBowl", surface: 6, cond: 0 },
+        { name: "Test Bowl (R)", id: "testBowlr", surface: 6, cond: 0 },
+
+        // mixed
+        { name: "Canyon Butte", id: "mtButte", surface: 4, cond: 0 },
+        { name: "Frozen Lake", id: "frozenLake", surface: 4, cond: 0 },
+        { name: "Rallycross Small", id: "rallySmall", surface: 4, cond: 0 },
+        { name: "Rallycross Medium", id: "rallyMed", surface: 4, cond: 0 },
+
+        // mixed wet
+        { name: "Canyon Butte", id: "mtButte", surface: 4, cond: 1 },
       ],
 
       carList: [],
@@ -1066,7 +1096,7 @@ export default {
         if (!car.users || !car.users.includes(vm.user.username)) {
           Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username]);
         }
-        vm.needSave = true;
+        vm.needSaveChange(true);
       }
 
       if (mutation.type == "CHANGE_TUNE") {
@@ -1088,7 +1118,7 @@ export default {
 
         Vue.set(car.data[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
         /**/ Vue.set(car.dataToSave[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
-        vm.needSave = true;
+        vm.needSaveChange(true);
       }
 
       if (mutation.type == "SHOW_TUNE") {
@@ -1295,6 +1325,10 @@ export default {
       })
       return incluedesAll;
     },
+    clearAllTracks() {
+      this.currentTracks = [];
+      this.verifyActiveButtons();
+    },
     verifyActiveButtons() {
       this.tracksButtons.map(x => {
         if (this.includeAllTracks(this[x.set])) {
@@ -1330,13 +1364,16 @@ export default {
           this.carDetailsList.push(this.carDetailsList[1]);
         });
       }
-      // if (this.temp === 1) {
-      //   this.temp = 4;
-      // } else {
-      //   this.temp = 1;
-      // }
     },
     deleteCar(index) {
+      let carToDel = this.carDetailsList.find((x, ix) => ix === index);
+      if (carToDel.dataToSave) {
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        })
+      }
+      
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
@@ -1683,7 +1720,7 @@ export default {
 
       axios.post(Vue.preUrl + "/update", simplifiedCars)
       .then(res => {
-        this.needSave = false;        
+        this.needSaveChange(false);
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -1988,7 +2025,18 @@ export default {
       this.alreadySearched = false;
       this.showingLastest = true;
       this.showAllFilter = false;
-    }
+    },
+    needSaveChange(val) {
+      this.needSave = val;
+
+      if (val) {
+        window.onbeforeunload = function(){
+          return 'Are you sure you want to leave?';
+        };
+      } else {
+        window.onbeforeunload = null;
+      }
+    },
   },
 }
 </script>
@@ -2663,6 +2711,17 @@ body::-webkit-scrollbar-corner {
 }
 .Main_OptionsButton > i {
   font-size: 28px;
+}
+.Main_OptionsButtonClear {
+  --back-color: 255, 0, 0;
+  color: rgb(217 115 115);
+  --back-opac: 0.5;
+  background-color: rgba(var(--back-color), 0.1);
+  --height: 16px;
+  padding: 5px 7px;
+  font-size: 1em;
+  margin: -5px 0;
+  margin-left: 5px;
 }
 .Main_OptionsButtons {
   display: flex;

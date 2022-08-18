@@ -79,6 +79,17 @@ export default {
             else if (tyre === "Off-road") return "OFF";
             else if (tyre === "Slick") return "SLK";
         },
+        Vue.mra = function (time, acel) {
+            acel = Number(acel);
+            // if (time && acel) {
+            //     debugger;
+            // }
+            if ( time && typeof time === 'number' && time > 0 && !isNaN(acel) ) {
+                return (100 * (acel / (time - acel))).toFixed(2)
+            } else {
+                return ''
+            }
+        },
 
 
         Vue.filter('toTimeString', toTimeString),
@@ -87,6 +98,7 @@ export default {
         Vue.filter('resolveClass', Vue.resolveClass),
         Vue.filter('resolveStat', Vue.resolveStat),
         Vue.filter('boldTunes', Vue.boldTunes),
-        Vue.filter('convertTires', Vue.convertTires)
+        Vue.filter('convertTires', Vue.convertTires),
+        Vue.filter('mra', Vue.mra)
     }
 };
