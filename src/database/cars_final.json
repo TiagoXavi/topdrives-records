@@ -89,7 +89,7 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 149,
-      "acel": 1.6,
+      "acel": 1.8,
       "hand": 97,
       "drive": "4WD",
       "tyres": "Slick",

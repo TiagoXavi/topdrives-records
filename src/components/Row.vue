@@ -838,6 +838,7 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 4px;
+  white-space: nowrap;
 }
 .Row_ShowMoreButton {
   padding: 8px !important;

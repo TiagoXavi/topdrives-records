@@ -592,7 +592,7 @@ export default {
       showAllFilter: false,
       searchResult: [],
       showingLastest: false,
-      maxCarNumber: 24,
+      maxCarNumber: 30,
       alreadySearched: false,
       shareDialog: false,
       tuneDialogActive: false,
@@ -3062,14 +3062,14 @@ body::-webkit-scrollbar-corner {
 }
 .Main_2 .Main_Left {
   width: unset;
-  position: static;
+  position: sticky;
+  top: 0;
   margin-top: 0;
   height: var(--top-height);
   box-shadow: none;
   min-height: unset;
   margin-left: var(--left-width);
-  /* margin-top: calc(var(--top-height) - var(--cell-height) - 1px); */
-  z-index: unset;
+  z-index: 5;
   display: block;
 }
 .Main_2 .Main_Credits {
