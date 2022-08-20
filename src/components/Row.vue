@@ -49,14 +49,7 @@
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
               `${true ? 'Row_ColorByIndex ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
-              `${item.surface === 0 && item.cond === 0 ? 'Row_Asphalt ' : '' }`+
-              `${item.cond === 1 ? 'Track_Wet ' : '' }`+
-              `${item.surface === 1 ? 'Track_Dirt ' : '' }`+
-              `${item.surface === 2 ? 'Track_Gravel ' : '' }`+
-              `${item.surface === 3 ? 'Track_Ice ' : '' }`+
-              `${item.surface === 4 ? 'Track_Mixed ' : '' }`+
-              `${item.surface === 5 ? 'Track_Sand ' : '' }`+
-              `${item.surface === 6 ? 'Track_Snow ' : '' }`+
+              `Type_${item.trackType} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
@@ -74,14 +67,29 @@
       <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
-      <div v-if="type === 'tracks'" class="Row_Conditions">
-        <div v-if="item.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
-        <div v-if="item.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
-        <div v-if="item.surface === 2" style="color: rgb(var(--color-gravel))">GRAVEL</div>
-        <div v-if="item.surface === 3" style="color: rgb(var(--color-ice))">ICE</div>
-        <div v-if="item.surface === 4" style="color: rgb(var(--color-mixed))">MIXED</div>
-        <div v-if="item.surface === 5" style="color: rgb(var(--color-sand))">SAND</div>
-        <div v-if="item.surface === 6" style="color: rgb(var(--color-snow))">SNOW</div>
+      <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions">
+        <span class="TypeText_Dirt" v-if="item.trackType[0] == '1'">Dirt</span>
+        <span class="TypeText_Gravel" v-else-if="item.trackType[0] == '2'">Gravel</span>
+        <span class="TypeText_Ice" v-else-if="item.trackType[0] == '3'">Ice</span>
+        <span class="TypeText_Sand" v-else-if="item.trackType[0] == '5'">Sand</span>
+        <span class="TypeText_Snow" v-else-if="item.trackType[0] == '6'">Snow</span>
+        <span class="TypeText_Grass" v-else-if="item.trackType[0] == '7'">Grass</span>
+        <template v-else>
+          <template v-if="item.trackType == 'e0'">
+            <span class="TypeText_Sand">Sand</span>
+            <span class="TypeText_Dirt">Dirt</span>
+          </template>
+          <template v-else>
+            <span v-if="item.trackType !== '01'" class="TypeText_Dry">Aspht</span>
+            <span class="TypeText_Dirt" v-if="item.trackType == '40'">Dirt</span>
+            <span class="TypeText_Gravel" v-else-if="item.trackType == 'b0'">Gravel</span>
+            <span class="TypeText_Sand" v-else-if="item.trackType == 'c0'">Sand</span>
+            <span class="TypeText_Snow" v-else-if="item.trackType == 'd0'">Snow</span>
+            <span class="TypeText_Dirt" v-else-if="item.trackType == '41'">Dirt</span>
+            <span class="TypeText_Sand" v-else-if="item.trackType == 'c1'">Sand</span>
+          </template>
+        </template>
+        <span class="TypeText_Wet" v-if="item.trackType[1] == '1'">Wet</span>
       </div>
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)"></div>
@@ -324,7 +332,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, campaign: x.campaign, hovered: false })
+          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign, hovered: false })
         })
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
@@ -343,7 +351,7 @@ export default {
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id })
+          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}` })
         })
       }
       // console.log(result);
@@ -796,10 +804,12 @@ export default {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 5px;
+  gap: 1px 5px;
   position: absolute;
   right: 2px;
   bottom: 0px;
+  flex-wrap: wrap;
+  padding-left: 2px;
 }
 .Row_OrderBoxLayout {
   padding: 5px;
