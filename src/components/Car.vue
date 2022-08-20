@@ -370,7 +370,7 @@ export default {
 }
 .Car_HeaderBlockTires {
   flex-direction: row;
-  gap: 0.3em;
+  gap: 3px;
   bottom: 2%;
   font-size: 0.7em;
   right: calc(var(--card-right-width) + 1%);
@@ -381,7 +381,7 @@ export default {
 }
 .Car_HeaderBlockStars {
   flex-direction: row;
-  gap: 0.9em;
+  gap: 6px;
   font-size: 0.6em;
   bottom: 5%;
   left: calc(var(--card-left-width) + 3.5%);

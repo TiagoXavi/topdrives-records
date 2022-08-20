@@ -332,41 +332,23 @@
     <BaseDialog
       :active="customTrackDialog"
       :transparent="false"
-      max-width="320px"
+      max-width="500px"
       min-width="240px"
       @close="customTrackDialog = false; optionsDialogActive = true;">
       <div class="Main_TracksDialog">
         <div class="Main_AllTracksBox">
           <div
-            v-for="track in tracksRepo"
-            :class="`${track.surface === 0 && track.cond === 0 ? 'Row_Asphalt ' : '' }`+
-                    `${track.cond === 1 ? 'Track_Wet ' : '' }`+
-                    `${track.surface === 1 ? 'Track_Dirt ' : '' }`+
-                    `${track.surface === 2 ? 'Track_Gravel ' : '' }`+
-                    `${track.surface === 3 ? 'Track_Ice ' : '' }`+
-                    `${track.surface === 4 ? 'Track_Mixed ' : '' }`+
-                    `${track.surface === 5 ? 'Track_Sand ' : '' }`+
-                    `${track.surface === 6 ? 'Track_Snow ' : '' }`+
-                    `${track.active ? 'Main_CustomTrackActive ' : '' }`"
+            v-for="circuit in tracksRepo"
             class="Main_CustomTrackItem">
             <div class="Main_CustomTrackLeft">
-              <div class="Main_CustomTrackName">{{ track.name }}</div>
-              <div class="Main_CustomTrackCond">
-                <div v-if="track.cond === 1" style="color: rgb(var(--color-wet))">WET</div>
-                <div v-if="track.surface === 1" style="color: rgb(var(--color-dirt))">DIRT</div>
-                <div v-if="track.surface === 2" style="color: rgb(var(--color-gravel))">GRAVEL</div>
-                <div v-if="track.surface === 3" style="color: rgb(var(--color-ice))">ICE</div>
-                <div v-if="track.surface === 4" style="color: rgb(var(--color-mixed))">MIXED</div>
-                <div v-if="track.surface === 5" style="color: rgb(var(--color-sand))">SAND</div>
-                <div v-if="track.surface === 6" style="color: rgb(var(--color-snow))">SNOW</div>
-              </div>
+              <div class="Main_CustomTrackName">{{ circuit.name }}</div>
             </div>
             <div class="Main_CustomTrackRight">
-              <button
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="toggleTrack(track)">
-                <i class="ticon-correct_1 Main_CustomTrackCorrect" aria-hidden="true"/>
-              </button>
+              <template>
+                <BaseTrackType
+                  :circuit="circuit"
+                  @toggleTrack="toggleTrack($event)" />
+              </template>
             </div>
           </div>
         </div>
@@ -437,13 +419,17 @@
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Login' })">Login</button>
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Register' })">Register</button>
         </div>
-        <div class="Main_OptionsItem">
-          <div class="Main_OptionsLabel">
+        <div v-if="!needSave" class="Main_OptionsItem">
+          <div class="Main_OptionsLabel MainClearLabelBox">
             <span>Trackset</span>
-            <button
-              v-if="!needSave"
-              class="D_Button Main_OptionsButton Main_OptionsButtonClear"
-              @click="clearAllTracks()">Clear</button>
+            <div class="Main_ClearButtonsBox">
+              <button
+                class="D_Button Main_OptionsButton Main_OptionsButtonClear"
+                @click="clearAllTracks()">Clear</button>
+              <button
+                class="D_Button Main_OptionsButton Main_OptionsButtonClear"
+                @click="clearAllCars()">Clear cars</button>
+            </div>
           </div>
           <div class="Main_OptionsButtons">
             <button
@@ -456,6 +442,12 @@
               @click="customTrackDialog = true; optionsDialogActive = false;">More...</button>
             
           </div>
+        </div>
+        <div v-else-if="!!user && needSave" class="Main_OptionsSaveData">
+          <button
+            :class="{ D_Button_Loading: saveLoading }"
+            class="D_Button Main_SaveAllButton"
+            @click="saveAll()">Save</button>
         </div>
         <div class="Main_OptionsItem">
           <div class="Main_OptionsLabel">Display</div>
@@ -558,6 +550,7 @@ import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
+import BaseTrackType from './BaseTrackType.vue'
 import data_cars from '../database/cars_final.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -574,7 +567,8 @@ export default {
     BaseAvatar,
     BaseDualSlider,
     BaseChip,
-    BaseFlag
+    BaseFlag,
+    BaseTrackType
   },
   data() {
     return {
@@ -879,464 +873,464 @@ export default {
       ],
       tracksRepo: [
         {
-          name: "0-100-0mph",
-          id: "drag100b",
-          types: ["00", "01", "10"]
+          "name": "0-100-0mph",
+          "id": "drag100b",
+          "types": ["00","01","10"]
         },
         {
-          name: "0-100mph",
-          id: "drag100",
-          types: ["00", "01", "10", "20"]
+          "name": "0-100mph",
+          "id": "drag100",
+          "types": ["00","01","10","20"]
         },
         {
-          name: "0-120mph",
-          id: "drag120",
-          types: ["00", "20"]
+          "name": "0-120mph",
+          "id": "drag120",
+          "types": ["00","20"]
         },
         {
-          name: "0-150-0mph",
-          id: "drag150b",
-          types: ["00"]
+          "name": "0-150-0mph",
+          "id": "drag150b",
+          "types": ["00"]
         },
         {
-          name: "0-150mph",
-          id: "drag150",
-          types: ["00", "01", "10"]
+          "name": "0-150mph",
+          "id": "drag150",
+          "types": ["00","01","10"]
         },
         {
-          name: "0-170mph",
-          id: "drag170",
-          types: ["00"]
+          "name": "0-170mph",
+          "id": "drag170",
+          "types": ["00"]
         },
         {
-          name: "0-60-0mph",
-          id: "drag60b",
-          types: ["20"]
+          "name": "0-60-0mph",
+          "id": "drag60b",
+          "types": ["20"]
         },
         {
-          name: "0-60mph",
-          id: "drag60",
-          types: ["01"]
+          "name": "0-60mph",
+          "id": "drag60",
+          "types": ["01"]
         },
         {
-          name: "Speedbump 1/2km",
-          id: "speedbump12km",
-          types: ["00", "60"]
+          "name": "1 Mile",
+          "id": "mile1",
+          "types": ["00","01","10","20","50","60"]
         },
         {
-          name: "100-150mph",
-          id: "drag100150",
-          types: ["00"]
+          "name": "1 Mile (R)",
+          "id": "mile1r",
+          "types": ["00"]
         },
         {
-          name: "Speedbump 1km",
-          id: "speedbump1km",
-          types: ["00"]
+          "name": "1/2 Mile",
+          "id": "mile2",
+          "types": ["00","01","11","20","50","60"]
         },
         {
-          name: "30-130mph",
-          id: "drag30130",
-          types: ["00"]
+          "name": "1/4 Mile",
+          "id": "mile4",
+          "types": ["00","01","11","20","30","50","60"]
         },
         {
-          name: "50-150mph",
-          id: "drag50150",
-          types: ["00"]
+          "name": "1/4 Mile (R)",
+          "id": "mile4r",
+          "types": ["00"]
         },
         {
-          name: "75-125mph",
-          id: "drag75125",
-          types: ["00"]
+          "name": "100-150mph",
+          "id": "drag100150",
+          "types": ["00"]
         },
         {
-          name: "Runway Drag",
-          id: "runwayDrag",
-          types: ["00", "01"]
+          "name": "30-130mph",
+          "id": "drag30130",
+          "types": ["00"]
         },
         {
-          name: "Runway Drag & Slalom",
-          id: "runwayDragSlalom",
-          types: ["00", "01"]
+          "name": "50-150mph",
+          "id": "drag50150",
+          "types": ["00"]
         },
         {
-          name: "L-Shape Drag",
-          id: "draglshape",
-          types: ["00", "01"]
+          "name": "75-125mph",
+          "id": "drag75125",
+          "types": ["00"]
         },
         {
-          name: "Service Roads",
-          id: "serviceRoads",
-          types: ["00", "01", "10"]
+          "name": "Airplane Hangars",
+          "id": "airplaneHangars",
+          "types": ["00","01"]
         },
         {
-          name: "Airplane Slalom",
-          id: "airplaneSlalom",
-          types: ["10"]
+          "name": "Airplane Slalom",
+          "id": "airplaneSlalom",
+          "types": ["10"]
         },
         {
-          name: "Airplane Hangars",
-          id: "airplaneHangars",
-          types: ["00", "01"]
+          "name": "Butte",
+          "id": "butte",
+          "types": ["40","41","e0"]
         },
         {
-          name: "Runway Loop",
-          id: "runwayLoop",
-          types: ["00", "01"]
+          "name": "Canyon Dirt Road",
+          "id": "canyonDtRoad",
+          "types": ["40","41","e0"]
         },
         {
-          name: "Canyon Dirt Road",
-          id: "canyonDtRoad",
-          types: ["40", "41", "e0"]
+          "name": "Canyon Lookout",
+          "id": "canyonLookout",
+          "types": ["10","11","50"]
         },
         {
-          name: "Canyon Tour",
-          id: "canyonTour",
-          types: ["00", "01", "11", "50", "60"]
+          "name": "Canyon Tour",
+          "id": "canyonTour",
+          "types": ["00","01","11","50","60"]
         },
         {
-          name: "Butte",
-          id: "butte",
-          types: ["40", "41", "e0"]
+          "name": "Car Park",
+          "id": "carPark",
+          "types": ["00","01"]
         },
         {
-          name: "Canyon Lookout",
-          id: "canyonLookout",
-          types: ["10", "11", "50"]
+          "name": "City Streets Medium",
+          "id": "csMed",
+          "types": ["00","01","60"]
         },
         {
-          name: "Car Park",
-          id: "carPark",
-          types: ["00", "01"]
+          "name": "City Streets Small",
+          "id": "csSmall",
+          "types": ["00","01","50","60"]
         },
         {
-          name: "City Streets Medium",
-          id: "csMed",
-          types: ["00", "01", "60"]
+          "name": "Fast Circuit",
+          "id": "fast",
+          "types": ["00","01"]
         },
         {
-          name: "City Streets Small",
-          id: "csSmall",
-          types: ["00", "01", "50", "60"]
+          "name": "Fast Circuit (R)",
+          "id": "fastr",
+          "types": ["00"]
         },
         {
-          name: "1 Mile",
-          id: "mile1",
-          types: ["00", "01", "10", "20", "50", "60"]
+          "name": "Figure Of Eight",
+          "id": "figureEight",
+          "types": ["01","b0","c0","d0"]
         },
         {
-          name: "1 Mile (R)",
-          id: "mile1r",
-          types: ["00"]
+          "name": "Forest River",
+          "id": "forestRiver",
+          "types": ["40","41","b0"]
         },
         {
-          name: "1/2 Mile",
-          id: "mile2",
-          types: ["00", "01", "11", "20", "50", "60"]
+          "name": "Forest Road",
+          "id": "forest",
+          "types": ["00","01","30","60"]
         },
         {
-          name: "1/4 Mile",
-          id: "mile4",
-          types: ["00", "01", "11", "20", "30", "50", "60"]
+          "name": "Forest Slalom",
+          "id": "forestSlalom",
+          "types": ["10","11","70","71","20","30","60"]
         },
         {
-          name: "1/4 Mile (R)",
-          id: "mile4r",
-          types: ["00"]
+          "name": "Frozen Lake",
+          "id": "frozenLake",
+          "types": ["d0"]
         },
         {
-          name: "Figure Of Eight",
-          id: "figureEight",
-          types: ["01", "b0", "c0", "d0"]
+          "name": "Frozen River Slalom",
+          "id": "frozenRivSla",
+          "types": ["30"]
         },
         {
-          name: "Fast Circuit",
-          id: "fast",
-          types: ["00", "01"]
+          "name": "G-Force",
+          "id": "gForce",
+          "types": ["00","01","10","11","20","30","50","60"]
         },
         {
-          name: "Fast Circuit (R)",
-          id: "fastr",
-          types: ["00"]
+          "name": "G-Force (R)",
+          "id": "gForcer",
+          "types": ["00"]
         },
         {
-          name: "Forest River",
-          id: "forestRiver",
-          types: ["40", "41", "b0"]
+          "name": "Hairpin Road",
+          "id": "hairpin",
+          "types": ["00","01","10","20","50","60"]
         },
         {
-          name: "Forest Road",
-          id: "forest",
-          types: ["00", "01", "30", "60"]
+          "name": "Hill Climb",
+          "id": "hClimb",
+          "types": ["00","01","10","11","20","50","60"]
         },
         {
-          name: "Forest Slalom",
-          id: "forestSlalom",
-          types: ["10", "11", "70", "71", "20", "30", "60"]
+          "name": "Hill Climb (R)",
+          "id": "hClimbr",
+          "types": ["10"]
         },
         {
-          name: "Frozen Lake",
-          id: "frozenLake",
-          types: ["d0"]
+          "name": "Indoor Karting",
+          "id": "indoorKart",
+          "types": ["00"]
         },
         {
-          name: "Frozen River Slalom",
-          id: "frozenRivSla",
-          types: ["30"]
+          "name": "Karting Circuit",
+          "id": "kart",
+          "types": ["00","01"]
         },
         {
-          name: "G-Force",
-          id: "gForce",
-          types: ["00", "01", "10", "11", "20", "30", "50", "60"]
+          "name": "L-Shape Drag",
+          "id": "draglshape",
+          "types": ["00","01"]
         },
         {
-          name: "G-Force (R)",
-          id: "gForcer",
-          types: ["00"]
+          "name": "Monaco G-Force",
+          "id": "mnGforce",
+          "types": ["00","01"]
         },
         {
-          name: "Hairpin Road",
-          id: "hairpin",
-          types: ["00", "01", "10", "20", "50", "60"]
+          "name": "Monaco Hairpin",
+          "id": "mnHairpin",
+          "types": ["00","01","40","41"]
         },
         {
-          name: "Hill Climb",
-          id: "hClimb",
-          types: ["00", "01", "10", "11", "20", "50", "60"]
+          "name": "Monaco Narrow Streets",
+          "id": "mnCityNarrow",
+          "types": ["00","01"]
         },
         {
-          name: "Hill Climb (R)",
-          id: "hClimbr",
-          types: ["10"]
+          "name": "Monaco Streets",
+          "id": "mnCity",
+          "types": ["00","01"]
         },
         {
-          name: "Indoor Karting",
-          id: "indoorKart",
-          types: ["00"]
+          "name": "Monaco Streets Long",
+          "id": "mnCityLong",
+          "types": ["00","01"]
         },
         {
-          name: "Karting Circuit",
-          id: "kart",
-          types: ["00", "01"]
+          "name": "Motocross Track",
+          "id": "moto",
+          "types": ["10","11"]
         },
         {
-          name: "Ocean Long Drag",
-          id: "oceanLongDrag",
-          types: ["00", "01"]
+          "name": "Mountain Hairpin",
+          "id": "mtHairpin",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Monaco Hairpin",
-          id: "mnHairpin",
-          types: ["00", "01", "40", "41"]
+          "name": "Mountain Hill Climb",
+          "id": "mtHill",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Monaco Narrow Streets",
-          id: "mnCityNarrow",
-          types: ["00", "01"]
+          "name": "Mountain Incline Road",
+          "id": "mtIncline",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Monaco Streets",
-          id: "mnCity",
-          types: ["00", "01"]
+          "name": "Mountain Slalom",
+          "id": "mtSlalom",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Monaco Streets Long",
-          id: "mnCityLong",
-          types: ["00", "01"]
+          "name": "Mountain Tour",
+          "id": "mtTour",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Monaco G-Force",
-          id: "mnGforce",
-          types: ["00", "01"]
+          "name": "Mountain Twisty Road",
+          "id": "mtTwisty",
+          "types": ["00","01","11","60"]
         },
         {
-          name: "Motocross Track",
-          id: "moto",
-          types: ["10", "11"]
+          "name": "Northloop",
+          "id": "northloop",
+          "types": ["00","01"]
         },
         {
-          name: "Mountain Hairpin",
-          id: "mtHairpin",
-          types: ["00", "01", "11", "60"]
+          "name": "Northloop 1",
+          "id": "northloop1",
+          "types": ["00","60"]
         },
         {
-          name: "Mountain Hill Climb",
-          id: "mtHill",
-          types: ["00", "01", "11", "60"]
+          "name": "Northloop 2",
+          "id": "northloop2",
+          "types": ["00","60"]
         },
         {
-          name: "Mountain Incline Road",
-          id: "mtIncline",
-          types: ["00", "01", "11", "60"]
+          "name": "Northloop 3",
+          "id": "northloop3",
+          "types": ["00","01"]
         },
         {
-          name: "Mountain Slalom",
-          id: "mtSlalom",
-          types: ["00", "01", "11", "60"]
+          "name": "Northloop 4",
+          "id": "northloop4",
+          "types": ["00","01","60"]
         },
         {
-          name: "Mountain Tour",
-          id: "mtTour",
-          types: ["00", "01", "11", "60"]
+          "name": "Northloop 5",
+          "id": "northloop5",
+          "types": ["00","01","60"]
         },
         {
-          name: "Northloop",
-          id: "northloop",
-          types: ["00", "01"]
+          "name": "Ocean Beach Slalom",
+          "id": "oceanSlalom",
+          "types": ["c0","c1"]
         },
         {
-          name: "Northloop 1",
-          id: "northloop1",
-          types: ["00", "60"]
+          "name": "Ocean City Streets",
+          "id": "oceanCity",
+          "types": ["00","01"]
         },
         {
-          name: "Northloop 2",
-          id: "northloop2",
-          types: ["00", "60"]
+          "name": "Ocean Highway",
+          "id": "oceanHighway",
+          "types": ["00","01"]
         },
         {
-          name: "Northloop 3",
-          id: "northloop3",
-          types: ["00", "01"]
+          "name": "Ocean Long Drag",
+          "id": "oceanLongDrag",
+          "types": ["00","01"]
         },
         {
-          name: "Northloop 4",
-          id: "northloop4",
-          types: ["00", "01", "60"]
+          "name": "Ocean Parking Lot",
+          "id": "oceanParking",
+          "types": ["00","01"]
         },
         {
-          name: "Northloop 5",
-          id: "northloop5",
-          types: ["00", "01", "60"]
+          "name": "Ocean Short Drag",
+          "id": "oceanShortDrag",
+          "types": ["00","01"]
         },
         {
-          name: "Ocean City Streets",
-          id: "oceanCity",
-          types: ["00", "01"]
+          "name": "Rallycross Medium",
+          "id": "rallyMed",
+          "types": ["40","41"]
         },
         {
-          name: "Ocean Highway",
-          id: "oceanHighway",
-          types: ["00", "01"]
+          "name": "Rallycross Small",
+          "id": "rallySmall",
+          "types": ["40","41"]
         },
         {
-          name: "Ocean Parking Lot",
-          id: "oceanParking",
-          types: ["00", "01"]
+          "name": "Runway Drag",
+          "id": "runwayDrag",
+          "types": ["00","01"]
         },
         {
-          name: "Ocean Beach Slalom",
-          id: "oceanSlalom",
-          types: ["c0", "c1"]
+          "name": "Runway Drag & Slalom",
+          "id": "runwayDragSlalom",
+          "types": ["00","01"]
         },
         {
-          name: "Rallycross Medium",
-          id: "rallyMed",
-          types: ["40", "41"]
+          "name": "Runway Loop",
+          "id": "runwayLoop",
+          "types": ["00","01"]
         },
         {
-          name: "Rallycross Small",
-          id: "rallySmall",
-          types: ["40", "41"]
+          "name": "Service Roads",
+          "id": "serviceRoads",
+          "types": ["00","01","10"]
         },
         {
-          name: "Ocean Short Drag",
-          id: "oceanShortDrag",
-          types: ["00", "01"]
+          "name": "Slalom Test",
+          "id": "slalom",
+          "types": ["00","01","10","11","20","30","50","60"]
         },
         {
-          name: "Slalom Test",
-          id: "slalom",
-          types: ["00", "01", "10", "11", "20", "30", "50", "60"]
+          "name": "Slalom Test (R)",
+          "id": "slalomr",
+          "types": ["00"]
         },
         {
-          name: "Slalom Test (R)",
-          id: "slalomr",
-          types: ["00"]
+          "name": "Small Road",
+          "id": "smallRoad",
+          "types": ["41"]
         },
         {
-          name: "Small Road",
-          id: "smallRoad",
-          types: ["41"]
+          "name": "Speedbump 1/2km",
+          "id": "speedbump12km",
+          "types": ["00","60"]
         },
         {
-          name: "Test Bowl",
-          id: "testBowl",
-          types: ["00", "01", "10", "60"]
+          "name": "Speedbump 1km",
+          "id": "speedbump1km",
+          "types": ["00"]
         },
         {
-          name: "Test Bowl (R)",
-          id: "testBowlr",
-          types: ["00", "01", "20", "60"]
+          "name": "Test Bowl",
+          "id": "testBowl",
+          "types": ["00","01","10","60"]
         },
         {
-          name: "Tokyo Bridge",
-          id: "tokyoBridge",
-          types: ["00", "01"]
+          "name": "Test Bowl (R)",
+          "id": "testBowlr",
+          "types": ["00","01","20","60"]
         },
         {
-          name: "Tokyo Drag",
-          id: "tokyoDrag",
-          types: ["00", "01"]
+          "name": "Tokyo Bridge",
+          "id": "tokyoBridge",
+          "types": ["00","01"]
         },
         {
-          name: "Tokyo Loop",
-          id: "tokyoLoop",
-          types: ["00", "01"]
+          "name": "Tokyo Drag",
+          "id": "tokyoDrag",
+          "types": ["00","01"]
         },
         {
-          name: "Tokyo Off Ramp",
-          id: "tokyoOffRamp",
-          types: ["00", "01"]
+          "name": "Tokyo G-Force",
+          "id": "tokyoGforce",
+          "types": ["00","01"]
         },
         {
-          name: "Tokyo G-Force",
-          id: "tokyoGforce",
-          types: ["00", "01"]
+          "name": "Tokyo Loop",
+          "id": "tokyoLoop",
+          "types": ["00","01"]
         },
         {
-          name: "Tokyo Overpass",
-          id: "tokyoOverpass",
-          types: ["00", "01"]
+          "name": "Tokyo Off Ramp",
+          "id": "tokyoOffRamp",
+          "types": ["00","01"]
         },
         {
-          name: "Town Slalom",
-          id: "townSlalom",
-          types: ["00", "01", "60"]
+          "name": "Tokyo Overpass",
+          "id": "tokyoOverpass",
+          "types": ["00","01"]
         },
         {
-          name: "Town Sprint",
-          id: "townSprint",
-          types: ["01"]
+          "name": "Town Slalom",
+          "id": "townSlalom",
+          "types": ["00","01","60"]
         },
         {
-          name: "Town Tour",
-          id: "townTour",
-          types: ["00", "01", "60"]
+          "name": "Town Sprint",
+          "id": "townSprint",
+          "types": ["01"]
         },
         {
-          name: "Mountain Twisty Road",
-          id: "mtTwisty",
-          types: ["00", "01", "11", "60"]
+          "name": "Town Tour",
+          "id": "townTour",
+          "types": ["00","01","60"]
         },
         {
-          name: "Twisty Road",
-          id: "tRoad",
-          types: ["00", "01", "10", "11", "20", "30", "50", "60"]
+          "name": "Twisty Circuit",
+          "id": "tCircuit",
+          "types": ["00","01","10","50","60"]
         },
         {
-          name: "Twisty Circuit",
-          id: "tCircuit",
-          types: ["00", "01", "10", "50", "60"]
+          "name": "Twisty Circuit (R)",
+          "id": "tCircuitr",
+          "types": ["00"]
         },
         {
-          name: "Twisty Circuit (R)",
-          id: "tCircuitr",
-          types: ["00"]
+          "name": "Twisty Road",
+          "id": "tRoad",
+          "types": ["00","01","10","11","20","30","50","60"]
         },
         {
-          name: "Waterfront Drag",
-          id: "waterDrag",
-          types: ["00", "01"]
+          "name": "Waterfront Drag",
+          "id": "waterDrag",
+          "types": ["00","01"]
         }
       ],
 
@@ -1662,6 +1656,10 @@ export default {
       this.currentTracks = [];
       this.verifyActiveButtons();
     },
+    clearAllCars() {
+      this.carDetailsList = [];
+      this.updateCarLocalStorage();
+    },
     verifyActiveButtons() {
       this.tracksButtons.map(x => {
         if (this.includeAllTracks(this[x.set])) {
@@ -1681,9 +1679,9 @@ export default {
           });
 
           if (index === -1) {
-            Vue.set(x, type, false);
+            Vue.set(circuit, type, false);
           } else {
-            Vue.set(x, type, true);
+            Vue.set(circuit, type, true);
           }
 
         })
@@ -2422,6 +2420,7 @@ body {
   --d-text-yellow: 255, 199, 23;
 
   /* tracks */
+  --color-dry: 204, 204, 204;
   --color-wet: 90, 163, 255;
   --color-dirt: 239, 97, 75;
   --color-gravel: 197, 177, 120;
@@ -2429,6 +2428,7 @@ body {
   --color-mixed: 217, 171, 225;
   --color-sand: 233, 197, 69;
   --color-snow: 186, 212, 235;
+  --color-grass: 93, 227, 93;
 
   /* car */
   --card-stat-back-l: 10%;
@@ -3359,7 +3359,7 @@ body::-webkit-scrollbar-corner {
   transition: all 0.1s, box-shadow 0.1s;
 }
 .Main_CustomTrackItem:hover {
-  box-shadow: inset 0px 60px 0px 0px rgba(255,255,255,0.03);
+  box-shadow: inset 0px 90px 0px 0px rgba(255,255,255,0.03);
 }
 .Main_CustomTrackFalse,
 .Main_CustomTrackCorrect {
@@ -3384,6 +3384,77 @@ body::-webkit-scrollbar-corner {
 }
 .Main_AllTracksBox {
   margin: 0 -20px;
+}
+.Main_OptionsSaveData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+.MainClearLabelBox {
+  display: flex;
+}
+.Main_ClearButtonsBox {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.Main_CustomTrackRight {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.Main_CustomTrackName {
+  padding-right: 5px;
+}
+.Type_00 {
+  --type-back-opac: 0.07;
+  background-color: rgba(255,255,255, var(--type-back-opac));
+}
+.Type_01,
+.Type_c1 {
+  color: rgb(var(--color-wet));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-wet), var(--type-back-opac));
+}
+.Type_10,
+.Type_11,
+.Type_40,
+.Type_41 {
+  color: rgb(var(--color-dirt));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-dirt), var(--type-back-opac));
+}
+.Type_20,
+.Type_b0 {
+  color: rgb(var(--color-gravel));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-gravel), var(--type-back-opac));
+}
+.Type_30 {
+  color: rgb(var(--color-ice));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-ice), var(--type-back-opac));
+}
+.Type_50,
+.Type_e0,
+.Type_c0 {
+  color: rgb(var(--color-sand));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-sand), var(--type-back-opac));
+}
+.Type_60,
+.Type_d0 {
+  color: rgb(var(--color-snow));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-snow), var(--type-back-opac));
+}
+.Type_70,
+.Type_71 {
+  color: rgb(var(--color-grass));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-grass), var(--type-back-opac));
 }
 
 
@@ -3600,8 +3671,12 @@ body::-webkit-scrollbar-corner {
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockHandling,
-.Main_Compact .Main_BodyPrint .Car_HeaderBlockDrive {
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockDrive,
+.Main_BodyPrint .Car_HeaderBlockTop {
   background-color: hsla(40, 6%, 30%, 0.8);
+}
+.Main_BodyPrint .Car_HeaderBlockTop {
+  height: calc(var(--card-top-height) + 1px);
 }
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockTopSpeed {
   box-shadow: unset;
