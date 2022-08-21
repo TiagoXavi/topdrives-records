@@ -69,7 +69,7 @@ export default {
   min-width: 39px;
   display: block;
 }
-.D_Button.BaseTrackType_Active {
+.Main_CustomTrackItem .D_Button.BaseTrackType_Active {
   box-shadow: inset 0px 0px 0px 2px currentColor;
   --type-back-opac: 0.0;
 }

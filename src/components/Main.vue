@@ -3408,7 +3408,7 @@ body::-webkit-scrollbar-corner {
 .Main_CustomTrackName {
   padding-right: 5px;
 }
-.Type_00 {
+.Main_CustomTrackItem .Type_00 {
   --type-back-opac: 0.07;
   background-color: rgba(255,255,255, var(--type-back-opac));
 }
