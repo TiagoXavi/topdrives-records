@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ Main_2: inverted, Main_Compact: compact }" class="Main_Layout">
+  <div :class="{ Main_Normal: !inverted, Main_2: inverted, Main_Compact: compact }" class="Main_Layout">
     <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop>
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
@@ -780,112 +780,115 @@ export default {
         { name: "Ice", set: "trackSet_Ice", active: false },
       ],
       trackSet_DryTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 0, campaign: 'Atsugi 1'},
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 0, campaign: 'Bavaria 1' },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 0, campaign: 'Chamonix 1' },
-        { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0, campaign: 'Midlands 4' },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 0, campaign: 'Midlands 4' },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 0, campaign: 'Bavaria 8' },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0, campaign: 'Bavaria 9' },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0, campaign: 'West Coast 7'},
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 0, campaign: 'Chamonix 7' },
+        { name: "Car Park", id: "carPark", surface: 0, cond: 0, campaign: 'JP Atsugi 1'},
+        { name: "G-Force Test", id: "gForce", surface: 0, cond: 0, campaign: 'GER Stuttgart 4' },
+        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 0, campaign: 'FR Chamonix 1' },
+        { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0, campaign: 'USA Nevada 1' },
+        { name: "Karting Circuit", id: "kart", surface: 0, cond: 0, campaign: 'UK Midlands 4' },
+        { name: "Slalom Test", id: "slalom", surface: 0, cond: 0, campaign: 'GER Stuttgart 7' },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0, campaign: 'GER Stuttgart 6' },
+        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0, campaign: 'USA West Coast 7'},
+        { name: "Fast Circuit", id: "fast", surface: 0, cond: 0, campaign: 'GER Stuttgart 3' },
       ],
       trackSet_DryCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0, campaign: 'Tokyo 7' },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0, campaign: 'Chamonix 3' },
+        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0, campaign: 'FR Chamonix 3' },
+        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0, campaign: 'JP Atsugi 4' },
       ],
       trackSet_DryDrag: [
-        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0, campaign: 'New York 5'},
-        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0, campaign: 'Milan 9' },
-        { name: "1 Mile", id: "mile1", surface: 0, cond: 0, campaign: 'Monaco 10' },
-        { name: "0-100mph", id: "drag100", surface: 0, cond: 0, campaign: 'Midlands 5' },
-        { name: "0-150mph", id: "drag150", surface: 0, cond: 0, campaign:  'Stuttgart 2'},
-        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0, campaign: 'Stuttgart 8'},
-        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0, campaign: 'West Coast 10' },
+        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0, campaign: 'UK Midlands 1'},
+        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0, campaign: 'FR Chamonix 1' },
+        { name: "1 Mile", id: "mile1", surface: 0, cond: 0, campaign: 'GER Stuttgart 1' },
+        { name: "0-100mph", id: "drag100", surface: 0, cond: 0, campaign: 'UK Midlands 5' },
+        { name: "0-150mph", id: "drag150", surface: 0, cond: 0, campaign: 'GER Stuttgart 2'},
+        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0, campaign: 'GER Stuttgart 8'},
+        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0, campaign: 'UK Midlands 8' },
       ],
       trackSet_WetTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 1, campaign: 'Atsugi 5' },
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 1, campaign: 'Bavaria 2' },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 1, campaign: 'Atsugi 8' },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 1, campaign: 'Midlands 9' },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1, campaign: 'Tokyo 2' },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1, campaign: 'Tykkimaki 4' },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1, campaign: 'Tokyo 1' },
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 1, campaign: 'Midlands 9' },
+        { name: "Car Park", id: "carPark", surface: 0, cond: 1, campaign: 'JP Atsugi 5' },
+        { name: "G-Force Test", id: "gForce", surface: 0, cond: 1, campaign: 'GER Bavaria 2' },
+        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 1, campaign: 'JP Atsugi 8' },
+        { name: "Karting Circuit", id: "kart", surface: 0, cond: 1, campaign: 'UK Midlands 9' },
+        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1, campaign: 'JP Tokyo 2' },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1, campaign: 'FIN Tykkimaki 4' },
+        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1, campaign: 'JP Tokyo 1' },
+        { name: "Fast Circuit", id: "fast", surface: 0, cond: 1, campaign: 'UK Midlands 9' },
       ],
       trackSet_WetCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1, campaign: 'Midlands 6' },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1, campaign: 'Tokyo 1' },
+        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1, campaign: 'UK Midlands 6' },
+        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1, campaign: 'JP Tokyo 1' },
       ],
       trackSet_Dirt: [
-        { name: "1 Mile", id: "mile1", surface: 1, cond: 0, campaign: 'Tatacoa 4' },//
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0, campaign: 'Bavaria 3' },//
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 0, campaign: 'Tatacoa 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0, campaign: 'Tatacoa 9' },//
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0, campaign: 'New York 9' },//
-        { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0, campaign: 'Nevada 7' },//
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 0, campaign: 'Nevada 10' },//
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 0, campaign: 'Nevada 1' },//
+        { name: "1 Mile", id: "mile1", surface: 1, cond: 0, campaign: 'COL Tatacoa 4' },//
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0, campaign: 'GER Bavaria 3' },//
+        { name: "G-Force Test", id: "gForce", surface: 1, cond: 0, campaign: 'COL Tatacoa 8' },//
+        { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0, campaign: 'COL Tatacoa 9' },//
+        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0, campaign: 'USA New York 9' },//
+        { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0, campaign: 'USA Nevada 7' },//
+        { name: "Slalom Test", id: "slalom", surface: 1, cond: 0, campaign: 'USA Nevada 10' },//
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 0, campaign: 'USA Nevada 1' },//
       ],
       trackSet_WetDirt: [
-        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1, campaign: 'New York 9' }, //
-        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1, campaign: 'Nevada 4' }, //
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1, campaign: 'Tykkimaki 6' },//
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 1, campaign: 'Nevada 10' },//
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1, campaign: 'Nevada 4' },//
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 1, campaign: 'Nevada 4' },//
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 1, campaign: 'Nevada 10' },//
+        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1, campaign: 'USA New York 9' }, //
+        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1, campaign: 'USA Nevada 4' }, //
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1, campaign: 'FIN Tykkimaki 6' },//
+        { name: "G-Force Test", id: "gForce", surface: 1, cond: 1, campaign: 'USA Nevada 10' },//
+        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1, campaign: 'USA Nevada 4' },//
+        { name: "Slalom Test", id: "slalom", surface: 1, cond: 1, campaign: 'USA Nevada 4' },//
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 1, campaign: 'USA Nevada 10' },//
       ],
       trackSet_Gravel: [
-        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0, campaign: 'London 2' },//
-        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0, campaign: 'Tykkimaki 7' },//
-        { name: "1 Mile", id: "mile1", surface: 2, cond: 0, campaign: 'New York 8' },//
-        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0, campaign: 'Tykkimaki 6' },//
-        { name: "G-Force Test", id: "gForce", surface: 2, cond: 0, campaign: 'New York 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0, campaign: 'Tykkimaki 5' },//
-        { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0, campaign: 'Tykkimaki 2' },//
-        { name: "Slalom Test", id: "slalom", surface: 2, cond: 0, campaign: 'Tykkimaki 7' },//
+        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0, campaign: 'UK London 2' },//
+        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 7' },//
+        { name: "1 Mile", id: "mile1", surface: 2, cond: 0, campaign: 'USA New York 8' },//
+        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 6' },//
+        { name: "G-Force Test", id: "gForce", surface: 2, cond: 0, campaign: 'USA New York 8' },//
+        { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 5' },//
+        { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 2' },//
+        { name: "Slalom Test", id: "slalom", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 7' },//
       ],
       trackSet_Sand: [
-        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0, campaign: 'Tatacoa 7' },//
-        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0, campaign: 'Dubai 6' },//
-        { name: "1 Mile", id: "mile1", surface: 5, cond: 0, campaign: 'Dubai 1' },//
-        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0, campaign: 'Dubai 1' },//
-        { name: "G-Force Test", id: "gForce", surface: 5, cond: 0, campaign: 'Dubai 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0, campaign: 'Dubai 8' },//
-        { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0, campaign: 'Dubai 2' },//
-        { name: "Slalom Test", id: "slalom", surface: 5, cond: 0, campaign: 'Dubai 6' },//
+        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0, campaign: 'COL Tatacoa 7' },//
+        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0, campaign: 'UAE Dubai 6' },//
+        { name: "1 Mile", id: "mile1", surface: 5, cond: 0, campaign: 'UAE Dubai 1' },//
+        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0, campaign: 'UAE Dubai 1' },//
+        { name: "G-Force Test", id: "gForce", surface: 5, cond: 0, campaign: 'UAE Dubai 8' },//
+        { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0, campaign: 'UAE Dubai 8' },//
+        { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0, campaign: 'UAE Dubai 2' },//
+        { name: "Slalom Test", id: "slalom", surface: 5, cond: 0, campaign: 'UAE Dubai 6' },//
       ],
       trackSet_Snow: [
-        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0, campaign: 'Stuttgart 6' },//
-        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0, campaign: 'Tykkimaki 8' },//
-        { name: "1 Mile", id: "mile1", surface: 6, cond: 0, campaign: 'Tokyo 10 ' },//
-        { name: "G-Force Test", id: "gForce", surface: 6, cond: 0, campaign: 'Tykkimaki 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0, campaign: 'Tykkimaki 5' },//
-        { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0, campaign: 'Tykkimaki 9' },//
-        { name: "Twisty Circuit", id: "tCircuit", surface: 6, cond: 0, campaign: 'Stuttgart 6' },//
-        { name: "Slalom Test", id: "slalom", surface: 6, cond: 0, campaign: 'Tykkimaki 8' },//
+        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0, campaign: 'GER Stuttgart 6' },//
+        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
+        { name: "1 Mile", id: "mile1", surface: 6, cond: 0, campaign: 'JP Tokyo 10 ' },//
+        { name: "G-Force Test", id: "gForce", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
+        { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 5' },//
+        { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 9' },//
+        { name: "Twisty Circuit", id: "tCircuit", surface: 6, cond: 0, campaign: 'GER Stuttgart 6' },//
+        { name: "Slalom Test", id: "slalom", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
       ],
       trackSet_Ice: [
-        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0, campaign: 'Tykkimaki 9' },//
-        { name: "G-Force Test", id: "gForce", surface: 3, cond: 0, campaign: 'Tykkimaki 9' },//
-        { name: "Slalom Test", id: "slalom", surface: 3, cond: 0, campaign: 'Tykkimaki 6' },//
+        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 9' },//
+        { name: "G-Force Test", id: "gForce", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 9' },//
+        { name: "Slalom Test", id: "slalom", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 6' },//
       ],
       tracksRepo: [
         {
           "name": "0-100-0mph",
           "id": "drag100b",
-          "types": ["00","01","10"]
+          "types": ["00","01","10"],
+          "campaign": ["USA Nevada 9", "UK London 3", "COL Tatacoa 4"]
         },
         {
           "name": "0-100mph",
           "id": "drag100",
-          "types": ["00","01","10","20"]
+          "types": ["00","01","10","20"],
+          "campaign": ["UK Midlands 5","UK Midlands 6","COL Tatacoa 8","FIN Tykkimaki 2"]
         },
         {
           "name": "0-120mph",
           "id": "drag120",
-          "types": ["00","20"]
+          "types": ["00","20"],
+          "campaign": ["UAE Dubai 10","FIN Tykkimaki 10"]
         },
         {
           "name": "0-150-0mph",

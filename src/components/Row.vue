@@ -49,7 +49,7 @@
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
               `${true ? 'Row_ColorByIndex ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
-              `Type_${item.trackType} `+
+              `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
@@ -665,6 +665,43 @@ export default {
   justify-content: center;
   background-color: rgba(255,255,255, 0.05);
   height: calc(var(--cell-height) * 1.3);
+}
+.Main_Normal .Row_Times .Row_ConfigCell {
+  position: sticky;
+  top: var(--top-height);
+  background-color: #404040;
+  z-index: 1;
+}
+.Main_Normal .Row_Tracks .Row_ConfigCell {
+  position: fixed;
+  top: var(--top-height);
+  background-color: #2e2e2e;
+  z-index: 1;
+  width: var(--left-width);
+}
+.Main_Normal .Row_Tracks .Row_ConfigCell + * {
+  margin-top: calc(var(--cell-height) * 1.3);
+}
+.Main_2 .Row_Times .Row_ConfigCell {
+  position: sticky;
+  left: var(--left-width);
+  background-color: #404040;
+  z-index: 1;
+}
+.Main_2 .Row_Tracks .Row_ConfigCell {
+  position: fixed;
+  top: 0;
+  background-color: #2e2e2e;
+  z-index: 1;
+  width: calc(var(--cell-width) * 2.1);
+  height: var(--top-height);
+}
+.Main_2 .Row_Tracks .Row_ConfigCell + * {
+  margin-left: calc(var(--cell-width) * 2.1);
+}
+.Main_2 .Car_LayoutAddCar > * {
+  position: sticky;
+  left: 2px;
 }
 .Row_Tracks .Row_ConfigCell {
   /* box-shadow: inset -18px 0px 16px -17px #5fb500, inset -3px 0px 0px 0px #5fb500; */
