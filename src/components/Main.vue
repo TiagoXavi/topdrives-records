@@ -22,6 +22,31 @@
         <div class="Main_GamePrintInfo">
           <div class="Main_GameVersionText">{{ gameVersion }}</div>
         </div>
+        <div class="Main_RowCornerBox">
+          
+          <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
+            <template v-if="!user">
+              <div class="Main_SaveAllBox">
+                <button
+                  class="D_Button Main_LoginToEdit"
+                  @click="$router.push({ name: 'Login' })">Login to edit</button>
+              </div>
+            </template>
+            <template v-else-if="!!user && needSave">
+              <div class="Main_SaveAllBox">
+                <button
+                  :class="{ D_Button_Loading: saveLoading }"
+                  class="D_Button Main_SaveAllButton"
+                  @click="saveAll()">Save</button>
+              </div>
+            </template>
+            <div v-if="user && !inverted" class="Main_PrintBy">
+              <div class="Main_PrintByLabel">print by</div>
+              <div class="Main_PrintByUser">{{ user.username }}</div>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div class="Main_Left">
         <div class="Main_TrackList">
@@ -33,36 +58,6 @@
             :needSave="needSave"
             :saveLoading="saveLoading"
             type="tracks">
-            <template slot="corner">
-              <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
-                <template v-if="!user">
-                  <div class="Main_SaveAllBox">
-                    <button
-                      class="D_Button Main_LoginToEdit"
-                      @click="$router.push({ name: 'Login' })">Login to edit</button>
-                  </div>
-                </template>
-                <template v-else-if="!!user && needSave">
-                  <div class="Main_SaveAllBox">
-                    <button
-                      :class="{ D_Button_Loading: saveLoading }"
-                      class="D_Button Main_SaveAllButton"
-                      @click="saveAll()">Save</button>
-                  </div>
-                </template>
-                <!-- <template v-else-if="carDetailsList.length > 0 && currentTracks.length > 0">
-                  <div class="Main_SaveAllBox">
-                    <button
-                      class="D_Button Main_Share"
-                      @click="sharePrint()">Share</button>
-                  </div>
-                </template> -->
-                <div v-if="user && !inverted" class="Main_PrintBy">
-                  <div class="Main_PrintByLabel">print by</div>
-                  <div class="Main_PrintByUser">{{ user.username }}</div>
-                </div>
-              </div>
-            </template>
           </Row>
         </div>
         <div v-if="user && !inverted" class="Main_UserBottom">
@@ -105,7 +100,7 @@
             @add="openDialogSearch()" />
         </div>
         
-        <div class="Main_PrintCreditsBottom" :style="`max-width: calc(var(--cell-width) * ${carDetailsList.length})`">
+        <div class="Main_PrintCreditsBottom" :style="`--number-cars: ${carDetailsList.length}; --number-tracks: ${currentTracks.length}`">
           <span style="color: rgb(var(--d-text-yellow)); margin-right: 3px;">Contributors: </span>{{ contributorsScreen }}
         </div>
       </div>
@@ -3133,6 +3128,10 @@ body::-webkit-scrollbar-corner {
   justify-content: center;
   align-items: center;
 }
+.Main_Normal .Main_BodyPrint .Main_Corner .Main_PrintBy {
+  display: flex;
+  flex-direction: column;
+}
 .Main_Corner .Main_PrintByLabel {
   margin-bottom: 0px;
 }
@@ -3459,6 +3458,39 @@ body::-webkit-scrollbar-corner {
   --type-back-opac: 0.1;
   background-color: rgba(var(--color-grass), var(--type-back-opac));
 }
+.Main_RowCornerBox {
+  position: absolute;
+  /* position: fixed; */
+  top: var(--top-height);
+  background-color: #2e2e2e;
+  z-index: 1;
+  width: var(--left-width);
+
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-top-width: 0;
+  border-left-width: 0;
+  display: flex;
+  align-items: center;
+  transition-duration: 0.3s;
+  transition-property: set;
+  box-shadow: inset 0px -2px 0px 0px #ffffff07, inset -2px 0px 0px 0px #ffffff07;
+  border-bottom-color: #5a5a5a;
+
+  justify-content: center;
+  height: calc(var(--cell-height) * 1.3);
+
+  border-right-width: 0;
+}
+.Main_2 .Main_RowCornerBox {
+  top: 0;
+  left: var(--left-width);
+  width: calc(var(--cell-width) * 2.1);
+  height: var(--top-height);
+}
+.Main_2 .Main_BodyPrint .Main_RowCornerBox {
+  display: none;
+}
 
 
 
@@ -3708,10 +3740,11 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint .Main_PrintCreditsBottom {
   display: block;
+  max-width: calc( var(--cell-width) * var(--number-cars) )
 }
 .Main_2 .Main_BodyPrint .Main_PrintCreditsBottom {
   display: block;
-  max-width: unset !important;
+  max-width: calc( var(--cell-width) * var(--number-tracks) + var(--left-width))
 }
 .Main_BodyPrint .Row_ShowMoreTracks {
   display: none;
