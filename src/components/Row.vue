@@ -47,7 +47,8 @@
       :data="`${item.id}_a${item.surface}${item.cond}`"
       :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
-              `${true ? 'Row_ColorByIndex ' : '' }`+
+              `Row_ColorByIndex `+
+              `${item.text == 0 ? 'Row_DNF ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
@@ -798,15 +799,15 @@ export default {
 .Row_ColorByIndex:not(.Row_ContentEmpty) {
   /* background-color: rgba(38, 0, 118, calc(1 - var(--color-index) * 0.4)); */
 }
-.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
+.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #ffc3003b;
   color: #f9efad;
 }
-.Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
+.Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #d3f7ff14;
   color: #d3dee9;
 }
-.Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError) {
+.Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #74340033;
   color: #ebc5a6;
 }

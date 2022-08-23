@@ -3749,6 +3749,9 @@ body::-webkit-scrollbar-corner {
 .Main_BodyPrint .Row_ShowMoreTracks {
   display: none;
 }
+.Main_BodyPrint .Row_Campaign {
+  display: none !important;
+}
 
 
 
