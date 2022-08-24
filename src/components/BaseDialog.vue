@@ -9,7 +9,7 @@
     }"
     class="BaseDialog_Layout">
     <div class="BaseDialog_Back" @click="$emit('close')"></div>
-    <div class="BaseDialog_Body">
+    <div class="BaseDialog_Body" :class="{BaseDialog_Body_Static: isStatic}">
       <div
         :style="{
           maxWidth: maxWidth,
@@ -17,7 +17,8 @@
         }"
         :class="{
           BaseDialog_Opaque: !transparent,
-          BaseDialog_Transparent: transparent
+          BaseDialog_Transparent: transparent,
+          BaseDialog_ForceScroll: forceScroll
         }"
         class="BaseDialog_Box Main_DarkScroll">
         <slot />
@@ -45,6 +46,14 @@ export default {
       default: '300px'
     },
     transparent: {
+      type: Boolean,
+      default: false
+    },
+    isStatic: {
+      type: Boolean,
+      default: false
+    },
+    forceScroll: {
       type: Boolean,
       default: false
     },
@@ -133,6 +142,10 @@ export default {
   height: 100%;
   pointer-events: none;
 }
+.BaseDialog_Body_Static {
+  align-items: start;
+  margin-top: 30px;
+}
 .BaseDialog_Box {
   padding: 20px;
   pointer-events: auto;
@@ -143,6 +156,9 @@ export default {
   max-height: 80vh;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+.BaseDialog_ForceScroll {
+  overflow-y: scroll;
 }
 .BaseDialog_Opaque {
   background-color: #333;

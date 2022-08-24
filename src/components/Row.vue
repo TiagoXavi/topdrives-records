@@ -68,6 +68,15 @@
       <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'], 25) }}</div>
+      <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
+        item.id === 'csSmall' ||
+        item.id === 'csMed' ||
+        item.id === 'oceanCity' ||
+        item.id === 'speedbump12km' ||
+        item.id === 'speedbump1km'
+        )"
+        class="Row_xRA">low</div>
       <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions">
         <span class="TypeText_Dirt" v-if="item.trackType[0] == '1'">Dirt</span>
         <span class="TypeText_Gravel" v-else-if="item.trackType[0] == '2'">Gravel</span>

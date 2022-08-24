@@ -327,14 +327,30 @@
     <BaseDialog
       :active="customTrackDialog"
       :transparent="false"
+      :isStatic="true"
+      :forceScroll="true"
       max-width="500px"
       min-width="240px"
-      @close="customTrackDialog = false; optionsDialogActive = true;">
+      @close="closeDialogTrackSearch()">
       <div class="Main_TracksDialog">
         <div class="Main_AllTracksBox">
+          <div class="Track_SearchBox">
+            <input
+              v-model="searchTracks"
+              id="SearchTrackInput"
+              placeholder="Search tracks"
+              class="Track_SearchInput"
+              type="text" />
+            <button
+              v-if="searchTracks && searchTracks.length > 0"
+              class="D_Button Main_TrackSearchInputClose"
+              @click="searchTracks = ''">
+              <i class="ticon-close_2" aria-hidden="true"/>
+            </button>
+          </div>
           <div
-            v-for="circuit in tracksRepo"
-            class="Main_CustomTrackItem">
+            v-for="(circuit, index) in filteredTracks"
+            class="Main_CustomTrackItem" :key="index">
             <div class="Main_CustomTrackLeft">
               <div class="Main_CustomTrackName">{{ circuit.name }}</div>
             </div>
@@ -434,7 +450,7 @@
               @click="stringToggleTrackSet(item.set)">{{ item.name }}</button>
             <button
               class="D_Button Main_OptionsButton"
-              @click="customTrackDialog = true; optionsDialogActive = false;">More...</button>
+              @click="openDialogTrackSearch()">More...</button>
             
           </div>
         </div>
@@ -592,6 +608,7 @@ export default {
       inverted: false,
       compact: false,
       searchInput: '',
+      searchTracks: '',
       searchActive: false,
       isFiltering: false,
       nextId: 0,
@@ -1560,6 +1577,67 @@ export default {
       contritrs = [...new Set(contritrs)]
       return contritrs.join(", ")
     },
+    filteredTracks() {
+      let filteredTracks = this.tracksRepo;
+      let conds = ["dry", "wet", "dirt", "gravel", "ice", "sand", "snow", "grass"];
+      let input = this.searchTracks.toLowerCase();
+      let inputArray = input.split(" ");
+      let typesInput = inputArray.filter(x => conds.includes(x));
+      let tracksInput = inputArray.filter(x => !conds.includes(x));
+
+      if (typesInput.length > 0) {
+        let Surfaces = [];
+        let Conds = [];
+
+        if ( typesInput.includes("dry") ) {
+          Surfaces.push("0");
+          Conds.push("0");
+        }
+        if ( typesInput.includes("wet") ) {
+          Conds.push("1");
+        }
+        if ( typesInput.includes("dirt") ) {
+          Surfaces.push("1");
+          Surfaces.push("4");
+        }
+        if ( typesInput.includes("gravel") ) {
+          Surfaces.push("2");
+          Surfaces.push("b");
+        }
+        if ( typesInput.includes("ice") ) {
+          Surfaces.push("3");
+        }
+        if ( typesInput.includes("sand") ) {
+          Surfaces.push("5");
+          Surfaces.push("c");
+        }
+        if ( typesInput.includes("snow") ) {
+          Surfaces.push("6");
+          Surfaces.push("d");
+        }
+        if ( typesInput.includes("grass") ) {
+          Surfaces.push("7");
+        }
+
+        filteredTracks = filteredTracks.filter(x => {
+          return x.types.find(y => {
+            if (Surfaces.length > 0 && Conds.length > 0) {
+              return Surfaces.includes(y[0]) && Conds.includes(y[1]);
+            } else if (Surfaces.length > 0) {
+              return Surfaces.includes(y[0]);
+            } else if (Conds.length > 0) {
+              return Conds.includes(y[1]);
+            }
+          })
+        });
+      }
+      if (tracksInput.length > 0) {
+        filteredTracks = filteredTracks.filter(x => {
+          return x.name.toLowerCase().includes(tracksInput.join(" "));
+        });
+      }
+      return filteredTracks;
+    },
     listAllTracks() {
 
     }
@@ -1752,6 +1830,20 @@ export default {
       // if (!this.searchFocus) {
         //   this.searchActive = false;
       // }
+    },
+    openDialogTrackSearch() {
+      this.customTrackDialog = true;
+      this.optionsDialogActive = false;
+      setTimeout(() => {
+        try {
+          document.querySelector("#SearchTrackInput").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    closeDialogTrackSearch() {
+      this.customTrackDialog = false;
+      this.optionsDialogActive = true;
+      this.searchTracks = '';
     },
     closeTune() {
       this.tuneDialogActive = false;
@@ -2853,7 +2945,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.Main_SearchInput {
+.Main_SearchInput, 
+.Track_SearchInput {
   width: 100%;
   background-color: #222;
   border: none;
@@ -2869,7 +2962,8 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
-.Main_SearchInput.focus-visible {
+.Main_SearchInput.focus-visible,
+.Track_SearchInput.focus-visible {
   outline: none;
   --back-h: 203;
   --back-s: 60%;
@@ -2877,8 +2971,29 @@ body {
   background-color: #102e40;
   color: #fff;
 }
-.Main_SearchInput::placeholder {
+.Main_SearchInput::placeholder,
+.Track_SearchInput::placeholder {
   color: #fff3;
+}
+.Track_SearchBox {
+  position: relative;
+  flex-grow: 10;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+.Track_SearchInput {
+  height: 55px;
+  padding-left: 15px;
+}
+.Main_TrackSearchInputClose {
+  position: absolute;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+.Main_TrackSearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
+  transform: translateY(-42%);
 }
 .Main_SearchMid {
   height: 50vh;
