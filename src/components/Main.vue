@@ -330,7 +330,7 @@
       is-static="true"
       max-width="500px"
       min-width="240px"
-      @close="customTrackDialog = false; optionsDialogActive = true;">
+      @close="customTrackDialog = false; optionsDialogActive = true; searchTracks = ''">
       <div class="Main_TracksDialog">
         <div class="Main_AllTracksBox">
           <div>
@@ -344,8 +344,8 @@
               @blur="searchBlur()" />
           </div>
           <div
-            v-for="circuit in filteredTracks"
-            class="Main_CustomTrackItem">
+            v-for="(circuit, index) in filteredTracks"
+            class="Main_CustomTrackItem" :key=index>
             <div class="Main_CustomTrackLeft">
               <div class="Main_CustomTrackName">{{ circuit.name }}</div>
             </div>
