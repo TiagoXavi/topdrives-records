@@ -327,13 +327,24 @@
     <BaseDialog
       :active="customTrackDialog"
       :transparent="false"
+      is-static="true"
       max-width="500px"
       min-width="240px"
       @close="customTrackDialog = false; optionsDialogActive = true;">
       <div class="Main_TracksDialog">
         <div class="Main_AllTracksBox">
+          <div>
+            <input
+              v-model="searchTracks"
+              id="SearchInput"
+              placeholder="Search Tracks"
+              class="Track_SearchInput"
+              type="text"
+              @focus="searchFocus = true;"
+              @blur="searchBlur()" />
+          </div>
           <div
-            v-for="circuit in tracksRepo"
+            v-for="circuit in filteredTracks"
             class="Main_CustomTrackItem">
             <div class="Main_CustomTrackLeft">
               <div class="Main_CustomTrackName">{{ circuit.name }}</div>
@@ -592,6 +603,7 @@ export default {
       inverted: false,
       compact: false,
       searchInput: '',
+      searchTracks: '',
       searchActive: false,
       isFiltering: false,
       nextId: 0,
@@ -1559,6 +1571,19 @@ export default {
 
       contritrs = [...new Set(contritrs)]
       return contritrs.join(", ")
+    },
+    filteredTracks() {
+    //   const filteredTracks = this.tracksRepo.filter(x => {
+    //     return x.includes(this.searchTracks);
+    //   });
+    //   return filteredTracks;
+    let filteredTracks = this.tracksRepo;
+    if (this.searchTracks !== '') {
+        filteredTracks = this.tracksRepo.filter(x => {
+          return x.name.toLowerCase().includes(this.searchTracks.toLowerCase());
+        });
+    }
+    return filteredTracks;
     },
     listAllTracks() {
 
@@ -2853,7 +2878,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.Main_SearchInput {
+.Main_SearchInput, 
+.Track_SearchInput {
   width: 100%;
   background-color: #222;
   border: none;
@@ -2869,7 +2895,8 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
-.Main_SearchInput.focus-visible {
+.Main_SearchInput.focus-visible,
+.Track_SearchInput.focus-visible {
   outline: none;
   --back-h: 203;
   --back-s: 60%;
@@ -2877,8 +2904,15 @@ body {
   background-color: #102e40;
   color: #fff;
 }
-.Main_SearchInput::placeholder {
+.Main_SearchInput::placeholder,
+.Track_SearchInput::placeholder {
   color: #fff3;
+}
+.Track_SearchInput {
+  width: calc(100% - 40px);
+  height: 25px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 .Main_SearchMid {
   height: 50vh;

@@ -9,7 +9,7 @@
     }"
     class="BaseDialog_Layout">
     <div class="BaseDialog_Back" @click="$emit('close')"></div>
-    <div class="BaseDialog_Body">
+    <div class="BaseDialog_Body" :class="{BaseDialog_Body_Static: isStatic}">
       <div
         :style="{
           maxWidth: maxWidth,
@@ -45,6 +45,10 @@ export default {
       default: '300px'
     },
     transparent: {
+      type: Boolean,
+      default: false
+    },
+    isStatic: {
       type: Boolean,
       default: false
     },
@@ -132,6 +136,10 @@ export default {
   justify-content: center;
   height: 100%;
   pointer-events: none;
+}
+.BaseDialog_Body_Static {
+  align-items: start;
+  margin-top: 30px;
 }
 .BaseDialog_Box {
   padding: 20px;
