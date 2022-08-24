@@ -79,13 +79,13 @@ export default {
             else if (tyre === "Off-road") return "OFF";
             else if (tyre === "Slick") return "SLK";
         },
-        Vue.mra = function (time, acel) {
+        Vue.mra = function (time, acel, multiplier = 100) {
             acel = Number(acel);
             // if (time && acel) {
             //     debugger;
             // }
             if ( time && typeof time === 'number' && time > 0 && !isNaN(acel) ) {
-                return (100 * (acel / (time - acel))).toFixed(2)
+                return (multiplier * (acel / (time - acel))).toFixed(2)
             } else {
                 return ''
             }

@@ -1578,15 +1578,63 @@ export default {
       return contritrs.join(", ")
     },
     filteredTracks() {
-    //   const filteredTracks = this.tracksRepo.filter(x => {
-    //     return x.includes(this.searchTracks);
-    //   });
-    //   return filteredTracks;
       let filteredTracks = this.tracksRepo;
-      if (this.searchTracks !== '') {
-          filteredTracks = this.tracksRepo.filter(x => {
-            return x.name.toLowerCase().includes(this.searchTracks.toLowerCase());
-          });
+      let conds = ["dry", "wet", "dirt", "gravel", "ice", "sand", "snow", "grass"];
+      let input = this.searchTracks.toLowerCase();
+      let inputArray = input.split(" ");
+      let typesInput = inputArray.filter(x => conds.includes(x));
+      let tracksInput = inputArray.filter(x => !conds.includes(x));
+
+      if (typesInput.length > 0) {
+        let Surfaces = [];
+        let Conds = [];
+
+        if ( typesInput.includes("dry") ) {
+          Surfaces.push("0");
+          Conds.push("0");
+        }
+        if ( typesInput.includes("wet") ) {
+          Conds.push("1");
+        }
+        if ( typesInput.includes("dirt") ) {
+          Surfaces.push("1");
+          Surfaces.push("4");
+        }
+        if ( typesInput.includes("gravel") ) {
+          Surfaces.push("2");
+          Surfaces.push("b");
+        }
+        if ( typesInput.includes("ice") ) {
+          Surfaces.push("3");
+        }
+        if ( typesInput.includes("sand") ) {
+          Surfaces.push("5");
+          Surfaces.push("c");
+        }
+        if ( typesInput.includes("snow") ) {
+          Surfaces.push("6");
+          Surfaces.push("d");
+        }
+        if ( typesInput.includes("grass") ) {
+          Surfaces.push("7");
+        }
+
+        filteredTracks = filteredTracks.filter(x => {
+          return x.types.find(y => {
+            if (Surfaces.length > 0 && Conds.length > 0) {
+              return Surfaces.includes(y[0]) && Conds.includes(y[1]);
+            } else if (Surfaces.length > 0) {
+              return Surfaces.includes(y[0]);
+            } else if (Conds.length > 0) {
+              return Conds.includes(y[1]);
+            }
+          })
+        });
+      }
+      if (tracksInput.length > 0) {
+        filteredTracks = filteredTracks.filter(x => {
+          return x.name.toLowerCase().includes(tracksInput.join(" "));
+        });
       }
       return filteredTracks;
     },
