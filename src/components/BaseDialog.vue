@@ -17,7 +17,8 @@
         }"
         :class="{
           BaseDialog_Opaque: !transparent,
-          BaseDialog_Transparent: transparent
+          BaseDialog_Transparent: transparent,
+          BaseDialog_ForceScroll: forceScroll
         }"
         class="BaseDialog_Box Main_DarkScroll">
         <slot />
@@ -49,6 +50,10 @@ export default {
       default: false
     },
     isStatic: {
+      type: Boolean,
+      default: false
+    },
+    forceScroll: {
       type: Boolean,
       default: false
     },
@@ -151,6 +156,9 @@ export default {
   max-height: 80vh;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+.BaseDialog_ForceScroll {
+  overflow-y: scroll;
 }
 .BaseDialog_Opaque {
   background-color: #333;

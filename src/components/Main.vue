@@ -327,25 +327,30 @@
     <BaseDialog
       :active="customTrackDialog"
       :transparent="false"
-      is-static="true"
+      :isStatic="true"
+      :forceScroll="true"
       max-width="500px"
       min-width="240px"
-      @close="customTrackDialog = false; optionsDialogActive = true; searchTracks = ''">
+      @close="closeDialogTrackSearch()">
       <div class="Main_TracksDialog">
         <div class="Main_AllTracksBox">
-          <div>
+          <div class="Track_SearchBox">
             <input
               v-model="searchTracks"
-              id="SearchInput"
-              placeholder="Search Tracks"
+              id="SearchTrackInput"
+              placeholder="Search tracks"
               class="Track_SearchInput"
-              type="text"
-              @focus="searchFocus = true;"
-              @blur="searchBlur()" />
+              type="text" />
+            <button
+              v-if="searchTracks && searchTracks.length > 0"
+              class="D_Button Main_TrackSearchInputClose"
+              @click="searchTracks = ''">
+              <i class="ticon-close_2" aria-hidden="true"/>
+            </button>
           </div>
           <div
             v-for="(circuit, index) in filteredTracks"
-            class="Main_CustomTrackItem" :key=index>
+            class="Main_CustomTrackItem" :key="index">
             <div class="Main_CustomTrackLeft">
               <div class="Main_CustomTrackName">{{ circuit.name }}</div>
             </div>
@@ -445,7 +450,7 @@
               @click="stringToggleTrackSet(item.set)">{{ item.name }}</button>
             <button
               class="D_Button Main_OptionsButton"
-              @click="customTrackDialog = true; optionsDialogActive = false;">More...</button>
+              @click="openDialogTrackSearch()">More...</button>
             
           </div>
         </div>
@@ -1577,13 +1582,13 @@ export default {
     //     return x.includes(this.searchTracks);
     //   });
     //   return filteredTracks;
-    let filteredTracks = this.tracksRepo;
-    if (this.searchTracks !== '') {
-        filteredTracks = this.tracksRepo.filter(x => {
-          return x.name.toLowerCase().includes(this.searchTracks.toLowerCase());
-        });
-    }
-    return filteredTracks;
+      let filteredTracks = this.tracksRepo;
+      if (this.searchTracks !== '') {
+          filteredTracks = this.tracksRepo.filter(x => {
+            return x.name.toLowerCase().includes(this.searchTracks.toLowerCase());
+          });
+      }
+      return filteredTracks;
     },
     listAllTracks() {
 
@@ -1777,6 +1782,20 @@ export default {
       // if (!this.searchFocus) {
         //   this.searchActive = false;
       // }
+    },
+    openDialogTrackSearch() {
+      this.customTrackDialog = true;
+      this.optionsDialogActive = false;
+      setTimeout(() => {
+        try {
+          document.querySelector("#SearchTrackInput").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    closeDialogTrackSearch() {
+      this.customTrackDialog = false;
+      this.optionsDialogActive = true;
+      this.searchTracks = '';
     },
     closeTune() {
       this.tuneDialogActive = false;
@@ -2908,11 +2927,25 @@ body {
 .Track_SearchInput::placeholder {
   color: #fff3;
 }
-.Track_SearchInput {
-  width: calc(100% - 40px);
-  height: 25px;
-  margin-left: 20px;
+.Track_SearchBox {
+  position: relative;
+  flex-grow: 10;
+  padding: 0 20px;
   margin-bottom: 10px;
+}
+.Track_SearchInput {
+  height: 55px;
+  padding-left: 15px;
+}
+.Main_TrackSearchInputClose {
+  position: absolute;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+.Main_TrackSearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
+  transform: translateY(-42%);
 }
 .Main_SearchMid {
   height: 50vh;
