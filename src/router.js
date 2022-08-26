@@ -8,6 +8,7 @@ import MainExtractTD from "./components/MainExtractTD.vue";
 import MainGallery from "./components/MainGallery.vue";
 // import MainUpdateRqData from "./components/MainUpdateRqData.vue";
 import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
+import MainImportRude from "./components/MainImportRude.vue";
 
 import MainLogin from "./components/MainLogin.vue";
 import MainRegister from "./components/MainRegister.vue";
@@ -69,6 +70,12 @@ const routes = [
     name: 'Validate',
     title: 'Validate',
     component: MainValidateFinalJson,
+  },
+  {
+    path: '/importrude',
+    name: 'ImportRude',
+    title: 'ImportRude',
+    component: MainImportRude,
   },
   // {
   //   path: '/newrq',

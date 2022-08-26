@@ -21,7 +21,7 @@
           label="Password"
           class="Space_Bottom"
           placeholder="" />
-        <div class="TTT_Forgot TTT_ForgotBetween">
+        <div v-if="!wrap" class="TTT_Forgot TTT_ForgotBetween">
           <router-link
             :to="{ name: 'Register' }"
             style="font-size: 13px;"
@@ -39,6 +39,7 @@
           class="D_Button D_ButtonDark TTT_Button"
           @click="validate()">Login</button>
         <router-link
+          v-if="!wrap"
           :to="{ name: 'Records' }"
           style="font-size: 14px;"
           class="D_Link Space_Top">Cancel</router-link>
@@ -58,7 +59,7 @@ export default {
     BaseText
   },
   props: {
-    test: {
+    wrap: {
       type: Boolean,
       default: false
     }
@@ -117,9 +118,14 @@ export default {
             text: "You logged in"
           });
 
-          setTimeout(() => {
-            vm.$router.push({ name: 'Records' });     
-          }, 200);
+          if (vm.wrap) {
+            vm.$emit('success');
+          } else {
+            setTimeout(() => {
+              vm.$router.push({ name: 'Records' });     
+            }, 200);
+          }
+
 
         } else {
           throw new Error();

@@ -50,6 +50,7 @@
               `Row_ColorByIndex `+
               `${item.text == 0 ? 'Row_DNF ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
+              `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
@@ -57,7 +58,7 @@
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && car.users && !car.users.includes(user.username)) ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && (item.author ? item.author !== user.username : car.users && !car.users.includes(user.username) )) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -69,6 +70,10 @@
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'], 25) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a01']) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a10']) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00']) }}</div>
       <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
         item.id === 'csSmall' ||
         item.id === 'csMed' ||
@@ -101,8 +106,42 @@
         </template>
         <span class="TypeText_Wet" v-if="item.trackType[1] == '1'">Wet</span>
       </div>
+      <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">
+        <div class="Row_LikesBox">
+          <button
+            :class="{
+              Row_VotedAgainst: item.upList && item.upList.includes(user.username),
+              D_Button_Loading: voteLoading
+            }"
+            class="D_Button Row_VoteButton Row_VoteButtonDown"
+            @click="timevote($event, item, ix, 'down')">
+            <i
+              :class="`ticon-thumbs_down${ item.downList && item.downList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span v-if="item.downList && item.downList.length > 0" class="Row_DownCount">{{ item.downList.length }}</span>
+          </button>
+          <button
+            :class="{
+              Row_VotedAgainst: item.downList && item.downList.includes(user.username),
+              D_Button_Loading: voteLoading
+            }"
+            class="D_Button Row_VoteButton Row_VoteButtonUp"
+            @click="timevote($event, item, ix, 'up')">
+            <i
+              :class="`ticon-thumbs_up${ item.upList && item.upList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span v-if="item.upList && item.upList.length > 0" class="Row_UpCount">{{ item.upList.length }}</span>
+          </button>
+        </div>
+        <div v-if="item.author" class="Row_DetailAuthor">by {{ item.author }}</div>
+      </div>
+      <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 1 )" class="Row_CheckDoubtful">
+        <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
+      </div>
     </div>
-    <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)"></div>
+    <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
     <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
       <div>No records</div>
@@ -295,6 +334,10 @@ export default {
       type: Boolean,
       default: false
     },
+    voteLoading: {
+      type: Boolean,
+      default: false
+    },
     user: {
       required: false
     }
@@ -310,7 +353,9 @@ export default {
       card_hand: null,
       mouseInsideTuneBox: false,
       nonUsedTracks: [],
-      indexesToClear: []
+      indexesToClear: [],
+      detailIndex: null,
+      unsubscribeMutation: null,
     }
   },
   watch: {
@@ -321,7 +366,8 @@ export default {
   beforeMount() {},
   mounted() {
     let vm = this;
-    vm.$store.subscribe(mutation => {
+    this.unsubscribeMutation = vm.$store.subscribe(mutation => {
+
       if (mutation.type == "SHOW_TUNE") {
         if (mutation.payload === false) {
           setTimeout(() => {
@@ -329,12 +375,23 @@ export default {
           }, 99);
         }
       }
+
+      if (mutation.type == "HIDE_DETAIL") {
+        vm.detailIndex = null;
+      }
+
     }); 
+  },
+  beforeDestroy() {
+    this.unsubscribeMutation();
   },
   computed: {
     timesResolved() {
       let result = [];
       let text;
+      let author;
+      let downList;
+      let upList;
       let car;
       let timesObjPresent = false;
       let presentTracks = [];
@@ -359,9 +416,12 @@ export default {
           ) {
             timesObjPresent = true;
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
+            downList = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_downList`];
+            upList = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_upList`];
+            author = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_user`];
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}` })
+          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author })
         })
       }
       // console.log(result);
@@ -374,7 +434,7 @@ export default {
 
         Object.keys( this.car.data[this.car.selectedTune].times ).forEach(function (key) {
           let x = vm.car.data[vm.car.selectedTune].times[key]
-          if (!presentTracks.includes(key)) {
+          if (!presentTracks.includes(key) && typeof key === 'string' && key.substr(key.length -4, 2) === "_a" ) {
             vm.nonUsedTracks.push(key)
           }
 
@@ -408,7 +468,7 @@ export default {
       this.tunes.map(tune => {
         if (this.car.data[tune]) {
           if (this.car.data[tune].times) {
-            result[tune] = Object.keys(this.car.data[tune].times).length;
+            result[tune] = Object.keys(this.car.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
           }
         }
       })
@@ -482,17 +542,44 @@ export default {
       return false;
     },
     click(e, item, ix) {
-      if (this.type === 'tracks') return;
-      // if (e.srcElement.contentEditable !== 'true') {
-      //   this.$store.commit("CLEAR_EDITABLE");
-      //   e.srcElement.setAttribute('contenteditable', true);
-      // }
+
+      let currentIndex = this.detailIndex;
+
+      this.$store.commit("HIDE_DETAIL", {
+        item,
+        car: this.car
+      });
+
+      this.$nextTick().then(() => {
+        if (this.type === "times" && this.loggedin && item.text !== '' && (item.author ? item.author !== this.user.username : this.car.users && !this.car.users.includes(this.user.username) ) ) {
+          if (currentIndex !== ix) {
+            this.detailIndex = ix
+          }
+        }
+      })
+      
+      
+
+    },
+    timevote(e, item, ix, type) {
+      
+      this.$store.commit("TIME_VOTE", {
+        item,
+        car: this.car,
+        type: type
+      });
+
+    },
+    outsideClick() {
+      this.$store.commit("HIDE_DETAIL");
     },
     showTuneDialog() {
       this.tuneDialog = true;
       this.$store.commit("SHOW_TUNE", true);
+      this.outsideClick();
     },
     changeTune(tune, insideBox = true) {
+      this.outsideClick();
       if (insideBox) this.mouseInsideTuneBox = true;
       if (tune === this.car.selectedTune) {
         tune = undefined
@@ -541,7 +628,8 @@ export default {
   transition-duration: 0.3s;
   position: relative;
   transition-property: set;
-  box-shadow: inset 0px -2px 0px 0px #ffffff07, inset -2px 0px 0px 0px #ffffff07;
+  /* box-shadow: inset 0px -2px 0px 0px #ffffff07, inset -2px 0px 0px 0px #ffffff07, inset 0px 0px 0px 0px #ffffff07; */
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00;
 }
 .Car_Dragging + .Car_Layout .Row_Cell,
 .Car_PushLeft + .Car_Layout .Row_Cell,
@@ -623,6 +711,9 @@ export default {
   display: flex;
   align-items: center;
 }
+.Row_Times .Row_Content:not(:focus) {
+  cursor: default;
+}
 .Row_Times .Row_Content[contenteditable="true"]:not(:focus) {
   cursor: pointer;
 }
@@ -637,6 +728,18 @@ export default {
   background-color: #459bd126;
   color: #8cc9ef;
 }
+.Row_ConfigCell + * .Row_Content:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 2px #459bd1, inset 0px 2px 0px 0px #459bd1;
+}
+#Car_Layout0 .Row_ConfigCell + * .Row_Content:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 2px #459bd1, inset 2px 2px 0px 0px #459bd1;
+}
+#Car_Layout0 .Row_Content:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 2px #459bd1, inset 2px 0px 0px 0px #459bd1;
+}
 /* .Row_Content[contenteditable="true"] {
   box-shadow: 0px 0px 0px 2px #459bd1;
   background-color: #459bd126;
@@ -644,6 +747,18 @@ export default {
 } */
 .Row_Times .Row_Content[contenteditable="true"]:hover:focus {
   box-shadow: 0px 0px 0px 3px #459bd1;
+}
+.Row_Times .Row_ConfigCell + * .Row_Content[contenteditable="true"]:hover:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 3px #459bd1, inset 0px 3px 0px 0px #459bd1;
+}
+#Car_Layout0 .Row_Times .Row_ConfigCell + * .Row_Content[contenteditable="true"]:hover:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 3px #459bd1, inset 3px 3px 0px 0px #459bd1;
+}
+#Car_Layout0 .Row_Content[contenteditable="true"]:hover:focus {
+  /* background-color: #459bd100; */
+  box-shadow: 0px 0px 0px 3px #459bd1, inset 3px 0px 0px 0px #459bd1;
 }
 .Row_Placeholder {
   position: absolute;
@@ -884,6 +999,106 @@ export default {
   position: absolute;
   right: 2px;
   bottom: 0px;
+}
+.Row_DetailsActive {
+  box-shadow: inset -2px -2px 0px 0px rgb(var(--d-text-yellow)), inset 2px 2px 0px 0px rgb(var(--d-text-yellow)), 0px 0px 0px 0px rgb(var(--d-text-yellow)) !important;
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+}
+.Row_DetailsOverlay {
+  position: absolute;
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  height: calc(var(--cell-height) * 1.3);
+  bottom: calc(var(--cell-height) * -1.3);
+  z-index: 1;
+  width: 75%;
+  left: 12.5%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Main_2 .Row_DetailsOverlay {
+  bottom: 0px;
+  height: 100%;
+  width: 120%;
+  left: -120%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: hsl(var(--back-h), var(--back-s), 5%);
+}
+.Main_Compact .Row_DetailsOverlay {
+  width: 100%;
+  left: 0;
+}
+.Row_LikesBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Row_DetailAuthor {
+  text-align: center;
+  font-size: 9px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  color: var(--d-text);
+  opacity: 0.5;
+}
+.Main_2 .Row_DetailAuthor {
+  display: none;
+}
+.Row_VoteButton .ticon-thumbs_down {
+  color: #e54c4c;
+}
+.Row_VoteButton .ticon-thumbs_down_fill {
+  color: #e54c4c;
+}
+.Row_VoteButton .ticon-thumbs_up {
+  color: #78df65
+}
+.Row_VoteButton .ticon-thumbs_up_fill {
+  color: #78df65
+}
+.Row_VoteIcon {
+  font-size: 23px;
+}
+.Row_VotedAgainst i {
+  opacity: 0.4;
+}
+.Row_VoteButtonDown {
+
+}
+.Row_VoteButtonUp {
+
+}
+.Row_UpCount,
+.Row_DownCount {
+  margin-left: 4px;
+}
+.Row_CheckDoubtful {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  top: 7px;
+  left: 2px;
+  z-index: -1;
+  opacity: 0.7;
+}
+.Row_CheckDoubtfulIcon {
+  font-size: 18px;
+  color: #e54c4c;
+}
+.Main_2 .Row_CheckDoubtful,
+.Main_Compact .Row_CheckDoubtful {
+  top: unset;
+  left: 2px;
+  bottom: -3px;
+  opacity: 1;
+}
+.Main_2 .Row_CheckDoubtfulIcon,
+.Main_Compact .Row_CheckDoubtfulIcon {
+  font-size: 11px;
 }
 
 

@@ -1,6 +1,6 @@
 <template>
-  <div :class="{ Main_Normal: !inverted, Main_2: inverted, Main_Compact: compact }" class="Main_Layout">
-    <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop>
+  <div :class="{ Main_Normal: !inverted, Main_2: inverted, Main_Compact: compact }" class="Main_Layout" @click.stop="outsideClick()">
+    <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop="outsideClick()">
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
         <div class="Main_Logo">
@@ -57,6 +57,7 @@
             :user="user"
             :needSave="needSave"
             :saveLoading="saveLoading"
+            :voteLoading="voteLoading"
             type="tracks">
           </Row>
         </div>
@@ -87,6 +88,7 @@
               :user="user"
               :downloadLoading="downloadLoading"
               :key="carIx"
+              :voteLoading="voteLoading"
               @delete="deleteCar(carIx)"
               @moreTracks="moreTracksCar($event)"
               @newindex="newIndex($event)" />
@@ -569,6 +571,17 @@
 
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="loginDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="loginDialog = false;">
+      <div style="Main_DialogLoginWrap">
+        <MainLogin :wrap="true" @success="loginDialog = false;" />
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -577,6 +590,7 @@ import Car from './Car.vue'
 import Row from './Row.vue'
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
+import MainLogin from './MainLogin.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
@@ -600,7 +614,8 @@ export default {
     BaseDualSlider,
     BaseChip,
     BaseFlag,
-    BaseTrackType
+    BaseTrackType,
+    MainLogin
   },
   data() {
     return {
@@ -626,6 +641,9 @@ export default {
       optionsDialogActive: false,
       printImageDialog: false,
       aboutDialog: false,
+      loginDialog: false,
+      voteLoading: false,
+      successVote: false,
       customTrackDialog: false,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
@@ -1458,11 +1476,57 @@ export default {
         /**/ if (!car.dataToSave[car.selectedTune].times) Vue.set(car.dataToSave[car.selectedTune], "times", {});
 
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
+        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_author`], vm.user.username);
+        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_downList`], []);
+        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_upList`], []);
         /**/ Vue.set(car.dataToSave[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
         if (!car.users || !car.users.includes(vm.user.username)) {
           Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username]);
         }
         vm.needSaveChange(true);
+      }
+
+      if (mutation.type == "TIME_VOTE") {
+        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+        let type = mutation.payload.type
+        let TRACK = mutation.payload.item;
+        let timesObj = car.data[car.selectedTune].times;
+        let upArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_upList`;
+        let downArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_downList`;
+
+        if (!timesObj[upArrName]) Vue.set(timesObj, upArrName, []);
+        if (!timesObj[downArrName]) Vue.set(timesObj, downArrName, []);
+        let upArr = timesObj[upArrName];
+        let downArr = timesObj[downArrName];
+        let isUnVoteUp = false;
+        let isUnVoteDown = false;
+
+        // remove from both arr
+        if (upArr.includes(vm.user.username)) {
+          if (type === "up") isUnVoteUp = true;
+          timesObj[upArrName] = upArr.filter(x => x !== vm.user.username);
+        }
+        if (downArr.includes(vm.user.username)) {
+          if (type === "down") isUnVoteDown = true;
+          timesObj[downArrName] = downArr.filter(x => x !== vm.user.username);
+        }
+
+        if (!isUnVoteUp && !isUnVoteDown) {
+
+          if (type === "up") {
+            upArr.push(vm.user.username);
+            vm.requestVote(true, false, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+          } else {
+            downArr.push(vm.user.username);
+            vm.requestVote(false, false, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+          }
+          
+        } else if (isUnVoteUp) {
+          vm.requestVote(true, true, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+        } else {
+          vm.requestVote(false, true, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+        }
+
       }
 
       if (mutation.type == "CHANGE_TUNE") {
@@ -2189,6 +2253,9 @@ export default {
           text: error,
           type: "error"
         });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
       })
       .then(() => {
         this.saveLoading = false;
@@ -2264,6 +2331,40 @@ export default {
       .then(() => {
         this.downloadLoading = false;
       });
+    },
+    requestVote(isUp, isDelete, rid, tune, track) {
+      this.voteLoading = true;
+      let params = {
+        isUp,
+        isDelete,
+        rid,
+        tune,
+        track
+      }
+
+      axios.post(Vue.preUrl + "/vote", params)
+      .then(res => {
+        this.successVote = true;
+        setTimeout(() => {
+          this.successVote = false;
+        }, 1000);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.voteLoading = false;
+      });
+
     },
     applyNewData(newData) {
       this.carDetailsList.map(x => {
@@ -2491,6 +2592,9 @@ export default {
         window.onbeforeunload = null;
       }
     },
+    outsideClick() {
+      this.$store.commit("HIDE_DETAIL");
+    }
   },
 }
 </script>
@@ -2762,6 +2866,7 @@ body {
   color: rgba(255, 255, 255, 0.2);
   opacity: 0.6;
   overflow: hidden;
+  pointer-events: none;
 }
 .D_Button_Loading::after {
   content: "";

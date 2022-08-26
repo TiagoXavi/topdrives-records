@@ -21,6 +21,7 @@
         :maxCarNumber="maxCarNumber"
         :loggedin="loggedin"
         :user="user"
+        :voteLoading="voteLoading"
         @move="moveCar($event)"
         @moreTracks="$emit('moreTracks', $event)"
         @delete="$emit('delete')"
@@ -100,6 +101,10 @@ export default {
       default: false
     },
     downloadLoading: {
+      type: Boolean,
+      default: false
+    },
+    voteLoading: {
       type: Boolean,
       default: false
     },

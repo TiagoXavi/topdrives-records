@@ -90,15 +90,24 @@ export default {
                 return ''
             }
         },
+        Vue.brake = function (timeWithBrake, time) {
+            
+            if ( time && typeof time === 'number' && timeWithBrake && timeWithBrake > time ) {
+                return (timeWithBrake - time).toFixed(2)
+            } else {
+                return ''
+            }
+        },
 
 
-        Vue.filter('toTimeString', toTimeString),
-        Vue.filter('toTimeNumber', toTimeNumber),
-        Vue.filter('clearNumber', clearNumber),
-        Vue.filter('resolveClass', Vue.resolveClass),
-        Vue.filter('resolveStat', Vue.resolveStat),
-        Vue.filter('boldTunes', Vue.boldTunes),
-        Vue.filter('convertTires', Vue.convertTires),
-        Vue.filter('mra', Vue.mra)
+        Vue.filter('toTimeString', toTimeString);
+        Vue.filter('toTimeNumber', toTimeNumber);
+        Vue.filter('clearNumber', clearNumber);
+        Vue.filter('resolveClass', Vue.resolveClass);
+        Vue.filter('resolveStat', Vue.resolveStat);
+        Vue.filter('boldTunes', Vue.boldTunes);
+        Vue.filter('convertTires', Vue.convertTires);
+        Vue.filter('mra', Vue.mra);
+        Vue.filter('brake', Vue.brake);
     }
 };

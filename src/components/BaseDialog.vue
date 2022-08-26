@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!lazy || active"
     :class="{
       BaseDialog_Active: active,
       BaseDialog_RealActive: realActive,
@@ -54,6 +55,10 @@ export default {
       default: false
     },
     forceScroll: {
+      type: Boolean,
+      default: false
+    },
+    lazy: {
       type: Boolean,
       default: false
     },

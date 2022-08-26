@@ -75,8 +75,14 @@
 .ticon-lock:before {
   content: "\f023";
 }
+.ticon-camera2:before {
+  content: "\f030";
+}
 .ticon-list:before {
   content: "\f03a";
+}
+.ticon-adjust:before {
+  content: "\f042";
 }
 .ticon-question-circle:before {
   content: "\f059";
@@ -134,6 +140,18 @@
 }
 .ticon-question-circle-o:before {
   content: "\f29c";
+}
+.ticon-thumbs_down:before {
+  content: "\e96c";
+}
+.ticon-thumbs_up:before {
+  content: "\e96d";
+}
+.ticon-thumbs_down_fill:before {
+  content: "\e96a";
+}
+.ticon-thumbs_up_fill:before {
+  content: "\e96b";
 }
 .ticon-sort_crescent:before {
   content: "\e966";
