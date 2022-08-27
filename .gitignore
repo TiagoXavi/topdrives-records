@@ -4,6 +4,7 @@ node_modules
 */imgs
 */cards_imgs
 cars_short.json
+db.json
 *.ini
 
 

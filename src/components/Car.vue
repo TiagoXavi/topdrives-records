@@ -604,7 +604,8 @@ export default {
   z-index: 20;
   background-size: contain;
   background-position: left;
-  padding-left: calc(var(--cell-height) * 1.7);
+  /* padding-left: calc(var(--cell-height) * 1.7); */
+  padding-left: 0;
   height: var(--cell-height);
 }
 .Main_2 .Main_Body .Car_Body {

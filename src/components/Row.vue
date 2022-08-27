@@ -8,6 +8,7 @@
     <div
       v-for="(info, fx) in infosResolved"
       class="Row_Item Row_Cell Row_ConfigCell"
+      :class="`Row_Tune${car.selectedTune}`"
       @mouseleave="mouseLeaveTune($event)">
       <template v-if="info.type === 'Tune'">
         <div class="Row_Config">
@@ -47,14 +48,17 @@
       :data="`${item.id}_a${item.surface}${item.cond}`"
       :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
-              `Row_ColorByIndex `+
+              `${type === 'times' ? 'Row_ColorByIndex ' : '' }`+
               `${item.text == 0 ? 'Row_DNF ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
               `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
-      :style="{ '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`] }"
+      :style="{
+        '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
+        '--last-index': lastIndex || 1
+      }"
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)">
       <div
@@ -65,7 +69,10 @@
         class="Row_Content"
         @mouseover="type === 'tracks' ? item.hovered = true : ''"
         @mouseleave="item.hovered = false">{{ item.text | toTimeString(item.id) }}</div>
-      <div class="Row_Placeholder">-</div>
+      <template v-if="car.selectedTune">
+        <div class="Row_Placeholder">-</div>
+        <div class="Row_PlaceholderTune">tune {{ car.selectedTune }}</div>
+      </template>
       <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
@@ -155,117 +162,7 @@
 
 
     <portal v-if="tuneDialog" to="tunedialog">
-      <div class="Row_DialogLayout">
-        <div class="Row_OrderBox">
-          <div class="Row_OrderBoxLayout">
-            <button
-              :disabled="carIndex === 0"
-              class="D_Button Row_DialogButtonTune"
-              @click="$emit('move', { carIndex, direction: 'left' })">
-              <i class="ticon-arrow_left_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
-            </button>
-            <button
-              :disabled="carIndex >= lastIndex"
-              class="D_Button Row_DialogButtonTune"
-              @click="$emit('move', { carIndex, direction: 'right' })">
-              <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
-            </button>
-            <button
-              class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
-              @click="$emit('delete')">
-              <i class="ticon-close_3 Row_ConfigIcon " aria-hidden="true"/>
-            </button>
-          </div>
-        </div>
-        <div class="Row_DialogHeader">
-          <button
-            v-for="item in tunes"
-            :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
-            class="D_Button Row_DialogButtonTune"
-            @click="changeTune(item, false)">{{ item }}</button>
-        </div>
-        <div class="Row_DialogBody Space_TopPlus">
-          <div class="Row_DialogCard">
-            <div class="Row_DialogCardLeft">
-              <BaseCard
-                :car="car"
-                :options="false" />
-            </div>
-            <div class="Row_DialogCardRight">
-              <BaseText
-                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).topSpeed"
-                :disabled="!car.selectedTune || !loggedin"
-                type="topSpeed"
-                label="Top speed"
-                class="Space_Bottom Row_FieldStat"
-                placeholder="-"
-                @change="changeStat('topSpeed', $event)" />
-              <BaseText
-                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).acel"
-                :disabled="!car.selectedTune || !loggedin"
-                type="acel"
-                label="0-60mph"
-                class="Space_Bottom Row_FieldStat"
-                placeholder="-"
-                @change="changeStat('acel', $event)" />
-                {{ card_acel }}
-              <BaseText
-                :value="(((car.data || {})[car.selectedTune] || {}).info || {}).hand"
-                :disabled="!car.selectedTune || !loggedin"
-                type="hand"
-                label="Handling"
-                class="Row_FieldStat"
-                placeholder="-"
-                @change="changeStat('hand', $event)" />
-            </div>
-          </div>
-        </div>
-        <div class="Row_DialogCardDual Space_TopPlus">
-          <div class="Row_DialogCardBottom">
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">ABS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue">{{ car.abs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">TCS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue">{{ car.tcs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">Clearance</div>
-              <div class="Row_DialogCardStatValue">{{ car.clearance }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">MRA (stock)</div>
-              <div class="Row_DialogCardStatValue">{{ car.mra }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">Weight (stock)</div>
-              <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">Tags</div>
-              <div v-if="car.tags && car.tags.length > 0" class="Row_DialogCardStatValue Row_DialogCardStatTags">{{ car.tags.join(", ") }}</div>
-              <div v-else class="Row_DialogCardStatValue">-</div>
-            </div>
-          </div>
-          <div class="Row_DialogCardExternalBox">
-            <a
-              :href="`https://topdrives.club/vehicle/${car.tdid}`"
-              class="D_Button D_ButtonDark D_ButtonDark2 Row_DialogTdc"
-              target="_blank"
-              rel="noopener noreferrer">
-              <span>TDC</span>
-              <i class="ticon-internal Row_DialogExternal" aria-hidden="true"/>
-            </a>
-          </div>
-        </div>
-        <div v-if="car.users" class="Row_DialogCardUsers Space_TopPlus">
-          <div class="Row_DialogCardStat">
-            <div class="Row_DialogCardStatLabel">Contributors</div>
-            <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">{{ car.users.join(", ") }}</div>
-          </div>
-        </div>
-      </div>
+      
     </portal>
     
   </div>
@@ -273,15 +170,11 @@
 
 <script>
 import BaseSelect from '@/components/BaseSelect.vue';
-import BaseText from '@/components/BaseText.vue';
-import BaseCard from '@/components/BaseCard.vue';
 
 export default {
   name: 'Row',
   components: {
-    BaseSelect,
-    BaseText,
-    BaseCard
+    BaseSelect
   },
   props: {
     list: {
@@ -575,7 +468,10 @@ export default {
     },
     showTuneDialog() {
       this.tuneDialog = true;
-      this.$store.commit("SHOW_TUNE", true);
+      this.$store.commit("SHOW_TUNE", {
+        active: true,
+        car: this.car
+      });
       this.outsideClick();
     },
     changeTune(tune, insideBox = true) {
@@ -760,7 +656,8 @@ export default {
   /* background-color: #459bd100; */
   box-shadow: 0px 0px 0px 3px #459bd1, inset 3px 0px 0px 0px #459bd1;
 }
-.Row_Placeholder {
+.Row_Placeholder,
+.Row_PlaceholderTune {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -770,9 +667,15 @@ export default {
   box-sizing: border-box;
   display: none;
   color: var(--d-text);
+  align-items: center;
+  justify-content: center;
 }
 .Row_ContentEmpty .Row_Content:not(:focus) ~ .Row_Placeholder {
-  display: block;
+  display: flex;
+}
+.Row_Content:focus:empty ~ .Row_PlaceholderTune {
+  display: flex;
+  color: #aee0ff47;
 }
 .Row_ItemError {
   transition-duration: 0.1s;
@@ -809,6 +712,10 @@ export default {
 }
 .Row_ConfigIcon {
   font-size: 24px;
+  color: var(--d-text);
+}
+.Row_ConfigIconTrash {
+  font-size: 22px;
   color: var(--d-text);
 }
 .Row_ConfigLabel {
@@ -920,21 +827,26 @@ export default {
   align-items: center;
   gap: 4px;
 }
-.Row_ColorByIndex:not(.Row_ContentEmpty) {
-  /* background-color: rgba(38, 0, 118, calc(1 - var(--color-index) * 0.4)); */
-}
-.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
+
+.Main_ColorsMedal .Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #ffc3003b;
   color: #f9efad;
 }
-.Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
+.Main_ColorsMedal .Row_ColorByIndex1:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #d3f7ff14;
   color: #d3dee9;
 }
-.Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
+.Main_ColorsMedal .Row_ColorByIndex2:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
   background-color: #74340033;
   color: #ebc5a6;
 }
+
+.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
+  
+  background-color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), 100%, 30%, calc( (((var(--color-index) * (100/var(--last-index))) / -120) + 1) * 0.5 ));
+  color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100% ), 80%, calc( (((var(--color-index) * (100/var(--last-index))) / -400) + 1) * 1 ));
+}
+
 .Row_Conditions {
   font-size: 8px;
   font-family: 'Press Start 2P', cursive;

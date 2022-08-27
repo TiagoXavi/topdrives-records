@@ -1,5 +1,11 @@
 <template>
-  <div :class="{ Main_Normal: !inverted, Main_2: inverted, Main_Compact: compact }" class="Main_Layout" @click.stop="outsideClick()">
+  <div :class="{
+      Main_Normal: !inverted,
+      Main_2: inverted,
+      Main_Compact: compact,
+      Main_ColorsFull: fullColors,
+      Main_ColorsMedal: !fullColors
+    }" class="Main_Layout" @click.stop="outsideClick()">
     <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop="outsideClick()">
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
@@ -163,6 +169,11 @@
         </div>
         <div v-if="isFiltering" class="Main_SearchMid">
           <div class="Main_FilterItems">
+            <div class="Main_FilterClearTop">
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="clearFilter()">Clear</button>
+            </div>
             <div class="Main_FilterChips Main_FilterClassChips">
               <template v-for="(item, ix) in searchFilters.classes">
                 <BaseChip
@@ -374,9 +385,118 @@
       min-width="240px"
       @close="closeTune()">
       <div class="Main_TuneDialog">
-        <portal-target
-          slim
-          name="tunedialog"/>
+
+        <div v-if="tuneDialogActive" class="Row_DialogLayout">
+          <div class="Row_OrderBox">
+            <div class="Row_OrderBoxLayout">
+              <button
+                :disabled="tuneDialogCarIndex === 0"
+                class="D_Button Row_DialogButtonTune"
+                @click="newIndex({ current: tuneDialogCarIndex, new: tuneDialogCarIndex-1 }, true)">
+                <i class="ticon-arrow_left_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+              </button>
+              <button
+                :disabled="tuneDialogCarIndex >= carDetailsList.length - 1"
+                class="D_Button Row_DialogButtonTune"
+                @click="newIndex({ current: tuneDialogCarIndex, new: tuneDialogCarIndex+1 }, true)">
+                <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
+              </button>
+              <button
+                class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
+                @click="deleteCar(tuneDialogCarIndex)">
+                <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
+              </button>
+            </div>
+          </div>
+          <div class="Row_DialogHeader">
+            <button
+              v-for="item in tuneDialogTunes"
+              :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
+              class="D_Button Row_DialogButtonTune"
+              @click="changeTuneCar(tuneDialogCar, item)">{{ item }}</button>
+          </div>
+          <div class="Row_DialogBody Space_TopPlus">
+            <div class="Row_DialogCard">
+              <div class="Row_DialogCardLeft">
+                <BaseCard
+                  :car="tuneDialogCar"
+                  :options="false" />
+              </div>
+              <div class="Row_DialogCardRight">
+                <BaseText
+                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed"
+                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  type="topSpeed"
+                  label="Top speed"
+                  class="Space_Bottom Row_FieldStat"
+                  placeholder="-"
+                  @change="changeStatCar(tuneDialogCar, 'topSpeed', $event)" />
+                <BaseText
+                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel"
+                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  type="acel"
+                  label="0-60mph"
+                  class="Space_Bottom Row_FieldStat"
+                  placeholder="-"
+                  @change="changeStatCar(tuneDialogCar, 'acel', $event)" />
+                <BaseText
+                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand"
+                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  type="hand"
+                  label="Handling"
+                  class="Row_FieldStat"
+                  placeholder="-"
+                  @change="changeStatCar(tuneDialogCar, 'hand', $event)" />
+              </div>
+            </div>
+          </div>
+          <div class="Row_DialogCardDual Space_TopPlus">
+            <div class="Row_DialogCardBottom">
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">ABS</div>
+                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.abs }" class="Row_DialogCardStatValue">{{ tuneDialogCar.abs ? 'Yes' : 'No' }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">TCS</div>
+                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Clearance</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.clearance }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">MRA (stock)</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.mra }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Weight (stock)</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.weight }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Tags</div>
+                <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardStatValue Row_DialogCardStatTags">{{ tuneDialogCar.tags.join(", ") }}</div>
+                <div v-else class="Row_DialogCardStatValue">-</div>
+              </div>
+            </div>
+            <div class="Row_DialogCardExternalBox">
+              <a
+                :href="`https://topdrives.club/vehicle/${tuneDialogCar.tdid}`"
+                class="D_Button D_ButtonDark D_ButtonDark2 Row_DialogTdc"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span>TDC</span>
+                <i class="ticon-internal Row_DialogExternal" aria-hidden="true"/>
+              </a>
+            </div>
+          </div>
+          <div v-if="tuneDialogCar.users" class="Row_DialogCardUsers Space_TopPlus">
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">Contributors</div>
+              <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">{{ tuneDialogCar.users.join(", ") }}</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </BaseDialog>
     <BaseDialog
@@ -462,18 +582,35 @@
             class="D_Button Main_SaveAllButton"
             @click="saveAll()">Save</button>
         </div>
-        <div class="Main_OptionsItem">
-          <div class="Main_OptionsLabel">Display</div>
-          <div class="Main_OptionsButtons">
-            <button :class="{ D_ButtonActive: !inverted && !compact }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
-              <i class="ticon-list Main_OptionsIcon" aria-hidden="true"/>
-            </button>
-            <button :class="{ D_ButtonActive: !inverted && compact }" class="D_Button Main_OptionsButton" @click="display('horizontal2')">
-              <i class="ticon-list Main_OptionsIcon" style="transform: scaleX(0.5);" aria-hidden="true"/>
-            </button>
-            <button :class="{ D_ButtonActive: inverted }" class="D_Button Main_OptionsButton" @click="display('vertical')">
-              <i class="ticon-list Main_OptionsIcon" style="transform: rotate(90deg)" aria-hidden="true"/>
-            </button>
+        <div class="Main_OptionsDual">
+          <div class="Main_OptionsItem">
+            <div class="Main_OptionsLabel">Display</div>
+            <div class="Main_OptionsButtons">
+              <button :class="{ D_ButtonActive: !inverted && !compact }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
+                <i class="ticon-list Main_OptionsIcon" aria-hidden="true"/>
+              </button>
+              <button :class="{ D_ButtonActive: !inverted && compact }" class="D_Button Main_OptionsButton" @click="display('horizontal2')">
+                <i class="ticon-list Main_OptionsIcon" style="transform: scaleX(0.5);" aria-hidden="true"/>
+              </button>
+              <button :class="{ D_ButtonActive: inverted }" class="D_Button Main_OptionsButton" @click="display('vertical')">
+                <i class="ticon-list Main_OptionsIcon" style="transform: rotate(90deg)" aria-hidden="true"/>
+              </button>
+            </div>
+          </div>
+          <div class="Main_OptionsItem">
+            <div class="Main_OptionsLabel">Colors</div>
+            <div class="Main_OptionsButtons">
+              <button :class="{ D_ButtonActive: !fullColors }" class="D_Button Main_OptionsButton" @click="colorsChange('medals')">
+                <div class="Main_cIconBox">
+                  <div class="Main_cBall"></div>
+                  <div class="Main_cBall"></div>
+                  <div class="Main_cBall"></div>
+                </div>
+              </button>
+              <button :class="{ D_ButtonActive: fullColors }" class="D_Button Main_OptionsButton" @click="colorsChange('full')">
+                <div class="Main_cIconBox Main_cIconGradient" />
+              </button>
+            </div>
           </div>
         </div>
         <div class="Main_OptionsCredits">
@@ -588,6 +725,8 @@
 <script>
 import Car from './Car.vue'
 import Row from './Row.vue'
+import BaseText from './BaseText.vue';
+import BaseCard from './BaseCard.vue';
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import MainLogin from './MainLogin.vue'
@@ -615,13 +754,16 @@ export default {
     BaseChip,
     BaseFlag,
     BaseTrackType,
-    MainLogin
+    MainLogin,
+    BaseText,
+    BaseCard
   },
   data() {
     return {
       unsubscribe: null,
       inverted: false,
       compact: false,
+      fullColors: false,
       searchInput: '',
       searchTracks: '',
       searchActive: false,
@@ -638,6 +780,8 @@ export default {
       alreadySearched: false,
       shareDialog: false,
       tuneDialogActive: false,
+      tuneDialogCar: null,
+      tuneDialogCarIndex: null,
       optionsDialogActive: false,
       printImageDialog: false,
       aboutDialog: false,
@@ -1404,6 +1548,10 @@ export default {
     if (display) {
       this.display(display);
     }
+    let colors = window.localStorage.getItem("colors");
+    if (colors) {
+      this.colorsChange(colors);
+    }
 
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
       // from query string
@@ -1530,30 +1678,25 @@ export default {
       }
 
       if (mutation.type == "CHANGE_TUNE") {
-        // console.log(vm.carDetailsList.map(x => x.softId));
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
-        Vue.set(car, "selectedTune", mutation.payload.tune);
-        this.updateCarLocalStorage();
+
+        vm.changeTuneCar(car, mutation.payload.tune)
       }
 
       if (mutation.type == "CHANGE_STAT") {
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
 
-        if (!car.data) Vue.set(car, "data", {});
-        if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
-        if (!car.data[car.selectedTune].info) Vue.set(car.data[car.selectedTune], "info", {});
-        /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
-        /**/ if (!car.dataToSave[car.selectedTune]) Vue.set(car.dataToSave, car.selectedTune, {});
-        /**/ if (!car.dataToSave[car.selectedTune].info) Vue.set(car.dataToSave[car.selectedTune], "info", {});
-
-        Vue.set(car.data[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
-        /**/ Vue.set(car.dataToSave[car.selectedTune].info, mutation.payload.type, mutation.payload.value);
-        vm.needSaveChange(true);
+        vm.changeStatCar(car, mutation.payload.type, mutation.payload.value)
       }
 
       if (mutation.type == "SHOW_TUNE") {
-        if (mutation.payload) {
-          vm.tuneDialogActive = true;
+        let indexCar = vm.carDetailsList.findIndex(x => x.softId === mutation.payload.car.softId);
+        let car = vm.carDetailsList[indexCar];
+
+        if (car) {
+          vm.tuneDialogCar = car;
+          vm.tuneDialogCarIndex = indexCar;
+          vm.tuneDialogActive = mutation.payload.active;
         }
       }
 
@@ -1702,8 +1845,10 @@ export default {
       }
       return filteredTracks;
     },
-    listAllTracks() {
-
+    tuneDialogTunes() {
+      let result = ["332", "323", "233"];
+      if (this.tuneDialogCar.class === "S") result.push("111");
+      return result;
     }
   },
   methods: {
@@ -1911,7 +2056,7 @@ export default {
     },
     closeTune() {
       this.tuneDialogActive = false;
-      this.$store.commit("SHOW_TUNE", false);
+      // this.$store.commit("SHOW_TUNE", false);
       
     },
     searchBlur() {
@@ -2099,10 +2244,21 @@ export default {
         window.localStorage.setItem('display', type);
       }
     },
-    newIndex(obj) {
+    colorsChange(type, save = true) {
+      if (type === "medals") {
+        this.fullColors = false;
+      }
+      if (type === "full") {
+        this.fullColors = true;
+      }
+      if (save) {
+        window.localStorage.setItem('colors', type);
+      }
+    },
+    newIndex(obj, isDialog = false) {
       obj.current;
       obj.new;
-      this.closeTune();
+      // this.closeTune();
 
       // If actual index of moved element is
       // less than 0 when 'moveEle += array size'
@@ -2136,6 +2292,9 @@ export default {
       // Here element of 'obj.current' is removed and
       // pushed at 'obj.new' index
       this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
+      if (isDialog) {
+        this.tuneDialogCarIndex = obj.new;
+      }
       
       this.updateCarLocalStorage();
 
@@ -2594,6 +2753,32 @@ export default {
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
+    },
+    changeTuneCar(car, newTune) {
+      if (newTune === car.selectedTune) {
+        newTune = undefined
+      }
+
+      Vue.set(car, "selectedTune", newTune);
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      })
+      this.updateCarLocalStorage();
+    },
+    changeStatCar(car, type, value) {
+
+      if (!car.data) Vue.set(car, "data", {});
+      if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
+      if (!car.data[car.selectedTune].info) Vue.set(car.data[car.selectedTune], "info", {});
+      /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
+      /**/ if (!car.dataToSave[car.selectedTune]) Vue.set(car.dataToSave, car.selectedTune, {});
+      /**/ if (!car.dataToSave[car.selectedTune].info) Vue.set(car.dataToSave[car.selectedTune], "info", {});
+
+      Vue.set(car.data[car.selectedTune].info, type, value);
+      /**/ Vue.set(car.dataToSave[car.selectedTune].info, type, value);
+      this.needSaveChange(true);
+
     }
   },
 }
@@ -3732,8 +3917,53 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Main_BodyPrint .Main_RowCornerBox {
   display: none;
 }
-
-
+.Main_FilterClearTop {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+.Main_OptionsDual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+.Main_OptionsDual > .Main_OptionsItem {
+  margin-top: 0px;
+}
+.Main_cIconBox {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+.Main_cBall {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.Main_cBall:nth-child(1) {
+  background-color: #ffc300ad;
+  left: 50%;
+  top: 1px;
+  transform: translateX(-50%);
+}
+.Main_cBall:nth-child(2) {
+  background-color: #dbf5fb87;
+  left: 0;
+  bottom: 1px;
+}
+.Main_cBall:nth-child(3) {
+  background-color: #a55412b3;
+  right: 0;
+  bottom: 1px;
+}
+.Main_cIconGradient {
+  background: rgb(54,171,0);
+  background: linear-gradient(90deg, rgba(54,171,0,1) 0%, rgba(54,171,0,1) 19%, rgba(64,132,0,1) 20%, rgba(64,132,0,1) 39%, rgba(74,94,0,1) 40%, rgba(74,94,0,1) 59%, rgba(83,58,0,1) 60%, rgba(83,58,0,1) 79%, rgba(91,29,0,1) 80%, rgba(91,29,0,1) 100%);
+  border-radius: 34px;
+}
 
 
 
@@ -3909,13 +4139,30 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Main_BodyPrint .Row_ConfigCell {
   width: 70px; /* this value is hard coded in sharePrint() */
 }
-.Main_2 .Main_BodyPrint .Car_Layout:nth-child(3n-1) .Row_Cell {
+.Main_2:not(.Main_ColorsFull) .Main_BodyPrint .Car_Layout:nth-child(3n-1) .Row_Cell {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #ffffff1c;
 }
 .Main_2 .Main_BodyPrint .Main_LogoPre {
   display: none;
+}
+.Main_2 .Main_BodyPrint .Row_Tune233:before,
+.Main_2 .Main_BodyPrint .Row_Tune332:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  opacity: 0.07;
+  pointer-events: none;
+  width: 30%;
+  background: white;
+  bottom: 0px;
+}
+.Main_2 .Main_BodyPrint .Row_Tune332:before {
+  left: 0;
+}
+.Main_2 .Main_BodyPrint .Row_Tune233:before {
+  right: 0;
 }
 .Main_BodyPrint .Main_UserBottom {
   display: none;
@@ -4023,6 +4270,15 @@ body::-webkit-scrollbar-corner {
   }
   .Main_FilterThree {
     grid-template-columns: 1fr;
+  }
+  .Main_OptionsDual {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .Main_FilterClearTop {
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: -5px;
   }
 }
 @media only screen and (min-width: 768px) {

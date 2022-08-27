@@ -57,9 +57,14 @@
     </div>
     <div
       :class="{ Car_Loading: downloadLoading }"
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`"
+      :style="`--class-color: ${carClassColor}`"
       class="Car_Header2">
-      <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
+      <div class="BaseCard_Header2Left">
+        <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
+      </div>
+      <div class="BaseCard_Header2Right">
+        <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -113,7 +118,16 @@ export default {
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
       return parsed ? 'background-image: url('+parsed+');' : ''
-    }
+    },
+    carPhotoSrc() {
+      let parsed;
+      try {
+        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+      } catch (error) {
+        return ''
+      }
+      return parsed ? parsed : ''
+    },
   },
   methods: {},
 }
@@ -137,5 +151,27 @@ export default {
 }
 .Main_2 .BaseCard_FixBack {
   display: none;
+}
+.BaseCard_Header2Left {
+  /* width: calc(var(--cell-height) * 1.7);
+  min-width: calc(var(--cell-height) * 1.7);
+  height: 100%;
+  background-size: 90px;
+  background-position: 33%;
+  transform: scale(1.0001);
+  margin-right: 5px; */
+
+  display: flex;
+  height: var(--cell-height);
+  /* margin: -7px 0; */
+  width: 53px;
+  min-width: 53px;
+  border-radius: 0px 3px 3px 0px;
+  overflow: hidden;
+  margin-right: 5px;
+  background-color: #00000038;
+}
+.BaseCard_Header2Img {
+  transform: scale(1.4) translateX(1px);
 }
 </style>
