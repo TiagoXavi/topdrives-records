@@ -251,11 +251,7 @@ export default {
       unsubscribeMutation: null,
     }
   },
-  watch: {
-    car: function() {
-      // debugger;
-    }
-  },
+  watch: {},
   beforeMount() {},
   mounted() {
     let vm = this;

@@ -5,6 +5,7 @@ node_modules
 */cards_imgs
 cars_short.json
 db.json
+rude_all.json
 *.ini
 
 

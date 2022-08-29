@@ -38,6 +38,14 @@
                   @click="$router.push({ name: 'Login' })">Login to edit</button>
               </div>
             </template>
+            <template v-else-if="!!user && isImport">
+              <div class="Main_SaveAllBox">
+                <button
+                  :class="{ D_Button_Loading: saveLoading }"
+                  class="D_Button Main_SaveAllButton"
+                  @click="saveImport()">Import</button>
+              </div>
+            </template>
             <template v-else-if="!!user && needSave">
               <div class="Main_SaveAllBox">
                 <button
@@ -757,6 +765,18 @@ export default {
     MainLogin,
     BaseText,
     BaseCard
+  },
+  props: {
+    phantomCar: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    isImport: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -1540,7 +1560,50 @@ export default {
       tunes: ["332", "233", "323", "111"]
     }
   },
-  watch: {},
+  watch: {
+    phantomCar: function() {
+      console.log( JSON.parse(JSON.stringify(this.phantomCar.data[this.phantomCar.selectedTune].times)) );
+      this.clearAllTracks();
+      this.clearAllCars();
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+
+        this.carDetailsList.push(JSON.parse(JSON.stringify(this.phantomCar)));
+        this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
+        this.nextId++;
+        let tracks = [];
+        Object.keys( this.phantomCar.data[this.phantomCar.selectedTune].times ).forEach(function (track) {
+          tracks.push(track);
+        })
+        this.moreTracksCar(tracks)
+        // 2x
+        this.carDetailsList.push(JSON.parse(JSON.stringify(this.phantomCar)));
+        this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
+        this.nextId++;
+        this.carDetailsList[this.carDetailsList.length - 1].data = {};
+
+
+        axios.get(Vue.preUrl + "/car/" + this.phantomCar.rid)
+        .then(res => {
+          if (res.data.data) Vue.set(this.carDetailsList[this.carDetailsList.length - 1], "data", res.data.data);
+          if (res.data.users) Vue.set(this.carDetailsList[this.carDetailsList.length - 1], "users", res.data.users);
+        })
+        .catch(error => {
+          console.log(error);
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+
+      })
+
+    }
+  },
   beforeMount() {
     this.clearFilter();
 
@@ -1927,16 +1990,23 @@ export default {
       return tracksClear;
     },
     moreTracksCar(tracksIds) {
+      let notFound = [];
       tracksIds.map(x => {
-        this.tracksRepo.find(circuit => {
-          circuit.types.find(type => {
+        let found = this.tracksRepo.find(circuit => {
+          return circuit.types.find(type => {
             if ( `${circuit.id}_a${type}` === x ) {
               this.toggleTrack( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1] } );
               return true;
             }
           })
         })
+        if (!found) {
+          notFound.push(x)
+        }
       })
+      if (notFound.length > 0) {
+        console.warn("Not found:", notFound);
+      }
     },
     indexOfTrack(x) {
       return this.currentTracks.findIndex(y => {
@@ -2396,6 +2466,51 @@ export default {
       });
 
       axios.post(Vue.preUrl + "/update", simplifiedCars)
+      .then(res => {
+        this.needSaveChange(false);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "Successful save"
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.saveLoading = false;
+      });
+
+    },
+    saveImport() {
+      this.saveLoading = true;
+      let simplifiedCars = [];
+      
+      simplifiedCars.push({
+        rid: this.carDetailsList[0].rid,
+        data: this.carDetailsList[0].data
+      });
+
+      simplifiedCars = JSON.parse(JSON.stringify(simplifiedCars));
+      Object.keys( simplifiedCars[0].data[Object.keys( simplifiedCars[0].data )[0]].times ).forEach(function (track) {
+        
+        if (track.substr(track.length -4, 2) !== "_a" ) {
+          delete simplifiedCars[0].data[Object.keys( simplifiedCars[0].data )[0]].times[track];
+        }
+
+      })
+
+
+      axios.post(Vue.preUrl + "/import", simplifiedCars)
       .then(res => {
         this.needSaveChange(false);
         this.$store.commit("DEFINE_SNACK", {
@@ -4154,7 +4269,7 @@ body::-webkit-scrollbar-corner {
   height: 100%;
   opacity: 0.07;
   pointer-events: none;
-  width: 30%;
+  width: 20%;
   background: white;
   bottom: 0px;
 }
