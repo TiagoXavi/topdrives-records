@@ -2034,6 +2034,10 @@ export default {
     },
     clearAllCars() {
       this.carDetailsList = [];
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      })
       this.updateCarLocalStorage();
     },
     verifyActiveButtons() {
@@ -2063,6 +2067,11 @@ export default {
         })
       })
 
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      })
+
     },
     updateOptions() {
       this.optionsDialogActive = false;
@@ -2082,13 +2091,15 @@ export default {
     deleteCar(index) {
       let carToDel = this.carDetailsList.find((x, ix) => ix === index);
       if (carToDel.dataToSave) {
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        })
+        // propt before?
       }
 
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      })
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
     },
@@ -2283,6 +2294,11 @@ export default {
         if (this.carDetailsList.length >= this.maxCarNumber) {
           this.searchActive = false;
         }
+
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        })
 
         this.updateCarLocalStorage();
         this.downloadCar(this.carDetailsList[this.carDetailsList.length - 1].rid)
