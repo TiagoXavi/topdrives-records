@@ -35,7 +35,7 @@
               <div class="Main_SaveAllBox">
                 <button
                   class="D_Button Main_LoginToEdit"
-                  @click="$router.push({ name: 'Login' })">Login to edit</button>
+                  @click="$router.push({ name: 'Login' })">Login</button>
               </div>
             </template>
             <template v-else-if="!!user && isImport">
@@ -544,7 +544,7 @@
     <BaseDialog
       :active="optionsDialogActive"
       :transparent="false"
-      max-width="400px"
+      max-width="420px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
         <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
@@ -983,8 +983,10 @@ export default {
       currentTracksSetsNames: [],
       tracksButtons: [
         { name: "Dry Twisty", set: "trackSet_DryTwisty", active: false },
-        { name: "Dry City", set: "trackSet_DryCity", active: false },
+        { name: "Dry Twisty 2", set: "trackSet_DryTwistyExtended", active: false },
         { name: "Dry Drag", set: "trackSet_DryDrag", active: false },
+        { name: "Dry Drag 2", set: "trackSet_DryDragExtended", active: false },
+        { name: "Dry City", set: "trackSet_DryCity", active: false },
         { name: "Wet Twisty", set: "trackSet_WetTwisty", active: false },
         { name: "Wet City", set: "trackSet_WetCity", active: false },
         { name: "Dirt", set: "trackSet_Dirt", active: false },
@@ -1017,6 +1019,29 @@ export default {
         { name: "0-150mph", id: "drag150", surface: 0, cond: 0, campaign: 'GER Stuttgart 2'},
         { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0, campaign: 'GER Stuttgart 8'},
         { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0, campaign: 'UK Midlands 8' },
+      ],
+      trackSet_DryTwistyExtended: [
+        { name: "G-Force (R)", id: "gForcer", surface: 0, cond: 0, campaign: 'USA Nevada 6' },
+        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 0, campaign: 'GER Stuttgart 10' },
+        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0, campaign: 'FR Chamonix 9' },
+        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0, campaign: 'IT Milan 5' },
+        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0, campaign: 'Monaco 6' },
+        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0, campaign: 'Monaco 5' },
+        { name: "Monaco Narrow Streets", id: "mnCityNarrow", surface: 0, cond: 0, campaign: 'Monaco 2' },
+        { name: "Monaco Streets", id: "mnCity", surface: 0, cond: 0, campaign: 'Monaco 6' },
+        { name: "Monaco Streets Long", id: "mnCityLong", surface: 0, cond: 0, campaign: 'Monaco 10' },
+      ],
+      trackSet_DryDragExtended: [
+        { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0, campaign: 'USA West Coast 6'},
+        { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0, campaign: 'GER Stuttgart 4' },
+        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0, campaign: 'USA Nevada 9' },
+        { name: "0-120mph", id: "drag120", surface: 0, cond: 0, campaign: 'UAE Dubai 10' },
+        { name: "0-150-0mph", id: "drag150b", surface: 0, cond: 0, campaign: 'UAE Dubai 2' },
+        { name: "0-170mph", id: "drag170", surface: 0, cond: 0, campaign: 'UAE Dubai 9' },
+        { name: "30-130mph", id: "drag30130", surface: 0, cond: 0, campaign: 'JP Atsugi 2' },
+        { name: "50-150mph", id: "drag50150", surface: 0, cond: 0, campaign: 'GER Stuttgart 2' },
+        { name: "75-125mph", id: "drag75125", surface: 0, cond: 0, campaign: 'GER Stuttgart 9' },
+        { name: "Waterfront Drag", id: "waterDrag", surface: 0, cond: 0, campaign: 'Monaco 9' },
       ],
       trackSet_WetTwisty: [
         { name: "Car Park", id: "carPark", surface: 0, cond: 1, campaign: 'JP Atsugi 5' },
