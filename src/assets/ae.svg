@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" style="enable-background:new 0 0 640 480" xml:space="preserve">
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:red" d="M0 0h190v480H0z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd" d="M190 318.8h450V480H190z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff" d="M190 161.9h450v159H190z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#009a00" d="M190 0h450v161.9H190z"/>
+</svg>

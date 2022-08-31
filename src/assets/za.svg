@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" style="enable-background:new 0 0 640 480" xml:space="preserve">
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff" d="M0 .1h640v480H0z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#229e45" d="M36.6.1H0V480h36.6L319 288.9h321v-97.7H319z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fc0" d="M0 384.8 214.3 240 0 95.4z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd" d="m0 347.1 159.3-107L0 133.1z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#00c" d="m92.1 480.1 237.7-160H640v160H92.1z"/>
+  <path style="fill-rule:evenodd;clip-rule:evenodd;fill:red" d="M76.8.1H640v160H329.7S80-1.5 76.8.1z"/>
+</svg>

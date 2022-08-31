@@ -117,6 +117,30 @@
       </g>
     </g>
   </svg>
+  <svg v-else-if="flag === 'BR'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#229e45" d="M0 0h640v480H0z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#f8e509" d="M261.7 455.7 569 256.3l-309.1-200-308.3 200.5 310.1 198.9z" transform="translate(64.633 -11.162) scale(.9811)"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#2b49a3" d="M395.6 256c0 71.7-58.2 129.8-130 129.8s-130-58.1-130-129.8 58.2-129.8 130-129.8 130 58.1 130 129.8z" transform="translate(64.633 -11.162) scale(.9811)"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff" d="M387 302.7c2-5.2 4.5-13 5.9-20.2-69-60.7-146-91.7-243.3-85.3-3.5 6.7-6.3 13.7-8.6 21.3 115.3-11 199.7 40 246 84.2z" transform="translate(64.633 -11.162) scale(.9811)"/>
+  </svg>
+  <svg v-else-if="flag === 'CN'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+    <path style="fill:#de2910" d="M0 0h640v480H0z"/>
+    <path style="fill:#ffde00" d="M77.7 178.2 120 48l42.3 130.2L51.5 97.8h137zM263.9 50.1l-44.5 10.2 30-34.4-4 45.5-23.5-39.2zM309.2 107.2l-45-7.8 41-20.1-21.3 40.3-6.5-45.1zM302.8 186.9l-37.9-25.5 45.6-1.6-35.9 28.1 12.5-43.9zM246.3 239.1l-25-38.1 42.7 16.1-44.1 12.1 28.6-35.7z"/>
+  </svg>
+  <svg v-else-if="flag === 'AE'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:red" d="M0 0h190v480H0z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd" d="M190 318.8h450V480H190z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff" d="M190 161.9h450v159H190z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#009a00" d="M190 0h450v161.9H190z"/>
+  </svg>
+  <svg v-else-if="flag === 'ZA'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff" d="M0 .1h640v480H0z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#229e45" d="M36.6.1H0V480h36.6L319 288.9h321v-97.7H319z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#fc0" d="M0 384.8 214.3 240 0 95.4z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd" d="m0 347.1 159.3-107L0 133.1z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#00c" d="m92.1 480.1 237.7-160H640v160H92.1z"/>
+    <path style="fill-rule:evenodd;clip-rule:evenodd;fill:red" d="M76.8.1H640v160H329.7S80-1.5 76.8.1z"/>
+  </svg>
 </template>
 
 <script>
