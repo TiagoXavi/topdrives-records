@@ -1,5 +1,8 @@
 <template>
-  <div :style="`--size: ${size};`" class="BaseAvatar_Layout">
+  <div
+    :style="`--size: ${size};`"
+    :class="{ BaseAvatar_Mod: user && user.mod }"
+    class="BaseAvatar_Layout">
     <div class="BaseAvatar_Box">{{ letter }}</div>
   </div>
 </template>
@@ -61,5 +64,8 @@ export default {
 }
 .BaseAvatar_Box {
   font-size: calc(var(--size) * 0.5);
+}
+.BaseAvatar_Mod {
+  background-color: #a10505;
 }
 </style>

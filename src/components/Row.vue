@@ -141,6 +141,14 @@
               aria-hidden="true"/>
             <span v-if="item.upList && item.upList.length > 0" class="Row_UpCount">{{ item.upList.length }}</span>
           </button>
+          <button
+            v-if="user && user.mod"
+            class="D_Button Row_ModEditButton"
+            @click="modEdit($event, item, ix)">
+            <i
+              class="ticon-pencil Row_ModEditIcon"
+              aria-hidden="true"/>
+          </button>
         </div>
         <div v-if="item.author" class="Row_DetailAuthor">by {{ item.author }}</div>
       </div>
@@ -440,9 +448,13 @@ export default {
       });
 
       this.$nextTick().then(() => {
-        if (this.type === "times" && this.loggedin && item.text !== '' && (item.author ? item.author !== this.user.username : this.car.users && !this.car.users.includes(this.user.username) ) ) {
-          if (currentIndex !== ix) {
-            this.detailIndex = ix
+        if (this.type === "times" && this.loggedin && item.text !== '' ) {
+          if (e.ctrlKey || (item.author ? item.author !== this.user.username : this.car.users && !this.car.users.includes(this.user.username)) ) {
+
+            if (currentIndex !== ix) {
+              this.detailIndex = ix
+            }
+
           }
         }
       })
@@ -457,6 +469,21 @@ export default {
         car: this.car,
         type: type
       });
+
+    },
+    modEdit(e, item, ix, type) {
+
+      this.detailIndex = null;
+
+      let father = e.srcElement.closest(".Row_Item");
+      let content;
+      if (father) {
+        content = father.querySelector(".Row_Content")
+      }
+      if (content) {
+        content.setAttribute("contenteditable", true);
+        content.focus();
+      }      
 
     },
     outsideClick() {
@@ -837,7 +864,7 @@ export default {
   color: #ebc5a6;
 }
 
-.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF) {
+.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1) {
   
   background-color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), 100%, 30%, calc( (((var(--color-index) * (100/var(--last-index))) / -120) + 1) * 0.5 ));
   color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100% ), 80%, calc( (((var(--color-index) * (100/var(--last-index))) / -400) + 1) * 1 ));
@@ -974,12 +1001,6 @@ export default {
 .Row_VotedAgainst i {
   opacity: 0.4;
 }
-.Row_VoteButtonDown {
-
-}
-.Row_VoteButtonUp {
-
-}
 .Row_UpCount,
 .Row_DownCount {
   margin-left: 4px;
@@ -1007,6 +1028,9 @@ export default {
 .Main_2 .Row_CheckDoubtfulIcon,
 .Main_Compact .Row_CheckDoubtfulIcon {
   font-size: 11px;
+}
+.Row_ModEditIcon {
+  font-size: 17px;
 }
 
 

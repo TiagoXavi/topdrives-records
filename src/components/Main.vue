@@ -121,16 +121,15 @@
         </div>
       </div>
       <div v-else class="Main_MidEmpty">
-        <div v-if="!user" class="Main_MidEmptyTitle">Let's start with...</div>
         <div class="Main_MidEmptyInner">
-          <div v-if="!user" class="Main_MidEmptyItem">
+          <!-- <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
             <button
-              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButton"
-              @click="$router.push({ name: 'Login' })">Login</button>
-            <button
-              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButton"
-              @click="$router.push({ name: 'Register' })">Register</button>
-          </div>
+              class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
+              @click="openGallery()">
+              <i class="ticon-dash Main_EmptyAddIcon" aria-hidden="true"/>
+              <div class="Main_EmptyAdd">Gallery</div>
+            </button>
+          </div> -->
           <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
@@ -551,7 +550,10 @@
           <div class="Main_UserCard">
             <BaseAvatar :user="user" size="46px" />
             <div class="Main_UserBlock">
-              <div style="color: var(--d-text-b);" class="Main_UserName">{{ user.username }}</div>
+              <div style="color: var(--d-text-b);" class="Main_UserName">
+                <span class="Main_UserNameLabel">{{ user.username }}</span>
+                <span v-if="user.mod" class="Main_UserMod">mod</span>
+              </div>
               <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
             </div>
           </div>
@@ -1831,13 +1833,17 @@ export default {
 
       // dá sort nos times e remove duplicates
       Object.keys( sortedByTracks ).forEach(function (trackId) {
-        sortedByTracks[trackId].sort(function(a, b) {
-          if (trackId.includes('testBowl')) return b - a;
-          if (a === 0) return 9999999;
-          if (b === 0) return -9999999;
-          return a - b;
-        });
-        sortedByTracks[trackId] = [...new Set(sortedByTracks[trackId])];
+        if (sortedByTracks[trackId].length === 1) {
+          sortedByTracks[trackId] = [];
+        } else {
+          sortedByTracks[trackId].sort(function(a, b) {
+            if (trackId.includes('testBowl')) return b - a;
+            if (a === 0) return 9999999;
+            if (b === 0) return -9999999;
+            return a - b;
+          });
+          sortedByTracks[trackId] = [...new Set(sortedByTracks[trackId])];
+        }
       });
 
       // preenche result com seus respectivos ranking
@@ -1848,7 +1854,7 @@ export default {
             vm.carDetailsList[ix].data &&
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times
-            ) {
+          ) {
             tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
             x[trackId] = sortedByTracks[trackId].indexOf(tempValue);
           }
@@ -2127,6 +2133,9 @@ export default {
       })
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
+    },
+    openGallery() {
+
     },
     openDialogSearch() {
       this.searchActive = true;
@@ -3740,6 +3749,8 @@ body::-webkit-scrollbar-corner {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 }
 .Main_UserCard {
   display: flex;
@@ -3749,6 +3760,17 @@ body::-webkit-scrollbar-corner {
 .Main_UserBlock {
   display: flex;
   flex-direction: column;
+}
+
+.Main_UserNameLabel {
+  
+}
+.Main_UserMod {
+  font-size: 0.6em;
+  background-color: black;
+  margin-left: 5px;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 .D_Button.D_ButtonMenu {
   padding: 11px 11px;
@@ -4438,8 +4460,9 @@ body::-webkit-scrollbar-corner {
   }
 }
 @media only screen and (min-width: 768px) {
-  .Main_MidEmptyItemAdd:first-child .Main_MidEmptyButtonSearch {
-    padding: 44px 55px;
+  .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
+    height: 150px;
+    width: 200px;
   }
 }
 </style>
