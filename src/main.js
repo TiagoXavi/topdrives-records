@@ -7,6 +7,7 @@ import router from "./router";
 import PortalVue from 'portal-vue';
 import 'focus-visible';
 import LogRocket from 'logrocket';
+import Hotjar from 'vue-hotjar';
 
 
 Vue.config.productionTip = false
@@ -15,6 +16,9 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
 Vue.use(PortalVue);
+Vue.use (Hotjar, {
+  id: '3138550'
+})
 
 if (process.env.NODE_ENV === 'production') {
   // Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";

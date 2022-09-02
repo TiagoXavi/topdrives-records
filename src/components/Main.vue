@@ -2434,6 +2434,10 @@ export default {
             email: res.data.email
           });
 
+          if (this.$hj) {
+            this.$hj('vpv', res.data.username)
+          }
+
         }
       })
       .catch(error => {
