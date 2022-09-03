@@ -153,7 +153,7 @@
               v-model="searchInput"
               id="SearchInput"
               placeholder="Search"
-              class="Main_SearchInput"
+              class="Main_SearchInput data-hj-allow"
               type="text"
               @focus="searchFocus = true;"
               @blur="searchBlur()"
@@ -359,7 +359,7 @@
               v-model="searchTracks"
               id="SearchTrackInput"
               placeholder="Search tracks"
-              class="Track_SearchInput"
+              class="Track_SearchInput data-hj-allow"
               type="text" />
             <button
               v-if="searchTracks && searchTracks.length > 0"
@@ -432,7 +432,10 @@
               <div class="Row_DialogCardRight">
                 <BaseText
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed"
-                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  :disabled="!tuneDialogCar.selectedTune ||
+                             !user ||
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`topSpeed_user`] !== user.username ? user.mod ? false : true : false : false"
                   type="topSpeed"
                   label="Top speed"
                   class="Space_Bottom Row_FieldStat"
@@ -440,7 +443,10 @@
                   @change="changeStatCar(tuneDialogCar, 'topSpeed', $event)" />
                 <BaseText
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel"
-                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  :disabled="!tuneDialogCar.selectedTune ||
+                             !user ||
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`acel_user`] !== user.username ? user.mod ? false : true : false : false"
                   type="acel"
                   label="0-60mph"
                   class="Space_Bottom Row_FieldStat"
@@ -448,7 +454,10 @@
                   @change="changeStatCar(tuneDialogCar, 'acel', $event)" />
                 <BaseText
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand"
-                  :disabled="!tuneDialogCar.selectedTune || !user"
+                  :disabled="!tuneDialogCar.selectedTune ||
+                             !user ||
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`hand_user`] !== user.username ? user.mod ? false : true : false : false"
                   type="hand"
                   label="Handling"
                   class="Row_FieldStat"
@@ -529,7 +538,7 @@
             v-model="shareUrl"
             id="shareLinkField"
             rows="6"
-            class="Main_ShareLinkInput"
+            class="Main_ShareLinkInput data-hj-allow"
             readonly="readonly" />
           <button
             :class="{ D_Button_Correct: copyUrlSucess }"
@@ -538,6 +547,22 @@
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="copyUrl()">Copy</button>
         </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="templatesDialog"
+      :transparent="false"
+      max-width="500px"
+      min-width="240px"
+      @close="templatesDialog = false;">
+      <div class="Main_GalleryDialog">
+
+        <div class="Main_GalleryBox">
+          <BaseGalleryItem
+            v-for="item in templatesList"
+            :config="item" />
+        </div>
+        
       </div>
     </BaseDialog>
     <BaseDialog
@@ -740,6 +765,7 @@ import BaseCard from './BaseCard.vue';
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import MainLogin from './MainLogin.vue'
+import BaseGalleryItem from './BaseGalleryItem.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
@@ -766,7 +792,8 @@ export default {
     BaseTrackType,
     MainLogin,
     BaseText,
-    BaseCard
+    BaseCard,
+    BaseGalleryItem
   },
   props: {
     phantomCar: {
@@ -810,6 +837,8 @@ export default {
       loginDialog: false,
       voteLoading: false,
       successVote: false,
+      templatesDialog: false,
+      templatesList: [],
       customTrackDialog: false,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
@@ -1634,6 +1663,11 @@ export default {
   beforeMount() {
     this.clearFilter();
 
+    let cars = window.localStorage.getItem("cars");
+    if (!cars) {
+      window.localStorage.setItem('_dt', JSON.stringify(new Date().getTime()));
+    }
+
     let display = window.localStorage.getItem("display");
     if (display) {
       this.display(display);
@@ -1646,31 +1680,7 @@ export default {
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
       // from query string
 
-      let carsFromQuery = [];
-      let tracksFromQuery = [];
-
-      this.$route.query.share.split("~").map(x => {
-        if (x[0] === "C") {
-          carsFromQuery.push({ // car
-            rid: x.substr(1)
-          })
-        } else if (x[0] === "T") {
-          carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
-        } else if (x[0] === "K") {
-          tracksFromQuery.push({ // track
-            id: x.substr(0,x.indexOf("_a")).substr(1),
-            surface: x.substr(x.indexOf("_a")+2,1),
-            cond: x.substr(x.indexOf("_a")+3,1)
-          })
-
-        }
-      })
-
-      let tracksClear = this.validateTracks(tracksFromQuery);
-      this.pushTrackSet(tracksClear);
-      this.prepareCars(carsFromQuery);
-
-      this.$router.replace({'query': null});
+      this.decodeTemplateString(this.$route.query.share, true);
 
     } else {
       // from local storage
@@ -1685,7 +1695,6 @@ export default {
         this.pushTrackSet(this.trackSet_DryTwisty);
       }
   
-      let cars = window.localStorage.getItem("cars");
       if (cars) {
         this.prepareCars(JSON.parse(cars));
       }
@@ -2134,20 +2143,18 @@ export default {
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
     },
-    openGallery() {
-
-    },
     openDialogSearch() {
       this.searchActive = true;
       this.isFiltering = false;
+      this.searchInput = '';
       setTimeout(() => {
         try {
           document.querySelector("#SearchInput").focus();  
         } catch (error) {}
       }, 10);
-      if (this.searchInput && this.searchInput.length > 0) {
-        this.changeFilter();
-      }
+      // if (this.searchInput && this.searchInput.length > 0) {
+      //   this.changeFilter();
+      // }
     },
     closeDialogSearch() {
       this.searchActive = false;
@@ -2438,6 +2445,10 @@ export default {
             this.$hj('vpv', res.data.username)
           }
 
+          if (res.data.auth) {
+            window.localStorage.setItem('auth', res.data.auth);
+          }
+
         }
       })
       .catch(error => {
@@ -2603,7 +2614,10 @@ export default {
         return;
       }
 
-      axios.post(Vue.preUrl + "/cars", simplifiedCars)
+      let url = Vue.preUrl + "/cars";
+      url = this.finalizeUrl(url); 
+
+      axios.post(url, simplifiedCars)
       .then(res => {        
         this.applyNewData(res.data);
       })
@@ -2623,7 +2637,10 @@ export default {
     downloadCar(rid) {
       this.downloadLoading = true;
 
-      axios.get(Vue.preUrl + "/car/" + rid)
+      let url = Vue.preUrl + "/car/" + rid;
+      url = this.finalizeUrl(url);      
+
+      axios.get(url)
       .then(res => {
         if (
             res.data === "" ||
@@ -2795,6 +2812,72 @@ export default {
       navigator.clipboard.writeText(copyText.value);
       this.copyUrlSucess = true;
       setTimeout(() => { this.copyUrlSucess = false}, 1500);
+    },
+    decodeTemplateString(template, pushToWork = false) {
+
+      let carsFromQuery = [];
+      let tracksFromQuery = [];
+
+      template.split("~").map(x => {
+        if (x[0] === "C") {
+          carsFromQuery.push({ // car
+            rid: x.substr(1)
+          })
+        } else if (x[0] === "T") {
+          carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
+        } else if (x[0] === "K") {
+          tracksFromQuery.push({ // track
+            id: x.substr(0,x.indexOf("_a")).substr(1),
+            surface: x.substr(x.indexOf("_a")+2,1),
+            cond: x.substr(x.indexOf("_a")+3,1)
+          })
+
+        }
+      })
+
+      let tracksClear = this.validateTracks(tracksFromQuery);
+      this.$router.replace({'query': null});
+
+      if (pushToWork) {
+        this.pushTrackSet(tracksClear);
+        this.prepareCars(carsFromQuery);
+      } else {
+        return {
+          tracks: tracksClear,
+          cars: carsFromQuery
+        }
+      }
+
+    },
+    openGallery() {
+
+    },
+    getTemplates() {
+      // user
+      axios.get(Vue.preUrl + "/templates")
+      .then(res => {
+        this.parseTemplatesList(res.data)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    },
+    finalizeUrl(url) {
+      let auth = window.localStorage.getItem("auth");
+      let dt = window.localStorage.getItem("_dt");
+      
+      if (dt) {
+        dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      }
+      if (auth || dt) {
+        return url + `?auth=${auth || new Date().getTime()}`
+      } else {
+        return url;
+      }
+    },
+    parseTemplatesList(templates) {
+
     },
     defaultFilters(type) {
       if (type === "yearModel") return [1930, 2022];
@@ -4146,6 +4229,17 @@ body::-webkit-scrollbar-corner {
   background: linear-gradient(90deg, rgba(54,171,0,1) 0%, rgba(54,171,0,1) 19%, rgba(64,132,0,1) 20%, rgba(64,132,0,1) 39%, rgba(74,94,0,1) 40%, rgba(74,94,0,1) 59%, rgba(83,58,0,1) 60%, rgba(83,58,0,1) 79%, rgba(91,29,0,1) 80%, rgba(91,29,0,1) 100%);
   border-radius: 34px;
 }
+.Main_GalleryDialog {
+
+}
+.Main_GalleryBox {
+
+}
+.Main_GalleryItem {
+
+}
+
+
 
 
 

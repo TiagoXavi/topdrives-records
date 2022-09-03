@@ -105,7 +105,14 @@ export default {
     send() {
       let vm = this;
       this.loading = true;
-      axios.post(Vue.preUrl + "/auth", {
+
+      let url = Vue.preUrl + "/auth";
+      let auth = window.localStorage.getItem("auth");
+      if (auth) {
+        url = url + `?auth=${auth}`
+      }
+
+      axios.post(url, {
         "email": this.email.toLowerCase(),
         "password": this.password
       })
