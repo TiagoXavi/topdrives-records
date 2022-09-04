@@ -434,8 +434,8 @@
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`topSpeed_user`] !== user.username ? user.mod ? false : true : false : false"
+                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`topSpeed_user`] !== user.username ? user.mod ? false : true : false : false )"
                   type="topSpeed"
                   label="Top speed"
                   class="Space_Bottom Row_FieldStat"
@@ -445,8 +445,8 @@
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`acel_user`] !== user.username ? user.mod ? false : true : false : false"
+                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`acel_user`] !== user.username ? user.mod ? false : true : false : false )"
                   type="acel"
                   label="0-60mph"
                   class="Space_Bottom Row_FieldStat"
@@ -456,8 +456,8 @@
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`hand_user`] !== user.username ? user.mod ? false : true : false : false"
+                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand ?
+                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`hand_user`] !== user.username ? user.mod ? false : true : false : false )"
                   type="hand"
                   label="Handling"
                   class="Row_FieldStat"
