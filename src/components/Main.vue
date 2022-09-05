@@ -3028,6 +3028,7 @@ export default {
       /**/ if (!car.dataToSave[car.selectedTune].info) Vue.set(car.dataToSave[car.selectedTune], "info", {});
 
       Vue.set(car.data[car.selectedTune].info, type, value);
+      Vue.set(car.data[car.selectedTune].info, `${type}_user`, this.user.username);
       /**/ Vue.set(car.dataToSave[car.selectedTune].info, type, value);
       this.needSaveChange(true);
 
