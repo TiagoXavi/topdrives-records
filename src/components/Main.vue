@@ -1242,6 +1242,11 @@ export default {
           "types": ["10"]
         },
         {
+          "name": "Back Road",
+          "id": "smallRoad",
+          "types": ["41"]
+        },
+        {
           "name": "Butte",
           "id": "butte",
           "types": ["40","41","e0"]
@@ -1515,11 +1520,6 @@ export default {
           "name": "Slalom Test (R)",
           "id": "slalomr",
           "types": ["00"]
-        },
-        {
-          "name": "Small Road",
-          "id": "smallRoad",
-          "types": ["41"]
         },
         {
           "name": "Speedbump 1/2km",
