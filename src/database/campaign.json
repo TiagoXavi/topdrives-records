@@ -1,0 +1,3827 @@
+[
+  {
+    "name": "UK Midlands",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "kart_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a10"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "fast_a01"
+          },
+          {
+            "number": 5,
+            "name": "gForce_a20"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "kart_a00"
+          },
+          {
+            "number": 2,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 5,
+            "name": "kart_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a01"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100_a01"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "kart_a01"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 3,
+            "name": "fast_a01"
+          },
+          {
+            "number": 4,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 5,
+            "name": "kart_a01"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "kart_a00"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "FR Chamonix",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "kart_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowlr_a01"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a01"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a01"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a01"
+          },
+          {
+            "number": 5,
+            "name": "fast_a01"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 5,
+            "name": "fastr_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "fast_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalomr_a00"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a60"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 5,
+            "name": "hairpin_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile1r_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "USA West Coast",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "testBowl_a10"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a10"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a20"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a20"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a11"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a11"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a11"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a11"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4r_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForcer_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag120_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a20"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a20"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a10"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "JP Atsugi",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "indoorKart_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag30130_a00"
+          },
+          {
+            "number": 2,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag120_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a01"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "carPark_a01"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 3,
+            "name": "kart_a01"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a60"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 5,
+            "name": "drag150_a01"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a60"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a60"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a60"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a60"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a60"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a60"
+          },
+          {
+            "number": 5,
+            "name": "carPark_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 3,
+            "name": "kart_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "GER Bavaria",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1r_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag150_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowlr_a01"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a01"
+          },
+          {
+            "number": 4,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 5,
+            "name": "kart_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag150b_a00"
+          },
+          {
+            "number": 5,
+            "name": "gForce_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag75125_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag120_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 5,
+            "name": "hairpin_a01"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 2,
+            "name": "kart_a00"
+          },
+          {
+            "number": 3,
+            "name": "fast_a01"
+          },
+          {
+            "number": 4,
+            "name": "kart_a01"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a00"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a01"
+          },
+          {
+            "number": 5,
+            "name": "drag100b_a01"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a60"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a60"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag50150_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "FIN Tykkimaki",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "frozenLake_ad0"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a60"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a11"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 2,
+            "name": "drag100_a20"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a20"
+          },
+          {
+            "number": 4,
+            "name": "hClimb_a20"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a11"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 5,
+            "name": "hairpin_a60"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a01"
+          },
+          {
+            "number": 3,
+            "name": "kart_a01"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a01"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a01"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a60"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a20"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "frozenLake_ad0"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a30"
+          },
+          {
+            "number": 3,
+            "name": "hClimb_a20"
+          },
+          {
+            "number": 4,
+            "name": "hClimb_a11"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a20"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "slalom_a20"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a20"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a20"
+          },
+          {
+            "number": 4,
+            "name": "testBowlr_a20"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a20"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "slalom_a60"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a60"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a60"
+          },
+          {
+            "number": 4,
+            "name": "testBowlr_a60"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a60"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 2,
+            "name": "frozenLake_ad0"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a30"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a30"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a30"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag120_a20"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 4,
+            "name": "frozenLake_ad0"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "COL Tatacoa",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 2,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a10"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 5,
+            "name": "csMed_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 4,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a10"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a50"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a10"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a10"
+          },
+          {
+            "number": 5,
+            "name": "drag100b_a10"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a10"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a50"
+          },
+          {
+            "number": 2,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a50"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a50"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "gForce_a10"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a10"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a10"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a50"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a50"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "USA Nevada",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "moto_a10"
+          },
+          {
+            "number": 2,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a11"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 4,
+            "name": "moto_a10"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a10"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a20"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a20"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a11"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a11"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a11"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a11"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a10"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4r_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag150_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForcer_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag150b_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 3,
+            "name": "moto_a10"
+          },
+          {
+            "number": 4,
+            "name": "testBowl_a10"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a10"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a20"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a20"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "moto_a10"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a10"
+          },
+          {
+            "number": 3,
+            "name": "moto_a11"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 5,
+            "name": "gForce_a11"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UK London",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "rallySmall_a40"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a10"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a20"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a20"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a20"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a20"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a11"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 4,
+            "name": "rallyMed_a40"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a01"
+          },
+          {
+            "number": 5,
+            "name": "rallySmall_a40"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "kart_a01"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 3,
+            "name": "fast_a01"
+          },
+          {
+            "number": 4,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 5,
+            "name": "kart_a01"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 5,
+            "name": "rallyMed_a40"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "rallySmall_a40"
+          },
+          {
+            "number": 2,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a01"
+          },
+          {
+            "number": 4,
+            "name": "kart_a01"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 4,
+            "name": "fast_a01"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a01"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "rallyMed_a40"
+          },
+          {
+            "number": 3,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "rallySmall_a40"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "IT Milan",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a60"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 5,
+            "name": "hairpin_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "fast_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 5,
+            "name": "fastr_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile1r_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalomr_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "fast_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowlr_a01"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a01"
+          },
+          {
+            "number": 3,
+            "name": "mile2_a01"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a01"
+          },
+          {
+            "number": 5,
+            "name": "fast_a01"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag100_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "kart_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "GER Stuttgart",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 5,
+            "name": "hairpin_a01"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag150_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag50150_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "fast_a00"
+          },
+          {
+            "number": 2,
+            "name": "kart_a00"
+          },
+          {
+            "number": 3,
+            "name": "fast_a01"
+          },
+          {
+            "number": 4,
+            "name": "kart_a01"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1r_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag150_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "testBowlr_a01"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a01"
+          },
+          {
+            "number": 4,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 5,
+            "name": "kart_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a60"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a60"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a01"
+          },
+          {
+            "number": 5,
+            "name": "drag100b_a01"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "hClimb_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag150b_a00"
+          },
+          {
+            "number": 5,
+            "name": "gForce_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag75125_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag120_a00"
+          },
+          {
+            "number": 5,
+            "name": "csSmall_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UAE Dubai",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "hClimb_a50"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a50"
+          },
+          {
+            "number": 3,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a50"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a50"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag150b_a00"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a50"
+          },
+          {
+            "number": 4,
+            "name": "hClimb_a50"
+          },
+          {
+            "number": 5,
+            "name": "mile2_a50"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag170_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 4,
+            "name": "drag75125_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "fast_a00"
+          },
+          {
+            "number": 2,
+            "name": "kart_a00"
+          },
+          {
+            "number": 3,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile2_a50"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a50"
+          },
+          {
+            "number": 3,
+            "name": "fast_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a00"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a50"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a50"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "gForce_a50"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "hClimb_a50"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a50"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a50"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag170_a00"
+          },
+          {
+            "number": 2,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a50"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a50"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag120_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag150b_a00"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "JP Tokyo",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 3,
+            "name": "csMed_a01"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a01"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a01"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "carPark_a01"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a01"
+          },
+          {
+            "number": 3,
+            "name": "kart_a01"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowlr_a01"
+          },
+          {
+            "number": 3,
+            "name": "kart_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "carPark_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a60"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a60"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a60"
+          },
+          {
+            "number": 4,
+            "name": "tRoad_a01"
+          },
+          {
+            "number": 5,
+            "name": "drag150_a01"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a01"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 3,
+            "name": "hairpin_a00"
+          },
+          {
+            "number": 4,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a01"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag30130_a00"
+          },
+          {
+            "number": 2,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag120_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 5,
+            "name": "indoorKart_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "csSmall_a60"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a60"
+          },
+          {
+            "number": 4,
+            "name": "csMed_a60"
+          },
+          {
+            "number": 5,
+            "name": "carPark_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "USA New York",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "drag150_a10"
+          },
+          {
+            "number": 2,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 3,
+            "name": "moto_a10"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a10"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4r_a00"
+          },
+          {
+            "number": 2,
+            "name": "drag150_a00"
+          },
+          {
+            "number": 3,
+            "name": "gForcer_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalomr_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag150b_a00"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 3,
+            "name": "carPark_a00"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile1_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "moto_a10"
+          },
+          {
+            "number": 2,
+            "name": "indoorKart_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a11"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a00"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 2,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 3,
+            "name": "testBowl_a00"
+          },
+          {
+            "number": 4,
+            "name": "gForce_a00"
+          },
+          {
+            "number": 5,
+            "name": "mile4_a00"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "csMed_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 3,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 4,
+            "name": "moto_a10"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a10"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a20"
+          },
+          {
+            "number": 2,
+            "name": "gForce_a20"
+          },
+          {
+            "number": 3,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 4,
+            "name": "csSmall_a00"
+          },
+          {
+            "number": 5,
+            "name": "drag100_a00"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a11"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a20"
+          },
+          {
+            "number": 5,
+            "name": "hClimb_a11"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 2,
+            "name": "testBowlr_a00"
+          },
+          {
+            "number": 3,
+            "name": "moto_a10"
+          },
+          {
+            "number": 4,
+            "name": "testBowl_a10"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Monaco",
+    "matches": [
+      {
+        "number": 1,
+        "races": [
+          {
+            "number": 1,
+            "name": "mnCity_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuit_a00"
+          },
+          {
+            "number": 3,
+            "name": "fast_a01"
+          },
+          {
+            "number": 4,
+            "name": "kart_a00"
+          },
+          {
+            "number": 5,
+            "name": "mnHairpin_a00"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "races": [
+          {
+            "number": 1,
+            "name": "mnCityNarrow_a00"
+          },
+          {
+            "number": 2,
+            "name": "mile4_a00"
+          },
+          {
+            "number": 3,
+            "name": "mnCity_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile2_a00"
+          },
+          {
+            "number": 5,
+            "name": "mnHairpin_a01"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "races": [
+          {
+            "number": 1,
+            "name": "rallyMed_a40"
+          },
+          {
+            "number": 2,
+            "name": "tRoad_a10"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a20"
+          },
+          {
+            "number": 5,
+            "name": "tCircuit_a00"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "races": [
+          {
+            "number": 1,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 2,
+            "name": "kart_a00"
+          },
+          {
+            "number": 3,
+            "name": "rallySmall_a40"
+          },
+          {
+            "number": 4,
+            "name": "fastr_a00"
+          },
+          {
+            "number": 5,
+            "name": "moto_a10"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 2,
+            "name": "mnHairpin_a00"
+          },
+          {
+            "number": 3,
+            "name": "drag100b_a01"
+          },
+          {
+            "number": 4,
+            "name": "mnHairpin_a01"
+          },
+          {
+            "number": 5,
+            "name": "tRoad_a60"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "races": [
+          {
+            "number": 1,
+            "name": "mnCity_a00"
+          },
+          {
+            "number": 2,
+            "name": "mnGforce_a00"
+          },
+          {
+            "number": 3,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a01"
+          },
+          {
+            "number": 5,
+            "name": "slalom_a01"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "races": [
+          {
+            "number": 1,
+            "name": "tRoad_a60"
+          },
+          {
+            "number": 2,
+            "name": "hairpin_a01"
+          },
+          {
+            "number": 3,
+            "name": "tRoad_a00"
+          },
+          {
+            "number": 4,
+            "name": "mile4_a50"
+          },
+          {
+            "number": 5,
+            "name": "gForce_a50"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "races": [
+          {
+            "number": 1,
+            "name": "rallySmall_a40"
+          },
+          {
+            "number": 2,
+            "name": "kart_a01"
+          },
+          {
+            "number": 3,
+            "name": "tCircuit_a01"
+          },
+          {
+            "number": 4,
+            "name": "mile1_a01"
+          },
+          {
+            "number": 5,
+            "name": "mnHairpin_a01"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "races": [
+          {
+            "number": 1,
+            "name": "waterDrag_a00"
+          },
+          {
+            "number": 2,
+            "name": "tCircuitr_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "hClimb_a10"
+          },
+          {
+            "number": 5,
+            "name": "fast_a00"
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "races": [
+          {
+            "number": 1,
+            "name": "mile1_a00"
+          },
+          {
+            "number": 2,
+            "name": "fast_a00"
+          },
+          {
+            "number": 3,
+            "name": "slalom_a00"
+          },
+          {
+            "number": 4,
+            "name": "mnHairpin_a40"
+          },
+          {
+            "number": 5,
+            "name": "mnCityLong_a00"
+          }
+        ]
+      }
+    ]
+  }
+]

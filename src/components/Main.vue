@@ -74,6 +74,11 @@
             :voteLoading="voteLoading"
             type="tracks">
           </Row>
+          <div v-if="smartCampaign.length > 0" class="Row_ShowMoreTracks">
+            <button
+              class="D_Button D_ButtonLink Row_ShowMoreButton"
+              @click="campaignDialog = true;">Campaign guide</button>
+          </div>
         </div>
         <div v-if="user && !inverted" class="Main_UserBottom">
 
@@ -754,6 +759,30 @@
         <MainLogin :wrap="true" @success="loginDialog = false;" />
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="campaignDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="500px"
+      min-width="240px"
+      @close="campaignDialog = false;">
+      <div style="Main_CampaignBox">
+        <div v-for="city in smartCampaign" class="Main_CampaignItem">
+          <div class="Main_CampaignName">{{ `${city.name} ${city.imatch+1}` }}</div>
+          <div class="Main_CampaignMatch">
+            <div
+              v-for="race in campaign[city.icity].matches[city.imatch].races"
+              :class="{ Main_CampaignRaceOff: !city.includes.includes(race.name) }"
+              class="Main_CampaignRace">
+              <div class="Main_CampaignTrackName">{{ (tracksRepo.find(x => x.id === race.name.substr(0, race.name.length-4)) || {}).name }}</div>
+              <div class="Main_CampaignTrackCond">
+                <BaseTypeName :type="race.name.substr(race.name.length-2)" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -766,6 +795,7 @@ import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import MainLogin from './MainLogin.vue'
 import BaseGalleryItem from './BaseGalleryItem.vue'
+import BaseTypeName from './BaseTypeName.vue'
 import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
@@ -773,6 +803,7 @@ import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import data_cars from '../database/cars_final.json'
+import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
 import reimg from 'reimg';
@@ -793,7 +824,8 @@ export default {
     MainLogin,
     BaseText,
     BaseCard,
-    BaseGalleryItem
+    BaseGalleryItem,
+    BaseTypeName
   },
   props: {
     phantomCar: {
@@ -1007,6 +1039,9 @@ export default {
       },
       lastestContributionsResolved: [],
       // carDetailsList: default_cars,
+      campaign,
+      smartCampaign: [],
+      campaignDialog: false,
       carDetailsList: [],
       all_cars: data_cars,
       toLoadTrackSet: null,
@@ -1028,119 +1063,119 @@ export default {
         { name: "Ice", set: "trackSet_Ice", active: false },
       ],
       trackSet_DryTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 0, campaign: 'JP Atsugi 1'},
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 0, campaign: 'GER Stuttgart 4' },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 0, campaign: 'FR Chamonix 1' },
-        { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0, campaign: 'USA Nevada 1' },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 0, campaign: 'UK Midlands 4' },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 0, campaign: 'GER Stuttgart 7' },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0, campaign: 'GER Stuttgart 6' },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0, campaign: 'USA West Coast 7'},
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 0, campaign: 'GER Stuttgart 3' },
+        { name: "Car Park", id: "carPark", surface: 0, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 0, cond: 0 },
+        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 0 },
+        { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0 },
+        { name: "Karting Circuit", id: "kart", surface: 0, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 0, cond: 0 },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0 },
+        { name: "Fast Circuit", id: "fast", surface: 0, cond: 0 },
       ],
       trackSet_DryCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0, campaign: 'FR Chamonix 3' },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0, campaign: 'JP Atsugi 4' },
+        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0 },
+        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0 },
       ],
       trackSet_DryDrag: [
-        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0, campaign: 'UK Midlands 1'},
-        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0, campaign: 'FR Chamonix 1' },
-        { name: "1 Mile", id: "mile1", surface: 0, cond: 0, campaign: 'GER Stuttgart 1' },
-        { name: "0-100mph", id: "drag100", surface: 0, cond: 0, campaign: 'UK Midlands 5' },
-        { name: "0-150mph", id: "drag150", surface: 0, cond: 0, campaign: 'GER Stuttgart 2'},
-        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0, campaign: 'GER Stuttgart 8'},
-        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0, campaign: 'UK Midlands 8' },
+        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0 },
+        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0 },
+        { name: "1 Mile", id: "mile1", surface: 0, cond: 0 },
+        { name: "0-100mph", id: "drag100", surface: 0, cond: 0 },
+        { name: "0-150mph", id: "drag150", surface: 0, cond: 0 },
+        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0 },
+        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
       ],
       trackSet_DryTwistyExtended: [
-        { name: "G-Force (R)", id: "gForcer", surface: 0, cond: 0, campaign: 'USA Nevada 6' },
-        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 0, campaign: 'GER Stuttgart 10' },
-        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0, campaign: 'FR Chamonix 9' },
-        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0, campaign: 'IT Milan 5' },
-        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0, campaign: 'Monaco 6' },
-        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0, campaign: 'Monaco 5' },
-        { name: "Monaco Narrow Streets", id: "mnCityNarrow", surface: 0, cond: 0, campaign: 'Monaco 2' },
-        { name: "Monaco Streets", id: "mnCity", surface: 0, cond: 0, campaign: 'Monaco 6' },
-        { name: "Monaco Streets Long", id: "mnCityLong", surface: 0, cond: 0, campaign: 'Monaco 10' },
+        { name: "G-Force (R)", id: "gForcer", surface: 0, cond: 0 },
+        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 0 },
+        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0 },
+        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0 },
+        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0 },
+        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0 },
+        { name: "Monaco Narrow Streets", id: "mnCityNarrow", surface: 0, cond: 0 },
+        { name: "Monaco Streets", id: "mnCity", surface: 0, cond: 0 },
+        { name: "Monaco Streets Long", id: "mnCityLong", surface: 0, cond: 0 },
       ],
       trackSet_DryDragExtended: [
-        { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0, campaign: 'USA West Coast 6'},
-        { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0, campaign: 'GER Stuttgart 4' },
-        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0, campaign: 'USA Nevada 9' },
-        { name: "0-120mph", id: "drag120", surface: 0, cond: 0, campaign: 'UAE Dubai 10' },
-        { name: "0-150-0mph", id: "drag150b", surface: 0, cond: 0, campaign: 'UAE Dubai 2' },
-        { name: "0-170mph", id: "drag170", surface: 0, cond: 0, campaign: 'UAE Dubai 9' },
-        { name: "30-130mph", id: "drag30130", surface: 0, cond: 0, campaign: 'JP Atsugi 2' },
-        { name: "50-150mph", id: "drag50150", surface: 0, cond: 0, campaign: 'GER Stuttgart 2' },
-        { name: "75-125mph", id: "drag75125", surface: 0, cond: 0, campaign: 'GER Stuttgart 9' },
-        { name: "Waterfront Drag", id: "waterDrag", surface: 0, cond: 0, campaign: 'Monaco 9' },
+        { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0 },
+        { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0 },
+        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0 },
+        { name: "0-120mph", id: "drag120", surface: 0, cond: 0 },
+        { name: "0-150-0mph", id: "drag150b", surface: 0, cond: 0 },
+        { name: "0-170mph", id: "drag170", surface: 0, cond: 0 },
+        { name: "30-130mph", id: "drag30130", surface: 0, cond: 0 },
+        { name: "50-150mph", id: "drag50150", surface: 0, cond: 0 },
+        { name: "75-125mph", id: "drag75125", surface: 0, cond: 0 },
+        { name: "Waterfront Drag", id: "waterDrag", surface: 0, cond: 0 },
       ],
       trackSet_WetTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 1, campaign: 'JP Atsugi 5' },
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 1, campaign: 'GER Bavaria 2' },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 1, campaign: 'JP Atsugi 8' },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 1, campaign: 'UK Midlands 9' },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1, campaign: 'JP Tokyo 2' },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1, campaign: 'FIN Tykkimaki 4' },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1, campaign: 'JP Tokyo 1' },
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 1, campaign: 'UK Midlands 9' },
+        { name: "Car Park", id: "carPark", surface: 0, cond: 1 },
+        { name: "G-Force Test", id: "gForce", surface: 0, cond: 1 },
+        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 1 },
+        { name: "Karting Circuit", id: "kart", surface: 0, cond: 1 },
+        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1 },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1 },
+        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1 },
+        { name: "Fast Circuit", id: "fast", surface: 0, cond: 1 },
       ],
       trackSet_WetCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1, campaign: 'UK Midlands 6' },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1, campaign: 'JP Tokyo 1' },
+        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1 },
+        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1 },
       ],
       trackSet_Dirt: [
-        { name: "1 Mile", id: "mile1", surface: 1, cond: 0, campaign: 'COL Tatacoa 4' },//
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0, campaign: 'GER Bavaria 3' },//
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 0, campaign: 'COL Tatacoa 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0, campaign: 'COL Tatacoa 9' },//
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0, campaign: 'USA New York 9' },//
-        { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0, campaign: 'USA Nevada 7' },//
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 0, campaign: 'USA Nevada 10' },//
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 0, campaign: 'USA Nevada 1' },//
+        { name: "1 Mile", id: "mile1", surface: 1, cond: 0 },
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 1, cond: 0 },
+        { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0 },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 1, cond: 0 },
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 0 },
       ],
       trackSet_WetDirt: [
-        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1, campaign: 'USA New York 9' }, //
-        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1, campaign: 'USA Nevada 4' }, //
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1, campaign: 'FIN Tykkimaki 6' },//
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 1, campaign: 'USA Nevada 10' },//
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1, campaign: 'USA Nevada 4' },//
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 1, campaign: 'USA Nevada 4' },//
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 1, campaign: 'USA Nevada 10' },//
+        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1}, 
+        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1}, 
+        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1 },
+        { name: "G-Force Test", id: "gForce", surface: 1, cond: 1 },
+        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1 },
+        { name: "Slalom Test", id: "slalom", surface: 1, cond: 1 },
+        { name: "Motocross Track", id: "moto", surface: 1, cond: 1 },
       ],
       trackSet_Gravel: [
-        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0, campaign: 'UK London 2' },//
-        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 7' },//
-        { name: "1 Mile", id: "mile1", surface: 2, cond: 0, campaign: 'USA New York 8' },//
-        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 6' },//
-        { name: "G-Force Test", id: "gForce", surface: 2, cond: 0, campaign: 'USA New York 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 5' },//
-        { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 2' },//
-        { name: "Slalom Test", id: "slalom", surface: 2, cond: 0, campaign: 'FIN Tykkimaki 7' },//
+        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0 },
+        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0 },
+        { name: "1 Mile", id: "mile1", surface: 2, cond: 0 },
+        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 2, cond: 0 },
+        { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 2, cond: 0 },
       ],
       trackSet_Sand: [
-        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0, campaign: 'COL Tatacoa 7' },//
-        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0, campaign: 'UAE Dubai 6' },//
-        { name: "1 Mile", id: "mile1", surface: 5, cond: 0, campaign: 'UAE Dubai 1' },//
-        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0, campaign: 'UAE Dubai 1' },//
-        { name: "G-Force Test", id: "gForce", surface: 5, cond: 0, campaign: 'UAE Dubai 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0, campaign: 'UAE Dubai 8' },//
-        { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0, campaign: 'UAE Dubai 2' },//
-        { name: "Slalom Test", id: "slalom", surface: 5, cond: 0, campaign: 'UAE Dubai 6' },//
+        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0 },
+        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0 },
+        { name: "1 Mile", id: "mile1", surface: 5, cond: 0 },
+        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 5, cond: 0 },
+        { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 5, cond: 0 },
       ],
       trackSet_Snow: [
-        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0, campaign: 'GER Stuttgart 6' },//
-        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
-        { name: "1 Mile", id: "mile1", surface: 6, cond: 0, campaign: 'JP Tokyo 10 ' },//
-        { name: "G-Force Test", id: "gForce", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
-        { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 5' },//
-        { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 9' },//
-        { name: "Twisty Circuit", id: "tCircuit", surface: 6, cond: 0, campaign: 'GER Stuttgart 6' },//
-        { name: "Slalom Test", id: "slalom", surface: 6, cond: 0, campaign: 'FIN Tykkimaki 8' },//
+        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0 },
+        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0 },
+        { name: "1 Mile", id: "mile1", surface: 6, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 6, cond: 0 },
+        { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0 },
+        { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0 },
+        { name: "Twisty Circuit", id: "tCircuit", surface: 6, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 6, cond: 0 },
       ],
       trackSet_Ice: [
-        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 9' },//
-        { name: "G-Force Test", id: "gForce", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 9' },//
-        { name: "Slalom Test", id: "slalom", surface: 3, cond: 0, campaign: 'FIN Tykkimaki 6' },//
+        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0 },
+        { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },
+        { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },
       ],
       tracksRepo: [
         {
@@ -2098,6 +2133,7 @@ export default {
             }
           });
 
+
           if (index === -1) {
             Vue.set(circuit, type, false);
           } else {
@@ -2106,6 +2142,89 @@ export default {
 
         })
       })
+
+      let currentCodes = this.currentTracks.map(x => `${x.id}_a${x.surface}${x.cond}`);
+
+      // list all options
+      let currentTracksOptions = [];
+      this.currentTracks.map((x, ix) => {
+        let options = [];
+        let tcode = `${x.id}_a${x.surface}${x.cond}`
+        this.campaign.map((city, icity) => {
+          city.matches.map((match, imatch) => {
+            match.races.map((race, irace) => {
+              if (race.name === tcode) {
+                options.push({
+                  city: city.name,
+                  icity,
+                  imatch,
+                  irace,
+                  code: `${icity}${imatch}`
+                })
+              }
+            })
+          })
+        })
+        currentTracksOptions.push(options);
+      })
+
+      // delivery best option
+      this.currentTracks.map((x, ix) => {
+        let bestOption;
+        currentTracksOptions[ix].map(y => {
+          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) ) {
+            bestOption = y;
+          }
+        })
+        if (bestOption) {
+          x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+        } else {
+          x.campaign = `Not in campaign`;
+        }
+      })
+
+      // smart guide
+      let matchesScore = [];
+      this.campaign.map((city, icity) => {
+        city.matches.map((match, imatch) => {
+          let includes = [];
+          match.races.map((race, irace) => {
+            if (currentCodes.includes(race.name)) {
+              includes.push(race.name)
+            }
+          })
+          matchesScore.push({
+            name: city.name,
+            icity,
+            imatch,
+            includes
+          })
+        })
+      })
+
+      matchesScore.sort(function(a, b) {
+        return b.includes.length - a.includes.length;
+      });
+
+      let currentCodes2 = JSON.parse(JSON.stringify(currentCodes));
+      let clearMatches = [];
+      matchesScore.map((x, ix) => {
+        if (currentCodes2.length > 0);
+        let found = x.includes.find(y => {
+          if (currentCodes2.includes(y)) {
+            return true;
+          }
+        })
+        if (found) {
+          clearMatches.push(x);
+          x.includes.map (y => {
+            currentCodes2 = currentCodes2.filter(z => z !== y);
+          })
+        }
+      })
+
+      // console.log(clearMatches);
+      this.smartCampaign = clearMatches;
 
       this.showCarsFix = false;
       this.$nextTick().then(() => {
@@ -4229,6 +4348,50 @@ body::-webkit-scrollbar-corner {
   background: rgb(54,171,0);
   background: linear-gradient(90deg, rgba(54,171,0,1) 0%, rgba(54,171,0,1) 19%, rgba(64,132,0,1) 20%, rgba(64,132,0,1) 39%, rgba(74,94,0,1) 40%, rgba(74,94,0,1) 59%, rgba(83,58,0,1) 60%, rgba(83,58,0,1) 79%, rgba(91,29,0,1) 80%, rgba(91,29,0,1) 100%);
   border-radius: 34px;
+}
+.Main_CampaignMatch {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+.Main_CampaignName {
+  color: rgb(var(--d-text-yellow));
+  margin-bottom: 5px;
+}
+.Main_CampaignTrackName {
+  flex-grow: 1;
+  background-color: #0002;
+  font-size: 0.9em;
+  line-height: 1.1;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  min-height: 35px;
+}
+.Main_CampaignRace {
+  display: flex;
+  flex-direction: column;
+}
+.Main_CampaignRaceOff {
+  opacity: 0.5;
+}
+.Main_CampaignRaceOff .Main_CampaignTrackName {
+  background-color: transparent;
+}
+.Main_CampaignTrackCond {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 1px 5px;
+  flex-wrap: wrap;
+  padding-left: 5px;
+}
+.Main_CampaignItem + .Main_CampaignItem {
+  margin-top: 30px;
 }
 .Main_GalleryDialog {
 

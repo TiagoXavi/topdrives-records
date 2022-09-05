@@ -1,13 +1,6 @@
 <template>
-  <!-- <div class="MainConvertCsv_Layout">
-    <div class="MainConvertCsv_Body">
-      <div class="MainConvertCsv_Input">
-        <input type="file" id="input-file" @change="getFile($event)">
-      </div>
-      <div id="content-target">{{ linhas ? `${linhas} copiadas` : '' }}</div>
-    </div>
-  </div> -->
-  <div class="MainExtractTD_"></div>
+  <div class="MainExtractTD_">
+  </div>
 </template>
 
 <script>
@@ -33,26 +26,65 @@ export default {
   beforeMount() {},
   mounted() {
     let result = [];
-    let temp = document.querySelector(".js-vehicles-container").childNodes.forEach(x => {
-      result.push({
-        "class": x.childNodes[0].childNodes[0].innerText.toUpperCase(),
-        "rq": Number(x.childNodes[0].childNodes[1].innerText),
-        "onlyName": x.childNodes[1].childNodes[2].firstChild.wholeText.trim(),
-        "brand": x.childNodes[1].childNodes[1].innerText.substr(0,x.childNodes[1].childNodes[1].innerText.indexOf(" /")),
-        "year": Number(x.childNodes[1].childNodes[2].childNodes[1].innerText),
-        "tdid": x.attributes['data-item'].value,
-        "abs": x.childNodes[1].childNodes[1].childNodes[2].classList[1] === 'active',
-        "tcs": x.childNodes[1].childNodes[1].childNodes[3].classList[1] === 'active',
-        "clearance": x.childNodes[1].childNodes[1].childNodes[4].innerText,
-        "country": "XXX",
-        "topSpeed": Number(x.childNodes[2].childNodes[1].wholeText.trim()),
-        "acel": Number(x.childNodes[3].childNodes[1].wholeText.trim()),
-        "hand": Number(x.childNodes[4].childNodes[1].wholeText.trim()),
-        "drive": x.childNodes[6].childNodes[1].wholeText.trim().toUpperCase(),
-        "tyres": x.childNodes[5].childNodes[1].wholeText.trim(),
-        "mra": Number(x.childNodes[8].childNodes[1].innerText),
-        "weight": Number(x.childNodes[7].childNodes[1].wholeText.trim()),
+    // let temp = document.querySelector("").childNodes.forEach(x => {
+    //   result.push({
+    //     "class": x.childNodes[0].childNodes[0].innerText.toUpperCase(),
+    //     "rq": Number(x.childNodes[0].childNodes[1].innerText),
+    //     "onlyName": x.childNodes[1].childNodes[2].firstChild.wholeText.trim(),
+    //     "brand": x.childNodes[1].childNodes[1].innerText.substr(0,x.childNodes[1].childNodes[1].innerText.indexOf(" /")),
+    //     "year": Number(x.childNodes[1].childNodes[2].childNodes[1].innerText),
+    //     "tdid": x.attributes['data-item'].value,
+    //     "abs": x.childNodes[1].childNodes[1].childNodes[2].classList[1] === 'active',
+    //     "tcs": x.childNodes[1].childNodes[1].childNodes[3].classList[1] === 'active',
+    //     "clearance": x.childNodes[1].childNodes[1].childNodes[4].innerText,
+    //     "country": "XXX",
+    //     "topSpeed": Number(x.childNodes[2].childNodes[1].wholeText.trim()),
+    //     "acel": Number(x.childNodes[3].childNodes[1].wholeText.trim()),
+    //     "hand": Number(x.childNodes[4].childNodes[1].wholeText.trim()),
+    //     "drive": x.childNodes[6].childNodes[1].wholeText.trim().toUpperCase(),
+    //     "tyres": x.childNodes[5].childNodes[1].wholeText.trim(),
+    //     "mra": Number(x.childNodes[8].childNodes[1].innerText),
+    //     "weight": Number(x.childNodes[7].childNodes[1].wholeText.trim()),
+    //   })
+    // })
+    document.querySelectorAll(".country").forEach(x => {
+      let ct = {
+        name: `${x.children[0].children[0].innerText} ${x.children[0].children[1].innerText}`,
+        matches: []
+      }
+      x.querySelectorAll(".match-races").forEach((y, iy) => {
+        let race = {
+          number: iy + 1,
+          races: []
+        }
+        y.querySelectorAll(".race").forEach((z, iz) => {
+          let track = {
+            number: iz + 1,
+            name: z.children[0].innerHTML
+          }
+
+          let surface = z.children[1].innerHTML;
+          if (surface === "asphalt") track.surface = "0";
+          if (surface === "dirt") track.surface = "1";
+          if (surface === "gravel") track.surface = "2";
+          if (surface === "ice") track.surface = "3";
+          if (surface === "mixed") track.surface = "4";
+          if (surface === "sand") track.surface = "5";
+          if (surface === "snow") track.surface = "6";
+          if (surface === "grass") track.surface = "7";
+
+          let weatherDiv = z.querySelector(".race-weather");
+          if (weatherDiv.className.includes("sun")) track.weather = "0";
+          if (weatherDiv.className.includes("rain")) track.weather = "1";
+
+          let startDiv = z.querySelector(".race-start");
+          track.rolling = startDiv.className.includes("_fast");
+          
+          race.races.push(track);
+        })
+        ct.matches.push(race)
       })
+      result.push(ct);
     })
     navigator.clipboard.writeText(JSON.stringify(result));
   },

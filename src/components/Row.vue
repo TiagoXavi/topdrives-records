@@ -66,14 +66,12 @@
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
-        class="Row_Content"
-        @mouseover="type === 'tracks' ? item.hovered = true : ''"
-        @mouseleave="item.hovered = false">{{ item.text | toTimeString(item.id) }}</div>
+        class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <template v-if="car.selectedTune">
         <div class="Row_Placeholder">-</div>
         <div class="Row_PlaceholderTune">tune {{ car.selectedTune }}</div>
       </template>
-      <div class="Row_Campaign" v-show="item.hovered && item.campaign">{{ item.campaign }}</div>
+      <div v-if="type === 'tracks'" class="Row_Campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'], 25) }}</div>
@@ -90,28 +88,7 @@
         )"
         class="Row_xRA">low</div>
       <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions">
-        <span class="TypeText_Dirt" v-if="item.trackType[0] == '1'">Dirt</span>
-        <span class="TypeText_Gravel" v-else-if="item.trackType[0] == '2'">Gravel</span>
-        <span class="TypeText_Ice" v-else-if="item.trackType[0] == '3'">Ice</span>
-        <span class="TypeText_Sand" v-else-if="item.trackType[0] == '5'">Sand</span>
-        <span class="TypeText_Snow" v-else-if="item.trackType[0] == '6'">Snow</span>
-        <span class="TypeText_Grass" v-else-if="item.trackType[0] == '7'">Grass</span>
-        <template v-else>
-          <template v-if="item.trackType == 'e0'">
-            <span class="TypeText_Sand">Sand</span>
-            <span class="TypeText_Dirt">Dirt</span>
-          </template>
-          <template v-else>
-            <span v-if="item.trackType !== '01'" class="TypeText_Dry">Aspht</span>
-            <span class="TypeText_Dirt" v-if="item.trackType == '40'">Dirt</span>
-            <span class="TypeText_Gravel" v-else-if="item.trackType == 'b0'">Gravel</span>
-            <span class="TypeText_Sand" v-else-if="item.trackType == 'c0'">Sand</span>
-            <span class="TypeText_Snow" v-else-if="item.trackType == 'd0'">Snow</span>
-            <span class="TypeText_Dirt" v-else-if="item.trackType == '41'">Dirt</span>
-            <span class="TypeText_Sand" v-else-if="item.trackType == 'c1'">Sand</span>
-          </template>
-        </template>
-        <span class="TypeText_Wet" v-if="item.trackType[1] == '1'">Wet</span>
+        <BaseTypeName :type="item.trackType" />
       </div>
       <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">
         <div class="Row_LikesBox">
@@ -178,11 +155,13 @@
 
 <script>
 import BaseSelect from '@/components/BaseSelect.vue';
+import BaseTypeName from '@/components/BaseTypeName.vue';
 
 export default {
   name: 'Row',
   components: {
-    BaseSelect
+    BaseSelect,
+    BaseTypeName
   },
   props: {
     list: {
@@ -296,7 +275,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign, hovered: false })
+          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
         })
       } else if (this.type === "times") {
         this.list.map((x, ix) => {
@@ -578,15 +557,43 @@ export default {
   border-bottom-color: #5a5a5a;
 }
 .Row_Tracks .Row_Campaign {
+  display: none;
   position: absolute;
   right: 0;
-  background: #d3d3d3;
-  border: solid 2px #535353;
-  color: #535353;
+  background-color: hsl(var(--back-h), var(--back-s), 20%);
+  box-shadow: -20px 0px 21px -7px #000;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0px 5px 0px 10px;
+  height: var(--cell-height);
   z-index: 1000;
   pointer-events: none;
+  color: var(--d-text-b);
+  animation: campaignTip 0.1s linear forwards;
+  font-size: 0.8em;
+}
+.Main_2 .Row_Tracks .Row_Campaign {
+  display: none;
+  right: unset;
+  left: 0;
+  box-shadow: 0px 0px 21px -7px #000;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  animation: campaignTip 0.1s linear forwards;
+  font-size: 1em;
+}
+.Row_Tracks .Row_Item:hover .Row_Campaign {
+  display: flex;
+  align-items: center;
+}
+@keyframes campaignTip {
+  0% {
+    opacity: 0;
+    transform: translateX(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 .Row_Tracks .Track_Wet,
 .Main_AllTracksBox .Track_Wet {
@@ -629,6 +636,7 @@ export default {
   line-height: 1;
   display: flex;
   align-items: center;
+  cursor: default;
 }
 .Row_Times .Row_Content:not(:focus) {
   cursor: default;
