@@ -106,27 +106,45 @@
               aria-hidden="true"/>
             <span v-if="item.downList && item.downList.length > 0" class="Row_DownCount">{{ item.downList.length }}</span>
           </button>
-          <button
-            :class="{
-              Row_VotedAgainst: item.downList && item.downList.includes(user.username),
-              D_Button_Loading: voteLoading
-            }"
-            class="D_Button Row_VoteButton Row_VoteButtonUp"
-            @click="timevote($event, item, ix, 'up')">
-            <i
-              :class="`ticon-thumbs_up${ item.upList && item.upList.includes(user.username) ? '_fill' : '' }`"
-              class="Row_VoteIcon"
-              aria-hidden="true"/>
-            <span v-if="item.upList && item.upList.length > 0" class="Row_UpCount">{{ item.upList.length }}</span>
-          </button>
-          <button
-            v-if="user && user.mod"
-            class="D_Button Row_ModEditButton"
-            @click="modEdit($event, item, ix)">
-            <i
-              class="ticon-pencil Row_ModEditIcon"
-              aria-hidden="true"/>
-          </button>
+          <template v-if="votedDownIndex === ix && (!voteLoading || uploadLoading)">
+            <label
+              v-if="!alreadyUploaded"
+              :class="{
+                D_Button_Loading: uploadLoading
+              }"
+              class="D_Button D_ButtonDark D_ButtonDark2 Row_UploadButton">
+              <input
+                class="Row_UploadInput"
+                type="file"
+                accept="image/png, image/gif, image/jpeg"
+                @change="uploadPrint($event, item, ix)">
+                <span class="Row_UploadLabel">Upload print</span>
+            </label>
+            <span v-else class="Row_UploadLabel">Done!</span>
+          </template>
+          <template v-else>
+            <button
+              :class="{
+                Row_VotedAgainst: item.downList && item.downList.includes(user.username),
+                D_Button_Loading: voteLoading
+              }"
+              class="D_Button Row_VoteButton Row_VoteButtonUp"
+              @click="timevote($event, item, ix, 'up')">
+              <i
+                :class="`ticon-thumbs_up${ item.upList && item.upList.includes(user.username) ? '_fill' : '' }`"
+                class="Row_VoteIcon"
+                aria-hidden="true"/>
+              <span v-if="item.upList && item.upList.length > 0" class="Row_UpCount">{{ item.upList.length }}</span>
+            </button>
+            <button
+              v-if="user && user.mod"
+              class="D_Button Row_ModEditButton"
+              @click="modEdit($event, item, ix)">
+              <i
+                class="ticon-pencil Row_ModEditIcon"
+                aria-hidden="true"/>
+            </button>
+          </template>
         </div>
         <div v-if="item.author" class="Row_DetailAuthor">by {{ item.author }}</div>
       </div>
@@ -237,6 +255,9 @@ export default {
       indexesToClear: [],
       detailIndex: null,
       unsubscribeMutation: null,
+      uploadLoading: false,
+      alreadyUploaded: false,
+      votedDownIndex: null,
     }
   },
   watch: {},
@@ -443,11 +464,72 @@ export default {
 
     },
     timevote(e, item, ix, type) {
+
+      if (type === "down") {
+        if (item.downList && item.downList.includes(this.user.username)) {
+          // removing vote
+          this.votedDownIndex = null;
+        } else {
+          this.votedDownIndex = ix;
+        }
+      } else {
+        this.votedDownIndex = null;
+      }
       
       this.$store.commit("TIME_VOTE", {
         item,
         car: this.car,
         type: type
+      });
+
+      
+
+    },
+    uploadPrint(e, item, ix) {
+      this.uploadLoading = true;
+      if (!e.target.files || e.target.files.length === 0) {
+        // no file
+        return;
+      }
+      let file = e.target.files[0];
+      
+      let url = `${window.location.origin}?share=`;
+      url += `~K${item.id}_a${item.trackType}`;
+      url += `~C${this.car.rid}~T${this.car.selectedTune}`;
+      
+      let formData = new FormData();
+      formData.set('image', file);
+      formData.set('config', JSON.stringify({
+        author: this.user.username,
+        car: this.car.name,
+        track: `${item.name} ${Vue.options.filters.resolveCond(item.trackType)}`,
+        currentTime: Vue.options.filters.toTimeString(item.text, item.id),
+        url: url
+      }));
+      
+      axios.post(Vue.preUrl + '/uploadproof', formData, {
+        headers: {
+         'content-type': 'multipart/form-data' // do not forget this 
+        }})
+      .then(res => {
+        this.alreadyUploaded = true;
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "Upload successful"
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.uploadLoading = false;
       });
 
     },
@@ -968,8 +1050,8 @@ export default {
 .Main_2 .Row_DetailsOverlay {
   bottom: 0px;
   height: 100%;
-  width: 120%;
-  left: -120%;
+  width: 170%;
+  left: -170%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   background-color: hsl(var(--back-h), var(--back-s), 5%);
@@ -1043,6 +1125,18 @@ export default {
 }
 .Row_ModEditIcon {
   font-size: 17px;
+}
+.D_Button.Row_UploadButton {
+  --height: 23px;
+}
+.Row_UploadRealLabel {
+
+}
+.Row_UploadLabel {
+  font-size: 11px;
+}
+.Row_UploadInput[type="file"] {
+  display: none;
 }
 
 

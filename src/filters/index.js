@@ -98,6 +98,31 @@ export default {
                 return ''
             }
         },
+        Vue.resolveCond = function (type) {
+            let result = '';
+            if (typeof type === 'string' && type.length === 2) {
+                if (type[0] == '1') result = "Dirt";
+                else if (type[0] == '2') result = "Gravel";
+                else if (type[0] == '3') result = "Ice";
+                else if (type[0] == '5') result = "Sand";
+                else if (type[0] == '6') result = "Snow";
+                else if (type[0] == '7') result = "Grass";
+                else {
+                    if (type == 'e0') result = "Sand/Dirt";
+                    else {
+                        if (type !== '01') result = "Asphalt";
+                        if (type == '40') result += " Dirt";
+                        else if (type == 'b0') result += " Gravel";
+                        else if (type == 'c0') result += " Sand";
+                        else if (type == 'd0') result += " Snow";
+                        else if (type == '41') result += " Dirt";
+                        else if (type == 'c1') result += " Sand";
+                    }
+                }
+                if (type[1] == '1') result += " Wet";
+                return result;
+            }
+        },
 
 
         Vue.filter('toTimeString', toTimeString);
@@ -109,5 +134,6 @@ export default {
         Vue.filter('convertTires', Vue.convertTires);
         Vue.filter('mra', Vue.mra);
         Vue.filter('brake', Vue.brake);
+        Vue.filter('resolveCond', Vue.resolveCond);
     }
 };
