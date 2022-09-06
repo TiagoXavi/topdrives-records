@@ -263,10 +263,9 @@ export default {
   },
   watch: {
     detailIndex: function() {
-      if (this.detailIndex !== null && this.detailIndex > -1 && this.votedDownIndex === this.detailIndex) {
+      if (this.detailIndex !== null && this.detailIndex > -1) {
         document.addEventListener("paste", this.interceptPaste);
       } else {
-        console.log("remove listener");
         document.removeEventListener("paste", this.interceptPaste)
       }
     }
@@ -497,6 +496,9 @@ export default {
 
     },
     async interceptPaste(e) {
+      if (this.votedDownIndex !== this.detailIndex) {
+        return;
+      }
       e.preventDefault();
       if (!e.clipboardData.files.length) {
         return;
