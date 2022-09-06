@@ -258,9 +258,19 @@ export default {
       uploadLoading: false,
       alreadyUploaded: false,
       votedDownIndex: null,
+      detailsItem: null
     }
   },
-  watch: {},
+  watch: {
+    detailIndex: function() {
+      if (this.detailIndex !== null && this.detailIndex > -1 && this.votedDownIndex === this.detailIndex) {
+        document.addEventListener("paste", this.interceptPaste);
+      } else {
+        console.log("remove listener");
+        document.removeEventListener("paste", this.interceptPaste)
+      }
+    }
+  },
   beforeMount() {},
   mounted() {
     let vm = this;
@@ -454,6 +464,7 @@ export default {
 
             if (currentIndex !== ix) {
               this.detailIndex = ix
+              this.detailsItem = item;
             }
 
           }
@@ -485,13 +496,26 @@ export default {
       
 
     },
-    uploadPrint(e, item, ix) {
+    async interceptPaste(e) {
+      e.preventDefault();
+      if (!e.clipboardData.files.length) {
+        return;
+      }
+      const file = e.clipboardData.files[0];
+      // Read the file's contents, assuming it's a text file.
+      // There is no way to write back to it.
+      this.uploadPrint(e, this.detailsItem, null, file);
+      
+    },
+    uploadPrint(e, item, ix, file = null) {
       this.uploadLoading = true;
-      if (!e.target.files || e.target.files.length === 0) {
+      if (!file && (!e.target.files || e.target.files.length === 0)) {
         // no file
         return;
       }
-      let file = e.target.files[0];
+      if (!file) {
+        file = e.target.files[0];
+      }
       
       let url = `${window.location.origin}?share=`;
       url += `~K${item.id}_a${item.trackType}`;
