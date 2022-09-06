@@ -763,7 +763,7 @@
       :active="campaignDialog"
       :transparent="false"
       :lazy="true"
-      max-width="500px"
+      max-width="600px"
       min-width="240px"
       @close="campaignDialog = false;">
       <div style="Main_CampaignBox">
@@ -776,7 +776,7 @@
               class="Main_CampaignRace">
               <div class="Main_CampaignTrackName">{{ (tracksRepo.find(x => x.id === race.name.substr(0, race.name.length-4)) || {}).name }}</div>
               <div class="Main_CampaignTrackCond">
-                <BaseTypeName :type="race.name.substr(race.name.length-2)" />
+                <BaseTypeName :type="race.name.substr(race.name.length-2)" :showDry="false" />
               </div>
             </div>
           </div>
@@ -1282,7 +1282,7 @@ export default {
           "types": ["41"]
         },
         {
-          "name": "Butte",
+          "name": "Canyon Butte",
           "id": "butte",
           "types": ["40","41","e0"]
         },
@@ -2188,22 +2188,29 @@ export default {
       this.campaign.map((city, icity) => {
         city.matches.map((match, imatch) => {
           let includes = [];
+          let indexSum = 0;
           match.races.map((race, irace) => {
             if (currentCodes.includes(race.name)) {
               includes.push(race.name)
+              indexSum += irace
             }
           })
           matchesScore.push({
             name: city.name,
             icity,
             imatch,
+            indexSum,
             includes
           })
         })
       })
 
       matchesScore.sort(function(a, b) {
-        return b.includes.length - a.includes.length;
+        if (b.includes.length !== a.includes.length) {
+          return b.includes.length - a.includes.length;
+        } else {
+          return a.indexSum - b.indexSum;
+        }
       });
 
       let currentCodes2 = JSON.parse(JSON.stringify(currentCodes));
@@ -4368,7 +4375,7 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 4px;
   display: flex;
   align-items: center;
-  min-height: 35px;
+  min-height: 45px;
 }
 .Main_CampaignRace {
   display: flex;
@@ -4389,9 +4396,10 @@ body::-webkit-scrollbar-corner {
   gap: 1px 5px;
   flex-wrap: wrap;
   padding-left: 5px;
+  min-height: 8px;
 }
 .Main_CampaignItem + .Main_CampaignItem {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .Main_GalleryDialog {
 
@@ -4719,6 +4727,10 @@ body::-webkit-scrollbar-corner {
     justify-content: center;
     margin-top: -10px;
     margin-bottom: -5px;
+  }
+  .Main_CampaignMatch {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-auto-flow: row;
   }
 }
 @media only screen and (min-width: 768px) {

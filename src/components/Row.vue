@@ -52,6 +52,7 @@
               `${item.text == 0 ? 'Row_DNF ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
               `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
+              `${lastIndex > 5 ? 'Row_ColorHighFirst ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
@@ -872,10 +873,13 @@ export default {
   color: #ebc5a6;
 }
 
-.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1) {
-  
+.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1) {  
   background-color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), 100%, 30%, calc( (((var(--color-index) * (100/var(--last-index))) / -120) + 1) * 0.5 ));
   color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100% ), 80%, calc( (((var(--color-index) * (100/var(--last-index))) / -400) + 1) * 1 ));
+}
+.Main_ColorsFull .Row_ColorHighFirst.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1):not(.Row_DetailsActive) {
+  --d-first: #599939;
+  box-shadow: inset -2px -2px 0px 0px var(--d-first), inset 2px 2px 0px 0px var(--d-first), 0px 0px 0px 0px var(--d-first) !important;
 }
 
 .Row_Conditions {

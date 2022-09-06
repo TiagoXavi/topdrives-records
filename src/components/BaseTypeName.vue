@@ -12,7 +12,7 @@
         <span class="TypeText_Dirt">Dirt</span>
       </template>
       <template v-else>
-        <span v-if="type !== '01'" class="TypeText_Dry">Aspht</span>
+        <span v-if="type !== '01' && (showDry || type !== '00')" class="TypeText_Dry">Aspht</span>
         <span class="TypeText_Dirt" v-if="type == '40'">Dirt</span>
         <span class="TypeText_Gravel" v-else-if="type == 'b0'">Gravel</span>
         <span class="TypeText_Sand" v-else-if="type == 'c0'">Sand</span>
@@ -34,7 +34,11 @@ export default {
     type: {
       type: String,
       default: "00"
-    }
+    },
+    showDry: {
+      type: Boolean,
+      default: true
+    },
   },
   data() {
     return {}
