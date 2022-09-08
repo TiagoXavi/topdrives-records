@@ -44,7 +44,7 @@ export default {
     },
     minWidth: {
       type: String,
-      default: '300px'
+      default: '240px'
     },
     transparent: {
       type: Boolean,

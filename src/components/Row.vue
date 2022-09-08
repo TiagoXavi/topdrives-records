@@ -63,7 +63,7 @@
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && (item.author ? item.author !== user.username : car.users && !car.users.includes(user.username) )) ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -459,7 +459,7 @@ export default {
 
       this.$nextTick().then(() => {
         if (this.type === "times" && this.loggedin && item.text !== '' ) {
-          if (e.ctrlKey || (item.author ? item.author !== this.user.username : this.car.users && !this.car.users.includes(this.user.username)) ) {
+          if (e.ctrlKey || (item.author !== this.user.username) ) {
 
             if (currentIndex !== ix) {
               this.detailIndex = ix

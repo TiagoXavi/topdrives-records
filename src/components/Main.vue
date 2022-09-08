@@ -573,7 +573,7 @@
     <BaseDialog
       :active="optionsDialogActive"
       :transparent="false"
-      max-width="420px"
+      max-width="460px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
         <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
@@ -604,16 +604,25 @@
                 @click="clearAllCars()">Clear cars</button>
             </div>
           </div>
-          <div class="Main_OptionsButtons">
+          <div class="Main_OptionsTrackset">
+            <div
+              v-for="(item, index) in tracksButtons"
+              class="Main_CustomTrackItem" :key="index">
+              <div class="Main_CustomTrackLeft">
+                <div class="Main_CustomTrackName">{{ item.name }}</div>
+              </div>
+              <div class="Main_CustomTrackRight">
+                <template>
+                  <BaseTrackType
+                    :circuit="item.list"
+                    :isTrackSet="true"
+                    @toggleTrackSet="toggleTrackSet($event)" />
+                </template>
+              </div>
+            </div>
             <button
-              v-for="item in tracksButtons"
-              :class="{ D_ButtonActive: item.active }"
-              class="D_Button Main_OptionsButton"
-              @click="stringToggleTrackSet(item.set)">{{ item.name }}</button>
-            <button
-              class="D_Button Main_OptionsButton"
+              class="D_Button Main_OptionsButton Main_OptionsTracksetMore"
               @click="openDialogTrackSearch()">More...</button>
-            
           </div>
         </div>
         <div v-else-if="!!user && needSave" class="Main_OptionsSaveData">
@@ -1048,134 +1057,133 @@ export default {
       currentTracks: [],
       currentTracksSetsNames: [],
       tracksButtons: [
-        { name: "Dry Twisty", set: "trackSet_DryTwisty", active: false },
-        { name: "Dry Twisty 2", set: "trackSet_DryTwistyExtended", active: false },
-        { name: "Dry Drag", set: "trackSet_DryDrag", active: false },
-        { name: "Dry Drag 2", set: "trackSet_DryDragExtended", active: false },
-        { name: "Dry City", set: "trackSet_DryCity", active: false },
-        { name: "Wet Twisty", set: "trackSet_WetTwisty", active: false },
-        { name: "Wet City", set: "trackSet_WetCity", active: false },
-        { name: "Dirt", set: "trackSet_Dirt", active: false },
-        { name: "Wet Dirt", set: "trackSet_WetDirt", active: false },
-        { name: "Gravel", set: "trackSet_Gravel", active: false },
-        { name: "Sand", set: "trackSet_Sand", active: false },
-        { name: "Snow", set: "trackSet_Snow", active: false },
-        { name: "Ice", set: "trackSet_Ice", active: false },
-      ],
-      trackSet_DryTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 0 },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 0 },
-        { name: "Indoor Karting", id: "indoorKart", surface: 0, cond: 0 },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 0 },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 0 },
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 0 },
-      ],
-      trackSet_DryCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 0 },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 0 },
-      ],
-      trackSet_DryDrag: [
-        { name: "1/4 Mile", id: "mile4", surface: 0, cond: 0 },
-        { name: "1/2 Mile", id: "mile2", surface: 0, cond: 0 },
-        { name: "1 Mile", id: "mile1", surface: 0, cond: 0 },
-        { name: "0-100mph", id: "drag100", surface: 0, cond: 0 },
-        { name: "0-150mph", id: "drag150", surface: 0, cond: 0 },
-        { name: "Hill Climb", id: "hClimb", surface: 0, cond: 0 },
-        { name: "Test Bowl", id: "testBowl", surface: 0, cond: 0 },
-      ],
-      trackSet_DryTwistyExtended: [
-        { name: "G-Force (R)", id: "gForcer", surface: 0, cond: 0 },
-        { name: "Slalom Test (R)", id: "slalomr", surface: 0, cond: 0 },
-        { name: "Twisty Circuit (R)", id: "tCircuitr", surface: 0, cond: 0 },
-        { name: "Fast Circuit (R)", id: "fastr", surface: 0, cond: 0 },
-        { name: "Monaco G-Force", id: "mnGforce", surface: 0, cond: 0 },
-        { name: "Monaco Hairpin", id: "mnHairpin", surface: 0, cond: 0 },
-        { name: "Monaco Narrow Streets", id: "mnCityNarrow", surface: 0, cond: 0 },
-        { name: "Monaco Streets", id: "mnCity", surface: 0, cond: 0 },
-        { name: "Monaco Streets Long", id: "mnCityLong", surface: 0, cond: 0 },
-      ],
-      trackSet_DryDragExtended: [
-        { name: "1/4 Mile (R)", id: "mile4r", surface: 0, cond: 0 },
-        { name: "1 Mile (R)", id: "mile1r", surface: 0, cond: 0 },
-        { name: "0-100-0mph", id: "drag100b", surface: 0, cond: 0 },
-        { name: "0-120mph", id: "drag120", surface: 0, cond: 0 },
-        { name: "0-150-0mph", id: "drag150b", surface: 0, cond: 0 },
-        { name: "0-170mph", id: "drag170", surface: 0, cond: 0 },
-        { name: "30-130mph", id: "drag30130", surface: 0, cond: 0 },
-        { name: "50-150mph", id: "drag50150", surface: 0, cond: 0 },
-        { name: "75-125mph", id: "drag75125", surface: 0, cond: 0 },
-        { name: "Waterfront Drag", id: "waterDrag", surface: 0, cond: 0 },
-      ],
-      trackSet_WetTwisty: [
-        { name: "Car Park", id: "carPark", surface: 0, cond: 1 },
-        { name: "G-Force Test", id: "gForce", surface: 0, cond: 1 },
-        { name: "Hairpin Road", id: "hairpin", surface: 0, cond: 1 },
-        { name: "Karting Circuit", id: "kart", surface: 0, cond: 1 },
-        { name: "Slalom Test", id: "slalom", surface: 0, cond: 1 },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 0, cond: 1 },
-        { name: "Twisty Road", id: "tRoad", surface: 0, cond: 1 },
-        { name: "Fast Circuit", id: "fast", surface: 0, cond: 1 },
-      ],
-      trackSet_WetCity: [
-        { name: "City Streets Small", id: "csSmall", surface: 0, cond: 1 },
-        { name: "City Streets Medium", id: "csMed", surface: 0, cond: 1 },
-      ],
-      trackSet_Dirt: [
-        { name: "1 Mile", id: "mile1", surface: 1, cond: 0 },
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 0 },
-        { name: "Hairpin Road", id: "hairpin", surface: 1, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 0 },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 1, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 0 },
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 0 },
-      ],
-      trackSet_WetDirt: [
-        { name: "1/4 Mile", id: "mile4", surface: 1, cond: 1}, 
-        { name: "1/2 Mile", id: "mile2", surface: 1, cond: 1}, 
-        { name: "Hill Climb", id: "hClimb", surface: 1, cond: 1 },
-        { name: "G-Force Test", id: "gForce", surface: 1, cond: 1 },
-        { name: "Twisty Road", id: "tRoad", surface: 1, cond: 1 },
-        { name: "Slalom Test", id: "slalom", surface: 1, cond: 1 },
-        { name: "Motocross Track", id: "moto", surface: 1, cond: 1 },
-      ],
-      trackSet_Gravel: [
-        { name: "1/4 Mile", id: "mile4", surface: 2, cond: 0 },
-        { name: "1/2 Mile", id: "mile2", surface: 2, cond: 0 },
-        { name: "1 Mile", id: "mile1", surface: 2, cond: 0 },
-        { name: "Hill Climb", id: "hClimb", surface: 2, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 2, cond: 0 },
-        { name: "Hairpin Road", id: "hairpin", surface: 2, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 2, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 2, cond: 0 },
-      ],
-      trackSet_Sand: [
-        { name: "1/4 Mile", id: "mile4", surface: 5, cond: 0 },
-        { name: "1/2 Mile", id: "mile2", surface: 5, cond: 0 },
-        { name: "1 Mile", id: "mile1", surface: 5, cond: 0 },
-        { name: "Hill Climb", id: "hClimb", surface: 5, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 5, cond: 0 },
-        { name: "Hairpin Road", id: "hairpin", surface: 5, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 5, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 5, cond: 0 },
-      ],
-      trackSet_Snow: [
-        { name: "1/4 Mile", id: "mile4", surface: 6, cond: 0 },
-        { name: "1/2 Mile", id: "mile2", surface: 6, cond: 0 },
-        { name: "1 Mile", id: "mile1", surface: 6, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 6, cond: 0 },
-        { name: "Hairpin Road", id: "hairpin", surface: 6, cond: 0 },
-        { name: "Twisty Road", id: "tRoad", surface: 6, cond: 0 },
-        { name: "Twisty Circuit", id: "tCircuit", surface: 6, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 6, cond: 0 },
-      ],
-      trackSet_Ice: [
-        { name: "1/4 Mile", id: "mile4", surface: 3, cond: 0 },
-        { name: "G-Force Test", id: "gForce", surface: 3, cond: 0 },
-        { name: "Slalom Test", id: "slalom", surface: 3, cond: 0 },
+        {
+          name: "Twisty",
+          list: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00"]
+            },
+            {
+              type: "00",
+              active: false,
+              customName: "Dry 2",
+              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","fastr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00"]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tRoad_a01","fast_a01","mnHairpin_a01"]
+            },
+            {
+              type: "10",
+              active: false,
+              tracks: ["gForce_a10","hairpin_a10","tRoad_a10","tCircuit_a10","slalom_a10","moto_a10","rallySmall_a40","rallyMed_a40","mnHairpin_a40"]
+            },
+            {
+              type: "11",
+              active: false,
+              tracks: ["gForce_a11","tRoad_a11","slalom_a11","moto_a11"]
+            },
+            {
+              type: "20",
+              active: false,
+              tracks: ["gForce_a20","hairpin_a20","tRoad_a20","slalom_a20"]
+            },
+            {
+              type: "30",
+              active: false,
+              tracks: ["gForce_a30","slalom_a30"]
+            },
+            {
+              type: "50",
+              active: false,
+              tracks: ["gForce_a50","hairpin_a50","tRoad_a50","slalom_a50"]
+            },
+            {
+              type: "60",
+              active: false,
+              tracks: ["gForce_a60","hairpin_a60","tRoad_a60","tCircuit_a60","frozenLake_ad0","slalom_a60"]
+            },
+          ],
+        },
+        {
+          name: "Drag",
+          list: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00"]
+            },
+            {
+              type: "00",
+              active: false,
+              customName: "Dry 2",
+              tracks: ["mile4r_a00","mile1r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","waterDrag_a00","testBowlr_a00"]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["drag100_a01","drag100b_a01","drag150_a01","mile1_a01","mile2_a01","mile4_a01","testBowlr_a01"]
+            },
+            {
+              type: "10",
+              active: false,
+              tracks: ["drag100_a10","drag100b_a10","drag150_a10","mile1_a10","hClimb_a10","testBowl_a10"]
+            },
+            {
+              type: "11",
+              active: false,
+              tracks: ["mile4_a11","mile2_a11","hClimb_a11"]
+            },
+            {
+              type: "20",
+              active: false,
+              tracks: ["drag100_a20","drag120_a20","mile4_a20","mile2_a20","mile1_a20","hClimb_a20"]
+            },
+            {
+              type: "30",
+              active: false,
+              tracks: ["mile4_a30"]
+            },
+            {
+              type: "50",
+              active: false,
+              tracks: ["mile4_a50","mile2_a50","mile1_a50","hClimb_a50"]
+            },
+            {
+              type: "60",
+              active: false,
+              tracks: ["mile4_a60","mile2_a60","mile1_a60","testBowlr_a60"]
+            },
+          ]
+        },
+        {
+          name: "City",
+          list: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["csSmall_a00","csMed_a00"]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["csSmall_a01","csMed_a01"]
+            },
+            {
+              type: "50",
+              active: false,
+              tracks: ["csSmall_a50"]
+            },
+            {
+              type: "60",
+              active: false,
+              tracks: ["csSmall_a60","csMed_a60"]
+            },
+          ]
+        }
       ],
       tracksRepo: [
         {
@@ -1219,7 +1227,7 @@ export default {
         {
           "name": "0-60mph",
           "id": "drag60",
-          "types": ["01"]
+          "types": ["01","10","20","50","60"]
         },
         {
           "name": "1 Mile",
@@ -1723,11 +1731,13 @@ export default {
       let tracks = window.localStorage.getItem("tracks");
       if (tracks) {
         tracks = JSON.parse(tracks);
-        let tracksClear = this.validateTracks(tracks);
-        this.pushTrackSet(tracksClear);
+        if (typeof tracks === 'object') {
+          tracks = tracks.map(x => `${x.id}_a${x.surface}${x.cond}`)
+        }
+        this.pushTrackSet(tracks);
       }
       if (this.currentTracks.length === 0) {
-        this.pushTrackSet(this.trackSet_DryTwisty);
+        this.pushTrackSet(this.tracksButtons[0].list[0].tracks);
       }
   
       if (cars) {
@@ -1995,7 +2005,7 @@ export default {
       trackset.map(x => {
         index = this.indexOfTrack(x);
         if (index === -1) {
-          this.currentTracks.push(x)
+          this.currentTracks.push(...this.validateTracks([x]))
         }
       })
       this.verifyActiveButtons();
@@ -2013,7 +2023,7 @@ export default {
     pushTrack(track) {
       let index = this.indexOfTrack(track);
       if (index === -1) {
-        this.currentTracks.push(track)
+        this.currentTracks.push(...this.validateTracks([track]))
       }
     },
     removeTrack(track) {
@@ -2034,7 +2044,7 @@ export default {
     },
     toggleTrack(track) {
       let index = this.currentTracks.findIndex(y => {
-        if (`${track.id}_a${track.surface}${track.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+        if (track === `${y.id}_a${y.surface}${y.cond}`) {
           return true
         }
       });
@@ -2055,7 +2065,7 @@ export default {
       tracks.map(x => {
         this.tracksRepo.find(circuit => {
           circuit.types.find(type => {
-            if (x.id === circuit.id && x.surface == type[0] && x.cond == type[1]) {
+            if (x === `${circuit.id}_a${type}`) {
               tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1] } );
               return true;
             }
@@ -2070,7 +2080,7 @@ export default {
         let found = this.tracksRepo.find(circuit => {
           return circuit.types.find(type => {
             if ( `${circuit.id}_a${type}` === x ) {
-              this.toggleTrack( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1] } );
+              this.toggleTrack(x);
               return true;
             }
           })
@@ -2085,7 +2095,7 @@ export default {
     },
     indexOfTrack(x) {
       return this.currentTracks.findIndex(y => {
-        if (`${x.id}_a${x.surface}${x.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+        if (x === `${y.id}_a${y.surface}${y.cond}`) {
           return true
         }
       });
@@ -2093,9 +2103,10 @@ export default {
     includeAllTracks(trackset) {
       let incluedesAll = true;
       let index;
+      if (!trackset) return false;
       trackset.map(x => {
         index = this.currentTracks.findIndex(y => {
-          if (`${x.id}_a${x.surface}${x.cond}` === `${y.id}_a${y.surface}${y.cond}`) {
+          if (x === `${y.id}_a${y.surface}${y.cond}`) {
             return true
           }
         });
@@ -2116,12 +2127,15 @@ export default {
       this.updateCarLocalStorage();
     },
     verifyActiveButtons() {
-      this.tracksButtons.map(x => {
-        if (this.includeAllTracks(this[x.set])) {
-          x.active = true;
-        } else {
-          x.active = false;
-        }
+      this.tracksButtons.map(group => {
+        group.list.map(x => {
+          if (this.includeAllTracks(x.tracks)) {
+            x.active = true;
+          } else {
+            x.active = false;
+          }
+        })
+
       })
 
       this.tracksRepo.map(circuit => {
@@ -2952,20 +2966,14 @@ export default {
         } else if (x[0] === "T") {
           carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
         } else if (x[0] === "K") {
-          tracksFromQuery.push({ // track
-            id: x.substr(0,x.indexOf("_a")).substr(1),
-            surface: x.substr(x.indexOf("_a")+2,1),
-            cond: x.substr(x.indexOf("_a")+3,1)
-          })
-
+          tracksFromQuery.push(x.substr(1))
         }
       })
 
-      let tracksClear = this.validateTracks(tracksFromQuery);
       this.$router.replace({'query': null});
 
       if (pushToWork) {
-        this.pushTrackSet(tracksClear);
+        this.pushTrackSet(tracksFromQuery);
         this.prepareCars(carsFromQuery);
       } else {
         return {
@@ -3877,6 +3885,16 @@ body::-webkit-scrollbar-corner {
   margin-top: 10px;
   flex-wrap: wrap;
 }
+.Main_OptionsTrackset {
+  display: flex;
+  flex-direction: column;
+  margin: 10px -20px 0px -20px;
+}
+.Main_OptionsTracksetMore {
+  align-self: center;
+  margin-top: 10px;
+  min-width: 150px;
+}
 .Main_OptionsLabel {
   font-size: 14px;
 }
@@ -4367,7 +4385,7 @@ body::-webkit-scrollbar-corner {
 }
 .Main_CampaignTrackName {
   flex-grow: 1;
-  background-color: #0002;
+  background-color: #0003;
   font-size: 0.9em;
   line-height: 1.1;
   padding: 5px;
@@ -4400,6 +4418,9 @@ body::-webkit-scrollbar-corner {
 }
 .Main_CampaignItem + .Main_CampaignItem {
   margin-top: 25px;
+}
+.Main_OptionsDivider {
+  width: 100%;
 }
 .Main_GalleryDialog {
 

@@ -1,12 +1,13 @@
 <template>
   <div style="display: contents;">
     <button
-      v-for="type in circuit.types"
+      v-for="(type, itype) in resolvedList"
       :class="`Type_${type} `+
-              `${circuit[type] === true ? 'BaseTrackType_Active ' : '' }`"
+              `${circuit[type] === true ? 'BaseTrackType_Active ' : '' }`+
+              `${isTrackSet && circuit[itype].active ? 'BaseTrackType_Active ' : '' }`"
       class="D_Button D_ButtonDark D_ButtonDark2 BaseTrackType_Button"
-      @click="resolveToTrackObj(type)">
-      <span class="TypeText_Dry" v-if="type == '00'">Dry</span>
+      @click="resolveToTrackObj(type, itype)">
+      <span class="TypeText_Dry" v-if="type == '00'">{{ isTrackSet && circuit[itype].customName ? circuit[itype].customName : 'Dry' }}</span>
       <span class="TypeText_Dirt" v-else-if="type[0] == '1'">Dirt</span>
       <span class="TypeText_Gravel" v-else-if="type[0] == '2'">Gravel</span>
       <span class="TypeText_Ice" v-else-if="type[0] == '3'">Ice</span>
@@ -39,10 +40,14 @@ export default {
   components: {},
   props: {
     circuit: {
-      type: Object,
+      type: [Object, Array],
       default() {
         return {}
       }
+    },
+    isTrackSet: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -51,10 +56,22 @@ export default {
   watch: {},
   beforeMount() {},
   mounted() {},
-  computed: {},
+  computed: {
+    resolvedList() {
+      if (this.isTrackSet) {
+        return this.circuit.map(x => x.type)
+      } else {
+        return this.circuit.types
+      }
+    }
+  },
   methods: {
-    resolveToTrackObj(type) {
-      this.$emit('toggleTrack', { name: this.circuit.name, id: this.circuit.id, surface: type[0], cond: type[1] } );
+    resolveToTrackObj(type, itype) {
+      if (this.isTrackSet) {
+        this.$emit('toggleTrackSet', this.circuit[itype].tracks);
+      } else {
+        this.$emit('toggleTrack', `${this.circuit.id}_a${type}`);
+      }
     }
   },
 }

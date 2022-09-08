@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   Vue.preUrl = "https://api.topdrivesrecords.com";
   LogRocket.init('detmgd/topdrives-records');
 } else {
-  Vue.preUrl = "http://localhost:3000";
+  Vue.preUrl = "http://192.168.15.110:3000";
 }
 
 new Vue({
