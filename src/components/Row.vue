@@ -527,7 +527,7 @@ export default {
       formData.set('image', file);
       formData.set('config', JSON.stringify({
         author: this.user.username,
-        car: this.car.name,
+        car: `${this.car.name} (${this.car.selectedTune})`,
         track: `${item.name} ${Vue.options.filters.resolveCond(item.trackType)}`,
         currentTime: Vue.options.filters.toTimeString(item.text, item.id),
         url: url

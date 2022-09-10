@@ -1768,7 +1768,7 @@ export default {
         /**/ if (!car.dataToSave[car.selectedTune].times) Vue.set(car.dataToSave[car.selectedTune], "times", {});
 
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
-        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_author`], vm.user.username);
+        Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_user`], vm.user.username);
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_downList`], []);
         Vue.set(car.data[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_upList`], []);
         /**/ Vue.set(car.dataToSave[car.selectedTune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], mutation.payload.number);
