@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import db from '../database/db.json'
+// import db from '../database/db.json'
 
 export default {
   name: 'MainAnalyseDb',
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      db
+      db: null
     }
   },
   watch: {},
