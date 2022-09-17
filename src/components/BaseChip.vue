@@ -152,4 +152,9 @@ export default {
 .BaseChip_ChipFlag svg {
 
 }
+.BaseChip_Small {
+  padding: 5px 10px;
+  height: 36px;
+  font-size: 0.8em;
+}
 </style>

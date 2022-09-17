@@ -180,12 +180,6 @@ export default {
           }
         });
       }
-
-
-
-
-      
-
       // elmnt.style[0] = (elmnt.offsetLeft - pos1);
       // elmnt.style[1] = (elmnt.offsetTop - pos2);
     },
@@ -204,8 +198,8 @@ export default {
 
       if (dragNum !== 0) {
         this.$emit("newindex", { current: this.index, new: this.index + dragNum });
-
       }
+      dragNum = 0;
 
       document.onmouseup = null;
       document.onmousemove = null;

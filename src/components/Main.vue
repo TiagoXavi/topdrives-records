@@ -72,7 +72,9 @@
             :needSave="needSave"
             :saveLoading="saveLoading"
             :voteLoading="voteLoading"
-            type="tracks">
+            :invertedView="inverted"
+            type="tracks"
+            @newindex="newIndex($event, false, true)">
           </Row>
           <div v-if="smartCampaign.length > 0" class="Row_ShowMoreTracks">
             <button
@@ -127,14 +129,14 @@
       </div>
       <div v-else class="Main_MidEmpty">
         <div class="Main_MidEmptyInner">
-          <!-- <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
+          <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
-              @click="openGallery()">
+              @click="openDialogGallery()">
               <i class="ticon-dash Main_EmptyAddIcon" aria-hidden="true"/>
-              <div class="Main_EmptyAdd">Gallery</div>
+              <div class="Main_EmptyAdd">Library</div>
             </button>
-          </div> -->
+          </div>
           <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
@@ -527,17 +529,33 @@
       min-width="240px"
       @close="shareDialog = false;">
       <div class="Main_ShareDialog">
-        <div class="Main_DialogTitle">Image</div>
-        <div class="Main_ShareDownloadBox">
-          <button
-            style="font-size: 16px;"
-            class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="sharePrint()">
-            <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
-            <span>Download PNG</span>
-          </button>
+        <div class="Main_OptionsDual" style="margin-top: 0;">
+          <div class="Main_">
+            <div class="Main_DialogTitle">Image</div>
+            <div class="Main_ShareDownloadBox">
+              <button
+                style="font-size: 16px;"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="sharePrint()">
+                <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
+                <span>Download PNG</span>
+              </button>
+            </div>
+          </div>
+          <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1" class="Main_">
+            <div class="Main_DialogTitle">Library</div>
+            <div class="Main_ShareDownloadBox">
+              <button
+                style="font-size: 16px;"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="openSaveToGalleryDialog()">
+                <i class="ticon-dash D_ButtonIcon" aria-hidden="true"/>
+                <span>Add to library</span>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="Main_DialogTitle">Share comparison</div>
+        <div class="Main_DialogTitle">Shareable link</div>
         <div class="Main_ShareLinkBox">
           <textarea
             v-model="shareUrl"
@@ -555,18 +573,300 @@
       </div>
     </BaseDialog>
     <BaseDialog
-      :active="templatesDialog"
+      :active="saveToGalleryDialog"
       :transparent="false"
-      max-width="500px"
+      max-width="340px"
       min-width="240px"
-      @close="templatesDialog = false;">
+      @close="closeSaveToGalleryDialog()">
+      <div class="Main_SaveGalleryDialog">
+        <div class="Main_SaveGalleryBox">
+          <BaseText
+            v-model="saveToGalleryModel.name"
+            class="BaseText_Big"
+            iid="Main_SaveGalleryName"
+            type="normal"
+            label="Title"
+            placeholder="" />
+        </div>
+        <div class="Main_SaveGalleryBox">
+          <div class="Main_OptionsLabel">Type</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in saveToGalleryModel.types">
+              <BaseChip
+                v-model="saveToGalleryModel.type"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                required="true"
+                :value="item" />
+            </template>
+          </div>
+        </div>
+
+        <div v-if="saveToGalleryModel.class.length < 4" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_class"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Classes</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.class.join(", ") }}</div>
+          </div>
+        </div>
+
+        <div class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_rq"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">RQ</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.minrq }} ~ {{ saveToGalleryModel.maxrq }}</div>
+          </div>
+        </div>
+        <div class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_year"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Years</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.minyear }} ~ {{ saveToGalleryModel.maxyear }}</div>
+          </div>
+        </div>
+
+        <div v-if="saveToGalleryModel.tyre.length < 4" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_tyre"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Tyres</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.tyre.join(", ") }}</div>
+          </div>
+        </div>
+        <div v-if="saveToGalleryModel.drive.length < 3" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_drive"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Drives</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.drive.join(", ") }}</div>
+          </div>
+        </div>
+        <div v-if="saveToGalleryModel.clearance.length < 3" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_clearance"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Clearances</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.clearance.join(", ") }}</div>
+          </div>
+        </div>
+
+        <div v-if="saveToGalleryModel.country.length < 4" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_country"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Countries</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.country.join(", ") }}</div>
+          </div>
+        </div>
+        <div v-if="saveToGalleryModel.tag.length > 0" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_tag"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Tags</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.tag.join(", ") }}</div>
+          </div>
+        </div>
+        <div v-if="saveToGalleryModel.brand.length < 4" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox
+              v-model="saveToGalleryModel.save_brand"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Brands</div>
+            <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.brand.join(", ") }}</div>
+          </div>
+        </div>
+
+        
+        <button
+          :class="{ D_Button_Loading: saveToGalleryLoading, D_Button_Error: saveToGalleryError }"
+          :disabled="saveToGalleryLoading || saveToGalleryError"
+          class="D_Button Main_SaveAllButton"
+          @click="saveToGallery()">Save to library</button>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="galleryDialog"
+      :transparent="true"
+      maxWidth="880px"
+      @close="closeDialogGallery()">
       <div class="Main_GalleryDialog">
 
-        <div class="Main_GalleryBox">
-          <BaseGalleryItem
-            v-for="item in templatesList"
-            :config="item" />
+        <div class="Main_SearchHeader">
+          <div v-if="!isFilteringT" class="Main_SearchFieldBox">
+            <input
+              v-model="searchInputT"
+              id="GalleryInput"
+              placeholder="Search"
+              class="Main_SearchInput data-hj-allow"
+              type="text"
+              @input="searchInputFuncT($event)">
+            <button
+              v-if="searchInputT && searchInputT.length > 0 || alreadySearched"
+              class="D_Button Main_SearchInputClose"
+              @click="closeFilterText()">
+              <i class="ticon-close_2" aria-hidden="true"/>
+            </button>
+          </div>
+          <button
+            v-if="!isFilteringT"
+            class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
+            @click="isFilteringT = !isFilteringT;">Filters<span v-if="filterCountT > 0" class="Main_FiltersButtonCount">{{ filterCountT }}</span></button>
+          <button
+            v-else
+            class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
+            @click="applyFilterT()">Done</button>
         </div>
+        <div v-if="isFilteringT" class="Main_SearchMid Main_SearchMidT">
+          <div class="Main_FilterItems">
+            <div class="Main_FilterClearTop">
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="clearFilter(true)">Clear</button>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in saveToGalleryModel.types">
+                <BaseChip
+                  v-model="galleryFilters.typesModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChips Main_FilterClassChips">
+              <template v-for="(item, ix) in searchFilters.classes">
+                <BaseChip
+                  class="Main_ClassChip"
+                  activeClass="Main_ClassChipActive"
+                  :style="`--classC: ${searchFilters.classesColors[ix]}`"
+                  v-model="galleryFilters.classesModel"
+                  :value="item" />
+              </template>
+            </div>
+            <BaseDualSlider
+              v-model="galleryFilters.rqModel"
+              :min="searchFilters.rqStart"
+              :max="searchFilters.rqEnd"
+              label="RQ"
+              class="Main_FilterSlider" />
+            <BaseDualSlider
+              v-model="galleryFilters.yearModel"
+              :min="searchFilters.yearStart"
+              :max="searchFilters.yearEnd"
+              label="Year"
+              class="Main_FilterSlider" />
+            <div class="Main_FilterThree">
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.tyres">
+                  <BaseChip
+                    v-model="galleryFilters.tyresModel"
+                    class="BaseChip_MinWidth"
+                    :value="item">{{ item | convertTires }}</BaseChip>
+                </template>
+
+              </div>
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.drives">
+                  <BaseChip
+                    v-model="galleryFilters.drivesModel"
+                    class="BaseChip_MinWidth"
+                    :value="item" />
+                </template>
+
+              </div>
+              <div class="Main_FilterChipsInside">
+                <template v-for="(item, ix) in searchFilters.clearances">
+                  <BaseChip
+                    v-model="galleryFilters.clearancesModel"
+                    class="BaseChip_MinWidth"
+                    :value="item">{{ item.toUpperCase() }}</BaseChip>
+                </template>
+
+              </div>
+            </div>
+            <div class="Main_FilterChips2">
+              <template v-for="(item, ix) in searchFilters.countrys">
+                <BaseChip
+                  v-model="galleryFilters.countrysModel"
+                  class="BaseChip_ChipFlag"
+                  :value="item" >
+                  <BaseFlag :flag="item" />
+                </BaseChip>
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags">
+                <BaseChip
+                  v-model="galleryFilters.tagsModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.brands">
+                <BaseChip
+                  v-model="galleryFilters.brandsModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="D_Center" style="gap: 15px;">
+              <button
+                class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
+                @click="clearFilter(true)">Clear</button>
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="applyFilterT()">Done</button>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="searchLoadingT" class="Main_SearchMid Main_SearchMidT">
+          <BaseContentLoader
+            :contents="true"
+            itemWidth="220px"
+            :itemHeight="210"
+            style="padding: 10px 10px 10px 20px; width: 100%;"
+            type="block"
+            count="6" />
+        </div>
+
+        <div v-else-if="searchResult.length > 0" class="Main_SearchMid Main_SearchMidT">
+          <BaseGalleryItem
+            v-for="item in galleryList"
+            :config="item"
+            :showDelete="user && (item.user === user.username || user.mod)"
+            @delete="deleteTemplate($event)"
+            @push="decodeTemplateString($event, true); closeDialogGallery();" />
+          <div v-if="galleryLastKey" class="D_Center" style="width: 100%">
+            <button
+              :class="`${ searchLoadingT2 ? 'D_Button_Loading ' : '' }`"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+              @click="changeFilterT(galleryLastKey)">Show more</button>
+          </div>
+
+          
+
+        </div>
+
+
         
       </div>
     </BaseDialog>
@@ -683,11 +983,18 @@
             </a>
             <button
               class="D_Button Main_OptionsButton"
-              @click="$router.push({ name: 'Gallery' })">
-              <span>PL15 Gallery</span>
+              @click="openDialogGallery()">
+              <i class="ticon-dash D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+              <span>Library</span>
             </button>
           </div>
-          <div class="D_Center">
+          <div class="D_Center Main_OptionsFooterButtons">
+            <button
+              class="D_Button Main_OptionsButton"
+              @click="$router.push({ name: 'Gallery' })">
+              <span>PL15 Changes</span>
+            </button>
+            
             <button
               class="D_Button Main_OptionsButton"
               @click="aboutDialog = true; optionsDialogActive = false;">
@@ -711,9 +1018,11 @@
 
         <div class="Main_Disclaimer">
           <div>This project was made by TiagoXavi and is not related to the Hutch Games Ltd.</div>
-          <div>Any problem or suggestion, please join the Discord server or send an email.</div>
+          <div>Any problem or suggestion, please join the Discord server or send an email (mighty.boy@topdrivesrecords.com).</div>
+          <div>TDR is free for everyone and doesn't make use of any ads. You can donate to help to keep it online and receiving new features!</div>
         </div>
-        <div class="D_TextCenter Space_TopPlus">mighty.boy@topdrivesrecords.com</div>
+        <div class="D_TextCenter Space_TopPlus"></div>
+
 
         <div class="D_Center Space_TopPlus">
           <a
@@ -758,17 +1067,6 @@
       </div>
     </BaseDialog>
     <BaseDialog
-      :active="loginDialog"
-      :transparent="false"
-      :lazy="true"
-      max-width="420px"
-      min-width="240px"
-      @close="loginDialog = false;">
-      <div style="Main_DialogLoginWrap">
-        <MainLogin :wrap="true" @success="loginDialog = false;" />
-      </div>
-    </BaseDialog>
-    <BaseDialog
       :active="campaignDialog"
       :transparent="false"
       :lazy="true"
@@ -792,6 +1090,43 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="confirmDelete.dialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="confirmDelete.dialog = false;">
+      <div style="Main_DialogConfirm">
+        <div class="Main_DialogMessage">{{ confirmDelete.msg }}</div>
+        <div class="Main_DialogBottom">
+          <button
+            class="D_Button Main_OptionsButton"
+            @click="confirmDelete.dialog = false;">
+            <span>Cancel</span>
+          </button>
+          <button
+            :class="`${ confirmDelete.loading ? 'D_Button_Loading ' : '' }`+
+                    `${ confirmDelete.classe }`"
+            :disabled="confirmDelete.loading"
+            class="D_Button Main_OptionsButton D_ButtonRed"
+            @click="confirmDelete.action">
+            <span>{{ confirmDelete.actionLabel }}</span>
+          </button>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="loginDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="loginDialog = false;">
+      <div style="Main_DialogLoginWrap">
+        <MainLogin :wrap="true" @success="loginDialog = false;" />
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -809,6 +1144,8 @@ import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
+import BaseCheckBox from './BaseCheckBox.vue'
+import BaseContentLoader from './BaseContentLoader.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import data_cars from '../database/cars_final.json'
@@ -828,6 +1165,8 @@ export default {
     BaseAvatar,
     BaseDualSlider,
     BaseChip,
+    BaseCheckBox,
+    BaseContentLoader,
     BaseFlag,
     BaseTrackType,
     MainLogin,
@@ -855,13 +1194,18 @@ export default {
       compact: false,
       fullColors: false,
       searchInput: '',
+      searchInputT: '',
       searchTracks: '',
       searchActive: false,
       isFiltering: false,
+      isFilteringT: false,
       nextId: 0,
       searchFocus: false,
       debounceFilter: null,
+      debounceFilterT: null,
       searchLoading: false,
+      searchLoadingT: false,
+      searchLoadingT2: false,
       searchMax: 20,
       showAllFilter: false,
       searchResult: [],
@@ -878,8 +1222,23 @@ export default {
       loginDialog: false,
       voteLoading: false,
       successVote: false,
-      templatesDialog: false,
-      templatesList: [],
+      galleryDialog: false,
+      galleryDialogNew: true,
+      galleryList: [],
+      galleryPage: 1,
+      galleryLastKey: undefined,
+      saveToGalleryDialog: false,
+      saveToGalleryModel: {},
+      saveToGalleryLoading: false,
+      saveToGalleryError: false,
+      confirmDelete: {
+        dialog: false,
+        msg: "Confirm delete?",
+        actionLabel: "Delete",
+        action: null,
+        loading: false,
+        classe: ""
+      },
       customTrackDialog: false,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
@@ -891,6 +1250,7 @@ export default {
       shareUrl: null,
       copyUrlSucess: false,
       filterCount: 0,
+      filterCountT: 0,
       searchFilters: {
         yearStart: 1930,
         yearEnd: 2022,
@@ -1045,6 +1405,23 @@ export default {
           "Zenos"
         ],
         brandsModel: [],
+      },
+      galleryFilters: {
+        yearModel: [],
+        rqModel: [],
+        topSpeedModel: [],
+        acelModel: [],
+        handModel: [],
+        mraModel: [],
+        weightModel: [],
+        classesModel: [],
+        tyresModel: [],
+        drivesModel: [],
+        clearancesModel: [],
+        countrysModel: [],
+        tagsModel: [],
+        brandsModel: [],
+        typesModel: [],
       },
       lastestContributionsResolved: [],
       // carDetailsList: default_cars,
@@ -1295,11 +1672,6 @@ export default {
           "types": ["40","41","e0"]
         },
         {
-          "name": "Canyon Dirt Road",
-          "id": "canyonDtRoad",
-          "types": ["40","41","e0"]
-        },
-        {
           "name": "Canyon Lookout",
           "id": "canyonLookout",
           "types": ["10","11","50"]
@@ -1317,12 +1689,17 @@ export default {
         {
           "name": "City Streets Medium",
           "id": "csMed",
-          "types": ["00","01","60"]
+          "types": ["00","01","50","60"]
         },
         {
           "name": "City Streets Small",
           "id": "csSmall",
           "types": ["00","01","50","60"]
+        },        
+        {
+          "name": "Dirt Road",
+          "id": "canyonDtRoad",
+          "types": ["40","41","e0"]
         },
         {
           "name": "Fast Circuit",
@@ -1705,6 +2082,8 @@ export default {
   },
   beforeMount() {
     this.clearFilter();
+    this.clearFilter(true);
+    this.clearSaveToGallery();
 
     let cars = window.localStorage.getItem("cars");
     if (!cars) {
@@ -1751,6 +2130,7 @@ export default {
   mounted() {
     let vm = this;
     this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
+    this.debounceFilterT = Vue.debounce(this.changeFilterT, 500); 
 
     this.getUser();
 
@@ -1922,10 +2302,20 @@ export default {
       return result;
     },
     contributorsScreen() {
+      let vm = this;
       let contritrs = [];
-      this.carDetailsList.map(x => {
-        if (x.users && x.users.length > 0) {
-          contritrs.push(...x.users);
+      this.carDetailsList.map(car => {
+        // if (x.users && x.users.length > 0) {
+        //   contritrs.push(...x.users);
+        // }
+        if (car.data && car.selectedTune && car.data[car.selectedTune]) {
+          Object.keys( car.data[car.selectedTune] ).forEach(function ( type ) {
+            Object.keys( car.data[car.selectedTune][type] ).forEach(function ( item ) {
+              if (item.includes("_user") && vm.currentTracks.find(track => item.includes(track.code))) {
+                contritrs.push(car.data[car.selectedTune][type][item])
+              }
+            });
+          });
         }
       });
 
@@ -2066,7 +2456,7 @@ export default {
         this.tracksRepo.find(circuit => {
           circuit.types.find(type => {
             if (x === `${circuit.id}_a${type}`) {
-              tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1] } );
+              tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1], code: `${circuit.id}_a${type}` } );
               return true;
             }
           })
@@ -2292,15 +2682,27 @@ export default {
           document.querySelector("#SearchInput").focus();  
         } catch (error) {}
       }, 10);
-      // if (this.searchInput && this.searchInput.length > 0) {
-      //   this.changeFilter();
-      // }
     },
     closeDialogSearch() {
       this.searchActive = false;
-      // if (!this.searchFocus) {
-        //   this.searchActive = false;
-      // }
+    },
+    openDialogGallery() {
+      this.galleryDialog = true;
+      this.isFilteringT = false;
+      this.searchInputT = '';
+      this.optionsDialogActive = false;
+      if (this.galleryDialogNew) {
+        this.galleryDialogNew = false;
+        this.changeFilterT();
+      }
+      // setTimeout(() => {
+      //   try {
+      //     document.querySelector("#GalleryInput").focus();  
+      //   } catch (error) {}
+      // }, 10);
+    },
+    closeDialogGallery() {
+      this.galleryDialog = false;
     },
     openDialogTrackSearch() {
       this.customTrackDialog = true;
@@ -2327,12 +2729,10 @@ export default {
       }, 200);
     },
     searchInputFunc(e) {
-      // debugger;
-      // console.log(e);
-      // console.log(this.searchInput);
-      // this.searchInput
       this.debounceFilter();
-      // this.searchLoading = true;
+    },
+    searchInputFuncT(e) {
+      this.debounceFilterT();
     },
     changeFilter(showAll = false) {
       // console.log("changeFilter");
@@ -2455,6 +2855,76 @@ export default {
       this.lastestContributionsResolved = result;
       this.searchResult = result;
     },
+    changeFilterT(lastKey = false) {
+      let vm = this;
+      if (!lastKey) this.searchLoadingT = true;
+      else this.searchLoadingT2 = true;
+      let searchStr = this.searchInputT.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      let clearFilters = this.resolveFilterCount(true);
+
+      let params = {
+        input: searchStr
+      };
+      Object.keys( clearFilters ).forEach( key => {
+        if (key === "rq" || key === "year") {
+          params[`min${key}`] = clearFilters[key][0];
+          params[`max${key}`] = clearFilters[key][1];
+        } else if (key === "classes") {
+          params["class"] = clearFilters[key];
+        } else {
+          params[key.slice(0, -1)] = clearFilters[key];
+        }
+      })
+
+      if (lastKey) {
+        params.LastEvaluatedKey = lastKey;
+        this.galleryPage += 1; 
+      } else {
+        this.galleryPage = 1
+      }
+
+      
+      axios.post(Vue.preUrl + "/searchTemplate", params)
+      .then(res => {
+        if (res.data.Items && Array.isArray(res.data.Items)) {
+          res.data.Items = res.data.Items.map(x => {
+            let colors = [];
+            x.class.map(c => {
+              colors.push(Vue.resolveClass(0, c, "color"))
+            })
+            return {
+              ...x,
+              ...vm.decodeTemplateString(x.template, false),
+              classesColors: colors
+            }
+          })
+        }
+        if (lastKey) {
+          this.galleryList = [
+            ...this.galleryList,
+            ...res.data.Items
+          ]
+        } else {
+          this.galleryList = res.data.Items;
+        }
+        if (res.data.LastEvaluatedKey) this.galleryLastKey = res.data.LastEvaluatedKey;
+        else this.galleryLastKey = undefined;
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.searchLoadingT = false;
+        this.searchLoadingT2 = false;
+      });
+
+    },
     addCar(index) {
       if (this.carDetailsList.length < this.maxCarNumber) {
         this.carDetailsList.push(JSON.parse(JSON.stringify(this.searchResult[index])));
@@ -2522,16 +2992,18 @@ export default {
         window.localStorage.setItem('colors', type);
       }
     },
-    newIndex(obj, isDialog = false) {
+    newIndex(obj, isDialog = false, isTrack = false) {
       obj.current;
       obj.new;
       // this.closeTune();
-
+      let arrName = "carDetailsList";
+      if (isTrack) arrName = "currentTracks";
+      
       // If actual index of moved element is
       // less than 0 when 'moveEle += array size'
       while (obj.current < 0)
       {
-          obj.current += this.carDetailsList.length;
+          obj.current += this[arrName].length;
       }
 
       // Where the element to be moved f that
@@ -2545,25 +3017,26 @@ export default {
       // If 'obj.new' is greater than the
       // size of the array then with need to
       // push 'undefined' in the array.
-      if (obj.new > this.carDetailsList.length)
+      if (obj.new > this[arrName].length)
       {
-          obj.new = this.carDetailsList.length;
-          // var un = obj.new - this.carDetailsList.length + 1;
+          obj.new = this[arrName].length;
+          // var un = obj.new - this[arrName].length + 1;
           // while (un--)
           // {
-          //     this.carDetailsList.push(undefined);
+          //     this[arrName].push(undefined);
 
           // }
       }
 
       // Here element of 'obj.current' is removed and
       // pushed at 'obj.new' index
-      this.carDetailsList.splice(obj.new, 0, this.carDetailsList.splice(obj.current, 1)[0]);
+      this[arrName].splice(obj.new, 0, this[arrName].splice(obj.current, 1)[0]);
       if (isDialog) {
         this.tuneDialogCarIndex = obj.new;
       }
       
       this.updateCarLocalStorage();
+      this.updateOptions();
 
       this.showCarsFix = false;
       this.$nextTick().then(() => {
@@ -2930,8 +3403,10 @@ export default {
         document.querySelector(".Main_Body").classList.remove("Main_BodyPrint");
       });
     },
-    generateUrl() {
+    generateUrl(isForTemplate = false) {
       let result = `${window.location.origin}?share=`;
+      if (isForTemplate) result = '';
+
       this.currentTracks.map(x => {
         result += `~K${x.id}_a${x.surface}${x.cond}`
       });
@@ -2942,7 +3417,12 @@ export default {
       if (result.length > 2045) {
         // não dá
       }
-      this.shareUrl = result;
+
+      if (isForTemplate) {
+        return result
+      } else {
+        this.shareUrl = result.replaceAll("+", "%2B");
+      }
 
     },
     copyUrl() {
@@ -2961,7 +3441,7 @@ export default {
       template.split("~").map(x => {
         if (x[0] === "C") {
           carsFromQuery.push({ // car
-            rid: x.substr(1)
+            rid: decodeURI(x.substr(1))
           })
         } else if (x[0] === "T") {
           carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
@@ -2970,31 +3450,24 @@ export default {
         }
       })
 
-      this.$router.replace({'query': null});
-
+      if (this.$route.query && this.$route.query.share) {
+        this.$router.replace({'query': null});
+      }
       if (pushToWork) {
-        this.pushTrackSet(tracksFromQuery);
+        if (tracksFromQuery.length > 0) {
+          this.clearAllTracks()
+          this.pushTrackSet(tracksFromQuery);
+        }
         this.prepareCars(carsFromQuery);
+        this.updateOptions();
+        this.updateCarLocalStorage();
+
       } else {
         return {
-          tracks: tracksClear,
+          tracks: tracksFromQuery,
           cars: carsFromQuery
         }
       }
-
-    },
-    openGallery() {
-
-    },
-    getTemplates() {
-      // user
-      axios.get(Vue.preUrl + "/templates")
-      .then(res => {
-        this.parseTemplatesList(res.data)
-      })
-      .catch(error => {
-        console.log(error);
-      });
 
     },
     finalizeUrl(url) {
@@ -3009,9 +3482,6 @@ export default {
       } else {
         return url;
       }
-    },
-    parseTemplatesList(templates) {
-
     },
     defaultFilters(type) {
       if (type === "yearModel") return [1930, 2022];
@@ -3028,23 +3498,26 @@ export default {
       // if (type === "countrysModel") return [];
       // if (type === "brandsModel") return [];
     },
-    clearFilter() {
-      this.searchFilters.yearModel = this.defaultFilters("yearModel");
-      this.searchFilters.rqModel = this.defaultFilters("rqModel");
-      this.searchFilters.topSpeedModel = this.defaultFilters("topSpeedModel");
-      this.searchFilters.acelModel = this.defaultFilters("acelModel");
-      this.searchFilters.handModel = this.defaultFilters("handModel");
-      this.searchFilters.mraModel = this.defaultFilters("mraModel");
-      this.searchFilters.weightModel = this.defaultFilters("weightModel");
-      this.searchFilters.classesModel = [];
-      this.searchFilters.tyresModel = [];
-      this.searchFilters.drivesModel = [];
-      this.searchFilters.clearancesModel = [];
-      this.searchFilters.countrysModel = [];
-      this.searchFilters.tagsModel = [];
-      this.searchFilters.brandsModel = [];
+    clearFilter(isGallery = false) {
+      let type = isGallery ? "galleryFilters" : "searchFilters";
+      this[type].yearModel = this.defaultFilters("yearModel");
+      this[type].rqModel = this.defaultFilters("rqModel");
+      this[type].topSpeedModel = this.defaultFilters("topSpeedModel");
+      this[type].acelModel = this.defaultFilters("acelModel");
+      this[type].handModel = this.defaultFilters("handModel");
+      this[type].mraModel = this.defaultFilters("mraModel");
+      this[type].weightModel = this.defaultFilters("weightModel");
+      this[type].classesModel = [];
+      this[type].tyresModel = [];
+      this[type].drivesModel = [];
+      this[type].clearancesModel = [];
+      this[type].countrysModel = [];
+      this[type].tagsModel = [];
+      this[type].brandsModel = [];
+      this[type].typesModel = [];
     },
-    resolveFilterCount() {
+    resolveFilterCount(isGallery = false) {
+      let type = isGallery ? "galleryFilters" : "searchFilters";
       let defaults = {
         yearModel: this.defaultFilters("yearModel"),
         rqModel: this.defaultFilters("rqModel"),
@@ -3059,20 +3532,28 @@ export default {
         clearancesModel: [],
         countrysModel: [],
         tagsModel: [],
-        brandsModel: []
+        brandsModel: [],
+        typesModel: []
       }
       let count = 0;
 
       let vm = this;
-      Object.keys( this.searchFilters ).forEach(function (key) {
+      let clearFilter = {};
+      Object.keys( this[type] ).forEach(function (key) {
         if (key.includes("Model")) {
-          if (defaults[key] && JSON.stringify(vm.searchFilters[key]) !== JSON.stringify(defaults[key])) {
+          if (defaults[key] && JSON.stringify(vm[type][key]) !== JSON.stringify(defaults[key])) {
             count++;
+            clearFilter[key.replace("Model","")] = vm[type][key];
           }
         }
       });
 
-      this.filterCount = count;
+      if (isGallery) {
+        this.filterCountT = count;
+        return clearFilter;
+      } else {
+        this.filterCount = count;
+      }
     },
     checkMatchFilter(car) {
       // between
@@ -3117,6 +3598,12 @@ export default {
       this.changeFilter();
       this.isFiltering = false;
       let container = document.querySelector(".Main_SearchMid");
+      container.scrollTo({ top: 0 });
+    },
+    applyFilterT() {
+      this.changeFilterT();
+      this.isFilteringT = false;
+      let container = document.querySelector(".Main_SearchMidT");
       container.scrollTo({ top: 0 });
     },
     closeFilterText() {
@@ -3165,6 +3652,219 @@ export default {
       Vue.set(car.data[car.selectedTune].info, `${type}_user`, this.user.username);
       /**/ Vue.set(car.dataToSave[car.selectedTune].info, type, value);
       this.needSaveChange(true);
+
+    },
+    openSaveToGalleryDialog() {
+      this.clearSaveToGallery();
+      this.computeTemplateToSave();
+      this.saveToGalleryDialog = true;
+      this.shareDialog = false;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Main_SaveGalleryName").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    closeSaveToGalleryDialog() {
+      this.saveToGalleryDialog = false;
+    },
+    clearSaveToGallery() {
+      Vue.set(this, "saveToGalleryModel", {
+        name: null,
+        type: "Other",
+        types: [
+          "Best of",
+          // "Trackset",
+          "Tune",
+          "Event",
+          "Other",
+        ],
+        minrq: null,
+        maxrq: null,
+        save_rq: false,
+        minyear: null,
+        maxyear: null,
+        save_year: false,
+        drive: [],
+        save_drive: false,
+        brand: [],
+        save_brand: false,
+        country: [],
+        save_country: false,
+        class: [],
+        save_class: true,
+        clearance: [],
+        save_clearance: false,
+        tyre: [],
+        save_tyre: false,
+        tag: [],
+        save_tag: false
+      });
+    },
+    computeTemplateToSave() {
+      let t = this.saveToGalleryModel;
+      let taaag = {};
+      let rids = [];
+      this.carDetailsList.map((car, icar) => {
+        rids.push(car.rid);
+        if (!t.minrq || car.rq < t.minrq) t.minrq = car.rq;
+        if (!t.maxrq || car.rq > t.maxrq) t.maxrq = car.rq;
+        if (!t.minyear || car.year < t.minyear) t.minyear = car.year;
+        if (!t.maxyear || car.year > t.maxyear) t.maxyear = car.year;
+        t.drive.push(car.drive);
+        t.brand.push(car.brand);
+        t.country.push(car.country);
+        t.class.push(car.class);
+        t.clearance.push(car.clearance);
+        t.tyre.push(car.tyres);
+        car.tags.map(y => {
+          if (!taaag[y]) taaag[y] = 0;
+          taaag[y] += 1;
+        })
+      })
+
+      
+
+
+      Object.keys(taaag).forEach(key => {
+        if (taaag[key] === this.carDetailsList.length) {
+          t.tag.push(key);
+        }
+      })
+      Object.keys(t).forEach(key => {
+        if (Array.isArray(t[key])) {
+          if (key !== "types") {
+            t[key] = [...new Set(t[key])]
+            if (t[key].length === 1) {
+              t[`save_${key}`] = true
+            }
+          }
+        }
+      })
+
+      if (t.class.length === 1 &&
+          t.drive.length < 3 &&
+          t.clearance.length < 3 &&
+          t.tyre.length < 3)
+      {
+        t.type = "Best of";
+      }
+      rids = [...new Set(rids)]
+      if (rids.length === 1) {
+        t.type = "Tune";
+        t.name = this.carDetailsList[0].name
+      }
+    },
+    saveToGallery() {
+      let t = this.saveToGalleryModel;
+      if (!t.name || t.name.length < 3) {
+        this.putSaveToGalleryError("Type a title");
+        return;
+      }
+
+
+      let vm = this;
+      let body = {
+        name: t.name,
+        type: t.type,
+        template: vm.generateUrl(true)
+      };
+      Object.keys( t ).forEach( key => {
+        if (key.includes("save_")) {
+          if (t[key] === true) {
+            if (key !== "save_rq" && key !== "save_year") {
+              body[key.substr(5)] = t[key.substr(5)]
+            } else {
+              body[`min${key.substr(5)}`] = t[`min${key.substr(5)}`];
+              body[`max${key.substr(5)}`] = t[`max${key.substr(5)}`];
+              // rq or year
+            }
+          }
+        }
+      })
+
+      this.saveToGalleryLoading = true;
+      console.log(body);
+
+      axios.post(Vue.preUrl + "/saveTemplate", body)
+      .then(res => {
+        this.closeSaveToGalleryDialog();
+        this.galleryDialogNew = true;
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "Successful save"
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.saveToGalleryLoading = false;
+      });
+
+    },
+    putSaveToGalleryError(msg) {
+      this.$store.commit("DEFINE_SNACK", {
+        error: true,
+        text: msg
+      });
+      this.saveToGalleryError = true;
+      setTimeout(() => { this.saveToGalleryError = false}, 1500);
+    },
+    deleteTemplate(config) {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+
+        axios.post(Vue.preUrl + "/deleteTemplate", config)
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.galleryList = vm.galleryList.filter(x => x.date !== config.date)
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: "Successful delete"
+          });
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+          if (error.response.status === 401) {
+            vm.loginDialog = true;
+          }
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+        });
+
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Deleting template "${config.name}" by ${config.user}. Are you sure?`,
+        actionLabel: "Delete",
+        action: action,
+        loading: false,
+        classe: "Delete"
+      }
+
+      
 
     }
   },
@@ -3375,6 +4075,7 @@ body {
   border-radius: 6px;
   --back-color: 255, 255, 255;
   --back-opac: 0.1;
+  --back-opac-foc: 0.3;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   color: var(--d-text-b);
@@ -3399,7 +4100,7 @@ body {
 }
 .D_Button.focus-visible:not(.D_ButtonNoActive) {
   outline: none;
-  background-color: rgba(var(--back-color), 0.3);
+  background-color: rgba(var(--back-color), var(--back-opac-foc));
 }
 .D_ButtonNoActive {
   outline: none;
@@ -3463,7 +4164,7 @@ body {
     transform: translateX(0px);
   }
 }
-.D_Button.D_Button_Correct {
+button.D_Button.D_Button_Correct {
   position: relative;
   color: transparent;
   background-color: rgba(var(--d-text-green), 0.2);
@@ -3479,7 +4180,7 @@ body {
   justify-content: center;
   color: rgb(var(--d-text-green));
 }
-.D_Button.D_Button_Error {
+button.D_Button.D_Button_Error {
   position: relative;
   color: transparent;
   background-color: rgba(var(--d-text-red), 0.2);
@@ -3536,6 +4237,13 @@ body {
   background-color: hsl(var(--btn-h), var(--btn-s), 40%);
   color: black;
 }
+.D_Button.D_ButtonRed {
+  --back-color: 200,0,0;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(150,0,0,1);
+}
+
 
 .D_Link {
   text-decoration: none;
@@ -3681,6 +4389,14 @@ body {
   overflow-y: scroll;
   overscroll-behavior-block: contain;
   position: relative;
+}
+.Main_SearchMidT {
+  /* padding: 25px; */
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 .Main_SearchEmpty::-webkit-scrollbar,
 .Main_SearchMid::-webkit-scrollbar,
@@ -3896,6 +4612,7 @@ body::-webkit-scrollbar-corner {
   min-width: 150px;
 }
 .Main_OptionsLabel {
+  opacity: 0.8;
   font-size: 14px;
 }
 .Main_OptionsItem + .Main_OptionsItem {
@@ -4422,15 +5139,28 @@ body::-webkit-scrollbar-corner {
 .Main_OptionsDivider {
   width: 100%;
 }
-.Main_GalleryDialog {
-
+.Main_SaveGalleryBoxCheck {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.Main_GalleryBox {
-
+.Main_SaveGalleryDialog {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.Main_GalleryItem {
-
+.Main_SaveGalleryCheckRightValue {
+  color: var(--d-text-b);
 }
+.Main_DialogMessage {
+  padding-bottom: 20px;
+}
+.Main_DialogBottom {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 
 
 

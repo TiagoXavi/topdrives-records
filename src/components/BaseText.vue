@@ -11,6 +11,7 @@
       :disabled="disabled"
       :placeholder="placeholder"
       :type="intype"
+      :id="iid"
       class="BaseText_Input"
       @change="resolveChange($event.target.value)">
     <div v-if="disabled" class="BaseText_Lock">
@@ -44,6 +45,10 @@ export default {
       default: ""
     },
     type: {
+      type: String,
+      default: null
+    },
+    iid: {
       type: String,
       default: null
     },
@@ -112,14 +117,14 @@ export default {
   box-sizing: border-box;
   /* border: 2px #ffffff0d solid; */
   outline: none;
-  color: var(--d-text);
+  color: var(--d-text-b);
   padding: 6px;
   transition-duration: 0.1s;
   width: 100%;
   margin-top: 2px;
 }
 .BaseText_Label {
-  font-size: 0.8em;
+  font-size: 14px;
 }
 .BaseText_Input:focus {
   /* background-color: #459bd100; */
@@ -162,5 +167,9 @@ export default {
   right: -5px;
   bottom: -5px;
   display: flex;
+}
+.BaseText_Big .BaseText_Input {
+  font-size: 18px;
+  padding: 10px 6px;
 }
 </style>

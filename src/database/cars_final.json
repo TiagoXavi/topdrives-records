@@ -15019,7 +15019,7 @@
       "acel": 4.2,
       "hand": 84,
       "drive": "RWD",
-      "tyres": "Performance",
+      "tyres": "Slick",
       "mra": 89.51,
       "weight": 864,
       "name": "Ford GT40 race car",
@@ -21092,7 +21092,7 @@
     {
       "class": "B",
       "rq": 62,
-      "onlyName": "Mustang GT Power Pack",
+      "onlyName": "Mustang GT Power & Perf. Pack",
       "brand": "Ford",
       "country": "US",
       "year": 2016,
@@ -21107,7 +21107,7 @@
       "tyres": "Performance",
       "mra": 79.91,
       "weight": 1720,
-      "name": "Ford Mustang GT Power Pack",
+      "name": "Ford Mustang GT Power & Perf. Pack",
       "rid": "Ford_Mustang_GT_Power_Pack_2016",
       "tags": [
         "Call of the Wild",

@@ -45,6 +45,7 @@
     <div
       v-if="car.selectedTune || type === 'tracks'"
       v-for="(item, ix) in timesResolved"
+      :id="`${type === 'tracks' ? 'Row_Track'+ix : ''}`"
       :data="`${item.id}_a${item.surface}${item.cond}`"
       :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
@@ -58,10 +59,14 @@
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
-        '--last-index': lastIndex || 1
+        '--last-index': lastIndex || 1,
+        '--drag-left-slo': invertedView ? 1 : 7,
+        '--drag-top-slo': invertedView ? 7 : 1
       }"
+      style="--drag-left: 0;--drag-top: 0;"
       class="Row_Item Row_Cell"
-      @mouseenter="mouseEnter($event)">
+      @mouseenter="mouseEnter($event)"
+      @mousedown="dragMouseDown($event, ix)">
       <div
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) ? false : true"
         @blur="blur($event, item, ix)"
@@ -151,6 +156,7 @@
       <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 1 )" class="Row_CheckDoubtful">
         <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
       </div>
+      <div v-if="type === 'tracks'" class="RowTrack_DragIndicator"></div>
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
@@ -175,6 +181,14 @@
 <script>
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseTypeName from '@/components/BaseTypeName.vue';
+
+var pos1 = 0;
+var pos2 = 0;
+var mouseX = 0;
+var mouseY = 0;
+var elmnt = null;
+var dragNum = 0;
+var lastDragNum = 0;
 
 export default {
   name: 'Row',
@@ -239,7 +253,11 @@ export default {
     },
     user: {
       required: false
-    }
+    },
+    invertedView: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -258,7 +276,8 @@ export default {
       uploadLoading: false,
       alreadyUploaded: false,
       votedDownIndex: null,
-      detailsItem: null
+      detailsItem: null,
+      dragIndex: null
     }
   },
   watch: {
@@ -617,6 +636,89 @@ export default {
     mouseLeaveTune(e) {
       this.mouseInsideTuneBox = false;
     },
+    dragMouseDown(e, index) {
+      if (this.type !== 'tracks') return;
+      this.dragIndex = index;
+
+      elmnt = document.querySelector('#Row_Track'+this.dragIndex);
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      document.onmouseup = this.closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = this.elementDrag;
+      
+    },
+    elementDrag(e) {
+      // calculate the new cursor position:
+      pos1 = mouseX - e.clientX;
+      pos2 = mouseY - e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // set the element's new position:
+      getComputedStyle(elmnt).getPropertyValue("--drag-left")
+      getComputedStyle(elmnt).getPropertyValue("--drag-top")
+      let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
+      let newTop = getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2;
+      elmnt.style.setProperty("--drag-left", newLeft );
+      elmnt.style.setProperty("--drag-top", newTop );
+      elmnt.classList.add("RowTrack_Dragging");
+      elmnt.parentElement.classList.add("RowTrack_DraggingParent");
+
+      let height = Number(getComputedStyle(document.body).getPropertyValue("--cell-height").trim().slice(0,-2))
+      let width;
+      if (this.invertedView) width = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-width").trim().slice(0,-2))
+      // console.log(Math.floor(newTop / height));
+      // console.log(newTop, height, Math.round(newTop / height));
+      dragNum = Math.round(newTop / height);
+      if (this.invertedView) dragNum = Math.round(newLeft / width);
+      let times = Math.abs(dragNum);
+      let cla = dragNum > 0 ? "RowTrack_PushLeft" : "RowTrack_PushRight";
+      let div;
+
+      if (dragNum !== lastDragNum) {
+        lastDragNum = dragNum;
+
+        document.querySelectorAll(".Row_Tracks .Row_Item").forEach(x => {
+          x.classList.remove("RowTrack_PushLeft");
+          x.classList.remove("RowTrack_PushRight");
+        })
+
+        Array.from(Array(times)).map((_, i) => {
+          if (dragNum > 0) div = document.querySelector("#Row_Track" + (dragNum + this.dragIndex - i) )
+          else div = document.querySelector("#Row_Track" + (dragNum + this.dragIndex + i) )
+
+          if (div) {
+            div.classList.add(cla);
+          }
+        });
+      }
+      // elmnt.style[0] = (elmnt.offsetLeft - pos1);
+      // elmnt.style[1] = (elmnt.offsetTop - pos2);
+    },
+    closeDragElement() {
+      // stop moving when mouse button is released:
+      elmnt.style.setProperty("--drag-left", 0 );
+      elmnt.style.setProperty("--drag-top", 0 );
+      elmnt.classList.remove("RowTrack_Dragging");
+      elmnt.parentElement.classList.remove("RowTrack_DraggingParent");
+      lastDragNum = 0;
+
+      document.querySelectorAll(".Row_Tracks .Row_Item").forEach(x => {
+        x.classList.remove("RowTrack_PushLeft");
+        x.classList.remove("RowTrack_PushRight");
+      })
+
+      if (dragNum !== 0) {
+        this.$emit("newindex", { current: this.dragIndex, new: this.dragIndex + dragNum });
+      }
+      dragNum = 0;
+
+      document.onmouseup = null;
+      document.onmousemove = null;
+    },
 
   },
 }
@@ -642,9 +744,6 @@ export default {
 .Car_PushLeft + .Car_Layout .Row_Cell,
 .Car_PushRight .Row_Cell {
   border-left-width: 2px;
-}
-.Row_Tracks .Row_Cell {
-  border-right-width: 0;
 }
 .Row_Times .Row_Cell {
   letter-spacing: 0.5px;
@@ -690,7 +789,7 @@ export default {
   animation: campaignTip 0.1s linear forwards;
   font-size: 1em;
 }
-.Row_Tracks .Row_Item:hover .Row_Campaign {
+.Row_Tracks .Row_Item:hover:not(.RowTrack_Dragging) .Row_Campaign {
   display: flex;
   align-items: center;
 }
@@ -745,7 +844,7 @@ export default {
   line-height: 1;
   display: flex;
   align-items: center;
-  cursor: default;
+  cursor: grab;
 }
 .Row_Times .Row_Content:not(:focus) {
   cursor: default;
@@ -1164,6 +1263,57 @@ export default {
 .Row_UploadInput[type="file"] {
   display: none;
 }
+.Row_Tracks .Row_Cell {
+  border-right-width: 0;
+  user-select: none;
+  cursor: grab;
+  transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
+}
+.Row_Tracks {
+  position: relative;
+}
+.RowTrack_Dragging {
+  background-color: #242424;
+  box-shadow: 0px 0px 0px 5px #505050;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transition-property: background-color, box-shadow, border-radius;
+  z-index: 200;
+  cursor: grabbing;
+}
+.RowTrack_Dragging .RowTrack_Header {
+  pointer-events: none;
+}
+.RowTrack_DraggingParent > :not(.RowTrack_Dragging) {
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+.RowTrack_DragIndicator {
+  position: absolute;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background-color: dodgerblue;
+  bottom: -2px;
+  z-index: 21;
+  display: none;
+}
+/* .RowTrack_Dragging ~ .RowTrack_Layout .RowTrack_DragIndicator {
+  display: block;
+} */
+.Row_Tracks .RowTrack_PushLeft {
+  transform: translateY(calc(var(--cell-height) * -1));
+}
+.Row_Tracks .RowTrack_PushRight {
+  transform: translateY(var(--cell-height));
+}
+.Main_2 .Row_Tracks .RowTrack_PushLeft {
+  transform: translateX(calc(var(--cell-width) * -1));
+}
+.Main_2 .Row_Tracks .RowTrack_PushRight {
+  transform: translateX(var(--cell-width));
+}
+
 
 
 
