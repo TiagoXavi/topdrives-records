@@ -2889,9 +2889,11 @@ export default {
         if (res.data.Items && Array.isArray(res.data.Items)) {
           res.data.Items = res.data.Items.map(x => {
             let colors = [];
-            x.class.map(c => {
-              colors.push(Vue.resolveClass(0, c, "color"))
-            })
+            if (x.class) {
+              x.class.map(c => {
+                colors.push(Vue.resolveClass(0, c, "color"))
+              })
+            }
             return {
               ...x,
               ...vm.decodeTemplateString(x.template, false),
@@ -3784,7 +3786,7 @@ export default {
       })
 
       this.saveToGalleryLoading = true;
-      console.log(body);
+      // console.log(body);
 
       axios.post(Vue.preUrl + "/saveTemplate", body)
       .then(res => {
