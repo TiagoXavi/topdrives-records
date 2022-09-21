@@ -961,6 +961,27 @@
               </button>
             </div>
           </div>
+        </div>        
+        <div class="Main_OptionsMemory">
+          <div class="Main_MemoryLine">
+            <span class="Main_MemoryLabel">{{ memory.find(x => typeof x === 'string') ? 'Load' : 'Memory' }}</span>
+            <button
+              v-for="(m, index) in memory"
+              :disabled="m === null"
+              class="D_Button Main_OptionsButton"
+              @click="loadMemory(index, $event)">
+              <span>{{ index+1 }}</span>
+            </button>
+          </div>
+          <div class="Main_MemoryLine">
+            <span class="Main_MemoryLabel">Save</span>
+            <button
+              v-for="(m, index) in memory"
+              class="D_Button Main_OptionsButton Main_MemorySave"
+              @click="saveMemory(index, $event)">
+              <span style="pointer-events: none;">{{ index+1 }}</span>
+            </button>
+          </div>
         </div>
         <div class="Main_OptionsCredits">
           <div class="D_Center Main_OptionsFooterButtons">
@@ -1239,6 +1260,17 @@ export default {
         loading: false,
         classe: ""
       },
+      memory: [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       customTrackDialog: false,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
@@ -1422,6 +1454,7 @@ export default {
         tagsModel: [],
         brandsModel: [],
         typesModel: [],
+        aprooveModel: false
       },
       lastestContributionsResolved: [],
       // carDetailsList: default_cars,
@@ -2084,6 +2117,9 @@ export default {
     this.clearFilter();
     this.clearFilter(true);
     this.clearSaveToGallery();
+    this.checkMemoryFromStorage();
+
+
 
     let cars = window.localStorage.getItem("cars");
     if (!cars) {
@@ -2097,6 +2133,15 @@ export default {
     let colors = window.localStorage.getItem("colors");
     if (colors) {
       this.colorsChange(colors);
+    }
+
+    if (this.$route.query && this.$route.query.aproove) {
+      // http://192.168.15.110:8081?aproove=t
+      this.galleryFilters.aprooveModel = true;
+      setTimeout(() => {
+        this.openDialogGallery();
+      }, 100);
+
     }
 
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
@@ -2871,6 +2916,8 @@ export default {
           params[`max${key}`] = clearFilters[key][1];
         } else if (key === "classes") {
           params["class"] = clearFilters[key];
+        } else if (key === "aproove") {
+          params["aproove"] = clearFilters[key];
         } else {
           params[key.slice(0, -1)] = clearFilters[key];
         }
@@ -3517,6 +3564,7 @@ export default {
       this[type].tagsModel = [];
       this[type].brandsModel = [];
       this[type].typesModel = [];
+      this[type].aprooveModel = false;
     },
     resolveFilterCount(isGallery = false) {
       let type = isGallery ? "galleryFilters" : "searchFilters";
@@ -3535,7 +3583,8 @@ export default {
         countrysModel: [],
         tagsModel: [],
         brandsModel: [],
-        typesModel: []
+        typesModel: [],
+        aprooveModel: false
       }
       let count = 0;
 
@@ -3543,9 +3592,13 @@ export default {
       let clearFilter = {};
       Object.keys( this[type] ).forEach(function (key) {
         if (key.includes("Model")) {
-          if (defaults[key] && JSON.stringify(vm[type][key]) !== JSON.stringify(defaults[key])) {
+          // if (key === 'aprooveModel') {
+          //   debugger;
+          // }
+          if (defaults[key] !== undefined && JSON.stringify(vm[type][key]) !== JSON.stringify(defaults[key])) {
             count++;
             clearFilter[key.replace("Model","")] = vm[type][key];
+
           }
         }
       });
@@ -3865,9 +3918,35 @@ export default {
         loading: false,
         classe: "Delete"
       }
-
-      
-
+    },
+    checkMemoryFromStorage() {
+      this.memory = this.memory.map((m, index) => {
+        let found = window.localStorage.getItem(`m${index}`);
+        if (found) {
+          return found;
+        } else {
+          return null;
+        }
+      })
+    },
+    loadMemory(index, e) {
+      if (e.shiftKey) {
+        // delete
+        localStorage.removeItem(`m${index}`);
+        Vue.set(this.memory, index, null);
+      } else {
+        this.decodeTemplateString(this.memory[index], true);
+        this.updateOptions();
+      }
+    },
+    saveMemory(index, e) {
+      let temp = this.generateUrl(true);
+      Vue.set(this.memory, index, temp);
+      window.localStorage.setItem(`m${index}`, temp);
+      e.srcElement.classList.add("D_Button_Correct");
+      setTimeout(() => {
+        e.srcElement.classList.remove("D_Button_Correct");
+      }, 1500);
     }
   },
 }
@@ -4110,7 +4189,7 @@ body {
 .D_Button.D_ButtonNoActive.focus-visible {
   background-color: rgba(var(--back-color), 0.3);
 }
-.D_Button:hover:not(.D_ButtonActive):not([disabled]) {
+.D_Button:hover:not(.D_ButtonActive):not([disabled]):not(.D_Button_Correct):not(.D_Button_Error) {
   color: #fffc;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
@@ -4857,7 +4936,7 @@ body::-webkit-scrollbar-corner {
   color: black;
 }
 .Main_OptionsCredits {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -5161,6 +5240,32 @@ body::-webkit-scrollbar-corner {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+.Main_OptionsMemory {
+  margin-top: 30px;
+}
+.Main_MemoryLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.Main_MemoryLine + .Main_MemoryLine {
+  margin-top: 4px;
+}
+.Main_MemoryLabel {
+  opacity: 0.8;
+  font-size: 14px;
+  width: 2.2em;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3px;
+}
+.Main_MemorySave.D_Button_Correct::after {
+  content: "\e943";
+  font-family: 'JurisT' !important;
+
 }
 
 

@@ -197,9 +197,11 @@ export default {
   width: calc(100% - 30px);
 }
 .BaseGalleryItem_Name {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   color: var(--d-text-b);
   padding: 2px 0px 3px 0px;
 }

@@ -47,6 +47,48 @@ export default {
 
       console.log(result);
 
+    },
+    mostFavCar() {
+      let result = {};
+
+      this.db.map(car => {
+        Object.keys( car.data ).forEach(function (tune) {
+          if (car.data[tune].times) {
+            Object.keys( car.data[tune].times ).forEach(function (track) {
+              if (track.substr(track.length -4, 2) === "_a") {
+                // is a time
+                result[car.rid] = 1 + result[car.rid]||0
+              }
+            })
+          }
+        })
+      })
+      let sortable = [];
+      for (var vehicle in result) {
+          sortable.push([vehicle, result[vehicle]]);
+      }
+      sortable.sort(function(a, b) {
+          return b[1] - a[1];
+      });
+      
+      debugger;
+    },
+    carWithMostUsers() {
+      let result = {};
+
+      this.db.map(car => {
+        car.users.length
+        result[car.rid] = car.users.length
+      })
+      let sortable = [];
+      for (var vehicle in result) {
+          sortable.push([vehicle, result[vehicle]]);
+      }
+      sortable.sort(function(a, b) {
+          return b[1] - a[1];
+      });
+
+      debugger;
     }
   },
 }
