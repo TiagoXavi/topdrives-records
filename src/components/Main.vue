@@ -4385,9 +4385,9 @@ button.D_Button.D_Button_Error {
   border-top-left-radius: 10px;
   font-size: 1.4em;
 }
-.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
+button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   color: #fff;
-  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) + 3%));
+  background-color: hsl(var(--back-h), var(--back-s), calc(var(--back-l) + 3%)) !important;
 }
 .Main_FiltersButton.D_ButtonNoActive.focus-visible {
   color: #fff;
