@@ -4,7 +4,7 @@
 </template>
 
 <script>
-// import BaseDetalheHeader from '@/components/shared/BaseDetalheHeader/BaseDetalheHeader.vue';
+import data_cars from '../database/cars_final.json'
 
 export default {
   name: 'MainConvertCsv',
@@ -19,14 +19,19 @@ export default {
   },
   data() {
     return {
-      linhas: null
+      linhas: null,
+      data_cars
     }
   },
   watch: {},
   beforeMount() {},
   mounted() {
     let result = [];
+
     // let temp = document.querySelector("").childNodes.forEach(x => {
+    //   if (Number.isNaN( Number(x.childNodes[8].childNodes[1].innerText) )) {
+    //     return;
+    //   }
     //   result.push({
     //     "class": x.childNodes[0].childNodes[0].innerText.toUpperCase(),
     //     "rq": Number(x.childNodes[0].childNodes[1].innerText),
@@ -47,46 +52,62 @@ export default {
     //     "weight": Number(x.childNodes[7].childNodes[1].wholeText.trim()),
     //   })
     // })
-    document.querySelectorAll(".country").forEach(x => {
-      let ct = {
-        name: `${x.children[0].children[0].innerText} ${x.children[0].children[1].innerText}`,
-        matches: []
-      }
-      x.querySelectorAll(".match-races").forEach((y, iy) => {
-        let race = {
-          number: iy + 1,
-          races: []
-        }
-        y.querySelectorAll(".race").forEach((z, iz) => {
-          let track = {
-            number: iz + 1,
-            name: z.children[0].innerHTML
-          }
 
-          let surface = z.children[1].innerHTML;
-          if (surface === "asphalt") track.surface = "0";
-          if (surface === "dirt") track.surface = "1";
-          if (surface === "gravel") track.surface = "2";
-          if (surface === "ice") track.surface = "3";
-          if (surface === "mixed") track.surface = "4";
-          if (surface === "sand") track.surface = "5";
-          if (surface === "snow") track.surface = "6";
-          if (surface === "grass") track.surface = "7";
+    // this.data_cars.map(x => {
+    //   result.find(y => {
+    //     if (x.tdid === y.tdid) {
+    //       if (x.mra === null) {
+    //         x.mra = y.mra;
+    //       } else if (x.mra !== y.mra) {
+    //         console.log(x.rid, x.mra, y.mra);
+    //       }
+    //       return true;
+    //     }
+    //   })
+    // })
 
-          let weatherDiv = z.querySelector(".race-weather");
-          if (weatherDiv.className.includes("sun")) track.weather = "0";
-          if (weatherDiv.className.includes("rain")) track.weather = "1";
+    // document.querySelectorAll(".country").forEach(x => {
+    //   let ct = {
+    //     name: `${x.children[0].children[0].innerText} ${x.children[0].children[1].innerText}`,
+    //     matches: []
+    //   }
+    //   x.querySelectorAll(".match-races").forEach((y, iy) => {
+    //     let race = {
+    //       number: iy + 1,
+    //       races: []
+    //     }
+    //     y.querySelectorAll(".race").forEach((z, iz) => {
+    //       let track = {
+    //         number: iz + 1,
+    //         name: z.children[0].innerHTML
+    //       }
 
-          let startDiv = z.querySelector(".race-start");
-          track.rolling = startDiv.className.includes("_fast");
+    //       let surface = z.children[1].innerHTML;
+    //       if (surface === "asphalt") track.surface = "0";
+    //       if (surface === "dirt") track.surface = "1";
+    //       if (surface === "gravel") track.surface = "2";
+    //       if (surface === "ice") track.surface = "3";
+    //       if (surface === "mixed") track.surface = "4";
+    //       if (surface === "sand") track.surface = "5";
+    //       if (surface === "snow") track.surface = "6";
+    //       if (surface === "grass") track.surface = "7";
+
+    //       let weatherDiv = z.querySelector(".race-weather");
+    //       if (weatherDiv.className.includes("sun")) track.weather = "0";
+    //       if (weatherDiv.className.includes("rain")) track.weather = "1";
+
+    //       let startDiv = z.querySelector(".race-start");
+    //       track.rolling = startDiv.className.includes("_fast");
           
-          race.races.push(track);
-        })
-        ct.matches.push(race)
-      })
-      result.push(ct);
-    })
-    navigator.clipboard.writeText(JSON.stringify(result));
+    //       race.races.push(track);
+    //     })
+    //     ct.matches.push(race)
+    //   })
+    //   result.push(ct);
+    // })
+
+    navigator.clipboard.writeText(JSON.stringify(this.data_cars));
+    debugger;
   },
   computed: {},
   methods: {
