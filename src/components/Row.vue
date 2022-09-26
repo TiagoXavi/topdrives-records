@@ -1153,6 +1153,8 @@ export default {
   position: absolute;
   right: 2px;
   bottom: 0px;
+  width: 96%;
+  text-align: right;
 }
 .Row_DetailsActive {
   box-shadow: inset -2px -2px 0px 0px rgb(var(--d-text-yellow)), inset 2px 2px 0px 0px rgb(var(--d-text-yellow)), 0px 0px 0px 0px rgb(var(--d-text-yellow)) !important;

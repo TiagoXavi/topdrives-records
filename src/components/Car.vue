@@ -390,6 +390,8 @@ export default {
   left: calc(var(--card-left-width) + 3.5%);
   color: var(--class-color);
   filter: drop-shadow(0px 1px 1px #000c);
+  width: 20%;
+  justify-content: flex-start;
 }
 .Row_DialogCardCard .Car_HeaderBlockStars {
   font-size: 0.8em;
