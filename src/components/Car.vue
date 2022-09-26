@@ -374,6 +374,10 @@ export default {
   font-size: 0.7em;
   right: calc(var(--card-right-width) + 1%);
   font-weight: 300;
+  width: 50%;
+  justify-content: flex-end;
+  display: block;
+  text-align: right;
 }
 .Car_HeaderBlockTires > :first-child {
   text-transform: uppercase;

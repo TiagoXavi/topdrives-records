@@ -5267,6 +5267,10 @@ body::-webkit-scrollbar-corner {
   font-family: 'JurisT' !important;
 
 }
+.Main_GameVersionText {
+  width: 100%;
+  text-align: center;
+}
 
 
 
@@ -5490,9 +5494,10 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint {
   --card-top-height: 12%;
+  --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
 }
 .Main_BodyPrint .Car_HeaderName {
-  margin-top: -1px;
+  /* margin-top: -1px; */
 }
 .Main_BodyPrint .Row_EmptyInvite {
   display: none;
