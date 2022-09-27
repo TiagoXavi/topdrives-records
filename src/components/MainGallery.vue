@@ -829,25 +829,25 @@ export default {
       let oldCar = this.pl14.find(old => old.rid === car.rid);
 
       if ( this.searchFilters.onlyNewRarityModel.includes(true) ) {
-        if ( oldCar.class === car.class ) {
+        if ( !oldCar || oldCar.class === car.class ) {
           return false;
         }
       }
 
       if ( this.searchFilters.onlyNewTyresModel.includes(true) ) {
-        if ( oldCar.tyres === car.tyres ) {
+        if ( !oldCar || oldCar.tyres === car.tyres ) {
           return false;
         }
       }
 
       if ( this.searchFilters.onlyNewDriveModel.includes(true) ) {
-        if ( oldCar.drive === car.drive ) {
+        if ( !oldCar || oldCar.drive === car.drive ) {
           return false;
         }
       }
 
       if ( this.searchFilters.onlyNewClearanceModel.includes(true) ) {
-        if ( oldCar.clearance === car.clearance ) {
+        if ( !oldCar || oldCar.clearance === car.clearance ) {
           return false;
         }
       }

@@ -549,6 +549,7 @@ export default {
         car: `${this.car.name} (${this.car.selectedTune})`,
         track: `${item.name} ${Vue.options.filters.resolveCond(item.trackType)}`,
         currentTime: Vue.options.filters.toTimeString(item.text, item.id),
+        timeAuthor: item.author,
         url: url
       }));
       

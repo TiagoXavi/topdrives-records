@@ -64,6 +64,13 @@
       @click.stop="$emit('delete', config)">
       <span class="Row_UploadLabel">Delete</span>
     </button>
+    <button
+      v-if="showApprove"
+      style="right: unset; left: 0;"
+      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen Row_UploadButton BaseGalleryItem_Delete"
+      @click.stop="$emit('approve', config)">
+      <span class="Row_UploadLabel">Approve</span>
+    </button>
   </div>
 </template>
 
@@ -83,6 +90,10 @@ export default {
       }
     },
     showDelete: {
+      type: Boolean,
+      default: false
+    },
+    showApprove: {
       type: Boolean,
       default: false
     }
@@ -172,6 +183,7 @@ export default {
   overflow: hidden;
 }
 .BaseGalleryItem_Image {
+  height: 100%;
   transform: scale(1.3) translateX(-16%);
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
@@ -261,8 +273,8 @@ export default {
 }
 .BaseGalleryItem_Delete.focus-visible,
 .BaseGalleryItem_Delete:hover,
-.BaseGalleryItem_Layout:hover + .BaseGalleryItem_Delete,
-.BaseGalleryItem_Layout.focus-visible + .BaseGalleryItem_Delete {
+.BaseGalleryItem_Layout:hover ~ .BaseGalleryItem_Delete,
+.BaseGalleryItem_Layout.focus-visible ~ .BaseGalleryItem_Delete {
   opacity: 1;
 }
 

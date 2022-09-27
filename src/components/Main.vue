@@ -695,12 +695,20 @@
           </div>
         </div>
 
-        
+        <div class="Main_SaveGalleryGuide">
+          <span v-if="user && !user.mod">Make sure that your template is useful to the community or it will not be approved. </span>
+          <span>Check out </span>
+          <a
+            href="/templateguide"
+            class="D_Link D_LinkUnder"
+            target="_blank">Template Guidelines</a>
+        </div>
+
         <button
           :class="{ D_Button_Loading: saveToGalleryLoading, D_Button_Error: saveToGalleryError }"
           :disabled="saveToGalleryLoading || saveToGalleryError"
           class="D_Button Main_SaveAllButton"
-          @click="saveToGallery()">Save to library</button>
+          @click="saveToGallery()">{{ user && user.mod ? "Save to library" : "Submit for review" }}</button>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -848,12 +856,16 @@
             count="6" />
         </div>
 
-        <div v-else-if="searchResult.length > 0" class="Main_SearchMid Main_SearchMidT">
+        
+
+        <div v-else-if="galleryList.length > 0" class="Main_SearchMid Main_SearchMidT">
           <BaseGalleryItem
             v-for="item in galleryList"
             :config="item"
             :showDelete="user && (item.user === user.username || user.mod)"
-            @delete="deleteTemplate($event)"
+            :showApprove="item.approve && user && user.mod"
+            @delete="mutateTemplate($event, true)"
+            @approve="mutateTemplate($event, false)"
             @push="decodeTemplateString($event, true); closeDialogGallery();" />
           <div v-if="galleryLastKey" class="D_Center" style="width: 100%">
             <button
@@ -861,9 +873,10 @@
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
               @click="changeFilterT(galleryLastKey)">Show more</button>
           </div>
+        </div>
 
-          
-
+        <div v-else class="Main_SearchEmpty">
+          <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
         </div>
 
 
@@ -1130,7 +1143,7 @@
             :class="`${ confirmDelete.loading ? 'D_Button_Loading ' : '' }`+
                     `${ confirmDelete.classe }`"
             :disabled="confirmDelete.loading"
-            class="D_Button Main_OptionsButton D_ButtonRed"
+            class="D_Button Main_OptionsButton"
             @click="confirmDelete.action">
             <span>{{ confirmDelete.actionLabel }}</span>
           </button>
@@ -1454,7 +1467,7 @@ export default {
         tagsModel: [],
         brandsModel: [],
         typesModel: [],
-        aprooveModel: false
+        approveModel: false
       },
       lastestContributionsResolved: [],
       // carDetailsList: default_cars,
@@ -2135,9 +2148,9 @@ export default {
       this.colorsChange(colors);
     }
 
-    if (this.$route.query && this.$route.query.aproove) {
-      // http://192.168.15.110:8081?aproove=t
-      this.galleryFilters.aprooveModel = true;
+    if (this.$route.query && this.$route.query.approve) {
+      // http://192.168.15.110:8081?approve=t
+      this.galleryFilters.approveModel = true;
       setTimeout(() => {
         this.openDialogGallery();
       }, 100);
@@ -2916,8 +2929,8 @@ export default {
           params[`max${key}`] = clearFilters[key][1];
         } else if (key === "classes") {
           params["class"] = clearFilters[key];
-        } else if (key === "aproove") {
-          params["aproove"] = clearFilters[key];
+        } else if (key === "approve") {
+          params["approve"] = clearFilters[key];
         } else {
           params[key.slice(0, -1)] = clearFilters[key];
         }
@@ -3564,7 +3577,7 @@ export default {
       this[type].tagsModel = [];
       this[type].brandsModel = [];
       this[type].typesModel = [];
-      this[type].aprooveModel = false;
+      this[type].approveModel = false;
     },
     resolveFilterCount(isGallery = false) {
       let type = isGallery ? "galleryFilters" : "searchFilters";
@@ -3584,7 +3597,7 @@ export default {
         tagsModel: [],
         brandsModel: [],
         typesModel: [],
-        aprooveModel: false
+        approveModel: false
       }
       let count = 0;
 
@@ -3592,7 +3605,7 @@ export default {
       let clearFilter = {};
       Object.keys( this[type] ).forEach(function (key) {
         if (key.includes("Model")) {
-          // if (key === 'aprooveModel') {
+          // if (key === 'approveModel') {
           //   debugger;
           // }
           if (defaults[key] !== undefined && JSON.stringify(vm[type][key]) !== JSON.stringify(defaults[key])) {
@@ -3736,10 +3749,10 @@ export default {
         ],
         minrq: null,
         maxrq: null,
-        save_rq: false,
+        save_rq: true,
         minyear: null,
         maxyear: null,
-        save_year: false,
+        save_year: true,
         drive: [],
         save_drive: false,
         brand: [],
@@ -3790,7 +3803,7 @@ export default {
         if (Array.isArray(t[key])) {
           if (key !== "types") {
             t[key] = [...new Set(t[key])]
-            if (t[key].length === 1) {
+            if (t[key].length > 0 && t[key].length < 3) {
               t[`save_${key}`] = true
             }
           }
@@ -3876,20 +3889,20 @@ export default {
       this.saveToGalleryError = true;
       setTimeout(() => { this.saveToGalleryError = false}, 1500);
     },
-    deleteTemplate(config) {
+    mutateTemplate(config, isDelete) {
       let vm = this;
 
       let action = function() {
         vm.confirmDelete.loading = true;
 
-        axios.post(Vue.preUrl + "/deleteTemplate", config)
+        axios.post(Vue.preUrl + `/${isDelete ? "delete" : "approve" }Template`, config)
         .then(res => {
           vm.confirmDelete.dialog = false;
           vm.galleryList = vm.galleryList.filter(x => x.date !== config.date)
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: "Successful delete"
+            text: `Successful ${isDelete ? "delete" : "approve" }`
           });
         })
         .catch(error => {
@@ -3912,11 +3925,11 @@ export default {
 
       this.confirmDelete = {
         dialog: true,
-        msg: `Deleting template "${config.name}" by ${config.user}. Are you sure?`,
-        actionLabel: "Delete",
+        msg: `${isDelete ? "Deleting" : "Approving" } template "${config.name}" by ${config.user}. Are you sure?`,
+        actionLabel: `${isDelete ? "Delete" : "Approve" }`,
         action: action,
         loading: false,
-        classe: "Delete"
+        classe: `${isDelete ? "D_ButtonRed" : "D_ButtonGreen" }`
       }
     },
     checkMemoryFromStorage() {
@@ -4324,6 +4337,12 @@ button.D_Button.D_Button_Error {
   --back-opac-foc: 1;
   background-color: rgba(150,0,0,1);
 }
+.D_Button.D_ButtonGreen {
+  --back-color: 0,200,0;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(0,150,0,1);
+}
 
 
 .D_Link {
@@ -4340,6 +4359,11 @@ button.D_Button.D_Button_Error {
 }
 .D_LinkPlus {
   background-color: rgba(255,255,255,0.03);
+}
+.D_LinkUnder {
+  color: inherit;
+  text-decoration: revert;
+  padding: 0px;
 }
 .add {
   color: #fff2;
@@ -5269,6 +5293,16 @@ body::-webkit-scrollbar-corner {
 }
 .Main_GameVersionText {
   width: 100%;
+  text-align: center;
+}
+.Main_SaveGalleryGuide {
+  font-size: 13px;
+  background-color: #a9904129;
+  box-shadow: inset 0px 0px 0px 2px #ffe39417;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin: 0 30px;
+  color: #cdc2a3;
   text-align: center;
 }
 

@@ -11,6 +11,7 @@ import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 import MainImportRude from "./components/MainImportRude.vue";
 import MainAnalyseDb from "./components/MainAnalyseDb.vue";
 
+import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
 import MainRegister from "./components/MainRegister.vue";
 import MainVerifyEmail from "./components/MainVerifyEmail.vue";
@@ -90,6 +91,12 @@ const routes = [
   //   title: 'Update RQ',
   //   component: MainUpdateRqData,
   // },
+  {
+    path: '/templateguide',
+    name: 'TemplateGuidelines',
+    title: 'TemplateGuidelines',
+    component: MainTemplateGuidelines,
+  },
   {
     path: '/login',
     name: 'Login',
