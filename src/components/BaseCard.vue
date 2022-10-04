@@ -21,7 +21,7 @@
         <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
         </button>
-        <button class="D_Button Car_HeaderButton" @click="$emit('delete')">
+        <button v-if="!needSave" class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
       </div>
@@ -54,11 +54,17 @@
         Car_HeaderNameBig: car.name.length > 31,
         Car_HeaderNameBigBig: car.name.length > 37
         }" class="Car_HeaderName">{{ car.name }}</div>
+      <div
+        class="Car_CompactOverlay"
+        @mousedown="$emit('dragdown', $event)"
+        @click="invertedClick($event)" />
     </div>
     <div
       :class="{ Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}`"
-      class="Car_Header2">
+      class="Car_Header2"
+      @mousedown="$emit('dragdown', $event)"
+      @click="invertedClick($event)">
       <div class="BaseCard_Header2Left">
         <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
       </div>
@@ -97,6 +103,10 @@ export default {
       type: Boolean,
       default: false
     },
+    needSave: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {}
@@ -129,7 +139,13 @@ export default {
       return parsed ? parsed : ''
     },
   },
-  methods: {},
+  methods: {
+    invertedClick(e) {
+      if (!this.needSave && e.shiftKey) {
+        this.$emit('delete');
+      }
+    }
+  },
 }
 </script>
 

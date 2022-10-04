@@ -1,6 +1,10 @@
 <template>
   <div
     :id="`Car_Layout${index}`"
+    :style="{
+      '--drag-left-slo': invertedView ? 7 : 1,
+      '--drag-top-slo': invertedView ? 1 : 7
+    }"
     v-if="car !== null"
     style="--drag-left: 0;--drag-top: 0;"
     class="Car_Layout">
@@ -8,6 +12,7 @@
       :car="car"
       :fix-back="true"
       :downloadLoading="downloadLoading"
+      :needSave="needSave"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
@@ -27,7 +32,6 @@
         @delete="$emit('delete')"
         type="times" />
     </div>
-    <div class="Car_DragIndicator"></div>
   </div>
   <div
     v-else
@@ -108,6 +112,18 @@ export default {
       type: Boolean,
       default: false
     },
+    needSave: {
+      type: Boolean,
+      default: false
+    },
+    invertedView: {
+      type: Boolean,
+      default: false
+    },
+    compact: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -150,15 +166,19 @@ export default {
       getComputedStyle(elmnt).getPropertyValue("--drag-left")
       getComputedStyle(elmnt).getPropertyValue("--drag-top")
       let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
+      let newTop = getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2;
       elmnt.style.setProperty("--drag-left", newLeft );
-      elmnt.style.setProperty("--drag-top", getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2 );
+      elmnt.style.setProperty("--drag-top", newTop );
       elmnt.classList.add("Car_Dragging");
       elmnt.parentElement.classList.add("Car_DraggingParent");
       
       let width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2))
-      // console.log(Math.floor(newLeft / width));
-      // console.log(newLeft, width, Math.round(newLeft / width));
+      if (this.compact) width = Number(getComputedStyle(document.querySelector(".Main_Compact")).getPropertyValue("--cell-width").trim().slice(0,-2))
+      let height;
+      if (this.invertedView) height = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-height").trim().slice(0,-2))
+
       dragNum = Math.round(newLeft / width);
+      if (this.invertedView) dragNum = Math.round(newTop / height);
       let times = Math.abs(dragNum);
       let cla = dragNum > 0 ? "Car_PushLeft" : "Car_PushRight";
       let div;
@@ -216,7 +236,7 @@ export default {
   width: var(--cell-width);
   
   /* margin-right: 3px; */
-  transform: translate( calc(var(--drag-left) * 1px), calc(var(--drag-top) * 1px / 7) );
+  transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
   position: relative;
 }
 .Car_Dragging {
@@ -234,24 +254,17 @@ export default {
 .Car_DraggingParent > :not(.Car_Dragging) {
   transition-duration: 0.3s;
 }
-.Car_DragIndicator {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 6px;
-  background-color: dodgerblue;
-  right: -2px;
-  z-index: 21;
-  display: none;
-}
-/* .Car_Dragging ~ .Car_Layout .Car_DragIndicator {
-  display: block;
-} */
 .Car_PushLeft {
   transform: translateX(calc(var(--cell-width) * -1));
 }
 .Car_PushRight {
   transform: translateX(var(--cell-width));
+}
+.Main_2 .Car_PushLeft {
+  transform: translateY(calc(var(--cell-height) * -1));
+}
+.Main_2 .Car_PushRight {
+  transform: translateY(var(--cell-height));
 }
 .Car_Header {
   height: calc(var(--top-height) - 6px);
@@ -570,6 +583,9 @@ export default {
 .Car_Body {
   color: #bbb;
 }
+.Car_CompactOverlay {
+  display: none;
+}
 
 
 
@@ -589,6 +605,8 @@ export default {
 }
 .Car_Header2 {
   display: none;
+  user-select: none;
+  cursor: grab;
 }
 .Main_2 .Main_Body .Car_Header2 {
   width: var(--left-width);
@@ -620,6 +638,12 @@ export default {
 .Car_Header2 b {
   color: var(--class-color);
   font-weight: normal;
+}
+.Main_Compact .Car_CompactOverlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
 }
 
 @media (pointer:coarse) {

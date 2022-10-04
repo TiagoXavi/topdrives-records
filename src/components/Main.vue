@@ -27,6 +27,7 @@
         </div>
         <div class="Main_GamePrintInfo">
           <div class="Main_GameVersionText">{{ gameVersion }}</div>
+          <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
         </div>
         <div class="Main_RowCornerBox">
           
@@ -110,6 +111,9 @@
               :downloadLoading="downloadLoading"
               :key="carIx"
               :voteLoading="voteLoading"
+              :needSave="needSave"
+              :invertedView="inverted"
+              :compact="compact"
               @delete="deleteCar(carIx)"
               @moreTracks="moreTracksCar($event)"
               @newindex="newIndex($event)" />
@@ -385,7 +389,7 @@
               <template>
                 <BaseTrackType
                   :circuit="circuit"
-                  @toggleTrack="toggleTrack($event)" />
+                  @toggleTrack="toggleTrack($event.track, $event.e)" />
               </template>
             </div>
           </div>
@@ -416,6 +420,7 @@
                 <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
               </button>
               <button
+                v-if="!needSave"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
                 @click="deleteCar(tuneDialogCarIndex)">
                 <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
@@ -426,8 +431,11 @@
             <button
               v-for="item in tuneDialogTunes"
               :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
-              class="D_Button Row_DialogButtonTune"
-              @click="changeTuneCar(tuneDialogCar, item)">{{ item }}</button>
+              class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
+              @click="changeTuneCar(tuneDialogCar, item)">
+              {{ item }}
+              <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+            </button>
           </div>
           <div class="Row_DialogBody Space_TopPlus">
             <div class="Row_DialogCard">
@@ -1044,7 +1052,7 @@
     <BaseDialog
       :active="aboutDialog"
       :transparent="false"
-      max-width="420px"
+      max-width="460px"
       min-width="240px"
       @close="aboutDialog = false;">
       <div style="position: relative;">
@@ -1830,27 +1838,32 @@ export default {
         {
           "name": "Monaco G-Force",
           "id": "mnGforce",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "monaco"
         },
         {
           "name": "Monaco Hairpin",
           "id": "mnHairpin",
-          "types": ["00","01","40","41"]
+          "types": ["00","01","40","41"],
+          "group": "monaco"
         },
         {
           "name": "Monaco Narrow Streets",
           "id": "mnCityNarrow",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "monaco"
         },
         {
           "name": "Monaco Streets",
           "id": "mnCity",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "monaco"
         },
         {
           "name": "Monaco Streets Long",
           "id": "mnCityLong",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "monaco"
         },
         {
           "name": "Motocross Track",
@@ -1860,32 +1873,38 @@ export default {
         {
           "name": "Mountain Hairpin",
           "id": "mtHairpin",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Mountain Hill Climb",
           "id": "mtHill",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Mountain Incline Road",
           "id": "mtIncline",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Mountain Slalom",
           "id": "mtSlalom",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Mountain Tour",
           "id": "mtTour",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Mountain Twisty Road",
           "id": "mtTwisty",
-          "types": ["00","01","11","60"]
+          "types": ["00","01","11","60"],
+          "group": "mt"
         },
         {
           "name": "Northloop",
@@ -1895,57 +1914,68 @@ export default {
         {
           "name": "Northloop 1",
           "id": "northloop1",
-          "types": ["00","60"]
+          "types": ["00","60"],
+          "group": "nLoop"
         },
         {
           "name": "Northloop 2",
           "id": "northloop2",
-          "types": ["00","60"]
+          "types": ["00","60"],
+          "group": "nLoop"
         },
         {
           "name": "Northloop 3",
           "id": "northloop3",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "nLoop"
         },
         {
           "name": "Northloop 4",
           "id": "northloop4",
-          "types": ["00","01","60"]
+          "types": ["00","01","60"],
+          "group": "nLoop"
         },
         {
           "name": "Northloop 5",
           "id": "northloop5",
-          "types": ["00","01","60"]
+          "types": ["00","01","60"],
+          "group": "nLoop"
         },
         {
           "name": "Ocean Beach Slalom",
           "id": "oceanSlalom",
-          "types": ["c0","c1"]
+          "types": ["c0","c1"],
+          "group": "ocean"
         },
         {
           "name": "Ocean City Streets",
           "id": "oceanCity",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "ocean"
         },
         {
           "name": "Ocean Highway",
           "id": "oceanHighway",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "ocean"
         },
         {
           "name": "Ocean Long Drag",
           "id": "oceanLongDrag",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "ocean"
         },
         {
           "name": "Ocean Parking Lot",
           "id": "oceanParking",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "ocean"
         },
         {
           "name": "Ocean Short Drag",
           "id": "oceanShortDrag",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "ocean"
         },
         {
           "name": "Rallycross Medium",
@@ -2010,32 +2040,38 @@ export default {
         {
           "name": "Tokyo Bridge",
           "id": "tokyoBridge",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Tokyo Drag",
           "id": "tokyoDrag",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Tokyo G-Force",
           "id": "tokyoGforce",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Tokyo Loop",
           "id": "tokyoLoop",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Tokyo Off Ramp",
           "id": "tokyoOffRamp",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Tokyo Overpass",
           "id": "tokyoOverpass",
-          "types": ["00","01"]
+          "types": ["00","01"],
+          "group": "tokyo"
         },
         {
           "name": "Town Slalom",
@@ -2259,10 +2295,16 @@ export default {
 
       }
 
+      if (mutation.type == "DELETE_TRACK") {
+        vm.currentTracks.splice(mutation.payload.track, 1);
+        vm.verifyActiveButtons();
+        vm.updateOptions();
+      }
+
       if (mutation.type == "CHANGE_TUNE") {
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
 
-        vm.changeTuneCar(car, mutation.payload.tune)
+        vm.changeTuneCar(car, mutation.payload.tune, true)
       }
 
       if (mutation.type == "CHANGE_STAT") {
@@ -2377,7 +2419,15 @@ export default {
         }
       });
 
-      contritrs = [...new Set(contritrs)]
+      var map = contritrs.reduce(function(p, c) {
+        p[c] = (p[c] || 0) + 1;
+        return p;
+      }, {});
+
+      contritrs = Object.keys(map).sort(function(a, b) {
+        return map[b] - map[a];
+      });
+
       return contritrs.join(", ")
     },
     filteredTracks() {
@@ -2443,7 +2493,19 @@ export default {
     },
     tuneDialogTunes() {
       let result = ["332", "323", "233"];
-      if (this.tuneDialogCar.class === "S") result.push("111");
+      if (this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") result.push("111");
+      return result;
+    },
+    tunesCount() {
+      if (!this.tuneDialogCar.data) return {};
+      let result = {};
+      this.tuneDialogTunes.map(tune => {
+        if (this.tuneDialogCar.data[tune]) {
+          if (this.tuneDialogCar.data[tune].times) {
+            result[tune] = Object.keys(this.tuneDialogCar.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
+          }
+        }
+      })
       return result;
     }
   },
@@ -2468,16 +2530,20 @@ export default {
       })
       this.verifyActiveButtons();
     },
-    pushTrack(track) {
+    pushTrack(track, group = false) {
       let index = this.indexOfTrack(track);
-      if (index === -1) {
+      if (index === -1 && !group) {
         this.currentTracks.push(...this.validateTracks([track]))
+      } else if (group) {
+        this.validateTracks([track], group)
       }
     },
-    removeTrack(track) {
+    removeTrack(track, group = false) {
       let index = this.indexOfTrack(track);
-      if (index > -1) {
+      if (index > -1 && !group) {
         this.currentTracks.splice(index, 1);
+      } else if (group) {
+        this.validateTracks([track], group)
       }
     },
     toggleTrackSet(trackset) {
@@ -2490,7 +2556,7 @@ export default {
         this.pushTrackSet(trackset);
       }
     },
-    toggleTrack(track) {
+    toggleTrack(track, e = {}) {
       let index = this.currentTracks.findIndex(y => {
         if (track === `${y.id}_a${y.surface}${y.cond}`) {
           return true
@@ -2498,37 +2564,61 @@ export default {
       });
       
       if (index === -1) {
-        this.pushTrack(track);
+        this.pushTrack(track, e.ctrlKey);
       } else {
-        this.removeTrack(track);
+        this.removeTrack(track, e.ctrlKey);
       }      
       this.verifyActiveButtons();
     },
     stringToggleTrackSet(str) {
       this.toggleTrackSet(this[str])
     },    
-    validateTracks(tracks) {
+    validateTracks(tracks, group = false) {
       let tracksClear = [];
+      let groupName;
+      let groupType;
+      let tracksetGroup = [];
 
       tracks.map(x => {
         this.tracksRepo.find(circuit => {
           circuit.types.find(type => {
             if (x === `${circuit.id}_a${type}`) {
-              tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1], code: `${circuit.id}_a${type}` } );
+              if (group && circuit.group) {
+                groupName = circuit.group;
+                groupType = type;
+              } else {
+                tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1], code: `${circuit.id}_a${type}` } );
+              }
               return true;
             }
           })
         })
       })
-      return tracksClear;
+      if (!group) {
+        return tracksClear;
+      } else {
+        // repeat
+        this.tracksRepo.map(circuit => {
+          if (groupName === circuit.group && circuit.types.includes(groupType)) {
+            tracksetGroup.push(`${circuit.id}_a${groupType}`)
+          }
+        })
+        this.toggleTrackSet(tracksetGroup);
+      }
     },
     moreTracksCar(tracksIds) {
       let notFound = [];
+      let forPush = [];
+      let typeOrder = ["00", "01", "c1", "10", "11", "40", "41", "20", "b0", "30", "50", "e0", "c0", "60", "d0", "70", "71"]
       tracksIds.map(x => {
-        let found = this.tracksRepo.find(circuit => {
-          return circuit.types.find(type => {
+        let found = this.tracksRepo.find((circuit, icir) => {
+          return circuit.types.find((type, itype) => {
             if ( `${circuit.id}_a${type}` === x ) {
-              this.toggleTrack(x);
+              forPush.push({
+                icir,
+                itype: typeOrder.indexOf(type),
+                code: x
+              });
               return true;
             }
           })
@@ -2537,6 +2627,18 @@ export default {
           notFound.push(x)
         }
       })
+
+      forPush.sort(function(a, b) {
+        if (a.itype === b.itype) {
+          return a.icir - b.icir
+        } else {
+          return a.itype - b.itype
+        }
+      })
+      forPush.map(x => {
+        this.toggleTrack(x.code);
+      })
+
       if (notFound.length > 0) {
         console.warn("Not found:", notFound);
       }
@@ -3208,6 +3310,7 @@ export default {
       axios.post(Vue.preUrl + "/update", simplifiedCars)
       .then(res => {
         this.needSaveChange(false);
+        this.clearDataToSave();
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -3695,16 +3798,18 @@ export default {
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
     },
-    changeTuneCar(car, newTune) {
+    changeTuneCar(car, newTune, fromRow = false) {
       if (newTune === car.selectedTune) {
         newTune = undefined
       }
 
       Vue.set(car, "selectedTune", newTune);
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      })
+      if (!fromRow) {
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        })
+      }
       this.updateCarLocalStorage();
     },
     changeStatCar(car, type, value) {
@@ -3960,6 +4065,11 @@ export default {
       setTimeout(() => {
         e.srcElement.classList.remove("D_Button_Correct");
       }, 1500);
+    },
+    clearDataToSave() {
+      this.carDetailsList.map(x => {
+        delete x.dataToSave;
+      });
     }
   },
 }
@@ -4982,7 +5092,7 @@ body::-webkit-scrollbar-corner {
 .Main_Disclaimer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 .D_Center {
   display: flex;
@@ -5422,7 +5532,7 @@ body::-webkit-scrollbar-corner {
   --card-top-height: 11.5%;
   --card-stat-height: 31.9px;
 }
-.Main_Compact .Car_Layout:not(.Car_LayoutAddCar) .Car_Header > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive) {
+.Main_Compact .Car_Layout:not(.Car_LayoutAddCar) .Car_Header > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay) {
   display: none;
 }
 .Main_Compact .Car_Layout {
@@ -5550,13 +5660,22 @@ body::-webkit-scrollbar-corner {
   box-shadow: unset;
 }
 .Main_Compact .Row_TuneChooseButton {
-  display: none;
+  /* display: none; */
+}
+.Main_Compact .Row_TuneChooseBox {
+  position: absolute;
+  flex-direction: column;
+  top: 4px;
+  background-color: #4c4c4c;
+  padding: 10px;
+  border-radius: 10px;
 }
 .Main_Compact .Car_Loading::after {
   left: 50%;
 }
 .Main_BodyPrint .Main_GamePrintInfo {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -5564,6 +5683,7 @@ body::-webkit-scrollbar-corner {
 }
 .Main_2 .Main_BodyPrint .Main_GamePrintInfo {
   margin-top: 0px;
+  flex-direction: row;
 }
 .Main_2 .Main_BodyPrint {
   --top-height: 93px;
@@ -5584,6 +5704,9 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint .Row_Campaign {
   display: none !important;
+}
+.Main_Compact .Main_BodyPrint .Row_TuneChooseBox {
+  display: none;
 }
 
 

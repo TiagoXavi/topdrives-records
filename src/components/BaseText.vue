@@ -84,7 +84,10 @@ export default {
           var topHand = new RegExp(/[0-9][0-9]+/g);
           var isTopHand = topHand.test(e);
     
-          if ((this.type === "acel" && isAcel) || (this.type === "topSpeed" && isTopHand) || (this.type === "hand" && isTopHand)) {
+          if ((this.type === "acel" && (isAcel || e === "0" || e === "N/A")) || (this.type === "topSpeed" && isTopHand) || (this.type === "hand" && isTopHand)) {
+            if (this.type === "acel" && e === "0") {
+              e = "N/A"
+            }
             this.$emit('change', e);
             this.correct = true;
             setTimeout(() => {

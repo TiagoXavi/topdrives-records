@@ -277,7 +277,8 @@ export default {
       alreadyUploaded: false,
       votedDownIndex: null,
       detailsItem: null,
-      dragIndex: null
+      dragIndex: null,
+      dragging: false
     }
   },
   watch: {
@@ -385,7 +386,7 @@ export default {
     },
     tunes() {
       let result = ["332", "323", "233"];
-      if (this.car.class === "S") result.push("111");
+      if (this.car.class === "S" || this.car.class === "A") result.push("111");
       return result;
     },
     tunesCount() {
@@ -468,7 +469,6 @@ export default {
       return false;
     },
     click(e, item, ix) {
-
       let currentIndex = this.detailIndex;
 
       this.$store.commit("HIDE_DETAIL", {
@@ -488,6 +488,12 @@ export default {
           }
         }
       })
+
+      if (this.type === "tracks" && e.shiftKey && !this.dragging) {
+        this.$store.commit("DELETE_TRACK", {
+          track: ix
+        });
+      }
       
       
 
@@ -653,6 +659,7 @@ export default {
       
     },
     elementDrag(e) {
+      this.dragging = true;
       // calculate the new cursor position:
       pos1 = mouseX - e.clientX;
       pos2 = mouseY - e.clientY;
@@ -671,8 +678,7 @@ export default {
       let height = Number(getComputedStyle(document.body).getPropertyValue("--cell-height").trim().slice(0,-2))
       let width;
       if (this.invertedView) width = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-width").trim().slice(0,-2))
-      // console.log(Math.floor(newTop / height));
-      // console.log(newTop, height, Math.round(newTop / height));
+
       dragNum = Math.round(newTop / height);
       if (this.invertedView) dragNum = Math.round(newLeft / width);
       let times = Math.abs(dragNum);
@@ -719,6 +725,10 @@ export default {
 
       document.onmouseup = null;
       document.onmousemove = null;
+
+      setTimeout(() => {
+        this.dragging = false;
+      }, 10);
     },
 
   },
@@ -971,6 +981,10 @@ export default {
   padding: 0 9px;
   border-radius: 0;
 }
+.D_Button.Row_DialogButtonTuneRelative {
+  position: relative;
+  background-color: rgba(0,0,0, 0.15);
+}
 .D_Button.Row_DialogButtonClose {
   background-color: #d5000033;
   --back-color: 200, 0, 0;
@@ -1203,7 +1217,15 @@ export default {
   opacity: 0.5;
 }
 .Main_2 .Row_DetailAuthor {
-  display: none;
+  background-color: hsl(var(--back-h), var(--back-s), 5%);
+  opacity: 1;
+  bottom: revert;
+  top: -12px;
+  width: auto;
+  padding: 1px 4px;
+  right: 0;
+  color: #8f8f8f;
+  border-top-left-radius: 5px;
 }
 .Row_VoteButton .ticon-thumbs_down {
   color: #e54c4c;
