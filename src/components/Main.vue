@@ -77,11 +77,12 @@
             type="tracks"
             @newindex="newIndex($event, false, true)">
           </Row>
-          <div v-if="smartCampaign.length > 0" class="Row_ShowMoreTracks Main_AddTrackBox">
+          <div class="Row_ShowMoreTracks Main_AddTrackBox">
             <button class="D_Button Main_AddTrackDirect" @click="openDialogTrackSearch(false)">
               <i class="ticon-plus_2" aria-hidden="true"/>
             </button>
             <button
+              v-if="smartCampaign.length > 0"
               class="D_Button D_ButtonLink Row_ShowMoreButton"
               @click="campaignDialog = true;">Campaign<span class="Main_CampaignGuide">&nbsp;guide</span></button>
           </div>
