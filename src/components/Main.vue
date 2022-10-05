@@ -5768,7 +5768,7 @@ body::-webkit-scrollbar-corner {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     grid-auto-flow: row;
   }
-  .Main_CampaignGuide {
+  .Main_AddTrackBox {
     gap: 5px;
   }
   .Main_CampaignGuide {
