@@ -77,10 +77,13 @@
             type="tracks"
             @newindex="newIndex($event, false, true)">
           </Row>
-          <div v-if="smartCampaign.length > 0" class="Row_ShowMoreTracks">
+          <div v-if="smartCampaign.length > 0" class="Row_ShowMoreTracks Main_AddTrackBox">
+            <button class="D_Button Main_AddTrackDirect" @click="openDialogTrackSearch(false)">
+              <i class="ticon-plus_2" aria-hidden="true"/>
+            </button>
             <button
               class="D_Button D_ButtonLink Row_ShowMoreButton"
-              @click="campaignDialog = true;">Campaign guide</button>
+              @click="campaignDialog = true;">Campaign<span class="Main_CampaignGuide">&nbsp;guide</span></button>
           </div>
         </div>
         <div v-if="user && !inverted" class="Main_UserBottom">
@@ -1293,6 +1296,7 @@ export default {
         null
       ],
       customTrackDialog: false,
+      backToOptionsDialog: true,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
       user: null,
@@ -1873,37 +1877,37 @@ export default {
         {
           "name": "Mountain Hairpin",
           "id": "mtHairpin",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
           "name": "Mountain Hill Climb",
           "id": "mtHill",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
           "name": "Mountain Incline Road",
           "id": "mtIncline",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
           "name": "Mountain Slalom",
           "id": "mtSlalom",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
           "name": "Mountain Tour",
           "id": "mtTour",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
           "name": "Mountain Twisty Road",
           "id": "mtTwisty",
-          "types": ["00","01","11","60"],
+          "types": ["00","01","10","11","60"],
           "group": "mt"
         },
         {
@@ -2864,9 +2868,10 @@ export default {
     closeDialogGallery() {
       this.galleryDialog = false;
     },
-    openDialogTrackSearch() {
+    openDialogTrackSearch(backToOptions = true) {
       this.customTrackDialog = true;
       this.optionsDialogActive = false;
+      this.backToOptionsDialog = backToOptions;
       setTimeout(() => {
         try {
           document.querySelector("#SearchTrackInput").focus();  
@@ -2875,7 +2880,7 @@ export default {
     },
     closeDialogTrackSearch() {
       this.customTrackDialog = false;
-      this.optionsDialogActive = true;
+      if (this.backToOptionsDialog) this.optionsDialogActive = true;
       this.searchTracks = '';
     },
     closeTune() {
@@ -5415,6 +5420,13 @@ body::-webkit-scrollbar-corner {
   color: #cdc2a3;
   text-align: center;
 }
+.Main_AddTrackBox {
+  gap: 15px;
+}
+.Main_AddTrackDirect {
+  color: #fff3;
+  --height: 28px;
+}
 
 
 
@@ -5522,6 +5534,10 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Row_TuneChooseBox .Row_ConfigButton:nth-child(5) {
   display: none;
 }
+.Main_2 .Main_AddTrackBox {
+  flex-direction: column;
+  gap: 0px;
+} 
 
 
 
@@ -5751,6 +5767,12 @@ body::-webkit-scrollbar-corner {
   .Main_CampaignMatch {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     grid-auto-flow: row;
+  }
+  .Main_CampaignGuide {
+    gap: 5px;
+  }
+  .Main_CampaignGuide {
+    display: none;
   }
 }
 @media only screen and (min-width: 768px) {

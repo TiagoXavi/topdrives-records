@@ -75,7 +75,7 @@
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <template v-if="car.selectedTune">
         <div class="Row_Placeholder">-</div>
-        <div class="Row_PlaceholderTune">tune {{ car.selectedTune }}</div>
+        <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
       <div v-if="type === 'tracks'" class="Row_Campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
@@ -760,7 +760,7 @@ export default {
   letter-spacing: 0.5px;
 }
 .Row_Hover:not(:hover) {
-  box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.04);
+  box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.08);
 }
 .Row_Content {
   text-align: center;
@@ -919,6 +919,9 @@ export default {
   color: var(--d-text);
   align-items: center;
   justify-content: center;
+  white-space: pre-line;
+  font-size: 15px;
+  line-height: 1;
 }
 .Row_ContentEmpty .Row_Content:not(:focus) ~ .Row_Placeholder {
   display: flex;
@@ -1157,9 +1160,9 @@ export default {
   margin-top: 4px;
   white-space: nowrap;
 }
-.Row_ShowMoreButton {
+.D_Button.Row_ShowMoreButton {
   padding: 8px !important;
-  color: #777 !important;
+  color: #777;
 }
 .Row_xRA {
   font-size: 8px;
