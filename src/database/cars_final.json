@@ -24,7 +24,8 @@
           "Hypercar",
           "Ultra Expensive",
           "Eco Friendly"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -49,7 +50,8 @@
       "tags": [
           "Hypercar",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -76,7 +78,8 @@
           "Ultra Expensive",
           "Hypercar",
           "Eco Friendly"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -101,7 +104,8 @@
       "tags": [
           "European Revolution",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -126,7 +130,8 @@
       "tags": [
           "European Revolution",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -152,7 +157,8 @@
           "Famous Tracks",
           "Motorsport",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -180,7 +186,8 @@
           "German Renaissance",
           "Motorsport",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -204,7 +211,8 @@
       "rid": "Lotus_Evija_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -228,7 +236,8 @@
       "rid": "Porsche_Mission_R_Concept_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -252,7 +261,8 @@
       "rid": "Rimac_Concept_S_2016",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -276,7 +286,8 @@
       "rid": "Rimac_E-Runner_Concept_One_2016",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -302,7 +313,8 @@
           "French Renaissance",
           "Ultra Expensive",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -352,7 +364,8 @@
       "tags": [
           "European Revolution",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -481,7 +494,8 @@
           "Hypercar",
           "Italian Renaissance",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -505,7 +519,8 @@
       "rid": "RUF_RTR_2016",
       "tags": [
           "German Renaissance"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -530,7 +545,8 @@
       "tags": [
           "Italian Renaissance",
           "Supercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -554,7 +570,8 @@
       "rid": "Lamborghini_Huracan_Performante_2018",
       "tags": [
           "Italian Renaissance"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -580,7 +597,8 @@
           "Italian Renaissance",
           "Ultra Expensive",
           "Year of the Tiger"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -606,7 +624,8 @@
           "Italian Renaissance",
           "The Horror Show",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -631,7 +650,8 @@
       "tags": [
           "European Revolution",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -655,7 +675,8 @@
       "rid": "Mercedes-Benz_C11_1990",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -729,7 +750,8 @@
           "European Revolution",
           "Ultra Expensive",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -805,7 +827,8 @@
       "tags": [
           "Drivers Choice",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -829,7 +852,8 @@
       "rid": "Arash_AF10_Hybrid_2016",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -853,7 +877,8 @@
       "rid": "Audi_R10_TDI_2006",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -877,7 +902,8 @@
       "rid": "Porsche_Cayenne_Turbo_GT_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -929,7 +955,8 @@
           "Two Tone",
           "Ultra Expensive",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -952,8 +979,10 @@
       "name": "Gumpert Intensa Emozione",
       "rid": "Gumpert_Intensa_Emozione_2019",
       "tags": [
-          "European Revolution"
-      ]
+          "European Revolution",
+          "Interstellar"
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1004,7 +1033,8 @@
       "tags": [
           "Motorsport",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1054,7 +1084,8 @@
       "tags": [
           "Drivers Choice",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1078,7 +1109,8 @@
       "rid": "Hennessey_Venom_F5_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1128,7 +1160,8 @@
           "European Revolution",
           "Ultra Expensive",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1152,7 +1185,8 @@
       "rid": "Lamborghini_Urus_2018",
       "tags": [
           "Italian Renaissance"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1202,7 +1236,8 @@
       "tags": [
           "American Dream",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1229,7 +1264,8 @@
           "Motorsport",
           "Two Tone",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1255,7 +1291,8 @@
           "Concept",
           "Eco Friendly",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1281,7 +1318,8 @@
           "European Revolution",
           "Ultra Expensive",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1354,7 +1392,8 @@
       "rid": "Mazda_787b_1990",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1379,7 +1418,8 @@
       "tags": [
           "Hypercar",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1430,7 +1470,8 @@
           "European Revolution",
           "Two Tone",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1456,7 +1497,8 @@
           "Italian Renaissance",
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1481,7 +1523,8 @@
       "tags": [
           "Wild Ride",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1507,7 +1550,8 @@
           "Riders on the Storm",
           "Wild Ride",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1531,7 +1575,8 @@
       "rid": "Ultima_RS_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1556,7 +1601,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1633,7 +1679,8 @@
           "Italian Renaissance",
           "Motorsport",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1660,7 +1707,8 @@
           "Ride of the Valkyries",
           "Ultra Expensive",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1685,7 +1733,8 @@
       "tags": [
           "German Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1786,7 +1835,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1811,7 +1861,8 @@
       "tags": [
           "Great Exhibition",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1836,7 +1887,8 @@
       "tags": [
           "French Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1860,7 +1912,8 @@
       "rid": "Hennessey_Venom_GT_Spyder_2016",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -1937,7 +1990,8 @@
           "Hypercar",
           "Italian Renaissance",
           "Ride of the Valkyries"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2036,7 +2090,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2111,7 +2166,8 @@
       "tags": [
           "Street Racer",
           "Innovative"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2184,7 +2240,8 @@
       "rid": "KTM_X-Bow_GTX_2020",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2232,7 +2289,8 @@
       "rid": "Porsche_935_'Moby_Dick'_1978",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2307,7 +2365,8 @@
       "tags": [
           "Concept",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2381,7 +2440,8 @@
       "rid": "Peugeot_Oxia_1988",
       "tags": [
           "European Revolution",
-          "Concept"
+          "Concept",
+          "Interstellar"
       ]
   },
   {
@@ -2625,7 +2685,8 @@
       "rid": "Gumpert_Apollo_N_2016",
       "tags": [
           "European Revolution",
-          "In the Shadows"
+          "In the Shadows",
+          "Interstellar"
       ]
   },
   {
@@ -2720,7 +2781,8 @@
       "rid": "Gumpert_Apollo_Enraged_2012",
       "tags": [
           "European Revolution",
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -2795,7 +2857,8 @@
       "tags": [
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2847,7 +2910,8 @@
           "Great Exhibition",
           "Motorsport",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2872,7 +2936,8 @@
       "tags": [
           "Drivers Choice",
           "Riders on the Storm"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -2918,7 +2983,8 @@
       "rid": "Mercedes-Benz_AMG_SLS_GT3_2014",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3093,7 +3159,8 @@
           "Concept",
           "Famous Tracks",
           "Japan Pro Tour"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3270,7 +3337,8 @@
       "rid": "Jaguar_XE_SV_Project_8_2017",
       "tags": [
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3297,7 +3365,8 @@
           "French Renaissance",
           "Motorsport",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3321,7 +3390,8 @@
       "rid": "Peugeot_Quasar_1984",
       "tags": [
           "European Revolution",
-          "Concept"
+          "Concept",
+          "Interstellar"
       ]
   },
   {
@@ -3371,7 +3441,8 @@
       "rid": "Donkervoort_D8_GTO-40_2018",
       "tags": [
           "European Revolution"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3396,7 +3467,8 @@
       "tags": [
           "World Expo",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3496,7 +3568,8 @@
           "American Dream",
           "Motorsport",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3623,7 +3696,8 @@
       "tags": [
           "German Renaissance",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3648,7 +3722,8 @@
       "tags": [
           "European Revolution",
           "Ride of the Valkyries",
-          "Team Favourite"
+          "Team Favourite",
+          "Interstellar"
       ]
   },
   {
@@ -3724,7 +3799,8 @@
           "European Revolution",
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3749,7 +3825,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -3896,7 +3973,8 @@
           "American Dream",
           "Concept",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4189,7 +4267,8 @@
       "tags": [
           "European Revolution",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4261,7 +4340,8 @@
       "rid": "W_Motors_Fenyr_SuperSport_2017",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4285,7 +4365,8 @@
       "rid": "Chevrolet_Corvette_ZR1_2019",
       "tags": [
           "American Dream"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4336,7 +4417,8 @@
       "rid": "Gumpert_Apollo_2006",
       "tags": [
           "European Revolution",
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -4362,7 +4444,8 @@
       "tags": [
           "Wild Ride",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4412,7 +4495,8 @@
       "tags": [
           "Ride of the Valkyries",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4437,7 +4521,8 @@
       "tags": [
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4462,7 +4547,8 @@
       "tags": [
           "Motorsport",
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4655,7 +4741,8 @@
       "rid": "Rezvani_Beast_X_2017",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4703,7 +4790,8 @@
       "rid": "W_Motors_Lykan_HyperSport_2014",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -4728,7 +4816,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5068,7 +5157,8 @@
       "rid": "Saleen_S7_Twin_Turbo_2005",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5291,7 +5381,8 @@
           "Famous Tracks",
           "Great Exhibition",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5563,7 +5654,8 @@
           "Great Exhibition",
           "Ultra Expensive",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5687,7 +5779,8 @@
       "tags": [
           "Famous Tracks",
           "Hypercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5784,7 +5877,8 @@
       "tags": [
           "Muscle Car",
           "American Dream"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -5910,7 +6004,8 @@
           "Famous Tracks",
           "Motorsport",
           "Team Favourite"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6007,7 +6102,8 @@
           "Muscle Car",
           "American Dream",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6153,7 +6249,8 @@
           "French Renaissance",
           "Style Icon",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6204,7 +6301,8 @@
       "tags": [
           "German Renaissance",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6277,7 +6375,8 @@
       "tags": [
           "German Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6426,7 +6525,8 @@
       "tags": [
           "Italian Renaissance",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6846,7 +6946,8 @@
       "weight": 1598,
       "name": "Chevrolet Corvette Z06",
       "rid": "Chevrolet_Corvette_Z06_2016",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "S",
@@ -6922,7 +7023,8 @@
           "Italian Renaissance",
           "Two Tone",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -6947,7 +7049,8 @@
       "tags": [
           "Great Exhibition",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7023,7 +7126,8 @@
       "rid": "KTM_X-Bow_GT4_2016",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7150,7 +7254,8 @@
       "tags": [
           "European Revolution",
           "The Horror Show"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7246,7 +7351,8 @@
       "rid": "Ford_RS200_Group_B_Rally_Car_1985",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7367,7 +7473,8 @@
       "rid": "Ford_GTX1_2005",
       "tags": [
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7416,7 +7523,8 @@
       "tags": [
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7566,7 +7674,8 @@
       "tags": [
           "Motorsport",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7838,7 +7947,8 @@
       "tags": [
           "World Expo",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -7862,7 +7972,8 @@
       "rid": "Mercedes-Benz_CLK_GTR_1998",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8008,7 +8119,8 @@
       "tags": [
           "Concept",
           "Italian Renaissance"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8082,7 +8194,8 @@
           "American Dream",
           "Concept",
           "Silver Screen"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8106,7 +8219,8 @@
       "rid": "Cadillac_CTS-V_2016",
       "tags": [
           "Muscle Car"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8225,7 +8339,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8399,7 +8514,8 @@
           "American Dream",
           "Muscle Car",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8519,7 +8635,8 @@
       "rid": "De_Tomaso_P72_2020",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8543,7 +8660,8 @@
       "rid": "Mercedes-Benz_AMG_GT4_2018",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "S",
@@ -8567,7 +8685,8 @@
       "rid": "Zenos_E10R_2016",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -8593,7 +8712,8 @@
           "American Dream",
           "Muscle Car",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -8837,7 +8957,8 @@
       "tags": [
           "Motorsport",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -8885,7 +9006,8 @@
       "rid": "RUF_CTR_Yellowbird_1987",
       "tags": [
           "German Renaissance"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -8958,7 +9080,8 @@
       "tags": [
           "Concept",
           "European Revolution",
-          "Year of the Tiger"
+          "Year of the Tiger",
+          "Interstellar"
       ]
   },
   {
@@ -8985,7 +9108,8 @@
           "French Renaissance",
           "Wild Ride",
           "Year of the Tiger"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9108,7 +9232,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9132,7 +9257,8 @@
       "rid": "AC_Cobra_378_Superblower_MkIV_2021",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9228,7 +9354,8 @@
       "rid": "Audi_R8_RWD_2020",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9549,7 +9676,8 @@
       "tags": [
           "Drivers Choice",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9575,7 +9703,8 @@
           "Drivers Choice",
           "German Renaissance",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -9778,7 +9907,8 @@
       "tags": [
           "Style Icon",
           "Ultra Expensive"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10089,7 +10219,8 @@
       "tags": [
           "Motorsport",
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10138,7 +10269,8 @@
       "tags": [
           "Concept",
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10189,7 +10321,8 @@
           "Famous Tracks",
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10258,7 +10391,8 @@
       "tags": [
           "Year of the Ox",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10307,7 +10441,8 @@
       "rid": "Subaru_Impreza_WRX_STI_S202_(GDB)_2002",
       "tags": [
           "Japan Pro Tour"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -10868,7 +11003,8 @@
       "name": "Volvo V60 T8 Polestar",
       "rid": "Volvo_V60_T8_Polestar_2020",
       "tags": [
-          "European Revolution"
+          "European Revolution",
+          "Interstellar"
       ]
   },
   {
@@ -10913,7 +11049,8 @@
       "weight": 2355,
       "name": "Porsche Cayenne Turbo",
       "rid": "Porsche_Cayenne_Turbo_2002",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "A",
@@ -11136,7 +11273,8 @@
           "Italian Renaissance",
           "Motorsport",
           "Two Tone"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -11452,7 +11590,8 @@
       "tags": [
           "German Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -11550,7 +11689,8 @@
       "rid": "Bentley_The_Sir_Peter_Blake_Continental_GT_2016",
       "tags": [
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -11722,7 +11862,8 @@
       "rid": "INFINITI_FX_Vettel_Edition_(S51)_2013",
       "tags": [
           "Japan Pro Tour"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -11991,7 +12132,8 @@
       "rid": "Porsche_Cayman_GT4_Clubsport_RGT_40_982_2018",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -12085,7 +12227,8 @@
           "American Frontier",
           "Call of the Wild",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -12578,7 +12721,8 @@
       "rid": "Ariel_Nomad_2018",
       "tags": [
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -12628,7 +12772,8 @@
       "rid": "Ford_Police_Interceptor_Sedan_2016",
       "tags": [
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -12678,7 +12823,8 @@
       "tags": [
           "Motorsport",
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -12796,7 +12942,8 @@
       "weight": 2335,
       "name": "Land Rover Range Rover Sport SVR",
       "rid": "Land_Rover_Range_Rover_Sport_SVR_2016",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "A",
@@ -12943,7 +13090,8 @@
           "Italian Renaissance",
           "Ride of the Valkyries",
           "Supercar"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -13505,7 +13653,8 @@
       "tags": [
           "Drivers Choice",
           "Year of the Tiger"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -13722,7 +13871,8 @@
       "rid": "Vauxhall_VXR8_GTS_2016",
       "tags": [
           "Muscle Car"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -13771,7 +13921,8 @@
       "tags": [
           "French Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -13919,7 +14070,8 @@
       "rid": "Subaru_Impreza_WRX_P1_(GC8G)_2000",
       "tags": [
           "Japan Pro Tour"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -13967,7 +14119,8 @@
       "rid": "Subaru_Impreza_22B_1998",
       "tags": [
           "Drivers Choice"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -14158,7 +14311,9 @@
       "weight": 1834,
       "name": "Volvo V60 Polestar",
       "rid": "Volvo_V60_Polestar_2015",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "A",
@@ -14260,7 +14415,8 @@
           "Motorsport",
           "Wild Ride",
           "Year of the Tiger"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -14454,7 +14610,8 @@
           "Famous Tracks",
           "French Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -14692,7 +14849,8 @@
       "rid": "Audi_RS3_LMS_TCR_(8V)_2018",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -14740,7 +14898,8 @@
       "rid": "De_Tomaso_Pantera_Group_4_1972",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -14764,7 +14923,8 @@
       "rid": "Lotus_Motorsport_Elise_1999",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -15104,7 +15264,8 @@
       "tags": [
           "Motorsport",
           "Style Icon"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -15176,7 +15337,8 @@
       "rid": "Volkswagen_Phaeton_2002",
       "tags": [
           "German Renaissance",
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -15201,7 +15363,8 @@
       "rid": "Alfa_Romeo_8C_Competizione_2007",
       "tags": [
           "Style Icon"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -15276,7 +15439,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -15909,7 +16073,8 @@
           "Call of the Wild",
           "Drivers Choice",
           "Rest of the World"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -16200,7 +16365,8 @@
       "tags": [
           "Motorsport",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -16523,7 +16689,8 @@
           "American Frontier",
           "Concept",
           "Muscle Car",
-          "Year of the Ox"
+          "Year of the Ox",
+          "Interstellar"
       ]
   },
   {
@@ -17539,7 +17706,8 @@
       "weight": 1874,
       "name": "Infiniti Q60 Red Sport 400 AWD",
       "rid": "Infiniti_Q60_Red_Sport_400_AWD_2017",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "A",
@@ -17780,7 +17948,8 @@
       "tags": [
           "Italian Renaissance",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -18093,7 +18262,8 @@
           "Italian Renaissance",
           "Supercar",
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -18679,7 +18849,8 @@
       "tags": [
           "Motorsport",
           "Two Tone"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -19460,7 +19631,8 @@
       "rid": "Audi_Type_C_Streamliner_1937",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "A",
@@ -19781,7 +19953,8 @@
       "tags": [
           "Old Guard",
           "Team Favourite"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -19924,7 +20097,8 @@
       "rid": "Renault_Alpine_A310_V6_Group_4B_1983",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -20118,7 +20292,8 @@
           "Japan Pro Tour",
           "Motorsport",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -20261,7 +20436,8 @@
       "tags": [
           "Motorsport",
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -20307,7 +20483,8 @@
       "rid": "AC_Cobra_378_GT_2012",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -20631,7 +20808,8 @@
       "rid": "Dodge_Challenger_SRT_392_2015",
       "tags": [
           "Muscle Car",
-          "American Frontier"
+          "American Frontier",
+          "Interstellar"
       ]
   },
   {
@@ -20951,7 +21129,8 @@
       "tags": [
           "American Dream",
           "Call of the Wild"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -21443,7 +21622,8 @@
           "American Dream",
           "Muscle Car",
           "Year of the Tiger"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -21734,7 +21914,8 @@
       "tags": [
           "American Frontier",
           "Muscle Car",
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -21812,7 +21993,8 @@
           "Ultra Expensive",
           "Old Guard",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -22254,7 +22436,8 @@
       "name": "Nissan Pulsar GTI-R (N14)",
       "rid": "Nissan_Pulsar_GTI-R_(N14)_1990",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Interstellar"
       ]
   },
   {
@@ -22429,7 +22612,8 @@
       "rid": "Ford_Taurus_SHO_2017",
       "tags": [
           "Ride of the Valkyries",
-          "Sleeper"
+          "Sleeper",
+          "Interstellar"
       ]
   },
   {
@@ -22650,7 +22834,8 @@
       "weight": 1350,
       "name": "Mazda BBR MX-5 GT270",
       "rid": "Mazda_BBR_MX-5_GT270_2013",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "B",
@@ -22722,7 +22907,8 @@
       "rid": "Acura_NSX-T_1998",
       "tags": [
           "Silver Screen"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -22747,7 +22933,8 @@
       "tags": [
           "Call of the Wild",
           "European Revolution"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -23040,7 +23227,8 @@
       "rid": "Chrysler_300_Glacier_Edition_2013",
       "tags": [
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -23278,7 +23466,8 @@
       "rid": "Land_Rover_Discovery_Sport_P250_AWD_2020",
       "tags": [
           "Great Exhibition",
-          "Year of the Rat"
+          "Year of the Rat",
+          "Interstellar"
       ]
   },
   {
@@ -23576,7 +23765,8 @@
           "Famous Tracks",
           "Japan Pro Tour",
           "Street Racer"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -23602,7 +23792,8 @@
           "Drivers Choice",
           "Famous Tracks",
           "Year of the Ox"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -23747,7 +23938,8 @@
       "name": "Nissan Xterra Off-Road (N50)",
       "rid": "Nissan_Xterra_Off-Road_(N50)_2010",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Interstellar"
       ]
   },
   {
@@ -23867,7 +24059,8 @@
       "name": "Saturn Vue Redline",
       "rid": "Saturn_Vue_Redline_2006",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -25024,7 +25217,8 @@
       "tags": [
           "American Dream",
           "Muscle Car"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -25411,7 +25605,8 @@
       "name": "Subaru Ascent",
       "rid": "Subaru_Ascent_2019",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Interstellar"
       ]
   },
   {
@@ -26090,7 +26285,8 @@
       "rid": "Rezvani_Tank_2017",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -26238,7 +26434,8 @@
       "tags": [
           "Concept",
           "Muscle Car",
-          "American Frontier"
+          "American Frontier",
+          "Interstellar"
       ]
   },
   {
@@ -26288,7 +26485,8 @@
       "tags": [
           "Great Exhibition",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -26644,7 +26842,8 @@
       "name": "Ariel Atom 1",
       "rid": "Ariel_Atom_1_1999",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -27151,7 +27350,8 @@
       "name": "Land Rover Discovery Si4",
       "rid": "Land_Rover_Discovery_Si4_2019",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -27719,7 +27919,8 @@
           "Call of the Wild",
           "Concept",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -28501,7 +28702,8 @@
       "name": "Lotus Europa S",
       "rid": "Lotus_Europa_S_2006",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -29376,7 +29578,8 @@
       "weight": 1175,
       "name": "DS 3 Performance",
       "rid": "DS_3_Performance_2016",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "B",
@@ -29622,7 +29825,8 @@
       "tags": [
           "World Expo",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -29646,7 +29850,8 @@
       "rid": "Lotus_Europa_SE_2008",
       "tags": [
           "Great Exhibition",
-          "Year of the Rat"
+          "Year of the Rat",
+          "Interstellar"
       ]
   },
   {
@@ -29672,7 +29877,8 @@
       "tags": [
           "Rest of the World",
           "Silver Screen"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -30355,7 +30561,8 @@
       "rid": "MercedesBenz_C111II_1970",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "B",
@@ -30789,7 +30996,8 @@
       "tags": [
           "American Dream",
           "Year of the Ox",
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -31011,7 +31219,8 @@
       "name": "Land Rover Discovery 5",
       "rid": "Land_Rover_Discovery_5_2017",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -31056,7 +31265,8 @@
       "weight": 1090,
       "name": "Mini Cooper S Works GP",
       "rid": "Mini_Cooper_S_Works_GP_2006",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "C",
@@ -31512,7 +31722,8 @@
       "name": "Saturn Vue",
       "rid": "Saturn_Vue_2008",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -31817,7 +32028,8 @@
       "rid": "Buick_GNX_1987",
       "tags": [
           "Muscle Car"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -31938,7 +32150,8 @@
       "rid": "Renault_R21_Turbo_Europa_Cup_1988",
       "tags": [
           "French Renaissance",
-          "Motorsport"
+          "Motorsport",
+          "Interstellar"
       ]
   },
   {
@@ -31985,7 +32198,9 @@
       "weight": 1863,
       "name": "Land Rover Discovery Sport",
       "rid": "Land_Rover_Discovery_Sport_2016",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "C",
@@ -32129,7 +32344,8 @@
       "rid": "Volkswagen_Phaeton_2014",
       "tags": [
           "German Renaissance",
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -32229,7 +32445,8 @@
           "American Dream",
           "Wild Ride",
           "Muscle Car"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -32295,7 +32512,9 @@
       "weight": 1779,
       "name": "Ford Galaxy",
       "rid": "Ford_Galaxy_2015",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "C",
@@ -32412,7 +32631,9 @@
       "weight": 1422,
       "name": "Ford Scorpio 24-valve",
       "rid": "Ford_Scorpio_24-valve_1991",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "C",
@@ -32712,7 +32933,8 @@
       "tags": [
           "Year of the Ox",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -33095,7 +33317,8 @@
       "tags": [
           "European Revolution",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -34070,7 +34293,8 @@
       "tags": [
           "Concept",
           "European Revolution"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -34192,7 +34416,8 @@
       "rid": "Chrysler_300_Motown_Edition_2013",
       "tags": [
           "American Frontier"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -34408,7 +34633,8 @@
       "rid": "Eagle_Talon_TSi_AWD_1996",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -35088,7 +35314,8 @@
       "rid": "Rover_220_Coupe_Turbo_1992",
       "tags": [
           "Wild Ride"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -35328,7 +35555,8 @@
       "tags": [
           "Japan Pro Tour",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -35565,7 +35793,8 @@
       "name": "Saturn Ion Red Line",
       "rid": "Saturn_Ion_Red_Line_2004",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -35589,7 +35818,8 @@
       "name": "Saturn Outlook",
       "rid": "Saturn_Outlook_2007",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -35613,8 +35843,10 @@
       "name": "Saturn Sky Red Line",
       "rid": "Saturn_Sky_Red_Line_2007",
       "tags": [
-          "World Expo"
-      ]
+          "World Expo",
+          "Interstellar"
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -35638,7 +35870,8 @@
       "rid": "Fiat_Abarth_695_Biposto_2017",
       "tags": [
           "Hot Hatch"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -35959,7 +36192,8 @@
       "rid": "Lancia_Rally_037_Stradale_1982",
       "tags": [
           "Two Tone"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -36078,8 +36312,10 @@
       "rid": "Lancia_Stratos_1973",
       "tags": [
           "Style Icon",
-          "Year of the Ox"
-      ]
+          "Year of the Ox",
+          "Interstellar"
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -36153,7 +36389,8 @@
       "tags": [
           "Famous Tracks",
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -36860,7 +37097,8 @@
       "name": "Saturn Aura XR",
       "rid": "Saturn_Aura_XR_2007",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -37810,7 +38048,8 @@
       "rid": "Oldsmobile_Bravada_1996",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -37881,7 +38120,8 @@
       "name": "Saturn Vue",
       "rid": "Saturn_Vue_2002",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -37956,7 +38196,8 @@
       "tags": [
           "American Frontier",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -38249,7 +38490,9 @@
       "weight": 2583,
       "name": "Land Rover Discovery",
       "rid": "Land_Rover_Discovery_2011",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "C",
@@ -38345,7 +38588,8 @@
       "rid": "Citroen_BX_4TC_1982",
       "tags": [
           "Motorsport"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -40114,7 +40358,8 @@
       "tags": [
           "Style Icon",
           "The Horror Show"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "C",
@@ -40384,7 +40629,8 @@
       "rid": "Nissan_Xterra_(WD22)_1999",
       "tags": [
           "Christmas Collection",
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Interstellar"
       ]
   },
   {
@@ -40686,7 +40932,8 @@
       "name": "Ford Granada Scorpio",
       "rid": "Ford_Granada_Scorpio_1985",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -40710,7 +40957,8 @@
       "name": "Oldsmobile Aurora 4.0",
       "rid": "Oldsmobile_Aurora_40_2001",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -42698,7 +42946,8 @@
       "name": "Land Rover Discovery 3",
       "rid": "Land_Rover_Discovery_3_2004",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -43056,7 +43305,8 @@
       "rid": "Dodge_Stratus_RT_Coupe_2004",
       "tags": [
           "American Frontier",
-          "Christmas Collection"
+          "Christmas Collection",
+          "Interstellar"
       ]
   },
   {
@@ -43646,7 +43896,8 @@
           "American Dream",
           "Muscle Car",
           "Ride of the Valkyries"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "D",
@@ -44234,7 +44485,8 @@
       "rid": "Ford_Capri_Perana_1971",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "D",
@@ -45129,7 +45381,8 @@
       "name": "Oldsmobile Aurora",
       "rid": "Oldsmobile_Aurora_1995",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -45153,7 +45406,8 @@
       "name": "Saturn Astra XR",
       "rid": "Saturn_Astra_XR_2008",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -45577,7 +45831,8 @@
       "tags": [
           "Great Exhibition",
           "The Horror Show",
-          "Year of the Ox"
+          "Year of the Ox",
+          "Interstellar"
       ]
   },
   {
@@ -45866,7 +46121,8 @@
       "name": "Honda Odyssey",
       "rid": "Honda_Odyssey_2016",
       "tags": [
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -46302,7 +46558,8 @@
       "name": "Vauxhall Astra",
       "rid": "Vauxhall_Astra_2016",
       "tags": [
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -46375,7 +46632,8 @@
       "rid": "Ford_Capri_Tickford_Turbo_1983",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "D",
@@ -46967,7 +47225,8 @@
           "Muscle Car",
           "American Frontier",
           "In the Shadows"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "D",
@@ -47993,7 +48252,8 @@
       "name": "Ford Probe GT",
       "rid": "Ford_Probe_GT_1989",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "Interstellar"
       ]
   },
   {
@@ -48456,7 +48716,8 @@
       "name": "Mazda Cosmo",
       "rid": "Mazda_Cosmo_1975",
       "tags": [
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -49650,7 +49911,8 @@
       "name": "Nissan Pulsar",
       "rid": "Nissan_Pulsar_1995",
       "tags": [
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -50268,7 +50530,8 @@
       "rid": "Ford_Taurus_SHO_1993",
       "tags": [
           "American Frontier",
-          "Sleeper"
+          "Sleeper",
+          "Interstellar"
       ]
   },
   {
@@ -50411,7 +50674,8 @@
       "name": "Vauxhall Astra GTE",
       "rid": "Vauxhall_Astra_GTE_1988",
       "tags": [
-          "Hot Hatch"
+          "Hot Hatch",
+          "Interstellar"
       ]
   },
   {
@@ -50938,7 +51202,8 @@
       "rid": "Mercedes-Benz_300_SLR_1955",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "D",
@@ -50961,7 +51226,8 @@
       "name": "Saturn SC",
       "rid": "Saturn_SC_1991",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -51838,7 +52104,9 @@
       "weight": 1245,
       "name": "Nissan Pulsar",
       "rid": "Nissan_Pulsar_2015",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "E",
@@ -52076,7 +52344,8 @@
       "rid": "Geo_Storm_GSi_1992",
       "tags": [
           "World Expo"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -52099,7 +52368,8 @@
       "name": "Saturn Sky",
       "rid": "Saturn_Sky_2007",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -52205,7 +52475,8 @@
           "Concept",
           "Italian Renaissance",
           "Old Guard"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -52450,7 +52721,8 @@
       "rid": "Chrysler_Laser_XT_1984",
       "tags": [
           "American Dream",
-          "Year of the Rat"
+          "Year of the Rat",
+          "Interstellar"
       ]
   },
   {
@@ -52829,7 +53101,9 @@
       "weight": 930,
       "name": "Mazda Cosmo",
       "rid": "Mazda_Cosmo_1967",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "E",
@@ -53161,7 +53435,8 @@
       "name": "Saturn LS100",
       "rid": "Saturn_LS100_2000",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -53456,7 +53731,8 @@
       "name": "Honda Odyssey 3.5 V6",
       "rid": "Honda_Odyssey_3.5_V6_2005",
       "tags": [
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -54441,7 +54717,9 @@
       "weight": 1120,
       "name": "Mazda Cosmo",
       "rid": "Mazda_Cosmo_1981",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "E",
@@ -54582,7 +54860,8 @@
       "tags": [
           "World Expo",
           "Concept"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -54629,7 +54908,8 @@
       "name": "Saturn LW",
       "rid": "Saturn_LW_2000",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -55422,7 +55702,8 @@
       "rid": "Alfa_Romeo_Disco_Volante_(C52)_1952",
       "tags": [
           "Italian Renaissance",
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -56258,7 +56539,8 @@
       "name": "Oldsmobile Starfire Firenza",
       "rid": "Oldsmobile_Starfire_Firenza_1978",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -56609,7 +56891,8 @@
       "tags": [
           "Christmas Collection",
           "Great Exhibition"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -57323,7 +57606,8 @@
       "name": "Oldsmobile Starfire GT",
       "rid": "Oldsmobile_Starfire_GT_1978",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -57347,7 +57631,8 @@
       "name": "Saturn Ion",
       "rid": "Saturn_Ion_2003",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -57692,7 +57977,8 @@
       "name": "Land Rover Discovery 1",
       "rid": "Land_Rover_Discovery_1_1989",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Interstellar"
       ]
   },
   {
@@ -58346,7 +58632,8 @@
       "tags": [
           "World Expo",
           "Style Icon"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -58369,7 +58656,8 @@
       "name": "Oldsmobile Starfire Coupe",
       "rid": "Oldsmobile_Starfire_Coupe_1962",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -58393,7 +58681,8 @@
       "name": "Oldsmobile Starfire V8",
       "rid": "Oldsmobile_Starfire_V8_1977",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -58521,7 +58810,8 @@
           "Famous Tracks",
           "Motorsport",
           "Team Favourite"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "E",
@@ -58884,7 +59174,8 @@
       "rid": "Dodge_Intrepid_ES_3.3L_V6_1993",
       "tags": [
           "American Dream",
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -59284,7 +59575,8 @@
       "rid": "Volkswagen_up_2013",
       "tags": [
           "German Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "Interstellar"
       ]
   },
   {
@@ -59601,7 +59893,8 @@
       "name": "Vauxhall Nova GTE",
       "rid": "Vauxhall_Nova_GTE_1987",
       "tags": [
-          "Hot Hatch"
+          "Hot Hatch",
+          "Interstellar"
       ]
   },
   {
@@ -61312,7 +61605,9 @@
       "weight": 1165,
       "name": "Vauxhall Astra 1.6i",
       "rid": "Vauxhall_Astra_1.6i_2004",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "F",
@@ -61500,7 +61795,9 @@
       "weight": 1665,
       "name": "Renault Espace",
       "rid": "Renault_Espace_2002",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "F",
@@ -61526,7 +61823,8 @@
           "Eco Friendly",
           "Two Tone",
           "Year of the Rat"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "F",
@@ -61691,7 +61989,8 @@
       "name": "Oldsmobile Starfire",
       "rid": "Oldsmobile_Starfire_1975",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -62046,7 +62345,9 @@
       "weight": 755,
       "name": "Nissan Pulsar",
       "rid": "Nissan_Pulsar_1982",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "F",
@@ -62352,7 +62653,8 @@
       "rid": "Austin_Healey_3000_1959",
       "tags": [
           "Style Icon"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "F",
@@ -62623,7 +62925,7 @@
       "name": "Chrysler Drifter",
       "rid": "Chrysler_Drifter_1977",
       "tags": [
-        "American Dream"
+          "American Dream"
       ]
   },
   {
@@ -62899,7 +63201,8 @@
       "name": "Honda Odyssey 2.3",
       "rid": "Honda_Odyssey_2.3_1995",
       "tags": [
-          "Ride of the Valkyries"
+          "Ride of the Valkyries",
+          "Interstellar"
       ]
   },
   {
@@ -63114,7 +63417,8 @@
       "weight": 1105,
       "name": "Austin Ambassador",
       "rid": "Austin_Ambassador_1982",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "F",
@@ -63282,7 +63586,9 @@
       "weight": 870,
       "name": "Nissan Pulsar",
       "rid": "Nissan_Pulsar_1978",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "F",
@@ -63711,7 +64017,8 @@
       "weight": 776,
       "name": "Austin 1100",
       "rid": "Austin_1100_1963",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "F",
@@ -64651,7 +64958,8 @@
       "name": "Saturn Relay",
       "rid": "Saturn_Relay_2005",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Interstellar"
       ]
   },
   {
@@ -64774,7 +65082,8 @@
       "weight": 979,
       "name": "Austin Maxi",
       "rid": "Austin_Maxi_1969",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "F",
@@ -65161,7 +65470,8 @@
       "weight": 800,
       "name": "Austin Allegro",
       "rid": "Austin_Allegro_1979",
-      "tags": []
+      "tags": [],
+      "prize": true
   },
   {
       "class": "F",
@@ -66130,7 +66440,9 @@
       "weight": 940,
       "name": "Vauxhall Astra 1.6",
       "rid": "Vauxhall_Astra_1.6_1979",
-      "tags": []
+      "tags": [
+          "Interstellar"
+      ]
   },
   {
       "class": "F",
@@ -66716,7 +67028,8 @@
       "name": "Vauxhall Astra 1.2",
       "rid": "Vauxhall_Astra_1.2_1984",
       "tags": [
-          "Year of the Rat"
+          "Year of the Rat",
+          "Interstellar"
       ]
   },
   {
@@ -66766,7 +67079,8 @@
       "rid": "Austin_Healey_Sprite_1958",
       "tags": [
           "Style Icon"
-      ]
+      ],
+      "prize": true
   },
   {
       "class": "F",
@@ -67209,7 +67523,8 @@
       "name": "Fiat 8V Supersonic",
       "rid": "Fiat_8V_Supersonic_1953",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "Interstellar"
       ]
   },
   {
