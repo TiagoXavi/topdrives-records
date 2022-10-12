@@ -6,7 +6,11 @@
       Main_ColorsFull: fullColors,
       Main_ColorsMedal: !fullColors
     }" class="Main_Layout" @click.stop="outsideClick()">
-    <div :class="{ Main_BodyEmpty: carDetailsList.length === 0 }" class="Main_Body" @click.stop="outsideClick()">
+    <div
+      v-if="mode === 'classic'"
+      :class="{ Main_BodyEmpty: carDetailsList.length === 0 }"
+      class="Main_Body"
+      @click.stop="outsideClick()">
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
         <div class="Main_Logo">
@@ -20,6 +24,9 @@
           <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
             <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
           </button>
+          <!-- <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="mode = 'cg'">
+            <i class="ticon-flag Main_MenuIcon" aria-hidden="true"/>
+          </button> -->
         </div>
         <div v-if="user && inverted" class="Main_PrintBy">
           <div class="Main_PrintByLabel">print by</div>
@@ -156,6 +163,25 @@
         </div>
       </div>
     </div>
+    <div
+      v-else-if="mode === 'cg'"
+      class="Main_CgLayout">
+      <div class="Main_CgHeader">
+        <div class="Main_CgHeaderLeft"></div>
+        <div class="Main_CgHeaderRight"></div>
+      </div>
+      <div class="Main_CgMid">
+        <div class="Main_CgBox">
+          <div class="Main_CgRace">
+            <div class="Main_CgOpponent"></div>
+            <div class="Main_CgThemTime"></div>
+            <div class="Main_CgTrack"></div>
+            <div class="Main_CgYouTime"></div>
+            <div class="Main_CgSlot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <BaseDialog
       :active="searchActive"
       :transparent="true"
@@ -276,12 +302,20 @@
                 label="MRA"
                 class="Main_FilterSlider" />
             </div>
-            <BaseDualSlider
-              v-model="searchFilters.weightModel"
-              :min="searchFilters.weightStart"
-              :max="searchFilters.weightEnd"
-              label="Weight"
-              class="Main_FilterSlider" />
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.weightModel"
+                :min="searchFilters.weightStart"
+                :max="searchFilters.weightEnd"
+                label="Weight"
+                class="Main_FilterSlider" />
+              <BaseDualSlider
+                v-model="searchFilters.seatsModel"
+                :min="searchFilters.seatsStart"
+                :max="searchFilters.seatsEnd"
+                label="Seats"
+                class="Main_FilterSlider" />
+            </div>
             <div class="Main_FilterChips2">
               <template v-for="(item, ix) in searchFilters.countrys">
                 <BaseChip
@@ -293,10 +327,44 @@
               </template>
             </div>
             <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.prizes">
+                <BaseChip
+                  v-model="searchFilters.prizesModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex" style="margin: 0 10px;">
+              <template v-for="(item, ix) in searchFilters.bodyTypes">
+                <BaseChip
+                  v-model="searchFilters.bodyTypesModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.fuel">
+                <BaseChip
+                  v-model="searchFilters.fuelModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">Engine position</div>
+              <template v-for="(item, ix) in searchFilters.engine">
+                <BaseChip
+                  v-model="searchFilters.engineModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
-                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
               </template>
             </div>
@@ -485,15 +553,21 @@
               </div>
             </div>
           </div>
+          <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags Space_TopPlus">
+            <BaseGameTag
+              v-for="tag in tuneDialogCar.tags"
+              :key="tag"
+              :tag="tag" />
+          </div>
           <div class="Row_DialogCardDual Space_TopPlus">
             <div class="Row_DialogCardBottom">
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">ABS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.abs }" class="Row_DialogCardStatValue">{{ tuneDialogCar.abs ? 'Yes' : 'No' }}</div>
+                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.abs ? 'Yes' : 'No' }}</div>
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">TCS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
+                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">Clearance</div>
@@ -508,9 +582,23 @@
                 <div class="Row_DialogCardStatValue">{{ tuneDialogCar.weight }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Tags</div>
-                <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardStatValue Row_DialogCardStatTags">{{ tuneDialogCar.tags.join(", ") }}</div>
-                <div v-else class="Row_DialogCardStatValue">-</div>
+                <div class="Row_DialogCardStatLabel">Fuel</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.fuel }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Seats</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.seats }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Engine pos</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.engine }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">Body style</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.bodyTypes.join(", ") }}</div>
+              </div>
+              <div class="Row_DialogCardStat">
+                
               </div>
             </div>
             <div class="Row_DialogCardExternalBox">
@@ -835,7 +923,8 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="galleryFilters.tagsModel"
-                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
               </template>
             </div>
@@ -1190,6 +1279,7 @@ import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
+import BaseGameTag from './BaseGameTag.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -1211,6 +1301,7 @@ export default {
     BaseAvatar,
     BaseDualSlider,
     BaseChip,
+    BaseGameTag,
     BaseCheckBox,
     BaseContentLoader,
     BaseFlag,
@@ -1271,7 +1362,6 @@ export default {
       galleryDialog: false,
       galleryDialogNew: true,
       galleryList: [],
-      galleryPage: 1,
       galleryLastKey: undefined,
       saveToGalleryDialog: false,
       saveToGalleryModel: {},
@@ -1300,6 +1390,106 @@ export default {
       backToOptionsDialog: true,
       hoverIndex: -1,
       gameVersion: "Game v15.00",
+      mode: "classic",
+      cg: {
+        currentRound: 0,
+        rounds_count: 10,
+        id: "expo_campaign_iv",
+        name: "Expo Campaign IV",
+        date: "2022-09-10T19:11:29.830Z",
+        user: "duck",
+        rounds: [
+          {
+            rqLimit: 230,
+            date: "2022-09-10T19:11:29.830Z",
+            user: "duck",
+            filter: {
+              tagsModel: ["World Expo"],
+            },
+            races: [
+              {
+                rid: "Volvo_V70_R_2000",
+                tune: null,
+                track: "mile1_a00",
+                time: 35.46,
+                cars: [
+                  {
+                    rid: "Bristol_403_1953",
+                    points: -50
+                  },
+                  {
+                    rid: "Lancia_Aprilia_Sport_Zagato_1938",
+                    points: 50
+                  },
+                  {
+                    rid: "Ford_EXP_1982",
+                    points: 59
+                  }
+                ]
+              },
+              {
+                rid: null,
+                tune: null,
+                track: null,
+                time: null,
+                cars: [
+                  {
+                    rid: "Lotus_Esprit_V8_2002",
+                    points: 50
+                  },
+                  {
+                    rid: "Ford_Mustang_GT_Power_Pack_2016",
+                    points: 50
+                  },
+                ]
+              },
+              {
+                rid: "Dodge_Charger_RT_Concept_1999",
+                tune: null,
+                track: "draglshape_a01",
+                time: 39.48,
+                cars: [
+                  {
+                    rid: "Lotus_Esprit_V8_2002",
+                    points: 50
+                  },
+                  {
+                    rid: "Ford_Mustang_GT_Power_Pack_2016",
+                    points: 50
+                  },
+                ]
+              },
+              {
+                rid: "Renault_Safrane_Biturbo_1992",
+                tune: "323",
+                track: "mnCity_a01",
+                time: 109.12,
+                cars: []
+              },
+              {
+                rid: null,
+                tune: null,
+                track: "rallySmall_a40",
+                time: 56.14,
+                cars: [
+                  {
+                    rid: "Volkswagen_Jetta_2019",
+                    points: -50
+                  },
+                  {
+                    rid: "Eagle_Talon_TSi_AWD_1990",
+                    points: 50
+                  },
+                ]
+              },
+            ],
+          }
+        ]
+      },
+      cgDialog: false,
+      cgDialogNew: true,
+      cgList: [],
+      cgLastKey: undefined,
       user: null,
       showCarsFix: true,
       needSave: false,
@@ -1331,6 +1521,9 @@ export default {
         weightStart: 300,
         weightEnd: 4000,
         weightModel: [],
+        seatsStart: 1,
+        seatsEnd: 9,
+        seatsModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
@@ -1342,6 +1535,14 @@ export default {
         clearancesModel: [],
         countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR", "AE", "BR", "ZA", "CN"],
         countrysModel: [],
+        prizes: ["Prize Cars", "Non-Prize Cars"],
+        prizesModel: [],
+        bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
+        bodyTypesModel: [],
+        fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
+        fuelModel: [],
+        engine: ["Back", "Mid", "Mid-rear", "Mixed", "Front"],
+        engineModel: [],
         tags: [
           "American Dream",
           "American Frontier",
@@ -1360,10 +1561,12 @@ export default {
           "Hypercar",
           "In the Shadows",
           "Innovative",
+          "Interstellar",
           "Italian Renaissance",
           "Japan Pro Tour",
           "Motorsport",
           "Muscle Car",
+          "Old Guard",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
@@ -1472,11 +1675,16 @@ export default {
         handModel: [],
         mraModel: [],
         weightModel: [],
+        seatsModel: [],
         classesModel: [],
         tyresModel: [],
         drivesModel: [],
         clearancesModel: [],
         countrysModel: [],
+        prizesModel: [],
+        bodyTypesModel: [],
+        fuelModel: [],
+        engineModel: [],
         tagsModel: [],
         brandsModel: [],
         typesModel: [],
@@ -3046,9 +3254,6 @@ export default {
 
       if (lastKey) {
         params.LastEvaluatedKey = lastKey;
-        this.galleryPage += 1; 
-      } else {
-        this.galleryPage = 1
       }
 
       
@@ -3662,12 +3867,7 @@ export default {
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 150];
       if (type === "weightModel") return [300, 4000];
-      // if (type === "classesModel") return [];
-      // if (type === "tyresModel") return [];
-      // if (type === "drivesModel") return [];
-      // if (type === "clearancesModel") return [];
-      // if (type === "countrysModel") return [];
-      // if (type === "brandsModel") return [];
+      if (type === "seatsModel") return [1, 9];
     },
     clearFilter(isGallery = false) {
       let type = isGallery ? "galleryFilters" : "searchFilters";
@@ -3678,11 +3878,16 @@ export default {
       this[type].handModel = this.defaultFilters("handModel");
       this[type].mraModel = this.defaultFilters("mraModel");
       this[type].weightModel = this.defaultFilters("weightModel");
+      this[type].seatsModel = this.defaultFilters("seatsModel");
       this[type].classesModel = [];
       this[type].tyresModel = [];
       this[type].drivesModel = [];
       this[type].clearancesModel = [];
       this[type].countrysModel = [];
+      this[type].prizesModel = [];
+      this[type].bodyTypesModel = [];
+      this[type].fuelModel = [];
+      this[type].engineModel = [];
       this[type].tagsModel = [];
       this[type].brandsModel = [];
       this[type].typesModel = [];
@@ -3698,11 +3903,16 @@ export default {
         handModel: this.defaultFilters("handModel"),
         mraModel: this.defaultFilters("mraModel"),
         weightModel: this.defaultFilters("weightModel"),
+        seatsModel: this.defaultFilters("seatsModel"),
         classesModel: [],
         tyresModel: [],
         drivesModel: [],
         clearancesModel: [],
         countrysModel: [],
+        prizesModel: [],
+        bodyTypesModel: [],
+        fuelModel: [],
+        engineModel: [],
         tagsModel: [],
         brandsModel: [],
         typesModel: [],
@@ -3745,6 +3955,7 @@ export default {
         if ( !this.filterCheckBetween(car.mra, this.searchFilters.mraModel) ) return false;
       }
       if ( !this.filterCheckBetween(car.weight, this.searchFilters.weightModel) ) return false;
+      if ( !this.filterCheckBetween(car.seats, this.searchFilters.seatsModel) ) return false;
 
       // includes
       if ( !this.filterCheckIncludes(car.class, this.searchFilters.classesModel) ) return false;
@@ -3752,9 +3963,18 @@ export default {
       if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
       if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+
+      if ( !this.filterCheckIncludes(car.fuel, this.searchFilters.fuelModel) ) return false;
+      if ( !this.filterCheckIncludes(car.engine, this.searchFilters.engineModel) ) return false;
+      
+      if ( !this.filterCheckIncludesArray(car.bodyTypes, this.searchFilters.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
       if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
 
+      if ( this.searchFilters.prizesModel.length > 0 ) {
+        if ( car.prize && !this.searchFilters.prizesModel.includes("Prize Cars") ) return false;
+        if ( !car.prize && !this.searchFilters.prizesModel.includes("Non-Prize Cars") ) return false;
+      }
 
       return true;
     },
@@ -4131,7 +4351,7 @@ body {
   --card-stat-back-l: 10%;
   --card-stat-back-a: 0.2;
   --card-right-width: 20%;
-  --card-left-width: 10%;
+  --card-left-width: 11%;
   --card-top-height: 15%;
   --card-left-height: 28%;
   --card-stat-div: 0%;
@@ -5050,6 +5270,12 @@ body::-webkit-scrollbar-corner {
   justify-content: center;
   gap: 5px;
 }
+.Main_FilterChipsLabel {
+  position: absolute;
+  top: -16px;
+  font-size: 12px;
+  opacity: 0.5;
+}
 .Main_FilterClassChips {
   max-width: 430px;
   width: 100%;
@@ -5427,6 +5653,13 @@ body::-webkit-scrollbar-corner {
 .Main_AddTrackDirect {
   color: #fff3;
   --height: 28px;
+}
+
+
+
+.Main_CgLayout {
+  width: 100%;
+
 }
 
 

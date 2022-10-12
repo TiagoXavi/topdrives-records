@@ -1,0 +1,251 @@
+<template>
+  <div class="BaseGameTag_Layout" :class="`BaseGameTag_${tag.replaceAll(' ', '_')}`">{{ tag }}</div>
+</template>
+
+<script>
+
+export default {
+  name: 'BaseGameTag',
+  components: {},
+  props: {
+    tag: {
+      type: String,
+      default: ""
+    }
+  },
+  data() {
+    return {}
+  },
+  watch: {},
+  beforeMount() {},
+  mounted() {},
+  computed: {},
+  methods: {},
+}
+</script>
+
+<style>
+.BaseGameTag_Layout {
+  color: #e1e1e1;
+  font-size: 13px;
+  padding: 3px 7px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 0px 2px hsl(var(--tag-h), var(--tag-s), var(--tag-l));
+  background-color: hsl(var(--tag-h), var(--tag-s), 15%);
+}
+.BaseGameTag_Filter {
+  box-shadow: inset 0px -2px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%);
+}
+.BaseGameTag_American_Dream {
+  --tag-h: 241;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
+.BaseGameTag_American_Frontier {
+  --tag-h: 18;
+  --tag-s: 79%;
+  --tag-l: 38%;
+}
+.BaseGameTag_Around_the_World {
+  --tag-h: 224;
+  --tag-s: 80%;
+  --tag-l: 69%;
+}
+.BaseGameTag_Call_of_the_Wild {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 94%;
+}
+.BaseGameTag_Christmas_Collection {
+  --tag-h: 57;
+  --tag-s: 75%;
+  --tag-l: 84%;
+}
+.BaseGameTag_Concept {
+  --tag-h: 168;
+  --tag-s: 66%;
+  --tag-l: 89%;
+}
+.BaseGameTag_Drivers_Choice {
+  --tag-h: 4;
+  --tag-s: 70%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Eco_Friendly {
+  --tag-h: 120;
+  --tag-s: 70%;
+  --tag-l: 49%;
+}
+.BaseGameTag_European_Revolution {
+  --tag-h: 141;
+  --tag-s: 34%;
+  --tag-l: 28%;
+}
+.BaseGameTag_Famous_Tracks {
+  --tag-h: 273;
+  --tag-s: 67%;
+  --tag-l: 31%;
+}
+.BaseGameTag_French_Renaissance {
+  --tag-h: 235;
+  --tag-s: 65%;
+  --tag-l: 61%;
+}
+.BaseGameTag_German_Renaissance {
+  --tag-h: 40;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
+.BaseGameTag_Great_Exhibition {
+  --tag-h: 38;
+  --tag-s: 76%;
+  --tag-l: 57%;
+}
+.BaseGameTag_Hot_Hatch {
+  --tag-h: 290;
+  --tag-s: 74%;
+  --tag-l: 72%;
+}
+.BaseGameTag_Hypercar {
+  --tag-h: 258;
+  --tag-s: 64%;
+  --tag-l: 55%;
+}
+.BaseGameTag_In_the_Shadows {
+  --tag-h: 187;
+  --tag-s: 55%;
+  --tag-l: 38%;
+}
+.BaseGameTag_Innovative {
+  --tag-h: 38;
+  --tag-s: 70%;
+  --tag-l: 47%;
+}
+.BaseGameTag_Interstellar {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Italian_Renaissance {
+  --tag-h: 133;
+  --tag-s: 69%;
+  --tag-l: 30%;
+}
+.BaseGameTag_Japan_Pro_Tour {
+  --tag-h: 340;
+  --tag-s: 65%;
+  --tag-l: 41%;
+}
+.BaseGameTag_Motorsport {
+  --tag-h: 216;
+  --tag-s: 70%;
+  --tag-l: 77%;
+}
+.BaseGameTag_Muscle_Car {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 82%;
+}
+.BaseGameTag_Old_Guard {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Rest_of_the_World {
+  --tag-h: 141;
+  --tag-s: 34%;
+  --tag-l: 28%;
+}
+.BaseGameTag_Ride_of_the_Valkyries {
+  --tag-h: 58;
+  --tag-s: 44%;
+  --tag-l: 76%;
+}
+.BaseGameTag_Riders_on_the_Storm {
+  --tag-h: 187;
+  --tag-s: 55%;
+  --tag-l: 35%;
+}
+.BaseGameTag_Silver_Screen {
+  --tag-h: 222;
+  --tag-s: 8%;
+  --tag-l: 70%;
+}
+.BaseGameTag_Sleeper {
+  --tag-h: 312;
+  --tag-s: 70%;
+  --tag-l: 58%;
+}
+.BaseGameTag_Street_Racer {
+  --tag-h: 0;
+  --tag-s: 70%;
+  --tag-l: 74%;
+}
+.BaseGameTag_Style_Icon {
+  --tag-h: 99;
+  --tag-s: 49%;
+  --tag-l: 83%;
+}
+.BaseGameTag_Sub-Zero {
+  --tag-h: 177;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
+.BaseGameTag_Summer_Games {
+  --tag-h: 10;
+  --tag-s: 66%;
+  --tag-l: 39%;
+}
+.BaseGameTag_Supercar {
+  --tag-h: 214;
+  --tag-s: 70%;
+  --tag-l: 58%;
+}
+.BaseGameTag_Team_Favourite {
+  --tag-h: 47;
+  --tag-s: 70%;
+  --tag-l: 50%;
+}
+.BaseGameTag_The_Horror_Show {
+  --tag-h: 74;
+  --tag-s: 23%;
+  --tag-l: 52%;
+}
+.BaseGameTag_Two_Tone {
+  --tag-h: 321;
+  --tag-s: 55%;
+  --tag-l: 42%;
+}
+.BaseGameTag_Ultra_Expensive {
+  --tag-h: 275;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
+.BaseGameTag_Wild_Ride {
+  --tag-h: 21;
+  --tag-s: 70%;
+  --tag-l: 50%;
+}
+.BaseGameTag_World_Expo {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Year_of_the_Ox {
+  --tag-h: 5;
+  --tag-s: 75%;
+  --tag-l: 43%;
+}
+.BaseGameTag_Year_of_the_Rat {
+  --tag-h: 49;
+  --tag-s: 69%;
+  --tag-l: 63%;
+}
+.BaseGameTag_Year_of_the_Tiger {
+  --tag-h: 5;
+  --tag-s: 69%;
+  --tag-l: 44%;
+}
+
+
+</style>

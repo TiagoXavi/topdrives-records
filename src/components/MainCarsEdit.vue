@@ -133,12 +133,20 @@
                 label="MRA"
                 class="Main_FilterSlider" />
             </div>
-            <BaseDualSlider
-              v-model="searchFilters.weightModel"
-              :min="searchFilters.weightStart"
-              :max="searchFilters.weightEnd"
-              label="Weight"
-              class="Main_FilterSlider" />
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.weightModel"
+                :min="searchFilters.weightStart"
+                :max="searchFilters.weightEnd"
+                label="Weight"
+                class="Main_FilterSlider" />
+              <BaseDualSlider
+                v-model="searchFilters.seatsModel"
+                :min="searchFilters.seatsStart"
+                :max="searchFilters.seatsEnd"
+                label="Seats"
+                class="Main_FilterSlider" />
+            </div>
             <div class="Main_FilterChips2">
               <template v-for="(item, ix) in searchFilters.countrys">
                 <BaseChip
@@ -147,6 +155,39 @@
                   :value="item" >
                   <BaseFlag :flag="item" />
                 </BaseChip>
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.prizes">
+                <BaseChip
+                  v-model="searchFilters.prizesModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex" style="margin: 0 10px;">
+              <template v-for="(item, ix) in searchFilters.bodyTypes">
+                <BaseChip
+                  v-model="searchFilters.bodyTypesModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.fuel">
+                <BaseChip
+                  v-model="searchFilters.fuelModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">Engine position</div>
+              <template v-for="(item, ix) in searchFilters.engine">
+                <BaseChip
+                  v-model="searchFilters.engineModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :value="item" />
               </template>
             </div>
             <div class="Main_FilterChipsFlex">
@@ -267,6 +308,9 @@ export default {
         weightStart: 300,
         weightEnd: 4000,
         weightModel: [],
+        seatsStart: 1,
+        seatsEnd: 9,
+        seatsModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
@@ -283,6 +327,14 @@ export default {
         clearancesModel: [],
         countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR", "AE", "BR", "ZA", "CN"],
         countrysModel: [],
+        prizes: ["Prize Cars", "Non-Prize Cars"],
+        prizesModel: [],
+        bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
+        bodyTypesModel: [],
+        fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
+        fuelModel: [],
+        engine: ["Back", "Mid", "Mid-rear", "Mixed", "Front"],
+        engineModel: [],
         tags: [
           "American Dream",
           "American Frontier",
@@ -301,10 +353,12 @@ export default {
           "Hypercar",
           "In the Shadows",
           "Innovative",
+          "Interstellar",
           "Italian Renaissance",
           "Japan Pro Tour",
           "Motorsport",
           "Muscle Car",
+          "Old Guard",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
@@ -650,12 +704,7 @@ export default {
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 150];
       if (type === "weightModel") return [300, 4000];
-      // if (type === "classesModel") return [];
-      // if (type === "tyresModel") return [];
-      // if (type === "drivesModel") return [];
-      // if (type === "clearancesModel") return [];
-      // if (type === "countrysModel") return [];
-      // if (type === "brandsModel") return [];
+      if (type === "seatsModel") return [1, 9];
     },
     clearFilter() {
       this.searchFilters.yearModel = this.defaultFilters("yearModel");
@@ -665,6 +714,7 @@ export default {
       this.searchFilters.handModel = this.defaultFilters("handModel");
       this.searchFilters.mraModel = this.defaultFilters("mraModel");
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
+      this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
       this.searchFilters.onlyNewRarityModel = [];
       this.searchFilters.onlyNewTyresModel = [];
@@ -675,6 +725,10 @@ export default {
       this.searchFilters.drivesModel = [];
       this.searchFilters.clearancesModel = [];
       this.searchFilters.countrysModel = [];
+      this.searchFilters.prizesModel = [];
+      this.searchFilters.bodyTypesModel = [];
+      this.searchFilters.fuelModel = [];
+      this.searchFilters.engineModel = [];
       this.searchFilters.tagsModel = [];
       this.searchFilters.brandsModel = [];
     },
@@ -687,6 +741,7 @@ export default {
         handModel: this.defaultFilters("handModel"),
         mraModel: this.defaultFilters("mraModel"),
         weightModel: this.defaultFilters("weightModel"),
+        seatsModel: this.defaultFilters("seatsModel"),
         classesModel: [],
         onlyNewRarityModel: [],
         onlyNewTyresModel: [],
@@ -697,6 +752,10 @@ export default {
         drivesModel: [],
         clearancesModel: [],
         countrysModel: [],
+        prizesModel: [],
+        bodyTypesModel: [],
+        fuelModel: [],
+        engineModel: [],
         tagsModel: [],
         brandsModel: []
       }
@@ -726,6 +785,7 @@ export default {
         if ( !this.filterCheckBetween(car.mra, this.searchFilters.mraModel) ) return false;
       }
       if ( !this.filterCheckBetween(car.weight, this.searchFilters.weightModel) ) return false;
+      if ( !this.filterCheckBetween(car.seats, this.searchFilters.seatsModel) ) return false;
 
       // includes
       if ( !this.filterCheckIncludes(car.class, this.searchFilters.classesModel) ) return false;
@@ -733,8 +793,18 @@ export default {
       if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
       if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+
+      if ( !this.filterCheckIncludes(car.fuel, this.searchFilters.fuelModel) ) return false;
+      if ( !this.filterCheckIncludes(car.engine, this.searchFilters.engineModel) ) return false;
+
+      if ( !this.filterCheckIncludesArray(car.bodyTypes, this.searchFilters.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
       if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
+
+      if ( this.searchFilters.prizesModel.length > 0 ) {
+        if ( car.prize && !this.searchFilters.prizesModel.includes("Prize Cars") ) return false;
+        if ( !car.prize && !this.searchFilters.prizesModel.includes("Non-Prize Cars") ) return false;
+      }
 
       let oldCar = this.pl14.find(old => old.rid === car.rid);
 
