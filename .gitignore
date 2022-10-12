@@ -4,6 +4,7 @@ node_modules
 */imgs
 */cards_imgs
 cars_short.json
+MainExtr.vue
 db.json
 rude_all.json
 *.ini
