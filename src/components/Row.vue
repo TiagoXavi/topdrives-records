@@ -1046,6 +1046,9 @@ export default {
 .Row_DialogCardStatValue {
   color: var(--d-text-b);
 }
+.Row_DialogCardStatRed {
+  color: rgb(var(--d-text-red));
+}
 .Row_DialogCardStatCorrect {
   color: rgb(var(--d-text-green));
 }
@@ -1063,6 +1066,11 @@ export default {
 }
 .Row_DialogCardDual {
   display: flex;
+}
+.Row_DialogCardTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 .Row_DialogCardExternalBox {
   display: flex;

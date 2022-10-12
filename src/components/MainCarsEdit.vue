@@ -1,7 +1,7 @@
 <template>
-  <div class="MainGallery_Layout">
-    <div class="MainGallery_FilterLayout">
-      <div class="MainGallery_SearchHeader">
+  <div class="MainCarsEdit_Layout">
+    <div class="MainCarsEdit_FilterLayout">
+      <div class="MainCarsEdit_SearchHeader">
         <div class="Main_SearchHeader">
           <div v-if="!isFiltering" class="Main_SearchFieldBox">
             <input
@@ -165,7 +165,7 @@
                   :value="item" />
               </template>
             </div>
-            <div class="Main_FilterChipsFlex">
+            <div class="Main_FilterChipsFlex" style="margin: 0 10px;">
               <template v-for="(item, ix) in searchFilters.bodyTypes">
                 <BaseChip
                   v-model="searchFilters.bodyTypesModel"
@@ -194,8 +194,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
-                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
                   :value="item" />
               </template>
             </div>
@@ -219,113 +218,22 @@
         </div>
       </div>
     </div>
-    <div class="MainGallery_Box">
+    <div class="MainCarsEdit_Tool">
+      <button
+        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig D_ButtonDarkPrimary"
+        @click="processAll()">Done</button>
+    </div>
+    <div class="MainCarsEdit_Box">
       <div
         v-for="(car, ix) in searchResult"
-        class="MainGallery_Item">
-        <div v-if="car.visible">
+        v-if="car.visible"
+        class="MainCarsEdit_Item">
           
-          <div v-if="diff_searchResult[ix].new === true" class="MainGallery_NewCar">New</div>
-          <div v-else-if="Object.keys(diff_searchResult[ix]).length === 0" class="MainGallery_Empty"></div>
-          <template v-else>
-
-            <div
-              v-if="diff_searchResult[ix].rq"
-              class="MainGallery_Rq MainGallery_Color">
-              {{ diff_searchResult[ix].rq }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].topSpeed"
-              class="MainGallery_topSpeed MainGallery_Color">
-              {{ diff_searchResult[ix].topSpeed }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].acel"
-              class="MainGallery_acel MainGallery_Color">
-              {{ diff_searchResult[ix].acel }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].hand"
-              class="MainGallery_hand MainGallery_Color">
-              {{ diff_searchResult[ix].hand }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].drive"
-              class="MainGallery_drive MainGallery_Color">
-              {{ diff_searchResult[ix].drive }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].tyres"
-              class="MainGallery_tyres MainGallery_Color">
-              {{ diff_searchResult[ix].tyres }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].class"
-              :style="`--class-color: ${diff_searchResult[ix].color};`"
-              class="MainGallery_Class">
-              {{ diff_searchResult[ix].class }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].year"
-              class="MainGallery_Small MainGallery_Year MainGallery_Color">
-              {{ diff_searchResult[ix].year }}
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].abs !== diff_searchResult[ix]._abs"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._abs }"
-              class="MainGallery_Small MainGallery_Abs MainGallery_Color">
-              ABS
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].tcs !== diff_searchResult[ix]._tcs"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._tcs }"
-              class="MainGallery_Small MainGallery_Tcs MainGallery_Color">
-              TCS
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].clearance"
-              class="MainGallery_Clearance MainGallery_Compare">
-              <div class="MainGallery_CompareLabel">Clearance</div>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix].clearance }}</div>
-              <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix]._clearance }}</div>
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].mra"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix].mra < diff_searchResult[ix]._mra }"
-              class="MainGallery_Mra MainGallery_Compare">
-              <div class="MainGallery_CompareLabel">MRA</div>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix].mra || "?" }}</div>
-              <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix]._mra || "?" }}</div>
-            </div>
-
-            <div
-              v-if="diff_searchResult[ix].weight"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix].weight > diff_searchResult[ix]._weight }"
-              class="MainGallery_Weight MainGallery_Compare">
-              <div class="MainGallery_CompareLabel">Weight</div>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix].weight }}</div>
-              <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
-              <div class="MainGallery_Old">{{ diff_searchResult[ix]._weight }}</div>
-            </div>
-
-          </template>
-          
-          <BaseCardGallery
+          <BaseCarEditCard
             :car="car"
-            :options="false" />
+            :marked="car.prize === true"
+            :options="false"
+            @action="actionClick(car)" />
 
         </div>
       </div>
@@ -334,7 +242,7 @@
 </template>
 
 <script>
-import BaseCardGallery from './BaseCardGallery.vue'
+import BaseCarEditCard from './BaseCarEditCard.vue'
 import data_cars from '../database/cars_final.json'
 import pl14 from '../database/cars_final_PL14.json'
 import BaseDualSlider from './BaseDualSlider.vue'
@@ -342,9 +250,9 @@ import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
 
 export default {
-  name: 'MainGallery',
+  name: 'MainCarsEdit',
   components: {
-    BaseCardGallery,
+    BaseCarEditCard,
     BaseDualSlider,
     BaseChip,
     BaseFlag
@@ -360,6 +268,7 @@ export default {
       all_cars: data_cars,
       pl14: pl14,
       diff_cars: [],
+      collection: [],
       searchInput: '',
       searchActive: false,
       isFiltering: false,
@@ -628,7 +537,7 @@ export default {
 
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 333 || showAll) {
+        if (result.length < 400 || showAll) {
 
           let shouldPush = false;
           if (searchStr && searchStr !== "") {
@@ -965,7 +874,7 @@ export default {
       console.log(car.name);
     },
     handleScroll() {
-      let total = document.querySelector(".MainGallery_Layout").offsetHeight;
+      let total = document.querySelector(".MainCarsEdit_Layout").offsetHeight;
       let current = window.scrollY;
       if (!total) {
         debugger;
@@ -981,6 +890,7 @@ export default {
         return;
       }
       let total = this.searchResult.length;
+      console.log(total);
 
       if (total < 200) {
         this.showAllChunk = true;
@@ -995,8 +905,10 @@ export default {
         if ( matchedChunk === chunkId || matchedChunk === chunkId-1 || matchedChunk === chunkId+1 ) {
           x.visible = true;
           // console.log(index);
+          // console.log(index);
         }
       })
+
       // console.log("loading", chunkId);
       // this.chunkLoaded[chunkId-1] = true;
       this.chunkLoaded[chunkId] = true;
@@ -1007,13 +919,51 @@ export default {
       console.log(str);
       console.log(str.replaceAll("(","").replaceAll(")","").replaceAll(".","").replaceAll("-",""));
       navigator.clipboard.writeText(str);
+    },
+    action() {
+      this.all_cars.map(x => {
+        if (c.rid === x.rid) {
+          // action
+
+        }
+      })
+
+    },
+    processAll() {
+      // this.searchResult.map(c => {
+      //   this.all_cars.map(x => {
+      //     if (c.rid === x.rid) {
+      //       // action
+      //       x.tags.push('Old Guard')
+  
+      //     }
+      //   })
+      // })
+      // this.all_cars.map(x => {
+      //   delete x.visible
+      // });
+      this.all_cars.map(x => {
+        delete x.visible
+      });
+      debugger;
+    },
+    actionClick(car) {
+      this.all_cars.map(x => {
+        if (car.rid === x.rid) {
+          if (x.prize) {
+            Vue.set(x, "prize", false)
+          } else {
+            Vue.set(x, "prize", true)
+          }
+        }
+      })
     }
   },
 }
 </script>
 
 <style>
-.MainGallery_Box {
+.MainCarsEdit_Box {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -1022,14 +972,14 @@ export default {
   justify-content: center;
   max-width: 1500px;
 }
-.MainGallery_Item {
+.MainCarsEdit_Item {
   width: 415px;
   height: 256px;
   position: relative;
 }
-.MainGallery_Img {
+.MainCarsEdit_Img {
 }
-.MainGallery_Class {
+.MainCarsEdit_Class {
   background-color: var(--class-color);
   color: black;
   display: inline-flex;
@@ -1041,18 +991,18 @@ export default {
   font-size: 20px;
   left: 18px;
 }
-.MainGallery_Color {
+.MainCarsEdit_Color {
   background-color: #a30000;
   padding: 4px 7px;
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
 }
-.MainGallery_down {
+.MainCarsEdit_down {
   color: #ff5050;
   font-size: 25px;
 }
-.MainGallery_Rq {
+.MainCarsEdit_Rq {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1061,10 +1011,10 @@ export default {
   right: 362px;
   align-items: center;
 }
-.MainGallery_Empty + .BaseCardGallery_Layout .Car_Header {
+.MainCarsEdit_Empty + .BaseCarEditCard_Layout .Car_Header {
   opacity: 0.3;
 }
-.MainGallery_topSpeed {
+.MainCarsEdit_topSpeed {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1073,7 +1023,7 @@ export default {
   left: 355px;
   align-items: center;
 }
-.MainGallery_acel {
+.MainCarsEdit_acel {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1082,7 +1032,7 @@ export default {
   left: 355px;
   align-items: center;
 }
-.MainGallery_hand {
+.MainCarsEdit_hand {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1091,7 +1041,7 @@ export default {
   left: 355px;
   align-items: center;
 }
-.MainGallery_drive {
+.MainCarsEdit_drive {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1100,7 +1050,7 @@ export default {
   left: 355px;
   align-items: center;
 }
-.MainGallery_tyres {
+.MainCarsEdit_tyres {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1109,7 +1059,7 @@ export default {
   right: 121px;
   align-items: center;
 }
-.MainGallery_Small {
+.MainCarsEdit_Small {
   display: inline-flex;
   gap: 6px;
   color: white;
@@ -1118,31 +1068,31 @@ export default {
   z-index: 50;
   font-size: 10px;
 }
-.MainGallery_Year {  
+.MainCarsEdit_Year {  
   top: 34px;
   right: 121px;  
 }
-.MainGallery_Abs {  
+.MainCarsEdit_Abs {  
   top: 34px;
   right: 360px;  
 }
-.MainGallery_Tcs {  
+.MainCarsEdit_Tcs {  
   top: 57px;
   right: 360px;
 }
-.MainGallery_Clearance {
+.MainCarsEdit_Clearance {
   top: -20px;
   right: 30px;
 }
-.MainGallery_Mra {
+.MainCarsEdit_Mra {
   top: 190px;
   left: 55px;
 }
-.MainGallery_Weight {
+.MainCarsEdit_Weight {
   top: -21px;
   left: 54px;
 }
-.MainGallery_Compare {
+.MainCarsEdit_Compare {
   display: inline-flex;
   gap: 6px;
   position: absolute;
@@ -1152,7 +1102,7 @@ export default {
   padding: 2px 4px;
   /* position: relative; */
 }
-.MainGallery_CompareLabel {
+.MainCarsEdit_CompareLabel {
   position: absolute;
   top: 7px;
   right: calc(100% + 2px);
@@ -1161,10 +1111,10 @@ export default {
 }
 
 
-.MainGallery_ColorUp {
+.MainCarsEdit_ColorUp {
   background-color: #007000;
 }
-.MainGallery_Layout .Main_SearchMid {
+.MainCarsEdit_Layout .Main_SearchMid {
   height: unset;
   overflow-y: auto;
   margin-bottom: 150px;
@@ -1172,14 +1122,14 @@ export default {
   z-index: 100;
   box-shadow: 0px 10px 0px 0px #00000087;
 }
-.MainGallery_Layout .Main_FilterItems > *:last-child {
+.MainCarsEdit_Layout .Main_FilterItems > *:last-child {
   margin-top: 50px;
 }
-.MainGallery_Layout .Main_FiltersButton {
+.MainCarsEdit_Layout .Main_FiltersButton {
   border-top-right-radius: 0px;
 }
 
-.MainGallery_NewCar {
+.MainCarsEdit_NewCar {
   color: white;
   position: absolute;
   top: 190px;

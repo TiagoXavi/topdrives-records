@@ -6,6 +6,7 @@ import Main from "./components/Main.vue";
 import MainExtractTD from "./components/MainExtractTD.vue";
 // import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
 import MainGallery from "./components/MainGallery.vue";
+import MainCarsEdit from "./components/MainCarsEdit.vue";
 // import MainUpdateRqData from "./components/MainUpdateRqData.vue";
 import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 import MainImportRude from "./components/MainImportRude.vue";
@@ -66,6 +67,12 @@ const routes = [
     name: 'Gallery',
     title: 'Gallery',
     component: MainGallery,
+  },
+  {
+    path: '/MainCarsEdit',
+    name: 'MainCarsEdit',
+    title: 'MainCarsEdit',
+    component: MainCarsEdit,
   },
   {
     path: '/validatejson',

@@ -475,7 +475,6 @@ export default {
 }
 .Car_HeaderBlockRQ {
   background-color: hsla(30, 10%, 15%, 0.7);
-  backdrop-filter: blur(15px);
 }
 .Car_NumberStars :nth-child(3) {
   opacity: 0.2;
