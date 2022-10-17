@@ -9184,7 +9184,7 @@
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 95.35,
+      "mra": 67.74,
       "weight": 1935,
       "name": "Audi RS6 Avant",
       "rid": "Audi_RS_6_Avant_(delimited)_2013",
@@ -14239,7 +14239,7 @@
       "clearance": "Low",
       "topSpeed": 199,
       "acel": 3.6,
-      "hand": 88,
+      "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 96.81,
@@ -15896,7 +15896,7 @@
       "hand": 86,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 95.35,
       "weight": 992,
       "name": "Ford GT40 race car",
       "rid": "Ford_GT40_race_car_1968",
@@ -36180,7 +36180,7 @@
           "Old Guard"
       ],
       "bodyTypes": [
-          "Estate"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -40371,7 +40371,7 @@
       "rid": "Subaru_Forester_2002",
       "tags": [],
       "bodyTypes": [
-          "Estate"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -42679,7 +42679,7 @@
           "Year of the Ox"
       ],
       "bodyTypes": [
-          "Estate"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -43951,7 +43951,7 @@
           "Year of the Rat"
       ],
       "bodyTypes": [
-          "Estate"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -70270,7 +70270,7 @@
       "hand": 75,
       "drive": "FWD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 47.66,
       "weight": 1060,
       "name": "Nissan Micra",
       "rid": "Nissan_Micra_2016",
@@ -72906,7 +72906,7 @@
       "hand": 72,
       "drive": "FWD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 47.68,
       "weight": 1170,
       "name": "Chevrolet Lacetti",
       "rid": "Chevrolet_Lacetti_2004",
