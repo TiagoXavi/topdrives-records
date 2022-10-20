@@ -799,7 +799,7 @@
       "bodyTypes": [
           "Coupe"
       ],
-      "fuel": "Petrol",
+      "fuel": "Diesel",
       "seats": "1",
       "engine": "Mid"
   },
@@ -11763,7 +11763,7 @@
       "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 80,
+      "mra": 78.74,
       "weight": 1110,
       "name": "Lotus Exige Cup 430",
       "rid": "Lotus_Exige_Cup_430_2019",
@@ -31120,7 +31120,7 @@
       "hand": 79,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 89.33,
+      "mra": 62.71,
       "weight": 1690,
       "name": "Jaguar XE R-Dynamic S",
       "rid": "Jaguar_XE_R-Dynamic_S_2020",
@@ -68379,7 +68379,7 @@
       "acel": 11.2,
       "hand": 73,
       "drive": "RWD",
-      "tyres": "All-surface",
+      "tyres": "Standard",
       "mra": 52.08,
       "weight": 2177,
       "name": "Ford Ranger",
