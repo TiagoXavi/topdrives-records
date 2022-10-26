@@ -4334,7 +4334,7 @@
       "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 93.75,
+      "mra": 82.62,
       "weight": 695,
       "name": "Donkervoort D8 GTO-RS",
       "rid": "Donkervoort_D8_GTO-RS_2016",
@@ -13103,7 +13103,7 @@
       "class": "A",
       "rq": 77,
       "onlyName": "DS Numero 9",
-      "brand": "DS",
+      "brand": "Citroen",
       "country": "FR",
       "year": 2012,
       "tdid": "1132",
@@ -13117,14 +13117,14 @@
       "tyres": "Standard",
       "mra": 42.3,
       "weight": 1500,
-      "name": "DS DS Numero 9",
+      "name": "Citroen DS Numero 9",
       "rid": "DS_DS_Numero_9_2012",
       "tags": [
           "Concept",
           "French Renaissance"
       ],
       "bodyTypes": [
-          "Saloon"
+          "Estate"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -22660,7 +22660,7 @@
   {
       "class": "A",
       "rq": 66,
-      "onlyName": "Miura SV/J",
+      "onlyName": "Miura SVJ",
       "brand": "Lamborghini",
       "country": "IT",
       "year": 1971,
@@ -22675,7 +22675,7 @@
       "tyres": "Performance",
       "mra": 80.26,
       "weight": 800,
-      "name": "Lamborghini Miura SV/J",
+      "name": "Lamborghini Miura SVJ",
       "rid": "Lamborghini_Miura_SVJ_1971",
       "tags": [
           "Italian Renaissance",
