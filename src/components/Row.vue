@@ -2,48 +2,50 @@
   <div
     :class="{
       Row_Tracks: type === 'tracks',
-      Row_Times: type === 'times'
+      Row_Times: type === 'times',
+      Row_Cg: cg
     }"
     class="Row_Layout">
-    <div
-      v-for="(info, fx) in infosResolved"
-      class="Row_Item Row_Cell Row_ConfigCell"
-      :class="`Row_Tune${car.selectedTune}`"
-      @mouseleave="mouseLeaveTune($event)">
-      <template v-if="info.type === 'Tune'">
-        <div class="Row_Config">
-          <template v-if="!car.selectedTune || mouseInsideTuneBox">
-            <div class="Row_TuneChooseBox">
-              <button
-                v-for="item in tunes"
-                :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
-                class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
-                @click="changeTune(item)">
-                {{ item }}
-                <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+    <template v-if="!cg || (cg && cgYou)">
+      <div
+        v-for="(info, fx) in infosResolved"
+        class="Row_Item Row_Cell Row_ConfigCell"
+        :class="`Row_Tune${car.selectedTune} `+`${cg ? 'Row_DisableSticky ' : ''}`"
+        @mouseleave="mouseLeaveTune($event)">
+        <template v-if="info.type === 'Tune'">
+          <div class="Row_Config">
+            <template v-if="!car.selectedTune || mouseInsideTuneBox || cgYou">
+              <div class="Row_TuneChooseBox">
+                <button
+                  v-for="item in tunes"
+                  :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
+                  class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
+                  @click="changeTune(item)">
+                  {{ item }}
+                  <div v-if="tunesCount[item] && !cg" class="D_ButtonNote">{{ tunesCount[item] }}</div>
                 </button>
-              <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
-                <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
-              </button>
-            </div>
-          </template>
-          <template v-else> 
-            <div class="Row_Tune">{{ car.selectedTune }}</div>
-            <div class="Row_ConfigBox">
-              <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
-                <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
-              </button>
-            </div>
-          </template>
-        </div>
-      </template>
-      <template v-else>
-        <slot name="corner"></slot>
-      </template>
-    </div>
-
+                <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                  <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
+                </button>
+              </div>
+            </template>
+            <template v-else> 
+              <div class="Row_Tune">{{ car.selectedTune }}</div>
+              <div class="Row_ConfigBox">
+                <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                  <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
+                </button>
+              </div>
+            </template>
+          </div>
+        </template>
+        <template v-else>
+          <slot name="corner"></slot>
+        </template>
+      </div>
+    </template>
     <div
-      v-if="car.selectedTune || type === 'tracks'"
+      v-if="car.selectedTune || type === 'tracks' || (cg && car.rid && car.selectedTune)"
       v-for="(item, ix) in timesResolved"
       :id="`${type === 'tracks' ? 'Row_Track'+ix : ''}`"
       :data="`${item.id}_a${item.surface}${item.cond}`"
@@ -73,8 +75,8 @@
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
-      <template v-if="car.selectedTune">
-        <div class="Row_Placeholder">-</div>
+      <template v-if="car.selectedTune || cg">
+        <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
       <div v-if="type === 'tracks'" class="Row_Campaign">{{ item.campaign }}</div>
@@ -164,16 +166,11 @@
       <div>No records</div>
     </div>
 
-    <div v-if="nonUsedTracks.length > 0" class="Row_ShowMoreTracks">
+    <div v-if="nonUsedTracks.length > 0 && !cg" class="Row_ShowMoreTracks">
       <button
         class="D_Button D_ButtonLink Row_ShowMoreButton"
         @click="$emit('moreTracks', nonUsedTracks)">Show other tracks</button>
     </div>
-
-
-    <portal v-if="tuneDialog" to="tunedialog">
-      
-    </portal>
     
   </div>
 </template>
@@ -231,6 +228,10 @@ export default {
       type: String,
       default: "tracks"
     },
+    placeholder: {
+      type: String,
+      default: "-"
+    },
     hoverIndex: {
       type: Number,
       default: -1
@@ -258,13 +259,30 @@ export default {
       type: Boolean,
       default: false
     },
+    cg: {
+      type: Boolean,
+      default: false
+    },
+    cgYou: {
+      type: Boolean,
+      default: false
+    },
+    cgTime: {
+      type: Number,
+      default: null
+    },
+    customData: {
+      type: Object,
+      default() {
+        return null
+      }
+    },
   },
   data() {
     return {
       errorIndex: null,
       correctIndex: null,
       infos: ["Tune"],
-      tuneDialog: false,
       card_speed: null,
       card_acel: null,
       card_hand: null,
@@ -294,14 +312,6 @@ export default {
   mounted() {
     let vm = this;
     this.unsubscribeMutation = vm.$store.subscribe(mutation => {
-
-      if (mutation.type == "SHOW_TUNE") {
-        if (mutation.payload === false) {
-          setTimeout(() => {
-            vm.tuneDialog = false;
-          }, 99);
-        }
-      }
 
       if (mutation.type == "HIDE_DETAIL") {
         vm.detailIndex = null;
@@ -367,6 +377,38 @@ export default {
 
         });
         
+      } else if (
+        this.type === "times" &&
+        this.car.selectedTune &&
+        this.customData &&
+        this.customData.data &&
+        this.customData.data[this.car.selectedTune] &&
+        this.customData.data[this.car.selectedTune].times
+      ) {
+        // custom data with allowedTune
+        this.list.map((x, ix) => {
+          text = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
+          if (text === undefined || text === null) text = "";
+          downList = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_downList`];
+          upList = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_upList`];
+          author = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_user`];
+
+          if (text === '' && this.cgTime) {
+            text = this.cgTime;
+            // console.log(this.car.rid, `${x.id}_a${x.surface}${x.cond}`);
+            // debugger;
+          }
+
+          result[0].text = text;
+          result[0].downList = downList;
+          result[0].upList = upList;
+          result[0].author = author;
+        })
+
+
+      } else if (text === '' && typeof this.cgTime === 'number') {
+        // custom tune with cgTime
+        result[0].text = this.cgTime;
       }
 
       return result;
@@ -390,12 +432,14 @@ export default {
       return result;
     },
     tunesCount() {
-      if (!this.car.data) return {};
+      let data = this.car.data;
+      if (this.customData && this.customData.data) data = this.customData.data;
+      if (!data) return {};
       let result = {};
       this.tunes.map(tune => {
-        if (this.car.data[tune]) {
-          if (this.car.data[tune].times) {
-            result[tune] = Object.keys(this.car.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
+        if (data[tune]) {
+          if (data[tune].times) {
+            result[tune] = Object.keys(data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
           }
         }
       })
@@ -421,11 +465,7 @@ export default {
         // nada
       } else if (e.srcElement.innerText === "" && item.text !== "" && item.text !== undefined) {
         // remover tempo
-        this.$store.commit("CHANGE_TIME", {
-          number: undefined,
-          item,
-          car: this.car
-        });
+        this.timeEmit(undefined, item, this.car);
         e.srcElement.innerText = Vue.options.filters.toTimeString(undefined, item.id);
         this.errorIndex = ix;
         setTimeout(() => {
@@ -433,11 +473,7 @@ export default {
         }, 1500);
       } else if (number !== false && number !== roundedOriginal) {
         // mudou
-        this.$store.commit("CHANGE_TIME", {
-          number,
-          item,
-          car: this.car
-        });
+        this.timeEmit(number, item, this.car);
         e.srcElement.innerText = Vue.options.filters.toTimeString(number, item.id);
         this.correctIndex = ix;
         setTimeout(() => {
@@ -454,12 +490,23 @@ export default {
         e.srcElement.innerText = Vue.options.filters.toTimeString(item.text, item.id);
       }
     },
+    timeEmit(number, item, car) {
+      if (this.cg) {
+        this.$emit('changeTime', {
+          number,
+          item,
+          car
+        });
+      } else {
+        this.$store.commit("CHANGE_TIME", {
+          number,
+          item,
+          car
+        });
+      }
+    },
     contextMenu(e, item, ix) {
-      this.$store.commit("CHANGE_TIME", {
-        number: undefined,
-        item,
-        car: this.car
-      });
+      this.timeEmit(undefined, item, this.car);
       e.srcElement.innerText = Vue.options.filters.toTimeString(undefined, item.id);
       this.errorIndex = ix;
       setTimeout(() => {
@@ -471,6 +518,8 @@ export default {
     click(e, item, ix) {
       let currentIndex = this.detailIndex;
 
+      
+
       this.$store.commit("HIDE_DETAIL", {
         item,
         car: this.car
@@ -481,8 +530,9 @@ export default {
           if (e.ctrlKey || (item.author !== this.user.username) ) {
 
             if (currentIndex !== ix) {
-              this.detailIndex = ix
+              this.detailIndex = ix;
               this.detailsItem = item;
+              
             }
 
           }
@@ -604,11 +654,14 @@ export default {
       this.$store.commit("HIDE_DETAIL");
     },
     showTuneDialog() {
-      this.tuneDialog = true;
-      this.$store.commit("SHOW_TUNE", {
-        active: true,
-        car: this.car
-      });
+      if (this.cg) {
+        this.$emit('showTuneDialog');
+      } else {
+        this.$store.commit("SHOW_TUNE", {
+          active: true,
+          car: this.car
+        });
+      }
       this.outsideClick();
     },
     changeTune(tune, insideBox = true) {
@@ -618,10 +671,14 @@ export default {
         tune = undefined
       }
 
-      this.$store.commit("CHANGE_TUNE", {
-        tune,
-        car: this.car
-      });
+      if (this.cg) {
+        this.$emit('changeTune', tune);
+      } else {
+        this.$store.commit("CHANGE_TUNE", {
+          tune,
+          car: this.car
+        });
+      }
     },
     changeInput(e) {
       debugger;
@@ -644,7 +701,7 @@ export default {
       this.mouseInsideTuneBox = false;
     },
     dragMouseDown(e, index) {
-      if (this.type !== 'tracks') return;
+      if (this.type !== 'tracks' || this.cg) return;
       this.dragIndex = index;
 
       elmnt = document.querySelector('#Row_Track'+this.dragIndex);
@@ -855,7 +912,7 @@ export default {
   line-height: 1;
   display: flex;
   align-items: center;
-  cursor: grab;
+  /* cursor: grab; */
 }
 .Row_Times .Row_Content:not(:focus) {
   cursor: default;
@@ -952,6 +1009,11 @@ export default {
   top: var(--top-height);
   background-color: #404040;
   z-index: 1;
+}
+.Main_Normal .Row_Times .Row_DisableSticky {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 .Main_2 .Car_LayoutAddCar > * {
   position: sticky;
@@ -1299,7 +1361,7 @@ export default {
 .Row_UploadInput[type="file"] {
   display: none;
 }
-.Row_Tracks .Row_Cell {
+.Row_Tracks:not(.Row_Cg) .Row_Cell {
   border-right-width: 0;
   user-select: none;
   cursor: grab;

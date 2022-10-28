@@ -53,19 +53,32 @@ export default {
             country = countrys.findIndex(x => x === country);
             return letter[country];
         },
-        Vue.resolveStat = function (car, type) {
-            if (car.selectedTune === null || car.selectedTune === undefined) {
+        Vue.resolveStat = function (car, type, customData = null) {
+            if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
                 return car[type] || "-";
             }
-            if (typeof car.selectedTune !== 'string') return "err";
-            
-            try {
-                if (!car.data[car.selectedTune].info[type]) return "-";
-                return car.data[car.selectedTune].info[type];
-            } catch (error) {
-                return "-";
+            if (car.selectedTune === "Other") {
+                return "?";
             }
+            if (typeof car.selectedTune !== 'string') return "err";
+
+            if (customData) {
+                try {
+                    if (!customData.data[car.selectedTune].info[type]) return "-";
+                    return customData.data[car.selectedTune].info[type];
+                } catch (error) {
+                    return "-";
+                }
+            } else {
+                try {
+                    if (!car.data[car.selectedTune].info[type]) return "-";
+                    return car.data[car.selectedTune].info[type];
+                } catch (error) {
+                    return "-";
+                }
+            }
+            
         },
         Vue.boldTunes = function (tune) {
             if (typeof tune !== 'string' && tune.length !== 3) return tune;

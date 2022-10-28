@@ -473,13 +473,24 @@ export default {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
 }
+.Car_TuneTip {
+  background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.6);
+  right: calc(var(--card-right-width) + 0px);
+  bottom: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
 .Car_HeaderBlockRQ {
   background-color: hsla(30, 10%, 15%, 0.7);
 }
 .Car_NumberStars :nth-child(3) {
   opacity: 0.2;
 }
-.Car_NumberStarsundefined .Car_Star {
+.Car_NumberStarsundefined .Car_Star,
+.Car_NumberStarsOther .Car_Star,
+.Car_NumberStars000 .Car_Star {
   opacity: 0.2;
 }
 .Car_NumberStars111 .Car_Star:not(:nth-child(1)) {
