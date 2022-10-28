@@ -6348,6 +6348,7 @@
       "tags": [
           "World Expo"
       ],
+      "prize": true,
       "bodyTypes": [
           "Coupe"
       ],
@@ -6616,7 +6617,7 @@
       "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 76.09,
+      "mra": 88.37,
       "weight": 1200,
       "name": "Volkswagen W12 Syncro",
       "rid": "Volkswagen_W12_Syncro_1997",
