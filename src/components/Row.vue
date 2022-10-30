@@ -101,6 +101,7 @@
       <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">
         <div class="Row_LikesBox">
           <button
+            v-if="!cgOppo"
             :class="{
               Row_VotedAgainst: item.upList && item.upList.includes(user.username),
               D_Button_Loading: voteLoading
@@ -131,6 +132,7 @@
           </template>
           <template v-else>
             <button
+              v-if="!cgOppo"
               :class="{
                 Row_VotedAgainst: item.downList && item.downList.includes(user.username),
                 D_Button_Loading: voteLoading
@@ -264,6 +266,10 @@ export default {
       default: false
     },
     cgYou: {
+      type: Boolean,
+      default: false
+    },
+    cgOppo: {
       type: Boolean,
       default: false
     },

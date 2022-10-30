@@ -177,10 +177,12 @@
               <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
                 <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
               </button>
-              <button v-if="true" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
+              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
                 <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
               </button>
-              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="changeMode('classic')">
+              <button
+                :disabled="cgLoadingAny || cgNeedSave"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="changeMode('classic')">
                 <i class="ticon-flag Main_MenuIcon" aria-hidden="true"/>
               </button>
             </div>
@@ -199,7 +201,7 @@
             <div v-if="cg.rounds" class="Cg_SelectorLayout">
               <div class="Cg_SelectorLeft">
                 <button
-                  :disabled="cgCurrentRound === 0 || cgLoadingAny"
+                  :disabled="cgCurrentRound === 0 || cgLoadingAny || cgNeedSave"
                   class="D_Button Row_DialogButtonTune"
                   @click="loadPrevRound()">
                   <i class="ticon-arrow_left_3" aria-hidden="true"/>
@@ -208,7 +210,7 @@
               <div class="Cg_SelectorCenter">
                 <div class="Cg_SelectorEvent">
                   <button
-                    :disabled="cgLoadingAny"
+                    :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgSeletorDialog = true;">
                     <span>{{ cg.name }}</span>
@@ -217,7 +219,7 @@
                 </div>
                 <div class="Cg_SelectorRound">
                   <button
-                    :disabled="cgLoadingAny"
+                    :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgRoundSelectorDialog = true;">
                     <span>Match {{ cgCurrentRound+1 }}</span>
@@ -274,7 +276,7 @@
               </div>
               <div class="Cg_SelectorRight">
                 <button
-                  :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny"
+                  :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny || cgNeedSave"
                   class="D_Button Row_DialogButtonTune"
                   @click="loadNextRound()">
                   <i class="ticon-arrow_right_3" aria-hidden="true"/>
@@ -318,10 +320,11 @@
                 :car="race.car"
                 :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                 :fix-back="true"
-                :downloadLoading="downloadLoading"
+                :downloadLoading="cgLoadingAny"
                 :needSave="needSave"
                 :cg="true"
                 :cgOppo="true"
+                @cog="cgShowTuneDialog(race.car, race, true)"
                 @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
               <div v-else class="Cg_CarPlaceHolder">
                 <button
@@ -382,6 +385,7 @@
                 :user="user"
                 :voteLoading="voteLoading"
                 :cg="true"
+                :cgOppo="true"
                 :cgTime="race.time"
                 :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                 type="times"
@@ -411,7 +415,7 @@
                   :car="(race.cars[race.carIndex] || {}).car"
                   :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
                   :fix-back="true"
-                  :downloadLoading="downloadLoading"
+                  :downloadLoading="cgLoadingAny"
                   :needSave="needSave"
                   :cg="true"
                   @delete="race.carIndex = undefined; calcRaceResult(race);" />
@@ -477,6 +481,31 @@
               </div>
             </template>
           </div>
+        </div>
+        <div v-else-if="cgLoading" class="Cg_MidLoading">
+          <BaseContentLoader
+            :contents="true"
+            itemWidth="216px"
+            :itemHeight="144"
+            style="padding: 10px 10px 10px 20px; width: 100%;"
+            type="block"
+            count="5" />
+        </div>
+        <div v-else-if="cgList.length > 0" class="Cg_ListSelect">
+          <div class="Cg_ListSelectBox">
+            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">Challenges</div>
+            <template v-for="item in cgList">
+              <button
+                style="padding-left: 15px;"
+                class="Main_SearchItem"
+                @click="loadChallengeFull(item.date)">
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              </button>
+            </template>
+          </div>
+        </div>
+        <div v-else class="Cg_Offline">
+          <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
         </div>
       </div>
     </div>
@@ -796,14 +825,14 @@
                 <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
               </button>
               <button
-                v-if="!needSave"
+                :disabled="needSave"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
                 @click="deleteCar(tuneDialogCarIndex)">
                 <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
               </button>
             </div>
           </div>
-          <div class="Row_DialogHeader">
+          <div v-if="!this.tuneDialogisOppo" class="Row_DialogHeader">
             <button
               v-for="item in tuneDialogTunes"
               :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
@@ -946,7 +975,7 @@
               </button>
             </div>
           </div>
-          <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1" class="Main_">
+          <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1 && mode === 'classic'" class="Main_">
             <div class="Main_DialogTitle">Library</div>
             <div class="Main_ShareDownloadBox">
               <button
@@ -1310,7 +1339,7 @@
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Login' })">Login</button>
           <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Register' })">Register</button>
         </div>
-        <div v-if="!needSave" class="Main_OptionsItem">
+        <div v-if="!needSave && mode === 'classic'" class="Main_OptionsItem">
           <div class="Main_OptionsLabel MainClearLabelBox">
             <span>Trackset</span>
             <div class="Main_ClearButtonsBox">
@@ -1343,13 +1372,13 @@
               @click="openDialogTrackSearch()">More...</button>
           </div>
         </div>
-        <div v-else-if="!!user && needSave" class="Main_OptionsSaveData">
+        <div v-else-if="!!user && needSave && mode === 'classic'" class="Main_OptionsSaveData">
           <button
             :class="{ D_Button_Loading: saveLoading }"
             class="D_Button Main_SaveAllButton"
             @click="saveAll()">Save</button>
         </div>
-        <div class="Main_OptionsDual">
+        <div v-if="mode === 'classic'" class="Main_OptionsDual">
           <div class="Main_OptionsItem">
             <div class="Main_OptionsLabel">Display</div>
             <div class="Main_OptionsButtons">
@@ -1380,7 +1409,7 @@
             </div>
           </div>
         </div>        
-        <div class="Main_OptionsMemory">
+        <div v-if="mode === 'classic'" class="Main_OptionsMemory">
           <div class="Main_MemoryLine">
             <span class="Main_MemoryLabel">{{ memory.find(x => typeof x === 'string') ? 'Load' : 'Memory' }}</span>
             <button
@@ -1403,23 +1432,7 @@
         </div>
         <div class="Main_OptionsCredits">
           <div class="D_Center Main_OptionsFooterButtons">
-            <a
-              href="https://discord.gg/gWZ8v9Xf43"
-              class="D_Button Main_OptionsButton"
-              target="_blank"
-              rel="noopener noreferrer">
-              <svg class="Main_DiscordLogo" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0)">
-                  <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="#5865F2"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0">
-                    <rect width="71" height="55" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
-              <span>Discord server</span>
-            </a>
+            <BaseDiscordButton />
             <button
               class="D_Button Main_OptionsButton"
               @click="openDialogGallery()">
@@ -1433,6 +1446,8 @@
               @click="$router.push({ name: 'Gallery' })">
               <span>PL15 Changes</span>
             </button>
+
+            <BaseDonateButton />
             
             <button
               class="D_Button Main_OptionsButton"
@@ -1463,25 +1478,9 @@
         <div class="D_TextCenter Space_TopPlus"></div>
 
 
-        <div class="D_Center Space_TopPlus">
-          <a
-            href="https://www.paypal.com/donate/?hosted_button_id=T6FSRTEHJHBFE"
-            class="D_Button Main_OptionsButton"
-            target="_blank"
-            rel="noopener noreferrer">
-            <svg class="Main_DiscordLogo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.7 30.3">
-              <path style="fill:#179BD7;" d="M23.1,7.7L23.1,7.7L23.1,7.7c0,0.2-0.1,0.4-0.1,0.6c-1.2,6.4-5.5,8.5-10.9,8.5H9.4
-                c-0.7,0-1.2,0.5-1.3,1.1l0,0l0,0l-1.4,8.9l-0.4,2.5c-0.1,0.4,0.3,0.8,0.7,0.8h4.9c0.6,0,1.1-0.4,1.2-1l0-0.2l0.9-5.8l0.1-0.3
-                c0.1-0.6,0.6-1,1.2-1h0.7c4.7,0,8.4-1.9,9.5-7.5c0.5-2.3,0.2-4.3-1-5.6C24.1,8.3,23.6,8,23.1,7.7z"/>
-              <path style="fill:#222D65;" d="M21.8,7.2c-0.2-0.1-0.4-0.1-0.6-0.2C21,7,20.8,7,20.6,6.9c-0.7-0.1-1.6-0.2-2.4-0.2h-7.4
-                c-0.2,0-0.4,0-0.5,0.1C10,7,9.7,7.4,9.7,7.8l-1.6,9.9l0,0.3c0.1-0.7,0.7-1.1,1.3-1.1h2.8c5.4,0,9.6-2.2,10.9-8.5
-                c0-0.2,0.1-0.4,0.1-0.6c-0.3-0.2-0.7-0.3-1-0.4C22,7.3,21.9,7.2,21.8,7.2z"/>
-              <path style="fill:#253B80;" d="M9.7,7.8C9.7,7.4,10,7,10.3,6.9c0.2-0.1,0.3-0.1,0.5-0.1h7.4c0.9,0,1.7,0.1,2.4,0.2
-                C20.8,7,21,7,21.2,7.1c0.2,0,0.4,0.1,0.6,0.2c0.1,0,0.2,0.1,0.3,0.1c0.4,0.1,0.7,0.3,1,0.4c0.4-2.3,0-3.9-1.3-5.4
-                c-1.4-1.6-3.9-2.3-7.2-2.3H5.3C4.6,0.1,4.1,0.5,4,1.2L0.1,26c-0.1,0.5,0.3,0.9,0.8,0.9h5.8l1.5-9.2L9.7,7.8z"/>
-            </svg>
-            <span>Donate</span>
-          </a>
+        <div style="gap: 10px;" class="D_Center Space_TopPlus">
+          <BaseDiscordButton />
+          <BaseDonateButton />
         </div>
 
         <div class="Main_AboutFlag">
@@ -1591,8 +1590,8 @@
             <button
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadCg(item.date)">
-              <div class="Main_SearchItemRight">{{ item.name }}</div>
+              @click="loadChallengeFull(item.date)">
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
             </button>
           </template>
         </div>
@@ -1691,6 +1690,8 @@ import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
+import BaseDonateButton from './BaseDonateButton.vue'
+import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
@@ -1722,7 +1723,9 @@ export default {
     BaseCard,
     BaseGalleryItem,
     BaseTypeName,
-    BaseFilterDescription
+    BaseFilterDescription,
+    BaseDonateButton,
+    BaseDiscordButton
   },
   props: {
     phantomCar: {
@@ -1766,6 +1769,7 @@ export default {
       tuneDialogCar: null,
       tuneDialogCarIndex: null,
       tuneDialogRace: null,
+      tuneDialogisOppo: false,
       optionsDialogActive: false,
       printImageDialog: false,
       aboutDialog: false,
@@ -2788,9 +2792,23 @@ export default {
       // from query string
       this.changeMode('classic', false, false);
       this.decodeTemplateString(this.$route.query.share, true);
+    } else if (this.$route.query && this.$route.query.cg && this.$route.query.cg.includes("~")) {
+      // from query string
+      this.changeMode('cg', false, false);
+
+      this.$route.query.cg.split("~").map(x => {
+        if (x[0] === "G") {
+          this.cgCurrentId = decodeURI(x.substr(1))
+        } else if (x[0] === "R") {
+          this.cgCurrentRound = Number(decodeURI(x.substr(1)))
+        }
+      })
+      this.$router.replace({'query': null});
+
     } else {
       this.changedMode();
     }
+
 
 
     
@@ -2813,10 +2831,14 @@ export default {
       }
 
       if (mutation.type == "TIME_VOTE") {
+        let selectedtune = mutation.payload.car.selectedTune;
         let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+        if (this.mode === 'cg') {
+          car = vm.cgCacheCars.find(x => x.rid === mutation.payload.car.rid);
+        }
         let type = mutation.payload.type
         let TRACK = mutation.payload.item;
-        let timesObj = car.data[car.selectedTune].times;
+        let timesObj = car.data[selectedtune].times;
         let upArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_upList`;
         let downArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_downList`;
 
@@ -2841,16 +2863,16 @@ export default {
 
           if (type === "up") {
             upArr.push(vm.user.username);
-            vm.requestVote(true, false, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+            vm.requestVote(true, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
           } else {
             downArr.push(vm.user.username);
-            vm.requestVote(false, false, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+            vm.requestVote(false, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
           }
           
         } else if (isUnVoteUp) {
-          vm.requestVote(true, true, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+          vm.requestVote(true, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
         } else {
-          vm.requestVote(false, true, car.rid, car.selectedTune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+          vm.requestVote(false, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
         }
 
       }
@@ -3074,6 +3096,7 @@ export default {
       return result;
     },
     cgNeedSave() {
+      if (!this.user) return false;
       return this.cgRoundToSave.length > 0 || this.needSave || this.cgRoundFilterToSave || this.cgRqNeedToSave;
     },
     mainFilter() {
@@ -3101,7 +3124,7 @@ export default {
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined) show = false;
         if (!race.track) show = false;
-        if (race.cars && race.cars.length > 0) show = false
+        if (race.cars && race.cars.length > 1) show = false
       })
       return show;
     },
@@ -3432,7 +3455,14 @@ export default {
     },
     deleteCar(index) {
       if (this.mode === 'cg') {
-        this.tuneDialogRace.carIndex = undefined;
+        // only via dialog
+        if (this.tuneDialogisOppo) {
+          this.tuneDialogRace.car = undefined;
+          this.tuneDialogRace.rid = undefined;
+          this.calcRaceResult(this.tuneDialogRace);
+        } else {
+          this.tuneDialogRace.carIndex = undefined;
+        }
         this.tuneDialogActive = false;
         this.showCarsFix = false;
         this.$nextTick().then(() => {
@@ -3848,6 +3878,8 @@ export default {
         if (cars) {
           this.prepareCars(JSON.parse(cars));
         }
+
+        this.closeFilterText();
       }
       if (this.mode === "cg") {
         this.loadChallenges();
@@ -4225,6 +4257,7 @@ export default {
       });
 
       if (this.mode === 'cg' && this.cgRound.date) {
+        this.downloadLoading = false;
         this.cgRound.races.map(race => {
           this.calcRaceResult(race, isCgInitial);
         })
@@ -4307,15 +4340,21 @@ export default {
       });
     },
     generateUrl(isForTemplate = false) {
-      let result = `${window.location.origin}?share=`;
+      let result = `${window.location.origin}?`;
       if (isForTemplate) result = '';
 
-      this.currentTracks.map(x => {
-        result += `~K${x.id}_a${x.surface}${x.cond}`
-      });
-      this.carDetailsList.map(x => {
-        result += `~C${x.rid}${x.selectedTune ? '~T'+x.selectedTune : '' }`
-      });
+      if (this.mode === 'classic') {
+        result += `share=`;
+        this.currentTracks.map(x => {
+          result += `~K${x.id}_a${x.surface}${x.cond}`
+        });
+        this.carDetailsList.map(x => {
+          result += `~C${x.rid}${x.selectedTune ? '~T'+x.selectedTune : '' }`
+        });
+      } else if (this.mode === 'cg') {
+        result += `cg=`;
+        result += `~G${this.cg.date}~R${this.cgCurrentRound}`
+      }
 
       if (result.length > 2045) {
         // não dá
@@ -4564,10 +4603,14 @@ export default {
     },
     closeFilterText() {
       this.searchInput = '';
-      this.searchResult = this.lastestContributionsResolved;
+      if (this.mode === 'cg') {
+        this.changeFilter();
+      } else {
+        this.searchResult = this.lastestContributionsResolved;
+        this.showingLastest = true;
+        this.showAllFilter = false;
+      }
       this.alreadySearched = false;
-      this.showingLastest = true;
-      this.showAllFilter = false;
     },
     needSaveChange(val) {
       this.needSave = val;
@@ -4624,17 +4667,22 @@ export default {
 
     },
     changeStatCar(car, type, value) {
+      let selectedTune = car.selectedTune;
+
+      if (this.mode === 'cg')  {
+        car = this.cgCacheCars.find(x => x.rid === car.rid);
+      }
 
       if (!car.data) Vue.set(car, "data", {});
-      if (!car.data[car.selectedTune]) Vue.set(car.data, car.selectedTune, {});
-      if (!car.data[car.selectedTune].info) Vue.set(car.data[car.selectedTune], "info", {});
+      if (!car.data[selectedTune]) Vue.set(car.data, selectedTune, {});
+      if (!car.data[selectedTune].info) Vue.set(car.data[selectedTune], "info", {});
       /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
-      /**/ if (!car.dataToSave[car.selectedTune]) Vue.set(car.dataToSave, car.selectedTune, {});
-      /**/ if (!car.dataToSave[car.selectedTune].info) Vue.set(car.dataToSave[car.selectedTune], "info", {});
+      /**/ if (!car.dataToSave[selectedTune]) Vue.set(car.dataToSave, selectedTune, {});
+      /**/ if (!car.dataToSave[selectedTune].info) Vue.set(car.dataToSave[selectedTune], "info", {});
 
-      Vue.set(car.data[car.selectedTune].info, type, value);
-      Vue.set(car.data[car.selectedTune].info, `${type}_user`, this.user.username);
-      /**/ Vue.set(car.dataToSave[car.selectedTune].info, type, value);
+      Vue.set(car.data[selectedTune].info, type, value);
+      Vue.set(car.data[selectedTune].info, `${type}_user`, this.user.username);
+      /**/ Vue.set(car.dataToSave[selectedTune].info, type, value);
       this.needSaveChange(true);
 
     },
@@ -4891,8 +4939,36 @@ export default {
       axios.get(Vue.preUrl + "/searchCg")
       .then(res => {
         this.cgList = res.data.Items;
-        if (resolveInitial) {
-          this.resolveInitialCg();
+        this.styleCgList();
+        if (resolveInitial && this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
+          this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
+        } else {
+          this.cgLoading = false;
+        }
+      })
+      .catch(error => {
+        this.cgLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+    },
+    loadChallengeFull(date, round) {
+      this.cgLoading = true;
+      this.cgSeletorDialog = false;
+
+      axios.post(Vue.preUrl + "/getCgById", {
+        date: date
+      })
+      .then(res => {
+        let cg = this.cgList.find(x => x.date === date)
+        if (cg.date === res.data.date) {
+          Vue.set(cg, "rounds", res.data.rounds);
+          this.loadCg(date, round);
         }
       })
       .catch(error => {
@@ -4907,7 +4983,6 @@ export default {
       .then(() => {
         this.cgLoading = false;
       });
-
     },
     resolveInitialCg() {
       if (this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
@@ -5056,10 +5131,11 @@ export default {
       this.tuneDialogCar.data = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid).data;
       this.calcRaceResult(race);
     },
-    cgShowTuneDialog(car, race) {
+    cgShowTuneDialog(car, race, isOppo = false) {
       this.tuneDialogCar = car;
       this.tuneDialogCar.data = this.cgCacheCars.find(x => x.rid === car.rid).data;
       this.tuneDialogCarIndex = -1;
+      this.tuneDialogisOppo = isOppo;
       this.tuneDialogActive = true;
       this.tuneDialogRace = race;
     },
@@ -5122,7 +5198,7 @@ export default {
       if (oppotime === undefined || youtime === undefined) {
         if (youtime === undefined && youTune) {
           Vue.set(race.cars[race.carIndex], "points", "no time");
-          if (this.user.mod && isCgInitial) {
+          if (!!this.user && this.user.mod && isCgInitial) {
             this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
           }
         }
@@ -5132,8 +5208,8 @@ export default {
         if (oppotime > youtime) points = -50;
         if (oppotime < youtime) points = 50;
       } else {
-        if (oppotime > youtime && youtime > 0) points = 50;
-        if (oppotime < youtime || youtime === 0 ) points = -50;
+        if ((oppotime > youtime && youtime > 0) || (oppotime === 0 && youtime > 0)) points = 50;
+        else if ((oppotime < youtime && oppotime !== 0) || (youtime === 0 && oppotime > 0) ) points = -50;
       }
       let origPoints = race.cars[race.carIndex].points;
       if (typeof origPoints === 'number' && origPoints !== points) {
@@ -5189,7 +5265,10 @@ export default {
     cgBankCarClick(race, index, e, irace, bankCar) {
       if (e.shiftKey) {
         race.cars.splice(index, 1);
-        this.cgResolveBankToSave("remove", irace, bankCar.rid, bankCar.tune, 0);
+        if (race.carIndex === index) race.carIndex = undefined;
+        if (!!this.user && this.user.mod) {
+          this.cgResolveBankToSave("remove", irace, bankCar.rid, bankCar.tune, 0);
+        }
       } else {
         race.carIndex = index; this.calcRaceResult(race);
       }
@@ -5244,6 +5323,11 @@ export default {
       this.saveAll();
       this.cgSaveBank();
 
+      if (this.cgRoundToSave.length === 0 && this.cgRoundFilterToSave === null && !this.cgRqNeedToSave) {
+        //nothing to save here
+        this.cgSaveLoading = false;
+        return;
+      }
       // save round changes
       axios.post(Vue.preUrl + "/updateCg", {
         date: this.cg.date,
@@ -5519,7 +5603,7 @@ export default {
         cgRound: clearRound
       })
       .then(res => {
-        this.loadChallenges();
+        this.loadChallengeFull(this.cgCurrentId);
       })
       .catch(error => {
         console.log(error);
@@ -5536,6 +5620,24 @@ export default {
       .then(() => {
         this.cgAnalyseLoading = false;
       });
+    },
+    styleCgList() {
+      this.cgList.map(x => {
+        let styl = x.name;
+        Vue.set(x, "index", 0);
+        if (x.name.substr(0, 11) === 'Yellowbird ') {
+          Vue.set(x, "index", 1);
+          styl = `<span class="Cg_YB">Yellowbird </span>${x.name.substr(11)}`
+        }
+        if (x.name.substr(0, 14) === 'Skyline Nismo ') {
+          Vue.set(x, "index", 2);
+          styl = `<span class="Cg_SN">Skyline Nismo </span>${x.name.substr(14)}`
+        }
+        Vue.set(x, "nameStyled", styl);
+      })
+      this.cgList.sort((a,b) => {
+        return a.index - b.index;
+      })
     }
     
   },
@@ -7213,7 +7315,26 @@ body::-webkit-scrollbar-corner {
 .Cg_FilterButtons {
   margin-top: 10px;
 }
-
+.Cg_MidLoading {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.Cg_Offline {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.Cg_ListSelectBox {
+  max-width: 450px;
+  margin: 0 auto;
+}
+.Cg_YB {
+  color: #e5bf37;
+}
+.Cg_SN {
+  color: #ff6262;
+}
 
 
 
@@ -7424,7 +7545,7 @@ body::-webkit-scrollbar-corner {
 .Main_BodyPrint .Main_UserBottom {
   display: none;
 }
-.Main_BodyPrint button {
+.Main_BodyPrint.Main_Body button {
   display: none;
 }
 .Main_BodyPrint .Main_CornerMid {
@@ -7513,7 +7634,34 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint .Cg_Points {
   background: none;
-  color: var(--d-text-green-b);
+  color: var(--cor);
+}
+.Main_BodyPrint.Cg_Layout {
+  width: 1200px;
+}
+.Main_BodyPrint.Cg_Layout .Main_AddTrackDirect,
+.Main_BodyPrint.Cg_Layout .Cg_SelectorRight,
+.Main_BodyPrint.Cg_Layout .Cg_SelectorLeft,
+.Main_BodyPrint.Cg_Layout .Cg_FilterButtons,
+.Main_BodyPrint.Cg_Layout .Row_ConfigButton,
+.Main_BodyPrint.Cg_Layout .ticon-keyboard_arrow_down {
+  display: none;
+}
+.Main_BodyPrint.Cg_Layout .Row_TuneChooseButton {
+  border-radius: unset;
+  transition-duration: unset;
+}
+.Main_BodyPrint.Cg_Layout .Row_DialogButtonTuneActive {
+  box-shadow: unset;
+  background-color: rgba(var(--d-text-green), 0.4) !important;
+  color: white;
+}
+.Main_BodyPrint.Cg_Layout .Cg_ThemTime .Row_Cell,
+.Main_BodyPrint.Cg_Layout .Cg_YouTime .Row_Cell:not(.Row_ConfigCell) {
+  border-bottom-width: 2px;
+}
+.Main_BodyPrint.Cg_Layout .Cg_Race:last-child .Row_Cell {
+  border-right-width: 2px;	
 }
 
 

@@ -22,6 +22,9 @@
         <button v-if="!cg" class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
         </button>
+        <button v-if="cgOppo" class="D_Button Car_HeaderButton" @click="$emit('cog')">
+          <i class="ticon-gear Car_HeaderIcon" aria-hidden="true"/>
+        </button>
         <button v-if="!needSave" class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
