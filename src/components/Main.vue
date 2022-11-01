@@ -3124,7 +3124,7 @@ export default {
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined) show = false;
         if (!race.track) show = false;
-        if (race.cars && race.cars.length > 1) show = false
+        if (race.cars && race.cars.length > 4) show = false
       })
       return show;
     },
