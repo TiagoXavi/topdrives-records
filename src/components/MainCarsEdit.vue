@@ -475,6 +475,29 @@ export default {
       this.chunkLoaded[ix] = false;
     })
 
+
+    //Workshop
+    // this.all_cars.map(car => {
+    //   if (
+    //     car.tags.includes("World Expo") ||
+    //     car.tags.includes("Japan Pro Tour") ||
+    //     car.tags.includes("American Frontier") ||
+    //     car.tags.includes("European Revolution") ||
+    //     car.tags.includes("Great Exhibition") ||
+    //     car.tags.includes("Italian Renaissance") ||
+    //     car.tags.includes("German Renaissance") ||
+    //     car.tags.includes("French Renaissance") ||
+    //     car.tags.includes("American Dream")
+    //   ) {
+    //     // nada
+    //   } else {
+    //     car.tags.push("Originals")
+    //   }
+    // })
+
+    // debugger;
+    // navigator.clipboard.writeText(JSON.stringify(this.all_cars));
+
   },
   mounted() {
     let vm = this;
