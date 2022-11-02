@@ -4072,8 +4072,9 @@ export default {
     saveAll(saveBankAfter = false) {
       this.saveLoading = true;
 
+
       let obj = "carDetailsList";
-      if (this.cg) obj = "cgCacheCars";
+      if (this.mode === 'cg') obj = "cgCacheCars";
       let simplifiedCars = [];
       this[obj].map(x => {
         if (x.dataToSave) {
