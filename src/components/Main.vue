@@ -846,7 +846,7 @@
                   :car="tuneDialogCar"
                   :options="false" />
               </div>
-              <div class="Row_DialogCardRight">
+              <div v-if="tuneDialogCar.selectedTune !== 'Other' && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
                 <BaseText
                   :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed"
                   :disabled="!tuneDialogCar.selectedTune ||
