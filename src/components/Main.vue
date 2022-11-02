@@ -3879,7 +3879,7 @@ export default {
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
-      if (mode === 'cg' && (!this.user || !this.user.mod)) {
+      if (mode === 'cg' && (!this.user || !this.user.mod) && !this.asMod) {
         mode = 'classic';
       }
 
