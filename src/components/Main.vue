@@ -1662,7 +1662,7 @@
 
         <button
           :class="{ D_Button_Loading: cgNewLoading, D_Button_Error: cgNewError }"
-          :disabled="cgNewLoading || cgNewError"
+          :disabled="cgNewLoading || cgNewError || cgNewModel.numberRounds < 1 || !cgNewModel.name"
           style="margin-top: 20px;"
           class="D_Button Main_SaveAllButton"
           @click="saveNewChallenge()">Create new challenge</button>

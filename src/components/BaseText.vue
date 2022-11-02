@@ -79,7 +79,7 @@ export default {
         this.$emit('change', e);
       } else if (this.type === "integer") {
         if (typeof e === "string") {
-          var integer = new RegExp(/[0-9][0-9]+/g);
+          var integer = new RegExp(/[0-9]+/g);
           var isInteger = integer.test(e);
           if (isInteger) {
             this.$emit('change', e);
