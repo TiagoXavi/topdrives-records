@@ -178,7 +178,7 @@
                 <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
               </button>
             </div>
-            <div v-if="user && inverted" class="Main_PrintBy">
+            <div v-if="user && inverted && mode === 'classic'" class="Main_PrintBy">
               <div class="Main_PrintByLabel">print by</div>
               <div class="Main_PrintByUser">{{ user.username }}</div>
             </div>
