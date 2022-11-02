@@ -4097,7 +4097,7 @@ export default {
       .then(res => {
         this.needSaveChange(false);
         this.clearDataToSave();
-        if (!this.cg) {
+        if (!this.mode === 'cg') {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
@@ -4979,7 +4979,7 @@ export default {
     },
     clearDataToSave() {
       let obj = "carDetailsList";
-      if (this.cg) obj = "cgCacheCars";
+      if (this.mode === 'cg') obj = "cgCacheCars";
 
       this[obj].map(x => {
         delete x.dataToSave;
