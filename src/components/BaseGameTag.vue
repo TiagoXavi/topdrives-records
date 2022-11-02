@@ -151,6 +151,11 @@ export default {
   --tag-s: 0%;
   --tag-l: 100%;
 }
+.BaseGameTag_Originals {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 .BaseGameTag_Rest_of_the_World {
   --tag-h: 141;
   --tag-s: 34%;

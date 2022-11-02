@@ -24,9 +24,6 @@
           <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
             <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
           </button>
-          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="changeMode('cg')">
-            <i class="ticon-flag Main_MenuIcon" aria-hidden="true"/>
-          </button>
         </div>
         <div v-if="user && inverted" class="Main_PrintBy">
           <div class="Main_PrintByLabel">print by</div>
@@ -180,11 +177,6 @@
               <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
                 <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
               </button>
-              <button
-                :disabled="cgLoadingAny || cgNeedSave"
-                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="changeMode('classic')">
-                <i class="ticon-flag Main_MenuIcon" aria-hidden="true"/>
-              </button>
             </div>
             <div v-if="user && inverted" class="Main_PrintBy">
               <div class="Main_PrintByLabel">print by</div>
@@ -237,7 +229,7 @@
                       v-if="user && user.mod"
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect"
-                      @click="cgOpenRqEdit()">
+                      @click="cgOpenRqEdit($event)">
                       <i class="ticon-pencil" aria-hidden="true"/>
                     </button>
                   </div>
@@ -253,7 +245,7 @@
                     <template v-else-if="!!user && cgNeedSave">
                       <div class="Main_SaveAllBox">
                         <button
-                          :class="{ D_Button_Loading: cgSaveLoading }"
+                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
                           @click="cgSaveAll()">Save</button>
                       </div>
@@ -261,7 +253,7 @@
                     <template v-if="showAnalyse">
                       <div class="Main_SaveAllBox">
                         <button
-                          :class="{ D_Button_Loading: cgAnalyseLoading }"
+                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
                           @click="cgAnalyseRound()">Analyse</button>
                       </div>
@@ -293,7 +285,7 @@
                 <BaseFilterDescription :filter="cgRound.filter" />
               </div>
             </template>
-            <div v-if="user && user.mod" class="Cg_FilterButtons">
+            <div v-if="cgRound.date && user && user.mod" class="Cg_FilterButtons">
               <button
                 :disabled="cgLoadingAny"
                 class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
@@ -309,179 +301,184 @@
         </div>
       </div>
       <div v-if="showCarsFix" class="Cg_Mid">
-        <div v-if="cgRound.date" class="Cg_Box">
-          <div
-            v-for="(race, irace) in cgRound.races"
-            class="Cg_Race"
-            @click.stop>
-            <div class="Cg_Opponent">
-              <BaseCard
-                v-if="race.car"
-                :car="race.car"
-                :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
-                :fix-back="true"
-                :downloadLoading="cgLoadingAny"
-                :needSave="needSave"
-                :cg="true"
-                :cgOppo="true"
-                @cog="cgShowTuneDialog(race.car, race, true)"
-                @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
-              <div v-else class="Cg_CarPlaceHolder">
-                <button
-                  :disabled="cgLoadingAny"
-                  class="D_Button Car_AddButton add"
-                  @click="cgOpenAddOppoCar(irace);">
-                  <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
-                </button>
-              </div>
-              <!-- <div class="Main_" v-if="race.car">{{race.car.selectedTune}}</div> -->
-              
-              <div v-if="race.car && !race.car.selectedTune" class="Cg_OppoTuneBox">
-                <button
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, '332', race)">332</button>
-                <button
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, '323', race)">323</button>
-                <button
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, '233', race)">233</button>
-                <button
-                  v-if="race.car && (race.car.class === 'S' || race.car.class === 'A')"
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, '111', race)">111</button>
-                <button
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, '000', race)">000</button>
-                <button
-                  class="D_Button Cg_OppoTuneButton"
-                  @click="cgChangeTuneOppo(race.car, 'Other', race)">Other</button>
-              </div>
-            </div>
-            <div class="Cg_Track">
-              <Row
-                v-if="race.track"
-                :list="race.resolvedTracks"
-                :loggedin="!!user"
-                :user="user"
-                :options="user && user.mod"
-                :cg="true"
-                class="Cg_TrackBox"
-                type="tracks" />
-              <button
-                :disabled="cgLoadingAny"
-                :class="{ Cg_SelectTrackButtonEdit: race.track }"
-                class="D_Button Car_AddButton Cg_SelectTrackButton"
-                @click="cgRaceSelected = irace; openDialogTrackSearch(false);">
-                <i v-if="race.track" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-                <span v-else>Select track</span>
-              </button>
-            </div>
-            <div v-if="race.car && race.car.selectedTune && race.track" class="Cg_ThemTime">
-              <Row
-                :car="race.car"
-                :list="race.resolvedTracks"
-                :loggedin="!!user"
-                :user="user"
-                :voteLoading="voteLoading"
-                :cg="true"
-                :cgOppo="true"
-                :cgTime="race.time"
-                :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
-                type="times"
-                placeholder="Time to beat"
-                @changeTime="cgChangeTimeOppo(race, $event)" />
-            </div>
-            <div v-else class="Cg_ThemTime">
-              <div class="Row_Cell Row_DisabledCell" />
-            </div>
-            <template v-if="race.track && race.car">
-              <div
-                :class="{
-                  Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
-                  Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
-                  Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
-                }"
-                class="Cg_Divider">
-                <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">select</div>
-                <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">draw</div>
-                <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">win</div>
-                <div v-else-if="(race.cars[race.carIndex] || {}).points === -50" class="Cg_Points">lose</div>
-                <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
-              </div>
-              <div class="CgYouCar">
+        <template v-if="cgRound.date">
+          <div class="Cg_Box">
+            <div
+              v-for="(race, irace) in cgRound.races"
+              class="Cg_Race"
+              @click.stop>
+              <div class="Cg_Opponent">
                 <BaseCard
-                  v-if="(race.cars[race.carIndex] || {}).car"
-                  :car="(race.cars[race.carIndex] || {}).car"
-                  :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                  v-if="race.car"
+                  :car="race.car"
+                  :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                   :fix-back="true"
                   :downloadLoading="cgLoadingAny"
                   :needSave="needSave"
                   :cg="true"
-                  @delete="race.carIndex = undefined; calcRaceResult(race);" />
+                  :cgOppo="true"
+                  @cog="cgShowTuneDialog(race.car, race, true)"
+                  @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
                     :disabled="cgLoadingAny"
                     class="D_Button Car_AddButton add"
-                    @click="cgOpenAddYouCar(irace)">
+                    @click="cgOpenAddOppoCar(irace);">
                     <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
                   </button>
                 </div>
+                <!-- <div class="Main_" v-if="race.car">{{race.car.selectedTune}}</div> -->
+                
+                <div v-if="race.car && !race.car.selectedTune" class="Cg_OppoTuneBox">
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, '332', race)">332</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, '323', race)">323</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, '233', race)">233</button>
+                  <button
+                    v-if="race.car && (race.car.class === 'S' || race.car.class === 'A')"
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, '111', race)">111</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, '000', race)">000</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo(race.car, 'Other', race)">Other</button>
+                </div>
               </div>
-              <div
-                v-if="(race.cars[race.carIndex] || {}).car && race.track"
-                class="Cg_YouTime">
+              <div class="Cg_Track">
                 <Row
-                  :car="(race.cars[race.carIndex] || {}).car"
+                  v-if="race.track"
+                  :list="race.resolvedTracks"
+                  :loggedin="!!user"
+                  :user="user"
+                  :options="user && user.mod"
+                  :cg="true"
+                  class="Cg_TrackBox"
+                  type="tracks" />
+                <button
+                  :disabled="cgLoadingAny"
+                  :class="{ Cg_SelectTrackButtonEdit: race.track }"
+                  class="D_Button Car_AddButton Cg_SelectTrackButton"
+                  @click="cgRaceSelected = irace; openDialogTrackSearch(false);">
+                  <i v-if="race.track" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
+                  <span v-else>Select track</span>
+                </button>
+              </div>
+              <div v-if="race.car && race.car.selectedTune && race.track" class="Cg_ThemTime">
+                <Row
+                  :car="race.car"
                   :list="race.resolvedTracks"
                   :loggedin="!!user"
                   :user="user"
                   :voteLoading="voteLoading"
                   :cg="true"
-                  :cgYou="true"
-                  :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                  :cgOppo="true"
+                  :cgTime="race.time"
+                  :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                   type="times"
-                  @changeTime="cgChangeTimeYou(race, $event)"
-                  @changeTune="cgChangeTuneYou(race, $event)"
-                  @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race)" />
+                  placeholder="Time to beat"
+                  @changeTime="cgChangeTimeOppo(race, $event)" />
               </div>
-              <div v-else class="Cg_YouTime">
+              <div v-else class="Cg_ThemTime">
                 <div class="Row_Cell Row_DisabledCell" />
               </div>
-              <div class="Cg_YouBank">
-                <div class="Cg_YouBankBox">
-                  <template v-for="(bankCar, index) in race.cars">
-                    <button
-                      v-if="bankCar.points !== 'no time' && bankCar.tune"
-                      :disabled="cgLoadingAny"
-                      :key="index"
-                      :class="{ Cg_BankButtonLose: bankCar.points < 0 && race.track && race.car }"
-                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
-                      @click="cgBankCarClick(race, index, $event, irace, bankCar);">
-                      <div class="Cg_BankPhoto">
-                        <img :src="bankCar.photo" class="Cg_BankPhotoImg" alt="">
-                      </div>
-                      <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div>
-                      <div class="Cg_BankTune">{{ bankCar.tune }}</div>
-                      <div
-                        :class="{
-                          Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
-                          Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
-                          Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
-                        }"
-                        class="Cg_BankResult">
-                        <span v-if="bankCar.points === 0" class="Cg_BankPoints">draw</span>
-                        <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">win</span>
-                        <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">lose</span>
-                        <span v-else class="Cg_BankPoints">{{ bankCar.points }}</span>
-                      </div>
-                    </button>
-                  </template>
+              <template v-if="race.track && race.car">
+                <div
+                  :class="{
+                    Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
+                    Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
+                    Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
+                  }"
+                  class="Cg_Divider">
+                  <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">select</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">draw</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">win</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === -50" class="Cg_Points">lose</div>
+                  <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
                 </div>
-              </div>
-            </template>
+                <div class="CgYouCar">
+                  <BaseCard
+                    v-if="(race.cars[race.carIndex] || {}).car"
+                    :car="(race.cars[race.carIndex] || {}).car"
+                    :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                    :fix-back="true"
+                    :downloadLoading="cgLoadingAny"
+                    :needSave="needSave"
+                    :cg="true"
+                    @delete="race.carIndex = undefined; calcRaceResult(race);" />
+                  <div v-else class="Cg_CarPlaceHolder">
+                    <button
+                      :disabled="cgLoadingAny"
+                      class="D_Button Car_AddButton add"
+                      @click="cgOpenAddYouCar(irace)">
+                      <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  v-if="(race.cars[race.carIndex] || {}).car && race.track"
+                  class="Cg_YouTime">
+                  <Row
+                    :car="(race.cars[race.carIndex] || {}).car"
+                    :list="race.resolvedTracks"
+                    :loggedin="!!user"
+                    :user="user"
+                    :voteLoading="voteLoading"
+                    :cg="true"
+                    :cgYou="true"
+                    :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                    type="times"
+                    @changeTime="cgChangeTimeYou(race, $event)"
+                    @changeTune="cgChangeTuneYou(race, $event)"
+                    @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race)" />
+                </div>
+                <div v-else class="Cg_YouTime">
+                  <div class="Row_Cell Row_DisabledCell" />
+                </div>
+                <div class="Cg_YouBank">
+                  <div class="Cg_YouBankBox">
+                    <template v-for="(bankCar, index) in race.cars">
+                      <button
+                        v-if="bankCar.points !== 'no time' && bankCar.tune"
+                        :disabled="cgLoadingAny"
+                        :key="index"
+                        :class="{ Cg_BankButtonLose: bankCar.points < 0 && race.track && race.car }"
+                        class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
+                        @click="cgBankCarClick(race, index, $event, irace, bankCar);">
+                        <div class="Cg_BankPhoto">
+                          <img :src="bankCar.photo" class="Cg_BankPhotoImg" alt="">
+                        </div>
+                        <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div>
+                        <div class="Cg_BankTune">{{ bankCar.tune }}</div>
+                        <div
+                          :class="{
+                            Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
+                            Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
+                            Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
+                          }"
+                          class="Cg_BankResult">
+                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">draw</span>
+                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">win</span>
+                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">lose</span>
+                          <span v-else class="Cg_BankPoints">{{ bankCar.points }}</span>
+                        </div>
+                      </button>
+                    </template>
+                  </div>
+                </div>
+              </template>
+            </div>
           </div>
-        </div>
+          <div class="Cg_Disqus">
+            <BaseDisqus :identifier="`${cgCurrentName} R${cgCurrentRound+1}`" :url="shareUrl" />
+          </div>
+        </template>
         <div v-else-if="cgLoading" class="Cg_MidLoading">
           <BaseContentLoader
             :contents="true"
@@ -1323,23 +1320,25 @@
       max-width="460px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
-        <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
-          <div class="Main_UserCard">
-            <BaseAvatar :user="user" size="46px" />
-            <div class="Main_UserBlock">
-              <div style="color: var(--d-text-b);" class="Main_UserName">
-                <span class="Main_UserNameLabel">{{ user.username }}</span>
-                <span v-if="user.mod" class="Main_UserMod">mod</span>
-              </div>
-              <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
-            </div>
+        <div v-if="user && user.mod" class="Main_SectionSelectorLayout">
+          <div class="Main_SectionSelectorBox">
+            <button
+              :class="{ D_ButtonChangeModeDisabled: mode === 'classic' }"
+              :disabled="mode === 'classic' || cgLoadingAny || cgNeedSave"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
+              @click="changeMode('classic')">
+              Home
+            </button>
+            <button
+              :class="{ D_ButtonChangeModeDisabled: mode === 'cg' }"
+              :disabled="mode === 'cg' || needSave"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
+              @click="changeMode('cg')">
+              Challenges
+            </button>
           </div>
         </div>
-        <div v-else class="Main_OptionsItem Main_OptionsLogout">
-          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Login' })">Login</button>
-          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2" @click="$router.push({ name: 'Register' })">Register</button>
-        </div>
-        <div v-if="!needSave && mode === 'classic'" class="Main_OptionsItem">
+        <div v-if="!needSave && mode === 'classic'" class="Main_OptionsItem" style="margin-top: 5px;">
           <div class="Main_OptionsLabel MainClearLabelBox">
             <span>Trackset</span>
             <div class="Main_ClearButtonsBox">
@@ -1458,6 +1457,22 @@
               </svg>
             </button>
           </div>
+        </div>
+        <div v-if="user" class="Main_OptionsItem Main_OptionsUserBox" style="display: flex;justify-content: center;">
+          <div class="Main_UserCard">
+            <BaseAvatar :user="user" size="46px" />
+            <div class="Main_UserBlock">
+              <div style="color: var(--d-text-b);" class="Main_UserName">
+                <span class="Main_UserNameLabel">{{ user.username }}</span>
+                <span v-if="user.mod" class="Main_UserMod">mod</span>
+              </div>
+              <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
+            </div>
+          </div>
+        </div>
+        <div v-else class="Main_OptionsItem Main_OptionsLogout Main_OptionsUserBox">
+          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Login' })">Login</button>
+          <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Register' })">Register</button>
         </div>
       </div>
     </BaseDialog>
@@ -1693,6 +1708,7 @@ import BaseCheckBox from './BaseCheckBox.vue'
 import BaseDonateButton from './BaseDonateButton.vue'
 import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
+import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
@@ -1725,7 +1741,8 @@ export default {
     BaseTypeName,
     BaseFilterDescription,
     BaseDonateButton,
-    BaseDiscordButton
+    BaseDiscordButton,
+    BaseDisqus
   },
   props: {
     phantomCar: {
@@ -1811,7 +1828,7 @@ export default {
       cgLoading: false,
       cgCurrentRound: 0,
       cgRoundsNumber: 1,
-      cgCurrentId: "expo_campaign_iii",
+      cgCurrentId: null,
       cgCurrentName: null,
       cgCacheCars: [],
       cgList: [],
@@ -1850,7 +1867,9 @@ export default {
       cgRqEditString: null,
       cgRqNeedToSave: false,
       cgAnalyseLoading: false,
+      forceShowAnalyse: false,
       user: null,
+      asMod: false,
       showCarsFix: true,
       needSave: false,
       saveLoading: false,
@@ -1928,6 +1947,7 @@ export default {
           "Motorsport",
           "Muscle Car",
           "Old Guard",
+          "Originals",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
@@ -2751,6 +2771,10 @@ export default {
     this.clearSaveToGallery();
     this.checkMemoryFromStorage();
     this.cgGetLocalStorage();
+    let _md = window.localStorage.getItem("_md");
+    if (_md) {
+      this.asMod = true;
+    }
 
 
     let mode = window.localStorage.getItem("mode");
@@ -3121,6 +3145,7 @@ export default {
       if (this.cgNeedSave) return false;
       if (!this.cgRound) return false;
       let show = true;
+      if (this.forceShowAnalyse) return true;
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined) show = false;
         if (!race.track) show = false;
@@ -3853,13 +3878,23 @@ export default {
       }
     },
     changeMode(mode, save = true) {
-      this.mode = mode;
-      if (save) {
-        window.localStorage.setItem('mode', mode);
+      this.optionsDialogActive = false;
+      if (mode === 'cg' && (!this.user || !this.user.mod)) {
+        mode = 'classic';
       }
-      this.changedMode();
+
+      setTimeout(() => {
+        this.mode = mode;
+        if (save) {
+          window.localStorage.setItem('mode', mode);
+        }
+        this.changedMode();
+      }, 100);
     },
     changedMode() {
+      if (this.mode === 'cg' && !this.asMod) {
+        this.mode = 'classic';
+      }
       if (this.mode === "classic") {
         // from local storage
         let tracks = window.localStorage.getItem("tracks");
@@ -3942,6 +3977,13 @@ export default {
       .then(res => {
         if (res.data.username) {
           this.user = res.data;
+          if (this.user && this.user.mod) {
+            window.localStorage.setItem('_md', "t");
+            this.asMod = true;
+          } else {
+            this.asMod = false;
+            this.mode = 'classic';
+          }
 
           LogRocket.identify(res.data.username, {
             email: res.data.email
@@ -3955,6 +3997,9 @@ export default {
             window.localStorage.setItem('auth', res.data.auth);
           }
 
+        } else {
+          this.asMod = false;
+          this.changeMode('classic');
         }
       })
       .catch(error => {
@@ -4024,7 +4069,7 @@ export default {
       Vue.set(this, "carDetailsList", result);
       this.downloadDataCars();
     },
-    saveAll() {
+    saveAll(saveBankAfter = false) {
       this.saveLoading = true;
 
       let obj = "carDetailsList";
@@ -4040,6 +4085,9 @@ export default {
       });
 
       if (simplifiedCars.length === 0) {
+        if (saveBankAfter) {
+          this.cgSaveBank();
+        }
         this.saveLoading = false;
         return;
       };
@@ -4054,6 +4102,9 @@ export default {
             correct: true,
             text: "Successful save"
           });
+        }
+        if (saveBankAfter) {
+          this.cgSaveBank();
         }
       })
       .catch(error => {
@@ -5014,6 +5065,7 @@ export default {
       this.cgCurrentRound = round;
       this.cgRound = cg.rounds[this.cgCurrentRound];
       this.cgRoundsNumber = cg.rounds.length;
+      this.generateUrl();
 
       let listRids = [];
       let minCars = [];
@@ -5143,8 +5195,10 @@ export default {
       this.showCarsFix = false;
       this.$nextTick().then(() => {
         this.showCarsFix = true;
-        this.cgResolveRqFill();
       })
+      setTimeout(() => {
+        this.cgResolveRqFill();
+      }, 100);
       let irace = this.cgRound.races.indexOf(race);
 
       
@@ -5320,12 +5374,11 @@ export default {
       this.cgSaveLoading = true;
 
       // cars times
-      this.saveAll();
-      this.cgSaveBank();
 
       if (this.cgRoundToSave.length === 0 && this.cgRoundFilterToSave === null && !this.cgRqNeedToSave) {
         //nothing to save here
         this.cgSaveLoading = false;
+        this.saveAll(true);
         return;
       }
       // save round changes
@@ -5338,6 +5391,7 @@ export default {
       })
       .then(res => {
         this.cgClearRoundToSave();
+        this.saveAll(true);
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -5526,7 +5580,11 @@ export default {
         this.cgNewLoading = false;
       });
     },
-    cgOpenRqEdit() {
+    cgOpenRqEdit(e) {
+      if (e.shiftKey && e.ctrlKey) {
+        this.forceShowAnalyse = !this.forceShowAnalyse;
+        return;
+      }
       this.cgRqEditDialog = true;
       this.cgRqEditModel = `${this.cgRound.rqLimit}`;
       setTimeout(() => {
@@ -5604,6 +5662,7 @@ export default {
       })
       .then(res => {
         this.loadChallengeFull(this.cgCurrentId);
+        this.forceShowAnalyse = false;
       })
       .catch(error => {
         console.log(error);
@@ -5633,13 +5692,29 @@ export default {
           Vue.set(x, "index", 2);
           styl = `<span class="Cg_SN">Skyline Nismo </span>${x.name.substr(14)}`
         }
+        if (x.name.substr(0, 14) === 'Expo Campaign ') {
+          Vue.set(x, "index", 3);
+          styl = `<span class="Cg_EX">Expo Campaign </span>${x.name.substr(14)}`
+        }
         Vue.set(x, "nameStyled", styl);
       })
+
+      let roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"];
+      this.cgList.map(x => {
+        let split = x.name.split(" ");
+        if ( roman.includes(split[split.length-1]) ) {
+          // contain roman
+          x.romanValue = roman.indexOf(split[split.length-1])+1;
+        }
+      })
+      
       this.cgList.sort((a,b) => {
+        if (a.romanValue && b.romanValue && a.name.split(" ")[0] === b.name.split(" ")[0]) {
+          return a.romanValue - b.romanValue;
+        }
         return a.index - b.index;
       })
     }
-    
   },
 }
 </script>
@@ -6402,6 +6477,9 @@ body::-webkit-scrollbar-corner {
 .Main_OptionsItem + .Main_OptionsItem {
   margin-top: 20px;
 }
+.Main_OptionsUserBox {
+  margin-top: 20px;
+}
 .Main_OptionsLogout {
   display: flex;
   align-content: center;
@@ -6643,6 +6721,26 @@ body::-webkit-scrollbar-corner {
 .Main_ClassChipActive {
   background-color: var(--classC);
   color: black;
+}
+.Main_SectionSelectorLayout {
+  margin-bottom: 20px;
+}
+.Main_SectionSelectorBox {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.D_Button.D_ButtonChangeMode {
+  padding: 14px 15px;
+  border-radius: 3px;
+  background-color: rgba(255,255,255,0.07);
+  min-width: 120px;
+}
+.D_Button.D_ButtonChangeModeDisabled {
+  opacity: 1;
+  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+  color: rgb(var(--d-text-green-b));
+  border-radius: 0;
 }
 .Main_OptionsCredits {
   margin-top: 30px;
@@ -7335,6 +7433,9 @@ body::-webkit-scrollbar-corner {
 .Cg_SN {
   color: #ff6262;
 }
+.Cg_EX {
+  color: #5899fb;
+}
 
 
 
@@ -7662,6 +7763,9 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint.Cg_Layout .Cg_Race:last-child .Row_Cell {
   border-right-width: 2px;	
+}
+.Main_BodyPrint .BaseDisqus_Layout {
+  display: none;
 }
 
 
