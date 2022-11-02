@@ -77,6 +77,25 @@ export default {
     resolveChange(e) {
       if (this.type === "normal") {
         this.$emit('change', e);
+      } else if (this.type === "integer") {
+        if (typeof e === "string") {
+          var integer = new RegExp(/[0-9][0-9]+/g);
+          var isInteger = integer.test(e);
+          if (isInteger) {
+            this.$emit('change', e);
+            this.correct = true;
+            setTimeout(() => {
+              this.correct = false;
+            }, 1500);
+            return;
+          }
+        }
+        this.$emit('change', '');
+        this.pis = true;
+        setTimeout(() => {
+          this.pis = false;
+        }, 1500);
+        
       } else {
         if (typeof e === "string") {
           var acel = new RegExp(/[0-9]+\.[0-9]/g);

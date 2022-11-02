@@ -10,16 +10,20 @@
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
-        <span>{{ car.tyres || "-"  }}</span>
+        <span>{{ car.tyres || "-" }}</span>
         <span> Tyres</span>
       </div>
       <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
       </div>
+      <div v-if="cgOppo" class="Car_TuneTip">{{ car.selectedTune }}</div>
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
-        <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
+        <button v-if="!cg" class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
+        </button>
+        <button v-if="cgOppo" class="D_Button Car_HeaderButton" @click="$emit('cog')">
+          <i class="ticon-gear Car_HeaderIcon" aria-hidden="true"/>
         </button>
         <button v-if="!needSave" class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
@@ -35,15 +39,15 @@
         <div class="Car_HeaderClassValue">{{ this.car.rq | resolveClass(this.car.class, "letter") }}</div>
       </div>
       <div class="Car_HeaderBlockTopSpeed">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed') }}</div>
+        <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
         <div class="Car_HeaderStatLabel">TOP SPEED</div>
       </div>
       <div class="Car_HeaderBlock060">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('acel') }}</div>
+        <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
         <div class="Car_HeaderStatLabel">0-60MPH</div>
       </div>
       <div class="Car_HeaderBlockHandling">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('hand') }}</div>
+        <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
         <div class="Car_HeaderStatLabel">HANDLING</div>
       </div>
       <div class="Car_HeaderBlockDrive">
@@ -106,6 +110,20 @@ export default {
     needSave: {
       type: Boolean,
       default: false
+    },
+    cg: {
+      type: Boolean,
+      default: false
+    },
+    cgOppo: {
+      type: Boolean,
+      default: false
+    },
+    customData: {
+      type: Object,
+      default() {
+        return null
+      }
     },
   },
   data() {

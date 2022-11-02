@@ -359,6 +359,7 @@ export default {
           "Motorsport",
           "Muscle Car",
           "Old Guard",
+          "Originals",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
