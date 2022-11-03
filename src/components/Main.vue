@@ -300,9 +300,9 @@
           </div>
         </div>
       </div>
-      <div v-if="showCarsFix" class="Cg_Mid">
+      <div class="Cg_Mid">
         <template v-if="cgRound.date">
-          <div class="Cg_Box">
+          <div v-if="showCarsFix" class="Cg_Box">
             <div
               v-for="(race, irace) in cgRound.races"
               class="Cg_Race"
@@ -2358,7 +2358,12 @@ export default {
           "name": "City Tour",
           "id": "townTour",
           "types": ["00","01","60"]
-        },      
+        },    
+        {
+          "name": "Cross Country",
+          "id": "cross",
+          "types": ["f0"]
+        },  
         {
           "name": "Dirt Road",
           "id": "canyonDtRoad",
@@ -2373,6 +2378,11 @@ export default {
           "name": "Fast Circuit (R)",
           "id": "fastr",
           "types": ["00"]
+        },
+        {
+          "name": "Field Slalom",
+          "id": "fieldSlalom",
+          "types": ["f0"]
         },
         {
           "name": "Figure Of Eight",
@@ -2595,6 +2605,11 @@ export default {
           "name": "Rallycross Small",
           "id": "rallySmall",
           "types": ["40","41"]
+        },
+        {
+          "name": "River Sprint",
+          "id": "riverSprint",
+          "types": ["g0"]
         },
         {
           "name": "Runway Drag",
@@ -6876,7 +6891,8 @@ body::-webkit-scrollbar-corner {
   --type-back-opac: 0.1;
   background-color: rgba(var(--color-gravel), var(--type-back-opac));
 }
-.Type_30 {
+.Type_30,
+.Type_g0 {
   color: rgb(var(--color-ice));
   --type-back-opac: 0.1;
   background-color: rgba(var(--color-ice), var(--type-back-opac));
@@ -6895,6 +6911,7 @@ body::-webkit-scrollbar-corner {
   background-color: rgba(var(--color-snow), var(--type-back-opac));
 }
 .Type_70,
+.Type_f0,
 .Type_71 {
   color: rgb(var(--color-grass));
   --type-back-opac: 0.1;

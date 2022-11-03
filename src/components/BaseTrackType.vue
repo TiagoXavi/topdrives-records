@@ -19,6 +19,15 @@
           <span class="TypeText_Sand">{{ 'Sand\n' }}</span>
           <span class="TypeText_Dirt">Dirt</span>
         </template>
+        <template v-else-if="type == 'f0'">
+          <span class="TypeText_Dry">Aspht</span>
+          <span class="TypeText_Grass">{{ ' Grass' }}</span>
+          <span class="TypeText_Dirt">{{ '\nDirt' }}</span>
+        </template>
+        <template v-else-if="type == 'g0'">
+          <span class="TypeText_Ice">Ice</span>
+          <span class="TypeText_Snow">{{ '\nSnow' }}</span>
+        </template>
         <template v-else>
           <span v-if="type !== '01'" class="TypeText_Dry">Aspht</span>
           <span class="TypeText_Dirt" v-if="type == '40'">{{ '\nDirt' }}</span>
