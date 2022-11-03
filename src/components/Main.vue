@@ -409,7 +409,6 @@
                     :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
                     :fix-back="true"
                     :downloadLoading="cgLoadingAny"
-                    :needSave="needSave"
                     :cg="true"
                     @delete="race.carIndex = undefined; calcRaceResult(race);" />
                   <div v-else class="Cg_CarPlaceHolder">
