@@ -2948,6 +2948,7 @@ export default {
           vm.tuneDialogCar = car;
           vm.tuneDialogCarIndex = indexCar;
           vm.tuneDialogActive = mutation.payload.active;
+          vm.tuneDialogisOppo = false;
         }
       }
 
