@@ -18613,7 +18613,7 @@
       "hand": 92,
       "drive": "FWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 78.18,
       "weight": 1200,
       "name": "Audi RS3 LMS TCR (8V)",
       "rid": "Audi_RS3_LMS_TCR_(8V)_2018",

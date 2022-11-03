@@ -255,7 +255,7 @@
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
-                          @click="cgAnalyseRound()">Analyse</button>
+                          @click="cgAnalyseRound()">Analyze</button>
                       </div>
                     </template>
                     <div v-if="user" class="Main_PrintBy">
@@ -1771,6 +1771,7 @@ export default {
       searchFocus: false,
       debounceFilter: null,
       debounceFilterT: null,
+      debounceCgSaveBank: null,
       searchLoading: false,
       searchLoadingT: false,
       searchLoadingT2: false,
@@ -2853,8 +2854,9 @@ export default {
   },
   mounted() {
     let vm = this;
-    this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
-    this.debounceFilterT = Vue.debounce(this.changeFilterT, 500); 
+    this.debounceFilter = Vue.debounce(this.changeFilter, 500);
+    this.debounceFilterT = Vue.debounce(this.changeFilterT, 500);
+    this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 3000);
 
     this.getUser();
 
@@ -4111,7 +4113,7 @@ export default {
       .then(res => {
         this.needSaveChange(false);
         this.clearDataToSave();
-        if (!this.mode === 'cg') {
+        if (this.mode === 'classic') {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
@@ -5306,14 +5308,16 @@ export default {
       })
       if (found === -1) {
         this.cgBankToSave.push(obj);
+
+        this.debounceCgSaveBank();
         // console.log(JSON.stringify(obj));
-        axios.post(Vue.preUrl + "/updateCgBankCars", obj)
-        .then(res => {
-          console.log('saved', obj);
-        })
-        .catch(error => {
-          console.log(error);
-        })
+        // axios.post(Vue.preUrl + "/updateCgBankCars", obj)
+        // .then(res => {
+        //   console.log('saved', obj);
+        // })
+        // .catch(error => {
+        //   console.log(error);
+        // })
       }
 
       
@@ -5442,11 +5446,7 @@ export default {
       if (this.cgBankToSave.length === 0) return;
       this.cgBankToSaveLoading = true;
 
-      axios.post(Vue.preUrl + "/updateCgBankCars", {
-        date: this.cg.date,
-        round: this.cgCurrentRound,
-        changes: this.cgBankToSave
-      })
+      axios.post(Vue.preUrl + "/updateCgBankCars", this.cgBankToSave)
       .then(res => {
         this.cgClearBankToSave();
       })
@@ -5469,7 +5469,7 @@ export default {
 
     },
     cgClearBankToSave() {
-      this.cgRoundToSave = [];
+      this.cgBankToSave = [];
     },
     cgSortBankCars(race) {
       if (race.cars.length === 0) return;
