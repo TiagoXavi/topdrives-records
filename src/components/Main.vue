@@ -2828,11 +2828,11 @@ export default {
 
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
       // from query string
-      this.changeMode('classic', false, false);
+      this.changeMode('classic');
       this.decodeTemplateString(this.$route.query.share, true);
     } else if (this.$route.query && this.$route.query.cg && this.$route.query.cg.includes("~")) {
       // from query string
-      this.changeMode('cg', false, false);
+      this.changeMode('cg');
 
       this.$route.query.cg.split("~").map(x => {
         if (x[0] === "G") {
