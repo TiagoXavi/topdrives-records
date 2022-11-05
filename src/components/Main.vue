@@ -3164,7 +3164,7 @@ export default {
       let show = true;
       if (this.forceShowAnalyse) return true;
       this.cgRound.races.map(race => {
-        if (!race.rid || race.time === undefined) show = false;
+        if (!race.rid || race.time === undefined || race.time === null) show = false;
         if (!race.track) show = false;
         if (race.cars && race.cars.length > 4) show = false
       })
