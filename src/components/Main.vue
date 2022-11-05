@@ -21,7 +21,7 @@
           <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
             <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
           </button>
-          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
+          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl(); generateCarsList()">
             <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
           </button>
         </div>
@@ -999,6 +999,23 @@
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="copyUrl()">Copy</button>
         </div>
+        <template v-if="mode === 'classic'">
+          <div class="Main_DialogTitle">List of cars</div>
+          <div class="Main_ShareLinkBox">
+            <textarea
+              v-model="shareListCars"
+              id="shareListField"
+              rows="6"
+              class="Main_ShareLinkInput data-hj-allow"
+              readonly="readonly" />
+            <button
+              :class="{ D_Button_Correct: copyListSucess }"
+              :disabled="copyListSucess"
+              style="font-size: 16px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="copyList()">Copy</button>
+          </div>
+        </template>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -1875,7 +1892,9 @@ export default {
       saveLoading: false,
       downloadLoading: false,
       shareUrl: null,
+      shareListCars: null,
       copyUrlSucess: false,
+      copyListSucess: false,
       filterCountN: 0,
       filterCountT: 0,
       filterCountCg: 0,
@@ -4443,6 +4462,21 @@ export default {
       navigator.clipboard.writeText(copyText.value);
       this.copyUrlSucess = true;
       setTimeout(() => { this.copyUrlSucess = false}, 1500);
+    },
+    generateCarsList() {
+      let result = "";
+      this.carDetailsList.map(x => {
+        result += `RQ${x.rq} ${x.name}\n`
+      });
+      this.shareListCars = result;
+    },
+    copyList() {
+      var copyText = document.getElementById("shareListField");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      navigator.clipboard.writeText(copyText.value);
+      this.copyListSucess = true;
+      setTimeout(() => { this.copyListSucess = false}, 1500);
     },
     decodeTemplateString(template, pushToWork = false) {
 
