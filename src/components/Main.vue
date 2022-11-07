@@ -178,10 +178,6 @@
                 <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
               </button>
             </div>
-            <div v-if="user && inverted && mode === 'classic'" class="Main_PrintBy">
-              <div class="Main_PrintByLabel">print by</div>
-              <div class="Main_PrintByUser">{{ user.username }}</div>
-            </div>
             <div class="Main_GamePrintInfo">
               <div class="Main_GameVersionText">{{ gameVersion }}</div>
               <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
@@ -1194,7 +1190,7 @@
             <div class="Main_FilterClearTop">
               <button
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-                @click="clearFilter("galleryFilters")">Clear</button>
+                @click="clearFilter('galleryFilters')">Clear</button>
             </div>
             <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in saveToGalleryModel.types">
@@ -1285,7 +1281,7 @@
             <div class="D_Center" style="gap: 15px;">
               <button
                 class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
-                @click="clearFilter("galleryFilters")">Clear</button>
+                @click="clearFilter('galleryFilters')">Clear</button>
               <button
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
                 @click="applyFilterT()">Done</button>
@@ -1449,6 +1445,7 @@
           <div class="D_Center Main_OptionsFooterButtons">
             <BaseDiscordButton />
             <button
+              v-if="mode === 'classic'"
               class="D_Button Main_OptionsButton"
               @click="openDialogGallery()">
               <i class="ticon-dash D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
@@ -5041,7 +5038,7 @@ export default {
 
       axios.get(Vue.preUrl + "/searchCg")
       .then(res => {
-        this.cgList = res.data.Items;
+        this.cgList = res.data.value;
         this.styleCgList();
         if (resolveInitial && this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
           this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
@@ -5608,11 +5605,15 @@ export default {
         rounds: Number(this.cgNewModel.numberRounds)
       })
       .then(res => {
+        setTimeout(() => {
         this.cgCloseNewCg();
         this.loadChallenges(false);
+          this.cgNewLoading = false;
+        }, 1000);
       })
       .catch(error => {
         this.cgNewError = true;
+        this.cgNewLoading = false;
         setTimeout(() => { this.cgNewError = false}, 1500);
 
         console.log(error);
@@ -5626,9 +5627,6 @@ export default {
           this.loginDialog = true;
         }
       })
-      .then(() => {
-        this.cgNewLoading = false;
-      });
     },
     cgOpenRqEdit(e) {
       if (e.shiftKey && e.ctrlKey) {
