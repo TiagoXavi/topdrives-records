@@ -5898,7 +5898,7 @@
       "hand": 87,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 89.29,
       "weight": 840,
       "name": "Rezvani Beast X",
       "rid": "Rezvani_Beast_X_2017",
@@ -44746,7 +44746,7 @@
           "Summer Games"
       ],
       "bodyTypes": [
-          "Saloon"
+          "Hatchback"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -57544,7 +57544,7 @@
       "topSpeed": 135,
       "acel": 7.1,
       "hand": 78,
-      "drive": "RWD",
+      "drive": "FWD",
       "tyres": "Performance",
       "mra": 76.92,
       "weight": 1538,
