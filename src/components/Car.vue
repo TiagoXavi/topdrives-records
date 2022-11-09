@@ -239,6 +239,9 @@ export default {
   transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
   position: relative;
 }
+.Car_WithMidEmpty {
+  position: absolute;
+}
 .Car_Dragging {
   background-color: #242424;
   box-shadow: 0px 0px 0px 5px #505050;

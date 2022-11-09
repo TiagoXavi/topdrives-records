@@ -102,7 +102,7 @@
 
         </div>
       </div>
-      <div v-if="carDetailsList.length > 0" class="Main_Mid">
+      <div class="Main_Mid">
         <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
@@ -129,6 +129,7 @@
             v-if="carDetailsList.length < maxCarNumber"
             index="addCar"
             class="Car_LayoutAddCar"
+            :class="{ Car_WithMidEmpty: carDetailsList.length === 0 }"
             :car="null"
             :maxCarNumber="maxCarNumber"
             @add="openDialogSearch()" />
@@ -138,7 +139,7 @@
           <span style="color: rgb(var(--d-text-yellow)); margin-right: 3px;">Contributors: </span>{{ contributorsScreen }}
         </div>
       </div>
-      <div v-else class="Main_MidEmpty">
+      <div v-if="carDetailsList.length === 0" class="Main_MidEmpty">
         <div class="Main_MidEmptyInner">
           <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
             <button
