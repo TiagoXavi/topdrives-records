@@ -218,10 +218,15 @@
         </div>
       </div>
     </div>
-    <div class="MainCarsEdit_Tool">
+    <div style="display: flex; gap: 15px;">
       <button
         class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig D_ButtonDarkPrimary"
-        @click="processAll()">Done</button>
+        @click="processAll()">Copy selected</button>
+      <button
+        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig D_ButtonDarkPrimary"
+        @click="collection = [];">Clear selection</button>
+      <span>{{ collection.length }} selected</span>
+      <span>Filtered cars: {{ filterCount }}</span>
     </div>
     <div class="MainCarsEdit_Box">
       <div
@@ -231,7 +236,7 @@
           
           <BaseCarEditCard
             :car="car"
-            :marked="car.prize === true"
+            :marked="collection.includes(car.rid)"
             :options="false"
             @action="actionClick(car)" />
 
@@ -269,6 +274,7 @@ export default {
       pl14: pl14,
       diff_cars: [],
       collection: [],
+      filterCount: 0,
       searchInput: '',
       searchActive: false,
       isFiltering: false,
@@ -914,6 +920,7 @@ export default {
         return;
       }
       let total = this.searchResult.length;
+      this.filterCount = total;
       console.log(total);
 
       if (total < 200) {
@@ -966,21 +973,28 @@ export default {
       // this.all_cars.map(x => {
       //   delete x.visible
       // });
-      this.all_cars.map(x => {
-        delete x.visible
-      });
-      debugger;
+      // this.all_cars.map(x => {
+      //   delete x.visible
+      // });
+      // debugger;
+      navigator.clipboard.writeText(JSON.stringify(this.collection));
     },
     actionClick(car) {
-      this.all_cars.map(x => {
-        if (car.rid === x.rid) {
-          if (x.prize) {
-            Vue.set(x, "prize", false)
-          } else {
-            Vue.set(x, "prize", true)
-          }
-        }
-      })
+      if (this.collection.includes(car.rid)) {
+        this.collection = this.collection.filter(x => x !== car.rid);
+      } else {
+        this.collection.push(car.rid);
+      }
+
+      // this.all_cars.map(x => {
+      //   if (car.rid === x.rid) {
+      //     if (x.prize) {
+      //       Vue.set(x, "prize", false)
+      //     } else {
+      //       Vue.set(x, "prize", true)
+      //     }
+      //   }
+      // })
     }
   },
 }
