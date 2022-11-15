@@ -6317,6 +6317,7 @@ html, body {
 }
 body {
   font-family: 'Roboto', sans-serif;
+  touch-action: pan-x pan-y;
 
   /* main */
   --top-height: 150px;
