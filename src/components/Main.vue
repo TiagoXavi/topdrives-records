@@ -2025,7 +2025,7 @@ import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
-import data_cars from '../database/cars_final.json'
+import data_cars from '../database/cars_final_PL15.json'
 import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';

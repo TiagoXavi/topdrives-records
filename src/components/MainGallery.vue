@@ -43,6 +43,10 @@
             </div>
             <div class="Main_FilterChipsInside" style="margin: 10px auto 0 auto;">
               <BaseChip
+                v-model="searchFilters.onlyAnyChangeModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">Any changed</BaseChip>
+              <BaseChip
                 v-model="searchFilters.onlyNewRarityModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="true">Rarity changed</BaseChip>
@@ -336,7 +340,7 @@
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
 import data_cars from '../database/cars_final.json'
-import pl14 from '../database/cars_final_PL14.json'
+import plOld from '../database/cars_final_PL15.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -358,7 +362,7 @@ export default {
   data() {
     return {
       all_cars: data_cars,
-      pl14: pl14,
+      plOld: plOld,
       diff_cars: [],
       searchInput: '',
       searchActive: false,
@@ -405,6 +409,7 @@ export default {
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
+        onlyAnyChangeModel: [true],
         onlyNewRarityModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
@@ -567,6 +572,9 @@ export default {
       this.chunkLoaded[ix] = false;
     })
 
+    
+    this.applyFilter();
+
   },
   mounted() {
     let vm = this;
@@ -629,7 +637,8 @@ export default {
 
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 333 || showAll) {
+        // if (result.length < 333 || showAll) {
+        if (true || showAll) {
 
           let shouldPush = false;
           if (searchStr && searchStr !== "") {
@@ -708,7 +717,7 @@ export default {
         // if (ix > 200) return;
         let dif = {};
 
-        let pl14car = this.pl14.find(x => {
+        let plOldcar = this.plOld.find(x => {
           if (x.rid === y.rid) {
 
             if (x.rq !== y.rq) {
@@ -769,7 +778,7 @@ export default {
 
           }
         })
-        if (!pl14car) {
+        if (!plOldcar) {
           dif.new = true;
         }
 
@@ -808,6 +817,7 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
+      this.searchFilters.onlyAnyChangeModel = [true];
       this.searchFilters.onlyNewRarityModel = [];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
@@ -835,6 +845,7 @@ export default {
         weightModel: this.defaultFilters("weightModel"),
         seatsModel: this.defaultFilters("seatsModel"),
         classesModel: [],
+        onlyAnyChangeModel: [],
         onlyNewRarityModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
@@ -898,7 +909,30 @@ export default {
         if ( !car.prize && !this.searchFilters.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
-      let oldCar = this.pl14.find(old => old.rid === car.rid);
+      let oldCar = this.plOld.find(old => old.rid === car.rid);
+
+      if ( this.searchFilters.onlyAnyChangeModel.includes(true) ) {
+        if ( !oldCar ) {
+          return false;
+        }
+        if (
+            oldCar.class === car.class &&
+            oldCar.tyres === car.tyres &&
+            oldCar.drive === car.drive &&
+            oldCar.clearance === car.clearance &&
+            oldCar.rq === car.rq &&
+            oldCar.year === car.year &&
+            oldCar.abs === car.abs &&
+            oldCar.tcs === car.tcs &&
+            oldCar.topSpeed === car.topSpeed &&
+            oldCar.acel === car.acel &&
+            oldCar.hand === car.hand &&
+            oldCar.mra === car.mra &&
+            oldCar.weight === car.weight
+          ) {
+          return false;
+        }
+      }
 
       if ( this.searchFilters.onlyNewRarityModel.includes(true) ) {
         if ( !oldCar || oldCar.class === car.class ) {
@@ -982,6 +1016,8 @@ export default {
         return;
       }
       let total = this.searchResult.length;
+      // debugger;
+      console.log(total);
 
       if (total < 200) {
         this.showAllChunk = true;
@@ -1002,6 +1038,7 @@ export default {
       // this.chunkLoaded[chunkId-1] = true;
       this.chunkLoaded[chunkId] = true;
       // this.chunkLoaded[chunkId+1] = true;
+      // console.log(this.chunkLoaded);
       
     },
     temp(str) {

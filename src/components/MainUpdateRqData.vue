@@ -45,7 +45,7 @@ export default {
       temp = this.cars_new_rq.filter(y => {
         let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
         // if (yModel.includes(xName) && yModel.substr(yModel.length-5, 4) == x.year) {
-        if (yModel === xName && yModel.substr(yModel.length-5, 4) == x.year) {
+        if (yModel.substr(0, yModel.length-7) === xName && yModel.substr(yModel.length-5, 4) == x.year && y['Old RQ'] === x.rq) {
           return true
         }
       });
