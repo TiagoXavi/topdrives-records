@@ -327,7 +327,7 @@
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
-                    :disabled="cgLoadingAny"
+                    :disabled="cgLoadingAny || !user || !user.mod"
                     class="D_Button Car_AddButton add"
                     @click="cgOpenAddOppoCar(irace);">
                     <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
@@ -368,7 +368,8 @@
                   class="Cg_TrackBox"
                   type="tracks" />
                 <button
-                  :disabled="cgLoadingAny"
+                  v-if="!!user && user.mod"
+                  :disabled="cgLoadingAny || !user || !user.mod"
                   :class="{ Cg_SelectTrackButtonEdit: race.track }"
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
                   @click="cgRaceSelected = irace; openDialogTrackSearch(false);">
