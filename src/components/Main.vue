@@ -1658,7 +1658,7 @@
             <button
               class="D_Button Main_OptionsButton"
               @click="$router.push({ name: 'Gallery' })">
-              <span>PL15 Changes</span>
+              <span>PL16 Changes</span>
             </button>
 
             <BaseDonateButton />
