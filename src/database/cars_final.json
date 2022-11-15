@@ -459,7 +459,7 @@
   },
   {
       "class": "S",
-      "rq": 99,
+      "rq": 98,
       "onlyName": "Concept_One",
       "brand": "Rimac",
       "country": "HR",
@@ -4366,6 +4366,37 @@
   },
   {
       "class": "S",
+      "rq": 90,
+      "onlyName": "AMG GT 4-Door Coupe",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3270",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 196,
+      "acel": 3,
+      "hand": 88,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 78.67,
+      "weight": 2120,
+      "name": "Mercedes-Benz AMG GT 4-Door Coupe",
+      "rid": "Mercedes-Benz_AMG_GT_4-Door_Coupe_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Coupe",
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 89,
       "onlyName": "M5 Competition",
       "brand": "BMW",
@@ -4686,36 +4717,6 @@
   {
       "class": "S",
       "rq": 89,
-      "onlyName": "Cayenne Turbo (958.2)",
-      "brand": "Porsche",
-      "country": "DE",
-      "year": 2017,
-      "tdid": "566",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 173,
-      "acel": 4.1,
-      "hand": 81,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": null,
-      "weight": 2170,
-      "name": "Porsche Cayenne Turbo (958.2)",
-      "rid": "Porsche_Cayenne_Turbo_2017",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 89,
       "onlyName": "205 T16 Evo 2",
       "brand": "Peugeot",
       "country": "FR",
@@ -4777,37 +4778,6 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 89,
-      "onlyName": "AMG GT 4-Door Coupe",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3270",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 196,
-      "acel": 3,
-      "hand": 88,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 78.67,
-      "weight": 2120,
-      "name": "Mercedes-Benz AMG GT 4-Door Coupe",
-      "rid": "Mercedes-Benz_AMG_GT_4-Door_Coupe_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Coupe",
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
   },
   {
       "class": "S",
@@ -5550,6 +5520,36 @@
       "rid": "Porsche_Macan_GTS_2021",
       "tags": [
           "World Expo"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 87,
+      "onlyName": "Cayenne Turbo (958.2)",
+      "brand": "Porsche",
+      "country": "DE",
+      "year": 2017,
+      "tdid": "566",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 173,
+      "acel": 4.1,
+      "hand": 81,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2170,
+      "name": "Porsche Cayenne Turbo (958.2)",
+      "rid": "Porsche_Cayenne_Turbo_2017",
+      "tags": [
+          "Originals"
       ],
       "bodyTypes": [
           "SUV"
@@ -8707,6 +8707,36 @@
   },
   {
       "class": "S",
+      "rq": 83,
+      "onlyName": "AMG GT R",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3277",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 198,
+      "acel": 3.5,
+      "hand": 91,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 105.11,
+      "weight": 1630,
+      "name": "Mercedes-Benz AMG GT R",
+      "rid": "Mercedes-Benz_AMG_GT_R_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 82,
       "onlyName": "R8 Spyder V10",
       "brand": "Audi",
@@ -9207,36 +9237,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 82,
-      "onlyName": "AMG GT R",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3277",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 198,
-      "acel": 3.5,
-      "hand": 91,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 105.11,
-      "weight": 1630,
-      "name": "Mercedes-Benz AMG GT R",
-      "rid": "Mercedes-Benz_AMG_GT_R_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -10931,37 +10931,6 @@
   {
       "class": "A",
       "rq": 79,
-      "onlyName": "Continental GT Speed Breitling Jet Team Series",
-      "brand": "Bentley",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "1699",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 206,
-      "acel": 4,
-      "hand": 85,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 2320,
-      "name": "Bentley Continental GT Speed Breitling Jet Team Series",
-      "rid": "Bentley_Continental_Breitling_Jet_Team_Series_Limited_Edition_2016",
-      "tags": [
-          "Great Exhibition",
-          "Old Guard"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 79,
       "onlyName": "Diablo VT",
       "brand": "Lamborghini",
       "country": "IT",
@@ -12110,6 +12079,37 @@
   {
       "class": "A",
       "rq": 78,
+      "onlyName": "Continental GT Speed Breitling Jet Team Series",
+      "brand": "Bentley",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "1699",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 206,
+      "acel": 4,
+      "hand": 85,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 2320,
+      "name": "Bentley Continental GT Speed Breitling Jet Team Series",
+      "rid": "Bentley_Continental_Breitling_Jet_Team_Series_Limited_Edition_2016",
+      "tags": [
+          "Great Exhibition",
+          "Old Guard"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 78,
       "onlyName": "911 Turbo",
       "brand": "Porsche",
       "country": "DE",
@@ -12704,7 +12704,7 @@
   },
   {
       "class": "A",
-      "rq": 77,
+      "rq": 78,
       "onlyName": "AMG GT S",
       "brand": "Mercedes-Benz",
       "country": "DE",
@@ -12735,7 +12735,7 @@
   },
   {
       "class": "A",
-      "rq": 77,
+      "rq": 78,
       "onlyName": "Mercedes-Benz SLR McLaren 722",
       "brand": "McLaren",
       "country": "GB",
@@ -12762,6 +12762,36 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 78,
+      "onlyName": "AMG S 63 Cabriolet",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3274",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 186,
+      "acel": 3.4,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 2185,
+      "name": "Mercedes-Benz AMG S 63 Cabriolet",
+      "rid": "Benz_AMG_S_63_Cabriolet_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
       "engine": "Front"
   },
   {
@@ -15389,6 +15419,39 @@
   },
   {
       "class": "A",
+      "rq": 75,
+      "onlyName": "RAM Rebel TRX Concept",
+      "brand": "RAM",
+      "country": "US",
+      "year": 2016,
+      "tdid": "2902",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 114,
+      "acel": 4.9,
+      "hand": 74,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": null,
+      "weight": 2400,
+      "name": "RAM RAM Rebel TRX Concept",
+      "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
+      "tags": [
+          "American Frontier",
+          "Call of the Wild",
+          "Concept"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 74,
       "onlyName": "X6 50i",
       "brand": "BMW",
@@ -15475,39 +15538,6 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 74,
-      "onlyName": "RAM Rebel TRX Concept",
-      "brand": "RAM",
-      "country": "US",
-      "year": 2016,
-      "tdid": "2902",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 114,
-      "acel": 4.9,
-      "hand": 74,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": null,
-      "weight": 2400,
-      "name": "RAM RAM Rebel TRX Concept",
-      "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
-      "tags": [
-          "American Frontier",
-          "Call of the Wild",
-          "Concept"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -16354,6 +16384,39 @@
   },
   {
       "class": "A",
+      "rq": 74,
+      "onlyName": "Sport Laguna BTCC",
+      "brand": "Renault",
+      "country": "FR",
+      "year": 1999,
+      "tdid": "1234",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 160,
+      "acel": 4.5,
+      "hand": 92,
+      "drive": "FWD",
+      "tyres": "Slick",
+      "mra": 91.84,
+      "weight": 975,
+      "name": "Renault Sport Laguna BTCC",
+      "rid": "Renault_Sport_Laguna_BTCC_1999",
+      "tags": [
+          "Famous Tracks",
+          "French Renaissance",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 73,
       "onlyName": "RS5 (B8)",
       "brand": "Audi",
@@ -17152,6 +17215,36 @@
   },
   {
       "class": "A",
+      "rq": 73,
+      "onlyName": "AMG GT Roadster",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3278",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 188,
+      "acel": 3.9,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 96.37,
+      "weight": 1670,
+      "name": "Mercedes-Benz AMG GT Roadster",
+      "rid": "MercedesAMG_GT_Roadster_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 72,
       "onlyName": "Vanquish Volante",
       "brand": "Aston Martin",
@@ -17837,6 +17930,71 @@
   },
   {
       "class": "A",
+      "rq": 72,
+      "onlyName": "AMG CLK DTM",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2007,
+      "tdid": "396",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 3.7,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 99.59,
+      "weight": 1840,
+      "name": "Mercedes-Benz AMG CLK DTM",
+      "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
+      "tags": [
+          "Motorsport",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 72,
+      "onlyName": "Firenza Baby Bertha",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 1974,
+      "tdid": "1888",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 175,
+      "acel": 4.2,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 98.13,
+      "weight": 1018,
+      "name": "Vauxhall Firenza Baby Bertha",
+      "rid": "Vauxhall_Firenza_Baby_Bertha_1974",
+      "tags": [
+          "Great Exhibition",
+          "Motorsport",
+          "Wild Ride",
+          "Year of the Tiger"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 71,
       "onlyName": "CLS 400",
       "brand": "Mercedes-Benz",
@@ -17925,37 +18083,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "AMG CLK DTM",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2007,
-      "tdid": "396",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 3.7,
-      "hand": 84,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 99.59,
-      "weight": 1840,
-      "name": "Mercedes-Benz AMG CLK DTM",
-      "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
-      "tags": [
-          "Motorsport",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -18113,40 +18240,6 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "Firenza Baby Bertha",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 1974,
-      "tdid": "1888",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 175,
-      "acel": 4.2,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 98.13,
-      "weight": 1018,
-      "name": "Vauxhall Firenza Baby Bertha",
-      "rid": "Vauxhall_Firenza_Baby_Bertha_1974",
-      "tags": [
-          "Great Exhibition",
-          "Motorsport",
-          "Wild Ride",
-          "Year of the Tiger"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
   },
   {
       "class": "A",
@@ -18328,39 +18421,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "Sport Laguna BTCC",
-      "brand": "Renault",
-      "country": "FR",
-      "year": 1999,
-      "tdid": "1234",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 160,
-      "acel": 4.5,
-      "hand": 92,
-      "drive": "FWD",
-      "tyres": "Slick",
-      "mra": 91.84,
-      "weight": 975,
-      "name": "Renault Sport Laguna BTCC",
-      "rid": "Renault_Sport_Laguna_BTCC_1999",
-      "tags": [
-          "Famous Tracks",
-          "French Renaissance",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
       "engine": "Front"
   },
   {
@@ -18669,36 +18729,6 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "AMG GT Roadster",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3278",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 188,
-      "acel": 3.9,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 96.37,
-      "weight": 1670,
-      "name": "Mercedes-Benz AMG GT Roadster",
-      "rid": "MercedesAMG_GT_Roadster_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
   },
   {
       "class": "A",
@@ -19067,36 +19097,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 70,
-      "onlyName": "RS5 Cabriolet",
-      "brand": "Audi",
-      "country": "DE",
-      "year": 2012,
-      "tdid": "25",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 84,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1920,
-      "name": "Audi RS5 Cabriolet",
-      "rid": "Audi_RS_5_Cabriolet_2012",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -19628,36 +19628,6 @@
   {
       "class": "A",
       "rq": 70,
-      "onlyName": "AMG G 63",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3272",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 149,
-      "acel": 3.9,
-      "hand": 70,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": null,
-      "weight": 2485,
-      "name": "Mercedes-Benz AMG G 63",
-      "rid": "MercedesAMG_G_63_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 70,
       "onlyName": "Vision 6 Cabriolet Maybach",
       "brand": "Mercedes-Benz",
       "year": 2016,
@@ -19935,6 +19905,36 @@
   {
       "class": "A",
       "rq": 69,
+      "onlyName": "AMG G 63",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3272",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 149,
+      "acel": 3.9,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2485,
+      "name": "Mercedes-Benz AMG G 63",
+      "rid": "MercedesAMG_G_63_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 69,
       "onlyName": "Emerg-E",
       "brand": "Infiniti",
       "country": "JP",
@@ -20115,38 +20115,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 69,
-      "onlyName": "Abarth 124 Spider Rally",
-      "brand": "Fiat",
-      "country": "IT",
-      "year": 2016,
-      "tdid": "1489",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 140,
-      "acel": 3.9,
-      "hand": 85,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 80,
-      "weight": 1050,
-      "name": "Fiat Abarth 124 Spider Rally",
-      "rid": "Fiat_Abarth_124_Spider_Rally_2016",
-      "tags": [
-          "Italian Renaissance",
-          "Motorsport",
-          "Two Tone"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -21047,6 +21015,68 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 68,
+      "onlyName": "RS 5 Cabriolet",
+      "brand": "Audi",
+      "country": "DE",
+      "year": 2012,
+      "tdid": "25",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 84,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1920,
+      "name": "Audi RS 5 Cabriolet",
+      "rid": "Audi_RS_5_Cabriolet_2012",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 68,
+      "onlyName": "Abarth 124 Spider Rally",
+      "brand": "Fiat",
+      "country": "IT",
+      "year": 2016,
+      "tdid": "1489",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 140,
+      "acel": 3.9,
+      "hand": 85,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 80,
+      "weight": 1050,
+      "name": "Fiat Abarth 124 Spider Rally",
+      "rid": "Fiat_Abarth_124_Spider_Rally_2016",
+      "tags": [
+          "Italian Renaissance",
+          "Motorsport",
+          "Two Tone"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -24782,36 +24812,6 @@
       "engine": "Mid"
   },
   {
-      "class": "A",
-      "rq": 65,
-      "onlyName": "AMG S 63 Cabriolet",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3274",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 186,
-      "acel": 3.4,
-      "hand": 80,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 2185,
-      "name": "Mercedes-Benz AMG S 63 Cabriolet",
-      "rid": "Benz_AMG_S_63_Cabriolet_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
       "class": "B",
       "rq": 64,
       "onlyName": "AMG C 63",
@@ -24869,37 +24869,6 @@
       ],
       "bodyTypes": [
           "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Range Rover 5.0 V8",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "839",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 155,
-      "acel": 5.1,
-      "hand": 69,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 70.11,
-      "weight": 2330,
-      "name": "Land Rover Range Rover 5.0 V8",
-      "rid": "Land_Rover_Range_Rover_5.0_V8_2016",
-      "tags": [
-          "Old Guard",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -25710,6 +25679,37 @@
       ],
       "bodyTypes": [
           "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Range Rover 5.0 V8",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "839",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 155,
+      "acel": 5.1,
+      "hand": 69,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 70.11,
+      "weight": 2330,
+      "name": "Land Rover Range Rover 5.0 V8",
+      "rid": "Land_Rover_Range_Rover_5.0_V8_2016",
+      "tags": [
+          "Old Guard",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -27181,36 +27181,6 @@
   {
       "class": "B",
       "rq": 62,
-      "onlyName": "640i xDrive Gran Coupe",
-      "brand": "BMW",
-      "country": "DE",
-      "year": 2014,
-      "tdid": "1291",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 155,
-      "acel": 5.1,
-      "hand": 80,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1900,
-      "name": "BMW 640i xDrive Gran Coupe",
-      "rid": "BMW_640i_xDrive_2014",
-      "tags": [
-          "German Renaissance"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
       "onlyName": "Focus RS500",
       "brand": "Ford",
       "country": "GB",
@@ -28425,36 +28395,6 @@
   {
       "class": "B",
       "rq": 61,
-      "onlyName": "Insignia VXR SuperSport",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "766",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 170,
-      "acel": 5.9,
-      "hand": 80,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 71.95,
-      "weight": 1825,
-      "name": "Vauxhall Insignia VXR SuperSport",
-      "rid": "Vauxhall_Insignia_VXR_S'sport_2016",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 61,
       "onlyName": "CLS 500",
       "brand": "Mercedes-Benz",
       "year": 2005,
@@ -28603,6 +28543,36 @@
           "Saloon"
       ],
       "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 60,
+      "onlyName": "Insignia VXR SuperSport",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "766",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 170,
+      "acel": 5.9,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 71.95,
+      "weight": 1825,
+      "name": "Vauxhall Insignia VXR SuperSport",
+      "rid": "Vauxhall_Insignia_VXR_S'sport_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
   },
@@ -29049,36 +29019,6 @@
   {
       "class": "B",
       "rq": 60,
-      "onlyName": "Range Rover Velar",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2018,
-      "tdid": "1817",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 135,
-      "acel": 7,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 55.21,
-      "weight": 1841,
-      "name": "Land Rover Range Rover Velar",
-      "rid": "Land_Rover_Range_Rover_Velar_2018",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 60,
       "onlyName": "Legacy 2.5GT tS Touring Wagon (BR)",
       "brand": "Subaru",
       "country": "JP",
@@ -29294,37 +29234,6 @@
   {
       "class": "B",
       "rq": 60,
-      "onlyName": "Range Rover Sport",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2018,
-      "tdid": "1818",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 140,
-      "acel": 6.4,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 48.8,
-      "weight": 2398,
-      "name": "Land Rover Range Rover Sport",
-      "rid": "Land_Rover_Range_Rover_Sport_2018",
-      "tags": [
-          "Great Exhibition",
-          "Summer Games"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 60,
       "onlyName": "A6 allroad quattro",
       "brand": "Audi",
       "year": 2018,
@@ -29439,6 +29348,67 @@
       ],
       "bodyTypes": [
           "Saloon"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Range Rover Velar",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2018,
+      "tdid": "1817",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 135,
+      "acel": 7,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 55.21,
+      "weight": 1841,
+      "name": "Land Rover Range Rover Velar",
+      "rid": "Land_Rover_Range_Rover_Velar_2018",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Range Rover Sport",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2018,
+      "tdid": "1818",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 140,
+      "acel": 6.4,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 48.8,
+      "weight": 2398,
+      "name": "Land Rover Range Rover Sport",
+      "rid": "Land_Rover_Range_Rover_Sport_2018",
+      "tags": [
+          "Great Exhibition",
+          "Summer Games"
+      ],
+      "bodyTypes": [
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -30121,6 +30091,36 @@
       ],
       "bodyTypes": [
           "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 58,
+      "onlyName": "640i xDrive Gran Coupe",
+      "brand": "BMW",
+      "country": "DE",
+      "year": 2014,
+      "tdid": "1291",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 155,
+      "acel": 5.1,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1900,
+      "name": "BMW 640i xDrive Gran Coupe",
+      "rid": "BMW_640i_xDrive_2014",
+      "tags": [
+          "German Renaissance"
+      ],
+      "bodyTypes": [
+          "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -30989,36 +30989,6 @@
   {
       "class": "B",
       "rq": 58,
-      "onlyName": "Range Rover Evoque Si4",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2018,
-      "tdid": "1821",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 135,
-      "acel": 7.1,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 51.9,
-      "weight": 1670,
-      "name": "Land Rover Range Rover Evoque Si4",
-      "rid": "Land_Rover_Range_Rover_Evoque_2018a",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 58,
       "onlyName": "Cobra MkIII 427",
       "brand": "AC",
       "year": 1965,
@@ -31133,6 +31103,36 @@
       ],
       "bodyTypes": [
           "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 57,
+      "onlyName": "Range Rover Evoque Si4",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2018,
+      "tdid": "1821",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 135,
+      "acel": 7.1,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 51.9,
+      "weight": 1670,
+      "name": "Land Rover Range Rover Evoque Si4",
+      "rid": "Land_Rover_Range_Rover_Evoque_2018a",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -31412,36 +31412,6 @@
       ],
       "bodyTypes": [
           "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 57,
-      "onlyName": "AMG G 63",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2015,
-      "tdid": "421",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 131,
-      "acel": 5.2,
-      "hand": 65,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 74.6,
-      "weight": 2550,
-      "name": "Mercedes-Benz AMG G 63",
-      "rid": "Mercedes-Benz_AMG_G_63_2015",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -32096,36 +32066,6 @@
   {
       "class": "B",
       "rq": 57,
-      "onlyName": "Range Rover P400e PHEV",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2018,
-      "tdid": "1816",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 137,
-      "acel": 6.4,
-      "hand": 69,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 45.35,
-      "weight": 2539,
-      "name": "Land Rover Range Rover P400e PHEV",
-      "rid": "Land_Rover_Range_Rover_P400e_PHEV_2018",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Hybrid",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 57,
       "onlyName": "Ignis Super 1600",
       "brand": "Suzuki",
       "country": "JP",
@@ -32363,6 +32303,66 @@
           "Pickup"
       ],
       "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 56,
+      "onlyName": "AMG G 63",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2015,
+      "tdid": "421",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 131,
+      "acel": 5.2,
+      "hand": 65,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 74.6,
+      "weight": 2550,
+      "name": "Mercedes-Benz AMG G 63",
+      "rid": "Mercedes-Benz_AMG_G_63_2015",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 56,
+      "onlyName": "Range Rover P400e PHEV",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2018,
+      "tdid": "1816",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 137,
+      "acel": 6.4,
+      "hand": 69,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 45.35,
+      "weight": 2539,
+      "name": "Land Rover Range Rover P400e PHEV",
+      "rid": "Land_Rover_Range_Rover_P400e_PHEV_2018",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Hybrid",
       "seats": "5",
       "engine": "Front"
   },
@@ -33110,39 +33110,6 @@
   {
       "class": "B",
       "rq": 55,
-      "onlyName": "AMG G 63 6x6",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2013,
-      "tdid": "402",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 100,
-      "acel": 5.9,
-      "hand": 64,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 54.29,
-      "weight": 3775,
-      "name": "Mercedes-Benz AMG G 63 6x6",
-      "rid": "Mercedes-Benz_AMG_G_63_6x6_2013",
-      "tags": [
-          "The Horror Show",
-          "Wild Ride",
-          "Old Guard",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 55,
       "onlyName": "Countach 5000 Quattrovalvole",
       "brand": "Lamborghini",
       "country": "IT",
@@ -33881,6 +33848,39 @@
   {
       "class": "B",
       "rq": 54,
+      "onlyName": "AMG G 63 6x6",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2013,
+      "tdid": "402",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 100,
+      "acel": 5.9,
+      "hand": 64,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 54.29,
+      "weight": 3775,
+      "name": "Mercedes-Benz AMG G 63 6x6",
+      "rid": "Mercedes-Benz_AMG_G_63_6x6_2013",
+      "tags": [
+          "The Horror Show",
+          "Wild Ride",
+          "Old Guard",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 54,
       "onlyName": "Delta Integrale 16v",
       "brand": "Lancia",
       "country": "IT",
@@ -34551,6 +34551,37 @@
       ],
       "bodyTypes": [
           "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 54,
+      "onlyName": "62 Landaulet Maybach",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2010,
+      "tdid": "419",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 155,
+      "acel": 5,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 87.45,
+      "weight": 2855,
+      "name": "Mercedes-Benz 62 Landaulet Maybach",
+      "rid": "Mercedes-Benz_62_Landaulet_Maybach_2010",
+      "tags": [
+          "Year of the Tiger",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -35498,6 +35529,36 @@
   {
       "class": "B",
       "rq": 53,
+      "onlyName": "S6 Avant (C5)",
+      "brand": "Audi",
+      "year": 2003,
+      "tdid": "3464",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 6.5,
+      "hand": 79,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 75.58,
+      "weight": 1815,
+      "name": "Audi S6 Avant (C5)",
+      "rid": "Audi_S6_Avant_C5_2003",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 52,
       "onlyName": "Range Rover Sport",
       "brand": "Land Rover",
       "country": "GB",
@@ -35521,36 +35582,6 @@
       ],
       "bodyTypes": [
           "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 53,
-      "onlyName": "S6 Avant (C5)",
-      "brand": "Audi",
-      "year": 2003,
-      "tdid": "3464",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 6.5,
-      "hand": 79,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 75.58,
-      "weight": 1815,
-      "name": "Audi S6 Avant (C5)",
-      "rid": "Audi_S6_Avant_C5_2003",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -35710,37 +35741,6 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 52,
-      "onlyName": "62 Landaulet Maybach",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2010,
-      "tdid": "419",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 155,
-      "acel": 5,
-      "hand": 66,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 87.45,
-      "weight": 2855,
-      "name": "Mercedes-Benz 62 Landaulet Maybach",
-      "rid": "Mercedes-Benz_62_Landaulet_Maybach_2010",
-      "tags": [
-          "Year of the Tiger",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -36490,38 +36490,6 @@
   {
       "class": "B",
       "rq": 52,
-      "onlyName": "Wild Rubis",
-      "brand": "DS",
-      "country": "FR",
-      "year": 2013,
-      "tdid": "1136",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 145,
-      "acel": 7.2,
-      "hand": 69,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 62.98,
-      "weight": 1800,
-      "name": "DS Wild Rubis",
-      "rid": "DS_Wild_Rubis_2013",
-      "tags": [
-          "Concept",
-          "French Renaissance",
-          "Old Guard"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Hybrid",
-      "seats": "5",
-      "engine": "Mixed"
-  },
-  {
-      "class": "B",
-      "rq": 52,
       "onlyName": "Esprit Turbo",
       "brand": "Lotus",
       "year": 1988,
@@ -36702,6 +36670,38 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "Wild Rubis",
+      "brand": "DS",
+      "country": "FR",
+      "year": 2013,
+      "tdid": "1136",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 145,
+      "acel": 7.2,
+      "hand": 69,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 62.98,
+      "weight": 1800,
+      "name": "DS Wild Rubis",
+      "rid": "DS_Wild_Rubis_2013",
+      "tags": [
+          "Concept",
+          "French Renaissance",
+          "Old Guard"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Mixed"
   },
   {
       "class": "B",
@@ -43081,36 +43081,6 @@
   {
       "class": "C",
       "rq": 46,
-      "onlyName": "Range Rover 4.4 V8",
-      "brand": "Land Rover",
-      "country": "GB",
-      "year": 2002,
-      "tdid": "1812",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 129,
-      "acel": 8.7,
-      "hand": 68,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 49.81,
-      "weight": 2440,
-      "name": "Land Rover Range Rover 4.4 V8",
-      "rid": "Land_Rover_Range_Rover_4.4_V8_2002",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 46,
       "onlyName": "Range Rover Evoque SD4",
       "brand": "Land Rover",
       "country": "GB",
@@ -43786,6 +43756,36 @@
           "Estate"
       ],
       "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "Range Rover 4.4 V8",
+      "brand": "Land Rover",
+      "country": "GB",
+      "year": 2002,
+      "tdid": "1812",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 129,
+      "acel": 8.7,
+      "hand": 68,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 49.81,
+      "weight": 2440,
+      "name": "Land Rover Range Rover 4.4 V8",
+      "rid": "Land_Rover_Range_Rover_4.4_V8_2002",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
   },
@@ -50650,6 +50650,37 @@
   },
   {
       "class": "C",
+      "rq": 41,
+      "onlyName": "Signum",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 2003,
+      "tdid": "1904",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 147,
+      "acel": 6.7,
+      "hand": 70,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": 47.69,
+      "weight": 1610,
+      "name": "Vauxhall Signum",
+      "rid": "Vauxhall_Signum_2003",
+      "tags": [
+          "Great Exhibition",
+          "Old Guard"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 40,
       "onlyName": "Impreza",
       "brand": "Subaru",
@@ -51488,37 +51519,6 @@
           "SUV"
       ],
       "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 40,
-      "onlyName": "Signum",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 2003,
-      "tdid": "1904",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 147,
-      "acel": 6.7,
-      "hand": 70,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": 47.69,
-      "weight": 1610,
-      "name": "Vauxhall Signum",
-      "rid": "Vauxhall_Signum_2003",
-      "tags": [
-          "Great Exhibition",
-          "Old Guard"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
   },
@@ -59236,6 +59236,37 @@
   },
   {
       "class": "D",
+      "rq": 34,
+      "onlyName": "Abarth Grande Punto",
+      "brand": "Fiat",
+      "country": "IT",
+      "year": 2010,
+      "tdid": "1500",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 129,
+      "acel": 7.8,
+      "hand": 78,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": 53.94,
+      "weight": 1260,
+      "name": "Fiat Abarth Grande Punto",
+      "rid": "Fiat_Abarth_Grande_Punto_2010",
+      "tags": [
+          "Italian Renaissance",
+          "Year of the Tiger"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 33,
       "onlyName": "300 CE-24 Cabriolet",
       "brand": "Mercedes-Benz",
@@ -60384,37 +60415,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 33,
-      "onlyName": "Abarth Grande Punto",
-      "brand": "Fiat",
-      "country": "IT",
-      "year": 2010,
-      "tdid": "1500",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 129,
-      "acel": 7.8,
-      "hand": 78,
-      "drive": "FWD",
-      "tyres": "Performance",
-      "mra": 53.94,
-      "weight": 1260,
-      "name": "Fiat Abarth Grande Punto",
-      "rid": "Fiat_Abarth_Grande_Punto_2010",
-      "tags": [
-          "Italian Renaissance",
-          "Year of the Tiger"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -69086,36 +69086,6 @@
   {
       "class": "E",
       "rq": 26,
-      "onlyName": "Corsa 1.4Si",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 1993,
-      "tdid": "1885",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 109,
-      "acel": 10.5,
-      "hand": 72,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": 48.03,
-      "weight": 803,
-      "name": "Vauxhall Corsa 1.4Si",
-      "rid": "Vauxhall_Corsa_1.4Si_1993",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 26,
       "onlyName": "Touran",
       "brand": "Volkswagen",
       "country": "DE",
@@ -69636,6 +69606,96 @@
   },
   {
       "class": "E",
+      "rq": 26,
+      "onlyName": "4",
+      "brand": "DS",
+      "country": "FR",
+      "year": 2011,
+      "tdid": "201",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 118,
+      "acel": 11.8,
+      "hand": 79,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1365,
+      "name": "DS 4",
+      "rid": "DS_4_2011",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 26,
+      "onlyName": "Insignia 2.0 CDTi",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "785",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 127,
+      "acel": 10,
+      "hand": 71,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": 64.94,
+      "weight": 1613,
+      "name": "Vauxhall Insignia 2.0 CDTi",
+      "rid": "Vauxhall_Insignia_2.0_CDTi_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 25,
+      "onlyName": "Corsa 1.4Si",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 1993,
+      "tdid": "1885",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 109,
+      "acel": 10.5,
+      "hand": 72,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": 48.03,
+      "weight": 803,
+      "name": "Vauxhall Corsa 1.4Si",
+      "rid": "Vauxhall_Corsa_1.4Si_1993",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 25,
       "onlyName": "106 Rallye (S1)",
       "brand": "Peugeot",
@@ -69662,36 +69722,6 @@
           "Hatchback"
       ],
       "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 25,
-      "onlyName": "4",
-      "brand": "DS",
-      "country": "FR",
-      "year": 2011,
-      "tdid": "201",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 118,
-      "acel": 11.8,
-      "hand": 79,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 1365,
-      "name": "DS 4",
-      "rid": "DS_4_2011",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -70120,36 +70150,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 25,
-      "onlyName": "Insignia 2.0 CDTi",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "785",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 127,
-      "acel": 10,
-      "hand": 71,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": 64.94,
-      "weight": 1613,
-      "name": "Vauxhall Insignia 2.0 CDTi",
-      "rid": "Vauxhall_Insignia_2.0_CDTi_2016",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -73014,6 +73014,37 @@
   },
   {
       "class": "E",
+      "rq": 23,
+      "onlyName": "Firenza 2000 SL Coupe",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 1971,
+      "tdid": "1887",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 100,
+      "acel": 11.3,
+      "hand": 71,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 32.64,
+      "weight": 990,
+      "name": "Vauxhall Firenza 2000 SL Coupe",
+      "rid": "Vauxhall_Firenza_2000_SL_Coupe_1971",
+      "tags": [
+          "Christmas Collection",
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 22,
       "onlyName": "Starfire Firenza",
       "brand": "Oldsmobile",
@@ -73878,37 +73909,6 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
-  },
-  {
-      "class": "E",
-      "rq": 22,
-      "onlyName": "Firenza 2000 SL Coupe",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 1971,
-      "tdid": "1887",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 100,
-      "acel": 11.3,
-      "hand": 71,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 32.64,
-      "weight": 990,
-      "name": "Vauxhall Firenza 2000 SL Coupe",
-      "rid": "Vauxhall_Firenza_2000_SL_Coupe_1971",
-      "tags": [
-          "Christmas Collection",
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
   },
   {
       "class": "E",
@@ -75754,6 +75754,37 @@
   },
   {
       "class": "E",
+      "rq": 21,
+      "onlyName": "Datsun 240Z",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 1969,
+      "tdid": "532",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 115,
+      "acel": 9.8,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 58.96,
+      "weight": 1085,
+      "name": "Nissan Datsun 240Z",
+      "rid": "Nissan_Datsun_240Z_1969",
+      "tags": [
+          "Christmas Collection",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 20,
       "onlyName": "Impala SS",
       "brand": "Chevrolet",
@@ -76088,37 +76119,6 @@
       "tags": [
           "Japan Pro Tour",
           "Summer Games"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 20,
-      "onlyName": "Datsun 240Z",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 1969,
-      "tdid": "532",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 115,
-      "acel": 9.8,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 58.96,
-      "weight": 1085,
-      "name": "Nissan Datsun 240Z",
-      "rid": "Nissan_Datsun_240Z_1969",
-      "tags": [
-          "Christmas Collection",
-          "Originals"
       ],
       "bodyTypes": [
           "Coupe"
@@ -79770,37 +79770,6 @@
   {
       "class": "F",
       "rq": 17,
-      "onlyName": "R12 Gordini",
-      "brand": "Renault",
-      "country": "FR",
-      "year": 1973,
-      "tdid": "1253",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 115,
-      "acel": 9.8,
-      "hand": 68,
-      "drive": "FWD",
-      "tyres": "Performance",
-      "mra": 51.96,
-      "weight": 980,
-      "name": "Renault R12 Gordini",
-      "rid": "Renault_R12_Gordini_1973",
-      "tags": [
-          "French Renaissance",
-          "Year of the Ox"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 17,
       "onlyName": "Imperial",
       "brand": "Chrysler",
       "country": "US",
@@ -80840,6 +80809,67 @@
   },
   {
       "class": "F",
+      "rq": 17,
+      "onlyName": "Adam 1.2",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "790",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 102,
+      "acel": 14.1,
+      "hand": 68,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": 36.66,
+      "weight": 1086,
+      "name": "Vauxhall Adam 1.2",
+      "rid": "Vauxhall_Adam_1.2_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 16,
+      "onlyName": "R12 Gordini",
+      "brand": "Renault",
+      "country": "FR",
+      "year": 1973,
+      "tdid": "1253",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 115,
+      "acel": 9.8,
+      "hand": 68,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": 51.96,
+      "weight": 980,
+      "name": "Renault R12 Gordini",
+      "rid": "Renault_R12_Gordini_1973",
+      "tags": [
+          "French Renaissance",
+          "Year of the Ox"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 16,
       "onlyName": "2800 CS",
       "brand": "BMW",
@@ -81444,36 +81474,6 @@
       "rid": "Subaru_Rex_1972",
       "tags": [
           "Year of the Rat",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 16,
-      "onlyName": "Adam 1.2",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "790",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 102,
-      "acel": 14.1,
-      "hand": 68,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": 36.66,
-      "weight": 1086,
-      "name": "Vauxhall Adam 1.2",
-      "rid": "Vauxhall_Adam_1.2_2016",
-      "tags": [
           "Originals"
       ],
       "bodyTypes": [
@@ -84045,37 +84045,6 @@
   {
       "class": "F",
       "rq": 14,
-      "onlyName": "PA Velox",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 1959,
-      "tdid": "1902",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 90,
-      "acel": 17,
-      "hand": 59,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 1193,
-      "name": "Vauxhall PA Velox",
-      "rid": "Vauxhall_PA_Velox_1959",
-      "tags": [
-          "Great Exhibition",
-          "Two Tone"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 14,
       "onlyName": "145",
       "brand": "Volvo",
       "country": "SE",
@@ -84278,6 +84247,37 @@
       "rid": "Ford_Escort_1978",
       "tags": [
           "World Expo"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 13,
+      "onlyName": "PA Velox",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 1959,
+      "tdid": "1902",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 90,
+      "acel": 17,
+      "hand": 59,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1193,
+      "name": "Vauxhall PA Velox",
+      "rid": "Vauxhall_PA_Velox_1959",
+      "tags": [
+          "Great Exhibition",
+          "Two Tone"
       ],
       "bodyTypes": [
           "Saloon"

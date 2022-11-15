@@ -578,7 +578,7 @@ export default {
   },
   mounted() {
     let vm = this;
-    this.debounceFilter = Vue.debounce(this.changeFilter, 500); 
+    this.debounceFilter = Vue.debounce(this.changeFilter, 1500); 
     window.addEventListener("scroll", vm.handleScroll);
 
     this.handleScroll(); // load inicial
