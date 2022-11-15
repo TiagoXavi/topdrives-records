@@ -5,18 +5,18 @@
       class="Car_Header BaseCardGallery_Header"
       :class="{ Row_DialogCardCard2: !options, Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}; ${carPhoto}`">
-      <div class="Car_HeaderBlockTop" />
+      <div class="Car_HeaderBlockTop" style="backdrop-filter: none; background-color: transparent;" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
-      <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
+      <div class="Car_HeaderBlockYear" style="backdrop-filter: none;">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
         <span>{{ car.tyres || "-"  }}</span>
         <span> Tyres</span>
       </div>
-      <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
+      <!-- <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
-      </div>
-      <div v-if="options" class="Car_HeaderToolsHoverContainer" />
+      </div> -->
+      <!-- <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
         <button class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
@@ -24,8 +24,8 @@
         <button class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
-      </div>
-      <div class="Car_HeaderToolsBack" />
+      </div> -->
+      <!-- <div class="Car_HeaderToolsBack" /> -->
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue">{{ car.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
@@ -116,6 +116,7 @@ export default {
 <style>
 .BaseCardGallery_Layout {
   display: contents;
+  text-align: left;
 }
 .BaseCardGallery_FixBack {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
@@ -132,24 +133,8 @@ export default {
 .Main_2 .BaseCardGallery_FixBack {
   display: none;
 }
-.MainGallery_Layout .Car_Header {
-  height: calc(var(--top-height) - 6px);
-  margin: 3px 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 3px;
-  z-index: 20;
-  font-family: 'Roboto Condensed', sans-serif;
-  color: #eee;
-  background-color: #919191;
-  background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.06) 0, rgba(0, 0, 0, 0.06) 30px );
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: var(--card-font-size);
+.BaseCardGallery_Layout .Car_Header {
+  display: block;
 }
 .MainGallery_Layout .Car_Header[lazy=error] {
   background-image: var(--image-src) !important;
@@ -165,5 +150,37 @@ export default {
 }
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;
+}
+.BaseCardGallery_Header > * {
+  display: block;
+}
+.BaseCardGallery_Header .Car_HeaderName {
+  top: 3px;
+  font-size: 1em;
+}
+.BaseCardGallery_Header .Car_HeaderBlockYear {
+  top: 4px;
+  background-color: transparent;
+  right: 10.5%;
+}
+.BaseCardGallery_Header .Car_HeaderBlockCountry {
+  top: 0px;
+  background-color: transparent;
+}
+.BaseCardGallery_Header .Car_HeaderBlockTopSpeed, 
+.BaseCardGallery_Header .Car_HeaderBlock060,
+.BaseCardGallery_Header .Car_HeaderBlockHandling,
+.BaseCardGallery_Header .Car_HeaderBlockDrive {
+  --card-top-height: 15%;
+}
+.BaseCardGallery_Header {
+  --card-stat-height: calc( (104% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+}
+.BaseCardGallery_Header .Car_HeaderClassValue {
+  margin-top: 5px;
+}
+.BaseCardGallery_Header .Car_HeaderBlockRQ {
+  bottom: -3px;
+  background-color: transparent;
 }
 </style>

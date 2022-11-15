@@ -65,5 +65,6 @@ export default {
 .BaseDisqus_Layout {
   margin: 60px auto 0 auto;
   max-width: 800px;
+  padding: 0 20px;
 }
 </style>

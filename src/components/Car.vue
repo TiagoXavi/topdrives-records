@@ -476,6 +476,14 @@ export default {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
 }
+@media (pointer:coarse) {
+  .Car_HeaderBlockTop,
+  .Car_HeaderBlockBrand,
+  .Car_HeaderBlockYear {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 1);
+  }
+}
 .Car_TuneTip {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.6);
   right: calc(var(--card-right-width) + 0px);

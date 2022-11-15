@@ -14,7 +14,7 @@
         @mouseleave="mouseLeaveTune($event)">
         <template v-if="info.type === 'Tune'">
           <div class="Row_Config">
-            <template v-if="!car.selectedTune || mouseInsideTuneBox || cgYou">
+            <template v-if="(!car.selectedTune || mouseInsideTuneBox || cgYou) && !forceHideCompactSelect">
               <div class="Row_TuneChooseBox">
                 <button
                   v-for="item in tunes"
@@ -270,6 +270,10 @@ export default {
       default: false
     },
     cgOppo: {
+      type: Boolean,
+      default: false
+    },
+    forceHideCompactSelect: {
       type: Boolean,
       default: false
     },
@@ -1402,6 +1406,9 @@ export default {
   z-index: 21;
   display: none;
 }
+.Row_Cg.Row_Tracks .Row_Content {
+  /* justify-content: center; */
+}
 /* .RowTrack_Dragging ~ .RowTrack_Layout .RowTrack_DragIndicator {
   display: block;
 } */
@@ -1437,5 +1444,12 @@ export default {
     height: 161px !important;
     --card-font-size: 12px;
   }
+}
+@media only screen and (max-width: 1200px) {
+  .Row_Tracks.Row_Cg .Row_Content {
+    white-space: normal;
+    font-size: 0.7em;
+  }
+  
 }
 </style>

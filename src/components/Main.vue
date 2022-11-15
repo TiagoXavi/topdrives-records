@@ -2,7 +2,7 @@
   <div :class="{
       Main_Normal: !inverted,
       Main_2: inverted && mode === 'classic',
-      Main_Compact: compact && mode === 'classic',
+      Main_Compact: (compact && mode === 'classic') || ((mode === 'cg' || mode === 'events') && windowWidth < 1200),
       Main_ColorsFull: fullColors,
       Main_ColorsMedal: !fullColors
     }" class="Main_Layout" @click.stop="outsideClick()">
@@ -211,7 +211,7 @@
                     :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgRoundSelectorDialog = true;">
-                    <span>Match {{ cgCurrentRound+1 }}</span>
+                    <span>Round {{ cgCurrentRound+1 }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
@@ -298,7 +298,15 @@
         </div>
       </div>
       <div class="Cg_Mid">
-        <template v-if="cgRound.date">
+        <template v-if="(!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
+          <div class="Cg_RoundEmptyBox">
+            <div class="Cg_RoundEmptyTitle">Empty round</div>
+            <div class="Cg_RoundEmptyBody">This round isn't done yet. If you are on this round, you can help to include it.</div>
+            <div class="Cg_RoundEmptyBody">What we need: tracks, opponent's cars, tunes and times of each race.</div>
+            <BaseDiscordButton style="margin-top: 20px;" />
+          </div>
+        </template>
+        <template v-else-if="cgRound.date">
           <div v-if="showCarsFix" class="Cg_Box">
             <div
               v-for="(race, irace) in cgRound.races"
@@ -314,6 +322,7 @@
                   :needSave="needSave"
                   :cg="true"
                   :cgOppo="true"
+                  :hideClose="!user || !user.mod"
                   @cog="cgShowTuneDialog(race.car, race, true)"
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
                 <div v-else class="Cg_CarPlaceHolder">
@@ -428,6 +437,7 @@
                     :voteLoading="voteLoading"
                     :cg="true"
                     :cgYou="true"
+                    :forceHideCompactSelect="windowWidth < 1200"
                     :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
                     type="times"
                     @changeTime="cgChangeTimeYou(race, $event)"
@@ -444,7 +454,12 @@
                         v-if="bankCar.points !== 'no time' && bankCar.tune"
                         :disabled="cgLoadingAny"
                         :key="index"
-                        :class="{ Cg_BankButtonLose: bankCar.points < 0 && race.track && race.car }"
+                        :class="{
+                          Cg_BankButtonLose: bankCar.points < 0 && race.track && race.car,
+                          Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
+                          Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
+                          Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
+                        }"
                         class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
                         @click="cgBankCarClick(race, index, $event, irace, bankCar);">
                         <div class="Cg_BankPhoto">
@@ -453,11 +468,6 @@
                         <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div>
                         <div class="Cg_BankTune">{{ bankCar.tune }}</div>
                         <div
-                          :class="{
-                            Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
-                            Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
-                            Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
-                          }"
                           class="Cg_BankResult">
                           <span v-if="bankCar.points === 0" class="Cg_BankPoints">draw</span>
                           <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">win</span>
@@ -493,6 +503,186 @@
                 class="Main_SearchItem"
                 @click="loadChallengeFull(item.date)">
                 <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              </button>
+            </template>
+          </div>
+        </div>
+        <div v-else class="Cg_Offline">
+          <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
+        </div>
+      </div>
+    </div>
+    <div
+      v-else-if="mode === 'events'"
+      class="Cg_Layout"
+      @click.stop="outsideClick()">
+      <div class="Cg_Header">
+        <div class="Cg_HeaderLeft">
+          <div class="Cg_Corner">
+            <div class="Main_Logo">
+              <div class="Main_LogoPre">Top Drives</div>
+              <Logo />
+            </div>
+            <div class="Main_CornerMid">
+              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
+                <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
+              </button>
+              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
+                <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
+              </button>
+            </div>
+            <div class="Main_GamePrintInfo">
+              <div class="Main_GameVersionText">{{ gameVersion }}</div>
+              <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
+            </div>
+            
+          </div>
+          <div class="Cg_RowCornerBox">
+            <!-- top event -->
+            <div v-if="event.date" class="Cg_SelectorLayout">
+              <div class="Cg_SelectorCenter">
+                <div class="Cg_SelectorEvent">
+                  <button
+                    :disabled="eventLoading || eventNeedSave"
+                    class="D_Button Row_DialogButtonTune"
+                    @click="eventSelectorDialog = true;">
+                    <span>{{ event.name }}</span>
+                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                  </button>
+                </div>
+                <div class="Cg_CenterBottom">
+                  <div class="Cg_RqText">
+                    <span class="Cg_RqRq">RQ</span>
+                    <span>{{ event.rqLimit }}</span>
+                    <button
+                      v-if="user && user.mod"
+                      :disabled="eventLoading"
+                      class="D_Button Main_AddTrackDirect"
+                      @click="eventOpenRqEdit($event)">
+                      <i class="ticon-pencil" aria-hidden="true"/>
+                    </button>
+                  </div>
+                  <!-- save button -->
+                  <div class="Cg_SaveButtonBox">
+                    <template v-if="!user">
+                      <div class="Main_SaveAllBox">
+                        <button
+                          class="D_Button Main_LoginToEdit"
+                          @click="$router.push({ name: 'Login' })">Login</button>
+                      </div>
+                    </template>
+                    <template v-else-if="!!user && cgNeedSave">
+                      <div class="Main_SaveAllBox">
+                        <button
+                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                          class="D_Button Main_SaveAllButton"
+                          @click="eventSaveAll()">Save</button>
+                      </div>
+                    </template>
+                    <div v-if="user" class="Main_PrintBy">
+                      <div class="Main_PrintByLabel">print by</div>
+                      <div class="Main_PrintByUser">{{ user.username }}</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Cg_Right">
+          </div>
+        </div>
+      </div>
+      <div class="Cg_Mid">
+        <template v-if="event.date">
+          <template v-if="showCarsFix">
+
+            <div class="Cg_Box">
+              <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
+                <BaseCompItem
+                  :isMod="!!user && user.mod"
+                  :comp="comp"
+                  @edit="eventEditComp(igroup)" />
+              </div>
+            </div>
+            
+            <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
+            <div v-for="(trackset, itrackset) in event.resolvedTrackset" class="Cg_Box">
+              <div v-for="(trackMonoArray, itrackMonoArray) in trackset" class="Event_Track">
+                <Row
+                  v-if="trackMonoArray.length === 1"
+                  :list="trackMonoArray"
+                  :loggedin="!!user"
+                  :user="user"
+                  :options="user && user.mod"
+                  :cg="true"
+                  class="Cg_TrackBox"
+                  type="tracks" />
+                <button
+                  :disabled="eventLoadingAny"
+                  :class="{ Cg_SelectTrackButtonEdit: trackMonoArray.length === 1 }"
+                  class="D_Button Car_AddButton Cg_SelectTrackButton"
+                  @click="eventTracksetSelected = itrackset; eventRaceSelected = itrackMonoArray; openDialogTrackSearch(false);">
+                  <i v-if="trackMonoArray.length === 1" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
+                  <span v-else>Select track</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
+            <div class="Cg_Box" style="margin-top: 15px;">
+              <div v-for="(group, igroup) in event.perfectHand" class="Cg_YouBank">
+                <div class="Cg_YouBankBox">
+                  <template v-for="(car, icar) in group">
+                    <button
+                      :disabled="eventLoadingAny"
+                      :key="icar"
+                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
+                      @click="eventInspectCar(car, igroup, icar);">
+                      <div class="Cg_BankPhoto Event_BankPhoto">
+                        <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
+                      </div>
+                      <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
+                      <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div>
+                    </button>
+                  </template>
+                  <button
+                    v-if="user && user.mod"
+                    :disabled="eventLoadingAny"
+                    class="D_Button Main_AddTrackDirect"
+                    @click="eventAddCar(igroup);">
+                    <i class="ticon-plus_2" aria-hidden="true"/>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div class="Cg_Disqus">
+              <!-- <BaseDisqus :identifier="`${eventCurrentName}`" :url="shareUrl" /> -->
+            </div>
+          </template>
+        </template>
+        <div v-else-if="eventLoading" class="Cg_MidLoading">
+          <BaseContentLoader
+            :contents="true"
+            itemWidth="216px"
+            :itemHeight="144"
+            style="padding: 10px 10px 10px 20px; width: 100%;"
+            type="block"
+            count="5" />
+        </div>
+        <div v-else-if="eventList.length > 0" class="Cg_ListSelect">
+          <div class="Cg_ListSelectBox">
+            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">Events</div>
+            <template v-for="item in eventList">
+              <button
+                style="padding-left: 15px;"
+                class="Main_SearchItem"
+                @click="loadEventFull(item.date)">
+                <div class="Main_SearchItemRight">{{ item.name }}</div>
               </button>
             </template>
           </div>
@@ -818,7 +1008,7 @@
                 <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
               </button>
               <button
-                :disabled="needSave"
+                :disabled="needSave || (!!user && !user.mod)"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
                 @click="deleteCar(tuneDialogCarIndex)">
                 <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
@@ -840,6 +1030,7 @@
               <div class="Row_DialogCardLeft">
                 <BaseCard
                   :car="tuneDialogCar"
+                  :isDialogBox="true"
                   :options="false" />
               </div>
               <div v-if="tuneDialogCar.selectedTune !== 'Other' && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
@@ -960,11 +1151,12 @@
             <div class="Main_DialogTitle">Image</div>
             <div class="Main_ShareDownloadBox">
               <button
+                :disabled="pngLoading"
                 style="font-size: 16px;"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="sharePrint()">
                 <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
-                <span>Download PNG</span>
+                <span>{{ pngLabel }}</span>
               </button>
             </div>
           </div>
@@ -1333,21 +1525,29 @@
       max-width="460px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
-        <div v-if="user && user.mod" class="Main_SectionSelectorLayout">
+        <div class="Main_SectionSelectorLayout">
           <div class="Main_SectionSelectorBox">
             <button
               :class="{ D_ButtonChangeModeDisabled: mode === 'classic' }"
-              :disabled="mode === 'classic' || cgLoadingAny || cgNeedSave"
+              :disabled="mode === 'classic' || cgLoadingAny || cgNeedSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('classic')">
               Home
             </button>
             <button
               :class="{ D_ButtonChangeModeDisabled: mode === 'cg' }"
-              :disabled="mode === 'cg' || needSave"
+              :disabled="mode === 'cg' || needSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('cg')">
               Challenges
+            </button>
+            <button
+              v-if="user && user.mod" 
+              :class="{ D_ButtonChangeModeDisabled: mode === 'events' }"
+              :disabled="mode === 'events' || needSave || cgLoadingAny || cgNeedSave"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
+              @click="changeMode('events')">
+              Events
             </button>
           </div>
         </div>
@@ -1644,7 +1844,7 @@
               style="padding-left: 15px;"
               class="Main_SearchItem"
               @click="loadCg(cg.date, index)">
-              <div class="Main_SearchItemRight">Match {{ index+1 }}</div>
+              <div class="Main_SearchItemRight">Round {{ index+1 }}</div>
             </button>
           </template>
         </div>
@@ -1700,6 +1900,102 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="eventSelectorDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="460px"
+      min-width="240px"
+      class="Cg_SelectorDialog"
+      @close="eventSelectorDialog = false;">
+      <div style="Cg_SelectorDialogBox">
+        <div class="Cg_SelectorDialogHeader">
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">Events</div>
+          <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventOpenNewEvent()">
+              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+              <span>New</span>
+            </button>
+          </div>
+        </div>
+        <div class="Main_SearchMid Cg_SelectorDialogMid">
+          <template v-for="item in cgList">
+            <button
+              style="padding-left: 15px;"
+              class="Main_SearchItem"
+              @click="loadChallengeFull(item.date)">
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+            </button>
+          </template>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="eventNewDialog"
+      :transparent="false"
+      max-width="340px"
+      min-width="240px"
+      @close="eventNewDialog = false;">
+      <div class="Main_SaveGalleryDialog">
+        <div class="Main_SaveGalleryBox">
+          <BaseText
+            v-model="eventNewName"
+            class="BaseText_Big"
+            iid="Cg_NewEventName"
+            type="normal"
+            label="Event's name"
+            placeholder="" />
+        </div>
+        <button
+          :class="{ D_Button_Loading: eventNewLoading, D_Button_Error: eventNewError }"
+          :disabled="eventNewLoading || eventNewError || !eventNewName"
+          style="margin-top: 20px;"
+          class="D_Button Main_SaveAllButton"
+          @click="saveNewEvent()">Create new event</button>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="eventRqEditDialog"
+      :transparent="false"
+      max-width="340px"
+      min-width="240px"
+      @close="eventCloseRqEdit()">
+      <div class="Main_SaveGalleryDialog">
+        <div class="Main_SaveGalleryBox">
+          <BaseText
+            v-model="eventRqEditModel"
+            class="BaseText_Big"
+            iid="Cg_EditRq"
+            type="integer"
+            label="RQ limit"
+            placeholder="" />
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="announcementDialog"
+      :transparent="false"
+      :disableScroll="true"
+      max-width="400px"
+      @close="announcementDialog = false;">
+      <div class="Main_AnnouncementLayout">
+        <div class="Main_AnnouncementLogo">
+          <BaseLogoSpining />
+        </div>
+        <div class="Main_AnnouncementBox">
+          <div class="Main_AnnouncementTitle">Challenges is out!</div>
+          <div class="Main_AnnouncementBody">You'll no longer get stuck in any round</div>
+          <div class="Main_AnnouncementMaybe">Or maybe you still will</div>
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2 Main_AnnouncementButton"
+            @click="changeMode('cg'); announcementDialog = false;">
+            <span>Challenges</span>
+          </button>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -1722,6 +2018,8 @@ import BaseCheckBox from './BaseCheckBox.vue'
 import BaseDonateButton from './BaseDonateButton.vue'
 import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
+import BaseLogoSpining from './BaseLogoSpining.vue'
+import BaseCompItem from './BaseCompItem.vue'
 import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
@@ -1731,6 +2029,7 @@ import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
 import reimg from 'reimg';
+import { nextTick } from 'vue';
 
 export default {
   name: 'Main',
@@ -1756,7 +2055,9 @@ export default {
     BaseFilterDescription,
     BaseDonateButton,
     BaseDiscordButton,
-    BaseDisqus
+    BaseDisqus,
+    BaseLogoSpining,
+    BaseCompItem
   },
   props: {
     phantomCar: {
@@ -1776,6 +2077,10 @@ export default {
       inverted: false,
       compact: false,
       fullColors: false,
+      windowWidth: 0,
+      tempWindowWidth: 0,
+      isPrinting: false,
+      announcementDialog: false,
       searchInput: '',
       searchInputT: '',
       searchTracks: '',
@@ -1797,6 +2102,7 @@ export default {
       maxCarNumber: 30,
       alreadySearched: false,
       shareDialog: false,
+      pngLoading: false,
       tuneDialogActive: false,
       tuneDialogCar: null,
       tuneDialogCarIndex: null,
@@ -1883,6 +2189,23 @@ export default {
       cgRqNeedToSave: false,
       cgAnalyseLoading: false,
       forceShowAnalyse: false,
+      event: {},
+      eventCurrentId: null,
+      eventCurrentName: null,
+      eventList: [],
+      eventLoading: false,
+      eventNeedSave: false,
+      eventSelectorDialog: false,
+      eventNewDialog: false,
+      eventNewName: null,
+      eventNewLoading: false,
+      eventNewError: false,
+      eventRqEditDialog: false,
+      eventRqEditModel: null,
+      eventRqEditString: null,
+      eventRqNeedToSave: false,
+      eventTracksetSelected: 0,
+      eventRaceSelected: 0,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -2803,6 +3126,7 @@ export default {
     this.clearSaveToGallery();
     this.checkMemoryFromStorage();
     this.cgGetLocalStorage();
+    this.eventGetLocalStorage();
     let _md = window.localStorage.getItem("_md");
     if (_md) {
       this.asMod = true;
@@ -2856,7 +3180,18 @@ export default {
         if (x[0] === "G") {
           this.cgCurrentId = decodeURI(x.substr(1))
         } else if (x[0] === "R") {
-          this.cgCurrentRound = Number(decodeURI(x.substr(1)))
+          this.cgCurrentRound = Number(decodeURI(x.substr(1))) - 1
+        }
+      })
+      this.$router.replace({'query': null});
+
+    } else if (this.$route.query && this.$route.query.event && this.$route.query.event.includes("~")) {
+      // from query string
+      this.changeMode('events');
+
+      this.$route.query.event.split("~").map(x => {
+        if (x[0] === "E") {
+          this.eventCurrentId = decodeURI(x.substr(1))
         }
       })
       this.$router.replace({'query': null});
@@ -2864,6 +3199,9 @@ export default {
     } else {
       this.changedMode();
     }
+
+    this.windowWidth = window.innerWidth;
+    window.addEventListener('resize', this.handleResize);
 
 
 
@@ -2978,6 +3316,7 @@ export default {
     });
   },
   beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
     this.unsubscribe();
   },
   computed: {
@@ -3189,6 +3528,12 @@ export default {
     },
     cgLoadingAny() {
       return this.downloadLoading || this.cgLoading || this.cgSaveLoading || this.cgNewLoading || this.saveLoading || this.cgBankToSaveLoading || this.cgAnalyseLoading;
+    },
+    eventLoadingAny() {
+      return this.downloadLoading || this.eventLoading || this.eventNewLoading || this.saveLoading;
+    },
+    pngLabel() {
+      return this.pngLoading ? 'Please wait...' : 'Download PNG'
     }
   },
   methods: {
@@ -3241,7 +3586,7 @@ export default {
     toggleTrack(track, e = {}) {
       if (this.mode === 'cg') {
         Vue.set(this.cgRound.races[this.cgRaceSelected], "track", track);
-        this.cgResolveTrack(this.cgRound.races[this.cgRaceSelected]);
+        this.resolveTrack(this.cgRound.races[this.cgRaceSelected]);
         this.closeDialogTrackSearch();
         this.cgRoundToSave.push({
           type: "track",
@@ -3913,7 +4258,7 @@ export default {
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
-      if (mode === 'cg' && (!this.user || !this.user.mod) && !this.asMod) {
+      if (mode === 'events' && (!this.user || !this.user.mod) && !this.asMod) {
         mode = 'classic';
       }
 
@@ -3926,10 +4271,11 @@ export default {
       }, 100);
     },
     changedMode() {
-      if (this.mode === 'cg' && !this.asMod) {
+      if (this.mode === 'events' && !this.asMod) {
         this.mode = 'classic';
       }
       if (this.mode === "classic") {
+        this.cgIsFiltering = false;
         // from local storage
         let tracks = window.localStorage.getItem("tracks");
         if (tracks) {
@@ -3952,6 +4298,9 @@ export default {
       }
       if (this.mode === "cg") {
         this.loadChallenges();
+      }
+      if (this.mode === "events") {
+        this.loadEvents();
       }
     },
     newIndex(obj, isDialog = false, isTrack = false) {
@@ -4016,7 +4365,6 @@ export default {
             this.asMod = true;
           } else {
             this.asMod = false;
-            this.mode = 'classic';
           }
 
           LogRocket.identify(res.data.username, {
@@ -4033,7 +4381,6 @@ export default {
 
         } else {
           this.asMod = false;
-          this.changeMode('classic');
         }
       })
       .catch(error => {
@@ -4222,6 +4569,11 @@ export default {
 
       if (simplifiedCars.length === 0) {
         this.downloadLoading = false;
+        if (this.mode === 'cg') {
+          setTimeout(() => {
+            this.cgResolveRqFill();
+          }, 100);
+        }
         return;
       }
 
@@ -4231,6 +4583,7 @@ export default {
       axios.post(url, simplifiedCars)
       .then(res => {        
         this.applyNewData(res.data, this.mode === 'cg');
+        this.checkAnnouncement();
       })
       .catch(error => {
         console.log(error);
@@ -4350,6 +4703,9 @@ export default {
       }
     },
     sharePrint() {
+      this.tempWindowWidth = this.windowWidth;
+      this.windowWidth = 1300;
+      this.pngLoading = true;
       window.scrollTo({ top: 0 });
       let vm = this;
       let _width;
@@ -4383,34 +4739,13 @@ export default {
         _width = (pose.clientWidth) * 2;
         _height = (pose.clientHeight) * 2;
       }
-
-
-
       
       let options = {
-        // allowTaint: false,
         backgroundColor: "#333",
         canvas: currentCanvas,
-        // foreignObjectRendering: false,
-        // imageTimeout: 15000,
-        // ignoreElements: (element) => false,
-        // logging: true,
-        // onclone: (doc) => {
-        //   console.log(doc);
-        //   doc.querySelectorAll("button").forEach(x => {
-        //     x.remove()
-        //   })
-        // },
-        // proxy: null,
-        // removeContainer: true,
         scale: 2,
-        // useCORS: false,
         width: _width,
         height: _height,
-        // x: Element x-offset,
-        // y: Element y-offset,
-        // scrollX: Element scrollX,
-        // scrollY: Element scrollY,
         windowWidth: _width,
         windowHeight: _height,
       }
@@ -4418,11 +4753,20 @@ export default {
       currentCanvas.setAttribute("width", `${_width}`);
       currentCanvas.setAttribute("height", `${_height}`);
 
+      setTimeout(() => {
+        this.runSharePrint(pose, options, c_container, currentCanvas, boxName);
+      }, 10);
+      
+    },
+    runSharePrint(pose, options, c_container, currentCanvas, boxName) {
+      let vm = this;
       html2canvas(pose, options).then(function(canvas) {
         reimg.ReImg.fromCanvas(currentCanvas).downloadPng()
         c_container.classList.remove("App_PrintContainerShow")
-        
+
         document.querySelector(boxName).classList.remove("Main_BodyPrint");
+        vm.windowWidth = vm.tempWindowWidth;
+        vm.pngLoading = false;
       });
     },
     generateUrl(isForTemplate = false) {
@@ -4439,7 +4783,7 @@ export default {
         });
       } else if (this.mode === 'cg') {
         result += `cg=`;
-        result += `~G${this.cg.date}~R${this.cgCurrentRound}`
+        result += `~G${this.cg.date}~R${this.cgCurrentRound+1}`
       }
 
       if (result.length > 2045) {
@@ -4463,10 +4807,13 @@ export default {
     },
     generateCarsList() {
       let result = "";
+      let list = [];
       this.carDetailsList.map(x => {
-        result += `RQ${x.rq} ${x.name}\n`
+        list.push(`RQ${x.rq} ${x.name}`)
       });
-      this.shareListCars = result;
+      list = [...new Set(list)];
+
+      this.shareListCars = list.join("\n");
     },
     copyList() {
       var copyText = document.getElementById("shareListField");
@@ -4618,40 +4965,42 @@ export default {
       }
     },
     checkMatchFilter(car) {
-      // let context = this.searchFilters;
-      // if (this.mode === 'cg') context = 
+      let context = this.searchFilters;
+      if (this.cgIsFiltering) context = this.cgRound.filter;
+      if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = this.cgFilterForAddCar;
+
 
       // between
-      if ( !this.filterCheckBetween(car.year, this.mainFilter.yearModel) ) return false;
-      if ( !this.filterCheckBetween(car.rq, this.mainFilter.rqModel) ) return false;
-      if ( !this.filterCheckBetween(car.topSpeed, this.mainFilter.topSpeedModel) ) return false;
-      if ( JSON.stringify(this.mainFilter.acelModel) !== JSON.stringify(this.defaultFilters("acelModel")) ) {
-        if ( !this.filterCheckBetween(car.acel, this.mainFilter.acelModel) ) return false;
+      if ( !this.filterCheckBetween(car.year, context.yearModel) ) return false;
+      if ( !this.filterCheckBetween(car.rq, context.rqModel) ) return false;
+      if ( !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return false;
+      if ( JSON.stringify(context.acelModel) !== JSON.stringify(this.defaultFilters("acelModel")) ) {
+        if ( !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
       }
-      if ( !this.filterCheckBetween(car.hand, this.mainFilter.handModel) ) return false;
-      if ( JSON.stringify(this.mainFilter.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
-        if ( !this.filterCheckBetween(car.mra, this.mainFilter.mraModel) ) return false;
+      if ( !this.filterCheckBetween(car.hand, context.handModel) ) return false;
+      if ( JSON.stringify(context.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
+        if ( !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
       }
-      if ( !this.filterCheckBetween(car.weight, this.mainFilter.weightModel) ) return false;
-      if ( !this.filterCheckBetween(car.seats, this.mainFilter.seatsModel) ) return false;
+      if ( !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
+      if ( !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
 
       // includes
-      if ( !this.filterCheckIncludes(car.class, this.mainFilter.classesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.tyres, this.mainFilter.tyresModel) ) return false;
-      if ( !this.filterCheckIncludes(car.drive, this.mainFilter.drivesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.clearance, this.mainFilter.clearancesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.country, this.mainFilter.countrysModel) ) return false;
+      if ( !this.filterCheckIncludes(car.class, context.classesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.tyres, context.tyresModel) ) return false;
+      if ( !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
+      if ( !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
 
-      if ( !this.filterCheckIncludes(car.fuel, this.mainFilter.fuelModel) ) return false;
-      if ( !this.filterCheckIncludes(car.engine, this.mainFilter.engineModel) ) return false;
+      if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
+      if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
       
-      if ( !this.filterCheckIncludesArray(car.bodyTypes, this.mainFilter.bodyTypesModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, this.mainFilter.tagsModel) ) return false;
-      if ( !this.filterCheckIncludes(car.brand, this.mainFilter.brandsModel) ) return false;
+      if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel) ) return false;
+      if ( !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
-      if ( this.mainFilter.prizesModel.length > 0 ) {
-        if ( car.prize && !this.mainFilter.prizesModel.includes("Prize Cars") ) return false;
-        if ( !car.prize && !this.mainFilter.prizesModel.includes("Non-Prize Cars") ) return false;
+      if ( context.prizesModel.length > 0 ) {
+        if ( car.prize && !context.prizesModel.includes("Prize Cars") ) return false;
+        if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
       return true;
@@ -5085,13 +5434,6 @@ export default {
         this.cgLoading = false;
       });
     },
-    resolveInitialCg() {
-      if (this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
-        this.loadCg(this.cgCurrentId, this.cgCurrentRound);
-      } else {
-        this.loadCg(this.cgList[0].date, this.cgCurrentRound);
-      }
-    },
     loadCg(id, round) {
       if (round === undefined) {
         let lastRound = window.localStorage.getItem(`cg_${id}`);
@@ -5151,7 +5493,7 @@ export default {
         })
         
         // tracks
-        this.cgResolveTrack(race, false);
+        this.resolveTrack(race, false);
         this.cgSortBankCars(race);
         
       })
@@ -5160,9 +5502,15 @@ export default {
       this.cgResolveFilter();
       this.cgUpdateLocalStorage();
     },
-    cgResolveTrack(race, calcResult = true) {
+    resolveTrack(race, calcResult = true, isRace = true) {
       if (race.track) {
-        Vue.set(race, "resolvedTracks", this.validateTracks([race.track]));
+        let resolveds;
+        if (isRace) {
+          Vue.set(race, "resolvedTracks", this.validateTracks([race.track]));
+          resolveds = race.resolvedTracks;
+        } else {
+          resolveds = this.validateTracks([race.track]);
+        }
 
         // list all options
         let currentTracksOptions = [];
@@ -5185,7 +5533,7 @@ export default {
         currentTracksOptions.push(options);
 
         // delivery best option
-        race.resolvedTracks.map((x, ix) => {
+        resolveds.map((x, ix) => {
           let bestOption;
           currentTracksOptions[ix].map(y => {
             if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) ) {
@@ -5201,6 +5549,9 @@ export default {
 
         if (calcResult) {
           this.calcRaceResult(race);
+        }
+        if (!isRace) {
+          return resolveds[0];
         }
       }
     },
@@ -5607,8 +5958,8 @@ export default {
       })
       .then(res => {
         setTimeout(() => {
-        this.cgCloseNewCg();
-        this.loadChallenges(false);
+          this.cgCloseNewCg();
+          this.loadChallenges(false);
           this.cgNewLoading = false;
         }, 1000);
       })
@@ -5763,8 +6114,190 @@ export default {
         }
         return a.index - b.index;
       })
+    },
+    loadEvents(resolveInitial = true) {
+      this.eventLoading = true;
+
+      axios.get(Vue.preUrl + "/searchEvents")
+      .then(res => {
+        this.eventList = res.data.Items;
+        if (resolveInitial && this.eventCurrentId && this.eventList.find(x => x.date === this.eventCurrentId)) {
+          this.loadEventFull(this.eventCurrentId);
+        } else {
+          this.eventLoading = false;
+        }
+      })
+      .catch(error => {
+        this.eventLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+    },
+    loadEventFull(date) {
+      this.eventLoading = true;
+      this.eventSelectorDialog = false;
+
+      axios.post(Vue.preUrl + "/getEventById", {
+        date: date
+      })
+      .then(res => {
+        let event = this.eventList.find(x => x.date === date)
+        if (event.date === res.data.date) {
+          Object.keys( res.data ).forEach(key => {
+            Vue.set(event, key, res.data[key]);
+          })
+          this.loadEventScreen(date);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.eventLoading = false;
+      });
+    },
+    loadEventScreen(id) {
+      this.eventSelectorDialog = false;
+      let event = this.eventList.find(x => x.date === id);
+      if (!event) {
+        return;
+      }
+
+      this.event = event;
+      this.eventCurrentId = event.date;
+      this.eventCurrentName = event.name;
+
+      this.event.perfectHand.map(group => {
+        group.map(x => {
+          let found = this.all_cars.find(y => y.rid === x.rid);
+          if (found) {
+            Vue.set(x, "car", JSON.parse(JSON.stringify(found)));
+            Vue.set(x, "photo", this.cgResolvePhotoUrl(x.rid));
+            Vue.set(x, "color", Vue.resolveClass(x.car.rq, x.car.class, "color"));
+          }
+        })
+      })
+
+      let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
+
+      resolvedTrackset = resolvedTrackset.map(trackset => {
+        return trackset.map(track => {
+          return [this.resolveTrack({ track }, false, false)];
+        })
+      })
+      Vue.set(this.event, "resolvedTrackset", resolvedTrackset);
+
+      this.eventUpdateLocalStorage();
+
+    },
+    eventUpdateLocalStorage() {
+      window.localStorage.setItem('lastEvent', JSON.stringify({ date: this.event.date }));
+    },
+    eventGetLocalStorage() {
+      let lastEvent = window.localStorage.getItem("lastEvent");
+      if (lastEvent) {
+        lastEvent = JSON.parse(lastEvent);
+        this.eventCurrentId = lastEvent.date;
+      }
+    },
+    eventOpenRqEdit() {
+
+    },
+    eventCloseRqEdit() {
+      this.eventRqEditDialog = false;
+      if (this.eventRqEditModel !== this.eventRqEditString) {
+        this.eventRound.rqLimit = Number(this.eventRqEditModel);
+        this.eventRqNeedToSave = true;
+      } else {
+        this.eventRqNeedToSave = false;
+      }
+    },
+    eventOpenNewEvent() {
+      this.eventClearSaveNewEvent();
+      this.computeTemplateToSave();
+      this.eventSeletorDialog = false;
+      this.eventNewDialog = true;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Cg_NewEventName").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    eventClearSaveNewEvent() {
+      this.eventNewName = null;
+    },
+    eventCloseNewEvent() {
+      this.eventSeletorDialog = true;
+      this.eventNewDialog = false;
+    },
+    saveNewEvent() {
+      return;
+      this.eventNewLoading = true;
+
+      axios.post(Vue.preUrl + "/newCg", {
+        name: this.eventNewName
+      })
+      .then(res => {
+        setTimeout(() => {
+          this.eventCloseNewEvent();
+          this.loadEvents(false);
+          this.eventNewLoading = false;
+        }, 1000);
+      })
+      .catch(error => {
+        this.eventNewError = true;
+        this.eventNewLoading = false;
+        setTimeout(() => { this.eventNewError = false}, 1500);
+
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    eventInspectCar(car, igroup, icar) {
+
+    },
+    eventAddCar(igroup, icar) {
+
+    },
+    eventEditComp(igroup) {
+
+    },
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+    },
+    checkAnnouncement() {
+      if (window.localStorage.getItem("lastCg")) return;
+      if (window.localStorage.getItem("announce1")) return;
+      if (this.mode === 'cg') return;
+      let dt = window.localStorage.getItem("_dt");
+      if (dt) {
+        dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      }
+      if (dt) return;
+
+      window.localStorage.setItem('announce1', "t");
+      this.announcementDialog = true;
     }
-  },
+  }
 }
 </script>
 
@@ -5886,6 +6419,9 @@ body {
   margin: 10px 10px;
   display: flex;
   flex-direction: column;
+}
+.Main_LogoPre {
+  white-space: nowrap;
 }
 .Main_2 .Main_Corner {
   display: grid;
@@ -6289,7 +6825,7 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   transform: translateY(-42%);
 }
 .Main_SearchMid {
-  height: 50vh;
+  height: 60vh;
   background-color: var(--d-back);
   width: 100%;
   padding: 25px 0;
@@ -6772,7 +7308,7 @@ body::-webkit-scrollbar-corner {
   color: black;
 }
 .Main_SectionSelectorLayout {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .Main_SectionSelectorBox {
   display: flex;
@@ -7224,6 +7760,7 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_Mid {
   padding: 20px 0;
+  margin-top: var(--top-height);
 }
 .Cg_ThemTime {
   height: var(--cell-height);
@@ -7367,6 +7904,7 @@ body::-webkit-scrollbar-corner {
 }
 .D_Button.Cg_BankButton {
   padding-left: 0;
+  padding-right: 0;
   overflow: hidden;
   background-color: rgba(0,0,0,0.0);
   --back-opac: 0.06;
@@ -7383,6 +7921,10 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_BankTune {
   /* margin-right: 9px; */
+}
+.Cg_BankCarName {
+  color: var(--d-text);
+  font-size: 12px;
 }
 .Cg_RqCount {
   width: 100%;
@@ -7405,6 +7947,7 @@ body::-webkit-scrollbar-corner {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
 }
 .Cg_RqRq {
   transform: scaleX(1.7) skewX(-14deg);
@@ -7418,6 +7961,7 @@ body::-webkit-scrollbar-corner {
   gap: 15px;
   justify-content: center;
   min-height: 34px;
+  margin-top: 10px;
 }
 .Cg_BankButtonLose {
   opacity: 0.4;
@@ -7486,6 +8030,81 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_EX {
   color: #5899fb;
+}
+.Event_SubTitle {
+  color: rgb(var(--d-text-yellow));
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.Event_Track {
+  margin-top: 8px;
+  box-shadow: inset 0px 2px 0px 0px #ffffff07;
+}
+.Event_Track:first-child {
+  box-shadow: inset 2px 2px 0px 0px #ffffff07;
+}
+.Event_BankButton {
+  width: 100%;
+  justify-content: flex-start;
+}
+.Event_BankPhoto {
+  margin-right: 7px;
+}
+.Event_BankClass {
+  margin-right: 5px;
+}
+.Cg_Header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 30;
+}
+.Cg_RoundEmptyBox {
+  text-align: center;
+}
+.Cg_RoundEmptyTitle {
+  color: rgb(var(--d-text-yellow));
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+.Cg_RoundEmptyBody {
+
+}
+.Main_AnnouncementLayout {
+
+}
+.Main_AnnouncementLogo {
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  margin-bottom: 15px;
+}
+.Main_AnnouncementBox {
+  text-align: center;
+}
+.Main_AnnouncementMaybe {
+  opacity: 0.3;
+  font-size: 0.6em;
+  margin-top: 2px;
+}
+.Main_AnnouncementTitle {
+  margin: 20px 0;
+  font-size: 2.4em;
+  line-height: 1.1;
+  color: #cdcdcd;
+}
+.Main_AnnouncementButton {
+  margin: 20px 0 2px 0;
+}
+.Event_CompItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
 
 
@@ -7602,42 +8221,54 @@ body::-webkit-scrollbar-corner {
 
 
 
-.Main_Compact .Car_Layout {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
   --card-left-width: 19%;
   --card-right-width: 31%;
   --card-top-height: 11.5%;
   --card-stat-height: 31.9px;
 }
-.Main_Compact .Car_Layout:not(.Car_LayoutAddCar) .Car_Header > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay) {
   display: none;
 }
-.Main_Compact .Car_Layout {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
   width: 120px;
 }
-.Main_Compact .Car_Layout .Car_HeaderName {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderName {
   font-size: 0.8em;
   width: calc(100% - 8px);
   margin-top: 0px;
 }
-.Main_Compact .Car_Layout .Car_HeaderNameBig {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderNameBig {
   font-size: 0.7em;
 }
-.Main_Compact .Car_Layout .Car_HeaderNameBigBig {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderNameBigBig {
   font-size: 0.6em;
 }
-.Main_Compact .Car_Layout .Car_HeaderBlockTopSpeed,
-.Main_Compact .Car_Layout .Car_HeaderBlock060,
-.Main_Compact .Car_Layout .Car_HeaderBlockHandling,
-.Main_Compact .Car_Layout .Car_HeaderBlockDrive {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
   box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09);
   backdrop-filter: blur(15px);
 }
-.Main_Compact .Car_Layout .Car_HeaderStatValue,
-.Main_Compact .Car_Layout .Car_HeaderStatLabel {
+@media (pointer:coarse) {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 0.8);
+  }
+}
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatValue,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatLabel {
   padding-right: 1px;
 }
 .Main_Compact {
   --cell-width: 120px;
+}
+.Main_Compact .Main_LogoPre {
+  font-size: 14px;
 }
 
 
@@ -7790,6 +8421,7 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint.Cg_Layout {
   width: 1200px;
+  min-width: 1200px;
 }
 .Main_BodyPrint.Cg_Layout .Main_AddTrackDirect,
 .Main_BodyPrint.Cg_Layout .Cg_SelectorRight,
@@ -7817,6 +8449,12 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint .BaseDisqus_Layout {
   display: none;
+}
+.Main_BodyPrint .Cg_Header {
+  position: static;
+}
+.Main_BodyPrint .Cg_Mid {
+  margin-top: 0;
 }
 
 
@@ -7850,8 +8488,8 @@ body::-webkit-scrollbar-corner {
     grid-template-columns: 1fr;
   }
   .Main_OptionsDual {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    /* grid-template-columns: 1fr;
+    gap: 20px; */
   }
   .Main_FilterClearTop {
     justify-content: center;
@@ -7873,6 +8511,40 @@ body::-webkit-scrollbar-corner {
   .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
     height: 150px;
     width: 200px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  /* .Cg_Box {
+    justify-content: flex-start;
+  } */
+  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankCarName {
+    display: none;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
+    --cg-width: 115px;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass {
+    display: none;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {
+    color: var(--cor);
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider {
+    --size: 30px;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsRed,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGreen,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGrey {
+    --size: 40px;
+  }
+  .Event_BankClass {
+    margin-left: 5px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Cg_Box {
+    justify-content: flex-start;
   }
 }
 </style>

@@ -1015,15 +1015,17 @@ export default {
 
 <style>
 .MainGallery_Box {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   gap: 10px;
   margin: 0 auto;
   margin-top: 50px;
   justify-content: center;
-  max-width: 1500px;
+  max-width: 1260px;
+  text-align: center;
 }
 .MainGallery_Item {
+  display: inline-block;
   width: 415px;
   height: 256px;
   position: relative;

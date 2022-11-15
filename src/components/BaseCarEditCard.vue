@@ -6,7 +6,7 @@
       :class="{ BaseCarEditCard_Marked: marked }"
       :style="`--class-color: ${carClassColor}; ${carPhoto}`"
       @click="$emit('action')">
-      <div class="Car_HeaderBlockTop" style="backdrop-filter: none;--card-stat-back-a: 0.8;"/>
+      <div class="Car_HeaderBlockTop" style="backdrop-filter: none; background-color: rgba(81,78,72,1);"/>
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue">{{ car.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
@@ -98,23 +98,7 @@ export default {
   display: none;
 }
 .MainGallery_Layout .Car_Header {
-  height: calc(var(--top-height) - 6px);
-  margin: 3px 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 3px;
-  z-index: 20;
-  font-family: 'Roboto Condensed', sans-serif;
-  color: #eee;
-  background-color: #919191;
-  background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.06) 0, rgba(0, 0, 0, 0.06) 30px );
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: var(--card-font-size);
+  
 }
 .MainGallery_Layout .Car_Header[lazy=error] {
   background-image: var(--image-src) !important;

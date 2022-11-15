@@ -19,7 +19,8 @@
         :class="{
           BaseDialog_Opaque: !transparent,
           BaseDialog_Transparent: transparent,
-          BaseDialog_ForceScroll: forceScroll
+          BaseDialog_ForceScroll: forceScroll,
+          BaseDialog_ForceNoScroll: disableScroll
         }"
         class="BaseDialog_Box Main_DarkScroll">
         <slot />
@@ -59,6 +60,10 @@ export default {
       default: false
     },
     lazy: {
+      type: Boolean,
+      default: false
+    },
+    disableScroll: {
       type: Boolean,
       default: false
     },
@@ -164,6 +169,9 @@ export default {
 }
 .BaseDialog_ForceScroll {
   overflow-y: scroll;
+}
+.BaseDialog_ForceNoScroll {
+  overflow-y: initial;
 }
 .BaseDialog_Opaque {
   background-color: #333;

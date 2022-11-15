@@ -1,9 +1,9 @@
 <template>
-  <div class="BaseCard_Layout">
+  <div :class="{ BaseCard_LayoutDialog: isDialogBox }" class="BaseCard_Layout">
     <div v-if="fixBack" class="BaseCard_FixBack" />
     <div
       class="Car_Header"
-      :class="{ Row_DialogCardCard: !options, Car_Loading: downloadLoading }"
+      :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}; ${carPhoto}`">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
@@ -25,7 +25,7 @@
         <button v-if="cgOppo" class="D_Button Car_HeaderButton" @click="$emit('cog')">
           <i class="ticon-gear Car_HeaderIcon" aria-hidden="true"/>
         </button>
-        <button v-if="!needSave" class="D_Button Car_HeaderButton" @click="$emit('delete')">
+        <button v-if="!needSave && !hideClose" class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
       </div>
@@ -60,6 +60,8 @@
         }" class="Car_HeaderName">{{ car.name }}</div>
       <div
         class="Car_CompactOverlay"
+        @touchstart="touchstart($event)"
+        @touchend="touchend()"
         @mousedown="$emit('dragdown', $event)"
         @click="invertedClick($event)" />
     </div>
@@ -111,11 +113,19 @@ export default {
       type: Boolean,
       default: false
     },
+    isDialogBox: {
+      type: Boolean,
+      default: false
+    },
     cg: {
       type: Boolean,
       default: false
     },
     cgOppo: {
+      type: Boolean,
+      default: false
+    },
+    hideClose: {
       type: Boolean,
       default: false
     },
@@ -127,7 +137,10 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      timer: null,
+      touchduration: 800
+    }
   },
   watch: {},
   beforeMount() {},
@@ -162,6 +175,23 @@ export default {
       if (!this.needSave && e.shiftKey) {
         this.$emit('delete');
       }
+    },
+    touchstart(e) {
+        e.preventDefault();
+        if (!this.timer) {
+            this.timer = setTimeout(this.onlongtouch, this.touchduration);
+        }
+    },
+    touchend() {
+        //stops short touches from firing the event
+        if (this.timer) {
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
+    },
+    onlongtouch() {
+      this.timer = null;
+      this.$emit('cog');
     }
   },
 }
