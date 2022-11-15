@@ -7,7 +7,7 @@ import MainExtractTD from "./components/MainExtractTD.vue";
 // import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
 import MainGallery from "./components/MainGallery.vue";
 import MainCarsEdit from "./components/MainCarsEdit.vue";
-// import MainUpdateRqData from "./components/MainUpdateRqData.vue";
+import MainUpdateRqData from "./components/MainUpdateRqData.vue";
 import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 import MainImportRude from "./components/MainImportRude.vue";
 import MainAnalyseDb from "./components/MainAnalyseDb.vue";
@@ -92,12 +92,12 @@ const routes = [
     title: 'AnalyseDb',
     component: MainAnalyseDb,
   },
-  // {
-  //   path: '/newrq',
-  //   name: 'Update RQ',
-  //   title: 'Update RQ',
-  //   component: MainUpdateRqData,
-  // },
+  {
+    path: '/newrq',
+    name: 'Update RQ',
+    title: 'Update RQ',
+    component: MainUpdateRqData,
+  },
   {
     path: '/templateguide',
     name: 'TemplateGuidelines',
