@@ -79,7 +79,7 @@
       "clearance": "Low",
       "topSpeed": 258,
       "acel": 1.9,
-      "hand": 90,
+      "hand": 91,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 117.11,
@@ -246,7 +246,7 @@
       "country": "GB",
       "topSpeed": 201,
       "acel": 2.9,
-      "hand": 93,
+      "hand": 92,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 96.67,
@@ -254,8 +254,7 @@
       "name": "Lotus Evija",
       "rid": "Lotus_Evija_2021",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -277,17 +276,16 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 187,
-      "acel": 2.4,
+      "acel": 2.1,
       "hand": 94,
       "drive": "4WD",
       "tyres": "Slick",
       "mra": null,
-      "weight": 1499,
+      "weight": 1500,
       "name": "Porsche Mission R Concept",
       "rid": "Porsche_Mission_R_Concept_2021",
       "tags": [
-          "World Expo",
-          "Concept"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -318,8 +316,7 @@
       "name": "Rimac Concept_S",
       "rid": "Rimac_Concept_S_2016",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -350,8 +347,7 @@
       "name": "Rimac E-Runner Concept_One",
       "rid": "Rimac_E-Runner_Concept_One_2016",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -470,7 +466,7 @@
       "clearance": "Low",
       "topSpeed": 221,
       "acel": 2.4,
-      "hand": 89,
+      "hand": 90,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 115,
@@ -795,7 +791,7 @@
       "hand": 99,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 96.77,
       "weight": 930,
       "name": "Peugeot 908 HDi FAP",
       "rid": "Peugeot_908_HDi_FAP_2007",
@@ -832,8 +828,7 @@
       "name": "Mercedes-Benz C11",
       "rid": "Mercedes-Benz_C11_1990",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -894,8 +889,7 @@
       "name": "Porsche 935 (991.2)",
       "rid": "Porsche_935_(991.2)_2019",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -1055,8 +1049,7 @@
       "name": "Arash AF10 Hybrid",
       "rid": "Arash_AF10_Hybrid_2016",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1087,8 +1080,7 @@
       "name": "Audi R10 TDI",
       "rid": "Audi_R10_TDI_2006",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1376,8 +1368,7 @@
       "name": "Hennessey Venom F5",
       "rid": "Hennessey_Venom_F5_2021",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1628,7 +1619,7 @@
       "hand": 92,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 121.22,
       "weight": 1390,
       "name": "Koenigsegg Jesko Absolut",
       "rid": "Koenigsegg_Jesko_Absolut_2021",
@@ -2371,8 +2362,7 @@
       "name": "Hennessey Venom GT Spyder",
       "rid": "Hennessey_Venom_GT_Spyder_2016",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -2398,7 +2388,7 @@
       "hand": 92,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 117.35,
       "weight": 1590,
       "name": "Koenigsegg Regera",
       "rid": "Koenigsegg_Regera_2015",
@@ -2462,7 +2452,7 @@
       "hand": 94,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 94.41,
       "weight": 1218,
       "name": "Pagani Huayra BC",
       "rid": "Pagani_Huayra_BC_2016",
@@ -2753,8 +2743,7 @@
       "name": "Hennessey Venom GT",
       "rid": "Hennessey_Venom_GT_2011",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -2784,8 +2773,7 @@
       "name": "KTM X-Bow GTX",
       "rid": "KTM_X-Bow_GTX_2020",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -2816,8 +2804,7 @@
       "name": "Porsche 911 RSR-19 (991.2)",
       "rid": "Porsche_911_RSR-19_(991.2)_2019",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -2871,7 +2858,7 @@
       "clearance": "High",
       "topSpeed": 176,
       "acel": 3.6,
-      "hand": 83,
+      "hand": 82,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 73.12,
@@ -2933,7 +2920,7 @@
       "clearance": "Low",
       "topSpeed": 217,
       "acel": 3.3,
-      "hand": 88,
+      "hand": 90,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 89.41,
@@ -3213,16 +3200,15 @@
       "country": "DE",
       "topSpeed": 199,
       "acel": 3.3,
-      "hand": 87,
+      "hand": 88,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
-      "weight": 1595,
+      "mra": 89.29,
+      "weight": 1670,
       "name": "Audi R8 LMX",
       "rid": "Audi_R8_LMX_2014",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -3264,7 +3250,7 @@
   {
       "class": "S",
       "rq": 92,
-      "onlyName": "956 C",
+      "onlyName": "956",
       "brand": "Porsche",
       "year": 1982,
       "tdid": "3524",
@@ -3272,18 +3258,17 @@
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
-      "topSpeed": 217,
+      "topSpeed": 221,
       "acel": 2.9,
       "hand": 94,
       "drive": "RWD",
       "tyres": "Slick",
       "mra": 100,
       "weight": 820,
-      "name": "Porsche 956 C",
+      "name": "Porsche 956",
       "rid": "Porsche_956_1982",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -3427,11 +3412,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 190,
-      "acel": 3.2,
+      "acel": 2.9,
       "hand": 87,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 82.7,
       "weight": 1940,
       "name": "BMW M5 Competition",
       "rid": "BMW_M5_Competition_(delimited)_2018",
@@ -3554,7 +3539,7 @@
       "hand": 95,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 102.47,
       "weight": 1050,
       "name": "Porsche 911 GT1 Evo",
       "rid": "Porsche_911_GT1_race_car_1997",
@@ -3744,7 +3729,7 @@
       "country": "DE",
       "topSpeed": 199,
       "acel": 3.4,
-      "hand": 88,
+      "hand": 89,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 90.65,
@@ -3752,8 +3737,7 @@
       "name": "Audi R8 GT",
       "rid": "Audi_R8_GT_2011",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -3808,7 +3792,7 @@
       "hand": 82,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 75,
       "weight": 2490,
       "name": "Porsche Cayenne Turbo S E-Hybrid 4.0 (9Y0)",
       "rid": "Porsche_Cayenne_Turbo_S_E-Hybrid_4.0_(9Y0)_2019",
@@ -4349,7 +4333,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 67.27,
       "weight": 2200,
       "name": "Porsche Cayenne Turbo Coupe 4.0 (9Y3)",
       "rid": "Porsche_Cayenne_Turbo_Coupe_4.0_(9Y3)_2019",
@@ -4687,7 +4671,7 @@
   {
       "class": "S",
       "rq": 89,
-      "onlyName": "Cayenne Turbo (958.2)",
+      "onlyName": "Cayenne Turbo",
       "brand": "Porsche",
       "country": "DE",
       "year": 2017,
@@ -4696,13 +4680,13 @@
       "tcs": true,
       "clearance": "High",
       "topSpeed": 173,
-      "acel": 4.1,
-      "hand": 81,
+      "acel": 3.7,
+      "hand": 82,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 66.07,
       "weight": 2170,
-      "name": "Porsche Cayenne Turbo (958.2)",
+      "name": "Porsche Cayenne Turbo",
       "rid": "Porsche_Cayenne_Turbo_2017",
       "tags": [
           "Originals"
@@ -4792,7 +4776,7 @@
       "country": "DE",
       "topSpeed": 196,
       "acel": 3,
-      "hand": 88,
+      "hand": 87,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 78.67,
@@ -4803,8 +4787,7 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Coupe",
-          "Saloon"
+          "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -4826,7 +4809,7 @@
       "hand": 85,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 69.77,
       "weight": 2400,
       "name": "Porsche Panamera Turbo S E-Hybrid Sport Turismo 4.0 (971.2)",
       "rid": "Porsche_Panamera_Turbo_S_2021",
@@ -5036,12 +5019,12 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "topSpeed": 211,
+      "topSpeed": 220,
       "acel": 3.2,
       "hand": 90,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 110.94,
       "weight": 800,
       "name": "Porsche 917",
       "rid": "Porsche_917_1970",
@@ -5068,11 +5051,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 155,
-      "acel": 3.2,
+      "acel": 3,
       "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 83.33,
       "weight": 1930,
       "name": "BMW M5",
       "rid": "BMW_M5_2018",
@@ -5378,18 +5361,17 @@
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
-      "topSpeed": 223,
+      "topSpeed": 217,
       "acel": 3,
       "hand": 92,
       "drive": "RWD",
       "tyres": "Slick",
       "mra": 100,
-      "weight": 740,
+      "weight": 700,
       "name": "Porsche 936",
       "rid": "Porsche_936_1976",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -5414,13 +5396,12 @@
       "hand": 90,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 78.79,
       "weight": 1415,
       "name": "W Motors Fenyr SuperSport",
       "rid": "W_Motors_Fenyr_SuperSport_2017",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -5722,7 +5703,7 @@
   {
       "class": "S",
       "rq": 87,
-      "onlyName": "CTR 2",
+      "onlyName": "CTR2",
       "brand": "RUF",
       "country": "DE",
       "year": 1995,
@@ -5731,13 +5712,13 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 220,
-      "acel": 3.4,
+      "acel": 3.6,
       "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 91.89,
       "weight": 1358,
-      "name": "RUF CTR 2",
+      "name": "RUF CTR2",
       "rid": "RUF_CTR2_1995",
       "tags": [
           "German Renaissance"
@@ -5862,8 +5843,7 @@
       "name": "Arash LM",
       "rid": "Arash_LM_2002",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -5888,7 +5868,7 @@
       "hand": 82,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 77.14,
       "weight": 2320,
       "name": "Porsche Taycan Turbo S Cross Turismo",
       "rid": "Porsche_Taycan_Turbo_S_Cross_Turismo_2021",
@@ -5979,13 +5959,12 @@
       "hand": 89,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 78.55,
       "weight": 1400,
       "name": "W Motors Lykan HyperSport",
       "rid": "W_Motors_Lykan_HyperSport_2014",
       "tags": [
-          "World Expo",
-          "Hypercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -6339,7 +6318,7 @@
   {
       "class": "S",
       "rq": 86,
-      "onlyName": "Atom 3.5 Supercharged",
+      "onlyName": "Atom 3.5",
       "brand": "Ariel",
       "country": "GB",
       "year": 2013,
@@ -6348,13 +6327,13 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 155,
-      "acel": 2.8,
+      "acel": 3.2,
       "hand": 89,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 89.39,
       "weight": 510,
-      "name": "Ariel Atom 3.5 Supercharged",
+      "name": "Ariel Atom 3.5",
       "rid": "Ariel_Atom_3.5_2013",
       "tags": [
           "Great Exhibition",
@@ -6383,7 +6362,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 66.13,
       "weight": 1960,
       "name": "Porsche Macan GTS",
       "rid": "Porsche_Macan_GTS_2021",
@@ -6722,7 +6701,7 @@
       "clearance": "Low",
       "topSpeed": 207,
       "acel": 3.3,
-      "hand": 87,
+      "hand": 85,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 79.49,
@@ -6945,7 +6924,7 @@
       "hand": 88,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 68,
       "weight": 1715,
       "name": "Porsche 911 Targa 4S 3.0 (992)",
       "rid": "Porsche_911_Targa_4S_3.0_(992)_2020",
@@ -7005,7 +6984,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 74.29,
       "weight": 2295,
       "name": "Porsche Taycan Turbo S",
       "rid": "Porsche_Taycan_Turbo_S_2020",
@@ -7282,11 +7261,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 194,
-      "acel": 3.9,
-      "hand": 86,
+      "acel": 3.6,
+      "hand": 87,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 76.6,
       "weight": 1720,
       "name": "Audi R8 Spyder V10",
       "rid": "Audi_R8_Spyder_V10_2013",
@@ -7505,7 +7484,7 @@
       "drive": "4WD",
       "tyres": "Off-road",
       "mra": 72.77,
-      "weight": 1260,
+      "weight": 1320,
       "name": "Porsche 959 Dakar",
       "rid": "Porsche_959_Dakar_1986",
       "tags": [
@@ -8187,7 +8166,7 @@
       "year": 2018,
       "tdid": "1912",
       "abs": false,
-      "tcs": true,
+      "tcs": false,
       "clearance": "Low",
       "topSpeed": 162,
       "acel": 2.8,
@@ -8450,8 +8429,7 @@
       "name": "Audi V8 quattro DTM (4C)",
       "rid": "Audi_V8_quattro_DTM_(4C)_1992",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Saloon"
@@ -8476,7 +8454,7 @@
       "hand": 89,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 69.09,
       "weight": 1555,
       "name": "Porsche 911 Carrera 4 3.0 (992)",
       "rid": "Porsche_911_Carrera_4_3.0_(992)_2019",
@@ -8600,7 +8578,7 @@
       "hand": 90,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 89.23,
       "weight": 1693,
       "name": "Aston Martin DBS Superleggera",
       "rid": "Aston_Martin_DBS_Superleggera_2019",
@@ -8815,7 +8793,7 @@
       "clearance": "Low",
       "topSpeed": 207,
       "acel": 3.4,
-      "hand": 83,
+      "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": null,
@@ -8847,7 +8825,7 @@
       "clearance": "Low",
       "topSpeed": 207,
       "acel": 3.4,
-      "hand": 83,
+      "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 78.43,
@@ -9003,7 +8981,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "topSpeed": 139,
+      "topSpeed": 155,
       "acel": 3.7,
       "hand": 86,
       "drive": "4WD",
@@ -9193,7 +9171,7 @@
       "country": "GB",
       "topSpeed": 118,
       "acel": 2.7,
-      "hand": 88,
+      "hand": 90,
       "drive": "4WD",
       "tyres": "Off-road",
       "mra": null,
@@ -9201,8 +9179,7 @@
       "name": "Ford RS200 Group B Rally Car",
       "rid": "Ford_RS200_Group_B_Rally_Car_1985",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -9258,7 +9235,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 67.31,
       "weight": 2240,
       "name": "Porsche Panamera 4S E-Hybrid Sport Turismo (971.2)",
       "rid": "Porsche_Panamera_4S_2021",
@@ -9284,11 +9261,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 174,
-      "acel": 3.7,
+      "acel": 3.5,
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 67.74,
       "weight": 1935,
       "name": "Audi RS6 Avant",
       "rid": "Audi_RS_6_Avant_(delimited)_2013",
@@ -9408,7 +9385,7 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 192,
-      "acel": 3.5,
+      "acel": 3.7,
       "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",
@@ -9690,7 +9667,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "topSpeed": 134,
+      "topSpeed": 152,
       "acel": 4,
       "hand": 85,
       "drive": "4WD",
@@ -9783,7 +9760,7 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 150,
-      "acel": 3.2,
+      "acel": 3.4,
       "hand": 88,
       "drive": "RWD",
       "tyres": "Performance",
@@ -9951,8 +9928,7 @@
       "rid": "Bristol_Fighter_T_2006",
       "tags": [
           "World Expo",
-          "Concept",
-          "Wild Ride"
+          "Concept"
       ],
       "prize": true,
       "bodyTypes": [
@@ -9983,8 +9959,7 @@
       "name": "Mercedes-Benz CLK GTR",
       "rid": "Mercedes-Benz_CLK_GTR_1998",
       "tags": [
-          "World Expo",
-          "Ultra Expensive"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -10036,11 +10011,11 @@
       "clearance": "Low",
       "country": "US",
       "topSpeed": 240,
-      "acel": 3.2,
+      "acel": 3.3,
       "hand": 92,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 70.97,
       "weight": 1300,
       "name": "Saleen S7",
       "rid": "Saleen_S7_2000",
@@ -10067,10 +10042,10 @@
       "country": "GB",
       "topSpeed": 180,
       "acel": 3.1,
-      "hand": 91,
+      "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 93.81,
       "weight": 930,
       "name": "Ultima Evolution Convertible",
       "rid": "Ultima_Evolution_Convertible_2015",
@@ -10078,8 +10053,7 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Coupe",
-          "Roadster"
+          "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -10503,11 +10477,11 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 176,
-      "acel": 3.4,
-      "hand": 93,
+      "acel": 3.6,
+      "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 96.87,
       "weight": 1552,
       "name": "Dodge Viper SRT-10 ACR",
       "rid": "Dodge_Viper_SRT-10_ACR_2008",
@@ -10598,7 +10572,7 @@
       "hand": 81,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": 93.74,
+      "mra": 93.75,
       "weight": 2355,
       "name": "RUF Dakara",
       "rid": "RUF_Dakara_2009",
@@ -10725,7 +10699,7 @@
       "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 100.43,
       "weight": 1025,
       "name": "AC Mk VI GTS",
       "rid": "AC_Mk_VI_GTS_2015",
@@ -10760,8 +10734,7 @@
       "name": "Arash AF8",
       "rid": "Arash_AF8_2014",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -10821,8 +10794,7 @@
       "name": "De Tomaso P72",
       "rid": "De_Tomaso_P72_2020",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -10853,8 +10825,7 @@
       "name": "Mercedes-Benz AMG GT4",
       "rid": "Mercedes-Benz_AMG_GT4_2018",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -10931,7 +10902,7 @@
   {
       "class": "A",
       "rq": 79,
-      "onlyName": "Continental GT Speed Breitling Jet Team Series",
+      "onlyName": "Continental Breitling Jet Team Series Limited Edition",
       "brand": "Bentley",
       "country": "GB",
       "year": 2016,
@@ -10939,14 +10910,14 @@
       "abs": true,
       "tcs": true,
       "clearance": "Low",
-      "topSpeed": 206,
+      "topSpeed": 205,
       "acel": 4,
-      "hand": 85,
+      "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 78.56,
       "weight": 2320,
-      "name": "Bentley Continental GT Speed Breitling Jet Team Series",
+      "name": "Bentley Continental Breitling Jet Team Series Limited Edition",
       "rid": "Bentley_Continental_Breitling_Jet_Team_Series_Limited_Edition_2016",
       "tags": [
           "Great Exhibition",
@@ -11008,7 +10979,7 @@
       "hand": 89,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 100,
       "weight": 1440,
       "name": "Porsche 911 GT2",
       "rid": "Porsche_911_GT2_2007",
@@ -11156,12 +11127,12 @@
       "abs": true,
       "tcs": true,
       "clearance": "Mid",
-      "topSpeed": 150,
+      "topSpeed": 155,
       "acel": 5,
       "hand": 79,
       "drive": "4WD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 71.19,
       "weight": 1983,
       "name": "Cadillac CT6",
       "rid": "Cadillac_CT6_2016",
@@ -11686,17 +11657,16 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 187,
-      "acel": 4.4,
+      "acel": 3.8,
       "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 64.08,
       "weight": 1560,
       "name": "Audi R8 4.2 quattro",
       "rid": "Audi_R8_4.2_quattro_2008",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -11718,7 +11688,7 @@
       "country": "DE",
       "topSpeed": 201,
       "acel": 3.5,
-      "hand": 89,
+      "hand": 90,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": null,
@@ -11726,8 +11696,7 @@
       "name": "Audi R8 RWD",
       "rid": "Audi_R8_RWD_2020",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -11813,7 +11782,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 79.55,
       "weight": 2310,
       "name": "Porsche Taycan GTS Sport Turismo",
       "rid": "Porsche_Taycan_GTS_Sport_Turismo_2022",
@@ -12217,7 +12186,7 @@
       "clearance": "Low",
       "topSpeed": 201,
       "acel": 3.4,
-      "hand": 86,
+      "hand": 87,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 87.18,
@@ -12248,11 +12217,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 206,
-      "acel": 4.0,
+      "acel": 3.9,
       "hand": 85,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 74.84,
       "weight": 2320,
       "name": "Bentley Continental GT Speed Coupe",
       "rid": "Bentley_Continental_GT_Speed_Coupe_2015",
@@ -12278,11 +12247,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 202,
-      "acel": 3.7,
+      "acel": 3.8,
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 74.78,
       "weight": 2395,
       "name": "Bentley Continental Supersports Convertible",
       "rid": "Bentley_Continental_Supersports_Convertible_2011",
@@ -12525,7 +12494,7 @@
       "tdid": "3450",
       "abs": true,
       "tcs": true,
-      "clearance": "Low",
+      "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
@@ -12592,7 +12561,7 @@
       "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 82.98,
       "weight": 2245,
       "name": "Porsche Taycan 4S Cross Turismo",
       "rid": "Porsche_Taycan_4S_Cross_Turismo_2021",
@@ -13237,7 +13206,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.6,
-      "hand": 78,
+      "hand": 79,
       "drive": "4WD",
       "tyres": "Standard",
       "mra": 59.57,
@@ -13337,8 +13306,7 @@
       "name": "Ford Focus RS",
       "rid": "Ford_Focus_RS_2016",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -13398,8 +13366,7 @@
       "name": "Porsche 924 Carrera GTP",
       "rid": "Porsche_924_Carrera_GTP_1980",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -14068,11 +14035,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 130,
-      "acel": 4.0,
+      "acel": 3.3,
       "hand": 89,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 83.33,
       "weight": 1610,
       "name": "Infiniti Emerg-E",
       "rid": "INFINITI_Emerg-E_2012",
@@ -14257,11 +14224,11 @@
       "country": "DE",
       "topSpeed": 175,
       "acel": 4.5,
-      "hand": 87,
+      "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 77.59,
-      "weight": 1450,
+      "weight": 1430,
       "name": "Porsche 911 Carrera 4 3.4 (991)",
       "rid": "Porsche_911_Carrera_4_3.4_(991)_2012",
       "tags": [
@@ -14320,7 +14287,7 @@
       "hand": 82,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 79.93,
       "weight": 2140,
       "name": "Porsche Taycan 4S",
       "rid": "Porsche_Taycan_4S_2020",
@@ -14408,11 +14375,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 199,
-      "acel": 3.7,
+      "acel": 3.6,
       "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 96.81,
       "weight": 1320,
       "name": "Mercedes-Benz SLS AMG GT",
       "rid": "Mercedes-Benz_AMG_SLS_GT_2012",
@@ -14969,7 +14936,7 @@
       "clearance": "High",
       "topSpeed": 140,
       "acel": 5.1,
-      "hand": 75,
+      "hand": 78,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 60.71,
@@ -15184,7 +15151,7 @@
       "country": "DE",
       "topSpeed": 152,
       "acel": 5.6,
-      "hand": 79,
+      "hand": 78,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 68.29,
@@ -15222,8 +15189,7 @@
       "name": "Porsche Cayman GT4 Clubsport R-GT 4.0 (982)",
       "rid": "Porsche_Cayman_GT4_Clubsport_RGT_40_982_2018",
       "tags": [
-          "World Expo",
-          "Concept"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -15335,11 +15301,11 @@
       "tcs": true,
       "clearance": "High",
       "topSpeed": 114,
-      "acel": 4.9,
-      "hand": 74,
+      "acel": 5,
+      "hand": 73,
       "drive": "4WD",
       "tyres": "Off-road",
-      "mra": null,
+      "mra": 96.15,
       "weight": 2400,
       "name": "RAM RAM Rebel TRX Concept",
       "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
@@ -15495,11 +15461,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 197,
-      "acel": 3.5,
+      "acel": 3.6,
       "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 96.32,
       "weight": 1695,
       "name": "Mercedes-Benz SLS AMG",
       "rid": "Mercedes-Benz_AMG_SLS_2010",
@@ -16131,7 +16097,7 @@
           "SUV"
       ],
       "fuel": "Petrol",
-      "seats": "7",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -16674,7 +16640,7 @@
       "hand": 78,
       "drive": "RWD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 63.3,
       "weight": 1775,
       "name": "Mercedes-Benz CLS 400",
       "rid": "Mercedes-Benz_CLS_400_2015",
@@ -16801,8 +16767,7 @@
       "name": "Audi S3 Sportback (8V)",
       "rid": "Audi_S3_Sportback_8V_2014",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -16832,8 +16797,7 @@
       "name": "Ford Escort RS1700T",
       "rid": "Ford_Escort_RS1700T_1980",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -16885,7 +16849,7 @@
       "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
-      "hand": 79,
+      "hand": 75,
       "drive": "4WD",
       "tyres": "Standard",
       "mra": 71.67,
@@ -16923,8 +16887,7 @@
       "name": "Mercedes-Benz Vision 6 Coupe Maybach",
       "rid": "Maybach_Vision_6_CoupВ_2016",
       "tags": [
-          "World Expo",
-          "Concept"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -16946,7 +16909,7 @@
       "country": "DE",
       "topSpeed": 152,
       "acel": 5.7,
-      "hand": 79,
+      "hand": 77,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 70.39,
@@ -17383,7 +17346,7 @@
       "clearance": "Low",
       "topSpeed": 202,
       "acel": 3.7,
-      "hand": 83,
+      "hand": 84,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 84.09,
@@ -17465,7 +17428,7 @@
   {
       "class": "A",
       "rq": 72,
-      "onlyName": "3008 DKR Maxi",
+      "onlyName": "3008 DKR",
       "brand": "Peugeot",
       "country": "FR",
       "year": 2017,
@@ -17474,13 +17437,13 @@
       "tcs": true,
       "clearance": "High",
       "topSpeed": 124,
-      "acel": 4.9,
+      "acel": 3.9,
       "hand": 76,
       "drive": "RWD",
       "tyres": "Off-road",
       "mra": null,
-      "weight": 1580,
-      "name": "Peugeot 3008 DKR Maxi",
+      "weight": 950,
+      "name": "Peugeot 3008 DKR",
       "rid": "Peugeot_3008_DKR_2017",
       "tags": [
           "French Renaissance",
@@ -17695,7 +17658,7 @@
       "clearance": "High",
       "topSpeed": 143,
       "acel": 6.1,
-      "hand": 73,
+      "hand": 77,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 49.49,
@@ -18159,11 +18122,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 155,
-      "acel": 4.1,
+      "acel": 3.6,
       "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 80.75,
       "weight": 1850,
       "name": "BMW M6",
       "rid": "BMW_M6_2016",
@@ -18655,8 +18618,7 @@
       "name": "Audi RS3 LMS TCR (8V)",
       "rid": "Audi_RS3_LMS_TCR_(8V)_2018",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -18717,8 +18679,7 @@
       "name": "De Tomaso Pantera Group 4",
       "rid": "De_Tomaso_Pantera_Group_4_1972",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -18749,8 +18710,7 @@
       "name": "Lotus Motorsport Elise",
       "rid": "Lotus_Motorsport_Elise_1999",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -18773,7 +18733,7 @@
       "country": "DE",
       "topSpeed": 188,
       "acel": 3.9,
-      "hand": 86,
+      "hand": 84,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 96.37,
@@ -18825,7 +18785,7 @@
   {
       "class": "A",
       "rq": 70,
-      "onlyName": "RS5 Cabriolet",
+      "onlyName": "RS 5 Cabriolet",
       "brand": "Audi",
       "country": "DE",
       "year": 2012,
@@ -18838,9 +18798,9 @@
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 71.94,
       "weight": 1920,
-      "name": "Audi RS5 Cabriolet",
+      "name": "Audi RS 5 Cabriolet",
       "rid": "Audi_RS_5_Cabriolet_2012",
       "tags": [
           "Originals"
@@ -19048,11 +19008,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 155,
-      "acel": 4.1,
+      "acel": 3.7,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 82.22,
       "weight": 1875,
       "name": "BMW M6 Gran Coupe",
       "rid": "BMW_M6_Gran_Coupe_2013",
@@ -19206,7 +19166,7 @@
       "clearance": "Low",
       "topSpeed": 190,
       "acel": 4.2,
-      "hand": 89,
+      "hand": 88,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 83.69,
@@ -19761,7 +19721,7 @@
       "country": "GB",
       "topSpeed": 188,
       "acel": 3.9,
-      "hand": 88,
+      "hand": 87,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 68.06,
@@ -19794,7 +19754,7 @@
       "hand": 70,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 70.18,
       "weight": 2485,
       "name": "Mercedes-Benz AMG G 63",
       "rid": "MercedesAMG_G_63_2018",
@@ -19832,8 +19792,7 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Roadster",
-          "Concept"
+          "Roadster"
       ],
       "fuel": "Electric",
       "seats": "2",
@@ -19884,7 +19843,7 @@
       "acel": 3.9,
       "hand": 85,
       "drive": "RWD",
-      "tyres": "Performance",
+      "tyres": "Slick",
       "mra": 80,
       "weight": 1050,
       "name": "Fiat Abarth 124 Spider Rally",
@@ -20067,7 +20026,7 @@
       "clearance": "Low",
       "topSpeed": 186,
       "acel": 4.2,
-      "hand": 85,
+      "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 90.7,
@@ -20349,7 +20308,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 4.9,
-      "hand": 80,
+      "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": null,
@@ -20357,8 +20316,7 @@
       "name": "Audi S8",
       "rid": "Audi_S8_2006",
       "tags": [
-          "Originals",
-          "Team Favorite"
+          "Originals"
       ],
       "bodyTypes": [
           "Saloon"
@@ -20691,7 +20649,7 @@
       "hand": 75,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": 61.39,
+      "mra": 61.38,
       "weight": 2013,
       "name": "Ford Edge Sport",
       "rid": "Ford_Edge_Sport_2015",
@@ -20818,7 +20776,7 @@
       "acel": 4.6,
       "hand": 78,
       "drive": "4WD",
-      "tyres": "All-surface",
+      "tyres": "Performance",
       "mra": 64.79,
       "weight": 1585,
       "name": "Audi SQ2",
@@ -20877,7 +20835,7 @@
       "country": "GB",
       "topSpeed": 180,
       "acel": 4.2,
-      "hand": 89,
+      "hand": 88,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 77.78,
@@ -20915,8 +20873,7 @@
       "name": "Porsche 968 Turbo RS",
       "rid": "Porsche_968_Turbo_RS_1992",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -21371,7 +21328,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.5,
-      "hand": 77,
+      "hand": 76,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 80.88,
@@ -21606,7 +21563,7 @@
   {
       "class": "A",
       "rq": 68,
-      "onlyName": "C350 CDI 4MATIC Estate",
+      "onlyName": "C 350 CDI 4MATIC Estate",
       "brand": "Mercedes-Benz",
       "country": "DE",
       "year": 2009,
@@ -21621,7 +21578,7 @@
       "tyres": "Standard",
       "mra": 67.78,
       "weight": 1810,
-      "name": "Mercedes-Benz C350 CDI 4MATIC Estate",
+      "name": "Mercedes-Benz C 350 CDI 4MATIC Estate",
       "rid": "Mercedes-Benz_C_350_4MATIC_2009",
       "tags": [
           "Year of the Ox",
@@ -21782,8 +21739,7 @@
       "name": "AC Cobra MkIII 427 S/C",
       "rid": "AC_Cobra_MkIII_427_SC_1965",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -21804,7 +21760,7 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 177,
-      "acel": 4.0,
+      "acel": 4.2,
       "hand": 86,
       "drive": "RWD",
       "tyres": "Performance",
@@ -21835,7 +21791,7 @@
       "country": "DE",
       "topSpeed": 150,
       "acel": 6.6,
-      "hand": 76,
+      "hand": 77,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 54.1,
@@ -21865,7 +21821,7 @@
       "clearance": "Low",
       "topSpeed": 155,
       "acel": 4.9,
-      "hand": 83,
+      "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
       "mra": 73.21,
@@ -22047,11 +22003,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 160,
-      "acel": 4.2,
+      "acel": 4.3,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 82.57,
       "weight": 995,
       "name": "Alfa Romeo 4C",
       "rid": "Alfa_Romeo_4C_2017",
@@ -22357,7 +22313,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.5,
-      "hand": 78,
+      "hand": 77,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 78.57,
@@ -22765,7 +22721,6 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Coupe",
           "Roadster"
       ],
       "fuel": "Petrol",
@@ -22914,8 +22869,7 @@
       "name": "Mercedes-Benz C112",
       "rid": "Mercedes-Benz_C112_1991",
       "tags": [
-          "World Expo",
-          "Concept"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -24149,11 +24103,11 @@
       "tcs": true,
       "clearance": "Mid",
       "topSpeed": 155,
-      "acel": 4.6,
+      "acel": 4.5,
       "hand": 80,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 89.55,
       "weight": 1755,
       "name": "BMW M5",
       "rid": "BMW_M5_2004",
@@ -24333,12 +24287,12 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 180,
-      "acel": 4.4,
+      "acel": 4.6,
       "hand": 87,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
-      "weight": 1450,
+      "mra": 76.92,
+      "weight": 1455,
       "name": "Porsche 911 Carrera",
       "rid": "Porsche_911_Carrera_2016",
       "tags": [
@@ -24709,8 +24663,7 @@
       "name": "Audi Type C Streamliner",
       "rid": "Audi_Type_C_Streamliner_1937",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -24741,8 +24694,7 @@
       "name": "Ford GT70",
       "rid": "Ford_GT70_1970",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -24762,12 +24714,12 @@
       "tcs": true,
       "clearance": "Low",
       "country": "DE",
-      "topSpeed": 186,
-      "acel": 3.4,
-      "hand": 80,
+      "topSpeed": 155,
+      "acel": 3.8,
+      "hand": 74,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 78.39,
       "weight": 2185,
       "name": "Mercedes-Benz AMG S 63 Cabriolet",
       "rid": "Benz_AMG_S_63_Cabriolet_2018",
@@ -24775,10 +24727,10 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Convertible"
+          "Roadster"
       ],
       "fuel": "Petrol",
-      "seats": "4",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -24794,7 +24746,7 @@
       "country": "DE",
       "topSpeed": 143,
       "acel": 6.8,
-      "hand": 76,
+      "hand": 74,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 48.23,
@@ -25828,8 +25780,7 @@
       "name": "Audi A1 quattro",
       "rid": "Audi_A1_quattro_2012",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -25915,7 +25866,7 @@
       "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 89.36,
       "weight": 1945,
       "name": "BMW M5",
       "rid": "BMW_M5_2012",
@@ -26730,8 +26681,7 @@
       "name": "Mercedes-Benz R 63 AMG",
       "rid": "Mercedes-Benz_R_63_AMG_2006",
       "tags": [
-          "World Expo",
-          "Sleeper"
+          "World Expo"
       ],
       "bodyTypes": [
           "MPV"
@@ -26845,7 +26795,7 @@
       "clearance": "Low",
       "topSpeed": 186,
       "acel": 4.5,
-      "hand": 81,
+      "hand": 80,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 95.89,
@@ -27119,7 +27069,7 @@
   {
       "class": "B",
       "rq": 62,
-      "onlyName": "640i xDrive Gran Coupe",
+      "onlyName": "640i xDrive",
       "brand": "BMW",
       "country": "DE",
       "year": 2014,
@@ -27132,9 +27082,9 @@
       "hand": 80,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 84.23,
       "weight": 1900,
-      "name": "BMW 640i xDrive Gran Coupe",
+      "name": "BMW 640i xDrive",
       "rid": "BMW_640i_xDrive_2014",
       "tags": [
           "German Renaissance"
@@ -27526,13 +27476,13 @@
       "tcs": true,
       "clearance": "Low",
       "country": "DE",
-      "topSpeed": 174,
-      "acel": 4.5,
+      "topSpeed": 176,
+      "acel": 4.8,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
-      "weight": 1350,
+      "mra": 87.27,
+      "weight": 1320,
       "name": "Porsche Cayman S 3.4 (981)",
       "rid": "Porsche_Cayman_S_34_981_2012",
       "tags": [
@@ -27548,7 +27498,7 @@
   {
       "class": "B",
       "rq": 61,
-      "onlyName": "Abarth SE 030",
+      "onlyName": "Abarth 030",
       "brand": "Fiat",
       "country": "IT",
       "year": 1974,
@@ -27561,9 +27511,9 @@
       "hand": 85,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 71.3,
       "weight": 910,
-      "name": "Fiat Abarth SE 030",
+      "name": "Fiat Abarth 030",
       "rid": "Fiat_Abarth_030_1974",
       "tags": [
           "Italian Renaissance",
@@ -28216,11 +28166,11 @@
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 137,
-      "acel": 5.9,
+      "acel": 5.7,
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 61.92,
       "weight": 1300,
       "name": "Lancia Delta Integrale Evoluzione II",
       "rid": "Lancia_Delta_Integrale_Evoluzione_II_1993",
@@ -28810,7 +28760,7 @@
       "clearance": "Low",
       "topSpeed": 166,
       "acel": 4.7,
-      "hand": 85,
+      "hand": 84,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 75.29,
@@ -29460,7 +29410,7 @@
       "clearance": "Mid",
       "topSpeed": 144,
       "acel": 7.2,
-      "hand": 77,
+      "hand": 76,
       "drive": "4WD",
       "tyres": "Standard",
       "mra": 63.16,
@@ -29519,11 +29469,11 @@
       "tcs": true,
       "clearance": "Mid",
       "topSpeed": 132,
-      "acel": 6.3,
+      "acel": 5.4,
       "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 53.19,
       "weight": 1291,
       "name": "Lancia Delta Integrale 16v",
       "rid": "Lancia_Delta_Integrale_16v_1989",
@@ -29615,7 +29565,7 @@
       "acel": 6.7,
       "hand": 73,
       "drive": "4WD",
-      "tyres": "All-surface",
+      "tyres": "Standard",
       "mra": 60.47,
       "weight": 1965,
       "name": "Audi A6 allroad quattro",
@@ -29955,12 +29905,12 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "topSpeed": 152,
-      "acel": 5.5,
+      "topSpeed": 149,
+      "acel": 5.6,
       "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 85.82,
       "weight": 960,
       "name": "Porsche 911 Carrera RS 2.7",
       "rid": "Porsche_911_Carrera_RS_2.7_1973",
@@ -30022,7 +29972,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.8,
-      "hand": 76,
+      "hand": 75,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 62.3,
@@ -31062,7 +31012,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.1,
-      "hand": 79,
+      "hand": 81,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 71.63,
@@ -31255,8 +31205,7 @@
       "name": "AC Cobra MkIII 427",
       "rid": "AC_Cobra_MkIII_427_1965",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -31278,7 +31227,7 @@
       "country": "DE",
       "topSpeed": 131,
       "acel": 8,
-      "hand": 73,
+      "hand": 75,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 47.31,
@@ -31376,8 +31325,7 @@
       "name": "Ford Focus ST",
       "rid": "Ford_Focus_ST_2019",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -32319,7 +32267,7 @@
       "clearance": "Mid",
       "topSpeed": 140,
       "acel": 5.8,
-      "hand": 77,
+      "hand": 74,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 64.44,
@@ -32381,7 +32329,7 @@
       "clearance": "Mid",
       "topSpeed": 148,
       "acel": 6.7,
-      "hand": 74,
+      "hand": 76,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 75.28,
@@ -32472,7 +32420,7 @@
       "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
-      "hand": 80,
+      "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 83.93,
@@ -32531,11 +32479,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 186,
-      "acel": 4.6,
+      "acel": 4.8,
       "hand": 81,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 80,
       "weight": 1790,
       "name": "Aston Martin DB9",
       "rid": "Aston_Martin_DB9_2004",
@@ -32994,11 +32942,11 @@
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 147,
-      "acel": 7.0,
+      "acel": 5.3,
       "hand": 73,
       "drive": "RWD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 38.97,
       "weight": 1320,
       "name": "BMW 328i",
       "rid": "BMW_328i_1995",
@@ -33067,8 +33015,7 @@
       "name": "Audi S3 (8L)",
       "rid": "Audi_S3_8L_1999",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -33093,7 +33040,7 @@
       "hand": 77,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 55.18,
       "weight": 1695,
       "name": "Audi S6 Plus (C4)",
       "rid": "Audi_S6_Plus_C4_1997",
@@ -33525,7 +33472,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 4.9,
-      "hand": 78,
+      "hand": 79,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 64.66,
@@ -33891,7 +33838,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 6.3,
-      "hand": 79,
+      "hand": 75,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 58.33,
@@ -34676,7 +34623,7 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -34727,7 +34674,7 @@
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 132,
-      "acel": 6.4,
+      "acel": 6.3,
       "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
@@ -34781,7 +34728,7 @@
   {
       "class": "B",
       "rq": 54,
-      "onlyName": "Stilo Abarth Group N",
+      "onlyName": "Abarth Stilo Group N",
       "brand": "Fiat",
       "country": "IT",
       "year": 2002,
@@ -34796,7 +34743,7 @@
       "tyres": "Off-road",
       "mra": 68.6,
       "weight": 1120,
-      "name": "Fiat Stilo Abarth Group N",
+      "name": "Fiat Abarth Stilo Group N",
       "rid": "Fiat_Abarth_Stilo_Group_N_2002",
       "tags": [
           "Italian Renaissance",
@@ -35009,7 +34956,7 @@
       "clearance": "Low",
       "topSpeed": 186,
       "acel": 4.5,
-      "hand": 75,
+      "hand": 78,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 68.57,
@@ -35756,7 +35703,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5,
-      "hand": 66,
+      "hand": 65,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 87.45,
@@ -35817,7 +35764,7 @@
       "clearance": "Low",
       "topSpeed": 155,
       "acel": 4.9,
-      "hand": 77,
+      "hand": 80,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 80.33,
@@ -36749,12 +36696,12 @@
       "tcs": true,
       "clearance": "High",
       "country": "GB",
-      "topSpeed": 105,
-      "acel": 10,
+      "topSpeed": 106,
+      "acel": 9.5,
       "hand": 73,
       "drive": "4WD",
       "tyres": "Off-road",
-      "mra": null,
+      "mra": 41.76,
       "weight": 2510,
       "name": "Ford Ranger Raptor",
       "rid": "Ford_Ranger_Raptor_2019",
@@ -37587,8 +37534,7 @@
       "name": "Audi TT 3.2 quattro (8N)",
       "rid": "Audi_TT_32_quattro_8N_2003",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -37610,7 +37556,7 @@
       "country": "US",
       "topSpeed": 90,
       "acel": 7.3,
-      "hand": 74,
+      "hand": 76,
       "drive": "RWD",
       "tyres": "Off-road",
       "mra": null,
@@ -37828,7 +37774,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.8,
-      "hand": 81,
+      "hand": 80,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 71.6,
@@ -38551,8 +38497,7 @@
       "name": "Mercedes-Benz C111-II",
       "rid": "MercedesBenz_C111II_1970",
       "tags": [
-          "World Expo",
-          "Concept"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -38575,7 +38520,7 @@
       "country": "DE",
       "topSpeed": 127,
       "acel": 7.5,
-      "hand": 74,
+      "hand": 68,
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 50,
@@ -39436,8 +39381,7 @@
       "name": "Mini Cooper S Works GP",
       "rid": "Mini_Cooper_S_Works_GP_2006",
       "tags": [
-          "Originals",
-          "Hot Hatch"
+          "Originals"
       ],
       "prize": true,
       "bodyTypes": [
@@ -39825,17 +39769,16 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 151,
-      "acel": 6.1,
+      "acel": 5.8,
       "hand": 80,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 57.54,
       "weight": 1465,
       "name": "Audi TT 225 quattro (8N)",
       "rid": "Audi_TT_225_quattro_8N_1998",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -39856,11 +39799,11 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
-      "acel": 6.4,
+      "acel": 6.2,
       "hand": 80,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 61.39,
       "weight": 1560,
       "name": "Audi TT Roadster 3.2 quattro (8N)",
       "rid": "Audi_TT_Roadster_32_quattro_8N_2003",
@@ -39887,7 +39830,7 @@
       "country": "IT",
       "topSpeed": 155,
       "acel": 5.4,
-      "hand": 81,
+      "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 73.68,
@@ -40006,12 +39949,12 @@
       "tcs": true,
       "clearance": "High",
       "country": "US",
-      "topSpeed": 115,
+      "topSpeed": 144,
       "acel": 7.5,
       "hand": 66,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 72.82,
       "weight": 1838,
       "name": "Saturn Vue",
       "rid": "Saturn_Vue_2008",
@@ -40638,11 +40581,11 @@
       "tcs": true,
       "clearance": "High",
       "topSpeed": 135,
-      "acel": 8.5,
+      "acel": 7.4,
       "hand": 67,
       "drive": "4WD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 78.33,
       "weight": 1595,
       "name": "Mercedes-Benz GLA 220d",
       "rid": "Mercedes-Benz_GLA_220d_2015",
@@ -41262,8 +41205,7 @@
       "name": "Ford Fiesta ST",
       "rid": "Ford_Fiesta_ST_2018",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -41443,7 +41385,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 5.8,
-      "hand": 75,
+      "hand": 74,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 88.58,
@@ -43584,7 +43526,7 @@
       "clearance": "Mid",
       "topSpeed": 143,
       "acel": 7.6,
-      "hand": 77,
+      "hand": 76,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 59.38,
@@ -43741,7 +43683,7 @@
       "hand": 68,
       "drive": "RWD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 50.29,
       "weight": 1750,
       "name": "Mercedes-Benz 560 SEC",
       "rid": "Mercedes-Benz_560_SEC_1985",
@@ -43776,8 +43718,7 @@
       "name": "Porsche 718 RSK",
       "rid": "Porsche_718_RSK_1957",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -46068,7 +46009,7 @@
       "clearance": "Mid",
       "topSpeed": 137,
       "acel": 6.6,
-      "hand": 83,
+      "hand": 80,
       "drive": "FWD",
       "tyres": "Performance",
       "mra": 68.7,
@@ -46221,7 +46162,7 @@
       "clearance": "Mid",
       "topSpeed": 142,
       "acel": 7.7,
-      "hand": 77,
+      "hand": 75,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 58.07,
@@ -46530,11 +46471,11 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 127,
-      "acel": 6.1,
+      "acel": 6,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 50.38,
       "weight": 876,
       "name": "Lotus Elise 1.6",
       "rid": "Lotus_Elise_1.6_2015",
@@ -46723,7 +46664,7 @@
       "hand": 78,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 84.08,
       "weight": 1500,
       "name": "AC Aceca V8",
       "rid": "AC_Aceca_V8_1999",
@@ -46758,8 +46699,7 @@
       "name": "AC FIA 289",
       "rid": "AC_FIA_289_2001",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -46801,7 +46741,7 @@
   {
       "class": "C",
       "rq": 44,
-      "onlyName": "S-Max 2.5",
+      "onlyName": "Ford S-max 2.5",
       "brand": "Ford",
       "year": 2006,
       "tdid": "3308",
@@ -46816,7 +46756,7 @@
       "tyres": "Standard",
       "mra": 51.32,
       "weight": 1758,
-      "name": "Ford S-Max 2.5",
+      "name": "Ford Ford S-max 2.5",
       "rid": "Ford_Ford_Smax_25_2006",
       "tags": [
           "World Expo",
@@ -47092,7 +47032,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 6.2,
-      "hand": 75,
+      "hand": 74,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 71.74,
@@ -47709,11 +47649,11 @@
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 130,
-      "acel": 6.6,
+      "acel": 7.5,
       "hand": 78,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 74.04,
       "weight": 1188,
       "name": "Lancia Delta HF 4WD",
       "rid": "Lancia_Delta_HF_4WD_1986",
@@ -47895,7 +47835,7 @@
       "clearance": "Mid",
       "topSpeed": 139,
       "acel": 7.7,
-      "hand": 78,
+      "hand": 74,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 52.38,
@@ -48141,12 +48081,12 @@
       "tcs": false,
       "clearance": "High",
       "country": "US",
-      "topSpeed": 105,
+      "topSpeed": 129,
       "acel": 8.6,
       "hand": 63,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 71.97,
       "weight": 1583,
       "name": "Saturn Vue",
       "rid": "Saturn_Vue_2002",
@@ -48675,7 +48615,7 @@
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 56.38,
       "weight": 1280,
       "name": "Mazda Jota MX-5 GT",
       "rid": "Mazda_Jota_MX-5_GT_2013",
@@ -49045,7 +48985,7 @@
       "clearance": "Mid",
       "topSpeed": 137,
       "acel": 8.7,
-      "hand": 71,
+      "hand": 70,
       "drive": "4WD",
       "tyres": "Standard",
       "mra": 54.28,
@@ -50261,6 +50201,7 @@
       "name": "Mini Cooper",
       "rid": "Mini_Cooper_2016",
       "tags": [
+          "Hot Hatch",
           "Two Tone",
           "Old Guard",
           "Originals"
@@ -51283,7 +51224,7 @@
       "clearance": "Mid",
       "topSpeed": 155,
       "acel": 6.5,
-      "hand": 76,
+      "hand": 75,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 58.08,
@@ -51777,7 +51718,7 @@
   {
       "class": "D",
       "rq": 39,
-      "onlyName": "Abarth 1000 TC Berlina Corsa",
+      "onlyName": "Abarth 1000TC Berlina Corsa",
       "brand": "Fiat",
       "country": "IT",
       "year": 1967,
@@ -51792,7 +51733,7 @@
       "tyres": "Slick",
       "mra": 49.93,
       "weight": 583,
-      "name": "Fiat Abarth 1000 TC Berlina Corsa",
+      "name": "Fiat Abarth 1000TC Berlina Corsa",
       "rid": "Fiat_Abarth_1000TC_Berlina_Corsa_1967",
       "tags": [
           "Italian Renaissance",
@@ -52684,7 +52625,7 @@
       "country": "GB",
       "topSpeed": 140,
       "acel": 5.9,
-      "hand": 76,
+      "hand": 77,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 62.11,
@@ -53826,7 +53767,7 @@
       "country": "DE",
       "topSpeed": 146,
       "acel": 6.7,
-      "hand": 74,
+      "hand": 76,
       "drive": "FWD",
       "tyres": "Performance",
       "mra": 49.63,
@@ -54966,11 +54907,11 @@
       "clearance": "High",
       "country": "US",
       "topSpeed": 102,
-      "acel": 15.6,
+      "acel": 10.2,
       "hand": 57,
       "drive": "4WD",
       "tyres": "Off-road",
-      "mra": null,
+      "mra": 22.92,
       "weight": 3680,
       "name": "Hummer H1 Alpha Wagon",
       "rid": "Hummer_H1_Alpha_Wagon_2006",
@@ -55029,7 +54970,7 @@
       "clearance": "Low",
       "topSpeed": 174,
       "acel": 6.6,
-      "hand": 72,
+      "hand": 73,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 91.67,
@@ -55709,7 +55650,7 @@
       "tdid": "808",
       "abs": true,
       "tcs": true,
-      "clearance": "Mid",
+      "clearance": "Low",
       "topSpeed": 149,
       "acel": 6.9,
       "hand": 70,
@@ -56211,7 +56152,7 @@
       "country": "ZA",
       "topSpeed": 142,
       "acel": 6.7,
-      "hand": 75,
+      "hand": 73,
       "drive": "RWD",
       "tyres": "Slick",
       "mra": null,
@@ -56219,8 +56160,7 @@
       "name": "Ford Capri Perana",
       "rid": "Ford_Capri_Perana_1971",
       "tags": [
-          "World Expo",
-          "Muscle Car"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -56783,6 +56723,7 @@
       "name": "Mini Cooper SD",
       "rid": "Mini_Cooper_SD_2011",
       "tags": [
+          "Hot Hatch",
           "Originals"
       ],
       "bodyTypes": [
@@ -57233,7 +57174,7 @@
       "country": "DE",
       "topSpeed": 140,
       "acel": 6.8,
-      "hand": 79,
+      "hand": 78,
       "drive": "FWD",
       "tyres": "Performance",
       "mra": 56.29,
@@ -57263,7 +57204,7 @@
       "country": "DE",
       "topSpeed": 146,
       "acel": 8.1,
-      "hand": 67,
+      "hand": 69,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 52.91,
@@ -59717,7 +59658,7 @@
       "clearance": "Mid",
       "topSpeed": 140,
       "acel": 7.5,
-      "hand": 80,
+      "hand": 76,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 53.6,
@@ -60336,7 +60277,7 @@
       "clearance": "Mid",
       "topSpeed": 129,
       "acel": 7.8,
-      "hand": 78,
+      "hand": 77,
       "drive": "FWD",
       "tyres": "Performance",
       "mra": 53.94,
@@ -61827,7 +61768,7 @@
       "country": "DE",
       "topSpeed": 124,
       "acel": 9.7,
-      "hand": 69,
+      "hand": 65,
       "drive": "4WD",
       "tyres": "Standard",
       "mra": 40.82,
@@ -61913,7 +61854,7 @@
       "tdid": "3292",
       "abs": false,
       "tcs": false,
-      "clearance": "Mid",
+      "clearance": "Low",
       "country": "GB",
       "topSpeed": 130,
       "acel": 7.9,
@@ -61925,8 +61866,7 @@
       "name": "Ford Fiesta RS turbo",
       "rid": "Ford_Fiesta_RS_turbo_1991",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -62008,7 +61948,7 @@
       "country": "DE",
       "topSpeed": 140,
       "acel": 7.4,
-      "hand": 66,
+      "hand": 67,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 71.62,
@@ -63034,7 +62974,7 @@
           "American Frontier",
           "The Horror Show",
           "Old Guard",
-          "Sleeper"
+          "Hot Hatch"
       ],
       "bodyTypes": [
           "Saloon"
@@ -63257,8 +63197,7 @@
       "name": "AC Cobra MkI 289",
       "rid": "AC_Cobra_MkI_289_1963",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -63463,7 +63402,7 @@
       "clearance": "Low",
       "topSpeed": 155,
       "acel": 7.3,
-      "hand": 72,
+      "hand": 71,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 79.22,
@@ -63680,7 +63619,7 @@
       "clearance": "Low",
       "topSpeed": 149,
       "acel": 6.5,
-      "hand": 72,
+      "hand": 71,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 56.38,
@@ -64722,8 +64661,7 @@
       "name": "Mercedes-Benz 300 SLR",
       "rid": "Mercedes-Benz_300_SLR_1955",
       "tags": [
-          "World Expo",
-          "Motorsport"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -65521,7 +65459,7 @@
       "year": 1992,
       "tdid": "898",
       "abs": true,
-      "tcs": false,
+      "tcs": true,
       "clearance": "Mid",
       "topSpeed": 125,
       "acel": 9.8,
@@ -66194,7 +66132,7 @@
       "year": 2007,
       "tdid": "3227",
       "abs": true,
-      "tcs": true,
+      "tcs": false,
       "clearance": "Low",
       "country": "US",
       "topSpeed": 123,
@@ -66383,7 +66321,7 @@
   {
       "class": "E",
       "rq": 28,
-      "onlyName": "Beta Coupe Volumex",
+      "onlyName": "Beta Coupe",
       "brand": "Lancia",
       "country": "IT",
       "year": 1982,
@@ -66398,7 +66336,7 @@
       "tyres": "Performance",
       "mra": 68.79,
       "weight": 1095,
-      "name": "Lancia Beta Coupe Volumex",
+      "name": "Lancia Beta Coupe",
       "rid": "Lancia_Beta_Coupe_1982",
       "tags": [
           "The Horror Show",
@@ -68508,8 +68446,8 @@
       "tcs": false,
       "clearance": "Low",
       "country": "GB",
-      "topSpeed": 124,
-      "acel": 7.6,
+      "topSpeed": 127,
+      "acel": 8.1,
       "hand": 77,
       "drive": "FWD",
       "tyres": "Performance",
@@ -68518,8 +68456,7 @@
       "name": "Ford Fiesta RS1800",
       "rid": "Ford_Fiesta_RS1800_1992",
       "tags": [
-          "World Expo",
-          "Hot Hatch"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -69127,7 +69064,7 @@
       "clearance": "Mid",
       "topSpeed": 109,
       "acel": 10.5,
-      "hand": 72,
+      "hand": 74,
       "drive": "FWD",
       "tyres": "Standard",
       "mra": 48.03,
@@ -70289,7 +70226,7 @@
       "country": "GB",
       "topSpeed": 140,
       "acel": 8.4,
-      "hand": 69,
+      "hand": 71,
       "drive": "RWD",
       "tyres": "Performance",
       "mra": 55.08,
@@ -70688,7 +70625,7 @@
       "clearance": "Mid",
       "topSpeed": 138,
       "acel": 10.1,
-      "hand": 66,
+      "hand": 67,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 67.26,
@@ -71489,8 +71426,7 @@
       "name": "Mercedes-Benz 280 SL",
       "rid": "Mercedes-Benz_280_SL_1967",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -71515,7 +71451,7 @@
       "hand": 72,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 92.76,
       "weight": 1370,
       "name": "Oldsmobile Starfire Firenza",
       "rid": "Oldsmobile_Starfire_Firenza_1978",
@@ -72871,7 +72807,7 @@
       "hand": 70,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 92.87,
       "weight": 1370,
       "name": "Oldsmobile Starfire GT",
       "rid": "Oldsmobile_Starfire_GT_1978",
@@ -75405,8 +75341,7 @@
       "name": "Audi A2 1.4",
       "rid": "Audi_A2_14_1999",
       "tags": [
-          "World Expo",
-          "Innovative"
+          "World Expo"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -75428,7 +75363,7 @@
       "country": "IT",
       "topSpeed": 103,
       "acel": 10.8,
-      "hand": 70,
+      "hand": 69,
       "drive": "FWD",
       "tyres": "Standard",
       "mra": 33.96,
@@ -76172,7 +76107,7 @@
       "clearance": "Mid",
       "topSpeed": 121,
       "acel": 10,
-      "hand": 69,
+      "hand": 61,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 65.18,
@@ -76841,8 +76776,7 @@
       "name": "AC Ace 2.6",
       "rid": "AC_Ace_26_1961",
       "tags": [
-          "World Expo",
-          "Style Icon"
+          "World Expo"
       ],
       "bodyTypes": [
           "Roadster"
@@ -76954,7 +76888,7 @@
       "country": "DE",
       "topSpeed": 117,
       "acel": 10.9,
-      "hand": 68,
+      "hand": 67,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 60.02,
@@ -78313,7 +78247,7 @@
       "hand": 67,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 42.73,
       "weight": 1105,
       "name": "Bristol Zagato 406S",
       "rid": "Bristol_Zagato_406S_1959",
@@ -81526,7 +81460,7 @@
       "clearance": "Mid",
       "topSpeed": 112,
       "acel": 12.8,
-      "hand": 67,
+      "hand": 63,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": 58.58,
@@ -83841,7 +83775,7 @@
       "clearance": "Mid",
       "topSpeed": 71,
       "acel": 19.4,
-      "hand": 54,
+      "hand": 58,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": null,
@@ -84115,7 +84049,7 @@
       "clearance": "Mid",
       "topSpeed": 90,
       "acel": 17,
-      "hand": 59,
+      "hand": 65,
       "drive": "RWD",
       "tyres": "Standard",
       "mra": null,
@@ -84709,6 +84643,7 @@
       "rid": "Fiat_Panda_1980",
       "tags": [
           "Call of the Wild",
+          "Hot Hatch",
           "Two Tone",
           "Originals"
       ],
@@ -85194,7 +85129,7 @@
       "clearance": "Mid",
       "topSpeed": 65,
       "acel": 25,
-      "hand": 52,
+      "hand": 57,
       "drive": "FWD",
       "tyres": "Standard",
       "mra": null,
@@ -85224,7 +85159,7 @@
       "clearance": "Mid",
       "topSpeed": 103,
       "acel": 19.1,
-      "hand": 58,
+      "hand": 63,
       "drive": "FWD",
       "tyres": "Standard",
       "mra": 43.78,
@@ -85757,7 +85692,7 @@
       "hand": 65,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 39.2,
       "weight": 1365,
       "name": "Bristol 406",
       "rid": "Bristol_406_1958",
@@ -85868,7 +85803,7 @@
   {
       "class": "F",
       "rq": 10,
-      "onlyName": "Abarth 595",
+      "onlyName": "Abarth 500 Abarth",
       "brand": "Fiat",
       "country": "IT",
       "year": 1964,
@@ -85883,7 +85818,7 @@
       "tyres": "Performance",
       "mra": null,
       "weight": 500,
-      "name": "Fiat Abarth 595",
+      "name": "Fiat Abarth 500 Abarth",
       "rid": "Fiat_Abarth_500_Abarth_1964",
       "tags": [
           "Hot Hatch",

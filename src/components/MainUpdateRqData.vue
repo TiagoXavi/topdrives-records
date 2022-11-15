@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json'
-import cars_new_rq from '../database/cars_new_rq.json'
+import cars_new_rq from '../database/cars_new_rq_2.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -38,8 +38,44 @@ export default {
     let xName;
     let yModel;
 
-    this.cars_final.sort((a, b) => b.rq - a.rq)
 
+    this.cars_final.map(x => {
+      let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+
+      temp = this.cars_new_rq.filter(y => {
+        let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+        // if (yModel.includes(xName) && yModel.substr(yModel.length-5, 4) == x.year) {
+        if (yModel === xName && yModel.substr(yModel.length-5, 4) == x.year) {
+          return true
+        }
+      });
+
+      if (temp && temp.length === 1) {
+        // OK
+
+        if (x.rq === temp[0]["Old RQ"]) {
+          // OK
+          x.rq = temp[0]["New RQ"];
+          x.class = Vue.resolveClass(x.rq, null, "letter")
+        } else {
+          console.log("Old RQ diferente", x);
+          debugger;
+        }
+
+      } else if (temp && temp.length > 1) {
+        // achou 2
+        console.log("achou 2", x);
+        debugger;
+      } else if (!temp) {
+        // achou nada
+        console.log("achou nada", x);
+        debugger;
+      }
+    })
+
+
+    this.cars_final.sort((a, b) => b.rq - a.rq)
+    debugger;
     navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
   computed: {},
