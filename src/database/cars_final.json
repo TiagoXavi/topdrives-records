@@ -86180,7 +86180,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 225,
       "acel": 2.4,
       "hand": 100,
@@ -86190,7 +86190,13 @@
       "weight": 875,
       "name": "Audi R18",
       "rid": "Audi_R18_2016",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Diesel",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86202,7 +86208,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 230,
       "acel": 2,
       "hand": 102,
@@ -86212,7 +86218,13 @@
       "weight": 849,
       "name": "Porsche 919 Hybrid Evo",
       "rid": "Porsche_919_Hybrid_Evo_2018",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Hybrid",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86224,7 +86236,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 225,
       "acel": 2.5,
       "hand": 99,
@@ -86234,7 +86246,13 @@
       "weight": 900,
       "name": "Audi R18 TDI Ultra",
       "rid": "Audi_R18_TDI_Ultra_2011",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Diesel",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86246,7 +86264,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 225,
       "acel": 2.7,
       "hand": 98,
@@ -86256,7 +86274,13 @@
       "weight": 1050,
       "name": "Pagani Huayra R",
       "rid": "Pagani_Huayra_R_2021",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86268,7 +86292,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 130,
       "acel": 1.9,
       "hand": 89,
@@ -86278,7 +86302,13 @@
       "weight": 1300,
       "name": "Audi S1 EKS RX quattro (8X)",
       "rid": "Audi_S1_EKS_RX_quattro_8X_2018",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86290,7 +86320,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 210,
       "acel": 2.7,
       "hand": 97,
@@ -86300,7 +86330,13 @@
       "weight": 825,
       "name": "Porsche RS Spyder Evo",
       "rid": "Porsche_RS_Spyder_Evo_2008",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86312,7 +86348,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 183,
       "acel": 3,
       "hand": 97,
@@ -86321,7 +86357,13 @@
       "mra": null,
       "weight": 1235,
       "name": "Audi R8 LMS GT3",
-      "rid": "Audi_R8_LMS_GT3_2018"
+      "rid": "Audi_R8_LMS_GT3_2018",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86333,7 +86375,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 225,
       "acel": 2.7,
       "hand": 95,
@@ -86343,7 +86385,13 @@
       "weight": 1246,
       "name": "Pagani Imola",
       "rid": "Pagani_Imola_2020",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86355,7 +86403,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 205,
       "acel": 2.8,
       "hand": 89,
@@ -86364,7 +86412,13 @@
       "mra": null,
       "weight": 1600,
       "name": "Porsche 911 Turbo S 3.8 (991.2)",
-      "rid": "Porsche_911_Turbo_S_38_9912_2016"
+      "rid": "Porsche_911_Turbo_S_38_9912_2016",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -86376,7 +86430,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 220,
       "acel": 2.7,
       "hand": 94,
@@ -86385,7 +86439,13 @@
       "mra": null,
       "weight": 1270,
       "name": "Pagani Huayra Tricolore",
-      "rid": "Pagani_Huayra_Tricolore_2020"
+      "rid": "Pagani_Huayra_Tricolore_2020",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86397,7 +86457,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.7,
       "hand": 77,
@@ -86407,7 +86467,13 @@
       "weight": 2295,
       "name": "BMW 760Li xDrive Shining Shadow Special Edition",
       "rid": "BMW_760Li_xDrive_Shining_Shadow_Special_Edition_2021",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86419,7 +86485,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 2.9,
       "hand": 89,
@@ -86429,7 +86495,13 @@
       "weight": 1825,
       "name": "BMW M5 CS",
       "rid": "BMW_M5_CS_2021",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86441,7 +86513,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3.1,
       "hand": 89,
@@ -86450,7 +86522,13 @@
       "mra": null,
       "weight": 1885,
       "name": "BMW M8 Competition Coupe",
-      "rid": "BMW_M8_Competition_Coupe_2019"
+      "rid": "BMW_M8_Competition_Coupe_2019",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86462,7 +86540,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 220,
       "acel": 2.7,
       "hand": 94,
@@ -86471,7 +86549,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Pagani Huayra Roadster BC",
-      "rid": "Pagani_Huayra_Roadster_BC_2019"
+      "rid": "Pagani_Huayra_Roadster_BC_2019",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86483,7 +86567,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 193,
       "acel": 3,
       "hand": 96,
@@ -86493,7 +86577,13 @@
       "weight": 950,
       "name": "Porsche 911 GT1-98",
       "rid": "Porsche_911_GT198_1998",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86505,7 +86595,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 199,
       "acel": 3.3,
       "hand": 88,
@@ -86514,7 +86604,13 @@
       "mra": null,
       "weight": 1640,
       "name": "Audi R8 V10",
-      "rid": "Audi_R8_V10_2018"
+      "rid": "Audi_R8_V10_2018",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86526,7 +86622,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 195,
       "acel": 2.5,
       "hand": 94,
@@ -86536,7 +86632,13 @@
       "weight": 900,
       "name": "Alfa Romeo Coloni S1 156",
       "rid": "Alfa_Romeo_Coloni_S1_156_2001",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86548,7 +86650,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 204,
       "acel": 3.1,
       "hand": 87,
@@ -86557,7 +86659,13 @@
       "mra": null,
       "weight": 1775,
       "name": "Audi R8 V10 Plus Spyder",
-      "rid": "Audi_R8_V10_Plus_Spyder_2018"
+      "rid": "Audi_R8_V10_Plus_Spyder_2018",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86569,7 +86677,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 217,
       "acel": 3,
       "hand": 94,
@@ -86579,7 +86687,13 @@
       "weight": 665,
       "name": "Lancia LC1 Spider",
       "rid": "Lancia_LC1_Spider_1982",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86591,7 +86705,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3,
       "hand": 95,
@@ -86600,7 +86714,13 @@
       "mra": null,
       "weight": 1260,
       "name": "Porsche 911 GT3 Cup (992)",
-      "rid": "Porsche_911_GT3_Cup_992_2021"
+      "rid": "Porsche_911_GT3_Cup_992_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -86612,7 +86732,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 200,
       "acel": 2.8,
       "hand": 93,
@@ -86622,7 +86742,13 @@
       "weight": 610,
       "name": "Alfa Romeo 177",
       "rid": "Alfa_Romeo_177_1978",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86634,7 +86760,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3.4,
       "hand": 95,
@@ -86643,7 +86769,13 @@
       "mra": null,
       "weight": 1110,
       "name": "Audi A5 DTM",
-      "rid": "Audi_A5_DTM_2012"
+      "rid": "Audi_A5_DTM_2012",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86655,7 +86787,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.9,
       "hand": 77,
@@ -86664,7 +86796,13 @@
       "mra": null,
       "weight": 2040,
       "name": "BMW 750i xDrive",
-      "rid": "BMW_750i_xDrive_2019"
+      "rid": "BMW_750i_xDrive_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86676,7 +86814,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 3.4,
       "hand": 88,
@@ -86685,7 +86823,13 @@
       "mra": null,
       "weight": 1780,
       "name": "BMW M3 Competition M xDrive Saloon",
-      "rid": "BMW_M3_Competition_M_xDrive_Saloon_2021"
+      "rid": "BMW_M3_Competition_M_xDrive_Saloon_2021",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86697,7 +86841,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 3.4,
       "hand": 88,
@@ -86706,7 +86850,13 @@
       "mra": null,
       "weight": 1775,
       "name": "BMW M4 Competition M xDrive Coupe",
-      "rid": "BMW_M4_Competition_M_xDrive_Coupe_2021"
+      "rid": "BMW_M4_Competition_M_xDrive_Coupe_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86718,7 +86868,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3.2,
       "hand": 87,
@@ -86727,7 +86877,13 @@
       "mra": null,
       "weight": 2010,
       "name": "BMW M8 Competition Convertible",
-      "rid": "BMW_M8_Competition_Convertible_2019"
+      "rid": "BMW_M8_Competition_Convertible_2019",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86739,7 +86895,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 193,
       "acel": 3.6,
       "hand": 95,
@@ -86748,7 +86904,13 @@
       "mra": null,
       "weight": 1225,
       "name": "Porsche 911 GT3 RSR (997)",
-      "rid": "Porsche_911_GT3_RSR_997_2007"
+      "rid": "Porsche_911_GT3_RSR_997_2007",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -86760,7 +86922,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 220,
       "acel": 3,
       "hand": 92,
@@ -86770,7 +86932,13 @@
       "weight": 670,
       "name": "Alfa Romeo Tipo 33 TT12",
       "rid": "Alfa_Romeo_Tipo_33_TT12_1974",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86782,7 +86950,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 221,
       "acel": 3.1,
       "hand": 92,
@@ -86791,7 +86959,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Pagani Zonda HP Barchetta",
-      "rid": "Pagani_Zonda_HP_Barchetta_2017"
+      "rid": "Pagani_Zonda_HP_Barchetta_2017",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86803,7 +86977,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 185,
       "acel": 3.4,
       "hand": 93,
@@ -86812,7 +86986,13 @@
       "mra": null,
       "weight": 850,
       "name": "Alfa Romeo TZ3 Corsa",
-      "rid": "Alfa_Romeo_TZ3_Corsa_2010"
+      "rid": "Alfa_Romeo_TZ3_Corsa_2010",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86824,7 +87004,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
       "hand": 76,
@@ -86833,7 +87013,13 @@
       "mra": null,
       "weight": 2020,
       "name": "BMW 545e xDrive Saloon",
-      "rid": "BMW_545e_xDrive_Saloon_2020"
+      "rid": "BMW_545e_xDrive_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86845,7 +87031,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3.7,
       "hand": 84,
@@ -86854,7 +87040,13 @@
       "mra": null,
       "weight": 1995,
       "name": "Porsche Panamera Turbo S 4.8 (970)",
-      "rid": "Porsche_Panamera_Turbo_S_48_970_2011"
+      "rid": "Porsche_Panamera_Turbo_S_48_970_2011",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86866,7 +87058,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 217,
       "acel": 3.3,
       "hand": 91,
@@ -86875,7 +87067,13 @@
       "mra": null,
       "weight": 1210,
       "name": "Pagani Zonda Cinque",
-      "rid": "Pagani_Zonda_Cinque_2009"
+      "rid": "Pagani_Zonda_Cinque_2009",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86887,7 +87085,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 217,
       "acel": 3.4,
       "hand": 91,
@@ -86896,7 +87094,13 @@
       "mra": null,
       "weight": 1205,
       "name": "Pagani Zonda F Clubsport",
-      "rid": "Pagani_Zonda_F_Clubsport_2005"
+      "rid": "Pagani_Zonda_F_Clubsport_2005",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86908,7 +87112,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 217,
       "acel": 3.3,
       "hand": 91,
@@ -86917,7 +87121,13 @@
       "mra": null,
       "weight": 1210,
       "name": "Pagani Zonda Tricolore",
-      "rid": "Pagani_Zonda_Tricolore_2010"
+      "rid": "Pagani_Zonda_Tricolore_2010",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86929,7 +87139,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 197,
       "acel": 3.2,
       "hand": 93,
@@ -86938,7 +87148,13 @@
       "mra": null,
       "weight": 1435,
       "name": "Porsche 911 GT3 (992)",
-      "rid": "Porsche_911_GT3_992_2021"
+      "rid": "Porsche_911_GT3_992_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -86950,7 +87166,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 73,
@@ -86959,7 +87175,13 @@
       "mra": null,
       "weight": 2130,
       "name": "Audi A8 L W12 6.3FSI quattro (D4)",
-      "rid": "Audi_A8_L_W12_63FSI_quattro_D4_2012"
+      "rid": "Audi_A8_L_W12_63FSI_quattro_D4_2012",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -86971,7 +87193,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 196,
       "acel": 3.7,
       "hand": 87,
@@ -86980,7 +87202,13 @@
       "mra": null,
       "weight": 1620,
       "name": "Audi R8 5.2 FSI quattro",
-      "rid": "Audi_R8_52_FSI_quattro_2010"
+      "rid": "Audi_R8_52_FSI_quattro_2010",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -86992,7 +87220,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 217,
       "acel": 3.5,
       "hand": 90,
@@ -87001,7 +87229,13 @@
       "mra": null,
       "weight": 1230,
       "name": "Pagani Zonda Roadster F",
-      "rid": "Pagani_Zonda_Roadster_F_2005"
+      "rid": "Pagani_Zonda_Roadster_F_2005",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87013,7 +87247,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 196,
       "acel": 3.2,
       "hand": 92,
@@ -87022,7 +87256,13 @@
       "mra": null,
       "weight": 1415,
       "name": "Porsche 718 Cayman GT4 RS",
-      "rid": "Porsche_718_Cayman_GT4_RS_2022"
+      "rid": "Porsche_718_Cayman_GT4_RS_2022",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87034,7 +87274,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 192,
       "acel": 3.6,
       "hand": 92,
@@ -87043,7 +87283,13 @@
       "mra": null,
       "weight": 1120,
       "name": "Porsche 911 GT1-98 Strassenversion",
-      "rid": "Porsche_911_GT198_Strassenversion_1998"
+      "rid": "Porsche_911_GT198_Strassenversion_1998",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87055,7 +87301,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 175,
       "acel": 3.9,
       "hand": 92,
@@ -87065,7 +87311,13 @@
       "weight": 1040,
       "name": "Alfa Romeo 155 V6 TI DTM",
       "rid": "Alfa_Romeo_155_V6_TI_DTM_1993",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -87077,7 +87329,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 193,
       "acel": 3.6,
       "hand": 91,
@@ -87086,7 +87338,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Porsche 911 GT1 Strassenversion (993)",
-      "rid": "Porsche_911_GT1_Strassenversion_993_1996"
+      "rid": "Porsche_911_GT1_Strassenversion_993_1996",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87098,7 +87356,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.9,
       "hand": 76,
@@ -87107,7 +87365,13 @@
       "mra": null,
       "weight": 2160,
       "name": "BMW 745Le xDrive",
-      "rid": "BMW_745Le_xDrive_2019"
+      "rid": "BMW_745Le_xDrive_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -87119,7 +87383,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 208,
       "acel": 3.6,
       "hand": 89,
@@ -87128,7 +87392,13 @@
       "mra": null,
       "weight": 1280,
       "name": "Pagani Zonda Roadster",
-      "rid": "Pagani_Zonda_Roadster_2003"
+      "rid": "Pagani_Zonda_Roadster_2003",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87140,7 +87410,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 193,
       "acel": 3.2,
       "hand": 90,
@@ -87149,7 +87419,13 @@
       "mra": null,
       "weight": 1545,
       "name": "Porsche 911 GTS (992)",
-      "rid": "Porsche_911_GTS_992_2021"
+      "rid": "Porsche_911_GTS_992_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -87161,7 +87437,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 180,
       "acel": 4,
       "hand": 90,
@@ -87170,7 +87446,13 @@
       "mra": null,
       "weight": 1100,
       "name": "Alfa Romeo 155 GTA Superturismo",
-      "rid": "Alfa_Romeo_155_GTA_Superturismo_1992"
+      "rid": "Alfa_Romeo_155_GTA_Superturismo_1992",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -87182,7 +87464,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 199,
       "acel": 3.6,
       "hand": 88,
@@ -87191,7 +87473,13 @@
       "mra": null,
       "weight": 1590,
       "name": "Audi R8 RWS",
-      "rid": "Audi_R8_RWS_2018"
+      "rid": "Audi_R8_RWS_2018",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -87203,7 +87491,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.9,
       "hand": 79,
@@ -87212,7 +87500,13 @@
       "mra": null,
       "weight": 1735,
       "name": "BMW 330d xDrive Saloon",
-      "rid": "BMW_330d_xDrive_Saloon_2019"
+      "rid": "BMW_330d_xDrive_Saloon_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -87224,7 +87518,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 3.7,
       "hand": 86,
@@ -87233,7 +87527,13 @@
       "mra": null,
       "weight": 2025,
       "name": "Porsche Panamera GTS Sport Turismo 4.0 (971)",
-      "rid": "Porsche_Panamera_GTS_Sport_Turismo_40_971_2019"
+      "rid": "Porsche_Panamera_GTS_Sport_Turismo_40_971_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87244,7 +87544,8 @@
       "tdid": "3606",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "IT",
       "topSpeed": 192,
       "acel": 3.5,
       "hand": 88,
@@ -87253,7 +87554,13 @@
       "mra": null,
       "weight": 1552,
       "name": "Alfa Romeo TZ3 Stradale",
-      "rid": "Alfa_Romeo_TZ3_Stradale_2011"
+      "rid": "Alfa_Romeo_TZ3_Stradale_2011",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87264,7 +87571,8 @@
       "tdid": "3746",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.7,
       "hand": 85,
@@ -87273,7 +87581,13 @@
       "mra": null,
       "weight": 1790,
       "name": "Audi RS 4 Avant (B9)",
-      "rid": "Audi_RS_4_Avant_B9_2018"
+      "rid": "Audi_RS_4_Avant_B9_2018",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87284,7 +87598,8 @@
       "tdid": "3633",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 78,
@@ -87293,7 +87608,13 @@
       "mra": null,
       "weight": 1820,
       "name": "BMW 330d xDrive Touring",
-      "rid": "BMW_330d_xDrive_Touring_2019"
+      "rid": "BMW_330d_xDrive_Touring_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87304,7 +87625,8 @@
       "tdid": "3661",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.2,
       "hand": 77,
@@ -87314,7 +87636,13 @@
       "weight": 2315,
       "name": "BMW X6 M50i Black Vermilion",
       "rid": "BMW_X6_M50i_Black_Vermilion_2021",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87325,7 +87653,8 @@
       "tdid": "3732",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "IT",
       "topSpeed": 120,
       "acel": 4.5,
       "hand": 85,
@@ -87335,7 +87664,13 @@
       "weight": 1260,
       "name": "Lancia Delta 1600 HF 4WD Group A",
       "rid": "Lancia_Delta_1600_HF_4WD_Group_A_1987",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87346,7 +87681,8 @@
       "tdid": "3786",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.5,
       "hand": 83,
@@ -87355,7 +87691,13 @@
       "mra": null,
       "weight": 2295,
       "name": "Porsche Taycan GTS",
-      "rid": "Porsche_Taycan_GTS_2022"
+      "rid": "Porsche_Taycan_GTS_2022",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Electro",
+      "seats": "4",
+      "engine": "Mixed"
   },
   {
       "class": "A",
@@ -87366,7 +87708,8 @@
       "tdid": "3610",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "IT",
       "topSpeed": 186,
       "acel": 3.5,
       "hand": 89,
@@ -87375,7 +87718,13 @@
       "mra": null,
       "weight": 1580,
       "name": "Alfa Romeo Giulia GTAm",
-      "rid": "Alfa_Romeo_Giulia_GTAm_2021"
+      "rid": "Alfa_Romeo_Giulia_GTAm_2021",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87386,7 +87735,8 @@
       "tdid": "3775",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.9,
       "hand": 85,
@@ -87395,7 +87745,13 @@
       "mra": null,
       "weight": 1590,
       "name": "Audi RS3 Sportback (8V)",
-      "rid": "Audi_RS3_Sportback_8V_2018"
+      "rid": "Audi_RS3_Sportback_8V_2018",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87406,7 +87762,8 @@
       "tdid": "3669",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 139,
       "acel": 3.7,
       "hand": 81,
@@ -87415,7 +87772,13 @@
       "mra": null,
       "weight": 2290,
       "name": "BMW i4 M50",
-      "rid": "BMW_i4_M50_2021"
+      "rid": "BMW_i4_M50_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Electro",
+      "seats": "4",
+      "engine": "Mixed"
   },
   {
       "class": "A",
@@ -87426,7 +87789,8 @@
       "tdid": "3672",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.6,
       "hand": 75,
@@ -87435,7 +87799,13 @@
       "mra": null,
       "weight": 2559,
       "name": "BMW iX M60",
-      "rid": "BMW_iX_M60_2022"
+      "rid": "BMW_iX_M60_2022",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Electro",
+      "seats": "5",
+      "engine": "Mixed"
   },
   {
       "class": "A",
@@ -87446,7 +87816,8 @@
       "tdid": "3688",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.8,
       "hand": 79,
@@ -87455,7 +87826,13 @@
       "mra": null,
       "weight": 1685,
       "name": "BMW X2 M35i",
-      "rid": "BMW_X2_M35i_2019"
+      "rid": "BMW_X2_M35i_2019",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87466,7 +87843,8 @@
       "tdid": "3774",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 83,
@@ -87475,7 +87853,13 @@
       "mra": null,
       "weight": 1775,
       "name": "Audi RS Q3 Sportback (F3)",
-      "rid": "Audi_RS_Q3_Sportback_F3_2020"
+      "rid": "Audi_RS_Q3_Sportback_F3_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87486,7 +87870,8 @@
       "tdid": "3644",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 77,
@@ -87495,7 +87880,13 @@
       "mra": null,
       "weight": 1895,
       "name": "BMW 530d xDrive Saloon",
-      "rid": "BMW_530d_xDrive_Saloon_2020"
+      "rid": "BMW_530d_xDrive_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87506,7 +87897,8 @@
       "tdid": "3812",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 181,
       "acel": 3.7,
       "hand": 92,
@@ -87515,7 +87907,13 @@
       "mra": null,
       "weight": 1215,
       "name": "Porsche 911 RSR 3.8 (964)",
-      "rid": "Porsche_911_RSR_38_964_1993"
+      "rid": "Porsche_911_RSR_38_964_1993",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Rear"
   },
   {
       "class": "A",
@@ -87526,7 +87924,8 @@
       "tdid": "3747",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.6,
       "hand": 78,
@@ -87535,7 +87934,13 @@
       "mra": null,
       "weight": 1560,
       "name": "Audi A5 Coupe 45 TFSI quattro",
-      "rid": "Audi_A5_Coupe_45_TFSI_quattro_2018"
+      "rid": "Audi_A5_Coupe_45_TFSI_quattro_2018",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87546,7 +87951,8 @@
       "tdid": "3781",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.3,
       "hand": 82,
@@ -87555,7 +87961,13 @@
       "mra": null,
       "weight": 2085,
       "name": "Audi S7 (C8)",
-      "rid": "Audi_S7_C8_2019"
+      "rid": "Audi_S7_C8_2019",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87566,7 +87978,8 @@
       "tdid": "3650",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.4,
       "hand": 76,
@@ -87575,7 +87988,13 @@
       "mra": null,
       "weight": 2000,
       "name": "BMW 530d xDrive Touring",
-      "rid": "BMW_530d_xDrive_Touring_2020"
+      "rid": "BMW_530d_xDrive_Touring_2020",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87586,7 +88005,8 @@
       "tdid": "3653",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.1,
       "hand": 76,
@@ -87595,7 +88015,13 @@
       "mra": null,
       "weight": 2025,
       "name": "BMW 740Ld xDrive",
-      "rid": "BMW_740Ld_xDrive_2019"
+      "rid": "BMW_740Ld_xDrive_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87606,7 +88032,8 @@
       "tdid": "3612",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 3.8,
       "hand": 88,
@@ -87615,7 +88042,13 @@
       "mra": null,
       "weight": 1730,
       "name": "BMW M3 Competition Saloon",
-      "rid": "BMW_M3_Competition_Saloon_2020"
+      "rid": "BMW_M3_Competition_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87626,7 +88059,8 @@
       "tdid": "3614",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 3.8,
       "hand": 88,
@@ -87635,7 +88069,13 @@
       "mra": null,
       "weight": 1725,
       "name": "BMW M4 Competition Coupe",
-      "rid": "BMW_M4_Competition_Coupe_2020"
+      "rid": "BMW_M4_Competition_Coupe_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87646,7 +88086,8 @@
       "tdid": "3647",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 3.7,
       "hand": 82,
@@ -87655,7 +88096,13 @@
       "mra": null,
       "weight": 1990,
       "name": "BMW M550i xDrive Saloon",
-      "rid": "BMW_M550i_xDrive_Saloon_2020"
+      "rid": "BMW_M550i_xDrive_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87666,7 +88113,8 @@
       "tdid": "3761",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.4,
       "hand": 74,
@@ -87675,7 +88123,13 @@
       "mra": null,
       "weight": 1865,
       "name": "Audi A6 Avant 3.0 TFSI quattro (C7)",
-      "rid": "Audi_A6_Avant_30_TFSI_quattro_C7_2011"
+      "rid": "Audi_A6_Avant_30_TFSI_quattro_C7_2011",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87686,7 +88140,8 @@
       "tdid": "3629",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.3,
       "hand": 84,
@@ -87695,7 +88150,13 @@
       "mra": null,
       "weight": 1745,
       "name": "BMW M340i xDrive Saloon",
-      "rid": "BMW_M340i_xDrive_Saloon_2019"
+      "rid": "BMW_M340i_xDrive_Saloon_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87706,7 +88167,8 @@
       "tdid": "3701",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.9,
       "hand": 78,
@@ -87716,7 +88178,13 @@
       "weight": 1699,
       "name": "Mini Countryman John Cooper Works",
       "rid": "Mini_Countryman_John_Cooper_Works_2020",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87727,7 +88195,8 @@
       "tdid": "3778",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.6,
       "hand": 84,
@@ -87736,7 +88205,13 @@
       "mra": null,
       "weight": 1847,
       "name": "Audi S4 Avant TDI (B9)",
-      "rid": "Audi_S4_Avant_TDI_B9_2019"
+      "rid": "Audi_S4_Avant_TDI_B9_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87747,7 +88222,8 @@
       "tdid": "3782",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 81,
@@ -87756,7 +88232,13 @@
       "mra": null,
       "weight": 2020,
       "name": "Audi S7 Sportback (C7)",
-      "rid": "Audi_S7_Sportback_C7_2012"
+      "rid": "Audi_S7_Sportback_C7_2012",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87767,7 +88249,8 @@
       "tdid": "3628",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 142,
       "acel": 5.6,
       "hand": 77,
@@ -87776,7 +88259,13 @@
       "mra": null,
       "weight": 1820,
       "name": "BMW 330e xDrive Saloon",
-      "rid": "BMW_330e_xDrive_Saloon_2020"
+      "rid": "BMW_330e_xDrive_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87787,7 +88276,8 @@
       "tdid": "3651",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.4,
       "hand": 76,
@@ -87796,7 +88286,13 @@
       "mra": null,
       "weight": 2010,
       "name": "BMW 730d xDrive",
-      "rid": "BMW_730d_xDrive_2019"
+      "rid": "BMW_730d_xDrive_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87807,7 +88303,8 @@
       "tdid": "3620",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.6,
       "hand": 82,
@@ -87816,7 +88313,13 @@
       "mra": null,
       "weight": 1525,
       "name": "BMW M135i xDrive",
-      "rid": "BMW_M135i_xDrive_2019"
+      "rid": "BMW_M135i_xDrive_2019",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87827,7 +88330,8 @@
       "tdid": "3611",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 174,
       "acel": 3.9,
       "hand": 88,
@@ -87836,7 +88340,13 @@
       "mra": null,
       "weight": 1575,
       "name": "BMW M2 CS",
-      "rid": "BMW_M2_CS_2020"
+      "rid": "BMW_M2_CS_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87847,7 +88357,8 @@
       "tdid": "3636",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 84,
@@ -87856,7 +88367,13 @@
       "mra": null,
       "weight": 1870,
       "name": "BMW M340i xDrive Touring",
-      "rid": "BMW_M340i_xDrive_Touring_2019"
+      "rid": "BMW_M340i_xDrive_Touring_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87867,7 +88384,8 @@
       "tdid": "3603",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "IT",
       "topSpeed": 199,
       "acel": 3.8,
       "hand": 86,
@@ -87876,7 +88394,13 @@
       "mra": null,
       "weight": 1258,
       "name": "Alfa Romeo Pandion",
-      "rid": "Alfa_Romeo_Pandion_2010"
+      "rid": "Alfa_Romeo_Pandion_2010",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87887,7 +88411,8 @@
       "tdid": "3770",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 186,
       "acel": 4.6,
       "hand": 85,
@@ -87896,7 +88421,13 @@
       "mra": null,
       "weight": 1735,
       "name": "Audi R8 Spyder 4.2 FSI quattro",
-      "rid": "Audi_R8_Spyder_42_FSI_quattro_2011"
+      "rid": "Audi_R8_Spyder_42_FSI_quattro_2011",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -87907,7 +88438,8 @@
       "tdid": "3640",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 84,
@@ -87916,7 +88448,13 @@
       "mra": null,
       "weight": 1740,
       "name": "BMW M440i xDrive Coupe",
-      "rid": "BMW_M440i_xDrive_Coupe_2020"
+      "rid": "BMW_M440i_xDrive_Coupe_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87927,7 +88465,8 @@
       "tdid": "3677",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 3.8,
       "hand": 85,
@@ -87937,7 +88476,13 @@
       "weight": 1945,
       "name": "BMW M5 30 Jahre Edition",
       "rid": "BMW_M5_30_Jahre_Edition_2014",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87948,7 +88493,8 @@
       "tdid": "3791",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 178,
       "acel": 3.8,
       "hand": 88,
@@ -87957,7 +88503,13 @@
       "mra": null,
       "weight": 1435,
       "name": "Porsche 718 Cayman GTS 4.0 (982)",
-      "rid": "Porsche_718_Cayman_GTS_40_982_2020"
+      "rid": "Porsche_718_Cayman_GTS_40_982_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -87968,7 +88520,8 @@
       "tdid": "3663",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
       "hand": 75,
@@ -87977,7 +88530,13 @@
       "mra": null,
       "weight": 2480,
       "name": "BMW X7 M50i Dark Shadow Edition",
-      "rid": "BMW_X7_M50i_Dark_Shadow_Edition_2020"
+      "rid": "BMW_X7_M50i_Dark_Shadow_Edition_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "7",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -87988,7 +88547,8 @@
       "tdid": "3587",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "IT",
       "topSpeed": 150,
       "acel": 4.6,
       "hand": 90,
@@ -87997,7 +88557,13 @@
       "mra": null,
       "weight": 975,
       "name": "Alfa Romeo 156 GTA Super 2000",
-      "rid": "Alfa_Romeo_156_GTA_Super_2000_2002"
+      "rid": "Alfa_Romeo_156_GTA_Super_2000_2002",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88008,7 +88574,8 @@
       "tdid": "3679",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.3,
       "hand": 82,
@@ -88017,7 +88584,13 @@
       "mra": null,
       "weight": 1860,
       "name": "BMW M550d xDrive Saloon",
-      "rid": "BMW_M550d_xDrive_Saloon_2017"
+      "rid": "BMW_M550d_xDrive_Saloon_2017",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88028,7 +88601,8 @@
       "tdid": "3660",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 154,
       "acel": 5.3,
       "hand": 76,
@@ -88037,7 +88611,13 @@
       "mra": null,
       "weight": 2055,
       "name": "BMW X6 xDrive40i",
-      "rid": "BMW_X6_xDrive40i_2019"
+      "rid": "BMW_X6_xDrive40i_2019",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88048,7 +88628,8 @@
       "tdid": "3690",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
       "hand": 81,
@@ -88057,7 +88638,13 @@
       "mra": null,
       "weight": 1625,
       "name": "Mini John Cooper Works Clubman",
-      "rid": "Mini_John_Cooper_Works_Clubman_2019"
+      "rid": "Mini_John_Cooper_Works_Clubman_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88068,7 +88655,8 @@
       "tdid": "3649",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 139,
       "acel": 5.9,
       "hand": 76,
@@ -88077,7 +88665,13 @@
       "mra": null,
       "weight": 1975,
       "name": "BMW 530e xDrive Touring",
-      "rid": "BMW_530e_xDrive_Touring_2020"
+      "rid": "BMW_530e_xDrive_Touring_2020",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88088,7 +88682,8 @@
       "tdid": "3671",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 124,
       "acel": 4.4,
       "hand": 73,
@@ -88097,7 +88692,13 @@
       "mra": null,
       "weight": 2585,
       "name": "BMW iX xDrive50",
-      "rid": "BMW_iX_xDrive50_2021"
+      "rid": "BMW_iX_xDrive50_2021",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Electro",
+      "seats": "5",
+      "engine": "Mixed"
   },
   {
       "class": "A",
@@ -88108,7 +88709,8 @@
       "tdid": "3627",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.7,
       "hand": 79,
@@ -88117,7 +88719,13 @@
       "mra": null,
       "weight": 1505,
       "name": "BMW 330i Saloon",
-      "rid": "BMW_330i_Saloon_2019"
+      "rid": "BMW_330i_Saloon_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88128,7 +88736,8 @@
       "tdid": "3658",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "High",
+      "country": "DE",
       "topSpeed": 152,
       "acel": 5.3,
       "hand": 74,
@@ -88137,7 +88746,13 @@
       "mra": null,
       "weight": 2275,
       "name": "BMW X5 xDrive40d",
-      "rid": "BMW_X5_xDrive40d_2019"
+      "rid": "BMW_X5_xDrive40d_2019",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88148,7 +88763,8 @@
       "tdid": "3806",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 4.5,
       "hand": 88,
@@ -88157,7 +88773,13 @@
       "mra": null,
       "weight": 1380,
       "name": "Porsche 911 GT3 3.6 (996.2)",
-      "rid": "Porsche_911_GT3_36_9962_2004"
+      "rid": "Porsche_911_GT3_36_9962_2004",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
   },
   {
       "class": "A",
@@ -88168,7 +88790,8 @@
       "tdid": "3797",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 190,
       "acel": 4.3,
       "hand": 85,
@@ -88177,7 +88800,13 @@
       "mra": null,
       "weight": 1540,
       "name": "Porsche 911 Speedster 3.8 (997.2)",
-      "rid": "Porsche_911_Speedster_38_9972_2011"
+      "rid": "Porsche_911_Speedster_38_9972_2011",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
   },
   {
       "class": "A",
@@ -88188,7 +88817,8 @@
       "tdid": "3598",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "IT",
       "topSpeed": 182,
       "acel": 4.1,
       "hand": 85,
@@ -88197,7 +88827,13 @@
       "mra": null,
       "weight": 1585,
       "name": "Alfa Romeo BAT 11",
-      "rid": "Alfa_Romeo_BAT_11_2008"
+      "rid": "Alfa_Romeo_BAT_11_2008",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88208,7 +88844,8 @@
       "tdid": "3748",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Mid",
+      "country": "DE",
       "topSpeed": 149,
       "acel": 6.1,
       "hand": 74,
@@ -88217,7 +88854,13 @@
       "mra": null,
       "weight": 1710,
       "name": "Audi A5 Cabriolet 45 TFSI quattro",
-      "rid": "Audi_A5_Cabriolet_45_TFSI_quattro_2018"
+      "rid": "Audi_A5_Cabriolet_45_TFSI_quattro_2018",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88228,7 +88871,8 @@
       "tdid": "3779",
       "abs": false,
       "tcs": false,
-      "country": "XXX",
+      "clearance": "Low",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
       "hand": 84,
@@ -88237,7 +88881,13 @@
       "mra": null,
       "weight": 1750,
       "name": "Audi S5 (B8.5)",
-      "rid": "Audi_S5_B85_2013"
+      "rid": "Audi_S5_B85_2013",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88249,7 +88899,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
       "hand": 83,
@@ -88258,7 +88908,13 @@
       "mra": null,
       "weight": 1895,
       "name": "BMW M340d xDrive Saloon",
-      "rid": "BMW_M340d_xDrive_Saloon_2020"
+      "rid": "BMW_M340d_xDrive_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88270,7 +88926,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
       "hand": 83,
@@ -88279,7 +88935,13 @@
       "mra": null,
       "weight": 1905,
       "name": "BMW M440d xDrive Coupe",
-      "rid": "BMW_M440d_xDrive_Coupe_2020"
+      "rid": "BMW_M440d_xDrive_Coupe_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88291,7 +88953,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.5,
       "hand": 81,
@@ -88300,7 +88962,13 @@
       "mra": null,
       "weight": 1955,
       "name": "BMW M550d xDrive Touring",
-      "rid": "BMW_M550d_xDrive_Touring_2017"
+      "rid": "BMW_M550d_xDrive_Touring_2017",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88312,7 +88980,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 146,
       "acel": 5.4,
       "hand": 74,
@@ -88321,7 +88989,13 @@
       "mra": null,
       "weight": 2510,
       "name": "BMW X5 xDrive45e",
-      "rid": "BMW_X5_xDrive45e_2019"
+      "rid": "BMW_X5_xDrive45e_2019",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88333,7 +89007,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 74,
@@ -88342,7 +89016,13 @@
       "mra": null,
       "weight": 2535,
       "name": "BMW X7 M50d",
-      "rid": "BMW_X7_M50d_2020"
+      "rid": "BMW_X7_M50d_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "7",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88354,7 +89034,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 181,
       "acel": 4.4,
       "hand": 86,
@@ -88363,7 +89043,13 @@
       "mra": null,
       "weight": 1600,
       "name": "Alfa Romeo Disco Volante Spyder",
-      "rid": "Alfa_Romeo_Disco_Volante_Spyder_2016"
+      "rid": "Alfa_Romeo_Disco_Volante_Spyder_2016",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88375,7 +89061,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 152,
       "acel": 5.9,
       "hand": 74,
@@ -88384,7 +89070,13 @@
       "mra": null,
       "weight": 2235,
       "name": "Audi Q8 50 TDI",
-      "rid": "Audi_Q8_50_TDI_2018"
+      "rid": "Audi_Q8_50_TDI_2018",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88396,7 +89088,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
       "hand": 82,
@@ -88405,7 +89097,13 @@
       "mra": null,
       "weight": 1865,
       "name": "Audi RS6 Avant (C5)",
-      "rid": "Audi_RS6_Avant_C5_2004"
+      "rid": "Audi_RS6_Avant_C5_2004",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88417,7 +89115,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.7,
       "hand": 79,
@@ -88426,7 +89124,13 @@
       "mra": null,
       "weight": 1650,
       "name": "BMW 330i Touring",
-      "rid": "BMW_330i_Touring_2019"
+      "rid": "BMW_330i_Touring_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88438,7 +89142,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.9,
       "hand": 83,
@@ -88447,7 +89151,13 @@
       "mra": null,
       "weight": 2105,
       "name": "BMW 840d xDrive Convertible",
-      "rid": "BMW_840d_xDrive_Convertible_2019"
+      "rid": "BMW_840d_xDrive_Convertible_2019",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88459,7 +89169,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 162,
       "acel": 4.5,
       "hand": 87,
@@ -88468,7 +89178,13 @@
       "mra": null,
       "weight": 1120,
       "name": "Fiat Abarth 131 Mirafiori Evoluzione",
-      "rid": "Fiat_Abarth_131_Mirafiori_Evoluzione_1975"
+      "rid": "Fiat_Abarth_131_Mirafiori_Evoluzione_1975",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88480,7 +89196,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 160,
       "acel": 4.2,
       "hand": 86,
@@ -88489,7 +89205,13 @@
       "mra": null,
       "weight": 995,
       "name": "Alfa Romeo 4C Concept",
-      "rid": "Alfa_Romeo_4C_Concept_2011"
+      "rid": "Alfa_Romeo_4C_Concept_2011",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -88501,7 +89223,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 165,
       "acel": 4.5,
       "hand": 82,
@@ -88510,7 +89232,13 @@
       "mra": null,
       "weight": 1200,
       "name": "Alfa Romeo Issima",
-      "rid": "Alfa_Romeo_Issima_1996"
+      "rid": "Alfa_Romeo_Issima_1996",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88522,7 +89250,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 153,
       "acel": 5.9,
       "hand": 74,
@@ -88531,7 +89259,13 @@
       "mra": null,
       "weight": 1735,
       "name": "Audi A4 allroad 2.0 TFSI quattro (B9)",
-      "rid": "Audi_A4_allroad_20_TFSI_quattro_B9_2018"
+      "rid": "Audi_A4_allroad_20_TFSI_quattro_B9_2018",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88543,7 +89277,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 145,
       "acel": 6.7,
       "hand": 77,
@@ -88552,7 +89286,13 @@
       "mra": null,
       "weight": 1540,
       "name": "BMW 320d xDrive Saloon",
-      "rid": "BMW_320d_xDrive_Saloon_2019"
+      "rid": "BMW_320d_xDrive_Saloon_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88564,7 +89304,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.6,
       "hand": 83,
@@ -88573,7 +89313,13 @@
       "mra": null,
       "weight": 1945,
       "name": "BMW M340d xDrive Touring",
-      "rid": "BMW_M340d_xDrive_Touring_2020"
+      "rid": "BMW_M340d_xDrive_Touring_2020",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88585,7 +89331,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
       "hand": 81,
@@ -88594,7 +89340,13 @@
       "mra": null,
       "weight": 1965,
       "name": "BMW M440i xDrive Convertible",
-      "rid": "BMW_M440i_xDrive_Convertible_2020"
+      "rid": "BMW_M440i_xDrive_Convertible_2020",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88606,7 +89358,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 138,
       "acel": 7,
       "hand": 75,
@@ -88615,7 +89367,13 @@
       "mra": null,
       "weight": 1585,
       "name": "Mini Countryman Cooper S ALL4 Boardwalk",
-      "rid": "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020"
+      "rid": "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88627,7 +89385,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 178,
       "acel": 4.3,
       "hand": 86,
@@ -88636,7 +89394,13 @@
       "mra": null,
       "weight": 1445,
       "name": "Porsche 911 Carrera 2 3.6 (997.2)",
-      "rid": "Porsche_911_Carrera_2_36_9972_2009"
+      "rid": "Porsche_911_Carrera_2_36_9972_2009",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "A",
@@ -88648,7 +89412,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 143,
       "acel": 4.3,
       "hand": 85,
@@ -88657,7 +89421,13 @@
       "mra": null,
       "weight": 940,
       "name": "Alfa Romeo 1750 GTAm",
-      "rid": "Alfa_Romeo_1750_GTAm_1970"
+      "rid": "Alfa_Romeo_1750_GTAm_1970",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88669,7 +89439,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 183,
       "acel": 4.3,
       "hand": 83,
@@ -88678,7 +89448,13 @@
       "mra": null,
       "weight": 1430,
       "name": "Alfa Romeo Brera Concept",
-      "rid": "Alfa_Romeo_Brera_Concept_2002"
+      "rid": "Alfa_Romeo_Brera_Concept_2002",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88690,7 +89466,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 79,
@@ -88699,7 +89475,13 @@
       "mra": null,
       "weight": 1695,
       "name": "Audi S3 Cabriolet (8V)",
-      "rid": "Audi_S3_Cabriolet_8V_2018"
+      "rid": "Audi_S3_Cabriolet_8V_2018",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88711,7 +89493,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.3,
       "hand": 80,
@@ -88720,7 +89502,13 @@
       "mra": null,
       "weight": 1910,
       "name": "Audi S6 (C6)",
-      "rid": "Audi_S6_C6_2006"
+      "rid": "Audi_S6_C6_2006",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -88732,7 +89520,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 176,
       "acel": 4.4,
       "hand": 86,
@@ -88741,7 +89529,13 @@
       "mra": null,
       "weight": 1450,
       "name": "Porsche 911 Carrera Cabriolet 3.4 (991)",
-      "rid": "Porsche_911_Carrera_Cabriolet_34_991_2011"
+      "rid": "Porsche_911_Carrera_Cabriolet_34_991_2011",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "A",
@@ -88753,7 +89547,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 4.5,
       "hand": 84,
@@ -88762,7 +89556,13 @@
       "mra": null,
       "weight": 1470,
       "name": "Porsche 911 Turbo S 3.6 Flachbau (964)",
-      "rid": "Porsche_911_Turbo_S_36_Flachbau_964_1993"
+      "rid": "Porsche_911_Turbo_S_36_Flachbau_964_1993",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "B",
@@ -88774,7 +89574,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 160,
       "acel": 4.2,
       "hand": 85,
@@ -88783,7 +89583,13 @@
       "mra": null,
       "weight": 1128,
       "name": "Alfa Romeo 4C Spider",
-      "rid": "Alfa_Romeo_4C_Spider_2015"
+      "rid": "Alfa_Romeo_4C_Spider_2015",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -88795,7 +89601,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 135,
       "acel": 7.4,
       "hand": 75,
@@ -88804,7 +89610,13 @@
       "mra": null,
       "weight": 1610,
       "name": "Mini Countryman Cooper SD ALL4",
-      "rid": "Mini_Countryman_Cooper_SD_ALL4_2020"
+      "rid": "Mini_Countryman_Cooper_SD_ALL4_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88816,7 +89628,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 123,
       "acel": 6.6,
       "hand": 74,
@@ -88825,7 +89637,13 @@
       "mra": null,
       "weight": 1700,
       "name": "Mini Countryman PHEV",
-      "rid": "Mini_Countryman_PHEV_2020"
+      "rid": "Mini_Countryman_PHEV_2020",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88837,7 +89655,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 173,
       "acel": 4.5,
       "hand": 85,
@@ -88846,7 +89664,13 @@
       "mra": null,
       "weight": 1295,
       "name": "Porsche Cayman R 3.4 (987.2)",
-      "rid": "Porsche_Cayman_R_34_9872_2011"
+      "rid": "Porsche_Cayman_R_34_9872_2011",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -88858,7 +89682,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 150,
       "acel": 6.1,
       "hand": 72,
@@ -88867,7 +89691,13 @@
       "mra": null,
       "weight": 2135,
       "name": "Audi Q7 3.0 TDI",
-      "rid": "Audi_Q7_30_TDI_2018"
+      "rid": "Audi_Q7_30_TDI_2018",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "7",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88879,7 +89709,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 146,
       "acel": 5.7,
       "hand": 75,
@@ -88888,7 +89718,13 @@
       "mra": null,
       "weight": 1910,
       "name": "BMW 530e Saloon",
-      "rid": "BMW_530e_Saloon_2020"
+      "rid": "BMW_530e_Saloon_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88900,7 +89736,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.3,
       "hand": 73,
@@ -88909,7 +89745,13 @@
       "mra": null,
       "weight": 2090,
       "name": "BMW 760i",
-      "rid": "BMW_760i_2002"
+      "rid": "BMW_760i_2002",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88921,7 +89763,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.7,
       "hand": 81,
@@ -88930,7 +89772,13 @@
       "mra": null,
       "weight": 1645,
       "name": "BMW M235i xDrive Gran Coupe",
-      "rid": "BMW_M235i_xDrive_Gran_Coupe_2019"
+      "rid": "BMW_M235i_xDrive_Gran_Coupe_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88942,7 +89790,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 180,
       "acel": 4.5,
       "hand": 85,
@@ -88951,7 +89799,13 @@
       "mra": null,
       "weight": 1530,
       "name": "Porsche 911 Carrera 2 Cabriolet 3.6 (997.2)",
-      "rid": "Porsche_911_Carrera_2_Cabriolet_36_9972_2009"
+      "rid": "Porsche_911_Carrera_2_Cabriolet_36_9972_2009",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "B",
@@ -88963,7 +89817,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 140,
       "acel": 5.7,
       "hand": 91,
@@ -88972,7 +89826,13 @@
       "mra": null,
       "weight": 1255,
       "name": "Alfa Romeo Giulietta TCR",
-      "rid": "Alfa_Romeo_Giulietta_TCR_2016"
+      "rid": "Alfa_Romeo_Giulietta_TCR_2016",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -88984,7 +89844,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 143,
       "acel": 5.7,
       "hand": 77,
@@ -88993,7 +89853,13 @@
       "mra": null,
       "weight": 1830,
       "name": "BMW 330e Touring",
-      "rid": "BMW_330e_Touring_2020"
+      "rid": "BMW_330e_Touring_2020",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89005,7 +89871,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 148,
       "acel": 7.5,
       "hand": 80,
@@ -89014,7 +89880,13 @@
       "mra": null,
       "weight": 1665,
       "name": "BMW 420i xDrive Coupe",
-      "rid": "BMW_420i_xDrive_Coupe_2020"
+      "rid": "BMW_420i_xDrive_Coupe_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89026,7 +89898,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 124,
       "acel": 5.9,
       "hand": 72,
@@ -89035,7 +89907,13 @@
       "mra": null,
       "weight": 2440,
       "name": "BMW iX xDrive40",
-      "rid": "BMW_iX_xDrive40_2021"
+      "rid": "BMW_iX_xDrive40_2021",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Electro",
+      "seats": "5",
+      "engine": "Mixed"
   },
   {
       "class": "B",
@@ -89047,7 +89925,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 164,
       "acel": 4.7,
       "hand": 85,
@@ -89056,7 +89934,13 @@
       "mra": null,
       "weight": 1230,
       "name": "Mini John Cooper Works GP",
-      "rid": "Mini_John_Cooper_Works_GP_2020"
+      "rid": "Mini_John_Cooper_Works_GP_2020",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89068,7 +89952,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 135,
       "acel": 7.5,
       "hand": 74,
@@ -89077,7 +89961,13 @@
       "mra": null,
       "weight": 2100,
       "name": "Porsche Cayenne Diesel 3.0 (958)",
-      "rid": "Porsche_Cayenne_Diesel_30_958_2010"
+      "rid": "Porsche_Cayenne_Diesel_30_958_2010",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89089,7 +89979,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 190,
       "acel": 4,
       "hand": 75,
@@ -89099,7 +89989,13 @@
       "weight": 710,
       "name": "Alfa Romeo 159 Alfetta",
       "rid": "Alfa_Romeo_159_Alfetta_1951",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89111,7 +90007,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 195,
       "acel": 4.1,
       "hand": 73,
@@ -89121,7 +90017,13 @@
       "weight": 710,
       "name": "Alfa Romeo Tipo 512",
       "rid": "Alfa_Romeo_Tipo_512_1940",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -89133,7 +90035,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 124,
       "acel": 5.3,
       "hand": 83,
@@ -89142,7 +90044,13 @@
       "mra": null,
       "weight": 750,
       "name": "Fiat Abarth X1/9 Prototipo",
-      "rid": "Fiat_Abarth_X19_Prototipo_1974"
+      "rid": "Fiat_Abarth_X19_Prototipo_1974",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -89154,7 +90062,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 143,
       "acel": 5.2,
       "hand": 81,
@@ -89163,7 +90071,13 @@
       "mra": null,
       "weight": 1148,
       "name": "Lancia Hyena",
-      "rid": "Lancia_Hyena_1992"
+      "rid": "Lancia_Hyena_1992",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89175,7 +90089,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 149,
       "acel": 7,
       "hand": 72,
@@ -89184,7 +90098,13 @@
       "mra": null,
       "weight": 1860,
       "name": "Audi allroad quattro 4.2 (C5)",
-      "rid": "Audi_allroad_quattro_42_C5_2000"
+      "rid": "Audi_allroad_quattro_42_C5_2000",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89196,7 +90116,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 143,
       "acel": 6.8,
       "hand": 72,
@@ -89205,7 +90125,13 @@
       "mra": null,
       "weight": 1590,
       "name": "BMW 120d xDrive",
-      "rid": "BMW_120d_xDrive_2019"
+      "rid": "BMW_120d_xDrive_2019",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89217,7 +90143,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 138,
       "acel": 7.4,
       "hand": 76,
@@ -89226,7 +90152,13 @@
       "mra": null,
       "weight": 1915,
       "name": "BMW 520d xDrive Touring",
-      "rid": "BMW_520d_xDrive_Touring_2020"
+      "rid": "BMW_520d_xDrive_Touring_2020",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89238,7 +90170,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.4,
       "hand": 84,
@@ -89247,7 +90179,13 @@
       "mra": null,
       "weight": 1630,
       "name": "BMW Z4 M40i 3.0i",
-      "rid": "BMW_Z4_M40i_30i_2019"
+      "rid": "BMW_Z4_M40i_30i_2019",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89259,7 +90197,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 186,
       "acel": 5,
       "hand": 77,
@@ -89269,7 +90207,13 @@
       "weight": 620,
       "name": "Lancia D50",
       "rid": "Lancia_D50_1954",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89281,7 +90225,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 160,
       "acel": 5.8,
       "hand": 79,
@@ -89290,7 +90234,13 @@
       "mra": null,
       "weight": 1474,
       "name": "Porsche Panamericana",
-      "rid": "Porsche_Panamericana_1989"
+      "rid": "Porsche_Panamericana_1989",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
   },
   {
       "class": "B",
@@ -89302,7 +90252,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 86,
@@ -89311,7 +90261,13 @@
       "mra": null,
       "weight": 1815,
       "name": "BMW 840i Gran Coupe",
-      "rid": "BMW_840i_Gran_Coupe_2019"
+      "rid": "BMW_840i_Gran_Coupe_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89323,7 +90279,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 118,
       "acel": 5.5,
       "hand": 79,
@@ -89332,7 +90288,13 @@
       "mra": null,
       "weight": 2125,
       "name": "BMW i4 eDrive40",
-      "rid": "BMW_i4_eDrive40_2021"
+      "rid": "BMW_i4_eDrive40_2021",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Electro",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "B",
@@ -89344,7 +90306,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 135,
       "acel": 8,
       "hand": 74,
@@ -89353,7 +90315,13 @@
       "mra": null,
       "weight": 1845,
       "name": "Audi Q5 2.0 TDI",
-      "rid": "Audi_Q5_20_TDI_2018"
+      "rid": "Audi_Q5_20_TDI_2018",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89365,7 +90333,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 143,
       "acel": 5.7,
       "hand": 81,
@@ -89374,7 +90342,13 @@
       "mra": null,
       "weight": 997,
       "name": "Fiat Abarth 695 Biposto R",
-      "rid": "Fiat_Abarth_695_Biposto_R_2015"
+      "rid": "Fiat_Abarth_695_Biposto_R_2015",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89386,7 +90360,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 174,
       "acel": 6,
       "hand": 83,
@@ -89395,7 +90369,13 @@
       "mra": null,
       "weight": 1450,
       "name": "Alfa Romeo Nuvola",
-      "rid": "Alfa_Romeo_Nuvola_1996"
+      "rid": "Alfa_Romeo_Nuvola_1996",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89407,7 +90387,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 137,
       "acel": 8,
       "hand": 76,
@@ -89416,7 +90396,13 @@
       "mra": null,
       "weight": 1470,
       "name": "Audi A3 Saloon 2.0 TDI quattro (8V)",
-      "rid": "Audi_A3_Saloon_20_TDI_quattro_8V_2018"
+      "rid": "Audi_A3_Saloon_20_TDI_quattro_8V_2018",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89428,7 +90414,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 4.8,
       "hand": 78,
@@ -89437,7 +90423,13 @@
       "mra": null,
       "weight": 1735,
       "name": "BMW 550i",
-      "rid": "BMW_550i_2005"
+      "rid": "BMW_550i_2005",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89449,7 +90441,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 170,
       "acel": 5.2,
       "hand": 84,
@@ -89458,7 +90450,13 @@
       "mra": null,
       "weight": 1355,
       "name": "Porsche Boxster RS60 Spyder (987)",
-      "rid": "Porsche_Boxster_RS60_Spyder_987_2007"
+      "rid": "Porsche_Boxster_RS60_Spyder_987_2007",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -89470,7 +90468,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 199,
       "acel": 4.9,
       "hand": 68,
@@ -89480,7 +90478,13 @@
       "weight": 1030,
       "name": "Alfa Romeo Tipo C Bimotore",
       "rid": "Alfa_Romeo_Tipo_C_Bimotore_1935",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mixed"
   },
   {
       "class": "B",
@@ -89492,7 +90496,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 167,
       "acel": 5.2,
       "hand": 84,
@@ -89501,7 +90505,13 @@
       "mra": null,
       "weight": 1345,
       "name": "Porsche Boxster S 3.2 (987)",
-      "rid": "Porsche_Boxster_S_32_987_2005"
+      "rid": "Porsche_Boxster_S_32_987_2005",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -89513,7 +90523,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 150,
       "acel": 6.1,
       "hand": 83,
@@ -89522,7 +90532,13 @@
       "mra": null,
       "weight": 1320,
       "name": "Alfa Romeo 155 GTA Stradale",
-      "rid": "Alfa_Romeo_155_GTA_Stradale_1992"
+      "rid": "Alfa_Romeo_155_GTA_Stradale_1992",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89534,7 +90550,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 130,
       "acel": 6.6,
       "hand": 82,
@@ -89543,7 +90559,13 @@
       "mra": null,
       "weight": 1080,
       "name": "Fiat Abarth 500 R3T",
-      "rid": "Fiat_Abarth_500_R3T_2009"
+      "rid": "Fiat_Abarth_500_R3T_2009",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89555,7 +90577,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 153,
       "acel": 5.9,
       "hand": 83,
@@ -89564,7 +90586,13 @@
       "mra": null,
       "weight": 1280,
       "name": "Mini John Cooper Works",
-      "rid": "Mini_John_Cooper_Works_2021"
+      "rid": "Mini_John_Cooper_Works_2021",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89576,7 +90604,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 152,
       "acel": 5.4,
       "hand": 82,
@@ -89585,7 +90613,13 @@
       "mra": null,
       "weight": 630,
       "name": "Alfa Romeo Giulia TZ2",
-      "rid": "Alfa_Romeo_Giulia_TZ2_1965"
+      "rid": "Alfa_Romeo_Giulia_TZ2_1965",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89597,7 +90631,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.6,
       "hand": 81,
@@ -89606,7 +90640,13 @@
       "mra": null,
       "weight": 1630,
       "name": "BMW 430i Coupe",
-      "rid": "BMW_430i_Coupe_2020"
+      "rid": "BMW_430i_Coupe_2020",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89618,7 +90658,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 160,
       "acel": 5.5,
       "hand": 82,
@@ -89627,7 +90667,13 @@
       "mra": null,
       "weight": 650,
       "name": "Porsche 904 Carrera GTS",
-      "rid": "Porsche_904_Carrera_GTS_1963"
+      "rid": "Porsche_904_Carrera_GTS_1963",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -89639,7 +90685,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 152,
       "acel": 6.7,
       "hand": 77,
@@ -89648,7 +90694,13 @@
       "mra": null,
       "weight": 1360,
       "name": "Audi A3 Sportback (8V)",
-      "rid": "Audi_A3_Sportback_8V_2018"
+      "rid": "Audi_A3_Sportback_8V_2018",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89660,7 +90712,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 136,
       "acel": 8.5,
       "hand": 76,
@@ -89669,7 +90721,13 @@
       "mra": null,
       "weight": 1615,
       "name": "Audi A4 Saloon 2.0 TDI quattro (B9)",
-      "rid": "Audi_A4_Saloon_20_TDI_quattro_B9_2018"
+      "rid": "Audi_A4_Saloon_20_TDI_quattro_B9_2018",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89681,7 +90739,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 150,
       "acel": 5.9,
       "hand": 76,
@@ -89690,7 +90748,13 @@
       "mra": null,
       "weight": 1560,
       "name": "Audi S2 Avant (B4)",
-      "rid": "Audi_S2_Avant_B4_1991"
+      "rid": "Audi_S2_Avant_B4_1991",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89702,7 +90766,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 149,
       "acel": 6.8,
       "hand": 80,
@@ -89711,7 +90775,13 @@
       "mra": null,
       "weight": 1740,
       "name": "Alfa Romeo 159 3.2 V6 Q4",
-      "rid": "Alfa_Romeo_159_32_V6_Q4_2005"
+      "rid": "Alfa_Romeo_159_32_V6_Q4_2005",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89723,7 +90793,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 162,
       "acel": 5.9,
       "hand": 87,
@@ -89732,7 +90802,13 @@
       "mra": null,
       "weight": 1215,
       "name": "Alfa Romeo GTV Cup",
-      "rid": "Alfa_Romeo_GTV_Cup_1999"
+      "rid": "Alfa_Romeo_GTV_Cup_1999",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89744,7 +90820,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 155,
       "acel": 5.8,
       "hand": 79,
@@ -89753,7 +90829,13 @@
       "mra": null,
       "weight": 1750,
       "name": "Alfa Romeo Visconti",
-      "rid": "Alfa_Romeo_Visconti_2004"
+      "rid": "Alfa_Romeo_Visconti_2004",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89765,7 +90847,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.9,
       "hand": 81,
@@ -89774,7 +90856,13 @@
       "mra": null,
       "weight": 1445,
       "name": "BMW 128ti",
-      "rid": "BMW_128ti_2020"
+      "rid": "BMW_128ti_2020",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89786,7 +90874,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 150,
       "acel": 6.3,
       "hand": 89,
@@ -89795,7 +90883,13 @@
       "mra": null,
       "weight": 1000,
       "name": "Alfa Romeo 147 GTA Cup",
-      "rid": "Alfa_Romeo_147_GTA_Cup_2003"
+      "rid": "Alfa_Romeo_147_GTA_Cup_2003",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89807,7 +90901,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 142,
       "acel": 6.9,
       "hand": 76,
@@ -89816,7 +90910,13 @@
       "mra": null,
       "weight": 1740,
       "name": "BMW 320d Touring",
-      "rid": "BMW_320d_Touring_2019"
+      "rid": "BMW_320d_Touring_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89828,7 +90928,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 143,
       "acel": 7.4,
       "hand": 78,
@@ -89837,7 +90937,13 @@
       "mra": null,
       "weight": 1660,
       "name": "BMW 320i Touring",
-      "rid": "BMW_320i_Touring_2019"
+      "rid": "BMW_320i_Touring_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -89849,7 +90955,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 5.2,
       "hand": 83,
@@ -89858,7 +90964,13 @@
       "mra": null,
       "weight": 1505,
       "name": "BMW Z4 sDrive30i",
-      "rid": "BMW_Z4_sDrive30i_2019"
+      "rid": "BMW_Z4_sDrive30i_2019",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89870,7 +90982,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 160,
       "acel": 5.6,
       "hand": 78,
@@ -89879,7 +90991,13 @@
       "mra": null,
       "weight": 700,
       "name": "Alfa Romeo P33 Roadster",
-      "rid": "Alfa_Romeo_P33_Roadster_1968"
+      "rid": "Alfa_Romeo_P33_Roadster_1968",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89891,7 +91009,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 120,
       "acel": 7.1,
       "hand": 79,
@@ -89900,7 +91018,13 @@
       "mra": null,
       "weight": 825,
       "name": "Lancia Fulvia Coupe 1.6 HF Group 4",
-      "rid": "Lancia_Fulvia_Coupe_16_HF_Group_4_1967"
+      "rid": "Lancia_Fulvia_Coupe_16_HF_Group_4_1967",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89912,7 +91036,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 142,
       "acel": 6.8,
       "hand": 77,
@@ -89921,7 +91045,13 @@
       "mra": null,
       "weight": 1375,
       "name": "Lancia Thema Turbo 16v",
-      "rid": "Lancia_Thema_Turbo_16v_1989"
+      "rid": "Lancia_Thema_Turbo_16v_1989",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89933,7 +91063,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 143,
       "acel": 5.1,
       "hand": 80,
@@ -89942,7 +91072,13 @@
       "mra": null,
       "weight": 2050,
       "name": "Porsche Taycan",
-      "rid": "Porsche_Taycan_2020"
+      "rid": "Porsche_Taycan_2020",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Electro",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "C",
@@ -89954,7 +91090,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 149,
       "acel": 7.3,
       "hand": 81,
@@ -89963,7 +91099,13 @@
       "mra": null,
       "weight": 1680,
       "name": "Alfa Romeo 164 Q4",
-      "rid": "Alfa_Romeo_164_Q4_1994"
+      "rid": "Alfa_Romeo_164_Q4_1994",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89975,7 +91117,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 163,
       "acel": 5.7,
       "hand": 79,
@@ -89984,7 +91126,13 @@
       "mra": null,
       "weight": 730,
       "name": "Alfa Romeo 33/2 Coupe Speciale",
-      "rid": "Alfa_Romeo_332_Coupe_Speciale_1969"
+      "rid": "Alfa_Romeo_332_Coupe_Speciale_1969",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -89996,7 +91144,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 163,
       "acel": 5.7,
       "hand": 79,
@@ -90005,7 +91153,13 @@
       "mra": null,
       "weight": 730,
       "name": "Alfa Romeo Iguana",
-      "rid": "Alfa_Romeo_Iguana_1969"
+      "rid": "Alfa_Romeo_Iguana_1969",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90017,7 +91171,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 148,
       "acel": 7.8,
       "hand": 74,
@@ -90026,7 +91180,13 @@
       "mra": null,
       "weight": 1575,
       "name": "BMW 525i",
-      "rid": "BMW_525i_2000"
+      "rid": "BMW_525i_2000",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90038,7 +91198,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 142,
       "acel": 7.5,
       "hand": 73,
@@ -90047,7 +91207,13 @@
       "mra": null,
       "weight": 1700,
       "name": "BMW 530d",
-      "rid": "BMW_530d_2000"
+      "rid": "BMW_530d_2000",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90059,7 +91225,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 155,
       "acel": 6.1,
       "hand": 80,
@@ -90068,7 +91234,13 @@
       "mra": null,
       "weight": 1460,
       "name": "Alfa Romeo 156 GTA Sportwagon",
-      "rid": "Alfa_Romeo_156_GTA_Sportwagon_2002"
+      "rid": "Alfa_Romeo_156_GTA_Sportwagon_2002",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90080,7 +91252,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 147,
       "acel": 7,
       "hand": 78,
@@ -90089,7 +91261,13 @@
       "mra": null,
       "weight": 1730,
       "name": "Alfa Romeo 159 Sportswagon 3.2 V6 Q4",
-      "rid": "Alfa_Romeo_159_Sportswagon_32_V6_Q4_2006"
+      "rid": "Alfa_Romeo_159_Sportswagon_32_V6_Q4_2006",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90101,7 +91279,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 149,
       "acel": 6.8,
       "hand": 82,
@@ -90110,7 +91288,13 @@
       "mra": null,
       "weight": 1605,
       "name": "Alfa Romeo Brera 3.2 V6 Q4",
-      "rid": "Alfa_Romeo_Brera_32_V6_Q4_2005"
+      "rid": "Alfa_Romeo_Brera_32_V6_Q4_2005",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90122,7 +91306,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 150,
       "acel": 6.5,
       "hand": 76,
@@ -90131,7 +91315,13 @@
       "mra": null,
       "weight": 1610,
       "name": "Audi 100 S4 (C4)",
-      "rid": "Audi_100_S4_C4_1991"
+      "rid": "Audi_100_S4_C4_1991",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90143,7 +91333,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 146,
       "acel": 7.3,
       "hand": 75,
@@ -90152,7 +91342,13 @@
       "mra": null,
       "weight": 1580,
       "name": "BMW 220d Gran Coupe",
-      "rid": "BMW_220d_Gran_Coupe_2019"
+      "rid": "BMW_220d_Gran_Coupe_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90164,7 +91360,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 147,
       "acel": 6.9,
       "hand": 75,
@@ -90173,7 +91369,13 @@
       "mra": null,
       "weight": 1505,
       "name": "BMW 220i Gran Coupe",
-      "rid": "BMW_220i_Gran_Coupe_2019"
+      "rid": "BMW_220i_Gran_Coupe_2019",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90185,7 +91387,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 118,
       "acel": 7.8,
       "hand": 76,
@@ -90194,7 +91396,13 @@
       "mra": null,
       "weight": 938,
       "name": "Fiat 124 Abarth Rally",
-      "rid": "Fiat_124_Abarth_Rally_1972"
+      "rid": "Fiat_124_Abarth_Rally_1972",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90206,7 +91414,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 146,
       "acel": 6.4,
       "hand": 81,
@@ -90215,7 +91423,13 @@
       "mra": null,
       "weight": 1281,
       "name": "Mini Cooper S",
-      "rid": "Mini_Cooper_S_2021"
+      "rid": "Mini_Cooper_S_2021",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90227,7 +91441,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 152,
       "acel": 5.9,
       "hand": 83,
@@ -90236,7 +91450,13 @@
       "mra": null,
       "weight": 1220,
       "name": "Alfa Romeo 2uettottanta",
-      "rid": "Alfa_Romeo_2uettottanta_2010"
+      "rid": "Alfa_Romeo_2uettottanta_2010",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90248,7 +91468,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 145,
       "acel": 6.5,
       "hand": 86,
@@ -90257,7 +91477,13 @@
       "mra": null,
       "weight": 900,
       "name": "Alfa Romeo Sprint 6C",
-      "rid": "Alfa_Romeo_Sprint_6C_1982"
+      "rid": "Alfa_Romeo_Sprint_6C_1982",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "C",
@@ -90269,7 +91495,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 6.6,
       "hand": 75,
@@ -90278,7 +91504,13 @@
       "mra": null,
       "weight": 1750,
       "name": "Audi S8 (D2)",
-      "rid": "Audi_S8_D2_1997"
+      "rid": "Audi_S8_D2_1997",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90290,7 +91522,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 6,
       "hand": 79,
@@ -90299,7 +91531,13 @@
       "mra": null,
       "weight": 1790,
       "name": "BMW 430i Convertible",
-      "rid": "BMW_430i_Convertible_2020"
+      "rid": "BMW_430i_Convertible_2020",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90311,7 +91549,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 150,
       "acel": 6.6,
       "hand": 81,
@@ -90320,7 +91558,13 @@
       "mra": null,
       "weight": 1395,
       "name": "Alfa Romeo Giulietta Quadrifoglio Verde",
-      "rid": "Alfa_Romeo_Giulietta_Quadrifoglio_Verde_2010"
+      "rid": "Alfa_Romeo_Giulietta_Quadrifoglio_Verde_2010",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90332,7 +91576,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 146,
       "acel": 6.3,
       "hand": 80,
@@ -90341,7 +91585,13 @@
       "mra": null,
       "weight": 1335,
       "name": "Audi A1 40 TFSI (GB)",
-      "rid": "Audi_A1_40_TFSI_GB_2018"
+      "rid": "Audi_A1_40_TFSI_GB_2018",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90353,7 +91603,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 142,
       "acel": 8.2,
       "hand": 73,
@@ -90362,7 +91612,13 @@
       "mra": null,
       "weight": 1495,
       "name": "BMW 523i",
-      "rid": "BMW_523i_1996"
+      "rid": "BMW_523i_1996",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90374,7 +91630,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 6.1,
       "hand": 78,
@@ -90383,7 +91639,13 @@
       "mra": null,
       "weight": 1725,
       "name": "BMW 635d",
-      "rid": "BMW_635d_2006"
+      "rid": "BMW_635d_2006",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90395,7 +91657,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 149,
       "acel": 7.1,
       "hand": 72,
@@ -90404,7 +91666,13 @@
       "mra": null,
       "weight": 1790,
       "name": "BMW 740i",
-      "rid": "BMW_740i_1992"
+      "rid": "BMW_740i_1992",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90416,7 +91684,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 150,
       "acel": 6.4,
       "hand": 80,
@@ -90425,7 +91693,13 @@
       "mra": null,
       "weight": 1400,
       "name": "Mini Convertible John Cooper Works",
-      "rid": "Mini_Convertible_John_Cooper_Works_2021"
+      "rid": "Mini_Convertible_John_Cooper_Works_2021",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90437,7 +91711,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 155,
       "acel": 6.2,
       "hand": 81,
@@ -90446,7 +91720,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Porsche Boxster Concept",
-      "rid": "Porsche_Boxster_Concept_1993"
+      "rid": "Porsche_Boxster_Concept_1993",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "C",
@@ -90458,7 +91738,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 158,
       "acel": 6.1,
       "hand": 82,
@@ -90467,7 +91747,13 @@
       "mra": null,
       "weight": 1445,
       "name": "Alfa Romeo GTV 3.2 V6",
-      "rid": "Alfa_Romeo_GTV_32_V6_2003"
+      "rid": "Alfa_Romeo_GTV_32_V6_2003",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90479,7 +91765,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 112,
       "acel": 6.6,
       "hand": 70,
@@ -90488,7 +91774,13 @@
       "mra": null,
       "weight": 2255,
       "name": "BMW iX3 Premier Edition",
-      "rid": "BMW_iX3_Premier_Edition_2021"
+      "rid": "BMW_iX3_Premier_Edition_2021",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Electro",
+      "seats": "5",
+      "engine": "Rear"
   },
   {
       "class": "C",
@@ -90500,7 +91792,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 124,
       "acel": 9.8,
       "hand": 68,
@@ -90509,7 +91801,13 @@
       "mra": null,
       "weight": 2155,
       "name": "BMW X5 3.0d",
-      "rid": "BMW_X5_30d_2001"
+      "rid": "BMW_X5_30d_2001",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90521,7 +91819,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 144,
       "acel": 6.6,
       "hand": 83,
@@ -90530,7 +91828,13 @@
       "mra": null,
       "weight": 1060,
       "name": "Fiat Abarth 124 GT",
-      "rid": "Fiat_Abarth_124_GT_2018"
+      "rid": "Fiat_Abarth_124_GT_2018",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90542,7 +91846,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 138,
       "acel": 7.2,
       "hand": 75,
@@ -90551,7 +91855,13 @@
       "mra": null,
       "weight": 1585,
       "name": "Mini Cooper SD Clubman ALL4",
-      "rid": "Mini_Cooper_SD_Clubman_ALL4_2019"
+      "rid": "Mini_Cooper_SD_Clubman_ALL4_2019",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90563,7 +91873,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 150,
       "acel": 6.6,
       "hand": 80,
@@ -90572,7 +91882,13 @@
       "mra": null,
       "weight": 1880,
       "name": "Porsche Panamera Diesel 3.0 (970)",
-      "rid": "Porsche_Panamera_Diesel_30_970_2011"
+      "rid": "Porsche_Panamera_Diesel_30_970_2011",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90584,7 +91900,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 150,
       "acel": 5.9,
       "hand": 80,
@@ -90593,7 +91909,13 @@
       "mra": null,
       "weight": 1380,
       "name": "Alfa Romeo Spider Monoposto Concept",
-      "rid": "Alfa_Romeo_Spider_Monoposto_Concept_1998"
+      "rid": "Alfa_Romeo_Spider_Monoposto_Concept_1998",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90605,7 +91927,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 124,
       "acel": 9,
       "hand": 72,
@@ -90614,7 +91936,13 @@
       "mra": null,
       "weight": 1200,
       "name": "Audi 90 quattro 2.2 (B2)",
-      "rid": "Audi_90_quattro_22_B2_1984"
+      "rid": "Audi_90_quattro_22_B2_1984",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90626,7 +91954,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 149,
       "acel": 6.4,
       "hand": 82,
@@ -90635,7 +91963,13 @@
       "mra": null,
       "weight": 1505,
       "name": "BMW Z4 sDrive20i",
-      "rid": "BMW_Z4_sDrive20i_2019"
+      "rid": "BMW_Z4_sDrive20i_2019",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90647,7 +91981,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 147,
       "acel": 6.2,
       "hand": 80,
@@ -90657,7 +91991,13 @@
       "weight": 980,
       "name": "Lancia Stratos HF Prototipo",
       "rid": "Lancia_Stratos_HF_Prototipo_1971",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "C",
@@ -90669,7 +92009,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 156,
       "acel": 6.3,
       "hand": 78,
@@ -90678,7 +92018,13 @@
       "mra": null,
       "weight": 1470,
       "name": "Porsche 968 Cabriolet",
-      "rid": "Porsche_968_Cabriolet_1992"
+      "rid": "Porsche_968_Cabriolet_1992",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90690,7 +92036,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 129,
       "acel": 9,
       "hand": 77,
@@ -90699,7 +92045,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Alfa Romeo 147",
-      "rid": "Alfa_Romeo_147_2003"
+      "rid": "Alfa_Romeo_147_2003",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90711,7 +92063,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 140,
       "acel": 6.2,
       "hand": 81,
@@ -90720,7 +92072,13 @@
       "mra": null,
       "weight": 1200,
       "name": "Alfa Romeo Dardo",
-      "rid": "Alfa_Romeo_Dardo_1998"
+      "rid": "Alfa_Romeo_Dardo_1998",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90732,7 +92090,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 136,
       "acel": 7.3,
       "hand": 81,
@@ -90741,7 +92099,13 @@
       "mra": null,
       "weight": 1145,
       "name": "Alfa Romeo MiTo Quadrifoglio Verde",
-      "rid": "Alfa_Romeo_MiTo_Quadrifoglio_Verde_2009"
+      "rid": "Alfa_Romeo_MiTo_Quadrifoglio_Verde_2009",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90753,7 +92117,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 121,
       "acel": 8,
       "hand": 76,
@@ -90762,7 +92126,13 @@
       "mra": null,
       "weight": 1000,
       "name": "Lancia Delta HF Turbo",
-      "rid": "Lancia_Delta_HF_Turbo_1985"
+      "rid": "Lancia_Delta_HF_Turbo_1985",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -90774,7 +92144,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 143,
       "acel": 6.9,
       "hand": 78,
@@ -90783,7 +92153,13 @@
       "mra": null,
       "weight": 1390,
       "name": "Mini Cooper S Convertible Sidewalk",
-      "rid": "Mini_Cooper_S_Convertible_Sidewalk_2021"
+      "rid": "Mini_Cooper_S_Convertible_Sidewalk_2021",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90795,7 +92171,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 132,
       "acel": 7.3,
       "hand": 70,
@@ -90804,7 +92180,13 @@
       "mra": null,
       "weight": 1300,
       "name": "BMW 528i",
-      "rid": "BMW_528i_1981"
+      "rid": "BMW_528i_1981",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90816,7 +92198,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 136,
       "acel": 6.9,
       "hand": 76,
@@ -90825,7 +92207,13 @@
       "mra": null,
       "weight": 998,
       "name": "Fiat Formula 4",
-      "rid": "Fiat_Formula_4_1996"
+      "rid": "Fiat_Formula_4_1996",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90837,7 +92225,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 149,
       "acel": 8.8,
       "hand": 73,
@@ -90846,7 +92234,13 @@
       "mra": null,
       "weight": 1820,
       "name": "Lancia Thesis 3.2 V6 24v",
-      "rid": "Lancia_Thesis_32_V6_24v_2002"
+      "rid": "Lancia_Thesis_32_V6_24v_2002",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90858,7 +92252,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 93,
       "acel": 7.1,
       "hand": 74,
@@ -90867,7 +92261,13 @@
       "mra": null,
       "weight": 1440,
       "name": "Mini Electric Shadow Edition",
-      "rid": "Mini_Electric_Shadow_Edition_2021"
+      "rid": "Mini_Electric_Shadow_Edition_2021",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Electro",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90879,7 +92279,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 135,
       "acel": 7.1,
       "hand": 82,
@@ -90888,7 +92288,13 @@
       "mra": null,
       "weight": 855,
       "name": "Alfa Romeo Alfasud Sprint Trofeo",
-      "rid": "Alfa_Romeo_Alfasud_Sprint_Trofeo_1982"
+      "rid": "Alfa_Romeo_Alfasud_Sprint_Trofeo_1982",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90900,7 +92306,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 138,
       "acel": 8.6,
       "hand": 74,
@@ -90909,7 +92315,13 @@
       "mra": null,
       "weight": 1440,
       "name": "Audi A3 Cabriolet (8V)",
-      "rid": "Audi_A3_Cabriolet_8V_2018"
+      "rid": "Audi_A3_Cabriolet_8V_2018",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90921,7 +92333,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 134,
       "acel": 7.6,
       "hand": 79,
@@ -90930,7 +92342,13 @@
       "mra": null,
       "weight": 1385,
       "name": "Alfa Romeo 156 2.4 JTD",
-      "rid": "Alfa_Romeo_156_24_JTD_2003"
+      "rid": "Alfa_Romeo_156_24_JTD_2003",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90942,7 +92360,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 133,
       "acel": 7.5,
       "hand": 80,
@@ -90951,7 +92369,13 @@
       "mra": null,
       "weight": 1150,
       "name": "Alfa Romeo 75 1.8 Turbo Evoluzione",
-      "rid": "Alfa_Romeo_75_18_Turbo_Evoluzione_1987"
+      "rid": "Alfa_Romeo_75_18_Turbo_Evoluzione_1987",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90963,7 +92387,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 120,
       "acel": 9.2,
       "hand": 68,
@@ -90972,7 +92396,13 @@
       "mra": null,
       "weight": 1190,
       "name": "Audi 80 2.2 quattro (B2)",
-      "rid": "Audi_80_22_quattro_B2_1983"
+      "rid": "Audi_80_22_quattro_B2_1983",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -90984,7 +92414,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 140,
       "acel": 6.5,
       "hand": 77,
@@ -90993,7 +92423,13 @@
       "mra": null,
       "weight": 1120,
       "name": "Fiat Abarth 695 Esseesse",
-      "rid": "Fiat_Abarth_695_Esseesse_2021"
+      "rid": "Fiat_Abarth_695_Esseesse_2021",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91005,7 +92441,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 134,
       "acel": 7.7,
       "hand": 79,
@@ -91014,7 +92450,13 @@
       "mra": null,
       "weight": 1290,
       "name": "Alfa Romeo 147 Q2",
-      "rid": "Alfa_Romeo_147_Q2_2007"
+      "rid": "Alfa_Romeo_147_Q2_2007",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91026,7 +92468,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 143,
       "acel": 7.3,
       "hand": 81,
@@ -91035,7 +92477,13 @@
       "mra": null,
       "weight": 1380,
       "name": "Alfa Romeo RZ",
-      "rid": "Alfa_Romeo_RZ_1992"
+      "rid": "Alfa_Romeo_RZ_1992",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91047,7 +92495,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 155,
       "acel": 7,
       "hand": 78,
@@ -91056,7 +92504,13 @@
       "mra": null,
       "weight": 1675,
       "name": "Alfa Romeo Spider 3.2 V6",
-      "rid": "Alfa_Romeo_Spider_32_V6_2008"
+      "rid": "Alfa_Romeo_Spider_32_V6_2008",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91068,7 +92522,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 140,
       "acel": 8.2,
       "hand": 75,
@@ -91077,7 +92531,13 @@
       "mra": null,
       "weight": 1275,
       "name": "Audi 90 quattro 2.3 20V (B2)",
-      "rid": "Audi_90_quattro_23_20V_B2_1989"
+      "rid": "Audi_90_quattro_23_20V_B2_1989",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91089,7 +92549,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 135,
       "acel": 7,
       "hand": 79,
@@ -91098,7 +92558,13 @@
       "mra": null,
       "weight": 1249,
       "name": "Fiat Abarth Punto Evo Esseesse",
-      "rid": "Fiat_Abarth_Punto_Evo_Esseesse_2010"
+      "rid": "Fiat_Abarth_Punto_Evo_Esseesse_2010",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91110,7 +92576,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 95,
       "acel": 6.5,
       "hand": 84,
@@ -91120,7 +92586,13 @@
       "weight": 1230,
       "name": "Mini Electric Pacesetter inspired by JCW",
       "rid": "Mini_Electric_Pacesetter_inspired_by_JCW_2021",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Electro",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91132,7 +92604,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 144,
       "acel": 7,
       "hand": 74,
@@ -91141,7 +92613,13 @@
       "mra": null,
       "weight": 1256,
       "name": "BMW 333i",
-      "rid": "BMW_333i_1985"
+      "rid": "BMW_333i_1985",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91153,7 +92631,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 137,
       "acel": 9.5,
       "hand": 72,
@@ -91162,7 +92640,13 @@
       "mra": null,
       "weight": 1540,
       "name": "Lancia Kappa 3.0 V6 24v",
-      "rid": "Lancia_Kappa_30_V6_24v_1999"
+      "rid": "Lancia_Kappa_30_V6_24v_1999",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91174,7 +92658,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 124,
       "acel": 7.6,
       "hand": 78,
@@ -91183,7 +92667,13 @@
       "mra": null,
       "weight": 1210,
       "name": "Alfa Romeo 75 6V 3.0 America",
-      "rid": "Alfa_Romeo_75_6V_30_America_1987"
+      "rid": "Alfa_Romeo_75_6V_30_America_1987",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91195,7 +92685,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 140,
       "acel": 7.1,
       "hand": 79,
@@ -91204,7 +92694,13 @@
       "mra": null,
       "weight": 1420,
       "name": "Alfa Romeo Spider V6",
-      "rid": "Alfa_Romeo_Spider_V6_1995"
+      "rid": "Alfa_Romeo_Spider_V6_1995",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91216,7 +92712,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 140,
       "acel": 7.1,
       "hand": 79,
@@ -91225,7 +92721,13 @@
       "mra": null,
       "weight": 1420,
       "name": "Alfa Romeo Vola",
-      "rid": "Alfa_Romeo_Vola_2000"
+      "rid": "Alfa_Romeo_Vola_2000",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91237,7 +92739,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 118,
       "acel": 7.4,
       "hand": 78,
@@ -91246,7 +92748,13 @@
       "mra": null,
       "weight": 950,
       "name": "Fiat Ritmo 130TC Abarth",
-      "rid": "Fiat_Ritmo_130TC_Abarth_1985"
+      "rid": "Fiat_Ritmo_130TC_Abarth_1985",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91258,7 +92766,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 126,
       "acel": 7.5,
       "hand": 76,
@@ -91267,7 +92775,13 @@
       "mra": null,
       "weight": 1140,
       "name": "Alfa Romeo Giulietta Turbo Autodelta",
-      "rid": "Alfa_Romeo_Giulietta_Turbo_Autodelta_1984"
+      "rid": "Alfa_Romeo_Giulietta_Turbo_Autodelta_1984",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91279,7 +92793,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 131,
       "acel": 7.2,
       "hand": 77,
@@ -91288,7 +92802,13 @@
       "mra": null,
       "weight": 1065,
       "name": "Fiat Abarth 500 Esseesse",
-      "rid": "Fiat_Abarth_500_Esseesse_2008"
+      "rid": "Fiat_Abarth_500_Esseesse_2008",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91300,7 +92820,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 131,
       "acel": 7.2,
       "hand": 77,
@@ -91309,7 +92829,13 @@
       "mra": null,
       "weight": 1075,
       "name": "Fiat Abarth 500C Esseesse",
-      "rid": "Fiat_Abarth_500C_Esseesse_2010"
+      "rid": "Fiat_Abarth_500C_Esseesse_2010",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91321,7 +92847,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 134,
       "acel": 7.1,
       "hand": 77,
@@ -91330,7 +92856,13 @@
       "mra": null,
       "weight": 1120,
       "name": "Fiat Abarth 595 Pista",
-      "rid": "Fiat_Abarth_595_Pista_2017"
+      "rid": "Fiat_Abarth_595_Pista_2017",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91342,7 +92874,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 132,
       "acel": 8,
       "hand": 78,
@@ -91351,7 +92883,13 @@
       "mra": null,
       "weight": 1190,
       "name": "Fiat Bravo HGT Abarth",
-      "rid": "Fiat_Bravo_HGT_Abarth_2000"
+      "rid": "Fiat_Bravo_HGT_Abarth_2000",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91363,7 +92901,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 134,
       "acel": 8.2,
       "hand": 78,
@@ -91372,7 +92910,13 @@
       "mra": null,
       "weight": 1340,
       "name": "Fiat Stilo Abarth",
-      "rid": "Fiat_Stilo_Abarth_2001"
+      "rid": "Fiat_Stilo_Abarth_2001",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91384,7 +92928,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 132,
       "acel": 8.3,
       "hand": 82,
@@ -91393,7 +92937,13 @@
       "mra": null,
       "weight": 990,
       "name": "Lancia Fulvia Coupe Concept",
-      "rid": "Lancia_Fulvia_Coupe_Concept_2003"
+      "rid": "Lancia_Fulvia_Coupe_Concept_2003",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91405,7 +92955,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 124,
       "acel": 9.7,
       "hand": 75,
@@ -91414,7 +92964,13 @@
       "mra": null,
       "weight": 1190,
       "name": "Alfa Romeo 145 1.7 16v",
-      "rid": "Alfa_Romeo_145_17_16v_1994"
+      "rid": "Alfa_Romeo_145_17_16v_1994",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -91426,7 +92982,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 93,
       "acel": 17.4,
       "hand": 68,
@@ -91435,7 +92991,13 @@
       "mra": null,
       "weight": 1400,
       "name": "Fiat PanDAKAR",
-      "rid": "Fiat_PanDAKAR_2006"
+      "rid": "Fiat_PanDAKAR_2006",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Diesel",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91447,7 +93009,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 135,
       "acel": 8.9,
       "hand": 78,
@@ -91456,7 +93018,13 @@
       "mra": null,
       "weight": 1300,
       "name": "Alfa Romeo 155 Ti-Z",
-      "rid": "Alfa_Romeo_155_TiZ_1993"
+      "rid": "Alfa_Romeo_155_TiZ_1993",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91468,7 +93036,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 132,
       "acel": 7.9,
       "hand": 72,
@@ -91477,7 +93045,13 @@
       "mra": null,
       "weight": 1290,
       "name": "Fiat Tempra 2.0 i.e. Turbo",
-      "rid": "Fiat_Tempra_20_ie_Turbo_1993"
+      "rid": "Fiat_Tempra_20_ie_Turbo_1993",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91489,7 +93063,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 128,
       "acel": 8,
       "hand": 73,
@@ -91498,7 +93072,13 @@
       "mra": null,
       "weight": 1180,
       "name": "Fiat Tipo 2.0 i.e.16V",
-      "rid": "Fiat_Tipo_20_ie16V_1991"
+      "rid": "Fiat_Tipo_20_ie16V_1991",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91510,7 +93090,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 118,
       "acel": 9.4,
       "hand": 75,
@@ -91519,7 +93099,13 @@
       "mra": null,
       "weight": 1030,
       "name": "Lancia Fulvia Sport 1600",
-      "rid": "Lancia_Fulvia_Sport_1600_1971"
+      "rid": "Lancia_Fulvia_Sport_1600_1971",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91531,7 +93117,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 142,
       "acel": 7.1,
       "hand": 72,
@@ -91540,7 +93126,13 @@
       "mra": null,
       "weight": 1391,
       "name": "BMW M535i",
-      "rid": "BMW_M535i_1980"
+      "rid": "BMW_M535i_1980",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91552,7 +93144,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 119,
       "acel": 9.1,
       "hand": 78,
@@ -91561,7 +93153,13 @@
       "mra": null,
       "weight": 910,
       "name": "Alfa Romeo 33 1.7 Cloverleaf Veloce",
-      "rid": "Alfa_Romeo_33_17_Cloverleaf_Veloce_1987"
+      "rid": "Alfa_Romeo_33_17_Cloverleaf_Veloce_1987",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91573,7 +93171,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 93,
       "acel": 9.1,
       "hand": 70,
@@ -91582,7 +93180,13 @@
       "mra": null,
       "weight": 1352,
       "name": "Fiat 500",
-      "rid": "Fiat_500_2020"
+      "rid": "Fiat_500_2020",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Electro",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91594,7 +93198,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 135,
       "acel": 10.5,
       "hand": 69,
@@ -91603,7 +93207,13 @@
       "mra": null,
       "weight": 1430,
       "name": "Audi Cabriolet 2.8",
-      "rid": "Audi_Cabriolet_28_1991"
+      "rid": "Audi_Cabriolet_28_1991",
+      "bodyTypes": [
+        "Cabrio"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91615,7 +93225,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 130,
       "acel": 8,
       "hand": 70,
@@ -91624,7 +93234,13 @@
       "mra": null,
       "weight": 1180,
       "name": "Fiat Croma Turbo i.e.",
-      "rid": "Fiat_Croma_Turbo_ie_1985"
+      "rid": "Fiat_Croma_Turbo_ie_1985",
+      "bodyTypes": [
+        "Sedan"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91636,7 +93252,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 112,
       "acel": 10.2,
       "hand": 70,
@@ -91645,7 +93261,13 @@
       "mra": null,
       "weight": 975,
       "name": "Lancia Delta 1600 GT",
-      "rid": "Lancia_Delta_1600_GT_1982"
+      "rid": "Lancia_Delta_1600_GT_1982",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91657,7 +93279,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 81,
       "acel": 18,
       "hand": 65,
@@ -91666,7 +93288,13 @@
       "mra": null,
       "weight": 7000,
       "name": "Fiat Oltre",
-      "rid": "Fiat_Oltre_2005"
+      "rid": "Fiat_Oltre_2005",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91678,7 +93306,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 117,
       "acel": 9.7,
       "hand": 75,
@@ -91687,7 +93315,13 @@
       "mra": null,
       "weight": 940,
       "name": "Fiat 500 Coupe Concept",
-      "rid": "Fiat_500_Coupe_Concept_2011"
+      "rid": "Fiat_500_Coupe_Concept_2011",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91699,7 +93333,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 136,
       "acel": 8.1,
       "hand": 65,
@@ -91709,7 +93343,13 @@
       "weight": 510,
       "name": "Fiat Abarth 1000 Monoposto record car",
       "rid": "Fiat_Abarth_1000_Monoposto_record_car_1960",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "E",
@@ -91721,7 +93361,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 122,
       "acel": 9.3,
       "hand": 75,
@@ -91730,7 +93370,13 @@
       "mra": null,
       "weight": 1161,
       "name": "Alfa Romeo Spider Quadrifoglio Verde",
-      "rid": "Alfa_Romeo_Spider_Quadrifoglio_Verde_1986"
+      "rid": "Alfa_Romeo_Spider_Quadrifoglio_Verde_1986",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91742,7 +93388,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 113,
       "acel": 11.1,
       "hand": 70,
@@ -91751,7 +93397,13 @@
       "mra": null,
       "weight": 1020,
       "name": "Audi 80 1.8 S (B3)",
-      "rid": "Audi_80_18_S_B3_1986"
+      "rid": "Audi_80_18_S_B3_1986",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91763,7 +93415,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 112,
       "acel": 9.3,
       "hand": 73,
@@ -91772,7 +93424,13 @@
       "mra": null,
       "weight": 610,
       "name": "Fiat Abarth 850 TC Corsa",
-      "rid": "Fiat_Abarth_850_TC_Corsa_1965"
+      "rid": "Fiat_Abarth_850_TC_Corsa_1965",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Rear"
   },
   {
       "class": "E",
@@ -91784,7 +93442,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 111,
       "acel": 10.2,
       "hand": 78,
@@ -91793,7 +93451,13 @@
       "mra": null,
       "weight": 895,
       "name": "Alfa Romeo Alfasud TI Quadrifoglio Verde",
-      "rid": "Alfa_Romeo_Alfasud_TI_Quadrifoglio_Verde_1982"
+      "rid": "Alfa_Romeo_Alfasud_TI_Quadrifoglio_Verde_1982",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -91805,7 +93469,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 129,
       "acel": 9,
       "hand": 70,
@@ -91814,7 +93478,13 @@
       "mra": null,
       "weight": 1233,
       "name": "BMW 530 MLE",
-      "rid": "BMW_530_MLE_1976"
+      "rid": "BMW_530_MLE_1976",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91826,7 +93496,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 113,
       "acel": 10.5,
       "hand": 74,
@@ -91835,7 +93505,13 @@
       "mra": null,
       "weight": 1020,
       "name": "Audi Coupe GT 5S (B2)",
-      "rid": "Audi_Coupe_GT_5S_B2_1980"
+      "rid": "Audi_Coupe_GT_5S_B2_1980",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91847,7 +93523,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 111,
       "acel": 10.8,
       "hand": 75,
@@ -91856,7 +93532,13 @@
       "mra": null,
       "weight": 980,
       "name": "Fiat Punto Sporting",
-      "rid": "Fiat_Punto_Sporting_1995"
+      "rid": "Fiat_Punto_Sporting_1995",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91868,7 +93550,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 119,
       "acel": 12,
       "hand": 67,
@@ -91877,7 +93559,13 @@
       "mra": null,
       "weight": 970,
       "name": "Porsche 912",
-      "rid": "Porsche_912_1966"
+      "rid": "Porsche_912_1966",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   },
   {
       "class": "F",
@@ -91889,7 +93577,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 132,
       "acel": 7.9,
       "hand": 45,
@@ -91899,7 +93587,13 @@
       "weight": 1650,
       "name": "Fiat S76",
       "rid": "Fiat_S76_1910",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91911,7 +93605,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 111,
       "acel": 12.7,
       "hand": 69,
@@ -91920,7 +93614,13 @@
       "mra": null,
       "weight": 1340,
       "name": "Lancia Flaminia GT",
-      "rid": "Lancia_Flaminia_GT_1964"
+      "rid": "Lancia_Flaminia_GT_1964",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91932,7 +93632,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 104,
       "acel": 14.4,
       "hand": 70,
@@ -91941,7 +93641,13 @@
       "mra": null,
       "weight": 855,
       "name": "Audi A2 TDI",
-      "rid": "Audi_A2_TDI_2000"
+      "rid": "Audi_A2_TDI_2000",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91953,7 +93659,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 120,
       "acel": 9.2,
       "hand": 68,
@@ -91962,7 +93668,13 @@
       "mra": null,
       "weight": 1277,
       "name": "Alfa Romeo 2600 Sprint",
-      "rid": "Alfa_Romeo_2600_Sprint_1962"
+      "rid": "Alfa_Romeo_2600_Sprint_1962",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91974,7 +93686,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 99,
       "acel": 13.4,
       "hand": 69,
@@ -91983,7 +93695,13 @@
       "mra": null,
       "weight": 1110,
       "name": "Audi 100 Avant (C2)",
-      "rid": "Audi_100_Avant_C2_1977"
+      "rid": "Audi_100_Avant_C2_1977",
+      "bodyTypes": [
+        "Wagon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -91995,7 +93713,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "DE",
       "topSpeed": 95,
       "acel": 12.6,
       "hand": 65,
@@ -92004,7 +93722,13 @@
       "mra": null,
       "weight": 720,
       "name": "Audi 50",
-      "rid": "Audi_50_1974"
+      "rid": "Audi_50_1974",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92016,7 +93740,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 99,
       "acel": 11.7,
       "hand": 75,
@@ -92025,7 +93749,13 @@
       "mra": null,
       "weight": 700,
       "name": "Fiat Autobianchi A112 Abarth",
-      "rid": "Fiat_Autobianchi_A112_Abarth_1982"
+      "rid": "Fiat_Autobianchi_A112_Abarth_1982",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92037,7 +93767,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 101,
       "acel": 12.9,
       "hand": 64,
@@ -92046,7 +93776,13 @@
       "mra": null,
       "weight": 1133,
       "name": "Lancia Aurelia B20 GT",
-      "rid": "Lancia_Aurelia_B20_GT_1951"
+      "rid": "Lancia_Aurelia_B20_GT_1951",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92058,7 +93794,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 110,
       "acel": 10.2,
       "hand": 71,
@@ -92067,7 +93803,13 @@
       "mra": null,
       "weight": 970,
       "name": "Alfa Romeo Junior Z",
-      "rid": "Alfa_Romeo_Junior_Z_1969"
+      "rid": "Alfa_Romeo_Junior_Z_1969",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92079,7 +93821,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 118,
       "acel": 10.5,
       "hand": 62,
@@ -92089,7 +93831,13 @@
       "weight": 385,
       "name": "Fiat Abarth 750 record car",
       "rid": "Fiat_Abarth_750_record_car_1956",
-      "prize": true
+      "prize": true,
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "F",
@@ -92101,7 +93849,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 89,
       "acel": 13.4,
       "hand": 74,
@@ -92110,7 +93858,13 @@
       "mra": null,
       "weight": 735,
       "name": "Fiat Seicento Sporting Abarth",
-      "rid": "Fiat_Seicento_Sporting_Abarth_2001"
+      "rid": "Fiat_Seicento_Sporting_Abarth_2001",
+      "bodyTypes": [
+        "Hatchback"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92122,7 +93876,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 106,
       "acel": 11.1,
       "hand": 69,
@@ -92131,7 +93885,13 @@
       "mra": null,
       "weight": 930,
       "name": "Alfa Romeo Giulia GT 1300 Junior",
-      "rid": "Alfa_Romeo_Giulia_GT_1300_Junior_1966"
+      "rid": "Alfa_Romeo_Giulia_GT_1300_Junior_1966",
+      "bodyTypes": [
+        "Coupe"
+    ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92143,7 +93903,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 103,
       "acel": 12.2,
       "hand": 67,
@@ -92152,7 +93912,13 @@
       "mra": null,
       "weight": 1010,
       "name": "Alfa Romeo Giulia 1300 Super",
-      "rid": "Alfa_Romeo_Giulia_1300_Super_1970"
+      "rid": "Alfa_Romeo_Giulia_1300_Super_1970",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92164,7 +93930,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Mid",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 109,
       "acel": 12,
       "hand": 67,
@@ -92173,7 +93939,13 @@
       "mra": null,
       "weight": 1010,
       "name": "Alfa Romeo Giulia Nuova Super 1600",
-      "rid": "Alfa_Romeo_Giulia_Nuova_Super_1600_1974"
+      "rid": "Alfa_Romeo_Giulia_Nuova_Super_1600_1974",
+      "bodyTypes": [
+        "Saloon"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92185,7 +93957,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "High",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 65,
       "acel": 20,
       "hand": 45,
@@ -92194,7 +93966,13 @@
       "mra": null,
       "weight": 1250,
       "name": "Alfa Romeo Matta",
-      "rid": "Alfa_Romeo_Matta_1952"
+      "rid": "Alfa_Romeo_Matta_1952",
+      "bodyTypes": [
+        "Suv"
+    ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -92206,7 +93984,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "XXX",
+      "country": "IT",
       "topSpeed": 90,
       "acel": 18.2,
       "hand": 63,
@@ -92215,6 +93993,12 @@
       "mra": null,
       "weight": 735,
       "name": "Fiat 850 Spider",
-      "rid": "Fiat_850_Spider_1965"
+      "rid": "Fiat_850_Spider_1965",
+      "bodyTypes": [
+        "Roadster"
+    ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
   }
 ]
