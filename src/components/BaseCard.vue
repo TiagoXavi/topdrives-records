@@ -31,7 +31,7 @@
       </div>
       <div class="Car_HeaderToolsBack" />
       <div class="Car_HeaderBlockRQ">
-        <div class="Car_HeaderRQValue">{{ car.rq }}</div>
+        <div class="Car_HeaderRQValue">{{ resolvedRq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
       </div>
       <div class="Car_HeaderBlockClass">
@@ -169,6 +169,13 @@ export default {
       }
       return parsed ? parsed : ''
     },
+    resolvedRq() {
+      if (this.car && this.car.selectedTune && this.car.selectedTune.substr(0,3) === 'v15') {
+        return Vue.getOldCar(this.car.rid).rq;
+      } else {
+        return this.car.rq
+      }
+    }
   },
   methods: {
     invertedClick(e) {

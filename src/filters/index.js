@@ -3,6 +3,7 @@ import {
     toTimeNumber,
     clearNumber,
 } from './formatters.js';
+import plOld from '../database/cars_final_PL15.json'
 
 export default {
     install(Vue) {
@@ -138,6 +139,14 @@ export default {
                 return result;
             }
         },
+        Vue.getOldCar = function (rid) {
+            let car = plOld.find(x => x.rid === rid);
+            if (car) {
+                return car;
+            } else {
+                return {}
+            }
+        },
 
 
         Vue.filter('toTimeString', toTimeString);
@@ -150,5 +159,6 @@ export default {
         Vue.filter('mra', Vue.mra);
         Vue.filter('brake', Vue.brake);
         Vue.filter('resolveCond', Vue.resolveCond);
+        Vue.filter('resolveCond', Vue.getOldCar);
     }
 };
