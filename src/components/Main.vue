@@ -2291,6 +2291,7 @@ export default {
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         engineModel: [],
         tags: [
+          "Amalfi Coast Cruising",
           "American Dream",
           "American Frontier",
           "Around the World",
@@ -2299,6 +2300,7 @@ export default {
           "Concept",
           "Drivers Choice",
           "Eco Friendly",
+          "Enter the Black Forest",
           "European Revolution",
           "Famous Tracks",
           "French Renaissance",

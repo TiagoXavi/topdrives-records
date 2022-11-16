@@ -86192,11 +86192,15 @@
       "rid": "Audi_R18_2016",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86220,11 +86224,15 @@
       "rid": "Porsche_919_Hybrid_Evo_2018",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Hybrid",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86248,11 +86256,15 @@
       "rid": "Audi_R18_TDI_Ultra_2011",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86276,11 +86288,16 @@
       "rid": "Pagani_Huayra_R_2021",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Ultra Expensive",
+          "Hypercar"
+      ]
   },
   {
       "class": "S",
@@ -86304,11 +86321,15 @@
       "rid": "Audi_S1_EKS_RX_quattro_8X_2018",
       "prize": true,
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86332,11 +86353,15 @@
       "rid": "Porsche_RS_Spyder_Evo_2008",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86359,11 +86384,15 @@
       "name": "Audi R8 LMS GT3",
       "rid": "Audi_R8_LMS_GT3_2018",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86387,11 +86416,15 @@
       "rid": "Pagani_Imola_2020",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hypercar"
+      ]
   },
   {
       "class": "S",
@@ -86414,11 +86447,14 @@
       "name": "Porsche 911 Turbo S 3.8 (991.2)",
       "rid": "Porsche_911_Turbo_S_38_9912_2016",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86441,11 +86477,15 @@
       "name": "Pagani Huayra Tricolore",
       "rid": "Pagani_Huayra_Tricolore_2020",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hypercar"
+      ]
   },
   {
       "class": "S",
@@ -86469,11 +86509,14 @@
       "rid": "BMW_760Li_xDrive_Shining_Shadow_Special_Edition_2021",
       "prize": true,
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86497,11 +86540,15 @@
       "rid": "BMW_M5_CS_2021",
       "prize": true,
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "S",
@@ -86524,11 +86571,14 @@
       "name": "BMW M8 Competition Coupe",
       "rid": "BMW_M8_Competition_Coupe_2019",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86551,11 +86601,15 @@
       "name": "Pagani Huayra Roadster BC",
       "rid": "Pagani_Huayra_Roadster_BC_2019",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hypercar"
+      ]
   },
   {
       "class": "S",
@@ -86579,11 +86633,15 @@
       "rid": "Porsche_911_GT198_1998",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86606,11 +86664,15 @@
       "name": "Audi R8 V10",
       "rid": "Audi_R8_V10_2018",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -86634,11 +86696,15 @@
       "rid": "Alfa_Romeo_Coloni_S1_156_2001",
       "prize": true,
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86661,11 +86727,15 @@
       "name": "Audi R8 V10 Plus Spyder",
       "rid": "Audi_R8_V10_Plus_Spyder_2018",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -86689,11 +86759,15 @@
       "rid": "Lancia_LC1_Spider_1982",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86716,11 +86790,15 @@
       "name": "Porsche 911 GT3 Cup (992)",
       "rid": "Porsche_911_GT3_Cup_992_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86744,11 +86822,15 @@
       "rid": "Alfa_Romeo_177_1978",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86771,11 +86853,15 @@
       "name": "Audi A5 DTM",
       "rid": "Audi_A5_DTM_2012",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86798,11 +86884,14 @@
       "name": "BMW 750i xDrive",
       "rid": "BMW_750i_xDrive_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86825,11 +86914,14 @@
       "name": "BMW M3 Competition M xDrive Saloon",
       "rid": "BMW_M3_Competition_M_xDrive_Saloon_2021",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86852,11 +86944,14 @@
       "name": "BMW M4 Competition M xDrive Coupe",
       "rid": "BMW_M4_Competition_M_xDrive_Coupe_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86879,11 +86974,14 @@
       "name": "BMW M8 Competition Convertible",
       "rid": "BMW_M8_Competition_Convertible_2019",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -86906,11 +87004,15 @@
       "name": "Porsche 911 GT3 RSR (997)",
       "rid": "Porsche_911_GT3_RSR_997_2007",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86934,11 +87036,15 @@
       "rid": "Alfa_Romeo_Tipo_33_TT12_1974",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -86961,11 +87067,15 @@
       "name": "Pagani Zonda HP Barchetta",
       "rid": "Pagani_Zonda_HP_Barchetta_2017",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Wild Ride"
+      ]
   },
   {
       "class": "S",
@@ -86988,11 +87098,15 @@
       "name": "Alfa Romeo TZ3 Corsa",
       "rid": "Alfa_Romeo_TZ3_Corsa_2010",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "S",
@@ -87015,11 +87129,15 @@
       "name": "BMW 545e xDrive Saloon",
       "rid": "BMW_545e_xDrive_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "S",
@@ -87042,11 +87160,14 @@
       "name": "Porsche Panamera Turbo S 4.8 (970)",
       "rid": "Porsche_Panamera_Turbo_S_48_970_2011",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -87069,11 +87190,15 @@
       "name": "Pagani Zonda Cinque",
       "rid": "Pagani_Zonda_Cinque_2009",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87096,11 +87221,15 @@
       "name": "Pagani Zonda F Clubsport",
       "rid": "Pagani_Zonda_F_Clubsport_2005",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87123,11 +87252,15 @@
       "name": "Pagani Zonda Tricolore",
       "rid": "Pagani_Zonda_Tricolore_2010",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87150,11 +87283,15 @@
       "name": "Porsche 911 GT3 (992)",
       "rid": "Porsche_911_GT3_992_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "S",
@@ -87177,11 +87314,14 @@
       "name": "Audi A8 L W12 6.3FSI quattro (D4)",
       "rid": "Audi_A8_L_W12_63FSI_quattro_D4_2012",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -87204,11 +87344,15 @@
       "name": "Audi R8 5.2 FSI quattro",
       "rid": "Audi_R8_52_FSI_quattro_2010",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87231,11 +87375,15 @@
       "name": "Pagani Zonda Roadster F",
       "rid": "Pagani_Zonda_Roadster_F_2005",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87258,11 +87406,15 @@
       "name": "Porsche 718 Cayman GT4 RS",
       "rid": "Porsche_718_Cayman_GT4_RS_2022",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "S",
@@ -87285,11 +87437,15 @@
       "name": "Porsche 911 GT1-98 Strassenversion",
       "rid": "Porsche_911_GT198_Strassenversion_1998",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Ultra Expensive"
+      ]
   },
   {
       "class": "S",
@@ -87313,11 +87469,15 @@
       "rid": "Alfa_Romeo_155_V6_TI_DTM_1993",
       "prize": true,
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -87340,11 +87500,15 @@
       "name": "Porsche 911 GT1 Strassenversion (993)",
       "rid": "Porsche_911_GT1_Strassenversion_993_1996",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Ultra Expensive"
+      ]
   },
   {
       "class": "S",
@@ -87367,11 +87531,15 @@
       "name": "BMW 745Le xDrive",
       "rid": "BMW_745Le_xDrive_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "S",
@@ -87394,11 +87562,15 @@
       "name": "Pagani Zonda Roadster",
       "rid": "Pagani_Zonda_Roadster_2003",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87421,11 +87593,14 @@
       "name": "Porsche 911 GTS (992)",
       "rid": "Porsche_911_GTS_992_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -87448,11 +87623,15 @@
       "name": "Alfa Romeo 155 GTA Superturismo",
       "rid": "Alfa_Romeo_155_GTA_Superturismo_1992",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "S",
@@ -87475,11 +87654,15 @@
       "name": "Audi R8 RWS",
       "rid": "Audi_R8_RWS_2018",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Supercar"
+      ]
   },
   {
       "class": "S",
@@ -87502,11 +87685,14 @@
       "name": "BMW 330d xDrive Saloon",
       "rid": "BMW_330d_xDrive_Saloon_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -87529,11 +87715,14 @@
       "name": "Porsche Panamera GTS Sport Turismo 4.0 (971)",
       "rid": "Porsche_Panamera_GTS_Sport_Turismo_40_971_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87556,11 +87745,15 @@
       "name": "Alfa Romeo TZ3 Stradale",
       "rid": "Alfa_Romeo_TZ3_Stradale_2011",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -87583,11 +87776,14 @@
       "name": "Audi RS 4 Avant (B9)",
       "rid": "Audi_RS_4_Avant_B9_2018",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87610,11 +87806,14 @@
       "name": "BMW 330d xDrive Touring",
       "rid": "BMW_330d_xDrive_Touring_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87638,11 +87837,14 @@
       "rid": "BMW_X6_M50i_Black_Vermilion_2021",
       "prize": true,
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87666,11 +87868,15 @@
       "rid": "Lancia_Delta_1600_HF_4WD_Group_A_1987",
       "prize": true,
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "A",
@@ -87693,11 +87899,14 @@
       "name": "Porsche Taycan GTS",
       "rid": "Porsche_Taycan_GTS_2022",
       "bodyTypes": [
-        "Saloon"
-    ],
-      "fuel": "Electro",
+          "Saloon"
+      ],
+      "fuel": "Electric",
       "seats": "4",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87720,11 +87929,15 @@
       "name": "Alfa Romeo Giulia GTAm",
       "rid": "Alfa_Romeo_Giulia_GTAm_2021",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "A",
@@ -87747,11 +87960,14 @@
       "name": "Audi RS3 Sportback (8V)",
       "rid": "Audi_RS3_Sportback_8V_2018",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87774,11 +87990,15 @@
       "name": "BMW i4 M50",
       "rid": "BMW_i4_M50_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
-      "fuel": "Electro",
+          "Coupe"
+      ],
+      "fuel": "Electric",
       "seats": "4",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -87801,11 +88021,15 @@
       "name": "BMW iX M60",
       "rid": "BMW_iX_M60_2022",
       "bodyTypes": [
-        "Suv"
-    ],
-      "fuel": "Electro",
+          "Suv"
+      ],
+      "fuel": "Electric",
       "seats": "5",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -87828,11 +88052,14 @@
       "name": "BMW X2 M35i",
       "rid": "BMW_X2_M35i_2019",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87855,11 +88082,14 @@
       "name": "Audi RS Q3 Sportback (F3)",
       "rid": "Audi_RS_Q3_Sportback_F3_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87882,11 +88112,14 @@
       "name": "BMW 530d xDrive Saloon",
       "rid": "BMW_530d_xDrive_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87909,11 +88142,15 @@
       "name": "Porsche 911 RSR 3.8 (964)",
       "rid": "Porsche_911_RSR_38_964_1993",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "A",
@@ -87936,11 +88173,14 @@
       "name": "Audi A5 Coupe 45 TFSI quattro",
       "rid": "Audi_A5_Coupe_45_TFSI_quattro_2018",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87963,11 +88203,14 @@
       "name": "Audi S7 (C8)",
       "rid": "Audi_S7_C8_2019",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -87990,11 +88233,14 @@
       "name": "BMW 530d xDrive Touring",
       "rid": "BMW_530d_xDrive_Touring_2020",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88017,11 +88263,14 @@
       "name": "BMW 740Ld xDrive",
       "rid": "BMW_740Ld_xDrive_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88044,11 +88293,14 @@
       "name": "BMW M3 Competition Saloon",
       "rid": "BMW_M3_Competition_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88071,11 +88323,14 @@
       "name": "BMW M4 Competition Coupe",
       "rid": "BMW_M4_Competition_Coupe_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88098,11 +88353,14 @@
       "name": "BMW M550i xDrive Saloon",
       "rid": "BMW_M550i_xDrive_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88125,11 +88383,14 @@
       "name": "Audi A6 Avant 3.0 TFSI quattro (C7)",
       "rid": "Audi_A6_Avant_30_TFSI_quattro_C7_2011",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88152,11 +88413,14 @@
       "name": "BMW M340i xDrive Saloon",
       "rid": "BMW_M340i_xDrive_Saloon_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88180,11 +88444,14 @@
       "rid": "Mini_Countryman_John_Cooper_Works_2020",
       "prize": true,
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88207,11 +88474,14 @@
       "name": "Audi S4 Avant TDI (B9)",
       "rid": "Audi_S4_Avant_TDI_B9_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88234,11 +88504,14 @@
       "name": "Audi S7 Sportback (C7)",
       "rid": "Audi_S7_Sportback_C7_2012",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88261,11 +88534,15 @@
       "name": "BMW 330e xDrive Saloon",
       "rid": "BMW_330e_xDrive_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -88288,11 +88565,14 @@
       "name": "BMW 730d xDrive",
       "rid": "BMW_730d_xDrive_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88315,11 +88595,15 @@
       "name": "BMW M135i xDrive",
       "rid": "BMW_M135i_xDrive_2019",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "A",
@@ -88342,11 +88626,15 @@
       "name": "BMW M2 CS",
       "rid": "BMW_M2_CS_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "A",
@@ -88369,11 +88657,14 @@
       "name": "BMW M340i xDrive Touring",
       "rid": "BMW_M340i_xDrive_Touring_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88396,11 +88687,15 @@
       "name": "Alfa Romeo Pandion",
       "rid": "Alfa_Romeo_Pandion_2010",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -88423,11 +88718,15 @@
       "name": "Audi R8 Spyder 4.2 FSI quattro",
       "rid": "Audi_R8_Spyder_42_FSI_quattro_2011",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Supercar"
+      ]
   },
   {
       "class": "A",
@@ -88450,11 +88749,14 @@
       "name": "BMW M440i xDrive Coupe",
       "rid": "BMW_M440i_xDrive_Coupe_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88478,11 +88780,14 @@
       "rid": "BMW_M5_30_Jahre_Edition_2014",
       "prize": true,
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88505,11 +88810,14 @@
       "name": "Porsche 718 Cayman GTS 4.0 (982)",
       "rid": "Porsche_718_Cayman_GTS_40_982_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88532,11 +88840,14 @@
       "name": "BMW X7 M50i Dark Shadow Edition",
       "rid": "BMW_X7_M50i_Dark_Shadow_Edition_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "7",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88559,11 +88870,15 @@
       "name": "Alfa Romeo 156 GTA Super 2000",
       "rid": "Alfa_Romeo_156_GTA_Super_2000_2002",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "A",
@@ -88586,11 +88901,14 @@
       "name": "BMW M550d xDrive Saloon",
       "rid": "BMW_M550d_xDrive_Saloon_2017",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88613,11 +88931,14 @@
       "name": "BMW X6 xDrive40i",
       "rid": "BMW_X6_xDrive40i_2019",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88640,11 +88961,14 @@
       "name": "Mini John Cooper Works Clubman",
       "rid": "Mini_John_Cooper_Works_Clubman_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88667,11 +88991,15 @@
       "name": "BMW 530e xDrive Touring",
       "rid": "BMW_530e_xDrive_Touring_2020",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -88694,11 +89022,15 @@
       "name": "BMW iX xDrive50",
       "rid": "BMW_iX_xDrive50_2021",
       "bodyTypes": [
-        "Suv"
-    ],
-      "fuel": "Electro",
+          "Suv"
+      ],
+      "fuel": "Electric",
       "seats": "5",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -88721,11 +89053,14 @@
       "name": "BMW 330i Saloon",
       "rid": "BMW_330i_Saloon_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88748,11 +89083,14 @@
       "name": "BMW X5 xDrive40d",
       "rid": "BMW_X5_xDrive40d_2019",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88775,11 +89113,15 @@
       "name": "Porsche 911 GT3 3.6 (996.2)",
       "rid": "Porsche_911_GT3_36_9962_2004",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Drivers Choice"
+      ]
   },
   {
       "class": "A",
@@ -88802,11 +89144,14 @@
       "name": "Porsche 911 Speedster 3.8 (997.2)",
       "rid": "Porsche_911_Speedster_38_9972_2011",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88829,11 +89174,15 @@
       "name": "Alfa Romeo BAT 11",
       "rid": "Alfa_Romeo_BAT_11_2008",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -88856,11 +89205,14 @@
       "name": "Audi A5 Cabriolet 45 TFSI quattro",
       "rid": "Audi_A5_Cabriolet_45_TFSI_quattro_2018",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88883,11 +89235,14 @@
       "name": "Audi S5 (B8.5)",
       "rid": "Audi_S5_B85_2013",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88910,11 +89265,14 @@
       "name": "BMW M340d xDrive Saloon",
       "rid": "BMW_M340d_xDrive_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88937,11 +89295,14 @@
       "name": "BMW M440d xDrive Coupe",
       "rid": "BMW_M440d_xDrive_Coupe_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Diesel",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88964,11 +89325,14 @@
       "name": "BMW M550d xDrive Touring",
       "rid": "BMW_M550d_xDrive_Touring_2017",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -88991,11 +89355,15 @@
       "name": "BMW X5 xDrive45e",
       "rid": "BMW_X5_xDrive45e_2019",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -89018,11 +89386,14 @@
       "name": "BMW X7 M50d",
       "rid": "BMW_X7_M50d_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "7",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89045,11 +89416,14 @@
       "name": "Alfa Romeo Disco Volante Spyder",
       "rid": "Alfa_Romeo_Disco_Volante_Spyder_2016",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "A",
@@ -89072,11 +89446,14 @@
       "name": "Audi Q8 50 TDI",
       "rid": "Audi_Q8_50_TDI_2018",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89099,11 +89476,14 @@
       "name": "Audi RS6 Avant (C5)",
       "rid": "Audi_RS6_Avant_C5_2004",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89126,11 +89506,14 @@
       "name": "BMW 330i Touring",
       "rid": "BMW_330i_Touring_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89153,11 +89536,14 @@
       "name": "BMW 840d xDrive Convertible",
       "rid": "BMW_840d_xDrive_Convertible_2019",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Diesel",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89180,11 +89566,15 @@
       "name": "Fiat Abarth 131 Mirafiori Evoluzione",
       "rid": "Fiat_Abarth_131_Mirafiori_Evoluzione_1975",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "A",
@@ -89207,11 +89597,15 @@
       "name": "Alfa Romeo 4C Concept",
       "rid": "Alfa_Romeo_4C_Concept_2011",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -89234,11 +89628,15 @@
       "name": "Alfa Romeo Issima",
       "rid": "Alfa_Romeo_Issima_1996",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -89261,11 +89659,14 @@
       "name": "Audi A4 allroad 2.0 TFSI quattro (B9)",
       "rid": "Audi_A4_allroad_20_TFSI_quattro_B9_2018",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89288,11 +89689,14 @@
       "name": "BMW 320d xDrive Saloon",
       "rid": "BMW_320d_xDrive_Saloon_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89315,11 +89719,14 @@
       "name": "BMW M340d xDrive Touring",
       "rid": "BMW_M340d_xDrive_Touring_2020",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89342,11 +89749,14 @@
       "name": "BMW M440i xDrive Convertible",
       "rid": "BMW_M440i_xDrive_Convertible_2020",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89369,11 +89779,14 @@
       "name": "Mini Countryman Cooper S ALL4 Boardwalk",
       "rid": "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89396,11 +89809,14 @@
       "name": "Porsche 911 Carrera 2 3.6 (997.2)",
       "rid": "Porsche_911_Carrera_2_36_9972_2009",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89423,11 +89839,15 @@
       "name": "Alfa Romeo 1750 GTAm",
       "rid": "Alfa_Romeo_1750_GTAm_1970",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "A",
@@ -89450,11 +89870,15 @@
       "name": "Alfa Romeo Brera Concept",
       "rid": "Alfa_Romeo_Brera_Concept_2002",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "A",
@@ -89477,11 +89901,14 @@
       "name": "Audi S3 Cabriolet (8V)",
       "rid": "Audi_S3_Cabriolet_8V_2018",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89504,11 +89931,14 @@
       "name": "Audi S6 (C6)",
       "rid": "Audi_S6_C6_2006",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89531,11 +89961,14 @@
       "name": "Porsche 911 Carrera Cabriolet 3.4 (991)",
       "rid": "Porsche_911_Carrera_Cabriolet_34_991_2011",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -89558,11 +89991,14 @@
       "name": "Porsche 911 Turbo S 3.6 Flachbau (964)",
       "rid": "Porsche_911_Turbo_S_36_Flachbau_964_1993",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89585,11 +90021,14 @@
       "name": "Alfa Romeo 4C Spider",
       "rid": "Alfa_Romeo_4C_Spider_2015",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "B",
@@ -89612,11 +90051,14 @@
       "name": "Mini Countryman Cooper SD ALL4",
       "rid": "Mini_Countryman_Cooper_SD_ALL4_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89639,11 +90081,15 @@
       "name": "Mini Countryman PHEV",
       "rid": "Mini_Countryman_PHEV_2020",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "B",
@@ -89666,11 +90112,14 @@
       "name": "Porsche Cayman R 3.4 (987.2)",
       "rid": "Porsche_Cayman_R_34_9872_2011",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89693,11 +90142,14 @@
       "name": "Audi Q7 3.0 TDI",
       "rid": "Audi_Q7_30_TDI_2018",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "7",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89720,11 +90172,15 @@
       "name": "BMW 530e Saloon",
       "rid": "BMW_530e_Saloon_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "B",
@@ -89747,11 +90203,14 @@
       "name": "BMW 760i",
       "rid": "BMW_760i_2002",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89774,11 +90233,14 @@
       "name": "BMW M235i xDrive Gran Coupe",
       "rid": "BMW_M235i_xDrive_Gran_Coupe_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89801,11 +90263,14 @@
       "name": "Porsche 911 Carrera 2 Cabriolet 3.6 (997.2)",
       "rid": "Porsche_911_Carrera_2_Cabriolet_36_9972_2009",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89828,11 +90293,15 @@
       "name": "Alfa Romeo Giulietta TCR",
       "rid": "Alfa_Romeo_Giulietta_TCR_2016",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -89855,11 +90324,15 @@
       "name": "BMW 330e Touring",
       "rid": "BMW_330e_Touring_2020",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "B",
@@ -89882,11 +90355,14 @@
       "name": "BMW 420i xDrive Coupe",
       "rid": "BMW_420i_xDrive_Coupe_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89909,11 +90385,15 @@
       "name": "BMW iX xDrive40",
       "rid": "BMW_iX_xDrive40_2021",
       "bodyTypes": [
-        "Suv"
-    ],
-      "fuel": "Electro",
+          "Suv"
+      ],
+      "fuel": "Electric",
       "seats": "5",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "B",
@@ -89936,11 +90416,15 @@
       "name": "Mini John Cooper Works GP",
       "rid": "Mini_John_Cooper_Works_GP_2020",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "B",
@@ -89963,11 +90447,14 @@
       "name": "Porsche Cayenne Diesel 3.0 (958)",
       "rid": "Porsche_Cayenne_Diesel_30_958_2010",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -89991,11 +90478,15 @@
       "rid": "Alfa_Romeo_159_Alfetta_1951",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90019,11 +90510,15 @@
       "rid": "Alfa_Romeo_Tipo_512_1940",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "B",
@@ -90046,11 +90541,15 @@
       "name": "Fiat Abarth X1/9 Prototipo",
       "rid": "Fiat_Abarth_X19_Prototipo_1974",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90073,11 +90572,14 @@
       "name": "Lancia Hyena",
       "rid": "Lancia_Hyena_1992",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "B",
@@ -90100,11 +90602,14 @@
       "name": "Audi allroad quattro 4.2 (C5)",
       "rid": "Audi_allroad_quattro_42_C5_2000",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90127,11 +90632,14 @@
       "name": "BMW 120d xDrive",
       "rid": "BMW_120d_xDrive_2019",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90154,11 +90662,14 @@
       "name": "BMW 520d xDrive Touring",
       "rid": "BMW_520d_xDrive_Touring_2020",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90181,11 +90692,14 @@
       "name": "BMW Z4 M40i 3.0i",
       "rid": "BMW_Z4_M40i_30i_2019",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90209,11 +90723,15 @@
       "rid": "Lancia_D50_1954",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90236,11 +90754,15 @@
       "name": "Porsche Panamericana",
       "rid": "Porsche_Panamericana_1989",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Concept"
+      ]
   },
   {
       "class": "B",
@@ -90263,11 +90785,14 @@
       "name": "BMW 840i Gran Coupe",
       "rid": "BMW_840i_Gran_Coupe_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90290,11 +90815,15 @@
       "name": "BMW i4 eDrive40",
       "rid": "BMW_i4_eDrive40_2021",
       "bodyTypes": [
-        "Coupe"
-    ],
-      "fuel": "Electro",
+          "Coupe"
+      ],
+      "fuel": "Electric",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "B",
@@ -90317,11 +90846,14 @@
       "name": "Audi Q5 2.0 TDI",
       "rid": "Audi_Q5_20_TDI_2018",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90344,11 +90876,15 @@
       "name": "Fiat Abarth 695 Biposto R",
       "rid": "Fiat_Abarth_695_Biposto_R_2015",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90371,11 +90907,15 @@
       "name": "Alfa Romeo Nuvola",
       "rid": "Alfa_Romeo_Nuvola_1996",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "B",
@@ -90398,11 +90938,14 @@
       "name": "Audi A3 Saloon 2.0 TDI quattro (8V)",
       "rid": "Audi_A3_Saloon_20_TDI_quattro_8V_2018",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90425,11 +90968,14 @@
       "name": "BMW 550i",
       "rid": "BMW_550i_2005",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90452,11 +90998,14 @@
       "name": "Porsche Boxster RS60 Spyder (987)",
       "rid": "Porsche_Boxster_RS60_Spyder_987_2007",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90480,11 +91029,15 @@
       "rid": "Alfa_Romeo_Tipo_C_Bimotore_1935",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90507,11 +91060,14 @@
       "name": "Porsche Boxster S 3.2 (987)",
       "rid": "Porsche_Boxster_S_32_987_2005",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90534,11 +91090,16 @@
       "name": "Alfa Romeo 155 GTA Stradale",
       "rid": "Alfa_Romeo_155_GTA_Stradale_1992",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Team Favourite",
+          "Concept"
+      ]
   },
   {
       "class": "B",
@@ -90561,11 +91122,15 @@
       "name": "Fiat Abarth 500 R3T",
       "rid": "Fiat_Abarth_500_R3T_2009",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90588,11 +91153,15 @@
       "name": "Mini John Cooper Works",
       "rid": "Mini_John_Cooper_Works_2021",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "B",
@@ -90615,11 +91184,15 @@
       "name": "Alfa Romeo Giulia TZ2",
       "rid": "Alfa_Romeo_Giulia_TZ2_1965",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90642,11 +91215,14 @@
       "name": "BMW 430i Coupe",
       "rid": "BMW_430i_Coupe_2020",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90669,11 +91245,15 @@
       "name": "Porsche 904 Carrera GTS",
       "rid": "Porsche_904_Carrera_GTS_1963",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90696,11 +91276,14 @@
       "name": "Audi A3 Sportback (8V)",
       "rid": "Audi_A3_Sportback_8V_2018",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90723,11 +91306,14 @@
       "name": "Audi A4 Saloon 2.0 TDI quattro (B9)",
       "rid": "Audi_A4_Saloon_20_TDI_quattro_B9_2018",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90750,11 +91336,14 @@
       "name": "Audi S2 Avant (B4)",
       "rid": "Audi_S2_Avant_B4_1991",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90777,11 +91366,14 @@
       "name": "Alfa Romeo 159 3.2 V6 Q4",
       "rid": "Alfa_Romeo_159_32_V6_Q4_2005",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "B",
@@ -90804,11 +91396,15 @@
       "name": "Alfa Romeo GTV Cup",
       "rid": "Alfa_Romeo_GTV_Cup_1999",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90831,11 +91427,15 @@
       "name": "Alfa Romeo Visconti",
       "rid": "Alfa_Romeo_Visconti_2004",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "B",
@@ -90858,11 +91458,15 @@
       "name": "BMW 128ti",
       "rid": "BMW_128ti_2020",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "B",
@@ -90885,11 +91489,15 @@
       "name": "Alfa Romeo 147 GTA Cup",
       "rid": "Alfa_Romeo_147_GTA_Cup_2003",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "B",
@@ -90912,11 +91520,14 @@
       "name": "BMW 320d Touring",
       "rid": "BMW_320d_Touring_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90939,11 +91550,14 @@
       "name": "BMW 320i Touring",
       "rid": "BMW_320i_Touring_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "B",
@@ -90966,11 +91580,14 @@
       "name": "BMW Z4 sDrive30i",
       "rid": "BMW_Z4_sDrive30i_2019",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -90993,11 +91610,15 @@
       "name": "Alfa Romeo P33 Roadster",
       "rid": "Alfa_Romeo_P33_Roadster_1968",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91020,11 +91641,15 @@
       "name": "Lancia Fulvia Coupe 1.6 HF Group 4",
       "rid": "Lancia_Fulvia_Coupe_16_HF_Group_4_1967",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "C",
@@ -91047,11 +91672,14 @@
       "name": "Lancia Thema Turbo 16v",
       "rid": "Lancia_Thema_Turbo_16v_1989",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91074,11 +91702,14 @@
       "name": "Porsche Taycan",
       "rid": "Porsche_Taycan_2020",
       "bodyTypes": [
-        "Saloon"
-    ],
-      "fuel": "Electro",
+          "Saloon"
+      ],
+      "fuel": "Electric",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91101,11 +91732,14 @@
       "name": "Alfa Romeo 164 Q4",
       "rid": "Alfa_Romeo_164_Q4_1994",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91128,11 +91762,15 @@
       "name": "Alfa Romeo 33/2 Coupe Speciale",
       "rid": "Alfa_Romeo_332_Coupe_Speciale_1969",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91155,11 +91793,15 @@
       "name": "Alfa Romeo Iguana",
       "rid": "Alfa_Romeo_Iguana_1969",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91182,11 +91824,14 @@
       "name": "BMW 525i",
       "rid": "BMW_525i_2000",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91209,11 +91854,14 @@
       "name": "BMW 530d",
       "rid": "BMW_530d_2000",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91236,11 +91884,14 @@
       "name": "Alfa Romeo 156 GTA Sportwagon",
       "rid": "Alfa_Romeo_156_GTA_Sportwagon_2002",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91263,11 +91914,14 @@
       "name": "Alfa Romeo 159 Sportswagon 3.2 V6 Q4",
       "rid": "Alfa_Romeo_159_Sportswagon_32_V6_Q4_2006",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91290,11 +91944,14 @@
       "name": "Alfa Romeo Brera 3.2 V6 Q4",
       "rid": "Alfa_Romeo_Brera_32_V6_Q4_2005",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91317,11 +91974,14 @@
       "name": "Audi 100 S4 (C4)",
       "rid": "Audi_100_S4_C4_1991",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91344,11 +92004,14 @@
       "name": "BMW 220d Gran Coupe",
       "rid": "BMW_220d_Gran_Coupe_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91371,11 +92034,14 @@
       "name": "BMW 220i Gran Coupe",
       "rid": "BMW_220i_Gran_Coupe_2019",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91398,11 +92064,15 @@
       "name": "Fiat 124 Abarth Rally",
       "rid": "Fiat_124_Abarth_Rally_1972",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "C",
@@ -91425,11 +92095,15 @@
       "name": "Mini Cooper S",
       "rid": "Mini_Cooper_S_2021",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "C",
@@ -91452,11 +92126,15 @@
       "name": "Alfa Romeo 2uettottanta",
       "rid": "Alfa_Romeo_2uettottanta_2010",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91479,11 +92157,15 @@
       "name": "Alfa Romeo Sprint 6C",
       "rid": "Alfa_Romeo_Sprint_6C_1982",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91506,11 +92188,14 @@
       "name": "Audi S8 (D2)",
       "rid": "Audi_S8_D2_1997",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91533,11 +92218,14 @@
       "name": "BMW 430i Convertible",
       "rid": "BMW_430i_Convertible_2020",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91560,11 +92248,15 @@
       "name": "Alfa Romeo Giulietta Quadrifoglio Verde",
       "rid": "Alfa_Romeo_Giulietta_Quadrifoglio_Verde_2010",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "C",
@@ -91587,11 +92279,15 @@
       "name": "Audi A1 40 TFSI (GB)",
       "rid": "Audi_A1_40_TFSI_GB_2018",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "C",
@@ -91614,11 +92310,14 @@
       "name": "BMW 523i",
       "rid": "BMW_523i_1996",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91641,11 +92340,14 @@
       "name": "BMW 635d",
       "rid": "BMW_635d_2006",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Diesel",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91668,11 +92370,14 @@
       "name": "BMW 740i",
       "rid": "BMW_740i_1992",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91695,11 +92400,14 @@
       "name": "Mini Convertible John Cooper Works",
       "rid": "Mini_Convertible_John_Cooper_Works_2021",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91722,11 +92430,15 @@
       "name": "Porsche Boxster Concept",
       "rid": "Porsche_Boxster_Concept_1993",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91749,11 +92461,14 @@
       "name": "Alfa Romeo GTV 3.2 V6",
       "rid": "Alfa_Romeo_GTV_32_V6_2003",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91776,11 +92491,15 @@
       "name": "BMW iX3 Premier Edition",
       "rid": "BMW_iX3_Premier_Edition_2021",
       "bodyTypes": [
-        "Suv"
-    ],
-      "fuel": "Electro",
+          "Suv"
+      ],
+      "fuel": "Electric",
       "seats": "5",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "C",
@@ -91803,11 +92522,14 @@
       "name": "BMW X5 3.0d",
       "rid": "BMW_X5_30d_2001",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91830,11 +92552,14 @@
       "name": "Fiat Abarth 124 GT",
       "rid": "Fiat_Abarth_124_GT_2018",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -91857,11 +92582,14 @@
       "name": "Mini Cooper SD Clubman ALL4",
       "rid": "Mini_Cooper_SD_Clubman_ALL4_2019",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91884,11 +92612,14 @@
       "name": "Porsche Panamera Diesel 3.0 (970)",
       "rid": "Porsche_Panamera_Diesel_30_970_2011",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91911,11 +92642,15 @@
       "name": "Alfa Romeo Spider Monoposto Concept",
       "rid": "Alfa_Romeo_Spider_Monoposto_Concept_1998",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -91938,11 +92673,14 @@
       "name": "Audi 90 quattro 2.2 (B2)",
       "rid": "Audi_90_quattro_22_B2_1984",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91965,11 +92703,14 @@
       "name": "BMW Z4 sDrive20i",
       "rid": "BMW_Z4_sDrive20i_2019",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -91993,11 +92734,15 @@
       "rid": "Lancia_Stratos_HF_Prototipo_1971",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -92020,11 +92765,14 @@
       "name": "Porsche 968 Cabriolet",
       "rid": "Porsche_968_Cabriolet_1992",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "C",
@@ -92047,11 +92795,14 @@
       "name": "Alfa Romeo 147",
       "rid": "Alfa_Romeo_147_2003",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "C",
@@ -92074,11 +92825,15 @@
       "name": "Alfa Romeo Dardo",
       "rid": "Alfa_Romeo_Dardo_1998",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "C",
@@ -92101,11 +92856,15 @@
       "name": "Alfa Romeo MiTo Quadrifoglio Verde",
       "rid": "Alfa_Romeo_MiTo_Quadrifoglio_Verde_2009",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "C",
@@ -92128,11 +92887,15 @@
       "name": "Lancia Delta HF Turbo",
       "rid": "Lancia_Delta_HF_Turbo_1985",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "C",
@@ -92155,11 +92918,14 @@
       "name": "Mini Cooper S Convertible Sidewalk",
       "rid": "Mini_Cooper_S_Convertible_Sidewalk_2021",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92182,11 +92948,14 @@
       "name": "BMW 528i",
       "rid": "BMW_528i_1981",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92209,11 +92978,15 @@
       "name": "Fiat Formula 4",
       "rid": "Fiat_Formula_4_1996",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "D",
@@ -92236,11 +93009,14 @@
       "name": "Lancia Thesis 3.2 V6 24v",
       "rid": "Lancia_Thesis_32_V6_24v_2002",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92263,11 +93039,15 @@
       "name": "Mini Electric Shadow Edition",
       "rid": "Mini_Electric_Shadow_Edition_2021",
       "bodyTypes": [
-        "Hatchback"
-    ],
-      "fuel": "Electro",
+          "Hatchback"
+      ],
+      "fuel": "Electric",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "D",
@@ -92290,11 +93070,15 @@
       "name": "Alfa Romeo Alfasud Sprint Trofeo",
       "rid": "Alfa_Romeo_Alfasud_Sprint_Trofeo_1982",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "D",
@@ -92317,11 +93101,14 @@
       "name": "Audi A3 Cabriolet (8V)",
       "rid": "Audi_A3_Cabriolet_8V_2018",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92344,11 +93131,14 @@
       "name": "Alfa Romeo 156 2.4 JTD",
       "rid": "Alfa_Romeo_156_24_JTD_2003",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92371,11 +93161,14 @@
       "name": "Alfa Romeo 75 1.8 Turbo Evoluzione",
       "rid": "Alfa_Romeo_75_18_Turbo_Evoluzione_1987",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92398,11 +93191,14 @@
       "name": "Audi 80 2.2 quattro (B2)",
       "rid": "Audi_80_22_quattro_B2_1983",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92425,11 +93221,15 @@
       "name": "Fiat Abarth 695 Esseesse",
       "rid": "Fiat_Abarth_695_Esseesse_2021",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "D",
@@ -92452,11 +93252,14 @@
       "name": "Alfa Romeo 147 Q2",
       "rid": "Alfa_Romeo_147_Q2_2007",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92479,11 +93282,14 @@
       "name": "Alfa Romeo RZ",
       "rid": "Alfa_Romeo_RZ_1992",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92506,11 +93312,14 @@
       "name": "Alfa Romeo Spider 3.2 V6",
       "rid": "Alfa_Romeo_Spider_32_V6_2008",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92533,11 +93342,14 @@
       "name": "Audi 90 quattro 2.3 20V (B2)",
       "rid": "Audi_90_quattro_23_20V_B2_1989",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92560,11 +93372,14 @@
       "name": "Fiat Abarth Punto Evo Esseesse",
       "rid": "Fiat_Abarth_Punto_Evo_Esseesse_2010",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92588,11 +93403,15 @@
       "rid": "Mini_Electric_Pacesetter_inspired_by_JCW_2021",
       "prize": true,
       "bodyTypes": [
-        "Hatchback"
-    ],
-      "fuel": "Electro",
+          "Hatchback"
+      ],
+      "fuel": "Electric",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "D",
@@ -92615,11 +93434,14 @@
       "name": "BMW 333i",
       "rid": "BMW_333i_1985",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",
@@ -92642,11 +93464,14 @@
       "name": "Lancia Kappa 3.0 V6 24v",
       "rid": "Lancia_Kappa_30_V6_24v_1999",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92669,11 +93494,14 @@
       "name": "Alfa Romeo 75 6V 3.0 America",
       "rid": "Alfa_Romeo_75_6V_30_America_1987",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92696,11 +93524,14 @@
       "name": "Alfa Romeo Spider V6",
       "rid": "Alfa_Romeo_Spider_V6_1995",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92723,11 +93554,15 @@
       "name": "Alfa Romeo Vola",
       "rid": "Alfa_Romeo_Vola_2000",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "D",
@@ -92750,11 +93585,14 @@
       "name": "Fiat Ritmo 130TC Abarth",
       "rid": "Fiat_Ritmo_130TC_Abarth_1985",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92777,11 +93615,15 @@
       "name": "Alfa Romeo Giulietta Turbo Autodelta",
       "rid": "Alfa_Romeo_Giulietta_Turbo_Autodelta_1984",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "D",
@@ -92804,11 +93646,14 @@
       "name": "Fiat Abarth 500 Esseesse",
       "rid": "Fiat_Abarth_500_Esseesse_2008",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92831,11 +93676,14 @@
       "name": "Fiat Abarth 500C Esseesse",
       "rid": "Fiat_Abarth_500C_Esseesse_2010",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92858,11 +93706,15 @@
       "name": "Fiat Abarth 595 Pista",
       "rid": "Fiat_Abarth_595_Pista_2017",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "D",
@@ -92885,11 +93737,14 @@
       "name": "Fiat Bravo HGT Abarth",
       "rid": "Fiat_Bravo_HGT_Abarth_2000",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92912,11 +93767,14 @@
       "name": "Fiat Stilo Abarth",
       "rid": "Fiat_Stilo_Abarth_2001",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92939,11 +93797,15 @@
       "name": "Lancia Fulvia Coupe Concept",
       "rid": "Lancia_Fulvia_Coupe_Concept_2003",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "D",
@@ -92966,11 +93828,14 @@
       "name": "Alfa Romeo 145 1.7 16v",
       "rid": "Alfa_Romeo_145_17_16v_1994",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
@@ -92993,11 +93858,15 @@
       "name": "Fiat PanDAKAR",
       "rid": "Fiat_PanDAKAR_2006",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Diesel",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "E",
@@ -93020,11 +93889,14 @@
       "name": "Alfa Romeo 155 Ti-Z",
       "rid": "Alfa_Romeo_155_TiZ_1993",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93047,11 +93919,14 @@
       "name": "Fiat Tempra 2.0 i.e. Turbo",
       "rid": "Fiat_Tempra_20_ie_Turbo_1993",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93074,11 +93949,15 @@
       "name": "Fiat Tipo 2.0 i.e.16V",
       "rid": "Fiat_Tipo_20_ie16V_1991",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hot Hatch"
+      ]
   },
   {
       "class": "E",
@@ -93101,11 +93980,14 @@
       "name": "Lancia Fulvia Sport 1600",
       "rid": "Lancia_Fulvia_Sport_1600_1971",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93128,11 +94010,14 @@
       "name": "BMW M535i",
       "rid": "BMW_M535i_1980",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "E",
@@ -93155,11 +94040,14 @@
       "name": "Alfa Romeo 33 1.7 Cloverleaf Veloce",
       "rid": "Alfa_Romeo_33_17_Cloverleaf_Veloce_1987",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93182,11 +94070,15 @@
       "name": "Fiat 500",
       "rid": "Fiat_500_2020",
       "bodyTypes": [
-        "Hatchback"
-    ],
-      "fuel": "Electro",
+          "Hatchback"
+      ],
+      "fuel": "Electric",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "E",
@@ -93209,11 +94101,14 @@
       "name": "Audi Cabriolet 2.8",
       "rid": "Audi_Cabriolet_28_1991",
       "bodyTypes": [
-        "Cabrio"
-    ],
+          "Cabrio"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "E",
@@ -93236,11 +94131,14 @@
       "name": "Fiat Croma Turbo i.e.",
       "rid": "Fiat_Croma_Turbo_ie_1985",
       "bodyTypes": [
-        "Sedan"
-    ],
+          "Sedan"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93263,11 +94161,14 @@
       "name": "Lancia Delta 1600 GT",
       "rid": "Lancia_Delta_1600_GT_1982",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93290,11 +94191,15 @@
       "name": "Fiat Oltre",
       "rid": "Fiat_Oltre_2005",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "E",
@@ -93317,11 +94222,15 @@
       "name": "Fiat 500 Coupe Concept",
       "rid": "Fiat_500_Coupe_Concept_2011",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
   },
   {
       "class": "E",
@@ -93345,11 +94254,14 @@
       "rid": "Fiat_Abarth_1000_Monoposto_record_car_1960",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93372,11 +94284,14 @@
       "name": "Alfa Romeo Spider Quadrifoglio Verde",
       "rid": "Alfa_Romeo_Spider_Quadrifoglio_Verde_1986",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93399,11 +94314,14 @@
       "name": "Audi 80 1.8 S (B3)",
       "rid": "Audi_80_18_S_B3_1986",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "E",
@@ -93426,11 +94344,15 @@
       "name": "Fiat Abarth 850 TC Corsa",
       "rid": "Fiat_Abarth_850_TC_Corsa_1965",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
+      ]
   },
   {
       "class": "E",
@@ -93453,11 +94375,14 @@
       "name": "Alfa Romeo Alfasud TI Quadrifoglio Verde",
       "rid": "Alfa_Romeo_Alfasud_TI_Quadrifoglio_Verde_1982",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "E",
@@ -93480,11 +94405,14 @@
       "name": "BMW 530 MLE",
       "rid": "BMW_530_MLE_1976",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "F",
@@ -93507,11 +94435,14 @@
       "name": "Audi Coupe GT 5S (B2)",
       "rid": "Audi_Coupe_GT_5S_B2_1980",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "F",
@@ -93534,11 +94465,14 @@
       "name": "Fiat Punto Sporting",
       "rid": "Fiat_Punto_Sporting_1995",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93561,11 +94495,14 @@
       "name": "Porsche 912",
       "rid": "Porsche_912_1966",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "F",
@@ -93589,11 +94526,16 @@
       "rid": "Fiat_S76_1910",
       "prize": true,
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport",
+          "Wild Ride"
+      ]
   },
   {
       "class": "F",
@@ -93616,11 +94558,14 @@
       "name": "Lancia Flaminia GT",
       "rid": "Lancia_Flaminia_GT_1964",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93643,11 +94588,15 @@
       "name": "Audi A2 TDI",
       "rid": "Audi_A2_TDI_2000",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Innovative"
+      ]
   },
   {
       "class": "F",
@@ -93670,11 +94619,14 @@
       "name": "Alfa Romeo 2600 Sprint",
       "rid": "Alfa_Romeo_2600_Sprint_1962",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93697,11 +94649,14 @@
       "name": "Audi 100 Avant (C2)",
       "rid": "Audi_100_Avant_C2_1977",
       "bodyTypes": [
-        "Wagon"
-    ],
+          "Wagon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "F",
@@ -93724,11 +94679,14 @@
       "name": "Audi 50",
       "rid": "Audi_50_1974",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "F",
@@ -93751,11 +94709,14 @@
       "name": "Fiat Autobianchi A112 Abarth",
       "rid": "Fiat_Autobianchi_A112_Abarth_1982",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93778,11 +94739,15 @@
       "name": "Lancia Aurelia B20 GT",
       "rid": "Lancia_Aurelia_B20_GT_1951",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Style Icon"
+      ]
   },
   {
       "class": "F",
@@ -93805,11 +94770,14 @@
       "name": "Alfa Romeo Junior Z",
       "rid": "Alfa_Romeo_Junior_Z_1969",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93833,11 +94801,14 @@
       "rid": "Fiat_Abarth_750_record_car_1956",
       "prize": true,
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93860,11 +94831,14 @@
       "name": "Fiat Seicento Sporting Abarth",
       "rid": "Fiat_Seicento_Sporting_Abarth_2001",
       "bodyTypes": [
-        "Hatchback"
-    ],
+          "Hatchback"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93887,11 +94861,15 @@
       "name": "Alfa Romeo Giulia GT 1300 Junior",
       "rid": "Alfa_Romeo_Giulia_GT_1300_Junior_1966",
       "bodyTypes": [
-        "Coupe"
-    ],
+          "Coupe"
+      ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Style Icon"
+      ]
   },
   {
       "class": "F",
@@ -93914,11 +94892,14 @@
       "name": "Alfa Romeo Giulia 1300 Super",
       "rid": "Alfa_Romeo_Giulia_1300_Super_1970",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93941,11 +94922,14 @@
       "name": "Alfa Romeo Giulia Nuova Super 1600",
       "rid": "Alfa_Romeo_Giulia_Nuova_Super_1600_1974",
       "bodyTypes": [
-        "Saloon"
-    ],
+          "Saloon"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93968,11 +94952,14 @@
       "name": "Alfa Romeo Matta",
       "rid": "Alfa_Romeo_Matta_1952",
       "bodyTypes": [
-        "Suv"
-    ],
+          "Suv"
+      ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
@@ -93995,10 +94982,13 @@
       "name": "Fiat 850 Spider",
       "rid": "Fiat_850_Spider_1965",
       "bodyTypes": [
-        "Roadster"
-    ],
+          "Roadster"
+      ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   }
 ]

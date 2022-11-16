@@ -35,6 +35,8 @@ export default {
 
     })
 
+    debugger;
+
     navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
   computed: {},

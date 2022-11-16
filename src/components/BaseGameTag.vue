@@ -36,6 +36,11 @@ export default {
 .BaseGameTag_Filter {
   box-shadow: inset 0px -2px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%);
 }
+.BaseGameTag_Amalfi_Coast_Cruising {
+  --tag-h: 346;
+  --tag-s: 79%;
+  --tag-l: 64%;
+}
 .BaseGameTag_American_Dream {
   --tag-h: 241;
   --tag-s: 70%;
@@ -75,6 +80,11 @@ export default {
   --tag-h: 120;
   --tag-s: 70%;
   --tag-l: 49%;
+}
+.BaseGameTag_Enter_the_Black_Forest {
+  --tag-h: 133;
+  --tag-s: 69%;
+  --tag-l: 30%;
 }
 .BaseGameTag_European_Revolution {
   --tag-h: 141;
@@ -122,9 +132,9 @@ export default {
   --tag-l: 47%;
 }
 .BaseGameTag_Interstellar {
-  --tag-h: 0;
-  --tag-s: 0%;
-  --tag-l: 100%;
+  --tag-h: 210;
+  --tag-s: 50%;
+  --tag-l: 75%;
 }
 .BaseGameTag_Italian_Renaissance {
   --tag-h: 133;
@@ -232,9 +242,9 @@ export default {
   --tag-l: 50%;
 }
 .BaseGameTag_World_Expo {
-  --tag-h: 0;
-  --tag-s: 0%;
-  --tag-l: 100%;
+  --tag-h: 257;
+  --tag-s: 50%;
+  --tag-l: 70%;
 }
 .BaseGameTag_Year_of_the_Ox {
   --tag-h: 5;
