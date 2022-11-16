@@ -1653,12 +1653,19 @@
               <i class="ticon-dash D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>Library</span>
             </button>
+            <button
+              v-if="mode === 'classic'"
+              class="D_Button Main_OptionsButton"
+              @click="openAdvancedOptions()">
+              <i class="ticon-gear D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+              <span>Options</span>
+            </button>
           </div>
           <div class="D_Center Main_OptionsFooterButtons">
             <button
               class="D_Button Main_OptionsButton"
               @click="$router.push({ name: 'Gallery' })">
-              <span>PL16 Changes</span>
+              <span>16.0 Changes</span>
             </button>
 
             <BaseDonateButton />
@@ -1997,6 +2004,23 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="optionsAdvancedDialog"
+      :transparent="false"
+      :disableScroll="true"
+      max-width="400px"
+      @close="closeAdvancedOptions()">
+      <div class="Main_AdvancedDialogBox">
+        <div class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox v-model="showDataFromPast" @change="dataFromPastChange()" />
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Show data from v15</div>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -2025,7 +2049,7 @@ import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
-import data_cars from '../database/cars_final_PL15.json'
+import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -2086,6 +2110,8 @@ export default {
       searchInputT: '',
       searchTracks: '',
       searchActive: false,
+      showDataFromPast: false,
+      optionsAdvancedDialog: false,
       isFiltering: false,
       isFilteringT: false,
       nextId: 0,
@@ -3165,6 +3191,10 @@ export default {
     if (colors) {
       this.colorsChange(colors);
     }
+    let showDataFromPast = window.localStorage.getItem("showDataFromPast");
+    if (showDataFromPast) {
+      this.showDataFromPast = showDataFromPast;
+    }
     
 
     
@@ -3479,6 +3509,13 @@ export default {
     tuneDialogTunes() {
       let result = ["332", "323", "233"];
       if (this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") result.push("111");
+      if (this.mode === 'classic' && this.showDataFromPast && this.tuneDialogCar.data) {
+        Object.keys( this.tuneDialogCar.data ).forEach(tune => {
+          if (tune[0] === "v") {
+            result.push(tune);
+          }
+        })
+      };
       return result;
     },
     tunesCount() {
@@ -4256,6 +4293,9 @@ export default {
       if (save) {
         window.localStorage.setItem('colors', type);
       }
+    },
+    dataFromPastChange() {
+      window.localStorage.setItem('showDataFromPast', this.showDataFromPast);
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
@@ -6297,7 +6337,15 @@ export default {
 
       window.localStorage.setItem('announce1', "t");
       this.announcementDialog = true;
-    }
+    },
+    openAdvancedOptions() {
+      this.optionsAdvancedDialog = true;
+      this.optionsDialogActive = false;
+    },
+    closeAdvancedOptions() {
+      this.optionsAdvancedDialog = false;
+      this.optionsDialogActive = true;
+    },
   }
 }
 </script>
