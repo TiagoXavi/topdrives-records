@@ -42,7 +42,11 @@ export default {
     }
   },
   beforeMount() {
-    this.updateData();
+    if (window.location.origin.includes("192")) {
+      this.show = false;
+    } else {
+      this.updateData();
+    }
   },
   mounted() {},
   computed: {},

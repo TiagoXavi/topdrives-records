@@ -2177,7 +2177,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v16.00",
+      gameVersion: "Game v16",
       mode: "classic",
       cgLoading: false,
       cgCurrentRound: 0,
@@ -5881,7 +5881,7 @@ export default {
         this.downloadCar(youRid);
         return;
       }
-      if (!oppo || !you || !you.data) {
+      if (!oppo || race.time === null || race.time === undefined || !you || !you.data) {
         Vue.set(race.cars[race.carIndex], "points", undefined);
         // debugger;
         // this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
