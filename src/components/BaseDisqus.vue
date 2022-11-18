@@ -52,6 +52,10 @@ export default {
   computed: {},
   methods: {
     updateData() {
+      if (window.location.origin.includes("192")) {
+        this.show = false;
+        return;
+      }
       this.pageConfig.url = this.url;
       this.pageConfig.identifier = this.identifier;
       this.pageConfig.title = this.identifier;
