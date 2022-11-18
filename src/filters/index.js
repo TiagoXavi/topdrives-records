@@ -159,6 +159,6 @@ export default {
         Vue.filter('mra', Vue.mra);
         Vue.filter('brake', Vue.brake);
         Vue.filter('resolveCond', Vue.resolveCond);
-        Vue.filter('resolveCond', Vue.getOldCar);
+        Vue.filter('getOldCar', Vue.getOldCar);
     }
 };
