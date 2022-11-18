@@ -342,6 +342,7 @@ export default {
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         engineModel: [],
         tags: [
+          "5th Anniversary",
           "Amalfi Coast Cruising",
           "American Dream",
           "American Frontier",
@@ -484,23 +485,13 @@ export default {
       this.chunkLoaded[ix] = false;
     })
 
+    // let aniv = [ "1525", "2732", "1519", "2697", "2707", "1545", "3090", "2682", "1683", "1705", "1692", "1824", "3385", "3425", "873", "583", "3312", "3121", "3122", "2681", "396", "757", "401", "1755", "3260", "3164", "3519", "2678", "2959", "594", "3000", "2687", "406", "3264", "1901", "1090", "2864", "2909", "3143", "59", "1618", "417", "3135", "3004", "416", "3367", "2988", "2963", "3471", "715", "1820", "168", "3265", "75", "2827", "3308", "2915", "304", "2850", "1904", "3439", "2903", "1068", "251", "323", "2977", "3398", "971", "1175", "1581", "3253", "1255", "1109", "260", "1186", "662", "184", "327", "481", "1221", "1430", "1046", "1045", "185", "446", "784", "3257", "747", "3348", "1048", "3243", "2784", "3177", "3338", "753", "692", "197", "1603" ];
+
 
     //Workshop
     // this.all_cars.map(car => {
-    //   if (
-    //     car.tags.includes("World Expo") ||
-    //     car.tags.includes("Japan Pro Tour") ||
-    //     car.tags.includes("American Frontier") ||
-    //     car.tags.includes("European Revolution") ||
-    //     car.tags.includes("Great Exhibition") ||
-    //     car.tags.includes("Italian Renaissance") ||
-    //     car.tags.includes("German Renaissance") ||
-    //     car.tags.includes("French Renaissance") ||
-    //     car.tags.includes("American Dream")
-    //   ) {
-    //     // nada
-    //   } else {
-    //     car.tags.push("Originals")
+    //   if (aniv.includes(car.tdid)) {
+    //     car.tags.push("5th Anniversary")
     //   }
     // })
 

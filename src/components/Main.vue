@@ -2298,6 +2298,7 @@ export default {
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         engineModel: [],
         tags: [
+          "5th Anniversary",
           "Amalfi Coast Cruising",
           "American Dream",
           "American Frontier",

@@ -31,7 +31,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "4",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -64,7 +65,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -98,7 +100,8 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -130,7 +133,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -162,7 +166,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -196,7 +201,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -231,7 +237,8 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -263,7 +270,8 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -295,7 +303,8 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -327,7 +336,8 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -359,7 +369,8 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -391,7 +402,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -423,7 +435,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -456,7 +469,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -480,14 +494,16 @@
       "rid": "Lamborghini_Centenario_2016",
       "tags": [
           "Italian Renaissance",
-          "Ultra Expensive"
+          "Ultra Expensive",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -519,7 +535,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -551,7 +568,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -584,7 +602,8 @@
           "Amalfi Coast Cruising",
           "Ultra Expensive",
           "Hypercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -610,14 +629,16 @@
           "European Revolution",
           "Ultra Expensive",
           "Hypercar",
-          "Eco Friendly"
+          "Eco Friendly",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -649,7 +670,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -682,7 +704,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -713,7 +736,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -746,7 +770,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -777,7 +802,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -809,7 +835,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -840,7 +867,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -873,7 +901,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -906,7 +935,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -938,7 +968,8 @@
       ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -970,7 +1001,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1000,7 +1032,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -1031,7 +1064,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -1062,7 +1096,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -1096,7 +1131,8 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1127,7 +1163,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1159,7 +1196,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1192,7 +1230,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1224,7 +1263,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1256,7 +1296,8 @@
       ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1288,7 +1329,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -1320,7 +1362,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1355,7 +1398,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1387,7 +1431,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1419,7 +1464,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1451,7 +1497,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1482,7 +1529,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1514,7 +1562,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1546,7 +1595,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1576,7 +1626,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -1608,7 +1659,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -1641,7 +1693,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1672,7 +1725,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -1704,7 +1758,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1736,7 +1791,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1770,7 +1826,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1803,7 +1860,8 @@
       ],
       "fuel": "Electric",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -1837,7 +1895,8 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1868,7 +1927,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1898,7 +1958,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1930,7 +1991,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1963,7 +2025,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -1994,7 +2057,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -2027,7 +2091,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2060,7 +2125,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2092,7 +2158,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2126,7 +2193,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2157,7 +2225,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2189,7 +2258,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2221,7 +2291,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2252,7 +2323,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2285,7 +2357,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2319,7 +2392,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2351,7 +2425,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2383,7 +2458,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2415,7 +2491,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2445,7 +2522,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2477,7 +2555,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2509,7 +2588,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2541,7 +2621,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2573,7 +2654,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2604,7 +2686,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2635,7 +2718,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -2667,7 +2751,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -2697,7 +2782,8 @@
       "engine": "Rear",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -2730,7 +2816,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2761,7 +2848,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2794,7 +2882,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2824,7 +2913,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -2857,7 +2947,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2888,7 +2979,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -2920,7 +3012,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -2951,7 +3044,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -2982,7 +3076,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3015,7 +3110,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -3047,7 +3143,8 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3078,7 +3175,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3110,7 +3208,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3141,7 +3240,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -3165,14 +3265,16 @@
       "rid": "Lamborghini_Aventador_Roadster_2012",
       "tags": [
           "Italian Renaissance",
-          "Supercar"
+          "Supercar",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3203,7 +3305,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3235,7 +3338,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -3266,7 +3370,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -3297,7 +3402,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3329,7 +3435,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3360,7 +3467,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3390,7 +3498,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3421,7 +3530,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3451,7 +3561,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3483,7 +3594,8 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -3513,7 +3625,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -3544,7 +3657,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3574,7 +3688,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3604,7 +3719,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3634,7 +3750,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -3665,7 +3782,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3697,7 +3815,8 @@
       "tags": [
           "Enter the Black Forest",
           "Drivers Choice"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3727,7 +3846,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3758,7 +3878,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3790,7 +3911,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -3822,7 +3944,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3854,7 +3977,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3885,7 +4009,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3917,7 +4042,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3947,7 +4073,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -3978,7 +4105,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4011,7 +4139,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4042,7 +4171,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4076,7 +4206,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4109,7 +4240,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4139,7 +4271,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -4171,7 +4304,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4201,7 +4335,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -4231,7 +4366,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4262,7 +4398,8 @@
       "tags": [
           "Enter the Black Forest",
           "Supercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -4293,7 +4430,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4325,7 +4463,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -4357,7 +4496,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4389,7 +4529,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4422,7 +4563,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4447,14 +4589,16 @@
       "tags": [
           "European Revolution",
           "Ultra Expensive",
-          "Hypercar"
+          "Hypercar",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4487,7 +4631,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4511,14 +4656,16 @@
       "rid": "Lamborghini_Reventon_2007",
       "tags": [
           "Italian Renaissance",
-          "Ultra Expensive"
+          "Ultra Expensive",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4550,7 +4697,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4581,7 +4729,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4611,7 +4760,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear"
+      "engine": "Rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -4643,7 +4793,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4677,7 +4828,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4709,7 +4861,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4741,7 +4894,8 @@
       ],
       "fuel": "Petrol",
       "seats": "3",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4772,7 +4926,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4804,7 +4959,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4829,14 +4985,16 @@
       "tags": [
           "European Revolution",
           "Ultra Expensive",
-          "Hypercar"
+          "Hypercar",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -4866,7 +5024,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4897,7 +5056,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -4929,7 +5089,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -4960,7 +5121,8 @@
       "tags": [
           "Enter the Black Forest",
           "Supercar"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -4992,7 +5154,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5023,7 +5186,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5053,7 +5217,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5083,7 +5248,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5116,7 +5282,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5148,7 +5315,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5181,7 +5349,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5211,7 +5380,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5243,7 +5413,8 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5275,7 +5446,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5308,7 +5480,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5342,7 +5515,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5375,7 +5549,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5407,7 +5582,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5438,7 +5614,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5468,7 +5645,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5499,7 +5677,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5531,7 +5710,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid-rear"
+      "engine": "Mid-rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -5563,7 +5743,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5594,7 +5775,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5624,7 +5806,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5654,7 +5837,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5684,7 +5868,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5714,7 +5899,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5745,7 +5931,8 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -5776,7 +5963,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5807,7 +5995,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5837,7 +6026,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5870,7 +6060,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5900,7 +6091,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5931,7 +6123,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -5961,7 +6154,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -5992,7 +6186,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6024,7 +6219,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6057,7 +6253,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6088,7 +6285,8 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6119,7 +6317,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6151,7 +6350,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6181,7 +6381,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6212,7 +6413,8 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6245,7 +6447,8 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid"
+      "engine": "Mid",
+      "visible": true
   },
   {
       "class": "S",
@@ -6278,7 +6481,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6308,7 +6512,8 @@
       ],
       "fuel": "Electric",
       "seats": "4",
-      "engine": "Mixed"
+      "engine": "Mixed",
+      "visible": true
   },
   {
       "class": "S",
@@ -6340,7 +6545,8 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid-rear"
+      "engine": "Mid-rear",
+      "visible": true
   },
   {
       "class": "S",
@@ -6370,7 +6576,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6402,7 +6609,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -6433,7 +6641,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Wild Ride"
-      ]
+      ],
+      "visible": true
   },
   {
       "class": "S",
@@ -6463,7 +6672,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -6493,7 +6703,8 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
+      "engine": "Front",
+      "visible": true
   },
   {
       "class": "S",
@@ -8135,7 +8346,8 @@
       "rid": "Nissan_Skyline_GT-R_Nismo_Z-Tune_(R34)_2005",
       "tags": [
           "Japan Pro Tour",
-          "Street Racer"
+          "Street Racer",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -8413,7 +8625,8 @@
       "name": "Donkervoort D8 GTO",
       "rid": "Donkervoort_D8_GTO_2014",
       "tags": [
-          "European Revolution"
+          "European Revolution",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -9318,7 +9531,8 @@
       "name": "Bentley Continental GT",
       "rid": "Bentley_Continental_GT_2019",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -9348,7 +9562,8 @@
       "name": "Bentley Continental GT V8",
       "rid": "Bentley_Continental_GT_V8_2019",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -10160,7 +10375,8 @@
       "rid": "Bentley_Bentayga_V8_2019",
       "tags": [
           "Great Exhibition",
-          "Rest of the World"
+          "Rest of the World",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -11782,7 +11998,8 @@
       "name": "Land Rover Range Rover Velar SVAutobiography Dynamic Edition",
       "rid": "Land_Rover_Range_Rover_Velar_SVAutobiography_Dynamic_Edition_2019",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -13158,7 +13375,8 @@
       "name": "Farboud GTS",
       "rid": "Farboud_GTS_2003",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -13188,7 +13406,8 @@
       "name": "Audi A7 Sportback 55 TFSI quattro",
       "rid": "Audi_A7_Sportback_55_TFSI_quattro_2018",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -13867,7 +14086,8 @@
       "rid": "Porsche_911_Turbo_1995",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -14304,7 +14524,8 @@
       "name": "Rezvani Beast Alpha",
       "rid": "Rezvani_Beast_Alpha_2016",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -14493,7 +14714,8 @@
       "rid": "McLaren_Mercedes-Benz_SLR_McLaren_722_2006",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -15968,7 +16190,8 @@
       "name": "Subaru Impreza WRX STI S203 (GDE)",
       "rid": "Subaru_Impreza_WRX_STI_S203_(GDE)_2004",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -15998,7 +16221,8 @@
       "name": "Subaru Impreza WRX STI S204 (GDF)",
       "rid": "Subaru_Impreza_WRX_STI_S204_(GDF)_2005",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -17508,7 +17732,8 @@
       "name": "Donkervoort D8 GT",
       "rid": "Donkervoort_D8_GT_2007",
       "tags": [
-          "European Revolution"
+          "European Revolution",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -20599,7 +20824,8 @@
       "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
       "tags": [
           "Motorsport",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Convertible"
@@ -22630,7 +22856,8 @@
       "name": "TVR Sagaris",
       "rid": "TVR_Sagaris_2005",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -23030,7 +23257,8 @@
       "name": "Mercedes-Benz AMG E 63 S",
       "rid": "Mercedes-Benz_AMG_E_63_S_2015",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -25377,7 +25605,8 @@
       "rid": "Aston_Martin_DB10_2015",
       "tags": [
           "Concept",
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -25898,7 +26127,8 @@
       "name": "Subaru Impreza WRX STI Version III Sports Wagon (GC8D)",
       "rid": "Subaru_Impreza_WRX_STI_Version_III_Sports_Wagon_(GC8D)_1996",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Estate"
@@ -26020,7 +26250,8 @@
       "rid": "Mercedes-Benz_C112_1991",
       "tags": [
           "World Expo",
-          "Concept"
+          "Concept",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -27379,7 +27610,8 @@
       "name": "Porsche 911 Carrera 4S 3.6 (993)",
       "rid": "Porsche_911_Carrera_4S_36_993_1996",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -28111,7 +28343,8 @@
       "name": "Donkervoort D8 Audi (E-gas) Wide Track",
       "rid": "Donkervoort_D8_Audi_(E-gas)_Wide_Track_2004",
       "tags": [
-          "European Revolution"
+          "European Revolution",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -28822,7 +29055,8 @@
       "tags": [
           "Drivers Choice",
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -29137,7 +29371,8 @@
       "rid": "Acura_RDX_2007",
       "tags": [
           "American Frontier",
-          "Silver Screen"
+          "Silver Screen",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -30252,7 +30487,8 @@
       "tags": [
           "Japan Pro Tour",
           "Eco Friendly",
-          "Summer Games"
+          "Summer Games",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -30651,7 +30887,8 @@
       "rid": "Spyker_C8_Laviolette_2001",
       "tags": [
           "European Revolution",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -30987,7 +31224,8 @@
       "rid": "Mercedes-Benz_AMG_E_55_2003",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -32419,7 +32657,8 @@
       "rid": "Vauxhall_Opel_GTC_Concept_2007",
       "tags": [
           "Concept",
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -32699,7 +32938,8 @@
       "name": "Mercedes-Benz CLS 500",
       "rid": "Mercedes-Benz_CLS_500_2005",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -33106,7 +33346,8 @@
       "tags": [
           "American Dream",
           "Muscle Car",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -34403,7 +34644,8 @@
       "rid": "Dodge_Charger_SRT8_2012",
       "tags": [
           "Muscle Car",
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -35359,7 +35601,8 @@
       "name": "Chrysler 300C Hemi",
       "rid": "Chrysler_300C_Hemi_2005",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -35389,7 +35632,8 @@
       "name": "Subaru Forester tS 300 (SJ)",
       "rid": "Subaru_Forester_tS_300_(SJ)_2014",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -38091,7 +38335,8 @@
       "name": "Maserati GranCabrio Sport",
       "rid": "Maserati_GranCabrio_2018",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Convertible"
@@ -38335,7 +38580,8 @@
       "name": "BMW 530d",
       "rid": "BMW_530d_2004",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -38673,7 +38919,8 @@
       "name": "Mercedes-Benz SLK 32 AMG",
       "rid": "Mercedes-Benz_AMG_SLK_32_2004",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -39792,7 +40039,8 @@
       "name": "Subaru Tribeca",
       "rid": "Subaru_Tribeca_2008",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -42888,7 +43136,8 @@
       "name": "Mercedes-Benz SL 73 AMG",
       "rid": "Mercedes-Benz_AMG_SL_73_1999",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -43385,7 +43634,8 @@
       "name": "Infiniti QX56 (JA60)",
       "rid": "INFINITI_QX56_(JA60)_2008",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -44352,7 +44602,8 @@
       "rid": "INFINITI_G37_IPL_2011",
       "tags": [
           "Japan Pro Tour",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -45070,7 +45321,8 @@
       "rid": "De_Tomaso_Bigua_1996",
       "tags": [
           "World Expo",
-          "Concept"
+          "Concept",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -45559,7 +45811,8 @@
       "name": "Audi TT Roadster 3.2 quattro (8N)",
       "rid": "Audi_TT_Roadster_32_quattro_8N_2003",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -46312,7 +46565,8 @@
       "name": "Acura ILX",
       "rid": "Acura_ILX_2017",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -46499,7 +46753,8 @@
       "name": "Subaru Legacy",
       "rid": "Subaru_Legacy_2003",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -49034,7 +49289,8 @@
       "name": "Land Rover Range Rover Evoque SD4",
       "rid": "Land_Rover_Range_Rover_Evoque_2018b",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -50331,7 +50587,8 @@
       "rid": "Citroen_C-Crosser_2.2_L_HDi_2007",
       "tags": [
           "Summer Games",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -51256,7 +51513,8 @@
       "name": "Mercedes-Benz R500",
       "rid": "Mercedes-Benz_R500_2006",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -52247,7 +52505,8 @@
       "name": "Ford F-150 Tremor FX2",
       "rid": "Ford_F-150_Tremor_FX2_2014",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Pickup"
@@ -52561,7 +52820,8 @@
       "name": "BMW 730d",
       "rid": "BMW_730d_2005",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -53121,7 +53381,8 @@
       "rid": "Ford_Ford_Smax_25_2006",
       "tags": [
           "World Expo",
-          "Sleeper"
+          "Sleeper",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -53898,7 +54159,8 @@
       "name": "Honda CR-V 2.2 i-DTEC",
       "rid": "Honda_CR-V_2.2_i-DTEC_2007",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -54142,7 +54404,8 @@
       "rid": "Chrysler_Aviat_1994",
       "tags": [
           "Concept",
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -56526,7 +56789,8 @@
       "name": "Dodge Avenger R/T",
       "rid": "Dodge_Avenger_RT_2013",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -57244,7 +57508,8 @@
       "rid": "Vauxhall_Signum_2003",
       "tags": [
           "Great Exhibition",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Estate"
@@ -58274,7 +58539,8 @@
       "name": "Audi A4 2.0 TFSI (B8)",
       "rid": "Audi_A4_2.0_TFSI_(B8)_2008",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -59050,7 +59316,8 @@
       "name": "Chrysler 200 Convertible",
       "rid": "Chrysler_200_Convertible_2013",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Convertible"
@@ -60804,7 +61071,8 @@
       "rid": "Dodge_Dart_2017",
       "tags": [
           "American Dream",
-          "Silver Screen"
+          "Silver Screen",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -61827,7 +62095,8 @@
       "rid": "Ford_Mondeo_2.0tdci_2016",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -63096,7 +63365,8 @@
       "tags": [
           "Eco Friendly",
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -64363,7 +64633,8 @@
       "name": "Acura TSX Sport Wagon",
       "rid": "Acura_TSX_Sport_Wagon_2011",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Estate"
@@ -66159,7 +66430,8 @@
       "name": "Mazda 6",
       "rid": "Mazda_6_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -66345,7 +66617,8 @@
       "name": "AC Frua Coupe",
       "rid": "AC_Frua_CoupВ_1969",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -69807,7 +70080,8 @@
       "rid": "Peugeot_407_Coupe_2006",
       "tags": [
           "French Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -70026,7 +70300,8 @@
       "name": "Mercedes-Benz 500 SL",
       "rid": "Mercedes-Benz_500_SL_1980",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Roadster"
@@ -70394,7 +70669,8 @@
       "rid": "Lamborghini_Jarama_GT_1970",
       "tags": [
           "Italian Renaissance",
-          "Rest of the World"
+          "Rest of the World",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -70926,7 +71202,8 @@
       "rid": "Renault_3.5l_V6_Espace_MK4_2002",
       "tags": [
           "French Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -72948,7 +73225,8 @@
       "name": "Chrysler 300M Special Edition",
       "rid": "Chrysler_300M_Special_Edition_2002",
       "tags": [
-          "American Dream"
+          "American Dream",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -75079,7 +75357,8 @@
       "name": "Peugeot 2008",
       "rid": "Peugeot_2008_2018",
       "tags": [
-          "French Renaissance"
+          "French Renaissance",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "SUV"
@@ -75139,7 +75418,8 @@
       "name": "Renault Vel Satis",
       "rid": "Renault_Vel_Satis_2002",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -75446,7 +75726,8 @@
       "name": "Ford S-Max",
       "rid": "Ford_S-Max_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -76027,7 +76308,8 @@
       "tags": [
           "Ride of the Valkyries",
           "Interstellar",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -76212,7 +76494,8 @@
       "name": "Mitsubishi Grandis",
       "rid": "Mitsubishi_Grandis_2006",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -76243,7 +76526,8 @@
       "rid": "Pontiac_Montana_2005",
       "tags": [
           "American Dream",
-          "Rest of the World"
+          "Rest of the World",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -76458,7 +76742,8 @@
       "name": "Citroen C5 Saloon",
       "rid": "Citroen_C5_Saloon_1.6_L_2004",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -78418,7 +78703,8 @@
       "name": "Volkswagen Sharan",
       "rid": "Volkswagen_Sharan_2015",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -79307,7 +79593,8 @@
       "rid": "Chrysler_Sebring_1995",
       "tags": [
           "American Dream",
-          "Famous Tracks"
+          "Famous Tracks",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -80143,7 +80430,8 @@
       "name": "Vauxhall Cavalier SRi",
       "rid": "Vauxhall_Cavalier_SRi_1981",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -80293,7 +80581,8 @@
       "name": "Mercedes-Benz S 280",
       "rid": "Mercedes-Benz_S_280_1995",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -80568,7 +80857,8 @@
       "rid": "Citroen_C1_VTi_68_2015",
       "tags": [
           "Two Tone",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -80971,7 +81261,8 @@
       "rid": "Chrysler_Sebring_2001",
       "tags": [
           "American Dream",
-          "Famous Tracks"
+          "Famous Tracks",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -83836,7 +84127,8 @@
       "name": "Mercedes-Benz 230 TE Estate",
       "rid": "Mercedes-Benz_230_TE_Estate_1988",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Estate"
@@ -84868,7 +85160,8 @@
       "rid": "Suzuki_Ertiga_2013",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -85610,7 +85903,8 @@
       "rid": "Chrysler_Town_and_Country_2001",
       "tags": [
           "American Dream",
-          "Summer Games"
+          "Summer Games",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -86441,7 +86735,8 @@
       "name": "Bristol Arnolt-Bristol",
       "rid": "Bristol_ArnoltBristol_1953",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Convertible"
@@ -86501,7 +86796,8 @@
       "name": "Eagle Summit",
       "rid": "Eagle_Summit_1989",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -87322,7 +87618,8 @@
       "rid": "Peugeot_301_2018",
       "tags": [
           "European Revolution",
-          "Eco Friendly"
+          "Eco Friendly",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -87413,7 +87710,8 @@
       "name": "Subaru Vivio Bistro",
       "rid": "Subaru_Vivio_Bistro_1995",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -88461,7 +88759,8 @@
       "name": "Suzuki SC100",
       "rid": "Suzuki_SC100_1977",
       "tags": [
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -89195,7 +89494,8 @@
       "name": "Oldsmobile Toronado",
       "rid": "Oldsmobile_Toronado_1986",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"
@@ -91692,7 +91992,8 @@
       "rid": "Renault_5_1984",
       "tags": [
           "Year of the Rat",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -93225,7 +93526,8 @@
       "rid": "Citroen_Xsara_Picasso_1997",
       "tags": [
           "Year of the Ox",
-          "Originals"
+          "Originals",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "MPV"
@@ -93779,7 +94081,8 @@
       "name": "Lancia Flaminia Sport Zagato",
       "rid": "Lancia_Flaminia_Sport_Zagato_1958",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "5th Anniversary"
       ],
       "bodyTypes": [
           "Coupe"

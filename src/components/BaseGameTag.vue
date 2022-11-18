@@ -36,6 +36,11 @@ export default {
 .BaseGameTag_Filter {
   box-shadow: inset 0px -2px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%);
 }
+.BaseGameTag_5th_Anniversary {
+  --tag-h: 152;
+  --tag-s: 69%;
+  --tag-l: 61%;
+}
 .BaseGameTag_Amalfi_Coast_Cruising {
   --tag-h: 346;
   --tag-s: 79%;
