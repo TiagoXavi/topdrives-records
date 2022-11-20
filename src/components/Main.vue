@@ -2592,20 +2592,17 @@ export default {
         {
           "name": "0-100-0mph",
           "id": "drag100b",
-          "types": ["00","01","10"],
-          "campaign": ["USA Nevada 9", "UK London 3", "COL Tatacoa 4"]
+          "types": ["00","01","10"]
         },
         {
           "name": "0-100mph",
           "id": "drag100",
-          "types": ["00","01","10","20"],
-          "campaign": ["UK Midlands 5","UK Midlands 6","COL Tatacoa 8","FIN Tykkimaki 2"]
+          "types": ["00","01","10","20"]
         },
         {
           "name": "0-120mph",
           "id": "drag120",
-          "types": ["00","20"],
-          "campaign": ["UAE Dubai 10","FIN Tykkimaki 10"]
+          "types": ["00","20"]
         },
         {
           "name": "0-150-0mph",
@@ -4006,7 +4003,7 @@ export default {
       this.currentTracks.map((x, ix) => {
         let bestOption;
         currentTracksOptions[ix].map(y => {
-          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) ) {
+          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) || (y.irace <= bestOption.irace && y.imatch > bestOption.imatch) ) {
             bestOption = y;
           }
         })
@@ -7182,6 +7179,7 @@ body::-webkit-scrollbar-corner {
 }
 .MainGallery_Img {
   transform: scale(1.3);
+  height: 100%;
 }
 .Main_SearchItemLeft {
   color: var(--color);

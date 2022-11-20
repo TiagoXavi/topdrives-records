@@ -244,5 +244,6 @@ export default {
 }
 .BaseCard_Header2Img {
   transform: scale(1.4) translateX(1px);
+  height: 100%;
 }
 </style>
