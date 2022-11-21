@@ -5892,7 +5892,7 @@
       "name": "BMW M8 Competition Convertible",
       "rid": "BMW_M8_Competition_Convertible_2019",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -25209,7 +25209,7 @@
       "name": "Audi A5 Cabriolet 45 TFSI quattro",
       "rid": "Audi_A5_Cabriolet_45_TFSI_quattro_2018",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -26617,7 +26617,7 @@
       "name": "BMW 840d xDrive Convertible",
       "rid": "BMW_840d_xDrive_Convertible_2019",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Diesel",
       "seats": "4",
@@ -27823,7 +27823,7 @@
       "name": "BMW M440i xDrive Convertible",
       "rid": "BMW_M440i_xDrive_Convertible_2020",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -28775,7 +28775,7 @@
       "name": "Audi S3 Cabriolet (8V)",
       "rid": "Audi_S3_Cabriolet_8V_2018",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -28835,7 +28835,7 @@
       "name": "Porsche 911 Carrera Cabriolet 3.4 (991)",
       "rid": "Porsche_911_Carrera_Cabriolet_34_991_2011",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -31101,7 +31101,7 @@
       "name": "Porsche 911 Carrera 2 Cabriolet 3.6 (997.2)",
       "rid": "Porsche_911_Carrera_2_Cabriolet_36_9972_2009",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -50063,7 +50063,7 @@
       "name": "BMW 430i Convertible",
       "rid": "BMW_430i_Convertible_2020",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -51850,7 +51850,7 @@
       "name": "Mini Convertible John Cooper Works",
       "rid": "Mini_Convertible_John_Cooper_Works_2021",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -57539,7 +57539,7 @@
       "name": "Porsche 968 Cabriolet",
       "rid": "Porsche_968_Cabriolet_1992",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -58662,7 +58662,7 @@
       "name": "Alfa Romeo Dardo",
       "rid": "Alfa_Romeo_Dardo_1998",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -58755,7 +58755,7 @@
       "name": "Mini Cooper S Convertible Sidewalk",
       "rid": "Mini_Cooper_S_Convertible_Sidewalk_2021",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -59866,7 +59866,7 @@
       "name": "Fiat Formula 4",
       "rid": "Fiat_Formula_4_1996",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -61166,7 +61166,7 @@
       "name": "Audi A3 Cabriolet (8V)",
       "rid": "Audi_A3_Cabriolet_8V_2018",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -63886,7 +63886,7 @@
       "name": "Alfa Romeo Spider 3.2 V6",
       "rid": "Alfa_Romeo_Spider_32_V6_2008",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -68567,7 +68567,7 @@
       "name": "Fiat Abarth 500C Esseesse",
       "rid": "Fiat_Abarth_500C_Esseesse_2010",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
@@ -77880,7 +77880,7 @@
       "name": "Audi Cabriolet 2.8",
       "rid": "Audi_Cabriolet_28_1991",
       "bodyTypes": [
-          "Cabrio"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "4",
