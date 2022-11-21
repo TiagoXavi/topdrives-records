@@ -25,7 +25,7 @@
         <button v-if="cgOppo" class="D_Button Car_HeaderButton" @click="$emit('cog')">
           <i class="ticon-gear Car_HeaderIcon" aria-hidden="true"/>
         </button>
-        <button v-if="!needSave && !hideClose" class="D_Button Car_HeaderButton" @click="$emit('delete')">
+        <button v-if="(!needSave || cgOppo) && !hideClose" class="D_Button Car_HeaderButton" @click="$emit('delete')">
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
       </div>

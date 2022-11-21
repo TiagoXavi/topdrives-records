@@ -1015,7 +1015,7 @@
                 <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
               </button>
               <button
-                :disabled="needSave || (tuneDialogisOppo && (!!user && !user.mod))"
+                :disabled="(needSave && (!tuneDialogisOppo || !user || !user.mod)) || (tuneDialogisOppo && (!user || !user.mod))"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
                 @click="deleteCar(tuneDialogCarIndex)">
                 <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
@@ -6253,6 +6253,7 @@ export default {
     },
     cgAnalyseRound() {
       this.cgIsFiltering = true;
+      this.cgAddingOppoCar = false;
       let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.1 ));
       let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
       let listOfRids = [];

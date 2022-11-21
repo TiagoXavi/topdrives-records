@@ -40716,7 +40716,7 @@
       "tcs": false,
       "clearance": "Low",
       "topSpeed": 160,
-      "acel": 5.1,
+      "acel": 5.0,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
