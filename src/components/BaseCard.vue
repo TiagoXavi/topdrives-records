@@ -38,6 +38,9 @@
         <div class="Car_HeaderClassBack" />
         <div class="Car_HeaderClassValue">{{ this.car.rq | resolveClass(this.car.class, "letter") }}</div>
       </div>
+      <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
+        <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
+      </div>
       <div class="Car_HeaderBlockTopSpeed">
         <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
         <div class="Car_HeaderStatLabel">TOP SPEED</div>

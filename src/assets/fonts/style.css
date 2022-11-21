@@ -141,6 +141,15 @@
 .ticon-question-circle-o:before {
   content: "\f29c";
 }
+.ticon-pig:before {
+  content: "\e96e";
+}
+.ticon-wallet:before {
+  content: "\e96f";
+}
+.ticon-trophy:before {
+  content: "\e970";
+}
 .ticon-thumbs_down:before {
   content: "\e96c";
 }

@@ -350,6 +350,16 @@ export default {
   text-align: center;
   font-weight: bold;
 }
+.Car_HeaderBlockPrize {
+  display: flex;
+  color: rgb(var(--d-text-yellow));
+  font-size: 16px;
+  background-color: #412900;
+  left: 1%;
+  top: calc(var(--card-top-height) + 2%);
+  padding: 3px;
+  border-radius: 50%;
+}
 .Car_HeaderBlockTopSpeed {
   top: calc(var(--card-top-height) + var(--card-stat-div));
   right: 0;
@@ -501,7 +511,7 @@ export default {
   border-radius: 3px;
 }
 .Car_HeaderBlockRQ {
-  background-color: hsla(30, 10%, 15%, 0.7);
+  background-color: hsla(30, 10%, 15%, 1);
 }
 .Car_NumberStars :nth-child(3) {
   opacity: 0.2;

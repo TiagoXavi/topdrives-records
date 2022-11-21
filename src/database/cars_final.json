@@ -10284,7 +10284,7 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Convertible"
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -27691,7 +27691,7 @@
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "country": "IT",
+      "country": "CH",
       "topSpeed": 165,
       "acel": 4.5,
       "hand": 82,
@@ -55980,7 +55980,7 @@
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 124,
-      "acel": 9,
+      "acel": 8.9,
       "hand": 72,
       "drive": "4WD",
       "tyres": "Standard",

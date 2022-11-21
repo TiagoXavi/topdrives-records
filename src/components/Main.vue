@@ -958,7 +958,7 @@
               <div v-else class="Main_ImgPlaceholder"></div>
               <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
               <div class="Main_SearchItemRight">
-                <span v-html="item.locatedName" />&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
+                <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
               </div>
             </button>
           </template>
@@ -2322,7 +2322,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["JP", "DE", "US", "GB", "IT", "FR", "SE", "NL", "AT", "AU", "HR", "AE", "BR", "ZA", "CN"],
+        countrys: ["DE", "GB", "US", "JP", "IT", "FR", "SE", "NL", "AT", "HR", "AU", "AE", "BR", "CN", "ZA", "CH"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -7292,6 +7292,10 @@ body::-webkit-scrollbar-corner {
           line-clamp: 2; 
   -webkit-box-orient: vertical;
 }
+.Main_SearchTrophy {
+  font-size: 14px;
+  margin-left: 2px;
+}
 .Main_SearchItemYear {
   font-size: 0.6em;
   box-shadow: 0px 0px 0px 2px #0003;
@@ -8586,7 +8590,7 @@ body::-webkit-scrollbar-corner {
   --card-top-height: 11.5%;
   --card-stat-height: 31.9px;
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize) {
   display: none;
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {

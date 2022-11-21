@@ -141,6 +141,12 @@
     <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#00c" d="m92.1 480.1 237.7-160H640v160H92.1z"/>
     <path style="fill-rule:evenodd;clip-rule:evenodd;fill:red" d="M76.8.1H640v160H329.7S80-1.5 76.8.1z"/>
   </svg>
+  <svg v-else-if="flag === 'CH'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+    <rect id="rect171" fill-rule="evenodd" clip-rule="evenodd" fill="#FA000B" width="640" height="480"/>
+    <polygon id="rect554" fill-rule="evenodd" clip-rule="evenodd" fill="#808080" points="328,177.2 328.8,177.2 328.8,177.2 "/>
+    <rect id="rect557" x="170" y="195" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" width="300" height="90"/>
+    <rect id="rect565" x="275" y="90" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" width="90" height="300"/>
+  </svg>
 </template>
 
 <script>
