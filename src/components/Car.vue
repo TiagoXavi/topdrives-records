@@ -20,6 +20,7 @@
         :car="car"
         :list="trackList"
         :highlights="highlights"
+        :countPerTrack="countPerTrack"
         :hoverIndex="hoverIndex"
         :carIndex="index"
         :lastIndex="lastIndex"
@@ -78,6 +79,12 @@ export default {
       }
     },
     highlights: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    countPerTrack: {
       type: Object,
       default() {
         return {}

@@ -109,6 +109,7 @@
               :car="car"
               :index="carIx"
               :lastIndex="carDetailsList.length - 1"
+              :countPerTrack="countTimesPerTrack"
               :trackList="currentTracks"
               :highlights="highlights[carIx]"
               :hoverIndex="hoverIndex"
@@ -2154,6 +2155,7 @@ export default {
       isFiltering: false,
       isFilteringT: false,
       nextId: 0,
+      countTimesPerTrack: {},
       searchFocus: false,
       debounceFilter: null,
       debounceFilterT: null,
@@ -3579,6 +3581,8 @@ export default {
       let vm = this;
       let result = [];
       let sortedByTracks = {};
+      vm.countTimesPerTrack = {};
+
 
       // result length = number of cars
       this.carDetailsList.map(x => {
@@ -3587,6 +3591,7 @@ export default {
 
       // insert every type of track in both result && sortedByTracks
       this.currentTracks.map((x, ix) => {
+        vm.countTimesPerTrack[`${x.id}_a${x.surface}${x.cond}`] = 0;
         sortedByTracks[`${x.id}_a${x.surface}${x.cond}`] = [];
         result.map(y => {
           y[`${x.id}_a${x.surface}${x.cond}`] = null;
@@ -3598,11 +3603,13 @@ export default {
         if ( x.selectedTune && x.data && x.data[x.selectedTune] && x.data[x.selectedTune].times ) {
           Object.keys( x.data[x.selectedTune].times ).forEach(function (trackId) {
             if (sortedByTracks[trackId]) {
+              vm.countTimesPerTrack[trackId] = vm.countTimesPerTrack[trackId] + 1;
               sortedByTracks[trackId].push(x.data[x.selectedTune].times[trackId]);
             }
           });
         }
       });
+      // console.log(vm.countTimesPerTrack);
 
       // dá sort nos times e remove duplicates
       Object.keys( sortedByTracks ).forEach(function (trackId) {

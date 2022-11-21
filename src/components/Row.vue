@@ -61,7 +61,7 @@
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
-        '--last-index': lastIndex || 1,
+        '--last-index': countPerTrack[`${item.id}_a${item.surface}${item.cond}`] - 1,
         '--drag-left-slo': invertedView ? 1 : 7,
         '--drag-top-slo': invertedView ? 7 : 1
       }"
@@ -209,6 +209,12 @@ export default {
       }
     },
     highlights: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    countPerTrack: {
       type: Object,
       default() {
         return {}
