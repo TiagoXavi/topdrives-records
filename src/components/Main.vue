@@ -512,7 +512,7 @@
               </template>
             </div>
           </div>
-          <div class="Cg_Disqus">
+          <div v-if="cgRound.lastAnalyze" class="Cg_Disqus">
             <BaseDisqus :identifier="`${cgCurrentName} R${cgCurrentRound+1}`" :url="shareUrl" />
           </div>
         </template>
