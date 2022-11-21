@@ -70,7 +70,7 @@
       @mouseenter="mouseEnter($event)"
       @mousedown="dragMouseDown($event, ix)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && (!user || !user.mod)) ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"

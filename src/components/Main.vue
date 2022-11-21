@@ -221,9 +221,10 @@
                     class="Cg_RqText">
                     <span class="Cg_RqRq">RQ</span>
                     <span>{{ cgRound.rqFill }}</span>
-                    <span>/{{ cgRound.rqLimit }}</span>
+                    <span>/</span>
+                    <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
                     <button
-                      v-if="user && user.mod"
+                      v-if="user && (user.mod || isRoundEmptyForUser)"
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect"
                       @click="cgOpenRqEdit($event)">
@@ -239,7 +240,32 @@
                           @click="$router.push({ name: 'Login' })">Login</button>
                       </div>
                     </template>
-                    <template v-else-if="!!user && cgNeedSave">
+                    <template v-else-if="cgIsApproving && !!user && user.mod">
+                      <div class="Cg_IsApprovingBox">
+                        <button
+                          :class="{ D_Button_Loading: cgSaveLoading }"
+                          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+                          @click="cgReviewRound(false)">
+                          <span>Delete</span>
+                        </button>
+                        <button
+                          :class="{ D_Button_Loading: cgSaveLoading }"
+                          style="right: unset; left: 0;"
+                          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                          @click="cgReviewRound(true)">
+                          <span>Approve</span>
+                        </button>
+                      </div>
+                    </template>
+                    <template v-else-if="!!user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
+                      <div class="Main_SaveAllBox">
+                        <button
+                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                          class="D_Button Main_SaveAllButton"
+                          @click="cgSaveAll()">Submit for review</button>
+                      </div>
+                    </template>
+                    <template v-else-if="!!user && cgNeedSave && !isRoundEmptyForUser">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
@@ -247,7 +273,7 @@
                           @click="cgSaveAll()">Save</button>
                       </div>
                     </template>
-                    <template v-if="showAnalyse">
+                    <template v-if="showAnalyse && !cgIsApproving">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
@@ -282,7 +308,7 @@
                 <BaseFilterDescription :filter="cgRound.filter" />
               </div>
             </template>
-            <div v-if="cgRound.date && user && user.mod" class="Cg_FilterButtons">
+            <div v-if="cgRound.date && user && (user.mod || isRoundEmptyForUser)" class="Cg_FilterButtons">
               <button
                 :disabled="cgLoadingAny"
                 class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
@@ -298,14 +324,18 @@
         </div>
       </div>
       <div class="Cg_Mid">
-        <template v-if="(!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
+        <div v-if="isRoundEmptyForUser && !cgLoading" class="Cg_RoundEmptyBox">
+          <div style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">This round isn't done yet. You can help creating it, then, submiting for review.</div>
+        </div>
+        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyTitle">Empty round</div>
             <div class="Cg_RoundEmptyBody">This round isn't done yet. If you are on this round, you can help to include it.</div>
-            <div class="Cg_RoundEmptyBody">What we need: tracks, opponent's cars, tunes and times of each race.</div>
+            <div class="Cg_RoundEmptyBody">Login to start creating this round or contact a moderator on our discord server:</div>
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>
+        
         <template v-else-if="cgRound.date">
           <div v-if="showCarsFix" class="Cg_Box">
             <div
@@ -327,7 +357,7 @@
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
-                    :disabled="cgLoadingAny || !user || !user.mod"
+                    :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
                     class="D_Button Car_AddButton add"
                     @click="cgOpenAddOppoCar(irace);">
                     <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
@@ -368,8 +398,8 @@
                   class="Cg_TrackBox"
                   type="tracks" />
                 <button
-                  v-if="!!user && user.mod"
-                  :disabled="cgLoadingAny || !user || !user.mod"
+                  v-if="!!user && (user.mod || isRoundEmptyForUser)"
+                  :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
                   :class="{ Cg_SelectTrackButtonEdit: race.track }"
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
                   @click="cgRaceSelected = irace; openDialogTrackSearch(false);">
@@ -395,7 +425,7 @@
               <div v-else class="Cg_ThemTime">
                 <div class="Row_Cell Row_DisabledCell" />
               </div>
-              <template v-if="race.track && race.car">
+              <template v-if="race.track && race.car && (cgRound.lastAnalyze || (!!user && user.mod)) && !cgIsApproving">
                 <div
                   :class="{
                     Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
@@ -1859,6 +1889,9 @@
               class="Main_SearchItem"
               @click="loadCg(cg.date, index)">
               <div class="Main_SearchItemRight">Round {{ index+1 }}</div>
+              <div v-if="item.lastAnalyze" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
+              </div>
             </button>
           </template>
         </div>
@@ -2221,6 +2254,7 @@ export default {
       cgRqEditString: null,
       cgRqNeedToSave: false,
       cgAnalyseLoading: false,
+      cgIsApproving: false,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -3753,6 +3787,25 @@ export default {
         if (race.cars && race.cars.length > 4) show = false
       })
       return show;
+    },
+    isRoundEmptyForUser() {
+      if (this.mode !== 'cg') return false;
+      if (!this.user) return false;
+      if (this.user.mod) return false;
+      if (!this.cgRound) return false;
+      if (!this.cgRound.lastAnalyze) {
+        return true
+      }
+    },
+    isRoundReadyForSaveUser() {
+      if (!this.isRoundEmptyForUser) return false;
+      let ready = true;
+      this.cgRound.races.map(race => {
+        if (!race.rid || race.time === undefined || race.time === null) ready = false;
+        if (!race.track) ready = false;
+        if (race.cars && race.cars.length > 4) ready = false;
+      })
+      return ready;
     },
     cgLoadingAny() {
       return this.downloadLoading || this.cgLoading || this.cgSaveLoading || this.cgNewLoading || this.saveLoading || this.cgBankToSaveLoading || this.cgAnalyseLoading;
@@ -5696,6 +5749,13 @@ export default {
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
 
+      if (this.cgRound.toApprove && this.user && this.user.mod) {
+        this.cgIsApproving = true;
+        this.cgRound = this.cgRound.toApprove;
+      } else {
+        this.cgIsApproving = false;
+      }
+
       let listRids = [];
       let minCars = [];
 
@@ -6035,7 +6095,7 @@ export default {
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
-          text: "Successful save"
+          text: this.user.mod ? "Successful save" : "Submited for review"
         });
       })
       .catch(error => {
@@ -6062,6 +6122,34 @@ export default {
       this.cgRoundFilterString = JSON.stringify(this.cgRound.filter);
       this.cgRqEditString = this.cgRound.rqLimit;
       this.cgRqNeedToSave = false;
+    },
+    cgReviewRound(approve) {
+      this.cgSaveLoading = true;
+
+      axios.post(Vue.preUrl + "/reviewRound", {
+        date: this.cg.date,
+        round: this.cgCurrentRound,
+        approve: approve
+      })
+      .then(res => {
+        this.loadChallengeFull(this.cgCurrentId);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.cgSaveLoading = false;
+      });
+      
     },
     cgSaveBank() {
       if (this.cgBankToSave.length === 0) return;
@@ -8279,6 +8367,21 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_EX {
   color: #5899fb;
+}
+.Cg_IsApprovingBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+.Main_RoundDone {
+  display: flex;
+  align-items: center;
+}
+.Main_RoundDoneIcon {
+  font-size: 11px;
+  color: rgb(var(--d-text-yellow));
+  margin-left: 6px;
 }
 .Event_SubTitle {
   color: rgb(var(--d-text-yellow));

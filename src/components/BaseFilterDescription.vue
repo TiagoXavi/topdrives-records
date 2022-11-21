@@ -4,6 +4,7 @@
       <div class="BaseFilterDescription_Label">{{ item.label }}</div>
       <div class="BaseFilterDescription_Value">{{ item.value }}</div>
     </div>
+    <div v-if="descResolved.length === 0" class="BaseFilterDescription_Empty">Empty</div>
   </div>
 </template>
 
@@ -83,5 +84,9 @@ export default {
 .BaseFilterDescription_Value {
   font-size: 13px;
   color: rgb(var(--d-text-yellow));
+}
+.BaseFilterDescription_Empty {
+  color: #a90000;
+  font-size: 13px;
 }
 </style>
