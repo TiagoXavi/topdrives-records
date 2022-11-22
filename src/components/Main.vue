@@ -326,7 +326,8 @@
       </div>
       <div class="Cg_Mid">
         <div v-if="isRoundEmptyForUser && !cgLoading" class="Cg_RoundEmptyBox">
-          <div style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">This round isn't done yet. You can help creating it, then, submiting for review.</div>
+          <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">Thanks! Your round will be analysed. Join Discord to talk about if you want.</div>
+          <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">This round isn't done yet. You can help creating it, then, submiting for review.</div>
         </div>
         <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
@@ -2257,6 +2258,7 @@ export default {
       cgRqNeedToSave: false,
       cgAnalyseLoading: false,
       cgIsApproving: false,
+      cgSentForReview: false,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -5707,6 +5709,7 @@ export default {
     loadChallengeFull(date, round) {
       this.cgLoading = true;
       this.cgSeletorDialog = false;
+      this.cgSentForReview = false;
 
       axios.post(Vue.preUrl + "/getCgById", {
         date: date
@@ -6099,6 +6102,10 @@ export default {
       .then(res => {
         this.cgClearRoundToSave();
         this.saveAll(true);
+        if (!this.user.mod) {
+          this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
+          this.cgSentForReview = true;
+        }
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -6259,9 +6266,11 @@ export default {
       this.cgFilterForAddCar = JSON.parse(JSON.stringify(this.cgRound.filter));
     },
     loadPrevRound() {
+      this.cgSentForReview = false;
       this.loadCg(this.cgCurrentId, this.cgCurrentRound-1)
     },
     loadNextRound() {
+      this.cgSentForReview = false;
       this.loadCg(this.cgCurrentId, this.cgCurrentRound+1)
     },
     cgOpenNewCg() {
@@ -8435,6 +8444,9 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_RoundEmptyBody {
 
+}
+.Cg_RoundEmptyThanks {
+  color: rgb(var(--d-text-green));
 }
 .Main_AnnouncementLayout {
 
