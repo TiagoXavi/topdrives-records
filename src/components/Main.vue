@@ -6139,7 +6139,8 @@ export default {
         approve: approve
       })
       .then(res => {
-        this.loadChallengeFull(this.cgCurrentId);
+        if (approve) this.forceShowAnalyse = true;
+        this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
       })
       .catch(error => {
         console.log(error);
