@@ -6273,10 +6273,12 @@ export default {
     },
     loadPrevRound() {
       this.cgSentForReview = false;
+      this.forceShowAnalyse = false;
       this.loadCg(this.cgCurrentId, this.cgCurrentRound-1)
     },
     loadNextRound() {
       this.cgSentForReview = false;
+      this.forceShowAnalyse = false;
       this.loadCg(this.cgCurrentId, this.cgCurrentRound+1)
     },
     cgOpenNewCg() {
@@ -8264,10 +8266,10 @@ body::-webkit-scrollbar-corner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5px 0 25px 0;
+  margin: 2px 0 25px 0;
 }
 .Cg_YouBankManualAdd {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 .D_Button.Cg_BankButton {
   padding-left: 0;
@@ -8847,12 +8849,12 @@ body::-webkit-scrollbar-corner {
 
 
 @media only screen and (max-width: 767px) {
-  body {
+  .Main_Normal .Main_Body:not(.Main_BodyPrint) {
     /* --d-back: #504242; */
     --left-width: 120px;
   }
   .Main_BodyPrint {
-    --left-width: 200px;
+    /* --left-width: 200px; */
   }
   .Main_CornerMid .BaseAvatar_Layout {
     display: none;

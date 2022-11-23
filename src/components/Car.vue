@@ -359,6 +359,9 @@ export default {
   top: calc(var(--card-top-height) + 2%);
   padding: 3px;
   border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
 }
 .Car_HeaderBlockTopSpeed {
   top: calc(var(--card-top-height) + var(--card-stat-div));
