@@ -482,6 +482,12 @@
                 </div>
                 <div class="Cg_YouBank">
                   <div class="Cg_YouBankBox">
+                    <button
+                      :disabled="cgLoadingAny"
+                      class="D_Button Main_AddTrackDirect Cg_YouBankManualAdd"
+                      @click="cgOpenAddYouCar(irace)">
+                      <i class="ticon-plus_2" aria-hidden="true"/>
+                    </button>
                     <template v-for="(bankCar, index) in race.cars">
                       <button
                         v-if="bankCar.points !== 'no time' && bankCar.tune"
@@ -8258,7 +8264,10 @@ body::-webkit-scrollbar-corner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 25px 0;
+  margin: 5px 0 25px 0;
+}
+.Cg_YouBankManualAdd {
+  margin-bottom: 3px;
 }
 .D_Button.Cg_BankButton {
   padding-left: 0;

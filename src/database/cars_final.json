@@ -23101,7 +23101,7 @@
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 99.76,
       "weight": 1875,
       "name": "BMW M6 Gran Coupe",
       "rid": "BMW_M6_Gran_Coupe_2013",
