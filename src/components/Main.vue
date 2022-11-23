@@ -5927,7 +5927,7 @@ export default {
       } catch (error) {
         // nada
       }
-      if (tryoppotime) race.time = tryoppotime;
+      if (tryoppotime || tryoppotime === 0) race.time = tryoppotime;
 
 
       if (typeof race.carIndex !== 'number') {
