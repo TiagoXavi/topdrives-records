@@ -13901,7 +13901,7 @@
       "name": "Audi RS 4 Avant (B9)",
       "rid": "Audi_RS_4_Avant_B9_2018",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -13931,7 +13931,7 @@
       "name": "BMW 330d xDrive Touring",
       "rid": "BMW_330d_xDrive_Touring_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -13962,7 +13962,7 @@
       "rid": "BMW_X6_M50i_Black_Vermilion_2021",
       "prize": true,
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -14867,7 +14867,7 @@
       "name": "BMW iX M60",
       "rid": "BMW_iX_M60_2022",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Electric",
       "seats": "5",
@@ -14898,7 +14898,7 @@
       "name": "BMW X2 M35i",
       "rid": "BMW_X2_M35i_2019",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -15697,7 +15697,7 @@
       "name": "Audi RS Q3 Sportback (F3)",
       "rid": "Audi_RS_Q3_Sportback_F3_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -16743,7 +16743,7 @@
       "name": "Audi S7 (C8)",
       "rid": "Audi_S7_C8_2019",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -16773,7 +16773,7 @@
       "name": "BMW 530d xDrive Touring",
       "rid": "BMW_530d_xDrive_Touring_2020",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -17888,7 +17888,7 @@
       "name": "Audi A6 Avant 3.0 TFSI quattro (C7)",
       "rid": "Audi_A6_Avant_30_TFSI_quattro_C7_2011",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -17949,7 +17949,7 @@
       "rid": "Mini_Countryman_John_Cooper_Works_2020",
       "prize": true,
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -18944,7 +18944,7 @@
       "name": "Audi S4 Avant TDI (B9)",
       "rid": "Audi_S4_Avant_TDI_B9_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -18974,7 +18974,7 @@
       "name": "Audi S7 Sportback (C7)",
       "rid": "Audi_S7_Sportback_C7_2012",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -19127,7 +19127,7 @@
       "name": "BMW M340i xDrive Touring",
       "rid": "BMW_M340i_xDrive_Touring_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -20889,7 +20889,7 @@
       "name": "BMW X7 M50i Dark Shadow Edition",
       "rid": "BMW_X7_M50i_Dark_Shadow_Edition_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "7",
@@ -21964,7 +21964,7 @@
       "name": "BMW X6 xDrive40i",
       "rid": "BMW_X6_xDrive40i_2019",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -21994,7 +21994,7 @@
       "name": "Mini John Cooper Works Clubman",
       "rid": "Mini_John_Cooper_Works_Clubman_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -22950,7 +22950,7 @@
       "name": "BMW 530e xDrive Touring",
       "rid": "BMW_530e_xDrive_Touring_2020",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -22981,7 +22981,7 @@
       "name": "BMW iX xDrive50",
       "rid": "BMW_iX_xDrive50_2021",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Electric",
       "seats": "5",
@@ -24158,7 +24158,7 @@
       "name": "BMW X5 xDrive40d",
       "rid": "BMW_X5_xDrive40d_2019",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -25329,7 +25329,7 @@
       "name": "BMW M550d xDrive Touring",
       "rid": "BMW_M550d_xDrive_Touring_2017",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -25359,7 +25359,7 @@
       "name": "BMW X5 xDrive45e",
       "rid": "BMW_X5_xDrive45e_2019",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -25390,7 +25390,7 @@
       "name": "BMW X7 M50d",
       "rid": "BMW_X7_M50d_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "7",
@@ -26527,7 +26527,7 @@
       "name": "Audi Q8 50 TDI",
       "rid": "Audi_Q8_50_TDI_2018",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -26557,7 +26557,7 @@
       "name": "Audi RS6 Avant (C5)",
       "rid": "Audi_RS6_Avant_C5_2004",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -26587,7 +26587,7 @@
       "name": "BMW 330i Touring",
       "rid": "BMW_330i_Touring_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -27733,7 +27733,7 @@
       "name": "Audi A4 allroad 2.0 TFSI quattro (B9)",
       "rid": "Audi_A4_allroad_20_TFSI_quattro_B9_2018",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -27793,7 +27793,7 @@
       "name": "BMW M340d xDrive Touring",
       "rid": "BMW_M340d_xDrive_Touring_2020",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -27853,7 +27853,7 @@
       "name": "Mini Countryman Cooper S ALL4 Boardwalk",
       "rid": "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -29800,7 +29800,7 @@
       "name": "Mini Countryman Cooper SD ALL4",
       "rid": "Mini_Countryman_Cooper_SD_ALL4_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -29830,7 +29830,7 @@
       "name": "Mini Countryman PHEV",
       "rid": "Mini_Countryman_PHEV_2020",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -30980,7 +30980,7 @@
       "name": "Audi Q7 3.0 TDI",
       "rid": "Audi_Q7_30_TDI_2018",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "7",
@@ -31849,7 +31849,7 @@
       "name": "BMW 330e Touring",
       "rid": "BMW_330e_Touring_2020",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -31910,7 +31910,7 @@
       "name": "BMW iX xDrive40",
       "rid": "BMW_iX_xDrive40_2021",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Electric",
       "seats": "5",
@@ -31972,7 +31972,7 @@
       "name": "Porsche Cayenne Diesel 3.0 (958)",
       "rid": "Porsche_Cayenne_Diesel_30_958_2010",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -34026,7 +34026,7 @@
       "name": "Audi allroad quattro 4.2 (C5)",
       "rid": "Audi_allroad_quattro_42_C5_2000",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -34086,7 +34086,7 @@
       "name": "BMW 520d xDrive Touring",
       "rid": "BMW_520d_xDrive_Touring_2020",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -36028,7 +36028,7 @@
       "name": "Audi Q5 2.0 TDI",
       "rid": "Audi_Q5_20_TDI_2018",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -42085,7 +42085,7 @@
       "name": "Audi S2 Avant (B4)",
       "rid": "Audi_S2_Avant_B4_1991",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -44192,7 +44192,7 @@
       "name": "BMW 320d Touring",
       "rid": "BMW_320d_Touring_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -44222,7 +44222,7 @@
       "name": "BMW 320i Touring",
       "rid": "BMW_320i_Touring_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -45536,7 +45536,7 @@
       "name": "Lancia Thema Turbo 16v",
       "rid": "Lancia_Thema_Turbo_16v_1989",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -48332,7 +48332,7 @@
       "name": "Alfa Romeo 156 GTA Sportwagon",
       "rid": "Alfa_Romeo_156_GTA_Sportwagon_2002",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -48362,7 +48362,7 @@
       "name": "Alfa Romeo 159 Sportswagon 3.2 V6 Q4",
       "rid": "Alfa_Romeo_159_Sportswagon_32_V6_Q4_2006",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -53533,7 +53533,7 @@
       "name": "BMW iX3 Premier Edition",
       "rid": "BMW_iX3_Premier_Edition_2021",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Electric",
       "seats": "5",
@@ -53564,7 +53564,7 @@
       "name": "BMW X5 3.0d",
       "rid": "BMW_X5_30d_2001",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -54866,7 +54866,7 @@
       "name": "Mini Cooper SD Clubman ALL4",
       "rid": "Mini_Cooper_SD_Clubman_ALL4_2019",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -59897,7 +59897,7 @@
       "name": "Lancia Thesis 3.2 V6 24v",
       "rid": "Lancia_Thesis_32_V6_24v_2002",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -65248,7 +65248,7 @@
       "name": "Lancia Kappa 3.0 V6 24v",
       "rid": "Lancia_Kappa_30_V6_24v_1999",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -77910,7 +77910,7 @@
       "name": "Fiat Croma Turbo i.e.",
       "rid": "Fiat_Croma_Turbo_ie_1985",
       "bodyTypes": [
-          "Sedan"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -79963,7 +79963,7 @@
       "name": "Fiat Oltre",
       "rid": "Fiat_Oltre_2005",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Diesel",
       "seats": "5",
@@ -91032,7 +91032,7 @@
       "name": "Audi 100 Avant (C2)",
       "rid": "Audi_100_Avant_C2_1977",
       "bodyTypes": [
-          "Wagon"
+          "Estate"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -95255,7 +95255,7 @@
       "name": "Alfa Romeo Matta",
       "rid": "Alfa_Romeo_Matta_1952",
       "bodyTypes": [
-          "Suv"
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
