@@ -485,7 +485,7 @@
                     <button
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect Cg_YouBankManualAdd"
-                      @click="cgOpenAddYouCar(irace)">
+                      @click="race.carIndex = undefined; calcRaceResult(race); cgOpenAddYouCar(irace)">
                       <i class="ticon-plus_2" aria-hidden="true"/>
                     </button>
                     <template v-for="(bankCar, index) in race.cars">
@@ -6367,6 +6367,7 @@ export default {
     cgAnalyseRound() {
       this.cgIsFiltering = true;
       this.cgAddingOppoCar = false;
+      this.cgAddingYouCar = false;
       let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.1 ));
       let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
       let listOfRids = [];
@@ -7232,7 +7233,7 @@ body::-webkit-scrollbar-corner {
   background-color: #222;
 }
 .Main_SearchEmpty {
-  height: 50vh;
+  height: 60vh;
   background-color: var(--d-back);
   width: 100%;
   box-sizing: border-box;
