@@ -70,7 +70,7 @@
       @mouseenter="mouseEnter($event)"
       @mousedown="dragMouseDown($event, ix)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) ? false : true"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -280,6 +280,10 @@ export default {
       default: false
     },
     forceHideCompactSelect: {
+      type: Boolean,
+      default: false
+    },
+    forceDisabled: {
       type: Boolean,
       default: false
     },

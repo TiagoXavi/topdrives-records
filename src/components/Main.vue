@@ -420,6 +420,7 @@
                   :cgOppo="true"
                   :cgTime="race.time"
                   :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
+                  :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser)"
                   type="times"
                   placeholder="Time to beat"
                   @changeTime="cgChangeTimeOppo(race, $event)" />
