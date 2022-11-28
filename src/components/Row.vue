@@ -157,7 +157,7 @@
         </div>
         <div v-if="item.author" class="Row_DetailAuthor">by {{ item.author }}</div>
       </div>
-      <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 1 )" class="Row_CheckDoubtful">
+      <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 0 )" class="Row_CheckDoubtful">
         <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
       </div>
       <div v-if="type === 'tracks'" class="RowTrack_DragIndicator"></div>
