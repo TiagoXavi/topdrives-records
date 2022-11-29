@@ -6369,7 +6369,7 @@ export default {
       this.cgIsFiltering = true;
       this.cgAddingOppoCar = false;
       this.cgAddingYouCar = false;
-      let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.1 ));
+      let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.3 ));
       let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
       let listOfRids = [];
 

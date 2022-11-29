@@ -25,7 +25,7 @@ Vue.use(VueDisqus, {
 if (process.env.NODE_ENV === 'production') {
   // Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
   Vue.preUrl = "https://api.topdrivesrecords.com";
-  LogRocket.init('detmgd/topdrives-records');
+  // LogRocket.init('detmgd/topdrives-records');
   Vue.use (Hotjar, {
     id: '3138550'
   })
