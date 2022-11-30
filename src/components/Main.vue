@@ -8050,7 +8050,10 @@ body::-webkit-scrollbar-corner {
   color: #fff3;
   --height: 28px;
 }
-
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
 
 
 .Cg_Layout {
