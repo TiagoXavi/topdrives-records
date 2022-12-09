@@ -194,6 +194,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   class="BaseChip_MinWidth BaseChip_DontCrop"
                   :value="item" />
               </template>

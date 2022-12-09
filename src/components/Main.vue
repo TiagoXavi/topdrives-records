@@ -928,6 +928,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="mainFilter.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -1504,6 +1505,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="galleryFilters.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -2059,12 +2061,21 @@
       max-width="400px"
       @close="closeAdvancedOptions()">
       <div class="Main_AdvancedDialogBox">
+        <div class="Main_DialogTitle">Configuration</div>
         <div class="Main_SaveGalleryBoxCheck">
           <div class="Main_SaveGalleryCheckLeft">
-            <BaseCheckBox v-model="showDataFromPast" @change="dataFromPastChange()" />
+            <BaseCheckBox v-model="showDataFromPast" @change="updateAdvancedConfig()" />
           </div>
           <div class="Main_SaveGalleryCheckRight">
             <div class="Main_OptionsLabel">Show data from v15</div>
+          </div>
+        </div>
+        <div class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox v-model="showOldTags" @change="updateAdvancedConfig()" />
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Show deprecated tags</div>
           </div>
         </div>
       </div>
@@ -2159,6 +2170,7 @@ export default {
       searchTracks: '',
       searchActive: false,
       showDataFromPast: false,
+      showOldTags: false,
       optionsAdvancedDialog: false,
       isFiltering: false,
       isFilteringT: false,
@@ -3428,7 +3440,14 @@ export default {
     }
     let showDataFromPast = window.localStorage.getItem("showDataFromPast");
     if (showDataFromPast) {
+      showDataFromPast = JSON.parse(showDataFromPast);
       this.showDataFromPast = showDataFromPast;
+    }
+    let showOldTags = window.localStorage.getItem("showOldTags");
+    if (showOldTags) {
+      showOldTags = JSON.parse(showOldTags);
+      this.showOldTags = showOldTags;
+      this.$store.commit("CHANGE_OLD_TAGS", showOldTags);
     }
     
 
@@ -4553,8 +4572,10 @@ export default {
         window.localStorage.setItem('colors', type);
       }
     },
-    dataFromPastChange() {
+    updateAdvancedConfig() {
       window.localStorage.setItem('showDataFromPast', this.showDataFromPast);
+      window.localStorage.setItem('showOldTags', this.showOldTags);
+      this.$store.commit("CHANGE_OLD_TAGS", this.showOldTags);
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
@@ -8053,6 +8074,11 @@ body::-webkit-scrollbar-corner {
 [contenteditable] {
   -webkit-user-select: text;
   user-select: text;
+}
+.Main_AdvancedDialogBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 
