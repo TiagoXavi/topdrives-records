@@ -174,7 +174,9 @@ export default {
     },
     resolvedRq() {
       if (this.car && this.car.selectedTune && this.car.selectedTune.substr(0,3) === 'v15') {
-        return Vue.getOldCar(this.car.rid).rq;
+        return Vue.getOldCar(this.car.rid, "15").rq;
+      } else if (this.car && this.car.selectedTune && this.car.selectedTune.substr(0,3) === 'v16') {
+        return Vue.getOldCar(this.car.rid, "16").rq;
       } else {
         return this.car.rq
       }
