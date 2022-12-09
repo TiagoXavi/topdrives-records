@@ -1,0 +1,1707 @@
+[
+  {
+    "Model": "AC Cobra MkIII 427 S/C (1965)",
+    "Old RQ": 70,
+    "New RQ": 72
+  },
+  {
+    "Model": "Acura RSX (2002)",
+    "Old RQ": 55,
+    "New RQ": 51
+  },
+  {
+    "Model": "Alfa Romeo 145 Cloverleaf (1994)",
+    "Old RQ": 36,
+    "New RQ": 35
+  },
+  {
+    "Model": "Alfa Romeo 166 (1998)",
+    "Old RQ": 35,
+    "New RQ": 34
+  },
+  {
+    "Model": "Alfa Romeo 1750 GTV (1967)",
+    "Old RQ": 14,
+    "New RQ": 13
+  },
+  {
+    "Model": "Alfa Romeo 2000 GTV (1971)",
+    "Old RQ": 16,
+    "New RQ": 15
+  },
+  {
+    "Model": "Alfa Romeo Disco Volante (8C) (2013)",
+    "Old RQ": 69,
+    "New RQ": 70
+  },
+  {
+    "Model": "Alfa Romeo Giulia TZ (1963)",
+    "Old RQ": 40,
+    "New RQ": 41
+  },
+  {
+    "Model": "Alfa Romeo GT 1600 Junior (1972)",
+    "Old RQ": 13,
+    "New RQ": 12
+  },
+  {
+    "Model": "Alfa Romeo MiTo GTA (2009)",
+    "Old RQ": 50,
+    "New RQ": 51
+  },
+  {
+    "Model": "Ariel Atom 4 (2018)",
+    "Old RQ": 83,
+    "New RQ": 84
+  },
+  {
+    "Model": "Aston Martin DB6 (1965)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Aston Martin DB9 (2004)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Aston Martin DBS Carbon Black Edition (2010)",
+    "Old RQ": 67,
+    "New RQ": 68
+  },
+  {
+    "Model": "Aston Martin DBS Superleggera (2019)",
+    "Old RQ": 83,
+    "New RQ": 82
+  },
+  {
+    "Model": "Aston Martin Rapide (2010)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Aston Martin Rapide Bertone Jet 2+2 (2013)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Aston Martin V12 Vanquish (2001)",
+    "Old RQ": 59,
+    "New RQ": 60
+  },
+  {
+    "Model": "Aston Martin V12 Vanquish S (2004)",
+    "Old RQ": 67,
+    "New RQ": 68
+  },
+  {
+    "Model": "Aston Martin V12 Vantage (2009)",
+    "Old RQ": 70,
+    "New RQ": 71
+  },
+  {
+    "Model": "Aston Martin V8 Volante (1996)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Aston Martin Vanquish Volante (2013)",
+    "Old RQ": 72,
+    "New RQ": 73
+  },
+  {
+    "Model": "Aston Martin Vantage (1993)",
+    "Old RQ": 53,
+    "New RQ": 54
+  },
+  {
+    "Model": "Aston Martin Virage Volante (2011)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Audi A1 30 TFSI (GB) (2018)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Audi A2 1.4 (1999)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Audi A4 1.8T quattro Sport (B5) (1996)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Audi A7 Sportback 55 TFSI quattro (2018)",
+    "Old RQ": 79,
+    "New RQ": 78
+  },
+  {
+    "Model": "Audi R10 TDI (2006)",
+    "Old RQ": 97,
+    "New RQ": 96
+  },
+  {
+    "Model": "Audi R8 V10 Plus (2015)",
+    "Old RQ": 93,
+    "New RQ": 92
+  },
+  {
+    "Model": "Audi RS Q3 (2015)",
+    "Old RQ": 76,
+    "New RQ": 75
+  },
+  {
+    "Model": "Audi RS6 Avant (2013)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Audi S8 (2006)",
+    "Old RQ": 68,
+    "New RQ": 67
+  },
+  {
+    "Model": "Audi TT RS (FV) (2016)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Austin 1100 (1963)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Bentley Bentayga W12 (2019)",
+    "Old RQ": 82,
+    "New RQ": 81
+  },
+  {
+    "Model": "Bentley Brooklands (2008)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Bentley Continental GT Convertible Number 1 Edition by Mulliner (2019)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Bentley Continental GT Pikes Peak (2019)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Bentley Continental GT3 (2013)",
+    "Old RQ": 93,
+    "New RQ": 92
+  },
+  {
+    "Model": "Bentley Continental Supersports (2010)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Bentley Continental Supersports (2017)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Bentley Mulsanne Extended Wheelbase (2019)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "BMW 1-series M Coupe (2011)",
+    "Old RQ": 61,
+    "New RQ": 62
+  },
+  {
+    "Model": "BMW 220d xDrive Gran Tourer (2018)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "BMW 320d Touring (2010)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "BMW 520d Touring (2017)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "BMW 728i (1977)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "BMW M Coupe (1998)",
+    "Old RQ": 55,
+    "New RQ": 56
+  },
+  {
+    "Model": "BMW M3 GTR (2001)",
+    "Old RQ": 84,
+    "New RQ": 83
+  },
+  {
+    "Model": "BMW M5 (2018)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "BMW M850i xDrive Convertible (2019)",
+    "Old RQ": 82,
+    "New RQ": 81
+  },
+  {
+    "Model": "BMW Nazca C2 (1992)",
+    "Old RQ": 68,
+    "New RQ": 69
+  },
+  {
+    "Model": "BMW X3 (2006)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "BMW X5 4.4i (2000)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "BMW X5 M (2009)",
+    "Old RQ": 83,
+    "New RQ": 82
+  },
+  {
+    "Model": "Bristol 603S (1976)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Bristol Zagato 406S (1959)",
+    "Old RQ": 19,
+    "New RQ": 18
+  },
+  {
+    "Model": "Bugatti Veyron 16.4 Super Sport (2010)",
+    "Old RQ": 98,
+    "New RQ": 97
+  },
+  {
+    "Model": "Buick Reatta Convertible (1990)",
+    "Old RQ": 25,
+    "New RQ": 26
+  },
+  {
+    "Model": "Cadillac Allanté (1989)",
+    "Old RQ": 30,
+    "New RQ": 31
+  },
+  {
+    "Model": "Cadillac CTS Coupe (2014)",
+    "Old RQ": 65,
+    "New RQ": 66
+  },
+  {
+    "Model": "Cadillac Escalade ESV (2016)",
+    "Old RQ": 54,
+    "New RQ": 55
+  },
+  {
+    "Model": "Cadillac Escalade EXT (2011)",
+    "Old RQ": 48,
+    "New RQ": 49
+  },
+  {
+    "Model": "Cadillac Sixteen (2003)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Cadillac XT5 (2017)",
+    "Old RQ": 66,
+    "New RQ": 67
+  },
+  {
+    "Model": "Caterham Seven 420 (2015)",
+    "Old RQ": 65,
+    "New RQ": 66
+  },
+  {
+    "Model": "Chevrolet Aerovette (1977)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "Chevrolet Camaro SS Coupe (2010)",
+    "Old RQ": 59,
+    "New RQ": 60
+  },
+  {
+    "Model": "Chevrolet Camaro Z/28 (1977)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Chevrolet Captiva LTX (2008)",
+    "Old RQ": 44,
+    "New RQ": 45
+  },
+  {
+    "Model": "Chevrolet Cobalt SS Turbo (2009)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Chevrolet COPO Camaro (2012)",
+    "Old RQ": 80,
+    "New RQ": 81
+  },
+  {
+    "Model": "Chevrolet COPO Camaro (2018)",
+    "Old RQ": 84,
+    "New RQ": 83
+  },
+  {
+    "Model": "Chevrolet Corvette Z06 (2016)",
+    "Old RQ": 83,
+    "New RQ": 82
+  },
+  {
+    "Model": "Chevrolet Corvette ZR2 (1972)",
+    "Old RQ": 42,
+    "New RQ": 43
+  },
+  {
+    "Model": "Chevrolet Cruze LT (2012)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Chevrolet Monte Carlo SS (1983)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Chevrolet SSR (2003)",
+    "Old RQ": 31,
+    "New RQ": 30
+  },
+  {
+    "Model": "Chrysler 300 Hurst (1970)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Chrysler 300C (1957)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Chrysler 300M Special Edition (2002)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Chrysler Crossfire Coupe (2004)",
+    "Old RQ": 48,
+    "New RQ": 49
+  },
+  {
+    "Model": "Chrysler D’Elegance (1952)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Chrysler Firepower (2005)",
+    "Old RQ": 63,
+    "New RQ": 64
+  },
+  {
+    "Model": "Chrysler Imperial (1972)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Chrysler Phaeton (1997)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Chrysler PT Cruiser (2004)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "Chrysler Sebring (2001)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Chrysler Town and Country (2001)",
+    "Old RQ": 19,
+    "New RQ": 18
+  },
+  {
+    "Model": "Citroën C3 PureTech 110 (2016)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Citroën C4 2.0 16v VTS (2004)",
+    "Old RQ": 35,
+    "New RQ": 34
+  },
+  {
+    "Model": "Citroën C5 HPi (2001)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Citroën C5 V6 (2003)",
+    "Old RQ": 36,
+    "New RQ": 35
+  },
+  {
+    "Model": "Citroën DS 4 (2011)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "Citroën DS Wild Rubis Concept (2013)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "Citroën Saxo VTS 16V (1996)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Citroën SM 2.7 Injection (1972)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Citroën Traction Avant (1934)",
+    "Old RQ": 12,
+    "New RQ": 11
+  },
+  {
+    "Model": "De Tomaso Deauville (1971)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "De Tomaso Mangusta (1967)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "De Tomaso P72 (2020)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "De Tomaso Pantera Group 4 (1972)",
+    "Old RQ": 71,
+    "New RQ": 72
+  },
+  {
+    "Model": "De Tomaso Pantera GTS (1974)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "DMC DeLorean (1982)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Dodge Aries (1986)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Dodge Avenger (1995)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Dodge Challenger SRT Demon (2017)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Dodge Challenger SRT-10 Concept (2009)",
+    "Old RQ": 68,
+    "New RQ": 69
+  },
+  {
+    "Model": "Dodge Charger R/T (2006)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "Dodge Copperhead (1997)",
+    "Old RQ": 43,
+    "New RQ": 44
+  },
+  {
+    "Model": "Dodge Dart (2017)",
+    "Old RQ": 38,
+    "New RQ": 37
+  },
+  {
+    "Model": "Dodge Intrepid ES 3.5L V6 (1993)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Dodge M4S (1981)",
+    "Old RQ": 72,
+    "New RQ": 73
+  },
+  {
+    "Model": "Dodge Nitro R/T (2007)",
+    "Old RQ": 54,
+    "New RQ": 55
+  },
+  {
+    "Model": "Dodge Regal Lancer Super D-500 (1958)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Dodge Shadow ES (1987)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "DS 3 Performance (2016)",
+    "Old RQ": 50,
+    "New RQ": 51
+  },
+  {
+    "Model": "Eagle Talon TSi AWD (1996)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "Fiat 124 Spider Rally (2016)",
+    "Old RQ": 68,
+    "New RQ": 69
+  },
+  {
+    "Model": "Fiat 8V Supersonic (1953)",
+    "Old RQ": 12,
+    "New RQ": 11
+  },
+  {
+    "Model": "Fiat Dino Coupe (1966)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Fiat Fullback Cross (2017)",
+    "Old RQ": 41,
+    "New RQ": 42
+  },
+  {
+    "Model": "Fiat Grande Punto (2010)",
+    "Old RQ": 34,
+    "New RQ": 33
+  },
+  {
+    "Model": "Fiat Panda (2017)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "Fiat Punto (2017)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Fiat Seicento Rally Spec (1998)",
+    "Old RQ": 53,
+    "New RQ": 54
+  },
+  {
+    "Model": "Fiat Tipo (2017)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Fiat Uno Turbo (1985)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Fiat X1/9 (1972)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Ford Bronco II (1986)",
+    "Old RQ": 33,
+    "New RQ": 34
+  },
+  {
+    "Model": "Ford Escort RS2000 (1974)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Ford F-150 (2007)",
+    "Old RQ": 36,
+    "New RQ": 37
+  },
+  {
+    "Model": "Ford Fairlane Torino GT (1968)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Ford Fiesta ST (2018)",
+    "Old RQ": 48,
+    "New RQ": 49
+  },
+  {
+    "Model": "Ford Fiesta XR2 (1988)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Ford Focus Bioethanol (2006)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Ford Focus ST (2019)",
+    "Old RQ": 57,
+    "New RQ": 58
+  },
+  {
+    "Model": "Ford Fusion Sport (2017)",
+    "Old RQ": 76,
+    "New RQ": 75
+  },
+  {
+    "Model": "Ford GT90 (1995)",
+    "Old RQ": 84,
+    "New RQ": 83
+  },
+  {
+    "Model": "Ford Maya (1984)",
+    "Old RQ": 36,
+    "New RQ": 35
+  },
+  {
+    "Model": "Ford Mondeo Estate (2004)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Ford Mondeo ST220 (2002)",
+    "Old RQ": 41,
+    "New RQ": 42
+  },
+  {
+    "Model": "Ford Mustang GT (2005)",
+    "Old RQ": 51,
+    "New RQ": 52
+  },
+  {
+    "Model": "Ford Mustang GT4 (2017)",
+    "Old RQ": 76,
+    "New RQ": 77
+  },
+  {
+    "Model": "Ford Mustang II (1974)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Ford Mustang II King Cobra (1978)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Ford Ranger (2016)",
+    "Old RQ": 41,
+    "New RQ": 42
+  },
+  {
+    "Model": "Ford S-Max (2016)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Ford Sierra RS500 (1987)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Ford SportKa (2003)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Ford Thunderbird Turbo Coupe (1987)",
+    "Old RQ": 27,
+    "New RQ": 26
+  },
+  {
+    "Model": "Geo Storm GSi (1992)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "GMC Yukon Denali (2004)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Hennessey Venom F5 (2021)",
+    "Old RQ": 96,
+    "New RQ": 95
+  },
+  {
+    "Model": "Honda Civic CRX Si (1983)",
+    "Old RQ": 21,
+    "New RQ": 25
+  },
+  {
+    "Model": "Honda Civic Tourer 1.6d (2016)",
+    "Old RQ": 31,
+    "New RQ": 30
+  },
+  {
+    "Model": "Honda Civic Type R (2003)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Honda CR-V 1.6 i-DTEC (2016)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Honda CR-V 2.2 i-DTEC (2007)",
+    "Old RQ": 43,
+    "New RQ": 44
+  },
+  {
+    "Model": "Honda Jazz (2001)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Honda Legend 2.7 V6 (1985)",
+    "Old RQ": 34,
+    "New RQ": 33
+  },
+  {
+    "Model": "Honda Pilot 4WD (2009)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "Honda Prelude 2.0l (1982)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Honda Prelude Type S (1996)",
+    "Old RQ": 34,
+    "New RQ": 33
+  },
+  {
+    "Model": "Hummer H2 SUT (2005)",
+    "Old RQ": 38,
+    "New RQ": 39
+  },
+  {
+    "Model": "Hummer H2 SUV (2003)",
+    "Old RQ": 38,
+    "New RQ": 39
+  },
+  {
+    "Model": "Hummer H3 Dakar (2006)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "INFINITI G20 (P10) (1991)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "INFINITI M30 Convertible (F31) (1991)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "INFINITI Q60 Black S (2017)",
+    "Old RQ": 72,
+    "New RQ": 73
+  },
+  {
+    "Model": "Jaguar C-X75 (2013)",
+    "Old RQ": 98,
+    "New RQ": 97
+  },
+  {
+    "Model": "Jaguar E-Type (1961)",
+    "Old RQ": 36,
+    "New RQ": 35
+  },
+  {
+    "Model": "Jaguar F-Type R Convertible (2016)",
+    "Old RQ": 67,
+    "New RQ": 69
+  },
+  {
+    "Model": "Jaguar Mark 2 (1959)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Jaguar XJS TWR (1982)",
+    "Old RQ": 73,
+    "New RQ": 74
+  },
+  {
+    "Model": "Jaguar XK120 (1948)",
+    "Old RQ": 19,
+    "New RQ": 18
+  },
+  {
+    "Model": "Jaguar XKR (2008)",
+    "Old RQ": 63,
+    "New RQ": 64
+  },
+  {
+    "Model": "Jaguar XKR 100 (2002)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Koenigsegg Agera (2011)",
+    "Old RQ": 90,
+    "New RQ": 89
+  },
+  {
+    "Model": "Koenigsegg CCXR (2007)",
+    "Old RQ": 88,
+    "New RQ": 87
+  },
+  {
+    "Model": "Lamborghini 400GT (1966)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Lamborghini Aventador Roadster (2013)",
+    "Old RQ": 93,
+    "New RQ": 92
+  },
+  {
+    "Model": "Lamborghini Aventador SV (2015)",
+    "Old RQ": 97,
+    "New RQ": 96
+  },
+  {
+    "Model": "Lamborghini Aventador SVJ (2018)",
+    "Old RQ": 98,
+    "New RQ": 97
+  },
+  {
+    "Model": "Lamborghini Centenario (2016)",
+    "Old RQ": 99,
+    "New RQ": 98
+  },
+  {
+    "Model": "Lamborghini Diablo SE30 (1993)",
+    "Old RQ": 70,
+    "New RQ": 71
+  },
+  {
+    "Model": "Lamborghini Diablo SV (1996)",
+    "Old RQ": 68,
+    "New RQ": 69
+  },
+  {
+    "Model": "Lamborghini Diablo VT 6.0 (2000)",
+    "Old RQ": 81,
+    "New RQ": 82
+  },
+  {
+    "Model": "Lamborghini Gallardo Superleggera (1st gen) (2007)",
+    "Old RQ": 89,
+    "New RQ": 88
+  },
+  {
+    "Model": "Lamborghini Islero (1968)",
+    "Old RQ": 34,
+    "New RQ": 33
+  },
+  {
+    "Model": "Lamborghini Murciélago LP640 Roadster (2007)",
+    "Old RQ": 86,
+    "New RQ": 85
+  },
+  {
+    "Model": "Lamborghini Silhouette (1976)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Lancia Delta Integrale 16v (1989)",
+    "Old RQ": 54,
+    "New RQ": 55
+  },
+  {
+    "Model": "Lancia Delta Integrale Evoluzione (1991)",
+    "Old RQ": 59,
+    "New RQ": 60
+  },
+  {
+    "Model": "Lancia Delta Integrale Evoluzione II (1993)",
+    "Old RQ": 60,
+    "New RQ": 61
+  },
+  {
+    "Model": "Land Rover 4.4 V8 (2002)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Land Rover Freelander 2 TD4 (2012)",
+    "Old RQ": 40,
+    "New RQ": 41
+  },
+  {
+    "Model": "Lotus 2-Eleven GT4 Supersport (2009)",
+    "Old RQ": 78,
+    "New RQ": 77
+  },
+  {
+    "Model": "Lotus Esprit Sport 350 (1999)",
+    "Old RQ": 66,
+    "New RQ": 67
+  },
+  {
+    "Model": "Lotus Esprit Turbo (1988)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Lotus Exige Cup 430 (2019)",
+    "Old RQ": 79,
+    "New RQ": 78
+  },
+  {
+    "Model": "Maserati 250F (1955)",
+    "Old RQ": 61,
+    "New RQ": 62
+  },
+  {
+    "Model": "Maserati Ghibli SS Spyder (1969)",
+    "Old RQ": 35,
+    "New RQ": 34
+  },
+  {
+    "Model": "Maserati GranTurismo Sport (2018)",
+    "Old RQ": 60,
+    "New RQ": 61
+  },
+  {
+    "Model": "Maserati Merak SS (1976)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Maserati Sebring (1962)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Mazda 3 (2018)",
+    "Old RQ": 37,
+    "New RQ": 36
+  },
+  {
+    "Model": "Mazda MX-5 BBR Turbo (1990)",
+    "Old RQ": 38,
+    "New RQ": 39
+  },
+  {
+    "Model": "Mazda RX-3 (1971)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Mazda RX-7 Turbo (1983)",
+    "Old RQ": 37,
+    "New RQ": 36
+  },
+  {
+    "Model": "McLaren 600LT Spider (2019)",
+    "Old RQ": 89,
+    "New RQ": 88
+  },
+  {
+    "Model": "McLaren 675LT (2015)",
+    "Old RQ": 92,
+    "New RQ": 91
+  },
+  {
+    "Model": "Mercedes-Benz 190 E 2.3-16 (1984)",
+    "Old RQ": 37,
+    "New RQ": 35
+  },
+  {
+    "Model": "Mercedes-Benz 280 GE (1990)",
+    "Old RQ": 33,
+    "New RQ": 36
+  },
+  {
+    "Model": "Mercedes-Benz 600 (1964)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Mercedes-Benz A 200 CDI (2004)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Mercedes-Benz C 55 (2007)",
+    "Old RQ": 56,
+    "New RQ": 53
+  },
+  {
+    "Model": "Mercedes-Benz CLK 230 K (1999)",
+    "Old RQ": 41,
+    "New RQ": 43
+  },
+  {
+    "Model": "Mercedes-Benz E 220 (2015)",
+    "Old RQ": 41,
+    "New RQ": 40
+  },
+  {
+    "Model": "Mercedes-Benz GT S (2015)",
+    "Old RQ": 78,
+    "New RQ": 77
+  },
+  {
+    "Model": "Mercedes-Benz S 63 (2011)",
+    "Old RQ": 63,
+    "New RQ": 60
+  },
+  {
+    "Model": "Mercedes-Benz S 65 AMG (2006)",
+    "Old RQ": 62,
+    "New RQ": 63
+  },
+  {
+    "Model": "Mercedes-Benz S 65 Coupe (2016)",
+    "Old RQ": 64,
+    "New RQ": 63
+  },
+  {
+    "Model": "Mercedes-Benz SLS AMG GT (2012)",
+    "Old RQ": 75,
+    "New RQ": 76
+  },
+  {
+    "Model": "Mini One (2016)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Mitsubishi ASX (2010)",
+    "Old RQ": 34,
+    "New RQ": 35
+  },
+  {
+    "Model": "Mitsubishi Lancer Evo VIII FQ-400 (2004)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Mitsubishi Lancer Evo VIII MR FQ-340 (2005)",
+    "Old RQ": 78,
+    "New RQ": 77
+  },
+  {
+    "Model": "Nissan 240Z (1969)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Nissan 280Z (1975)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Nissan 370Z Nismo (2009)",
+    "Old RQ": 54,
+    "New RQ": 55
+  },
+  {
+    "Model": "Nissan Bluebird 2.0SSS Attesa X (U12) (1990)",
+    "Old RQ": 48,
+    "New RQ": 49
+  },
+  {
+    "Model": "Nissan Frontier Attack (D23) (2017)",
+    "Old RQ": 47,
+    "New RQ": 48
+  },
+  {
+    "Model": "Nissan Juke (2010)",
+    "Old RQ": 27,
+    "New RQ": 26
+  },
+  {
+    "Model": "Nissan Nismo Z GT500 (2004)",
+    "Old RQ": 89,
+    "New RQ": 88
+  },
+  {
+    "Model": "Nissan Primera (P10) (1990)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Nissan Prince Gloria Super 6 (1964)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Nissan Pulsar (1982)",
+    "Old RQ": 19,
+    "New RQ": 18
+  },
+  {
+    "Model": "Nissan Pulsar (1995)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Nissan Qashqai (2008)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Nissan Silvia (1975)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Nissan Silvia 240RS (1983)",
+    "Old RQ": 68,
+    "New RQ": 69
+  },
+  {
+    "Model": "Nissan Skyline GT-R (R32) (1989)",
+    "Old RQ": 61,
+    "New RQ": 62
+  },
+  {
+    "Model": "Nissan Skyline GT-R Group A (R32) (1990)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Nissan Skyline GT-R LM Nismo (R33) Road Car (1995)",
+    "Old RQ": 59,
+    "New RQ": 60
+  },
+  {
+    "Model": "Nissan Skyline GT-R Nismo Z-Tune (R34) (2005)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Nissan Terrano R3M-R (R50) (1999)",
+    "Old RQ": 35,
+    "New RQ": 36
+  },
+  {
+    "Model": "Nissan Violet Rally Car (A10) (1979)",
+    "Old RQ": 44,
+    "New RQ": 45
+  },
+  {
+    "Model": "Nissan X-Trail (2001)",
+    "Old RQ": 43,
+    "New RQ": 44
+  },
+  {
+    "Model": "Oldsmobile Achieva SCX (1993)",
+    "Old RQ": 31,
+    "New RQ": 30
+  },
+  {
+    "Model": "Oldsmobile Alero GL (1999)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Oldsmobile Bravada (1991)",
+    "Old RQ": 33,
+    "New RQ": 34
+  },
+  {
+    "Model": "Peugeot 205 Rallye (1988)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Peugeot 206 CC (2000)",
+    "Old RQ": 31,
+    "New RQ": 30
+  },
+  {
+    "Model": "Peugeot 206 GTi (1999)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Peugeot 307 (2003)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Peugeot 407 Coupe (2006)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Peugeot 5008 (2018)",
+    "Old RQ": 29,
+    "New RQ": 28
+  },
+  {
+    "Model": "Peugeot Oxia (1988)",
+    "Old RQ": 92,
+    "New RQ": 91
+  },
+  {
+    "Model": "Peugeot Rally 504 (1971)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Plymouth Reliant (1981)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Pontiac Grand Prix GXP (2006)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Porsche 911 Carrera 3.4 (991) (2011)",
+    "Old RQ": 67,
+    "New RQ": 68
+  },
+  {
+    "Model": "Porsche 911 Carrera 3.6 Cabriolet (993) (1996)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Porsche 911 Carrera 4 (1989)",
+    "Old RQ": 62,
+    "New RQ": 63
+  },
+  {
+    "Model": "Porsche 911 Carrera 4 3.0 (992) (2019)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Porsche 911 R (2016)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Porsche 911 RSR-19 (991.2) (2019)",
+    "Old RQ": 94,
+    "New RQ": 93
+  },
+  {
+    "Model": "Porsche 911 Targa 4S (2016)",
+    "Old RQ": 84,
+    "New RQ": 83
+  },
+  {
+    "Model": "Porsche 911 Turbo (2001)",
+    "Old RQ": 81,
+    "New RQ": 80
+  },
+  {
+    "Model": "Porsche 911 Turbo 3.0 (1976)",
+    "Old RQ": 53,
+    "New RQ": 54
+  },
+  {
+    "Model": "Porsche 956 (1982)",
+    "Old RQ": 92,
+    "New RQ": 91
+  },
+  {
+    "Model": "Porsche Cayenne 3.6 (958) (2010)",
+    "Old RQ": 67,
+    "New RQ": 66
+  },
+  {
+    "Model": "Porsche Cayenne Turbo (2017)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Porsche Cayenne Turbo GT (2021)",
+    "Old RQ": 98,
+    "New RQ": 97
+  },
+  {
+    "Model": "Porsche Cayman GT4 (2015)",
+    "Old RQ": 69,
+    "New RQ": 70
+  },
+  {
+    "Model": "Porsche Macan GTS (2021)",
+    "Old RQ": 88,
+    "New RQ": 87
+  },
+  {
+    "Model": "Porsche Macan Turbo (2016)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Porsche Macan Turbo Performance Pack (2017)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Ram Dodge Ramcharger (1981)",
+    "Old RQ": 40,
+    "New RQ": 41
+  },
+  {
+    "Model": "Renault 18 (1978)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Renault Clio (1998)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Renault Laguna (1994)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Renault Laguna (2001)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Renault Mégane (1995)",
+    "Old RQ": 31,
+    "New RQ": 30
+  },
+  {
+    "Model": "Renault Scenic (2016)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "Renault Zoe (2016)",
+    "Old RQ": 21,
+    "New RQ": 20
+  },
+  {
+    "Model": "Rezvani Beast (2015)",
+    "Old RQ": 85,
+    "New RQ": 84
+  },
+  {
+    "Model": "Rezvani Beast Alpha X Blackbird (2018)",
+    "Old RQ": 87,
+    "New RQ": 86
+  },
+  {
+    "Model": "Rezvani Tank (2017)",
+    "Old RQ": 55,
+    "New RQ": 56
+  },
+  {
+    "Model": "Rimac Concept_S (2016)",
+    "Old RQ": 100,
+    "New RQ": 99
+  },
+  {
+    "Model": "Rover 220 Coupé Turbo (1992)",
+    "Old RQ": 45,
+    "New RQ": 46
+  },
+  {
+    "Model": "Rover SD1 (1976)",
+    "Old RQ": 35,
+    "New RQ": 34
+  },
+  {
+    "Model": "Saleen S7 Twin Turbo (2005)",
+    "Old RQ": 86,
+    "New RQ": 88
+  },
+  {
+    "Model": "Saturn Ion (2003)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Saturn Vue (2002)",
+    "Old RQ": 42,
+    "New RQ": 43
+  },
+  {
+    "Model": "Smart Fortwo Coupe T (2016)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Spyker C8 Preliator Spyder (2017)",
+    "Old RQ": 78,
+    "New RQ": 77
+  },
+  {
+    "Model": "Spyker C8 Spyder SWB (2000)",
+    "Old RQ": 63,
+    "New RQ": 64
+  },
+  {
+    "Model": "Spyker D12 Peking-to-Paris (2006)",
+    "Old RQ": 77,
+    "New RQ": 76
+  },
+  {
+    "Model": "Subaru Forester (2002)",
+    "Old RQ": 47,
+    "New RQ": 48
+  },
+  {
+    "Model": "Subaru Forester (2008)",
+    "Old RQ": 44,
+    "New RQ": 45
+  },
+  {
+    "Model": "Subaru Impreza (1992)",
+    "Old RQ": 18,
+    "New RQ": 17
+  },
+  {
+    "Model": "Subaru Impreza (2000)",
+    "Old RQ": 40,
+    "New RQ": 41
+  },
+  {
+    "Model": "Subaru Impreza WRX (GC8D) (1996)",
+    "Old RQ": 63,
+    "New RQ": 64
+  },
+  {
+    "Model": "Subaru Impreza WRX Hatch (GR) (2010)",
+    "Old RQ": 68,
+    "New RQ": 67
+  },
+  {
+    "Model": "Subaru Impreza WRX STI S202 (GDB) (2002)",
+    "Old RQ": 78,
+    "New RQ": 77
+  },
+  {
+    "Model": "Subaru Levorg (2016)",
+    "Old RQ": 52,
+    "New RQ": 53
+  },
+  {
+    "Model": "Subaru Tribeca (2008)",
+    "Old RQ": 53,
+    "New RQ": 54
+  },
+  {
+    "Model": "Subaru WRX STI S207 (VAB) (2016)",
+    "Old RQ": 77,
+    "New RQ": 76
+  },
+  {
+    "Model": "Subaru WRX STI Type RA (VAF) (2018)",
+    "Old RQ": 72,
+    "New RQ": 71
+  },
+  {
+    "Model": "Subaru XV Crosstrek (2016)",
+    "Old RQ": 46,
+    "New RQ": 47
+  },
+  {
+    "Model": "Suzuki Alto Turbo RS 4WD (HA36) (2015)",
+    "Old RQ": 24,
+    "New RQ": 23
+  },
+  {
+    "Model": "Suzuki GSX-R/4 (2001)",
+    "Old RQ": 70,
+    "New RQ": 71
+  },
+  {
+    "Model": "Suzuki Jimny (1998)",
+    "Old RQ": 30,
+    "New RQ": 31
+  },
+  {
+    "Model": "Suzuki Swift (2016)",
+    "Old RQ": 35,
+    "New RQ": 34
+  },
+  {
+    "Model": "Suzuki Vitara (2005)",
+    "Old RQ": 38,
+    "New RQ": 39
+  },
+  {
+    "Model": "Suzuki Vitara S (2016)",
+    "Old RQ": 47,
+    "New RQ": 48
+  },
+  {
+    "Model": "TVR 280i (1984)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "TVR Tuscan S (2005)",
+    "Old RQ": 67,
+    "New RQ": 68
+  },
+  {
+    "Model": "TVR Vixen S2 (1970)",
+    "Old RQ": 16,
+    "New RQ": 15
+  },
+  {
+    "Model": "Ultima RS (2021)",
+    "Old RQ": 95,
+    "New RQ": 96
+  },
+  {
+    "Model": "Vauxhall/Opel Adam 1.2 (2016)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Vauxhall/Opel Chevette HSR (1980)",
+    "Old RQ": 32,
+    "New RQ": 31
+  },
+  {
+    "Model": "Vauxhall/Opel Corsa 1.4Si (1993)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Vauxhall/Opel Firenza 2000 SL Coupé (1971)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Vauxhall/Opel Insignia 2.0 CDTi (2016)",
+    "Old RQ": 26,
+    "New RQ": 25
+  },
+  {
+    "Model": "Vauxhall/Opel Kadett Rallye E 4S (1985)",
+    "Old RQ": 80,
+    "New RQ": 81
+  },
+  {
+    "Model": "Vauxhall/Opel Tigra (1994)",
+    "Old RQ": 22,
+    "New RQ": 21
+  },
+  {
+    "Model": "Vauxhall/Opel VX220 Turbo (2003)",
+    "Old RQ": 58,
+    "New RQ": 59
+  },
+  {
+    "Model": "Volkswagen Golf GTI TCR (2018)",
+    "Old RQ": 72,
+    "New RQ": 70
+  },
+  {
+    "Model": "Volkswagen Jetta (2008)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Volkswagen Passat (1983)",
+    "Old RQ": 23,
+    "New RQ": 22
+  },
+  {
+    "Model": "Volkswagen Polo GTI (2006)",
+    "Old RQ": 33,
+    "New RQ": 32
+  },
+  {
+    "Model": "Volkswagen Sharan (2008)",
+    "Old RQ": 17,
+    "New RQ": 16
+  },
+  {
+    "Model": "Volkswagen Sharan (2015)",
+    "Old RQ": 25,
+    "New RQ": 24
+  },
+  {
+    "Model": "Volkswagen T-Roc (2017)",
+    "Old RQ": 28,
+    "New RQ": 27
+  },
+  {
+    "Model": "Volvo 740 Turbo (1990)",
+    "Old RQ": 37,
+    "New RQ": 36
+  },
+  {
+    "Model": "Volvo S80 V8 (2008)",
+    "Old RQ": 75,
+    "New RQ": 74
+  },
+  {
+    "Model": "W Motors Fenyr SuperSport (2017)",
+    "Old RQ": 89,
+    "New RQ": 88
+  }
+]
