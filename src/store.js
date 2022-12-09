@@ -46,7 +46,25 @@ export default new Vuex.Store({
     tabDynamicValue: 0,
     fullscreen: false,
     ano: null,
-    tuneDialog: false
+    tuneDialog: false,
+    oldTags: [
+      "Around the World",
+      "Call of the Wild",
+      "Christmas Collection",
+      "Famous Tracks",
+      "In the Shadows",
+      "Rest of the World",
+      "Ride of the Valkyries",
+      "Riders on the Storm",
+      "Silver Screen",
+      "Summer Games",
+      "The Horror Show",
+      "Two Tone",
+      "Year of the Ox",
+      "Year of the Rat",
+      "Year of the Tiger"
+    ],
+    showOldTags: false
   },
   mutations: {
     SET_GENERIC: (state, obj) => state[obj.key] = obj.value,
@@ -54,6 +72,7 @@ export default new Vuex.Store({
     SET_GENERIC3: (state, obj) => state[obj.key][obj.key2][obj.key3] = obj.value,
     DEFINE_DIALOG: (state, dialog) => state.mainDialog = dialog,
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
+    CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
     CHANGE_TIME: (state, obj) => null,
     DELETE_TRACK: (state, obj) => null,
     HIDE_DETAIL: (state, obj) => null,

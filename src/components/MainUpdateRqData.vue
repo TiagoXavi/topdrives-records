@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json'
-import cars_new_rq from '../database/cars_new_rq_2.json'
+import cars_new_rq from '../database/cars_new_rq_17.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -77,11 +77,13 @@ export default {
 
     this.cars_new_rq.map(y => {
       let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
-      let yModelName = yModel.substr(0, yModel.length-7)
-      let yModelYear = yModel.substr(yModel.length-5, 4)
+      let yModelName = yModel.substr(0, yModel.length-7);
+      let yModelYear = yModel.substr(yModel.length-5, 4);
+      yModel = yModel.replace("vauxhall/opel ", "");
 
       temp = this.cars_final.filter(x => {
-        let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+        let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        xName = xName.replace("vauxhall ", "");
         // if (yModel.includes(xName) && yModel.substr(yModel.length-5, 4) == x.year) {
         if (yModel.includes(xName) && yModelYear == x.year && (y['Old RQ'] === x.rq || y['New RQ'] === x.rq)) {
           return true

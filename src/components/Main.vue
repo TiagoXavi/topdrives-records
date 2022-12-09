@@ -890,6 +890,10 @@
                 v-model="mainFilter.changed16Model"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 value="16.0 changed cars" />
+              <!-- <BaseChip
+                v-model="mainFilter.changed17Model"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                value="17.0 changed cars" /> -->
             </div>
             <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.prizesModel || cgRound.filter.prizesModel.length === 0" class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.prizes">
@@ -928,6 +932,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="mainFilter.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -1504,6 +1509,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="galleryFilters.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -1710,7 +1716,7 @@
             <button
               class="D_Button Main_OptionsButton"
               @click="$router.push({ name: 'Gallery' })">
-              <span>16.0 Changes</span>
+              <span>17.0 Changes</span>
             </button>
 
             <BaseDonateButton />
@@ -2059,12 +2065,21 @@
       max-width="400px"
       @close="closeAdvancedOptions()">
       <div class="Main_AdvancedDialogBox">
+        <div class="Main_DialogTitle">Configuration</div>
         <div class="Main_SaveGalleryBoxCheck">
           <div class="Main_SaveGalleryCheckLeft">
-            <BaseCheckBox v-model="showDataFromPast" @change="dataFromPastChange()" />
+            <BaseCheckBox v-model="showDataFromPast" @change="updateAdvancedConfig()" />
           </div>
           <div class="Main_SaveGalleryCheckRight">
             <div class="Main_OptionsLabel">Show data from v15</div>
+          </div>
+        </div>
+        <div class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox v-model="showOldTags" @change="updateAdvancedConfig()" />
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">Show deprecated tags</div>
           </div>
         </div>
       </div>
@@ -2097,7 +2112,7 @@ import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
-import data_cars from '../database/cars_final.json'
+import data_cars from '../database/cars_final_PL16.json'
 import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -2159,6 +2174,7 @@ export default {
       searchTracks: '',
       searchActive: false,
       showDataFromPast: false,
+      showOldTags: false,
       optionsAdvancedDialog: false,
       isFiltering: false,
       isFilteringT: false,
@@ -2336,6 +2352,7 @@ export default {
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
         changed16Model: [],
+        changed17Model: [],
         bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
         bodyTypesModel: [],
         fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
@@ -2486,6 +2503,7 @@ export default {
         countrysModel: [],
         prizesModel: [],
         changed16Model: [],
+        changed17Model: [],
         bodyTypesModel: [],
         fuelModel: [],
         engineModel: [],
@@ -3320,6 +3338,23 @@ export default {
         "DS_DS_Convertible_1958",
         "Bristol_406_1958"
       ],
+      changed17: [
+        "Saleen_S7_Twin_Turbo_2005",
+        "Mercedes-Benz_AMG_SLS_GT_2012",
+        "Mercedes-Benz_AMG_SLS_2010",
+        "De_Tomaso_Pantera_Group_4_1972",
+        "Jaguar_F-Type_R_Convertible_2016",
+        "Mercedes-Benz_AMG_S_65_Coupe_2016",
+        "Mercedes-Benz_AMG_S_63_2011",
+        "Mercedes-Benz_AMG_C_55_2007",
+        "Mercedes-Benz_G_500_2012",
+        "Mercedes-Benz_CLK_230_K_1999",
+        "Mercedes-Benz_E_220_2015",
+        "Citroen_C5_Tourer_3.0_L_2016",
+        "Mercedes-Benz_280_GE_1990",
+        "Mercedes-Benz_190_E_2.3-16_1984",
+        "Honda_Civic_CRX_Si_1983"
+      ],
 
       carList: [],
       //          0         1         2         3           4           5       6       7             b                c              d              e
@@ -3428,7 +3463,14 @@ export default {
     }
     let showDataFromPast = window.localStorage.getItem("showDataFromPast");
     if (showDataFromPast) {
+      showDataFromPast = JSON.parse(showDataFromPast);
       this.showDataFromPast = showDataFromPast;
+    }
+    let showOldTags = window.localStorage.getItem("showOldTags");
+    if (showOldTags) {
+      showOldTags = JSON.parse(showOldTags);
+      this.showOldTags = showOldTags;
+      this.$store.commit("CHANGE_OLD_TAGS", showOldTags);
     }
     
 
@@ -4553,8 +4595,10 @@ export default {
         window.localStorage.setItem('colors', type);
       }
     },
-    dataFromPastChange() {
+    updateAdvancedConfig() {
       window.localStorage.setItem('showDataFromPast', this.showDataFromPast);
+      window.localStorage.setItem('showOldTags', this.showOldTags);
+      this.$store.commit("CHANGE_OLD_TAGS", this.showOldTags);
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
@@ -5199,6 +5243,7 @@ export default {
       this[context].countrysModel = [];
       this[context].prizesModel = [];
       this[context].changed16Model = [];
+      this[context].changed17Model = [];
       this[context].bodyTypesModel = [];
       this[context].fuelModel = [];
       this[context].engineModel = [];
@@ -5224,6 +5269,7 @@ export default {
         countrysModel: [],
         prizesModel: [],
         changed16Model: [],
+        changed17Model: [],
         bodyTypesModel: [],
         fuelModel: [],
         engineModel: [],
@@ -5307,6 +5353,9 @@ export default {
 
       if ( context.changed16Model.length > 0 ) {
         if ( !this.changed16.includes(car.rid) ) return false;
+      }
+      if ( context.changed17Model.length > 0 ) {
+        if ( !this.changed17.includes(car.rid) ) return false;
       }
 
       return true;
@@ -6235,6 +6284,7 @@ export default {
       if (!f.countrysModel) Vue.set(f, "countrysModel", []);
       if (!f.prizesModel) Vue.set(f, "prizesModel", []);
       if (!f.changed16Model) Vue.set(f, "changed16Model", []);
+      if (!f.changed17Model) Vue.set(f, "changed17Model", []);
       if (!f.bodyTypesModel) Vue.set(f, "bodyTypesModel", []);
       if (!f.fuelModel) Vue.set(f, "fuelModel", []);
       if (!f.engineModel) Vue.set(f, "engineModel", []);
@@ -8053,6 +8103,11 @@ body::-webkit-scrollbar-corner {
 [contenteditable] {
   -webkit-user-select: text;
   user-select: text;
+}
+.Main_AdvancedDialogBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 

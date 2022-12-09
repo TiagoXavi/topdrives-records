@@ -1,5 +1,8 @@
 <template>
-  <div class="BaseGameTag_Layout" :class="`BaseGameTag_${tag.replaceAll(' ', '_')}`">{{ tag }}</div>
+  <div
+    v-if="!$store.state.oldTags.includes(tag) || $store.state.showOldTags"
+    class="BaseGameTag_Layout"
+    :class="`BaseGameTag_${tag.replaceAll(' ', '_')}`">{{ tag }}</div>
 </template>
 
 <script>

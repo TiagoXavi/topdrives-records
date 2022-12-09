@@ -47,6 +47,10 @@
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="true">Any changed</BaseChip>
               <BaseChip
+                v-model="searchFilters.onlyNewPerformanceModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="true">Perfomance changed</BaseChip>
+              <BaseChip
                 v-model="searchFilters.onlyNewRarityModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="true">Rarity changed</BaseChip>
@@ -198,6 +202,7 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
+                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -340,7 +345,7 @@
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
 import data_cars from '../database/cars_final.json'
-import plOld from '../database/cars_final_PL15.json'
+import plOld from '../database/cars_final_PL16.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -411,6 +416,7 @@ export default {
         classesModel: [],
         onlyAnyChangeModel: [true],
         onlyNewRarityModel: [],
+        onlyNewPerformanceModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
@@ -822,6 +828,7 @@ export default {
       this.searchFilters.classesModel = [];
       this.searchFilters.onlyAnyChangeModel = [true];
       this.searchFilters.onlyNewRarityModel = [];
+      this.searchFilters.onlyNewPerformanceModel = [];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
@@ -850,6 +857,7 @@ export default {
         classesModel: [],
         onlyAnyChangeModel: [],
         onlyNewRarityModel: [],
+        onlyNewPerformanceModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
@@ -925,6 +933,26 @@ export default {
             oldCar.clearance === car.clearance &&
             oldCar.rq === car.rq &&
             oldCar.year === car.year &&
+            oldCar.abs === car.abs &&
+            oldCar.tcs === car.tcs &&
+            oldCar.topSpeed === car.topSpeed &&
+            oldCar.acel === car.acel &&
+            oldCar.hand === car.hand &&
+            oldCar.mra === car.mra &&
+            oldCar.weight === car.weight
+          ) {
+          return false;
+        }
+      }
+
+      if ( this.searchFilters.onlyNewPerformanceModel.includes(true) ) {
+        if ( !oldCar ) {
+          return false;
+        }
+        if (
+            oldCar.tyres === car.tyres &&
+            oldCar.drive === car.drive &&
+            oldCar.clearance === car.clearance &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.topSpeed === car.topSpeed &&

@@ -3,7 +3,8 @@ import {
     toTimeNumber,
     clearNumber,
 } from './formatters.js';
-import plOld from '../database/cars_final_PL15.json'
+import plOld15 from '../database/cars_final_PL15.json'
+import plOld16 from '../database/cars_final_PL16.json'
 
 export default {
     install(Vue) {
@@ -139,8 +140,10 @@ export default {
                 return result;
             }
         },
-        Vue.getOldCar = function (rid) {
-            let car = plOld.find(x => x.rid === rid);
+        Vue.getOldCar = function (rid, version) {
+            let car;
+            if (version === "15") car = plOld15.find(x => x.rid === rid);
+            if (version === "16") car = plOld16.find(x => x.rid === rid);
             if (car) {
                 return car;
             } else {
