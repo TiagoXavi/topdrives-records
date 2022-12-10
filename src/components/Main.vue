@@ -350,7 +350,7 @@
             </button>
           </div>
         </template>
-        <template v-else-if="cgRound.reservedTo && cgRound.reservedTo !== user.username">
+        <template v-else-if="user && cgRound.reservedTo && cgRound.reservedTo !== user.username">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyBody">{{ cgRound.reservedTo }} is doing this round</div>
           </div>
@@ -551,6 +551,12 @@
                 </div>
               </template>
             </div>
+          </div>
+          <div v-if="forceShowAnalyse" class="Cg_RoundEmptyBox">
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="cgResetRound()">Reset round</button>
           </div>
           <div v-if="cgRound.lastAnalyze" class="Cg_Disqus">
             <BaseDisqus :identifier="`${cgCurrentName} R${cgCurrentRound+1}`" :url="shareUrl" />
@@ -6288,6 +6294,50 @@ export default {
       .then(() => {
         this.cgSaveLoading = false;
       });
+      
+    },
+    cgResetRound() {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.cgSaveLoading = true;
+
+        axios.post(Vue.preUrl + "/resetRound", {
+          date: vm.cg.date,
+          round: vm.cgCurrentRound
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.forceShowAnalyse = false;
+          vm.loadChallengeFull(vm.cgCurrentId, vm.cgCurrentRound);
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+          if (error.response.status === 401) {
+            vm.loginDialog = true;
+          }
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.cgSaveLoading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Reset this round?`,
+        actionLabel: `Reset`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
       
     },
     cgSaveBank() {
