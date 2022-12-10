@@ -547,7 +547,7 @@ export default {
 
       this.$nextTick().then(() => {
         if (this.type === "times" && this.loggedin && item.text !== '' ) {
-          if (e.ctrlKey || (item.author !== this.user.username) ) {
+          if ((e.ctrlKey || e.metaKey) || (item.author !== this.user.username) ) {
 
             if (currentIndex !== ix) {
               this.detailIndex = ix;

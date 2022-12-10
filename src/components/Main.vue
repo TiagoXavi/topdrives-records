@@ -3989,9 +3989,9 @@ export default {
       });
       
       if (index === -1) {
-        this.pushTrack(track, e.ctrlKey);
+        this.pushTrack(track, (e.ctrlKey || e.metaKey));
       } else {
-        this.removeTrack(track, e.ctrlKey);
+        this.removeTrack(track, (e.ctrlKey || e.metaKey));
       }      
       this.verifyActiveButtons();
     },
@@ -6501,7 +6501,7 @@ export default {
       })
     },
     cgOpenRqEdit(e) {
-      if (e.shiftKey && e.ctrlKey) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
         this.forceShowAnalyse = !this.forceShowAnalyse;
         return;
       }
