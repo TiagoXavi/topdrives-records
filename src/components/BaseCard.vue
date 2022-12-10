@@ -173,10 +173,8 @@ export default {
       return parsed ? parsed : ''
     },
     resolvedRq() {
-      if (this.car && this.car.selectedTune && this.car.selectedTune.substr(0,3) === 'v15') {
-        return Vue.getOldCar(this.car.rid, "15").rq;
-      } else if (this.car && this.car.selectedTune && this.car.selectedTune.substr(0,3) === 'v16') {
-        return Vue.getOldCar(this.car.rid, "16").rq;
+      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
+        return Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2)).rq;
       } else {
         return this.car.rq
       }

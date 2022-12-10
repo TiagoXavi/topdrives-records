@@ -337,8 +337,39 @@
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>
+        <template v-else-if="isRoundEmptyForModders && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
+          <div class="Cg_RoundEmptyBox">
+            <div class="Cg_RoundEmptyTitle">Empty round</div>
+            <div class="Cg_RoundEmptyBody">Lock this round to you to start doing it</div>
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading }"
+              style="margin-top: 20px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="cgReserveRound()">
+              <span class="">Lock this round for me</span>
+            </button>
+          </div>
+        </template>
+        <template v-else-if="cgRound.reservedTo && cgRound.reservedTo !== user.username">
+          <div class="Cg_RoundEmptyBox">
+            <div class="Cg_RoundEmptyBody">{{ cgRound.reservedTo }} is doing this round</div>
+          </div>
+        </template>
+        
         
         <template v-else-if="cgRound.date">
+          <div
+            style="margin-bottom: 10px;"
+            class="Cg_RoundEmptyBox">
+            <template v-if="user && cgRound.date && cgRound.reservedTo && (cgRound.reservedTo === user.username || user.username === 'TiagoXavi')">
+              <button
+                :class="{ D_Button_Loading: cgSaveLoading }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="cgReserveRound()">
+                <span class="">Unlock this round</span>
+              </button>
+            </template>
+          </div>
           <div v-if="showCarsFix" class="Cg_Box">
             <div
               v-for="(race, irace) in cgRound.races"
@@ -3855,6 +3886,16 @@ export default {
         return true
       }
     },
+    isRoundEmptyForModders() {
+      if (this.mode !== 'cg') return false;
+      if (!this.user) return false;
+      if (!this.user.mod) return false;
+      if (!this.cgRound) return false;
+      if (this.cgRound.reservedTo) return false;
+      if (!this.cgRound.lastAnalyze) {
+        return true
+      }
+    },
     isRoundReadyForSaveUser() {
       if (!this.isRoundEmptyForUser) return false;
       let ready = true;
@@ -6193,6 +6234,33 @@ export default {
       this.cgRqEditString = this.cgRound.rqLimit;
       this.cgRqNeedToSave = false;
     },
+    cgReserveRound() {
+      this.cgSaveLoading = true;
+
+      axios.post(Vue.preUrl + "/reserveRound", {
+        date: this.cg.date,
+        round: this.cgCurrentRound
+      })
+      .then(res => {
+        this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.cgSaveLoading = false;
+      });
+
+    },
     cgReviewRound(approve) {
       this.cgSaveLoading = true;
 
@@ -6499,6 +6567,10 @@ export default {
         if (x.name.substr(0, 14) === 'Expo Campaign ') {
           Vue.set(x, "index", 3);
           styl = `<span class="Cg_EX">Expo Campaign </span>${x.name.substr(14)}`
+        }
+        if (x.name.substr(0, 17) === 'Proving Grounds: ') {
+          Vue.set(x, "index", 4);
+          styl = `<span class="Cg_PG">Proving Grounds: </span>${x.name.substr(17)}`
         }
         Vue.set(x, "nameStyled", styl);
       })
@@ -8459,6 +8531,9 @@ body::-webkit-scrollbar-corner {
 }
 .Cg_EX {
   color: #5899fb;
+}
+.Cg_PG {
+  color: #9ac712;
 }
 .Cg_IsApprovingBox {
   display: flex;

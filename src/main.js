@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     id: '3138550'
   })
 } else {
-  Vue.preUrl = "http://192.168.15.110:3000";
+  Vue.preUrl = "http:///192.168.3.120:3000";
 }
 
 new Vue({
