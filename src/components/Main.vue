@@ -558,9 +558,6 @@
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
               @click="cgResetRound()">Reset round</button>
           </div>
-          <div v-if="cgRound.lastAnalyze" class="Cg_Disqus">
-            <BaseDisqus :identifier="`${cgCurrentName} R${cgCurrentRound+1}`" :url="shareUrl" />
-          </div>
         </template>
         <div v-else-if="cgLoading" class="Cg_MidLoading">
           <BaseContentLoader
@@ -735,11 +732,6 @@
               </div>
             </div>
 
-            
-
-            <div class="Cg_Disqus">
-              <!-- <BaseDisqus :identifier="`${eventCurrentName}`" :url="shareUrl" /> -->
-            </div>
           </template>
         </template>
         <div v-else-if="eventLoading" class="Cg_MidLoading">
@@ -2145,7 +2137,6 @@ import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseLogoSpining from './BaseLogoSpining.vue'
 import BaseCompItem from './BaseCompItem.vue'
-import BaseDisqus from './BaseDisqus.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
@@ -2180,7 +2171,6 @@ export default {
     BaseFilterDescription,
     BaseDonateButton,
     BaseDiscordButton,
-    BaseDisqus,
     BaseLogoSpining,
     BaseCompItem
   },
@@ -9021,9 +9011,6 @@ body::-webkit-scrollbar-corner {
 }
 .Main_BodyPrint.Cg_Layout .Cg_Race:last-child .Row_Cell {
   border-right-width: 2px;	
-}
-.Main_BodyPrint .BaseDisqus_Layout {
-  display: none;
 }
 .Main_BodyPrint .Cg_Header {
   position: static;

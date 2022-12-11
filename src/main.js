@@ -8,7 +8,6 @@ import PortalVue from 'portal-vue';
 import 'focus-visible';
 import LogRocket from 'logrocket';
 import Hotjar from 'vue-hotjar';
-import VueDisqus from 'vue-disqus'
 
 
 Vue.config.productionTip = false
@@ -17,9 +16,6 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
 Vue.use(PortalVue);
-Vue.use(VueDisqus, {
-  shortname: 'topdrivesrecords'
-})
 
 
 if (process.env.NODE_ENV === 'production') {
