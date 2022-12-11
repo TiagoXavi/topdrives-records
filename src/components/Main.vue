@@ -6603,6 +6603,9 @@ export default {
       });
     },
     styleCgList() {
+      this.cgList.sort((a,b) => {
+        return a.name.localeCompare(b.name);
+      })
       this.cgList.map(x => {
         let styl = x.name;
         Vue.set(x, "index", 0);
