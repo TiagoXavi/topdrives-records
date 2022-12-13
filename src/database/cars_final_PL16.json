@@ -31,8 +31,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "4",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -65,8 +64,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -100,8 +98,7 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -133,8 +130,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -166,8 +162,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -201,8 +196,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -237,8 +231,7 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -270,8 +263,7 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -303,8 +295,7 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -336,8 +327,7 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -369,8 +359,7 @@
       ],
       "fuel": "Electric",
       "seats": "1",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -402,8 +391,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -413,7 +401,7 @@
       "year": 2018,
       "tdid": "3792",
       "abs": false,
-      "tcs": false,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 230,
@@ -435,8 +423,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -469,8 +456,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -502,8 +488,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -535,8 +520,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -568,8 +552,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -578,8 +561,8 @@
       "brand": "Pagani",
       "year": 2021,
       "tdid": "3711",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 225,
@@ -602,8 +585,7 @@
           "Amalfi Coast Cruising",
           "Ultra Expensive",
           "Hypercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -637,8 +619,7 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -670,8 +651,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -704,8 +684,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -736,8 +715,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -770,8 +748,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -802,8 +779,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -835,8 +811,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -867,8 +842,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -901,8 +875,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -935,8 +908,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -968,8 +940,7 @@
       ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1001,8 +972,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1032,8 +1002,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -1064,8 +1033,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -1096,8 +1064,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -1131,8 +1098,7 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1163,8 +1129,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1196,8 +1161,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1230,8 +1194,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1263,8 +1226,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1296,8 +1258,7 @@
       ],
       "fuel": "Diesel",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1329,8 +1290,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -1362,8 +1322,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1398,8 +1357,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1431,8 +1389,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1464,8 +1421,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1497,8 +1453,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1529,8 +1484,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1562,8 +1516,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1595,8 +1548,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1626,8 +1578,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -1659,8 +1610,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -1693,8 +1643,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1725,8 +1674,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -1758,8 +1706,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1791,8 +1738,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1826,8 +1772,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1860,8 +1805,7 @@
       ],
       "fuel": "Electric",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -1895,8 +1839,7 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1927,8 +1870,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1958,8 +1900,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1991,8 +1932,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2025,8 +1965,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2057,8 +1996,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -2091,8 +2029,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2125,8 +2062,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2158,8 +2094,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2193,8 +2128,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -2225,8 +2159,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2258,8 +2191,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -2291,8 +2223,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2323,8 +2254,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2357,8 +2287,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2392,8 +2321,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -2425,8 +2353,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -2458,8 +2385,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2491,8 +2417,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2522,8 +2447,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2555,8 +2479,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2588,8 +2511,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -2621,8 +2543,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2654,8 +2575,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2686,8 +2606,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2696,8 +2615,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3769",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 183,
@@ -2718,8 +2637,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -2728,8 +2646,8 @@
       "brand": "Pagani",
       "year": 2020,
       "tdid": "3708",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 225,
@@ -2751,8 +2669,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -2761,8 +2678,8 @@
       "brand": "Porsche",
       "year": 2016,
       "tdid": "3793",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 205,
@@ -2782,8 +2699,7 @@
       "engine": "Rear",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -2816,8 +2732,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2848,8 +2763,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2882,8 +2796,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2913,8 +2826,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -2947,8 +2859,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2979,8 +2890,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3012,8 +2922,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -3044,8 +2953,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -3076,8 +2984,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3110,8 +3017,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -3143,8 +3049,7 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3175,8 +3080,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3208,8 +3112,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3240,8 +3143,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -3273,8 +3175,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3283,8 +3184,8 @@
       "brand": "Pagani",
       "year": 2020,
       "tdid": "3709",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 220,
@@ -3305,8 +3206,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3338,8 +3238,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -3370,8 +3269,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -3402,8 +3300,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3435,8 +3332,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3467,8 +3363,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3498,8 +3393,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3530,8 +3424,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3561,8 +3454,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3594,8 +3486,7 @@
       ],
       "fuel": "Electric",
       "seats": "2",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -3625,8 +3516,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -3657,8 +3547,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3688,8 +3577,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3719,8 +3607,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3750,8 +3637,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -3760,8 +3646,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3655",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -3782,8 +3668,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3792,8 +3677,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3616",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -3815,8 +3700,7 @@
       "tags": [
           "Enter the Black Forest",
           "Drivers Choice"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3825,8 +3709,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3618",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -3846,8 +3730,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3856,8 +3739,8 @@
       "brand": "Pagani",
       "year": 2019,
       "tdid": "3710",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 220,
@@ -3878,8 +3761,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Hypercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3911,8 +3793,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -3944,8 +3825,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3977,8 +3857,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4009,8 +3888,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4042,8 +3920,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4073,8 +3950,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4105,8 +3981,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4139,8 +4014,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4171,8 +4045,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4206,8 +4079,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4240,8 +4112,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4271,8 +4142,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -4304,8 +4174,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4335,8 +4204,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -4366,8 +4234,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4376,8 +4243,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3771",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 199,
@@ -4398,8 +4265,7 @@
       "tags": [
           "Enter the Black Forest",
           "Supercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -4430,8 +4296,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4463,8 +4328,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -4496,8 +4360,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4529,8 +4392,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4563,8 +4425,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4597,8 +4458,7 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4631,8 +4491,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4664,8 +4523,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4697,8 +4555,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4729,8 +4586,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4760,8 +4616,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Rear",
-      "visible": true
+      "engine": "Rear"
   },
   {
       "class": "S",
@@ -4793,8 +4648,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4828,8 +4682,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4861,8 +4714,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4894,8 +4746,7 @@
       ],
       "fuel": "Petrol",
       "seats": "3",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4926,8 +4777,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -4959,8 +4809,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4993,8 +4842,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5024,8 +4872,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5056,8 +4903,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5089,8 +4935,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5099,8 +4944,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3772",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 204,
@@ -5121,8 +4966,7 @@
       "tags": [
           "Enter the Black Forest",
           "Supercar"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5154,8 +4998,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5164,8 +5007,8 @@
       "brand": "Porsche",
       "year": 2021,
       "tdid": "3788",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -5186,8 +5029,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5217,8 +5059,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5248,8 +5089,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5282,8 +5122,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5315,8 +5154,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5349,8 +5187,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5380,8 +5217,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5413,8 +5249,7 @@
       ],
       "fuel": "Hybrid",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5446,8 +5281,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5480,8 +5314,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5515,8 +5348,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5549,8 +5381,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5582,8 +5413,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5614,8 +5444,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -5645,8 +5474,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5677,8 +5505,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5710,8 +5537,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid-rear",
-      "visible": true
+      "engine": "Mid-rear"
   },
   {
       "class": "S",
@@ -5743,8 +5569,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5775,8 +5600,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5785,8 +5609,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3652",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -5806,8 +5630,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5816,8 +5639,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3613",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -5837,8 +5660,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5847,8 +5669,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3615",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -5868,8 +5690,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5878,8 +5699,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3617",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -5899,8 +5720,7 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5910,7 +5730,7 @@
       "year": 2007,
       "tdid": "3803",
       "abs": false,
-      "tcs": false,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 193,
@@ -5931,8 +5751,7 @@
       "tags": [
           "Enter the Black Forest",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -5963,8 +5782,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -5995,8 +5813,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6026,8 +5843,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6060,8 +5876,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6091,8 +5906,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6123,8 +5937,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6154,8 +5967,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6186,8 +5998,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6219,8 +6030,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6253,8 +6063,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6285,8 +6094,7 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6317,8 +6125,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6350,8 +6157,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6381,8 +6187,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6413,8 +6218,7 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6447,8 +6251,7 @@
       ],
       "fuel": "Bioethanol",
       "seats": "2",
-      "engine": "Mid",
-      "visible": true
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -6481,8 +6284,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6512,8 +6314,7 @@
       ],
       "fuel": "Electric",
       "seats": "4",
-      "engine": "Mixed",
-      "visible": true
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -6545,8 +6346,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Mid-rear",
-      "visible": true
+      "engine": "Mid-rear"
   },
   {
       "class": "S",
@@ -6576,8 +6376,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6609,8 +6408,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -6619,8 +6417,8 @@
       "brand": "Pagani",
       "year": 2017,
       "tdid": "3707",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 221,
@@ -6641,8 +6439,7 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Wild Ride"
-      ],
-      "visible": true
+      ]
   },
   {
       "class": "S",
@@ -6672,8 +6469,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -6703,8 +6499,7 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "visible": true
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -7770,8 +7565,8 @@
       "brand": "Alfa Romeo",
       "year": 2010,
       "tdid": "3604",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 185,
@@ -7801,8 +7596,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3646",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -7832,8 +7627,8 @@
       "brand": "Porsche",
       "year": 2011,
       "tdid": "3794",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 190,
@@ -8487,8 +8282,8 @@
       "brand": "Pagani",
       "year": 2009,
       "tdid": "3705",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 217,
@@ -8518,8 +8313,8 @@
       "brand": "Pagani",
       "year": 2005,
       "tdid": "3704",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 217,
@@ -8549,8 +8344,8 @@
       "brand": "Pagani",
       "year": 2010,
       "tdid": "3706",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 217,
@@ -8580,8 +8375,8 @@
       "brand": "Porsche",
       "year": 2021,
       "tdid": "3787",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 197,
@@ -9267,8 +9062,8 @@
       "brand": "Audi",
       "year": 2012,
       "tdid": "3762",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -9297,8 +9092,8 @@
       "brand": "Audi",
       "year": 2010,
       "tdid": "3768",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 196,
@@ -9328,8 +9123,8 @@
       "brand": "Pagani",
       "year": 2005,
       "tdid": "3703",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 217,
@@ -9359,8 +9154,8 @@
       "brand": "Porsche",
       "year": 2022,
       "tdid": "3785",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 196,
@@ -9368,7 +9163,7 @@
       "hand": 92,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 83.33,
       "weight": 1415,
       "name": "Porsche 718 Cayman GT4 RS",
       "rid": "Porsche_718_Cayman_GT4_RS_2022",
@@ -9390,7 +9185,7 @@
       "brand": "Porsche",
       "year": 1998,
       "tdid": "3808",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -10234,7 +10029,7 @@
       "brand": "Alfa Romeo",
       "year": 1993,
       "tdid": "3575",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -10894,7 +10689,7 @@
       "brand": "Porsche",
       "year": 1996,
       "tdid": "3809",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -11861,8 +11656,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3654",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -11892,8 +11687,8 @@
       "brand": "Pagani",
       "year": 2003,
       "tdid": "3702",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 208,
@@ -11923,8 +11718,8 @@
       "brand": "Porsche",
       "year": 2021,
       "tdid": "3789",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 193,
@@ -12582,8 +12377,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3751",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 199,
@@ -12613,8 +12408,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3626",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -12643,8 +12438,8 @@
       "brand": "Porsche",
       "year": 2019,
       "tdid": "3784",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -13856,8 +13651,8 @@
       "brand": "Alfa Romeo",
       "year": 2011,
       "tdid": "3606",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 192,
@@ -13887,8 +13682,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3746",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -13917,8 +13712,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3633",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -13947,8 +13742,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3661",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -14010,8 +13805,8 @@
       "brand": "Porsche",
       "year": 2022,
       "tdid": "3786",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -14019,7 +13814,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 79.55,
       "weight": 2295,
       "name": "Porsche Taycan GTS",
       "rid": "Porsche_Taycan_GTS_2022",
@@ -14761,8 +14556,8 @@
       "brand": "Alfa Romeo",
       "year": 2021,
       "tdid": "3610",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 186,
@@ -14792,8 +14587,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3775",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -14822,8 +14617,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3669",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 139,
@@ -14853,8 +14648,8 @@
       "brand": "BMW",
       "year": 2022,
       "tdid": "3672",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -14884,8 +14679,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3688",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -15683,8 +15478,8 @@
       "brand": "Audi",
       "year": 2020,
       "tdid": "3774",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -15713,8 +15508,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3644",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -16699,8 +16494,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3747",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -16729,8 +16524,8 @@
       "brand": "Audi",
       "year": 2019,
       "tdid": "3781",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -16759,8 +16554,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3650",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -16789,8 +16584,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3653",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -16819,8 +16614,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3612",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -16849,8 +16644,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3614",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -16879,8 +16674,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3647",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -17874,8 +17669,8 @@
       "brand": "Audi",
       "year": 2011,
       "tdid": "3761",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -17904,8 +17699,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3629",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -17934,8 +17729,8 @@
       "brand": "Mini",
       "year": 2020,
       "tdid": "3701",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -18930,8 +18725,8 @@
       "brand": "Audi",
       "year": 2019,
       "tdid": "3778",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -18960,12 +18755,12 @@
       "brand": "Audi",
       "year": 2012,
       "tdid": "3782",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
-      "acel": 4.4,
+      "acel": 4.3,
       "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
@@ -18990,8 +18785,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3628",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 142,
@@ -19021,8 +18816,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3651",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -19051,8 +18846,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3620",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -19082,8 +18877,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3611",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 174,
@@ -19113,8 +18908,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3636",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -19971,8 +19766,8 @@
       "brand": "Alfa Romeo",
       "year": 2010,
       "tdid": "3603",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 199,
@@ -20002,8 +19797,8 @@
       "brand": "Audi",
       "year": 2011,
       "tdid": "3770",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 186,
@@ -20033,8 +19828,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3640",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -20063,8 +19858,8 @@
       "brand": "BMW",
       "year": 2014,
       "tdid": "3677",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -20094,8 +19889,8 @@
       "brand": "Porsche",
       "year": 2020,
       "tdid": "3791",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 178,
@@ -20875,8 +20670,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3663",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -21920,8 +21715,8 @@
       "brand": "BMW",
       "year": 2017,
       "tdid": "3679",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -21950,8 +21745,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3660",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 154,
@@ -21980,8 +21775,8 @@
       "brand": "Mini",
       "year": 2019,
       "tdid": "3690",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -22936,8 +22731,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3649",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 139,
@@ -22967,8 +22762,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3671",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 124,
@@ -24114,8 +23909,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3627",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -24144,8 +23939,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3658",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 152,
@@ -24174,7 +23969,7 @@
       "brand": "Porsche",
       "year": 2004,
       "tdid": "3806",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -24205,8 +24000,8 @@
       "brand": "Porsche",
       "year": 2011,
       "tdid": "3797",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 190,
@@ -24491,7 +24286,7 @@
       "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 97.50,
+      "mra": 97.5,
       "weight": 1900,
       "name": "Dodge Challenger SRT-10 Concept",
       "rid": "Dodge_Challenger_SRT-10_Concept_2009",
@@ -25164,8 +24959,8 @@
       "brand": "Alfa Romeo",
       "year": 2008,
       "tdid": "3598",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 182,
@@ -25195,8 +24990,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3748",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 149,
@@ -25225,8 +25020,8 @@
       "brand": "Audi",
       "year": 2013,
       "tdid": "3779",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -25255,8 +25050,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3630",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -25285,8 +25080,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3641",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -25315,8 +25110,8 @@
       "brand": "BMW",
       "year": 2017,
       "tdid": "3680",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -25345,8 +25140,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3659",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 146,
@@ -25376,8 +25171,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3662",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
@@ -26483,8 +26278,8 @@
       "brand": "Alfa Romeo",
       "year": 2016,
       "tdid": "3607",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 181,
@@ -26513,8 +26308,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3752",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 152,
@@ -26543,8 +26338,8 @@
       "brand": "Audi",
       "year": 2004,
       "tdid": "3773",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -26573,8 +26368,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3634",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -26603,8 +26398,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3656",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -27657,8 +27452,8 @@
       "brand": "Alfa Romeo",
       "year": 2011,
       "tdid": "3605",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 160,
@@ -27719,8 +27514,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3745",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 153,
@@ -27749,8 +27544,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3625",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 145,
@@ -27779,8 +27574,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3637",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -27809,8 +27604,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3643",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -27839,8 +27634,8 @@
       "brand": "Mini",
       "year": 2020,
       "tdid": "3698",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 138,
@@ -27869,8 +27664,8 @@
       "brand": "Porsche",
       "year": 2009,
       "tdid": "3801",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 178,
@@ -28730,8 +28525,8 @@
       "brand": "Alfa Romeo",
       "year": 2002,
       "tdid": "3588",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 183,
@@ -28761,8 +28556,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3743",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -28791,8 +28586,8 @@
       "brand": "Audi",
       "year": 2006,
       "tdid": "3780",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -28821,8 +28616,8 @@
       "brand": "Porsche",
       "year": 2011,
       "tdid": "3798",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 176,
@@ -28851,7 +28646,7 @@
       "brand": "Porsche",
       "year": 1993,
       "tdid": "3810",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -29756,8 +29551,8 @@
       "brand": "Alfa Romeo",
       "year": 2015,
       "tdid": "3608",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 160,
@@ -29786,8 +29581,8 @@
       "brand": "Mini",
       "year": 2020,
       "tdid": "3699",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 135,
@@ -29816,8 +29611,8 @@
       "brand": "Mini",
       "year": 2020,
       "tdid": "3700",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 123,
@@ -29847,8 +29642,8 @@
       "brand": "Porsche",
       "year": 2011,
       "tdid": "3796",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 173,
@@ -30966,8 +30761,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3750",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 150,
@@ -30996,8 +30791,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3645",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 146,
@@ -31027,8 +30822,8 @@
       "brand": "BMW",
       "year": 2002,
       "tdid": "3687",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -31057,8 +30852,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3624",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -31087,8 +30882,8 @@
       "brand": "Porsche",
       "year": 2009,
       "tdid": "3802",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 180,
@@ -31804,8 +31599,8 @@
       "brand": "Alfa Romeo",
       "year": 2016,
       "tdid": "3609",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 140,
@@ -31835,8 +31630,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3635",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 143,
@@ -31866,8 +31661,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3638",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 148,
@@ -31875,7 +31670,7 @@
       "hand": 80,
       "drive": "4WD",
       "tyres": "Standard",
-      "mra": null,
+      "mra": 61.26,
       "weight": 1665,
       "name": "BMW 420i xDrive Coupe",
       "rid": "BMW_420i_xDrive_Coupe_2020",
@@ -31896,8 +31691,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3670",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 124,
@@ -31927,8 +31722,8 @@
       "brand": "Mini",
       "year": 2020,
       "tdid": "3697",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 164,
@@ -31958,8 +31753,8 @@
       "brand": "Porsche",
       "year": 2010,
       "tdid": "3799",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 135,
@@ -33174,7 +32969,7 @@
       "brand": "Lancia",
       "year": 1992,
       "tdid": "3734",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -34012,8 +33807,8 @@
       "brand": "Audi",
       "year": 2000,
       "tdid": "3763",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 149,
@@ -34042,8 +33837,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3619",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 143,
@@ -34072,8 +33867,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3648",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 138,
@@ -34102,8 +33897,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3667",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -34164,7 +33959,7 @@
       "brand": "Porsche",
       "year": 1989,
       "tdid": "3814",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -34939,8 +34734,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3657",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -34969,8 +34764,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3668",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 118,
@@ -36014,8 +35809,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3749",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 135,
@@ -36044,8 +35839,8 @@
       "brand": "Fiat",
       "year": 2015,
       "tdid": "3832",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 143,
@@ -37273,8 +37068,8 @@
       "brand": "Alfa Romeo",
       "year": 1996,
       "tdid": "3580",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 174,
@@ -37921,8 +37716,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3741",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 137,
@@ -37951,8 +37746,8 @@
       "brand": "BMW",
       "year": 2005,
       "tdid": "3676",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -37981,8 +37776,8 @@
       "brand": "Porsche",
       "year": 2007,
       "tdid": "3804",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 170,
@@ -38968,8 +38763,8 @@
       "brand": "Porsche",
       "year": 2005,
       "tdid": "3805",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 167,
@@ -39740,7 +39535,7 @@
       "brand": "Alfa Romeo",
       "year": 1992,
       "tdid": "3571",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -39803,8 +39598,8 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3696",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 153,
@@ -40835,8 +40630,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3639",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -42011,8 +41806,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3740",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 152,
@@ -42041,8 +41836,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3744",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 136,
@@ -42071,7 +41866,7 @@
       "brand": "Audi",
       "year": 1991,
       "tdid": "3777",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -42968,8 +42763,8 @@
       "brand": "Alfa Romeo",
       "year": 2005,
       "tdid": "3594",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 149,
@@ -42998,7 +42793,7 @@
       "brand": "Alfa Romeo",
       "year": 1999,
       "tdid": "3583",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -43029,8 +42824,8 @@
       "brand": "Alfa Romeo",
       "year": 2004,
       "tdid": "3593",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 155,
@@ -43060,8 +42855,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3621",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -44178,8 +43973,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3632",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 142,
@@ -44208,8 +44003,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3631",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 143,
@@ -44238,8 +44033,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3666",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 155,
@@ -45522,7 +45317,7 @@
       "brand": "Lancia",
       "year": 1989,
       "tdid": "3733",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -45552,8 +45347,8 @@
       "brand": "Porsche",
       "year": 2020,
       "tdid": "3790",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 143,
@@ -47049,7 +46844,7 @@
       "brand": "Alfa Romeo",
       "year": 1994,
       "tdid": "3577",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -47141,8 +46936,8 @@
       "brand": "BMW",
       "year": 2000,
       "tdid": "3674",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 148,
@@ -47171,8 +46966,8 @@
       "brand": "BMW",
       "year": 2000,
       "tdid": "3675",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 142,
@@ -48318,8 +48113,8 @@
       "brand": "Alfa Romeo",
       "year": 2002,
       "tdid": "3586",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 155,
@@ -48348,8 +48143,8 @@
       "brand": "Alfa Romeo",
       "year": 2006,
       "tdid": "3596",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 147,
@@ -48378,8 +48173,8 @@
       "brand": "Alfa Romeo",
       "year": 2005,
       "tdid": "3595",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 149,
@@ -48408,7 +48203,7 @@
       "brand": "Audi",
       "year": 1991,
       "tdid": "3755",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -48438,12 +48233,12 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3623",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 146,
-      "acel": 7.3,
+      "acel": 6.5,
       "hand": 75,
       "drive": "FWD",
       "tyres": "Standard",
@@ -48468,12 +48263,12 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3622",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 147,
-      "acel": 6.9,
+      "acel": 6.5,
       "hand": 75,
       "drive": "FWD",
       "tyres": "Standard",
@@ -48529,8 +48324,8 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3695",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 146,
@@ -49957,8 +49752,8 @@
       "brand": "Alfa Romeo",
       "year": 2010,
       "tdid": "3601",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 152,
@@ -50019,8 +49814,8 @@
       "brand": "Audi",
       "year": 1997,
       "tdid": "3783",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -50049,8 +49844,8 @@
       "brand": "BMW",
       "year": 2020,
       "tdid": "3642",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -51684,8 +51479,8 @@
       "brand": "Alfa Romeo",
       "year": 2010,
       "tdid": "3602",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 150,
@@ -51715,8 +51510,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3758",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 146,
@@ -51746,7 +51541,7 @@
       "brand": "BMW",
       "year": 1996,
       "tdid": "3673",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -51776,8 +51571,8 @@
       "brand": "BMW",
       "year": 2006,
       "tdid": "3686",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
@@ -51806,7 +51601,7 @@
       "brand": "BMW",
       "year": 1992,
       "tdid": "3678",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -51836,8 +51631,8 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3692",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 150,
@@ -51866,7 +51661,7 @@
       "brand": "Porsche",
       "year": 1993,
       "tdid": "3813",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -53489,8 +53284,8 @@
       "brand": "Alfa Romeo",
       "year": 2003,
       "tdid": "3592",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 158,
@@ -53519,8 +53314,8 @@
       "brand": "BMW",
       "year": 2021,
       "tdid": "3664",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 112,
@@ -53550,8 +53345,8 @@
       "brand": "BMW",
       "year": 2001,
       "tdid": "3685",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "DE",
       "topSpeed": 124,
@@ -54822,8 +54617,8 @@
       "brand": "Fiat",
       "year": 2018,
       "tdid": "3834",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 144,
@@ -54852,8 +54647,8 @@
       "brand": "Mini",
       "year": 2019,
       "tdid": "3689",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 138,
@@ -54882,8 +54677,8 @@
       "brand": "Porsche",
       "year": 2011,
       "tdid": "3795",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 150,
@@ -55944,7 +55739,7 @@
       "brand": "Alfa Romeo",
       "year": 1998,
       "tdid": "3582",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -56005,8 +55800,8 @@
       "brand": "BMW",
       "year": 2019,
       "tdid": "3665",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 149,
@@ -57525,7 +57320,7 @@
       "brand": "Porsche",
       "year": 1992,
       "tdid": "3811",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "DE",
@@ -58618,8 +58413,8 @@
       "brand": "Alfa Romeo",
       "year": 2003,
       "tdid": "3589",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 129,
@@ -58648,8 +58443,8 @@
       "brand": "Alfa Romeo",
       "year": 1998,
       "tdid": "3581",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 140,
@@ -58679,8 +58474,8 @@
       "brand": "Alfa Romeo",
       "year": 2009,
       "tdid": "3600",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 136,
@@ -58741,8 +58536,8 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3691",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 143,
@@ -59852,7 +59647,7 @@
       "brand": "Fiat",
       "year": 1996,
       "tdid": "3717",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -59883,8 +59678,8 @@
       "brand": "Lancia",
       "year": 2002,
       "tdid": "3736",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 149,
@@ -59913,12 +59708,12 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3693",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 93,
-      "acel": 7.1,
+      "acel": 6.9,
       "hand": 74,
       "drive": "FWD",
       "tyres": "Standard",
@@ -61152,8 +60947,8 @@
       "brand": "Audi",
       "year": 2018,
       "tdid": "3742",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 138,
@@ -62361,8 +62156,8 @@
       "brand": "Alfa Romeo",
       "year": 2003,
       "tdid": "3591",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 134,
@@ -62451,8 +62246,8 @@
       "brand": "Fiat",
       "year": 2021,
       "tdid": "3835",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 140,
@@ -63812,8 +63607,8 @@
       "brand": "Alfa Romeo",
       "year": 2007,
       "tdid": "3597",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 134,
@@ -63842,7 +63637,7 @@
       "brand": "Alfa Romeo",
       "year": 1992,
       "tdid": "3573",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -63872,8 +63667,8 @@
       "brand": "Alfa Romeo",
       "year": 2008,
       "tdid": "3599",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 155,
@@ -63902,7 +63697,7 @@
       "brand": "Audi",
       "year": 1989,
       "tdid": "3739",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -63932,8 +63727,8 @@
       "brand": "Fiat",
       "year": 2010,
       "tdid": "3831",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 135,
@@ -63962,8 +63757,8 @@
       "brand": "Mini",
       "year": 2021,
       "tdid": "3694",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 95,
@@ -65234,8 +65029,8 @@
       "brand": "Lancia",
       "year": 1999,
       "tdid": "3735",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 137,
@@ -66878,7 +66673,7 @@
       "brand": "Alfa Romeo",
       "year": 1995,
       "tdid": "3578",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -66908,7 +66703,7 @@
       "brand": "Alfa Romeo",
       "year": 2000,
       "tdid": "3584",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Low",
       "country": "IT",
@@ -68523,12 +68318,12 @@
       "brand": "Fiat",
       "year": 2008,
       "tdid": "3828",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 131,
-      "acel": 7.0,
+      "acel": 7,
       "hand": 77,
       "drive": "FWD",
       "tyres": "Performance",
@@ -68553,8 +68348,8 @@
       "brand": "Fiat",
       "year": 2010,
       "tdid": "3830",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 131,
@@ -68583,8 +68378,8 @@
       "brand": "Fiat",
       "year": 2017,
       "tdid": "3833",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 134,
@@ -68614,7 +68409,7 @@
       "brand": "Fiat",
       "year": 2000,
       "tdid": "3825",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -68644,8 +68439,8 @@
       "brand": "Fiat",
       "year": 2001,
       "tdid": "3827",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 134,
@@ -70223,8 +70018,8 @@
       "brand": "Lancia",
       "year": 2003,
       "tdid": "3737",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 132,
@@ -72715,8 +72510,8 @@
       "brand": "Fiat",
       "year": 2006,
       "tdid": "3720",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "IT",
       "topSpeed": 93,
@@ -74479,7 +74274,7 @@
       "brand": "Alfa Romeo",
       "year": 1993,
       "tdid": "3574",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -74509,7 +74304,7 @@
       "brand": "Fiat",
       "year": 1993,
       "tdid": "3716",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -74539,7 +74334,7 @@
       "brand": "Fiat",
       "year": 1991,
       "tdid": "3715",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -76851,8 +76646,8 @@
       "brand": "Fiat",
       "year": 2020,
       "tdid": "3722",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 93,
@@ -77866,7 +77661,7 @@
       "brand": "Audi",
       "year": 1991,
       "tdid": "3764",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -77896,7 +77691,7 @@
       "brand": "Fiat",
       "year": 1985,
       "tdid": "3714",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -79949,8 +79744,8 @@
       "brand": "Fiat",
       "year": 2005,
       "tdid": "3719",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "High",
       "country": "IT",
       "topSpeed": 81,
@@ -81372,8 +81167,8 @@
       "brand": "Fiat",
       "year": 2011,
       "tdid": "3721",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 117,
@@ -84205,7 +84000,7 @@
       "brand": "Audi",
       "year": 1986,
       "tdid": "3756",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -87057,7 +86852,7 @@
       "brand": "Fiat",
       "year": 1995,
       "tdid": "3718",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "IT",
@@ -89541,7 +89336,7 @@
       "brand": "Audi",
       "year": 2000,
       "tdid": "3759",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "country": "DE",
@@ -93945,8 +93740,8 @@
       "brand": "Fiat",
       "year": 2001,
       "tdid": "3826",
-      "abs": false,
-      "tcs": false,
+      "abs": true,
+      "tcs": true,
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 89,
