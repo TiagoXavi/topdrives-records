@@ -159,7 +159,7 @@ export default {
   --tag-s: 65%;
   --tag-l: 41%;
 }
-.BaseGameTag_Japan_Pro_Tour {
+.BaseGameTag_Loch_to_Loch {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;
@@ -269,7 +269,7 @@ export default {
   --tag-s: 75%;
   --tag-l: 43%;
 }
-.BaseGameTag_Year_of_the_Ox {
+.BaseGameTag_Year_of_the_Rabbit {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;

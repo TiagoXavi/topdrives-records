@@ -557,6 +557,38 @@
   },
   {
       "class": "S",
+      "rq": 99,
+      "onlyName": "G58",
+      "brand": "Ginetta",
+      "year": 2018,
+      "tdid": "3837",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 190,
+      "acel": 2.7,
+      "hand": 100,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 940,
+      "name": "Ginetta G58",
+      "rid": "Ginetta_G58_2018",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
       "rq": 98,
       "onlyName": "Centenario",
       "brand": "Lamborghini",
@@ -2195,6 +2227,38 @@
   },
   {
       "class": "S",
+      "rq": 95,
+      "onlyName": "G57 P2",
+      "brand": "Ginetta",
+      "year": 2016,
+      "tdid": "3838",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 204,
+      "acel": 2.8,
+      "hand": 99,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 930,
+      "name": "Ginetta G57 P2",
+      "rid": "Ginetta_G57_P2_2016",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
       "rq": 94,
       "onlyName": "Agera Final",
       "brand": "Koenigsegg",
@@ -2669,6 +2733,38 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "Mono",
+      "brand": "BAC",
+      "year": 2015,
+      "tdid": "3839",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 2.6,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 580,
+      "name": "BAC Mono",
+      "rid": "BAC_Mono_2015",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Drivers Choice"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -4269,6 +4365,38 @@
   },
   {
       "class": "S",
+      "rq": 91,
+      "onlyName": "G56 GT4 Supercup",
+      "brand": "Ginetta",
+      "year": 2021,
+      "tdid": "3840",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 3.1,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1100,
+      "name": "Ginetta G56 GT4 Supercup",
+      "rid": "Ginetta_G56_GT4_Supercup_2021",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 90,
       "onlyName": "R8 GT",
       "brand": "Audi",
@@ -5000,6 +5128,38 @@
   },
   {
       "class": "S",
+      "rq": 90,
+      "onlyName": "G55 GT3",
+      "brand": "Ginetta",
+      "year": 2012,
+      "tdid": "3841",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 183,
+      "acel": 3,
+      "hand": 95,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1100,
+      "name": "Ginetta G55 GT3",
+      "rid": "Ginetta_G55_GT3_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 89,
       "onlyName": "Agera",
       "brand": "Koenigsegg",
@@ -5628,6 +5788,37 @@
           "Enter the Black Forest",
           "Motorsport"
       ]
+  },
+  {
+      "class": "S",
+      "rq": 89,
+      "onlyName": "Akula",
+      "brand": "Ginetta",
+      "year": 2019,
+      "tdid": "3842",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 200,
+      "acel": 3.2,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1150,
+      "name": "Ginetta Akula",
+      "rid": "Ginetta_Akula_2019",
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -8213,6 +8404,102 @@
           "Enter the Black Forest",
           "Drivers Choice"
       ]
+  },
+  {
+      "class": "S",
+      "rq": 85,
+      "onlyName": "Emira GT4",
+      "brand": "Lotus",
+      "year": 2021,
+      "tdid": "3843",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 3.5,
+      "hand": 95,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1260,
+      "name": "Lotus Emira GT4",
+      "rid": "Lotus_Emira_GT4_2021",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 85,
+      "onlyName": "Evora GX",
+      "brand": "Lotus",
+      "year": 2012,
+      "tdid": "3844",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 183,
+      "acel": 3.3,
+      "hand": 94,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1150,
+      "name": "Lotus Evora GX",
+      "rid": "Lotus_Evora_GX_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 85,
+      "onlyName": "Aero 8 race car",
+      "brand": "Morgan",
+      "year": 2002,
+      "tdid": "3845",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 180,
+      "acel": 3.2,
+      "hand": 91,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1000,
+      "name": "Morgan Aero 8 race car",
+      "rid": "Morgan_Aero_8_race_car_2002",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -12462,6 +12749,70 @@
       ]
   },
   {
+      "class": "S",
+      "rq": 80,
+      "onlyName": "G55 GT4",
+      "brand": "Ginetta",
+      "year": 2011,
+      "tdid": "3846",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 3.8,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1085,
+      "name": "Ginetta G55 GT4",
+      "rid": "Ginetta_G55_GT4_2011",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 80,
+      "onlyName": "Aero 8 GT3",
+      "brand": "Morgan",
+      "year": 2007,
+      "tdid": "3847",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 180,
+      "acel": 3.8,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1000,
+      "name": "Morgan Aero 8 GT3",
+      "rid": "Morgan_Aero_8_GT3_2007",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
       "class": "A",
       "rq": 79,
       "onlyName": "Camaro ZL1 1LE",
@@ -13768,6 +14119,38 @@
   },
   {
       "class": "A",
+      "rq": 79,
+      "onlyName": "G50 GT4",
+      "brand": "Ginetta",
+      "year": 2008,
+      "tdid": "3848",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 158,
+      "acel": 3.7,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 945,
+      "name": "Ginetta G50 GT4",
+      "rid": "Ginetta_G50_GT4_2008",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 78,
       "onlyName": "A7 Sportback 55 TFSI quattro",
       "brand": "Audi",
@@ -14543,6 +14926,38 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "A",
+      "rq": 78,
+      "onlyName": "Exige V6 Cup R",
+      "brand": "Lotus",
+      "year": 2013,
+      "tdid": "3849",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 175,
+      "acel": 3.5,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1040,
+      "name": "Lotus Exige V6 Cup R",
+      "rid": "Lotus_Exige_V6_Cup_R_2013",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -15523,6 +15938,38 @@
       "tags": [
           "Motorsport",
           "American Frontier"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 77,
+      "onlyName": "Plus 8 GTR (GT2)",
+      "brand": "Morgan",
+      "year": 1997,
+      "tdid": "3850",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 175,
+      "acel": 3.8,
+      "hand": 90,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 900,
+      "name": "Morgan Plus 8 GTR (GT2)",
+      "rid": "Morgan_Plus_8_GTR_GT2_1997",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
       ],
       "bodyTypes": [
           "Coupe"
@@ -17722,6 +18169,38 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "A",
+      "rq": 75,
+      "onlyName": "Exige GT3",
+      "brand": "Lotus",
+      "year": 2006,
+      "tdid": "3851",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 160,
+      "acel": 3.9,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 750,
+      "name": "Lotus Exige GT3",
+      "rid": "Lotus_Exige_GT3_2006",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -20004,6 +20483,68 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "F400",
+      "brand": "Ginetta",
+      "year": 2010,
+      "tdid": "3852",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 185,
+      "acel": 3.7,
+      "hand": 87,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1036,
+      "name": "Ginetta F400",
+      "rid": "Ginetta_F400_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "Exige V6 Cup",
+      "brand": "Lotus",
+      "year": 2013,
+      "tdid": "3853",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 3.7,
+      "hand": 89,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1130,
+      "name": "Lotus Exige V6 Cup",
+      "rid": "Lotus_Exige_V6_Cup_2013",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -25288,6 +25829,38 @@
   },
   {
       "class": "A",
+      "rq": 68,
+      "onlyName": "Cerbera Speed Eight",
+      "brand": "TVR",
+      "year": 1996,
+      "tdid": "3854",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 180,
+      "acel": 4,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "TVR Cerbera Speed Eight",
+      "rid": "TVR_Cerbera_Speed_Eight_1996",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Wild Ride"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 67,
       "onlyName": "S8",
       "brand": "Audi",
@@ -26482,6 +27055,101 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
+  },
+  {
+      "class": "A",
+      "rq": 67,
+      "onlyName": "G56 GTA",
+      "brand": "Ginetta",
+      "year": 2021,
+      "tdid": "3855",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 140,
+      "acel": 4.6,
+      "hand": 95,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1100,
+      "name": "Ginetta G56 GTA",
+      "rid": "Ginetta_G56_GTA_2021",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 67,
+      "onlyName": "Exige R-GT",
+      "brand": "Lotus",
+      "year": 2016,
+      "tdid": "3856",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 140,
+      "acel": 4.4,
+      "hand": 89,
+      "drive": "RWD",
+      "tyres": "Off-road",
+      "mra": null,
+      "weight": 1200,
+      "name": "Lotus Exige R-GT",
+      "rid": "Lotus_Exige_RGT_2016",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "A",
+      "rq": 67,
+      "onlyName": "Plus 8 GTR",
+      "brand": "Morgan",
+      "year": 2021,
+      "tdid": "3857",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 160,
+      "acel": 4.2,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "Morgan Plus 8 GTR",
+      "rid": "Morgan_Plus_8_GTR_2021",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -27752,6 +28420,37 @@
   },
   {
       "class": "A",
+      "rq": 66,
+      "onlyName": "Plus Four CX-T",
+      "brand": "Morgan",
+      "year": 2021,
+      "tdid": "3858",
+      "abs": true,
+      "tcs": false,
+      "clearance": "High",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 5.7,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Off-road",
+      "mra": null,
+      "weight": 1249,
+      "name": "Morgan Plus Four CX-T",
+      "rid": "Morgan_Plus_Four_CXT_2021",
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 65,
       "onlyName": "4C",
       "brand": "Alfa Romeo",
@@ -28668,6 +29367,37 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "A",
+      "rq": 65,
+      "onlyName": "Aero Coupe",
+      "brand": "Morgan",
+      "year": 2012,
+      "tdid": "3859",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 4,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1175,
+      "name": "Morgan Aero Coupe",
+      "rid": "Morgan_Aero_Coupe_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -29755,6 +30485,162 @@
       ],
       "bodyTypes": [
           "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "Aero GT",
+      "brand": "Morgan",
+      "year": 2018,
+      "tdid": "3860",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 4.3,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1175,
+      "name": "Morgan Aero GT",
+      "rid": "Morgan_Aero_GT_2018",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "Aero SuperSports",
+      "brand": "Morgan",
+      "year": 2009,
+      "tdid": "3861",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 4,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1180,
+      "name": "Morgan Aero SuperSports",
+      "rid": "Morgan_Aero_SuperSports_2009",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "Plus 8 50th Anniversary",
+      "brand": "Morgan",
+      "year": 2018,
+      "tdid": "3862",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "Morgan Plus 8 50th Anniversary",
+      "rid": "Morgan_Plus_8_50th_Anniversary_2018",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "Plus Six",
+      "brand": "Morgan",
+      "year": 2019,
+      "tdid": "3863",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 166,
+      "acel": 4,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1075,
+      "name": "Morgan Plus Six",
+      "rid": "Morgan_Plus_Six_2019",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "Tuscan",
+      "brand": "TVR",
+      "year": 1999,
+      "tdid": "3864",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 180,
+      "acel": 4.2,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "TVR Tuscan",
+      "rid": "TVR_Tuscan_1999",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Style Icon"
+      ],
+      "bodyTypes": [
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -30939,6 +31825,224 @@
   },
   {
       "class": "B",
+      "rq": 63,
+      "onlyName": "G60",
+      "brand": "Ginetta",
+      "year": 2011,
+      "tdid": "3865",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 4.9,
+      "hand": 87,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1080,
+      "name": "Ginetta G60",
+      "rid": "Ginetta_G60_2011",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Exige 240R",
+      "brand": "Lotus",
+      "year": 2005,
+      "tdid": "3866",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 155,
+      "acel": 4.5,
+      "hand": 88,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 930,
+      "name": "Lotus Exige 240R",
+      "rid": "Lotus_Exige_240R_2005",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Aero 8 GTN",
+      "brand": "Morgan",
+      "year": 2004,
+      "tdid": "3867",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 4.3,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "Morgan Aero 8 GTN",
+      "rid": "Morgan_Aero_8_GTN_2004",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Aero 8 Series 4",
+      "brand": "Morgan",
+      "year": 2007,
+      "tdid": "3868",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 4,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1180,
+      "name": "Morgan Aero 8 Series 4",
+      "rid": "Morgan_Aero_8_Series_4_2007",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Aero 8 Series 5",
+      "brand": "Morgan",
+      "year": 2016,
+      "tdid": "3869",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 4.1,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1175,
+      "name": "Morgan Aero 8 Series 5",
+      "rid": "Morgan_Aero_8_Series_5_2016",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Eva GT Concept",
+      "brand": "Morgan",
+      "year": 2010,
+      "tdid": "3870",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 4.3,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1250,
+      "name": "Morgan Eva GT Concept",
+      "rid": "Morgan_Eva_GT_Concept_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "Plus 8 Speedster",
+      "brand": "Morgan",
+      "year": 2014,
+      "tdid": "3871",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 155,
+      "acel": 4.5,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "Morgan Plus 8 Speedster",
+      "rid": "Morgan_Plus_8_Speedster_2014",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 62,
       "onlyName": "X1",
       "brand": "BMW",
@@ -31841,6 +32945,68 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 62,
+      "onlyName": "Aeromax",
+      "brand": "Morgan",
+      "year": 2006,
+      "tdid": "3872",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 160,
+      "acel": 4.3,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1145,
+      "name": "Morgan Aeromax",
+      "rid": "Morgan_Aeromax_2006",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 62,
+      "onlyName": "Plus 8",
+      "brand": "Morgan",
+      "year": 2012,
+      "tdid": "3873",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1100,
+      "name": "Morgan Plus 8",
+      "rid": "Morgan_Plus_8_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -34111,6 +35277,37 @@
   },
   {
       "class": "B",
+      "rq": 60,
+      "onlyName": "Aero 8 Series 3",
+      "brand": "Morgan",
+      "year": 2005,
+      "tdid": "3874",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 160,
+      "acel": 4.3,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1145,
+      "name": "Morgan Aero 8 Series 3",
+      "rid": "Morgan_Aero_8_Series_3_2005",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 59,
       "onlyName": "Range Rover Velar",
       "brand": "Land Rover",
@@ -36079,6 +37276,37 @@
   },
   {
       "class": "B",
+      "rq": 58,
+      "onlyName": "Aero 8 Series 1",
+      "brand": "Morgan",
+      "year": 2000,
+      "tdid": "3875",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 160,
+      "acel": 4.8,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 971,
+      "name": "Morgan Aero 8 Series 1",
+      "rid": "Morgan_Aero_8_Series_1_2000",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 57,
       "onlyName": "Range Rover Evoque Si4",
       "brand": "Land Rover",
@@ -37829,6 +39057,37 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 56,
+      "onlyName": "Chimaera 4.3",
+      "brand": "TVR",
+      "year": 1992,
+      "tdid": "3876",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 158,
+      "acel": 4.6,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1060,
+      "name": "TVR Chimaera 4.3",
+      "rid": "TVR_Chimaera_43_1992",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -39686,6 +40945,38 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Rear"
+  },
+  {
+      "class": "B",
+      "rq": 54,
+      "onlyName": "Plus Four race car",
+      "brand": "Morgan",
+      "year": 2021,
+      "tdid": "3877",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 149,
+      "acel": 4.3,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1000,
+      "name": "Morgan Plus Four race car",
+      "rid": "Morgan_Plus_Four_race_car_2021",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -42051,6 +43342,38 @@
   },
   {
       "class": "B",
+      "rq": 52,
+      "onlyName": "G40 GT5",
+      "brand": "Ginetta",
+      "year": 2010,
+      "tdid": "3878",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 6.8,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 805,
+      "name": "Ginetta G40 GT5",
+      "rid": "Ginetta_G40_GT5_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 51,
       "onlyName": "RSX",
       "brand": "Acura",
@@ -42938,6 +44261,68 @@
       ],
       "bodyTypes": [
           "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "Plus Four",
+      "brand": "Morgan",
+      "year": 2021,
+      "tdid": "3879",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 149,
+      "acel": 4.4,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1009,
+      "name": "Morgan Plus Four",
+      "rid": "Morgan_Plus_Four_2021",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "420 SEAC",
+      "brand": "TVR",
+      "year": 1986,
+      "tdid": "3880",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 5,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1170,
+      "name": "TVR 420 SEAC",
+      "rid": "TVR_420_SEAC_1986",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -47083,6 +48468,37 @@
   },
   {
       "class": "C",
+      "rq": 48,
+      "onlyName": "S-Series",
+      "brand": "TVR",
+      "year": 1986,
+      "tdid": "3881",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 148,
+      "acel": 5.2,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1052,
+      "name": "TVR S-Series",
+      "rid": "TVR_SSeries_1986",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 47,
       "onlyName": "Opel GT",
       "brand": "Vauxhall",
@@ -48532,6 +49948,37 @@
       ],
       "fuel": "Diesel",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 47,
+      "onlyName": "G40R",
+      "brand": "Ginetta",
+      "year": 2011,
+      "tdid": "3882",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 140,
+      "acel": 5.8,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 795,
+      "name": "Ginetta G40R",
+      "rid": "Ginetta_G40R_2011",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -51782,6 +53229,161 @@
   },
   {
       "class": "C",
+      "rq": 45,
+      "onlyName": "G33",
+      "brand": "Ginetta",
+      "year": 1992,
+      "tdid": "3883",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 143,
+      "acel": 5.3,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 874,
+      "name": "Ginetta G33",
+      "rid": "Ginetta_G33_1992",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "G4 Series II Coupe",
+      "brand": "Ginetta",
+      "year": 1963,
+      "tdid": "3884",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 120,
+      "acel": 7,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 510,
+      "name": "Ginetta G4 Series II Coupe",
+      "rid": "Ginetta_G4_Series_II_Coupe_1963",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "3-Wheeler P101",
+      "brand": "Morgan",
+      "year": 2020,
+      "tdid": "3885",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 5.7,
+      "hand": 69,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 525,
+      "name": "Morgan 3-Wheeler P101",
+      "rid": "Morgan_3Wheeler_P101_2020",
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "Roadster 3.7 V6",
+      "brand": "Morgan",
+      "year": 2012,
+      "tdid": "3886",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 140,
+      "acel": 5.2,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 950,
+      "name": "Morgan Roadster 3.7 V6",
+      "rid": "Morgan_Roadster_37_V6_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "420 Sports Saloon",
+      "brand": "TVR",
+      "year": 1986,
+      "tdid": "3887",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 155,
+      "acel": 5.6,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1150,
+      "name": "TVR 420 Sports Saloon",
+      "rid": "TVR_420_Sports_Saloon_1986",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 44,
       "onlyName": "Abarth 695 Biposto",
       "brand": "Fiat",
@@ -53461,6 +55063,37 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 44,
+      "onlyName": "3-Wheeler",
+      "brand": "Morgan",
+      "year": 2011,
+      "tdid": "3888",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 5.7,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 525,
+      "name": "Morgan 3-Wheeler",
+      "rid": "Morgan_3Wheeler_2011",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -55979,6 +57612,37 @@
   },
   {
       "class": "C",
+      "rq": 42,
+      "onlyName": "Roadster 3.0 V6",
+      "brand": "Morgan",
+      "year": 2004,
+      "tdid": "3889",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 134,
+      "acel": 5.4,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 940,
+      "name": "Morgan Roadster 3.0 V6",
+      "rid": "Morgan_Roadster_30_V6_2004",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 41,
       "onlyName": "Camaro IROC Z/28",
       "brand": "Chevrolet",
@@ -57434,6 +59098,38 @@
       ],
       "fuel": "Diesel",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 41,
+      "onlyName": "G40 Cup",
+      "brand": "Ginetta",
+      "year": 2010,
+      "tdid": "3890",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 125,
+      "acel": 7,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 850,
+      "name": "Ginetta G40 Cup",
+      "rid": "Ginetta_G40_Cup_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
       "engine": "Front"
   },
   {
@@ -59859,6 +61555,38 @@
   },
   {
       "class": "D",
+      "rq": 39,
+      "onlyName": "G40 Junior",
+      "brand": "Ginetta",
+      "year": 2010,
+      "tdid": "3891",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 120,
+      "acel": 7.9,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 850,
+      "name": "Ginetta G40 Junior",
+      "rid": "Ginetta_G40_Junior_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 38,
       "onlyName": "Brooklands Ace",
       "brand": "AC",
@@ -60938,6 +62666,38 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "D",
+      "rq": 38,
+      "onlyName": "Seven Twin-Cam SS",
+      "brand": "Lotus",
+      "year": 1969,
+      "tdid": "3892",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 107,
+      "acel": 7.4,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 570,
+      "name": "Lotus Seven Twin-Cam SS",
+      "rid": "Lotus_Seven_TwinCam_SS_1969",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Drivers Choice"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -62175,6 +63935,68 @@
       ],
       "fuel": "Petrol",
       "seats": "6",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 37,
+      "onlyName": "Plus 4 SLR",
+      "brand": "Morgan",
+      "year": 1964,
+      "tdid": "3893",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 135,
+      "acel": 6.1,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 750,
+      "name": "Morgan Plus 4 SLR",
+      "rid": "Morgan_Plus_4_SLR_1964",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 37,
+      "onlyName": "Plus 4 Super Sports Baby Doll VI",
+      "brand": "Morgan",
+      "year": 2013,
+      "tdid": "3894",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 145,
+      "acel": 5.8,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 900,
+      "name": "Morgan Plus 4 Super Sports Baby Doll VI",
+      "rid": "Morgan_Plus_4_Super_Sports_Baby_Doll_VI_2013",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -63687,6 +65509,68 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 36,
+      "onlyName": "350i",
+      "brand": "TVR",
+      "year": 1983,
+      "tdid": "3920",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 134,
+      "acel": 6.5,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1163,
+      "name": "TVR 350i",
+      "rid": "TVR_350i_1983",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 36,
+      "onlyName": "S3C",
+      "brand": "TVR",
+      "year": 1992,
+      "tdid": "3895",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 140,
+      "acel": 6.8,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 987,
+      "name": "TVR S3C",
+      "rid": "TVR_S3C_1992",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -68184,6 +70068,37 @@
   },
   {
       "class": "D",
+      "rq": 33,
+      "onlyName": "AR Plus 4",
+      "brand": "Morgan",
+      "year": 2016,
+      "tdid": "3896",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 6,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 927,
+      "name": "Morgan AR Plus 4",
+      "rid": "Morgan_AR_Plus_4_2016",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 32,
       "onlyName": "Polo GTI",
       "brand": "Volkswagen",
@@ -69702,6 +71617,37 @@
   },
   {
       "class": "D",
+      "rq": 32,
+      "onlyName": "Plus 8",
+      "brand": "Morgan",
+      "year": 1983,
+      "tdid": "3897",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 5.6,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 839,
+      "name": "Morgan Plus 8",
+      "rid": "Morgan_Plus_8_1983",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 31,
       "onlyName": "Mangusta",
       "brand": "De Tomaso",
@@ -71194,6 +73140,69 @@
   },
   {
       "class": "D",
+      "rq": 31,
+      "onlyName": "Plus E",
+      "brand": "Morgan",
+      "year": 2012,
+      "tdid": "3898",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 6,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1250,
+      "name": "Morgan Plus E",
+      "rid": "Morgan_Plus_E_2012",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 31,
+      "onlyName": "Super 3",
+      "brand": "Morgan",
+      "year": 2022,
+      "tdid": "3899",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 6.5,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 635,
+      "name": "Morgan Super 3",
+      "rid": "Morgan_Super_3_2022",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 30,
       "onlyName": "Megane",
       "brand": "Renault",
@@ -72534,6 +74543,37 @@
           "Amalfi Coast Cruising",
           "Motorsport"
       ]
+  },
+  {
+      "class": "D",
+      "rq": 30,
+      "onlyName": "G32 1.9i",
+      "brand": "Ginetta",
+      "year": 1989,
+      "tdid": "3900",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 7.3,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 753,
+      "name": "Ginetta G32 1.9i",
+      "rid": "Ginetta_G32_19i_1989",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "E",
@@ -76612,6 +78652,68 @@
   },
   {
       "class": "E",
+      "rq": 27,
+      "onlyName": "Plus 4 70th Anniversary Edition",
+      "brand": "Morgan",
+      "year": 2020,
+      "tdid": "3901",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 124,
+      "acel": 7,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 927,
+      "name": "Morgan Plus 4 70th Anniversary Edition",
+      "rid": "Morgan_Plus_4_70th_Anniversary_Edition_2020",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 27,
+      "onlyName": "3000M",
+      "brand": "TVR",
+      "year": 1972,
+      "tdid": "3902",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 124,
+      "acel": 7.3,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 996,
+      "name": "TVR 3000M",
+      "rid": "TVR_3000M_1972",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 26,
       "onlyName": "Thunderbird Turbo Coupe",
       "brand": "Ford",
@@ -78388,6 +80490,37 @@
   },
   {
       "class": "E",
+      "rq": 25,
+      "onlyName": "Plus 4",
+      "brand": "Morgan",
+      "year": 2014,
+      "tdid": "3903",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 118,
+      "acel": 7,
+      "hand": 71,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 927,
+      "name": "Morgan Plus 4",
+      "rid": "Morgan_Plus_4_2014",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 24,
       "onlyName": "Corsa 1.4Si",
       "brand": "Vauxhall",
@@ -79552,6 +81685,192 @@
           "Amalfi Coast Cruising",
           "Concept"
       ]
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "G28",
+      "brand": "Ginetta",
+      "year": 1987,
+      "tdid": "3904",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 119,
+      "acel": 8,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1020,
+      "name": "Ginetta G28",
+      "rid": "Ginetta_G28_1987",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "G30",
+      "brand": "Ginetta",
+      "year": 1988,
+      "tdid": "3905",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 119,
+      "acel": 8,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1020,
+      "name": "Ginetta G30",
+      "rid": "Ginetta_G30_1988",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "4/4 1.6-litre",
+      "brand": "Morgan",
+      "year": 2009,
+      "tdid": "3906",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 7.6,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 795,
+      "name": "Morgan 4/4 1.6-litre",
+      "rid": "Morgan_44_16litre_2009",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "4/4 80th Anniversary Edition",
+      "brand": "Morgan",
+      "year": 2016,
+      "tdid": "3907",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 7.6,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 795,
+      "name": "Morgan 4/4 80th Anniversary Edition",
+      "rid": "Morgan_44_80th_Anniversary_Edition_2016",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "Plus 8",
+      "brand": "Morgan",
+      "year": 1968,
+      "tdid": "3908",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 124,
+      "acel": 6.7,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 851,
+      "name": "Morgan Plus 8",
+      "rid": "Morgan_Plus_8_1968",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "Tasmin 280i 2+2 Coupe",
+      "brand": "TVR",
+      "year": 1981,
+      "tdid": "3909",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 130,
+      "acel": 8.2,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1064,
+      "name": "TVR Tasmin 280i 2+2 Coupe",
+      "rid": "TVR_Tasmin_280i_22_Coupe_1981",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -83837,6 +86156,68 @@
   },
   {
       "class": "E",
+      "rq": 21,
+      "onlyName": "G26",
+      "brand": "Ginetta",
+      "year": 1985,
+      "tdid": "3910",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 9.4,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 916,
+      "name": "Ginetta G26",
+      "rid": "Ginetta_G26_1985",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 21,
+      "onlyName": "G31",
+      "brand": "Ginetta",
+      "year": 1988,
+      "tdid": "3911",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 9.4,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 916,
+      "name": "Ginetta G31",
+      "rid": "Ginetta_G31_1988",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 20,
       "onlyName": "Datsun 240Z",
       "brand": "Nissan",
@@ -87794,6 +90175,37 @@
   },
   {
       "class": "F",
+      "rq": 18,
+      "onlyName": "Tasmin 200 Convertible",
+      "brand": "TVR",
+      "year": 1981,
+      "tdid": "3912",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 115,
+      "acel": 9.5,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1065,
+      "name": "TVR Tasmin 200 Convertible",
+      "rid": "TVR_Tasmin_200_Convertible_1981",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 17,
       "onlyName": "600",
       "brand": "Mercedes-Benz",
@@ -89080,6 +91492,68 @@
           "Enter the Black Forest",
           "Innovative"
       ]
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "EV3",
+      "brand": "Morgan",
+      "year": 2016,
+      "tdid": "3913",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 90,
+      "acel": 8.9,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 500,
+      "name": "Morgan EV3",
+      "rid": "Morgan_EV3_2016",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "Plus 4 Super Sports",
+      "brand": "Morgan",
+      "year": 1961,
+      "tdid": "3914",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 121,
+      "acel": 8.7,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 780,
+      "name": "Morgan Plus 4 Super Sports",
+      "rid": "Morgan_Plus_4_Super_Sports_1961",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -90866,6 +93340,37 @@
           "Amalfi Coast Cruising",
           "Style Icon"
       ]
+  },
+  {
+      "class": "F",
+      "rq": 16,
+      "onlyName": "Plus 4",
+      "brand": "Morgan",
+      "year": 1985,
+      "tdid": "3915",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 112,
+      "acel": 9,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 848,
+      "name": "Morgan Plus 4",
+      "rid": "Morgan_Plus_4_1985",
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -95089,2511 +97594,6 @@
       "tags": [
           "Amalfi Coast Cruising"
       ]
-  },
-  {
-      "class": "S",
-      "rq": 99,
-      "onlyName": "G58",
-      "brand": "Ginetta",
-      "year": 2018,
-      "tdid": "3837",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 190,
-      "acel": 2.7,
-      "hand": 100,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 940,
-      "name": "Ginetta G58",
-      "rid": "Ginetta_G58_2018",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "G57 P2",
-      "brand": "Ginetta",
-      "year": 2016,
-      "tdid": "3838",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 204,
-      "acel": 2.8,
-      "hand": 99,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 930,
-      "name": "Ginetta G57 P2",
-      "rid": "Ginetta_G57_P2_2016",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "Mono",
-      "brand": "BAC",
-      "year": 2015,
-      "tdid": "3839",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 2.6,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 580,
-      "name": "BAC Mono",
-      "rid": "BAC_Mono_2015",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Drivers Choice"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 91,
-      "onlyName": "G56 GT4 Supercup",
-      "brand": "Ginetta",
-      "year": 2021,
-      "tdid": "3840",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 3.1,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1100,
-      "name": "Ginetta G56 GT4 Supercup",
-      "rid": "Ginetta_G56_GT4_Supercup_2021",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 90,
-      "onlyName": "G55 GT3",
-      "brand": "Ginetta",
-      "year": 2012,
-      "tdid": "3841",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 183,
-      "acel": 3,
-      "hand": 95,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1100,
-      "name": "Ginetta G55 GT3",
-      "rid": "Ginetta_G55_GT3_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 89,
-      "onlyName": "Akula",
-      "brand": "Ginetta",
-      "year": 2019,
-      "tdid": "3842",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 200,
-      "acel": 3.2,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1150,
-      "name": "Ginetta Akula",
-      "rid": "Ginetta_Akula_2019",
-      "prize": true,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 85,
-      "onlyName": "Emira GT4",
-      "brand": "Lotus",
-      "year": 2021,
-      "tdid": "3843",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 3.5,
-      "hand": 95,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1260,
-      "name": "Lotus Emira GT4",
-      "rid": "Lotus_Emira_GT4_2021",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 85,
-      "onlyName": "Evora GX",
-      "brand": "Lotus",
-      "year": 2012,
-      "tdid": "3844",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 183,
-      "acel": 3.3,
-      "hand": 94,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1150,
-      "name": "Lotus Evora GX",
-      "rid": "Lotus_Evora_GX_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 85,
-      "onlyName": "Aero 8 race car",
-      "brand": "Morgan",
-      "year": 2002,
-      "tdid": "3845",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 180,
-      "acel": 3.2,
-      "hand": 91,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1000,
-      "name": "Morgan Aero 8 race car",
-      "rid": "Morgan_Aero_8_race_car_2002",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 80,
-      "onlyName": "G55 GT4",
-      "brand": "Ginetta",
-      "year": 2011,
-      "tdid": "3846",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 3.8,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1085,
-      "name": "Ginetta G55 GT4",
-      "rid": "Ginetta_G55_GT4_2011",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 80,
-      "onlyName": "Aero 8 GT3",
-      "brand": "Morgan",
-      "year": 2007,
-      "tdid": "3847",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 180,
-      "acel": 3.8,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1000,
-      "name": "Morgan Aero 8 GT3",
-      "rid": "Morgan_Aero_8_GT3_2007",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 79,
-      "onlyName": "G50 GT4",
-      "brand": "Ginetta",
-      "year": 2008,
-      "tdid": "3848",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 158,
-      "acel": 3.7,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 945,
-      "name": "Ginetta G50 GT4",
-      "rid": "Ginetta_G50_GT4_2008",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 78,
-      "onlyName": "Exige V6 Cup R",
-      "brand": "Lotus",
-      "year": 2013,
-      "tdid": "3849",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 175,
-      "acel": 3.5,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1040,
-      "name": "Lotus Exige V6 Cup R",
-      "rid": "Lotus_Exige_V6_Cup_R_2013",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 77,
-      "onlyName": "Plus 8 GTR (GT2)",
-      "brand": "Morgan",
-      "year": 1997,
-      "tdid": "3850",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 175,
-      "acel": 3.8,
-      "hand": 90,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 900,
-      "name": "Morgan Plus 8 GTR (GT2)",
-      "rid": "Morgan_Plus_8_GTR_GT2_1997",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 75,
-      "onlyName": "Exige GT3",
-      "brand": "Lotus",
-      "year": 2006,
-      "tdid": "3851",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 160,
-      "acel": 3.9,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 750,
-      "name": "Lotus Exige GT3",
-      "rid": "Lotus_Exige_GT3_2006",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 73,
-      "onlyName": "F400",
-      "brand": "Ginetta",
-      "year": 2010,
-      "tdid": "3852",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 185,
-      "acel": 3.7,
-      "hand": 87,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1036,
-      "name": "Ginetta F400",
-      "rid": "Ginetta_F400_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 73,
-      "onlyName": "Exige V6 Cup",
-      "brand": "Lotus",
-      "year": 2013,
-      "tdid": "3853",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 3.7,
-      "hand": 89,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1130,
-      "name": "Lotus Exige V6 Cup",
-      "rid": "Lotus_Exige_V6_Cup_2013",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 68,
-      "onlyName": "Cerbera Speed Eight",
-      "brand": "TVR",
-      "year": 1996,
-      "tdid": "3854",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 180,
-      "acel": 4,
-      "hand": 83,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "TVR Cerbera Speed Eight",
-      "rid": "TVR_Cerbera_Speed_Eight_1996",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Wild Ride"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 67,
-      "onlyName": "G56 GTA",
-      "brand": "Ginetta",
-      "year": 2021,
-      "tdid": "3855",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 140,
-      "acel": 4.6,
-      "hand": 95,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1100,
-      "name": "Ginetta G56 GTA",
-      "rid": "Ginetta_G56_GTA_2021",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 67,
-      "onlyName": "Exige R-GT",
-      "brand": "Lotus",
-      "year": 2016,
-      "tdid": "3856",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 140,
-      "acel": 4.4,
-      "hand": 89,
-      "drive": "RWD",
-      "tyres": "Off-road",
-      "mra": null,
-      "weight": 1200,
-      "name": "Lotus Exige R-GT",
-      "rid": "Lotus_Exige_RGT_2016",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 67,
-      "onlyName": "Plus 8 GTR",
-      "brand": "Morgan",
-      "year": 2021,
-      "tdid": "3857",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 160,
-      "acel": 4.2,
-      "hand": 84,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "Morgan Plus 8 GTR",
-      "rid": "Morgan_Plus_8_GTR_2021",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 66,
-      "onlyName": "Plus Four CX-T",
-      "brand": "Morgan",
-      "year": 2021,
-      "tdid": "3858",
-      "abs": true,
-      "tcs": false,
-      "clearance": "High",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 5.7,
-      "hand": 78,
-      "drive": "RWD",
-      "tyres": "Off-road",
-      "mra": null,
-      "weight": 1249,
-      "name": "Morgan Plus Four CX-T",
-      "rid": "Morgan_Plus_Four_CXT_2021",
-      "prize": true,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 65,
-      "onlyName": "Aero Coupe",
-      "brand": "Morgan",
-      "year": 2012,
-      "tdid": "3859",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 4,
-      "hand": 83,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1175,
-      "name": "Morgan Aero Coupe",
-      "rid": "Morgan_Aero_Coupe_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Aero GT",
-      "brand": "Morgan",
-      "year": 2018,
-      "tdid": "3860",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 4.3,
-      "hand": 83,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1175,
-      "name": "Morgan Aero GT",
-      "rid": "Morgan_Aero_GT_2018",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Aero SuperSports",
-      "brand": "Morgan",
-      "year": 2009,
-      "tdid": "3861",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 4,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1180,
-      "name": "Morgan Aero SuperSports",
-      "rid": "Morgan_Aero_SuperSports_2009",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Plus 8 50th Anniversary",
-      "brand": "Morgan",
-      "year": 2018,
-      "tdid": "3862",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "Morgan Plus 8 50th Anniversary",
-      "rid": "Morgan_Plus_8_50th_Anniversary_2018",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Plus Six",
-      "brand": "Morgan",
-      "year": 2019,
-      "tdid": "3863",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 166,
-      "acel": 4,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1075,
-      "name": "Morgan Plus Six",
-      "rid": "Morgan_Plus_Six_2019",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Tuscan",
-      "brand": "TVR",
-      "year": 1999,
-      "tdid": "3864",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 180,
-      "acel": 4.2,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "TVR Tuscan",
-      "rid": "TVR_Tuscan_1999",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Style Icon"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "G60",
-      "brand": "Ginetta",
-      "year": 2011,
-      "tdid": "3865",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 4.9,
-      "hand": 87,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1080,
-      "name": "Ginetta G60",
-      "rid": "Ginetta_G60_2011",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Exige 240R",
-      "brand": "Lotus",
-      "year": 2005,
-      "tdid": "3866",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 155,
-      "acel": 4.5,
-      "hand": 88,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 930,
-      "name": "Lotus Exige 240R",
-      "rid": "Lotus_Exige_240R_2005",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Aero 8 GTN",
-      "brand": "Morgan",
-      "year": 2004,
-      "tdid": "3867",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 4.3,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "Morgan Aero 8 GTN",
-      "rid": "Morgan_Aero_8_GTN_2004",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Aero 8 Series 4",
-      "brand": "Morgan",
-      "year": 2007,
-      "tdid": "3868",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 4,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1180,
-      "name": "Morgan Aero 8 Series 4",
-      "rid": "Morgan_Aero_8_Series_4_2007",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Aero 8 Series 5",
-      "brand": "Morgan",
-      "year": 2016,
-      "tdid": "3869",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 4.1,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1175,
-      "name": "Morgan Aero 8 Series 5",
-      "rid": "Morgan_Aero_8_Series_5_2016",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Eva GT Concept",
-      "brand": "Morgan",
-      "year": 2010,
-      "tdid": "3870",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 4.3,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1250,
-      "name": "Morgan Eva GT Concept",
-      "rid": "Morgan_Eva_GT_Concept_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Concept"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Plus 8 Speedster",
-      "brand": "Morgan",
-      "year": 2014,
-      "tdid": "3871",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 155,
-      "acel": 4.5,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "Morgan Plus 8 Speedster",
-      "rid": "Morgan_Plus_8_Speedster_2014",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "Aeromax",
-      "brand": "Morgan",
-      "year": 2006,
-      "tdid": "3872",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 160,
-      "acel": 4.3,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1145,
-      "name": "Morgan Aeromax",
-      "rid": "Morgan_Aeromax_2006",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "Plus 8",
-      "brand": "Morgan",
-      "year": 2012,
-      "tdid": "3873",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1100,
-      "name": "Morgan Plus 8",
-      "rid": "Morgan_Plus_8_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 60,
-      "onlyName": "Aero 8 Series 3",
-      "brand": "Morgan",
-      "year": 2005,
-      "tdid": "3874",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 160,
-      "acel": 4.3,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1145,
-      "name": "Morgan Aero 8 Series 3",
-      "rid": "Morgan_Aero_8_Series_3_2005",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 58,
-      "onlyName": "Aero 8 Series 1",
-      "brand": "Morgan",
-      "year": 2000,
-      "tdid": "3875",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 160,
-      "acel": 4.8,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 971,
-      "name": "Morgan Aero 8 Series 1",
-      "rid": "Morgan_Aero_8_Series_1_2000",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 56,
-      "onlyName": "Chimaera 4.3",
-      "brand": "TVR",
-      "year": 1992,
-      "tdid": "3876",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 158,
-      "acel": 4.6,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1060,
-      "name": "TVR Chimaera 4.3",
-      "rid": "TVR_Chimaera_43_1992",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 54,
-      "onlyName": "Plus Four race car",
-      "brand": "Morgan",
-      "year": 2021,
-      "tdid": "3877",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 149,
-      "acel": 4.3,
-      "hand": 83,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1000,
-      "name": "Morgan Plus Four race car",
-      "rid": "Morgan_Plus_Four_race_car_2021",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 52,
-      "onlyName": "G40 GT5",
-      "brand": "Ginetta",
-      "year": 2010,
-      "tdid": "3878",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 6.8,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 805,
-      "name": "Ginetta G40 GT5",
-      "rid": "Ginetta_G40_GT5_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 51,
-      "onlyName": "Plus Four",
-      "brand": "Morgan",
-      "year": 2021,
-      "tdid": "3879",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 149,
-      "acel": 4.4,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1009,
-      "name": "Morgan Plus Four",
-      "rid": "Morgan_Plus_Four_2021",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 51,
-      "onlyName": "420 SEAC",
-      "brand": "TVR",
-      "year": 1986,
-      "tdid": "3880",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 5,
-      "hand": 78,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1170,
-      "name": "TVR 420 SEAC",
-      "rid": "TVR_420_SEAC_1986",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 48,
-      "onlyName": "S-Series",
-      "brand": "TVR",
-      "year": 1986,
-      "tdid": "3881",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 148,
-      "acel": 5.2,
-      "hand": 79,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1052,
-      "name": "TVR S-Series",
-      "rid": "TVR_SSeries_1986",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 47,
-      "onlyName": "G40R",
-      "brand": "Ginetta",
-      "year": 2011,
-      "tdid": "3882",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 140,
-      "acel": 5.8,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 795,
-      "name": "Ginetta G40R",
-      "rid": "Ginetta_G40R_2011",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "G33",
-      "brand": "Ginetta",
-      "year": 1992,
-      "tdid": "3883",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 143,
-      "acel": 5.3,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 874,
-      "name": "Ginetta G33",
-      "rid": "Ginetta_G33_1992",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "G4 Series II Coupe",
-      "brand": "Ginetta",
-      "year": 1963,
-      "tdid": "3884",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 120,
-      "acel": 7,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 510,
-      "name": "Ginetta G4 Series II Coupe",
-      "rid": "Ginetta_G4_Series_II_Coupe_1963",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "3-Wheeler P101",
-      "brand": "Morgan",
-      "year": 2020,
-      "tdid": "3885",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 5.7,
-      "hand": 69,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 525,
-      "name": "Morgan 3-Wheeler P101",
-      "rid": "Morgan_3Wheeler_P101_2020",
-      "prize": true,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "Roadster 3.7 V6",
-      "brand": "Morgan",
-      "year": 2012,
-      "tdid": "3886",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 140,
-      "acel": 5.2,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 950,
-      "name": "Morgan Roadster 3.7 V6",
-      "rid": "Morgan_Roadster_37_V6_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "420 Sports Saloon",
-      "brand": "TVR",
-      "year": 1986,
-      "tdid": "3887",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 155,
-      "acel": 5.6,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1150,
-      "name": "TVR 420 Sports Saloon",
-      "rid": "TVR_420_Sports_Saloon_1986",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 44,
-      "onlyName": "3-Wheeler",
-      "brand": "Morgan",
-      "year": 2011,
-      "tdid": "3888",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 5.7,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 525,
-      "name": "Morgan 3-Wheeler",
-      "rid": "Morgan_3Wheeler_2011",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 42,
-      "onlyName": "Roadster 3.0 V6",
-      "brand": "Morgan",
-      "year": 2004,
-      "tdid": "3889",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 134,
-      "acel": 5.4,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 940,
-      "name": "Morgan Roadster 3.0 V6",
-      "rid": "Morgan_Roadster_30_V6_2004",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 41,
-      "onlyName": "G40 Cup",
-      "brand": "Ginetta",
-      "year": 2010,
-      "tdid": "3890",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 125,
-      "acel": 7,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 850,
-      "name": "Ginetta G40 Cup",
-      "rid": "Ginetta_G40_Cup_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 39,
-      "onlyName": "G40 Junior",
-      "brand": "Ginetta",
-      "year": 2010,
-      "tdid": "3891",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 120,
-      "acel": 7.9,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 850,
-      "name": "Ginetta G40 Junior",
-      "rid": "Ginetta_G40_Junior_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 38,
-      "onlyName": "Seven Twin-Cam SS",
-      "brand": "Lotus",
-      "year": 1969,
-      "tdid": "3892",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 107,
-      "acel": 7.4,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 570,
-      "name": "Lotus Seven Twin-Cam SS",
-      "rid": "Lotus_Seven_TwinCam_SS_1969",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Drivers Choice"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 37,
-      "onlyName": "Plus 4 SLR",
-      "brand": "Morgan",
-      "year": 1964,
-      "tdid": "3893",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 135,
-      "acel": 6.1,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 750,
-      "name": "Morgan Plus 4 SLR",
-      "rid": "Morgan_Plus_4_SLR_1964",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 37,
-      "onlyName": "Plus 4 Super Sports Baby Doll VI",
-      "brand": "Morgan",
-      "year": 2013,
-      "tdid": "3894",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 145,
-      "acel": 5.8,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 900,
-      "name": "Morgan Plus 4 Super Sports Baby Doll VI",
-      "rid": "Morgan_Plus_4_Super_Sports_Baby_Doll_VI_2013",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 36,
-      "onlyName": "350i",
-      "brand": "TVR",
-      "year": 1983,
-      "tdid": "3920",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 134,
-      "acel": 6.5,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1163,
-      "name": "TVR 350i",
-      "rid": "TVR_350i_1983",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 36,
-      "onlyName": "S3C",
-      "brand": "TVR",
-      "year": 1992,
-      "tdid": "3895",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 140,
-      "acel": 6.8,
-      "hand": 77,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 987,
-      "name": "TVR S3C",
-      "rid": "TVR_S3C_1992",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 33,
-      "onlyName": "AR Plus 4",
-      "brand": "Morgan",
-      "year": 2016,
-      "tdid": "3896",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 6,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 927,
-      "name": "Morgan AR Plus 4",
-      "rid": "Morgan_AR_Plus_4_2016",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 32,
-      "onlyName": "Plus 8",
-      "brand": "Morgan",
-      "year": 1983,
-      "tdid": "3897",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 5.6,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 839,
-      "name": "Morgan Plus 8",
-      "rid": "Morgan_Plus_8_1983",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 31,
-      "onlyName": "Plus E",
-      "brand": "Morgan",
-      "year": 2012,
-      "tdid": "3898",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 6,
-      "hand": 74,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1250,
-      "name": "Morgan Plus E",
-      "rid": "Morgan_Plus_E_2012",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Concept"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 31,
-      "onlyName": "Super 3",
-      "brand": "Morgan",
-      "year": 2022,
-      "tdid": "3899",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 6.5,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 635,
-      "name": "Morgan Super 3",
-      "rid": "Morgan_Super_3_2022",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 30,
-      "onlyName": "G32 1.9i",
-      "brand": "Ginetta",
-      "year": 1989,
-      "tdid": "3900",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 7.3,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 753,
-      "name": "Ginetta G32 1.9i",
-      "rid": "Ginetta_G32_19i_1989",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "E",
-      "rq": 27,
-      "onlyName": "Plus 4 70th Anniversary Edition",
-      "brand": "Morgan",
-      "year": 2020,
-      "tdid": "3901",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 124,
-      "acel": 7,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 927,
-      "name": "Morgan Plus 4 70th Anniversary Edition",
-      "rid": "Morgan_Plus_4_70th_Anniversary_Edition_2020",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 27,
-      "onlyName": "3000M",
-      "brand": "TVR",
-      "year": 1972,
-      "tdid": "3902",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 124,
-      "acel": 7.3,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 996,
-      "name": "TVR 3000M",
-      "rid": "TVR_3000M_1972",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 25,
-      "onlyName": "Plus 4",
-      "brand": "Morgan",
-      "year": 2014,
-      "tdid": "3903",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 118,
-      "acel": 7,
-      "hand": 71,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 927,
-      "name": "Morgan Plus 4",
-      "rid": "Morgan_Plus_4_2014",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "G28",
-      "brand": "Ginetta",
-      "year": 1987,
-      "tdid": "3904",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 119,
-      "acel": 8,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1020,
-      "name": "Ginetta G28",
-      "rid": "Ginetta_G28_1987",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "G30",
-      "brand": "Ginetta",
-      "year": 1988,
-      "tdid": "3905",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 119,
-      "acel": 8,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1020,
-      "name": "Ginetta G30",
-      "rid": "Ginetta_G30_1988",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "4/4 1.6-litre",
-      "brand": "Morgan",
-      "year": 2009,
-      "tdid": "3906",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 7.6,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 795,
-      "name": "Morgan 4/4 1.6-litre",
-      "rid": "Morgan_44_16litre_2009",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "4/4 80th Anniversary Edition",
-      "brand": "Morgan",
-      "year": 2016,
-      "tdid": "3907",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 7.6,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 795,
-      "name": "Morgan 4/4 80th Anniversary Edition",
-      "rid": "Morgan_44_80th_Anniversary_Edition_2016",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "Plus 8",
-      "brand": "Morgan",
-      "year": 1968,
-      "tdid": "3908",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 124,
-      "acel": 6.7,
-      "hand": 66,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 851,
-      "name": "Morgan Plus 8",
-      "rid": "Morgan_Plus_8_1968",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 24,
-      "onlyName": "Tasmin 280i 2+2 Coupe",
-      "brand": "TVR",
-      "year": 1981,
-      "tdid": "3909",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 130,
-      "acel": 8.2,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1064,
-      "name": "TVR Tasmin 280i 2+2 Coupe",
-      "rid": "TVR_Tasmin_280i_22_Coupe_1981",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 21,
-      "onlyName": "G26",
-      "brand": "Ginetta",
-      "year": 1985,
-      "tdid": "3910",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 9.4,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 916,
-      "name": "Ginetta G26",
-      "rid": "Ginetta_G26_1985",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 21,
-      "onlyName": "G31",
-      "brand": "Ginetta",
-      "year": 1988,
-      "tdid": "3911",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 9.4,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 916,
-      "name": "Ginetta G31",
-      "rid": "Ginetta_G31_1988",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 18,
-      "onlyName": "Tasmin 200 Convertible",
-      "brand": "TVR",
-      "year": 1981,
-      "tdid": "3912",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 115,
-      "acel": 9.5,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1065,
-      "name": "TVR Tasmin 200 Convertible",
-      "rid": "TVR_Tasmin_200_Convertible_1981",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 17,
-      "onlyName": "EV3",
-      "brand": "Morgan",
-      "year": 2016,
-      "tdid": "3913",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 90,
-      "acel": 8.9,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 500,
-      "name": "Morgan EV3",
-      "rid": "Morgan_EV3_2016",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 17,
-      "onlyName": "Plus 4 Super Sports",
-      "brand": "Morgan",
-      "year": 1961,
-      "tdid": "3914",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 121,
-      "acel": 8.7,
-      "hand": 66,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 780,
-      "name": "Morgan Plus 4 Super Sports",
-      "rid": "Morgan_Plus_4_Super_Sports_1961",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 16,
-      "onlyName": "Plus 4",
-      "brand": "Morgan",
-      "year": 1985,
-      "tdid": "3915",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 112,
-      "acel": 9,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 848,
-      "name": "Morgan Plus 4",
-      "rid": "Morgan_Plus_4_1985",
-      "prize": false,
-      "tags": [
-          "Loch to Loch"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
   },
   {
       "class": "F",
