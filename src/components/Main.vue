@@ -2100,7 +2100,7 @@
             <BaseCheckBox v-model="showDataFromPast" @change="updateAdvancedConfig()" />
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Show data from v15</div>
+            <div class="Main_OptionsLabel">Show data from old versions</div>
           </div>
         </div>
         <div class="Main_SaveGalleryBoxCheck">
