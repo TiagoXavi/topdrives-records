@@ -95110,7 +95110,17 @@
       "weight": 940,
       "name": "Ginetta G58",
       "rid": "Ginetta_G58_2018",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -95132,7 +95142,17 @@
       "weight": 930,
       "name": "Ginetta G57 P2",
       "rid": "Ginetta_G57_P2_2016",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -95154,7 +95174,17 @@
       "weight": 580,
       "name": "BAC Mono",
       "rid": "BAC_Mono_2015",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Drivers Choice"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -95176,7 +95206,17 @@
       "weight": 1100,
       "name": "Ginetta G56 GT4 Supercup",
       "rid": "Ginetta_G56_GT4_Supercup_2021",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -95198,7 +95238,17 @@
       "weight": 1100,
       "name": "Ginetta G55 GT3",
       "rid": "Ginetta_G55_GT3_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -95220,7 +95270,16 @@
       "weight": 1150,
       "name": "Ginetta Akula",
       "rid": "Ginetta_Akula_2019",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -95242,7 +95301,17 @@
       "weight": 1260,
       "name": "Lotus Emira GT4",
       "rid": "Lotus_Emira_GT4_2021",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -95264,7 +95333,17 @@
       "weight": 1150,
       "name": "Lotus Evora GX",
       "rid": "Lotus_Evora_GX_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -95286,7 +95365,17 @@
       "weight": 1000,
       "name": "Morgan Aero 8 race car",
       "rid": "Morgan_Aero_8_race_car_2002",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -95308,7 +95397,17 @@
       "weight": 1085,
       "name": "Ginetta G55 GT4",
       "rid": "Ginetta_G55_GT4_2011",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -95330,7 +95429,17 @@
       "weight": 1000,
       "name": "Morgan Aero 8 GT3",
       "rid": "Morgan_Aero_8_GT3_2007",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95352,7 +95461,17 @@
       "weight": 945,
       "name": "Ginetta G50 GT4",
       "rid": "Ginetta_G50_GT4_2008",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95374,7 +95493,17 @@
       "weight": 1040,
       "name": "Lotus Exige V6 Cup R",
       "rid": "Lotus_Exige_V6_Cup_R_2013",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -95396,7 +95525,17 @@
       "weight": 900,
       "name": "Morgan Plus 8 GTR (GT2)",
       "rid": "Morgan_Plus_8_GTR_GT2_1997",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95418,7 +95557,17 @@
       "weight": 750,
       "name": "Lotus Exige GT3",
       "rid": "Lotus_Exige_GT3_2006",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -95440,7 +95589,16 @@
       "weight": 1036,
       "name": "Ginetta F400",
       "rid": "Ginetta_F400_2010",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95462,7 +95620,16 @@
       "weight": 1130,
       "name": "Lotus Exige V6 Cup",
       "rid": "Lotus_Exige_V6_Cup_2013",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -95484,7 +95651,17 @@
       "weight": 1100,
       "name": "TVR Cerbera Speed Eight",
       "rid": "TVR_Cerbera_Speed_Eight_1996",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Wild Ride"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95506,7 +95683,17 @@
       "weight": 1100,
       "name": "Ginetta G56 GTA",
       "rid": "Ginetta_G56_GTA_2021",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95528,7 +95715,17 @@
       "weight": 1200,
       "name": "Lotus Exige R-GT",
       "rid": "Lotus_Exige_RGT_2016",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "A",
@@ -95550,7 +95747,16 @@
       "weight": 1100,
       "name": "Morgan Plus 8 GTR",
       "rid": "Morgan_Plus_8_GTR_2021",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95572,7 +95778,16 @@
       "weight": 1249,
       "name": "Morgan Plus Four CX-T",
       "rid": "Morgan_Plus_Four_CXT_2021",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -95594,7 +95809,16 @@
       "weight": 1175,
       "name": "Morgan Aero Coupe",
       "rid": "Morgan_Aero_Coupe_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95616,7 +95840,16 @@
       "weight": 1175,
       "name": "Morgan Aero GT",
       "rid": "Morgan_Aero_GT_2018",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95638,7 +95871,16 @@
       "weight": 1180,
       "name": "Morgan Aero SuperSports",
       "rid": "Morgan_Aero_SuperSports_2009",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95660,7 +95902,16 @@
       "weight": 1100,
       "name": "Morgan Plus 8 50th Anniversary",
       "rid": "Morgan_Plus_8_50th_Anniversary_2018",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95682,7 +95933,16 @@
       "weight": 1075,
       "name": "Morgan Plus Six",
       "rid": "Morgan_Plus_Six_2019",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95704,7 +95964,17 @@
       "weight": 1100,
       "name": "TVR Tuscan",
       "rid": "TVR_Tuscan_1999",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Style Icon"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95726,7 +95996,16 @@
       "weight": 1080,
       "name": "Ginetta G60",
       "rid": "Ginetta_G60_2011",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95748,7 +96027,16 @@
       "weight": 930,
       "name": "Lotus Exige 240R",
       "rid": "Lotus_Exige_240R_2005",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "B",
@@ -95770,7 +96058,16 @@
       "weight": 1100,
       "name": "Morgan Aero 8 GTN",
       "rid": "Morgan_Aero_8_GTN_2004",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95792,7 +96089,16 @@
       "weight": 1180,
       "name": "Morgan Aero 8 Series 4",
       "rid": "Morgan_Aero_8_Series_4_2007",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95814,7 +96120,16 @@
       "weight": 1175,
       "name": "Morgan Aero 8 Series 5",
       "rid": "Morgan_Aero_8_Series_5_2016",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95836,7 +96151,17 @@
       "weight": 1250,
       "name": "Morgan Eva GT Concept",
       "rid": "Morgan_Eva_GT_Concept_2010",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95858,7 +96183,16 @@
       "weight": 1100,
       "name": "Morgan Plus 8 Speedster",
       "rid": "Morgan_Plus_8_Speedster_2014",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95880,7 +96214,16 @@
       "weight": 1145,
       "name": "Morgan Aeromax",
       "rid": "Morgan_Aeromax_2006",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95902,7 +96245,16 @@
       "weight": 1100,
       "name": "Morgan Plus 8",
       "rid": "Morgan_Plus_8_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95924,7 +96276,16 @@
       "weight": 1145,
       "name": "Morgan Aero 8 Series 3",
       "rid": "Morgan_Aero_8_Series_3_2005",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95946,7 +96307,16 @@
       "weight": 971,
       "name": "Morgan Aero 8 Series 1",
       "rid": "Morgan_Aero_8_Series_1_2000",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95968,7 +96338,16 @@
       "weight": 1060,
       "name": "TVR Chimaera 4.3",
       "rid": "TVR_Chimaera_43_1992",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -95990,7 +96369,17 @@
       "weight": 1000,
       "name": "Morgan Plus Four race car",
       "rid": "Morgan_Plus_Four_race_car_2021",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -96012,7 +96401,17 @@
       "weight": 805,
       "name": "Ginetta G40 GT5",
       "rid": "Ginetta_G40_GT5_2010",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -96034,7 +96433,16 @@
       "weight": 1009,
       "name": "Morgan Plus Four",
       "rid": "Morgan_Plus_Four_2021",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -96056,7 +96464,16 @@
       "weight": 1170,
       "name": "TVR 420 SEAC",
       "rid": "TVR_420_SEAC_1986",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96078,7 +96495,16 @@
       "weight": 1052,
       "name": "TVR S-Series",
       "rid": "TVR_SSeries_1986",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96100,7 +96526,16 @@
       "weight": 795,
       "name": "Ginetta G40R",
       "rid": "Ginetta_G40R_2011",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96122,7 +96557,16 @@
       "weight": 874,
       "name": "Ginetta G33",
       "rid": "Ginetta_G33_1992",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96144,7 +96588,16 @@
       "weight": 510,
       "name": "Ginetta G4 Series II Coupe",
       "rid": "Ginetta_G4_Series_II_Coupe_1963",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96166,7 +96619,16 @@
       "weight": 525,
       "name": "Morgan 3-Wheeler P101",
       "rid": "Morgan_3Wheeler_P101_2020",
-      "prize": true
+      "prize": true,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96188,7 +96650,16 @@
       "weight": 950,
       "name": "Morgan Roadster 3.7 V6",
       "rid": "Morgan_Roadster_37_V6_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96210,7 +96681,16 @@
       "weight": 1150,
       "name": "TVR 420 Sports Saloon",
       "rid": "TVR_420_Sports_Saloon_1986",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96232,7 +96712,16 @@
       "weight": 525,
       "name": "Morgan 3-Wheeler",
       "rid": "Morgan_3Wheeler_2011",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96254,7 +96743,16 @@
       "weight": 940,
       "name": "Morgan Roadster 3.0 V6",
       "rid": "Morgan_Roadster_30_V6_2004",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -96276,7 +96774,17 @@
       "weight": 850,
       "name": "Ginetta G40 Cup",
       "rid": "Ginetta_G40_Cup_2010",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96298,7 +96806,17 @@
       "weight": 850,
       "name": "Ginetta G40 Junior",
       "rid": "Ginetta_G40_Junior_2010",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96320,7 +96838,17 @@
       "weight": 570,
       "name": "Lotus Seven Twin-Cam SS",
       "rid": "Lotus_Seven_TwinCam_SS_1969",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Drivers Choice"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96342,7 +96870,16 @@
       "weight": 750,
       "name": "Morgan Plus 4 SLR",
       "rid": "Morgan_Plus_4_SLR_1964",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96364,7 +96901,16 @@
       "weight": 900,
       "name": "Morgan Plus 4 Super Sports Baby Doll VI",
       "rid": "Morgan_Plus_4_Super_Sports_Baby_Doll_VI_2013",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96386,7 +96932,16 @@
       "weight": 1163,
       "name": "TVR 350i",
       "rid": "TVR_350i_1983",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96408,7 +96963,16 @@
       "weight": 987,
       "name": "TVR S3C",
       "rid": "TVR_S3C_1992",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96430,7 +96994,16 @@
       "weight": 927,
       "name": "Morgan AR Plus 4",
       "rid": "Morgan_AR_Plus_4_2016",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96452,7 +97025,16 @@
       "weight": 839,
       "name": "Morgan Plus 8",
       "rid": "Morgan_Plus_8_1983",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96474,7 +97056,17 @@
       "weight": 1250,
       "name": "Morgan Plus E",
       "rid": "Morgan_Plus_E_2012",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96496,7 +97088,16 @@
       "weight": 635,
       "name": "Morgan Super 3",
       "rid": "Morgan_Super_3_2022",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -96518,7 +97119,16 @@
       "weight": 753,
       "name": "Ginetta G32 1.9i",
       "rid": "Ginetta_G32_19i_1989",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
   },
   {
       "class": "E",
@@ -96540,7 +97150,16 @@
       "weight": 927,
       "name": "Morgan Plus 4 70th Anniversary Edition",
       "rid": "Morgan_Plus_4_70th_Anniversary_Edition_2020",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96562,7 +97181,16 @@
       "weight": 996,
       "name": "TVR 3000M",
       "rid": "TVR_3000M_1972",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96584,7 +97212,16 @@
       "weight": 927,
       "name": "Morgan Plus 4",
       "rid": "Morgan_Plus_4_2014",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96606,7 +97243,16 @@
       "weight": 1020,
       "name": "Ginetta G28",
       "rid": "Ginetta_G28_1987",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96628,7 +97274,16 @@
       "weight": 1020,
       "name": "Ginetta G30",
       "rid": "Ginetta_G30_1988",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96650,7 +97305,16 @@
       "weight": 795,
       "name": "Morgan 4/4 1.6-litre",
       "rid": "Morgan_44_16litre_2009",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96672,7 +97336,16 @@
       "weight": 795,
       "name": "Morgan 4/4 80th Anniversary Edition",
       "rid": "Morgan_44_80th_Anniversary_Edition_2016",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96694,7 +97367,16 @@
       "weight": 851,
       "name": "Morgan Plus 8",
       "rid": "Morgan_Plus_8_1968",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96716,7 +97398,16 @@
       "weight": 1064,
       "name": "TVR Tasmin 280i 2+2 Coupe",
       "rid": "TVR_Tasmin_280i_22_Coupe_1981",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96738,7 +97429,16 @@
       "weight": 916,
       "name": "Ginetta G26",
       "rid": "Ginetta_G26_1985",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -96760,7 +97460,16 @@
       "weight": 916,
       "name": "Ginetta G31",
       "rid": "Ginetta_G31_1988",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96782,7 +97491,16 @@
       "weight": 1065,
       "name": "TVR Tasmin 200 Convertible",
       "rid": "TVR_Tasmin_200_Convertible_1981",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96804,7 +97522,16 @@
       "weight": 500,
       "name": "Morgan EV3",
       "rid": "Morgan_EV3_2016",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96826,7 +97553,16 @@
       "weight": 780,
       "name": "Morgan Plus 4 Super Sports",
       "rid": "Morgan_Plus_4_Super_Sports_1961",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96848,7 +97584,16 @@
       "weight": 848,
       "name": "Morgan Plus 4",
       "rid": "Morgan_Plus_4_1985",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96870,7 +97615,16 @@
       "weight": 760,
       "name": "Morgan 4/4 1600",
       "rid": "Morgan_44_1600_1982",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96892,7 +97646,16 @@
       "weight": 870,
       "name": "Morgan Plus 4",
       "rid": "Morgan_Plus_4_1962",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96914,7 +97677,16 @@
       "weight": 826,
       "name": "Morgan Plus 4 Plus",
       "rid": "Morgan_Plus_4_Plus_1964",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -96936,6 +97708,15 @@
       "weight": 711,
       "name": "TVR Tina",
       "rid": "TVR_Tina_1967",
-      "prize": false
+      "prize": false,
+      "tags": [
+          "Loch to Loch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
   }
 ]
