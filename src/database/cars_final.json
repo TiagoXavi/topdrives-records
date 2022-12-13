@@ -24374,7 +24374,7 @@
       "hand": 82,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 100,
       "weight": 1745,
       "name": "Jaguar F-Type R AWD Convertible",
       "rid": "Jaguar_F-Type_R_Convertible_2016",
