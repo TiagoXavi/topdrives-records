@@ -919,10 +919,10 @@
                 v-model="mainFilter.changed16Model"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 value="16.0 changed cars" />
-              <!-- <BaseChip
+              <BaseChip
                 v-model="mainFilter.changed17Model"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
-                value="17.0 changed cars" /> -->
+                value="17.0 changed cars" />
             </div>
             <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.prizesModel || cgRound.filter.prizesModel.length === 0" class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.prizes">
@@ -2140,7 +2140,7 @@ import BaseCompItem from './BaseCompItem.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
-import data_cars from '../database/cars_final_PL16.json'
+import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import LogRocket from 'logrocket';
 import html2canvas from 'html2canvas';
@@ -2394,6 +2394,7 @@ export default {
           "Around the World",
           "Call of the Wild",
           "Christmas Collection",
+          "Christmas Collection 22",
           "Concept",
           "Drivers Choice",
           "Eco Friendly",
@@ -2410,6 +2411,7 @@ export default {
           "Interstellar",
           "Italian Renaissance",
           "Japan Pro Tour",
+          "Loch to Loch",
           "Motorsport",
           "Muscle Car",
           "Old Guard",
@@ -2431,6 +2433,7 @@ export default {
           "Wild Ride",
           "World Expo",
           "Year of the Ox",
+          "Year of the Rabbit",
           "Year of the Rat",
           "Year of the Tiger"
         ],
@@ -2446,6 +2449,7 @@ export default {
           "Aston Martin",
           "Audi",
           "Austin",
+          "BAC",
           "Bentley",
           "BMW",
           "Bristol",
@@ -2465,6 +2469,7 @@ export default {
           "Fiat",
           "Ford",
           "Geo",
+          "Ginetta",
           "GMC",
           "Hennessey",
           "Honda",
@@ -2484,6 +2489,7 @@ export default {
           "MG",
           "Mini",
           "Mitsubishi",
+          "Morgan",
           "Nissan",
           "Oldsmobile",
           "Pagani",
@@ -3170,7 +3176,7 @@ export default {
         {
           "name": "Twisty Circuit (R)",
           "id": "tCircuitr",
-          "types": ["00"]
+          "types": ["00","01"]
         },
         {
           "name": "Twisty Road",

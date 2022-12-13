@@ -74,6 +74,11 @@ export default {
   --tag-s: 75%;
   --tag-l: 84%;
 }
+.BaseGameTag_Christmas_Collection_22 {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 .BaseGameTag_Concept {
   --tag-h: 168;
   --tag-s: 66%;
@@ -153,6 +158,11 @@ export default {
   --tag-h: 340;
   --tag-s: 65%;
   --tag-l: 41%;
+}
+.BaseGameTag_Japan_Pro_Tour {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
 }
 .BaseGameTag_Motorsport {
   --tag-h: 216;
@@ -258,6 +268,11 @@ export default {
   --tag-h: 5;
   --tag-s: 75%;
   --tag-l: 43%;
+}
+.BaseGameTag_Year_of_the_Ox {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
 }
 .BaseGameTag_Year_of_the_Rat {
   --tag-h: 49;
