@@ -3833,7 +3833,7 @@ export default {
       this.tuneDialogTunes.map(tune => {
         if (this.tuneDialogCar.data[tune]) {
           if (this.tuneDialogCar.data[tune].times) {
-            result[tune] = Object.keys(this.tuneDialogCar.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
+            result[tune] = Object.keys(this.tuneDialogCar.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a" && this.tuneDialogCar.data[tune].times[key] !== 0).length;
           }
         }
       })

@@ -390,8 +390,7 @@ export default {
         let vm = this;
 
         Object.keys( this.car.data[this.car.selectedTune].times ).forEach(function (key) {
-          let x = vm.car.data[vm.car.selectedTune].times[key]
-          if (!presentTracks.includes(key) && typeof key === 'string' && key.substr(key.length -4, 2) === "_a" ) {
+          if (!presentTracks.includes(key) && typeof key === 'string' && key.substr(key.length -4, 2) === "_a" && vm.car.data[vm.car.selectedTune].times[key] !== 0) {
             vm.nonUsedTracks.push(key)
           }
 
@@ -459,7 +458,7 @@ export default {
       this.tunes.map(tune => {
         if (data[tune]) {
           if (data[tune].times) {
-            result[tune] = Object.keys(data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a").length;
+            result[tune] = Object.keys(data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a" && data[tune].times[key] !== 0).length;
           }
         }
       })
