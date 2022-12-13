@@ -938,7 +938,7 @@ export default {
             oldCar.topSpeed === car.topSpeed &&
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
-            oldCar.mra === car.mra &&
+            (oldCar.mra === null || oldCar.mra === car.mra) &&
             oldCar.weight === car.weight
           ) {
           return false;
@@ -958,7 +958,7 @@ export default {
             oldCar.topSpeed === car.topSpeed &&
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
-            oldCar.mra === car.mra &&
+            (oldCar.mra === null || oldCar.mra === car.mra) &&
             oldCar.weight === car.weight
           ) {
           return false;
