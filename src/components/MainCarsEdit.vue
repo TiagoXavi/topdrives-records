@@ -961,23 +961,23 @@ export default {
 
     },
     processAll() {
-      // this.searchResult.map(c => {
-      //   this.all_cars.map(x => {
-      //     if (c.rid === x.rid) {
-      //       // action
-      //       x.tags.push('Old Guard')
+      this.collection.map(c => {
+        this.all_cars.map(x => {
+          if (c === x.rid) {
+            // action
+            x.tags.push("Christmas Collection 22")
   
-      //     }
-      //   })
-      // })
-      // this.all_cars.map(x => {
-      //   delete x.visible
-      // });
-      // this.all_cars.map(x => {
-      //   delete x.visible
-      // });
-      // debugger;
-      navigator.clipboard.writeText(JSON.stringify(this.collection));
+          }
+        })
+      })
+      debugger;
+      this.all_cars.map(x => {
+        delete x.visible
+      });
+      this.all_cars.map(x => {
+        delete x.visible
+      });
+      navigator.clipboard.writeText(JSON.stringify(this.all_cars));
     },
     actionClick(car) {
       if (this.collection.includes(car.rid)) {
