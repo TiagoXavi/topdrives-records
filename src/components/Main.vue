@@ -2751,22 +2751,22 @@ export default {
           "types": ["00"]
         },
         {
-          "name": "100-150mph",
+          "name": "100-150mph (R)",
           "id": "drag100150",
           "types": ["00"]
         },
         {
-          "name": "30-130mph",
+          "name": "30-130mph (R)",
           "id": "drag30130",
           "types": ["00"]
         },
         {
-          "name": "50-150mph",
+          "name": "50-150mph (R)",
           "id": "drag50150",
           "types": ["00"]
         },
         {
-          "name": "75-125mph",
+          "name": "75-125mph (R)",
           "id": "drag75125",
           "types": ["00"]
         },
@@ -3151,19 +3151,19 @@ export default {
           "group": "tokyo"
         },
         {
-          "name": "Tokyo Loop",
+          "name": "Tokyo Loop (R)",
           "id": "tokyoLoop",
           "types": ["00","01"],
           "group": "tokyo"
         },
         {
-          "name": "Tokyo Off Ramp",
+          "name": "Tokyo Off Ramp (R)",
           "id": "tokyoOffRamp",
           "types": ["00","01"],
           "group": "tokyo"
         },
         {
-          "name": "Tokyo Overpass",
+          "name": "Tokyo Overpass (R)",
           "id": "tokyoOverpass",
           "types": ["00","01"],
           "group": "tokyo"
