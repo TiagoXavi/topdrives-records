@@ -978,6 +978,22 @@ export default {
         delete x.visible
       });
       navigator.clipboard.writeText(JSON.stringify(this.all_cars));
+
+      // let ids = [];
+      // ids.map(c => {
+      //   this.all_cars.map(x => {
+      //     if (c === x.tdid) {
+      //       // action
+      //       x.tags.push("Year of the Rabbit")
+
+      //     }
+      //   })
+      // })
+      // this.all_cars.map(x => {
+      //   delete x.visible
+      // });
+      // debugger;
+      // navigator.clipboard.writeText(JSON.stringify(this.all_cars));
     },
     actionClick(car) {
       if (this.collection.includes(car.rid)) {

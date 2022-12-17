@@ -2263,7 +2263,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v16",
+      gameVersion: "Game v17",
       mode: "classic",
       cgLoading: false,
       cgCurrentRound: 0,
@@ -3561,7 +3561,7 @@ export default {
     let vm = this;
     this.debounceFilter = Vue.debounce(this.changeFilter, 500);
     this.debounceFilterT = Vue.debounce(this.changeFilterT, 500);
-    this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 3000);
+    this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 2000);
 
     this.getUser();
 
