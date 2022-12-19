@@ -15853,37 +15853,6 @@
   {
       "class": "A",
       "rq": 77,
-      "onlyName": "RS Q3 Sportback (F3)",
-      "brand": "Audi",
-      "year": 2020,
-      "tdid": "3774",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 83,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 69.35,
-      "weight": 1775,
-      "name": "Audi RS Q3 Sportback (F3)",
-      "rid": "Audi_RS_Q3_Sportback_F3_2020",
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest",
-          "Christmas Collection 22"
-      ]
-  },
-  {
-      "class": "A",
-      "rq": 77,
       "onlyName": "530d xDrive Saloon",
       "brand": "BMW",
       "year": 2020,
@@ -16034,6 +16003,37 @@
       "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 76,
+      "onlyName": "RS Q3 Sportback (F3)",
+      "brand": "Audi",
+      "year": 2020,
+      "tdid": "3774",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 83,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 69.35,
+      "weight": 1775,
+      "name": "Audi RS Q3 Sportback (F3)",
+      "rid": "Audi_RS_Q3_Sportback_F3_2020",
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Christmas Collection 22"
+      ]
   },
   {
       "class": "A",
@@ -16947,7 +16947,7 @@
       "hand": 82,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 76.79,
       "weight": 2085,
       "name": "Audi S7 (C8)",
       "rid": "Audi_S7_C8_2019",
@@ -23452,7 +23452,7 @@
       "hand": 70,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": null,
+      "mra": 63.93,
       "weight": 2485,
       "name": "Mercedes-Benz AMG G 63",
       "rid": "MercedesAMG_G_63_2018",
@@ -30550,6 +30550,36 @@
   {
       "class": "B",
       "rq": 64,
+      "onlyName": "Q7 3.0 TDI",
+      "brand": "Audi",
+      "year": 2018,
+      "tdid": "3750",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 150,
+      "acel": 6.1,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 54.33,
+      "weight": 2135,
+      "name": "Audi Q7 3.0 TDI",
+      "rid": "Audi_Q7_30_TDI_2018",
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Diesel",
+      "seats": "7",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "B",
+      "rq": 64,
       "onlyName": "Aero GT",
       "brand": "Morgan",
       "year": 2018,
@@ -31671,36 +31701,6 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
-      "onlyName": "Q7 3.0 TDI",
-      "brand": "Audi",
-      "year": 2018,
-      "tdid": "3750",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 150,
-      "acel": 6.1,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 54.33,
-      "weight": 2135,
-      "name": "Audi Q7 3.0 TDI",
-      "rid": "Audi_Q7_30_TDI_2018",
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Diesel",
-      "seats": "7",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
   },
   {
       "class": "B",
@@ -42057,6 +42057,36 @@
   {
       "class": "B",
       "rq": 53,
+      "onlyName": "S2 Avant (B4)",
+      "brand": "Audi",
+      "year": 1991,
+      "tdid": "3777",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 150,
+      "acel": 5.9,
+      "hand": 76,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 52.01,
+      "weight": 1560,
+      "name": "Audi S2 Avant (B4)",
+      "rid": "Audi_S2_Avant_B4_1991",
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "B",
+      "rq": 53,
       "onlyName": "Levorg",
       "brand": "Subaru",
       "country": "JP",
@@ -43194,36 +43224,6 @@
           "Saloon"
       ],
       "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "B",
-      "rq": 52,
-      "onlyName": "S2 Avant (B4)",
-      "brand": "Audi",
-      "year": 1991,
-      "tdid": "3777",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 150,
-      "acel": 5.9,
-      "hand": 76,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 52.01,
-      "weight": 1560,
-      "name": "Audi S2 Avant (B4)",
-      "rid": "Audi_S2_Avant_B4_1991",
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front",
       "tags": [
@@ -55917,6 +55917,36 @@
   {
       "class": "C",
       "rq": 43,
+      "onlyName": "90 quattro 2.2 (B2)",
+      "brand": "Audi",
+      "year": 1984,
+      "tdid": "3757",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 124,
+      "acel": 8.9,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 42.97,
+      "weight": 1200,
+      "name": "Audi 90 quattro 2.2 (B2)",
+      "rid": "Audi_90_quattro_22_B2_1984",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 43,
       "onlyName": "Aviat",
       "brand": "Chrysler",
       "country": "US",
@@ -57536,36 +57566,6 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Concept"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 42,
-      "onlyName": "90 quattro 2.2 (B2)",
-      "brand": "Audi",
-      "year": 1984,
-      "tdid": "3757",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 124,
-      "acel": 8.9,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 42.97,
-      "weight": 1200,
-      "name": "Audi 90 quattro 2.2 (B2)",
-      "rid": "Audi_90_quattro_22_B2_1984",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
       ]
   },
   {
