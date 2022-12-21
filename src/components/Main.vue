@@ -2716,6 +2716,11 @@ export default {
           "types": ["00"]
         },
         {
+          "name": "0-200mph",
+          "id": "drag200",
+          "types": ["00"]
+        },
+        {
           "name": "0-60-0mph",
           "id": "drag60b",
           "types": ["20"]
