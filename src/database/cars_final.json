@@ -249,7 +249,7 @@
       "hand": 93,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 96.67,
+      "mra": 151.3,
       "weight": 1680,
       "name": "Lotus Evija",
       "rid": "Lotus_Evija_2021",
@@ -3786,7 +3786,7 @@
       "hand": 96,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 106.51,
       "weight": 950,
       "name": "Porsche 911 GT1-98",
       "rid": "Porsche_911_GT198_1998",
@@ -7766,6 +7766,36 @@
   },
   {
       "class": "S",
+      "rq": 86,
+      "onlyName": "Panamera Turbo S 4.8 (970)",
+      "brand": "Porsche",
+      "year": 2011,
+      "tdid": "3794",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 190,
+      "acel": 3.6,
+      "hand": 84,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 80,
+      "weight": 1995,
+      "name": "Porsche Panamera Turbo S 4.8 (970)",
+      "rid": "Porsche_Panamera_Turbo_S_48_970_2011",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "S",
       "rq": 85,
       "onlyName": "545e xDrive Saloon",
       "brand": "BMW",
@@ -7793,36 +7823,6 @@
       "tags": [
           "Enter the Black Forest",
           "Eco Friendly"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 86,
-      "onlyName": "Panamera Turbo S 4.8 (970)",
-      "brand": "Porsche",
-      "year": 2011,
-      "tdid": "3794",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 190,
-      "acel": 3.6,
-      "hand": 84,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 80,
-      "weight": 1995,
-      "name": "Porsche Panamera Turbo S 4.8 (970)",
-      "rid": "Porsche_Panamera_Turbo_S_48_970_2011",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
       ]
   },
   {
@@ -11916,7 +11916,7 @@
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 78.43,
+      "mra": 77.27,
       "weight": 2414,
       "name": "Bentley Continental GT Convertible Number 1 Edition by Mulliner",
       "rid": "Bentley_Continental_GT_Convertible_Number_1_Edition_by_Mulliner_2020",
@@ -12696,7 +12696,7 @@
       "hand": 88,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 108.11,
       "weight": 1590,
       "name": "Audi R8 RWS",
       "rid": "Audi_R8_RWS_2018",
@@ -14020,36 +14020,6 @@
   },
   {
       "class": "A",
-      "rq": 78,
-      "onlyName": "330d xDrive Touring",
-      "brand": "BMW",
-      "year": 2019,
-      "tdid": "3633",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 5.1,
-      "hand": 78,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 62.75,
-      "weight": 1820,
-      "name": "BMW 330d xDrive Touring",
-      "rid": "BMW_330d_xDrive_Touring_2019",
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "A",
       "rq": 79,
       "onlyName": "X6 M50i Black Vermilion",
       "brand": "BMW",
@@ -14172,6 +14142,36 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 78,
+      "onlyName": "330d xDrive Touring",
+      "brand": "BMW",
+      "year": 2019,
+      "tdid": "3633",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 5.1,
+      "hand": 78,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 62.75,
+      "weight": 1820,
+      "name": "BMW 330d xDrive Touring",
+      "rid": "BMW_330d_xDrive_Touring_2019",
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -15852,36 +15852,6 @@
   },
   {
       "class": "A",
-      "rq": 76,
-      "onlyName": "530d xDrive Saloon",
-      "brand": "BMW",
-      "year": 2020,
-      "tdid": "3644",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 5.0,
-      "hand": 77,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": null,
-      "weight": 1895,
-      "name": "BMW 530d xDrive Saloon",
-      "rid": "BMW_530d_xDrive_Saloon_2020",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "A",
       "rq": 77,
       "onlyName": "911 RSR 3.8 (964)",
       "brand": "Porsche",
@@ -15973,6 +15943,36 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 76,
+      "onlyName": "530d xDrive Saloon",
+      "brand": "BMW",
+      "year": 2020,
+      "tdid": "3644",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 5,
+      "hand": 77,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1895,
+      "name": "BMW 530d xDrive Saloon",
+      "rid": "BMW_530d_xDrive_Saloon_2020",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -19418,36 +19418,6 @@
   },
   {
       "class": "A",
-      "rq": 73,
-      "onlyName": "M340i xDrive Touring",
-      "brand": "BMW",
-      "year": 2019,
-      "tdid": "3636",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 84,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 78.18,
-      "weight": 1870,
-      "name": "BMW M340i xDrive Touring",
-      "rid": "BMW_M340i_xDrive_Touring_2019",
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "A",
       "rq": 74,
       "onlyName": "XJS TWR",
       "brand": "Jaguar",
@@ -19477,6 +19447,36 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "M340i xDrive Touring",
+      "brand": "BMW",
+      "year": 2019,
+      "tdid": "3636",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 84,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 78.18,
+      "weight": 1870,
+      "name": "BMW M340i xDrive Touring",
+      "rid": "BMW_M340i_xDrive_Touring_2019",
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "A",
@@ -24530,7 +24530,7 @@
       "clearance": "High",
       "country": "DE",
       "topSpeed": 152,
-      "acel": 5.0,
+      "acel": 5,
       "hand": 74,
       "drive": "4WD",
       "tyres": "All-surface",
@@ -25519,7 +25519,7 @@
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 182,
-      "acel": 4.0,
+      "acel": 4,
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
@@ -25550,7 +25550,7 @@
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 149,
-      "acel": 6.0,
+      "acel": 6,
       "hand": 74,
       "drive": "4WD",
       "tyres": "Standard",
@@ -25731,7 +25731,7 @@
       "clearance": "High",
       "country": "DE",
       "topSpeed": 155,
-      "acel": 5.0,
+      "acel": 5,
       "hand": 74,
       "drive": "4WD",
       "tyres": "All-surface",
@@ -34258,6 +34258,36 @@
   },
   {
       "class": "B",
+      "rq": 61,
+      "onlyName": "Z4 M40i 3.0i",
+      "brand": "BMW",
+      "year": 2019,
+      "tdid": "3667",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 4.3,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 65.15,
+      "weight": 1630,
+      "name": "BMW Z4 M40i 3.0i",
+      "rid": "BMW_Z4_M40i_30i_2019",
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "B",
       "rq": 60,
       "onlyName": "S 63 AMG",
       "brand": "Mercedes-Benz",
@@ -35119,36 +35149,6 @@
       ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "B",
-      "rq": 61,
-      "onlyName": "Z4 M40i 3.0i",
-      "brand": "BMW",
-      "year": 2019,
-      "tdid": "3667",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 4.3,
-      "hand": 84,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 65.15,
-      "weight": 1630,
-      "name": "BMW Z4 M40i 3.0i",
-      "rid": "BMW_Z4_M40i_30i_2019",
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
@@ -41056,6 +41056,39 @@
   },
   {
       "class": "B",
+      "rq": 54,
+      "onlyName": "John Cooper Works",
+      "brand": "Mini",
+      "country": "DE",
+      "year": 2016,
+      "tdid": "451",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 153,
+      "acel": 5.9,
+      "hand": 83,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": 75.95,
+      "weight": 1280,
+      "name": "Mini John Cooper Works",
+      "rid": "Mini_John_Cooper_Works_2016",
+      "tags": [
+          "Drivers Choice",
+          "Hot Hatch",
+          "Two Tone",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 53,
       "onlyName": "C 55 AMG",
       "brand": "Mercedes-Benz",
@@ -41736,39 +41769,6 @@
       ],
       "bodyTypes": [
           "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 54,
-      "onlyName": "John Cooper Works",
-      "brand": "Mini",
-      "country": "DE",
-      "year": 2016,
-      "tdid": "451",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 153,
-      "acel": 5.9,
-      "hand": 83,
-      "drive": "FWD",
-      "tyres": "Performance",
-      "mra": 75.95,
-      "weight": 1280,
-      "name": "Mini John Cooper Works",
-      "rid": "Mini_John_Cooper_Works_2016",
-      "tags": [
-          "Drivers Choice",
-          "Hot Hatch",
-          "Two Tone",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Hatchback"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -46970,6 +46970,98 @@
   },
   {
       "class": "C",
+      "rq": 49,
+      "onlyName": "33/2 Coupe Speciale",
+      "brand": "Alfa Romeo",
+      "year": 1969,
+      "tdid": "3555",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 163,
+      "acel": 5.7,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 83.82,
+      "weight": 730,
+      "name": "Alfa Romeo 33/2 Coupe Speciale",
+      "rid": "Alfa_Romeo_332_Coupe_Speciale_1969",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "Iguana",
+      "brand": "Alfa Romeo",
+      "year": 1969,
+      "tdid": "3556",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 163,
+      "acel": 5.7,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 83.82,
+      "weight": 730,
+      "name": "Alfa Romeo Iguana",
+      "rid": "Alfa_Romeo_Iguana_1969",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Concept"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "525i",
+      "brand": "BMW",
+      "year": 2000,
+      "tdid": "3674",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 148,
+      "acel": 6.6,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 46.71,
+      "weight": 1575,
+      "name": "BMW 525i",
+      "rid": "BMW_525i_2000",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "C",
       "rq": 48,
       "onlyName": "Discovery 5",
       "brand": "Land Rover",
@@ -48327,7 +48419,7 @@
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 149,
-      "acel": 7.0,
+      "acel": 7,
       "hand": 81,
       "drive": "4WD",
       "tyres": "Performance",
@@ -48343,98 +48435,6 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 48,
-      "onlyName": "33/2 Coupe Speciale",
-      "brand": "Alfa Romeo",
-      "year": 1969,
-      "tdid": "3555",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 163,
-      "acel": 5.7,
-      "hand": 79,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 83.82,
-      "weight": 730,
-      "name": "Alfa Romeo 33/2 Coupe Speciale",
-      "rid": "Alfa_Romeo_332_Coupe_Speciale_1969",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising",
-          "Concept"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 48,
-      "onlyName": "Iguana",
-      "brand": "Alfa Romeo",
-      "year": 1969,
-      "tdid": "3556",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 163,
-      "acel": 5.7,
-      "hand": 79,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 83.82,
-      "weight": 730,
-      "name": "Alfa Romeo Iguana",
-      "rid": "Alfa_Romeo_Iguana_1969",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising",
-          "Concept"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 49,
-      "onlyName": "525i",
-      "brand": "BMW",
-      "year": 2000,
-      "tdid": "3674",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 148,
-      "acel": 6.6,
-      "hand": 74,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 46.71,
-      "weight": 1575,
-      "name": "BMW 525i",
-      "rid": "BMW_525i_2000",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
       ]
   },
   {
@@ -53122,7 +53122,7 @@
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
-      "acel": 6.0,
+      "acel": 6,
       "hand": 78,
       "drive": "RWD",
       "tyres": "Performance",
@@ -53685,7 +53685,7 @@
       "hand": 75,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 65.76,
+      "mra": 73.33,
       "weight": 1300,
       "name": "BMW M1",
       "rid": "BMW_M1_1978",
@@ -67201,7 +67201,7 @@
       "hand": 78,
       "drive": "FWD",
       "tyres": "Performance",
-      "mra": 77.08,
+      "mra": 44.38,
       "weight": 1161,
       "name": "Dodge Neon ACR",
       "rid": "Dodge_Neon_ACR_2002",
@@ -70087,7 +70087,7 @@
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 131,
-      "acel": 7.0,
+      "acel": 7,
       "hand": 77,
       "drive": "RWD",
       "tyres": "Performance",
@@ -74665,7 +74665,7 @@
       "clearance": "High",
       "country": "IT",
       "topSpeed": 93,
-      "acel": 17.0,
+      "acel": 17,
       "hand": 68,
       "drive": "4WD",
       "tyres": "Off-road",
@@ -84742,7 +84742,7 @@
       "clearance": "Low",
       "country": "IT",
       "topSpeed": 136,
-      "acel": 8.0,
+      "acel": 8,
       "hand": 65,
       "drive": "RWD",
       "tyres": "Performance",
@@ -96424,7 +96424,7 @@
       "clearance": "Mid",
       "country": "IT",
       "topSpeed": 89,
-      "acel": 13.0,
+      "acel": 13,
       "hand": 74,
       "drive": "FWD",
       "tyres": "Performance",
