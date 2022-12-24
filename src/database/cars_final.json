@@ -30659,7 +30659,7 @@
       "weight": 1100,
       "name": "Morgan Plus 8 50th Anniversary",
       "rid": "Morgan_Plus_8_50th_Anniversary_2018",
-      "prize": false,
+      "prize": true,
       "tags": [
           "Loch to Loch"
       ],
@@ -35359,7 +35359,7 @@
       "hand": 81,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 69.35,
       "weight": 1145,
       "name": "Morgan Aero 8 Series 3",
       "rid": "Morgan_Aero_8_Series_3_2005",
@@ -96896,7 +96896,7 @@
       "hand": 69,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 41.63,
       "weight": 930,
       "name": "Alfa Romeo Giulia GT 1300 Junior",
       "rid": "Alfa_Romeo_Giulia_GT_1300_Junior_1966",

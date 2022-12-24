@@ -27,7 +27,7 @@
         </div>
         <div v-if="user && inverted" class="Main_PrintBy">
           <div class="Main_PrintByLabel">print by</div>
-          <div class="Main_PrintByUser">{{ user.username }}</div>
+          <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
         </div>
         <div class="Main_GamePrintInfo">
           <div class="Main_GameVersionText">{{ gameVersion }}</div>
@@ -61,7 +61,7 @@
             </template>
             <div v-if="user && !inverted" class="Main_PrintBy">
               <div class="Main_PrintByLabel">print by</div>
-              <div class="Main_PrintByUser">{{ user.username }}</div>
+              <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
             </div>
           </div>
 
@@ -86,6 +86,7 @@
             </button>
             <button
               v-if="smartCampaign.length > 0"
+              style="opacity: 1;"
               class="D_Button D_ButtonLink Row_ShowMoreButton"
               @click="campaignDialog = true;">Campaign<span class="Main_CampaignGuide">&nbsp;guide</span></button>
           </div>
@@ -137,7 +138,12 @@
         </div>
         
         <div class="Main_PrintCreditsBottom" :style="`--number-cars: ${carDetailsList.length}; --number-tracks: ${currentTracks.length}`">
-          <span style="color: rgb(var(--d-text-yellow)); margin-right: 3px;">Contributors: </span>{{ contributorsScreen }}
+          <span style="color: #7c7c7c; margin-right: 3px;">Contributors: </span>
+          <template
+            v-for="(username, i) in contributorsList">
+            <template v-if="i > 0">, </template>
+            <span :class="`Main_UserT${highlightsUsers[username]}`">{{ username }}</span>
+          </template>
         </div>
       </div>
       <div v-if="carDetailsList.length === 0" class="Main_MidEmpty">
@@ -284,7 +290,7 @@
                     </template>
                     <div v-if="user" class="Main_PrintBy">
                       <div class="Main_PrintByLabel">print by</div>
-                      <div class="Main_PrintByUser">{{ user.username }}</div>
+                      <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
 
@@ -454,6 +460,7 @@
                   :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser)"
                   type="times"
                   placeholder="Time to beat"
+                  @deleteTime="cgDeleteTime(race, $event, true)"
                   @changeTime="cgChangeTimeOppo(race, $event)" />
               </div>
               <div v-else class="Cg_ThemTime">
@@ -507,6 +514,7 @@
                     type="times"
                     @changeTime="cgChangeTimeYou(race, $event)"
                     @changeTune="cgChangeTuneYou(race, $event)"
+                    @deleteTime="cgDeleteTime(race, $event)"
                     @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race)" />
                 </div>
                 <div v-else class="Cg_YouTime">
@@ -552,7 +560,11 @@
               </template>
             </div>
           </div>
-          <div v-if="forceShowAnalyse" class="Cg_RoundEmptyBox">
+          <div v-if="forceShowAnalyse" class="Cg_BottomModTools">
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="cgResetSolutions()">Reset solutions only</button>
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
@@ -655,7 +667,7 @@
                     </template>
                     <div v-if="user" class="Main_PrintBy">
                       <div class="Main_PrintByLabel">print by</div>
-                      <div class="Main_PrintByUser">{{ user.username }}</div>
+                      <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
 
@@ -761,6 +773,64 @@
         </div>
       </div>
     </div>
+    
+    <BaseDialog
+      :active="kingDialog"
+      :transparent="false"
+      :disableScroll="true"
+      max-width="360px"
+      @close="closeKingOfDialog()">
+      <div class="Main_AdvancedDialogBox">
+        <div class="Main_DialogTitle">Best of</div>
+        <div :class="{ Main_KingTrackBoxSelected: kingTrack }" class="Main_KingTrackBox">
+          <div class="Cg_Track">
+            <Row
+              v-if="kingTrack"
+              :list="[kingTrack]"
+              :loggedin="!!user"
+              :user="user"
+              :options="true"
+              :cg="true"
+              :normalSize="true"
+              class="Cg_TrackBox"
+              type="tracks" />
+            <button
+              :class="{ Cg_SelectTrackButtonEdit: kingTrack }"
+              class="D_Button Car_AddButton Cg_SelectTrackButton"
+              @click="openDialogTrackSearch(false);">
+              <i v-if="kingTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
+              <span v-else>Select track</span>
+            </button>
+          </div>
+        </div>
+        <div class="Main_KingFilter Main_DarkScroll">
+          <template v-if="kingFilter">
+            <div class="Cg_ReqsTitle">Filter</div>
+            <div class="Cg_Reqs">
+              <BaseFilterDescription :filter="kingFilter" />
+            </div>
+          </template>
+          <div class="Cg_FilterButtons">
+            <button
+              :disabled="kingLoading"
+              class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
+              @click="kingOpenRequirementDialog()">{{ kingFilter ? 'Change' : 'Requirements' }}</button>
+          </div>
+        </div>
+        <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+          <span>This feature is only available for patreons.<br>It returns a list of the best cars for the given track and filter. <a class="D_Link D_LinkUnder" href="https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323">Here</a> an example</span>
+        </div>
+        <div v-else-if="kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+          <span>Empty filter. It will only scan the first 400 cars of the database.</span>
+        </div>
+        <button
+          v-if="user && user.tier <= 4"
+          :class="{ D_Button_Loading: kingLoading }"
+          :disabled="kingLoading || !kingTrack"
+          class="D_Button Main_SaveAllButton Main_KingAnalyzeButton"
+          @click="kingAnalyse()">Find the best</button>
+      </div>
+    </BaseDialog>
     <BaseDialog
       :active="searchActive"
       :transparent="true"
@@ -1000,7 +1070,7 @@
               <div v-else class="Main_ImgPlaceholder"></div>
               <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
               <div class="Main_SearchItemRight">
-                <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
+                <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" :class="`Main_UserT${highlightsUsers[item.lastestUser]}`" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
               </div>
             </button>
           </template>
@@ -1212,7 +1282,13 @@
           <div v-if="tuneDialogCar.users" class="Row_DialogCardUsers Space_TopPlus">
             <div class="Row_DialogCardStat">
               <div class="Row_DialogCardStatLabel">Contributors</div>
-              <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">{{ tuneDialogCar.users.join(", ") }}</div>
+              <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">
+                <template
+                  v-for="(username, i) in tuneDialogCar.users">
+                  <template v-if="i > 0">, </template>
+                  <span :class="`Main_UserT${highlightsUsers[username]}`">{{ username }}</span>
+                </template>
+              </div>
             </div>
           </div>
         </div>
@@ -1736,6 +1812,12 @@
             <button
               v-if="mode === 'classic'"
               class="D_Button Main_OptionsButton"
+              @click="openKingOfDialog()">
+              <span>Best of</span>
+            </button>
+            <button
+              v-if="mode === 'classic'"
+              class="D_Button Main_OptionsButton"
               @click="openAdvancedOptions()">
               <i class="ticon-gear D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>Options</span>
@@ -1790,7 +1872,7 @@
         <div class="Main_Disclaimer">
           <div>This project was made by TiagoXavi and is not related to the Hutch Games Ltd.</div>
           <div>Any problem or suggestion, please join the Discord server or send an email (mighty.boy@topdrivesrecords.com).</div>
-          <div>TDR is free for everyone and doesn't make use of any ads. You can donate to help to keep it online and receiving new features!</div>
+          <div>TDR is free for everyone. You can support the project to keep it online and receiving new features!</div>
         </div>
         <div class="D_TextCenter Space_TopPlus"></div>
 
@@ -2196,6 +2278,7 @@ export default {
       tempWindowWidth: 0,
       isPrinting: false,
       announcementDialog: false,
+      highlightsUsers: {},
       searchInput: '',
       searchInputT: '',
       searchTracks: '',
@@ -2327,6 +2410,12 @@ export default {
       eventRqNeedToSave: false,
       eventTracksetSelected: 0,
       eventRaceSelected: 0,
+      kingDialog: false,
+      kingTrack: false,
+      kingFilter: {},
+      kingIsFiltering: false,
+      kingFilterCount: 0,
+      kingLoading: false,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -3400,7 +3489,10 @@ export default {
         "Mercedes-Benz_280_GE_1990",
         "Mercedes-Benz_190_E_2.3-16_1984",
         "Ford_Kuga_2016",
-        "Honda_Civic_CRX_Si_1983"
+        "Honda_Civic_CRX_Si_1983",
+        "De_Tomaso_Pampero_1966",
+        "Audi_S4_Cabriolet_B7_2006", 
+        "Acura_RSX_2002"
       ],
 
       carList: [],
@@ -3555,7 +3647,7 @@ export default {
       this.changedMode();
     }
 
-    this.windowWidth = window.innerWidth;
+    this.handleResize();
     window.addEventListener('resize', this.handleResize);
 
 
@@ -3578,6 +3670,64 @@ export default {
         let number = mutation.payload.number;
 
         this.resolveChangeTime(car, NEW, number, car.selectedTune);
+      }
+
+      if (mutation.type == "DELETE_TIME") {
+        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+        let NEW = mutation.payload.item;
+        let tune = car.selectedTune;
+        let track = `${NEW.id}_a${NEW.surface}${NEW.cond}`;
+
+        let action = function() {
+          vm.confirmDelete.loading = true;
+          vm.saveLoading = true;
+
+          axios.post(Vue.preUrl + "/deleteTime", {
+            rid: car.rid,
+            tune: tune,
+            track: track,
+          })
+          .then(res => {
+            vm.confirmDelete.dialog = false;
+            Vue.set(car.data[tune].times, track, undefined);
+
+            vm.showCarsFix = false;
+            vm.$nextTick().then(() => {
+              vm.showCarsFix = true;
+            })
+
+            vm.$store.commit("DEFINE_SNACK", {
+              active: true,
+              correct: true,
+              text: `Successful delete`
+            });
+          })
+          .catch(error => {
+            console.log(error);
+            vm.$store.commit("DEFINE_SNACK", {
+              active: true,
+              error: true,
+              text: error,
+              type: "error"
+            });
+            if (error.response.status === 401) {
+              vm.loginDialog = true;
+            }
+          })
+          .then(() => {
+            vm.confirmDelete.loading = false;
+            vm.saveLoading = false;
+          });
+        }
+
+        this.confirmDelete = {
+          dialog: true,
+          msg: `Delete '${NEW.name}' time of ${car.name}?`,
+          actionLabel: `Delete`,
+          action: action,
+          loading: false,
+          classe: `D_ButtonRed`
+        }
       }
 
       if (mutation.type == "TIME_VOTE") {
@@ -3745,7 +3895,7 @@ export default {
 
       return result;
     },
-    contributorsScreen() {
+    contributorsList() {
       let vm = this;
       let contritrs = [];
       this.carDetailsList.map(car => {
@@ -3772,7 +3922,7 @@ export default {
         return map[b] - map[a];
       });
 
-      return contritrs.join(", ")
+      return contritrs
     },
     filteredTracks() {
       let filteredTracks = this.tracksRepo;
@@ -3864,7 +4014,9 @@ export default {
       return this.cgRoundToSave.length > 0 || this.needSave || this.cgRoundFilterToSave || this.cgRqNeedToSave;
     },
     mainFilter() {
-      if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) {
+      if (this.kingIsFiltering) {
+        return this.kingFilter;
+      } else if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) {
         return this.cgFilterForAddCar;
       } else if (this.cgIsFiltering) {
         return this.cgRound.filter;
@@ -3873,7 +4025,9 @@ export default {
       }
     },
     filterCount() {
-      if (this.cgIsFiltering) {
+      if (this.kingIsFiltering) {
+        return this.kingFilterCount;
+      } else if (this.cgIsFiltering) {
         return this.filterCountCg;
       } else {
         return this.filterCountN;
@@ -3989,6 +4143,12 @@ export default {
           track: track,
           raceIndex: this.cgRaceSelected
         })
+        return;
+      }
+      if (this.kingDialog) {
+        this.kingTrack = track;
+        this.kingTrack = this.resolveTrack({ track }, false, false)
+        this.closeDialogTrackSearch();
         return;
       }
 
@@ -4302,6 +4462,7 @@ export default {
     closeDialogSearch() {
       this.searchActive = false;
       this.cgIsFiltering = false;
+      this.kingIsFiltering = false;
       this.cgAddingYouCar = false;
       this.cgAddingOppoCar = false;
       if (this.mode === 'cg' && !this.cgAddingYouCar && !this.cgAddingOppoCar) {
@@ -4756,6 +4917,7 @@ export default {
       })
     },
     getUser() {
+      let vm = this;
       // user
       axios.get(Vue.preUrl + "/getUser")
       .then(res => {
@@ -4791,7 +4953,17 @@ export default {
       // lastest cars
       axios.get(Vue.preUrl + "/lastest")
       .then(res => {
-        this.showLastest(res.data);
+        vm.highlightsUsers = {};
+        let pUsers = res.data.find(x => x.id === 'pUsers').value;
+        Object.keys( pUsers ).forEach(key => {
+          pUsers[key].map(user => {
+            Vue.set(vm.highlightsUsers, user, Number(key.slice(-1)));
+          })
+          
+        })
+
+        res.data.find(x => x.id === 'pUsers').value;
+        this.showLastest(res.data.find(x => x.id === 'lastestcars').value);
       })
       .catch(error => {
         console.log(error);
@@ -4837,12 +5009,13 @@ export default {
       if (cars && cars.length > 0) {
         
         cars.map(y => {
-          this.all_cars.map(x => {
+          this.all_cars.find(x => {
             if (x.rid === y.rid) {
               result.push(JSON.parse(JSON.stringify(x)));
               if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
               result[result.length-1].softId = this.nextId;
               this.nextId++;
+              return true;
             }
           })
         })
@@ -5133,18 +5306,18 @@ export default {
         } else {
           reduceHeight = pose.clientHeight - backTopContainer.clientHeight - carlistContainer.clientHeight - credits.clientHeight;
         }
-        _width = (pose.clientWidth - reduceWidth) * 2;
-        _height = (pose.clientHeight - reduceHeight) * 2;
+        _width = (pose.clientWidth - reduceWidth) * 1.3;
+        _height = (pose.clientHeight - reduceHeight) * 1.3;
 
       } else if (this.mode === 'cg') {
-        _width = (pose.clientWidth) * 2;
-        _height = (pose.clientHeight) * 2;
+        _width = (pose.clientWidth) * 1.3;
+        _height = (pose.clientHeight) * 1.3;
       }
       
       let options = {
         backgroundColor: "#333",
         canvas: currentCanvas,
-        scale: 2,
+        scale: 1.3,
         width: _width,
         height: _height,
         windowWidth: _width,
@@ -5345,6 +5518,8 @@ export default {
         filter = this.galleryFilters;
       } else if (context === 'searchFilters' && this.cgIsFiltering) {
         filter = this.cgRound.filter;
+      } else if (context === 'searchFilters' && this.kingIsFiltering) {
+        filter = this.kingFilter;
       } else {
         filter = this.searchFilters;
       }
@@ -5365,12 +5540,15 @@ export default {
         return clearFilter;
       } else if (context === 'searchFilters' && this.cgIsFiltering) {
         this.filterCountCg = count;
+      } else if (context === 'searchFilters' && this.kingIsFiltering) {
+        this.kingFilterCount = count;
       } else {
         this.filterCountN = count;
       }
     },
     checkMatchFilter(car) {
       let context = this.searchFilters;
+      if (this.kingIsFiltering) context = this.kingFilter;
       if (this.cgIsFiltering) context = this.cgRound.filter;
       if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = this.cgFilterForAddCar;
 
@@ -5434,7 +5612,13 @@ export default {
       });
     },
     applyFilter() {
-      if (this.mode === 'classic' || this.cgAddingYouCar || this.cgAddingOppoCar) {
+      if (this.kingDialog) {
+        this.changeFilter();
+        this.searchActive = false;
+        setTimeout(() => {
+          this.kingIsFiltering = false;
+        }, 99);
+      } else if (this.mode === 'classic' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
         let container = document.querySelector(".Main_SearchMid");
@@ -5569,7 +5753,6 @@ export default {
         types: [
           "Best of",
           // "Trackset",
-          "Tune",
           "Event",
           "Other",
         ],
@@ -5645,7 +5828,7 @@ export default {
       }
       rids = [...new Set(rids)]
       if (rids.length === 1) {
-        t.type = "Tune";
+        t.type = "Other";
         t.name = this.carDetailsList[0].name
       }
     },
@@ -5833,6 +6016,7 @@ export default {
           Vue.set(cg, "rounds", res.data.rounds);
           this.loadCg(date, round);
         }
+        // this.lookForChangedCars(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -6193,6 +6377,75 @@ export default {
       this.resolveChangeTime(carData, NEW, number, tune);
       this.calcRaceResult(race);
     },
+    cgDeleteTime(race, event, isOppo = false) {
+      let vm = this;
+      let car = race.cars[race.carIndex].car;
+      if (isOppo) car = race.car;
+      let tune = car.selectedTune;
+      let carData = this.cgCacheCars.find(x => x.rid === car.rid);
+      let track = race.track;
+
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.saveLoading = true;
+
+        axios.post(Vue.preUrl + "/deleteTime", {
+          rid: car.rid,
+          tune: tune,
+          track: track,
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          Vue.set(race, 'time', null);
+          Vue.set(carData.data[tune].times, track, undefined);
+
+          vm.showCarsFix = false;
+          vm.$nextTick().then(() => {
+            vm.showCarsFix = true;
+          })
+
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: `Successful delete`
+          });
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+          if (error.response.status === 401) {
+            vm.loginDialog = true;
+          }
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.saveLoading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete '${race.resolvedTracks[0].name}' time of ${car.name}?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+
+
+      
+      // let NEW = event.item;
+      // let number = event.number;
+
+      // this.resolveChangeTime(carData, NEW, number, tune);
+      // this.calcRaceResult(race);
+    },
     cgSaveAll() {
       this.cgSaveLoading = true;
 
@@ -6305,6 +6558,16 @@ export default {
         this.cgSaveLoading = false;
       });
       
+    },
+    cgResetSolutions() {
+      this.cgRound.races.map((race, irace) => {
+        race.cars.map(bankCar => {
+          this.cgResolveBankToSave("remove", irace, bankCar.rid, bankCar.tune, 0);
+        })
+        race.cars = [];
+        race.carIndex = undefined
+      })
+      this.cgResolveRqFill();
     },
     cgResetRound() {
       let vm = this;
@@ -6822,6 +7085,10 @@ export default {
     },
     handleResize() {
       this.windowWidth = window.innerWidth;
+      let vw = document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--vw', `${vw}px`);
+      let vh = document.documentElement.clientHeight;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     },
     checkAnnouncement() {
       if (window.localStorage.getItem("lastCg")) return;
@@ -6844,6 +7111,98 @@ export default {
       this.optionsAdvancedDialog = false;
       this.optionsDialogActive = true;
     },
+    lookForChangedCars(data) {
+      data.rounds.map((round, iround) => {
+        round.races.map((race, irace) => {
+          if (this.changed17.includes(race.rid)) {
+            console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
+          }
+        })
+      })
+    },
+    openKingOfDialog() {
+      let vm = this;
+      if (!this.kingFilter.rqModel) {
+        this.kingFilter = JSON.parse(JSON.stringify(this.searchFilters));
+        Object.keys( this.kingFilter ).forEach(function (key) {
+          if (!key.includes("Model")) {
+            delete vm.kingFilter[key]
+          }
+        });
+        this.kingFilterCount = this.filterCountN;
+      }
+      this.kingDialog = true;
+      this.optionsDialogActive = false;
+    },
+    closeKingOfDialog() {
+      this.kingDialog = false;
+      this.optionsDialogActive = true;
+    },
+    kingOpenRequirementDialog() {
+      this.searchActive = true;
+      this.isFiltering = true;
+      this.kingIsFiltering = true;
+    },
+    kingAnalyse() {
+      this.kingIsFiltering = true;
+      let rqMax = 100;
+      let rqMin = 10;
+      let listOfRids = [];
+
+      this.all_cars.map((x, ix) => {
+        if (x.rq > rqMax || x.rq < rqMin) return;
+        if (this.checkMatchFilter(x) && listOfRids.length < 401) {
+          listOfRids.push({ rid: x.rid, rq: x.rq });
+        }
+      })
+
+      this.kingIsFiltering = true;
+      this.kingLoading = true;
+
+      axios.post(Vue.preUrl + "/king", {
+        rids: listOfRids,
+        track: this.kingTrack.code
+      })
+      .then(res => {
+        this.clearAllTracks();
+        this.clearAllCars();
+        this.pushTrackSet([this.kingTrack.code]);
+
+        let result = [];
+        res.data.map(car => {
+          this.all_cars.find(x => {
+            if (x.rid === car.rid) {
+              result.push(JSON.parse(JSON.stringify(x)));
+              result[result.length-1].selectedTune = car.tune;
+              result[result.length-1].softId = this.nextId;
+              this.nextId++;
+              return true;
+            }
+          })
+        })
+        Vue.set(this, "carDetailsList", result);
+        this.downloadDataCars();
+        this.updateOptions();
+        this.updateCarLocalStorage();
+        this.kingDialog = false;
+        
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.kingLoading = false;
+      });
+    },
+    tierOf(username) {
+
+    }
   }
 }
 </script>
@@ -6906,6 +7265,12 @@ body {
   --card-font-size: 12px;
   --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
 
+  --t0: #d7d7d7;
+  --t1: #FFC717;
+  --t2: #8a62eb;
+  --t3: #d93c3e;
+  --t4: #41c3e9;
+  --t5: #60c55d;
 
   font-size: 18px;
   background-color: var(--d-back);
@@ -7519,7 +7884,22 @@ body::-webkit-scrollbar-corner {
   font-size: 0.8em;
   margin-left: 0.1em;
   margin-right: 2px;
-  color: rgb(225 179 33);
+  color: var(--t0);
+}
+body .Main_UserT1 {
+  color: var(--t1);
+}
+body .Main_UserT2 {
+  color: var(--t2);
+}
+body .Main_UserT3 {
+  color: var(--t3);
+}
+body .Main_UserT4 {
+  color: var(--t4);
+}
+body .Main_UserT5 {
+  color: var(--t5);
 }
 .Main_SearchLastestTitle {
   font-size: 1.7em;
@@ -7655,7 +8035,7 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 3px;
 }
 .Main_PrintByUser {
-  color: rgb(var(--d-text-yellow));
+  color: var(--t0);
   max-width: var(--left-width);
   white-space: nowrap;
   overflow: hidden;
@@ -8244,6 +8624,30 @@ body::-webkit-scrollbar-corner {
   flex-direction: column;
   gap: 5px;
 }
+.Main_KingFilter {
+  height: 140px;
+  width: 240px;
+  margin: 0 auto;
+  margin-top: 17px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow-y: auto;
+}
+.Main_KingTrackBox {
+  width: 240px;
+  margin: 0 auto;
+}
+.Main_KingTrackBoxSelected {
+  box-shadow: inset 2px 2px 0px 0px #ffffff07;
+}
+.Main_KingAnalyzeButton {
+  width: 240px;
+  margin: 0 auto;
+  margin-top: 17px;
+}
+
+
+
 
 
 .Cg_Layout {
@@ -8657,6 +9061,11 @@ body::-webkit-scrollbar-corner {
 .Cg_RoundEmptyThanks {
   color: rgb(var(--d-text-green));
 }
+.Cg_BottomModTools {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 .Main_AnnouncementLayout {
 
 }
@@ -8726,13 +9135,13 @@ body::-webkit-scrollbar-corner {
   display: flex;
   height: 100%;
 }
-.Main_2 .Row_Layout {
+.Main_2 .Row_Layout:not(.Row_ForceNormalSize) {
   display: flex;
 }
 .Main_2 .Main_Body {
   flex-direction: column;
 }
-.Main_2 .Row_Cell {
+.Main_2 .Row_Cell:not(.Row_ForceNormalSizeCell) {
   width: var(--cell-width);
   height: 100%;
 }
@@ -8745,6 +9154,7 @@ body::-webkit-scrollbar-corner {
   width: 100%;
   justify-content: center;
   align-items: center;
+  font-size: 1em;
 }
 .Main_2 .Row_ContentEmpty:not(:focus) ~ .Row_Placeholder {
   display: flex;
@@ -8754,16 +9164,16 @@ body::-webkit-scrollbar-corner {
   justify-content: center;
   align-items: center;
 }
-.Main_2 .Row_Tracks .Row_Content {
+.Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Content {
   text-align: center;
   white-space: normal;
 }
-.Main_2 .Row_Tracks .Row_Cell {
+.Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Cell {
   border-right-width: 2px;
   border-top-width: 2px;
   border-bottom-width: 0;
 }
-.Main_2 .Row_Layout {
+.Main_2 .Row_Layout:not(.Row_ForceNormalSize) {
   display: flex;
   align-items: stretch;
 }
@@ -8777,10 +9187,10 @@ body::-webkit-scrollbar-corner {
 .Main_2 .Row_ConfigIcon {
   font-size: 18px;
 }
-.Main_2 .Row_Tracks .Row_ConfigCell {
+.Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_ConfigCell {
   /* box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500; */
 }
-.Main_2 .Row_ConfigCell {
+.Main_2 .Row_ConfigCell.Row_Cell {
   width: calc(var(--cell-width) * 2.1);
 }
 .Row_OrderBox {

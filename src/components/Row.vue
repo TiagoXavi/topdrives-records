@@ -3,14 +3,15 @@
     :class="{
       Row_Tracks: type === 'tracks',
       Row_Times: type === 'times',
-      Row_Cg: cg
+      Row_Cg: cg,
+      Row_ForceNormalSize: normalSize,
     }"
     class="Row_Layout">
     <template v-if="!cg || (cg && cgYou)">
       <div
         v-for="(info, fx) in infosResolved"
         class="Row_Item Row_Cell Row_ConfigCell"
-        :class="`Row_Tune${car.selectedTune} `+`${cg ? 'Row_DisableSticky ' : ''}`"
+        :class="`Row_Tune${car.selectedTune} `+`${cg ? 'Row_DisableSticky ' : ''}`+`${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`"
         @mouseleave="mouseLeaveTune($event)">
         <template v-if="info.type === 'Tune'">
           <div class="Row_Config">
@@ -57,13 +58,14 @@
               `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
               `${lastIndex > 5 ? 'Row_ColorHighFirst ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
+              `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
         '--last-index': countPerTrack[`${item.id}_a${item.surface}${item.cond}`] - 1,
         '--drag-left-slo': invertedView ? 1 : 7,
-        '--drag-top-slo': invertedView ? 7 : 1
+        '--drag-top-slo': invertedView ? 7 : 1,
       }"
       style="--drag-left: 0;--drag-top: 0;"
       class="Row_Item Row_Cell"
@@ -151,6 +153,14 @@
               @click="modEdit($event, item, ix)">
               <i
                 class="ticon-pencil Row_ModEditIcon"
+                aria-hidden="true"/>
+            </button>
+            <button
+              v-if="user && user.mod && user.username === 'TiagoXavi' && car.selectedTune !== 'Other' && car.selectedTune !== '000'"
+              class="D_Button Row_ModEditButton"
+              @click="modDelete($event, item, ix)">
+              <i
+                class="ticon-trash Row_ModTrashIcon"
                 aria-hidden="true"/>
             </button>
           </template>
@@ -284,6 +294,10 @@ export default {
       default: false
     },
     forceDisabled: {
+      type: Boolean,
+      default: false
+    },
+    normalSize: {
       type: Boolean,
       default: false
     },
@@ -669,6 +683,20 @@ export default {
       }      
 
     },
+    modDelete(e, item) {
+      if (this.cg) {
+        this.$emit("deleteTime", {
+          item,
+          car: this.car
+        });
+      } else {
+        this.$store.commit("DELETE_TIME", {
+          item,
+          car: this.car
+        });
+      }
+      this.outsideClick();
+    },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
     },
@@ -866,7 +894,7 @@ export default {
   animation: campaignTip 0.1s linear forwards;
   font-size: 0.8em;
 }
-.Main_2 .Row_Tracks .Row_Campaign {
+.Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Campaign {
   display: none;
   right: unset;
   left: 0;
@@ -1038,7 +1066,7 @@ export default {
   position: sticky;
   left: 2px;
 }
-.Main_2 .Row_Times .Row_ConfigCell {
+.Main_2 .Row_Times:not(.Row_ForceNormalSize) .Row_ConfigCell {
   position: sticky;
   left: var(--left-width);
   background-color: #404040;
@@ -1253,6 +1281,13 @@ export default {
 .D_Button.Row_ShowMoreButton {
   padding: 8px !important;
   color: #777;
+  opacity: 0;
+  transition-duration: 0.1s;
+}
+.Car_Layout:hover .Row_ShowMoreButton,
+.Car_Layout:focus-within .Row_ShowMoreButton,
+.Row_ShowMoreButton.focus-visible {
+  opacity: 1;
 }
 .Row_xRA {
   font-size: 8px;
@@ -1369,6 +1404,10 @@ export default {
 .Row_ModEditIcon {
   font-size: 17px;
 }
+.Row_ModTrashIcon {
+  font-size: 17px;
+  color: #e54c4c;
+}
 .D_Button.Row_UploadButton {
   --height: 23px;
 }
@@ -1462,4 +1501,10 @@ export default {
   }
   
 }
+@media (pointer:coarse) {
+  .Row_ShowMoreButton {
+    opacity: 1;
+  }
+}
+
 </style>

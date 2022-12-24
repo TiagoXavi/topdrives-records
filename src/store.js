@@ -74,6 +74,7 @@ export default new Vuex.Store({
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
     CHANGE_TIME: (state, obj) => null,
+    DELETE_TIME: (state, obj) => null,
     DELETE_TRACK: (state, obj) => null,
     HIDE_DETAIL: (state, obj) => null,
     TIME_VOTE: (state, obj) => null,

@@ -1,7 +1,7 @@
 <template>
   <div
-    :style="`--size: ${size};`"
-    :class="{ BaseAvatar_Mod: user && user.mod }"
+    :style="`--size: ${size}; ${ user.tier ? 'background-color: var(--t'+user.tier+');' : ''}`"
+    :class="{ BaseAvatar_Mod: user && user.mod, BaseAvatar_Dark: user.tier === 1 }"
     class="BaseAvatar_Layout">
     <div class="BaseAvatar_Box">{{ letter }}</div>
   </div>
@@ -67,5 +67,8 @@ export default {
 }
 .BaseAvatar_Mod {
   background-color: #a10505;
+}
+.BaseAvatar_Dark {
+  color: black;
 }
 </style>
