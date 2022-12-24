@@ -11,6 +11,7 @@ import MainUpdateRqData from "./components/MainUpdateRqData.vue";
 import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 import MainImportRude from "./components/MainImportRude.vue";
 import MainAnalyseDb from "./components/MainAnalyseDb.vue";
+import MainSwagger from "./components/MainSwagger.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -85,6 +86,12 @@ const routes = [
     name: 'ImportRude',
     title: 'ImportRude',
     component: MainImportRude,
+  },
+  {
+    path: '/swagger',
+    name: 'MainSwagger',
+    title: 'MainSwagger',
+    component: MainSwagger,
   },
   {
     path: '/analysedb',
