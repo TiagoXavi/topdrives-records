@@ -4953,7 +4953,31 @@ export default {
       // lastest cars
       axios.get(Vue.preUrl + "/lastest")
       .then(res => {
-        vm.highlightsUsers = {};
+        vm.highlightsUsers = {
+          "Artheof": 'mod',
+          "bcp_": 'mod',
+          "TiagoXavi": 'mod',
+          "Bigremachine": 'mod',
+          "duck": 'mod',
+          "HansKasai": 'mod',
+          "fiero": 'mod',
+          "L1ZVRD": 'mod',
+          "intrx": 'mod',
+          "rei348": 'mod',
+          "Enginn": 'mod',
+          "vel_8": 'mod',
+          "TheShyDragon": 'mod',
+          "Ansami_MH": 'mod',
+          "RenMasamune": 'mod',
+          "boliveira82": 'mod',
+          "ELtotheLIS": 'mod',
+          "CapSora": 'mod',
+          "Mattsy": 'mod',
+          "Skapis": 'mod',
+          "Draugr": 'mod',
+          "TopDrives": 'mod',
+          "Asaneon": 'mod'
+        };
         let pUsers = res.data.find(x => x.id === 'pUsers').value;
         Object.keys( pUsers ).forEach(key => {
           pUsers[key].map(user => {
@@ -7266,11 +7290,12 @@ body {
   --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
 
   --t0: #d7d7d7;
+  --tmod: #bfcd36;
   --t1: #FFC717;
   --t2: #8a62eb;
   --t3: #d93c3e;
   --t4: #41c3e9;
-  --t5: #60c55d;
+  --t5: #45df40;
 
   font-size: 18px;
   background-color: var(--d-back);
@@ -7885,6 +7910,9 @@ body::-webkit-scrollbar-corner {
   margin-left: 0.1em;
   margin-right: 2px;
   color: var(--t0);
+}
+body .Main_UserTmod {
+  color: var(--tmod);
 }
 body .Main_UserT1 {
   color: var(--t1);
