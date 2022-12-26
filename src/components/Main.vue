@@ -823,6 +823,12 @@
         <div v-else-if="kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>Empty filter. It will only scan the first 400 cars of the database.</span>
         </div>
+        <BaseConfigCheckBox
+          v-model="kingShowDownvoted"
+          style="margin-top: 17px;"
+          class="Main_KingTrackBox"
+          name="kingShowDownvoted"
+          label="Includes times with downvote?" />
         <button
           v-if="user && user.tier <= 4"
           :class="{ D_Button_Loading: kingLoading }"
@@ -2177,22 +2183,8 @@
       @close="closeAdvancedOptions()">
       <div class="Main_AdvancedDialogBox">
         <div class="Main_DialogTitle">Configuration</div>
-        <div class="Main_SaveGalleryBoxCheck">
-          <div class="Main_SaveGalleryCheckLeft">
-            <BaseCheckBox v-model="showDataFromPast" @change="updateAdvancedConfig()" />
-          </div>
-          <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Show data from old versions</div>
-          </div>
-        </div>
-        <div class="Main_SaveGalleryBoxCheck">
-          <div class="Main_SaveGalleryCheckLeft">
-            <BaseCheckBox v-model="showOldTags" @change="updateAdvancedConfig()" />
-          </div>
-          <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Show deprecated tags</div>
-          </div>
-        </div>
+        <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" label="Show data from old versions" />
+        <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" label="Show deprecated tags" />
       </div>
     </BaseDialog>
   </div>
@@ -2214,6 +2206,7 @@ import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
+import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 import BaseDonateButton from './BaseDonateButton.vue'
 import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
@@ -2254,7 +2247,8 @@ export default {
     BaseDonateButton,
     BaseDiscordButton,
     BaseLogoSpining,
-    BaseCompItem
+    BaseCompItem,
+    BaseConfigCheckBox
   },
   props: {
     phantomCar: {
@@ -2416,6 +2410,7 @@ export default {
       kingIsFiltering: false,
       kingFilterCount: 0,
       kingLoading: false,
+      kingShowDownvoted: false,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -3610,6 +3605,11 @@ export default {
       showOldTags = JSON.parse(showOldTags);
       this.showOldTags = showOldTags;
       this.$store.commit("CHANGE_OLD_TAGS", showOldTags);
+    }
+    let kingShowDownvoted = window.localStorage.getItem("kingShowDownvoted");
+    if (kingShowDownvoted) {
+      kingShowDownvoted = JSON.parse(kingShowDownvoted);
+      this.kingShowDownvoted = kingShowDownvoted;
     }
     
 
@@ -4812,11 +4812,6 @@ export default {
       if (save) {
         window.localStorage.setItem('colors', type);
       }
-    },
-    updateAdvancedConfig() {
-      window.localStorage.setItem('showDataFromPast', this.showDataFromPast);
-      window.localStorage.setItem('showOldTags', this.showOldTags);
-      this.$store.commit("CHANGE_OLD_TAGS", this.showOldTags);
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
@@ -7193,7 +7188,8 @@ export default {
 
       axios.post(Vue.preUrl + "/king", {
         rids: listOfRids,
-        track: this.kingTrack.code
+        track: this.kingTrack.code,
+        includeDownvotes: this.kingShowDownvoted
       })
       .then(res => {
         this.clearAllTracks();
@@ -7405,10 +7401,11 @@ body {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   gap: 20px;
   margin-bottom: 80px;
+  margin-top: 80px;
 }
 .Main_MidEmptyInner {
   display: flex;
