@@ -4941,6 +4941,9 @@ export default {
           if (res.data.auth) {
             window.localStorage.setItem('auth', res.data.auth);
           }
+          if (res.data.auth === true) {
+            window.localStorage.removeItem('auth');
+          }
 
         } else {
           this.asMod = false;
