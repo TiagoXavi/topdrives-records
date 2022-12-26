@@ -820,8 +820,11 @@
         <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>This feature is only available for patreons.<br>It returns a list of the best cars for the given track and filter. <a class="D_Link D_LinkUnder" href="https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323">Here</a> an example</span>
         </div>
-        <div v-else-if="kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+        <div v-else-if="kingTrack && kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>Empty filter. It will only scan the first 400 cars of the database.</span>
+        </div>
+        <div v-else-if="searchResultLength > 400" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+          <span>This filter matches more than 400 cars ({{ searchResultLength }}).<br>The {{ searchResultLength - 400 }} cars with lowest RQ will be ignored.</span>
         </div>
         <BaseConfigCheckBox
           v-model="kingShowDownvoted"
@@ -2294,6 +2297,7 @@ export default {
       searchMax: 20,
       showAllFilter: false,
       searchResult: [],
+      searchResultLength: null,
       showingLastest: false,
       maxCarNumber: 30,
       alreadySearched: false,
@@ -4581,6 +4585,8 @@ export default {
 
         }
       })
+
+      this.searchResultLength = result.length;
 
       // class and photo
       result.map(x => {
