@@ -6081,6 +6081,10 @@ export default {
       this.cgCurrentName = cg.name;
       this.cgCurrentRound = round;
       this.cgRound = cg.rounds[this.cgCurrentRound];
+      if (this.cgRound.filter && this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[0] === 1930) {
+        // past default date
+        this.cgRound.filter.yearModel[0] = 1910;
+      }
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
 
