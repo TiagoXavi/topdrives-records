@@ -294,7 +294,7 @@ export default {
       chunkLoaded: {},
       showAllChunk: false,
       searchFilters: {
-        yearStart: 1930,
+        yearStart: 1910,
         yearEnd: 2022,
         yearModel: [],
         rqStart: 10,
@@ -313,7 +313,7 @@ export default {
         mraEnd: 150,
         mraModel: [],
         weightStart: 300,
-        weightEnd: 4000,
+        weightEnd: 7000,
         weightModel: [],
         seatsStart: 1,
         seatsEnd: 9,
@@ -727,13 +727,13 @@ export default {
       }, 200);
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1930, 2022];
+      if (type === "yearModel") return [1910, 2022];
       if (type === "rqModel") return [10, 100];
       if (type === "topSpeedModel") return [50, 350];
       if (type === "acelModel") return [1.0, 40];
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 150];
-      if (type === "weightModel") return [300, 4000];
+      if (type === "weightModel") return [300, 7000];
       if (type === "seatsModel") return [1, 9];
     },
     clearFilter() {

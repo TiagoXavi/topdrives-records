@@ -33,7 +33,7 @@ export default {
       if (Object.keys( this.filter ).length === 0) return [];
       let result = [];
 
-      if (f.yearModel && JSON.stringify(f.yearModel) !== '[1930,2022]') result.push({ label: "Years", value: f.yearModel.join("-") });
+      if (f.yearModel && JSON.stringify(f.yearModel) !== '[1910,2022]') result.push({ label: "Years", value: f.yearModel.join("-") });
       if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,100]') result.push({ label: "RQ", value: f.rqModel.join("-") });
       if (f.seatsModel && JSON.stringify(f.seatsModel) !== '[1,9]') result.push({ label: "Seats", value: f.seatsModel.join("-") });
 
@@ -54,13 +54,13 @@ export default {
   },
   methods: {
     defaultFilters(type) {
-      if (type === "yearModel") return [1930, 2022];
+      if (type === "yearModel") return [1910, 2022];
       if (type === "rqModel") return [10, 100];
       if (type === "topSpeedModel") return [50, 350];
       if (type === "acelModel") return [1.0, 40];
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 150];
-      if (type === "weightModel") return [300, 4000];
+      if (type === "weightModel") return [300, 7000];
       if (type === "seatsModel") return [1, 9];
     },
   },

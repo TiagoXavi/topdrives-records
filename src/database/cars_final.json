@@ -22693,7 +22693,7 @@
   {
       "class": "A",
       "rq": 70,
-      "onlyName": "Camaro ZL1 Convertible",
+      "onlyName": "Camaro ZL1",
       "brand": "Chevrolet",
       "country": "US",
       "year": 2012,
@@ -22708,7 +22708,7 @@
       "tyres": "Performance",
       "mra": 80,
       "weight": 1869,
-      "name": "Chevrolet Camaro ZL1 Convertible",
+      "name": "Chevrolet Camaro ZL1",
       "rid": "Chevrolet_Camaro_ZL1_2012",
       "tags": [
           "American Dream",
@@ -27390,7 +27390,7 @@
   {
       "class": "A",
       "rq": 66,
-      "onlyName": "Camaro ZL1",
+      "onlyName": "Camaro ZL1 Convertible",
       "brand": "Chevrolet",
       "country": "US",
       "year": 2015,
@@ -27405,7 +27405,7 @@
       "tyres": "Performance",
       "mra": 82.82,
       "weight": 1869,
-      "name": "Chevrolet Camaro ZL1",
+      "name": "Chevrolet Camaro ZL1 Convertible",
       "rid": "Chevrolet_Camaro_ZL1_2015",
       "tags": [
           "Muscle Car",
@@ -89291,36 +89291,6 @@
   {
       "class": "F",
       "rq": 19,
-      "onlyName": "Punto Sporting",
-      "brand": "Fiat",
-      "year": 1995,
-      "tdid": "3718",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "country": "IT",
-      "topSpeed": 111,
-      "acel": 10.8,
-      "hand": 75,
-      "drive": "FWD",
-      "tyres": "Performance",
-      "mra": 52.94,
-      "weight": 980,
-      "name": "Fiat Punto Sporting",
-      "rid": "Fiat_Punto_Sporting_1995",
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "F",
-      "rq": 19,
       "onlyName": "912",
       "brand": "Porsche",
       "year": 1966,
@@ -89777,6 +89747,36 @@
       "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 18,
+      "onlyName": "Punto Sporting",
+      "brand": "Fiat",
+      "year": 1995,
+      "tdid": "3718",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "IT",
+      "topSpeed": 111,
+      "acel": 10.8,
+      "hand": 75,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": 52.94,
+      "weight": 980,
+      "name": "Fiat Punto Sporting",
+      "rid": "Fiat_Punto_Sporting_1995",
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
