@@ -24267,7 +24267,8 @@
           "Concept"
       ],
       "bodyTypes": [
-          "Saloon"
+          "Saloon",
+          "SUV"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -41056,7 +41057,7 @@
   },
   {
       "class": "B",
-      "rq": 54,
+      "rq": 53,
       "onlyName": "John Cooper Works",
       "brand": "Mini",
       "country": "DE",
@@ -89290,7 +89291,7 @@
   },
   {
       "class": "F",
-      "rq": 19,
+      "rq": 18,
       "onlyName": "912",
       "brand": "Porsche",
       "year": 1966,
