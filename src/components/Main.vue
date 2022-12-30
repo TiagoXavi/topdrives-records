@@ -209,7 +209,7 @@
                     :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgSeletorDialog = true;">
-                    <span>{{ cg.name }}</span>
+                    <span class="Cg_SelectorEventSpan">{{ cg.name }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
@@ -331,7 +331,7 @@
         </div>
       </div>
       <div class="Cg_Mid">
-        <div v-if="isRoundEmptyForUser && !cgLoading" class="Cg_RoundEmptyBox">
+        <div v-if="isRoundEmptyForUser && !cgLoading && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">Thanks! Your round will be analysed. Join Discord to talk about if you want.</div>
           <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">This round isn't done yet. You can help creating it, then, submiting for review.</div>
         </div>
@@ -867,7 +867,7 @@
           <button
             v-if="!isFiltering"
             class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-            @click="isFiltering = !isFiltering;">Filters<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
+            @click="openFilter()">Filters<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
           <button
             v-else
             class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
@@ -1537,7 +1537,7 @@
           <button
             v-if="!isFilteringT"
             class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-            @click="isFilteringT = !isFilteringT;">Filters<span v-if="filterCountT > 0" class="Main_FiltersButtonCount">{{ filterCountT }}</span></button>
+            @click="openFilterT()">Filters<span v-if="filterCountT > 0" class="Main_FiltersButtonCount">{{ filterCountT }}</span></button>
           <button
             v-else
             class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
@@ -5487,6 +5487,8 @@ export default {
     },
     clearFilter(context = "searchFilters") {
       if (this.kingIsFiltering) context = "kingFilter";
+      if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = "cgFilterForAddCar";
+
       this[context].yearModel = this.defaultFilters("yearModel");
       this[context].rqModel = this.defaultFilters("rqModel");
       this[context].topSpeedModel = this.defaultFilters("topSpeedModel");
@@ -5640,6 +5642,11 @@ export default {
         return valuesArray.includes(x);
       });
     },
+    openFilter() {
+      this.isFiltering = !this.isFiltering;
+      let container = document.querySelector(".Main_SearchMid");
+      container.scrollTo({ top: 0 });
+    },
     applyFilter() {
       if (this.kingDialog) {
         this.changeFilter();
@@ -5669,6 +5676,11 @@ export default {
           this.cgIsFiltering = false;
         }, 99);
       }
+    },
+    openFilterT() {
+      this.isFilteringT = !this.isFilteringT;
+      let container = document.querySelector(".Main_SearchMid");
+      container.scrollTo({ top: 0 });
     },
     applyFilterT() {
       this.changeFilterT();
@@ -6430,7 +6442,7 @@ export default {
         })
         .then(res => {
           vm.confirmDelete.dialog = false;
-          Vue.set(race, 'time', null);
+          if (isOppo) Vue.set(race, 'time', null);
           Vue.set(carData.data[tune].times, track, undefined);
 
           vm.showCarsFix = false;
@@ -8485,7 +8497,7 @@ body .Main_UserT5 {
 .Main_2 .Main_RowCornerBox {
   top: 0;
   left: var(--left-width);
-  width: calc(var(--cell-width) * 2.1);
+  width: calc(var(--cell-width) * 1);
   height: var(--top-height);
 }
 .Main_2 .Main_BodyPrint .Main_RowCornerBox {
@@ -9105,6 +9117,12 @@ body .Main_UserT5 {
   justify-content: center;
   gap: 10px;
 }
+.Cg_SelectorEventSpan {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .Main_AnnouncementLayout {
 
 }
@@ -9146,10 +9164,11 @@ body .Main_UserT5 {
 
 
 .Main_2 {
-  --cell-width: 80px;
+  --cell-width: 85px;
+  --cell-height: 42px;
   --top-height: 70px;
   --left-width: 250px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .Main_2 .Main_Mid {
   /* display: none; */
@@ -9230,7 +9249,18 @@ body .Main_UserT5 {
   /* box-shadow: inset 0px -18px 16px -17px #5fb500, inset 0px -3px 0px 0px #5fb500; */
 }
 .Main_2 .Row_ConfigCell.Row_Cell {
-  width: calc(var(--cell-width) * 2.1);
+  width: calc(var(--cell-width) * 1);
+}
+.Main_2 .Row_Tune {
+  padding-left: 16px;
+}
+.Main_2 .Row_TuneChooseBox {
+  position: absolute;
+  flex-direction: row;
+  left: 0;
+  background-color: #4c4c4c;
+  padding: 3px;
+  border-radius: 10px;
 }
 .Row_OrderBox {
   display: flex;
@@ -9251,6 +9281,9 @@ body .Main_UserT5 {
   flex-direction: column;
   gap: 0px;
 } 
+.Main_2 .Row_Content {
+  padding: 12px 0;
+}
 
 
 
@@ -9446,7 +9479,8 @@ body .Main_UserT5 {
 .Main_BodyPrint .Row_Campaign {
   display: none !important;
 }
-.Main_Compact .Main_BodyPrint .Row_TuneChooseBox {
+.Main_Compact .Main_BodyPrint .Row_TuneChooseBox,
+.Main_2 .Main_BodyPrint .Row_TuneChooseBox {
   display: none;
 }
 .Main_BodyPrint .Cg_Points {
@@ -9536,6 +9570,32 @@ body .Main_UserT5 {
   }
   .Main_CampaignGuide {
     display: none;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) {
+    --left-width: 85px;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right {
+    display: none;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Car_Header2 {
+    padding-right: 0;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Left {
+    margin-right: 0px;
+    width: 100%;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Img {
+    transform: scale(1.2) translateX(7px) translateY(-6px);
+    height: 140%;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right2 {
+    display: flex;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_Logo {
+    display: none;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .D_ButtonMenu {
+    padding: 11px 8px;
   }
 }
 @media only screen and (min-width: 768px) {

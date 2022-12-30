@@ -78,8 +78,10 @@
         <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
       </div>
       <div class="BaseCard_Header2Right">
-        <span><b>[{{ car.rq }}]</b> {{ car.name }}</span>
+        <div class="BaseCard_Header2Top"><b>[{{ car.rq }}]</b> {{ car.brand }}</div>
+        <div class="BaseCard_Header2Bottom">{{ car.onlyName }}</div>
       </div>
+      <div class="BaseCard_Header2Right2">{{ car.rq }}</div>
     </div>
   </div>
 </template>
@@ -248,5 +250,33 @@ export default {
 .BaseCard_Header2Img {
   transform: scale(1.4) translateX(1px);
   height: 100%;
+}
+.BaseCard_Header2Right {
+  font-size: 14px;
+  flex-grow: 1;
+  max-width: calc(100% - 56px);
+}
+.BaseCard_Header2Top {
+  color: grey;
+}
+.BaseCard_Header2Bottom {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.BaseCard_Header2Right2 {
+  display: none;
+  color: black;
+  background-color: var(--class-color);
+  height: 20px;
+  justify-content: center;
+  width: 19px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 21px;
+  border-top-right-radius: 4px;
+  padding-right: 1px;
 }
 </style>
