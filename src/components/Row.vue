@@ -1309,7 +1309,7 @@ export default {
   background-color: hsl(var(--back-h), var(--back-s), 15%);
   height: calc(var(--cell-height) * 1.3);
   bottom: calc(var(--cell-height) * -1.3);
-  z-index: 1;
+  z-index: 21;
   width: 75%;
   left: 12.5%;
   border-radius: 15px;

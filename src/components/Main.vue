@@ -778,10 +778,22 @@
       :active="kingDialog"
       :transparent="false"
       :disableScroll="true"
-      max-width="360px"
+      :fixed="kingFixed"
+      :max-width="kingFixed ? `200px` : `360px`"
+      min-width="150px"
       @close="closeKingOfDialog()">
-      <div class="Main_AdvancedDialogBox">
-        <div class="Main_DialogTitle">Best of</div>
+      <div :class="{ Main_KingFixed: kingFixed }" class="Main_AdvancedDialogBox Main_KingDialogBox">
+        <div class="Main_DialogTitleDual">
+          <div class="Main_DialogTitle">Best of</div>
+          <div v-if="user && user.tier <= 4">
+            <button class="D_Button Main_KingPinButton" @click="kingFixed = !kingFixed">
+              <i class="ticon-internal Main_KingPinIcon" aria-hidden="true"/>
+            </button>
+            <button v-if="kingFixed" class="D_Button Main_KingPinButton" @click="closeKingOfDialog()">
+              <i class="ticon-close_3 Main_KingPinIcon" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
         <div :class="{ Main_KingTrackBoxSelected: kingTrack }" class="Main_KingTrackBox">
           <div class="Cg_Track">
             <Row
@@ -820,20 +832,21 @@
         <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>This feature is only available for patreons.<br>It returns a list of the best cars for the given track and filter. <a class="D_Link D_LinkUnder" href="https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323">Here</a> an example</span>
         </div>
-        <div v-else-if="kingTrack && kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>Empty filter. It will only scan the first 400 cars of the database.</span>
+        <!-- <div v-else-if="kingTrack && kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+          <span>Empty filter. It will only scan the first 800 cars of the database.</span>
         </div>
-        <div v-else-if="searchResultLength > 400" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>This filter matches more than 400 cars ({{ searchResultLength }}).<br>The {{ searchResultLength - 400 }} cars with lowest RQ will be ignored.</span>
-        </div>
+        <div v-else-if="searchResultLength > 800" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+          <span>This filter matches more than 800 cars ({{ searchResultLength }}).<br>The {{ searchResultLength - 800 }} cars with lowest RQ will be ignored.</span>
+        </div> -->
         <BaseConfigCheckBox
+          v-if="!kingFixed"
           v-model="kingShowDownvoted"
           style="margin-top: 17px;"
           class="Main_KingTrackBox"
           name="kingShowDownvoted"
           label="Includes times with downvote?" />
         <button
-          v-if="user && user.tier <= 4"
+          v-if="user && user.tier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
           :disabled="kingLoading || !kingTrack"
           class="D_Button Main_SaveAllButton Main_KingAnalyzeButton"
@@ -2415,6 +2428,7 @@ export default {
       kingFilterCount: 0,
       kingLoading: false,
       kingShowDownvoted: false,
+      kingFixed: false,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -4153,6 +4167,7 @@ export default {
         this.kingTrack = track;
         this.kingTrack = this.resolveTrack({ track }, false, false)
         this.closeDialogTrackSearch();
+        if (this.kingFixed) this.kingAnalyse();
         return;
       }
 
@@ -4821,6 +4836,8 @@ export default {
     },
     changeMode(mode, save = true) {
       this.optionsDialogActive = false;
+      this.kingDialog = false;
+      this.kingFixed = false;
       if (mode === 'events' && (!this.user || !this.user.mod) && !this.asMod) {
         mode = 'classic';
       }
@@ -5654,6 +5671,7 @@ export default {
         setTimeout(() => {
           this.kingIsFiltering = false;
         }, 99);
+        if (this.kingFixed) this.kingAnalyse();
       } else if (this.mode === 'classic' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
@@ -7181,6 +7199,7 @@ export default {
     },
     closeKingOfDialog() {
       this.kingDialog = false;
+      this.kingFixed = false;
       this.optionsDialogActive = true;
     },
     kingOpenRequirementDialog() {
@@ -7196,7 +7215,7 @@ export default {
 
       this.all_cars.map((x, ix) => {
         if (x.rq > rqMax || x.rq < rqMin) return;
-        if (this.checkMatchFilter(x) && listOfRids.length < 401) {
+        if (this.checkMatchFilter(x) && listOfRids.length < 1001) {
           listOfRids.push({ rid: x.rid, rq: x.rq });
         }
       })
@@ -7227,10 +7246,10 @@ export default {
           })
         })
         Vue.set(this, "carDetailsList", result);
-        this.downloadDataCars();
+        this.applyNewData(res.data, this.mode === 'cg');
         this.updateOptions();
         this.updateCarLocalStorage();
-        this.kingDialog = false;
+        if (!this.kingFixed) this.kingDialog = false;
         
       })
       .catch(error => {
@@ -8675,26 +8694,60 @@ body .Main_UserT5 {
   flex-direction: column;
   gap: 5px;
 }
+.Main_KingDialogBox {
+  --width: 240px;
+}
+.Main_KingFixed {
+  --width: 150px;
+}
 .Main_KingFilter {
   height: 140px;
-  width: 240px;
+  width: var(--width);
   margin: 0 auto;
   margin-top: 17px;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 10px;
   overflow-y: auto;
 }
+.Main_KingFixed .Main_KingFilter {
+  height: 70px;
+  margin-top: 5px;
+}
 .Main_KingTrackBox {
-  width: 240px;
+  width: var(--width);
   margin: 0 auto;
 }
 .Main_KingTrackBoxSelected {
   box-shadow: inset 2px 2px 0px 0px #ffffff07;
 }
 .Main_KingAnalyzeButton {
-  width: 240px;
+  width: var(--width);
   margin: 0 auto;
   margin-top: 17px;
+}
+.Main_DialogTitleDual {
+  display: flex;
+  justify-content: space-between;
+}
+.Main_KingPinButton {
+  padding: 0px 6px;
+  --height: 34px;
+  margin: -10px -10px 0 0;
+  height: 34px;
+}
+.Main_KingPinButton:not(:last-child) {
+  margin-right: 5px;
+}
+.Main_KingPinIcon {
+  font-size: 18px;
+  color: var(--d-text);
+  transform: rotate(90deg);
+}
+.Main_KingFixed .Main_KingPinIcon {
+  transform: rotate(-90deg);
+}
+.Main_KingFixed .Main_DialogTitle {
+  margin-bottom: 5px;
 }
 
 

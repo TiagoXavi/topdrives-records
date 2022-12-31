@@ -7,10 +7,11 @@
       BaseDialog_PreActive: preActive,
       BaseDialog_AnimIn: animIntro,
       BaseDialog_AnimOut: animOut,
+      BaseDialog_Fixed: fixed,
     }"
     class="BaseDialog_Layout">
-    <div class="BaseDialog_Back" @click="$emit('close')"></div>
-    <div class="BaseDialog_Body" :class="{BaseDialog_Body_Static: isStatic}">
+    <div v-if="!fixed" class="BaseDialog_Back" @click="$emit('close')"></div>
+    <div class="BaseDialog_Body" :class="{ BaseDialog_Body_Static: isStatic, BaseDialog_Body_Fixed: fixed }">
       <div
         :style="{
           maxWidth: maxWidth,
@@ -64,6 +65,10 @@ export default {
       default: false
     },
     disableScroll: {
+      type: Boolean,
+      default: false
+    },
+    fixed: {
       type: Boolean,
       default: false
     },
@@ -131,6 +136,9 @@ export default {
   z-index: 100;
   pointer-events: initial;
 }
+.BaseDialog_Fixed {
+  pointer-events: none;
+}
 .BaseDialog_Back {
   background-color: #0007;
   position: absolute;
@@ -151,6 +159,10 @@ export default {
   justify-content: center;
   height: 100%;
   pointer-events: none;
+}
+.BaseDialog_Body_Fixed {
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .BaseDialog_Body_Static {
   align-items: start;
@@ -176,6 +188,10 @@ export default {
 .BaseDialog_Opaque {
   background-color: #333;
   /* box-shadow: 0px 10px 10px 0px #0005; */
+}
+.BaseDialog_Fixed .BaseDialog_Box {
+  background-color: #2a2a2a;
+  margin-bottom: 10px;
 }
 .BaseDialog_Transparent {
 
