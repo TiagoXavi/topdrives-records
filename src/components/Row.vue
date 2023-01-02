@@ -108,6 +108,7 @@
               Row_VotedAgainst: item.upList && item.upList.includes(user.username),
               D_Button_Loading: voteLoading
             }"
+            :title="(item.downList || []).join(', ')"
             class="D_Button Row_VoteButton Row_VoteButtonDown"
             @click="timevote($event, item, ix, 'down')">
             <i
@@ -139,6 +140,7 @@
                 Row_VotedAgainst: item.downList && item.downList.includes(user.username),
                 D_Button_Loading: voteLoading
               }"
+              :title="(item.upList || []).join(', ')"
               class="D_Button Row_VoteButton Row_VoteButtonUp"
               @click="timevote($event, item, ix, 'up')">
               <i
@@ -866,6 +868,9 @@ export default {
 .Row_Hover:not(:hover) {
   box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.08);
 }
+.Main_2 .Row_Hover {
+  z-index: 20;
+}
 .Row_Content {
   text-align: center;
   width: 100%;
@@ -1355,6 +1360,9 @@ export default {
   color: #8f8f8f;
   border-top-left-radius: 5px;
 }
+.Main_2 #Car_Layout0 .Row_DetailAuthor {
+  top: -2px;
+}
 .Row_VoteButton .ticon-thumbs_down {
   color: #e54c4c;
 }
@@ -1461,16 +1469,16 @@ export default {
 /* .RowTrack_Dragging ~ .RowTrack_Layout .RowTrack_DragIndicator {
   display: block;
 } */
-.Row_Tracks .RowTrack_PushLeft {
+.Row_Tracks:not(.Row_Cg) .RowTrack_PushLeft {
   transform: translateY(calc(var(--cell-height) * -1));
 }
-.Row_Tracks .RowTrack_PushRight {
+.Row_Tracks:not(.Row_Cg) .RowTrack_PushRight {
   transform: translateY(var(--cell-height));
 }
-.Main_2 .Row_Tracks .RowTrack_PushLeft {
+.Main_2 .Row_Tracks:not(.Row_Cg) .RowTrack_PushLeft {
   transform: translateX(calc(var(--cell-width) * -1));
 }
-.Main_2 .Row_Tracks .RowTrack_PushRight {
+.Main_2 .Row_Tracks:not(.Row_Cg) .RowTrack_PushRight {
   transform: translateX(var(--cell-width));
 }
 
@@ -1503,7 +1511,7 @@ export default {
 }
 @media (pointer:coarse) {
   .Row_ShowMoreButton {
-    opacity: 1;
+    opacity: 1 !important;
   }
 }
 

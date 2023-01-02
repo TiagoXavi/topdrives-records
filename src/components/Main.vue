@@ -789,7 +789,7 @@
             <button class="D_Button Main_KingPinButton" @click="kingFixed = !kingFixed">
               <i class="ticon-internal Main_KingPinIcon" aria-hidden="true"/>
             </button>
-            <button v-if="kingFixed" class="D_Button Main_KingPinButton" @click="closeKingOfDialog()">
+            <button v-if="kingFixed" class="D_Button Main_KingPinButton" @click="closeKingOfDialog(false)">
               <i class="ticon-close_3 Main_KingPinIcon" aria-hidden="true"/>
             </button>
           </div>
@@ -809,7 +809,7 @@
             <button
               :class="{ Cg_SelectTrackButtonEdit: kingTrack }"
               class="D_Button Car_AddButton Cg_SelectTrackButton"
-              @click="openDialogTrackSearch(false);">
+              @click="openDialogTrackSearch(false, 'king');">
               <i v-if="kingTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
               <span v-else>Select track</span>
             </button>
@@ -2429,6 +2429,7 @@ export default {
       kingLoading: false,
       kingShowDownvoted: false,
       kingFixed: false,
+      kingAddindTrack: false,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -4163,7 +4164,8 @@ export default {
         })
         return;
       }
-      if (this.kingDialog) {
+      if (this.kingAddindTrack) {
+        this.kingAddindTrack = false;
         this.kingTrack = track;
         this.kingTrack = this.resolveTrack({ track }, false, false)
         this.closeDialogTrackSearch();
@@ -4511,10 +4513,11 @@ export default {
     closeDialogGallery() {
       this.galleryDialog = false;
     },
-    openDialogTrackSearch(backToOptions = true) {
+    openDialogTrackSearch(backToOptions = true, type) {
       this.customTrackDialog = true;
       this.optionsDialogActive = false;
       this.backToOptionsDialog = backToOptions;
+      if (type === 'king') this.kingAddindTrack = true;
       setTimeout(() => {
         try {
           document.querySelector("#SearchTrackInput").focus();  
@@ -4522,6 +4525,7 @@ export default {
       }, 10);
     },
     closeDialogTrackSearch() {
+      this.kingAddindTrack = false;
       this.customTrackDialog = false;
       if (this.backToOptionsDialog) this.optionsDialogActive = true;
       this.searchTracks = '';
@@ -5662,7 +5666,11 @@ export default {
     openFilter() {
       this.isFiltering = !this.isFiltering;
       let container = document.querySelector(".Main_SearchMid");
-      container.scrollTo({ top: 0 });
+      try {
+        container.scrollTo({ top: 0 });
+      } catch (error) {
+        //
+      }
     },
     applyFilter() {
       if (this.kingDialog) {
@@ -7197,10 +7205,10 @@ export default {
       this.kingDialog = true;
       this.optionsDialogActive = false;
     },
-    closeKingOfDialog() {
+    closeKingOfDialog(backToOptions = true) {
       this.kingDialog = false;
       this.kingFixed = false;
-      this.optionsDialogActive = true;
+      if (backToOptions) this.optionsDialogActive = true;
     },
     kingOpenRequirementDialog() {
       this.searchActive = true;

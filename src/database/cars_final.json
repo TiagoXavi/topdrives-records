@@ -6511,7 +6511,7 @@
           "World Expo",
           "Hypercar"
       ],
-      "prize": true,
+      "prize": false,
       "bodyTypes": [
           "Coupe"
       ],
@@ -20385,7 +20385,7 @@
       "hand": 85,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 94.87,
       "weight": 1945,
       "name": "BMW M5 30 Jahre Edition",
       "rid": "BMW_M5_30_Jahre_Edition_2014",
@@ -63174,7 +63174,7 @@
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 140,
-      "acel": 5,
+      "acel": 4.9,
       "hand": 67,
       "drive": "RWD",
       "tyres": "Performance",
