@@ -1838,7 +1838,6 @@
               <span>Best of</span>
             </button>
             <button
-              v-if="mode === 'classic'"
               class="D_Button Main_OptionsButton"
               @click="openAdvancedOptions()">
               <i class="ticon-gear D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
@@ -2198,9 +2197,10 @@
       max-width="400px"
       @close="closeAdvancedOptions()">
       <div class="Main_AdvancedDialogBox">
-        <div class="Main_DialogTitle">Configuration</div>
+        <div class="Main_DialogTitle">Options</div>
         <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" label="Show data from old versions" />
         <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" label="Show deprecated tags" />
+        <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" label="Challenges: don't repeat cars as solution" @change="cgReCalcRound()" />
       </div>
     </BaseDialog>
   </div>
@@ -2403,6 +2403,7 @@ export default {
       cgAnalyseLoading: false,
       cgIsApproving: false,
       cgSentForReview: false,
+      cgDontRepeatSolution: false,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -3629,6 +3630,11 @@ export default {
     if (kingShowDownvoted) {
       kingShowDownvoted = JSON.parse(kingShowDownvoted);
       this.kingShowDownvoted = kingShowDownvoted;
+    }
+    let cgDontRepeatSolution = window.localStorage.getItem("cgDontRepeatSolution");
+    if (cgDontRepeatSolution) {
+      cgDontRepeatSolution = JSON.parse(cgDontRepeatSolution);
+      this.cgDontRepeatSolution = cgDontRepeatSolution;
     }
     
 
@@ -6354,6 +6360,15 @@ export default {
       Vue.set(race.cars[race.carIndex], "points", points);
       
     },
+    cgReCalcRound() {
+      this.cgRound.races.map(race => {
+        race.carIndex = undefined;
+      })
+      this.cgRound.races.map(race => {
+        this.cgSortBankCars(race);
+      })
+      this.downloadDataCars();
+    },
     cgResolveBankToSave(type, raceIndex, rid, tune, points) {
       if (!this.user) return;
 
@@ -6724,7 +6739,17 @@ export default {
           return a.car.rq  - b.car.rq 
         }
       })
-      Vue.set(race, "carIndex", race.cars.findIndex(car => car.points > 0));
+
+      let alreadyUsedRidsAsSolution = [];
+      this.cgRound.races.map(x => {
+        if (x.carIndex >= 0) {
+          alreadyUsedRidsAsSolution.push(x.cars[x.carIndex].rid)
+        }
+      })
+
+      Vue.set(race, "carIndex", race.cars.findIndex(car => {
+        if (car.points > 0 && (!alreadyUsedRidsAsSolution.includes(car.rid) || !this.cgDontRepeatSolution)) return true;
+      }));
       if (race.carIndex === -1) {
         Vue.set(race, "carIndex", 0);
       }
