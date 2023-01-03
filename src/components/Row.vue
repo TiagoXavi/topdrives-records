@@ -375,19 +375,22 @@ export default {
           result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
         })
       } else if (this.type === "times") {
+        car = this.car;
+        if (
+            car.selectedTune &&
+            car.data &&
+            car.data[car.selectedTune] &&
+            car.data[car.selectedTune].times
+        ) {
+          timesObjPresent = true;
+        }
+
         this.list.map((x, ix) => {
           text = "";
-          car = this.car;
           // if (car.times &&
           //     car.times[x.id]
           // ) {
-          if (
-              car.selectedTune &&
-              car.data &&
-              car.data[car.selectedTune] &&
-              car.data[car.selectedTune].times
-          ) {
-            timesObjPresent = true;
+          if (timesObjPresent) {
             text = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
             downList = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_downList`];
             upList = car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}_upList`];

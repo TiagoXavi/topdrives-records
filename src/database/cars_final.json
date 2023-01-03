@@ -11606,7 +11606,7 @@
       "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 94.74,
       "weight": 1440,
       "name": "Mercedes-Benz CLK GTR",
       "rid": "Mercedes-Benz_CLK_GTR_1998",
@@ -25928,7 +25928,7 @@
       "rid": "Audi_S8_2006",
       "tags": [
           "Originals",
-          "Team Favorite",
+          "Team Favourite",
           "Christmas Collection 22"
       ],
       "bodyTypes": [
