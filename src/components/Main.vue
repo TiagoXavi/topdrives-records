@@ -6361,6 +6361,7 @@ export default {
       
     },
     cgReCalcRound() {
+      if (this.mode !== 'cg') return;
       this.cgRound.races.map(race => {
         race.carIndex = undefined;
       })
