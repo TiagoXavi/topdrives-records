@@ -473,7 +473,8 @@
                     Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
                     Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
                   }"
-                  class="Cg_Divider">
+                  class="Cg_Divider"
+                  @click="cgOpenPointsEdit(race)">
                   <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">select</div>
                   <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">draw</div>
                   <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">win</div>
@@ -1069,6 +1070,7 @@
             </div>
             <div class="D_Center" style="gap: 15px;">
               <button
+                v-if="!cgAddingYouCar"
                 class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
                 @click="clearFilter('searchFilters')">Clear</button>
               <button
@@ -2095,6 +2097,24 @@
       </div>
     </BaseDialog>
     <BaseDialog
+      :active="cgPointsEditDialog"
+      :transparent="false"
+      max-width="340px"
+      min-width="240px"
+      @close="cgClosePointsEdit()">
+      <div class="Main_SaveGalleryDialog">
+        <div class="Main_SaveGalleryBox">
+          <BaseText
+            v-model="cgPointsEditModel"
+            class="BaseText_Big"
+            iid="Cg_EditPoints"
+            type="integer"
+            label="Points"
+            placeholder="" />
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
       :active="eventSelectorDialog"
       :transparent="true"
       :lazy="true"
@@ -2404,6 +2424,10 @@ export default {
       cgIsApproving: false,
       cgSentForReview: false,
       cgDontRepeatSolution: false,
+      cgPointsEditDialog: false,
+      cgPointsEditModel: null,
+      cgPointsEditString: null,
+      cgPointsEditRace: null,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -6701,11 +6725,11 @@ export default {
       }
       
     },
-    cgSaveBank() {
-      if (this.cgBankToSave.length === 0) return;
+    cgSaveBank(customArray) {
+      if (this.cgBankToSave.length === 0 && !customArray) return;
       this.cgBankToSaveLoading = true;
 
-      axios.post(Vue.preUrl + "/updateCgBankCars", this.cgBankToSave)
+      axios.post(Vue.preUrl + "/updateCgBankCars", customArray || this.cgBankToSave)
       .then(res => {
         this.cgClearBankToSave();
       })
@@ -6881,12 +6905,13 @@ export default {
       setTimeout(() => {
         try {
           document.querySelector("#Cg_EditRq").focus();  
+          document.querySelector("#Cg_EditRq").select();
         } catch (error) {}
       }, 10);
     },
     cgCloseRqEdit() {
       this.cgRqEditDialog = false;
-      if (this.cgRqEditModel !== this.cgRqEditString) {
+      if (this.cgRqEditModel != this.cgRqEditString) {
         this.cgRound.rqLimit = Number(this.cgRqEditModel);
         this.cgRqNeedToSave = true;
       } else {
@@ -6902,6 +6927,60 @@ export default {
         lastCg = JSON.parse(lastCg);
         this.cgCurrentId = lastCg.date;
         this.cgCurrentRound = lastCg.round;
+      }
+    },
+    cgOpenPointsEdit(race) {
+      if (!this.user) return;
+      if (typeof race.carIndex !== 'number') return;
+      let points = (race.cars[race.carIndex] || {}).points;
+      if (!points) return;
+      if (race.cars[race.carIndex].pointsUser && race.cars[race.carIndex].pointsUser !== this.user.username) {
+        if (!this.user.mod) return;
+      };
+
+      let car = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+      let trytime
+      if (!car) return;
+      try {
+        trytime = car.data[race.cars[race.carIndex].tune].times[race.track]
+      } catch (error) {
+        // nada
+      }
+      if (!trytime && trytime !== 0) return;
+
+      this.cgPointsEditDialog = true;
+      this.cgPointsEditModel = `${points}`;
+      this.cgPointsEditString = `${points}`;
+      this.cgPointsEditRace = race;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Cg_EditPoints").focus();
+          document.querySelector("#Cg_EditPoints").select();
+        } catch (error) {}
+      }, 10);
+    },
+    cgClosePointsEdit() {
+      this.cgPointsEditDialog = false;
+      let race = this.cgPointsEditRace;
+      let points = Number(this.cgPointsEditModel);
+      
+      if (this.cgPointsEditModel != this.cgPointsEditString) {
+        if (Number(this.cgPointsEditString) > 0 && points <= 0) {
+          return;
+        }
+        if (Number(this.cgPointsEditString) < 0 && points >= 0) {
+          return;
+        }
+
+        let raceIndex = this.cgRound.races.indexOf(race);
+        let rid = race.cars[race.carIndex].rid;
+        let tune = race.cars[race.carIndex].tune;
+        let arrayToSave = [{ type: "add", raceIndex, rid, tune, points, round: this.cgCurrentRound, date: this.cg.date }];
+        this.cgSaveBank(arrayToSave);
+
+        Vue.set(race.cars[race.carIndex], "points", points);
+        Vue.set(race.cars[race.carIndex], "pointsUser", this.user.username);
+        
       }
     },
     cgAnalyseRound() {
@@ -7257,6 +7336,7 @@ export default {
 
       this.kingIsFiltering = true;
       this.kingLoading = true;
+      if (this.kingFixed) this.downloadLoading = true;
 
       axios.post(Vue.preUrl + "/king", {
         rids: listOfRids,
@@ -7298,6 +7378,7 @@ export default {
       })
       .then(() => {
         this.kingLoading = false;
+        this.downloadLoading = false;
       });
     },
     tierOf(username) {
@@ -8733,7 +8814,7 @@ body .Main_UserT5 {
   --width: 240px;
 }
 .Main_KingFixed {
-  --width: 150px;
+  --width: 180px;
 }
 .Main_KingFilter {
   height: 140px;
@@ -8930,7 +9011,8 @@ body .Main_UserT5 {
 }
 .Cg_Divider {
   text-align: center;
-  padding: 15px 0 5px 0;
+  padding-bottom: 5px;
+  margin-top: 15px;
   height: 35px;
   display: flex;
   align-items: center;

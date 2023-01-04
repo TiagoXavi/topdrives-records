@@ -1078,7 +1078,7 @@ export default {
   position: sticky;
   left: var(--left-width);
   background-color: #404040;
-  z-index: 1;
+  z-index: 20;
 }
 .Row_ConfigIcon {
   font-size: 24px;
