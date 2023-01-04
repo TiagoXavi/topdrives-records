@@ -6202,6 +6202,7 @@ export default {
         this.cgSortBankCars(race);
         
       })
+      this.cgRemoveDuplicateSolution();
       this.downloadDataCars();
 
       this.cgResolveFilter();
@@ -6388,10 +6389,9 @@ export default {
       if (this.mode !== 'cg') return;
       this.cgRound.races.map(race => {
         race.carIndex = undefined;
-      })
-      this.cgRound.races.map(race => {
         this.cgSortBankCars(race);
       })
+      this.cgRemoveDuplicateSolution();
       this.downloadDataCars();
     },
     cgResolveBankToSave(type, raceIndex, rid, tune, points) {
@@ -6765,16 +6765,7 @@ export default {
         }
       })
 
-      let alreadyUsedRidsAsSolution = [];
-      this.cgRound.races.map(x => {
-        if (x.carIndex >= 0) {
-          alreadyUsedRidsAsSolution.push(x.cars[x.carIndex].rid)
-        }
-      })
-
-      Vue.set(race, "carIndex", race.cars.findIndex(car => {
-        if (car.points > 0 && (!alreadyUsedRidsAsSolution.includes(car.rid) || !this.cgDontRepeatSolution)) return true;
-      }));
+      Vue.set(race, "carIndex", race.cars.findIndex(car => car.points > 0));
       if (race.carIndex === -1) {
         Vue.set(race, "carIndex", 0);
       }
@@ -6782,6 +6773,62 @@ export default {
       if (!found) {
         this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
       }
+    },
+    cgRemoveDuplicateSolution() {
+      if (!this.cgDontRepeatSolution) return;
+      let loopCount = 0;
+
+      while (true) {
+        loopCount += 1;
+        let alreadyUsedRidsAsSolution = [];
+        let duplicates = [];
+  
+        this.cgRound.races.map((race, ix) => {
+          if (race.carIndex >= 0) {
+            if (alreadyUsedRidsAsSolution.includes(race.cars[race.carIndex].rid)) {
+              duplicates.push(race.cars[race.carIndex].rid);
+            }
+            alreadyUsedRidsAsSolution.push(race.cars[race.carIndex].rid)
+          }
+        })
+
+        if (duplicates.length === 0 || loopCount > 20) break;
+
+        let options = [];
+        let lowestRq = null;
+        this.cgRound.races.map((race, ix) => {
+          if (race.carIndex >= 0 && duplicates.includes(race.cars[race.carIndex].rid)) {
+            race.cars.find((car, altCarIndex) => {
+              if (car.points > 0 && !alreadyUsedRidsAsSolution.includes(car.rid)) {
+                race.alt = {
+                  rid: car.rid,
+                  rq: this.all_cars.find(y => y.rid === car.rid).rq,
+                  raceIndex: ix,
+                  altCarIndex
+                }
+                if (!lowestRq || lowestRq > race.alt.rq) lowestRq = race.alt.rq;
+                options.push(race.alt);
+                return true;
+              }
+            })
+          }
+        })
+
+        options.find(option => {
+          if (option.rq === lowestRq) {
+            let race = this.cgRound.races[option.raceIndex]
+            Vue.set(race, "carIndex", option.altCarIndex);
+
+            let found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+            if (!found) {
+              this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+            }
+
+            return true;
+          }
+        })
+      }
+
     },
     cgResolveFilter() {
       if (!this.cgRound.filter) return;
@@ -6969,6 +7016,9 @@ export default {
           return;
         }
         if (Number(this.cgPointsEditString) < 0 && points >= 0) {
+          return;
+        }
+        if (points > 999 || points < -999) {
           return;
         }
 

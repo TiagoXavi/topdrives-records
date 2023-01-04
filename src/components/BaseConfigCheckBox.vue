@@ -1,7 +1,7 @@
 <template>
   <div class="Main_SaveGalleryBoxCheck">
     <div class="Main_SaveGalleryCheckLeft">
-      <BaseCheckBox :value="value" @change="$emit('change', $event); updateAdvancedConfig()" v-on="$listeners" />
+      <BaseCheckBox :value="value" @change="$emit('change', $event); updateAdvancedConfig()" />
     </div>
     <div class="Main_SaveGalleryCheckRight">
       <div class="Main_OptionsLabel">{{ label }}</div>
