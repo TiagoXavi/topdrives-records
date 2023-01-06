@@ -44362,7 +44362,7 @@
       "hand": 80,
       "drive": "FWD",
       "tyres": "Performance",
-      "mra": 50.46,
+      "mra": 49.15,
       "weight": 1100,
       "name": "Alfa Romeo MiTo GTA",
       "rid": "Alfa_Romeo_MiTo_GTA_2009",
@@ -76241,7 +76241,7 @@
   },
   {
       "class": "E",
-      "rq": 29,
+      "rq": 28,
       "onlyName": "Fulvia Sport 1600",
       "brand": "Lancia",
       "year": 1971,

@@ -69,6 +69,27 @@
         {{ setTierRes }}
       </div>
     </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Set mod</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="email"
+          type="normal"
+          label="E-mail"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setMod()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ setModRes }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -96,6 +117,7 @@ export default {
       emailRes: null,
       tier: null,
       setTierRes: null,
+      setModRes: null,
     }
   },
   watch: {},
@@ -172,6 +194,23 @@ export default {
       })
       .then(res => {
         this.setTierRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    setMod() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/setmod", {
+        email: this.email
+      })
+      .then(res => {
+        this.setModRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
