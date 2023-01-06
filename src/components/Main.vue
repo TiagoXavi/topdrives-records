@@ -5031,7 +5031,8 @@ export default {
           "Skapis": 'mod',
           "Draugr": 'mod',
           "TopDrives": 'mod',
-          "Asaneon": 'mod'
+          "Asaneon": 'mod',
+          "Dennis": 'mod'
         };
         let pUsers = res.data.find(x => x.id === 'pUsers').value;
         Object.keys( pUsers ).forEach(key => {

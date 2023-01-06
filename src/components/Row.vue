@@ -872,7 +872,7 @@ export default {
   box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.08);
 }
 .Main_2 .Row_Hover {
-  z-index: 20;
+  /* z-index: 20; */
 }
 .Row_Content {
   text-align: center;
