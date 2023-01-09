@@ -32076,6 +32076,37 @@
   {
       "class": "B",
       "rq": 63,
+      "onlyName": "iX xDrive40",
+      "brand": "BMW",
+      "year": 2021,
+      "tdid": "3670",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 124,
+      "acel": 5.9,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 71.95,
+      "weight": 2440,
+      "name": "BMW iX xDrive40",
+      "rid": "BMW_iX_xDrive40_2021",
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Electric",
+      "seats": "5",
+      "engine": "Mixed",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
+  },
+  {
+      "class": "B",
+      "rq": 63,
       "onlyName": "Plus 8 Speedster",
       "brand": "Morgan",
       "year": 2014,
@@ -32609,36 +32640,6 @@
   {
       "class": "B",
       "rq": 62,
-      "onlyName": "Impreza WRX (GDG)",
-      "brand": "Subaru",
-      "country": "JP",
-      "year": 2006,
-      "tdid": "3155",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 143,
-      "acel": 5.7,
-      "hand": 82,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 61.98,
-      "weight": 1385,
-      "name": "Subaru Impreza WRX (GDG)",
-      "rid": "Subaru_Impreza_WRX_(GDG)_2006",
-      "tags": [
-          "Japan Pro Tour"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
       "onlyName": "X-Type 3.0 V6 AWD",
       "brand": "Jaguar",
       "country": "GB",
@@ -32819,37 +32820,6 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "iX xDrive40",
-      "brand": "BMW",
-      "year": 2021,
-      "tdid": "3670",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 124,
-      "acel": 5.9,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 71.95,
-      "weight": 2440,
-      "name": "BMW iX xDrive40",
-      "rid": "BMW_iX_xDrive40_2021",
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Electric",
-      "seats": "5",
-      "engine": "Mixed",
-      "tags": [
-          "Enter the Black Forest",
-          "Eco Friendly"
       ]
   },
   {
@@ -33071,6 +33041,36 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 61,
+      "onlyName": "Impreza WRX (GDG)",
+      "brand": "Subaru",
+      "country": "JP",
+      "year": 2006,
+      "tdid": "3155",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 143,
+      "acel": 5.7,
+      "hand": 82,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 61.98,
+      "weight": 1385,
+      "name": "Subaru Impreza WRX (GDG)",
+      "rid": "Subaru_Impreza_WRX_(GDG)_2006",
+      "tags": [
+          "Japan Pro Tour"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -33339,7 +33339,7 @@
       "hand": 80,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 83.67,
+      "mra": 75.93,
       "weight": 1785,
       "name": "Mercedes-Benz SL 500",
       "rid": "Mercedes-Benz_SL_500_2016",
@@ -46480,6 +46480,36 @@
   {
       "class": "C",
       "rq": 49,
+      "onlyName": "164 Q4",
+      "brand": "Alfa Romeo",
+      "year": 1994,
+      "tdid": "3577",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "IT",
+      "topSpeed": 149,
+      "acel": 7,
+      "hand": 81,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 55.12,
+      "weight": 1680,
+      "name": "Alfa Romeo 164 Q4",
+      "rid": "Alfa_Romeo_164_Q4_1994",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 49,
       "onlyName": "VX220",
       "brand": "Vauxhall",
       "country": "GB",
@@ -48411,36 +48441,6 @@
   {
       "class": "C",
       "rq": 48,
-      "onlyName": "164 Q4",
-      "brand": "Alfa Romeo",
-      "year": 1994,
-      "tdid": "3577",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "country": "IT",
-      "topSpeed": 149,
-      "acel": 7,
-      "hand": 81,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 55.12,
-      "weight": 1680,
-      "name": "Alfa Romeo 164 Q4",
-      "rid": "Alfa_Romeo_164_Q4_1994",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 48,
       "onlyName": "530d",
       "brand": "BMW",
       "year": 2000,
@@ -48466,6 +48466,37 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "124 Abarth Rally",
+      "brand": "Fiat",
+      "year": 1972,
+      "tdid": "3820",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 118,
+      "acel": 7.8,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Off-road",
+      "mra": 53.5,
+      "weight": 938,
+      "name": "Fiat 124 Abarth Rally",
+      "rid": "Fiat_124_Abarth_Rally_1972",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Motorsport"
       ]
   },
   {
@@ -49795,37 +49826,6 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 47,
-      "onlyName": "124 Abarth Rally",
-      "brand": "Fiat",
-      "year": 1972,
-      "tdid": "3820",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 118,
-      "acel": 7.8,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Off-road",
-      "mra": 53.5,
-      "weight": 938,
-      "name": "Fiat 124 Abarth Rally",
-      "rid": "Fiat_124_Abarth_Rally_1972",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising",
-          "Motorsport"
       ]
   },
   {
@@ -58894,7 +58894,7 @@
       "hand": 71,
       "drive": "4WD",
       "tyres": "Standard",
-      "mra": 48.46,
+      "mra": 47.52,
       "weight": 1140,
       "name": "Audi 80 1.8 E quattro (B3)",
       "rid": "Audi_80_18_E_quattro_B3_1987",
@@ -70049,36 +70049,6 @@
   {
       "class": "D",
       "rq": 33,
-      "onlyName": "Abarth 500 Esseesse",
-      "brand": "Fiat",
-      "year": 2008,
-      "tdid": "3828",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 131,
-      "acel": 7,
-      "hand": 77,
-      "drive": "FWD",
-      "tyres": "Performance",
-      "mra": 44.3,
-      "weight": 1065,
-      "name": "Fiat Abarth 500 Esseesse",
-      "rid": "Fiat_Abarth_500_Esseesse_2008",
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "D",
-      "rq": 33,
       "onlyName": "Abarth 500C Esseesse",
       "brand": "Fiat",
       "year": 2010,
@@ -70322,6 +70292,36 @@
       "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 32,
+      "onlyName": "Abarth 500 Esseesse",
+      "brand": "Fiat",
+      "year": 2008,
+      "tdid": "3828",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 131,
+      "acel": 7,
+      "hand": 77,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": 44.3,
+      "weight": 1065,
+      "name": "Fiat Abarth 500 Esseesse",
+      "rid": "Fiat_Abarth_500_Esseesse_2008",
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "D",
