@@ -38180,6 +38180,36 @@
   {
       "class": "B",
       "rq": 57,
+      "onlyName": "A3 Saloon 2.0 TDI quattro (8V)",
+      "brand": "Audi",
+      "year": 2018,
+      "tdid": "3741",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 137,
+      "acel": 7.5,
+      "hand": 76,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 47.62,
+      "weight": 1470,
+      "name": "Audi A3 Saloon 2.0 TDI quattro (8V)",
+      "rid": "Audi_A3_Saloon_20_TDI_quattro_8V_2018",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "B",
+      "rq": 57,
       "onlyName": "V70 R",
       "brand": "Volvo",
       "country": "SE",
@@ -38980,36 +39010,6 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 56,
-      "onlyName": "A3 Saloon 2.0 TDI quattro (8V)",
-      "brand": "Audi",
-      "year": 2018,
-      "tdid": "3741",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 137,
-      "acel": 7.5,
-      "hand": 76,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 47.62,
-      "weight": 1470,
-      "name": "Audi A3 Saloon 2.0 TDI quattro (8V)",
-      "rid": "Audi_A3_Saloon_20_TDI_quattro_8V_2018",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
   },
   {
       "class": "B",
