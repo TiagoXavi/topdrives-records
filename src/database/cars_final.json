@@ -5087,7 +5087,7 @@
       "hand": 94,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
+      "mra": 96.77,
       "weight": 665,
       "name": "Lancia LC1 Spider",
       "rid": "Lancia_LC1_Spider_1982",
@@ -18909,7 +18909,7 @@
           "French Renaissance"
       ],
       "bodyTypes": [
-          "Saloon"
+          "Estate"
       ],
       "fuel": "Hybrid",
       "seats": "5",
@@ -23554,7 +23554,7 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -93391,36 +93391,6 @@
   {
       "class": "F",
       "rq": 16,
-      "onlyName": "2600 Sprint",
-      "brand": "Alfa Romeo",
-      "year": 1962,
-      "tdid": "3551",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 120,
-      "acel": 9.2,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 42.24,
-      "weight": 1277,
-      "name": "Alfa Romeo 2600 Sprint",
-      "rid": "Alfa_Romeo_2600_Sprint_1962",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "F",
-      "rq": 16,
       "onlyName": "100 Avant (C2)",
       "brand": "Audi",
       "year": 1977,
@@ -93661,6 +93631,36 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 15,
+      "onlyName": "2600 Sprint",
+      "brand": "Alfa Romeo",
+      "year": 1962,
+      "tdid": "3551",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 120,
+      "acel": 9.2,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 42.24,
+      "weight": 1277,
+      "name": "Alfa Romeo 2600 Sprint",
+      "rid": "Alfa_Romeo_2600_Sprint_1962",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
   },
   {
       "class": "F",
