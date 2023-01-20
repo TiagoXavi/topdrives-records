@@ -216,7 +216,7 @@
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div v-if="cgRound.creator">
+                <div v-if="cgRound.creator && cgRound.lastAnalyze">
                   <span class="Main_SearchResultUserBy Cg_Creator">by&nbsp;</span>
                   <span
                     :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
@@ -1588,7 +1588,7 @@
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
               </div>
-              <span v-if="item.creator" class="Main_RoundDoneCreator">
+              <span v-if="item.creator && item.lastAnalyze" class="Main_RoundDoneCreator">
                 <span class="Main_SearchResultUserBy Cg_Creator">by&nbsp;</span>
                 <span
                   :class="`Main_UserT${highlightsUsers[item.creator]}`"
