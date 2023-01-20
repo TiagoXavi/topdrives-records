@@ -37,9 +37,8 @@ export default new Vuex.Store({
       active: false
     },
     filter: {},
-    user: {
-      iniciais: "a"
-    },
+    user: null,
+    asMod: false,
     userLoading: false,
     loading: false,
     tabs: [],
@@ -73,6 +72,14 @@ export default new Vuex.Store({
     DEFINE_DIALOG: (state, dialog) => state.mainDialog = dialog,
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
+    CHANGE_USER: (state, item) => {
+      state.user = item.user,
+      state.asMod = item.asMod
+    },
+    LOGOUT: (state, item) => {
+      state.user = null,
+      state.asMod = false
+    },
     CHANGE_TIME: (state, obj) => null,
     DELETE_TIME: (state, obj) => null,
     DELETE_TRACK: (state, obj) => null,
@@ -82,6 +89,13 @@ export default new Vuex.Store({
     SHOW_TUNE: (state, obj) => null,
     CHANGE_STAT: (state, obj) => null,
     HOVER_INDEX: (state, obj) => null,
+    AUTH: (state, obj) => null,
+    START_LOGROCKET: (state, obj) => null,
+    REFRESH_LIBRARY: (state, obj) => null,
+    LIBRARY_NEW_DIALOG: (state, obj) => null,
+    KING_EMIT_RIDS: (state, obj) => null,
+    CG_EMIT_RIDS: (state, obj) => null,
+    FILTER_EMIT_RIDS: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

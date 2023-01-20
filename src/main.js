@@ -12,6 +12,7 @@ import Hotjar from 'vue-hotjar';
 
 Vue.config.productionTip = false
 
+window._merge = require('lodash/merge');
 window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
@@ -19,9 +20,7 @@ Vue.use(PortalVue);
 
 
 if (process.env.NODE_ENV === 'production') {
-  // Vue.preUrl = "https://topdrives-records-backend.herokuapp.com";
   Vue.preUrl = "https://api.topdrivesrecords.com";
-  // LogRocket.init('detmgd/topdrives-records');
   Vue.use (Hotjar, {
     id: '3138550'
   })

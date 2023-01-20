@@ -150,6 +150,27 @@ export default {
                 return {}
             }
         },
+        Vue.decodeTdr = function (template) {
+            let carsFromQuery = [];
+            let tracksFromQuery = [];
+
+            template.split("~").map(x => {
+              if (x[0] === "C") {
+                carsFromQuery.push({ // car
+                  rid: decodeURI(x.substr(1))
+                })
+              } else if (x[0] === "T") {
+                carsFromQuery[carsFromQuery.length-1].selectedTune = x.substr(1); // tune last car
+              } else if (x[0] === "K") {
+                tracksFromQuery.push(x.substr(1))
+              }
+            })
+
+            return {
+                tracks: tracksFromQuery,
+                cars: carsFromQuery
+            }
+        },
 
 
         Vue.filter('toTimeString', toTimeString);

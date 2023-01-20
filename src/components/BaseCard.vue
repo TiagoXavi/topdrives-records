@@ -1,10 +1,14 @@
 <template>
-  <div :class="{ BaseCard_LayoutDialog: isDialogBox }" class="BaseCard_Layout">
+  <div
+    :class="{ BaseCard_LayoutDialog: isDialogBox }"
+    :style="`--class-color: ${carClassColor}; --class-color-rgb: ${carClassColorRgb};`"
+    class="BaseCard_Layout">
     <div v-if="fixBack" class="BaseCard_FixBack" />
+    <div v-if="isDialogBox" class="BaseCard_EffectBackGround"></div>
     <div
       class="Car_Header"
       :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading }"
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
+      :style="`${carPhoto};`">
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -154,6 +158,10 @@ export default {
     carClassColor() {
       return Vue.resolveClass(this.car.rq, this.car.class, "color");
     },
+    carClassColorRgb() {
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(this.carClassColor);
+      return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
+    },
     carPhoto() {
       let parsed;
       try {
@@ -278,5 +286,17 @@ export default {
   line-height: 21px;
   border-top-right-radius: 4px;
   padding-right: 1px;
+}
+.BaseCard_EffectBackGround {
+  bottom: -60px;
+  left: -90px;
+  background: radial-gradient(rgba(var(--class-color-rgb),0.5) 0%, rgba(var(--class-color-rgb),0) 60%);
+  position: absolute;
+  pointer-events: none;
+  width: 330px;
+  height: 260px;
+}
+.Row_DialogCardLeft {
+  position: relative;
 }
 </style>

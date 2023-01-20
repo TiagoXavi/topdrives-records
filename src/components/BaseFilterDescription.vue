@@ -37,6 +37,12 @@ export default {
       if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,100]') result.push({ label: "RQ", value: f.rqModel.join("-") });
       if (f.seatsModel && JSON.stringify(f.seatsModel) !== '[1,9]') result.push({ label: "Seats", value: f.seatsModel.join("-") });
 
+      if (f.topSpeedModel && JSON.stringify(f.topSpeedModel) !== '[50,350]') result.push({ label: "TopSpeed", value: f.topSpeedModel.join("-") });
+      if (f.acelModel && JSON.stringify(f.acelModel) !== '[1,40]') result.push({ label: "0-60", value: f.acelModel.join("-") });
+      if (f.handModel && JSON.stringify(f.handModel) !== '[30,110]') result.push({ label: "Handling", value: f.handModel.join("-") });
+      if (f.mraModel && JSON.stringify(f.mraModel) !== '[0,160]') result.push({ label: "MRA", value: f.mraModel.join("-") });
+      if (f.weightModel && JSON.stringify(f.weightModel) !== '[300,7000]') result.push({ label: "Weight", value: f.weightModel.join("-") });
+
       if (f.classesModel && f.classesModel.length > 0) result.push({ label: "Class", value: f.classesModel.join(", ") });
       if (f.tyresModel && f.tyresModel.length > 0) result.push({ label: "Tyre", value: f.tyresModel.join(", ") });
       if (f.drivesModel && f.drivesModel.length > 0) result.push({ label: "Drive", value: f.drivesModel.join(", ") });
@@ -48,22 +54,12 @@ export default {
       if (f.engineModel && f.engineModel.length > 0) result.push({ label: "Engine Pos", value: f.engineModel.join(", ") });
       if (f.tagsModel && f.tagsModel.length > 0) result.push({ label: "Tags", value: f.tagsModel.join(", ") });
       if (f.brandsModel && f.brandsModel.length > 0) result.push({ label: "Brands", value: f.brandsModel.join(", ") });
+      if (f.year2Model && f.year2Model.length > 0) result.push({ label: "Years", value: f.year2Model.join(", ") });
 
       return result;
     }
   },
-  methods: {
-    defaultFilters(type) {
-      if (type === "yearModel") return [1910, 2022];
-      if (type === "rqModel") return [10, 100];
-      if (type === "topSpeedModel") return [50, 350];
-      if (type === "acelModel") return [1.0, 40];
-      if (type === "handModel") return [30, 110];
-      if (type === "mraModel") return [0, 150];
-      if (type === "weightModel") return [300, 7000];
-      if (type === "seatsModel") return [1, 9];
-    },
-  },
+  methods: {},
 }
 </script>
 

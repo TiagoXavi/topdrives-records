@@ -14,7 +14,7 @@
         </clipPath>
       </defs>
     </svg>
-    <span>Discord server</span>
+    <span>Discord</span>
   </a>
 </template>
 

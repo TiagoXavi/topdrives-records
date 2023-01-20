@@ -25,7 +25,8 @@
         :style="`width: calc( var(--fillL) + 30px;`"
         :min="min"
         :max="input1"
-        :step="step" />
+        :step="step"
+        @mousedown="checkMouseDown($event)" />
       <input
         v-model="input1"
         class="BaseDualSlider_Input BaseDualSlider_Max"
@@ -116,6 +117,11 @@ export default {
   methods: {
     update(index, e) {
       console.log(index, e.target.value);
+    },
+    checkMouseDown(e) {
+      if (e.ctrlKey || e.metaKey) {
+        this.$emit("ctrlClick");
+      }
     }
   },
 }

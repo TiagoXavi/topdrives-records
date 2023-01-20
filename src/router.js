@@ -12,6 +12,7 @@ import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
 import MainImportRude from "./components/MainImportRude.vue";
 import MainAnalyseDb from "./components/MainAnalyseDb.vue";
 import MainSwagger from "./components/MainSwagger.vue";
+import MainCharts from "./components/MainCharts.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -92,6 +93,12 @@ const routes = [
     name: 'MainSwagger',
     title: 'MainSwagger',
     component: MainSwagger,
+  },
+  {
+    path: '/charts',
+    name: 'MainCharts',
+    title: 'MainCharts',
+    component: MainCharts,
   },
   {
     path: '/analysedb',

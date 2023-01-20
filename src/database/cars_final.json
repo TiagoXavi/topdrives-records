@@ -3712,36 +3712,6 @@
   {
       "class": "S",
       "rq": 92,
-      "onlyName": "M8 Competition Coupe",
-      "brand": "BMW",
-      "year": 2019,
-      "tdid": "3618",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 190,
-      "acel": 3.1,
-      "hand": 89,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1885,
-      "name": "BMW M8 Competition Coupe",
-      "rid": "BMW_M8_Competition_Coupe_2019",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 92,
       "onlyName": "Huayra Roadster BC",
       "brand": "Pagani",
       "year": 2019,
@@ -3832,6 +3802,36 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 91,
+      "onlyName": "M8 Competition Coupe",
+      "brand": "BMW",
+      "year": 2019,
+      "tdid": "3618",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 190,
+      "acel": 3.1,
+      "hand": 89,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1885,
+      "name": "BMW M8 Competition Coupe",
+      "rid": "BMW_M8_Competition_Coupe_2019",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "S",
@@ -25602,6 +25602,36 @@
   {
       "class": "A",
       "rq": 68,
+      "onlyName": "840d xDrive Convertible",
+      "brand": "BMW",
+      "year": 2019,
+      "tdid": "3656",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 4.8,
+      "hand": 83,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 52.12,
+      "weight": 2105,
+      "name": "BMW 840d xDrive Convertible",
+      "rid": "BMW_840d_xDrive_Convertible_2019",
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "A",
+      "rq": 68,
       "onlyName": "M340d xDrive Saloon",
       "brand": "BMW",
       "year": 2020,
@@ -26980,36 +27010,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "A",
-      "rq": 67,
-      "onlyName": "840d xDrive Convertible",
-      "brand": "BMW",
-      "year": 2019,
-      "tdid": "3656",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 4.8,
-      "hand": 83,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 52.12,
-      "weight": 2105,
-      "name": "BMW 840d xDrive Convertible",
-      "rid": "BMW_840d_xDrive_Convertible_2019",
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Diesel",
-      "seats": "4",
       "engine": "Front",
       "tags": [
           "Enter the Black Forest"
@@ -36096,7 +36096,7 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 155,
-      "acel": 5.1,
+      "acel": 5.0,
       "hand": 80,
       "drive": "4WD",
       "tyres": "Performance",
@@ -44125,7 +44125,7 @@
           "Old Guard"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "4",

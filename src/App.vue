@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import LogRocket from 'logrocket';
+
 export default {
   name: 'App',
   components: {},
@@ -48,7 +50,10 @@ export default {
       animIntro: false,
       animOut: false,
       snackShake: false,
-      shakeTimeout: null
+      shakeTimeout: null,
+      user: null,
+      asMod: false,
+      logRocketInitialized: false,
     }
   },
   watch: {
@@ -109,11 +114,25 @@ export default {
   },
   mounted() {
     let vm = this;
+    this.getUser();
 
     vm.$store.subscribe(mutation => {
+
       if (mutation.type == "DEFINE_SNACK") {
         vm.letSnack(mutation.payload);
       }
+
+      if (mutation.type == "AUTH") {
+        vm.getUser();
+      }
+
+      if (mutation.type == "START_LOGROCKET") {
+        if (!vm.logRocketInitialized && Vue.preUrl.includes('topdrivesrecords')) {
+          vm.logRocketInitialized = true;
+          LogRocket.init('detmgd/topdrives-records');
+        }
+      }
+
     });
 
     // window.addEventListener('scroll', this.scroll);
@@ -170,12 +189,130 @@ export default {
         type: "error"
       });
       console.log(e);
-    }
+    },
+    getUser() {
+      let vm = this;
+      // user
+      axios.get(Vue.preUrl + "/getUser")
+      .then(res => {
+        if (res.data.username) {
+          this.user = res.data;
+          if (this.user && this.user.mod) {
+            window.localStorage.setItem('_md', "t");
+            this.asMod = true;
+          } else {
+            this.asMod = false;
+          }
+
+          LogRocket.identify(res.data.username, {
+            email: res.data.email
+          });
+
+          if (this.$hj) {
+            this.$hj('vpv', res.data.username)
+          }
+
+          if (res.data.auth) {
+            window.localStorage.setItem('auth', res.data.auth);
+          }
+          if (res.data.auth === true) {
+            window.localStorage.removeItem('auth');
+          }
+
+          this.$store.commit("CHANGE_USER", {
+            user: this.user,
+            asMod: this.asMod
+          });
+
+        } else {
+          this.$store.commit("CHANGE_USER", {
+            user: null,
+            asMod: false
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    },
   },
 }
 </script>
 
 <style>
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@300;400;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400;700&family=VT323&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&family=Roboto+Condensed:wght@400;700&display=swap');
+
+* {
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  touch-action: pan-x pan-y;
+
+  /* main */
+  --top-height: 150px;
+  --left-width: 200px;
+  --cell-width: 230px;
+  --cell-height: 35px;
+  --dark-back: 40, 40, 40;
+  --back-h: 360;
+  --back-s: 0%;
+  --back-l: 15%;
+  --d-back: #333;
+  --d-text: #aaa;
+  --d-text-b: #ccc;
+  --d-text-green: 95, 181, 0;
+  --d-text-green-b: 193, 217, 185;
+  --d-text-red: 215, 0, 0;
+  --d-text-red-b: 251, 131, 131;
+  --d-text-yellow: 255, 199, 23;
+
+  /* tracks */
+  --color-dry: 204, 204, 204;
+  --color-wet: 90, 163, 255;
+  --color-dirt: 239, 97, 75;
+  --color-gravel: 197, 177, 120;
+  --color-ice: 112, 215, 255;
+  --color-mixed: 217, 171, 225;
+  --color-sand: 233, 197, 69;
+  --color-snow: 186, 212, 235;
+  --color-grass: 93, 227, 93;
+
+  /* car */
+  --card-stat-back-l: 10%;
+  --card-stat-back-a: 0.2;
+  --card-right-width: 20%;
+  --card-left-width: 11%;
+  --card-top-height: 15%;
+  --card-left-height: 28%;
+  --card-stat-div: 0%;
+  --card-font-size: 12px;
+  --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+
+  --t0: #d7d7d7;
+  --tmod: #bfcd36;
+  --t1: #FFC717;
+  --t2: #8a62eb;
+  --t3: #d93c3e;
+  --t4: #41c3e9;
+  --t5: #45df40;
+
+  font-size: 18px;
+  background-color: var(--d-back);
+  color: var(--d-text);
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
 .App_Layout {
   width: 100%;
   height: 100%;
@@ -359,4 +496,296 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
 #App_PrintContainer.App_PrintContainerShow {
   display: block;
 }
+
+
+
+
+.D_Button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  transition-duration: 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --height: 36px;
+  min-height: var(--height);
+  min-width: 36px;
+  line-height: 1;
+  border-radius: 6px;
+  --back-color: 255, 255, 255;
+  --back-opac: 0.1;
+  --back-opac-foc: 0.3;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  color: var(--d-text-b);
+}
+.D_ButtonDark {
+  background-color: rgba(0,0,0,0.2);
+  font-size: 1em;
+  border-radius: 6px;
+  padding: 0 7px;
+  color: var(--d-text-b);
+}
+.D_ButtonDark2 {
+  background-color: rgba(255,255,255,0.1);
+  --back-opac: 0.2;
+}
+.D_ButtonDarkTransparent {
+  background-color: rgba(255,255,255,0.0);
+  --back-opac: 0.2;
+}
+.D_ButtonBig {
+  padding: 12px 15px;
+}
+.D_Button.focus-visible:not(.D_ButtonNoActive) {
+  outline: none;
+  background-color: rgba(var(--back-color), var(--back-opac-foc));
+}
+.D_ButtonNoActive {
+  outline: none;
+}
+.D_Button.D_ButtonNoActive.focus-visible {
+  background-color: rgba(var(--back-color), 0.3);
+}
+.D_Button:hover:not(.D_ButtonActive):not([disabled]):not(.D_Button_Correct):not(.D_Button_Error) {
+  color: #fffc;
+  background-color: rgba(var(--back-color), var(--back-opac));
+}
+.D_Button:active:not(.D_ButtonNoActive) {
+  transition-duration: 0.0s;
+  background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
+  transform: translateY(3px);
+}
+.D_ButtonLabel {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.D_ButtonActive:not(p) {
+  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+  color: rgb(var(--d-text-green-b));
+  border-radius: 0;
+}
+.D_ButtonActive:hover {
+  background-color: rgba(var(--d-text-green-b), 0.2);
+}
+.D_Button[disabled] {
+  cursor: initial;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.D_Button.D_Button_Loading {
+  position: relative;
+  color: rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+  overflow: hidden;
+  pointer-events: none;
+}
+.D_Button_Loading::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 7px,
+    rgba(255, 199, 23, 1) 0,
+    rgba(255, 199, 23, 1) 14px
+  );
+  animation: Processamento_Loop 0.6s linear infinite;
+  top: 85%;
+}
+@keyframes Processamento_Loop {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+button.D_Button.D_Button_Correct {
+  position: relative;
+  color: transparent;
+  background-color: rgba(var(--d-text-green), 0.2);
+  opacity: 0.6;
+}
+.D_Button_Correct::after {
+  content: "Done!";
+  position: absolute;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(var(--d-text-green));
+}
+button.D_Button.D_Button_Error {
+  position: relative;
+  color: transparent;
+  background-color: rgba(var(--d-text-red), 0.2);
+  opacity: 0.6;
+}
+.D_Button_Error::after {
+  content: "Error";
+  position: absolute;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(var(--d-text-red));
+}
+.D_ButtonLink {
+  color: var(--d-text);
+  padding: 0;
+  height: auto;
+  min-height: auto;
+  width: auto;
+  min-width: auto;
+}
+.D_ButtonIcon {
+  margin-right: 5px;
+}
+.D_ButtonIconRight {
+  margin-left: 5px;
+}
+.D_ButtonNote {
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  font-size: 9px;
+  background-color: #bd0000;
+  color: white;
+  border-radius: 3px;
+  padding: 2px;
+  padding-right: 2.5px;
+}
+.D_ButtonDarkPrimary {
+  --btn-h: 46;
+  --btn-s: 95%;
+  --btn-l: 54%;
+  background-color: hsl(var(--btn-h), var(--btn-s), var(--btn-l));
+  color: black;
+}
+.D_ButtonDarkPrimary.focus-visible:not(.D_ButtonNoActive) {
+  outline: none;
+  background-color: hsl(var(--btn-h), var(--btn-s), 40%);
+  color: black;
+}
+.D_ButtonDarkPrimary:hover:not(.D_ButtonActive):not([disabled]) {
+  background-color: hsl(var(--btn-h), var(--btn-s), 40%);
+  color: black;
+}
+.D_Button.D_ButtonRed {
+  --back-color: 200,0,0;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(150,0,0,1);
+}
+.D_Button.D_ButtonGreen {
+  --back-color: 0,200,0;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(0,150,0,1);
+}
+
+
+.D_Link {
+  text-decoration: none;
+  color: var(--d-text);
+  padding: 5px 6px;
+  border-radius: 5px;
+  transition-duration: 0.1s;
+}
+.D_Link:hover,
+.D_Link.focus-visible {
+  outline: none;
+  background-color: rgba(255,255,255,0.06);
+}
+.D_LinkPlus {
+  background-color: rgba(255,255,255,0.03);
+}
+.D_LinkUnder {
+  color: inherit;
+  text-decoration: revert;
+  padding: 0px;
+}
+.add {
+  color: #fff2;
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+}
+.D_SearchInput {
+  width: 100%;
+  background-color: #222;
+  border: none;
+  padding: 25px;
+  padding-right: 45px;
+  box-sizing: border-box;
+  color: #ccc;
+  --back-h: 0;
+  --back-s: 0%;
+  --back-l: 35%;
+  box-shadow: inset 0px 0px 0px 3px hsl(var(--back-h), var(--back-s), var(--back-l));
+  transition-duration: 0.2s;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+.D_SearchInput.focus-visible {
+  outline: none;
+  --back-h: 203;
+  --back-s: 60%;
+  --back-l: 55%;
+  background-color: #102e40;
+  color: #fff;
+}
+.D_SearchInput::placeholder {
+  color: #fff3;
+}
+.D_SearchInputClose {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+.D_SearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
+  transform: translateY(-42%);
+}
+
+.Main_SearchEmpty::-webkit-scrollbar,
+.Main_SearchMid::-webkit-scrollbar,
+.Main_DarkScroll::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 18px;
+}
+.Main_SearchEmpty::-webkit-scrollbar-track,
+.Main_SearchMid::-webkit-scrollbar-track,
+.Main_DarkScroll::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background-color: #0002;
+}
+.Main_SearchEmpty::-webkit-scrollbar-thumb,
+.Main_SearchMid::-webkit-scrollbar-thumb,
+.Main_DarkScroll::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+.Main_SearchEmpty::-webkit-scrollbar-corner,
+.Main_SearchMid::-webkit-scrollbar-corner,
+.Main_DarkScroll::-webkit-scrollbar-corner,
+textarea::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner {
+  background-color: #222;
+}
+
+
+
 </style>

@@ -120,6 +120,8 @@ export default {
   display: none;
   transition-duration: 0.1s;
   opacity: 0;
+  top: 0;
+  left: 0;
 }
 .BaseDialog_PreActive {
   display: block;

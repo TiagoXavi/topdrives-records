@@ -125,6 +125,8 @@ export default {
             text: "You logged in"
           });
 
+          this.$store.commit("AUTH", {});
+
           if (vm.wrap) {
             vm.$emit('success');
           } else {

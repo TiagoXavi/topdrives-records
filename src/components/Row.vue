@@ -874,6 +874,9 @@ export default {
 .Main_2 .Row_Hover {
   /* z-index: 20; */
 }
+.Main_2 .Row_Tracks .Row_Hover {
+  z-index: 1;
+}
 .Row_Content {
   text-align: center;
   width: 100%;
@@ -1289,7 +1292,7 @@ export default {
 .D_Button.Row_ShowMoreButton {
   padding: 8px !important;
   color: #777;
-  opacity: 0;
+  opacity: 0.4;
   transition-duration: 0.1s;
 }
 .Car_Layout:hover .Row_ShowMoreButton,

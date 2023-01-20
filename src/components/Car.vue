@@ -245,6 +245,8 @@ export default {
   /* margin-right: 3px; */
   transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
   position: relative;
+  height: min-content;
+  pointer-events: auto;
 }
 .Car_WithMidEmpty {
   position: absolute;
@@ -635,7 +637,7 @@ export default {
   flex-direction: column;
 }
 .Main_2 .Main_Body .Car_Layout {
-  width: unset;
+  width: min-content;
   display: flex;
 }
 .Main_2 .Main_Body .Car_Header:not(.Car_AddHeader) {
