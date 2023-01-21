@@ -61427,36 +61427,6 @@
   {
       "class": "D",
       "rq": 39,
-      "onlyName": "528i",
-      "brand": "BMW",
-      "year": 1981,
-      "tdid": "3681",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 132,
-      "acel": 7.3,
-      "hand": 70,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 47.1,
-      "weight": 1300,
-      "name": "BMW 528i",
-      "rid": "BMW_528i_1981",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
-      ]
-  },
-  {
-      "class": "D",
-      "rq": 39,
       "onlyName": "Formula 4",
       "brand": "Fiat",
       "year": 1996,
@@ -62171,6 +62141,36 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 38,
+      "onlyName": "528i",
+      "brand": "BMW",
+      "year": 1981,
+      "tdid": "3681",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 132,
+      "acel": 7.3,
+      "hand": 70,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 47.1,
+      "weight": 1300,
+      "name": "BMW 528i",
+      "rid": "BMW_528i_1981",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
   },
   {
       "class": "D",

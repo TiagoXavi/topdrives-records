@@ -289,7 +289,14 @@ export default {
         })
       })
 
+      var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
       this.highchartsConfig = {
+        boost: {
+          seriesThreshold: series.length,
+          useGPUTranslations: true,
+          usePreAllocated: true
+        },
         chart: {
           type: "scatter",
         },
@@ -298,9 +305,11 @@ export default {
         },
         series,
         yAxis: {
+          min: 0,
+          max: 110,
           allowDecimals: false,
           labels: {
-              format: 'RQ{text}'
+            format: 'RQ{text}'
           },
         },
         xAxis: {
@@ -308,14 +317,28 @@ export default {
           allowDecimals: false,
           labels: {
             format: '{text}s'
+          },
         },
-        }
+        tooltip: {
+          snap: supportsTouch ? 50 : 10
+        },
+        plotOptions: {
+          series: {
+            stickyTracking: true
+          },
+          scatter: {
+            boostThreshold: 1000
+          }
+        },
       }
 
     },
     detailClick(e) {
-      let url = `https://www.topdrivesrecords.com?share=~K${this.chartTrack.code}~C${e.custom.rid}~T${e.custom.tune}`
-      window.open(url, '_blank').focus();
+      var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+      if (!supportsTouch) {
+        let url = `https://www.topdrivesrecords.com?share=~K${this.chartTrack.code}~C${e.custom.rid}~T${e.custom.tune}`
+        window.open(url, '_blank').focus();
+      }
     }
   },
 }

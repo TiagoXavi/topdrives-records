@@ -88,6 +88,7 @@ export default {
         chart: {
           type: 'spline',
           zoomType: 'x',
+          pinchType : 'xy',
           reflow: false,
           events: {
             load: function (event) {
@@ -201,7 +202,7 @@ export default {
                 }
               }
             },
-            stickyTracking: false,
+            // stickyTracking: false,
             events: {
               click: function (event) {
                 _this.$emit('detail', event.point);

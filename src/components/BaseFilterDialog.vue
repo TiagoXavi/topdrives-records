@@ -9,7 +9,7 @@
         <div v-if="!isFiltering && !filterOnly" class="Main_SearchFieldBox">
           <input
             v-model="searchInput"
-            id="SearchInput"
+            :id="`SearchInput${id}`"
             placeholder="Search"
             class="D_SearchInput data-hj-allow"
             type="text"
@@ -315,6 +315,8 @@ import BaseFlag from './BaseFlag.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseGalleryItem from './BaseGalleryItem.vue'
 
+var id = 0;
+
 export default {
   name: 'BaseFilterDialog',
   components: {
@@ -392,6 +394,7 @@ export default {
   },
   data() {
     return {
+      id: 0,
       loading: false,
       loadingShowMore: false,
       firstTimeOpen: true,
@@ -616,6 +619,8 @@ export default {
   },
   beforeMount() {
     this.clearFilter('searchFilters');
+    id++;
+    this.id = id;
 
   },
   mounted() {
@@ -649,7 +654,7 @@ export default {
         }
         let rqMax = mutation.payload.rqMax || 100;
         let rqMin = mutation.payload.rqMin || 10;
-        let total = mutation.payload.total || 1001;
+        let total = mutation.payload.total || 5000;
         let listOfRids = [];
         vm.all_cars.map((x, ix) => {
           if (x.rq > rqMax || x.rq < rqMin) return;
@@ -681,7 +686,7 @@ export default {
       if (!this.filterOnly) {
         setTimeout(() => {
           try {
-            document.querySelector("#SearchInput").focus();  
+            document.querySelector(`#SearchInput${this.id}`).focus();  
           } catch (error) {}
         }, 10);
       }
