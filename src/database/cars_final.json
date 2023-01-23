@@ -31520,6 +31520,36 @@
   {
       "class": "B",
       "rq": 63,
+      "onlyName": "420i xDrive Coupe",
+      "brand": "BMW",
+      "year": 2020,
+      "tdid": "3638",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 148,
+      "acel": 7.4,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 61.26,
+      "weight": 1665,
+      "name": "BMW 420i xDrive Coupe",
+      "rid": "BMW_420i_xDrive_Coupe_2020",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest"
+      ]
+  },
+  {
+      "class": "B",
+      "rq": 63,
       "onlyName": "S5 Cabriolet (B8)",
       "brand": "Audi",
       "year": 2013,
@@ -32790,36 +32820,6 @@
       "tags": [
           "Enter the Black Forest",
           "Eco Friendly"
-      ]
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "420i xDrive Coupe",
-      "brand": "BMW",
-      "year": 2020,
-      "tdid": "3638",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 148,
-      "acel": 7.4,
-      "hand": 80,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 61.26,
-      "weight": 1665,
-      "name": "BMW 420i xDrive Coupe",
-      "rid": "BMW_420i_xDrive_Coupe_2020",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest"
       ]
   },
   {
@@ -36355,7 +36355,7 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Roadster"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "2",

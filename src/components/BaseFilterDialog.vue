@@ -378,6 +378,10 @@ export default {
       type: Boolean,
       default: false
     },
+    libraryApprove: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: "classic"
@@ -628,6 +632,11 @@ export default {
     this.debounceFilter = Vue.debounce(this.changeFilter, 500);
     this.user = this.$store.state.user;
 
+    if (this.libraryApprove) {
+      debugger;
+      this.searchFilters["approveModel"] = true;
+    }
+
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
       if (mutation.type == "CHANGE_USER") {
@@ -690,7 +699,9 @@ export default {
           } catch (error) {}
         }, 10);
       }
-      document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
+      setTimeout(() => {
+        document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
+      }, 10);
 
     },
     closeDialogSearch() {
@@ -859,6 +870,7 @@ export default {
       else this.loadingShowMore = true;
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let clearFilters = this.resolveFilterCount();
+      
 
       let params = {
         input: searchStr
