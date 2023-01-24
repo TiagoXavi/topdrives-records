@@ -629,6 +629,11 @@ export default {
 .Car_CompactOverlay {
   display: none;
 }
+.Car_LayoutAddCar {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
 
 
 

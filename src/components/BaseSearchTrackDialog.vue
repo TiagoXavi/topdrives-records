@@ -72,7 +72,13 @@ export default {
       tracksRepo,
     }
   },
-  watch: {},
+  watch: {
+    active: function() {
+      if (this.active) {
+        this.searchTracks = '';
+      }
+    },
+  },
   beforeMount() {},
   mounted() {},
   computed: {
