@@ -11377,7 +11377,7 @@
       "country": "IT",
       "year": 1989,
       "tdid": "1588",
-      "abs": false,
+      "abs": true,
       "tcs": false,
       "clearance": "Mid",
       "topSpeed": 134,
@@ -13570,7 +13570,7 @@
       "hand": 89,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 91.86,
       "weight": 1595,
       "name": "Audi R8 RWD",
       "rid": "Audi_R8_RWD_2020",
@@ -14439,7 +14439,7 @@
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 73.12,
       "weight": 2395,
       "name": "Bentley Continental Supersports Convertible",
       "rid": "Bentley_Continental_Supersports_Convertible_2011",
@@ -72834,7 +72834,7 @@
       "bodyTypes": [
           "Hatchback"
       ],
-      "fuel": "Petrol",
+      "fuel": "Hybrid",
       "seats": "5",
       "engine": "Front"
   },
