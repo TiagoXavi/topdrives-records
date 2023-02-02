@@ -90,6 +90,9 @@
               @change="load($event)">
               <span>Load a translation file</span>
           </label>
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="copy()">Copy to clipboard</button>
         </div>
         <div class="MainTranslate_FooterMessage">After creating translation file, send it to me on TDR Discord</div>
         <BaseDialog
@@ -343,6 +346,14 @@ export default {
       let str = e.target.result;
       let json = JSON.parse(str);
       this.translateObj = json;
+    },
+    copy() {
+      let data = JSON.parse(JSON.stringify(this.translateObj));
+      Object.keys( this.english ).forEach(key => {
+        if (!data[key]) data[key] = null;
+      })
+      
+      navigator.clipboard.writeText(JSON.stringify(data));
     }
   },
 }
