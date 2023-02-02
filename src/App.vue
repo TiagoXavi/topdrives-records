@@ -81,6 +81,11 @@ export default {
   beforeMount() {
     let vm = this;
 
+    let language = window.localStorage.getItem("language");
+    if (language) {
+      this.$i18n.locale = language;
+    }
+
     axios.interceptors.request.use(
       function(config) {
         // Do something before request is sent

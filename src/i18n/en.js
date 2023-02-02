@@ -119,6 +119,7 @@ export default {
   m_saveSuccess: "Successful save",
   m_approveSuccess: "Successful approve",
   m_sentReview: "Submited for review",
+  m_language: "Language",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

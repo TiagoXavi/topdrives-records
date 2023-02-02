@@ -39,6 +39,8 @@
         </button> -->
         <BaseDiscordButton />
         <BaseDonateButton />
+        <BaseLanguageButton />
+
 
         <button
           class="D_Button Main_OptionsButton"
@@ -65,13 +67,15 @@
 import BaseDonateButton from './BaseDonateButton.vue'
 import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseUserCard from './BaseUserCard.vue'
+import BaseLanguageButton from './BaseLanguageButton.vue'
 
 export default {
   name: 'BaseMenuFooter',
   components: {
     BaseDonateButton,
     BaseDiscordButton,
-    BaseUserCard
+    BaseUserCard,
+    BaseLanguageButton
   },
   props: {
     user: {

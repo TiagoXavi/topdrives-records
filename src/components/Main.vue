@@ -535,7 +535,7 @@
                         :disabled="cgLoadingAny"
                         :key="index"
                         :class="{
-                          Cg_BankButtonLose: bankCar.points < 0 && race.track && race.car,
+                          Cg_BankButtonLose: bankCar.points <= 0 && race.track && race.car,
                           Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
                           Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
                           Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,

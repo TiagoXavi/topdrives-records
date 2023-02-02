@@ -1,4 +1,5 @@
 import en from "./en.js";
+import sk from "./sk.js";
 
 export default {
   en: {
@@ -10,5 +11,6 @@ export default {
     'c_all-surface2': "ALL",
     'c_off-road2': "OFF",
     c_slick2: "SLK",
-  }
+  },
+  sk
 }

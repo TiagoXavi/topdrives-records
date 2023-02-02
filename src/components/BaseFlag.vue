@@ -26,7 +26,9 @@ export default {
     flagSrc() {
       let parsed;
       let flag = this.flag;
-      if (flag === "GB") flag = "GB";
+
+      if (flag === "EN") flag = "US";
+
       try {
         parsed = require('@/assets/flags/' + flag.toUpperCase() + '.svg');
       } catch (error) {
