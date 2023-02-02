@@ -11,14 +11,14 @@
         <BaseText
           v-model="username"
           type="normal"
-          :label="$t("m_username")"
+          :label="$t('m_username')"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="email"
           autocomplete="new-email"
           type="normal"
-          :label="$t("m_email")"
+          :label="$t('m_email')"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
@@ -26,14 +26,14 @@
           autocomplete="new-password"
           intype="password"
           type="normal"
-          :label="$t("m_password")"
+          :label="$t('m_password')"
           :placeholder="$t('m_charLeast', { n: 8 })"
           class="Space_Bottom" />
         <BaseText
           v-model="password2"
           intype="password"
           type="normal"
-          :label="$t("m_repeatPassword")"
+          :label="$t('m_repeatPassword')"
           :placeholder="$t('m_charLeast', { n: 8 })"
           class="Space_Bottom" />
       </div>

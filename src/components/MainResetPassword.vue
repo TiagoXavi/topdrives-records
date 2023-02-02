@@ -13,14 +13,14 @@
           v-model="password"
           intype="password"
           type="normal"
-          :label="$t("m_newPassword")"
+          :label="$t('m_newPassword')"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="password2"
           intype="password"
           type="normal"
-          :label="$t("m_repeat")"
+          :label="$t('m_repeat')"
           class="Space_Bottom"
           placeholder="" />
       </div>

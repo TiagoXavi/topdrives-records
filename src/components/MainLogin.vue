@@ -11,14 +11,14 @@
         <BaseText
           v-model="email"
           type="normal"
-          :label="$t("m_email")"
+          :label="$t('m_email')"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="password"
           intype="password"
           type="normal"
-          :label="$t("m_password")"
+          :label="$t('m_password')"
           class="Space_Bottom"
           placeholder="" />
         <div v-if="!wrap" class="TTT_Forgot TTT_ForgotBetween">

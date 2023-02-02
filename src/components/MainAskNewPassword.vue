@@ -12,7 +12,7 @@
         <BaseText
           v-model="email"
           type="normal"
-          :label="$t("m_email")"
+          :label="$t('m_email')"
           class="Space_Bottom"
           placeholder="" />
       </div>
