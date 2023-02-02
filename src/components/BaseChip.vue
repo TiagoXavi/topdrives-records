@@ -3,7 +3,7 @@
     :class="`${isSelected ? activeClass : ''}`"
     class="BaseChip"
     @click="toggle">
-    <span class="BaseChip_Text"><slot>{{ value }}</slot></span>
+    <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
   </button>
 </template>
 
@@ -33,6 +33,10 @@ export default {
     activeClass: {
       type: String,
       default: 'D_ButtonActive'
+    },
+    label: {
+      type: String,
+      default: null
     }
   },
   data() {

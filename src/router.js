@@ -13,6 +13,7 @@ import MainImportRude from "./components/MainImportRude.vue";
 import MainAnalyseDb from "./components/MainAnalyseDb.vue";
 import MainSwagger from "./components/MainSwagger.vue";
 import MainCharts from "./components/MainCharts.vue";
+import MainTranslate from "./components/MainTranslate.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -53,7 +54,7 @@ const routes = [
   //   component: MainConvertCsv,
   // },
   {
-    path: '/extract',
+    path: '/extract', // internal
     name: 'Extract',
     title: 'Extract',
     component: MainExtractTD,
@@ -71,25 +72,25 @@ const routes = [
     component: MainGallery,
   },
   {
-    path: '/MainCarsEdit',
+    path: '/MainCarsEdit', // internal
     name: 'MainCarsEdit',
     title: 'MainCarsEdit',
     component: MainCarsEdit,
   },
   {
-    path: '/validatejson',
+    path: '/validatejson', // internal
     name: 'Validate',
     title: 'Validate',
     component: MainValidateFinalJson,
   },
   {
-    path: '/importrude',
+    path: '/importrude', // internal
     name: 'ImportRude',
     title: 'ImportRude',
     component: MainImportRude,
   },
   {
-    path: '/swagger',
+    path: '/swagger', // internal
     name: 'MainSwagger',
     title: 'MainSwagger',
     component: MainSwagger,
@@ -101,13 +102,19 @@ const routes = [
     component: MainCharts,
   },
   {
-    path: '/analysedb',
+    path: '/translate',
+    name: 'MainTranslate',
+    title: 'MainTranslate',
+    component: MainTranslate,
+  },
+  {
+    path: '/analysedb', // internal
     name: 'AnalyseDb',
     title: 'AnalyseDb',
     component: MainAnalyseDb,
   },
   {
-    path: '/newrq',
+    path: '/newrq', // internal
     name: 'Update RQ',
     title: 'Update RQ',
     component: MainUpdateRqData,

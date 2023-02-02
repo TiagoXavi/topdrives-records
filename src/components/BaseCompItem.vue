@@ -6,20 +6,36 @@
     @click="$emit('edit')">
     <template v-if="!empty">
       <div v-if="comp.meta && comp.meta.length > 0" class="BaseCompItem_Meta">
-        <span>{{ comp.meta.join(", ") }}</span>
+        <span>
+          <template v-for="(item, index) in comp.meta">
+            <template v-if="index !== 0">,&nbsp;</template>
+            <template>{{ $t(`c_${item.toLowerCase()}`) }}</template>
+          </template>
+        </span>
       </div>
       <div class="BaseCompItem_Bottom">
         <div v-if="comp.tyres && comp.tyres.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
-          <div class="BaseCompItem_Label">Tyre</div>
-          <span>{{ resolvedTyres }}</span>
+          <div class="BaseCompItem_Label">{{ $tc("c_tyre", 1) }}</div>
+          <span>
+            <template v-for="(item, index) in comp.tyres">
+              <template v-if="index !== 0">,&nbsp;</template>
+              <template>{{ $t(`c_${item.toLowerCase()}2`) }}</template>
+            </template>
+          </span>
         </div>
         <div v-if="comp.drives && comp.drives.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
+          <div class="BaseCompItem_Label">{{ $tc("c_drive", 1) }}</div>
           <div class="BaseCompItem_Label">Drive</div>
           <span>{{ comp.drives.join(", ") }}</span>
         </div>
         <div v-if="comp.clearance && comp.clearance.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
-          <div class="BaseCompItem_Label">Clearance</div>
-          <span>{{ comp.clearance.join(", ").toUpperCase() }}</span>
+          <div class="BaseCompItem_Label">{{ $tc("c_clearance", 1) }}</div>
+          <span>
+            <template v-for="(item, index) in comp.clearance">
+              <template v-if="index !== 0">,&nbsp;</template>
+              <template>{{ $t(`c_${item.toLowerCase()}`) }}</template>
+            </template>
+          </span>
         </div>
       </div>
     </template>
@@ -68,12 +84,6 @@ export default {
         result = false;
       }
       return result;
-    },
-    resolvedTyres() {
-      if (!this.comp || !this.comp.tyres) return "";
-
-      let result = this.comp.tyres.map(x => Vue.options.filters.convertTires(x))
-      return result.join(", ");
     }
   },
   methods: {},

@@ -7,7 +7,7 @@
             <input
               v-model="searchInput"
               id="SearchInput"
-              placeholder="Search"
+              :placeholder="$t('m_search')"
               class="Main_SearchInput"
               type="text"
               @focus="searchFocus = true;"

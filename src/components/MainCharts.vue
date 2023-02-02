@@ -18,13 +18,13 @@
             class="D_Button Car_AddButton Cg_SelectTrackButton"
             @click="openDialogTrackSearch();">
             <i v-if="chartTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-            <span v-else>Select track</span>
+            <span v-else>{{ $t("m_selectTrack") }}</span>
           </button>
         </div>
       </div>
       <div class="Main_ChartFilter Main_DarkScroll">
         <template v-if="chartFilter">
-          <div class="Cg_ReqsTitle">Filter</div>
+          <div class="Cg_ReqsTitle">{{ $tc("m_filter", 1) }}</div>
           <div class="Cg_Reqs">
             <BaseFilterDescription :filter="chartFilter" />
           </div>
@@ -33,24 +33,24 @@
           <button
             :disabled="chartLoading"
             class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
-            @click="openChartOfDialog()">{{ chartFilter ? 'Change' : 'Requirements' }}</button>
+            @click="openChartOfDialog()">{{ chartFilter ? $t("m_change") : $t("m_requirements") }}</button>
         </div>
       </div>
       <div v-if="!user || !user.tier || user.tier > 2" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-        <span>This feature is available for patrons only (Tier 2).<br>It put all database of a track into a chart. <a class="D_Link D_LinkUnder" target="_blank" href="https://youtu.be/xwMB8BGM2JM">Youtube</a> for a demonstration</span>
+        <span>{{ $t("p_patronsOnly", { tier: 2 }) }}<br>{{ $t("p_chartsDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/xwMB8BGM2JM'>Youtube</a></span>
       </div>
       <BaseConfigCheckBox
         v-model="chartShowDownvoted"
         style="margin-top: 17px;"
         class="Main_ChartTrackBox"
         name="chartShowDownvoted"
-        label="Includes times with downvote?" />
+        :label="$t('m_includeDownvote')" />
       <button
         v-if="user && user.tier <= 2"
         :class="{ D_Button_Loading: chartLoading }"
         :disabled="chartLoading || !chartTrack"
         class="D_Button Main_SaveAllButton Main_ChartAnalyzeButton"
-        @click="chartAnalyse()">Load chart</button>
+        @click="chartAnalyse()">{{ $t("m_loadChart") }}</button>
     </div>
     <div v-if="highchartsConfig.chart" class="MainCharts_Body">
       <Highcharts
@@ -211,7 +211,7 @@ export default {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             error: true,
-            text: "No times found",
+            text: this.$t('m_noTimesFound'),
             type: "error"
           });
         }
@@ -324,7 +324,7 @@ export default {
         },
         plotOptions: {
           series: {
-            stickyTracking: true
+            stickyTracking: supportsTouch ? true : false
           },
           scatter: {
             boostThreshold: 1000

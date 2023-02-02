@@ -11,14 +11,14 @@
         <BaseText
           v-model="username"
           type="normal"
-          label="Username"
+          :label="$t("m_username")"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="email"
           autocomplete="new-email"
           type="normal"
-          label="Email"
+          :label="$t("m_email")"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
@@ -26,38 +26,38 @@
           autocomplete="new-password"
           intype="password"
           type="normal"
-          label="Password"
-          class="Space_Bottom"
-          placeholder="8 char at least" />
+          :label="$t("m_password")"
+          :placeholder="$t('m_charLeast', { n: 8 })"
+          class="Space_Bottom" />
         <BaseText
           v-model="password2"
           intype="password"
           type="normal"
-          label="Repeat password"
-          class="Space_Bottom"
-          placeholder="8 char at least" />
+          :label="$t("m_repeatPassword")"
+          :placeholder="$t('m_charLeast', { n: 8 })"
+          class="Space_Bottom" />
       </div>
       <div class="TTT_Bottom">
         <button
           :class="{ D_Button_Loading: loading, D_Button_Error: input_error }"
           :disabled="loading || input_error"
           class="D_Button D_ButtonDark TTT_Button"
-          @click="validate()">Register</button>
-        <div class="TTT_Tip">Confirmation email will be sent</div>
+          @click="validate()">{{ $t("m_register") }}</button>
+        <div class="TTT_Tip">{{ $t("p_confirmationWillSent") }}</div>
         <router-link
           :to="{ name: 'Records' }"
           style="font-size: 14px;"
-          class="D_Link Space_Top">Cancel</router-link>
+          class="D_Link Space_Top">{{ $t("m_cancel") }}</router-link>
       </div>
     </div>
     <div v-else class="TTT_Finished">
-      <div class="TTT_FinishedText">Almost done!</div>
-      <div class="TTT_FinishedSub">Please, check your email box</div>
-      <div class="TTT_Tip2">spam box too!</div>
+      <div class="TTT_FinishedText">{{ $t("m_allmostDone") }}!</div>
+      <div class="TTT_FinishedSub">{{ $t("p_checkYourEmailBox") }}</div>
+      <div class="TTT_Tip2">{{ $t("p_spamToo") }}</div>
       <router-link
         :to="{ name: 'Records' }"
         style="font-size: 14px;"
-        class="D_Link D_LinkPlus Space_Top">Back to home</router-link>
+        class="D_Link D_LinkPlus Space_Top">{{ $t("m_backHome") }}</router-link>
     </div>
   </div>
 </template>

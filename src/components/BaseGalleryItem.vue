@@ -8,7 +8,7 @@
           </div>
           <div v-if="moreThanNineCars" class="BaseGalleryItem_PlusCars">+{{ config.cars.length - 7 }}</div>
         </div>
-        <div class="BaseGalleryItem_Author">{{ config.type }} | by <span class="BaseGalleryItem_AuthorValue">{{ config.user }}</span></div>
+        <div class="BaseGalleryItem_Author">{{ $t(`m_${config.type.toLowerCase()}`) }} | {{ $t(`m_by`) }} <span class="BaseGalleryItem_AuthorValue">{{ config.user }}</span></div>
       </div>
       <div class="BaseGalleryItem_Mid">
         <div class="BaseGalleryItem_MidLeft">
@@ -17,29 +17,29 @@
           <div class="BaseGalleryItem_TagsDuo">
             <div class="BaseGalleryItem_Tags">
               <div v-if="config.tyre" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Tyre</div>
-                <div v-for="tyre in config.tyre" class="BaseGalleryItem_TagValue">{{ tyre | convertTires }}</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_tyre", 1) }}</div>
+                <div v-for="tyre in config.tyre" class="BaseGalleryItem_TagValue">{{ $t(`c_${tyre.toLowerCase()}2`) }}</div>
               </div>
               <div v-if="config.drive" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Drive</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_drive", 1) }}</div>
                 <div v-for="drive in config.drive" class="BaseGalleryItem_TagValue">{{ drive.toUpperCase() }}</div>
               </div>
               <div v-if="config.clearance" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Clearance</div>
-                <div v-for="clearance in config.clearance" class="BaseGalleryItem_TagValue">{{ clearance.toUpperCase() }}</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_clearance", 1) }}</div>
+                <div v-for="clearance in config.clearance" class="BaseGalleryItem_TagValue">{{ $t(`c_${clearance.toLowerCase()}`) }}</div>
               </div>
             </div>
             <div class="BaseGalleryItem_Tags2">
               <div v-if="config.country" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Country</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_country", 1) }}</div>
                 <div v-for="country in config.country" class="BaseGalleryItem_TagValue">{{ country }}</div>
               </div>
               <div v-if="config.brand" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Brand</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_brand", 1) }}</div>
                 <div v-for="brand in config.brand" class="BaseGalleryItem_TagValue">{{ brand }}</div>
               </div>
               <div v-if="config.tag" class="BaseGalleryItem_TagBox">
-                <div class="BaseGalleryItem_TagLabel">Tags</div>
+                <div class="BaseGalleryItem_TagLabel">{{ $tc("c_tag", 1) }}</div>
                 <div v-for="tag in config.tag" class="BaseGalleryItem_TagValue">{{ tag }}</div>
               </div>
             </div>
@@ -62,14 +62,14 @@
       v-if="showDelete"
       class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed Row_UploadButton BaseGalleryItem_Delete"
       @click.stop="$emit('delete', config)">
-      <span class="Row_UploadLabel">Delete</span>
+      <span class="Row_UploadLabel">{{ $t("m_delete") }}</span>
     </button>
     <button
       v-if="showApprove"
       style="right: unset; left: 0;"
       class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen Row_UploadButton BaseGalleryItem_Delete"
       @click.stop="$emit('approve', config)">
-      <span class="Row_UploadLabel">Approve</span>
+      <span class="Row_UploadLabel">{{ $t("m_approve") }}</span>
     </button>
   </div>
 </template>

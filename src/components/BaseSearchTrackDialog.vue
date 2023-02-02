@@ -13,7 +13,7 @@
           <input
             v-model="searchTracks"
             id="SearchTrackInput"
-            placeholder="Search tracks"
+            :placeholder="$t('m_searchTracks')"
             class="D_SearchInput Track_SearchInput data-hj-allow"
             type="text" />
           <button
@@ -27,7 +27,7 @@
           v-for="(circuit, index) in filteredTracks"
           class="Main_CustomTrackItem" :key="index">
           <div class="Main_CustomTrackLeft">
-            <div class="Main_CustomTrackName">{{ circuit.name }}</div>
+            <div class="Main_CustomTrackName">{{ $t('t_'+circuit.id) }}</div>
           </div>
           <div class="Main_CustomTrackRight">
             <template>
@@ -83,6 +83,7 @@ export default {
   mounted() {},
   computed: {
     filteredTracks() {
+      let vm = this;
       let filteredTracks = this.tracksRepo;
       let conds = ["dry", "wet", "dirt", "gravel", "ice", "sand", "snow", "grass"];
       let input = this.searchTracks.toLowerCase();
@@ -138,7 +139,7 @@ export default {
       }
       if (tracksInput.length > 0) {
         filteredTracks = filteredTracks.filter(x => {
-          return x.name.toLowerCase().includes(tracksInput.join(" "));
+          return vm.$t('t_'+x.id).toLowerCase().includes(tracksInput.join(" "));
         });
       }
       

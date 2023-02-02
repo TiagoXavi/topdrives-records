@@ -1,19 +1,19 @@
 <template>
   <div class="TTT_Layout">
     <div class="TTT_Box MainTemplateGuidelines_Box">
-      <div class="MainTemplateGuidelines_Title">Template Guidelines</div>
-      <div class="MainTemplateGuidelines_Sub">Join the TDR Discord server to talk about improvement of your template or why your template has been declined.</div>
+      <div class="MainTemplateGuidelines_Title">{{ $t("m_templateGuide") }}</div>
+      <div class="MainTemplateGuidelines_Sub">{{ $t("g_joinDiscord") }}</div>
       <ol>
-        <li class="MainTemplateGuidelines_Topic">Your template should have a context for cars that make sense. Like same tag, same country, same tires, same brand, same class... Or any context like Hutch does as requirements for events/challenges.</li>
-        <li class="MainTemplateGuidelines_Topic">You should put all cars available for that context or at least try to add all. Don't put only cars that you have.</li>
-        <li class="MainTemplateGuidelines_Topic">The template should compare cars with similar stats. Don't make sense comparing a RWD Perf with 4WD All-surface on dry asphalt tracks.</li>
-        <li class="MainTemplateGuidelines_Topic">Only mix on road tracks with off road tracks if there is a reason for that.</li>
-        <li class="MainTemplateGuidelines_Topic">Don't need to put all tracks available in the game. The app will have performance issues.</li>
-        <li class="MainTemplateGuidelines_Topic">Try to sort tracks by type like grouping drag tracks and same surface tracks.</li>
-        <li class="MainTemplateGuidelines_Topic">Try to sort cars by RQ (high first) or by performance on selected tracks.</li>
-        <li class="MainTemplateGuidelines_Topic">The template don't need to have all times filled, but you could fill what you can before submit.</li>
-        <li class="MainTemplateGuidelines_Topic">Use a descriptive title.</li>
-        <li class="MainTemplateGuidelines_Topic">Take a look if already exists a template for the same purpose as yours.</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule0") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule1") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule2") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule3") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule4") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule5") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule6") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule7") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule8") }}</li>
+        <li class="MainTemplateGuidelines_Topic">{{ $t("g_rule9") }}</li>
       </ol>
     </div>
   </div>

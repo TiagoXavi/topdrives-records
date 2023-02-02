@@ -26,7 +26,7 @@
           </button>
         </div>
         <div v-if="user && inverted" class="Main_PrintBy">
-          <div class="Main_PrintByLabel">print by</div>
+          <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
           <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
         </div>
         <div class="Main_GamePrintInfo">
@@ -40,7 +40,7 @@
               <div class="Main_SaveAllBox">
                 <button
                   class="D_Button Main_LoginToEdit"
-                  @click="$router.push({ name: 'Login' })">Login</button>
+                  @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
               </div>
             </template>
             <template v-else-if="!!user && isImport">
@@ -56,11 +56,11 @@
                 <button
                   :class="{ D_Button_Loading: saveLoading }"
                   class="D_Button Main_SaveAllButton"
-                  @click="saveAll()">Save</button>
+                  @click="saveAll()">{{ $t("m_save") }}</button>
               </div>
             </template>
             <div v-if="user && !inverted" class="Main_PrintBy">
-              <div class="Main_PrintByLabel">print by</div>
+              <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
               <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
             </div>
           </div>
@@ -88,7 +88,7 @@
               v-if="smartCampaign.length > 0"
               style="opacity: 1;"
               class="D_Button D_ButtonLink Row_ShowMoreButton"
-              @click="campaignDialog = true;">Campaign</button>
+              @click="campaignDialog = true;">{{ $t("m_campaign") }}</button>
           </div>
         </div>
         <div v-if="user && !inverted" class="Main_UserBottom">
@@ -132,7 +132,7 @@
         </div>
         
         <div class="Main_PrintCreditsBottom" :style="`--number-cars: ${carDetailsList.length}; --number-tracks: ${currentTracks.length}`">
-          <span style="color: #7c7c7c; margin-right: 3px;">Contributors: </span>
+          <span style="color: #7c7c7c; margin-right: 3px;">{{ $t("m_contributors") }}: </span>
           <template
             v-for="(username, i) in contributorsList">
             <template v-if="i > 0">, </template>
@@ -147,7 +147,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
               @click="librarySearchDialog = true;">
               <i class="ticon-dash Main_EmptyAddIcon" aria-hidden="true"/>
-              <div class="Main_EmptyAdd">Library</div>
+              <div class="Main_EmptyAdd">{{ $t("m_library") }}</div>
             </button>
           </div>
           <div class="Main_MidEmptyItem Main_MidEmptyItemAdd">
@@ -155,7 +155,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2 Main_MidEmptyButtonSearch"
               @click="searchFilterDialog = true;">
               <i class="ticon-plus_2 Main_EmptyAddIcon" aria-hidden="true"/>
-              <div class="Main_EmptyAdd">Search car</div>
+              <div class="Main_EmptyAdd">{{ $t("m_searchCar") }}</div>
             </button>
           </div>
         </div>
@@ -212,12 +212,12 @@
                     :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgRoundSelectorDialog = true;">
-                    <span>Round {{ cgCurrentRound+1 }}</span>
+                    <span>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1 }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
                 <div v-if="cgRound.creator && cgRound.lastAnalyze">
-                  <span class="Main_SearchResultUserBy Cg_Creator">by&nbsp;</span>
+                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                   <span
                     :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
@@ -244,7 +244,7 @@
                       <div class="Main_SaveAllBox">
                         <button
                           class="D_Button Main_LoginToEdit"
-                          @click="$router.push({ name: 'Login' })">Login</button>
+                          @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
                       </div>
                     </template>
                     <template v-else-if="cgIsApproving && !!user && user.mod">
@@ -253,14 +253,14 @@
                           :class="{ D_Button_Loading: cgSaveLoading }"
                           class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
                           @click="cgReviewRound(false)">
-                          <span>Delete</span>
+                          <span>{{ $t("m_delete") }}</span>
                         </button>
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading }"
                           style="right: unset; left: 0;"
                           class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
                           @click="cgReviewRound(true)">
-                          <span>Approve</span>
+                          <span>{{ $t("m_approve") }}</span>
                         </button>
                       </div>
                     </template>
@@ -269,7 +269,7 @@
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
-                          @click="cgSaveAll()">Submit for review</button>
+                          @click="cgSaveAll()">{{ $t("m_submitReview") }}</button>
                       </div>
                     </template>
                     <template v-else-if="!!user && cgNeedSave && !isRoundEmptyForUser">
@@ -277,7 +277,7 @@
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
-                          @click="cgSaveAll()">Save</button>
+                          @click="cgSaveAll()">{{ $t("m_save") }}</button>
                       </div>
                     </template>
                     <template v-if="showAnalyse && !cgIsApproving">
@@ -285,11 +285,11 @@
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
-                          @click="cgAnalyseRound()">Analyze</button>
+                          @click="cgAnalyseRound()">{{ $t("m_analyze") }}</button>
                       </div>
                     </template>
                     <div v-if="user" class="Main_PrintBy">
-                      <div class="Main_PrintByLabel">print by</div>
+                      <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
                       <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
@@ -310,7 +310,7 @@
           </div>
           <div class="Cg_Right Main_DarkScroll">
             <template v-if="cgRound.filter">
-              <div class="Cg_ReqsTitle">Requirements</div>
+              <div class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
               <div class="Cg_Reqs">
                 <BaseFilterDescription :filter="cgRound.filter" />
               </div>
@@ -332,33 +332,33 @@
       </div>
       <div class="Cg_Mid">
         <div v-if="isRoundEmptyForUser && !cgLoading && cgRound.date" class="Cg_RoundEmptyBox">
-          <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">Thanks! Your round will be analysed. Join Discord to talk about if you want.</div>
-          <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">This round isn't done yet. You can help creating it, then, submiting for review.</div>
+          <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
+          <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
         </div>
         <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyTitle">Empty round</div>
-            <div class="Cg_RoundEmptyBody">This round isn't done yet. If you are on this round, you can help to include it.</div>
-            <div class="Cg_RoundEmptyBody">Login to start creating this round or contact a moderator on our discord server:</div>
+            <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("m_emptyRound2") }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("m_emptyRoundLogin") }}</div>
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>
         <template v-else-if="isRoundEmptyForModders && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyTitle">Empty round</div>
-            <div class="Cg_RoundEmptyBody">Lock this round to you to start doing it</div>
+            <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
             <button
               :class="{ D_Button_Loading: cgSaveLoading }"
               style="margin-top: 20px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgReserveRound()">
-              <span class="">Lock this round for me</span>
+              <span class="">{{ $t("m_lockRound") }}</span>
             </button>
           </div>
         </template>
         <template v-else-if="user && cgRound.reservedTo && cgRound.reservedTo !== user.username">
           <div class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyBody">{{ cgRound.reservedTo }} is doing this round</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("m_lockRound", { mod: cgRound.reservedTo }) }}</div>
           </div>
         </template>
         
@@ -372,7 +372,7 @@
                 :class="{ D_Button_Loading: cgSaveLoading }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="cgReserveRound()">
-                <span class="">Unlock this round</span>
+                <span class="">{{ $t("m_unlockRound") }}</span>
               </button>
             </template>
           </div>
@@ -423,7 +423,7 @@
                     @click="cgChangeTuneOppo(race.car, '000', race)">000</button>
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, 'Other', race)">Other</button>
+                    @click="cgChangeTuneOppo(race.car, 'Other', race)">{{ $t("m_other") }}</button>
                 </div>
               </div>
               <div class="Cg_Track">
@@ -443,7 +443,7 @@
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
                   @click="cgRaceSelected = irace; openDialogTrackSearch(false);">
                   <i v-if="race.track" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-                  <span v-else>Select track</span>
+                  <span v-else>{{ $t("m_selectTrack") }}</span>
                 </button>
               </div>
               <div v-if="race.car && race.car.selectedTune && race.track" class="Cg_ThemTime">
@@ -458,8 +458,8 @@
                   :cgTime="race.time"
                   :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                   :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser)"
+                  :placeholder="$t('m_timeToBeat')"
                   type="times"
-                  placeholder="Time to beat"
                   @deleteTime="cgDeleteTime(race, $event, true)"
                   @changeTime="cgChangeTimeOppo(race, $event)" />
               </div>
@@ -475,10 +475,10 @@
                   }"
                   class="Cg_Divider"
                   @click="cgOpenPointsEdit(race)">
-                  <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">select</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">draw</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">win</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === -50" class="Cg_Points">lose</div>
+                  <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">{{ $t("m_win") }}</div>
+                  <div v-else-if="(race.cars[race.carIndex] || {}).points === -50" class="Cg_Points">{{ $t("m_lose") }}</div>
                   <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
                 </div>
                 <div class="CgYouCar">
@@ -549,9 +549,9 @@
                         <div class="Cg_BankTune">{{ bankCar.tune }}</div>
                         <div
                           class="Cg_BankResult">
-                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">draw</span>
-                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">win</span>
-                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">lose</span>
+                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">{{ $t("m_draw") }}</span>
+                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">{{ $t("m_win") }}</span>
+                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">{{ $t("m_lose") }}</span>
                           <span v-else class="Cg_BankPoints">{{ bankCar.points }}</span>
                         </div>
                       </button>
@@ -565,11 +565,11 @@
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-              @click="cgResetSolutions()">Reset solutions only</button>
+              @click="cgResetSolutions()">{{ $t("m_resetSolutions") }}</button>
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-              @click="cgResetRound()">Reset round</button>
+              @click="cgResetRound()">{{ $t("m_resetRound") }}</button>
           </div>
         </template>
         <div v-else-if="cgLoading" class="Cg_MidLoading">
@@ -583,7 +583,7 @@
         </div>
         <div v-else-if="cgList.length > 0" class="Cg_ListSelect">
           <div class="Cg_ListSelectBox">
-            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">Challenges</div>
+            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
               <button
                 style="padding-left: 15px;"
@@ -655,7 +655,7 @@
                       <div class="Main_SaveAllBox">
                         <button
                           class="D_Button Main_LoginToEdit"
-                          @click="$router.push({ name: 'Login' })">Login</button>
+                          @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
                       </div>
                     </template>
                     <template v-else-if="!!user && cgNeedSave">
@@ -663,11 +663,11 @@
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
                           class="D_Button Main_SaveAllButton"
-                          @click="eventSaveAll()">Save</button>
+                          @click="eventSaveAll()">{{ $t("m_save") }}</button>
                       </div>
                     </template>
                     <div v-if="user" class="Main_PrintBy">
-                      <div class="Main_PrintByLabel">print by</div>
+                      <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
                       <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
@@ -712,7 +712,7 @@
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
                   @click="eventTracksetSelected = itrackset; eventRaceSelected = itrackMonoArray; openDialogTrackSearch(false);">
                   <i v-if="trackMonoArray.length === 1" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-                  <span v-else>Select track</span>
+                  <span v-else>{{ $t("m_selectTrack") }}</span>
                 </button>
               </div>
             </div>
@@ -758,7 +758,7 @@
         </div>
         <div v-else-if="eventList.length > 0" class="Cg_ListSelect">
           <div class="Cg_ListSelectBox">
-            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">Events</div>
+            <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_events") }}</div>
             <template v-for="item in eventList">
               <button
                 style="padding-left: 15px;"
@@ -785,7 +785,7 @@
       @close="closeKingOfDialog()">
       <div :class="{ Main_KingFixed: kingFixed }" class="Main_AdvancedDialogBox Main_KingDialogBox">
         <div class="Main_DialogTitleDual">
-          <div class="Main_DialogTitle">Best of</div>
+          <div class="Main_DialogTitle">{{ $t("m_bestOf") }}</div>
           <div v-if="user && user.tier <= 4">
             <button class="D_Button Main_KingPinButton" @click="kingFixed = !kingFixed; kingFixed ? kingAnalyse() : ''">
               <i class="ticon-internal Main_KingPinIcon" aria-hidden="true"/>
@@ -812,13 +812,13 @@
               class="D_Button Car_AddButton Cg_SelectTrackButton"
               @click="openDialogTrackSearch(false, 'king');">
               <i v-if="kingTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-              <span v-else>Select track</span>
+              <span v-else>{{ $t("m_selectTrack") }}</span>
             </button>
           </div>
         </div>
         <div class="Main_KingFilter Main_DarkScroll">
           <template v-if="kingFilter">
-            <div class="Cg_ReqsTitle">Filter</div>
+            <div class="Cg_ReqsTitle">{{ $tc("m_filter", 1) }}</div>
             <div class="Cg_Reqs">
               <BaseFilterDescription :filter="kingFilter" />
             </div>
@@ -827,31 +827,25 @@
             <button
               :disabled="kingLoading"
               class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
-              @click="kingFilterDialog = true;">{{ kingFilter ? 'Change' : 'Requirements' }}</button>
+              @click="kingFilterDialog = true;">{{ kingFilter ? $t("m_change") : $t("m_requirements") }}</button>
           </div>
         </div>
         <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>This feature is available for patrons only (Tier 4).<br>It returns a list of the best cars for the given track and filter. <a class="D_Link D_LinkUnder" href="https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323">Here</a> an example</span>
+          <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder' href='https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323'>{{ $t('m_here') }}</a></span>
         </div>
-        <!-- <div v-else-if="kingTrack && kingFilterCount === 0" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>Empty filter. It will only scan the first 800 cars of the database.</span>
-        </div>
-        <div v-else-if="searchResultLength > 800" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>This filter matches more than 800 cars ({{ searchResultLength }}).<br>The {{ searchResultLength - 800 }} cars with lowest RQ will be ignored.</span>
-        </div> -->
         <BaseConfigCheckBox
           v-if="!kingFixed"
           v-model="kingShowDownvoted"
           style="margin-top: 17px;"
           class="Main_KingTrackBox"
           name="kingShowDownvoted"
-          label="Includes times with downvote?" />
+          :label="$t('m_includeDownvote')" />
         <button
           v-if="user && user.tier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
           :disabled="kingLoading || !kingTrack"
           class="D_Button Main_SaveAllButton Main_KingAnalyzeButton"
-          @click="kingAnalyse()">Find the best</button>
+          @click="kingAnalyse()">{{ $t("m_findBest") }}</button>
       </div>
     </BaseDialog>
 
@@ -988,7 +982,7 @@
                              ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed ?
                              (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`topSpeed_user`] !== user.username ? user.mod ? false : true : false : false )"
                   type="topSpeed"
-                  label="Top speed"
+                  :label="$t('c_topSpeed')"
                   class="Space_Bottom Row_FieldStat"
                   placeholder="-"
                   @change="changeStatCar(tuneDialogCar, 'topSpeed', $event)" />
@@ -1010,7 +1004,7 @@
                              ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand ?
                              (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`hand_user`] !== user.username ? user.mod ? false : true : false : false )"
                   type="hand"
-                  label="Handling"
+                  :label="$t('c_handling')"
                   class="Row_FieldStat"
                   placeholder="-"
                   @change="changeStatCar(tuneDialogCar, 'hand', $event)" />
@@ -1034,32 +1028,37 @@
                 <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Clearance</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.clearance }}</div>
+                <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
+                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">MRA (stock)</div>
+                <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
                 <div class="Row_DialogCardStatValue">{{ tuneDialogCar.mra }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Weight (stock)</div>
+                <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
                 <div class="Row_DialogCardStatValue">{{ tuneDialogCar.weight }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Fuel</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.fuel }}</div>
+                <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
+                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Seats</div>
+                <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
                 <div class="Row_DialogCardStatValue">{{ tuneDialogCar.seats }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Engine pos</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.engine }}</div>
+                <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
+                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
               </div>
               <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">Body style</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.bodyTypes.join(", ") }}</div>
+                <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
+                <div class="Row_DialogCardStatValue">
+                  <template v-for="(body, index) in tuneDialogCar.bodyTypes">
+                    <template v-if="index !== 0">,&nbsp;</template>
+                    <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
+                  </template>
+                </div>
               </div>
               <div class="Row_DialogCardStat">
                 
@@ -1078,7 +1077,7 @@
           </div>
           <div v-if="tuneDialogCar.users" class="Row_DialogCardUsers Space_TopPlus">
             <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">Contributors</div>
+              <div class="Row_DialogCardStatLabel">{{ $t("m_contributors") }}</div>
               <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">
                 <template
                   v-for="(username, i) in tuneDialogCar.users">
@@ -1101,7 +1100,7 @@
       <div class="Main_ShareDialog">
         <div class="Main_OptionsDual" style="margin-top: 0;">
           <div class="Main_">
-            <div class="Main_DialogTitle">Image</div>
+            <div class="Main_DialogTitle">{{ $t("m_image") }}</div>
             <div class="Main_ShareDownloadBox">
               <button
                 :disabled="pngLoading"
@@ -1114,19 +1113,19 @@
             </div>
           </div>
           <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1 && mode === 'classic'" class="Main_">
-            <div class="Main_DialogTitle">Library</div>
+            <div class="Main_DialogTitle">{{ $t("m_library") }}</div>
             <div class="Main_ShareDownloadBox">
               <button
                 style="font-size: 16px;"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="openSaveToGalleryDialog()">
                 <i class="ticon-dash D_ButtonIcon" aria-hidden="true"/>
-                <span>Add to library</span>
+                <span>{{ $t("m_addLibrary") }}</span>
               </button>
             </div>
           </div>
         </div>
-        <div class="Main_DialogTitle">Shareable link</div>
+        <div class="Main_DialogTitle">{{ $t("m_sharableLink") }}</div>
         <div class="Main_ShareLinkBox">
           <textarea
             v-model="shareUrl"
@@ -1139,10 +1138,10 @@
             :disabled="copyUrlSucess"
             style="font-size: 16px;"
             class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="copyUrl()">Copy</button>
+            @click="copyUrl()">{{ $t("m_copy") }}</button>
         </div>
         <template v-if="mode === 'classic'">
-          <div class="Main_DialogTitle">List of cars</div>
+          <div class="Main_DialogTitle">{{ $t("m_listCars") }}</div>
           <div class="Main_ShareLinkBox">
             <textarea
               v-model="shareListCars"
@@ -1155,7 +1154,7 @@
               :disabled="copyListSucess"
               style="font-size: 16px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="copyList()">Copy</button>
+              @click="copyList()">{{ $t("m_copy") }}</button>
           </div>
         </template>
       </div>
@@ -1173,11 +1172,11 @@
             class="BaseText_Big"
             iid="Main_SaveGalleryName"
             type="normal"
-            label="Title"
+            :label="$t('m_title')"
             placeholder="" />
         </div>
         <div class="Main_SaveGalleryBox">
-          <div class="Main_OptionsLabel">Type</div>
+          <div class="Main_OptionsLabel">{{ $t("m_type") }}</div>
           <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
             <template v-for="(item, ix) in saveToGalleryModel.types">
               <BaseChip
@@ -1195,7 +1194,7 @@
               v-model="saveToGalleryModel.save_class"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Classes</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_class", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.class.join(", ") }}</div>
           </div>
         </div>
@@ -1216,7 +1215,7 @@
               v-model="saveToGalleryModel.save_year"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Years</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_year", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.minyear }} ~ {{ saveToGalleryModel.maxyear }}</div>
           </div>
         </div>
@@ -1227,7 +1226,7 @@
               v-model="saveToGalleryModel.save_tyre"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Tyres</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_tyre", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.tyre.join(", ") }}</div>
           </div>
         </div>
@@ -1237,7 +1236,7 @@
               v-model="saveToGalleryModel.save_drive"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Drives</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_drive", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.drive.join(", ") }}</div>
           </div>
         </div>
@@ -1247,7 +1246,7 @@
               v-model="saveToGalleryModel.save_clearance"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Clearances</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_clearance", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.clearance.join(", ") }}</div>
           </div>
         </div>
@@ -1258,7 +1257,7 @@
               v-model="saveToGalleryModel.save_country"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Countries</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_country", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.country.join(", ") }}</div>
           </div>
         </div>
@@ -1268,7 +1267,7 @@
               v-model="saveToGalleryModel.save_tag"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Tags</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_tag", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.tag.join(", ") }}</div>
           </div>
         </div>
@@ -1278,31 +1277,31 @@
               v-model="saveToGalleryModel.save_brand"/>
           </div>
           <div class="Main_SaveGalleryCheckRight">
-            <div class="Main_OptionsLabel">Brands</div>
+            <div class="Main_OptionsLabel">{{ $tc("c_brand", 2) }}</div>
             <div class="Main_SaveGalleryCheckRightValue">{{ saveToGalleryModel.brand.join(", ") }}</div>
           </div>
         </div>
 
         <div class="Main_SaveGalleryGuide">
-          <span v-if="user && !user.mod">Make sure that your template is useful to the community or it will not be approved. </span>
-          <span>Check out </span>
+          <span v-if="user && !user.mod">{{ $t("p_templateWarning") }} </span>
+          <span>{{ $t("m_checkOut") }} </span>
           <a
             href="/templateguide"
             class="D_Link D_LinkUnder"
-            target="_blank">Template Guidelines</a>
+            target="_blank">{{ $t("m_templateGuide") }}</a>
         </div>
 
         <button
           :class="{ D_Button_Loading: saveToGalleryLoading, D_Button_Error: saveToGalleryError }"
           :disabled="saveToGalleryLoading || saveToGalleryError"
           class="D_Button Main_SaveAllButton"
-          @click="saveToGallery()">{{ user && user.mod ? "Save to library" : "Submit for review" }}</button>
+          @click="saveToGallery()">{{ user && user.mod ? $t("m_saveToLibrary") : $t("m_submitReview") }}</button>
       </div>
     </BaseDialog>
     <BaseDialog
       :active="optionsDialogComputed"
       :transparent="false"
-      max-width="460px"
+      max-width="470px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
         <div class="Main_SectionSelectorLayout">
@@ -1312,14 +1311,14 @@
               :disabled="mode === 'classic' || cgLoadingAny || cgNeedSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('classic')">
-              Home
+              {{ $t("m_home") }}
             </button>
             <button
               :class="{ D_ButtonChangeModeDisabled: mode === 'cg' }"
               :disabled="mode === 'cg' || needSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('cg')">
-              Challenges
+              {{ $t("m_challenges") }}
             </button>
             <button
               v-if="user && user.mod" 
@@ -1327,20 +1326,20 @@
               :disabled="mode === 'events' || needSave || cgLoadingAny || cgNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('events')">
-              Events
+              {{ $t("m_events") }}
             </button>
           </div>
         </div>
         <div v-if="!needSave && mode === 'classic'" class="Main_OptionsItem" style="margin-top: 5px;">
           <div class="Main_OptionsLabel MainClearLabelBox">
-            <span>Trackset</span>
+            <span>{{ $t("m_trackset") }}</span>
             <div class="Main_ClearButtonsBox">
               <button
                 class="D_Button Main_OptionsButton Main_OptionsButtonClear"
-                @click="clearAllTracks()">Clear</button>
+                @click="clearAllTracks()">{{ $t("m_clear") }}</button>
               <button
                 class="D_Button Main_OptionsButton Main_OptionsButtonClear"
-                @click="clearAllCars()">Clear cars</button>
+                @click="clearAllCars()">{{ $t("m_clearCars") }}</button>
             </div>
           </div>
           <div class="Main_OptionsTrackset">
@@ -1348,7 +1347,7 @@
               v-for="(item, index) in tracksButtons"
               class="Main_CustomTrackItem" :key="index">
               <div class="Main_CustomTrackLeft">
-                <div class="Main_CustomTrackName">{{ item.name }}</div>
+                <div class="Main_CustomTrackName">{{ $t(`m_${item.name.toLowerCase()}`) }}</div>
               </div>
               <div class="Main_CustomTrackRight">
                 <template>
@@ -1361,18 +1360,18 @@
             </div>
             <button
               class="D_Button Main_OptionsButton Main_OptionsTracksetMore"
-              @click="openDialogTrackSearch()">More...</button>
+              @click="openDialogTrackSearch()">{{ $t("m_more3dot") }}</button>
           </div>
         </div>
         <div v-else-if="!!user && needSave && mode === 'classic'" class="Main_OptionsSaveData">
           <button
             :class="{ D_Button_Loading: saveLoading }"
             class="D_Button Main_SaveAllButton"
-            @click="saveAll()">Save</button>
+            @click="saveAll()">{{ $t("m_save") }}</button>
         </div>
         <div v-if="mode === 'classic'" class="Main_OptionsDual">
           <div class="Main_OptionsItem">
-            <div class="Main_OptionsLabel">Display</div>
+            <div class="Main_OptionsLabel">{{ $t("m_display") }}</div>
             <div class="Main_OptionsButtons">
               <button :class="{ D_ButtonActive: !inverted && !compact }" class="D_Button Main_OptionsButton" @click="display('horizontal')">
                 <i class="ticon-list Main_OptionsIcon" aria-hidden="true"/>
@@ -1386,7 +1385,7 @@
             </div>
           </div>
           <div class="Main_OptionsItem">
-            <div class="Main_OptionsLabel">Colors</div>
+            <div class="Main_OptionsLabel">{{ $t("m_colors") }}</div>
             <div class="Main_OptionsButtons">
               <button :class="{ D_ButtonActive: !fullColors }" class="D_Button Main_OptionsButton" @click="colorsChange('medals')">
                 <div class="Main_cIconBox">
@@ -1403,7 +1402,7 @@
         </div>        
         <div v-if="mode === 'classic'" class="Main_OptionsMemory">
           <div class="Main_MemoryLine">
-            <span class="Main_MemoryLabel">{{ memory.find(x => typeof x === 'string') ? 'Load' : 'Memory' }}</span>
+            <span class="Main_MemoryLabel">{{ memory.find(x => typeof x === 'string') ? $t("m_load") : $t("m_memory") }}</span>
             <button
               v-for="(m, index) in memory"
               :disabled="m === null"
@@ -1413,7 +1412,7 @@
             </button>
           </div>
           <div class="Main_MemoryLine">
-            <span class="Main_MemoryLabel">Save</span>
+            <span class="Main_MemoryLabel">{{ $t("m_save") }}</span>
             <button
               v-for="(m, index) in memory"
               class="D_Button Main_OptionsButton Main_MemorySave"
@@ -1427,52 +1426,13 @@
           :user="user"
           @librarySearchDialog="librarySearchDialog = true;"
           @openKingOfDialog="openKingOfDialog()"
-          @openAdvancedOptions="openAdvancedOptions()" />
+          @openAdvancedOptions="openAdvancedOptions()"
+          @openAbout="openAbout()" />
       </div>
     </BaseDialog>
-    <BaseDialog
+    <BaseAboutDialog
       :active="aboutDialog"
-      :transparent="false"
-      max-width="460px"
-      min-width="240px"
-      @close="aboutDialog = false;">
-      <div style="position: relative;">
-        <div class="Main_DialogTitle">About</div>
-
-        <div class="Main_Disclaimer">
-          <div>This project was made by TiagoXavi and is not related to the Hutch Games Ltd.</div>
-          <div>Any problem or suggestion, please join the Discord server or send an email (mighty.boy@topdrivesrecords.com).</div>
-          <div>TDR is free for everyone. You can support the project to keep it online and receiving new features!</div>
-        </div>
-        <div class="D_TextCenter Space_TopPlus"></div>
-
-
-        <div style="gap: 10px;" class="D_Center Space_TopPlus">
-          <BaseDiscordButton />
-          <BaseDonateButton />
-        </div>
-
-        <div class="Main_AboutFlag">
-          <div class="Main_AboutFlagBox">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 668.6 444.1" style="enable-background:new 0 0 668.6 444.1" xml:space="preserve">
-              <!-- <path style="fill:#149e3e" d="M0 0h668.5c.1 148 .1 296 0 444.1H0V0z"/> -->
-              <path style="fill:#ffde1d" d="M329.9 55c3.4.6 6.2 3.3 9.3 4.9 25.1 15.9 50.3 31.7 75.4 47.6 12.1 7.3 24 15 35.8 22.9 5.2 2.8 10.3 5.9 15.2 9.3 17.4 10.8 34.5 21.9 51.8 32.8 9.6 5.8 19 11.8 28.3 17.9 8.1 4.8 16.1 9.7 23.8 15.1 8.6 5.1 17.2 10.4 25.5 15.9.1.2.2.6.3.8-17.3 11.1-34.7 22.2-52.1 33-12.8 8.9-26.8 16.2-39.5 25.3-8.4 5.3-17.2 10.1-25.3 15.8-4.3 3.1-9.2 5.1-13.4 8.4-20.6 13-41.3 26-61.8 39.2-6.8 3.9-13.3 8-19.8 12.4-17.3 10.6-34.3 21.8-51.5 32.4-.9.7-1.8.7-2.6 0-7.4-4.1-14-9.3-21.5-13.4-4.8-3.8-10.2-6.4-15.2-9.8-36.4-22.6-72.4-45.9-108.8-68.5-6.3-3.6-12-8-18.3-11.5-9.5-6.3-19.1-12.4-28.9-18.3-8-5.3-16.1-10.4-24.4-15.3-10.7-7.5-22-13.9-33-21-3.9-3.2-8.9-4.9-12.4-8.6-.2-1.8 1.7-2.6 2.9-3.6 25.4-15.6 50.3-31.9 75.7-47.6 35.5-22.5 71.2-44.9 106.8-67.3 20.5-12.8 40.7-26.1 61.3-38.7 5.4-3.1 10.5-7.3 16.4-10.1z"/>
-              <defs>
-                <circle id="a" cx="330.1" cy="222.3" r="125.3"/>
-              </defs>
-              <use xlink:href="#a" style="overflow:visible;fill:#0b2675"/>
-              <clipPath id="b">
-                <use xlink:href="#a" style="overflow:visible"/>
-              </clipPath>
-              <g style="clip-path:url(#b)">
-                <path style="fill:#fffffe" d="m224.4 150.5.8-.1c20.7-1.5 41.6-.8 62.3 1.4 47.5 4.9 94.9 19.3 134 47.3 12.8 9 24.2 19.7 34.9 31.1l1.5 1.5c-1.4 16.4-5.9 32.5-13 47.3l.2-1c-.8 0-2.4.1-3.2.2-1.7-3.6-4.5-6.5-7.1-9.5-13.4-15.7-29.6-28.9-47.2-39.7-45.7-27.9-99.4-39.8-152.3-43.5-9.1-.1-18.1-1-27.1-.8 3.7-12.1 9.4-23.5 16.2-34.2z"/>
-              </g>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </BaseDialog>
+      @close="closeAbout()"/>
     <BaseDialog
       :active="campaignDialog"
       :transparent="false"
@@ -1488,7 +1448,7 @@
               v-for="race in campaign[city.icity].matches[city.imatch].races"
               :class="{ Main_CampaignRaceOff: !city.includes.includes(race.name) }"
               class="Main_CampaignRace">
-              <div class="Main_CampaignTrackName">{{ (tracksRepo.find(x => x.id === race.name.substr(0, race.name.length-4)) || {}).name }}</div>
+              <div class="Main_CampaignTrackName">{{ $t('t_'+(tracksRepo.find(x => x.id === race.name.substr(0, race.name.length-4)) || {}).id) }}</div>
               <div class="Main_CampaignTrackCond">
                 <BaseTypeName :type="race.name.substr(race.name.length-2)" :showDry="false" />
               </div>
@@ -1510,7 +1470,7 @@
           <button
             class="D_Button Main_OptionsButton"
             @click="confirmDelete.dialog = false;">
-            <span>Cancel</span>
+            <span>{{ $t("m_cancel") }}</span>
           </button>
           <button
             :class="`${ confirmDelete.loading ? 'D_Button_Loading ' : '' }`+
@@ -1544,13 +1504,13 @@
       @close="cgSeletorDialog = false;">
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
-          <div class="Cg_SelectorDialogTitle Main_DialogTitle">Challenges</div>
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
           <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgOpenNewCg()">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>New</span>
+              <span>{{ $t("m_new") }}</span>
             </button>
           </div>
         </div>
@@ -1576,7 +1536,7 @@
       @close="cgRoundSelectorDialog = false;">
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
-          <div class="Cg_SelectorDialogTitle Main_DialogTitle">Rounds</div>
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $tc("m_round", 2) }}</div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="(item, index) in cg.rounds">
@@ -1584,12 +1544,12 @@
               style="padding-left: 15px;"
               class="Main_SearchItem"
               @click="loadCg(cg.date, index)">
-              <div class="Main_SearchItemRight">Round {{ index+1 }}</div>
+              <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1 }}</div>
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
               </div>
               <span v-if="item.creator && item.lastAnalyze" class="Main_RoundDoneCreator">
-                <span class="Main_SearchResultUserBy Cg_Creator">by&nbsp;</span>
+                <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                 <span
                   :class="`Main_UserT${highlightsUsers[item.creator]}`"
                   class="Main_SearchResultUser Cg_Creator">{{ item.creator }}</span>
@@ -1612,13 +1572,13 @@
             class="BaseText_Big"
             iid="Cg_NewCgName"
             type="normal"
-            label="Challenge's name"
+            :label="$t('m_challengeName')"
             placeholder="" />
         </div>
         <BaseText
           v-model="cgNewModel.numberRounds"
           type="integer"
-          label="Number of rounds"
+          :label="$t('m_numberRounds')"
           style="max-width: 160px;"
           placeholder="" />
         
@@ -1628,7 +1588,7 @@
           :disabled="cgNewLoading || cgNewError || cgNewModel.numberRounds < 1 || !cgNewModel.name"
           style="margin-top: 20px;"
           class="D_Button Main_SaveAllButton"
-          @click="saveNewChallenge()">Create new challenge</button>
+          @click="saveNewChallenge()">{{ $t("m_createNewCg") }}</button>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -1644,7 +1604,7 @@
             class="BaseText_Big"
             iid="Cg_EditRq"
             type="integer"
-            label="RQ limit"
+            :label="$t('m_rqLimit')"
             placeholder="" />
         </div>
       </div>
@@ -1662,7 +1622,7 @@
             class="BaseText_Big"
             iid="Cg_EditPoints"
             type="integer"
-            label="Points"
+            :label="$t('m_points')"
             placeholder="" />
         </div>
       </div>
@@ -1677,13 +1637,13 @@
       @close="eventSelectorDialog = false;">
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
-          <div class="Cg_SelectorDialogTitle Main_DialogTitle">Events</div>
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_events") }}</div>
           <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventOpenNewEvent()">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>New</span>
+              <span>{{ $t("m_new") }}</span>
             </button>
           </div>
         </div>
@@ -1712,7 +1672,7 @@
             class="BaseText_Big"
             iid="Cg_NewEventName"
             type="normal"
-            label="Event's name"
+            :label="$t('m_eventName')"
             placeholder="" />
         </div>
         <button
@@ -1720,7 +1680,7 @@
           :disabled="eventNewLoading || eventNewError || !eventNewName"
           style="margin-top: 20px;"
           class="D_Button Main_SaveAllButton"
-          @click="saveNewEvent()">Create new event</button>
+          @click="saveNewEvent()">{{ $t("m_createNewEvent") }}</button>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -1736,7 +1696,7 @@
             class="BaseText_Big"
             iid="Cg_EditRq"
             type="integer"
-            label="RQ limit"
+            :label="$t('m_rqLimit')"
             placeholder="" />
         </div>
       </div>
@@ -1770,10 +1730,10 @@
       max-width="400px"
       @close="closeAdvancedOptions()">
       <div class="Main_AdvancedDialogBox">
-        <div class="Main_DialogTitle">Options</div>
-        <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" label="Show data from old versions" />
-        <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" label="Show deprecated tags" />
-        <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" label="Challenges: don't repeat cars as solution" @change="cgReCalcRound()" />
+        <div class="Main_DialogTitle">{{ $t("m_options") }}</div>
+        <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
+        <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
+        <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
       </div>
     </BaseDialog>
   </div>
@@ -1788,6 +1748,7 @@ import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
 import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
+import BaseAboutDialog from './BaseAboutDialog.vue'
 import MainLogin from './MainLogin.vue'
 import BaseTypeName from './BaseTypeName.vue'
 import Logo from './Logo.vue'
@@ -1838,7 +1799,8 @@ export default {
     BaseSearchTrackDialog,
     BaseFilterDialog,
     BaseMenuFooter,
-    BaseUserCard
+    BaseUserCard,
+    BaseAboutDialog
   },
   props: {
     phantomCar: {
@@ -1962,7 +1924,7 @@ export default {
       cgAnalyseLoading: false,
       cgIsApproving: false,
       cgSentForReview: false,
-      cgDontRepeatSolution: false,
+      cgDontRepeatSolution: true,
       cgPointsEditDialog: false,
       cgPointsEditModel: null,
       cgPointsEditString: null,
@@ -2024,33 +1986,33 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00"]
+              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00","fastr_a00","canyonTour_a00"]
             },
             {
               type: "00",
               active: false,
-              customName: "Dry 2",
-              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","fastr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00"]
+              customSufix: "2",
+              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","mtTwisty_a00","tokyoLoop_a00","tokyoOffRamp_a00"]
             },
             {
               type: "01",
               active: false,
-              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tRoad_a01","fast_a01","mnHairpin_a01"]
+              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tCircuitr_a01","tRoad_a01","fast_a01","mnGforce_a01","mnHairpin_a01","mtHairpin_a01","mtTwisty_a01","canyonTour_a01"]
             },
             {
               type: "10",
               active: false,
-              tracks: ["gForce_a10","hairpin_a10","tRoad_a10","tCircuit_a10","slalom_a10","moto_a10","rallySmall_a40","rallyMed_a40","mnHairpin_a40"]
+              tracks: ["gForce_a10","hairpin_a10","tRoad_a10","tCircuit_a10","slalom_a10","moto_a10","rallySmall_a40","rallyMed_a40","mnHairpin_a40","airplaneSlalom_a10"]
             },
             {
               type: "11",
               active: false,
-              tracks: ["gForce_a11","tRoad_a11","slalom_a11","moto_a11"]
+              tracks: ["gForce_a11","tRoad_a11","slalom_a11","rallySmall_a41","moto_a11","mnHairpin_a41","mtHairpin_a11"]
             },
             {
               type: "20",
               active: false,
-              tracks: ["gForce_a20","hairpin_a20","tRoad_a20","slalom_a20"]
+              tracks: ["gForce_a20","hairpin_a20","tRoad_a20","slalom_a20","figureEight_ab0"]
             },
             {
               type: "30",
@@ -2060,12 +2022,12 @@ export default {
             {
               type: "50",
               active: false,
-              tracks: ["gForce_a50","hairpin_a50","tRoad_a50","slalom_a50"]
+              tracks: ["gForce_a50","hairpin_a50","tRoad_a50","slalom_a50","oceanSlalom_ac0"]
             },
             {
               type: "60",
               active: false,
-              tracks: ["gForce_a60","hairpin_a60","tRoad_a60","tCircuit_a60","frozenLake_ad0","slalom_a60"]
+              tracks: ["gForce_a60","hairpin_a60","tRoad_a60","tCircuit_a60","frozenLake_ad0","slalom_a60","forest_a60"]
             },
           ],
         },
@@ -2075,13 +2037,13 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00"]
+              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00","draglshape_a00"]
             },
             {
               type: "00",
               active: false,
-              customName: "Dry 2",
-              tracks: ["mile4r_a00","mile1r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","waterDrag_a00","testBowlr_a00"]
+              customSufix: "2",
+              tracks: ["waterDrag_a00","runwayDrag_a00","mile1r_a00","mile4r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00","tokyoOverpass_a00"]
             },
             {
               type: "01",
@@ -2111,7 +2073,7 @@ export default {
             {
               type: "50",
               active: false,
-              tracks: ["mile4_a50","mile2_a50","mile1_a50","hClimb_a50"]
+              tracks: ["drag60_a50","mile4_a50","mile2_a50","mile1_a50","hClimb_a50"]
             },
             {
               type: "60",
@@ -2574,7 +2536,7 @@ export default {
             vm.$store.commit("DEFINE_SNACK", {
               active: true,
               correct: true,
-              text: `Successful delete`
+              text: this.$t('m_deleteSuccess')
             });
           })
           .catch(error => {
@@ -2896,7 +2858,7 @@ export default {
       return this.downloadLoading || this.eventLoading || this.eventNewLoading || this.saveLoading;
     },
     pngLabel() {
-      return this.pngLoading ? 'Please wait...' : 'Download PNG'
+      return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
     }
   },
   methods: {
@@ -3178,6 +3140,27 @@ export default {
           })
         })
       })
+
+      // let campaignTracksOutOfDefault = [];
+      // this.campaign.map((city, icity) => {
+      //   city.matches.map((match, imatch) => {
+      //     match.races.map((race, irace) => {
+
+      //       let found = this.tracksButtons.find(group => {
+      //         return group.list.find(list => {
+      //           return list.tracks.find(track => {
+      //             return track === race.name
+      //           })
+      //         })
+      //       })
+      //       if (!found) campaignTracksOutOfDefault.push(race.name);
+
+      //     })
+      //   })
+      // })
+      // console.log(campaignTracksOutOfDefault);
+      // debugger;
+
 
       matchesScore.sort(function(a, b) {
         if (b.includes.length !== a.includes.length) {
@@ -3495,7 +3478,8 @@ export default {
           "Draugr": 'mod',
           "TopDrives": 'mod',
           "Asaneon": 'mod',
-          "Dennis": 'mod'
+          "Dennis": 'mod',
+          "liamcavens": 'mod'
         };
         let pUsers = res.data.find(x => x.id === 'pUsers').value;
         Object.keys( pUsers ).forEach(key => {
@@ -3575,7 +3559,7 @@ export default {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: "Successful save"
+            text: this.$t('m_saveSuccess')
           });
         }
         if (saveBankAfter) {
@@ -3624,7 +3608,7 @@ export default {
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
-          text: "Successful save"
+          text: this.$t('m_saveSuccess')
         });
       })
       .catch(error => {
@@ -4164,7 +4148,7 @@ export default {
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
-          text: "Successful save"
+          text: this.$t('m_saveSuccess')
         });
       })
       .catch(error => {
@@ -4205,7 +4189,7 @@ export default {
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: `Successful ${isDelete ? "delete" : "approve" }`
+            text: isDelete ? this.$t('m_deleteSuccess') : this.$t('m_approveSuccess')
           });
         })
         .catch(error => {
@@ -4556,7 +4540,7 @@ export default {
       let youtime = ((you.data[youTune] || {}).times || {})[race.track]
       if (oppotime === undefined || youtime === undefined) {
         if (youtime === undefined && youTune) {
-          Vue.set(race.cars[race.carIndex], "points", "no time");
+          Vue.set(race.cars[race.carIndex], "points", this.$t("m_notime"));
           if (!!this.user && this.user.mod && isCgInitial) {
             this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
           }
@@ -4717,7 +4701,7 @@ export default {
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: `Successful delete`
+            text: this.$t('m_deleteSuccess')
           });
         })
         .catch(error => {
@@ -4784,7 +4768,7 @@ export default {
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
-          text: this.user.mod ? "Successful save" : "Submited for review"
+          text: this.user.mod ? this.$t('m_saveSuccess') : this.$t('m_sentReview')
         });
       })
       .catch(error => {
@@ -5490,6 +5474,14 @@ export default {
 
       // window.localStorage.setItem('announce1', "t");
       // this.announcementDialog = true;
+    },
+    openAbout() {
+      this.aboutDialog = true;
+      this.optionsDialogActive = false;
+    },
+    closeAbout() {
+      this.aboutDialog = false;
+      this.optionsDialogActive = true;
     },
     openAdvancedOptions() {
       this.optionsAdvancedDialog = true;
@@ -6243,6 +6235,7 @@ body .Main_UserT5 {
   gap: 5px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 .Main_ClassChip {
   font-size: 1.2em;

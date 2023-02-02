@@ -47,7 +47,7 @@ export default {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: "Logout successful"
+            text: this.$t('m_logoutSuccess')
           });
         } else {
           throw new Error("Unable to log out");

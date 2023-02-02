@@ -1,509 +1,413 @@
 [
   {
-    "name": "0-100-0mph",
     "id": "drag100b",
     "types": ["00","01","10"]
   },
   {
-    "name": "0-100mph",
     "id": "drag100",
     "types": ["00","01","10","20"]
   },
   {
-    "name": "0-120mph",
     "id": "drag120",
     "types": ["00","20"]
   },
   {
-    "name": "0-150-0mph",
     "id": "drag150b",
     "types": ["00"]
   },
   {
-    "name": "0-150mph",
     "id": "drag150",
     "types": ["00","01","10"]
   },
   {
-    "name": "0-170mph",
     "id": "drag170",
     "types": ["00"]
   },
   {
-    "name": "0-200mph",
     "id": "drag200",
     "types": ["00"]
   },
   {
-    "name": "0-60-0mph",
     "id": "drag60b",
     "types": ["20"]
   },
   {
-    "name": "0-60mph",
     "id": "drag60",
     "types": ["01","10","20","50","60"]
   },
   {
-    "name": "1 Mile",
     "id": "mile1",
     "types": ["00","01","10","20","50","60"]
   },
   {
-    "name": "1 Mile (R)",
     "id": "mile1r",
     "types": ["00"]
   },
   {
-    "name": "1/2 Mile",
     "id": "mile2",
     "types": ["00","01","11","20","50","60"]
   },
   {
-    "name": "1/4 Mile",
     "id": "mile4",
     "types": ["00","01","11","20","30","50","60"]
   },
   {
-    "name": "1/4 Mile (R)",
     "id": "mile4r",
     "types": ["00"]
   },
   {
-    "name": "100-150mph (R)",
     "id": "drag100150",
     "types": ["00"]
   },
   {
-    "name": "30-130mph (R)",
     "id": "drag30130",
     "types": ["00"]
   },
   {
-    "name": "50-150mph (R)",
     "id": "drag50150",
     "types": ["00"]
   },
   {
-    "name": "75-125mph (R)",
     "id": "drag75125",
     "types": ["00"]
   },
   {
-    "name": "Airplane Hangars",
     "id": "airplaneHangars",
     "types": ["00","01"]
   },
   {
-    "name": "Airplane Slalom",
     "id": "airplaneSlalom",
     "types": ["10"]
   },
   {
-    "name": "Back Road",
     "id": "smallRoad",
     "types": ["41"]
   },
   {
-    "name": "Canyon Butte",
     "id": "butte",
     "types": ["40","41","e0"]
   },
   {
-    "name": "Canyon Lookout",
     "id": "canyonLookout",
     "types": ["10","11","50"]
   },
   {
-    "name": "Canyon Tour",
     "id": "canyonTour",
     "types": ["00","01","11","50","60"]
   },
   {
-    "name": "Car Park",
     "id": "carPark",
     "types": ["00","01"]
   },
   {
-    "name": "City Slalom",
     "id": "townSlalom",
     "types": ["00","01","60"]
   },
   {
-    "name": "City Sprint",
     "id": "townSprint",
     "types": ["01"]
   },
   {
-    "name": "City Streets Medium",
     "id": "csMed",
     "types": ["00","01","50","60"]
   },
   {
-    "name": "City Streets Small",
     "id": "csSmall",
     "types": ["00","01","50","60"]
   },
   {
-    "name": "City Tour",
     "id": "townTour",
     "types": ["00","01","60"]
   },    
   {
-    "name": "Cross Country",
     "id": "cross",
     "types": ["f0"]
   },  
   {
-    "name": "Dirt Road",
     "id": "canyonDtRoad",
     "types": ["40","41","e0"]
   },
   {
-    "name": "Fast Circuit",
     "id": "fast",
     "types": ["00","01"]
   },
   {
-    "name": "Fast Circuit (R)",
     "id": "fastr",
     "types": ["00"]
   },
   {
-    "name": "Field Slalom",
     "id": "fieldSlalom",
     "types": ["f0"]
   },
   {
-    "name": "Figure Of Eight",
     "id": "figureEight",
     "types": ["01","b0","c0","d0"]
   },
   {
-    "name": "Forest River",
     "id": "forestRiver",
     "types": ["40","41","b0"]
   },
   {
-    "name": "Forest Road",
     "id": "forest",
     "types": ["00","01","30","60"]
   },
   {
-    "name": "Forest Slalom",
     "id": "forestSlalom",
     "types": ["10","11","70","71","20","30","60"]
   },
   {
-    "name": "Frozen Lake",
     "id": "frozenLake",
     "types": ["d0"]
   },
   {
-    "name": "Frozen River Slalom",
     "id": "frozenRivSla",
     "types": ["30"]
   },
   {
-    "name": "G-Force",
     "id": "gForce",
     "types": ["00","01","10","11","20","30","50","60"]
   },
   {
-    "name": "G-Force (R)",
     "id": "gForcer",
     "types": ["00"]
   },
   {
-    "name": "Hairpin Road",
     "id": "hairpin",
     "types": ["00","01","10","20","50","60"]
   },
   {
-    "name": "Hill Climb",
     "id": "hClimb",
     "types": ["00","01","10","11","20","50","60"]
   },
   {
-    "name": "Hill Climb (R)",
     "id": "hClimbr",
     "types": ["10"]
   },
   {
-    "name": "Indoor Karting",
     "id": "indoorKart",
     "types": ["00"]
   },
   {
-    "name": "Karting Circuit",
     "id": "kart",
     "types": ["00","01"]
   },
   {
-    "name": "L-Shape Drag",
     "id": "draglshape",
     "types": ["00","01"]
   },
   {
-    "name": "Monaco G-Force",
     "id": "mnGforce",
     "types": ["00","01"],
     "group": "monaco"
   },
   {
-    "name": "Monaco Hairpin",
     "id": "mnHairpin",
     "types": ["00","01","40","41"],
     "group": "monaco"
   },
   {
-    "name": "Monaco Narrow Streets",
     "id": "mnCityNarrow",
     "types": ["00","01"],
     "group": "monaco"
   },
   {
-    "name": "Monaco Streets",
     "id": "mnCity",
     "types": ["00","01"],
     "group": "monaco"
   },
   {
-    "name": "Monaco Streets Long",
     "id": "mnCityLong",
     "types": ["00","01"],
     "group": "monaco"
   },
   {
-    "name": "Motocross Track",
     "id": "moto",
     "types": ["10","11"]
   },
   {
-    "name": "Mountain Hairpin",
     "id": "mtHairpin",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Mountain Hill Climb",
     "id": "mtHill",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Mountain Incline Road",
     "id": "mtIncline",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Mountain Slalom",
     "id": "mtSlalom",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Mountain Tour",
     "id": "mtTour",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Mountain Twisty Road",
     "id": "mtTwisty",
     "types": ["00","01","10","11","60"],
     "group": "mt"
   },
   {
-    "name": "Northloop",
     "id": "northloop",
     "types": ["00","01"]
   },
   {
-    "name": "Northloop 1",
     "id": "northloop1",
     "types": ["00","60"],
     "group": "nLoop"
   },
   {
-    "name": "Northloop 2",
     "id": "northloop2",
     "types": ["00","60"],
     "group": "nLoop"
   },
   {
-    "name": "Northloop 3",
     "id": "northloop3",
     "types": ["00","01"],
     "group": "nLoop"
   },
   {
-    "name": "Northloop 4",
     "id": "northloop4",
     "types": ["00","01","60"],
     "group": "nLoop"
   },
   {
-    "name": "Northloop 5",
     "id": "northloop5",
     "types": ["00","01","60"],
     "group": "nLoop"
   },
   {
-    "name": "Ocean Beach Slalom",
     "id": "oceanSlalom",
     "types": ["c0","c1"],
     "group": "ocean"
   },
   {
-    "name": "Ocean City Streets",
     "id": "oceanCity",
     "types": ["00","01"],
     "group": "ocean"
   },
   {
-    "name": "Ocean Highway",
     "id": "oceanHighway",
     "types": ["00","01"],
     "group": "ocean"
   },
   {
-    "name": "Ocean Long Drag",
     "id": "oceanLongDrag",
     "types": ["00","01"],
     "group": "ocean"
   },
   {
-    "name": "Ocean Parking Lot",
     "id": "oceanParking",
     "types": ["00","01"],
     "group": "ocean"
   },
   {
-    "name": "Ocean Short Drag",
     "id": "oceanShortDrag",
     "types": ["00","01"],
     "group": "ocean"
   },
   {
-    "name": "Rallycross Medium",
     "id": "rallyMed",
     "types": ["40","41"]
   },
   {
-    "name": "Rallycross Small",
     "id": "rallySmall",
     "types": ["40","41"]
   },
   {
-    "name": "River Sprint",
     "id": "riverSprint",
     "types": ["g0"]
   },
   {
-    "name": "Runway Drag",
     "id": "runwayDrag",
     "types": ["00","01"]
   },
   {
-    "name": "Runway Drag & Slalom",
     "id": "runwayDragSlalom",
     "types": ["00","01"]
   },
   {
-    "name": "Runway Loop",
     "id": "runwayLoop",
     "types": ["00","01"]
   },
   {
-    "name": "Service Roads",
     "id": "serviceRoads",
     "types": ["00","01","10"]
   },
   {
-    "name": "Slalom Test",
     "id": "slalom",
     "types": ["00","01","10","11","20","30","50","60"]
   },
   {
-    "name": "Slalom Test (R)",
     "id": "slalomr",
     "types": ["00"]
   },
   {
-    "name": "Speedbump 1/2km",
     "id": "speedbump12km",
     "types": ["00","60"]
   },
   {
-    "name": "Speedbump 1km",
     "id": "speedbump1km",
     "types": ["00"]
   },
   {
-    "name": "Test Bowl",
     "id": "testBowl",
     "types": ["00","01","10","60"]
   },
   {
-    "name": "Test Bowl (R)",
     "id": "testBowlr",
     "types": ["00","01","20","60"]
   },
   {
-    "name": "Tokyo Bridge",
     "id": "tokyoBridge",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Tokyo Drag",
     "id": "tokyoDrag",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Tokyo G-Force",
     "id": "tokyoGforce",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Tokyo Loop (R)",
     "id": "tokyoLoop",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Tokyo Off Ramp (R)",
     "id": "tokyoOffRamp",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Tokyo Overpass (R)",
     "id": "tokyoOverpass",
     "types": ["00","01"],
     "group": "tokyo"
   },
   {
-    "name": "Twisty Circuit",
     "id": "tCircuit",
     "types": ["00","01","10","50","60"]
   },
   {
-    "name": "Twisty Circuit (R)",
     "id": "tCircuitr",
     "types": ["00","01"]
   },
   {
-    "name": "Twisty Road",
     "id": "tRoad",
     "types": ["00","01","10","11","20","30","50","60"]
   },
   {
-    "name": "Waterfront Drag",
     "id": "waterDrag",
     "types": ["00","01"]
   }

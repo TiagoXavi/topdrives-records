@@ -11,25 +11,25 @@
         <BaseText
           v-model="email"
           type="normal"
-          label="Email"
+          :label="$t("m_email")"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="password"
           intype="password"
           type="normal"
-          label="Password"
+          :label="$t("m_password")"
           class="Space_Bottom"
           placeholder="" />
         <div v-if="!wrap" class="TTT_Forgot TTT_ForgotBetween">
           <router-link
             :to="{ name: 'Register' }"
             style="font-size: 13px;"
-            class="D_Link">Register?</router-link>
+            class="D_Link">{{ $t("m_register") }}?</router-link>
           <router-link
             :to="{ name: 'AskNewPassword' }"
             style="font-size: 13px;"
-            class="D_Link">Forgot?</router-link>
+            class="D_Link">{{ $t("m_forgot") }}?</router-link>
         </div>
       </div>
       <div class="TTT_Bottom">
@@ -37,12 +37,12 @@
           :class="{ D_Button_Loading: loading, D_Button_Error: input_error }"
           :disabled="loading || input_error"
           class="D_Button D_ButtonDark TTT_Button"
-          @click="validate()">Login</button>
+          @click="validate()">{{ $t("m_login") }}</button>
         <router-link
           v-if="!wrap"
           :to="{ name: 'Records' }"
           style="font-size: 14px;"
-          class="D_Link Space_Top">Cancel</router-link>
+          class="D_Link Space_Top">{{ $t("m_cancel") }}</router-link>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@ export default {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: "You logged in"
+            text: this.$t('m_loginSuccess')
           });
 
           this.$store.commit("AUTH", {});

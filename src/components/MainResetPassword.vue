@@ -7,20 +7,20 @@
           <Logo />
         </div>
       </div>
-      <div v-if="!token" class="TTT_Mid">Something went wrong</div>
+      <div v-if="!token" class="TTT_Mid">{{ $t("p_somethingWrong") }}</div>
       <div v-else class="TTT_Mid">
         <BaseText
           v-model="password"
           intype="password"
           type="normal"
-          label="New password"
+          :label="$t("m_newPassword")"
           class="Space_Bottom"
           placeholder="" />
         <BaseText
           v-model="password2"
           intype="password"
           type="normal"
-          label="Repeat"
+          :label="$t("m_repeat")"
           class="Space_Bottom"
           placeholder="" />
       </div>
@@ -30,19 +30,19 @@
           :class="{ D_Button_Loading: loading, D_Button_Error: input_error }"
           :disabled="loading || input_error"
           class="D_Button D_ButtonDark TTT_Button"
-          @click="validate()">Send</button>
+          @click="validate()">{{ $t("m_send") }}</button>
         <router-link
           :to="{ name: 'Records' }"
           style="font-size: 14px;"
-          class="D_Link Space_Top">Cancel</router-link>
+          class="D_Link Space_Top">{{ $t("m_cancel") }}</router-link>
       </div>
     </div>
     <div v-else class="TTT_Finished">
-      <div class="TTT_FinishedText">Done!</div>
+      <div class="TTT_FinishedText">{{ $t("m_done") }}!</div>
       <router-link
         :to="{ name: 'Records' }"
         style="font-size: 14px;"
-        class="D_Link D_LinkPlus Space_Top">Back to home</router-link>
+        class="D_Link D_LinkPlus Space_Top">{{ $t("m_backHome") }}</router-link>
     </div>
   </div>
 </template>

@@ -8,11 +8,11 @@
         </div>
       </div>
       <div class="TTT_Mid">
-        <div class="TTT_SubTitle">Type your email to receive a link to reset your password</div>
+        <div class="TTT_SubTitle">{{ $t("p_resetPassHelper") }}</div>
         <BaseText
           v-model="email"
           type="normal"
-          label="Email"
+          :label="$t("m_email")"
           class="Space_Bottom"
           placeholder="" />
       </div>
@@ -21,20 +21,20 @@
           :class="{ D_Button_Loading: loading, D_Button_Error: input_error }"
           :disabled="loading || input_error"
           class="D_Button D_ButtonDark TTT_Button"
-          @click="validate()">Send</button>
+          @click="validate()">{{ $t("m_send") }}</button>
         <router-link
           :to="{ name: 'Records' }"
           style="font-size: 14px;"
-          class="D_Link Space_Top">Cancel</router-link>
+          class="D_Link Space_Top">{{ $t("m_cancel") }}</router-link>
       </div>
     </div>
     <div v-else class="TTT_Finished">
-      <div class="TTT_FinishedText">Done!</div>
-      <div class="TTT_SubTitle Space_BothPlus">If exist a user with this email, a link to reset password was sent.</div>
+      <div class="TTT_FinishedText">{{ $t("m_done") }}!</div>
+      <div class="TTT_SubTitle Space_BothPlus">{{ $t("p_resetPassIfExist") }}</div>
       <router-link
         :to="{ name: 'Records' }"
         style="font-size: 14px;"
-        class="D_Link D_LinkPlus Space_Top">Back to home</router-link>
+        class="D_Link D_LinkPlus Space_Top">{{ $t("m_backHome") }}</router-link>
     </div>
   </div>
 </template>

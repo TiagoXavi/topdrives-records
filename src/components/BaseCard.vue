@@ -14,8 +14,8 @@
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
-        <span>{{ car.tyres || "-" }}</span>
-        <span> Tyres</span>
+        <span>{{ $t(`c_${car.tyres.toLowerCase()}`) || "-" }}</span>
+        <span> {{ $tc("c_tyre", 2) }}</span>
       </div>
       <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
@@ -47,7 +47,7 @@
       </div>
       <div class="Car_HeaderBlockTopSpeed">
         <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
-        <div class="Car_HeaderStatLabel">TOP SPEED</div>
+        <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
       </div>
       <div class="Car_HeaderBlock060">
         <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
@@ -55,11 +55,11 @@
       </div>
       <div class="Car_HeaderBlockHandling">
         <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
-        <div class="Car_HeaderStatLabel">HANDLING</div>
+        <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
       </div>
       <div class="Car_HeaderBlockDrive">
         <div class="Car_HeaderStatValue">{{ car.drive || "-" }}</div>
-        <div class="Car_HeaderStatLabel">DRIVE</div>
+        <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
       </div>
       <div :class="{
         Car_HeaderNameBig: car.name.length > 31,

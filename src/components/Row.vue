@@ -60,6 +60,7 @@
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
+              `${type === 'tracks' && item.text.length > 19 ? 'Row_TrackNameBig ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
@@ -129,9 +130,9 @@
                 type="file"
                 accept="image/png, image/gif, image/jpeg"
                 @change="uploadPrint($event, item, ix)">
-                <span class="Row_UploadLabel">Upload print</span>
+                <span class="Row_UploadLabel">{{ $t("m_uploadPrint") }}</span>
             </label>
-            <span v-else class="Row_UploadLabel">Done!</span>
+            <span v-else class="Row_UploadLabel">{{ $t("m_done") }}!</span>
           </template>
           <template v-else>
             <button
@@ -167,7 +168,7 @@
             </button>
           </template>
         </div>
-        <div v-if="item.author" class="Row_DetailAuthor">by {{ item.author }}</div>
+        <div v-if="item.author" class="Row_DetailAuthor">{{ $t("m_by") }} {{ item.author }}</div>
       </div>
       <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 0 )" class="Row_CheckDoubtful">
         <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
@@ -177,13 +178,13 @@
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
     <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
-      <div>No records</div>
+      <div>{{ $t("m_showOtherTracks") }}</div>
     </div>
 
     <div v-if="nonUsedTracks.length > 0 && !cg" class="Row_ShowMoreTracks">
       <button
         class="D_Button D_ButtonLink Row_ShowMoreButton"
-        @click="$emit('moreTracks', nonUsedTracks)">Show other tracks</button>
+        @click="$emit('moreTracks', nonUsedTracks)">{{ $t("m_showOtherTracks") }}</button>
     </div>
     
   </div>
@@ -372,7 +373,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: x.name, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
+          result.push({ text: this.$t('t_'+x.id), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
         })
       } else if (this.type === "times") {
         car = this.car;
@@ -656,7 +657,7 @@ export default {
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
-          text: "Upload successful"
+          text: this.$t("m_uploadSuccess")
         });
       })
       .catch(error => {
@@ -1486,6 +1487,12 @@ export default {
 }
 .Main_2 .Row_Tracks:not(.Row_Cg) .RowTrack_PushRight {
   transform: translateX(var(--cell-width));
+}
+.Row_TrackNameBig {
+  font-size: 15px;
+}
+.Main_2 .Row_TrackNameBig {
+  font-size: 13px;
 }
 
 

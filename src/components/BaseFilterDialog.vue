@@ -10,7 +10,7 @@
           <input
             v-model="searchInput"
             :id="`SearchInput${id}`"
-            placeholder="Search"
+            :placeholder="$t('m_searchCar')"
             class="D_SearchInput data-hj-allow"
             type="text"
             autocomplete="off"
@@ -25,24 +25,25 @@
         <button
           v-if="!isFiltering && !filterOnly"
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-          @click="openFilter()">Filters<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
+          @click="openFilter()">{{ $tc("m_filter", 2) }}<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
         <button
           v-else
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-          @click="applyFilter()">Done</button>
+          @click="applyFilter()">{{ $t("m_done") }}</button>
       </div>
       <div v-if="isFiltering || filterOnly" class="Main_SearchMid">
         <div class="Main_FilterItems">
           <div v-if="!cgAddingYouCar" class="Main_FilterClearTop">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-              @click="clearFilter('searchFilters')">Clear</button>
+              @click="clearFilter('searchFilters')">{{ $t("m_clear") }}</button>
           </div>
           <div v-if="type === 'library'" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in libraryTypes">
               <BaseChip
                 v-model="searchFilters.typesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :label="$t(`m_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
           </div>
@@ -68,7 +69,7 @@
             v-model="searchFilters.yearModel"
             :min="searchFilters.yearStart"
             :max="searchFilters.yearEnd"
-            label="Year"
+            :label="$tc('c_year', 1)"
             class="Main_FilterSlider"
             @ctrlClick="initSecretYear()" />
           <div v-if="secretYear" class="Main_FilterChipsFlex">
@@ -85,6 +86,7 @@
                 <BaseChip
                   v-model="searchFilters.tyresModel"
                   class="BaseChip_MinWidth"
+                  :label="$t(`c_${item.toLowerCase()}2`)"
                   :value="item">{{ item | convertTires }}</BaseChip>
               </template>
 
@@ -103,6 +105,7 @@
                 <BaseChip
                   v-model="searchFilters.clearancesModel"
                   class="BaseChip_MinWidth"
+                  :label="$t(`c_${item.toLowerCase()}`)"
                   :value="item">{{ item.toUpperCase() }}</BaseChip>
               </template>
 
@@ -113,7 +116,7 @@
               v-model="searchFilters.topSpeedModel"
               :min="searchFilters.topSpeedStart"
               :max="searchFilters.topSpeedEnd"
-              label="Top Speed"
+              :label="$t('c_topSpeed')"
               class="Main_FilterSlider" />
             <BaseDualSlider
               v-model="searchFilters.acelModel"
@@ -128,7 +131,7 @@
               v-model="searchFilters.handModel"
               :min="searchFilters.handStart"
               :max="searchFilters.handEnd"
-              label="Handling"
+              :label="$t('c_handling')"
               class="Main_FilterSlider" />
             <BaseDualSlider
               v-model="searchFilters.mraModel"
@@ -142,13 +145,13 @@
               v-model="searchFilters.weightModel"
               :min="searchFilters.weightStart"
               :max="searchFilters.weightEnd"
-              label="Weight"
+              :label="$t('c_weight')"
               class="Main_FilterSlider" />
             <BaseDualSlider
               v-model="searchFilters.seatsModel"
               :min="searchFilters.seatsStart"
               :max="searchFilters.seatsEnd"
-              label="Seats"
+              :label="$t('c_seats')"
               class="Main_FilterSlider" />
           </div>
           <BaseDualSlider
@@ -156,7 +159,7 @@
             v-model="searchFilters.seatsModel"
             :min="searchFilters.seatsStart"
             :max="searchFilters.seatsEnd"
-            label="Seats"
+            :label="$t('c_seats')"
             class="Main_FilterSlider" />
           <div v-if="config.countrys !== false && internalConfig.countrys !== false" class="Main_FilterChips2">
             <template v-for="(item, ix) in searchFilters.countrys">
@@ -172,10 +175,12 @@
             <BaseChip
               v-model="searchFilters.changed16Model"
               class="BaseChip_MinWidth BaseChip_DontCrop"
+              :label="`16.0 ${$t('m_changedCars')}`"
               value="16.0 changed cars" />
             <BaseChip
               v-model="searchFilters.changed17Model"
               class="BaseChip_MinWidth BaseChip_DontCrop"
+              :label="`17.0 ${$t('m_changedCars')}`"
               value="17.0 changed cars" />
           </div>
           <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.prizesModel || cgRound.filter.prizesModel.length === 0" class="Main_FilterChipsFlex">
@@ -183,6 +188,7 @@
               <BaseChip
                 v-model="searchFilters.prizesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
           </div>
@@ -191,6 +197,7 @@
               <BaseChip
                 v-model="searchFilters.bodyTypesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
           </div>
@@ -199,15 +206,17 @@
               <BaseChip
                 v-model="searchFilters.fuelModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
           </div>
           <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.engineModel || cgRound.filter.engineModel.length === 0" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
-            <div class="Main_FilterChipsLabel">Engine position</div>
+            <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
             <template v-for="(item, ix) in searchFilters.engine">
               <BaseChip
                 v-model="searchFilters.engineModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :label="$t(`c_${item.toLowerCase()}Engine`)"
                 :value="item" />
             </template>
           </div>
@@ -233,10 +242,10 @@
             <button
               v-if="!cgAddingYouCar"
               class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
-              @click="clearFilter('searchFilters')">Clear</button>
+              @click="clearFilter('searchFilters')">{{ $t("m_clear") }}</button>
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-              @click="applyFilter()">Done</button>
+              @click="applyFilter()">{{ $t("m_done") }}</button>
           </div>
         </div>
       </div>
@@ -263,12 +272,12 @@
           <button
             :class="`${ loadingShowMore ? 'D_Button_Loading ' : '' }`"
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-            @click="changeFilterT(galleryLastKey)">Show more</button>
+            @click="changeFilterT(galleryLastKey)">{{ $t("m_showMore") }}</button>
         </div>
       </div>
       <!-- classic -->
       <div v-else-if="searchResult.length > 0" class="Main_SearchMid">
-        <div v-if="showingLastest" class="Main_SearchLastestTitle">Last contributions</div>
+        <div v-if="showingLastest" class="Main_SearchLastestTitle">{{ $t("m_lastContribution") }}</div>
         <div v-else class="BaseFilterDialog_SortBox">
           <!-- RQ, Top Speed, 0-60, Handling, MRA, Weight -->
         </div>
@@ -293,12 +302,12 @@
           <button
             v-if="searchResult.length > searchMax"
             class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
-            @click="searchMax = searchMax + 41">Show more</button>
+            @click="searchMax = searchMax + 41">{{ $t("m_showMore") }}</button>
         </div>
       </div>
       <div v-else-if="alreadySearched" class="Main_SearchEmpty">
         <i class="ticon-search_big Main_SearchEmptyAddIcon" aria-hidden="true"/>
-        <div class="Main_SearchEmptyText">Nothing found</div>
+        <div class="Main_SearchEmptyText">{{ $t("m_nothingFound") }}</div>
       </div>
       <div v-else class="Main_SearchEmpty">
         <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
@@ -1174,7 +1183,7 @@ export default {
       this.changeFilter();
     },
     initSecretYear(forceTrue) {
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
       this.secretYearList = [];
       if (!this.searchFilters.year2Model) Vue.set(this.searchFilters, "year2Model", []);
       this.secretYear = !this.secretYear || forceTrue;

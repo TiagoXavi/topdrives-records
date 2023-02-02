@@ -248,9 +248,6 @@ export default {
   height: min-content;
   pointer-events: auto;
 }
-.Car_WithMidEmpty {
-  position: absolute;
-}
 .Car_Dragging {
   background-color: #242424;
   box-shadow: 0px 0px 0px 5px #505050;
@@ -526,7 +523,7 @@ export default {
 .Car_NumberStars000 .Car_Star {
   opacity: 0.2;
 }
-.Car_NumberStars111 .Car_Star:not(:nth-child(1)) {
+.Car_HeaderBlockStars[class*='111'] .Car_Star:not(:nth-child(1)) {
   opacity: 0.2;
 }
 .Car_AddHeader {
@@ -633,6 +630,11 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
+}
+
+.Main_Normal .Car_LayoutAddCar.Car_WithMidEmpty {
+  position: absolute;
+  margin-left: var(--left-width);
 }
 
 

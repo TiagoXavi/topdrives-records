@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" style="enable-background:new 0 0 640 480" xml:space="preserve">
-  <path style="fill:#006" d="M0 0h640v480H0z"/>
-  <path style="fill:#fff" d="M0 346.3v107.4l320-160L212.7 240zM640 453.7V346.3L427.3 240 320 293.7zM640 26.3l-320 160L427.3 240 640 133.7zM0 26.3v107.4L212.7 240 320 186.3z"/>
-  <path style="fill:#fff" d="M0 160v160h240v160h160V320h240V160H400V0H240v160z"/>
-  <g>
-    <path style="fill:#c00" d="M0 192v96h272v192h96V288h272v-96H368V0h-96v192z"/>
-    <path style="fill:#c00" d="m480 160 160-80V44.2L408.5 160zM0 435.8 231.6 320H160L0 400zM640 400v-35.8L551.6 320H480zM0 80v35.8L88.5 160H160z"/>
-  </g>
-</svg>

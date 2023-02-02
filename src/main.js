@@ -6,8 +6,9 @@ import store from "./store";
 import router from "./router";
 import PortalVue from 'portal-vue';
 import 'focus-visible';
-import LogRocket from 'logrocket';
 import Hotjar from 'vue-hotjar';
+import VueI18n from 'vue-i18n';
+import i18nMessages from './i18n';
 
 
 Vue.config.productionTip = false
@@ -17,6 +18,14 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(filters);
 Vue.use(PortalVue);
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+  locale: 'en',
+  fallbackLocale: 'en',
+  messages: i18nMessages,
+  silentFallbackWarn: true
+});
+Vue.use({i18n});
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -31,6 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 new Vue({
   store,
   router,
+  i18n,
   render: h => h(App),
 }).$mount('#app')
 

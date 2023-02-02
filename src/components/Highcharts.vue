@@ -2,7 +2,7 @@
   <div class="Highcharts_Layout">
     <div v-if="noData" class="Highcharts_Empty">
       <div v-if="config.title" class="Highcharts_TitleEmpty">{{ config.title.text }}</div>
-      Sem dados para exibir
+      {{ $t("m_noData") }}
     </div>
     <div :id="id" class="Highcharts_Div" />
   </div>
@@ -69,6 +69,19 @@ export default {
     Dark(Highcharts);
     Accessibility(Highcharts);
     // wordcloud(Highcharts);
+    Highcharts.setOptions({
+      lang: {
+        months: [
+          'Janvier', 'Février', 'Mars', 'Avril',
+          'Mai', 'Juin', 'Juillet', 'Août',
+          'Septembre', 'Octobre', 'Novembre', 'Décembre'
+        ],
+        weekdays: [
+          'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
+          'Jeudi', 'Vendredi', 'Samedi'
+        ]
+      }
+    });
 
     this.chartSlidersDebounceFunction = Vue.debounce(this.renderChart, 500);
 
@@ -125,10 +138,10 @@ export default {
 
             var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto" alt="">`+
             `<div><span style="color: ${this.point.custom.color}">RQ${this.point.y}</span>&nbsp;<span>${this.point.name}</span></div>`+
-            `<span><b>Time: </b>${Vue.options.filters.toTimeString(this.point.x, _this.trackCode)}</span><br/>`+
-            `<span><b>Tyres: </b>${this.point.custom.tyres}</span><br/>`+
-            `<span><b>Drive: </b>${this.point.custom.drive}</span><br/>`+
-            `<span><b>Clearance: </b>${this.point.custom.clearance}</span><br/>`+
+            `<span><b>${ _this.$t('m_time') }: </b>${Vue.options.filters.toTimeString(this.point.x, _this.trackCode)}</span><br/>`+
+            `<span><b>${ _this.$tc('c_tyre', 2) }: </b>${this.point.custom.tyres}</span><br/>`+
+            `<span><b>${ _this.$tc('c_drive', 2) }: </b>${this.point.custom.drive}</span><br/>`+
+            `<span><b>${ _this.$tc('c_clearance', 2) }: </b>${this.point.custom.clearance}</span><br/>`+
             `<span><b>MRA: </b>${this.point.custom.mra}</span><br/>`;
 
             // var body = newPoints.reduce(function (s, point) {
