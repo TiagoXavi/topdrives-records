@@ -444,4 +444,13 @@ export default {
 .MainTranslate_FooterMessage {
   margin: 30px 0;
 }
+
+@media only screen and (max-width: 767px) {
+  .MainTranslate_Left {
+    width: 50%;
+  }
+  .MainTranslate_Right {
+    width: 50%;
+  }
+}
 </style>

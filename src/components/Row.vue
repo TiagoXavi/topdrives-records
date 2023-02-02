@@ -642,7 +642,7 @@ export default {
       formData.set('config', JSON.stringify({
         author: this.user.username,
         car: `${this.car.name} (${this.car.selectedTune})`,
-        track: `${item.name} ${Vue.options.filters.resolveCond(item.trackType)}`,
+        track: `${this.$i18n._vm.messages.en['t_'+item.id]}/${this.$t('t_'+item.id)} - ${Vue.options.filters.resolveCond(item.trackType)}`,
         currentTime: Vue.options.filters.toTimeString(item.text, item.id),
         timeAuthor: item.author,
         url: url

@@ -48378,6 +48378,36 @@
   {
       "class": "C",
       "rq": 48,
+      "onlyName": "Brera 3.2 V6 Q4",
+      "brand": "Alfa Romeo",
+      "year": 2005,
+      "tdid": "3595",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 149,
+      "acel": 6.7,
+      "hand": 82,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 67,
+      "weight": 1605,
+      "name": "Alfa Romeo Brera 3.2 V6 Q4",
+      "rid": "Alfa_Romeo_Brera_32_V6_Q4_2005",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front",
+      "tags": [
+          "Amalfi Coast Cruising"
+      ]
+  },
+  {
+      "class": "C",
+      "rq": 48,
       "onlyName": "E 500",
       "brand": "Mercedes-Benz",
       "country": "DE",
@@ -49703,36 +49733,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Amalfi Coast Cruising"
-      ]
-  },
-  {
-      "class": "C",
-      "rq": 47,
-      "onlyName": "Brera 3.2 V6 Q4",
-      "brand": "Alfa Romeo",
-      "year": 2005,
-      "tdid": "3595",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 149,
-      "acel": 6.7,
-      "hand": 82,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 67,
-      "weight": 1605,
-      "name": "Alfa Romeo Brera 3.2 V6 Q4",
-      "rid": "Alfa_Romeo_Brera_32_V6_Q4_2005",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising"
