@@ -1,5 +1,7 @@
 import en from "./en.js";
 import sk from "./sk.js";
+import pl from "./pl.js";
+import ru from "./ru.js";
 
 export default {
   en: {
@@ -12,5 +14,7 @@ export default {
     'c_off-road2': "OFF",
     c_slick2: "SLK",
   },
+  pl,
+  ru,
   sk
 }

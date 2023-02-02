@@ -1301,7 +1301,7 @@
     <BaseDialog
       :active="optionsDialogComputed"
       :transparent="false"
-      max-width="470px"
+      max-width="500px"
       @close="updateOptions()">
       <div class="Main_OptionsDialog">
         <div class="Main_SectionSelectorLayout">

@@ -95,6 +95,16 @@
             @click="copy()">Copy to clipboard</button>
         </div>
         <div class="MainTranslate_FooterMessage">After creating translation file, send it to me on TDR Discord</div>
+        <div class="MainTranslate_FooterMessage" style="margin-bottom: 5px;">Review a done language:</div>
+        <div class="MainTranslate_FooterButtons">
+          <button
+            v-for="(item, ix) in langs"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="loadSystemLanguage(item)">
+            <BaseFlag :flag="item.toUpperCase()" class="MainTranslate_FooterFlag" />
+            <span>{{ item.toUpperCase() }}</span>
+          </button>
+        </div>
         <BaseDialog
           :active="confirmDelete.dialog"
           :transparent="false"
@@ -130,6 +140,7 @@
 import BaseText from "./BaseText.vue";
 import Logo from "./Logo.vue";
 import BaseDialog from "./BaseDialog.vue";
+import BaseFlag from './BaseFlag.vue'
 import campaign from '../database/campaign.json'
 import english from '@/i18n/en.js';
 
@@ -138,7 +149,8 @@ export default {
   components: {
     BaseText,
     Logo,
-    BaseDialog
+    BaseDialog,
+    BaseFlag
   },
   props: {
     test: {
@@ -215,15 +227,23 @@ export default {
         loading: false,
         classe: ""
       },
+      langs: []
     }
   },
   watch: {},
   beforeMount() {
+    let vm = this;
+
     let translateObj = window.localStorage.getItem("translateObj");
     if (translateObj) {
       translateObj = JSON.parse(translateObj);
       this.translateObj = translateObj;
     }
+
+    vm.langs = [];
+    Object.keys(this.$i18n._vm.messages).forEach(key => {
+      vm.langs.push(key)
+    })
 
     this.campaignLocation();
   },
@@ -352,8 +372,13 @@ export default {
       Object.keys( this.english ).forEach(key => {
         if (!data[key]) data[key] = null;
       })
-      
+
       navigator.clipboard.writeText(JSON.stringify(data));
+    },
+    loadSystemLanguage(lang) {
+      let newLang = this.$i18n._vm.messages[lang];
+      debugger;
+      this.translateObj = newLang;
     }
   },
 }
@@ -454,6 +479,10 @@ export default {
 }
 .MainTranslate_FooterMessage {
   margin: 30px 0;
+}
+.MainTranslate_FooterFlag {
+  width: 20px;
+  margin: -7px 5px -5px 0px;
 }
 
 @media only screen and (max-width: 767px) {
