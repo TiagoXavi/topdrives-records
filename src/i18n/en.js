@@ -127,7 +127,7 @@ export default {
   p_emptyRoundLogin: "Login to start creating this round or contact a moderator on our discord server:",
   p_lockRoundPhrase: "Lock this round to you to start doing it",
   p_modDoingRound: "{mod} is doing this round",
-  p_patronsOnly: "This feature is available for patrons only (Tier {tier}).",
+  p_patronsOnly: "This feature is available for patreons only (Tier {tier}).",
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",
   p_chartsDescription: "It puts all database of a track into a chart. For a demonstration:",
   p_templateWarning: "Make sure that your template is useful to the community or it will not be approved.",

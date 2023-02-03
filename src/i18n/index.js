@@ -3,6 +3,7 @@ import sk from "./sk.js";
 import pl from "./pl.js";
 import ru from "./ru.js";
 import gr from "./gr.js";
+import it from "./it.js";
 
 export default {
   en: {
@@ -16,6 +17,7 @@ export default {
     c_slick2: "SLK",
   },
   gr,
+  it,
   pl,
   ru,
   sk

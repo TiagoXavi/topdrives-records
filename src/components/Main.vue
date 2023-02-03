@@ -1041,7 +1041,7 @@
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
+                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.fuel.toLowerCase()}`) }}</div>
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
@@ -1049,7 +1049,7 @@
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
+                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.engine.toLowerCase()}Engine`) }}</div>
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
@@ -2536,7 +2536,7 @@ export default {
             vm.$store.commit("DEFINE_SNACK", {
               active: true,
               correct: true,
-              text: this.$t('m_deleteSuccess')
+              text: vm.$t('m_deleteSuccess')
             });
           })
           .catch(error => {
@@ -4189,7 +4189,7 @@ export default {
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: isDelete ? this.$t('m_deleteSuccess') : this.$t('m_approveSuccess')
+            text: isDelete ? vm.$t('m_deleteSuccess') : vm.$t('m_approveSuccess')
           });
         })
         .catch(error => {
@@ -4701,7 +4701,7 @@ export default {
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
-            text: this.$t('m_deleteSuccess')
+            text: vm.$t('m_deleteSuccess')
           });
         })
         .catch(error => {
@@ -4721,6 +4721,8 @@ export default {
           vm.saveLoading = false;
         });
       }
+
+      debugger;
 
       this.confirmDelete = {
         dialog: true,

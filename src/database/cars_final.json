@@ -92598,7 +92598,7 @@
       "topSpeed": 68,
       "acel": 20,
       "hand": 60,
-      "drive": "FWD",
+      "drive": "RWD",
       "tyres": "Standard",
       "mra": null,
       "weight": 570,

@@ -11,7 +11,7 @@
         <div class="MainTranslate_HeaderTitle">Translation creator</div>
         <ol class="MainTranslate_Ol">
           <li class="MainTranslate_Rule">Follow the letter case the same way as you see on the left, some words are full lowercase or full UPPERCASE.</li>
-          <li class="MainTranslate_Rule">Keep the track names how its in the game. Top Drives probably doesn't has a good translation for your language. Maybe you want to improve, no probem, but don't improve track names. People will not find the track using your translation.</li>
+          <li class="MainTranslate_Rule">Keep the track and surfaces names how its in the game. Top Drives probably doesn't has a good translation for your language. Maybe you want to improve, no probem, but don't improve track names. People will not find the track using your translation.</li>
           <li class="MainTranslate_Rule">Here on TDR some words has limited space (like small buttons), use your creativity to follow those characters limit when asked.</li>
           <li class="MainTranslate_Rule">Some fields has a separator like "Tag | Tags", this is pluralization, you need to keep separator like that.</li>
           <li class="MainTranslate_Rule">Safe to reload this page, your browser will memorize your work.</li>
@@ -377,7 +377,6 @@ export default {
     },
     loadSystemLanguage(lang) {
       let newLang = this.$i18n._vm.messages[lang];
-      debugger;
       this.translateObj = newLang;
     }
   },
