@@ -4,8 +4,10 @@ import pl from "./pl.js";
 import ru from "./ru.js";
 import gr from "./gr.js";
 import it from "./it.js";
+import de from "./de.js";
 
 export default {
+  de,
   en: {
     ...en,
     m_bestOf: "Best of",
