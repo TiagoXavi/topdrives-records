@@ -120,6 +120,8 @@ export default {
   m_approveSuccess: "Successful approve",
   m_sentReview: "Submited for review",
   m_language: "Language",
+  m_logout: "Logout",
+  m_resetSavedHand: "Reset to best solution",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -215,6 +217,7 @@ export default {
   "c_mid-rearEngine": "Mid-rear",
   c_mixedEngine: "Mixed",
   c_rearEngine: "Rear",
+  c_tune: "Tune",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",

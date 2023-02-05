@@ -561,6 +561,12 @@
               </template>
             </div>
           </div>
+          <div v-if="cgShowResetSavedHand" class="Cg_BottomModTools">
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="cgResetSaveHand()">{{ $t("m_resetSavedHand") }}</button>
+          </div>
           <div v-if="forceShowAnalyse" class="Cg_BottomModTools">
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
@@ -960,10 +966,17 @@
             <button
               v-for="item in tuneDialogTunes"
               :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
+              :title="(((tuneDialogCar.data || {})[item] || {}).info || {}).tuneCreator"
               class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
               @click="changeTuneCar(tuneDialogCar, item)">
               {{ item }}
               <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+            </button>
+            <button
+              v-if="user && user.tier <= 3"
+              class="D_Button Row_DialogButtonTune"
+              @click="chooseCustomTune(tuneDialogCar)">
+              <i class="ticon-plus_1" style="font-size: 18px;" aria-hidden="true"/>
             </button>
           </div>
           <div class="Row_DialogBody Space_TopPlus">
@@ -1089,6 +1102,22 @@
           </div>
         </div>
 
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="customTuneDialogActive"
+      :transparent="false"
+      max-width="420px"
+      min-width="240px"
+      @close="closeCustomTuneDialog()">
+      <div class="Main_TuneDialog">
+        <BaseText
+          v-model="customTuneDialogTune"
+          class="BaseText_Big"
+          iid="Main_CustomTuneInput"
+          type="tune"
+          :label="$t('c_tune')"
+          placeholder="e.g. 798" />
       </div>
     </BaseDialog>
     <BaseDialog
@@ -1849,6 +1878,9 @@ export default {
       tuneDialogCarIndex: null,
       tuneDialogRace: null,
       tuneDialogisOppo: false,
+      customTuneDialogActive: false,
+      customTuneDialogCar: null,
+      customTuneDialogTune: null,
       optionsDialogActive: false,
       printImageDialog: false,
       aboutDialog: false,
@@ -1929,6 +1961,7 @@ export default {
       cgPointsEditModel: null,
       cgPointsEditString: null,
       cgPointsEditRace: null,
+      cgShowResetSavedHand: false,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -1992,7 +2025,7 @@ export default {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","mtTwisty_a00","tokyoLoop_a00","tokyoOffRamp_a00"]
+              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","mtTwisty_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00"]
             },
             {
               type: "01",
@@ -2043,7 +2076,7 @@ export default {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["waterDrag_a00","runwayDrag_a00","mile1r_a00","mile4r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00","tokyoOverpass_a00"]
+              tracks: ["waterDrag_a00","runwayDrag_a00","mile1r_a00","mile4r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00"]
             },
             {
               type: "01",
@@ -2782,12 +2815,13 @@ export default {
     },
     tuneDialogTunes() {
       let result = ["332", "323", "233"];
+      if (this.tuneDialogCar.forceTune) {
+        result.push(this.tuneDialogCar.forceTune);
+      }
       if (this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") result.push("111");
       if (this.mode === 'classic' && this.showDataFromPast && this.tuneDialogCar.data) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
-          if (tune[0] === "v") {
-            result.push(tune);
-          }
+          if (!result.includes(tune)) result.push(tune);
         })
       };
       return result;
@@ -3108,7 +3142,13 @@ export default {
       this.currentTracks.map((x, ix) => {
         let bestOption;
         currentTracksOptions[ix].map(y => {
-          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) || (y.irace <= bestOption.irace && y.imatch > bestOption.imatch) ) {
+          if (
+            !bestOption ||
+            this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+            y.irace < bestOption.irace && !this.isChamp(y.city) ||
+            (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+            (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+          ) {
             bestOption = y;
           }
         })
@@ -3122,6 +3162,7 @@ export default {
       // smart guide
       let matchesScore = [];
       this.campaign.map((city, icity) => {
+        if (city.name.startsWith("SN") || city.name.startsWith("YB")) return;
         city.matches.map((match, imatch) => {
           let includes = [];
           let indexSum = 0;
@@ -3158,6 +3199,7 @@ export default {
       //     })
       //   })
       // })
+      // campaignTracksOutOfDefault = [new Set(campaignTracksOutOfDefault)];
       // console.log(campaignTracksOutOfDefault);
       // debugger;
 
@@ -3311,6 +3353,7 @@ export default {
         }
       }
       this.downloadCar(newCar.rid);
+      this.cgSaveRoundHand();
     },
     // toggleTrack(set) {
     //   let index = this.activeTrackSet.indexOf(set);
@@ -4423,7 +4466,13 @@ export default {
         resolveds.map((x, ix) => {
           let bestOption;
           currentTracksOptions[ix].map(y => {
-            if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) ) {
+            if (
+              !bestOption ||
+              this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+              y.irace < bestOption.irace && !this.isChamp(y.city) ||
+              (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+              (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+            ) {
               bestOption = y;
             }
           })
@@ -4624,7 +4673,9 @@ export default {
           this.cgResolveBankToSave("remove", irace, bankCar.rid, bankCar.tune, 0);
         }
       } else {
-        race.carIndex = index; this.calcRaceResult(race);
+        race.carIndex = index;
+        this.calcRaceResult(race);
+        this.cgSaveRoundHand();
       }
     },
     cgResolveRqFill() {
@@ -4958,6 +5009,29 @@ export default {
       }
     },
     cgRemoveDuplicateSolution() {
+      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`;
+      let saveHand = window.localStorage.getItem(saveName);
+      if (saveHand) {
+        this.cgShowResetSavedHand = true;
+        saveHand = JSON.parse(saveHand);
+        saveHand.map((ridTune, ridIx) => {
+          let index = this.cgRound.races[ridIx].cars.findIndex(car => {
+            return `${car.rid}_${car.tune}` === ridTune;
+          })
+          if (index === -1) index = undefined;
+
+          let race = this.cgRound.races[ridIx];
+          Vue.set(race, "carIndex", index);
+          
+          let found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+          if (!found) {
+            this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+          }
+        })
+        return
+      }
+      this.cgShowResetSavedHand = false;
+
       if (!this.cgDontRepeatSolution) return;
       let loopCount = 0;
 
@@ -5248,6 +5322,24 @@ export default {
       .then(() => {
         this.cgAnalyseLoading = false;
       });
+    },
+    cgSaveRoundHand() {
+      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
+      let handRids = [];
+      this.cgRound.races.map(race => {
+        if (isNaN(race.carIndex)) {
+          handRids.push(undefined);
+        } else {
+          handRids.push(`${race.cars[race.carIndex].rid}_${race.cars[race.carIndex].tune}`);
+        }
+      })
+      window.localStorage.setItem(saveName, JSON.stringify(handRids));
+    },
+    cgResetSaveHand() {
+      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
+      localStorage.removeItem(saveName);
+      this.loadCg(this.cgCurrentId, this.cgCurrentRound);
+      this.cgShowResetSavedHand = false;
     },
     styleCgList() {
       this.cgList.sort((a,b) => {
@@ -5580,6 +5672,25 @@ export default {
     },
     tierOf(username) {
 
+    },
+    isChamp(str) {
+      return str.startsWith("SN") || str.startsWith("YB");
+    },
+    chooseCustomTune(car) {
+      this.customTuneDialogCar = car;
+      this.customTuneDialogActive = true;
+      this.customTuneDialogTune = null;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Main_CustomTuneInput").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    closeCustomTuneDialog() {
+      this.customTuneDialogActive = false;
+      if (this.customTuneDialogTune) {
+        Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
+      }
     }
   }
 }
@@ -7120,6 +7231,7 @@ body .Main_UserT5 {
   display: flex;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 15px;
 }
 .Cg_SelectorEventSpan {
   max-width: 300px;

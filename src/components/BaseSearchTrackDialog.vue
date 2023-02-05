@@ -184,7 +184,13 @@ export default {
       tracksClear.map((x, ix) => {
         let bestOption;
         currentTracksOptions[ix].map(y => {
-          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) ) {
+          if (
+            !bestOption ||
+            this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+            y.irace < bestOption.irace && !this.isChamp(y.city) ||
+            (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+            (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+          ) {
             bestOption = y;
           }
         })
@@ -197,6 +203,9 @@ export default {
 
       this.$emit('resolved', tracksClear[0]);
 
+    },
+    isChamp(str) {
+      return str.startsWith("SN") || str.startsWith("YB");
     }
   },
 }

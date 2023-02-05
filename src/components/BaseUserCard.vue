@@ -6,7 +6,7 @@
         <span class="Main_UserNameLabel">{{ user.username }}</span>
         <span v-if="user.mod && showMod" class="Main_UserMod">mod</span>
       </div>
-      <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">Logout</button>
+      <button style="font-size: 16px;" class="D_Button D_ButtonLink Main_UserLogout" @click="logout()">{{ $t('m_logout') }}</button>
     </div>
   </div>
 </template>

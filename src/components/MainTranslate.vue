@@ -14,6 +14,7 @@
           <li class="MainTranslate_Rule">Keep the track and surfaces names how its in the game. Top Drives probably doesn't has a good translation for your language. Maybe you want to improve, no probem, but don't improve track names. People will not find the track using your translation.</li>
           <li class="MainTranslate_Rule">Here on TDR some words has limited space (like small buttons), use your creativity to follow those characters limit when asked.</li>
           <li class="MainTranslate_Rule">Some fields has a separator like "Tag | Tags", this is pluralization, you need to keep separator like that.</li>
+          <li class="MainTranslate_Rule">If some item work better in english, just leave it empty.</li>
           <li class="MainTranslate_Rule">Safe to reload this page, your browser will memorize your work.</li>
         </ol>
         <div class="MainTranslate_Bottom">
@@ -345,7 +346,13 @@ export default {
       currentTracks.map((x, ix) => {
         let bestOption;
         currentTracksOptions[ix].map(y => {
-          if (!bestOption || y.irace < bestOption.irace || (y.irace <= bestOption.irace && y.icity > bestOption.icity) || (y.irace <= bestOption.irace && y.imatch > bestOption.imatch) ) {
+          if (
+            !bestOption ||
+            this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+            y.irace < bestOption.irace && !this.isChamp(y.city) ||
+            (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+            (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+          ) {
             bestOption = y;
           }
         })
@@ -355,6 +362,9 @@ export default {
           this.campaignObj[`t_${x}`] = ``;
         }
       })
+    },
+    isChamp(str) {
+      return str.startsWith("SN") || str.startsWith("YB");
     },
     load(e) {
       let file = e.target.files[0];

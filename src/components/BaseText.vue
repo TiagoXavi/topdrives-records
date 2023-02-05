@@ -78,33 +78,24 @@ export default {
     resolveChange(e) {
       if (this.type === "normal") {
         this.$emit('change', e);
-      } else if (this.type === "integer") {
-        if (typeof e === "string") {
-          var integer = new RegExp(/[0-9]+/g);
-          var isInteger = integer.test(e);
-          if (isInteger) {
-            this.$emit('change', e);
-            this.correct = true;
-            setTimeout(() => {
-              this.correct = false;
-            }, 1500);
-            return;
-          }
-        }
-        this.$emit('change', '');
-        this.pis = true;
-        setTimeout(() => {
-          this.pis = false;
-        }, 1500);
-        
       } else {
         if (typeof e === "string") {
           var acel = new RegExp(/[0-9]+\.[0-9]/g);
           var isAcel = acel.test(e);
           var topHand = new RegExp(/[0-9][0-9]+/g);
           var isTopHand = topHand.test(e);
+          var integer = new RegExp(/[0-9]+/g);
+          var isInteger = integer.test(e);
+          var tune = new RegExp(/[7-9][7-9][7-9]/g);
+          var isTune = tune.test(e) && [...e].reduce((a,b) => Number(a)+Number(b)) === 24;
     
-          if ((this.type === "acel" && (isAcel || e === "0" || e === "N/A")) || (this.type === "topSpeed" && isTopHand) || (this.type === "hand" && isTopHand)) {
+          if (
+              (this.type === "acel" && (isAcel || e === "0" || e === "N/A")) ||
+              (this.type === "topSpeed" && isTopHand) ||
+              (this.type === "hand" && isTopHand) ||
+              (this.type === "integer" && isInteger) ||
+              (this.type === "tune" && isTune)
+            ) {
             if (this.type === "acel" && e === "0") {
               e = "N/A"
             }

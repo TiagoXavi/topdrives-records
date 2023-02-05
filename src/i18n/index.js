@@ -5,6 +5,7 @@ import ru from "./ru.js";
 import gr from "./gr.js";
 import it from "./it.js";
 import de from "./de.js";
+import ua from "./ua.js";
 
 export default {
   de,
@@ -22,5 +23,6 @@ export default {
   it,
   pl,
   ru,
-  sk
+  sk,
+  ua
 }
