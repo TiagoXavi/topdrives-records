@@ -86,8 +86,8 @@ export default {
           var isTopHand = topHand.test(e);
           var integer = new RegExp(/[0-9]+/g);
           var isInteger = integer.test(e);
-          var tune = new RegExp(/[7-9][7-9][7-9]/g);
-          var isTune = tune.test(e) && [...e].reduce((a,b) => Number(a)+Number(b)) === 24;
+          var tune = new RegExp(/[0-9][0-9][0-9]/g);
+          var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "111" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
     
           if (
               (this.type === "acel" && (isAcel || e === "0" || e === "N/A")) ||

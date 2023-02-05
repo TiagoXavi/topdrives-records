@@ -973,7 +973,7 @@
               <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
             </button>
             <button
-              v-if="user && user.tier <= 3"
+              v-if="user && user.tier <= 3 && showCustomTunes"
               class="D_Button Row_DialogButtonTune"
               @click="chooseCustomTune(tuneDialogCar)">
               <i class="ticon-plus_1" style="font-size: 18px;" aria-hidden="true"/>
@@ -1117,7 +1117,7 @@
           iid="Main_CustomTuneInput"
           type="tune"
           :label="$t('c_tune')"
-          placeholder="e.g. 798" />
+          placeholder="e.g. 798 or 112" />
       </div>
     </BaseDialog>
     <BaseDialog
@@ -1761,6 +1761,7 @@
       <div class="Main_AdvancedDialogBox">
         <div class="Main_DialogTitle">{{ $t("m_options") }}</div>
         <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
+        <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
         <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
         <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
       </div>
@@ -1860,6 +1861,7 @@ export default {
       librarySearchDialog: false,
       libraryApprove: false,
       showDataFromPast: false,
+      showCustomTunes: true,
       showOldTags: false,
       optionsAdvancedDialog: false,
       isFilteringT: false,
@@ -2463,6 +2465,11 @@ export default {
       showDataFromPast = JSON.parse(showDataFromPast);
       this.showDataFromPast = showDataFromPast;
     }
+    let showCustomTunes = window.localStorage.getItem("showCustomTunes");
+    if (showCustomTunes) {
+      showCustomTunes = JSON.parse(showCustomTunes);
+      this.showCustomTunes = showCustomTunes;
+    }
     let showOldTags = window.localStorage.getItem("showOldTags");
     if (showOldTags) {
       showOldTags = JSON.parse(showOldTags);
@@ -2815,13 +2822,24 @@ export default {
     },
     tuneDialogTunes() {
       let result = ["332", "323", "233"];
+      if (this.tuneDialogCar.data && this.showCustomTunes) {
+        Object.keys( this.tuneDialogCar.data ).forEach(tune => {
+          if (tune[0] !== "v" && tune !== "111" && !result.includes(tune)) {
+            result.push(tune);
+          }
+        })
+      };
       if (this.tuneDialogCar.forceTune) {
         result.push(this.tuneDialogCar.forceTune);
       }
+
       if (this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") result.push("111");
-      if (this.mode === 'classic' && this.showDataFromPast && this.tuneDialogCar.data) {
+
+      if (this.mode === 'classic' && this.tuneDialogCar.data && this.showDataFromPast) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
-          if (!result.includes(tune)) result.push(tune);
+          if (tune[0] === "v") {
+            result.push(tune);
+          }
         })
       };
       return result;
@@ -5690,6 +5708,7 @@ export default {
       this.customTuneDialogActive = false;
       if (this.customTuneDialogTune) {
         Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
+        this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
       }
     }
   }
