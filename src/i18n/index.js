@@ -6,6 +6,7 @@ import gr from "./gr.js";
 import it from "./it.js";
 import de from "./de.js";
 import ua from "./ua.js";
+import es from "./es.js";
 
 export default {
   de,
@@ -19,6 +20,7 @@ export default {
     'c_off-road2': "OFF",
     c_slick2: "SLK",
   },
+  es,
   gr,
   it,
   pl,
