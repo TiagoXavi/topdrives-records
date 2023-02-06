@@ -846,6 +846,12 @@
           class="Main_KingTrackBox"
           name="kingShowDownvoted"
           :label="$t('m_includeDownvote')" />
+        <BaseConfigCheckBox
+          v-if="!inverted"
+          v-model="kingForceVerticalView"
+          class="Main_KingTrackBox"
+          name="kingForceVerticalView"
+          :label="$t('m_kingForceVertical')" />
         <button
           v-if="user && user.tier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
@@ -1992,6 +1998,7 @@ export default {
       kingShowDownvoted: false,
       kingFixed: false,
       kingAddindTrack: false,
+      kingForceVerticalView: true,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -2480,6 +2487,11 @@ export default {
     if (kingShowDownvoted) {
       kingShowDownvoted = JSON.parse(kingShowDownvoted);
       this.kingShowDownvoted = kingShowDownvoted;
+    }
+    let kingForceVerticalView = window.localStorage.getItem("kingForceVerticalView");
+    if (kingForceVerticalView) {
+      kingForceVerticalView = JSON.parse(kingForceVerticalView);
+      this.kingForceVerticalView = kingForceVerticalView;
     }
     let cgDontRepeatSolution = window.localStorage.getItem("cgDontRepeatSolution");
     if (cgDontRepeatSolution) {
@@ -5663,6 +5675,10 @@ export default {
         this.updateOptions();
         this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
+        if (this.kingForceVerticalView) {
+          this.display("vertical");
+          this.colorsChange("full");
+        }
 
         if (result.length === 0) {
           this.$store.commit("DEFINE_SNACK", {
@@ -5700,13 +5716,14 @@ export default {
       this.customTuneDialogTune = null;
       setTimeout(() => {
         try {
-          document.querySelector("#Main_CustomTuneInput").focus();  
+          document.querySelector("#Main_CustomTuneInput").focus();
         } catch (error) {}
       }, 10);
     },
     closeCustomTuneDialog() {
       this.customTuneDialogActive = false;
       if (this.customTuneDialogTune) {
+        this.$store.commit("START_LOGROCKET", {});
         Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
       }

@@ -272,7 +272,7 @@ export default {
   "t_tokyoOverpass": "Tokio-Querung (R)",
   "t_tCircuit": "Kurvenreiche Runde ",
   "t_tCircuitr": "Kurvenreiche Runde (R)",
-  "t_tRoad": "Kurvenreiche Strecke",
+  "t_tRoad": "Kurvenreiche Straße",
   "t_waterDrag": "Hafen-Drag",
   "t_airplaneHangars": "Flugzeughallen",
   "t_smallRoad": "Nebenweg",

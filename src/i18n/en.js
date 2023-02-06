@@ -123,6 +123,7 @@ export default {
   m_logout: "Logout",
   m_resetSavedHand: "Reset to best solution",
   m_showCustomTunes: "Show custom tunes",
+  m_kingForceVertical: "Change display to vertical",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

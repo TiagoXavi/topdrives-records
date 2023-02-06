@@ -253,7 +253,7 @@ export default {
   methods: {
     blur() {
       window.localStorage.setItem('translateObj', JSON.stringify(this.translateObj));
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
     },
     reset() {
       let vm = this;
