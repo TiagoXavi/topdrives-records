@@ -5049,18 +5049,15 @@ export default {
             return `${car.rid}_${car.tune}` === ridTune;
           })
           if (index === -1) index = undefined;
+          if (index === undefined) return;
 
           let race = this.cgRound.races[ridIx];
           Vue.set(race, "carIndex", index);
           
           let found;
-          try {
-            found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
-            if (!found) {
-              this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
-            }
-          } catch (error) {
-            
+          found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+          if (!found) {
+            this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
           }
         })
         return
