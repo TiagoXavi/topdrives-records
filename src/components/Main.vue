@@ -358,7 +358,7 @@
         </template>
         <template v-else-if="user && cgRound.reservedTo && cgRound.reservedTo !== user.username">
           <div class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyBody">{{ $t("m_lockRound", { mod: cgRound.reservedTo }) }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("p_modDoingRound", { mod: cgRound.reservedTo }) }}</div>
           </div>
         </template>
         
@@ -5053,9 +5053,14 @@ export default {
           let race = this.cgRound.races[ridIx];
           Vue.set(race, "carIndex", index);
           
-          let found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
-          if (!found) {
-            this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+          let found;
+          try {
+            found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+            if (!found) {
+              this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+            }
+          } catch (error) {
+            
           }
         })
         return

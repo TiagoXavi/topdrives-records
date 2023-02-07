@@ -19296,37 +19296,6 @@
   {
       "class": "A",
       "rq": 74,
-      "onlyName": "330e xDrive Saloon",
-      "brand": "BMW",
-      "year": 2020,
-      "tdid": "3628",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "DE",
-      "topSpeed": 142,
-      "acel": 5.5,
-      "hand": 77,
-      "drive": "4WD",
-      "tyres": "Standard",
-      "mra": 65.48,
-      "weight": 1820,
-      "name": "BMW 330e xDrive Saloon",
-      "rid": "BMW_330e_xDrive_Saloon_2020",
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Hybrid",
-      "seats": "5",
-      "engine": "Front",
-      "tags": [
-          "Enter the Black Forest",
-          "Eco Friendly"
-      ]
-  },
-  {
-      "class": "A",
-      "rq": 74,
       "onlyName": "730d xDrive",
       "brand": "BMW",
       "year": 2019,
@@ -19814,6 +19783,37 @@
       "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "330e xDrive Saloon",
+      "brand": "BMW",
+      "year": 2020,
+      "tdid": "3628",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "DE",
+      "topSpeed": 142,
+      "acel": 5.5,
+      "hand": 77,
+      "drive": "4WD",
+      "tyres": "Standard",
+      "mra": 65.48,
+      "weight": 1820,
+      "name": "BMW 330e xDrive Saloon",
+      "rid": "BMW_330e_xDrive_Saloon_2020",
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front",
+      "tags": [
+          "Enter the Black Forest",
+          "Eco Friendly"
+      ]
   },
   {
       "class": "A",
@@ -45745,7 +45745,7 @@
           "Christmas Collection 22"
       ],
       "bodyTypes": [
-          "Convertible"
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",

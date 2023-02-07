@@ -120,9 +120,9 @@ export default {
   --tag-l: 53%;
 }
 .BaseGameTag_Great_Exhibition {
-  --tag-h: 38;
+  --tag-h: -139;
   --tag-s: 76%;
-  --tag-l: 57%;
+  --tag-l: 37%;
 }
 .BaseGameTag_Hot_Hatch {
   --tag-h: 290;
