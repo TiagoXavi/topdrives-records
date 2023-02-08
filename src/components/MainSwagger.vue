@@ -159,6 +159,7 @@ export default {
       })
       .then(res => {
         this.usernameRes = res.data;
+        this.email = (res.data[0] || {}).email
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

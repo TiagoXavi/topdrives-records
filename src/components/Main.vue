@@ -212,7 +212,7 @@
                     :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Row_DialogButtonTune"
                     @click="cgRoundSelectorDialog = true;">
-                    <span>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1 }}</span>
+                    <span>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
@@ -1579,7 +1579,7 @@
               style="padding-left: 15px;"
               class="Main_SearchItem"
               @click="loadCg(cg.date, index)">
-              <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1 }}</div>
+              <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1+cgCurrentRoundSum }}</div>
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
               </div>
@@ -1925,6 +1925,7 @@ export default {
       mode: "classic",
       cgLoading: false,
       cgCurrentRound: 0,
+      cgCurrentRoundSum: 0,
       cgRoundsNumber: 1,
       cgCurrentId: null,
       cgCurrentName: null,
@@ -4365,6 +4366,7 @@ export default {
         let cg = this.cgList.find(x => x.date === date)
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
+          this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.loadCg(date, round);
         }
         // this.lookForChangedCars(res.data);
