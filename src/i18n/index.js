@@ -8,6 +8,7 @@ import de from "./de.js";
 import ua from "./ua.js";
 import es from "./es.js";
 import fr from "./fr.js";
+import nl from "./nl.js";
 
 export default {
   de,
@@ -25,6 +26,7 @@ export default {
   fr,
   gr,
   it,
+  nl,
   pl,
   ru,
   sk,
