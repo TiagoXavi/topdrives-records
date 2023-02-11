@@ -87,7 +87,7 @@ import Highcharts from './Highcharts.vue'
 import Row from './Row.vue'
 
 import tracksRepo from '../database/tracks_repo.json'
-import all_cars from '../database/cars_final.json'
+import all_cars from '../database/cars_final_PL17.json'
 
 export default {
   name: 'MainCharts',

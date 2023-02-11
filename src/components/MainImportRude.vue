@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final.json'
+import cars_final from '../database/cars_final.json' // internal
 import cars_final_PL14 from '../database/cars_final_PL14.json'
 import changedCars from '../database/changedCars.json'
 import rude_all from '../database/rude_all.json'

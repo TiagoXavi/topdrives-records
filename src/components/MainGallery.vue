@@ -8,14 +8,14 @@
               v-model="searchInput"
               id="SearchInput"
               :placeholder="$t('m_search')"
-              class="Main_SearchInput"
+              class="D_SearchInput"
               type="text"
               @focus="searchFocus = true;"
               @blur="searchBlur()"
               @input="searchInputFunc($event)">
             <button
               v-if="searchInput && searchInput.length > 0 || alreadySearched"
-              class="D_Button Main_SearchInputClose"
+              class="D_Button D_SearchInputClose"
               @click="closeFilterText()">
               <i class="ticon-close_2" aria-hidden="true"/>
             </button>
@@ -312,7 +312,10 @@
 
             <div
               v-if="diff_searchResult[ix].mra"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix].mra < diff_searchResult[ix]._mra }"
+              :class="{
+                MainGallery_ColorUp: diff_searchResult[ix].mra < diff_searchResult[ix]._mra,
+                MainGallery_ColorDown: diff_searchResult[ix].mra > diff_searchResult[ix]._mra && diff_searchResult[ix]._mra !== null
+              }"
               class="MainGallery_Mra MainGallery_Compare">
               <div class="MainGallery_CompareLabel">MRA</div>
               <div class="MainGallery_Old">{{ diff_searchResult[ix].mra || "?" }}</div>
@@ -322,7 +325,10 @@
 
             <div
               v-if="diff_searchResult[ix].weight"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix].weight > diff_searchResult[ix]._weight }"
+              :class="{
+                MainGallery_ColorUp: diff_searchResult[ix].weight > diff_searchResult[ix]._weight,
+                MainGallery_ColorDown: diff_searchResult[ix].weight > diff_searchResult[ix]._weight && diff_searchResult[ix]._weight !== null
+              }"
               class="MainGallery_Weight MainGallery_Compare">
               <div class="MainGallery_CompareLabel">Weight</div>
               <div class="MainGallery_Old">{{ diff_searchResult[ix].weight }}</div>
@@ -345,7 +351,7 @@
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
 import data_cars from '../database/cars_final.json'
-import plOld from '../database/cars_final_PL16.json'
+import plOld from '../database/cars_final_PL17.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -414,7 +420,7 @@ export default {
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
-        onlyAnyChangeModel: [true],
+        onlyAnyChangeModel: [],
         onlyNewRarityModel: [],
         onlyNewPerformanceModel: [],
         onlyNewTyresModel: [],
@@ -832,9 +838,9 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
-      this.searchFilters.onlyAnyChangeModel = [true];
+      this.searchFilters.onlyAnyChangeModel = [];
       this.searchFilters.onlyNewRarityModel = [];
-      this.searchFilters.onlyNewPerformanceModel = [];
+      this.searchFilters.onlyNewPerformanceModel = [true];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
@@ -1225,7 +1231,7 @@ export default {
   position: absolute;
   color: white;
   align-items: center;
-  background-color: #a30000;
+  background-color: #555;
   padding: 2px 4px;
   /* position: relative; */
 }
@@ -1240,6 +1246,9 @@ export default {
 
 .MainGallery_ColorUp {
   background-color: #007000;
+}
+.MainGallery_ColorDown {
+  background-color: #a30000;
 }
 .MainGallery_Layout .Main_SearchMid {
   height: unset;

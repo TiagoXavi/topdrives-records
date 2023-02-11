@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final.json'
+import cars_final from '../database/cars_final.json' // internal
 
 export default {
   name: 'MainValidateFinalJson',

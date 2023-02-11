@@ -249,7 +249,7 @@
 
 <script>
 import BaseCarEditCard from './BaseCarEditCard.vue'
-import data_cars from '../database/cars_final.json'
+import data_cars from '../database/cars_final.json' // internal
 import pl14 from '../database/cars_final_PL14.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'

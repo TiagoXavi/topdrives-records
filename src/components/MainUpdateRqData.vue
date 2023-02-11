@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final.json'
-import cars_new_rq from '../database/cars_new_rq_17.json'
+import cars_final from '../database/cars_final.json' // internal
+import cars_new_rq from '../database/cars_new_rq_18.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -77,18 +77,39 @@ export default {
 
     this.cars_new_rq.map(y => {
       let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
-      let yModelName = yModel.substr(0, yModel.length-7);
-      let yModelYear = yModel.substr(yModel.length-5, 4);
-      yModel = yModel.replace("vauxhall/opel ", "");
+      if (y.Model === '2016 Vauxhall/Opel Adam R2') {
+        debugger;
+      }
+      let yModelName = yModel.substr(5);
+      let yModelYear = yModel.substr(0, 4);
+      yModelName = yModelName.replace("vauxhall/opel ", "");
+      yModelName = yModelName.replace("fiat ", "");
+      yModelName = yModelName.replace("abarth ", "");
 
       temp = this.cars_final.filter(x => {
         let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        xName = xName.replace("vauxhall opel ", "");
         xName = xName.replace("vauxhall ", "");
+        xName = xName.replace("fiat ", "");
+        xName = xName.replace("abarth ", "");
         // if (yModel.includes(xName) && yModel.substr(yModel.length-5, 4) == x.year) {
-        if (yModel.includes(xName) && yModelYear == x.year && (y['Old RQ'] === x.rq || y['New RQ'] === x.rq)) {
+        if (yModelName.includes(xName) && yModelYear == x.year && (y['Old RQ'] === x.rq || y['New RQ'] === x.rq)) {
           return true
         }
       });
+
+      if (temp && temp.length > 1) {
+        let achouExato = -1;
+        temp.map((x, index) => {
+          let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+          if (xName === yModelName) {
+            achouExato = index;
+          }
+        })
+        if (achouExato > -1) {
+          temp = temp.filter((x, index) => index === achouExato);
+        }
+      }
 
       if (temp && temp.length === 1) {
         // OK

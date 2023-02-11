@@ -1802,7 +1802,7 @@ import BaseLogoSpining from './BaseLogoSpining.vue'
 import BaseCompItem from './BaseCompItem.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
-import data_cars from '../database/cars_final.json'
+import data_cars from '../database/cars_final_PL17.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
 import html2canvas from 'html2canvas';

@@ -32,11 +32,11 @@
         </button>
       </div>
       <div class="D_Center Main_OptionsFooterButtons">
-        <!-- <button
+        <button
           class="D_Button Main_OptionsButton"
           @click="$router.push({ name: 'Gallery' })">
-          <span>{{ $t("m_vChanges", { version: '17.0' }) }}</span>
-        </button> -->
+          <span>{{ $t("m_vChanges", { version: '18.0' }) }}</span>
+        </button>
         <BaseDiscordButton />
         <BaseDonateButton />
         <BaseLanguageButton />

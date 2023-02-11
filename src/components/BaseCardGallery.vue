@@ -86,6 +86,12 @@ export default {
       type: Boolean,
       default: false
     },
+    customData: {
+      type: Object,
+      default() {
+        return null
+      }
+    },
   },
   data() {
     return {}
