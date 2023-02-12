@@ -9,8 +9,10 @@ import ua from "./ua.js";
 import es from "./es.js";
 import fr from "./fr.js";
 import nl from "./nl.js";
+import br from "./br.js";
 
 export default {
+  br,
   de,
   en: {
     ...en,

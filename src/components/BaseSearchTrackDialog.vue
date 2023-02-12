@@ -27,7 +27,7 @@
           v-for="(circuit, index) in filteredTracks"
           class="Main_CustomTrackItem" :key="index">
           <div class="Main_CustomTrackLeft">
-            <div class="Main_CustomTrackName">{{ $t('t_'+circuit.id) }}</div>
+            <div class="Main_CustomTrackName">{{ circuit.nameCalc }}</div>
           </div>
           <div class="Main_CustomTrackRight">
             <template>
@@ -142,6 +142,14 @@ export default {
           return vm.$t('t_'+x.id).toLowerCase().includes(tracksInput.join(" "));
         });
       }
+
+      filteredTracks.map(x => {
+        x.nameCalc = this.$t('t_'+x.id);
+      })
+
+      filteredTracks.sort((a,b) => {
+        return a.nameCalc.localeCompare(b.nameCalc);
+      })
       
       return filteredTracks;
     }
