@@ -178,7 +178,7 @@
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
     <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
-      <div>{{ $t("m_showOtherTracks") }}</div>
+      <div>{{ $t("m_noRecords") }}</div>
     </div>
 
     <div v-if="nonUsedTracks.length > 0 && !cg" class="Row_ShowMoreTracks">

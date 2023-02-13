@@ -1628,7 +1628,7 @@
       "hand": 93,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 103.14,
       "weight": 930,
       "name": "Ultima RS",
       "rid": "Ultima_RS_2021",
