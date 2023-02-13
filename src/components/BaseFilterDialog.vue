@@ -639,7 +639,8 @@ export default {
         "Alfa_Romeo_147_Q2_2007",
         "Vauxhall_Insignia_2.0_CDTi_2016",
         "TVR_280i_1984",
-        "Vauxhall_Astra_1.6_CDTi_2009"
+        "Vauxhall_Astra_1.6_CDTi_2009",
+        "Ginetta_G40_Cup_2010"
       ],
     }
   },
