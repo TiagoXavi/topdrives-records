@@ -203,7 +203,7 @@
                 <BaseChip
                   v-model="searchFilters.tagsModel"
                   v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_')}`"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
               </template>
@@ -469,6 +469,7 @@ export default {
           "Italian Renaissance",
           "Japan Pro Tour",
           "Loch to Loch",
+          "Loves Me, Loves Me Not",
           "Motorsport",
           "Muscle Car",
           "Old Guard",

@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="BaseMenuFooter_FooterBox">
-      <div v-if="user" class="Main_OptionsItem Main_OptionsUserBox" style="display: flex;justify-content: center;">
+      <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
         <BaseUserCard :user="user"/>
       </div>
       <div v-else class="Main_OptionsItem Main_OptionsLogout">

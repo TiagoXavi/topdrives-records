@@ -368,6 +368,7 @@ export default {
           "Italian Renaissance",
           "Japan Pro Tour",
           "Loch to Loch",
+          "Loves Me, Loves Me Not",
           "Motorsport",
           "Muscle Car",
           "Old Guard",
@@ -965,18 +966,15 @@ export default {
         this.all_cars.map(x => {
           if (c === x.rid) {
             // action
-            x.tags.push("Christmas Collection 22")
+            x.tags.push("Loves Me, Loves Me Not")
   
           }
         })
       })
+      this.all_cars.map(x => {
+        delete x.visible
+      });
       debugger;
-      this.all_cars.map(x => {
-        delete x.visible
-      });
-      this.all_cars.map(x => {
-        delete x.visible
-      });
       navigator.clipboard.writeText(JSON.stringify(this.all_cars));
 
       // let ids = [];

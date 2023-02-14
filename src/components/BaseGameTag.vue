@@ -2,7 +2,7 @@
   <div
     v-if="!$store.state.oldTags.includes(tag) || $store.state.showOldTags"
     class="BaseGameTag_Layout"
-    :class="`BaseGameTag_${tag.replaceAll(' ', '_')}`">{{ tag }}</div>
+    :class="`BaseGameTag_${tag.replaceAll(' ', '_').replaceAll(',', '')}`">{{ tag }}</div>
 </template>
 
 <script>
@@ -163,6 +163,11 @@ export default {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;
+}
+.BaseGameTag_Loves_Me_Loves_Me_Not {
+  --tag-h: 0;
+  --tag-s: 70%;
+  --tag-l: 45%;
 }
 .BaseGameTag_Motorsport {
   --tag-h: 216;

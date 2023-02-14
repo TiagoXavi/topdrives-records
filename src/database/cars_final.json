@@ -1057,7 +1057,8 @@
       "rid": "Jaguar_C-X75_2013",
       "tags": [
           "Concept",
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -1315,7 +1316,8 @@
       "rid": "Lamborghini_Aventador_SV_2015",
       "tags": [
           "Italian Renaissance",
-          "Supercar"
+          "Supercar",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -1347,7 +1349,8 @@
       "tags": [
           "Hypercar",
           "Ultra Expensive",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -1794,7 +1797,8 @@
       "tags": [
           "Motorsport",
           "Year of the Ox",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -2281,7 +2285,8 @@
       "tags": [
           "European Revolution",
           "Ultra Expensive",
-          "Hypercar"
+          "Hypercar",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -2823,7 +2828,8 @@
           "Christmas Collection",
           "European Revolution",
           "Hypercar",
-          "Ultra Expensive"
+          "Ultra Expensive",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -5347,7 +5353,8 @@
       "tags": [
           "Hypercar",
           "Summer Games",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -6320,7 +6327,8 @@
       "rid": "Nissan_Juke-R_2011",
       "tags": [
           "Wild Ride",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -6698,7 +6706,8 @@
       "name": "Chevrolet Corvette ZR1",
       "rid": "Chevrolet_Corvette_ZR1_2019",
       "tags": [
-          "American Dream"
+          "American Dream",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -6980,7 +6989,8 @@
       "rid": "Lancia_ECV_1986",
       "tags": [
           "Italian Renaissance",
-          "Motorsport"
+          "Motorsport",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -7163,7 +7173,8 @@
       "name": "BMW M5",
       "rid": "BMW_M5_2018",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -7507,7 +7518,8 @@
       "name": "Porsche 911 Turbo",
       "rid": "Porsche_911_Turbo_2006",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -8975,7 +8987,8 @@
       "rid": "Pagani_Zonda_F_2005",
       "tags": [
           "Riders on the Storm",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -9101,7 +9114,8 @@
       "rid": "Subaru_Legacy_B4_GT300_(BM)_2009",
       "tags": [
           "Japan Pro Tour",
-          "Motorsport"
+          "Motorsport",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -9821,7 +9835,8 @@
       "rid": "Porsche_911_GT3_2013",
       "tags": [
           "Drivers Choice",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -11773,7 +11788,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest",
-          "Eco Friendly"
+          "Eco Friendly",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -12050,7 +12066,8 @@
       "tags": [
           "Great Exhibition",
           "Motorsport",
-          "Year of the Ox"
+          "Year of the Ox",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -12580,7 +12597,8 @@
       "name": "Land Rover Sport SVR",
       "rid": "Land_Rover_Range_Rover_Sport_SVR_2018",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -14544,7 +14562,8 @@
       "rid": "TVR_Tuscan_race_car_1989",
       "tags": [
           "Motorsport",
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -15385,7 +15404,8 @@
       "rid": "Ford_Mustang_FR500GT_2007",
       "tags": [
           "Motorsport",
-          "American Frontier"
+          "American Frontier",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -15692,7 +15712,8 @@
       "name": "Chevrolet Corvette Z06",
       "rid": "Chevrolet_Corvette_Z06_2006",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -15876,7 +15897,8 @@
       "rid": "Ford_Mustang_GT4_2017",
       "tags": [
           "Motorsport",
-          "American Frontier"
+          "American Frontier",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -16309,7 +16331,8 @@
       "rid": "Dodge_Charger_SRT_Hellcat_2015",
       "tags": [
           "American Dream",
-          "Muscle Car"
+          "Muscle Car",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -18658,7 +18681,8 @@
       "rid": "Porsche_911_GT3_RS_2006",
       "tags": [
           "Drivers Choice",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -18750,7 +18774,8 @@
       "rid": "KTM_X-Bow_GT_2016",
       "tags": [
           "Two Tone",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -19439,7 +19464,8 @@
       "name": "Land Rover Sport SVR",
       "rid": "Land_Rover_Range_Rover_Sport_SVR_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -20239,7 +20265,8 @@
       "name": "Mercedes-Benz AMG GT Roadster",
       "rid": "MercedesAMG_GT_Roadster_2018",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -21483,7 +21510,8 @@
       "rid": "Porsche_911_GT3_RS_2004",
       "tags": [
           "Drivers Choice",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -21883,7 +21911,8 @@
       "rid": "Subaru_Impreza_WRX_STI_2004",
       "tags": [
           "Street Racer",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -23147,7 +23176,8 @@
       "name": "Maybach Vision 6 Cabriolet Maybach",
       "rid": "Maybach_Vision_6_Cabriolet_2016",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster",
@@ -23827,7 +23857,8 @@
       "name": "Mercedes-Benz AMG C 63",
       "rid": "Mercedes-Benz_AMG_C_63_2012",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -24451,7 +24482,8 @@
       "tags": [
           "Italian Renaissance",
           "Motorsport",
-          "Two Tone"
+          "Two Tone",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -24724,7 +24756,8 @@
       "name": "Mercedes-Benz AMG G 63",
       "rid": "MercedesAMG_G_63_2018",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -24881,7 +24914,8 @@
       "rid": "Nissan_Bluebird_SSS-R_(U12)_1988",
       "tags": [
           "Japan Pro Tour",
-          "Two Tone"
+          "Two Tone",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -27484,7 +27518,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Enter the Black Forest"
+          "Enter the Black Forest",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -28954,7 +28989,8 @@
       "name": "BMW M5",
       "rid": "BMW_M5_2004",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -29141,7 +29177,8 @@
       "rid": "Land_Rover_Range_Rover_Evoque_Autobiography_Dynamic_2015",
       "tags": [
           "Great Exhibition",
-          "Summer Games"
+          "Summer Games",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -32722,7 +32759,8 @@
       "name": "Lotus Elise SC",
       "rid": "Lotus_Elise_SC_2008",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -38017,7 +38055,8 @@
       "rid": "Suzuki_Ignis_Super_1600_2002",
       "tags": [
           "Japan Pro Tour",
-          "Motorsport"
+          "Motorsport",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -39129,7 +39168,8 @@
       "name": "BMW X3 xDrive 28d",
       "rid": "BMW_X3_xDrive_28d_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -39252,7 +39292,8 @@
       "rid": "Vauxhall_Calibra_Turbo_1992",
       "tags": [
           "Style Icon",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -39469,7 +39510,8 @@
       "name": "Aston Martin V8 Vantage",
       "rid": "Aston_Martin_V8_Vantage_2005",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -39869,7 +39911,8 @@
       "name": "Nissan 370Z Nismo",
       "rid": "Nissan_370Z_Nismo_2009",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -40087,7 +40130,8 @@
       "name": "Land Rover P400e PHEV",
       "rid": "Land_Rover_Range_Rover_P400e_PHEV_2018",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -41116,7 +41160,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Motorsport"
+          "Motorsport",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -41389,7 +41434,8 @@
       "name": "Acura NSX",
       "rid": "Acura_NSX_1991",
       "tags": [
-          "American Frontier"
+          "American Frontier",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -42472,7 +42518,8 @@
       "name": "BMW M3",
       "rid": "BMW_M3_1993",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -42655,7 +42702,8 @@
       "name": "Vauxhall GTC VXR",
       "rid": "Vauxhall_GTC_VXR_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -43349,7 +43397,8 @@
       "rid": "Land_Rover_Range_Rover_Sport_2005",
       "tags": [
           "Great Exhibition",
-          "Summer Games"
+          "Summer Games",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -44182,7 +44231,8 @@
       "name": "DS 3 Performance",
       "rid": "DS_3_Performance_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -45209,7 +45259,8 @@
       "name": "Nissan Pathfinder",
       "rid": "Nissan_Pathfinder_2006",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -48312,7 +48363,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Enter the Black Forest"
+          "Enter the Black Forest",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -49672,7 +49724,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest",
-          "Hot Hatch"
+          "Hot Hatch",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -49727,7 +49780,8 @@
       "name": "Eagle Talon TSi AWD",
       "rid": "Eagle_Talon_TSi_AWD_1996",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -51131,7 +51185,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Concept"
+          "Concept",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -52806,7 +52861,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hot Hatch"
+          "Hot Hatch",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -52867,7 +52923,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Enter the Black Forest"
+          "Enter the Black Forest",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -53264,7 +53321,8 @@
       "rid": "Lancia_Rally_037_Stradale_1982",
       "tags": [
           "Two Tone",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -55380,7 +55438,8 @@
       "name": "Honda Pilot 4WD",
       "rid": "Honda_Pilot_4WD_2003",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -56288,7 +56347,8 @@
       "seats": "2",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -57969,7 +58029,8 @@
       "name": "Land Rover 4.6 HSE",
       "rid": "Land_Rover_Range_Rover_4.6_HSE_1994",
       "tags": [
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -59165,7 +59226,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Concept"
+          "Concept",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -59435,7 +59497,8 @@
       "name": "Ford Ranger",
       "rid": "Ford_Ranger_2010",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Pickup"
@@ -60314,7 +60377,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -60345,7 +60409,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hot Hatch"
+          "Hot Hatch",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -61427,7 +61492,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -64033,7 +64099,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -64369,7 +64436,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -65202,7 +65270,8 @@
       "rid": "Volkswagen_Passat_2006",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -65545,7 +65614,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Enter the Black Forest"
+          "Enter the Black Forest",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -65577,7 +65647,8 @@
       "engine": "Front",
       "tags": [
           "Enter the Black Forest",
-          "Eco Friendly"
+          "Eco Friendly",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -68085,7 +68156,8 @@
       "rid": "Jaguar_XJ12_1972",
       "tags": [
           "Style Icon",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -69082,7 +69154,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hot Hatch"
+          "Hot Hatch",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -69543,7 +69616,8 @@
       "tags": [
           "Muscle Car",
           "American Frontier",
-          "In the Shadows"
+          "In the Shadows",
+          "Loves Me, Loves Me Not"
       ],
       "prize": true,
       "bodyTypes": [
@@ -69730,7 +69804,8 @@
       "name": "Renault Espace",
       "rid": "Renault_Espace_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "MPV"
@@ -70108,7 +70183,8 @@
       "seats": "4",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -70443,7 +70519,8 @@
       "rid": "Renault_19_16S_1988",
       "tags": [
           "Hot Hatch",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -70510,7 +70587,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Concept"
+          "Concept",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -72770,7 +72848,8 @@
       "name": "Nissan Patrol",
       "rid": "Nissan_Patrol_2000",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "SUV"
@@ -74718,7 +74797,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Motorsport"
+          "Motorsport",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -76150,7 +76230,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -76211,7 +76292,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hot Hatch"
+          "Hot Hatch",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -76390,7 +76472,8 @@
       "name": "Vauxhall Insignia 2.0 CDTi",
       "rid": "Vauxhall_Insignia_2.0_CDTi_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -78865,7 +78948,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Eco Friendly"
+          "Eco Friendly",
+          "Loves Me, Loves Me Not"
       ]
   },
   {
@@ -79169,7 +79253,8 @@
       "rid": "Cadillac_Eldorado_1991",
       "tags": [
           "In the Shadows",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -79324,7 +79409,8 @@
       "rid": "Subaru_Leone_1971",
       "tags": [
           "Christmas Collection",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -79446,7 +79532,8 @@
       "name": "Subaru Leone",
       "rid": "Subaru_Leone_1979",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -81201,7 +81288,8 @@
       "name": "Ford Fiesta",
       "rid": "Ford_Fiesta_2007",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -81815,7 +81903,8 @@
       "rid": "Vauxhall_Opel_Diplomat_A_V8_Coupe_1965",
       "tags": [
           "Great Exhibition",
-          "In the Shadows"
+          "In the Shadows",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -82715,7 +82804,8 @@
       "rid": "Maserati_Quattroporte_1974",
       "tags": [
           "Italian Renaissance",
-          "Year of the Tiger"
+          "Year of the Tiger",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -82836,7 +82926,8 @@
       "name": "Ford Focus",
       "rid": "Ford_Focus_2004",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -83053,7 +83144,8 @@
       "rid": "Volkswagen_Golf_1997",
       "tags": [
           "German Renaissance",
-          "Year of the Ox"
+          "Year of the Ox",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -83705,7 +83797,8 @@
       "rid": "Vauxhall_Firenza_2000_SL_Coupe_1971",
       "tags": [
           "Christmas Collection",
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -84168,7 +84261,8 @@
       "rid": "Buick_Century_Special_Coupe_1973",
       "tags": [
           "Year of the Ox",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -84199,7 +84293,8 @@
       "rid": "Chrysler_Town_and_Country_2008",
       "tags": [
           "American Dream",
-          "Year of the Rat"
+          "Year of the Rat",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "MPV"
@@ -84540,7 +84635,8 @@
       "rid": "Vauxhall_Opel_Admiral_V8_1965",
       "tags": [
           "Sleeper",
-          "Great Exhibition"
+          "Great Exhibition",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -90573,7 +90669,8 @@
       "name": "Subaru Impreza",
       "rid": "Subaru_Impreza_1992",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -91252,7 +91349,8 @@
       "rid": "Nissan_Pulsar_1986",
       "tags": [
           "Year of the Tiger",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -92024,7 +92122,8 @@
       "name": "Vauxhall Adam 1.2",
       "rid": "Vauxhall_Adam_1.2_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -92333,7 +92432,8 @@
       "rid": "Cadillac_Eldorado_1979",
       "tags": [
           "Silver Screen",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -93015,7 +93115,8 @@
       "name": "Vauxhall Cavalier 1600L",
       "rid": "Vauxhall_Cavalier_1600L_1975",
       "tags": [
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -94066,7 +94167,8 @@
       "tags": [
           "Drivers Choice",
           "Innovative",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -94188,7 +94290,8 @@
       "rid": "Volkswagen_Jetta_1980",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Saloon"
@@ -95238,7 +95341,8 @@
       "rid": "Porsche_356_B_Convertible_1600_1965",
       "tags": [
           "Summer Games",
-          "Originals"
+          "Originals",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -95787,7 +95891,8 @@
       "name": "Alfa Romeo GTA 1300 Junior",
       "rid": "Alfa_Romeo_GTA_1300_Junior_1968",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
@@ -97402,7 +97507,8 @@
       "rid": "Alfa_Romeo_Giulietta_Spider_1955",
       "tags": [
           "Italian Renaissance",
-          "The Horror Show"
+          "The Horror Show",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Roadster"
@@ -97495,7 +97601,8 @@
       "name": "Fiat Abarth 750 Zagato",
       "rid": "Fiat_Abarth_750_Zagato_1956",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
           "Coupe"
