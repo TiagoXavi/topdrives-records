@@ -39,9 +39,22 @@
         </button>
         <BaseDiscordButton />
         <BaseDonateButton />
+        
+
+
+        
+      </div>
+    </div>
+    <div class="BaseMenuFooter_FooterBox">
+      <div v-if="user" class="Main_OptionsItem Main_OptionsUserBox" style="display: flex;justify-content: center;">
+        <BaseUserCard :user="user"/>
+      </div>
+      <div v-else class="Main_OptionsItem Main_OptionsLogout">
+        <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+        <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Register' })">{{ $t("m_register") }}</button>
+      </div>
+      <div class="BaseMenuFooter_FooterRight Main_OptionsFooterButtons">
         <BaseLanguageButton />
-
-
         <button
           class="D_Button Main_OptionsButton"
           @click="$emit('openAbout')">
@@ -51,13 +64,6 @@
           </svg>
         </button>
       </div>
-    </div>
-    <div v-if="user" class="Main_OptionsItem Main_OptionsUserBox" style="display: flex;justify-content: center;">
-      <BaseUserCard :user="user"/>
-    </div>
-    <div v-else class="Main_OptionsItem Main_OptionsLogout Main_OptionsUserBox">
-      <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
-      <button style="font-size: 16px;" class="D_Button D_ButtonDark D_ButtonDark2 Main_OptionsButton" @click="$router.push({ name: 'Register' })">{{ $t("m_register") }}</button>
     </div>
 
   </div>
@@ -103,5 +109,13 @@ export default {
 <style>
 .BaseMenuFooter_Layout {
   display: contents;
+}
+.BaseMenuFooter_FooterBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 </style>

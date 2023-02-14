@@ -161,4 +161,12 @@ export default {
   height: 36px;
   font-size: 0.8em;
 }
+.BaseChip_TuneStyle {
+  background-color: rgba(0,0,0,0.13);
+  border-radius: 6px;
+  padding: 0 7px;
+  height: 32px;
+  line-height: 1;
+  padding-top: 1px;
+}
 </style>

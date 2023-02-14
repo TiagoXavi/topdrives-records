@@ -839,10 +839,21 @@
         <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder' href='https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323'>{{ $t('m_here') }}</a></span>
         </div>
+        <div
+          v-if="!kingFixed"
+          class="Main_KingTrackBox Main_FilterChipsInside"
+          style="margin-top: 4px;">
+          <template v-for="(item, ix) in ['332', '323', '233', '111']">
+            <BaseChip
+              v-model="kingTunes"
+              class="BaseChip_MinWidth BaseChip_TuneStyle"
+              :value="item" />
+          </template>
+        </div>
         <BaseConfigCheckBox
           v-if="!kingFixed"
           v-model="kingShowDownvoted"
-          style="margin-top: 17px;"
+          style="margin-top: 3px;"
           class="Main_KingTrackBox"
           name="kingShowDownvoted"
           :label="$t('m_includeDownvote')" />
@@ -1921,7 +1932,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v17",
+      gameVersion: "Game v18",
       mode: "classic",
       cgLoading: false,
       cgCurrentRound: 0,
@@ -2000,6 +2011,7 @@ export default {
       kingFixed: false,
       kingAddindTrack: false,
       kingForceVerticalView: true,
+      kingTunes: [],
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -4159,7 +4171,7 @@ export default {
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.loadCg(date, round);
         }
-        // this.lookForChangedCars(res.data);
+        this.lookForChangedCars(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -5410,9 +5422,40 @@ export default {
       this.optionsDialogActive = true;
     },
     lookForChangedCars(data) {
+      let changed18 = [
+        "Lotus_Evija_2021",
+        "Porsche_919_Hybrid_Evo_2018",
+        "Porsche_911_RSR-19_(991.2)_2019",
+        "Alfa_Romeo_Coloni_S1_156_2001",
+        "Porsche_911_GT3_Cup_992_2021",
+        "Audi_A5_DTM_2012",
+        "Mercedes-Benz_CLK_GTR_1998",
+        "Alfa_Romeo_155_GTA_Superturismo_1992",
+        "Ginetta_G55_GT4_2011",
+        "BMW_330d_xDrive_Saloon_2019",
+        "BMW_330d_xDrive_Touring_2019",
+        "DS_DS_Numero_9_2012",
+        "Jaguar_F-Type_R_Convertible_2016",
+        "Audi_S5_Sportback_TDI_B95_2019",
+        "Vauxhall_VXR8_GTS_2016",
+        "Audi_S5_Sportback_(B8)_2013",
+        "Vauxhall_Calibra_Turbo_1992",
+        "Fiat_Abarth_695_Biposto_R_2015",
+        "Vauxhall_Opel_OPC_Extreme_2014",
+        "Mercedes-Benz_G_500_2012",
+        "Porsche_968_Cabriolet_1992",
+        "Ginetta_G40_Junior_2010",
+        "Fiat_Abarth_500C_Esseesse_2010",
+        "Alfa_Romeo_147_Q2_2007",
+        "Vauxhall_Insignia_2.0_CDTi_2016",
+        "TVR_280i_1984",
+        "Vauxhall_Astra_1.6_CDTi_2009",
+        "Ginetta_G40_Cup_2010"
+      ];
+
       data.rounds.map((round, iround) => {
         round.races.map((race, irace) => {
-          if (this.changed17.includes(race.rid)) {
+          if (changed18.includes(race.rid)) {
             console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
           }
         })
@@ -5445,7 +5488,8 @@ export default {
       axios.post(Vue.preUrl + "/king", {
         rids: listOfRids,
         track: this.kingTrack.code,
-        includeDownvotes: this.kingShowDownvoted
+        includeDownvotes: this.kingShowDownvoted,
+        tunes: this.kingTunes
       })
       .then(res => {
         this.clearAllTracks();
@@ -6632,6 +6676,9 @@ body .Main_UserT5 {
 }
 .Main_KingFixed .Main_DialogTitle {
   margin-bottom: 5px;
+}
+.Main_KingTuneSelector {
+  
 }
 
 

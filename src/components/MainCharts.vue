@@ -39,9 +39,19 @@
       <div v-if="!user || !user.tier || user.tier > 2" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
         <span>{{ $t("p_patronsOnly", { tier: 2 }) }}<br>{{ $t("p_chartsDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/xwMB8BGM2JM'>Youtube</a></span>
       </div>
+      <div
+        class="Main_ChartTrackBox Main_ChartFilterChipsInside"
+        style="margin-top: 4px;">
+        <template v-for="(item, ix) in ['332', '323', '233', '111']">
+          <BaseChip
+            v-model="chartTunes"
+            class="BaseChip_MinWidth BaseChip_TuneStyle"
+            :value="item" />
+        </template>
+      </div>
       <BaseConfigCheckBox
         v-model="chartShowDownvoted"
-        style="margin-top: 17px;"
+        style="margin-top: 3px;"
         class="Main_ChartTrackBox"
         name="chartShowDownvoted"
         :label="$t('m_includeDownvote')" />
@@ -83,6 +93,7 @@ import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
+import BaseChip from './BaseChip.vue'
 import Highcharts from './Highcharts.vue'
 import Row from './Row.vue'
 
@@ -97,7 +108,8 @@ export default {
     BaseFilterDescription,
     BaseFilterDialog,
     Row,
-    Highcharts
+    Highcharts,
+    BaseChip
   },
   props: {
     test: {
@@ -120,6 +132,7 @@ export default {
       chartLoading: false,
       chartShowDownvoted: false,
       chartResult: [],
+      chartTunes: [],
       highchartsConfig: {},
       user: null,
       asMod: false,
@@ -201,7 +214,8 @@ export default {
 
       axios.post(Vue.preUrl + "/chart", {
         track: this.chartTrack.code,
-        includeDownvotes: this.chartShowDownvoted
+        includeDownvotes: this.chartShowDownvoted,
+        tunes: this.chartTunes
       })
       .then(res => {
         this.chartResult = res.data;
@@ -373,5 +387,12 @@ export default {
 .Main_ChartAnalyzeButton {
   margin: 0 auto;
   margin-top: 17px;
+}
+.Main_ChartFilterChipsInside {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>
