@@ -90,6 +90,53 @@
         {{ setModRes }}
       </div>
     </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Backup cars</div>
+      <div class="MainSwagger_Fields">
+        <textarea
+          v-model="rids"
+          rows="6"
+          class="MainSwagger_TextArea data-hj-allow"
+          placeholder="array of rids" />
+        <BaseText
+          v-model="pastVersion"
+          type="integer"
+          label="Version"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="backupCars()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ backupCarsRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Scan sessions</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="email"
+          type="normal"
+          label="E-mail"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="scanSession()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ scanSessionRes }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -118,6 +165,10 @@ export default {
       tier: null,
       setTierRes: null,
       setModRes: null,
+      rids: null,
+      pastVersion: "17",
+      backupCarsRes: null,
+      scanSessionRes: null
     }
   },
   watch: {},
@@ -220,6 +271,44 @@ export default {
         vm.loading = false;
       });
     },
+    backupCars() {
+      let vm = this;
+      vm.loading = true;
+
+      let rids = JSON.parse(`[${this.rids}]`)
+      debugger;
+
+      axios.post(Vue.preUrl + "/backupCars", {
+        rids: rids,
+        pastVersion: this.pastVersion,
+      })
+      .then(res => {
+        this.backupCarsRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    scanSession() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/scanSession", {
+        email: this.email
+      })
+      .then(res => {
+        this.scanSessionRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
   },
 }
 </script>
@@ -242,5 +331,16 @@ export default {
   white-space: pre;
   overflow: hidden;
   font-size: 14px;
+}
+.MainSwagger_TextArea {
+  background-color: rgba(0,0,0,.2);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--d-text);
+  padding: 6px;
+  resize: none;
+  margin-top: 2px;
+  width: 100%;
 }
 </style>
