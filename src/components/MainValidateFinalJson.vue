@@ -61,6 +61,10 @@ export default {
         console.log(x.engine);
         debugger;
       }
+      if (!_this.searchFilters.brands.includes(x.brand)) {
+        console.log(x.brand);
+        debugger;
+      }
       x.bodyTypes.map(y => {
         if (!_this.searchFilters.bodyTypes.includes(y)) {
           console.log(y);

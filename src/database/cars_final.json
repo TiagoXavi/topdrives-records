@@ -708,7 +708,8 @@
       "tags": [
           "Hypercar",
           "Italian Renaissance",
-          "Ultra Expensive"
+          "Ultra Expensive",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -770,7 +771,8 @@
       "name": "Lamborghini Huracan Performante",
       "rid": "Lamborghini_Huracan_Performante_2018",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1992,7 +1994,8 @@
       "name": "Lamborghini Huracan Performante Spyder",
       "rid": "Lamborghini_Huracan_Performante_Spyder_2018",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Roadster"
@@ -2511,7 +2514,8 @@
       "name": "Lamborghini Huracan Coupe",
       "rid": "Lamborghini_Huracan_Coupe_2014",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -2574,7 +2578,8 @@
       "rid": "Bentley_Continental_GT3_2018",
       "tags": [
           "Great Exhibition",
-          "Motorsport"
+          "Motorsport",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -3216,7 +3221,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hypercar"
+          "Hypercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -3743,7 +3749,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Hypercar"
+          "Hypercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -4115,7 +4122,8 @@
       "name": "Lamborghini Huracan Spyder",
       "rid": "Lamborghini_Huracan_Spyder_2015",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Roadster"
@@ -6556,7 +6564,8 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Wild Ride",
-          "Ultra Expensive"
+          "Ultra Expensive",
+          "The Great Outdoors"
       ]
   },
   {
@@ -8174,7 +8183,8 @@
       "rid": "Volkswagen_Golf_R400_2015",
       "tags": [
           "German Renaissance",
-          "Concept"
+          "Concept",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -8304,7 +8314,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -8335,7 +8346,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -8366,7 +8378,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -9243,7 +9256,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -10556,7 +10570,8 @@
       "name": "Lamborghini Huracán LP580-2",
       "rid": "Lamborghini_Huracan_RWD_2015",
       "tags": [
-          "Italian Renaissance"
+          "Italian Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -11820,7 +11835,8 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -13470,7 +13486,8 @@
       "rid": "Nissan_Leaf_Nismo_RC_2019",
       "tags": [
           "Japan Pro Tour",
-          "Motorsport"
+          "Motorsport",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -14341,7 +14358,8 @@
       "rid": "Lamborghini_Huracan_RWD_Spyder_2018",
       "tags": [
           "Italian Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Roadster"
@@ -14719,7 +14737,8 @@
       "tags": [
           "Famous Tracks",
           "Japan Pro Tour",
-          "Motorsport"
+          "Motorsport",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -15557,7 +15576,8 @@
       "name": "Volkswagen Golf R",
       "rid": "Volkswagen_Golf_R_2015",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -15682,7 +15702,8 @@
           "Concept",
           "German Renaissance",
           "Wild Ride",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -18652,7 +18673,8 @@
           "Drivers Choice",
           "Italian Renaissance",
           "Riders on the Storm",
-          "Supercar"
+          "Supercar",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -19960,7 +19982,8 @@
       "tags": [
           "American Dream",
           "Sleeper",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -21109,7 +21132,8 @@
           "Innovative",
           "Street Racer",
           "Team Favourite",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -22068,7 +22092,8 @@
       "name": "Volkswagen Golf R",
       "rid": "Volkswagen_Golf_R_2012",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -24980,7 +25005,8 @@
       "rid": "Subaru_Forester_XT_Turbo_(SG)_2003",
       "tags": [
           "Japan Pro Tour",
-          "Two Tone"
+          "Two Tone",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -26520,7 +26546,8 @@
       "rid": "GMC_Acadia_Denali_2018",
       "tags": [
           "American Dream",
-          "Rest of the World"
+          "Rest of the World",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -31304,7 +31331,8 @@
       "name": "Subaru Forester STI",
       "rid": "Subaru_Forester_STI_2004",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -32672,7 +32700,8 @@
       "rid": "Pontiac_Torrent_GXP_2008",
       "tags": [
           "American Dream",
-          "Year of the Rat"
+          "Year of the Rat",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -34893,7 +34922,8 @@
       "name": "Volkswagen Golf R32",
       "rid": "Volkswagen_Golf_R32_2005",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -35918,7 +35948,8 @@
       "tags": [
           "Famous Tracks",
           "Japan Pro Tour",
-          "Street Racer"
+          "Street Racer",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -37371,7 +37402,8 @@
       "rid": "Subaru_Forester_tS_300_(SJ)_2014",
       "tags": [
           "Japan Pro Tour",
-          "5th Anniversary"
+          "5th Anniversary",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -38047,7 +38079,8 @@
       "rid": "De_Tomaso_Guara_1993",
       "tags": [
           "Call of the Wild",
-          "European Revolution"
+          "European Revolution",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -38114,7 +38147,8 @@
       "engine": "Front",
       "tags": [
           "Amalfi Coast Cruising",
-          "Concept"
+          "Concept",
+          "The Great Outdoors"
       ]
   },
   {
@@ -41296,7 +41330,8 @@
       "name": "Ford Sierra RS Cosworth 4x4",
       "rid": "Ford_Sierra_RS_Cosworth_4x4_1990",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -41572,7 +41607,8 @@
       "rid": "TVR_Cerbera_Speed_Six_1998",
       "tags": [
           "Ride of the Valkyries",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -43009,7 +43045,8 @@
       "name": "Ford Sierra RS500",
       "rid": "Ford_Sierra_RS500_1987",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -44790,7 +44827,8 @@
       "tags": [
           "American Frontier",
           "Concept",
-          "Christmas Collection 22"
+          "Christmas Collection 22",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -46559,7 +46597,8 @@
       "rid": "Subaru_Forester_GT_Turbo_(SF)_1998",
       "tags": [
           "Japan Pro Tour",
-          "Two Tone"
+          "Two Tone",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -49038,7 +49077,8 @@
       "tags": [
           "German Renaissance",
           "Hot Hatch",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -50346,7 +50386,8 @@
       "name": "Subaru Forester",
       "rid": "Subaru_Forester_2002",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -51966,7 +52007,8 @@
       "name": "Subaru Forester (SJ)",
       "rid": "Subaru_Forester_(SJ)_2012",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -52214,7 +52256,8 @@
       "tags": [
           "American Frontier",
           "Christmas Collection",
-          "Wild Ride"
+          "Wild Ride",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Pickup"
@@ -53638,7 +53681,8 @@
       "rid": "GMC_Yukon_Denali_2004",
       "tags": [
           "American Dream",
-          "Rest of the World"
+          "Rest of the World",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -54012,7 +54056,8 @@
       "rid": "Ford_Sierra_RS_Cosworth_1986",
       "tags": [
           "Year of the Tiger",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -55683,7 +55728,8 @@
       "rid": "Subaru_Forester_2008",
       "tags": [
           "Year of the Rat",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -60300,7 +60346,8 @@
       "rid": "Volkswagen_Atlas_2018",
       "tags": [
           "German Renaissance",
-          "Summer Games"
+          "Summer Games",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -64448,7 +64495,8 @@
       "rid": "Chrysler_Pacifica_2018",
       "tags": [
           "American Dream",
-          "Rest of the World"
+          "Rest of the World",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "MPV"
@@ -64786,7 +64834,8 @@
       "rid": "Volkswagen_Jetta_2004",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -67326,7 +67375,8 @@
       "rid": "Volkswagen_Jetta_GTI_1988",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -67421,7 +67471,8 @@
       "rid": "Chrysler_Pacifica_Hybrid_2018",
       "tags": [
           "American Frontier",
-          "Summer Games"
+          "Summer Games",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "MPV"
@@ -67979,7 +68030,8 @@
       "rid": "Alfa_Romeo_145_Cloverleaf_1994",
       "tags": [
           "Hot Hatch",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -68637,7 +68689,8 @@
       "tags": [
           "German Renaissance",
           "Hot Hatch",
-          "Year of the Ox"
+          "Year of the Ox",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -70273,7 +70326,8 @@
       "rid": "Volkswagen_Jetta_VR6_1992",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -72701,7 +72755,8 @@
       "rid": "Volkswagen_Polo_GTI_2006",
       "tags": [
           "German Renaissance",
-          "Hot Hatch"
+          "Hot Hatch",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -74010,7 +74065,8 @@
       "rid": "Volkswagen_Polo_2003",
       "tags": [
           "German Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -74657,7 +74713,8 @@
       "name": "Nissan Skyline RS-X (R30)",
       "rid": "Nissan_Skyline_RS-X_(R30)_1983",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -74972,7 +75029,8 @@
       "rid": "Nissan_Cefiro_3.0_Brougham_VIP_(A33)_2002",
       "tags": [
           "Japan Pro Tour",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -76468,7 +76526,8 @@
       "name": "Suzuki Jimny Sierra",
       "rid": "Suzuki_Jimny_Sierra_1995",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -76972,7 +77031,8 @@
       "rid": "Citroen_C5_Aircross_2018",
       "tags": [
           "French Renaissance",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "SUV"
@@ -78412,7 +78472,8 @@
       "rid": "Volkswagen_Passat_1993",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -79064,7 +79125,8 @@
       "name": "Geo Storm GSi",
       "rid": "Geo_Storm_GSi_1992",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "The Great Outdoors"
       ],
       "prize": true,
       "bodyTypes": [
@@ -81629,7 +81691,8 @@
       "name": "Suzuki Baleno",
       "rid": "Suzuki_Baleno_2016",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -81759,7 +81822,8 @@
       "seats": "5",
       "engine": "Front",
       "tags": [
-          "Amalfi Coast Cruising"
+          "Amalfi Coast Cruising",
+          "The Great Outdoors"
       ]
   },
   {
@@ -83358,7 +83422,8 @@
       "rid": "Citroen_C4_Cactus_2.0_HDi_16v_2014",
       "tags": [
           "The Horror Show",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -83450,7 +83515,8 @@
       "name": "Volkswagen Golf",
       "rid": "Volkswagen_Golf_2003",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -84132,7 +84198,8 @@
       "name": "Ford Sierra XR4i",
       "rid": "Ford_Sierra_XR4i_1983",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -84623,7 +84690,8 @@
       "name": "Volkswagen Polo",
       "rid": "Volkswagen_Polo_2018",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -86080,7 +86148,8 @@
       "name": "Suzuki Forenza",
       "rid": "Suzuki_Forenza_2004",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -86301,7 +86370,8 @@
       "tags": [
           "Eco Friendly",
           "Originals",
-          "Christmas Collection 22"
+          "Christmas Collection 22",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -86608,7 +86678,8 @@
       "rid": "Volkswagen_Passat_1983",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -87073,7 +87144,8 @@
       "tags": [
           "Drivers Choice",
           "German Renaissance",
-          "Hot Hatch"
+          "Hot Hatch",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -87196,7 +87268,8 @@
       "rid": "Renault_21_Savanna_1986",
       "tags": [
           "Year of the Tiger",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Estate"
@@ -87885,7 +87958,8 @@
       "name": "Vauxhall Tigra",
       "rid": "Vauxhall_Tigra_1994",
       "tags": [
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -88196,7 +88270,8 @@
       "rid": "Volkswagen_Golf_GTI_1991",
       "tags": [
           "German Renaissance",
-          "Hot Hatch"
+          "Hot Hatch",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -89173,7 +89248,8 @@
       "name": "Geo Storm",
       "rid": "Geo_Storm_1990",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -90079,7 +90155,8 @@
       "rid": "Volkswagen_Scirocco_1982",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -90110,7 +90187,8 @@
       "rid": "Buick_Riviera_Coupe_1965",
       "tags": [
           "Rest of the World",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -90331,7 +90409,8 @@
           "American Dream",
           "Christmas Collection",
           "Year of the Rat",
-          "Old Guard"
+          "Old Guard",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "MPV"
@@ -90772,7 +90851,8 @@
       "rid": "Suzuki_Liana_2001",
       "tags": [
           "Old Guard",
-          "Originals"
+          "Originals",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -91019,7 +91099,8 @@
       "name": "Geo Storm Hatchback",
       "rid": "Geo_Storm_Hatchback_1991",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Estate"
@@ -92354,7 +92435,8 @@
       "rid": "Eagle_Summit_1989",
       "tags": [
           "World Expo",
-          "5th Anniversary"
+          "5th Anniversary",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -93364,7 +93446,8 @@
       "name": "Volkswagen Golf",
       "rid": "Volkswagen_Golf_1983",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -93394,7 +93477,8 @@
       "name": "Volkswagen Golf",
       "rid": "Volkswagen_Golf_1991",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -93979,7 +94063,8 @@
       "rid": "Nissan_Skyline_GT_Turbo_(R30)_1981",
       "tags": [
           "Christmas Collection",
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -95649,7 +95734,8 @@
       "name": "Nissan Skyline 2000 GT-X (C110)",
       "rid": "Nissan_Skyline_2000_GT-X_(C110)_1972",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -96081,7 +96167,8 @@
       "name": "Volvo Amazon",
       "rid": "Volvo_Amazon_1958",
       "tags": [
-          "European Revolution"
+          "European Revolution",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -96489,7 +96576,8 @@
       "tags": [
           "German Renaissance",
           "Style Icon",
-          "Year of the Tiger"
+          "Year of the Tiger",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -96520,7 +96608,8 @@
       "rid": "Volkswagen_Passat_1988",
       "tags": [
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -96552,7 +96641,8 @@
       "tags": [
           "Christmas Collection",
           "German Renaissance",
-          "Riders on the Storm"
+          "Riders on the Storm",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -96583,7 +96673,8 @@
       "rid": "Volkswagen_Polo_1984",
       "tags": [
           "German Renaissance",
-          "Year of the Rat"
+          "Year of the Rat",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -96613,7 +96704,8 @@
       "name": "Volkswagen Polo",
       "rid": "Volkswagen_Polo_1976",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -97755,7 +97847,8 @@
       "name": "Volkswagen Polo",
       "rid": "Volkswagen_Polo_1994",
       "tags": [
-          "German Renaissance"
+          "German Renaissance",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Hatchback"
@@ -97943,7 +98036,8 @@
       "rid": "Peugeot_Hoggar_2010",
       "tags": [
           "European Revolution",
-          "Year of the Tiger"
+          "Year of the Tiger",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Pickup"
@@ -98158,7 +98252,8 @@
       "rid": "Oldsmobile_Toronado_1966",
       "tags": [
           "World Expo",
-          "Team Favourite"
+          "Team Favourite",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -98188,7 +98283,8 @@
       "name": "Oldsmobile Toronado XSC",
       "rid": "Oldsmobile_Toronado_XSC_1980",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -98311,7 +98407,8 @@
       "rid": "Nissan_Skyline_2000_GT-EL_(C210)_1977",
       "tags": [
           "Christmas Collection",
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"
@@ -98341,7 +98438,8 @@
       "name": "Nissan Skyline 2000 GT-EX (C210)",
       "rid": "Nissan_Skyline_2000_GT-EX_(C210)_1977",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -98714,7 +98812,8 @@
       "rid": "Nissan_Prince_Skyline_Sports_Coupe_1963",
       "tags": [
           "Christmas Collection",
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Coupe"
@@ -101250,7 +101349,8 @@
       "name": "Nissan Skyline 2000 GT",
       "rid": "Nissan_Skyline_2000_GT_1968",
       "tags": [
-          "Japan Pro Tour"
+          "Japan Pro Tour",
+          "The Great Outdoors"
       ],
       "bodyTypes": [
           "Saloon"

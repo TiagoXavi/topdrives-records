@@ -249,6 +249,11 @@ export default {
   --tag-s: 70%;
   --tag-l: 50%;
 }
+.BaseGameTag_The_Great_Outdoors {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 .BaseGameTag_The_Horror_Show {
   --tag-h: 74;
   --tag-s: 23%;

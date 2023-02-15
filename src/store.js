@@ -47,11 +47,15 @@ export default new Vuex.Store({
     ano: null,
     tuneDialog: false,
     oldTags: [
+      "5th Anniversary",
       "Around the World",
       "Call of the Wild",
       "Christmas Collection",
+      "Christmas Collection 22",
       "Famous Tracks",
       "In the Shadows",
+      "Interstellar",
+      "Old Guard",
       "Rest of the World",
       "Ride of the Valkyries",
       "Riders on the Storm",
@@ -61,7 +65,8 @@ export default new Vuex.Store({
       "Two Tone",
       "Year of the Ox",
       "Year of the Rat",
-      "Year of the Tiger"
+      "Year of the Tiger",
+      "Year of the Rabbit"
     ],
     showOldTags: false
   },
