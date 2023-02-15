@@ -16094,6 +16094,38 @@
   },
   {
       "class": "A",
+      "rq": 77,
+      "onlyName": "HSV GTSR W1",
+      "brand": "Holden",
+      "year": 2017,
+      "tdid": "3983",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 185,
+      "acel": 3.9,
+      "hand": 87,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1850,
+      "name": "Holden HSV GTSR W1",
+      "rid": "Holden_HSV_GTSR_W1_2017",
+      "prize": true,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 76,
       "onlyName": "SQ7 TDI",
       "brand": "Audi",
@@ -20708,6 +20740,70 @@
   },
   {
       "class": "A",
+      "rq": 73,
+      "onlyName": "HSV GTS (VF)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3977",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 180,
+      "acel": 4.2,
+      "hand": 85,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1850,
+      "name": "Holden HSV GTS (VF)",
+      "rid": "Holden_HSV_GTS_VF_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "HSV Maloo GTS (VF)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3979",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 180,
+      "acel": 4.1,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1875,
+      "name": "Holden HSV Maloo GTS (VF)",
+      "rid": "Holden_HSV_Maloo_GTS_VF_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 72,
       "onlyName": "XC60 T8",
       "brand": "Volvo",
@@ -23177,11 +23273,11 @@
       "rid": "Maybach_Vision_6_Cabriolet_2016",
       "tags": [
           "World Expo",
-          "Loves Me, Loves Me Not"
+          "Loves Me, Loves Me Not",
+          "Concept"
       ],
       "bodyTypes": [
-          "Roadster",
-          "Concept"
+          "Roadster"
       ],
       "fuel": "Electric",
       "seats": "2",
@@ -23645,6 +23741,70 @@
       "rid": "BMW_545i_2004",
       "tags": [
           "German Renaissance"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 70,
+      "onlyName": "Falcon FPV GT-F 351",
+      "brand": "Ford",
+      "year": 2014,
+      "tdid": "4012",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 186,
+      "acel": 4.5,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1880,
+      "name": "Ford Falcon FPV GT-F 351",
+      "rid": "Ford_Falcon_FPV_GTF_351_2014",
+      "prize": true,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 70,
+      "onlyName": "HSV W427 (VE)",
+      "brand": "Holden",
+      "year": 2009,
+      "tdid": "3967",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 177,
+      "acel": 4.5,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1874,
+      "name": "Holden HSV W427 (VE)",
+      "rid": "Holden_HSV_W427_VE_2009",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
       ],
       "bodyTypes": [
           "Saloon"
@@ -26248,6 +26408,38 @@
   },
   {
       "class": "A",
+      "rq": 68,
+      "onlyName": "HSV Clubsport R8 (VF)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3976",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 4.8,
+      "hand": 85,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1862,
+      "name": "Holden HSV Clubsport R8 (VF)",
+      "rid": "Holden_HSV_Clubsport_R8_VF_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 67,
       "onlyName": "XC40 T5 AWD",
       "brand": "Volvo",
@@ -28508,6 +28700,133 @@
   },
   {
       "class": "A",
+      "rq": 66,
+      "onlyName": "Falcon XR6 Sprint",
+      "brand": "Ford",
+      "year": 2016,
+      "tdid": "4008",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 4.2,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1818,
+      "name": "Ford Falcon XR6 Sprint",
+      "rid": "Ford_Falcon_XR6_Sprint_2016",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Sleeper"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 66,
+      "onlyName": "Commodore Calais-V Tourer (VB)",
+      "brand": "Holden",
+      "year": 2018,
+      "tdid": "3987",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 6.6,
+      "hand": 77,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1780,
+      "name": "Holden Commodore Calais-V Tourer (VB)",
+      "rid": "Holden_Commodore_CalaisV_Tourer_VB_2018",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 66,
+      "onlyName": "HSV Clubsport R8 Tourer (VF)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3975",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 4.9,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1880,
+      "name": "Holden HSV Clubsport R8 Tourer (VF)",
+      "rid": "Holden_HSV_Clubsport_R8_Tourer_VF_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 66,
+      "onlyName": "HSV GTS (VE)",
+      "brand": "Holden",
+      "year": 2009,
+      "tdid": "3966",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 172,
+      "acel": 4.8,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1829,
+      "name": "Holden HSV GTS (VE)",
+      "rid": "Holden_HSV_GTS_VE_2009",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 65,
       "onlyName": "X4",
       "brand": "BMW",
@@ -29493,6 +29812,70 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 65,
+      "onlyName": "HSV Gen-F Grange (WN)",
+      "brand": "Holden",
+      "year": 2016,
+      "tdid": "3980",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 168,
+      "acel": 4.9,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1880,
+      "name": "Holden HSV Gen-F Grange (WN)",
+      "rid": "Holden_HSV_GenF_Grange_WN_2016",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 65,
+      "onlyName": "HSV Senator Signature (VF)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3978",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 4.7,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1840,
+      "name": "Holden HSV Senator Signature (VF)",
+      "rid": "Holden_HSV_Senator_Signature_VF_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -31145,6 +31528,68 @@
   },
   {
       "class": "B",
+      "rq": 64,
+      "onlyName": "Fairlane",
+      "brand": "Ford",
+      "year": 2005,
+      "tdid": "4018",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.8,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1845,
+      "name": "Ford Fairlane",
+      "rid": "Ford_Fairlane_2005",
+      "prize": true,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 64,
+      "onlyName": "HSV Avalanche (VZ)",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3955",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 7,
+      "hand": 75,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2026,
+      "name": "Holden HSV Avalanche (VZ)",
+      "rid": "Holden_HSV_Avalanche_VZ_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 63,
       "onlyName": "Countryman Cooper SD ALL4",
       "brand": "Mini",
@@ -32111,6 +32556,37 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 63,
+      "onlyName": "HSV Avalanche XUV (VZ)",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3956",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 6.9,
+      "hand": 74,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1985,
+      "name": "Holden HSV Avalanche XUV (VZ)",
+      "rid": "Holden_HSV_Avalanche_XUV_VZ_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -33370,6 +33846,69 @@
   },
   {
       "class": "B",
+      "rq": 62,
+      "onlyName": "Commodore VXR (ZB)",
+      "brand": "Holden",
+      "year": 2018,
+      "tdid": "3986",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 5.9,
+      "hand": 82,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1695,
+      "name": "Holden Commodore VXR (ZB)",
+      "rid": "Holden_Commodore_VXR_ZB_2018",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 62,
+      "onlyName": "HSV Clubsport R8 Dealer Team Spec (VZ)",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3954",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 5.4,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1672,
+      "name": "Holden HSV Clubsport R8 Dealer Team Spec (VZ)",
+      "rid": "Holden_HSV_Clubsport_R8_Dealer_Team_Spec_VZ_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 61,
       "onlyName": "iX xDrive40",
       "brand": "BMW",
@@ -34488,6 +35027,134 @@
   },
   {
       "class": "B",
+      "rq": 61,
+      "onlyName": "Falcon XR8 Sprint",
+      "brand": "Ford",
+      "year": 2016,
+      "tdid": "4009",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 4.4,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1869,
+      "name": "Ford Falcon XR8 Sprint",
+      "rid": "Ford_Falcon_XR8_Sprint_2016",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 61,
+      "onlyName": "Territory Turbo",
+      "brand": "Ford",
+      "year": 2006,
+      "tdid": "4003",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 6.8,
+      "hand": 75,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2145,
+      "name": "Ford Territory Turbo",
+      "rid": "Ford_Territory_Turbo_2006",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Sleeper"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 61,
+      "onlyName": "Commodore SS-V Redline",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3974",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 5.1,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1758,
+      "name": "Holden Commodore SS-V Redline",
+      "rid": "Holden_Commodore_SSV_Redline_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 61,
+      "onlyName": "HSV Maloo R8 (VE)",
+      "brand": "Holden",
+      "year": 2007,
+      "tdid": "3961",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 175,
+      "acel": 5.1,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1777,
+      "name": "Holden HSV Maloo R8 (VE)",
+      "rid": "Holden_HSV_Maloo_R8_VE_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 60,
       "onlyName": "Levante Diesel",
       "brand": "Maserati",
@@ -35417,6 +36084,100 @@
   },
   {
       "class": "B",
+      "rq": 60,
+      "onlyName": "Adventra LX8 (VZ)",
+      "brand": "Holden",
+      "year": 2004,
+      "tdid": "3948",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 6.8,
+      "hand": 73,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1985,
+      "name": "Holden Adventra LX8 (VZ)",
+      "rid": "Holden_Adventra_LX8_VZ_2004",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 60,
+      "onlyName": "Equinox LTZ-V AWD (EQ)",
+      "brand": "Holden",
+      "year": 2017,
+      "tdid": "3985",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.9,
+      "hand": 73,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1778,
+      "name": "Holden Equinox LTZ-V AWD (EQ)",
+      "rid": "Holden_Equinox_LTZV_AWD_EQ_2017",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 60,
+      "onlyName": "Ute SS-V Redline (VF)",
+      "brand": "Holden",
+      "year": 2017,
+      "tdid": "3984",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.1,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1720,
+      "name": "Holden Ute SS-V Redline (VF)",
+      "rid": "Holden_Ute_SSV_Redline_VF_2017",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 59,
       "onlyName": "AMG SLC 43",
       "brand": "Mercedes-Benz",
@@ -36059,6 +36820,71 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "FPV F6",
+      "brand": "Ford",
+      "year": 2008,
+      "tdid": "4029",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 4.5,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1800,
+      "name": "Ford FPV F6",
+      "rid": "Ford_FPV_F6_2008",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Efijy",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3958",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 180,
+      "acel": 4.5,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1900,
+      "name": "Holden Efijy",
+      "rid": "Holden_Efijy_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Wild Ride",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
       "engine": "Front"
   },
   {
@@ -37293,6 +38119,69 @@
   },
   {
       "class": "B",
+      "rq": 58,
+      "onlyName": "Falcon XR6 Turbo",
+      "brand": "Ford",
+      "year": 2012,
+      "tdid": "4007",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 4.7,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1733,
+      "name": "Ford Falcon XR6 Turbo",
+      "rid": "Ford_Falcon_XR6_Turbo_2012",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 58,
+      "onlyName": "FPV GT-P",
+      "brand": "Ford",
+      "year": 2010,
+      "tdid": "4031",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 180,
+      "acel": 4.7,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1880,
+      "name": "Ford FPV GT-P",
+      "rid": "Ford_FPV_GTP_2010",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 57,
       "onlyName": "Velar",
       "brand": "Land Rover",
@@ -38239,6 +39128,37 @@
       "rid": "Subaru_Legacy_B4_Blitzen_(BE)_2000",
       "tags": [
           "Japan Pro Tour"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 57,
+      "onlyName": "Caprice (WK)",
+      "brand": "Holden",
+      "year": 2003,
+      "tdid": "3946",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 6.2,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1772,
+      "name": "Holden Caprice (WK)",
+      "rid": "Holden_Caprice_WK_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
       ],
       "bodyTypes": [
           "Saloon"
@@ -40111,6 +41031,68 @@
   },
   {
       "class": "B",
+      "rq": 55,
+      "onlyName": "Acadia LTZ-V AWD",
+      "brand": "Holden",
+      "year": 2018,
+      "tdid": "3988",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 7.1,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1985,
+      "name": "Holden Acadia LTZ-V AWD",
+      "rid": "Holden_Acadia_LTZV_AWD_2018",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 55,
+      "onlyName": "One Tonner (VY)",
+      "brand": "Holden",
+      "year": 2003,
+      "tdid": "3942",
+      "abs": true,
+      "tcs": false,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 7.5,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1542,
+      "name": "Holden One Tonner (VY)",
+      "rid": "Holden_One_Tonner_VY_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 54,
       "onlyName": "P400e PHEV",
       "brand": "Land Rover",
@@ -40878,6 +41860,38 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 54,
+      "onlyName": "Ute SS (VF)",
+      "brand": "Holden",
+      "year": 2013,
+      "tdid": "3970",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.4,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1726,
+      "name": "Holden Ute SS (VF)",
+      "rid": "Holden_Ute_SS_VF_2013",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -43213,6 +44227,164 @@
   },
   {
       "class": "B",
+      "rq": 52,
+      "onlyName": "FPV GS",
+      "brand": "Ford",
+      "year": 2009,
+      "tdid": "4030",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 170,
+      "acel": 5.1,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1890,
+      "name": "Ford FPV GS",
+      "rid": "Ford_FPV_GS_2009",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 52,
+      "onlyName": "FPV GS Ute",
+      "brand": "Ford",
+      "year": 2009,
+      "tdid": "4028",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1795,
+      "name": "Ford FPV GS Ute",
+      "rid": "Ford_FPV_GS_Ute_2009",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 52,
+      "onlyName": "Calibra Turbo 4x4",
+      "brand": "Holden",
+      "year": 1991,
+      "tdid": "3934",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 152,
+      "acel": 6.3,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1374,
+      "name": "Holden Calibra Turbo 4x4",
+      "rid": "Holden_Calibra_Turbo_4x4_1991",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 52,
+      "onlyName": "Caprice (WN)",
+      "brand": "Holden",
+      "year": 2014,
+      "tdid": "3972",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.5,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1891,
+      "name": "Holden Caprice (WN)",
+      "rid": "Holden_Caprice_WN_2014",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 52,
+      "onlyName": "Monaro CV8-R (VZ)",
+      "brand": "Holden",
+      "year": 2004,
+      "tdid": "3950",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.7,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1640,
+      "name": "Holden Monaro CV8-R (VZ)",
+      "rid": "Holden_Monaro_CV8R_VZ_2004",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 51,
       "onlyName": "Aspen Hybrid",
       "brand": "Chrysler",
@@ -44366,6 +45538,70 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "FPV GT Cobra R-Spec",
+      "brand": "Ford",
+      "year": 2007,
+      "tdid": "4026",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 169,
+      "acel": 5.2,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1855,
+      "name": "Ford FPV GT Cobra R-Spec",
+      "rid": "Ford_FPV_GT_Cobra_RSpec_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "Ute SS (VE)",
+      "brand": "Holden",
+      "year": 2007,
+      "tdid": "3960",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.6,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1777,
+      "name": "Holden Ute SS (VE)",
+      "rid": "Holden_Ute_SS_VE_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "B",
@@ -46933,6 +48169,227 @@
   },
   {
       "class": "C",
+      "rq": 49,
+      "onlyName": "FPV F6 R-spec Typhoon",
+      "brand": "Ford",
+      "year": 2007,
+      "tdid": "4024",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.4,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1805,
+      "name": "Ford FPV F6 R-spec Typhoon",
+      "rid": "Ford_FPV_F6_Rspec_Typhoon_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "FPV Force 6",
+      "brand": "Ford",
+      "year": 2006,
+      "tdid": "4022",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.5,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1805,
+      "name": "Ford FPV Force 6",
+      "rid": "Ford_FPV_Force_6_2006",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "FPV GT 40th Anniversary Edition",
+      "brand": "Ford",
+      "year": 2007,
+      "tdid": "4025",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.4,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1855,
+      "name": "Ford FPV GT 40th Anniversary Edition",
+      "rid": "Ford_FPV_GT_40th_Anniversary_Edition_2007",
+      "prize": true,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "Commodore Evoke (VF)",
+      "brand": "Holden",
+      "year": 2013,
+      "tdid": "3969",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 147,
+      "acel": 7.2,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1620,
+      "name": "Holden Commodore Evoke (VF)",
+      "rid": "Holden_Commodore_Evoke_VF_2013",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "Commodore SSZ (VZ)",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3953",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 5.8,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1654,
+      "name": "Holden Commodore SSZ (VZ)",
+      "rid": "Holden_Commodore_SSZ_VZ_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "HSV Coupe 4 (V2)",
+      "brand": "Holden",
+      "year": 2004,
+      "tdid": "3943",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 150,
+      "acel": 5.8,
+      "hand": 78,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1830,
+      "name": "Holden HSV Coupe 4 (V2)",
+      "rid": "Holden_HSV_Coupe_4_V2_2004",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 49,
+      "onlyName": "HSV Maloo (VZ)",
+      "brand": "Holden",
+      "year": 2004,
+      "tdid": "3949",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.7,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1703,
+      "name": "Holden HSV Maloo (VZ)",
+      "rid": "Holden_HSV_Maloo_VZ_2004",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 48,
       "onlyName": "Escalade",
       "brand": "Cadillac",
@@ -48396,6 +49853,228 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "Falcon XR6 Turbo",
+      "brand": "Ford",
+      "year": 2002,
+      "tdid": "4005",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 5.7,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1694,
+      "name": "Ford Falcon XR6 Turbo",
+      "rid": "Ford_Falcon_XR6_Turbo_2002",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "FPV F6 Typhoon",
+      "brand": "Ford",
+      "year": 2005,
+      "tdid": "4020",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 162,
+      "acel": 5.4,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1805,
+      "name": "Ford FPV F6 Typhoon",
+      "rid": "Ford_FPV_F6_Typhoon_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "FPV Force 8",
+      "brand": "Ford",
+      "year": 2006,
+      "tdid": "4023",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.4,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1855,
+      "name": "Ford FPV Force 8",
+      "rid": "Ford_FPV_Force_8_2006",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "FPV GT",
+      "brand": "Ford",
+      "year": 2007,
+      "tdid": "4027",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 165,
+      "acel": 5.4,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1855,
+      "name": "Ford FPV GT",
+      "rid": "Ford_FPV_GT_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "FPV Pursuit",
+      "brand": "Ford",
+      "year": 2003,
+      "tdid": "4019",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.9,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1870,
+      "name": "Ford FPV Pursuit",
+      "rid": "Ford_FPV_Pursuit_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "HSV GTS (V2)",
+      "brand": "Holden",
+      "year": 2003,
+      "tdid": "3945",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 164,
+      "acel": 5.4,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1710,
+      "name": "Holden HSV GTS (V2)",
+      "rid": "Holden_HSV_GTS_V2_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 48,
+      "onlyName": "HSV VXR Turbo (AH)",
+      "brand": "Holden",
+      "year": 2008,
+      "tdid": "3965",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 152,
+      "acel": 6.2,
+      "hand": 80,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1393,
+      "name": "Holden HSV VXR Turbo (AH)",
+      "rid": "Holden_HSV_VXR_Turbo_AH_2008",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Hot Hatch"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -50110,6 +51789,38 @@
   },
   {
       "class": "C",
+      "rq": 47,
+      "onlyName": "Astra VXR (PJ)",
+      "brand": "Holden",
+      "year": 2015,
+      "tdid": "3981",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 5.9,
+      "hand": 80,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1475,
+      "name": "Holden Astra VXR (PJ)",
+      "rid": "Holden_Astra_VXR_PJ_2015",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Hot Hatch"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 46,
       "onlyName": "H3T",
       "brand": "Hummer",
@@ -51497,6 +53208,164 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "FPV F6 Tornado",
+      "brand": "Ford",
+      "year": 2005,
+      "tdid": "4021",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.6,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1825,
+      "name": "Ford FPV F6 Tornado",
+      "rid": "Ford_FPV_F6_Tornado_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "FTE TS50",
+      "brand": "Ford",
+      "year": 2002,
+      "tdid": "4017",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 159,
+      "acel": 5.6,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1715,
+      "name": "Ford FTE TS50",
+      "rid": "Ford_FTE_TS50_2002",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "Calais V International (VE)",
+      "brand": "Holden",
+      "year": 2008,
+      "tdid": "3964",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 152,
+      "acel": 7.5,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1780,
+      "name": "Holden Calais V International (VE)",
+      "rid": "Holden_Calais_V_International_VE_2008",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "HSV GTO (V2)",
+      "brand": "Holden",
+      "year": 2003,
+      "tdid": "3944",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.5,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1680,
+      "name": "Holden HSV GTO (V2)",
+      "rid": "Holden_HSV_GTO_V2_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "Monaro CV8 (VZ)",
+      "brand": "Holden",
+      "year": 2005,
+      "tdid": "3957",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 160,
+      "acel": 5.7,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1692,
+      "name": "Holden Monaro CV8 (VZ)",
+      "rid": "Holden_Monaro_CV8_VZ_2005",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "C",
@@ -55262,6 +57131,37 @@
   },
   {
       "class": "C",
+      "rq": 44,
+      "onlyName": "Astra RS-V (BK)",
+      "brand": "Holden",
+      "year": 2019,
+      "tdid": "3989",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.1,
+      "hand": 78,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1356,
+      "name": "Holden Astra RS-V (BK)",
+      "rid": "Holden_Astra_RSV_BK_2019",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 43,
       "onlyName": "Outlander PHEV",
       "brand": "Mitsubishi",
@@ -57948,6 +59848,37 @@
   },
   {
       "class": "C",
+      "rq": 42,
+      "onlyName": "Trailblazer LTZ",
+      "brand": "Holden",
+      "year": 2016,
+      "tdid": "3982",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 112,
+      "acel": 9.9,
+      "hand": 68,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2203,
+      "name": "Holden Trailblazer LTZ",
+      "rid": "Holden_Trailblazer_LTZ_2016",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Diesel",
+      "seats": "7",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 41,
       "onlyName": "K5 Blazer 5.7L",
       "brand": "Chevrolet",
@@ -59263,6 +61194,38 @@
   },
   {
       "class": "C",
+      "rq": 41,
+      "onlyName": "HDT Director (VL)",
+      "brand": "Holden",
+      "year": 1987,
+      "tdid": "3932",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 147,
+      "acel": 6.2,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1412,
+      "name": "Holden HDT Director (VL)",
+      "rid": "Holden_HDT_Director_VL_1987",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
       "rq": 40,
       "onlyName": "Shogun Black Edition",
       "brand": "Mitsubishi",
@@ -60442,6 +62405,69 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Barina RS (TM)",
+      "brand": "Holden",
+      "year": 2014,
+      "tdid": "3973",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 8.5,
+      "hand": 78,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1249,
+      "name": "Holden Barina RS (TM)",
+      "rid": "Holden_Barina_RS_TM_2014",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Monaro CV8 (V2)",
+      "brand": "Holden",
+      "year": 2001,
+      "tdid": "3941",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 151,
+      "acel": 6.3,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1640,
+      "name": "Holden Monaro CV8 (V2)",
+      "rid": "Holden_Monaro_CV8_V2_2001",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -61811,6 +63837,131 @@
   },
   {
       "class": "D",
+      "rq": 39,
+      "onlyName": "Falcon XR8",
+      "brand": "Ford",
+      "year": 2000,
+      "tdid": "4004",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 6.4,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1559,
+      "name": "Ford Falcon XR8",
+      "rid": "Ford_Falcon_XR8_2000",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 39,
+      "onlyName": "Astra SRi Turbo (TS)",
+      "brand": "Holden",
+      "year": 2003,
+      "tdid": "3947",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 134,
+      "acel": 7,
+      "hand": 77,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1282,
+      "name": "Holden Astra SRi Turbo (TS)",
+      "rid": "Holden_Astra_SRi_Turbo_TS_2003",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 39,
+      "onlyName": "HSV Clubsport (VS)",
+      "brand": "Holden",
+      "year": 1995,
+      "tdid": "3935",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.6,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1573,
+      "name": "Holden HSV Clubsport (VS)",
+      "rid": "Holden_HSV_Clubsport_VS_1995",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 39,
+      "onlyName": "Ute SV6 (VE)",
+      "brand": "Holden",
+      "year": 2007,
+      "tdid": "3959",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 145,
+      "acel": 7.5,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1725,
+      "name": "Holden Ute SV6 (VE)",
+      "rid": "Holden_Ute_SV6_VE_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 38,
       "onlyName": "Rendezvous",
       "brand": "Buick",
@@ -63103,6 +65254,68 @@
       ],
       "bodyTypes": [
           "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 38,
+      "onlyName": "HDT Commodore SS Group A (VK)",
+      "brand": "Holden",
+      "year": 1985,
+      "tdid": "3929",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 134,
+      "acel": 6.5,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1340,
+      "name": "Holden HDT Commodore SS Group A (VK)",
+      "rid": "Holden_HDT_Commodore_SS_Group_A_VK_1985",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 38,
+      "onlyName": "HSV Manta (VS)",
+      "brand": "Holden",
+      "year": 1995,
+      "tdid": "3936",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.5,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1555,
+      "name": "Holden HSV Manta (VS)",
+      "rid": "Holden_HSV_Manta_VS_1995",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -64469,6 +66682,68 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 37,
+      "onlyName": "Astra TwinTop (AH)",
+      "brand": "Holden",
+      "year": 2007,
+      "tdid": "3963",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 147,
+      "acel": 7.9,
+      "hand": 72,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1555,
+      "name": "Holden Astra TwinTop (AH)",
+      "rid": "Holden_Astra_TwinTop_AH_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 37,
+      "onlyName": "Cruze SRI-V",
+      "brand": "Holden",
+      "year": 2011,
+      "tdid": "3968",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 124,
+      "acel": 8.6,
+      "hand": 78,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1402,
+      "name": "Holden Cruze SRI-V",
+      "rid": "Holden_Cruze_SRIV_2011",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -65960,6 +68235,99 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 36,
+      "onlyName": "Astra SRi Turbo (AH)",
+      "brand": "Holden",
+      "year": 2006,
+      "tdid": "3952",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 7.7,
+      "hand": 78,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1401,
+      "name": "Holden Astra SRi Turbo (AH)",
+      "rid": "Holden_Astra_SRi_Turbo_AH_2006",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 36,
+      "onlyName": "HSV Maloo (VS)",
+      "brand": "Holden",
+      "year": 1995,
+      "tdid": "3937",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 138,
+      "acel": 6.7,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1580,
+      "name": "Holden HSV Maloo (VS)",
+      "rid": "Holden_HSV_Maloo_VS_1995",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 36,
+      "onlyName": "HSV Senator 215i (VS)",
+      "brand": "Holden",
+      "year": 1995,
+      "tdid": "3938",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.4,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1610,
+      "name": "Holden HSV Senator 215i (VS)",
+      "rid": "Holden_HSV_Senator_215i_VS_1995",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -69221,6 +71589,100 @@
   },
   {
       "class": "D",
+      "rq": 34,
+      "onlyName": "Falcon GT",
+      "brand": "Ford",
+      "year": 1997,
+      "tdid": "4006",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 148,
+      "acel": 7.2,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1668,
+      "name": "Ford Falcon GT",
+      "rid": "Ford_Falcon_GT_1997",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 34,
+      "onlyName": "HDT Aero (VL)",
+      "brand": "Holden",
+      "year": 1987,
+      "tdid": "3933",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 7.1,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1412,
+      "name": "Holden HDT Aero (VL)",
+      "rid": "Holden_HDT_Aero_VL_1987",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 34,
+      "onlyName": "Malibu CDX",
+      "brand": "Holden",
+      "year": 2013,
+      "tdid": "3971",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 8.8,
+      "hand": 76,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1610,
+      "name": "Holden Malibu CDX",
+      "rid": "Holden_Malibu_CDX_2013",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 33,
       "onlyName": "Vitara",
       "brand": "Suzuki",
@@ -70590,6 +73052,38 @@
           "Concept",
           "Loves Me, Loves Me Not"
       ]
+  },
+  {
+      "class": "D",
+      "rq": 33,
+      "onlyName": "Valiant Charger R/T Six Pack (VH)",
+      "brand": "Chrysler",
+      "year": 1971,
+      "tdid": "3998",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 140,
+      "acel": 6.5,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1375,
+      "name": "Chrysler Valiant Charger R/T Six Pack (VH)",
+      "rid": "Chrysler_Valiant_Charger_RT_Six_Pack_VH_1971",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -72206,6 +74700,69 @@
   },
   {
       "class": "D",
+      "rq": 32,
+      "onlyName": "Falcon GT Hardtop (XB)",
+      "brand": "Ford",
+      "year": 1973,
+      "tdid": "4013",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 142,
+      "acel": 6.4,
+      "hand": 67,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1500,
+      "name": "Ford Falcon GT Hardtop (XB)",
+      "rid": "Ford_Falcon_GT_Hardtop_XB_1973",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 32,
+      "onlyName": "Epica CDXi",
+      "brand": "Holden",
+      "year": 2007,
+      "tdid": "3962",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 128,
+      "acel": 8.9,
+      "hand": 73,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1499,
+      "name": "Holden Epica CDXi",
+      "rid": "Holden_Epica_CDXi_2007",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 31,
       "onlyName": "Jimny",
       "brand": "Suzuki",
@@ -73451,6 +76008,102 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
+  },
+  {
+      "class": "D",
+      "rq": 31,
+      "onlyName": "Valiant Charger 770 SE (VH)",
+      "brand": "Chrysler",
+      "year": 1971,
+      "tdid": "3999",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 136,
+      "acel": 6.9,
+      "hand": 67,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1465,
+      "name": "Chrysler Valiant Charger 770 SE (VH)",
+      "rid": "Chrysler_Valiant_Charger_770_SE_VH_1971",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 31,
+      "onlyName": "Torana SL/R 5000 A9X (LX)",
+      "brand": "Holden",
+      "year": 1977,
+      "tdid": "3992",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 7.1,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1205,
+      "name": "Holden Torana SL/R 5000 A9X (LX)",
+      "rid": "Holden_Torana_SLR_5000_A9X_LX_1977",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 31,
+      "onlyName": "Torana SS A9X Hatchback (LX)",
+      "brand": "Holden",
+      "year": 1977,
+      "tdid": "3928",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 7,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1242,
+      "name": "Holden Torana SS A9X Hatchback (LX)",
+      "rid": "Holden_Torana_SS_A9X_Hatchback_LX_1977",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -74800,6 +77453,38 @@
           "Motorsport",
           "Loves Me, Loves Me Not"
       ]
+  },
+  {
+      "class": "D",
+      "rq": 30,
+      "onlyName": "Valiant Charger 770 E55 (VJ)",
+      "brand": "Chrysler",
+      "year": 1973,
+      "tdid": "4000",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 136,
+      "acel": 6.9,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1465,
+      "name": "Chrysler Valiant Charger 770 E55 (VJ)",
+      "rid": "Chrysler_Valiant_Charger_770_E55_VJ_1973",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "E",
@@ -76484,6 +79169,68 @@
   },
   {
       "class": "E",
+      "rq": 29,
+      "onlyName": "Barina SRi (XC)",
+      "brand": "Holden",
+      "year": 2004,
+      "tdid": "3951",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 8.2,
+      "hand": 76,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1088,
+      "name": "Holden Barina SRi (XC)",
+      "rid": "Holden_Barina_SRi_XC_2004",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 29,
+      "onlyName": "Suburban",
+      "brand": "Holden",
+      "year": 1998,
+      "tdid": "3939",
+      "abs": true,
+      "tcs": false,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 101,
+      "acel": 11.4,
+      "hand": 58,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2440,
+      "name": "Holden Suburban",
+      "rid": "Holden_Suburban_1998",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 28,
       "onlyName": "Twingo",
       "brand": "Renault",
@@ -77871,6 +80618,101 @@
   },
   {
       "class": "E",
+      "rq": 28,
+      "onlyName": "Monaro CV6 (V2)",
+      "brand": "Holden",
+      "year": 2001,
+      "tdid": "3940",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 7.9,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1603,
+      "name": "Holden Monaro CV6 (V2)",
+      "rid": "Holden_Monaro_CV6_V2_2001",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 28,
+      "onlyName": "Monaro GTS 350 (HT)",
+      "brand": "Holden",
+      "year": 1969,
+      "tdid": "3922",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 6,
+      "hand": 65,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1504,
+      "name": "Holden Monaro GTS 350 (HT)",
+      "rid": "Holden_Monaro_GTS_350_HT_1969",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 28,
+      "onlyName": "Piazza Turbo",
+      "brand": "Holden",
+      "year": 1986,
+      "tdid": "3931",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 8.4,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1247,
+      "name": "Holden Piazza Turbo",
+      "rid": "Holden_Piazza_Turbo_1986",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Hot Hatch"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 27,
       "onlyName": "Terrano",
       "brand": "Nissan",
@@ -79012,6 +81854,68 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 27,
+      "onlyName": "Telstar TX5 Turbo",
+      "brand": "Ford",
+      "year": 1986,
+      "tdid": "4011",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 118,
+      "acel": 9.5,
+      "hand": 72,
+      "drive": "FWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1117,
+      "name": "Ford Telstar TX5 Turbo",
+      "rid": "Ford_Telstar_TX5_Turbo_1986",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 27,
+      "onlyName": "Drover",
+      "brand": "Holden",
+      "year": 1985,
+      "tdid": "3930",
+      "abs": false,
+      "tcs": false,
+      "clearance": "High",
+      "country": "AU",
+      "topSpeed": 80,
+      "acel": 16.6,
+      "hand": 59,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 930,
+      "name": "Holden Drover",
+      "rid": "Holden_Drover_1985",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -80830,6 +83734,69 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 25,
+      "onlyName": "Falcon 'Bathurst' Cobra",
+      "brand": "Ford",
+      "year": 1978,
+      "tdid": "4016",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 7.6,
+      "hand": 69,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1490,
+      "name": "Ford Falcon 'Bathurst' Cobra",
+      "rid": "Ford_Falcon_Bathurst_Cobra_1978",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 25,
+      "onlyName": "Laser SR2",
+      "brand": "Ford",
+      "year": 2002,
+      "tdid": "4010",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 121,
+      "acel": 9.2,
+      "hand": 77,
+      "drive": "FWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1219,
+      "name": "Ford Laser SR2",
+      "rid": "Ford_Laser_SR2_2002",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -83680,6 +86647,68 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 23,
+      "onlyName": "by Chrysler 360 (CH)",
+      "brand": "Chrysler",
+      "year": 1971,
+      "tdid": "3995",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 120,
+      "acel": 8.5,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1578,
+      "name": "Chrysler by Chrysler 360 (CH)",
+      "rid": "Chrysler_by_Chrysler_360_CH_1971",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 23,
+      "onlyName": "Panel Van Sandman (HZ)",
+      "brand": "Holden",
+      "year": 1977,
+      "tdid": "3927",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 120,
+      "acel": 9.1,
+      "hand": 64,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1444,
+      "name": "Holden Panel Van Sandman (HZ)",
+      "rid": "Holden_Panel_Van_Sandman_HZ_1977",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Van"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -86587,6 +89616,101 @@
   },
   {
       "class": "E",
+      "rq": 21,
+      "onlyName": "Valiant Charger XL (VK)",
+      "brand": "Chrysler",
+      "year": 1975,
+      "tdid": "4001",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 116,
+      "acel": 9.1,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1460,
+      "name": "Chrysler Valiant Charger XL (VK)",
+      "rid": "Chrysler_Valiant_Charger_XL_VK_1975",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 21,
+      "onlyName": "Monaro GTS 350 (HQ)",
+      "brand": "Holden",
+      "year": 1971,
+      "tdid": "3991",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 125,
+      "acel": 8.1,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1470,
+      "name": "Holden Monaro GTS 350 (HQ)",
+      "rid": "Holden_Monaro_GTS_350_HQ_1971",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 21,
+      "onlyName": "Torana GTR-X",
+      "brand": "Holden",
+      "year": 1970,
+      "tdid": "3990",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "AU",
+      "topSpeed": 130,
+      "acel": 8.3,
+      "hand": 69,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1043,
+      "name": "Holden Torana GTR-X",
+      "rid": "Holden_Torana_GTRX_1970",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
       "rq": 20,
       "onlyName": "Cygnet",
       "brand": "Aston Martin",
@@ -87993,6 +91117,68 @@
       "tags": [
           "Enter the Black Forest"
       ]
+  },
+  {
+      "class": "E",
+      "rq": 20,
+      "onlyName": "Falcon XT 500",
+      "brand": "Ford",
+      "year": 1968,
+      "tdid": "4014",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 115,
+      "acel": 9.5,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1465,
+      "name": "Ford Falcon XT 500",
+      "rid": "Ford_Falcon_XT_500_1968",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 20,
+      "onlyName": "Torana GTR XU-1 (LJ)",
+      "brand": "Holden",
+      "year": 1972,
+      "tdid": "3924",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 118,
+      "acel": 8.4,
+      "hand": 67,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1098,
+      "name": "Holden Torana GTR XU-1 (LJ)",
+      "rid": "Holden_Torana_GTR_XU1_LJ_1972",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
   },
   {
       "class": "F",
@@ -90557,6 +93743,37 @@
   },
   {
       "class": "F",
+      "rq": 18,
+      "onlyName": "Torana GTR XU-1 (LC)",
+      "brand": "Holden",
+      "year": 1970,
+      "tdid": "3923",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 112,
+      "acel": 8.8,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1012,
+      "name": "Holden Torana GTR XU-1 (LC)",
+      "rid": "Holden_Torana_GTR_XU1_LC_1970",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 17,
       "onlyName": "Jazz",
       "brand": "Honda",
@@ -91940,6 +95157,130 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "by Chrysler (CH)",
+      "brand": "Chrysler",
+      "year": 1971,
+      "tdid": "3994",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 115,
+      "acel": 11.5,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1528,
+      "name": "Chrysler by Chrysler (CH)",
+      "rid": "Chrysler_by_Chrysler_CH_1971",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "by Chrysler (CJ)",
+      "brand": "Chrysler",
+      "year": 1973,
+      "tdid": "3996",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 115,
+      "acel": 11.5,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1528,
+      "name": "Chrysler by Chrysler (CJ)",
+      "rid": "Chrysler_by_Chrysler_CJ_1973",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "Fairlane 500",
+      "brand": "Ford",
+      "year": 1967,
+      "tdid": "4015",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 109,
+      "acel": 11.6,
+      "hand": 62,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1505,
+      "name": "Ford Fairlane 500",
+      "rid": "Ford_Fairlane_500_1967",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 17,
+      "onlyName": "Limited Edition Coupe (HX)",
+      "brand": "Holden",
+      "year": 1976,
+      "tdid": "3926",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 119,
+      "acel": 9.1,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1442,
+      "name": "Holden Limited Edition Coupe (HX)",
+      "rid": "Holden_Limited_Edition_Coupe_HX_1976",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
       "engine": "Front"
   },
   {
@@ -93674,6 +97015,99 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 16,
+      "onlyName": "Centura (KB)",
+      "brand": "Chrysler",
+      "year": 1975,
+      "tdid": "3993",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 106,
+      "acel": 13.6,
+      "hand": 63,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1095,
+      "name": "Chrysler Centura (KB)",
+      "rid": "Chrysler_Centura_KB_1975",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 16,
+      "onlyName": "Valiant Wayfarer",
+      "brand": "Chrysler",
+      "year": 1966,
+      "tdid": "3921",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 94,
+      "acel": 12.2,
+      "hand": 60,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": null,
+      "weight": 1249,
+      "name": "Chrysler Valiant Wayfarer",
+      "rid": "Chrysler_Valiant_Wayfarer_1966",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
+      "rq": 16,
+      "onlyName": "Monaro GTS Sedan (HX)",
+      "brand": "Holden",
+      "year": 1976,
+      "tdid": "3925",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 120,
+      "acel": 9.3,
+      "hand": 65,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1475,
+      "name": "Holden Monaro GTS Sedan (HX)",
+      "rid": "Holden_Monaro_GTS_Sedan_HX_1976",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -95751,6 +99185,37 @@
   },
   {
       "class": "F",
+      "rq": 14,
+      "onlyName": "Valiant Charger 770 (CL)",
+      "brand": "Chrysler",
+      "year": 1976,
+      "tdid": "4002",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 115,
+      "acel": 9.5,
+      "hand": 65,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1475,
+      "name": "Chrysler Valiant Charger 770 (CL)",
+      "rid": "Chrysler_Valiant_Charger_770_CL_1976",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 13,
       "onlyName": "1750 GTV",
       "brand": "Alfa Romeo",
@@ -96552,6 +100017,37 @@
       "tags": [
           "Amalfi Coast Cruising"
       ]
+  },
+  {
+      "class": "F",
+      "rq": 13,
+      "onlyName": "Drifter Van (CL)",
+      "brand": "Chrysler",
+      "year": 1977,
+      "tdid": "3997",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 110,
+      "acel": 9.6,
+      "hand": 64,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1475,
+      "name": "Chrysler Drifter Van (CL)",
+      "rid": "Chrysler_Drifter_Van_CL_1977",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Van"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "F",

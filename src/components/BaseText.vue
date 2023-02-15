@@ -5,7 +5,7 @@
       BaseText_Correct: correct 
     }"
     class="BaseText_Layout">
-    <div class="BaseText_Label">{{ label }}</div>
+    <div v-if="label" class="BaseText_Label">{{ label }}</div>
     <input
       :value="value"
       :disabled="disabled"
@@ -39,7 +39,7 @@ export default {
     },
     label: {
       type: String,
-      default: "Label"
+      default: null
     },
     placeholder: {
       type: String,
@@ -80,21 +80,24 @@ export default {
         this.$emit('change', e);
       } else {
         if (typeof e === "string") {
-          var acel = new RegExp(/[0-9]+\.[0-9]/g);
+          var acel = new RegExp(/^[0-9]{1,2}\.[0-9]$/g);
           var isAcel = acel.test(e);
-          var topHand = new RegExp(/[0-9][0-9]+/g);
+          var topHand = new RegExp(/^[0-9]{2,3}$/g);
           var isTopHand = topHand.test(e);
-          var integer = new RegExp(/[0-9]+/g);
+          var integer = new RegExp(/^[0-9]+$/g);
           var isInteger = integer.test(e);
-          var tune = new RegExp(/[0-9][0-9][0-9]/g);
+          var tune = new RegExp(/^[0-9]{3}$/g);
           var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "111" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
+          var mra = new RegExp(/^([0-9]{1,3}(?:\.[0-9]{1,2})?)$/g);
+          var isMra = mra.test(e);
     
           if (
               (this.type === "acel" && (isAcel || e === "0" || e === "N/A")) ||
               (this.type === "topSpeed" && isTopHand) ||
               (this.type === "hand" && isTopHand) ||
               (this.type === "integer" && isInteger) ||
-              (this.type === "tune" && isTune)
+              (this.type === "tune" && isTune) ||
+              (this.type === "mra" && isMra)
             ) {
             if (this.type === "acel" && e === "0") {
               e = "N/A"

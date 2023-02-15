@@ -367,6 +367,7 @@ export default {
           "Interstellar",
           "Italian Renaissance",
           "Japan Pro Tour",
+          "Learn the Savannah Way",
           "Loch to Loch",
           "Loves Me, Loves Me Not",
           "Motorsport",

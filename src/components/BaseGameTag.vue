@@ -159,6 +159,11 @@ export default {
   --tag-s: 65%;
   --tag-l: 41%;
 }
+.BaseGameTag_Learn_the_Savannah_Way {
+  --tag-h: 50;
+  --tag-s: 40%;
+  --tag-l: 40%;
+}
 .BaseGameTag_Loch_to_Loch {
   --tag-h: 0;
   --tag-s: 0%;

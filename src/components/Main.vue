@@ -1063,7 +1063,27 @@
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.mra }}</div>
+                <div class="Row_DialogCardStatValue">
+                  <template v-if="!mraEditing">
+                    <span v-if="tuneDialogCar.mra" style="margin-right: 7px;">{{ tuneDialogCar.mra }}</span>
+                    <button
+                      v-if="user && user.mod"
+                      :disabled="mraLoading"
+                      :class="{ D_Button_Loading: mraLoading }"
+                      class="D_Button D_ButtonDark Main_EditMraButton"
+                      @click="mraEditing = true;">
+                      <i class="ticon-pencil" aria-hidden="true"/>
+                    </button>
+                  </template>
+                  <template v-else>
+                    <BaseText
+                      v-model="mraEditInput"
+                      type="mra"
+                      class="Row_FieldStat Main_EditMraField"
+                      placeholder="type..."
+                      @change="sendMra()" />
+                  </template>
+                </div>
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
@@ -1902,6 +1922,9 @@ export default {
       customTuneDialogTune: null,
       optionsDialogActive: false,
       printImageDialog: false,
+      mraEditing: false,
+      mraEditInput: null,
+      mraLoading: false,
       aboutDialog: false,
       loginDialog: false,
       voteLoading: false,
@@ -1929,6 +1952,7 @@ export default {
         null,
         null
       ],
+      mraData: {},
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
@@ -3137,6 +3161,8 @@ export default {
     },
     closeTune() {
       this.tuneDialogActive = false;
+      this.mraEditing = false;
+      this.mraEditInput = null;
       // this.$store.commit("SHOW_TUNE", false);
       
     },
@@ -3365,8 +3391,17 @@ export default {
           
         })
 
-        res.data.find(x => x.id === 'pUsers').value;
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
+
+        this.mraData = res.data.find(x => x.id === 'mra').value;
+        this.all_cars.map(x => {
+          Vue.set(x, "mra", this.mraData[x.rid] || x.mra);
+        })
+        this.carDetailsList.map(x => {
+          Vue.set(x, "mra", this.mraData[x.rid] || x.mra);
+        })
+
+
       })
       .catch(error => {
         console.log(error);
@@ -5565,7 +5600,48 @@ export default {
         Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
       }
-    }
+    },
+    sendMra() {
+      console.log(this.mraEditInput);
+      if (!this.mraEditInput) return;
+
+      this.mraLoading = true;
+
+      axios.post(Vue.preUrl + "/setMra", {
+        rid: this.tuneDialogCar.rid,
+        mra: this.mraEditInput
+      })
+      .then(res => {
+        this.mraEditing = false;
+        this.tuneDialogCar.mra = Number(this.mraEditInput);
+
+        this.all_cars.find(x => {
+          if (x.rid === this.tuneDialogCar.rid) {
+            Vue.set(x, "mra", Number(this.mraEditInput));
+            return true
+          }
+        })
+        this.carDetailsList.find(x => {
+          if (x.rid === this.tuneDialogCar.rid) {
+            Vue.set(x, "mra", Number(this.mraEditInput));
+            return true
+          }
+        })
+
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.mraLoading = false;
+      });
+    },
   }
 }
 </script>
@@ -6679,6 +6755,17 @@ body .Main_UserT5 {
 }
 .Main_KingTuneSelector {
   
+}
+.Main_EditMraButton {
+  font-size: 16px;
+  padding: 0 3px;
+  --height: 28px;
+  min-width: 41px;
+  margin-top: -4px;
+}
+.Main_EditMraField > input {
+  margin-top: -1px;
+  padding: 5px 6px;
 }
 
 
