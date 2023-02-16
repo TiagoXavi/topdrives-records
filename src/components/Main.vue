@@ -338,8 +338,8 @@
         <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
-            <div class="Cg_RoundEmptyBody">{{ $t("m_emptyRound2") }}</div>
-            <div class="Cg_RoundEmptyBody">{{ $t("m_emptyRoundLogin") }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRound2") }}</div>
+            <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundLogin") }}</div>
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>

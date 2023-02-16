@@ -191,7 +191,6 @@ export default {
       this.closeDialogTrackSearch();
     },
     getResolvedTrack(track) {
-      console.log(track);
       this.chartTrack = track;
     },
     openChartOfDialog() {
@@ -253,6 +252,60 @@ export default {
       listOfRids.map(x => {
         objListRid[x.rid] = true;
       });
+
+      let allTimes = [];
+      let biggestDiff = 0;
+      let diffColection = [];
+      let acceplateDiff = 0;
+      let bannedTimes = [];
+
+      arrDados.map(x => {
+        allTimes.push(x.time)
+      })
+      allTimes.sort((a, b) => a - b);
+      
+      allTimes.sort((a, b) => {
+        if (Math.abs(a - b) > biggestDiff) {
+          biggestDiff = Math.abs(a - b);
+          diffColection.push(biggestDiff);
+        }
+        return 0;
+      });
+      diffColection.sort((b, a) => {
+        if (b < a * 5) {
+          acceplateDiff = b*5;
+        }
+        return 0;
+      })
+      allTimes.sort((b, a) => {
+        if (b - a > acceplateDiff) {
+          bannedTimes.push(b);
+        }
+        return 0;
+      })
+
+
+      arrDados = arrDados.filter(x => {
+        if (bannedTimes.includes(x.time)) {
+          if (!this.user.canDelete) {
+            return false;
+          } else {
+            console.log(JSON.stringify(x));
+          }
+        }
+        return true;
+      });
+
+
+
+      let sum = allTimes.reduce((a, b) => a + b, 0);
+      let media = (sum / allTimes.length) || 0;
+      // console.log(this.filterOutliers(media));
+      // let mediaSorted = media.slice().sort((a, b) => a - b);
+
+
+
+
 
       // arrDados.map(x => {
       //   let alreadyItem = xAxisArray.find(y => y === Date.parse(x.date+"T00:00"));
@@ -349,10 +402,38 @@ export default {
     },
     detailClick(e) {
       var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-      if (!supportsTouch) {
-        let url = `https://www.topdrivesrecords.com?share=~K${this.chartTrack.code}~C${e.custom.rid}~T${e.custom.tune}`
+      if (e.shiftKey) {
+        this.deleteTime(e.point.custom.rid, e.point.custom.tune);
+      } else if (!supportsTouch) {
+        let url = `https://www.topdrivesrecords.com?share=~K${this.chartTrack.code}~C${e.point.custom.rid}~T${e.point.custom.tune}`
         window.open(url, '_blank').focus();
       }
+    },
+    deleteTime(rid, tune) {
+      axios.post(Vue.preUrl + "/deleteTime", {
+        rid: rid,
+        tune: tune,
+        track: this.chartTrack.code,
+      })
+      .then(res => {
+        this.chartAnalyse();
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: this.$t('m_deleteSuccess')
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+      });
     }
   },
 }

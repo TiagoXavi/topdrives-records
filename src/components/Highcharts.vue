@@ -218,7 +218,7 @@ export default {
             // stickyTracking: false,
             events: {
               click: function (event) {
-                _this.$emit('detail', event.point);
+                _this.$emit('detail', event);
               },
             },
           },
