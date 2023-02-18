@@ -40335,7 +40335,7 @@
       "hand": 76,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 89.22,
+      "mra": null,
       "weight": 1885,
       "name": "Mercedes-Benz S 55 AMG",
       "rid": "Mercedes-Benz_AMG_S_55_2003",
@@ -44619,8 +44619,8 @@
   {
       "class": "B",
       "rq": 51,
-      "onlyName": "Wild Rubis",
-      "brand": "DS",
+      "onlyName": "DS Wild Rubis Concept",
+      "brand": "Citroen",
       "country": "FR",
       "year": 2013,
       "tdid": "1136",
@@ -44634,7 +44634,7 @@
       "tyres": "Standard",
       "mra": 62.98,
       "weight": 1800,
-      "name": "DS Wild Rubis",
+      "name": "Citroen DS Wild Rubis Concept",
       "rid": "DS_Wild_Rubis_2013",
       "tags": [
           "Concept",
@@ -51145,7 +51145,7 @@
       "class": "C",
       "rq": 47,
       "onlyName": "DS 3 Racing",
-      "brand": "DS",
+      "brand": "Citroen",
       "country": "FR",
       "year": 2011,
       "tdid": "1135",
@@ -51159,7 +51159,7 @@
       "tyres": "Performance",
       "mra": 58.08,
       "weight": 1240,
-      "name": "DS DS 3 Racing",
+      "name": "Citroen DS 3 Racing",
       "rid": "DS_DS_3_Racing_2011",
       "tags": [
           "French Renaissance",
@@ -62270,7 +62270,7 @@
   {
       "class": "C",
       "rq": 40,
-      "onlyName": "DS 7 Crossback",
+      "onlyName": "7 Crossback",
       "brand": "DS",
       "country": "FR",
       "year": 2018,
@@ -62285,7 +62285,7 @@
       "tyres": "Standard",
       "mra": 45.81,
       "weight": 1425,
-      "name": "DS DS 7 Crossback",
+      "name": "DS 7 Crossback",
       "rid": "DS_DS_7_Crossback_2018",
       "tags": [
           "French Renaissance",
@@ -67264,7 +67264,7 @@
   {
       "class": "D",
       "rq": 36,
-      "onlyName": "Sedan De Ville",
+      "onlyName": "Sedan de Ville",
       "brand": "Cadillac",
       "country": "US",
       "year": 2000,
@@ -67279,7 +67279,7 @@
       "tyres": "Standard",
       "mra": 38.87,
       "weight": 1804,
-      "name": "Cadillac Sedan De Ville",
+      "name": "Cadillac Sedan de Ville",
       "rid": "Cadillac_Sedan_De_Ville_2000",
       "tags": [
           "Originals"
@@ -67642,7 +67642,7 @@
   {
       "class": "D",
       "rq": 36,
-      "onlyName": "DS 6",
+      "onlyName": "6",
       "brand": "DS",
       "country": "FR",
       "year": 2015,
@@ -67657,7 +67657,7 @@
       "tyres": "Standard",
       "mra": 43.56,
       "weight": 1550,
-      "name": "DS DS 6",
+      "name": "DS 6",
       "rid": "DS_DS_6_2015",
       "tags": [
           "French Renaissance",
@@ -82576,8 +82576,8 @@
   {
       "class": "E",
       "rq": 26,
-      "onlyName": "5",
-      "brand": "DS",
+      "onlyName": "DS 5",
+      "brand": "Citroen",
       "country": "FR",
       "year": 2012,
       "tdid": "202",
@@ -82591,7 +82591,7 @@
       "tyres": "Standard",
       "mra": 65.12,
       "weight": 1495,
-      "name": "DS 5",
+      "name": "Citroen DS 5",
       "rid": "DS_5_2012",
       "tags": [
           "Originals"
@@ -83097,8 +83097,8 @@
   {
       "class": "E",
       "rq": 25,
-      "onlyName": "4",
-      "brand": "DS",
+      "onlyName": "DS 4",
+      "brand": "Citroen",
       "country": "FR",
       "year": 2011,
       "tdid": "201",
@@ -83112,7 +83112,7 @@
       "tyres": "Standard",
       "mra": 64.63,
       "weight": 1365,
-      "name": "DS 4",
+      "name": "Citroen DS 4",
       "rid": "DS_4_2011",
       "tags": [
           "Originals",

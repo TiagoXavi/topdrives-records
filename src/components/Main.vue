@@ -1898,7 +1898,7 @@ export default {
       librarySearchDialog: false,
       libraryApprove: false,
       showDataFromPast: false,
-      showCustomTunes: true,
+      showCustomTunes: false,
       showOldTags: false,
       optionsAdvancedDialog: false,
       isFilteringT: false,
