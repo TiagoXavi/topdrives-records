@@ -87,7 +87,7 @@ export default {
           var integer = new RegExp(/^[0-9]+$/g);
           var isInteger = integer.test(e);
           var tune = new RegExp(/^[0-9]{3}$/g);
-          var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "111" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
+          var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
           var mra = new RegExp(/^([0-9]{1,3}(?:\.[0-9]{1,2})?)$/g);
           var isMra = mra.test(e);
     

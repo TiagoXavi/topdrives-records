@@ -55,6 +55,12 @@
         class="Main_ChartTrackBox"
         name="chartShowDownvoted"
         :label="$t('m_includeDownvote')" />
+      <BaseConfigCheckBox
+        v-model="chartHideOutOfFilter"
+        style="margin-top: 3px;"
+        class="Main_ChartTrackBox"
+        name="chartHideOutOfFilter"
+        :label="$t('m_chartHideOutOfFilter')" />
       <button
         v-if="user && user.tier <= 2"
         :class="{ D_Button_Loading: chartLoading }"
@@ -131,6 +137,7 @@ export default {
       chartFilterCount: 0,
       chartLoading: false,
       chartShowDownvoted: false,
+      chartHideOutOfFilter: false,
       chartResult: [],
       chartTunes: [],
       highchartsConfig: {},
@@ -146,6 +153,11 @@ export default {
     if (chartShowDownvoted) {
       chartShowDownvoted = JSON.parse(chartShowDownvoted);
       this.chartShowDownvoted = chartShowDownvoted;
+    }
+    let chartHideOutOfFilter = window.localStorage.getItem("chartHideOutOfFilter");
+    if (chartHideOutOfFilter) {
+      chartHideOutOfFilter = JSON.parse(chartHideOutOfFilter);
+      this.chartHideOutOfFilter = chartHideOutOfFilter;
     }
     this.all_cars.map(x => {
       this.all_cars_obj[x.rid] = x;
@@ -333,6 +345,9 @@ export default {
         //     }]
         //   }
         // ]
+        if (this.chartHideOutOfFilter && !objListRid[x.rid]) {
+          return;
+        }
 
         let inSeries = series.find(y => y.name === x.class)
         if (!inSeries) {

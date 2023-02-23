@@ -387,7 +387,7 @@
       ],
       "prize": true,
       "bodyTypes": [
-          "Saloon"
+          "Coupe"
       ],
       "fuel": "Hybrid",
       "seats": "4",
@@ -11067,7 +11067,7 @@
       "clearance": "Low",
       "country": "DE",
       "topSpeed": 200,
-      "acel": 3.6,
+      "acel": 3.7,
       "hand": 91,
       "drive": "RWD",
       "tyres": "Performance",

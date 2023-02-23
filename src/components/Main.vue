@@ -333,7 +333,7 @@
       <div class="Cg_Mid">
         <div v-if="isRoundEmptyForUser && !cgLoading && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
-          <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
+          <div v-else-if="!cgRound.reservedTo" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
         </div>
         <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
           <div class="Cg_RoundEmptyBox">
@@ -357,7 +357,7 @@
           </div>
         </template>
         <template v-else-if="user && cgRound.reservedTo && cgRound.reservedTo !== user.username">
-          <div class="Cg_RoundEmptyBox">
+          <div v-if="!cgSentForReview" class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyBody">{{ $t("p_modDoingRound", { mod: cgRound.reservedTo }) }}</div>
           </div>
         </template>
@@ -2393,6 +2393,7 @@ export default {
         let NEW = mutation.payload.item;
         let tune = car.selectedTune;
         let track = `${NEW.id}_a${NEW.surface}${NEW.cond}`;
+        let trackname = vm.$t(`t_${NEW.id}`);
 
         let action = function() {
           vm.confirmDelete.loading = true;
@@ -2438,7 +2439,7 @@ export default {
 
         this.confirmDelete = {
           dialog: true,
-          msg: `Delete '${NEW.name}' time of ${car.name}?`,
+          msg: `Delete '${trackname}' time of ${car.name}?`,
           actionLabel: `Delete`,
           action: action,
           loading: false,
@@ -2672,7 +2673,7 @@ export default {
         result.push(this.tuneDialogCar.forceTune);
       }
 
-      if (this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") result.push("111");
+      if ((this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") && !result.includes("111")) result.push("111");
 
       if (this.mode === 'classic' && this.tuneDialogCar.data && this.showDataFromPast) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
@@ -4206,7 +4207,7 @@ export default {
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.loadCg(date, round);
         }
-        this.lookForChangedCars(res.data);
+        // this.lookForChangedCars(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -4597,6 +4598,7 @@ export default {
       let tune = car.selectedTune;
       let carData = this.cgCacheCars.find(x => x.rid === car.rid);
       let track = race.track;
+      let trackname = vm.$t(`t_${race.track.slice(0, -4)}`);
 
 
       let action = function() {
@@ -4642,11 +4644,9 @@ export default {
         });
       }
 
-      debugger;
-
       this.confirmDelete = {
         dialog: true,
-        msg: `Delete '${race.resolvedTracks[0].name}' time of ${car.name}?`,
+        msg: `Delete '${trackname}' time of ${car.name}?`,
         actionLabel: `Delete`,
         action: action,
         loading: false,
