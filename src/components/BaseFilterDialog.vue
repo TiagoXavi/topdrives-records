@@ -760,7 +760,7 @@ export default {
 
         let clearFilterInitial;
         if (this.initialFilterString) clearFilterInitial = this.resolveFilterCount(JSON.parse(this.initialFilterString));
-        if (JSON.stringify(clearFilterInitial, Object.keys(clearFilterInitial).sort()) !== JSON.stringify(this.clearFilterObj, Object.keys(this.clearFilterObj).sort())) {
+        if (JSON.stringify(clearFilterInitial, Object.keys(clearFilterInitial || []).sort()) !== JSON.stringify(this.clearFilterObj, Object.keys(this.clearFilterObj || []).sort())) {
           this.$emit("clearFilterUpdate", this.insertKeyModel(this.clearFilterObj));
         } else {
           this.$emit("clearFilterUpdate", null);  
