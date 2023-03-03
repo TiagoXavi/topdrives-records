@@ -298,5 +298,8 @@ export default {
   "t_speedbump12km": "Гонка с препятствиями: 1/2 км",
   "t_speedbump1km": "Гонка с препятствиями: 1 км",
   "t_runwayLoop": "Петля на взлётке",
+  "t_cross": "Напрямик",
+  "t_fieldSlalom": "Полевой Слалом",
+  "t_smallRoad": "Проселочная Дорога",
   "m_by": "by"
 }

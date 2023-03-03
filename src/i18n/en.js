@@ -125,7 +125,10 @@ export default {
   m_showCustomTunes: "Show custom tunes",
   m_kingForceVertical: "Change display to vertical",
   m_showBigCards: "Show big cards",
-  m_chartHideOutOfFilter: "Hide points out of filter",
+  m_chartHideOutOfFilter: "Hide cars out of filter",
+  m_meta: "Meta",
+  m_race: "Race",
+  m_useTrackList: "Use track list",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -146,6 +149,7 @@ export default {
   p_checkYourEmailBox: "Please, check your email box",
   p_spamToo: "Spam box too!",
   p_somethingWrong: "Something went wrong",
+  p_beforeLeave: "Are you sure you want to leave?",
   
   g_joinDiscord: "Join the TDR Discord server to talk about improvement of your template or why your template has been declined.",
   g_rule0: "Your template should have a context for cars that make sense. Like same tag, same country, same tires, same brand, same class... Or any context like Hutch does as requirements for events/challenges.",
@@ -208,6 +212,7 @@ export default {
   c_van: "Van",
   c_dragster: "Dragster",
   c_twister: "Twister",
+  c_speedster: "Speedster",
   'c_all-rounder': "All-rounder",
   c_petrol: "Petrol",
   c_diesel: "Diesel",

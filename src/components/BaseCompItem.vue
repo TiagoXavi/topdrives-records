@@ -6,36 +6,33 @@
     @click="$emit('edit')">
     <template v-if="!empty">
       <div v-if="comp.meta && comp.meta.length > 0" class="BaseCompItem_Meta">
-        <span>
-          <template v-for="(item, index) in comp.meta">
-            <template v-if="index !== 0">,&nbsp;</template>
-            <template>{{ $t(`c_${item.toLowerCase()}`) }}</template>
-          </template>
-        </span>
+        <template v-for="(item, index) in comp.meta">
+          <template v-if="index !== 0">,&nbsp;</template>
+          <template>{{ $t(`c_${item.toLowerCase()}`) }}</template>
+        </template>
       </div>
       <div class="BaseCompItem_Bottom">
         <div v-if="comp.tyres && comp.tyres.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
-          <div class="BaseCompItem_Label">{{ $tc("c_tyre", 1) }}</div>
           <span>
             <template v-for="(item, index) in comp.tyres">
               <template v-if="index !== 0">,&nbsp;</template>
               <template>{{ $t(`c_${item.toLowerCase()}2`) }}</template>
             </template>
           </span>
+          <div class="BaseCompItem_Label">{{ $tc("c_tyre", 1) }}</div>
         </div>
         <div v-if="comp.drives && comp.drives.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
           <div class="BaseCompItem_Label">{{ $tc("c_drive", 1) }}</div>
-          <div class="BaseCompItem_Label">Drive</div>
           <span>{{ comp.drives.join(", ") }}</span>
         </div>
         <div v-if="comp.clearance && comp.clearance.length > 0" class="BaseCompItem_Normal BaseCompItem_Tyres">
-          <div class="BaseCompItem_Label">{{ $tc("c_clearance", 1) }}</div>
           <span>
             <template v-for="(item, index) in comp.clearance">
               <template v-if="index !== 0">,&nbsp;</template>
               <template>{{ $t(`c_${item.toLowerCase()}`) }}</template>
             </template>
           </span>
+          <div class="BaseCompItem_Label">{{ $tc("c_clearance", 1) }}</div>
         </div>
       </div>
     </template>
@@ -103,22 +100,30 @@ export default {
   margin: -5px;
   padding: 5px;
 }
+.BaseCompItem_Layout:hover .BaseCompItem_Label,
+.BaseCompItem_Layout.focus-visible .BaseCompItem_Label {
+  opacity: 1;
+}
+.Main_BodyPrint .BaseCompItem_Label {
+  transition-duration: 0s !important;
+  opacity: 1;
+}
 .BaseCompItem_Meta {
   font-size: 20px;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 }
 .BaseCompItem_Bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 2px;
 }
 .BaseCompItem_Normal {
-  padding: 6px 10px;
+  padding: 6px 8px 4px 8px;;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.14);
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
 }
 .BaseCompItem_Label {
   position: absolute;
@@ -127,5 +132,7 @@ export default {
   transform: translateX(-50%);
   font-size: 10px;
   color: rgb(var(--d-text-yellow));
+  transition-duration: 0.2s;
+  opacity: 0;
 }
 </style>

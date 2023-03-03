@@ -216,7 +216,7 @@
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div v-if="cgRound.creator && cgRound.lastAnalyze">
+                <div v-if="cgRound && cgRound.creator && cgRound.lastAnalyze">
                   <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                   <span
                     :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
@@ -664,12 +664,20 @@
                           @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="!!user && cgNeedSave">
+                    <template v-else-if="eventNeedSave && user && user.mod">
                       <div class="Main_SaveAllBox">
                         <button
-                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                          :class="{ D_Button_Loading: eventLoadingAny }"
                           class="D_Button Main_SaveAllButton"
                           @click="eventSaveAll()">{{ $t("m_save") }}</button>
+                      </div>
+                    </template>
+                    <template v-if="eventShowAnalyse">
+                      <div class="Main_SaveAllBox">
+                        <button
+                          :class="{ D_Button_Loading: eventLoadingAny }"
+                          class="D_Button Main_SaveAllButton"
+                          @click="eventAnalyse()">{{ $t("m_analyze") }}</button>
                       </div>
                     </template>
                     <div v-if="user" class="Main_PrintBy">
@@ -683,49 +691,61 @@
             </div>
           </div>
 
-          <div class="Cg_Right">
+          <div class="Cg_Right Main_DarkScroll">
+            <template v-if="event.filter">
+              <div class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
+              <div class="Cg_Reqs">
+                <BaseFilterDescription :filter="event.filter" />
+              </div>
+            </template>
+            <div v-if="event.date && user && user.mod" class="Cg_FilterButtons">
+              <button
+                :disabled="eventLoadingAny"
+                class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
+                @click="eventOpenRequirementDialog()">{{ event.filter ? 'Change' : 'Requirements' }}</button>
+            </div>
           </div>
+
+          <div class="Cg_RqCount">
+            <div
+              :style="`width: ${ (event.rqFill * 100) / event.rqLimit }%; background-color: ${ event.rqFill > event.rqLimit ? '#a90000' : '' }`"
+              class="Cg_RqFill" />
+          </div>
+
         </div>
       </div>
-      <div class="Cg_Mid">
+      <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="event.date">
           <template v-if="showCarsFix">
 
             <div class="Cg_Box">
               <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
                 <BaseCompItem
-                  :isMod="!!user && user.mod"
+                  :isMod="true || (!!user && user.mod)"
                   :comp="comp"
                   @edit="eventEditComp(igroup)" />
               </div>
             </div>
             
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-            <div v-for="(trackset, itrackset) in event.resolvedTrackset" class="Cg_Box">
-              <div v-for="(trackMonoArray, itrackMonoArray) in trackset" class="Event_Track">
-                <Row
-                  v-if="trackMonoArray.length === 1"
-                  :list="trackMonoArray"
-                  :loggedin="!!user"
-                  :user="user"
-                  :options="user && user.mod"
-                  :cg="true"
-                  class="Cg_TrackBox"
-                  type="tracks" />
-                <button
-                  :disabled="eventLoadingAny"
-                  :class="{ Cg_SelectTrackButtonEdit: trackMonoArray.length === 1 }"
-                  class="D_Button Car_AddButton Cg_SelectTrackButton"
-                  @click="eventTracksetSelected = itrackset; eventRaceSelected = itrackMonoArray; openDialogTrackSearch(false);">
-                  <i v-if="trackMonoArray.length === 1" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-                  <span v-else>{{ $t("m_selectTrack") }}</span>
-                </button>
-              </div>
+            <BaseEventTrackbox
+              :event="event"
+              :eventLoadingAny="eventLoadingAny"
+              :user="{ mod: true }"
+              @newindex="eventTrackNewIndex($event)"
+              @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
+              @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
+            />
+            <div v-if="event.resolvedTrackset.length < 4" class="Event_NewTracksetBox">
+              <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
+                <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t("m_trackset") }}</span>
+              </button>
             </div>
 
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
             <div class="Cg_Box" style="margin-top: 15px;">
-              <div v-for="(group, igroup) in event.perfectHand" class="Cg_YouBank">
+              <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank">
                 <div class="Cg_YouBankBox">
                   <template v-for="(car, icar) in group">
                     <button
@@ -737,7 +757,11 @@
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
                       </div>
                       <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
-                      <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div>
+                      <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
+                      <div class="Cg_BankTune">{{ car.tune }}</div>
+                      <div class="Cg_BankResult">
+                        <span class="Cg_BankPoints">{{ car.saverScore2 }}</span>
+                      </div>
                     </button>
                   </template>
                   <button
@@ -749,6 +773,13 @@
                   </button>
                 </div>
               </div>
+            </div>
+
+            <div class="Cg_BottomModTools" style="margin-top: 30px;">
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
             </div>
 
           </template>
@@ -907,7 +938,7 @@
     <BaseFilterDialog
       v-model="cgRequirementsDialog"
       :filterOnly="true"
-      :cgRound="cgRound"
+      :raceFilter="cgRound.filter"
       :all_cars="all_cars"
       :config="{
         topSpeed: false,
@@ -925,7 +956,7 @@
       v-model="cgFilterDialog"
       :cgAddingOppoCar="cgAddingOppoCar"
       :cgAddingYouCar="cgAddingYouCar"
-      :cgRound="cgRound"
+      :raceFilter="cgRound.filter"
       :all_cars="all_cars"
       :config="{
         topSpeed: false,
@@ -936,6 +967,39 @@
       type="cg"
       ridsMutationName="CG_EMIT_RIDS"
       @addCar="addCarCg($event)"
+      @listRids="cgAnalyseRoundFinish($event);"
+    />
+
+    <BaseFilterDialog
+      v-model="eventRequirementsDialog"
+      :filterOnly="true"
+      :raceFilter="event.filter"
+      :all_cars="all_cars"
+      :config="{
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false
+      }"
+      :initialFilterString="eventFilterString"
+      type="event"
+      @filterUpdate="eventUpdateRequirements($event)"
+      @clearFilterUpdate="eventFilterToSave = $event"
+    />
+
+    <BaseFilterDialog
+      v-model="eventAddCarDialog"
+      :raceFilter="event.filter"
+      :all_cars="all_cars"
+      :config="{
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false
+      }"
+      type="event"
+      ridsMutationName="EVENT_EMIT_RIDS"
+      @addCar="addCarEvent($event)"
       @listRids="cgAnalyseRoundFinish($event);"
     />
 
@@ -1078,6 +1142,7 @@
                   <template v-else>
                     <BaseText
                       v-model="mraEditInput"
+                      :acel="tuneDialogCar.acel"
                       type="mra"
                       class="Row_FieldStat Main_EditMraField"
                       placeholder="type..."
@@ -1387,7 +1452,6 @@
               {{ $t("m_challenges") }}
             </button>
             <button
-              v-if="user && user.mod" 
               :class="{ D_ButtonChangeModeDisabled: mode === 'events' }"
               :disabled="mode === 'events' || needSave || cgLoadingAny || cgNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
@@ -1527,6 +1591,7 @@
       :active="confirmDelete.dialog"
       :transparent="false"
       :lazy="true"
+      zindex="101"
       max-width="420px"
       min-width="240px"
       @close="confirmDelete.dialog = false;">
@@ -1585,7 +1650,7 @@
             <button
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadChallengeFull(item.date)">
+              @click="loadChallengeFull(item.date, undefined, $event)">
               <div v-html="item.nameStyled" class="Main_SearchItemRight" />
             </button>
           </template>
@@ -1714,12 +1779,12 @@
           </div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
-          <template v-for="item in cgList">
+          <template v-for="item in eventList">
             <button
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadChallengeFull(item.date)">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              @click="loadEventFull(item.date, $event)">
+              <div class="Main_SearchItemRight">{{ item.name }}</div>
             </button>
           </template>
         </div>
@@ -1760,7 +1825,7 @@
           <BaseText
             v-model="eventRqEditModel"
             class="BaseText_Big"
-            iid="Cg_EditRq"
+            iid="Event_EditRq"
             type="integer"
             :label="$t('m_rqLimit')"
             placeholder="" />
@@ -1803,6 +1868,63 @@
         <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="eventCompDialog"
+      :transparent="false"
+      :disableScroll="true"
+      max-width="440px"
+      @close="eventEditCompClose()">
+      <div v-if="event && event.comp && eventCompIndex !== null" class="Main_AdvancedDialogBox" style="gap: 15px;">
+        <div class="Main_DialogTitle">{{ $t("m_race") }} {{ eventCompIndex+1 }}</div>
+        <div class="Main_DialogChipBox">
+          <div class="Main_OptionsLabel">{{ $t("m_meta") }}</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in eventCompTypes.metas">
+              <BaseChip
+                v-model="event.comp[eventCompIndex].meta"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                :label="$t(`c_${item.toLowerCase()}`)"
+                :value="item" />
+            </template>
+          </div>
+        </div>
+        <div class="Main_DialogChipBox">
+          <div class="Main_OptionsLabel">{{ $tc("c_tyre", 2) }}</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in eventCompTypes.tyres">
+              <BaseChip
+                v-model="event.comp[eventCompIndex].tyres"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                :label="$t(`c_${item.toLowerCase()}`)"
+                :value="item" />
+            </template>
+          </div>
+        </div>
+        <div class="Main_DialogChipBox">
+          <div class="Main_OptionsLabel">{{ $tc("c_drive", 2) }}</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in eventCompTypes.drives">
+              <BaseChip
+                v-model="event.comp[eventCompIndex].drives"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                :value="item" />
+            </template>
+          </div>
+        </div>
+        <div class="Main_DialogChipBox">
+          <div class="Main_OptionsLabel">{{ $tc("c_clearance", 2) }}</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in eventCompTypes.clearances">
+              <BaseChip
+                v-model="event.comp[eventCompIndex].clearance"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                :label="$t(`c_${item.toLowerCase()}`)"
+                :value="item" />
+            </template>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -1833,6 +1955,7 @@ import BaseLogoSpining from './BaseLogoSpining.vue'
 import BaseCompItem from './BaseCompItem.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
+import BaseEventTrackbox from './BaseEventTrackbox.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -1867,7 +1990,8 @@ export default {
     BaseFilterDialog,
     BaseMenuFooter,
     BaseUserCard,
-    BaseAboutDialog
+    BaseAboutDialog,
+    BaseEventTrackbox
   },
   props: {
     phantomCar: {
@@ -1889,6 +2013,7 @@ export default {
       fullColors: false,
       windowWidth: 0,
       tempWindowWidth: 0,
+      isMobile: false,
       isPrinting: false,
       announcementDialog: false,
       highlightsUsers: {},
@@ -1982,7 +2107,6 @@ export default {
       cgSaveLoading: false,
       cgRequirementsDialog: false,
       cgFilterDialog: false,
-      cgIsFiltering: false,
       cgFilterForAddCar: {},
       cgSeletorDialog: false,
       cgRoundSelectorDialog: false,
@@ -2010,9 +2134,10 @@ export default {
       event: {},
       eventCurrentId: null,
       eventCurrentName: null,
+      eventCacheCars: [],
       eventList: [],
       eventLoading: false,
-      eventNeedSave: false,
+      eventAnalyseLoading: false,
       eventSelectorDialog: false,
       eventNewDialog: false,
       eventNewName: null,
@@ -2022,6 +2147,23 @@ export default {
       eventRqEditModel: null,
       eventRqEditString: null,
       eventRqNeedToSave: false,
+      eventRequirementsDialog: false,
+      eventAddCarDialog: false,
+      eventFilterToSave: null,
+      eventFilterString: null,
+      eventTracksetString: null,
+      eventCompString: null,
+      eventCompDialog: false,
+      eventCompIndex: null,
+      eventCompTypes: {
+        metas: ["Dragster", "Speedster", "Twister"],
+        tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
+        drives: ["2WD", "4WD"],
+        clearances: ["Low", "Mid", "High"],
+      },
+      eventShowResetSavedHand: false,
+      eventForceAnalyze: false,
+
       eventTracksetSelected: 0,
       eventRaceSelected: 0,
       kingDialog: false,
@@ -2244,15 +2386,24 @@ export default {
     cgNeedSave: function() {
       if (this.cgNeedSave) {
         window.onbeforeunload = function(){
-          return 'Are you sure you want to leave?';
+          return this.$t("p_beforeLeave");
         };
       } else {
         window.onbeforeunload = null;
       }
-    }
+    },
+    eventNeedSave: function() {
+      if (this.eventNeedSave) {
+        window.onbeforeunload = function(){
+          return this.$t("p_beforeLeave");
+        };
+      } else {
+        window.onbeforeunload = null;
+      }
+    },
   },
   beforeMount() {
-    
+    this.isMobile = Vue.options.filters.isMobile();
     this.clearSaveToGallery();
     this.checkMemoryFromStorage();
     this.cgGetLocalStorage();
@@ -2261,6 +2412,7 @@ export default {
     if (_md) {
       this.asMod = true;
     }
+
 
 
     let mode = window.localStorage.getItem("mode");
@@ -2351,7 +2503,7 @@ export default {
       this.changeMode('events');
 
       this.$route.query.event.split("~").map(x => {
-        if (x[0] === "E") {
+        if (x[0] === "G") {
           this.eventCurrentId = decodeURI(x.substr(1))
         }
       })
@@ -2744,14 +2896,39 @@ export default {
       return ready;
     },
     cgLoadingAny() {
+      if (this.mode !== 'cg') return false;
       return this.downloadLoading || this.cgLoading || this.cgSaveLoading || this.cgNewLoading || this.saveLoading || this.cgBankToSaveLoading || this.cgAnalyseLoading;
     },
     eventLoadingAny() {
-      return this.downloadLoading || this.eventLoading || this.eventNewLoading || this.saveLoading;
+      if (this.mode !== 'events') return false;
+      return this.downloadLoading || this.eventLoading || this.eventNewLoading || this.saveLoading || this.eventAnalyseLoading;
     },
     pngLabel() {
       return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
-    }
+    },
+    eventNeedSave() {
+      if (this.mode !== 'events') return false;
+      if (!this.user || (this.user && !this.user.mod)) return false;
+      if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
+      if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
+      if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
+      if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
+      return false;
+    },
+    eventShowAnalyse() {
+      if (this.mode !== 'events') return false;
+      if (!this.user || !this.user.mod) return false;
+      if (this.eventNeedSave) return false;
+      if (!this.event || !this.event.date) return false;
+      if (this.eventForceAnalyze) return true;
+      // let show = true;
+      // this.cgRound.races.map(race => {
+      //   if (!race.rid || race.time === undefined || race.time === null) show = false;
+      //   if (!race.track) show = false;
+      //   if (race.cars && race.cars.length > 4) show = false
+      // })
+      // return show;
+    },
   },
   methods: {
     pushTrackSet(trackset) {
@@ -2810,6 +2987,12 @@ export default {
           track: track,
           raceIndex: this.cgRaceSelected
         })
+        return;
+      }
+      if (this.mode === 'events') {
+        Vue.set(this.event.trackset[this.eventTracksetSelected], this.eventRaceSelected, track);
+        this.eventResolveTrackset()
+        this.closeDialogTrackSearch();
         return;
       }
       if (this.kingAddindTrack) {
@@ -2871,11 +3054,18 @@ export default {
       }
     },
     moreTracksCar(tracksIds) {
-      let notFound = [];
-      let forPush = [];
-      let typeOrder = ["00", "01", "c1", "10", "11", "40", "41", "20", "b0", "30", "50", "e0", "c0", "60", "d0", "70", "71"]
+      tracksIds = this.orderTracksIds(tracksIds);
+      
       tracksIds.map(x => {
-        let found = this.tracksRepo.find((circuit, icir) => {
+        this.toggleTrack(x);
+      })
+    },
+    orderTracksIds(tracksIds) {
+      let typeOrder = ["00", "01", "c1", "10", "11", "40", "41", "20", "b0", "30", "50", "e0", "c0", "60", "d0", "70", "71"]
+      let forPush = [];
+
+      tracksIds.map(x => {
+        this.tracksRepo.find((circuit, icir) => {
           return circuit.types.find((type, itype) => {
             if ( `${circuit.id}_a${type}` === x ) {
               forPush.push({
@@ -2887,9 +3077,6 @@ export default {
             }
           })
         })
-        if (!found) {
-          notFound.push(x)
-        }
       })
 
       forPush.sort(function(a, b) {
@@ -2899,13 +3086,8 @@ export default {
           return a.itype - b.itype
         }
       })
-      forPush.map(x => {
-        this.toggleTrack(x.code);
-      })
 
-      if (notFound.length > 0) {
-        console.warn("Not found:", notFound);
-      }
+      return forPush.map(x => x.code);
     },
     indexOfTrack(x) {
       return this.currentTracks.findIndex(y => {
@@ -3256,9 +3438,6 @@ export default {
       this.optionsDialogActive = false;
       this.kingDialog = false;
       this.kingFixed = false;
-      if (mode === 'events' && (!this.user || !this.user.mod) && !this.asMod) {
-        mode = 'classic';
-      }
 
       setTimeout(() => {
         this.mode = mode;
@@ -3269,9 +3448,6 @@ export default {
       }, 100);
     },
     changedMode() {
-      if (this.mode === 'events' && !this.asMod) {
-        this.mode = 'classic';
-      }
       if (this.mode === "classic") {
         // from local storage
         let tracks = window.localStorage.getItem("tracks");
@@ -3674,6 +3850,9 @@ export default {
       if (this.mode === 'cg') {
         obj = "cgCacheCars";
       }
+      if (this.mode === 'events') {
+        obj = "eventCacheCars";
+      }
 
       this[obj].map(x => {
         newData.map(y => {
@@ -3703,7 +3882,7 @@ export default {
       let currentCanvas = document.querySelector('#printCanvas');
 
       let boxName = ".Main_Body";
-      if (this.mode === 'cg') boxName = ".Cg_Layout";
+      if (this.mode === 'cg' || this.mode === 'events') boxName = ".Cg_Layout";
 
       let pose = document.querySelector(boxName);
       pose.classList.add("Main_BodyPrint");
@@ -3727,6 +3906,13 @@ export default {
       } else if (this.mode === 'cg') {
         _width = (pose.clientWidth) * 1.3;
         _height = (pose.clientHeight) * 1.3;
+      } else if (this.mode === 'events') {
+        let reduceHeight = 0;
+        let box1 = document.querySelector(".Cg_Header");
+        let box2 = document.querySelector(".Cg_Mid");
+        reduceHeight = pose.clientHeight - box1.clientHeight - box2.clientHeight;
+        _width = (pose.clientWidth) * 1.3;
+        _height = (pose.clientHeight - reduceHeight) * 1.3;
       }
       
       let options = {
@@ -3773,6 +3959,9 @@ export default {
       } else if (this.mode === 'cg') {
         result += `cg=`;
         result += `~G${this.cg.date}~R${this.cgCurrentRound+1}`
+      } else if (this.mode === 'events') {
+        result += `event=`;
+        result += `~G${this.event.date}`
       }
 
       if (result.length > 2045) {
@@ -4192,7 +4381,11 @@ export default {
         });
       })
     },
-    loadChallengeFull(date, round) {
+    loadChallengeFull(date, round, e) {
+      if (e && e.shiftKey) {
+        this.cgAskDelete(date);
+        return;
+      }
       this.cgLoading = true;
       this.cgSeletorDialog = false;
       this.cgSentForReview = false;
@@ -5165,7 +5358,6 @@ export default {
         return { track: x.track, time: time }
       })
 
-      this.cgIsFiltering = false;
       this.cgAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/analyseRound", {
@@ -5193,6 +5385,45 @@ export default {
       .then(() => {
         this.cgAnalyseLoading = false;
       });
+    },
+    cgAskDelete(date) {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.cgNewLoading = true;
+
+        axios.post(Vue.preUrl + "/deleteCg", {
+          date: date
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.loadChallenges(false);
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.cgNewLoading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete "${date}"?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+
     },
     cgSaveRoundHand() {
       let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
@@ -5259,7 +5490,7 @@ export default {
 
       axios.get(Vue.preUrl + "/searchEvents")
       .then(res => {
-        this.eventList = res.data.Items;
+        this.eventList = res.data.value;
         if (resolveInitial && this.eventCurrentId && this.eventList.find(x => x.date === this.eventCurrentId)) {
           this.loadEventFull(this.eventCurrentId);
         } else {
@@ -5277,7 +5508,11 @@ export default {
         });
       })
     },
-    loadEventFull(date) {
+    loadEventFull(date, e) {
+      if (e && e.shiftKey) {
+        this.eventAskDelete(date);
+        return;
+      }
       this.eventLoading = true;
       this.eventSelectorDialog = false;
 
@@ -5317,28 +5552,38 @@ export default {
       this.eventCurrentId = event.date;
       this.eventCurrentName = event.name;
 
-      this.event.perfectHand.map(group => {
-        group.map(x => {
-          let found = this.all_cars.find(y => y.rid === x.rid);
-          if (found) {
-            Vue.set(x, "car", JSON.parse(JSON.stringify(found)));
-            Vue.set(x, "photo", this.cgResolvePhotoUrl(x.rid));
-            Vue.set(x, "color", Vue.resolveClass(x.car.rq, x.car.class, "color"));
-          }
-        })
-      })
+      if (this.event.trackset.length === 0) {
+        this.event.trackset.push([null,null,null,null,null])
+      }
+      if (this.event.comp.length === 0) {
+        Array.from(Array(5)).map((_, i) => {
+          this.event.comp.push({tyres: [], clearance: [], drives: [], meta: []})
+        });
+      }
+      this.eventFilterString = JSON.stringify(this.event.filter);
+      this.eventTracksetString = JSON.stringify(this.event.trackset);
+      this.eventCompString = JSON.stringify(this.event.comp);
+      this.eventRqEditString = JSON.stringify(this.event.rqLimit);
 
+
+      this.eventResolveTrackset();
+      this.eventUpdateLocalStorage();
+      this.eventResolveCompilation();
+    },
+    eventResolveTrackset() {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
 
       resolvedTrackset = resolvedTrackset.map(trackset => {
         return trackset.map(track => {
+          if (track === null) return null;
           return [this.resolveTrack({ track }, false, false)];
         })
       })
       Vue.set(this.event, "resolvedTrackset", resolvedTrackset);
-
-      this.eventUpdateLocalStorage();
-
+    },
+    eventAddTrackset() {
+      this.event.trackset.push([null,null,null,null,null])
+      this.eventResolveTrackset();
     },
     eventUpdateLocalStorage() {
       window.localStorage.setItem('lastEvent', JSON.stringify({ date: this.event.date }));
@@ -5350,17 +5595,102 @@ export default {
         this.eventCurrentId = lastEvent.date;
       }
     },
-    eventOpenRqEdit() {
+    eventResolveCompilation() {
+      if (!this.event.trackTimes) return;
+      Vue.set(this.event, "compilation", []);
+      Array.from(Array(5)).map((_, itrack) => {
+        let compilation = [];
+        Array.from(Array(this.event.trackset.length)).map((_, itrackset) => {
+          let track = this.event.trackset[itrackset][itrack];
+          if (track.includes('testBowl')) return;
+          if (itrackset === 0) {
+            compilation = this.event.trackTimes[track];
+            compilation.map(car => {
+              car.presentCount = 1;
+            })
+          }
+          else {
+            this.event.trackTimes[track].map(car => {
+              let found = compilation.find(x => x.rid === car.rid);
+              if (found) {
+                found.saverScore1 = Math.floor((found.saverScore1 + car.saverScore1) / 2)
+                found.saverScore2 = Math.floor((found.saverScore2 + car.saverScore2) / 2)
+                car.presentCount += 1;
+              } else {
+                // allow score if not present on all tracks (part1)
+                car.presentCount = 1;
+                compilation.push(car);
+              }
 
+            })
+          }
+        })
+        compilation.sort((a,b) => {
+          return b.saverScore2 - a.saverScore2;
+        })
+        compilation.map(car => {
+          this.frontCompleteCar(car);
+        })
+        Vue.set(this.event.compilation, itrack, compilation);
+        
+      });
+    },
+    eventAskDelete(date) {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.eventLoading = true;
+
+        axios.post(Vue.preUrl + "/deleteEvent", {
+          date: date
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.loadEvents(false);
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.eventLoading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete "${date}"?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+
+    },
+    eventOpenRqEdit(e) {
+      // if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+      //   this.eventForceAnalyze = !this.eventForceAnalyze;
+      //   return;
+      // }
+      this.eventRqEditDialog = true;
+      this.eventRqEditModel = `${this.event.rqLimit}`;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Event_EditRq").focus();  
+          document.querySelector("#Event_EditRq").select();
+        } catch (error) {}
+      }, 10);
     },
     eventCloseRqEdit() {
       this.eventRqEditDialog = false;
-      if (this.eventRqEditModel !== this.eventRqEditString) {
-        this.eventRound.rqLimit = Number(this.eventRqEditModel);
-        this.eventRqNeedToSave = true;
-      } else {
-        this.eventRqNeedToSave = false;
-      }
+      this.event.rqLimit = Number(this.eventRqEditModel);
     },
     eventOpenNewEvent() {
       this.eventClearSaveNewEvent();
@@ -5381,10 +5711,9 @@ export default {
       this.eventNewDialog = false;
     },
     saveNewEvent() {
-      return;
       this.eventNewLoading = true;
 
-      axios.post(Vue.preUrl + "/newCg", {
+      axios.post(Vue.preUrl + "/newEvent", {
         name: this.eventNewName
       })
       .then(res => {
@@ -5411,6 +5740,36 @@ export default {
         }
       })
     },
+    eventSaveAll() {
+      this.saveLoading = true;
+      let params = { date: this.event.date };
+      if (this.eventFilterString !== JSON.stringify(this.event.filter)) params.filter = this.eventFilterToSave;
+      if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) params.trackset = this.event.trackset;
+      if (this.eventCompString !== JSON.stringify(this.event.comp)) params.comp = this.event.comp;
+      if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) params.rqLimit = this.event.rqLimit;
+
+      axios.post(Vue.preUrl + "/updateEvent", params)
+      .then(res => {
+        if (this.eventFilterToSave) this.eventFilterString = JSON.stringify(this.eventFilterToSave);
+        this.eventTracksetString = JSON.stringify(this.event.trackset);
+        this.eventCompString = JSON.stringify(this.event.comp);
+        this.eventRqEditString = JSON.stringify(this.event.rqLimit);
+        this.saveLoading = false;
+      })
+      .catch(error => {
+        this.saveLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
     eventInspectCar(car, igroup, icar) {
 
     },
@@ -5418,8 +5777,143 @@ export default {
 
     },
     eventEditComp(igroup) {
+      this.eventCompIndex = igroup;
+      this.eventCompDialog = true;
+    },
+    eventEditCompClose() {
+      this.eventCompDialog = false;
+    },
+    eventOpenRequirementDialog() {
+      this.eventRequirementsDialog = true;
+    },
+    eventUpdateRequirements(filter) {
+      this.event.filter = filter;
+      this.eventRequirementsDialog = false;
+    },
+    eventOpenAddYouCar() {
+      this.eventAddCarDialog = true;
+    },
+    addCarEvent(newCar) {
+      let event = this.event;
+      this.eventAddCarDialog = false;
+
+      let found = this.eventCacheCars.find(x => x.rid === newCar.rid);
+      if (!found) {
+        this.eventCacheCars.push({ rid: newCar.rid });
+      }
+
+      let found2 = event.cars.findIndex(x => x.rid === (event.cars[event.carIndex] || {}).rid && x.tune === undefined);
+      if (found2 > -1) {
+        event.carIndex = found2;
+      } else {
+        event.cars.push( { rid: newCar.rid } );
+        event.carIndex = event.cars.length-1;
+        Vue.set(event.cars[event.carIndex], "photo", this.cgResolvePhotoUrl(newCar.rid));
+        Vue.set(event.cars[event.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
+        Vue.set(event.cars[event.carIndex], "color", Vue.resolveClass(event.cars[event.carIndex].car.rq, event.cars[event.carIndex].car.class, "color"));
+      }
+
+      this.downloadCar(newCar.rid);
+      this.eventSaveRoundHand();
+    },
+    eventSaveRoundHand() {
+      let saveName = `hand_${this.event.date}`
+      let handRids = [];
+      // this.cgRound.races.map(race => {
+      //   if (isNaN(race.carIndex)) {
+      //     handRids.push(undefined);
+      //   } else {
+      //     handRids.push(`${race.cars[race.carIndex].rid}_${race.cars[race.carIndex].tune}`);
+      //   }
+      // })
+      window.localStorage.setItem(saveName, JSON.stringify(handRids));
+    },
+    eventResetSaveHand() {
+      let saveName = `hand_${this.event.date}`
+      localStorage.removeItem(saveName);
+      // this.loadCg(this.cgCurrentId, this.cgCurrentRound);
+      this.eventShowResetSavedHand = false;
+    },
+    eventMoveTrackRight(itrackset, itrackMonoArray) {
+      let trackRightToLeft = this.event.trackset[itrackset][itrackMonoArray+1]
+
+      Vue.set(this.event.trackset[itrackset], [itrackMonoArray+1], this.event.trackset[itrackset][itrackMonoArray]);
+      Vue.set(this.event.trackset[itrackset], [itrackMonoArray], trackRightToLeft);
+      this.eventResolveTrackset()
+    },
+    eventTrackNewIndex(obj) {
+      obj.current;
+      obj.new;
+      let trackset = this.event.trackset[obj.itrackset];
+      while (obj.current < 0)
+      {
+          obj.current += trackset.length;
+      }
+      while (obj.new < 0)
+      {
+          obj.new = 0;
+      }
+      if (obj.new > trackset.length)
+      {
+          obj.new = trackset.length;
+      }
+      trackset.splice(obj.new, 0, trackset.splice(obj.current, 1)[0]);
+
+      this.eventResolveTrackset()
+    },
+    eventAnalyse() {
+      this.eventAnalyseLoading = true;
+      this.$store.commit("START_LOGROCKET", {});
+
+      axios.post(Vue.preUrl + "/analyseEvent", {
+        date: this.event.date,
+        rqLimit: this.event.rqLimit,
+        trackset: this.event.trackset,
+        filter: this.event.filter
+      })
+      .then(res => {
+        Vue.set(this.event, 'trackTimes', res.data)
+        this.eventForceAnalyze = false;
+        this.eventResolveCompilation();
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.eventAnalyseLoading = false;
+      });
 
     },
+    eventExportTracksToWorkspace() {
+      let result = "";
+      let tracks = [];
+      this.event.trackset.map(trackset => {
+        trackset.map(track => {
+          tracks.push(track);
+        })
+      })
+      tracks = [...new Set(tracks)];
+      tracks = this.orderTracksIds(tracks);
+      tracks.map(track => {
+        result += `~K${track}`
+      })
+
+      this.changeMode('classic');
+      this.decodeTemplateString(result, true);
+    },
+    
+    
+
+
     handleResize() {
       this.windowWidth = window.innerWidth;
       let vw = document.documentElement.clientWidth;
@@ -5582,6 +6076,11 @@ export default {
     },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
+    },
+    frontCompleteCar(car) {
+      Vue.set(car, "photo", this.cgResolvePhotoUrl(car.rid));
+      Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
+      Vue.set(car, "color", Vue.resolveClass(car.rq, car.class, "color"));
     },
     chooseCustomTune(car) {
       this.customTuneDialogCar = car;
@@ -6906,10 +7405,11 @@ body .Main_UserT5 {
   --back-color: 20, 20, 20;
 }
 .Cg_Track:hover:not(.RowTrack_Dragging) .Cg_SelectTrackButtonEdit {
-  display: block;
+  display: flex;
 }
-.Cg_SelectTrackButtonIcon {
-
+.Cg_SelectTrackButtonMoveRight,
+.Cg_DragButtonIcon {
+  left: 35px;
 }
 .Cg_Divider {
   text-align: center;
@@ -7147,29 +7647,6 @@ body .Main_UserT5 {
   display: flex;
   border-radius: 3px;
 }
-.Event_SubTitle {
-  color: rgb(var(--d-text-yellow));
-  font-size: 1.2em;
-  margin-bottom: 15px;
-  text-align: center;
-}
-.Event_Track {
-  margin-top: 8px;
-  box-shadow: inset 0px 2px 0px 0px #ffffff07;
-}
-.Event_Track:first-child {
-  box-shadow: inset 2px 2px 0px 0px #ffffff07;
-}
-.Event_BankButton {
-  width: 100%;
-  justify-content: flex-start;
-}
-.Event_BankPhoto {
-  margin-right: 7px;
-}
-.Event_BankClass {
-  margin-right: 5px;
-}
 .Cg_Header {
   position: fixed;
   left: 0;
@@ -7238,8 +7715,35 @@ body .Main_UserT5 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
-  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.Event_SubTitle {
+  color: rgb(var(--d-text-yellow));
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.Event_Track {
+  margin-top: 8px;
+  box-shadow: inset 0px 2px 0px 0px #ffffff07;
+}
+.Event_Track:first-child {
+  box-shadow: inset 2px 2px 0px 0px #ffffff07;
+}
+.Event_BankButton {
+  width: 100%;
+  justify-content: flex-start;
+}
+.Event_BankPhoto {
+  margin-right: 7px;
+}
+.Event_BankClass {
+  margin-right: 5px;
+}
+.Event_NewTracksetBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 
@@ -7604,6 +8108,9 @@ body .Main_UserT5 {
 }
 .Main_BodyPrint .Cg_Mid {
   margin-top: 0;
+}
+.Main_BodyPrint .Cg_BottomModTools {
+  display: none;
 }
 
 

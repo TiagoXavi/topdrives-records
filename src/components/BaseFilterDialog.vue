@@ -87,7 +87,7 @@
                   v-model="searchFilters.tyresModel"
                   class="BaseChip_MinWidth"
                   :label="$t(`c_${item.toLowerCase()}2`)"
-                  :value="item">{{ item | convertTires }}</BaseChip>
+                  :value="item" />
               </template>
 
             </div>
@@ -106,7 +106,7 @@
                   v-model="searchFilters.clearancesModel"
                   class="BaseChip_MinWidth"
                   :label="$t(`c_${item.toLowerCase()}`)"
-                  :value="item">{{ item.toUpperCase() }}</BaseChip>
+                  :value="item" />
               </template>
 
             </div>
@@ -178,7 +178,7 @@
               :label="`18.0 ${$t('m_changedCars')}`"
               value="18.0 changed cars" />
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.prizesModel || cgRound.filter.prizesModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.prizesModel || raceFilter.prizesModel.length === 0" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
                 v-model="searchFilters.prizesModel"
@@ -187,7 +187,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.bodyTypesModel || cgRound.filter.bodyTypesModel.length === 0" class="Main_FilterChipsFlex" style="margin: 0 10px;">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.bodyTypesModel || raceFilter.bodyTypesModel.length === 0" class="Main_FilterChipsFlex" style="margin: 0 10px;">
             <template v-for="(item, ix) in searchFilters.bodyTypes">
               <BaseChip
                 v-model="searchFilters.bodyTypesModel"
@@ -196,7 +196,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.fuelModel || cgRound.filter.fuelModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.fuelModel || raceFilter.fuelModel.length === 0" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.fuel">
               <BaseChip
                 v-model="searchFilters.fuelModel"
@@ -205,7 +205,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.engineModel || cgRound.filter.engineModel.length === 0" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.engineModel || raceFilter.engineModel.length === 0" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
             <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
             <template v-for="(item, ix) in searchFilters.engine">
               <BaseChip
@@ -215,7 +215,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.tagsModel || cgRound.filter.tagsModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.tagsModel || raceFilter.tagsModel.length === 0" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.tags">
               <BaseChip
                 v-model="searchFilters.tagsModel"
@@ -225,7 +225,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !cgRound.filter || !cgRound.filter.brandsModel || cgRound.filter.brandsModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.brands">
               <BaseChip
                 v-model="searchFilters.brandsModel"
@@ -364,7 +364,7 @@ export default {
         return []
       }
     },
-    cgRound: {
+    raceFilter: {
       type: Object,
       default() {
         return {}
@@ -719,7 +719,7 @@ export default {
   computed: {},
   methods: {
     openDialogSearch() {
-      if (this.type === 'cg') {
+      if (this.type === 'cg' || this.type === 'event') {
         this.cgResetFilterForAdd();
       }
       if (this.firstTimeOpen && this.type === 'library') {
@@ -746,14 +746,6 @@ export default {
       this.kingIsFiltering = false;
       this.cgAddingYouCar = false;
       this.cgAddingOppoCar = false;
-      if (this.type === 'cg' && !this.cgAddingYouCar && !this.cgAddingOppoCar) {
-        // configuring requirements
-        if (JSON.stringify(this.cgRound.filter) !== this.cgRoundFilterString) {
-          this.$emit('cgRoundFilterToSave', JSON.parse(JSON.stringify(this.cgRound.filter)));
-        } else {
-          this.$emit('cgRoundFilterToSave', null);
-        }
-      }
     },
     searchInputFunc(e) {
       this.debounceFilter();
@@ -768,7 +760,7 @@ export default {
 
         let clearFilterInitial;
         if (this.initialFilterString) clearFilterInitial = this.resolveFilterCount(JSON.parse(this.initialFilterString));
-        if (JSON.stringify(clearFilterInitial) !== JSON.stringify(this.clearFilterObj)) {
+        if (JSON.stringify(clearFilterInitial, Object.keys(clearFilterInitial).sort()) !== JSON.stringify(this.clearFilterObj, Object.keys(this.clearFilterObj).sort())) {
           this.$emit("clearFilterUpdate", this.insertKeyModel(this.clearFilterObj));
         } else {
           this.$emit("clearFilterUpdate", null);  
@@ -785,8 +777,8 @@ export default {
         this.cgAddingYouCar = false;
         this.cgAddingOppoCar = false;
 
-        if (JSON.stringify(this.cgRound.filter) !== this.cgRoundFilterString) {
-          this.$emit('cgRoundFilterToSave', JSON.parse(JSON.stringify(this.cgRound.filter)));
+        if (JSON.stringify(this.raceFilter) !== this.cgRoundFilterString) {
+          this.$emit('cgRoundFilterToSave', JSON.parse(JSON.stringify(this.raceFilter)));
         } else {
           this.$emit('cgRoundFilterToSave', null);
         }
@@ -1108,7 +1100,7 @@ export default {
     checkMatchFilter(car) {
       let context = this.searchFilters;
       if (this.kingIsFiltering) context = this.kingFilter;
-      if (this.cgIsFiltering) context = this.cgRound.filter;
+      if (this.cgIsFiltering) context = this.raceFilter;
       if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = this.cgFilterForAddCar;
 
 
@@ -1195,10 +1187,11 @@ export default {
 
     },
     cgResetFilterForAdd() {
+      this.searchFilters = JSON.parse(JSON.stringify(this.searchFilters));
       this.clearFilter();
       this.searchFilters = {
         ...this.searchFilters,
-        ...this.cgRound.filter
+        ...this.raceFilter
       };
       if (this.searchFilters.year2Model) {
         this.initSecretYear(true);

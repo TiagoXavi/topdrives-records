@@ -61,6 +61,9 @@ export default {
       type: Boolean,
       default: false
     },
+    acel: {
+      required: false
+    },
   },
   data() {
     return {
@@ -90,6 +93,18 @@ export default {
           var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
           var mra = new RegExp(/^([0-9]{1,3}(?:\.[0-9]{1,2})?)$/g);
           var isMra = mra.test(e);
+          var time = new RegExp(/^[0-9]{1,2}\:[0-9]{2}$/g);
+          var isTime = time.test(e);
+          if (this.type === "mra" && isTime) {
+            let timeNumber = Vue.options.filters.toTimeNumber(e);
+            let calcMra = Vue.options.filters.mra(timeNumber, this.acel);
+            this.$emit('change', calcMra);
+            this.correct = true;
+            setTimeout(() => {
+              this.correct = false;
+            }, 1500);
+            return;
+          }
     
           if (
               (this.type === "acel" && (isAcel || e === "0" || e === "N/A")) ||

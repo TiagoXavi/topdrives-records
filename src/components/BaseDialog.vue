@@ -9,6 +9,7 @@
       BaseDialog_AnimOut: animOut,
       BaseDialog_Fixed: fixed,
     }"
+    :style="`--dialog-index: ${zindex}`"
     class="BaseDialog_Layout">
     <div v-if="!fixed" class="BaseDialog_Back" @click="$emit('close')"></div>
     <div class="BaseDialog_Body" :class="{ BaseDialog_Body_Static: isStatic, BaseDialog_Body_Fixed: fixed }">
@@ -47,6 +48,10 @@ export default {
     minWidth: {
       type: String,
       default: '240px'
+    },
+    zindex: {
+      type: String,
+      default: '100'
     },
     transparent: {
       type: Boolean,
@@ -128,14 +133,14 @@ export default {
 }
 .BaseDialog_RealActive {
   display: block;
-  z-index: 100;
+  z-index: var(--dialog-index);
   opacity: 1;
 }
 .BaseDialog_AnimOut {
   opacity: 0;
 }
 .BaseDialog_Active {
-  z-index: 100;
+  z-index: var(--dialog-index);
   pointer-events: initial;
 }
 .BaseDialog_Fixed {

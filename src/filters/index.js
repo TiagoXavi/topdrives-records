@@ -171,6 +171,9 @@ export default {
                 cars: carsFromQuery
             }
         },
+        Vue.isMobile = function () {
+            return 'ontouchstart' in window || navigator.msMaxTouchPoints;
+        },
 
 
         Vue.filter('toTimeString', toTimeString);
@@ -184,5 +187,6 @@ export default {
         Vue.filter('brake', Vue.brake);
         Vue.filter('resolveCond', Vue.resolveCond);
         Vue.filter('getOldCar', Vue.getOldCar);
+        Vue.filter('isMobile', Vue.isMobile);
     }
 };

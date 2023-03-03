@@ -56,7 +56,7 @@
               `${item.text == 0 ? 'Row_DNF ' : '' }`+
               `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
               `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
-              `${lastIndex > 5 ? 'Row_ColorHighFirst ' : '' }`+
+              `${lastIndex > 0 ? 'Row_ColorHighFirst ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+

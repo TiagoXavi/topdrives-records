@@ -29,7 +29,7 @@ export function toTimeString(input, id) {
   }
   return minutes + ':' + seconds + ':' + milesi;
 }
-export function toTimeNumber(input, id) {
+export function toTimeNumber(input, id = "") {
   if (input === "DNF" || input === "dnf" || input === "0" || input === "99:99:99") return 0;
   if (input === "") return "";  
 
