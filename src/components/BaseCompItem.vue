@@ -3,7 +3,7 @@
     :tag="isMod ? 'button' : 'div'"
     :class="{ D_Button: isMod }"
     class="BaseCompItem_Layout"
-    @click="$emit('edit')">
+    @click="isMod ? $emit('edit') : ''">
     <template v-if="!empty">
       <div v-if="comp.meta && comp.meta.length > 0" class="BaseCompItem_Meta">
         <template v-for="(item, index) in comp.meta">

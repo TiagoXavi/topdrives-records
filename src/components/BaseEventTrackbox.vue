@@ -1,6 +1,9 @@
 <template>
   <div class="BaseEventTrackbox_Contents">
-    <div v-for="(trackset, itrackset) in event.resolvedTrackset" class="Cg_Box">
+    <div
+      v-for="(trackset, itrackset) in event.resolvedTrackset"
+      :class="{ BaseEventTrackbox_LineInactive: check && check[0] != itrackset }"
+      class="Cg_Box BaseEventTrackbox_BoxRelative">
       <div
         v-for="(trackMonoArray, itrackMonoArray) in trackset"
         :id="`EventTrack_${itrackset}_${itrackMonoArray}`"
@@ -9,6 +12,11 @@
           '--drag-top-slo': 7
         }"
         class="Cg_Track EventTrack">
+        <div v-if="itrackMonoArray === 0 && user" class="BaseEventTrackbox_ClassCheck">
+          <BaseCheckBox
+            :value="check === `${itrackset}_${itrackMonoArray}`"
+            @change="$emit('openKingFilter', {itrackset, itrackMonoArray});"/>
+        </div>
         <Row
           v-if="trackMonoArray && trackMonoArray.length === 1"
           :list="trackMonoArray"
@@ -58,11 +66,13 @@ var lastDragNum = 0;
 
 
 import Row from './Row.vue'
+import BaseCheckBox from './BaseCheckBox.vue'
 
 export default {
   name: 'BaseEventTrackbox',
   components: {
-    Row
+    Row,
+    BaseCheckBox
   },
   props: {
     event: {
@@ -74,6 +84,9 @@ export default {
     user: {
       required: false
     },
+    check: {
+      required: false
+    },
     eventLoadingAny: {
       type: Boolean,
       default: false
@@ -83,7 +96,7 @@ export default {
     return {
       isMobile: false,
       itrackset: null,
-      itrackMonoArray: null,
+      itrackMonoArray: null
     }
   },
   watch: {},
@@ -221,5 +234,16 @@ export default {
 .EventTrack .Type_00 {
   --type-back-opac: 0.1;
   background-color: rgba(255,255,255, 0.03);
+}
+.BaseEventTrackbox_BoxRelative {
+  position: relative;
+}
+.BaseEventTrackbox_ClassCheck {
+  position: absolute;
+  left: -32px;
+  top: 7px;
+}
+.BaseEventTrackbox_LineInactive {
+  opacity: 0.5;
 }
 </style>

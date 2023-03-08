@@ -143,6 +143,8 @@ export default {
   "p_spamToo": "Caixa de spam também!",
   "p_somethingWrong": "Algo errado não está certo",
   "p_beforeLeave": "Tem certeza que deseja sair?",
+  "p_eventsKingDescription": "Você só pode ver 1 carro por raridade. Veja a lista completa em funcionamento:",
+  "p_eventsKingLogin": "Faça login para ver o melhor carro para cada raridade",
   "g_joinDiscord": "Chega aí no nosso Discord para dicas de template ou se quiser perguntar porque seu template não foi aceito.",
   "g_rule0": "Seu template deve ter um contexto, lista de carros que fazem sentido. Por exemplo mesma tag, mesmo país, mesmo pneu, mesma marca, mesma raridade... Ou algum contexto que a Hutch faz no jogo como eventos e desafios.",
   "g_rule1": "Você deve colocar todos os carros disponíveis para o contexto, ou pelo menos o que der. Não coloque somente carros que você tem.",

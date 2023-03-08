@@ -277,7 +277,7 @@ export default {
   "t_airplaneHangars": "Flugzeughallen",
   "t_smallRoad": "Nebenweg",
   "t_butte": "Ausguck",
-  "t_canyonLookout": "Kuppe",
+  "t_canyonLookout": "Canyon-Ausguck",
   "t_townTour": "Stadt-Tour",
   "t_canyonDtRoad": "Schmutzige Straße",
   "t_frozenRivSla": "Zugefrorener Fluss-Slalom",

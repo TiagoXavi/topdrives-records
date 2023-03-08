@@ -178,7 +178,7 @@
               :label="`18.0 ${$t('m_changedCars')}`"
               value="18.0 changed cars" />
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.prizesModel || raceFilter.prizesModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.prizesModel || raceFilter.prizesModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
                 v-model="searchFilters.prizesModel"
@@ -187,7 +187,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.bodyTypesModel || raceFilter.bodyTypesModel.length === 0" class="Main_FilterChipsFlex" style="margin: 0 10px;">
+          <div v-if="config.bodyTypes !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.bodyTypesModel || raceFilter.bodyTypesModel.length === 0)" class="Main_FilterChipsFlex" style="margin: 0 10px;">
             <template v-for="(item, ix) in searchFilters.bodyTypes">
               <BaseChip
                 v-model="searchFilters.bodyTypesModel"
@@ -196,7 +196,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.fuelModel || raceFilter.fuelModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="config.fuel !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.fuelModel || raceFilter.fuelModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.fuel">
               <BaseChip
                 v-model="searchFilters.fuelModel"
@@ -205,7 +205,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.engineModel || raceFilter.engineModel.length === 0" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+          <div v-if="config.engine !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.engineModel || raceFilter.engineModel.length === 0)" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
             <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
             <template v-for="(item, ix) in searchFilters.engine">
               <BaseChip
@@ -215,7 +215,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.tagsModel || raceFilter.tagsModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.tagsModel || raceFilter.tagsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.tags">
               <BaseChip
                 v-model="searchFilters.tagsModel"
@@ -225,7 +225,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0" class="Main_FilterChipsFlex">
+          <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.brands">
               <BaseChip
                 v-model="searchFilters.brandsModel"

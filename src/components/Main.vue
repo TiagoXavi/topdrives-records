@@ -230,13 +230,14 @@
                     <span>{{ cgRound.rqFill }}</span>
                     <span>/</span>
                     <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
-                    <button
+                    <BaseButtonTouch
                       v-if="user && (user.mod || isRoundEmptyForUser)"
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect"
-                      @click="cgOpenRqEdit($event)">
+                      @click="cgOpenRqEdit($event)"
+                      @longTouch="cgOpenRqEdit({ shiftKey: true, ctrlKey: true })">
                       <i class="ticon-pencil" aria-hidden="true"/>
-                    </button>
+                    </BaseButtonTouch>
                   </div>
                   <!-- save button -->
                   <div class="Cg_SaveButtonBox">
@@ -647,13 +648,14 @@
                   <div class="Cg_RqText">
                     <span class="Cg_RqRq">RQ</span>
                     <span>{{ event.rqLimit }}</span>
-                    <button
+                    <BaseButtonTouch
                       v-if="user && user.mod"
                       :disabled="eventLoading"
                       class="D_Button Main_AddTrackDirect"
-                      @click="eventOpenRqEdit($event)">
+                      @click="eventOpenRqEdit($event)"
+                      @longTouch="eventOpenRqEdit({ shiftKey: true, ctrlKey: true })">
                       <i class="ticon-pencil" aria-hidden="true"/>
-                    </button>
+                    </BaseButtonTouch>
                   </div>
                   <!-- save button -->
                   <div class="Cg_SaveButtonBox">
@@ -721,7 +723,7 @@
             <div class="Cg_Box">
               <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
                 <BaseCompItem
-                  :isMod="true || (!!user && user.mod)"
+                  :isMod="user && user.mod"
                   :comp="comp"
                   @edit="eventEditComp(igroup)" />
               </div>
@@ -731,12 +733,14 @@
             <BaseEventTrackbox
               :event="event"
               :eventLoadingAny="eventLoadingAny"
-              :user="{ mod: true }"
+              :user="user"
+              :check="eventCheckFilterCode"
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
+              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray);"
             />
-            <div v-if="event.resolvedTrackset.length < 4" class="Event_NewTracksetBox">
+            <div v-if="event.resolvedTrackset.length < 4 && user && user.mod" class="Event_NewTracksetBox">
               <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
                 <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
                 <span>{{ $t("m_trackset") }}</span>
@@ -745,7 +749,7 @@
 
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
             <div class="Cg_Box" style="margin-top: 15px;">
-              <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank">
+              <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
                 <div class="Cg_YouBankBox">
                   <template v-for="(car, icar) in group">
                     <button
@@ -758,9 +762,12 @@
                       </div>
                       <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
                       <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                      <div class="Cg_BankTune">{{ car.tune }}</div>
-                      <div class="Cg_BankResult">
-                        <span class="Cg_BankPoints">{{ car.saverScore2 }}</span>
+                      <div class="Cg_BankTune" :style="`--cor: ${ car.color }`">{{ car.tune }}</div>
+                      <!-- <div class="Cg_BankResult">
+                        <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
+                      </div> -->
+                      <div class="Cg_BankResult Event_BankTime">
+                        <span class="Cg_BankPoints">{{ car.timeToPrint }}</span>
                       </div>
                     </button>
                   </template>
@@ -773,6 +780,20 @@
                   </button>
                 </div>
               </div>
+            </div>
+
+            <div
+              v-if="event.compilation && event.compilation.length && user && (!user.tier || user.tier > 3)"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
+            </div>
+
+            <div
+              v-if="!user"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_eventsKingLogin") }}</span>
             </div>
 
             <div class="Cg_BottomModTools" style="margin-top: 30px;">
@@ -985,6 +1006,20 @@
       type="event"
       @filterUpdate="eventUpdateRequirements($event)"
       @clearFilterUpdate="eventFilterToSave = $event"
+    />
+
+    <BaseFilterDialog
+      v-model="eventKingDialog"
+      :filterOnly="true"
+      :raceFilter="eventFilterForKing"
+      :all_cars="all_cars"
+      :config="eventFilterConfig"
+      ridsMutationName="EVENTKING_EMIT_RIDS"
+      type="event"
+      @close="eventCloseKingFilter()"
+      @filterUpdate="eventEventKFilter($event)"
+      @clearFilterUpdate="eventFilterForKing = $event"
+      @listRids="eventAnalyseKFilter($event);"
     />
 
     <BaseFilterDialog
@@ -1647,12 +1682,13 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
-            <button
+            <BaseButtonTouch
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadChallengeFull(item.date, undefined, $event)">
+              @click="loadChallengeFull(item.date, undefined, $event)"
+              @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
               <div v-html="item.nameStyled" class="Main_SearchItemRight" />
-            </button>
+            </BaseButtonTouch>
           </template>
         </div>
       </div>
@@ -1780,12 +1816,13 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in eventList">
-            <button
+            <BaseButtonTouch
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadEventFull(item.date, $event)">
+              @click="loadEventFull(item.date, $event)"
+              @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })">
               <div class="Main_SearchItemRight">{{ item.name }}</div>
-            </button>
+            </BaseButtonTouch>
           </template>
         </div>
       </div>
@@ -1956,6 +1993,7 @@ import BaseCompItem from './BaseCompItem.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseEventTrackbox from './BaseEventTrackbox.vue'
+import BaseButtonTouch from './BaseButtonTouch.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -1991,7 +2029,8 @@ export default {
     BaseMenuFooter,
     BaseUserCard,
     BaseAboutDialog,
-    BaseEventTrackbox
+    BaseEventTrackbox,
+    BaseButtonTouch
   },
   props: {
     phantomCar: {
@@ -2148,9 +2187,14 @@ export default {
       eventRqEditString: null,
       eventRqNeedToSave: false,
       eventRequirementsDialog: false,
+      eventKingDialog: false,
+      eventCheckFilterCodePre: null,
+      eventCheckFilterCode: null,
+      eventKingTracks: [],
       eventAddCarDialog: false,
       eventFilterToSave: null,
       eventFilterString: null,
+      eventFilterForKing: {},
       eventTracksetString: null,
       eventCompString: null,
       eventCompDialog: false,
@@ -2269,7 +2313,7 @@ export default {
             {
               type: "01",
               active: false,
-              tracks: ["drag100_a01","drag100b_a01","drag150_a01","mile1_a01","mile2_a01","mile4_a01","testBowlr_a01"]
+              tracks: ["drag100_a01","drag100b_a01","drag150_a01","mile4_a01","mile2_a01","mile1_a01","testBowlr_a01"]
             },
             {
               type: "10",
@@ -2929,6 +2973,37 @@ export default {
       // })
       // return show;
     },
+    eventFilterConfig() {
+      if (this.user && this.user.tier <= 3) {
+        return {
+          topSpeed: false,
+          acel: false,
+          hand: false,
+          weight: false
+        };
+      }
+      return {
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false,
+        rq: false,
+        year: false,
+        tyres: false,
+        drives: false,
+        clearances: false,
+        countrys: false,
+        seats: false,
+        prizes: false,
+        bodyTypes: false,
+        fuel: false,
+        engine: false,
+        tags: false,
+        brands: false
+      }
+
+      
+    }
   },
   methods: {
     pushTrackSet(trackset) {
@@ -5551,6 +5626,9 @@ export default {
       this.event = event;
       this.eventCurrentId = event.date;
       this.eventCurrentName = event.name;
+      this.eventCheckFilterCodePre = null;
+      this.eventCheckFilterCode = null;
+      this.eventKingTracks = [];
 
       if (this.event.trackset.length === 0) {
         this.event.trackset.push([null,null,null,null,null])
@@ -5626,7 +5704,66 @@ export default {
           }
         })
         compilation.sort((a,b) => {
-          return b.saverScore2 - a.saverScore2;
+          return b.saverScore1 - a.saverScore1;
+        })
+        compilation.map(car => {
+          this.frontCompleteCar(car);
+        })
+        Vue.set(this.event.compilation, itrack, compilation);
+        
+      });
+    },
+    eventListKings(data) {
+      data.map((dataTrack, itrack) => {
+        let bestTime;
+        dataTrack.map((car, icar) => {
+          if (icar === 0) {
+            bestTime = car.time;
+            car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
+          } else if (this.eventKingTracks[itrack].includes("testBowl")) {
+            car.timeToPrint = car.time;
+          } else {
+            car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+          }
+          this.frontCompleteCar(car);
+        })
+      })
+      Vue.set(this.event, "compilation", data);
+      return;
+
+      data.map((dataTrack, itrack) => {
+
+      })
+      
+      Array.from(Array(5)).map((_, itrack) => {
+        let compilation = [];
+        Array.from(Array(this.event.trackset.length)).map((_, itrackset) => {
+          let track = this.event.trackset[itrackset][itrack];
+          if (track.includes('testBowl')) return;
+          if (itrackset === 0) {
+            compilation = this.event.trackTimes[track];
+            compilation.map(car => {
+              car.presentCount = 1;
+            })
+          }
+          else {
+            this.event.trackTimes[track].map(car => {
+              let found = compilation.find(x => x.rid === car.rid);
+              if (found) {
+                found.saverScore1 = Math.floor((found.saverScore1 + car.saverScore1) / 2)
+                found.saverScore2 = Math.floor((found.saverScore2 + car.saverScore2) / 2)
+                car.presentCount += 1;
+              } else {
+                // allow score if not present on all tracks (part1)
+                car.presentCount = 1;
+                compilation.push(car);
+              }
+
+            })
+          }
+        })
+        compilation.sort((a,b) => {
+          return b.saverScore1 - a.saverScore1;
         })
         compilation.map(car => {
           this.frontCompleteCar(car);
@@ -5675,10 +5812,10 @@ export default {
 
     },
     eventOpenRqEdit(e) {
-      // if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
-      //   this.eventForceAnalyze = !this.eventForceAnalyze;
-      //   return;
-      // }
+      if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        this.eventForceAnalyze = !this.eventForceAnalyze;
+        return;
+      }
       this.eventRqEditDialog = true;
       this.eventRqEditModel = `${this.event.rqLimit}`;
       setTimeout(() => {
@@ -5861,9 +5998,51 @@ export default {
 
       this.eventResolveTrackset()
     },
-    eventAnalyse() {
+    eventOpenKingFilter(itrackset, itrackMonoArray) {
+      this.eventFilterForKing = JSON.parse(JSON.stringify(this.event.filter))
+      this.eventKingDialog = true;
+      this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
+      this.eventCheckFilterCode = null;
+    },
+    eventCloseKingFilter() {
+      this.eventCheckFilterCode = null;
+    },
+    eventEventKFilter() {
+      this.eventAnalyseKFilter();
+    },
+    eventAnalyseKFilter() {
+      this.eventCheckFilterCode = this.eventCheckFilterCodePre;
+      this.eventKingTracks = this.event.trackset[this.eventCheckFilterCode[0]];
+      this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
       this.$store.commit("START_LOGROCKET", {});
+
+      axios.post(Vue.preUrl + "/eventKings", {
+        filter: this.eventFilterForKing,
+        tracks: this.eventKingTracks,
+        includeDownvotes: this.kingShowDownvoted
+      })
+      .then(res => {
+        this.eventListKings(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.eventAnalyseLoading = false;
+      });
+    },
+    eventAnalyse() {
+      this.eventAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/analyseEvent", {
         date: this.event.date,
@@ -6011,7 +6190,6 @@ export default {
     },
     kingAnalyseFinish(listOfRids) {
       this.kingLoading = true;
-      this.$store.commit("START_LOGROCKET", {});
       if (this.kingFixed) this.downloadLoading = true;
 
       axios.post(Vue.preUrl + "/king", {
@@ -6080,7 +6258,7 @@ export default {
     frontCompleteCar(car) {
       Vue.set(car, "photo", this.cgResolvePhotoUrl(car.rid));
       Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
-      Vue.set(car, "color", Vue.resolveClass(car.rq, car.class, "color"));
+      Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
     },
     chooseCustomTune(car) {
       this.customTuneDialogCar = car;
@@ -7745,6 +7923,10 @@ body .Main_UserT5 {
   justify-content: center;
   margin-top: 15px;
 }
+.Event_BankTime {
+  flex-grow: 1;
+  margin-right: 10px;
+}
 
 
 
@@ -8112,6 +8294,12 @@ body .Main_UserT5 {
 .Main_BodyPrint .Cg_BottomModTools {
   display: none;
 }
+.Main_BodyPrint .BaseEventTrackbox_ClassCheck {
+  display: none;
+}
+.Main_BodyPrint .Event_CompilationIncomplete {
+  display: none;
+}
 
 
 
@@ -8203,7 +8391,8 @@ body .Main_UserT5 {
     --cg-width: 115px;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass {
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass,
+  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankClass {
     display: none;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {

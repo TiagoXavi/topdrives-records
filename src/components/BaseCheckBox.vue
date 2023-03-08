@@ -2,11 +2,12 @@
   <div class="BaseCheckBox_Layout">
     <label class="BaseCheckBox_Box">
       <input
+        v-if="showFix"
         :checked="value"
         :disabled="disabled"
         type="checkbox"
         class="BaseCheckBox_Input"
-        @input="$emit('change', $event.target.checked)">
+        @input="$emit('change', $event.target.checked); runFix();">
       <span v-if="label" class="BaseCheckBox_Label">{{ label }}</span>
     </label>
   </div>
@@ -38,13 +39,22 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      showFix: true
+    }
   },
   watch: {},
   beforeMount() {},
   mounted() {},
   computed: {},
-  methods: {},
+  methods: {
+    runFix() {
+      this.showFix = false;
+      this.$nextTick().then(() => {
+        this.showFix = true;
+      });
+    }
+  },
 }
 </script>
 
