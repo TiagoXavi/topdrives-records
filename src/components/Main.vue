@@ -740,7 +740,7 @@
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
               @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray);"
             />
-            <div v-if="event.resolvedTrackset.length < 4 && user && user.mod" class="Event_NewTracksetBox">
+            <div v-if="!eventBlockAddTrackset && event.resolvedTrackset.length < 4 && user && user.mod" class="Event_NewTracksetBox">
               <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
                 <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
                 <span>{{ $t("m_trackset") }}</span>
@@ -756,7 +756,7 @@
                       :disabled="eventLoadingAny"
                       :key="icar"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                      @click="eventInspectCar(car, igroup, icar);">
+                      @click="eventOpenShowCarDialog(car);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
                       </div>
@@ -1054,7 +1054,9 @@
       <div class="Main_TuneDialog">
 
         <div v-if="tuneDialogActive" class="Row_DialogLayout">
-          <div class="Row_OrderBox">
+          <div
+            v-if="mode !== 'events'"
+            class="Row_OrderBox">
             <div class="Row_OrderBoxLayout">
               <button
                 v-if="tuneDialogCarIndex > -1"
@@ -2207,7 +2209,7 @@ export default {
       },
       eventShowResetSavedHand: false,
       eventForceAnalyze: false,
-
+      eventBlockAddTrackset: false,
       eventTracksetSelected: 0,
       eventRaceSelected: 0,
       kingDialog: false,
@@ -5630,6 +5632,7 @@ export default {
       this.eventCheckFilterCode = null;
       this.eventKingTracks = [];
 
+      this.eventBlockAddTrackset = this.event.trackset.length > 1;
       if (this.event.trackset.length === 0) {
         this.event.trackset.push([null,null,null,null,null])
       }
@@ -5814,6 +5817,7 @@ export default {
     eventOpenRqEdit(e) {
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
         this.eventForceAnalyze = !this.eventForceAnalyze;
+        this.eventBlockAddTrackset = false;
         return;
       }
       this.eventRqEditDialog = true;
@@ -5906,9 +5910,6 @@ export default {
           this.loginDialog = true;
         }
       })
-    },
-    eventInspectCar(car, igroup, icar) {
-
     },
     eventAddCar(igroup, icar) {
 
@@ -6088,6 +6089,13 @@ export default {
 
       this.changeMode('classic');
       this.decodeTemplateString(result, true);
+    },
+    eventOpenShowCarDialog(car) {
+      this.tuneDialogCar = JSON.parse(JSON.stringify(car.car));
+      this.tuneDialogCar.selectedTune = '000';
+      this.tuneDialogCarIndex = -1;
+      this.tuneDialogisOppo = true;
+      this.tuneDialogActive = true;
     },
     
     

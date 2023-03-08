@@ -27,7 +27,6 @@ export default {
   computed: {},
   methods: {
     touchstart(e) {
-      e.preventDefault();
       this.timerStart = performance.now();
     },
     touchend() {
