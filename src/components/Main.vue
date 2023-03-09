@@ -1015,6 +1015,7 @@
       :raceFilter="eventFilterForKing"
       :all_cars="all_cars"
       :config="eventFilterConfig"
+      :cgAddingYouCar="true"
       ridsMutationName="EVENTKING_EMIT_RIDS"
       type="event"
       @close="eventCloseKingFilter()"
@@ -6002,9 +6003,13 @@ export default {
     },
     eventOpenKingFilter(itrackset, itrackMonoArray) {
       this.eventFilterForKing = JSON.parse(JSON.stringify(this.event.filter))
-      this.eventKingDialog = true;
       this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
       this.eventCheckFilterCode = null;
+      if (this.user && this.user.tier <= 3) {
+        this.eventKingDialog = true;
+      } else {
+        this.eventEventKFilter();
+      }
     },
     eventCloseKingFilter() {
       this.eventCheckFilterCode = null;
