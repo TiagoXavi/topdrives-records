@@ -1884,13 +1884,14 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Challenges is out!</div>
-          <div class="Main_AnnouncementBody">You'll no longer get stuck in any round</div>
-          <div class="Main_AnnouncementMaybe">Or maybe you still will</div>
+          <div class="Main_AnnouncementTitle">Events is out!</div>
+          <div class="Main_AnnouncementBody">Your new best way to check tracksets</div>
+          <div class="Main_AnnouncementMaybe">Also some best cars</div>
+
           <button
             class="D_Button D_ButtonDark D_ButtonDark2 Main_AnnouncementButton"
-            @click="changeMode('cg'); announcementDialog = false;">
-            <span>Challenges</span>
+            @click="changeMode('events'); announcementDialog = false;">
+            <span>Events</span>
           </button>
         </div>
       </div>
@@ -3813,6 +3814,7 @@ export default {
 
       if (simplifiedCars.length === 0) {
         this.downloadLoading = false;
+        this.checkAnnouncement();
         if (this.mode === 'cg') {
           setTimeout(() => {
             this.cgResolveRqFill();
@@ -3827,7 +3829,6 @@ export default {
       axios.post(url, simplifiedCars)
       .then(res => {        
         this.applyNewData(res.data, this.mode === 'cg');
-        this.checkAnnouncement();
       })
       .catch(error => {
         console.log(error);
@@ -3840,6 +3841,7 @@ export default {
       })
       .then(() => {
         this.downloadLoading = false;
+        this.checkAnnouncement();
       });
     },
     downloadCar(rid) {
@@ -6120,17 +6122,19 @@ export default {
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     },
     checkAnnouncement() {
-      // if (window.localStorage.getItem("lastCg")) return;
-      // if (window.localStorage.getItem("announce1")) return;
-      // if (this.mode === 'cg') return;
-      // let dt = window.localStorage.getItem("_dt");
-      // if (dt) {
-      //   dt = Number(dt) + (60*60*1000) > new Date().getTime()
-      // }
-      // if (dt) return;
+      if (window.localStorage.getItem("lastEvent")) return;
+      if (window.localStorage.getItem("announce2")) return;
+      if (this.mode === 'events') return;
+      let dt = window.localStorage.getItem("_dt");
+      if (dt) {
+        dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      }
+      if (dt) return;
 
-      // window.localStorage.setItem('announce1', "t");
-      // this.announcementDialog = true;
+      window.localStorage.setItem('announce2', "t");
+      setTimeout(() => {
+        this.announcementDialog = true;
+      }, 100);
     },
     openAbout() {
       this.aboutDialog = true;
@@ -7894,8 +7898,8 @@ body .Main_UserT5 {
   text-align: center;
 }
 .Main_AnnouncementMaybe {
-  opacity: 0.3;
-  font-size: 0.6em;
+  opacity: 0.6;
+  font-size: 0.7em;
   margin-top: 2px;
 }
 .Main_AnnouncementTitle {
