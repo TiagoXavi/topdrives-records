@@ -171,13 +171,6 @@
               </BaseChip>
             </template>
           </div>
-          <div v-if="type === 'classic'" class="Main_FilterChipsFlex">
-            <BaseChip
-              v-model="searchFilters.changed18Model"
-              class="BaseChip_MinWidth BaseChip_DontCrop"
-              :label="`18.0 ${$t('m_changedCars')}`"
-              value="18.0 changed cars" />
-          </div>
           <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.prizesModel || raceFilter.prizesModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
@@ -229,6 +222,14 @@
             <template v-for="(item, ix) in searchFilters.brands">
               <BaseChip
                 v-model="searchFilters.brandsModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="item" />
+            </template>
+          </div>
+          <div v-if="type === 'classic'" class="Main_FilterChipsFlex">
+            <template v-for="(item, ix) in customTagsList">
+              <BaseChip
+                v-model="searchFilters.customTagsModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="item" />
             </template>
@@ -318,6 +319,7 @@ import BaseDualSlider from './BaseDualSlider.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseGalleryItem from './BaseGalleryItem.vue'
+import custom_tags from '../database/custom_tags.json'
 
 var id = 0;
 
@@ -464,7 +466,7 @@ export default {
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
-        changed18Model: [],
+        customTagsModel: [],
         bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
         bodyTypesModel: [],
         fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
@@ -616,36 +618,7 @@ export default {
         "Event",
         "Other"
       ],
-      changed18: [
-        "Lotus_Evija_2021",
-        "Porsche_919_Hybrid_Evo_2018",
-        "Porsche_911_RSR-19_(991.2)_2019",
-        "Alfa_Romeo_Coloni_S1_156_2001",
-        "Porsche_911_GT3_Cup_992_2021",
-        "Audi_A5_DTM_2012",
-        "Mercedes-Benz_CLK_GTR_1998",
-        "Alfa_Romeo_155_GTA_Superturismo_1992",
-        "Ginetta_G55_GT4_2011",
-        "BMW_330d_xDrive_Saloon_2019",
-        "BMW_330d_xDrive_Touring_2019",
-        "DS_DS_Numero_9_2012",
-        "Jaguar_F-Type_R_Convertible_2016",
-        "Audi_S5_Sportback_TDI_B95_2019",
-        "Vauxhall_VXR8_GTS_2016",
-        "Audi_S5_Sportback_(B8)_2013",
-        "Vauxhall_Calibra_Turbo_1992",
-        "Fiat_Abarth_695_Biposto_R_2015",
-        "Vauxhall_Opel_OPC_Extreme_2014",
-        "Mercedes-Benz_G_500_2012",
-        "Porsche_968_Cabriolet_1992",
-        "Ginetta_G40_Junior_2010",
-        "Fiat_Abarth_500C_Esseesse_2010",
-        "Alfa_Romeo_147_Q2_2007",
-        "Vauxhall_Insignia_2.0_CDTi_2016",
-        "TVR_280i_1984",
-        "Vauxhall_Astra_1.6_CDTi_2009",
-        "Ginetta_G40_Cup_2010"
-      ],
+      custom_tags
     }
   },
   watch: {
@@ -716,7 +689,11 @@ export default {
   beforeDestroy() {
     this.unsubscribe();
   },
-  computed: {},
+  computed: {
+    customTagsList() {
+      return Object.keys(this.custom_tags);
+    }
+  },
   methods: {
     openDialogSearch() {
       if (this.type === 'cg' || this.type === 'event') {
@@ -1022,7 +999,7 @@ export default {
       this.searchFilters.clearancesModel = [];
       this.searchFilters.countrysModel = [];
       this.searchFilters.prizesModel = [];
-      this.searchFilters.changed18Model = [];
+      this.searchFilters.customTagsModel = [];
       this.searchFilters.bodyTypesModel = [];
       this.searchFilters.fuelModel = [];
       this.searchFilters.engineModel = [];
@@ -1048,7 +1025,7 @@ export default {
         clearancesModel: [],
         countrysModel: [],
         prizesModel: [],
-        changed18Model: [],
+        customTagsModel: [],
         bodyTypesModel: [],
         fuelModel: [],
         engineModel: [],
@@ -1138,8 +1115,11 @@ export default {
         if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
-      if ( context.changed18Model.length > 0 ) {
-        if ( !this.changed18.includes(car.rid) ) return false;
+      if ( context.customTagsModel.length > 0 ) {
+        let found = context.customTagsModel.find(tag => {
+          if (this.custom_tags[tag].includes(car.rid)) return true;
+        })
+        if (!found) return false;
       }
 
       return true;

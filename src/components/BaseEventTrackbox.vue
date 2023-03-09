@@ -246,4 +246,24 @@ export default {
 .BaseEventTrackbox_LineInactive {
   opacity: 0.5;
 }
+
+@media only screen and (max-width: 1200px) {
+  .EventTrack:first-child {
+    display: flex;
+    align-items: center;
+  }
+  .BaseEventTrackbox_ClassCheck {
+    position: static;
+  }
+  .EventTrack:first-child .Cg_SelectTrackButtonEdit {
+    left: 29px;
+  }
+  .EventTrack:first-child .Cg_DragButtonIcon,
+  .EventTrack:first-child .Cg_SelectTrackButtonMoveRight {
+    left: 65px;
+  }
+  .EventTrack:first-child .Cg_TrackBox {
+    flex-grow: 1;
+  }
+}
 </style>
