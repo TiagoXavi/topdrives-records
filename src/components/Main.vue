@@ -6024,7 +6024,6 @@ export default {
       this.eventKingTracks = this.event.trackset[this.eventCheckFilterCode[0]];
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
-      this.$store.commit("START_LOGROCKET", {});
 
       axios.post(Vue.preUrl + "/eventKings", {
         filter: this.eventFilterForKing,
