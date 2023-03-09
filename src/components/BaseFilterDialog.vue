@@ -692,7 +692,8 @@ export default {
           ...vm.searchFilters,
           ...mutation.payload.filter
         };
-        vm.clearFilterObj = vm.resolveFilterCount();
+        vm.searchStr = "";
+        vm.changeFilter();
       }
 
     })

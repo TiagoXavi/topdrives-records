@@ -6091,6 +6091,9 @@ export default {
       this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.event.filter });
 
       this.changeMode('classic');
+      setTimeout(() => {
+        this.searchFilterDialog = true;
+      }, 100);
       this.decodeTemplateString(result, true);
     },
     eventOpenShowCarDialog(car) {
