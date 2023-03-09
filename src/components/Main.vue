@@ -929,6 +929,7 @@
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
       :all_cars="all_cars"
+      importFilterName="CLASSIC_FILTER_IMPORT"
       @addCar="addCar($event)"
     />
 
@@ -6086,6 +6087,8 @@ export default {
       tracks.map(track => {
         result += `~K${track}`
       })
+
+      this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.event.filter });
 
       this.changeMode('classic');
       this.decodeTemplateString(result, true);

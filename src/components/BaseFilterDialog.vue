@@ -400,6 +400,10 @@ export default {
       type: String,
       default: "FILTER_EMIT_RIDS"
     },
+    importFilterName: {
+      type: String,
+      default: "FILTER_IMPORT"
+    },
 
   },
   data() {
@@ -635,7 +639,6 @@ export default {
     this.clearFilter('searchFilters');
     id++;
     this.id = id;
-
   },
   mounted() {
     let vm = this;
@@ -658,7 +661,7 @@ export default {
         vm.user = null;
         vm.asMod = false;
       }
-5
+
       if (mutation.type == "REFRESH_LIBRARY") {
         vm.changeFilterT();
       }
@@ -682,6 +685,14 @@ export default {
           }
         })
         vm.$emit("listRids", listOfRids);
+      }
+
+      if (mutation.type == vm.importFilterName) {
+        vm.searchFilters = {
+          ...vm.searchFilters,
+          ...mutation.payload.filter
+        };
+        vm.clearFilterObj = vm.resolveFilterCount();
       }
 
     })

@@ -102,6 +102,7 @@ export default new Vuex.Store({
     CG_EMIT_RIDS: (state, obj) => null,
     FILTER_EMIT_RIDS: (state, obj) => null,
     EVENTKING_EMIT_RIDS: (state, obj) => null,
+    CLASSIC_FILTER_IMPORT: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)
