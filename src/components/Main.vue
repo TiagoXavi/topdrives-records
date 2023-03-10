@@ -4,7 +4,9 @@
       Main_2: inverted && mode === 'classic',
       Main_Compact: (compact && mode === 'classic') || ((mode === 'cg' || mode === 'events') && windowWidth < 1200),
       Main_ColorsFull: fullColors,
-      Main_ColorsMedal: !fullColors
+      Main_ColorsMedal: !fullColors,
+      Main_isMobile: isMobile,
+      
     }" class="Main_Layout" @click.stop="outsideClick()">
     <div
       v-if="mode === 'classic'"

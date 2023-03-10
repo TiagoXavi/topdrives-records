@@ -71,12 +71,14 @@
       style="--drag-left: 0;--drag-top: 0;"
       class="Row_Item Row_Cell"
       @mouseenter="mouseEnter($event)"
-      @mousedown="dragMouseDown($event, ix)">
+      @mousedown="dragMouseDown($event, ix)"
+      @touchstart="touchstart($event, ix)">
       <div
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
+        
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
       <template v-if="car.selectedTune || cg">
         <div class="Row_Placeholder">{{ placeholder }}</div>
@@ -333,7 +335,13 @@ export default {
       votedDownIndex: null,
       detailsItem: null,
       dragIndex: null,
-      dragging: false
+      dragging: false,
+      timer: null,
+      touchduration: 800,
+      timerStart: 0,
+      timerEnd: 0,
+      touchTrack: null,
+      touchCount: 0
     }
   },
   watch: {
@@ -840,6 +848,35 @@ export default {
         this.dragging = false;
       }, 10);
     },
+    touchstart(e, ix) {
+      if (this.touchCount === 0) {
+        this.timerStart = performance.now();
+        this.touchCount = this.touchCount+1
+        return;
+      }
+      if (performance.now() - this.timerStart < 400) {
+        this.touchCount = this.touchCount+1
+      } else {
+        this.timerStart = performance.now();
+        this.touchCount = 1;
+      }
+      if (this.touchCount > 2) {
+        this.$store.commit("DELETE_TRACK", {
+          track: ix
+        });
+        this.touchCount = 0;
+      }
+    },
+    touchend() {
+      this.timerEnd = performance.now();
+      if (this.timerEnd - this.timerStart > 800) {
+        if (this.type === "tracks") {
+          this.$store.commit("DELETE_TRACK", {
+            track: this.touchTrack
+          });
+        }
+      }
+    }
 
   },
 }

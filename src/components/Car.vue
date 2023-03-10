@@ -689,7 +689,8 @@ export default {
   color: var(--class-color);
   font-weight: normal;
 }
-.Main_Compact .Car_CompactOverlay {
+.Main_Compact .Car_CompactOverlay,
+.Main_isMobile .Car_CompactOverlay {
   display: block;
   width: 100%;
   height: 100%;

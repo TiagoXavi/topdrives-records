@@ -77,6 +77,7 @@
       :style="`--class-color: ${carClassColor}`"
       class="Car_Header2"
       @mousedown="$emit('dragdown', $event)"
+      @touchstart="touchstart($event)"
       @click="invertedClick($event)">
       <div class="BaseCard_Header2Left">
         <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
@@ -148,7 +149,9 @@ export default {
   data() {
     return {
       timer: null,
-      touchduration: 800
+      touchduration: 800,
+      timerStart: 0,
+      touchCount: 0
     }
   },
   watch: {},
@@ -200,6 +203,24 @@ export default {
         e.preventDefault();
         if (!this.timer) {
             this.timer = setTimeout(this.onlongtouch, this.touchduration);
+        }
+
+        if (this.touchCount === 0) {
+          this.timerStart = performance.now();
+          this.touchCount = this.touchCount+1
+          return;
+        }
+        if (performance.now() - this.timerStart < 400) {
+          this.touchCount = this.touchCount+1
+        } else {
+          this.timerStart = performance.now();
+          this.touchCount = 1;
+        }
+        if (this.touchCount > 2) {
+          if ((!this.needSave || this.cgOppo) && !this.hideClose) {
+            this.$emit('delete');
+          }
+          this.touchCount = 0;
         }
     },
     touchend() {
