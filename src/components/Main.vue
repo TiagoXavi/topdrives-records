@@ -824,7 +824,7 @@
                 style="padding-left: 15px;"
                 class="Main_SearchItem"
                 @click="loadEventFull(item.date)">
-                <div class="Main_SearchItemRight">{{ item.name }}</div>
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
               </button>
             </template>
           </div>
@@ -1827,7 +1827,7 @@
               class="Main_SearchItem"
               @click="loadEventFull(item.date, $event)"
               @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })">
-              <div class="Main_SearchItemRight">{{ item.name }}</div>
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
             </BaseButtonTouch>
           </template>
         </div>
@@ -5574,6 +5574,7 @@ export default {
       axios.get(Vue.preUrl + "/searchEvents")
       .then(res => {
         this.eventList = res.data.value;
+        this.eventStyleList();
         if (resolveInitial && this.eventCurrentId && this.eventList.find(x => x.date === this.eventCurrentId)) {
           this.loadEventFull(this.eventCurrentId);
         } else {
@@ -5681,6 +5682,27 @@ export default {
         lastEvent = JSON.parse(lastEvent);
         this.eventCurrentId = lastEvent.date;
       }
+    },
+    eventStyleList() {
+      if (!this.user || !this.user.mod) {
+        this.eventList = this.eventList.filter(x => x.name.substr(0, 13) !== 'Daily Event: ');
+      }
+      this.eventList.sort((a,b) => {
+        return a.name.localeCompare(b.name);
+      })
+      this.eventList.map(x => {
+        let styl = x.name;
+        Vue.set(x, "index", 0);
+        if (x.name.substr(0, 13) === 'Daily Event: ') {
+          Vue.set(x, "index", 1);
+          styl = `<span class="Event_Daily">Daily Event: </span>${x.name.substr(13)}`
+        }
+        Vue.set(x, "nameStyled", styl);
+      })
+
+      this.eventList.sort((a,b) => {
+        return a.index - b.index;
+      })
     },
     eventResolveCompilation() {
       if (!this.event.trackTimes) return;
@@ -7950,6 +7972,9 @@ body .Main_UserT5 {
 .Event_BankTime {
   flex-grow: 1;
   margin-right: 10px;
+}
+.Event_Daily {
+  color: #5899fb;
 }
 
 
