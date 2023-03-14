@@ -3,7 +3,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     @touchstart="touchstart($event)"
-    @touchend="touchend()">
+    @touchend="touchend($event)">
     <slot />
   </button>
 </template>
@@ -18,7 +18,8 @@ export default {
       timer: null,
       touchduration: 800,
       timerStart: 0,
-      timerEnd: 0
+      timerEnd: 0,
+      element: null
     }
   },
   watch: {},
@@ -29,9 +30,10 @@ export default {
     touchstart(e) {
       this.timerStart = performance.now();
     },
-    touchend() {
+    touchend(e) {
+      console.log(e.cancelable);
       this.timerEnd = performance.now();
-      if (this.timerEnd - this.timerStart > 800) {
+      if (this.timerEnd - this.timerStart > 800 && e.cancelable) {
         this.$emit('longTouch');
       }
     }

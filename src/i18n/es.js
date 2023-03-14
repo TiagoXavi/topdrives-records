@@ -288,7 +288,7 @@ export default {
   "t_canyonLookout": "Mirador del cañon",
   "t_townSprint": "City Sprint",
   "t_townTour": "City Tour",
-  "t_cross": "Cross Country",
+  "t_cross": "Campo a través",
   "t_canyonDtRoad": "Camino de tierra",
   "t_fieldSlalom": "Field Slalom",
   "t_forestRiver": "Cruce del río del bosque ",

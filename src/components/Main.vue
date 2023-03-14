@@ -4465,7 +4465,7 @@ export default {
       })
     },
     loadChallengeFull(date, round, e) {
-      if (e && e.shiftKey) {
+      if (e && e.shiftKey && this.user && this.user.canDelete && this.user.mod) {
         this.cgAskDelete(date);
         return;
       }
@@ -5593,7 +5593,7 @@ export default {
       })
     },
     loadEventFull(date, e) {
-      if (e && e.shiftKey) {
+      if (e && e.shiftKey && this.user && this.user.canDelete && this.user.mod) {
         this.eventAskDelete(date);
         return;
       }
@@ -8113,7 +8113,10 @@ body .Main_UserT5 {
   --card-top-height: 11.5%;
   --card-stat-height: 31.9px;
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires) {
+  display: none;
+}
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
   display: none;
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
