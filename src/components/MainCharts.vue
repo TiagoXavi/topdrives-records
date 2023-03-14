@@ -266,52 +266,100 @@ export default {
       });
 
       let allTimes = [];
-      let biggestDiff = 0;
-      let diffColection = [];
-      let acceplateDiff = 0;
-      let bannedTimes = [];
+      let diffColection = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      let byProximity = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      let diffColectionAvg = { S:0, A:0, B:0, C:0, D:0, E:0, F:0 };
+      let acceplateDiff = { S:0, A:0, B:0, C:0, D:0, E:0, F:0 };
+      let bannedTimes = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      let timesPerClass = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+
 
       arrDados.map(x => {
-        allTimes.push(x.time)
+        timesPerClass[x.class].push(x.time)
       })
-      allTimes.sort((a, b) => a - b);
-      
-      allTimes.sort((a, b) => {
-        if (Math.abs(a - b) > biggestDiff) {
-          biggestDiff = Math.abs(a - b);
-          diffColection.push(biggestDiff);
-        }
-        return 0;
-      });
-      diffColection.sort((b, a) => {
-        if (b < a * 5) {
-          acceplateDiff = b*5;
-        }
-        return 0;
+      Object.keys(timesPerClass).map(key => {
+        timesPerClass[key].sort((a, b) => a - b);
       })
-      allTimes.sort((b, a) => {
-        if (b - a > acceplateDiff) {
-          bannedTimes.push(b);
+      Object.keys(timesPerClass).map(key => {
+        byProximity[key] = this.groupProximity(timesPerClass[key])
+        if (timesPerClass[key].length > 10) {
+          byProximity[key].map((x, ix) => {
+            if (ix === 0 || ix === byProximity[key].length - 1) {
+              if (typeof x === 'number') bannedTimes[key].push(x);
+              if (typeof x === 'object' && x.length < 3 && x.length > 0) {
+                x.map(time => {
+                  bannedTimes[key].push(time)
+                })
+              }
+            }
+          })
         }
-        return 0;
       })
 
+
+      // Object.keys(timesPerClass).map(key => {
+      //   let diffs = [];
+      //   let index = 0;
+      //   timesPerClass[key].sort((a, b) => {
+      //     if (index < 9) diffColection[key].push(Math.abs(a - b));
+      //     index++;
+      //     return 0;
+      //   });
+
+      // })
+      
+      // Object.keys(timesPerClass).map(key => {
+      //   timesPerClass[key].sort((a, b) => {
+      //     diffColection[key].push(Math.abs(a - b));
+      //     return 0;
+      //   });
+      // })
+      // diffColection[key].sort((b, a) => {
+      //   if (b < a * 5) {
+      //     acceplateDiff = b*5;
+      //   }
+      //   return 0;
+      // })
+      // Object.keys(timesPerClass).map(key => {
+      //   if (diffColection[key].length > 0) {
+      //     let length = diffColection[key].length/2;
+      //     diffColection[key] = diffColection[key].filter((x,ix) => ix < length);
+      //     diffColectionAvg[key] = diffColection[key].reduce((prev, curr) => prev + curr) / diffColection[key].length;
+      //   }
+      //   acceplateDiff[key] = diffColectionAvg[key]*200;
+      //   timesPerClass[key].sort((b, a) => {
+      //     if (a === timesPerClass[key][0]) {
+      //       // first
+      //       if (b - a > acceplateDiff[key]) {
+      //         bannedTimes[key].push(a);
+      //       }
+      //     } else if (b - a > acceplateDiff[key]) {
+      //       bannedTimes[key].push(b);
+      //     }
+      //     return 0;
+      //   })
+      // })
 
       arrDados = arrDados.filter(x => {
-        if (bannedTimes.includes(x.time)) {
+        x.car = vm.all_cars_obj[x.rid];
+        if (
+          bannedTimes[x.class].includes(x.time) &&
+          x.rq !== 10 &&
+          !this.chartTrack.code.includes('drag') &&
+          (x.car.tyres !== "Slick" || this.chartTrack.code.includes('_a00')) &&
+          (x.car.tyres !== "Off-road" || !this.chartTrack.code.includes('_a01')) &&
+          x.rid !== 'Land_Rover_Series_1_1948'
+          ) {
           if (!this.user.canDelete) {
             return false;
           } else {
-            console.log(JSON.stringify(x));
+            x.suspect = true;
           }
         }
         return true;
       });
 
 
-
-      let sum = allTimes.reduce((a, b) => a + b, 0);
-      let media = (sum / allTimes.length) || 0;
       // console.log(this.filterOutliers(media));
       // let mediaSorted = media.slice().sort((a, b) => a - b);
 
@@ -361,12 +409,12 @@ export default {
             y: x.rq,
             x: x.time,
             name: `${x.name} (${x.tune})`,
-            className: objListRid[x.rid] ? undefined : "Highcharts_HidePoint",
+            className: `${objListRid[x.rid] ? '' : "Highcharts_HidePoint "}${x.suspect ? "Highcharts_Suspect " : '' }`,
             custom: {
               ...x,
-              ...vm.all_cars_obj[x.rid],
               photo: require('@/imgs_final/' + decodeURI(x.rid) + '.jpg'),
-              color: Vue.resolveClass(x.rq, x.class, "color")
+              color: Vue.resolveClass(x.rq, x.car.class, "color"),
+              user: x.user
             }
         })
       })
@@ -406,10 +454,11 @@ export default {
         },
         plotOptions: {
           series: {
-            stickyTracking: supportsTouch ? true : false
+            stickyTracking: supportsTouch ? true : false,
+            turboThreshold: 2000
           },
           scatter: {
-            boostThreshold: 1000
+            boostThreshold: 2000
           }
         },
       }
@@ -449,6 +498,30 @@ export default {
       })
       .then(() => {
       });
+    },
+    median(arr) {
+      if (arr.length == 0) {
+        return; // 0.
+      }
+      arr.sort((a, b) => a - b); // 1.
+      const midpoint = Math.floor(arr.length / 2); // 2.
+      const median = arr.length % 2 === 1 ?
+        arr[midpoint] : // 3.1. If odd length, just take midpoint
+        (arr[midpoint - 1] + arr[midpoint]) / 2; // 3.2. If even length, take median of midpoints
+      return median;
+    },
+    groupProximity(arr) {
+      return arr.reduce(function(r, e, i) {
+        if (i != 0) {
+          (e - arr[i - 1] < ((e+arr[i-1])/2)*0.1 ) ? r[r.length - 1].push(e) : r.push([e])
+        } else {
+          r.push([e])
+        }
+        if (i == arr.length - 1) {
+          r = r.map(e => e.length == 1 ? e[0] : e)
+        }
+        return r;
+      }, [])
     }
   },
 }

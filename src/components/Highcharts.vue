@@ -136,13 +136,14 @@ export default {
           formatter: function () {
             if (this.point.className === 'Highcharts_HidePoint') return false;
 
-            var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto" alt="">`+
+            var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto">`+
             `<div><span style="color: ${this.point.custom.color}">RQ${this.point.y}</span>&nbsp;<span>${this.point.name}</span></div>`+
             `<span><b>${ _this.$t('m_time') }: </b>${Vue.options.filters.toTimeString(this.point.x, _this.trackCode)}</span><br/>`+
-            `<span><b>${ _this.$tc('c_tyre', 2) }: </b>${this.point.custom.tyres}</span><br/>`+
-            `<span><b>${ _this.$tc('c_drive', 2) }: </b>${this.point.custom.drive}</span><br/>`+
-            `<span><b>${ _this.$tc('c_clearance', 2) }: </b>${this.point.custom.clearance}</span><br/>`+
-            `<span><b>MRA: </b>${this.point.custom.mra}</span><br/>`;
+            `<span><b>${ _this.$tc('c_tyre', 2) }: </b>${this.point.custom.car.tyres}</span><br/>`+
+            `<span><b>${ _this.$tc('c_drive', 2) }: </b>${this.point.custom.car.drive}</span><br/>`+
+            `<span><b>${ _this.$tc('c_clearance', 2) }: </b>${this.point.custom.car.clearance}</span><br/>`+
+            `<span><b>MRA: </b>${this.point.custom.car.mra}</span><br/>`+
+            `<span><b>${ _this.$t('m_by') }: </b>${this.point.custom.user}</span><br/>`;
 
             // var body = newPoints.reduce(function (s, point) {
             //   return s + '<br/><br/>' + `<span style="color:${point.color};">\u25CF</span> `
@@ -326,6 +327,10 @@ export default {
   opacity: 0.06;
   pointer-events: none;
 }
+.Highcharts_Suspect {
+  stroke-width: 4px !important;
+  stroke: fuchsia;
+}
 
 
 
@@ -394,7 +399,7 @@ svg.highcharts-root .highcharts-tooltip tspan[style*="color:"] {
   stroke: none !important;
 }
 .highcharts-point {
-  stroke-width: 0px !important;
+  /* stroke-width: 0px !important; */
 }
 .highcharts-tooltip > * {
   font-family: "Roboto", sans-serif !important;
