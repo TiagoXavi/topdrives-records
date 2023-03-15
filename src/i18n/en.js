@@ -121,7 +121,7 @@ export default {
   m_sentReview: "Submited for review",
   m_language: "Language",
   m_logout: "Logout",
-  m_resetSavedHand: "Reset to best solution",
+  m_resetSavedHand: "Reset to initial solution",
   m_showCustomTunes: "Show custom tunes",
   m_kingForceVertical: "Change display to vertical",
   m_showBigCards: "Show big cards",

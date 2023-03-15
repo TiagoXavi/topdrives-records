@@ -1095,7 +1095,7 @@
               <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
             </button>
             <button
-              v-if="user && user.tier <= 3 && showCustomTunes"
+              v-if="user && user.tier <= 2 && showCustomTunes"
               class="D_Button Row_DialogButtonTune"
               @click="chooseCustomTune(tuneDialogCar)">
               <i class="ticon-plus_1" style="font-size: 18px;" aria-hidden="true"/>
@@ -5685,9 +5685,6 @@ export default {
       }
     },
     eventStyleList() {
-      if (!this.user || !this.user.mod) {
-        this.eventList = this.eventList.filter(x => x.name.substr(0, 13) !== 'Daily Event: ');
-      }
       this.eventList.sort((a,b) => {
         return a.name.localeCompare(b.name);
       })
