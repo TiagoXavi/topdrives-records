@@ -740,7 +740,7 @@
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
-              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray);"
+              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray, $event.e);"
             />
             <div v-if="!eventBlockAddTrackset && event.resolvedTrackset.length < 4 && user && user.mod" class="Event_NewTracksetBox">
               <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
@@ -1017,13 +1017,13 @@
       :raceFilter="eventFilterForKing"
       :all_cars="all_cars"
       :config="eventFilterConfig"
-      :cgAddingYouCar="true"
+      :cgAddingYouCar="false"
       ridsMutationName="EVENTKING_EMIT_RIDS"
       type="event"
       @close="eventCloseKingFilter()"
-      @filterUpdate="eventEventKFilter($event)"
+      @filterUpdate="eventEventKFilter()"
       @clearFilterUpdate="eventFilterForKing = $event"
-      @listRids="eventAnalyseKFilter($event);"
+      @listRids="eventAnalyseKFilter();"
     />
 
     <BaseFilterDialog
@@ -5638,6 +5638,7 @@ export default {
       this.eventCheckFilterCodePre = null;
       this.eventCheckFilterCode = null;
       this.eventKingTracks = [];
+      this.eventFilterForKing = {};
 
       this.eventBlockAddTrackset = this.event.trackset.length > 1;
       if (this.event.trackset.length === 0) {
@@ -6027,23 +6028,26 @@ export default {
 
       this.eventResolveTrackset()
     },
-    eventOpenKingFilter(itrackset, itrackMonoArray) {
-      this.eventFilterForKing = JSON.parse(JSON.stringify(this.event.filter))
+    eventOpenKingFilter(itrackset, itrackMonoArray, e) {
+      if (this.eventAnalyseLoading) return true;
+      if (!Object.keys(this.eventFilterForKing).length) {
+        this.eventFilterForKing = JSON.parse(JSON.stringify(this.event.filter));
+      }
       this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
       this.eventCheckFilterCode = null;
-      if (this.user && this.user.tier <= 3) {
+      if (this.user && this.user.tier <= 3 && (!e || !e.ctrlKey)) {
         this.eventKingDialog = true;
       } else {
-        this.eventEventKFilter();
+        this.eventEventKFilter(e.ctrlKey);
       }
     },
     eventCloseKingFilter() {
       this.eventCheckFilterCode = null;
     },
-    eventEventKFilter() {
-      this.eventAnalyseKFilter();
+    eventEventKFilter(forceFree) {
+      this.eventAnalyseKFilter(forceFree);
     },
-    eventAnalyseKFilter() {
+    eventAnalyseKFilter(forceFree) {
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
       this.eventKingTracks = this.event.trackset[this.eventCheckFilterCode[0]];
       this.eventKingDialog = false;
@@ -6052,7 +6056,8 @@ export default {
       axios.post(Vue.preUrl + "/eventKings", {
         filter: this.eventFilterForKing,
         tracks: this.eventKingTracks,
-        includeDownvotes: this.kingShowDownvoted
+        includeDownvotes: this.kingShowDownvoted,
+        forceFree
       })
       .then(res => {
         this.eventListKings(res.data);

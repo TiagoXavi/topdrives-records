@@ -15,7 +15,8 @@
         <div v-if="itrackMonoArray === 0 && user" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
             :value="check === `${itrackset}_${itrackMonoArray}`"
-            @change="$emit('openKingFilter', {itrackset, itrackMonoArray});"/>
+            @change="$emit('openKingFilter', {itrackset, itrackMonoArray});"
+            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event })"/>
         </div>
         <Row
           v-if="trackMonoArray && trackMonoArray.length === 1"

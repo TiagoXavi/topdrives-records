@@ -7,7 +7,8 @@
         :disabled="disabled"
         type="checkbox"
         class="BaseCheckBox_Input"
-        @input="$emit('change', $event.target.checked); runFix();">
+        @input="$emit('change', $event.target.checked); runFix();"
+        @click="$emit('click', $event)">
       <span v-if="label" class="BaseCheckBox_Label">{{ label }}</span>
     </label>
   </div>
