@@ -758,7 +758,7 @@
                       :disabled="eventLoadingAny"
                       :key="icar"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                      @click="eventOpenShowCarDialog(car);">
+                      @click="eventOpenShowCarDialog(car, $event, igroup);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
                       </div>
@@ -6128,12 +6128,64 @@ export default {
       }, 100);
       this.decodeTemplateString(result, true);
     },
-    eventOpenShowCarDialog(car) {
+    eventOpenShowCarDialog(car, e, igroup) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        this.askDeleteTimeGeneral(car.rid, car.tune, this.eventKingTracks[igroup]);
+        return;
+      }
+      if (e.ctrlKey || e.metaKey) {
+        let url = `https://www.topdrivesrecords.com?share=~K${this.eventKingTracks[igroup]}~C${car.rid}~T${car.tune}`
+        window.open(url, '_blank');
+        return;
+      }
       this.tuneDialogCar = JSON.parse(JSON.stringify(car.car));
       this.tuneDialogCar.selectedTune = '000';
       this.tuneDialogCarIndex = -1;
       this.tuneDialogisOppo = true;
       this.tuneDialogActive = true;
+    },
+    askDeleteTimeGeneral(rid, tune, track) {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+
+        axios.post(Vue.preUrl + "/deleteTime", {
+          rid: rid,
+          tune: tune,
+          track: track,
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: vm.$t('m_deleteSuccess')
+          });
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete '${track}' time of ${rid}?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
     },
     
     
