@@ -189,7 +189,7 @@
             
           </div>
           <div class="Cg_RowCornerBox">
-            <!-- top challenge -->
+            <!-- top CHALLENGE -->
             <div v-if="cg.rounds" class="Cg_SelectorLayout">
               <div class="Cg_SelectorLeft">
                 <button
@@ -334,6 +334,7 @@
         </div>
       </div>
       <div class="Cg_Mid">
+        <!-- CHALLENGE MID -->
         <div v-if="isRoundEmptyForUser && !cgLoading && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
           <div v-else-if="!cgRound.reservedTo" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
@@ -395,8 +396,10 @@
                   :cg="true"
                   :cgOppo="true"
                   :hideClose="!user || !user.mod"
+                  :showResetTune="(user && user.mod) || isRoundEmptyForUser"
                   @cog="cgShowTuneDialog(race.car, race, true)"
-                  @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
+                  @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
+                  @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
                     :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
@@ -462,6 +465,7 @@
                   :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
                   :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser)"
                   :placeholder="$t('m_timeToBeat')"
+                  :forceCustomAuthor="isRoundEmptyForUser"
                   type="times"
                   @deleteTime="cgDeleteTime(race, $event, true)"
                   @changeTime="cgChangeTimeOppo(race, $event)" />
@@ -534,7 +538,7 @@
                     </button>
                     <template v-for="(bankCar, index) in race.cars">
                       <button
-                        v-if="bankCar.points !== 'no time' && bankCar.tune"
+                        v-if="bankCar.points !== $t('m_notime') && bankCar.tune"
                         :disabled="cgLoadingAny"
                         :key="index"
                         :class="{
@@ -552,9 +556,15 @@
                         <div class="Cg_BankTune">{{ bankCar.tune }}</div>
                         <div
                           class="Cg_BankResult">
-                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">{{ $t("m_draw") }}</span>
-                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">{{ $t("m_win") }}</span>
-                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">{{ $t("m_lose") }}</span>
+                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">
+                            <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
+                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">
+                            <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
+                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">
+                            <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
                           <span v-else class="Cg_BankPoints">{{ bankCar.points }}</span>
                         </div>
                       </button>
@@ -564,7 +574,7 @@
               </template>
             </div>
           </div>
-          <div v-if="cgShowResetSavedHand" class="Cg_BottomModTools">
+          <div v-if="cgShowResetSavedHand && cgRound.date && !isRoundEmptyForUser" class="Cg_BottomModTools">
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -2175,6 +2185,7 @@ export default {
       cgPointsEditModel: null,
       cgPointsEditString: null,
       cgPointsEditRace: null,
+      cgPointsIsDraw: false,
       cgShowResetSavedHand: false,
       forceShowAnalyse: false,
       event: {},
@@ -2872,7 +2883,7 @@ export default {
           }
         })
       };
-      if (this.tuneDialogCar.forceTune) {
+      if (this.tuneDialogCar.forceTune && !result.includes(this.tuneDialogCar.forceTune)) {
         result.push(this.tuneDialogCar.forceTune);
       }
 
@@ -2959,6 +2970,7 @@ export default {
     },
     eventNeedSave() {
       if (this.mode !== 'events') return false;
+      if (!this.event.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
@@ -4639,14 +4651,16 @@ export default {
     },
     cgChangeTuneOppo(car, tune, race) {
       Vue.set(car, "selectedTune", tune);
-      
-      this.cgRoundToSave.push({
-        type: "oppoCar",
-        rid: car.rid,
-        tune: tune,
-        raceIndex: this.cgRound.races.indexOf(race)
-      })
-      this.calcRaceResult(race);
+
+      if (tune !== undefined) {
+        this.cgRoundToSave.push({
+          type: "oppoCar",
+          rid: car.rid,
+          tune: tune,
+          raceIndex: this.cgRound.races.indexOf(race)
+        })
+        this.calcRaceResult(race);
+      }
     },
     cgChangeTuneYou(race, newTune) {
       // Vue.set(car, "selectedTune", tune);
@@ -4753,6 +4767,7 @@ export default {
       if (typeof origPoints === 'number' && origPoints !== points) {
         if (points === 50 && origPoints > 50) points = origPoints;
         if (points === -50 && origPoints < -50) points = origPoints;
+        if (points === 0 && origPoints !== 0) points = origPoints;
       }
 
       if (!this.downloadLoading && origPoints !== points) {
@@ -5105,6 +5120,10 @@ export default {
       
     },
     cgSaveBank(customArray) {
+      if (!window.location.origin.includes('topdrives')) {
+        console.log("trySave", customArray);
+        return;
+      };
       if (this.cgBankToSave.length === 0 && !customArray) return;
       this.cgBankToSaveLoading = true;
 
@@ -5362,8 +5381,8 @@ export default {
       if (!this.user) return;
       if (typeof race.carIndex !== 'number') return;
       let points = (race.cars[race.carIndex] || {}).points;
-      if (!points) return;
-      if (race.cars[race.carIndex].pointsUser && race.cars[race.carIndex].pointsUser !== this.user.username) {
+      if (!points && points !== 0) return;
+      if (race.cars[race.carIndex].pointsUser && race.cars[race.carIndex].pointsUser !== this.user.username && points !== 0) {
         if (!this.user.mod) return;
       };
 
@@ -5376,11 +5395,13 @@ export default {
         // nada
       }
       if (!trytime && trytime !== 0) return;
+      if (points === 0 && (!race.track.includes("testBowl") && trytime !== 0)) return;
 
       this.cgPointsEditDialog = true;
       this.cgPointsEditModel = `${points}`;
       this.cgPointsEditString = `${points}`;
       this.cgPointsEditRace = race;
+      this.cgPointsIsDraw = trytime === race.time;
       setTimeout(() => {
         try {
           document.querySelector("#Cg_EditPoints").focus();
@@ -5394,10 +5415,10 @@ export default {
       let points = Number(this.cgPointsEditModel);
       
       if (this.cgPointsEditModel != this.cgPointsEditString) {
-        if (Number(this.cgPointsEditString) > 0 && points <= 0) {
+        if (Number(this.cgPointsEditString) > 0 && points <= 0 && !this.cgPointsIsDraw) {
           return;
         }
-        if (Number(this.cgPointsEditString) < 0 && points >= 0) {
+        if (Number(this.cgPointsEditString) < 0 && points >= 0 && !this.cgPointsIsDraw) {
           return;
         }
         if (points > 999 || points < -999) {
@@ -6376,6 +6397,7 @@ export default {
         this.$store.commit("START_LOGROCKET", {});
         Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
+        this.updateCarLocalStorage();
       }
     },
     sendMra() {
@@ -7726,6 +7748,7 @@ body .Main_UserT5 {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  white-space: nowrap;
 }
 .Cg_Race:first-child .Cg_TrackBox {
   box-shadow: inset 2px 0px 0px 0px #ffffff07;

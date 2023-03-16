@@ -23,6 +23,9 @@
       <div v-if="cgOppo" class="Car_TuneTip">{{ car.selectedTune }}</div>
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
+        <button v-if="showResetTune" class="D_Button Car_HeaderButton" @click="$emit('refreshTune')">
+          <i class="ticon-refresh_3 Car_HeaderIcon" aria-hidden="true"/>
+        </button>
         <button v-if="!cg" class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
         </button>
@@ -136,6 +139,10 @@ export default {
       default: false
     },
     hideClose: {
+      type: Boolean,
+      default: false
+    },
+    showResetTune: {
       type: Boolean,
       default: false
     },

@@ -306,6 +306,10 @@ export default {
       type: Boolean,
       default: false
     },
+    forceCustomAuthor: {
+      type: Boolean,
+      default: false
+    },
     cgTime: {
       type: Number,
       default: null
@@ -456,6 +460,7 @@ export default {
       } else if (text === '' && typeof this.cgTime === 'number') {
         // custom tune with cgTime
         result[0].text = this.cgTime;
+        if (this.forceCustomAuthor) result[0].author = this.user.username;
       }
 
       return result;
