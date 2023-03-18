@@ -5576,12 +5576,23 @@ export default {
       let roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"];
       this.cgList.map(x => {
         let split = x.name.split(" ");
-        if ( roman.includes(split[split.length-1]) ) {
+        let romanString = null;
+        let indexOfRoman = split.findIndex( part => {
+          if (roman.includes(part)) {
+            romanString = part;
+            return true;
+          }
+          if (roman.includes(part.slice(1 ,-1))) {
+            romanString = part.slice(1 ,-1);
+            return true;
+          }
+        } );
+        if ( indexOfRoman > -1 ) {
           // contain roman
-          x.romanValue = roman.indexOf(split[split.length-1])+1;
+          x.romanValue = roman.indexOf(romanString)+1;
         }
       })
-      
+
       this.cgList.sort((a,b) => {
         if (a.romanValue && b.romanValue && a.name.split(" ")[0] === b.name.split(" ")[0]) {
           return a.romanValue - b.romanValue;
