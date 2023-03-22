@@ -14,6 +14,7 @@ import MainAnalyseDb from "./components/MainAnalyseDb.vue";
 import MainSwagger from "./components/MainSwagger.vue";
 import MainCharts from "./components/MainCharts.vue";
 import MainFindCar from "./components/MainFindCar.vue";
+import MainDownTimes from "./components/MainDownTimes.vue";
 import MainTranslate from "./components/MainTranslate.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
@@ -107,6 +108,12 @@ const routes = [
     name: 'MainFindCar',
     title: 'MainFindCar',
     component: MainFindCar,
+  },
+  {
+    path: '/downTimes',
+    name: 'MainDownTimes',
+    title: 'MainDownTimes',
+    component: MainDownTimes,
   },
   {
     path: '/translate',

@@ -60,7 +60,6 @@
 import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseCardGallery from './BaseCardGallery.vue'
-import BaseCard from './BaseCard.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 
 import chsp_prizes from '../database/chsp_prizes.json'
@@ -72,7 +71,6 @@ export default {
     BaseFilterDescription,
     BaseFilterDialog,
     BaseCardGallery,
-    BaseCard,
     BaseConfigCheckBox
   },
   props: {
