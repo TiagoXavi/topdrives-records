@@ -239,7 +239,7 @@ export default {
   "t_fast": "Schnellrunde",
   "t_fastr": "Schnellrunde (R)",
   "t_figureEight": "8-Form",
-  "t_forestRiver": "Wald-Flussüberquerung",
+  "t_forestRiver": "Wald-Flussquerung",
   "t_forestSlalom": "Wald Slalom",
   "t_forest": "Waldweg",
   "t_frozenLake": "Eissee",
@@ -306,5 +306,5 @@ export default {
   "t_cross": "Cross-Country",
   "t_fieldSlalom": "Feld-Slalom",
   "t_mtIncline": "Gebirge-Anstieg",
-  "t_riverSprint": null
+  "t_riverSprint": "Fluss Sprint"
 }

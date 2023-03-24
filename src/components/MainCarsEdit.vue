@@ -348,6 +348,7 @@ export default {
           "American Dream",
           "American Frontier",
           "Around the World",
+          "As Seen on YT",
           "Call of the Wild",
           "Christmas Collection",
           "Christmas Collection 22",
@@ -965,15 +966,22 @@ export default {
 
     },
     processAll() {
-      this.collection.map(c => {
-        this.all_cars.map(x => {
-          if (c === x.rid) {
-            // action
-            x.tags.push("Loves Me, Loves Me Not")
-  
-          }
-        })
+      let fff = [ "Porsche_Cayenne_Turbo_GT_2021", "Lamborghini_Aventador_S_2018", "Lamborghini_Urus_2018", "BMW_X5_M_2009", "Mercedes-Benz_AMG_GLE_63_S_2015", "Porsche_911_GTS_992_2021", "Audi_R8_RWD_2020", "Porsche_911_GT3_RS_4.0_2011", "Ford_Focus_RS_2016", "BMW_M3_Competition_Saloon_2020", "BMW_M5_30_Jahre_Edition_2014", "BMW_M240i_2017", "BMW_M4_2014", "BMW_M6_2016", "Porsche_911_Carrera_4_2000", "Audi_RS6_Avant_C5_2004", "BMW_M2_(delimited)_2016", "Volkswagen_Touareg_2018", "Bentley_Flying_Spur_2018", "BMW_420i_xDrive_Coupe_2020", "BMW_1-series_M_coupe_2011", "BMW_330e_2016", "BMW_X1_2017", "Land_Rover_Range_Rover_Velar_2018", "BMW_X5_2008", "Honda_Civic_Type_R_2016", "Mercedes-Benz_SL55_AMG_2002", "Volvo_V90_T8_AWD_2018", "Audi_A3_Sportback_8V_2018", "Jaguar_F-Type_Coupe_2016", "BMW_X5_4.4i_2000", "Ford_Fiesta_ST_2018", "Volkswagen_Tiguan_2017", "Honda_CR-V_1.6_i-DTEC_2016", "Nissan_Qashqai_2008", "Ford_Ranger_Wildtrak_2017", "Volkswagen_Tiguan_2011", "BMW_M3_1986", "Volkswagen_Passat_2018", "Mini_Cooper_2016", "Honda_HR-V_1.8_4WD_2016", "Renault_Alpine_A110_1971", "Ford_Kuga_2016", "Suzuki_Jimny_Sierra_2019", "Volkswagen_Golf_2017", "Mazda_3_2018", "Ford_Focus_2006", "Ford_Puma_1.7_1997", "Mazda_MX-5_1998", "Vauxhall_Astra_2016", "Mercedes-Benz_300_CE24_Cabriolet_1988", "Nissan_Qashqai_2016", "Honda_Civic_2016", "Ford_Focus_2015", "Land_Rover_Defender_90_2011", "Porsche_911_1965", "Nissan_Juke_2010", "Peugeot_3008_2018", "Nissan_Micra_2016", "Honda_Jazz_2016", "Volkswagen_Polo_2009", "Ford_Fiesta_1997", "Hummer_H1_1992", "Volkswagen_up_2013", "Ford_Fiesta_1993", "Suzuki_Alto_Works_2016", "Ford_Fiesta_1983", "Nissan_Micra_2011", "Peugeot_208_2018", "Nissan_Micra_2004", "Renault_Clio_2016", "Vauxhall_Corsa_1.4_2016", "Fiat_126p_1972", "Nissan_Micra_1991", "Suzuki_Cappuccino_(EA11R)_1991", "Ford_Fiesta_1976" ];
+      this.all_cars.map(x => {
+        if (fff.includes(x.rid)) {
+          // action
+          x.tags.push("As Seen on YT")
+        }
       })
+      // this.collection.map(c => {
+      //   this.all_cars.map(x => {
+      //     if (c === x.rid) {
+      //       // action
+      //       x.tags.push("Loves Me, Loves Me Not")
+  
+      //     }
+      //   })
+      // })
       this.all_cars.map(x => {
         delete x.visible
       });

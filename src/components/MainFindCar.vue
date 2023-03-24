@@ -140,7 +140,7 @@ export default {
             let car = this.all_cars_obj[rid];
             this.list.push({
               rid: rid,
-              location: `${cap.name} ${iMatch}`,
+              location: `${cap.name} ${iMatch+1}`,
               chance,
               car,
               color: Vue.resolveClass(car.rq, car.class, "color"),

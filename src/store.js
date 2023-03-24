@@ -55,6 +55,7 @@ export default new Vuex.Store({
       "Famous Tracks",
       "In the Shadows",
       "Interstellar",
+      "Loves Me, Loves Me Not",
       "Old Guard",
       "Rest of the World",
       "Ride of the Valkyries",

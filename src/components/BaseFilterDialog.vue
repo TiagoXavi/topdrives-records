@@ -485,6 +485,7 @@ export default {
           "American Dream",
           "American Frontier",
           "Around the World",
+          "As Seen on YT",
           "Call of the Wild",
           "Christmas Collection",
           "Christmas Collection 22",
@@ -688,12 +689,15 @@ export default {
       }
 
       if (mutation.type == vm.importFilterName) {
+        vm.clearFilter();
         vm.searchFilters = {
           ...vm.searchFilters,
           ...mutation.payload.filter
         };
         vm.searchStr = "";
-        vm.changeFilter();
+        setTimeout(() => {
+          vm.applyFilter();
+        }, 101);
       }
 
     })

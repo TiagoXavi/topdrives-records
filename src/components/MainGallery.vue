@@ -449,6 +449,7 @@ export default {
           "American Dream",
           "American Frontier",
           "Around the World",
+          "As Seen on YT",
           "Call of the Wild",
           "Christmas Collection",
           "Christmas Collection 22",

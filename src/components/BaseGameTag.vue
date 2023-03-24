@@ -64,6 +64,11 @@ export default {
   --tag-s: 80%;
   --tag-l: 69%;
 }
+.BaseGameTag_As_Seen_on_YT {
+  --tag-h: 210;
+  --tag-s: 100%;
+  --tag-l: 63%;
+}
 .BaseGameTag_Call_of_the_Wild {
   --tag-h: 0;
   --tag-s: 0%;
