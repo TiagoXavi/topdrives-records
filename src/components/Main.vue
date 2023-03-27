@@ -5593,12 +5593,41 @@ export default {
         }
       })
 
+      let colors = ["#c29cff", "#a9d0ff", "#8dcf8f", "#bfbb3d", "#25b1b1"];
+      let chooseColors = {};
+
       this.cgList.sort((a,b) => {
-        if (a.romanValue && b.romanValue && a.name.split(" ")[0] === b.name.split(" ")[0]) {
+        let aIndex = a.name.indexOf(":");
+        let bIndex = b.name.indexOf(":");
+        let agroup = a.name.slice(0, aIndex);
+        let bgroup = b.name.slice(0, bIndex);
+
+        if (a.romanValue && b.romanValue && agroup === bgroup) {
+          let num = this.generateRandom(colors.length-1, agroup);
+          let color;
+          let styl;
+          if (chooseColors[agroup]) color = chooseColors[agroup];
+          else {
+            color = colors[num];
+            chooseColors[agroup] = color;
+            colors.splice(num, 1)
+          }
+
+          Vue.set(a, "nameStyled", `<span style="color: ${color}">${a.name.slice(0, aIndex+1)}</span>${a.name.slice(aIndex+1)}`);
+          Vue.set(b, "nameStyled", `<span style="color: ${color}">${b.name.slice(0, bIndex+1)}</span>${b.name.slice(bIndex+1)}`);
+          
           return a.romanValue - b.romanValue;
         }
         return a.index - b.index;
       })
+    },
+    generateRandom(maxInt, stringParam) {
+      let sum = 0;
+      for (let i = 0; i < stringParam.length; i++){
+        sum += stringParam.charCodeAt(i);
+      }
+      let result = sum % maxInt;
+      return result;
     },
     loadEvents(resolveInitial = true) {
       this.eventLoading = true;
@@ -8063,6 +8092,9 @@ body .Main_UserT5 {
 }
 .Event_Daily {
   color: #5899fb;
+}
+.Main_StyledItemMargin {
+  margin-top: 10px;
 }
 
 

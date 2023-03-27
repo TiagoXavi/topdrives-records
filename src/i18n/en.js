@@ -145,7 +145,7 @@ export default {
   p_about2: "Any problem or suggestion, please join the Discord server or send an email (mighty.boy@topdrivesrecords.com).",
   p_about3: "TDR is free for everyone. You can support the project to keep it online and receiving new features!",
   p_resetPassHelper: "Type your email to receive a link to reset your password",
-  p_resetPassIfExist: "If exist a user with this email, a link to reset password was sent.",
+  p_resetPassIfExist: "If exist a user with this email, a link to reset password has been sent.",
   p_confirmationWillSent: "Confirmation email will be sent",
   p_checkYourEmailBox: "Please, check your email box",
   p_spamToo: "Spam box too!",
