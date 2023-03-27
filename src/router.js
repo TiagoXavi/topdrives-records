@@ -152,13 +152,13 @@ const routes = [
     component: MainRegister,
   },
   {
-    path: '/verifyemail/:token',
+    path: '/verifyemail',
     name: 'VerifyEmail',
     title: 'VerifyEmail',
     component: MainVerifyEmail,
   },
   {
-    path: '/newpassword/:token',
+    path: '/newpassword',
     name: 'ResetPassword',
     title: 'ResetPassword',
     component: MainResetPassword,

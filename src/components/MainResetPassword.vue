@@ -10,6 +10,14 @@
       <div v-if="!token" class="TTT_Mid">{{ $t("p_somethingWrong") }}</div>
       <div v-else class="TTT_Mid">
         <BaseText
+          :value="email"
+          style="display: none;"
+          autocomplete="new-email"
+          type="normal"
+          label="Email"
+          class="Space_Bottom"
+          placeholder="" />
+        <BaseText
           v-model="password"
           intype="password"
           type="normal"
@@ -77,7 +85,10 @@ export default {
   mounted() {},
   computed: {
     token() {
-      return this.$route.params.token;
+      return this.$route.query.token;
+    },
+    email() {
+      return this.$route.query.email;
     },
   },
   methods: {
@@ -105,8 +116,9 @@ export default {
     send() {
       this.loading = true;
       axios.post(Vue.preUrl + "/confirmNewPassword", {
-        "token": this.token,
-        "password": this.password
+        token: this.token,
+        password: this.password,
+        email: this.email
       })
       .then(res => {
         if (res.data === "OK") {

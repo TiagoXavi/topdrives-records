@@ -60,13 +60,19 @@ export default {
   },
   computed: {
     token() {
-      return this.$route.params.token;
+      return this.$route.query.token;
+    },
+    email() {
+      return this.$route.query.email;
     },
   },
   methods: {
     validate() {
       this.loading = true;
-      axios.get(Vue.preUrl + "/validateEmailToken/" + this.token)
+      axios.post(Vue.preUrl + "/validateEmailToken", {
+        token: this.token,
+        email: this.email
+      })
       .then(res => {
         if (res.data === "OK") {
           this.finished = true;
