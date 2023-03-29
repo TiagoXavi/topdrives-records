@@ -267,7 +267,7 @@ export default {
   t_fastr: "Fast Circuit (R)",
   t_fieldSlalom: "Field Slalom",
   t_figureEight: "Figure Of Eight",
-  t_forestRiver: "Forest River",
+  t_forestRiver: "Forest River Crossing",
   t_forest: "Forest Road",
   t_forestSlalom: "Forest Slalom",
   t_frozenLake: "Frozen Lake",
