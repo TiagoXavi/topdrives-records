@@ -20755,7 +20755,7 @@
       "clearance": "Mid",
       "country": "DE",
       "topSpeed": 155,
-      "acel": 4.6,
+      "acel": 4.7,
       "hand": 83,
       "drive": "4WD",
       "tyres": "Performance",
@@ -36563,7 +36563,7 @@
           "German Renaissance"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
