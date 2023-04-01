@@ -4652,7 +4652,9 @@ export default {
     cgChangeTuneOppo(car, tune, race) {
       Vue.set(car, "selectedTune", tune);
 
-      if (tune !== undefined) {
+      if (tune === undefined) {
+        race.time = null;
+      } else {
         this.cgRoundToSave.push({
           type: "oppoCar",
           rid: car.rid,
@@ -4701,6 +4703,7 @@ export default {
 
       
       if (!race.car || !race.car.selectedTune || !race.track) {
+        race.time = null
         return;
       }
 
