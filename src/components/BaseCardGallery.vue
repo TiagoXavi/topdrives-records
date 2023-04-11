@@ -91,6 +91,10 @@ export default {
         return null
       }
     },
+    oldpic: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {}
@@ -105,7 +109,11 @@ export default {
     carPhoto() {
       let parsed;
       try {
-        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+        if (this.oldpic) {
+          parsed = require('@/oldpics/' + this.car.rid + '.jpg');
+        } else {
+          parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+        }
       } catch (error) {
         return ''
       }

@@ -16,6 +16,7 @@ import MainCharts from "./components/MainCharts.vue";
 import MainFindCar from "./components/MainFindCar.vue";
 import MainDownTimes from "./components/MainDownTimes.vue";
 import MainTranslate from "./components/MainTranslate.vue";
+import MainNewPhotos from "./components/MainNewPhotos.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -108,6 +109,12 @@ const routes = [
     name: 'MainFindCar',
     title: 'MainFindCar',
     component: MainFindCar,
+  },
+  {
+    path: '/newPhotos',
+    name: 'MainNewPhotos',
+    title: 'MainNewPhotos',
+    component: MainNewPhotos,
   },
   {
     path: '/downTimes',

@@ -34,11 +34,11 @@ export default {
       let result = [];
 
       if (f.yearModel && JSON.stringify(f.yearModel) !== '[1910,2022]') result.push({ label: this.$tc("c_year", 2), value: f.yearModel.join("-") });
-      if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,100]') result.push({ label: "RQ", value: f.rqModel.join("-") });
+      if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,114]') result.push({ label: "RQ", value: f.rqModel.join("-") });
       if (f.seatsModel && JSON.stringify(f.seatsModel) !== '[1,9]') result.push({ label: this.$t("c_seats"), value: f.seatsModel.join("-") });
 
-      if (f.topSpeedModel && JSON.stringify(f.topSpeedModel) !== '[50,350]') result.push({ label: this.$t("c_topSpeed"), value: f.topSpeedModel.join("-") });
-      if (f.acelModel && JSON.stringify(f.acelModel) !== '[1,40]') result.push({ label: "0-60", value: f.acelModel.join("-") });
+      if (f.topSpeedModel && JSON.stringify(f.topSpeedModel) !== '[50,330]') result.push({ label: this.$t("c_topSpeed"), value: f.topSpeedModel.join("-") });
+      if (f.acelModel && JSON.stringify(f.acelModel) !== '[1.5,40]') result.push({ label: "0-60", value: f.acelModel.join("-") });
       if (f.handModel && JSON.stringify(f.handModel) !== '[30,110]') result.push({ label: this.$t("c_handling"), value: f.handModel.join("-") });
       if (f.mraModel && JSON.stringify(f.mraModel) !== '[0,160]') result.push({ label: "MRA", value: f.mraModel.join("-") });
       if (f.weightModel && JSON.stringify(f.weightModel) !== '[300,7000]') result.push({ label: this.$t("c_weight"), value: f.weightModel.join("-") });
