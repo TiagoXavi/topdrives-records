@@ -302,6 +302,13 @@
             </div>
 
             <div
+              v-if="diff_searchResult[ix].prize !== diff_searchResult[ix]._prize"
+              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._prize }"
+              class="MainGallery_Small MainGallery_Prize MainGallery_Color">
+              Prize
+            </div>
+
+            <div
               v-if="diff_searchResult[ix].clearance"
               class="MainGallery_Clearance MainGallery_Compare">
               <div class="MainGallery_CompareLabel">Clearance</div>
@@ -327,7 +334,7 @@
               v-if="diff_searchResult[ix].weight"
               :class="{
                 MainGallery_ColorUp: diff_searchResult[ix].weight > diff_searchResult[ix]._weight,
-                MainGallery_ColorDown: diff_searchResult[ix].weight > diff_searchResult[ix]._weight && diff_searchResult[ix]._weight !== null
+                MainGallery_ColorDown: diff_searchResult[ix].weight < diff_searchResult[ix]._weight && diff_searchResult[ix]._weight !== null
               }"
               class="MainGallery_Weight MainGallery_Compare">
               <div class="MainGallery_CompareLabel">Weight</div>
@@ -351,7 +358,7 @@
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
 import data_cars from '../database/cars_final.json'
-import plOld from '../database/cars_final_PL17.json'
+import plOld from '../database/cars_final_PL18.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -397,19 +404,19 @@ export default {
         yearEnd: 2022,
         yearModel: [],
         rqStart: 10,
-        rqEnd: 100,
+        rqEnd: 114,
         rqModel: [],
         topSpeedStart: 50,
-        topSpeedEnd: 350,
+        topSpeedEnd: 330,
         topSpeedModel: [],
-        acelStart: 1.0,
+        acelStart: 1.5,
         acelEnd: 40,
         acelModel: [],
         handStart: 30,
         handEnd: 110,
         handModel: [],
         mraStart: 0,
-        mraEnd: 150,
+        mraEnd: 160,
         mraModel: [],
         weightStart: 300,
         weightEnd: 7000,
@@ -767,6 +774,10 @@ export default {
               dif.tcs = x.tcs
               dif._tcs = y.tcs
             }
+            if (x.prize !== y.prize) {
+              dif.prize = x.prize
+              dif._prize = y.prize
+            }
             if (x.clearance !== y.clearance) {
               dif.clearance = x.clearance
               dif._clearance = y.clearance
@@ -825,11 +836,11 @@ export default {
     },
     defaultFilters(type) {
       if (type === "yearModel") return [1910, 2022];
-      if (type === "rqModel") return [10, 100];
-      if (type === "topSpeedModel") return [50, 350];
-      if (type === "acelModel") return [1.0, 40];
+      if (type === "rqModel") return [10, 114];
+      if (type === "topSpeedModel") return [50, 330];
+      if (type === "acelModel") return [1.5, 40];
       if (type === "handModel") return [30, 110];
-      if (type === "mraModel") return [0, 150];
+      if (type === "mraModel") return [0, 160];
       if (type === "weightModel") return [300, 7000];
       if (type === "seatsModel") return [1, 9];
     },
@@ -843,9 +854,9 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
-      this.searchFilters.onlyAnyChangeModel = [];
+      this.searchFilters.onlyAnyChangeModel = [true];
       this.searchFilters.onlyNewRarityModel = [];
-      this.searchFilters.onlyNewPerformanceModel = [true];
+      this.searchFilters.onlyNewPerformanceModel = [];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
@@ -952,6 +963,7 @@ export default {
             oldCar.year === car.year &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
+            oldCar.prize === car.prize &&
             oldCar.topSpeed === car.topSpeed &&
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
@@ -1216,6 +1228,10 @@ export default {
 }
 .MainGallery_Tcs {  
   top: 57px;
+  right: 360px;
+}
+.MainGallery_Prize {  
+  top: 80px;
   right: 360px;
 }
 .MainGallery_Clearance {

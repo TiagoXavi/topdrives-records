@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_18.json'
+import cars_new_rq from '../database/cars_new_rq_19.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -37,6 +37,8 @@ export default {
     let temp2;
     let xName;
     let yModel;
+    let newStr = "19.0 RQ";
+    let oldStr = "18.0 RQ";
 
 
     // this.cars_final.map(x => {
@@ -76,24 +78,25 @@ export default {
     let notFound = [];
 
     this.cars_new_rq.map(y => {
-      let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
-      if (y.Model === '2016 Vauxhall/Opel Adam R2') {
-        debugger;
-      }
-      let yModelName = yModel.substr(5);
-      let yModelYear = yModel.substr(0, 4);
-      yModelName = yModelName.replace("vauxhall/opel ", "");
-      yModelName = yModelName.replace("fiat ", "");
-      yModelName = yModelName.replace("abarth ", "");
+      // let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+      // if (y.Model === '2016 Vauxhall/Opel Adam R2') {
+      //   debugger;
+      // }
+      if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
+      let yModelName = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      // let yModelYear = yModel.substr(0, 4);
+      // yModelName = yModelName.replace("vauxhall/opel ", "");
+      // yModelName = yModelName.replace("fiat ", "");
+      // yModelName = yModelName.replace("abarth ", "");
 
       temp = this.cars_final.filter(x => {
-        let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-        xName = xName.replace("vauxhall opel ", "");
-        xName = xName.replace("vauxhall ", "");
-        xName = xName.replace("fiat ", "");
-        xName = xName.replace("abarth ", "");
-        // if (yModel.includes(xName) && yModel.substr(yModel.length-5, 4) == x.year) {
-        if (yModelName.includes(xName) && yModelYear == x.year && (y['Old RQ'] === x.rq || y['New RQ'] === x.rq)) {
+        let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        // xName = xName.replace("vauxhall opel ", "");
+        // xName = xName.replace("vauxhall ", "");
+        // xName = xName.replace("fiat ", "");
+        // xName = xName.replace("abarth ", "");
+        
+        if (xModelName.includes(yModelName) && y.Make.toUpperCase === x.brand.toUpperCase && y.Year == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
           return true
         }
       });
@@ -101,8 +104,8 @@ export default {
       if (temp && temp.length > 1) {
         let achouExato = -1;
         temp.map((x, index) => {
-          let xName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-          if (xName === yModelName) {
+          let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+          if (xModelName === yModelName) {
             achouExato = index;
           }
         })
@@ -114,22 +117,22 @@ export default {
       if (temp && temp.length === 1) {
         // OK
 
-        if (temp[0].rq === y["Old RQ"] || temp[0].rq === y["New RQ"]) {
+        if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
           // OK
-          temp[0].rq = y["New RQ"];
+          temp[0].rq = y[newStr];
           temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
         } else {
-          console.log("Old RQ diferente", temp[0]);
+          console.log(`${oldStr} diferente`, temp[0]);
           debugger;
         }
 
       } else if (temp && temp.length > 1) {
         // achou 2
-        console.log("achou 2", y.Model, `${y['Old RQ']} > ${y['New RQ']}`, temp);
+        console.log("achou 2", y.Model, `${y[oldStr]} > ${y[newStr]}`, temp);
         // debugger;
       } else if (temp.length === 0) {
         // achou nada
-        console.log("achou nada", y.Model, `${y['Old RQ']} > ${y['New RQ']}`);
+        console.log("achou nada", y.Model, `${y[oldStr]} > ${y[newStr]}`);
         // debugger;
         // notFound.push(y.Model);
       }

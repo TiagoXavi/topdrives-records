@@ -1,172 +1,39 @@
 [
   {
       "class": "S",
-      "rq": 100,
-      "onlyName": "918 Spyder",
+      "rq": 114,
+      "onlyName": "919 Hybrid Evo",
       "brand": "Porsche",
-      "country": "DE",
-      "year": 2013,
-      "tdid": "556",
-      "abs": true,
+      "year": 2018,
+      "tdid": "3792",
+      "abs": false,
       "tcs": true,
       "clearance": "Low",
-      "topSpeed": 218,
-      "acel": 2.5,
-      "hand": 94,
+      "country": "DE",
+      "topSpeed": 230,
+      "acel": 1.9,
+      "hand": 102,
       "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 104.55,
-      "weight": 1675,
-      "name": "Porsche 918 Spyder",
-      "rid": "Porsche_918_Spyder_2013",
-      "tags": [
-          "Hypercar",
-          "Ultra Expensive",
-          "Originals"
-      ],
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 849,
+      "name": "Porsche 919 Hybrid Evo",
+      "rid": "Porsche_919_Hybrid_Evo_2018",
       "prize": true,
       "bodyTypes": [
-          "Roadster"
+          "Coupe"
       ],
       "fuel": "Hybrid",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 100,
-      "onlyName": "Nevera",
-      "brand": "Rimac",
-      "country": "HR",
-      "year": 2021,
-      "tdid": "2733",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 258,
-      "acel": 1.9,
-      "hand": 90,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 117.11,
-      "weight": 2150,
-      "name": "Rimac Nevera",
-      "rid": "Rimac_Nevera_2021",
+      "seats": "1",
+      "engine": "Mid",
       "tags": [
-          "European Revolution",
-          "Ultra Expensive",
-          "Hypercar",
-          "Eco Friendly"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 100,
-      "onlyName": "208 T16 Pikes Peak",
-      "brand": "Peugeot",
-      "country": "FR",
-      "year": 2013,
-      "tdid": "2780",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 149,
-      "acel": 1.8,
-      "hand": 97,
-      "drive": "4WD",
-      "tyres": "Slick",
-      "mra": 106.07,
-      "weight": 875,
-      "name": "Peugeot 208 T16 Pikes Peak",
-      "rid": "Peugeot_208_T16_Pikes_Peak_2013",
-      "tags": [
-          "European Revolution",
+          "Enter the Black Forest",
           "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
+      ]
   },
   {
       "class": "S",
-      "rq": 100,
-      "onlyName": "905B",
-      "brand": "Peugeot",
-      "country": "FR",
-      "year": 1992,
-      "tdid": "2762",
-      "abs": false,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 220,
-      "acel": 2.7,
-      "hand": 99,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 108.75,
-      "weight": 750,
-      "name": "Peugeot 905B",
-      "rid": "Peugeot_905B_1992",
-      "tags": [
-          "European Revolution",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 100,
-      "onlyName": "Pikes Peak XL7",
-      "brand": "Suzuki",
-      "country": "JP",
-      "year": 2007,
-      "tdid": "733",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 150,
-      "acel": 2,
-      "hand": 91,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": null,
-      "weight": 1100,
-      "name": "Suzuki Pikes Peak XL7",
-      "rid": "Suzuki_Pikes_Peak_XL7_2007",
-      "tags": [
-          "Famous Tracks",
-          "Motorsport",
-          "Wild Ride",
-          "Originals"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 100,
+      "rq": 110,
       "onlyName": "I.D. R Pikes Peak",
       "brand": "Volkswagen",
       "country": "DE",
@@ -201,103 +68,7 @@
   },
   {
       "class": "S",
-      "rq": 100,
-      "onlyName": "Evija",
-      "brand": "Lotus",
-      "year": 2021,
-      "tdid": "3545",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 217,
-      "acel": 2.9,
-      "hand": 93,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 151.3,
-      "weight": 1680,
-      "name": "Lotus Evija",
-      "rid": "Lotus_Evija_2021",
-      "tags": [
-          "World Expo",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 100,
-      "onlyName": "Mission R Concept",
-      "brand": "Porsche",
-      "year": 2021,
-      "tdid": "3486",
-      "abs": false,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 187,
-      "acel": 2.4,
-      "hand": 94,
-      "drive": "4WD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1499,
-      "name": "Porsche Mission R Concept",
-      "rid": "Porsche_Mission_R_Concept_2021",
-      "tags": [
-          "World Expo",
-          "Concept"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "1",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 100,
-      "onlyName": "E-Runner Concept_One",
-      "brand": "Rimac",
-      "year": 2016,
-      "tdid": "3372",
-      "abs": false,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "HR",
-      "topSpeed": 168,
-      "acel": 2.1,
-      "hand": 95,
-      "drive": "4WD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1500,
-      "name": "Rimac E-Runner Concept_One",
-      "rid": "Rimac_E-Runner_Concept_One_2016",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "1",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 100,
+      "rq": 110,
       "onlyName": "R18",
       "brand": "Audi",
       "year": 2016,
@@ -329,29 +100,61 @@
   },
   {
       "class": "S",
-      "rq": 100,
-      "onlyName": "919 Hybrid Evo",
-      "brand": "Porsche",
+      "rq": 110,
+      "onlyName": "G58",
+      "brand": "Ginetta",
       "year": 2018,
-      "tdid": "3792",
-      "abs": false,
+      "tdid": "3837",
+      "abs": true,
       "tcs": true,
       "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 230,
-      "acel": 1.9,
-      "hand": 102,
-      "drive": "4WD",
+      "country": "GB",
+      "topSpeed": 190,
+      "acel": 2.7,
+      "hand": 100,
+      "drive": "RWD",
       "tyres": "Slick",
       "mra": null,
-      "weight": 849,
-      "name": "Porsche 919 Hybrid Evo",
-      "rid": "Porsche_919_Hybrid_Evo_2018",
+      "weight": 940,
+      "name": "Ginetta G58",
+      "rid": "Ginetta_G58_2018",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 107,
+      "onlyName": "R18 TDI Ultra",
+      "brand": "Audi",
+      "year": 2011,
+      "tdid": "3767",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 225,
+      "acel": 2.5,
+      "hand": 99,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 900,
+      "name": "Audi R18 TDI Ultra",
+      "rid": "Audi_R18_TDI_Ultra_2011",
       "prize": true,
       "bodyTypes": [
           "Coupe"
       ],
-      "fuel": "Hybrid",
+      "fuel": "Diesel",
       "seats": "1",
       "engine": "Mid",
       "tags": [
@@ -361,7 +164,328 @@
   },
   {
       "class": "S",
-      "rq": 99,
+      "rq": 107,
+      "onlyName": "908 HDi FAP",
+      "brand": "Peugeot",
+      "country": "FR",
+      "year": 2007,
+      "tdid": "2793",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 218,
+      "acel": 2.6,
+      "hand": 99,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 108.33,
+      "weight": 930,
+      "name": "Peugeot 908 HDi FAP",
+      "rid": "Peugeot_908_HDi_FAP_2007",
+      "tags": [
+          "European Revolution",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Diesel",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 107,
+      "onlyName": "G57 P2",
+      "brand": "Ginetta",
+      "year": 2016,
+      "tdid": "3838",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 204,
+      "acel": 2.8,
+      "hand": 99,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 930,
+      "name": "Ginetta G57 P2",
+      "rid": "Ginetta_G57_P2_2016",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 105,
+      "onlyName": "905B",
+      "brand": "Peugeot",
+      "country": "FR",
+      "year": 1992,
+      "tdid": "2762",
+      "abs": false,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 220,
+      "acel": 2.7,
+      "hand": 99,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 108.75,
+      "weight": 750,
+      "name": "Peugeot 905B",
+      "rid": "Peugeot_905B_1992",
+      "tags": [
+          "European Revolution",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 105,
+      "onlyName": "G56 GT4 Supercup",
+      "brand": "Ginetta",
+      "year": 2021,
+      "tdid": "3840",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 165,
+      "acel": 3.1,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1100,
+      "name": "Ginetta G56 GT4 Supercup",
+      "rid": "Ginetta_G56_GT4_Supercup_2021",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 104,
+      "onlyName": "208 T16 Pikes Peak",
+      "brand": "Peugeot",
+      "country": "FR",
+      "year": 2013,
+      "tdid": "2780",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 149,
+      "acel": 1.8,
+      "hand": 97,
+      "drive": "4WD",
+      "tyres": "Slick",
+      "mra": 106.07,
+      "weight": 875,
+      "name": "Peugeot 208 T16 Pikes Peak",
+      "rid": "Peugeot_208_T16_Pikes_Peak_2013",
+      "tags": [
+          "European Revolution",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 104,
+      "onlyName": "R10 TDI",
+      "brand": "Audi",
+      "year": 2006,
+      "tdid": "3444",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 230,
+      "acel": 2.6,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 100,
+      "weight": 925,
+      "name": "Audi R10 TDI",
+      "rid": "Audi_R10_TDI_2006",
+      "tags": [
+          "World Expo",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Diesel",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 104,
+      "onlyName": "M8 GTE",
+      "brand": "BMW",
+      "country": "DE",
+      "year": 2018,
+      "tdid": "1260",
+      "abs": false,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 200,
+      "acel": 3,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1250,
+      "name": "BMW M8 GTE",
+      "rid": "BMW_M8_GTE_2018",
+      "tags": [
+          "German Renaissance",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 104,
+      "onlyName": "Mono",
+      "brand": "BAC",
+      "year": 2015,
+      "tdid": "3839",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 170,
+      "acel": 2.6,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 580,
+      "name": "BAC Mono",
+      "rid": "BAC_Mono_2015",
+      "prize": true,
+      "tags": [
+          "Loch to Loch",
+          "Drivers Choice"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 104,
+      "onlyName": "911 RSR-19 (991.2)",
+      "brand": "Porsche",
+      "year": 2019,
+      "tdid": "3500",
+      "abs": false,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 200,
+      "acel": 3,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 96.16,
+      "weight": 1245,
+      "name": "Porsche 911 RSR-19 (991.2)",
+      "rid": "Porsche_911_RSR-19_(991.2)_2019",
+      "tags": [
+          "World Expo",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 103,
+      "onlyName": "Nevera",
+      "brand": "Rimac",
+      "country": "HR",
+      "year": 2021,
+      "tdid": "2733",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 258,
+      "acel": 1.9,
+      "hand": 90,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 117.11,
+      "weight": 2150,
+      "name": "Rimac Nevera",
+      "rid": "Rimac_Nevera_2021",
+      "tags": [
+          "European Revolution",
+          "Ultra Expensive",
+          "Hypercar",
+          "Eco Friendly"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Mixed"
+  },
+  {
+      "class": "S",
+      "rq": 103,
       "onlyName": "Gemera",
       "brand": "Koenigsegg",
       "country": "SE",
@@ -395,136 +519,7 @@
   },
   {
       "class": "S",
-      "rq": 99,
-      "onlyName": "Concept_S",
-      "brand": "Rimac",
-      "year": 2016,
-      "tdid": "3371",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "HR",
-      "topSpeed": 227,
-      "acel": 2.4,
-      "hand": 91,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 1800,
-      "name": "Rimac Concept_S",
-      "rid": "Rimac_Concept_S_2016",
-      "tags": [
-          "World Expo",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 99,
-      "onlyName": "Chiron Sport",
-      "brand": "Bugatti",
-      "country": "FR",
-      "year": 2019,
-      "tdid": "1082",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 261,
-      "acel": 2.4,
-      "hand": 91,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 115.42,
-      "weight": 1978,
-      "name": "Bugatti Chiron Sport",
-      "rid": "Bugatti_Chiron_Sport_2019",
-      "tags": [
-          "French Renaissance",
-          "Ultra Expensive",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 99,
-      "onlyName": "208 WRX",
-      "brand": "Peugeot",
-      "country": "FR",
-      "year": 2018,
-      "tdid": "2783",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 130,
-      "acel": 1.8,
-      "hand": 89,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 52.94,
-      "weight": 1300,
-      "name": "Peugeot 208 WRX",
-      "rid": "Peugeot_208_WRX_2018",
-      "tags": [
-          "European Revolution",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 99,
-      "onlyName": "R18 TDI Ultra",
-      "brand": "Audi",
-      "year": 2011,
-      "tdid": "3767",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 225,
-      "acel": 2.5,
-      "hand": 99,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 900,
-      "name": "Audi R18 TDI Ultra",
-      "rid": "Audi_R18_TDI_Ultra_2011",
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Diesel",
-      "seats": "1",
-      "engine": "Mid",
-      "tags": [
-          "Enter the Black Forest",
-          "Motorsport"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 99,
+      "rq": 103,
       "onlyName": "Huayra R",
       "brand": "Pagani",
       "year": 2021,
@@ -557,29 +552,641 @@
   },
   {
       "class": "S",
-      "rq": 99,
-      "onlyName": "G58",
-      "brand": "Ginetta",
+      "rq": 103,
+      "onlyName": "C11",
+      "brand": "Mercedes-Benz",
+      "year": 1990,
+      "tdid": "3258",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 249,
+      "acel": 2.6,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 106.1,
+      "weight": 905,
+      "name": "Mercedes-Benz C11",
+      "rid": "Mercedes-Benz_C11_1990",
+      "tags": [
+          "World Expo",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 103,
+      "onlyName": "911 GT2 RS Clubsport 25",
+      "brand": "Porsche",
+      "year": 2021,
+      "tdid": "3489",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 211,
+      "acel": 2.6,
+      "hand": 98,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 96.3,
+      "weight": 1390,
+      "name": "Porsche 911 GT2 RS Clubsport 25",
+      "rid": "Porsche_911_GT2_RS_Clubsport_25_2021",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Rear"
+  },
+  {
+      "class": "S",
+      "rq": 102,
+      "onlyName": "Mission R Concept",
+      "brand": "Porsche",
+      "year": 2021,
+      "tdid": "3486",
+      "abs": false,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 187,
+      "acel": 2.4,
+      "hand": 94,
+      "drive": "4WD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1499,
+      "name": "Porsche Mission R Concept",
+      "rid": "Porsche_Mission_R_Concept_2021",
+      "tags": [
+          "World Expo",
+          "Concept"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "1",
+      "engine": "Mixed"
+  },
+  {
+      "class": "S",
+      "rq": 102,
+      "onlyName": "E-Runner Concept_One",
+      "brand": "Rimac",
+      "year": 2016,
+      "tdid": "3372",
+      "abs": false,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "HR",
+      "topSpeed": 168,
+      "acel": 2.1,
+      "hand": 95,
+      "drive": "4WD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1500,
+      "name": "Rimac E-Runner Concept_One",
+      "rid": "Rimac_E-Runner_Concept_One_2016",
+      "tags": [
+          "World Expo",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "1",
+      "engine": "Mixed"
+  },
+  {
+      "class": "S",
+      "rq": 102,
+      "onlyName": "GT-R GT500 (R35)",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 2016,
+      "tdid": "3041",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 190,
+      "acel": 2.9,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 98.9,
+      "weight": 1020,
+      "name": "Nissan GT-R GT500 (R35)",
+      "rid": "Nissan_GT-R_Motul_Autech_(R35)_2016",
+      "tags": [
+          "Japan Pro Tour",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 102,
+      "onlyName": "720S GT3",
+      "brand": "McLaren",
+      "country": "GB",
+      "year": 2019,
+      "tdid": "1715",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 183,
+      "acel": 3.2,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 106.67,
+      "weight": 1240,
+      "name": "McLaren 720S GT3",
+      "rid": "McLaren_720S_GT3_2019",
+      "tags": [
+          "Motorsport",
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 102,
+      "onlyName": "Furai",
+      "brand": "Mazda",
+      "country": "JP",
+      "year": 2007,
+      "tdid": "945",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 180,
+      "acel": 3.1,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 106.9,
+      "weight": 675,
+      "name": "Mazda Furai",
+      "rid": "Mazda_Furai_2007",
+      "tags": [
+          "Concept",
+          "Old Guard",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Bioethanol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "RS",
+      "brand": "Ultima",
+      "year": 2021,
+      "tdid": "3380",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 250,
+      "acel": 2.3,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 103.14,
+      "weight": 930,
+      "name": "Ultima RS",
+      "rid": "Ultima_RS_2021",
+      "tags": [
+          "World Expo"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "Venom F5",
+      "brand": "Hennessey",
+      "year": 2021,
+      "tdid": "3408",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "US",
+      "topSpeed": 311,
+      "acel": 2.5,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 144.83,
+      "weight": 1385,
+      "name": "Hennessey Venom F5",
+      "rid": "Hennessey_Venom_F5_2021",
+      "tags": [
+          "World Expo",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "164 ProCar",
+      "brand": "Alfa Romeo",
+      "country": "IT",
+      "year": 1988,
+      "tdid": "1460",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 211,
+      "acel": 2.2,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 94.17,
+      "weight": 750,
+      "name": "Alfa Romeo 164 ProCar",
+      "rid": "Alfa_Romeo_164_ProCar_1988",
+      "tags": [
+          "Italian Renaissance",
+          "Motorsport",
+          "Two Tone",
+          "Wild Ride"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "Jesko Absolut",
+      "brand": "Koenigsegg",
+      "country": "SE",
+      "year": 2021,
+      "tdid": "2709",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 330,
+      "acel": 2.5,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 121.22,
+      "weight": 1390,
+      "name": "Koenigsegg Jesko Absolut",
+      "rid": "Koenigsegg_Jesko_Absolut_2021",
+      "tags": [
+          "European Revolution",
+          "Ultra Expensive",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe",
+          "Convertible"
+      ],
+      "fuel": "Bioethanol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "Continental GT3",
+      "brand": "Bentley",
+      "country": "GB",
       "year": 2018,
-      "tdid": "3837",
+      "tdid": "1695",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 183,
+      "acel": 3,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 100,
+      "weight": 1260,
+      "name": "Bentley Continental GT3",
+      "rid": "Bentley_Continental_GT3_2018",
+      "tags": [
+          "Great Exhibition",
+          "Motorsport",
+          "The Great Outdoors"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "R.S. 01",
+      "brand": "Renault",
+      "country": "FR",
+      "year": 2015,
+      "tdid": "1231",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 3.1,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 103.33,
+      "weight": 1145,
+      "name": "Renault R.S. 01",
+      "rid": "Renault_Sport_R.S._01_2015",
+      "tags": [
+          "French Renaissance",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 100,
+      "onlyName": "R8 LMS GT3",
+      "brand": "Audi",
+      "year": 2018,
+      "tdid": "3769",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 183,
+      "acel": 3,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 100,
+      "weight": 1235,
+      "name": "Audi R8 LMS GT3",
+      "rid": "Audi_R8_LMS_GT3_2018",
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
+  },
+  {
+      "class": "S",
+      "rq": 99,
+      "onlyName": "918 Spyder",
+      "brand": "Porsche",
+      "country": "DE",
+      "year": 2013,
+      "tdid": "556",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 218,
+      "acel": 2.5,
+      "hand": 94,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 104.55,
+      "weight": 1675,
+      "name": "Porsche 918 Spyder",
+      "rid": "Porsche_918_Spyder_2013",
+      "tags": [
+          "Hypercar",
+          "Ultra Expensive",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Hybrid",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 99,
+      "onlyName": "Pikes Peak XL7",
+      "brand": "Suzuki",
+      "country": "JP",
+      "year": 2007,
+      "tdid": "733",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 150,
+      "acel": 2,
+      "hand": 91,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 1100,
+      "name": "Suzuki Pikes Peak XL7",
+      "rid": "Suzuki_Pikes_Peak_XL7_2007",
+      "tags": [
+          "Famous Tracks",
+          "Motorsport",
+          "Wild Ride",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 99,
+      "onlyName": "Evija",
+      "brand": "Lotus",
+      "year": 2021,
+      "tdid": "3545",
       "abs": true,
       "tcs": true,
       "clearance": "Low",
       "country": "GB",
-      "topSpeed": 190,
-      "acel": 2.7,
-      "hand": 100,
+      "topSpeed": 217,
+      "acel": 2.9,
+      "hand": 93,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 151.3,
+      "weight": 1680,
+      "name": "Lotus Evija",
+      "rid": "Lotus_Evija_2021",
+      "tags": [
+          "World Expo",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Mixed"
+  },
+  {
+      "class": "S",
+      "rq": 99,
+      "onlyName": "X-Bow GTX",
+      "brand": "KTM",
+      "year": 2020,
+      "tdid": "3214",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "AT",
+      "topSpeed": 171,
+      "acel": 3,
+      "hand": 97,
       "drive": "RWD",
       "tyres": "Slick",
-      "mra": null,
-      "weight": 940,
-      "name": "Ginetta G58",
-      "rid": "Ginetta_G58_2018",
-      "prize": true,
+      "mra": 100,
+      "weight": 1048,
+      "name": "KTM X-Bow GTX",
+      "rid": "KTM_X-Bow_GTX_2020",
       "tags": [
-          "Loch to Loch",
+          "World Expo",
           "Motorsport"
       ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 98,
+      "onlyName": "Concept_S",
+      "brand": "Rimac",
+      "year": 2016,
+      "tdid": "3371",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "HR",
+      "topSpeed": 227,
+      "acel": 2.4,
+      "hand": 91,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 1800,
+      "name": "Rimac Concept_S",
+      "rid": "Rimac_Concept_S_2016",
+      "tags": [
+          "World Expo",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Mixed"
+  },
+  {
+      "class": "S",
+      "rq": 98,
+      "onlyName": "Chiron Sport",
+      "brand": "Bugatti",
+      "country": "FR",
+      "year": 2019,
+      "tdid": "1082",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 261,
+      "acel": 2.4,
+      "hand": 91,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 115.42,
+      "weight": 1978,
+      "name": "Bugatti Chiron Sport",
+      "rid": "Bugatti_Chiron_Sport_2019",
+      "tags": [
+          "French Renaissance",
+          "Ultra Expensive",
+          "Hypercar"
+      ],
+      "prize": true,
       "bodyTypes": [
           "Coupe"
       ],
@@ -590,6 +1197,71 @@
   {
       "class": "S",
       "rq": 98,
+      "onlyName": "Intensa Emozione",
+      "brand": "Apollo",
+      "country": "DE",
+      "year": 2019,
+      "tdid": "2718",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 208,
+      "acel": 2.6,
+      "hand": 97,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 93.02,
+      "weight": 1250,
+      "name": "Gumpert Intensa Emozione",
+      "rid": "Gumpert_Intensa_Emozione_2019",
+      "tags": [
+          "European Revolution",
+          "Interstellar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 98,
+      "onlyName": "Venom GT Spyder",
+      "brand": "Hennessey",
+      "year": 2016,
+      "tdid": "3410",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "US",
+      "topSpeed": 280,
+      "acel": 2.6,
+      "hand": 91,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 121.61,
+      "weight": 1258,
+      "name": "Hennessey Venom GT Spyder",
+      "rid": "Hennessey_Venom_GT_Spyder_2016",
+      "tags": [
+          "World Expo",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe",
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 97,
       "onlyName": "Centenario",
       "brand": "Lamborghini",
       "country": "IT",
@@ -621,7 +1293,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "Concept_One",
       "brand": "Rimac",
       "country": "HR",
@@ -655,7 +1327,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "Chiron",
       "brand": "Bugatti",
       "country": "FR",
@@ -687,7 +1359,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "Zonda Revolucion",
       "brand": "Pagani",
       "country": "IT",
@@ -721,7 +1393,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "RTR",
       "brand": "RUF",
       "country": "DE",
@@ -752,72 +1424,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
-      "onlyName": "Huracan Performante",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2018,
-      "tdid": "1530",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 202,
-      "acel": 2.8,
-      "hand": 92,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 89.66,
-      "weight": 1492,
-      "name": "Lamborghini Huracan Performante",
-      "rid": "Lamborghini_Huracan_Performante_2018",
-      "tags": [
-          "Italian Renaissance",
-          "The Great Outdoors"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 98,
-      "onlyName": "Sesto Elemento",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2012,
-      "tdid": "1533",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 2.4,
-      "hand": 92,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 76.67,
-      "weight": 999,
-      "name": "Lamborghini Sesto Elemento",
-      "rid": "Lamborghini_Sesto_Elemento_2010",
-      "tags": [
-          "Italian Renaissance",
-          "Ultra Expensive",
-          "Year of the Tiger"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "Veneno Roadster",
       "brand": "Lamborghini",
       "country": "IT",
@@ -850,101 +1457,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
-      "onlyName": "908 HDi FAP",
-      "brand": "Peugeot",
-      "country": "FR",
-      "year": 2007,
-      "tdid": "2793",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 218,
-      "acel": 2.6,
-      "hand": 99,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 108.33,
-      "weight": 930,
-      "name": "Peugeot 908 HDi FAP",
-      "rid": "Peugeot_908_HDi_FAP_2007",
-      "tags": [
-          "European Revolution",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Diesel",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 98,
-      "onlyName": "C11",
-      "brand": "Mercedes-Benz",
-      "year": 1990,
-      "tdid": "3258",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 249,
-      "acel": 2.6,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 106.1,
-      "weight": 905,
-      "name": "Mercedes-Benz C11",
-      "rid": "Mercedes-Benz_C11_1990",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 98,
-      "onlyName": "911 GT2 RS Clubsport 25",
-      "brand": "Porsche",
-      "year": 2021,
-      "tdid": "3489",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 211,
-      "acel": 2.6,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 96.3,
-      "weight": 1390,
-      "name": "Porsche 911 GT2 RS Clubsport 25",
-      "rid": "Porsche_911_GT2_RS_Clubsport_25_2021",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "935 (991.2)",
       "brand": "Porsche",
       "year": 2019,
@@ -975,7 +1488,7 @@
   },
   {
       "class": "S",
-      "rq": 98,
+      "rq": 97,
       "onlyName": "Cayenne Turbo GT",
       "brand": "Porsche",
       "year": 2021,
@@ -1008,6 +1521,201 @@
   {
       "class": "S",
       "rq": 97,
+      "onlyName": "GT-R LM Nismo",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 2015,
+      "tdid": "3040",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 200,
+      "acel": 2.8,
+      "hand": 94,
+      "drive": "FWD",
+      "tyres": "Slick",
+      "mra": 103.7,
+      "weight": 875,
+      "name": "Nissan GT-R LM Nismo",
+      "rid": "Nissan_GT-R_LM_Nismo_2015",
+      "tags": [
+          "Japan Pro Tour",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 97,
+      "onlyName": "Regera",
+      "brand": "Koenigsegg",
+      "country": "SE",
+      "year": 2016,
+      "tdid": "2706",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 255,
+      "acel": 2.7,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 117.35,
+      "weight": 1590,
+      "name": "Koenigsegg Regera",
+      "rid": "Koenigsegg_Regera_2015",
+      "tags": [
+          "Christmas Collection",
+          "European Revolution",
+          "Hypercar",
+          "Ultra Expensive",
+          "Loves Me, Loves Me Not"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Hybrid",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 97,
+      "onlyName": "911 GT1-98",
+      "brand": "Porsche",
+      "year": 1998,
+      "tdid": "3807",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 193,
+      "acel": 3,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 950,
+      "name": "Porsche 911 GT1-98",
+      "rid": "Porsche_911_GT198_1998",
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid",
+      "tags": [
+          "Enter the Black Forest",
+          "Motorsport"
+      ]
+  },
+  {
+      "class": "S",
+      "rq": 96,
+      "onlyName": "208 WRX",
+      "brand": "Peugeot",
+      "country": "FR",
+      "year": 2018,
+      "tdid": "2783",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 130,
+      "acel": 1.8,
+      "hand": 89,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 52.94,
+      "weight": 1300,
+      "name": "Peugeot 208 WRX",
+      "rid": "Peugeot_208_WRX_2018",
+      "tags": [
+          "European Revolution",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 96,
+      "onlyName": "Huracan Performante",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2018,
+      "tdid": "1530",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 202,
+      "acel": 2.8,
+      "hand": 92,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 89.66,
+      "weight": 1492,
+      "name": "Lamborghini Huracan Performante",
+      "rid": "Lamborghini_Huracan_Performante_2018",
+      "tags": [
+          "Italian Renaissance",
+          "The Great Outdoors"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 96,
+      "onlyName": "Sesto Elemento",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2012,
+      "tdid": "1533",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 2.4,
+      "hand": 92,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 76.67,
+      "weight": 999,
+      "name": "Lamborghini Sesto Elemento",
+      "rid": "Lamborghini_Sesto_Elemento_2010",
+      "tags": [
+          "Italian Renaissance",
+          "Ultra Expensive",
+          "Year of the Tiger"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 96,
       "onlyName": "Veyron 16.4 Super Sport",
       "brand": "Bugatti",
       "country": "FR",
@@ -1040,7 +1748,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "C-X75",
       "brand": "Jaguar",
       "country": "GB",
@@ -1072,7 +1780,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "Aventador SVJ",
       "brand": "Lamborghini",
       "country": "IT",
@@ -1104,7 +1812,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "Jesko Attack",
       "brand": "Koenigsegg",
       "country": "SE",
@@ -1138,7 +1846,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "Zonda R",
       "brand": "Pagani",
       "country": "IT",
@@ -1170,40 +1878,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
-      "onlyName": "P1 GTR",
-      "brand": "McLaren",
-      "country": "GB",
-      "year": 2015,
-      "tdid": "870",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 217,
-      "acel": 2.6,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 113.04,
-      "weight": 1345,
-      "name": "McLaren P1 GTR",
-      "rid": "McLaren_P1_GTR_2015",
-      "tags": [
-          "Drivers Choice",
-          "Ultra Expensive",
-          "Originals"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Hybrid",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "AF10 Hybrid",
       "brand": "Arash",
       "year": 2016,
@@ -1235,7 +1910,7 @@
   },
   {
       "class": "S",
-      "rq": 97,
+      "rq": 96,
       "onlyName": "S1 EKS RX quattro (8X)",
       "brand": "Audi",
       "year": 2018,
@@ -1264,38 +1939,6 @@
           "Enter the Black Forest",
           "Motorsport"
       ]
-  },
-  {
-      "class": "S",
-      "rq": 97,
-      "onlyName": "R10 TDI",
-      "brand": "Audi",
-      "year": 2006,
-      "tdid": "3444",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 230,
-      "acel": 2.6,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 100,
-      "weight": 925,
-      "name": "Audi R10 TDI",
-      "rid": "Audi_R10_TDI_2006",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Diesel",
-      "seats": "1",
-      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1331,7 +1974,40 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
+      "onlyName": "P1 GTR",
+      "brand": "McLaren",
+      "country": "GB",
+      "year": 2015,
+      "tdid": "870",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 217,
+      "acel": 2.6,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 113.04,
+      "weight": 1345,
+      "name": "McLaren P1 GTR",
+      "rid": "McLaren_P1_GTR_2015",
+      "tags": [
+          "Drivers Choice",
+          "Ultra Expensive",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Hybrid",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 95,
       "onlyName": "Veyron 16.4",
       "brand": "Bugatti",
       "country": "FR",
@@ -1364,7 +2040,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "Veyron 16.4 Grand Sport",
       "brand": "Bugatti",
       "country": "FR",
@@ -1399,39 +2075,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
-      "onlyName": "Intensa Emozione",
-      "brand": "Apollo",
-      "country": "DE",
-      "year": 2019,
-      "tdid": "2718",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 208,
-      "acel": 2.6,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 93.02,
-      "weight": 1250,
-      "name": "Gumpert Intensa Emozione",
-      "rid": "Gumpert_Intensa_Emozione_2019",
-      "tags": [
-          "European Revolution",
-          "Interstellar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "C-X75",
       "brand": "Jaguar",
       "country": "GB",
@@ -1463,7 +2107,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "XJR-9",
       "brand": "Jaguar",
       "country": "GB",
@@ -1495,7 +2139,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "Aventador S",
       "brand": "Lamborghini",
       "country": "IT",
@@ -1527,7 +2171,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "Senna",
       "brand": "McLaren",
       "country": "GB",
@@ -1559,7 +2203,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "911 Turbo S 3.7 (992)",
       "brand": "Porsche",
       "year": 2020,
@@ -1589,7 +2233,7 @@
   },
   {
       "class": "S",
-      "rq": 96,
+      "rq": 95,
       "onlyName": "RS Spyder Evo",
       "brand": "Porsche",
       "year": 2008,
@@ -1618,134 +2262,6 @@
           "Enter the Black Forest",
           "Motorsport"
       ]
-  },
-  {
-      "class": "S",
-      "rq": 96,
-      "onlyName": "RS",
-      "brand": "Ultima",
-      "year": 2021,
-      "tdid": "3380",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 250,
-      "acel": 2.3,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 103.14,
-      "weight": 930,
-      "name": "Ultima RS",
-      "rid": "Ultima_RS_2021",
-      "tags": [
-          "World Expo"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 96,
-      "onlyName": "G57 P2",
-      "brand": "Ginetta",
-      "year": 2016,
-      "tdid": "3838",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 204,
-      "acel": 2.8,
-      "hand": 99,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 930,
-      "name": "Ginetta G57 P2",
-      "rid": "Ginetta_G57_P2_2016",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Venom F5",
-      "brand": "Hennessey",
-      "year": 2021,
-      "tdid": "3408",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "US",
-      "topSpeed": 311,
-      "acel": 2.5,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 144.83,
-      "weight": 1385,
-      "name": "Hennessey Venom F5",
-      "rid": "Hennessey_Venom_F5_2021",
-      "tags": [
-          "World Expo",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "One:1",
-      "brand": "Koenigsegg",
-      "country": "SE",
-      "year": 2014,
-      "tdid": "2705",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 280,
-      "acel": 2.7,
-      "hand": 94,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 118.23,
-      "weight": 1360,
-      "name": "Koenigsegg One:1",
-      "rid": "Koenigsegg_One1_2014",
-      "tags": [
-          "European Revolution",
-          "Ultra Expensive",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
   },
   {
       "class": "S",
@@ -1778,363 +2294,6 @@
       "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "962 C",
-      "brand": "Porsche",
-      "country": "DE",
-      "year": 1985,
-      "tdid": "986",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 251,
-      "acel": 2.7,
-      "hand": 95,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 105.36,
-      "weight": 900,
-      "name": "Porsche 962 C",
-      "rid": "Porsche_962_C_1985",
-      "tags": [
-          "Motorsport",
-          "Year of the Ox",
-          "Originals",
-          "Loves Me, Loves Me Not"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "SCG003S",
-      "brand": "SCG",
-      "country": "US",
-      "year": 2018,
-      "tdid": "1081",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 233,
-      "acel": 2.7,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 102.44,
-      "weight": 1300,
-      "name": "SCG SCG003S",
-      "rid": "Scuderia_Cameron_Glickenhaus_SCG003S_2018",
-      "tags": [
-          "American Dream",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "164 ProCar",
-      "brand": "Alfa Romeo",
-      "country": "IT",
-      "year": 1988,
-      "tdid": "1460",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 211,
-      "acel": 2.2,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 94.17,
-      "weight": 750,
-      "name": "Alfa Romeo 164 ProCar",
-      "rid": "Alfa_Romeo_164_ProCar_1988",
-      "tags": [
-          "Italian Renaissance",
-          "Motorsport",
-          "Two Tone",
-          "Wild Ride"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "EXP 100 GT",
-      "brand": "Bentley",
-      "country": "GB",
-      "year": 2019,
-      "tdid": "1709",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 2.4,
-      "hand": 86,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 107.39,
-      "weight": 1900,
-      "name": "Bentley EXP 100 GT",
-      "rid": "Bentley_EXP_100_GT_2019",
-      "tags": [
-          "Concept",
-          "Eco Friendly",
-          "Great Exhibition"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Electric",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Jesko Absolut",
-      "brand": "Koenigsegg",
-      "country": "SE",
-      "year": 2021,
-      "tdid": "2709",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 330,
-      "acel": 2.5,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 121.22,
-      "weight": 1390,
-      "name": "Koenigsegg Jesko Absolut",
-      "rid": "Koenigsegg_Jesko_Absolut_2021",
-      "tags": [
-          "European Revolution",
-          "Ultra Expensive",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe",
-          "Convertible"
-      ],
-      "fuel": "Bioethanol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Aventador SV Roadster",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2016,
-      "tdid": "1523",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 217,
-      "acel": 2.8,
-      "hand": 89,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 86.94,
-      "weight": 1690,
-      "name": "Lamborghini Aventador SV Roadster",
-      "rid": "Lamborghini_Aventador_SV_Roadster_2015",
-      "tags": [
-          "Italian Renaissance",
-          "Supercar"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Huracan Performante Spyder",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2018,
-      "tdid": "1531",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 202,
-      "acel": 3,
-      "hand": 90,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 93.46,
-      "weight": 1617,
-      "name": "Lamborghini Huracan Performante Spyder",
-      "rid": "Lamborghini_Huracan_Performante_Spyder_2018",
-      "tags": [
-          "Italian Renaissance",
-          "The Great Outdoors"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "787b",
-      "brand": "Mazda",
-      "country": "JP",
-      "year": 1990,
-      "tdid": "944",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 220,
-      "acel": 2.8,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 112,
-      "weight": 830,
-      "name": "Mazda 787b",
-      "rid": "Mazda_787b_1990",
-      "tags": [
-          "Motorsport",
-          "Originals"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Rt 12 S",
-      "brand": "RUF",
-      "country": "DE",
-      "year": 2004,
-      "tdid": "1347",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 219,
-      "acel": 2.8,
-      "hand": 88,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 92.74,
-      "weight": 1500,
-      "name": "RUF Rt 12 S",
-      "rid": "RUF_Rt_12_S_2009",
-      "tags": [
-          "German Renaissance",
-          "Year of the Ox"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Apollo R",
-      "brand": "Apollo",
-      "country": "DE",
-      "year": 2012,
-      "tdid": "2716",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 191,
-      "acel": 2.7,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 89.93,
-      "weight": 1100,
-      "name": "Gumpert Apollo R",
-      "rid": "Gumpert_Apollo_R_2012",
-      "tags": [
-          "European Revolution",
-          "Two Tone",
-          "Wild Ride"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 95,
-      "onlyName": "Delta S4 Rally",
-      "brand": "Lancia",
-      "country": "IT",
-      "year": 1985,
-      "tdid": "1586",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 140,
-      "acel": 2.1,
-      "hand": 87,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 69.31,
-      "weight": 890,
-      "name": "Lancia Delta S4 Rally",
-      "rid": "Lancia_Delta_S4_Rally_1985",
-      "tags": [
-          "Italian Renaissance",
-          "Motorsport",
-          "Year of the Ox"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2205,26 +2364,92 @@
   },
   {
       "class": "S",
-      "rq": 95,
-      "onlyName": "GT-R LM Nismo",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 2015,
-      "tdid": "3040",
+      "rq": 94,
+      "onlyName": "One:1",
+      "brand": "Koenigsegg",
+      "country": "SE",
+      "year": 2014,
+      "tdid": "2705",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 280,
+      "acel": 2.7,
+      "hand": 94,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 118.23,
+      "weight": 1360,
+      "name": "Koenigsegg One:1",
+      "rid": "Koenigsegg_One1_2014",
+      "tags": [
+          "European Revolution",
+          "Ultra Expensive",
+          "Hypercar"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "962 C",
+      "brand": "Porsche",
+      "country": "DE",
+      "year": 1985,
+      "tdid": "986",
       "abs": false,
       "tcs": false,
       "clearance": "Low",
-      "topSpeed": 200,
-      "acel": 2.8,
-      "hand": 94,
-      "drive": "FWD",
+      "topSpeed": 251,
+      "acel": 2.7,
+      "hand": 95,
+      "drive": "RWD",
       "tyres": "Slick",
-      "mra": 103.7,
-      "weight": 875,
-      "name": "Nissan GT-R LM Nismo",
-      "rid": "Nissan_GT-R_LM_Nismo_2015",
+      "mra": 105.36,
+      "weight": 900,
+      "name": "Porsche 962 C",
+      "rid": "Porsche_962_C_1985",
       "tags": [
-          "Japan Pro Tour",
+          "Motorsport",
+          "Year of the Ox",
+          "Originals",
+          "Loves Me, Loves Me Not"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "SCG003S",
+      "brand": "SCG",
+      "country": "US",
+      "year": 2018,
+      "tdid": "1081",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 233,
+      "acel": 2.7,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 102.44,
+      "weight": 1300,
+      "name": "SCG SCG003S",
+      "rid": "Scuderia_Cameron_Glickenhaus_SCG003S_2018",
+      "tags": [
+          "American Dream",
           "Motorsport"
       ],
       "prize": true,
@@ -2232,8 +2457,199 @@
           "Coupe"
       ],
       "fuel": "Petrol",
-      "seats": "1",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "EXP 100 GT",
+      "brand": "Bentley",
+      "country": "GB",
+      "year": 2019,
+      "tdid": "1709",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 2.4,
+      "hand": 86,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 107.39,
+      "weight": 1900,
+      "name": "Bentley EXP 100 GT",
+      "rid": "Bentley_EXP_100_GT_2019",
+      "tags": [
+          "Concept",
+          "Eco Friendly",
+          "Great Exhibition"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Electric",
+      "seats": "4",
       "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "Aventador SV Roadster",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2016,
+      "tdid": "1523",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 217,
+      "acel": 2.8,
+      "hand": 89,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 86.94,
+      "weight": 1690,
+      "name": "Lamborghini Aventador SV Roadster",
+      "rid": "Lamborghini_Aventador_SV_Roadster_2015",
+      "tags": [
+          "Italian Renaissance",
+          "Supercar"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "Huracan Performante Spyder",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2018,
+      "tdid": "1531",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 202,
+      "acel": 3,
+      "hand": 90,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 93.46,
+      "weight": 1617,
+      "name": "Lamborghini Huracan Performante Spyder",
+      "rid": "Lamborghini_Huracan_Performante_Spyder_2018",
+      "tags": [
+          "Italian Renaissance",
+          "The Great Outdoors"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "787b",
+      "brand": "Mazda",
+      "country": "JP",
+      "year": 1990,
+      "tdid": "944",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 220,
+      "acel": 2.8,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 112,
+      "weight": 830,
+      "name": "Mazda 787b",
+      "rid": "Mazda_787b_1990",
+      "tags": [
+          "Motorsport",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "Rt 12 S",
+      "brand": "RUF",
+      "country": "DE",
+      "year": 2004,
+      "tdid": "1347",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 219,
+      "acel": 2.8,
+      "hand": 88,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 92.74,
+      "weight": 1500,
+      "name": "RUF Rt 12 S",
+      "rid": "RUF_Rt_12_S_2009",
+      "tags": [
+          "German Renaissance",
+          "Year of the Ox"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
+  },
+  {
+      "class": "S",
+      "rq": 94,
+      "onlyName": "Apollo R",
+      "brand": "Apollo",
+      "country": "DE",
+      "year": 2012,
+      "tdid": "2716",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 191,
+      "acel": 2.7,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 89.93,
+      "weight": 1100,
+      "name": "Gumpert Apollo R",
+      "rid": "Gumpert_Apollo_R_2012",
+      "tags": [
+          "European Revolution",
+          "Two Tone",
+          "Wild Ride"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Mid"
   },
   {
       "class": "S",
@@ -2265,39 +2681,6 @@
           "Coupe"
       ],
       "fuel": "Hybrid",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "Agera Final",
-      "brand": "Koenigsegg",
-      "country": "SE",
-      "year": 2016,
-      "tdid": "2710",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 280,
-      "acel": 2.7,
-      "hand": 93,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 116.56,
-      "weight": 1395,
-      "name": "Koenigsegg Agera Final",
-      "rid": "Koenigsegg_Agera_Final_2016",
-      "tags": [
-          "European Revolution",
-          "Ultra Expensive",
-          "Hypercar",
-          "Loves Me, Loves Me Not"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
   },
@@ -2367,7 +2750,40 @@
   },
   {
       "class": "S",
-      "rq": 94,
+      "rq": 93,
+      "onlyName": "Agera Final",
+      "brand": "Koenigsegg",
+      "country": "SE",
+      "year": 2016,
+      "tdid": "2710",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 280,
+      "acel": 2.7,
+      "hand": 93,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 116.56,
+      "weight": 1395,
+      "name": "Koenigsegg Agera Final",
+      "rid": "Koenigsegg_Agera_Final_2016",
+      "tags": [
+          "European Revolution",
+          "Ultra Expensive",
+          "Hypercar",
+          "Loves Me, Loves Me Not"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 93,
       "onlyName": "Vulcan",
       "brand": "Aston Martin",
       "country": "GB",
@@ -2401,39 +2817,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
-      "onlyName": "M8 GTE",
-      "brand": "BMW",
-      "country": "DE",
-      "year": 2018,
-      "tdid": "1260",
-      "abs": false,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 200,
-      "acel": 3,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1250,
-      "name": "BMW M8 GTE",
-      "rid": "BMW_M8_GTE_2018",
-      "tags": [
-          "German Renaissance",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "Agera RS",
       "brand": "Koenigsegg",
       "country": "SE",
@@ -2465,7 +2849,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "Aventador Coupe",
       "brand": "Lamborghini",
       "country": "IT",
@@ -2498,7 +2882,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "Huracan Coupe",
       "brand": "Lamborghini",
       "country": "IT",
@@ -2529,7 +2913,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "R85V",
       "brand": "Nissan",
       "country": "JP",
@@ -2561,136 +2945,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
-      "onlyName": "Continental GT3",
-      "brand": "Bentley",
-      "country": "GB",
-      "year": 2018,
-      "tdid": "1695",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 183,
-      "acel": 3,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 100,
-      "weight": 1260,
-      "name": "Bentley Continental GT3",
-      "rid": "Bentley_Continental_GT3_2018",
-      "tags": [
-          "Great Exhibition",
-          "Motorsport",
-          "The Great Outdoors"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "R.S. 01",
-      "brand": "Renault",
-      "country": "FR",
-      "year": 2015,
-      "tdid": "1231",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 3.1,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 103.33,
-      "weight": 1145,
-      "name": "Renault R.S. 01",
-      "rid": "Renault_Sport_R.S._01_2015",
-      "tags": [
-          "French Renaissance",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "Venom GT Spyder",
-      "brand": "Hennessey",
-      "year": 2016,
-      "tdid": "3410",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "US",
-      "topSpeed": 280,
-      "acel": 2.6,
-      "hand": 91,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 121.61,
-      "weight": 1258,
-      "name": "Hennessey Venom GT Spyder",
-      "rid": "Hennessey_Venom_GT_Spyder_2016",
-      "tags": [
-          "World Expo",
-          "Hypercar"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe",
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "R8 LMS GT3",
-      "brand": "Audi",
-      "year": 2018,
-      "tdid": "3769",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 183,
-      "acel": 3,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 100,
-      "weight": 1235,
-      "name": "Audi R8 LMS GT3",
-      "rid": "Audi_R8_LMS_GT3_2018",
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid",
-      "tags": [
-          "Enter the Black Forest",
-          "Motorsport"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "Imola",
       "brand": "Pagani",
       "year": 2020,
@@ -2722,7 +2977,7 @@
   },
   {
       "class": "S",
-      "rq": 94,
+      "rq": 93,
       "onlyName": "911 Turbo S 3.8 (991.2)",
       "brand": "Porsche",
       "year": 2016,
@@ -2749,324 +3004,6 @@
       "tags": [
           "Enter the Black Forest"
       ]
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "Mono",
-      "brand": "BAC",
-      "year": 2015,
-      "tdid": "3839",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 170,
-      "acel": 2.6,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 580,
-      "name": "BAC Mono",
-      "rid": "BAC_Mono_2015",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Drivers Choice"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 94,
-      "onlyName": "911 RSR-19 (991.2)",
-      "brand": "Porsche",
-      "year": 2019,
-      "tdid": "3500",
-      "abs": false,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 200,
-      "acel": 3,
-      "hand": 98,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 96.16,
-      "weight": 1245,
-      "name": "Porsche 911 RSR-19 (991.2)",
-      "rid": "Porsche_911_RSR-19_(991.2)_2019",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "Regera",
-      "brand": "Koenigsegg",
-      "country": "SE",
-      "year": 2016,
-      "tdid": "2706",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 255,
-      "acel": 2.7,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 117.35,
-      "weight": 1590,
-      "name": "Koenigsegg Regera",
-      "rid": "Koenigsegg_Regera_2015",
-      "tags": [
-          "Christmas Collection",
-          "European Revolution",
-          "Hypercar",
-          "Ultra Expensive",
-          "Loves Me, Loves Me Not"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Hybrid",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "Huayra BC",
-      "brand": "Pagani",
-      "country": "IT",
-      "year": 2016,
-      "tdid": "1650",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 232,
-      "acel": 2.7,
-      "hand": 94,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 94.41,
-      "weight": 1218,
-      "name": "Pagani Huayra BC",
-      "rid": "Pagani_Huayra_BC_2016",
-      "tags": [
-          "Hypercar",
-          "Italian Renaissance",
-          "Ride of the Valkyries"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "911 Turbo S",
-      "brand": "Porsche",
-      "country": "DE",
-      "year": 2013,
-      "tdid": "555",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 198,
-      "acel": 2.8,
-      "hand": 89,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 75.68,
-      "weight": 1680,
-      "name": "Porsche 911 Turbo S",
-      "rid": "Porsche_911_Turbo_S_2013",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "Agera R",
-      "brand": "Koenigsegg",
-      "country": "SE",
-      "year": 2014,
-      "tdid": "2698",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 273,
-      "acel": 2.7,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 97.58,
-      "weight": 1435,
-      "name": "Koenigsegg Agera R",
-      "rid": "Koenigsegg_Agera_R_2014",
-      "tags": [
-          "European Revolution",
-          "Hypercar",
-          "Silver Screen",
-          "Ultra Expensive"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "Aventador J",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2012,
-      "tdid": "1518",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 2.8,
-      "hand": 89,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 77.61,
-      "weight": 1740,
-      "name": "Lamborghini Aventador J",
-      "rid": "Lamborghini_Aventador_J_2012",
-      "tags": [
-          "Italian Renaissance",
-          "Ultra Expensive"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "GT-R GT500 (R35)",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 2016,
-      "tdid": "3041",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 190,
-      "acel": 2.9,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 98.9,
-      "weight": 1020,
-      "name": "Nissan GT-R GT500 (R35)",
-      "rid": "Nissan_GT-R_Motul_Autech_(R35)_2016",
-      "tags": [
-          "Japan Pro Tour",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "Turbo Florio",
-      "brand": "RUF",
-      "country": "DE",
-      "year": 2018,
-      "tdid": "1349",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 205,
-      "acel": 3,
-      "hand": 87,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 90.62,
-      "weight": 1700,
-      "name": "RUF Turbo Florio",
-      "rid": "RUF_Turbo_Florio_2015",
-      "tags": [
-          "Famous Tracks",
-          "German Renaissance"
-      ],
-      "bodyTypes": [
-          "Convertible"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 93,
-      "onlyName": "720S GT3",
-      "brand": "McLaren",
-      "country": "GB",
-      "year": 2019,
-      "tdid": "1715",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 183,
-      "acel": 3.2,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 106.67,
-      "weight": 1240,
-      "name": "McLaren 720S GT3",
-      "rid": "McLaren_720S_GT3_2019",
-      "tags": [
-          "Motorsport",
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3103,39 +3040,165 @@
   },
   {
       "class": "S",
-      "rq": 93,
-      "onlyName": "Furai",
-      "brand": "Mazda",
-      "country": "JP",
-      "year": 2007,
-      "tdid": "945",
+      "rq": 92,
+      "onlyName": "Huayra BC",
+      "brand": "Pagani",
+      "country": "IT",
+      "year": 2016,
+      "tdid": "1650",
       "abs": true,
       "tcs": true,
       "clearance": "Low",
-      "topSpeed": 180,
-      "acel": 3.1,
-      "hand": 97,
+      "topSpeed": 232,
+      "acel": 2.7,
+      "hand": 94,
       "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 106.9,
-      "weight": 675,
-      "name": "Mazda Furai",
-      "rid": "Mazda_Furai_2007",
+      "tyres": "Performance",
+      "mra": 94.41,
+      "weight": 1218,
+      "name": "Pagani Huayra BC",
+      "rid": "Pagani_Huayra_BC_2016",
       "tags": [
-          "Concept",
-          "Old Guard",
-          "Originals"
+          "Hypercar",
+          "Italian Renaissance",
+          "Ride of the Valkyries"
       ],
+      "prize": true,
       "bodyTypes": [
           "Coupe"
       ],
-      "fuel": "Bioethanol",
+      "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
   },
   {
       "class": "S",
-      "rq": 93,
+      "rq": 92,
+      "onlyName": "911 Turbo S",
+      "brand": "Porsche",
+      "country": "DE",
+      "year": 2013,
+      "tdid": "555",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 198,
+      "acel": 2.8,
+      "hand": 89,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 75.68,
+      "weight": 1680,
+      "name": "Porsche 911 Turbo S",
+      "rid": "Porsche_911_Turbo_S_2013",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
+  },
+  {
+      "class": "S",
+      "rq": 92,
+      "onlyName": "Agera R",
+      "brand": "Koenigsegg",
+      "country": "SE",
+      "year": 2014,
+      "tdid": "2698",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 273,
+      "acel": 2.7,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 97.58,
+      "weight": 1435,
+      "name": "Koenigsegg Agera R",
+      "rid": "Koenigsegg_Agera_R_2014",
+      "tags": [
+          "European Revolution",
+          "Hypercar",
+          "Silver Screen",
+          "Ultra Expensive"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 92,
+      "onlyName": "Aventador J",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2012,
+      "tdid": "1518",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 2.8,
+      "hand": 89,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 77.61,
+      "weight": 1740,
+      "name": "Lamborghini Aventador J",
+      "rid": "Lamborghini_Aventador_J_2012",
+      "tags": [
+          "Italian Renaissance",
+          "Ultra Expensive"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 92,
+      "onlyName": "Turbo Florio",
+      "brand": "RUF",
+      "country": "DE",
+      "year": 2018,
+      "tdid": "1349",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 205,
+      "acel": 3,
+      "hand": 87,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 90.62,
+      "weight": 1700,
+      "name": "RUF Turbo Florio",
+      "rid": "RUF_Turbo_Florio_2015",
+      "tags": [
+          "Famous Tracks",
+          "German Renaissance"
+      ],
+      "bodyTypes": [
+          "Convertible"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Rear"
+  },
+  {
+      "class": "S",
+      "rq": 92,
       "onlyName": "Venom GT",
       "brand": "Hennessey",
       "year": 2011,
@@ -3167,39 +3230,7 @@
   },
   {
       "class": "S",
-      "rq": 93,
-      "onlyName": "X-Bow GTX",
-      "brand": "KTM",
-      "year": 2020,
-      "tdid": "3214",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "AT",
-      "topSpeed": 171,
-      "acel": 3,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 100,
-      "weight": 1048,
-      "name": "KTM X-Bow GTX",
-      "rid": "KTM_X-Bow_GTX_2020",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 93,
+      "rq": 92,
       "onlyName": "Huayra Tricolore",
       "brand": "Pagani",
       "year": 2020,
@@ -3420,37 +3451,6 @@
   {
       "class": "S",
       "rq": 92,
-      "onlyName": "NSX",
-      "brand": "Honda",
-      "country": "JP",
-      "year": 2016,
-      "tdid": "8",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 191,
-      "acel": 3.1,
-      "hand": 90,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 78.55,
-      "weight": 1725,
-      "name": "Honda NSX",
-      "rid": "Acura_NSX_2016",
-      "tags": [
-          "Eco Friendly",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Hybrid",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 92,
       "onlyName": "Gallardo LP 570-4 Edizione Tecnica",
       "brand": "Lamborghini",
       "country": "IT",
@@ -3470,38 +3470,6 @@
       "rid": "Lamborghini_Gallardo_LP_570-4_Edizione_Tecnica_2012",
       "tags": [
           "Italian Renaissance"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 92,
-      "onlyName": "Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
-      "brand": "Lamborghini",
-      "country": "IT",
-      "year": 2011,
-      "tdid": "1527",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 199,
-      "acel": 3.2,
-      "hand": 90,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 80.43,
-      "weight": 1575,
-      "name": "Lamborghini Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
-      "rid": "Lamborghini_Gallardo_LP570-4_Super_Trofeo_Stradale_(2nd_gen)_2011",
-      "tags": [
-          "Christmas Collection",
-          "Italian Renaissance",
-          "Year of the Rabbit"
       ],
       "bodyTypes": [
           "Coupe"
@@ -3543,38 +3511,6 @@
   {
       "class": "S",
       "rq": 92,
-      "onlyName": "EX1",
-      "brand": "Peugeot",
-      "country": "FR",
-      "year": 2010,
-      "tdid": "2776",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 161,
-      "acel": 3.4,
-      "hand": 87,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 89.86,
-      "weight": 750,
-      "name": "Peugeot EX1",
-      "rid": "Peugeot_EX1_2010",
-      "tags": [
-          "European Revolution",
-          "Concept",
-          "Summer Games"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
-      "engine": "Mixed"
-  },
-  {
-      "class": "S",
-      "rq": 92,
       "onlyName": "911 Turbo S 3.8 Cabriolet (991.2)",
       "brand": "Porsche",
       "year": 2016,
@@ -3601,36 +3537,6 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 92,
-      "onlyName": "Evolution Coupe",
-      "brand": "Ultima",
-      "year": 2015,
-      "tdid": "3379",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 200,
-      "acel": 2.6,
-      "hand": 92,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 96.3,
-      "weight": 950,
-      "name": "Ultima Evolution Coupe",
-      "rid": "Ultima_Evolution_Coupe_2015",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
   },
   {
       "class": "S",
@@ -3728,102 +3634,6 @@
   {
       "class": "S",
       "rq": 92,
-      "onlyName": "Huayra Roadster BC",
-      "brand": "Pagani",
-      "year": 2019,
-      "tdid": "3710",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "IT",
-      "topSpeed": 220,
-      "acel": 2.7,
-      "hand": 94,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 87.72,
-      "weight": 1250,
-      "name": "Pagani Huayra Roadster BC",
-      "rid": "Pagani_Huayra_Roadster_BC_2019",
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid",
-      "tags": [
-          "Amalfi Coast Cruising",
-          "Hypercar",
-          "The Great Outdoors"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 92,
-      "onlyName": "911 GT1-98",
-      "brand": "Porsche",
-      "year": 1998,
-      "tdid": "3807",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 193,
-      "acel": 3,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 950,
-      "name": "Porsche 911 GT1-98",
-      "rid": "Porsche_911_GT198_1998",
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Mid",
-      "tags": [
-          "Enter the Black Forest",
-          "Motorsport"
-      ]
-  },
-  {
-      "class": "S",
-      "rq": 92,
-      "onlyName": "G56 GT4 Supercup",
-      "brand": "Ginetta",
-      "year": 2021,
-      "tdid": "3840",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 165,
-      "acel": 3.1,
-      "hand": 97,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1100,
-      "name": "Ginetta G56 GT4 Supercup",
-      "rid": "Ginetta_G56_GT4_Supercup_2021",
-      "prize": true,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 92,
       "onlyName": "Coloni S1 156",
       "brand": "Alfa Romeo",
       "year": 2001,
@@ -3851,6 +3661,131 @@
       "tags": [
           "Amalfi Coast Cruising",
           "Motorsport"
+      ]
+  },
+  {
+      "class": "S",
+      "rq": 91,
+      "onlyName": "NSX",
+      "brand": "Honda",
+      "country": "JP",
+      "year": 2016,
+      "tdid": "8",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 191,
+      "acel": 3.1,
+      "hand": 90,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 78.55,
+      "weight": 1725,
+      "name": "Honda NSX",
+      "rid": "Acura_NSX_2016",
+      "tags": [
+          "Eco Friendly",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Hybrid",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 91,
+      "onlyName": "Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
+      "brand": "Lamborghini",
+      "country": "IT",
+      "year": 2011,
+      "tdid": "1527",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 199,
+      "acel": 3.2,
+      "hand": 90,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 80.43,
+      "weight": 1575,
+      "name": "Lamborghini Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
+      "rid": "Lamborghini_Gallardo_LP570-4_Super_Trofeo_Stradale_(2nd_gen)_2011",
+      "tags": [
+          "Christmas Collection",
+          "Italian Renaissance",
+          "Year of the Rabbit"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 91,
+      "onlyName": "Evolution Coupe",
+      "brand": "Ultima",
+      "year": 2015,
+      "tdid": "3379",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 200,
+      "acel": 2.6,
+      "hand": 92,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 96.3,
+      "weight": 950,
+      "name": "Ultima Evolution Coupe",
+      "rid": "Ultima_Evolution_Coupe_2015",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 91,
+      "onlyName": "Huayra Roadster BC",
+      "brand": "Pagani",
+      "year": 2019,
+      "tdid": "3710",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "IT",
+      "topSpeed": 220,
+      "acel": 2.7,
+      "hand": 94,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 87.72,
+      "weight": 1250,
+      "name": "Pagani Huayra Roadster BC",
+      "rid": "Pagani_Huayra_Roadster_BC_2019",
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid",
+      "tags": [
+          "Amalfi Coast Cruising",
+          "Hypercar",
+          "The Great Outdoors"
       ]
   },
   {
@@ -4483,6 +4418,71 @@
           "Amalfi Coast Cruising",
           "Motorsport"
       ]
+  },
+  {
+      "class": "S",
+      "rq": 90,
+      "onlyName": "Delta S4 Rally",
+      "brand": "Lancia",
+      "country": "IT",
+      "year": 1985,
+      "tdid": "1586",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 140,
+      "acel": 2.1,
+      "hand": 87,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 69.31,
+      "weight": 890,
+      "name": "Lancia Delta S4 Rally",
+      "rid": "Lancia_Delta_S4_Rally_1985",
+      "tags": [
+          "Italian Renaissance",
+          "Motorsport",
+          "Year of the Ox"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Hatchback"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 90,
+      "onlyName": "EX1",
+      "brand": "Peugeot",
+      "country": "FR",
+      "year": 2010,
+      "tdid": "2776",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 161,
+      "acel": 3.4,
+      "hand": 87,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 89.86,
+      "weight": 750,
+      "name": "Peugeot EX1",
+      "rid": "Peugeot_EX1_2010",
+      "tags": [
+          "European Revolution",
+          "Concept",
+          "Summer Games"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Mixed"
   },
   {
       "class": "S",
@@ -6162,36 +6162,6 @@
   {
       "class": "S",
       "rq": 88,
-      "onlyName": "F-Type SVR Coupe",
-      "brand": "Jaguar",
-      "country": "GB",
-      "year": 2017,
-      "tdid": "813",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 200,
-      "acel": 3.5,
-      "hand": 86,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 85.37,
-      "weight": 1705,
-      "name": "Jaguar F-Type SVR Coupe",
-      "rid": "Jaguar_F-Type_SVR_Coupe_2017",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 88,
       "onlyName": "Gallardo LP560-4 (2nd gen)",
       "brand": "Lamborghini",
       "country": "IT",
@@ -6446,39 +6416,6 @@
   {
       "class": "S",
       "rq": 88,
-      "onlyName": "Sport quattro S1",
-      "brand": "Audi",
-      "country": "DE",
-      "year": 1985,
-      "tdid": "16",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 140,
-      "acel": 3,
-      "hand": 86,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 87.66,
-      "weight": 1100,
-      "name": "Audi Sport quattro S1",
-      "rid": "Audi_Sport_quattro_S1_1985",
-      "tags": [
-          "Motorsport",
-          "Year of the Ox",
-          "Originals"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 88,
       "onlyName": "Taycan Turbo S Cross Turismo",
       "brand": "Porsche",
       "year": 2021,
@@ -6631,6 +6568,69 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 87,
+      "onlyName": "F-Type SVR Coupe",
+      "brand": "Jaguar",
+      "country": "GB",
+      "year": 2017,
+      "tdid": "813",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 200,
+      "acel": 3.5,
+      "hand": 86,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 85.37,
+      "weight": 1705,
+      "name": "Jaguar F-Type SVR Coupe",
+      "rid": "Jaguar_F-Type_SVR_Coupe_2017",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 87,
+      "onlyName": "Sport quattro S1",
+      "brand": "Audi",
+      "country": "DE",
+      "year": 1985,
+      "tdid": "16",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 140,
+      "acel": 3,
+      "hand": 86,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 87.66,
+      "weight": 1100,
+      "name": "Audi Sport quattro S1",
+      "rid": "Audi_Sport_quattro_S1_1985",
+      "tags": [
+          "Motorsport",
+          "Year of the Ox",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -9772,36 +9772,6 @@
   {
       "class": "S",
       "rq": 83,
-      "onlyName": "F-Type R AWD Coupe",
-      "brand": "Jaguar",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "815",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 3.9,
-      "hand": 85,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 82.98,
-      "weight": 1730,
-      "name": "Jaguar F-Type R AWD Coupe",
-      "rid": "Jaguar_F-Type_R_Coupe_AWD_2016",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 83,
       "onlyName": "Silvia Super Silhouette (S110)",
       "brand": "Nissan",
       "country": "JP",
@@ -11092,6 +11062,36 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
+  },
+  {
+      "class": "S",
+      "rq": 81,
+      "onlyName": "F-Type R AWD Coupe",
+      "brand": "Jaguar",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "815",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 3.9,
+      "hand": 85,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 82.98,
+      "weight": 1730,
+      "name": "Jaguar F-Type R AWD Coupe",
+      "rid": "Jaguar_F-Type_R_Coupe_AWD_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "S",
@@ -14157,6 +14157,36 @@
   },
   {
       "class": "A",
+      "rq": 79,
+      "onlyName": "F-Type R AWD Convertible",
+      "brand": "Jaguar",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "818",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 4.1,
+      "hand": 84,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 85.42,
+      "weight": 1745,
+      "name": "Jaguar F-Type R AWD Convertible",
+      "rid": "Jaguar_F-Type_R_Convertible_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 78,
       "onlyName": "BX 4TC Group B",
       "brand": "Citroen",
@@ -14614,7 +14644,7 @@
       "hand": 87,
       "drive": "RWD",
       "tyres": "Performance",
-      "mra": 90.00,
+      "mra": 90,
       "weight": 1470,
       "name": "Jaguar XJ220",
       "rid": "Jaguar_XJ220_1992",
@@ -16090,36 +16120,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 77,
-      "onlyName": "F-Type R AWD Convertible",
-      "brand": "Jaguar",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "818",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 4.1,
-      "hand": 84,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 85.42,
-      "weight": 1745,
-      "name": "Jaguar F-Type R AWD Convertible",
-      "rid": "Jaguar_F-Type_R_Convertible_2016",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -18171,39 +18171,6 @@
   {
       "class": "A",
       "rq": 75,
-      "onlyName": "Rebel TRX Concept",
-      "brand": "RAM",
-      "country": "US",
-      "year": 2016,
-      "tdid": "2902",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 114,
-      "acel": 4.9,
-      "hand": 70,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 55.68,
-      "weight": 2721,
-      "name": "RAM Rebel TRX Concept",
-      "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
-      "tags": [
-          "American Frontier",
-          "Call of the Wild",
-          "Concept"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 75,
       "onlyName": "A6 Avant 3.0 TFSI quattro (C7)",
       "brand": "Audi",
       "year": 2011,
@@ -19696,37 +19663,6 @@
   {
       "class": "A",
       "rq": 73,
-      "onlyName": "F-150 Raptor",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2018,
-      "tdid": "2832",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 107,
-      "acel": 5,
-      "hand": 70,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 57.47,
-      "weight": 2506,
-      "name": "Ford F-150 Raptor",
-      "rid": "Ford_F-150_Raptor_2018",
-      "tags": [
-          "American Frontier",
-          "Call of the Wild"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 73,
       "onlyName": "Nomad",
       "brand": "Ariel",
       "country": "GB",
@@ -20932,39 +20868,6 @@
   {
       "class": "A",
       "rq": 72,
-      "onlyName": "Challenger SRT Hellcat",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2015,
-      "tdid": "1057",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 199,
-      "acel": 3.5,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 2017,
-      "name": "Dodge Challenger SRT Hellcat",
-      "rid": "Dodge_Challenger_SRT_Hellcat_2015",
-      "tags": [
-          "American Dream",
-          "Muscle Car",
-          "Silver Screen",
-          "Christmas Collection 22"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 72,
       "onlyName": "Sidewinder",
       "brand": "Dodge",
       "country": "US",
@@ -21654,6 +21557,134 @@
   },
   {
       "class": "A",
+      "rq": 72,
+      "onlyName": "Sagaris",
+      "brand": "TVR",
+      "country": "GB",
+      "year": 2005,
+      "tdid": "757",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 185,
+      "acel": 3.9,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 83.92,
+      "weight": 1078,
+      "name": "TVR Sagaris",
+      "rid": "TVR_Sagaris_2005",
+      "tags": [
+          "Originals",
+          "5th Anniversary"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 72,
+      "onlyName": "Tuscan S",
+      "brand": "TVR",
+      "country": "GB",
+      "year": 2005,
+      "tdid": "759",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 195,
+      "acel": 3.9,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 77.72,
+      "weight": 1100,
+      "name": "TVR Tuscan S",
+      "rid": "TVR_Tuscan_S_2005",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe",
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 71,
+      "onlyName": "Rebel TRX Concept",
+      "brand": "RAM",
+      "country": "US",
+      "year": 2016,
+      "tdid": "2902",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 114,
+      "acel": 4.9,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 55.68,
+      "weight": 2721,
+      "name": "RAM Rebel TRX Concept",
+      "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
+      "tags": [
+          "American Frontier",
+          "Call of the Wild",
+          "Concept"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 71,
+      "onlyName": "Challenger SRT Hellcat",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2015,
+      "tdid": "1057",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 199,
+      "acel": 3.5,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 2017,
+      "name": "Dodge Challenger SRT Hellcat",
+      "rid": "Dodge_Challenger_SRT_Hellcat_2015",
+      "tags": [
+          "American Dream",
+          "Muscle Car",
+          "Silver Screen",
+          "Christmas Collection 22"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 71,
       "onlyName": "Bentayga Diesel",
       "brand": "Bentley",
@@ -21800,38 +21831,6 @@
       ],
       "bodyTypes": [
           "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "Charger Juiced",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2013,
-      "tdid": "2860",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 195,
-      "acel": 3.7,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 92.5,
-      "weight": 1796,
-      "name": "Dodge Charger Juiced",
-      "rid": "Dodge_Charger_Juiced_2013",
-      "tags": [
-          "Muscle Car",
-          "Concept",
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Saloon"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -22827,6 +22826,68 @@
   },
   {
       "class": "A",
+      "rq": 71,
+      "onlyName": "AMG G 63",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3272",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 149,
+      "acel": 3.9,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 63.93,
+      "weight": 2485,
+      "name": "Mercedes-Benz AMG G 63",
+      "rid": "MercedesAMG_G_63_2018",
+      "tags": [
+          "World Expo",
+          "Loves Me, Loves Me Not"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 70,
+      "onlyName": "F-150 Raptor",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2018,
+      "tdid": "2832",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 107,
+      "acel": 5,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 57.47,
+      "weight": 2506,
+      "name": "Ford F-150 Raptor",
+      "rid": "Ford_F-150_Raptor_2018",
+      "tags": [
+          "American Frontier",
+          "Call of the Wild"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 70,
       "onlyName": "X5 M50d",
       "brand": "BMW",
@@ -23448,37 +23509,6 @@
   {
       "class": "A",
       "rq": 70,
-      "onlyName": "Sagaris",
-      "brand": "TVR",
-      "country": "GB",
-      "year": 2005,
-      "tdid": "757",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 185,
-      "acel": 3.9,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 83.92,
-      "weight": 1078,
-      "name": "TVR Sagaris",
-      "rid": "TVR_Sagaris_2005",
-      "tags": [
-          "Originals",
-          "5th Anniversary"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 70,
       "onlyName": "530e xDrive Touring",
       "brand": "BMW",
       "year": 2020,
@@ -23845,6 +23875,38 @@
       "tags": [
           "Learn the Savannah Way",
           "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 69,
+      "onlyName": "Charger Juiced",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2013,
+      "tdid": "2860",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 195,
+      "acel": 3.7,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 92.5,
+      "weight": 1796,
+      "name": "Dodge Charger Juiced",
+      "rid": "Dodge_Charger_Juiced_2013",
+      "tags": [
+          "Muscle Car",
+          "Concept",
+          "American Frontier"
       ],
       "bodyTypes": [
           "Saloon"
@@ -24565,40 +24627,6 @@
   {
       "class": "A",
       "rq": 69,
-      "onlyName": "Challenger SRT-10 Concept",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2009,
-      "tdid": "2855",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 190,
-      "acel": 3.9,
-      "hand": 79,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 97.5,
-      "weight": 1900,
-      "name": "Dodge Challenger SRT-10 Concept",
-      "rid": "Dodge_Challenger_SRT-10_Concept_2009",
-      "tags": [
-          "American Frontier",
-          "Concept",
-          "Muscle Car",
-          "Year of the Ox",
-          "Interstellar"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 69,
       "onlyName": "Diablo SV",
       "brand": "Lamborghini",
       "country": "IT",
@@ -24938,33 +24966,33 @@
   },
   {
       "class": "A",
-      "rq": 68,
-      "onlyName": "AMG G 63",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3272",
+      "rq": 69,
+      "onlyName": "Camaro SS",
+      "brand": "Chevrolet",
+      "country": "US",
+      "year": 2019,
+      "tdid": "995",
       "abs": true,
       "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 149,
-      "acel": 3.9,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 63.93,
-      "weight": 2485,
-      "name": "Mercedes-Benz AMG G 63",
-      "rid": "MercedesAMG_G_63_2018",
+      "clearance": "Low",
+      "topSpeed": 165,
+      "acel": 4,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 79.81,
+      "weight": 1671,
+      "name": "Chevrolet Camaro SS",
+      "rid": "Chevrolet_Camaro_SS_2019",
       "tags": [
-          "World Expo",
-          "Loves Me, Loves Me Not"
+          "American Dream",
+          "Muscle Car"
       ],
       "bodyTypes": [
-          "SUV"
+          "Coupe"
       ],
       "fuel": "Petrol",
-      "seats": "5",
+      "seats": "4",
       "engine": "Front"
   },
   {
@@ -25343,37 +25371,6 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 68,
-      "onlyName": "Camaro SS",
-      "brand": "Chevrolet",
-      "country": "US",
-      "year": 2019,
-      "tdid": "995",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 165,
-      "acel": 4,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 79.81,
-      "weight": 1671,
-      "name": "Chevrolet Camaro SS",
-      "rid": "Chevrolet_Camaro_SS_2019",
-      "tags": [
-          "American Dream",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
   },
   {
       "class": "A",
@@ -25835,37 +25832,6 @@
   {
       "class": "A",
       "rq": 68,
-      "onlyName": "Tuscan S",
-      "brand": "TVR",
-      "country": "GB",
-      "year": 2005,
-      "tdid": "759",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 195,
-      "acel": 3.9,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 77.72,
-      "weight": 1100,
-      "name": "TVR Tuscan S",
-      "rid": "TVR_Tuscan_S_2005",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe",
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 68,
       "onlyName": "911 Carrera 3.4 (991)",
       "brand": "Porsche",
       "year": 2011,
@@ -25893,38 +25859,6 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Rear"
-  },
-  {
-      "class": "A",
-      "rq": 68,
-      "onlyName": "Cerbera Speed Eight",
-      "brand": "TVR",
-      "year": 1996,
-      "tdid": "3854",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 180,
-      "acel": 4,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 78.43,
-      "weight": 1100,
-      "name": "TVR Cerbera Speed Eight",
-      "rid": "TVR_Cerbera_Speed_Eight_1996",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Wild Ride"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
   },
   {
       "class": "A",
@@ -26482,6 +26416,69 @@
   },
   {
       "class": "A",
+      "rq": 68,
+      "onlyName": "Commodore Calais-V Tourer (ZB)",
+      "brand": "Holden",
+      "year": 2018,
+      "tdid": "3987",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "country": "AU",
+      "topSpeed": 155,
+      "acel": 6.6,
+      "hand": 77,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 78.56,
+      "weight": 1780,
+      "name": "Holden Commodore Calais-V Tourer (ZB)",
+      "rid": "Holden_Commodore_CalaisV_Tourer_VB_2018",
+      "prize": false,
+      "tags": [
+          "Learn the Savannah Way"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 67,
+      "onlyName": "Cerbera Speed Eight",
+      "brand": "TVR",
+      "year": 1996,
+      "tdid": "3854",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 180,
+      "acel": 4,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 78.43,
+      "weight": 1100,
+      "name": "TVR Cerbera Speed Eight",
+      "rid": "TVR_Cerbera_Speed_Eight_1996",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Wild Ride"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 67,
       "onlyName": "XC40 T5 AWD",
       "brand": "Volvo",
@@ -26567,38 +26564,6 @@
       ],
       "bodyTypes": [
           "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 67,
-      "onlyName": "F-150 SVT Raptor",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2014,
-      "tdid": "207",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 100,
-      "acel": 6.3,
-      "hand": 69,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 49.52,
-      "weight": 2631,
-      "name": "Ford F-150 SVT Raptor",
-      "rid": "Ford_F-150_SVT_Raptor_2014",
-      "tags": [
-          "Call of the Wild",
-          "Team Favourite",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Pickup"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -27635,6 +27600,40 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Rear"
+  },
+  {
+      "class": "A",
+      "rq": 66,
+      "onlyName": "Challenger SRT-10 Concept",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2009,
+      "tdid": "2855",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 190,
+      "acel": 3.9,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 97.5,
+      "weight": 1900,
+      "name": "Dodge Challenger SRT-10 Concept",
+      "rid": "Dodge_Challenger_SRT-10_Concept_2009",
+      "tags": [
+          "American Frontier",
+          "Concept",
+          "Muscle Car",
+          "Year of the Ox",
+          "Interstellar"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -28779,37 +28778,6 @@
   {
       "class": "A",
       "rq": 66,
-      "onlyName": "Commodore Calais-V Tourer (ZB)",
-      "brand": "Holden",
-      "year": 2018,
-      "tdid": "3987",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "country": "AU",
-      "topSpeed": 155,
-      "acel": 6.6,
-      "hand": 77,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 78.56,
-      "weight": 1780,
-      "name": "Holden Commodore Calais-V Tourer (ZB)",
-      "rid": "Holden_Commodore_CalaisV_Tourer_VB_2018",
-      "prize": false,
-      "tags": [
-          "Learn the Savannah Way"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 66,
       "onlyName": "HSV Clubsport R8 Tourer (VF)",
       "brand": "Holden",
       "year": 2015,
@@ -28866,6 +28834,38 @@
       ],
       "bodyTypes": [
           "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 65,
+      "onlyName": "F-150 SVT Raptor",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2014,
+      "tdid": "207",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 100,
+      "acel": 6.3,
+      "hand": 69,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 49.52,
+      "weight": 2631,
+      "name": "Ford F-150 SVT Raptor",
+      "rid": "Ford_F-150_SVT_Raptor_2014",
+      "tags": [
+          "Call of the Wild",
+          "Team Favourite",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -29986,38 +29986,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
-      "onlyName": "Charger R/T Scat Pack",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2015,
-      "tdid": "1141",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 175,
-      "acel": 4.1,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 78.19,
-      "weight": 1971,
-      "name": "Dodge Charger R/T Scat Pack",
-      "rid": "Dodge_Charger_RT_Scat_Pack_2015",
-      "tags": [
-          "American Dream",
-          "Muscle Car",
-          "Old Guard"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -31241,39 +31209,6 @@
   {
       "class": "B",
       "rq": 64,
-      "onlyName": "Challenger SRT 392",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2015,
-      "tdid": "2854",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 187,
-      "acel": 4.2,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 77.19,
-      "weight": 1923,
-      "name": "Dodge Challenger SRT 392",
-      "rid": "Dodge_Challenger_SRT_392_2015",
-      "tags": [
-          "Muscle Car",
-          "American Frontier",
-          "Interstellar",
-          "Christmas Collection 22"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 64,
       "onlyName": "S4",
       "brand": "Audi",
       "country": "DE",
@@ -31956,36 +31891,6 @@
   {
       "class": "B",
       "rq": 63,
-      "onlyName": "300C",
-      "brand": "Chrysler",
-      "country": "US",
-      "year": 2013,
-      "tdid": "2910",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 155,
-      "acel": 5.6,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 65.88,
-      "weight": 1969,
-      "name": "Chrysler 300C",
-      "rid": "Chrysler_300C_2013",
-      "tags": [
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 63,
       "onlyName": "420i xDrive Coupe",
       "brand": "BMW",
       "year": 2020,
@@ -32641,6 +32546,69 @@
   },
   {
       "class": "B",
+      "rq": 63,
+      "onlyName": "Tuscan Convertible",
+      "brand": "TVR",
+      "country": "GB",
+      "year": 2005,
+      "tdid": "760",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 180,
+      "acel": 4.1,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 79.43,
+      "weight": 1100,
+      "name": "TVR Tuscan Convertible",
+      "rid": "TVR_Tuscan_Convertible_2005",
+      "tags": [
+          "Christmas Collection",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 62,
+      "onlyName": "Charger R/T Scat Pack",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2015,
+      "tdid": "1141",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 175,
+      "acel": 4.1,
+      "hand": 81,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 78.19,
+      "weight": 1971,
+      "name": "Dodge Charger R/T Scat Pack",
+      "rid": "Dodge_Charger_RT_Scat_Pack_2015",
+      "tags": [
+          "American Dream",
+          "Muscle Car",
+          "Old Guard"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 62,
       "onlyName": "5.0 V8",
       "brand": "Land Rover",
@@ -32794,69 +32762,6 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "Sierra All Terrain X",
-      "brand": "GMC",
-      "country": "US",
-      "year": 2016,
-      "tdid": "1157",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 99,
-      "acel": 6.6,
-      "hand": 67,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 15.61,
-      "weight": 2580,
-      "name": "GMC Sierra All Terrain X",
-      "rid": "GMC_Sierra_All_Terrain_X_2017",
-      "tags": [
-          "American Dream",
-          "Summer Games"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
-      "onlyName": "1500 Rebel",
-      "brand": "RAM",
-      "country": "US",
-      "year": 2019,
-      "tdid": "1079",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 110,
-      "acel": 6.5,
-      "hand": 67,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 43.39,
-      "weight": 2607,
-      "name": "Ram 1500 Rebel",
-      "rid": "Ram_1500_Rebel_2019",
-      "tags": [
-          "American Dream",
-          "Call of the Wild"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -33553,38 +33458,6 @@
   {
       "class": "B",
       "rq": 62,
-      "onlyName": "Insignia VXR Unlimited",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 2011,
-      "tdid": "1895",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 168,
-      "acel": 6.1,
-      "hand": 80,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 74.39,
-      "weight": 1810,
-      "name": "Vauxhall Insignia VXR Unlimited",
-      "rid": "Vauxhall_Insignia_VXR_Unlimited_2011",
-      "tags": [
-          "Great Exhibition",
-          "Old Guard",
-          "Year of the Rabbit"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 62,
       "onlyName": "Corvette ZR1",
       "brand": "Chevrolet",
       "country": "US",
@@ -33962,6 +33835,36 @@
   {
       "class": "B",
       "rq": 61,
+      "onlyName": "300C",
+      "brand": "Chrysler",
+      "country": "US",
+      "year": 2013,
+      "tdid": "2910",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 155,
+      "acel": 5.6,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 65.88,
+      "weight": 1969,
+      "name": "Chrysler 300C",
+      "rid": "Chrysler_300C_2013",
+      "tags": [
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 61,
       "onlyName": "iX xDrive40",
       "brand": "BMW",
       "year": 2021,
@@ -34083,40 +33986,6 @@
       "tags": [
           "Enter the Black Forest"
       ]
-  },
-  {
-      "class": "B",
-      "rq": 61,
-      "onlyName": "Challenger R/T Scat Pack",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2018,
-      "tdid": "2853",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 182,
-      "acel": 4.3,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 77.48,
-      "weight": 1920,
-      "name": "Dodge Challenger R/T Scat Pack",
-      "rid": "Dodge_Challenger_RT_Scat_Pack_2018",
-      "tags": [
-          "American Frontier",
-          "Muscle Car",
-          "Old Guard",
-          "Interstellar",
-          "Christmas Collection 22"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
   },
   {
       "class": "B",
@@ -34420,39 +34289,6 @@
       ],
       "bodyTypes": [
           "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 61,
-      "onlyName": "Challenger SRT8",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2009,
-      "tdid": "2856",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 174,
-      "acel": 4.6,
-      "hand": 78,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 71.97,
-      "weight": 1878,
-      "name": "Dodge Challenger SRT8",
-      "rid": "Dodge_Challenger_SRT8_2009",
-      "tags": [
-          "American Frontier",
-          "Christmas Collection",
-          "Year of the Ox",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -35206,6 +35042,72 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 60,
+      "onlyName": "Challenger SRT 392",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2015,
+      "tdid": "2854",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 187,
+      "acel": 4.2,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 77.19,
+      "weight": 1923,
+      "name": "Dodge Challenger SRT 392",
+      "rid": "Dodge_Challenger_SRT_392_2015",
+      "tags": [
+          "Muscle Car",
+          "American Frontier",
+          "Interstellar",
+          "Christmas Collection 22"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 60,
+      "onlyName": "Challenger SRT8",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2009,
+      "tdid": "2856",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 174,
+      "acel": 4.6,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 71.97,
+      "weight": 1878,
+      "name": "Dodge Challenger SRT8",
+      "rid": "Dodge_Challenger_SRT8_2009",
+      "tags": [
+          "American Frontier",
+          "Christmas Collection",
+          "Year of the Ox",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -36235,6 +36137,135 @@
   {
       "class": "B",
       "rq": 59,
+      "onlyName": "Sierra All Terrain X",
+      "brand": "GMC",
+      "country": "US",
+      "year": 2016,
+      "tdid": "1157",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 99,
+      "acel": 6.6,
+      "hand": 67,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 15.61,
+      "weight": 2580,
+      "name": "GMC Sierra All Terrain X",
+      "rid": "GMC_Sierra_All_Terrain_X_2017",
+      "tags": [
+          "American Dream",
+          "Summer Games"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "1500 Rebel",
+      "brand": "RAM",
+      "country": "US",
+      "year": 2019,
+      "tdid": "1079",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 110,
+      "acel": 6.5,
+      "hand": 67,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 43.39,
+      "weight": 2607,
+      "name": "Ram 1500 Rebel",
+      "rid": "Ram_1500_Rebel_2019",
+      "tags": [
+          "American Dream",
+          "Call of the Wild"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Insignia VXR Unlimited",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 2011,
+      "tdid": "1895",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 168,
+      "acel": 6.1,
+      "hand": 80,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 74.39,
+      "weight": 1810,
+      "name": "Vauxhall Insignia VXR Unlimited",
+      "rid": "Vauxhall_Insignia_VXR_Unlimited_2011",
+      "tags": [
+          "Great Exhibition",
+          "Old Guard",
+          "Year of the Rabbit"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Challenger R/T Scat Pack",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2018,
+      "tdid": "2853",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 182,
+      "acel": 4.3,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 77.48,
+      "weight": 1920,
+      "name": "Dodge Challenger R/T Scat Pack",
+      "rid": "Dodge_Challenger_RT_Scat_Pack_2018",
+      "tags": [
+          "American Frontier",
+          "Muscle Car",
+          "Old Guard",
+          "Interstellar",
+          "Christmas Collection 22"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
       "onlyName": "AMG SLC 43",
       "brand": "Mercedes-Benz",
       "country": "DE",
@@ -36294,38 +36325,6 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Mid"
-  },
-  {
-      "class": "B",
-      "rq": 59,
-      "onlyName": "Charger SRT8",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2012,
-      "tdid": "2864",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 175,
-      "acel": 4.3,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 73.34,
-      "weight": 1980,
-      "name": "Dodge Charger SRT8",
-      "rid": "Dodge_Charger_SRT8_2012",
-      "tags": [
-          "Muscle Car",
-          "American Frontier",
-          "5th Anniversary"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
   },
   {
       "class": "B",
@@ -36665,37 +36664,6 @@
   {
       "class": "B",
       "rq": 59,
-      "onlyName": "Tuscan Convertible",
-      "brand": "TVR",
-      "country": "GB",
-      "year": 2005,
-      "tdid": "760",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 180,
-      "acel": 4.1,
-      "hand": 81,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 79.43,
-      "weight": 1100,
-      "name": "TVR Tuscan Convertible",
-      "rid": "TVR_Tuscan_Convertible_2005",
-      "tags": [
-          "Christmas Collection",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 59,
       "onlyName": "Viper RT/10",
       "brand": "Dodge",
       "country": "US",
@@ -36941,6 +36909,101 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Cerbera Speed Six",
+      "brand": "TVR",
+      "country": "GB",
+      "year": 1998,
+      "tdid": "761",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 160,
+      "acel": 4.4,
+      "hand": 82,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 75.86,
+      "weight": 1130,
+      "name": "TVR Cerbera Speed Six",
+      "rid": "TVR_Cerbera_Speed_Six_1998",
+      "tags": [
+          "Ride of the Valkyries",
+          "Originals",
+          "The Great Outdoors"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 59,
+      "onlyName": "Chimaera 5.0",
+      "brand": "TVR",
+      "country": "GB",
+      "year": 1993,
+      "tdid": "762",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 167,
+      "acel": 4.1,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 64.06,
+      "weight": 1060,
+      "name": "TVR Chimaera 5.0",
+      "rid": "TVR_Chimaera_5.0_1993",
+      "tags": [
+          "Ride of the Valkyries",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 58,
+      "onlyName": "Charger SRT8",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2012,
+      "tdid": "2864",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 175,
+      "acel": 4.3,
+      "hand": 80,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 73.34,
+      "weight": 1980,
+      "name": "Dodge Charger SRT8",
+      "rid": "Dodge_Charger_SRT8_2012",
+      "tags": [
+          "Muscle Car",
+          "American Frontier",
+          "5th Anniversary"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -37366,37 +37429,6 @@
       "rid": "Maserati_Quattroporte_1994",
       "tags": [
           "Italian Renaissance"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 58,
-      "onlyName": "300C Hemi",
-      "brand": "Chrysler",
-      "country": "US",
-      "year": 2005,
-      "tdid": "2909",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 130,
-      "acel": 5.6,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 68.29,
-      "weight": 1878,
-      "name": "Chrysler 300C Hemi",
-      "rid": "Chrysler_300C_Hemi_2005",
-      "tags": [
-          "American Frontier",
-          "5th Anniversary"
       ],
       "bodyTypes": [
           "Saloon"
@@ -38304,38 +38336,6 @@
   {
       "class": "B",
       "rq": 57,
-      "onlyName": "Powerbox",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2001,
-      "tdid": "2884",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 120,
-      "acel": 6.9,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 52.75,
-      "weight": 1814,
-      "name": "Dodge Powerbox",
-      "rid": "Dodge_Powerbox_2001",
-      "tags": [
-          "American Frontier",
-          "Concept",
-          "Summer Games"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Hybrid",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 57,
       "onlyName": "Murano",
       "brand": "Nissan",
       "country": "JP",
@@ -39229,6 +39229,100 @@
   },
   {
       "class": "B",
+      "rq": 57,
+      "onlyName": "Charger SRT-8",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2006,
+      "tdid": "1060",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 165,
+      "acel": 5,
+      "hand": 79,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 72.46,
+      "weight": 1887,
+      "name": "Dodge Charger SRT-8",
+      "rid": "Dodge_Charger_SRT-8_2006",
+      "tags": [
+          "American Dream",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 56,
+      "onlyName": "300C Hemi",
+      "brand": "Chrysler",
+      "country": "US",
+      "year": 2005,
+      "tdid": "2909",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 130,
+      "acel": 5.6,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 68.29,
+      "weight": 1878,
+      "name": "Chrysler 300C Hemi",
+      "rid": "Chrysler_300C_Hemi_2005",
+      "tags": [
+          "American Frontier",
+          "5th Anniversary"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 56,
+      "onlyName": "Powerbox",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2001,
+      "tdid": "2884",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 120,
+      "acel": 6.9,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 52.75,
+      "weight": 1814,
+      "name": "Dodge Powerbox",
+      "rid": "Dodge_Powerbox_2001",
+      "tags": [
+          "American Frontier",
+          "Concept",
+          "Summer Games"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Hybrid",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 56,
       "onlyName": "X5",
       "brand": "BMW",
@@ -39415,36 +39509,6 @@
   {
       "class": "B",
       "rq": 56,
-      "onlyName": "X350d",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3271",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "DE",
-      "topSpeed": 127,
-      "acel": 7.5,
-      "hand": 72,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 50,
-      "weight": 2213,
-      "name": "Mercedes-Benz X350d",
-      "rid": "Mercedes-Benz_X350d_2018",
-      "tags": [
-          "World Expo"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 56,
       "onlyName": "335i",
       "brand": "BMW",
       "country": "DE",
@@ -39566,40 +39630,6 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 56,
-      "onlyName": "Charger Daytona",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2017,
-      "tdid": "1059",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 155,
-      "acel": 5.1,
-      "hand": 78,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 71.21,
-      "weight": 1937,
-      "name": "Dodge Charger Daytona",
-      "rid": "Dodge_Charger_Daytona_2017",
-      "tags": [
-          "American Dream",
-          "Famous Tracks",
-          "Muscle Car",
-          "Rest of the World",
-          "Two Tone"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -39942,37 +39972,6 @@
       ],
       "fuel": "Petrol",
       "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 56,
-      "onlyName": "Charger SRT-8",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2006,
-      "tdid": "1060",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 165,
-      "acel": 5,
-      "hand": 79,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 72.46,
-      "weight": 1887,
-      "name": "Dodge Charger SRT-8",
-      "rid": "Dodge_Charger_SRT-8_2006",
-      "tags": [
-          "American Dream",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -41156,6 +41155,72 @@
   },
   {
       "class": "B",
+      "rq": 55,
+      "onlyName": "Magnum SRT-8",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2006,
+      "tdid": "1061",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 165,
+      "acel": 5.1,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 77.27,
+      "weight": 1980,
+      "name": "Dodge Magnum SRT-8",
+      "rid": "Dodge_Magnum_SRT-8_2006",
+      "tags": [
+          "American Dream",
+          "Silver Screen",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 54,
+      "onlyName": "Charger Daytona",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2017,
+      "tdid": "1059",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 155,
+      "acel": 5.1,
+      "hand": 78,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 71.21,
+      "weight": 1937,
+      "name": "Dodge Charger Daytona",
+      "rid": "Dodge_Charger_Daytona_2017",
+      "tags": [
+          "American Dream",
+          "Famous Tracks",
+          "Muscle Car",
+          "Rest of the World",
+          "Two Tone"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
       "rq": 54,
       "onlyName": "P400e PHEV",
       "brand": "Land Rover",
@@ -41402,38 +41467,6 @@
   {
       "class": "B",
       "rq": 54,
-      "onlyName": "Magnum SRT-8",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2006,
-      "tdid": "1061",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 165,
-      "acel": 5.1,
-      "hand": 78,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 77.27,
-      "weight": 1980,
-      "name": "Dodge Magnum SRT-8",
-      "rid": "Dodge_Magnum_SRT-8_2006",
-      "tags": [
-          "American Dream",
-          "Silver Screen",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 54,
       "onlyName": "SRT-4",
       "brand": "Dodge",
       "country": "US",
@@ -41614,38 +41647,6 @@
       "fuel": "Hybrid",
       "seats": "5",
       "engine": "Mixed"
-  },
-  {
-      "class": "B",
-      "rq": 54,
-      "onlyName": "Cerbera Speed Six",
-      "brand": "TVR",
-      "country": "GB",
-      "year": 1998,
-      "tdid": "761",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 160,
-      "acel": 4.4,
-      "hand": 82,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 75.86,
-      "weight": 1130,
-      "name": "TVR Cerbera Speed Six",
-      "rid": "TVR_Cerbera_Speed_Six_1998",
-      "tags": [
-          "Ride of the Valkyries",
-          "Originals",
-          "The Great Outdoors"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
-      "engine": "Front"
   },
   {
       "class": "B",
@@ -41963,6 +41964,36 @@
   {
       "class": "B",
       "rq": 53,
+      "onlyName": "X350d",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3271",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "country": "DE",
+      "topSpeed": 127,
+      "acel": 7.5,
+      "hand": 72,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 50,
+      "weight": 2213,
+      "name": "Mercedes-Benz X350d",
+      "rid": "Mercedes-Benz_X350d_2018",
+      "tags": [
+          "World Expo"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 53,
       "onlyName": "Abarth 695 Biposto R",
       "brand": "Fiat",
       "year": 2015,
@@ -42015,36 +42046,6 @@
           "Rest of the World",
           "Originals",
           "Christmas Collection 22"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 53,
-      "onlyName": "G 55 AMG",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2006,
-      "tdid": "420",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 131,
-      "acel": 5.3,
-      "hand": 64,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": null,
-      "weight": 2450,
-      "name": "Mercedes-Benz G 55 AMG",
-      "rid": "Mercedes-Benz_AMG_G_55_2006",
-      "tags": [
-          "Originals"
       ],
       "bodyTypes": [
           "SUV"
@@ -42399,37 +42400,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "B",
-      "rq": 53,
-      "onlyName": "Chimaera 5.0",
-      "brand": "TVR",
-      "country": "GB",
-      "year": 1993,
-      "tdid": "762",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 167,
-      "acel": 4.1,
-      "hand": 80,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 64.06,
-      "weight": 1060,
-      "name": "TVR Chimaera 5.0",
-      "rid": "TVR_Chimaera_5.0_1993",
-      "tags": [
-          "Ride of the Valkyries",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -44449,6 +44419,36 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "B",
+      "rq": 51,
+      "onlyName": "G 55 AMG",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2006,
+      "tdid": "420",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 131,
+      "acel": 5.3,
+      "hand": 64,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": null,
+      "weight": 2450,
+      "name": "Mercedes-Benz G 55 AMG",
+      "rid": "Mercedes-Benz_AMG_G_55_2006",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
       "engine": "Front"
   },
   {
@@ -47746,37 +47746,6 @@
   {
       "class": "C",
       "rq": 49,
-      "onlyName": "Thunderbird 3.9l V8",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2002,
-      "tdid": "230",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 145,
-      "acel": 7,
-      "hand": 72,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 68.87,
-      "weight": 1699,
-      "name": "Ford Thunderbird 3.9l V8",
-      "rid": "Ford_Thunderbird_3.9l_V8_2002",
-      "tags": [
-          "Ride of the Valkyries",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 49,
       "onlyName": "Legacy",
       "brand": "Subaru",
       "country": "JP",
@@ -48206,39 +48175,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 49,
-      "onlyName": "GNX",
-      "brand": "Buick",
-      "country": "US",
-      "year": 1987,
-      "tdid": "87",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 124,
-      "acel": 4.9,
-      "hand": 74,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 67.77,
-      "weight": 1576,
-      "name": "Buick GNX",
-      "rid": "Buick_GNX_1987",
-      "tags": [
-          "Muscle Car",
-          "Originals",
-          "Year of the Rabbit"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -50373,37 +50309,6 @@
   {
       "class": "C",
       "rq": 47,
-      "onlyName": "Frontier Attack (D23)",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 2017,
-      "tdid": "3037",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 114,
-      "acel": 10.8,
-      "hand": 70,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 41.88,
-      "weight": 2038,
-      "name": "Nissan Frontier Attack (D23)",
-      "rid": "Nissan_Frontier_Attack_(D23)_2017",
-      "tags": [
-          "Japan Pro Tour",
-          "Concept"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 47,
       "onlyName": "Forester",
       "brand": "Subaru",
       "country": "JP",
@@ -51487,37 +51392,6 @@
   {
       "class": "C",
       "rq": 47,
-      "onlyName": "Charger R/T",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2006,
-      "tdid": "2862",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 130,
-      "acel": 5.3,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 67.55,
-      "weight": 1828,
-      "name": "Dodge Charger R/T",
-      "rid": "Dodge_Charger_RT_2006",
-      "tags": [
-          "Muscle Car",
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 47,
       "onlyName": "Talon TSi AWD",
       "brand": "Eagle",
       "year": 1996,
@@ -51899,6 +51773,68 @@
   {
       "class": "C",
       "rq": 46,
+      "onlyName": "Thunderbird 3.9l V8",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2002,
+      "tdid": "230",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 145,
+      "acel": 7,
+      "hand": 72,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 68.87,
+      "weight": 1699,
+      "name": "Ford Thunderbird 3.9l V8",
+      "rid": "Ford_Thunderbird_3.9l_V8_2002",
+      "tags": [
+          "Ride of the Valkyries",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
+      "onlyName": "Charger R/T",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2006,
+      "tdid": "2862",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 130,
+      "acel": 5.3,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 67.55,
+      "weight": 1828,
+      "name": "Dodge Charger R/T",
+      "rid": "Dodge_Charger_RT_2006",
+      "tags": [
+          "Muscle Car",
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 46,
       "onlyName": "H3T",
       "brand": "Hummer",
       "country": "US",
@@ -51989,36 +51925,6 @@
           "SUV"
       ],
       "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 46,
-      "onlyName": "Alaskan",
-      "brand": "Renault",
-      "country": "FR",
-      "year": 2016,
-      "tdid": "1242",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 112,
-      "acel": 9.7,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 46.84,
-      "weight": 1950,
-      "name": "Renault Alaskan",
-      "rid": "Renault_Alaskan_2015",
-      "tags": [
-          "French Renaissance"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -52236,70 +52142,6 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 46,
-      "onlyName": "Super 8 HEMI",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2001,
-      "tdid": "2891",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 154,
-      "acel": 5.7,
-      "hand": 74,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 69.1,
-      "weight": 1633,
-      "name": "Dodge Super 8 HEMI",
-      "rid": "Dodge_Super_8_HEMI_2001",
-      "tags": [
-          "Concept",
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 46,
-      "onlyName": "SVT F-150 Lightning",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2001,
-      "tdid": "2818",
-      "abs": true,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 142,
-      "acel": 5.2,
-      "hand": 73,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 68.42,
-      "weight": 2137,
-      "name": "Ford SVT F-150 Lightning",
-      "rid": "Ford_F-150_Lightning_2001",
-      "tags": [
-          "American Frontier",
-          "Christmas Collection",
-          "Wild Ride",
-          "The Great Outdoors"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "3",
       "engine": "Front"
   },
   {
@@ -52572,36 +52414,6 @@
       ],
       "bodyTypes": [
           "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 46,
-      "onlyName": "Silverado SS",
-      "brand": "Chevrolet",
-      "country": "US",
-      "year": 2006,
-      "tdid": "1012",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 110,
-      "acel": 6.3,
-      "hand": 68,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 42.98,
-      "weight": 1690,
-      "name": "Chevrolet Silverado SS",
-      "rid": "Chevrolet_Silverado_SS_2006",
-      "tags": [
-          "American Dream"
-      ],
-      "bodyTypes": [
-          "Pickup"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -53449,6 +53261,133 @@
   {
       "class": "C",
       "rq": 45,
+      "onlyName": "GNX",
+      "brand": "Buick",
+      "country": "US",
+      "year": 1987,
+      "tdid": "87",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 124,
+      "acel": 4.9,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 67.77,
+      "weight": 1576,
+      "name": "Buick GNX",
+      "rid": "Buick_GNX_1987",
+      "tags": [
+          "Muscle Car",
+          "Originals",
+          "Year of the Rabbit"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "Frontier Attack (D23)",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 2017,
+      "tdid": "3037",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 114,
+      "acel": 10.8,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 41.88,
+      "weight": 2038,
+      "name": "Nissan Frontier Attack (D23)",
+      "rid": "Nissan_Frontier_Attack_(D23)_2017",
+      "tags": [
+          "Japan Pro Tour",
+          "Concept"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "Alaskan",
+      "brand": "Renault",
+      "country": "FR",
+      "year": 2016,
+      "tdid": "1242",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 112,
+      "acel": 9.7,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 46.84,
+      "weight": 1950,
+      "name": "Renault Alaskan",
+      "rid": "Renault_Alaskan_2015",
+      "tags": [
+          "French Renaissance"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
+      "onlyName": "SVT F-150 Lightning",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2001,
+      "tdid": "2818",
+      "abs": true,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 142,
+      "acel": 5.2,
+      "hand": 73,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 68.42,
+      "weight": 2137,
+      "name": "Ford SVT F-150 Lightning",
+      "rid": "Ford_F-150_Lightning_2001",
+      "tags": [
+          "American Frontier",
+          "Christmas Collection",
+          "Wild Ride",
+          "The Great Outdoors"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "3",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 45,
       "onlyName": "Enclave",
       "brand": "Buick",
       "country": "US",
@@ -53506,36 +53445,6 @@
       ],
       "fuel": "Diesel",
       "seats": "7",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "Silverado",
-      "brand": "Chevrolet",
-      "country": "US",
-      "year": 2016,
-      "tdid": "151",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 105,
-      "acel": 8.8,
-      "hand": 67,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 42.55,
-      "weight": 2422,
-      "name": "Chevrolet Silverado",
-      "rid": "Chevrolet_Silverado_2016",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -53975,38 +53884,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 45,
-      "onlyName": "SSR 6.0L",
-      "brand": "Chevrolet",
-      "country": "US",
-      "year": 2006,
-      "tdid": "1101",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 131,
-      "acel": 5.5,
-      "hand": 71,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 64.63,
-      "weight": 2159,
-      "name": "Chevrolet SSR 6.0L",
-      "rid": "Chevrolet_SSR_6.0L_2007",
-      "tags": [
-          "American Dream",
-          "The Horror Show",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -55442,6 +55319,37 @@
   {
       "class": "C",
       "rq": 44,
+      "onlyName": "Super 8 HEMI",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2001,
+      "tdid": "2891",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 154,
+      "acel": 5.7,
+      "hand": 74,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 69.1,
+      "weight": 1633,
+      "name": "Dodge Super 8 HEMI",
+      "rid": "Dodge_Super_8_HEMI_2001",
+      "tags": [
+          "Concept",
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 44,
       "onlyName": "C-Crosser 2.2 L HDi",
       "brand": "Citroen",
       "country": "FR",
@@ -55620,37 +55528,6 @@
           "SUV"
       ],
       "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 44,
-      "onlyName": "Ranger Wildtrak",
-      "brand": "Ford",
-      "year": 2017,
-      "tdid": "3297",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "country": "GB",
-      "topSpeed": 109,
-      "acel": 10.1,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 46.13,
-      "weight": 2246,
-      "name": "Ford Ranger Wildtrak",
-      "rid": "Ford_Ranger_Wildtrak_2017",
-      "tags": [
-          "World Expo",
-          "As Seen on YT"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -55994,37 +55871,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 44,
-      "onlyName": "F-150 Tremor FX2",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2014,
-      "tdid": "2827",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 98,
-      "acel": 5.9,
-      "hand": 67,
-      "drive": "RWD",
-      "tyres": "All-surface",
-      "mra": 20.72,
-      "weight": 2324,
-      "name": "Ford F-150 Tremor FX2",
-      "rid": "Ford_F-150_Tremor_FX2_2014",
-      "tags": [
-          "American Frontier",
-          "5th Anniversary"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "3",
       "engine": "Front"
   },
   {
@@ -57249,6 +57095,36 @@
   {
       "class": "C",
       "rq": 43,
+      "onlyName": "Silverado",
+      "brand": "Chevrolet",
+      "country": "US",
+      "year": 2016,
+      "tdid": "151",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 105,
+      "acel": 8.8,
+      "hand": 67,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 42.55,
+      "weight": 2422,
+      "name": "Chevrolet Silverado",
+      "rid": "Chevrolet_Silverado_2016",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 43,
       "onlyName": "Outlander PHEV",
       "brand": "Mitsubishi",
       "country": "JP",
@@ -57370,37 +57246,6 @@
       ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 43,
-      "onlyName": "F-250 Super Chief",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2006,
-      "tdid": "2822",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 110,
-      "acel": 8.9,
-      "hand": 65,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 45.45,
-      "weight": 2946,
-      "name": "Ford F-250 Super Chief",
-      "rid": "Ford_F-250_Super_Chief_2006",
-      "tags": [
-          "Concept",
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Misc",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -57621,36 +57466,6 @@
           "Saloon"
       ],
       "fuel": "Misc",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 43,
-      "onlyName": "Magnum R/T",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2005,
-      "tdid": "2881",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 130,
-      "acel": 5.8,
-      "hand": 76,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 62.7,
-      "weight": 1896,
-      "name": "Dodge Magnum R/T",
-      "rid": "Dodge_Magnum_RT_2005",
-      "tags": [
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
   },
@@ -58716,63 +58531,93 @@
   },
   {
       "class": "C",
-      "rq": 43,
-      "onlyName": "G40 Cup",
-      "brand": "Ginetta",
-      "year": 2010,
-      "tdid": "3890",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "country": "GB",
-      "topSpeed": 125,
-      "acel": 7,
-      "hand": 90,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 53.52,
-      "weight": 840,
-      "name": "Ginetta G40 Cup",
-      "rid": "Ginetta_G40_Cup_2010",
-      "prize": false,
-      "tags": [
-          "Loch to Loch",
-          "Motorsport"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
       "rq": 42,
-      "onlyName": "Navara",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 2005,
-      "tdid": "515",
+      "onlyName": "Ranger Wildtrak",
+      "brand": "Ford",
+      "year": 2017,
+      "tdid": "3297",
       "abs": true,
       "tcs": true,
       "clearance": "High",
-      "topSpeed": 106,
-      "acel": 10.9,
-      "hand": 70,
+      "country": "GB",
+      "topSpeed": 109,
+      "acel": 10.1,
+      "hand": 71,
       "drive": "4WD",
       "tyres": "All-surface",
-      "mra": 41.6,
-      "weight": 2050,
-      "name": "Nissan Navara",
-      "rid": "Nissan_Navara_2005",
+      "mra": 46.13,
+      "weight": 2246,
+      "name": "Ford Ranger Wildtrak",
+      "rid": "Ford_Ranger_Wildtrak_2017",
       "tags": [
-          "Originals"
+          "World Expo",
+          "As Seen on YT"
       ],
       "bodyTypes": [
           "Pickup"
       ],
       "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 42,
+      "onlyName": "F-150 Tremor FX2",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2014,
+      "tdid": "2827",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 98,
+      "acel": 5.9,
+      "hand": 67,
+      "drive": "RWD",
+      "tyres": "All-surface",
+      "mra": 20.72,
+      "weight": 2324,
+      "name": "Ford F-150 Tremor FX2",
+      "rid": "Ford_F-150_Tremor_FX2_2014",
+      "tags": [
+          "American Frontier",
+          "5th Anniversary"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "3",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 42,
+      "onlyName": "Magnum R/T",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2005,
+      "tdid": "2881",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 130,
+      "acel": 5.8,
+      "hand": 76,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 62.7,
+      "weight": 1896,
+      "name": "Dodge Magnum R/T",
+      "rid": "Dodge_Magnum_RT_2005",
+      "tags": [
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
       "seats": "5",
       "engine": "Front"
   },
@@ -59968,6 +59813,69 @@
   {
       "class": "C",
       "rq": 41,
+      "onlyName": "F-250 Super Chief",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2006,
+      "tdid": "2822",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 110,
+      "acel": 8.9,
+      "hand": 65,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 45.45,
+      "weight": 2946,
+      "name": "Ford F-250 Super Chief",
+      "rid": "Ford_F-250_Super_Chief_2006",
+      "tags": [
+          "Concept",
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Misc",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 41,
+      "onlyName": "G40 Cup",
+      "brand": "Ginetta",
+      "year": 2010,
+      "tdid": "3890",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "country": "GB",
+      "topSpeed": 125,
+      "acel": 7,
+      "hand": 90,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 53.52,
+      "weight": 840,
+      "name": "Ginetta G40 Cup",
+      "rid": "Ginetta_G40_Cup_2010",
+      "prize": false,
+      "tags": [
+          "Loch to Loch",
+          "Motorsport"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 41,
       "onlyName": "K5 Blazer 5.7L",
       "brand": "Chevrolet",
       "country": "US",
@@ -60055,96 +59963,6 @@
           "SUV"
       ],
       "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 41,
-      "onlyName": "NP300 Navara",
-      "brand": "Nissan",
-      "country": "JP",
-      "year": 2017,
-      "tdid": "517",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 107,
-      "acel": 11.4,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 50.4,
-      "weight": 1961,
-      "name": "Nissan NP300 Navara",
-      "rid": "Nissan_NP300_Navara_2017",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
-      "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 41,
-      "onlyName": "Fullback Cross",
-      "brand": "Fiat",
-      "country": "IT",
-      "year": 2017,
-      "tdid": "1497",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 110,
-      "acel": 11.2,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 51.66,
-      "weight": 1860,
-      "name": "Fiat Fullback Cross",
-      "rid": "Fiat_Fullback_Cross_2017",
-      "tags": [
-          "Italian Renaissance"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "C",
-      "rq": 41,
-      "onlyName": "Ranger",
-      "brand": "Ford",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "242",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 108,
-      "acel": 11.2,
-      "hand": 71,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 51.3,
-      "weight": 2006,
-      "name": "Ford Ranger",
-      "rid": "Ford_Ranger_2016b",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -61311,6 +61129,188 @@
           "Saloon"
       ],
       "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Silverado SS",
+      "brand": "Chevrolet",
+      "country": "US",
+      "year": 2006,
+      "tdid": "1012",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 110,
+      "acel": 6.3,
+      "hand": 68,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 42.98,
+      "weight": 1690,
+      "name": "Chevrolet Silverado SS",
+      "rid": "Chevrolet_Silverado_SS_2006",
+      "tags": [
+          "American Dream"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "SSR 6.0L",
+      "brand": "Chevrolet",
+      "country": "US",
+      "year": 2006,
+      "tdid": "1101",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 131,
+      "acel": 5.5,
+      "hand": 71,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 64.63,
+      "weight": 2159,
+      "name": "Chevrolet SSR 6.0L",
+      "rid": "Chevrolet_SSR_6.0L_2007",
+      "tags": [
+          "American Dream",
+          "The Horror Show",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Navara",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 2005,
+      "tdid": "515",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 106,
+      "acel": 10.9,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 41.6,
+      "weight": 2050,
+      "name": "Nissan Navara",
+      "rid": "Nissan_Navara_2005",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "NP300 Navara",
+      "brand": "Nissan",
+      "country": "JP",
+      "year": 2017,
+      "tdid": "517",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 107,
+      "acel": 11.4,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 50.4,
+      "weight": 1961,
+      "name": "Nissan NP300 Navara",
+      "rid": "Nissan_NP300_Navara_2017",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Fullback Cross",
+      "brand": "Fiat",
+      "country": "IT",
+      "year": 2017,
+      "tdid": "1497",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 110,
+      "acel": 11.2,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 51.66,
+      "weight": 1860,
+      "name": "Fiat Fullback Cross",
+      "rid": "Fiat_Fullback_Cross_2017",
+      "tags": [
+          "Italian Renaissance"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "C",
+      "rq": 40,
+      "onlyName": "Ranger",
+      "brand": "Ford",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "242",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 108,
+      "acel": 11.2,
+      "hand": 71,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 51.3,
+      "weight": 2006,
+      "name": "Ford Ranger",
+      "rid": "Ford_Ranger_2016b",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -64054,6 +64054,37 @@
   },
   {
       "class": "D",
+      "rq": 39,
+      "onlyName": "Prowler",
+      "brand": "Chrysler",
+      "country": "US",
+      "year": 2001,
+      "tdid": "1039",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 151,
+      "acel": 5.7,
+      "hand": 75,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 61.96,
+      "weight": 1287,
+      "name": "Chrysler Prowler",
+      "rid": "Chrysler_Prowler_2001",
+      "tags": [
+          "American Dream",
+          "The Horror Show"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
       "rq": 38,
       "onlyName": "Rendezvous",
       "brand": "Buick",
@@ -65323,37 +65354,6 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 38,
-      "onlyName": "Kuga",
-      "brand": "Ford",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "237",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 112,
-      "acel": 11.9,
-      "hand": 70,
-      "drive": "4WD",
-      "tyres": "All-surface",
-      "mra": 54.26,
-      "weight": 1504,
-      "name": "Ford Kuga",
-      "rid": "Ford_Kuga_2016",
-      "tags": [
-          "Originals",
-          "As Seen on YT"
-      ],
-      "bodyTypes": [
-          "SUV"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {
@@ -66907,36 +66907,6 @@
       ],
       "fuel": "Diesel",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 36,
-      "onlyName": "F-150",
-      "brand": "Ford",
-      "country": "US",
-      "year": 2007,
-      "tdid": "2823",
-      "abs": true,
-      "tcs": false,
-      "clearance": "High",
-      "topSpeed": 110,
-      "acel": 9,
-      "hand": 66,
-      "drive": "RWD",
-      "tyres": "All-surface",
-      "mra": 40.04,
-      "weight": 2158,
-      "name": "Ford F-150",
-      "rid": "Ford_F-150_2007",
-      "tags": [
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "6",
       "engine": "Front"
   },
   {
@@ -69890,6 +69860,36 @@
       "tags": [
           "Amalfi Coast Cruising"
       ]
+  },
+  {
+      "class": "D",
+      "rq": 34,
+      "onlyName": "F-150",
+      "brand": "Ford",
+      "country": "US",
+      "year": 2007,
+      "tdid": "2823",
+      "abs": true,
+      "tcs": false,
+      "clearance": "High",
+      "topSpeed": 110,
+      "acel": 9,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "All-surface",
+      "mra": 40.04,
+      "weight": 2158,
+      "name": "Ford F-150",
+      "rid": "Ford_F-150_2007",
+      "tags": [
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "6",
+      "engine": "Front"
   },
   {
       "class": "D",
@@ -74880,6 +74880,37 @@
   {
       "class": "D",
       "rq": 31,
+      "onlyName": "Kuga",
+      "brand": "Ford",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "237",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 112,
+      "acel": 11.9,
+      "hand": 70,
+      "drive": "4WD",
+      "tyres": "All-surface",
+      "mra": 54.26,
+      "weight": 1504,
+      "name": "Ford Kuga",
+      "rid": "Ford_Kuga_2016",
+      "tags": [
+          "Originals",
+          "As Seen on YT"
+      ],
+      "bodyTypes": [
+          "SUV"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 31,
       "onlyName": "Jimny",
       "brand": "Suzuki",
       "country": "JP",
@@ -76037,37 +76068,6 @@
   {
       "class": "D",
       "rq": 31,
-      "onlyName": "SSR",
-      "brand": "Chevrolet",
-      "country": "US",
-      "year": 2003,
-      "tdid": "1017",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Mid",
-      "topSpeed": 125,
-      "acel": 7.7,
-      "hand": 71,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 69.2,
-      "weight": 2159,
-      "name": "Chevrolet SSR",
-      "rid": "Chevrolet_SSR_2003",
-      "tags": [
-          "American Dream",
-          "The Horror Show"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 31,
       "onlyName": "Achieva SCX",
       "brand": "Oldsmobile",
       "year": 1993,
@@ -76220,6 +76220,37 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "D",
+      "rq": 30,
+      "onlyName": "SSR",
+      "brand": "Chevrolet",
+      "country": "US",
+      "year": 2003,
+      "tdid": "1017",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Mid",
+      "topSpeed": 125,
+      "acel": 7.7,
+      "hand": 71,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 69.2,
+      "weight": 2159,
+      "name": "Chevrolet SSR",
+      "rid": "Chevrolet_SSR_2003",
+      "tags": [
+          "American Dream",
+          "The Horror Show"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
       "engine": "Front"
   },
   {
@@ -76439,37 +76470,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "D",
-      "rq": 30,
-      "onlyName": "Prowler",
-      "brand": "Chrysler",
-      "country": "US",
-      "year": 2001,
-      "tdid": "1039",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 151,
-      "acel": 5.7,
-      "hand": 75,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 61.96,
-      "weight": 1287,
-      "name": "Chrysler Prowler",
-      "rid": "Chrysler_Prowler_2001",
-      "tags": [
-          "American Dream",
-          "The Horror Show"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
       "engine": "Front"
   },
   {
@@ -80158,36 +80158,6 @@
   {
       "class": "E",
       "rq": 28,
-      "onlyName": "Crown Victoria",
-      "brand": "Ford",
-      "country": "US",
-      "year": 1992,
-      "tdid": "2840",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 125,
-      "acel": 9.3,
-      "hand": 70,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 50.82,
-      "weight": 1700,
-      "name": "Ford Crown Victoria",
-      "rid": "Ford_Crown_Victoria_1992",
-      "tags": [
-          "American Frontier"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "6",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 28,
       "onlyName": "Granite",
       "brand": "GMC",
       "country": "US",
@@ -80834,6 +80804,36 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 27,
+      "onlyName": "Crown Victoria",
+      "brand": "Ford",
+      "country": "US",
+      "year": 1992,
+      "tdid": "2840",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 125,
+      "acel": 9.3,
+      "hand": 70,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 50.82,
+      "weight": 1700,
+      "name": "Ford Crown Victoria",
+      "rid": "Ford_Crown_Victoria_1992",
+      "tags": [
+          "American Frontier"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "6",
       "engine": "Front"
   },
   {
@@ -83009,32 +83009,33 @@
   },
   {
       "class": "E",
-      "rq": 25,
-      "onlyName": "Ranger",
-      "brand": "Ford",
-      "country": "GB",
-      "year": 2016,
-      "tdid": "259",
-      "abs": true,
-      "tcs": true,
-      "clearance": "High",
-      "topSpeed": 109,
-      "acel": 11.2,
-      "hand": 71,
-      "drive": "RWD",
+      "rq": 26,
+      "onlyName": "LeBaron GTC",
+      "brand": "Chrysler",
+      "country": "US",
+      "year": 1988,
+      "tdid": "2930",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 115,
+      "acel": 8.8,
+      "hand": 69,
+      "drive": "FWD",
       "tyres": "Standard",
-      "mra": 52.08,
-      "weight": 2177,
-      "name": "Ford Ranger",
-      "rid": "Ford_Ranger_2016a",
+      "mra": 90.72,
+      "weight": 1348,
+      "name": "Chrysler LeBaron GTC",
+      "rid": "Chrysler_LeBaron_GTC_1988",
       "tags": [
-          "Originals"
+          "American Frontier",
+          "Old Guard"
       ],
       "bodyTypes": [
-          "Pickup"
+          "Coupe"
       ],
-      "fuel": "Diesel",
-      "seats": "5",
+      "fuel": "Petrol",
+      "seats": "4",
       "engine": "Front"
   },
   {
@@ -83501,38 +83502,6 @@
   {
       "class": "E",
       "rq": 25,
-      "onlyName": "Slingshot",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2004,
-      "tdid": "2889",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 115,
-      "acel": 10,
-      "hand": 77,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 55.23,
-      "weight": 815,
-      "name": "Dodge Slingshot",
-      "rid": "Dodge_Slingshot_2004",
-      "tags": [
-          "Concept",
-          "American Frontier",
-          "Summer Games"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Rear"
-  },
-  {
-      "class": "E",
-      "rq": 25,
       "onlyName": "Metro Turbo",
       "brand": "MG",
       "country": "GB",
@@ -83928,6 +83897,36 @@
           "Hatchback"
       ],
       "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "E",
+      "rq": 24,
+      "onlyName": "Ranger",
+      "brand": "Ford",
+      "country": "GB",
+      "year": 2016,
+      "tdid": "259",
+      "abs": true,
+      "tcs": true,
+      "clearance": "High",
+      "topSpeed": 109,
+      "acel": 11.2,
+      "hand": 71,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 52.08,
+      "weight": 2177,
+      "name": "Ford Ranger",
+      "rid": "Ford_Ranger_2016a",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Diesel",
       "seats": "5",
       "engine": "Front"
   },
@@ -86851,6 +86850,70 @@
   },
   {
       "class": "E",
+      "rq": 23,
+      "onlyName": "Brabus Roadster",
+      "brand": "Smart",
+      "country": "DE",
+      "year": 2005,
+      "tdid": "695",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 118,
+      "acel": 9.3,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 63.46,
+      "weight": 820,
+      "name": "Smart Brabus Roadster",
+      "rid": "Smart_Brabus_Roadster_2005",
+      "tags": [
+          "Summer Games",
+          "Two Tone",
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "E",
+      "rq": 22,
+      "onlyName": "Slingshot",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2004,
+      "tdid": "2889",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 115,
+      "acel": 10,
+      "hand": 77,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 55.23,
+      "weight": 815,
+      "name": "Dodge Slingshot",
+      "rid": "Dodge_Slingshot_2004",
+      "tags": [
+          "Concept",
+          "American Frontier",
+          "Summer Games"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Rear"
+  },
+  {
+      "class": "E",
       "rq": 22,
       "onlyName": "Cruze LT",
       "brand": "Chevrolet",
@@ -87679,38 +87742,6 @@
       "rid": "Porsche_914_1969",
       "tags": [
           "The Horror Show",
-          "Two Tone",
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "E",
-      "rq": 22,
-      "onlyName": "Brabus Roadster",
-      "brand": "Smart",
-      "country": "DE",
-      "year": 2005,
-      "tdid": "695",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 118,
-      "acel": 9.3,
-      "hand": 77,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 63.46,
-      "weight": 820,
-      "name": "Smart Brabus Roadster",
-      "rid": "Smart_Brabus_Roadster_2005",
-      "tags": [
-          "Summer Games",
           "Two Tone",
           "Originals"
       ],
@@ -88819,37 +88850,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "E",
-      "rq": 21,
-      "onlyName": "LeBaron GTC",
-      "brand": "Chrysler",
-      "country": "US",
-      "year": 1988,
-      "tdid": "2930",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 115,
-      "acel": 8.8,
-      "hand": 69,
-      "drive": "FWD",
-      "tyres": "Standard",
-      "mra": 90.72,
-      "weight": 1348,
-      "name": "Chrysler LeBaron GTC",
-      "rid": "Chrysler_LeBaron_GTC_1988",
-      "tags": [
-          "American Frontier",
-          "Old Guard"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "4",
       "engine": "Front"
   },
   {
@@ -92832,6 +92832,36 @@
   },
   {
       "class": "F",
+      "rq": 19,
+      "onlyName": "Drifter",
+      "brand": "Chrysler",
+      "country": "AU",
+      "year": 1977,
+      "tdid": "1115",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 114,
+      "acel": 8.8,
+      "hand": 55,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 37.19,
+      "weight": 1475,
+      "name": "Chrysler Drifter",
+      "rid": "Chrysler_Drifter_1977",
+      "tags": [
+          "American Dream"
+      ],
+      "bodyTypes": [
+          "Pickup"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 18,
       "onlyName": "912",
       "brand": "Porsche",
@@ -94184,36 +94214,6 @@
       "fuel": "Petrol",
       "seats": "2",
       "engine": "Rear"
-  },
-  {
-      "class": "F",
-      "rq": 17,
-      "onlyName": "Drifter",
-      "brand": "Chrysler",
-      "country": "AU",
-      "year": 1977,
-      "tdid": "1115",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 114,
-      "acel": 8.8,
-      "hand": 55,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 37.19,
-      "weight": 1475,
-      "name": "Chrysler Drifter",
-      "rid": "Chrysler_Drifter_1977",
-      "tags": [
-          "American Dream"
-      ],
-      "bodyTypes": [
-          "Pickup"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
   },
   {
       "class": "F",
@@ -97287,6 +97287,37 @@
   },
   {
       "class": "F",
+      "rq": 16,
+      "onlyName": "LeBaron Town & Country Station Wagon",
+      "brand": "Chrysler",
+      "country": "US",
+      "year": 1978,
+      "tdid": "2932",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 95,
+      "acel": 14.2,
+      "hand": 66,
+      "drive": "RWD",
+      "tyres": "Standard",
+      "mra": 27.8,
+      "weight": 1410,
+      "name": "Chrysler LeBaron Town & Country Station Wagon",
+      "rid": "Chrysler_LeBaron_Town_&_Country_Station_Wagon_1978",
+      "tags": [
+          "American Frontier",
+          "Two Tone"
+      ],
+      "bodyTypes": [
+          "Estate"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "F",
       "rq": 15,
       "onlyName": "Vixen S2",
       "brand": "TVR",
@@ -98001,37 +98032,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "F",
-      "rq": 15,
-      "onlyName": "LeBaron Town & Country Station Wagon",
-      "brand": "Chrysler",
-      "country": "US",
-      "year": 1978,
-      "tdid": "2932",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 95,
-      "acel": 14.2,
-      "hand": 66,
-      "drive": "RWD",
-      "tyres": "Standard",
-      "mra": 27.8,
-      "weight": 1410,
-      "name": "Chrysler LeBaron Town & Country Station Wagon",
-      "rid": "Chrysler_LeBaron_Town_&_Country_Station_Wagon_1978",
-      "tags": [
-          "American Frontier",
-          "Two Tone"
-      ],
-      "bodyTypes": [
-          "Estate"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
       "engine": "Front"
   },
   {

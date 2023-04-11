@@ -437,12 +437,12 @@ export default {
         yearEnd: 2022,
         yearModel: [],
         rqStart: 10,
-        rqEnd: 100,
+        rqEnd: 114,
         rqModel: [],
         topSpeedStart: 50,
-        topSpeedEnd: 350,
+        topSpeedEnd: 330,
         topSpeedModel: [],
-        acelStart: 1.0,
+        acelStart: 1.5,
         acelEnd: 40,
         acelModel: [],
         handStart: 30,
@@ -992,9 +992,9 @@ export default {
     },
     defaultFilters(type) {
       if (type === "yearModel") return [1910, 2022];
-      if (type === "rqModel") return [10, 100];
-      if (type === "topSpeedModel") return [50, 350];
-      if (type === "acelModel") return [1.0, 40];
+      if (type === "rqModel") return [10, 114];
+      if (type === "topSpeedModel") return [50, 330];
+      if (type === "acelModel") return [1.5, 40];
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 160];
       if (type === "weightModel") return [300, 7000];

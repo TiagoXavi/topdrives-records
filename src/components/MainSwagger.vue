@@ -166,7 +166,7 @@ export default {
       setTierRes: null,
       setModRes: null,
       rids: null,
-      pastVersion: "17",
+      pastVersion: "18",
       backupCarsRes: null,
       scanSessionRes: null
     }
