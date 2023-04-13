@@ -2878,7 +2878,7 @@ export default {
       let result = ["332", "323", "233"];
       if (this.tuneDialogCar.data && this.showCustomTunes) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
-          if (tune[0] !== "v" && tune !== "111" && !result.includes(tune)) {
+          if (tune[0] !== "v" && !result.includes(tune)) {
             result.push(tune);
           }
         })
@@ -3652,7 +3652,9 @@ export default {
           "TopDrives": 'mod',
           "Asaneon": 'mod',
           "Dennis": 'mod',
-          "liamcavens": 'mod'
+          "liamcavens": 'mod',
+          "MichaelB": 'mod',
+          "Leafclaw": 'mod'
         };
         let pUsers = res.data.find(x => x.id === 'pUsers').value;
         Object.keys( pUsers ).forEach(key => {
