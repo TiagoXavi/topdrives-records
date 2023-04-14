@@ -72,6 +72,9 @@ export default {
         }
       })
       x.tags.map(y => {
+        // if (y === "Pacific Coast Highway") {
+        //   x.country = "US";
+        // }
         if (!_this.searchFilters.tags.includes(y)) {
           console.log(y);
           debugger;
