@@ -4,6 +4,7 @@ import pl from "./pl.js";
 import ru from "./ru.js";
 import gr from "./gr.js";
 import it from "./it.js";
+import jp from "./jp.js";
 import de from "./de.js";
 import ua from "./ua.js";
 import es from "./es.js";
@@ -28,6 +29,7 @@ export default {
   fr,
   gr,
   it,
+  jp,
   nl,
   pl,
   ru,

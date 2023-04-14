@@ -99,6 +99,11 @@ export default {
   --tag-s: 70%;
   --tag-l: 49%;
 }
+.BaseGameTag_Electric_Excellence {
+  --tag-h: -160;
+  --tag-s: 80%;
+  --tag-l: 59%;
+}
 .BaseGameTag_Enter_the_Black_Forest {
   --tag-h: 133;
   --tag-s: 69%;
@@ -170,9 +175,9 @@ export default {
   --tag-l: 40%;
 }
 .BaseGameTag_Loch_to_Loch {
-  --tag-h: 0;
-  --tag-s: 0%;
-  --tag-l: 100%;
+  --tag-h: 190;
+  --tag-s: 40%;
+  --tag-l: 30%;
 }
 .BaseGameTag_Loves_Me_Loves_Me_Not {
   --tag-h: 0;
@@ -198,6 +203,11 @@ export default {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;
+}
+.BaseGameTag_Pacific_Coast_Highway {
+  --tag-h: 201;
+  --tag-s: 30%;
+  --tag-l: 60%;
 }
 .BaseGameTag_Rest_of_the_World {
   --tag-h: 141;
