@@ -218,7 +218,7 @@
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div v-if="cgRound && cgRound.creator && cgRound.lastAnalyze">
+                <div v-if="cgRound && cgRound.creator && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
                   <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                   <span
                     :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
@@ -233,7 +233,7 @@
                     <span>/</span>
                     <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
                     <BaseButtonTouch
-                      v-if="user && (user.mod || isRoundEmptyForUser)"
+                      v-if="user && (user.mod || isRoundEmptyForUser) && (!cgIsApproving || user.mod)"
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect"
                       @click="cgOpenRqEdit($event)"
@@ -248,23 +248,6 @@
                         <button
                           class="D_Button Main_LoginToEdit"
                           @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
-                      </div>
-                    </template>
-                    <template v-else-if="cgIsApproving && !!user && user.mod">
-                      <div class="Cg_IsApprovingBox">
-                        <button
-                          :class="{ D_Button_Loading: cgSaveLoading }"
-                          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-                          @click="cgReviewRound(false)">
-                          <span>{{ $t("m_delete") }}</span>
-                        </button>
-                        <button
-                          :class="{ D_Button_Loading: cgSaveLoading }"
-                          style="right: unset; left: 0;"
-                          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-                          @click="cgReviewRound(true)">
-                          <span>{{ $t("m_approve") }}</span>
-                        </button>
                       </div>
                     </template>
                     <template v-else-if="!!user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
@@ -335,11 +318,59 @@
       </div>
       <div class="Cg_Mid">
         <!-- CHALLENGE MID -->
-        <div v-if="isRoundEmptyForUser && !cgLoading && cgRound.date" class="Cg_RoundEmptyBox">
+        <div v-if="isRoundEmptyForUser && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
-          <div v-else-if="!cgRound.reservedTo" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
+          <div v-else-if="!cgRound.reservedTo && !cgIsApproving" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
         </div>
-        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
+        <div v-if="cgIsApproving && cgRound.date" class="Cg_RoundSubmitsControl">
+          <div class="Cg_SelectorLeft">
+            <button
+              :disabled="cgApprovingIndex === 0 || cgLoadingAny || cgNeedSave"
+              class="D_Button Row_DialogButtonTune"
+              @click="cgChangeSubmit(-1)">
+              <i class="ticon-arrow_left_3" aria-hidden="true"/>
+            </button>
+          </div>
+          <div class="Cg_RoundSubmitsControlCenter">
+            <div v-if="!cgRound.downList || (!user || !user.username || !cgRound.downList.includes(user.username))" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundVoteForUser") }}</div>
+            <div v-else class="Cg_BottomModTools" style="margin-top: -10px; margin-bottom: 6px;">
+              <button
+                v-for="(n, ix) in 2"
+                :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="cgUserNewSubmit(ix === 1)">
+                <i class="ticon-refresh_3 D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ ix === 0 ? $t("m_new") : $t("m_newByCopy") }}</span>
+              </button>
+            </div>
+            <div v-if="cgRound && cgRound.creator" style="margin-bottom: 10px;">
+              <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+              <span
+                :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
+                class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+            </div>
+            <template v-if="user && user.mod">
+              <div class="Cg_IsApprovingBox">
+                <button
+                  :class="{ D_Button_Loading: cgSaveLoading }"
+                  style="right: unset; left: 0;"
+                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                  @click="cgReviewRound(true)">
+                  <span>{{ $t("m_approve") }}</span>
+                </button>
+              </div>
+            </template>
+          </div>
+          <div class="Cg_SelectorRight">
+            <button
+              :disabled="cgApprovingIndex === cgApprovingLength - 1 || cgLoadingAny || cgNeedSave"
+              class="D_Button Row_DialogButtonTune"
+              @click="cgChangeSubmit(1)">
+              <i class="ticon-arrow_right_3" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
+        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
             <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRound2") }}</div>
@@ -347,7 +378,7 @@
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>
-        <template v-else-if="isRoundEmptyForModders && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined ">
+        <template v-else-if="isRoundEmptyForModders && cgRound.date && ((cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) || cgNewSubmitByMod) && !cgRound.reservedTo">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
             <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
@@ -366,6 +397,41 @@
           </div>
         </template>
         
+        <!-- CG VOTE -->
+        <div v-if="cgRound.date && cgIsApproving && user && user.username" class="Cg_BottomModTools">
+          <!-- Down -->
+          <button
+            :class="{
+              Row_VotedAgainst: cgRound.upList && cgRound.upList.includes(user.username),
+              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+            }"
+            :title="(cgRound.downList || []).join(', ')"
+            class="D_Button Row_VoteButton Row_VoteButtonDown"
+            @click="cgVote('down')">
+            <i
+              :class="`ticon-thumbs_down${ cgRound.downList && cgRound.downList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span class="Row_DownCount">{{ (cgRound.downList || []).length }}</span>
+          </button>
+          <!-- Up -->
+          <button
+            :class="{
+              Row_VotedAgainst: cgRound.downList && cgRound.downList.includes(user.username),
+              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+            }"
+            :title="(cgRound.upList || []).join(', ')"
+            class="D_Button Row_VoteButton Row_VoteButtonUp"
+            @click="cgVote('up')">
+            <i
+              :class="`ticon-thumbs_up${ cgRound.upList && cgRound.upList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span class="Row_UpCount">{{ (cgRound.upList || []).length }}</span>
+          </button>
+        </div>
+
+        <template v-if="(cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate) || cgNewSubmitByMod || (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) || (cgRound.reservedTo && cgRound.reservedTo !== user.username)"></template>
         
         <template v-else-if="cgRound.date">
           <div
@@ -1002,6 +1068,7 @@
       ridsMutationName="CG_EMIT_RIDS"
       @addCar="addCarCg($event)"
       @listRids="cgAnalyseRoundFinish($event);"
+      @clearFilterUpdate="cgFilterForAnalyse = $event"
     />
 
     <BaseFilterDialog
@@ -1726,7 +1793,7 @@
             <button
               style="padding-left: 15px;"
               class="Main_SearchItem"
-              @click="loadCg(cg.date, index)">
+              @click="loadCgRound(cg.date, index)">
               <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1+cgCurrentRoundSum }}</div>
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
@@ -2179,6 +2246,11 @@ export default {
       cgRqNeedToSave: false,
       cgAnalyseLoading: false,
       cgIsApproving: false,
+      cgApprovingIndex: 0,
+      cgApprovingLength: 0,
+      cgNewSubmitByMod: false,
+      cgNewSubmitByModTemplate: null,
+      cgLoadedAssets: [],
       cgSentForReview: false,
       cgDontRepeatSolution: true,
       cgPointsEditDialog: false,
@@ -2187,6 +2259,7 @@ export default {
       cgPointsEditRace: null,
       cgPointsIsDraw: false,
       cgShowResetSavedHand: false,
+      cgFilterForAnalyse: {},
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -2912,6 +2985,7 @@ export default {
     },
     cgNeedSave() {
       if (!this.user) return false;
+      if (this.cgNewSubmitByMod) return false;
       return this.cgRoundToSave.length > 0 || this.needSave || this.cgRoundFilterToSave || this.cgRqNeedToSave;
     },
     showAnalyse() {
@@ -2919,6 +2993,8 @@ export default {
       if (!this.user || !this.user.mod) return false;
       if (this.cgNeedSave) return false;
       if (!this.cgRound) return false;
+      if (this.cgNewSubmitByMod) return false;
+      if (this.cgNewSubmitByModTemplate) return false;
       let show = true;
       if (this.forceShowAnalyse) return true;
       this.cgRound.races.map(race => {
@@ -2943,6 +3019,7 @@ export default {
       if (!this.user.mod) return false;
       if (!this.cgRound) return false;
       if (this.cgRound.reservedTo) return false;
+      if (this.cgRound.creator) return false;
       if (!this.cgRound.lastAnalyze) {
         return true
       }
@@ -2969,13 +3046,21 @@ export default {
       return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
     },
     eventNeedSave() {
+      console.log(0);
       if (this.mode !== 'events') return false;
+      console.log(1);
       if (!this.event.date) return false;
+      console.log(2);
       if (!this.user || (this.user && !this.user.mod)) return false;
+      console.log(3);
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
+      console.log(4);
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
+      console.log(5);
       if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
+      console.log(6);
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
+      console.log(7);
       return false;
     },
     eventShowAnalyse() {
@@ -3542,7 +3627,7 @@ export default {
       }, 100);
     },
     changedMode() {
-      if (this.mode === "classic") {
+      if (this.mode === "classic" && this.currentTracks.length === 0) {
         // from local storage
         let tracks = window.localStorage.getItem("tracks");
         if (tracks) {
@@ -3561,13 +3646,20 @@ export default {
           this.prepareCars(JSON.parse(cars));
         }
 
+      }
+      if (this.mode === "classic") {
         this.searchFilterDialog = false;
       }
+
       if (this.mode === "cg") {
-        this.loadChallenges();
+        if (this.cgList.length === 0) {
+          this.loadChallenges();
+        }
       }
       if (this.mode === "events") {
-        this.loadEvents();
+        if (this.eventList.length === 0) {
+          this.loadEvents();
+        }
       }
     },
     newIndex(obj, isDialog = false, isTrack = false) {
@@ -4491,16 +4583,19 @@ export default {
         date: date
       })
       .then(res => {
+        this.cgLoadedAssets = [];
         let cg = this.cgList.find(x => x.date === date)
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
-          this.loadCg(date, round);
+          this.cgLoading = false;
+          this.loadCgRound(date, round);
         }
-        // this.lookForChangedCars(res.data);
+        this.lookForChangedCars(res.data);
       })
       .catch(error => {
         console.log(error);
+        this.cgLoading = false;
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           error: true,
@@ -4508,11 +4603,8 @@ export default {
           type: "error"
         });
       })
-      .then(() => {
-        this.cgLoading = false;
-      });
     },
-    loadCg(id, round) {
+    loadCgRound(id, round) {
       if (round === undefined) {
         let lastRound = window.localStorage.getItem(`cg_${id}`);
         if (lastRound) {
@@ -4534,20 +4626,81 @@ export default {
       this.cgCurrentName = cg.name;
       this.cgCurrentRound = round;
       this.cgRound = cg.rounds[this.cgCurrentRound];
-      if (this.cgRound.filter && this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[0] === 1930) {
-        // past default date
-        this.cgRound.filter.yearModel[0] = 1910;
+      if (this.cgRound.filter) {
+        // fix different saved default 
+        if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[0] === 1930) {
+          this.cgRound.filter.yearModel[0] = 1910;
+        }
+        if (this.cgRound.filter.rqModel && this.cgRound.filter.rqModel[1] === 100) {
+          this.cgRound.filter.rqModel[1] = 114;
+        }
       }
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
 
-      if (this.cgRound.toApprove && this.user && this.user.mod) {
-        this.cgIsApproving = true;
-        this.cgRound = this.cgRound.toApprove;
+      if (this.cgRound.toApprove && !this.cgRound.reservedTo) {
+        this.cgViewSubmit();
       } else {
         this.cgIsApproving = false;
       }
+      if (this.cgNewSubmitByModTemplate) {
+        this.cgRound = JSON.parse(JSON.stringify(this.cgNewSubmitByModTemplate));
+      }
+      this.cgNewSubmitByMod = false;
 
+      this.cgResolveFilter();
+      this.cgUpdateLocalStorage();
+
+      this.cgResolveRoundCars(false);
+      this.loadCgRoundAsset(id, round);
+    },
+    loadCgRoundAsset(id, round) {
+      let roundId = `${id}_${round}`;
+      if (this.cgLoadedAssets.includes(roundId)) return;
+      if (this.cgIsEmptyRound()) return;
+      this.cgLoading = true;
+
+      axios.get(Vue.preUrl + `/asset/${roundId}`)
+      .then(res => {
+        // load asset
+        let votes = res.data.filter(x => x.sort.includes("votes_"));
+        if (votes) {
+          let realCgRound = this.cg.rounds[this.cgCurrentRound];
+          if (realCgRound.toApprove) {
+            votes.map(item => {
+              let index = Number(item.sort.substr(6));
+              realCgRound.toApprove[index].downList = item.value.down;
+              realCgRound.toApprove[index].upList = item.value.up;
+            })
+          }
+        }
+        let assetCars = res.data.find(x => x.sort === 'cars');
+        if (assetCars && Array.isArray(assetCars.value)) {
+          assetCars.value.map((arrOfCars, ix) => {
+            this.cgRound.races[ix].cars = arrOfCars;
+          })
+        }
+
+        this.cgLoading = false;
+        this.cgResolveRoundCars();
+        this.cgLoadedAssets.push(roundId);
+      })
+      .catch(error => {
+        this.cgLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.cgLoading = false;
+      });
+
+    },
+    cgResolveRoundCars(download = true) {
       let listRids = [];
       let minCars = [];
 
@@ -4573,24 +4726,48 @@ export default {
         if (foundOppo) foundOppo = JSON.parse(JSON.stringify(foundOppo));
         Vue.set(race, "car", foundOppo);
         if (race.tune) Vue.set(race.car, "selectedTune", race.tune);
-        
+
         race.cars.map((car, icar) => {
           Vue.set(car, "photo", this.cgResolvePhotoUrl(car.rid));
           Vue.set(car, "car", JSON.parse(JSON.stringify(minCars.find(x => x.rid === car.rid))));
           Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
           Vue.set(car.car, "selectedTune", car.tune);
         })
-        
+
         // tracks
         this.resolveTrack(race, false);
         this.cgSortBankCars(race);
-        
+
       })
       this.cgRemoveDuplicateSolution();
-      this.downloadDataCars();
+      if (download) {
+        this.downloadDataCars();
+      }
+    },
+    cgViewSubmit() {
+      let realCgRound = this.cg.rounds[this.cgCurrentRound];
+      if (!realCgRound.toApprove) return;
+      this.cgIsApproving = true;
 
+      if (Array.isArray(realCgRound.toApprove) && realCgRound.toApprove.length > 0) {
+        if (!realCgRound.toApprove[this.cgApprovingIndex]) {
+          // index not found
+          this.cgApprovingIndex = 0;
+        }
+        this.cgApprovingLength = realCgRound.toApprove.length;
+        this.cgRound = realCgRound.toApprove[this.cgApprovingIndex];
+      } else if (Object.keys(realCgRound.toApprove).length > 0) {
+        this.cgApprovingLength = 1;
+        this.cgRound = realCgRound.toApprove;
+      }
+    },
+    cgChangeSubmit(factor) {
+      this.cgApprovingIndex += factor;
+      this.cgViewSubmit();
+      Vue.set(this.cgRound, "rqFill", 0);
       this.cgResolveFilter();
       this.cgUpdateLocalStorage();
+      this.cgResolveRoundCars(false);
     },
     resolveTrack(race, calcResult = true, isRace = true) {
       if (race.track) {
@@ -4716,7 +4893,17 @@ export default {
       } catch (error) {
         // nada
       }
-      if (tryoppotime || tryoppotime === 0) race.time = tryoppotime;
+      if (tryoppotime || tryoppotime === 0) {
+        if (race.time && race.time !== tryoppotime && this.cgRoundToSave.length > 0) {
+          // commit the change to database
+          this.cgRoundToSave.push({
+            type: "oppoTime",
+            time: tryoppotime,
+            raceIndex: this.cgRound.races.indexOf(race)
+          })
+        }
+        race.time = tryoppotime;
+      }
 
 
       if (typeof race.carIndex !== 'number') {
@@ -4979,6 +5166,7 @@ export default {
       .then(res => {
         this.cgClearRoundToSave();
         this.saveAll(true);
+        this.cgNewSubmitByModTemplate = null;
         if (!this.user.mod) {
           this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
           this.cgSentForReview = true;
@@ -5047,6 +5235,7 @@ export default {
       axios.post(Vue.preUrl + "/reviewRound", {
         date: this.cg.date,
         round: this.cgCurrentRound,
+        submit: this.cgApprovingIndex,
         approve: approve
       })
       .then(res => {
@@ -5291,12 +5480,12 @@ export default {
     loadPrevRound() {
       this.cgSentForReview = false;
       this.forceShowAnalyse = false;
-      this.loadCg(this.cgCurrentId, this.cgCurrentRound-1)
+      this.loadCgRound(this.cgCurrentId, this.cgCurrentRound-1)
     },
     loadNextRound() {
       this.cgSentForReview = false;
       this.forceShowAnalyse = false;
-      this.loadCg(this.cgCurrentId, this.cgCurrentRound+1)
+      this.loadCgRound(this.cgCurrentId, this.cgCurrentRound+1)
     },
     cgOpenNewCg() {
       this.cgClearSaveNewCg();
@@ -5349,7 +5538,7 @@ export default {
       })
     },
     cgOpenRqEdit(e) {
-      if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey) && this.user && this.user.mod) {
         this.forceShowAnalyse = !this.forceShowAnalyse;
         return;
       }
@@ -5442,11 +5631,13 @@ export default {
       }
     },
     cgAnalyseRound() {
+      this.cgAnalyseRoundFinish();
+      return;
       let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.3 ));
       let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
       this.$store.commit("CG_EMIT_RIDS", { rqMax, rqMin });
     },
-    cgAnalyseRoundFinish(listOfRids) {
+    cgAnalyseRoundFinish() {
 
       let clearRound = this.cgRound.races.map(x => {
         let time;
@@ -5472,7 +5663,7 @@ export default {
       axios.post(Vue.preUrl + "/analyseRound", {
         date: this.cgCurrentId,
         round: this.cgCurrentRound,
-        rids: listOfRids,
+        filter: this.cgRound.filter,
         cgRound: clearRound
       })
       .then(res => {
@@ -5549,8 +5740,122 @@ export default {
     cgResetSaveHand() {
       let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
       localStorage.removeItem(saveName);
-      this.loadCg(this.cgCurrentId, this.cgCurrentRound);
+      this.loadCgRound(this.cgCurrentId, this.cgCurrentRound);
       this.cgShowResetSavedHand = false;
+    },
+    cgVote(type) {
+      let isUnVoteUp = false;
+      let isUnVoteDown = false;
+      if (!this.cgRound.upList) {
+        Vue.set(this.cgRound, 'upList', [])
+      }
+      if (!this.cgRound.downList) {
+        Vue.set(this.cgRound, 'downList', [])
+      }
+      let upList = this.cgRound.upList;
+      let downList = this.cgRound.downList;
+      let user = this.user.username;
+
+      // remove from both arr
+      if (upList.includes(user)) {
+        this.cgRound.upList = upList.filter(x => x !== user);
+        if (type === "up") isUnVoteUp = true;
+      }
+      if (downList.includes(user)) {
+        this.cgRound.downList = downList.filter(x => x !== user);
+        if (type === "down") isUnVoteDown = true;
+      }
+
+      if (!isUnVoteUp && !isUnVoteDown) {
+        if (type === "up") {
+          upList.push(user);
+          this.cgRequestVote(true, false);
+        } else {
+          downList.push(user);
+          this.cgRequestVote(false, false);
+        }
+      } else {
+        if (isUnVoteUp) {
+          this.cgRequestVote(true, true);
+        } else {
+          this.cgRequestVote(false, true);
+        }
+      }
+
+    },
+    cgRequestVote(isUp, isDelete) {
+      this.cgSaveLoading = true;
+
+      axios.post(Vue.preUrl + "/cgVote", {
+        date: this.cg.date,
+        round: this.cgCurrentRound,
+        submit: this.cgApprovingIndex,
+        isUp,
+        isDelete
+      })
+      .then(res => {
+        // nada?
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.cgSaveLoading = false;
+      });
+
+    },
+    cgIsEmptyRound() {
+      if (!this.cgRound || !this.cgRound.races) return true;
+      let isEmpty = true;
+      this.cgRound.races.find(race => {
+        if (race.track) {
+          isEmpty = false;
+          return true;
+        }
+      })
+      return isEmpty;
+    },
+    cgUserNewSubmit(copy = false) {
+      this.cgIsApproving = false;
+      if (copy) {
+        this.cgClearRoundToSave();
+        delete this.cgRound.creator;
+        this.cgRound.races.map((race, raceIndex) => {
+
+          this.cgRoundToSave.push({
+            type: "oppoCar",
+            rid: race.rid,
+            tune: race.tune,
+            raceIndex: raceIndex
+          })
+          this.cgRoundToSave.push({
+            type: "oppoTime",
+            time: race.time,
+            raceIndex: raceIndex
+          })
+          this.cgRoundToSave.push({
+            type: "track",
+            track: race.track,
+            raceIndex: raceIndex
+          })
+
+        })
+      } else {
+        this.cgRound = this.cg.rounds[this.cgCurrentRound];
+      }
+
+      if (this.user && this.user.mod) {
+        this.cgNewSubmitByMod = true;
+        if (copy) {
+          this.cgNewSubmitByModTemplate = JSON.parse(JSON.stringify(this.cgRound));
+        }
+      }
     },
     styleCgList() {
       this.cgList.sort((a,b) => {
@@ -5715,6 +6020,7 @@ export default {
           this.event.comp.push({tyres: [], clearance: [], drives: [], meta: []})
         });
       }
+      this.eventFilterToSave = null;
       this.eventFilterString = JSON.stringify(this.event.filter);
       this.eventTracksetString = JSON.stringify(this.event.trackset);
       this.eventCompString = JSON.stringify(this.event.comp);
@@ -5818,7 +6124,11 @@ export default {
           } else if (this.eventKingTracks[itrack].includes("testBowl")) {
             car.timeToPrint = car.time;
           } else {
-            car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+            if (car.time < bestTime) {
+              car.timeToPrint = `${(car.time - bestTime).toFixed(2)}`
+            } else {
+              car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+            }
           }
           this.frontCompleteCar(car);
         })
@@ -6061,7 +6371,7 @@ export default {
     eventResetSaveHand() {
       let saveName = `hand_${this.event.date}`
       localStorage.removeItem(saveName);
-      // this.loadCg(this.cgCurrentId, this.cgCurrentRound);
+      // this.loadCgRound(this.cgCurrentId, this.cgCurrentRound);
       this.eventShowResetSavedHand = false;
     },
     eventMoveTrackRight(itrackset, itrackMonoArray) {
@@ -6296,40 +6606,85 @@ export default {
       this.optionsDialogActive = true;
     },
     lookForChangedCars(data) {
-      let changed18 = [
-        "Lotus_Evija_2021",
-        "Porsche_919_Hybrid_Evo_2018",
-        "Porsche_911_RSR-19_(991.2)_2019",
-        "Alfa_Romeo_Coloni_S1_156_2001",
-        "Porsche_911_GT3_Cup_992_2021",
-        "Audi_A5_DTM_2012",
-        "Mercedes-Benz_CLK_GTR_1998",
-        "Alfa_Romeo_155_GTA_Superturismo_1992",
-        "Ginetta_G55_GT4_2011",
-        "BMW_330d_xDrive_Saloon_2019",
-        "BMW_330d_xDrive_Touring_2019",
-        "DS_DS_Numero_9_2012",
+      let changed19 = [
+        "Mercedes-Benz_C11_1990",
+        "Jaguar_F-Type_SVR_Coupe_2017",
+        "Audi_Sport_quattro_S1_1985",
+        "Dodge_Challenger_SRT_Demon_2017",
+        "Jaguar_F-Type_R_Coupe_AWD_2016",
         "Jaguar_F-Type_R_Convertible_2016",
-        "Audi_S5_Sportback_TDI_B95_2019",
-        "Vauxhall_VXR8_GTS_2016",
-        "Audi_S5_Sportback_(B8)_2013",
-        "Vauxhall_Calibra_Turbo_1992",
-        "Fiat_Abarth_695_Biposto_R_2015",
-        "Vauxhall_Opel_OPC_Extreme_2014",
-        "Mercedes-Benz_G_500_2012",
-        "Porsche_968_Cabriolet_1992",
-        "Ginetta_G40_Junior_2010",
-        "Fiat_Abarth_500C_Esseesse_2010",
-        "Alfa_Romeo_147_Q2_2007",
-        "Vauxhall_Insignia_2.0_CDTi_2016",
-        "TVR_280i_1984",
-        "Vauxhall_Astra_1.6_CDTi_2009",
-        "Ginetta_G40_Cup_2010"
+        "Jaguar_XJ220_1992",
+        "Dodge_Charger_SRT_Hellcat_2015",
+        "Dodge_Challenger_SRT_Hellcat_Widebody_2018",
+        "TVR_Sagaris_2005",
+        "TVR_Tuscan_S_2005",
+        "RAM_RAM_Rebel_TRX_Concept_2016",
+        "Dodge_Challenger_SRT_Hellcat_2015",
+        "MercedesAMG_G_63_2018",
+        "Ford_F-150_Raptor_2018",
+        "Dodge_Charger_Juiced_2013",
+        "Chevrolet_Camaro_SS_2019",
+        "Holden_Commodore_CalaisV_Tourer_VB_2018",
+        "TVR_Cerbera_Speed_Eight_1996",
+        "GMC_Acadia_Denali_2018",
+        "Dodge_Challenger_SRT-10_Concept_2009",
+        "Ford_F-150_SVT_Raptor_2014",
+        "TVR_Tuscan_Convertible_2005",
+        "Dodge_Charger_RT_Scat_Pack_2015",
+        "Chrysler_300C_2013",
+        "Dodge_Challenger_SRT_392_2015",
+        "Dodge_Challenger_SRT8_2009",
+        "GMC_Sierra_All_Terrain_X_2017",
+        "Ram_1500_Rebel_2019",
+        "Vauxhall_Insignia_VXR_Unlimited_2011",
+        "Dodge_Challenger_RT_Scat_Pack_2018",
+        "TVR_Cerbera_Speed_Six_1998",
+        "TVR_Chimaera_5.0_1993",
+        "Dodge_Charger_SRT8_2012",
+        "Dodge_Charger_SRT-8_2006",
+        "Chrysler_300C_Hemi_2005",
+        "Dodge_Powerbox_2001",
+        "Holden_Acadia_LTZV_AWD_2018",
+        "Dodge_Magnum_SRT-8_2006",
+        "Dodge_Charger_Daytona_2017",
+        "Mercedes-Benz_X350d_2018",
+        "Mercedes-Benz_AMG_G_55_2006",
+        "Ford_Thunderbird_3.9l_V8_2002",
+        "Dodge_Charger_RT_2006",
+        "Buick_GNX_1987",
+        "Nissan_Frontier_Attack_(D23)_2017",
+        "Renault_Alaskan_2015",
+        "Ford_F-150_Lightning_2001",
+        "Dodge_Super_8_HEMI_2001",
+        "Chevrolet_Silverado_2016",
+        "Ford_Ranger_Wildtrak_2017",
+        "Ford_F-150_Tremor_FX2_2014",
+        "Dodge_Magnum_RT_2005",
+        "Ford_F-250_Super_Chief_2006",
+        "Chevrolet_Silverado_SS_2006",
+        "Chevrolet_SSR_6.0L_2007",
+        "Nissan_Navara_2005",
+        "Nissan_NP300_Navara_2017",
+        "Fiat_Fullback_Cross_2017",
+        "Ford_Ranger_2016b",
+        "Mitsubishi_L200_2016",
+        "Ford_Ranger_2010",
+        "Ford_Ranger_2012",
+        "Chrysler_Prowler_2001",
+        "Ford_F-150_2007",
+        "Chevrolet_SSR_2003",
+        "Ford_Crown_Victoria_1992",
+        "Chrysler_LeBaron_GTC_1988",
+        "Ford_Ranger_2016a",
+        "Smart_Brabus_Roadster_2005",
+        "Dodge_Slingshot_2004",
+        "Ford_Mustang_Cobra_1979",
+        "Chrysler_LeBaron_Town_&_Country_Station_Wagon_1978"
       ];
 
       data.rounds.map((round, iround) => {
         round.races.map((race, irace) => {
-          if (changed18.includes(race.rid)) {
+          if (changed19.includes(race.rid)) {
             console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
           }
         })
@@ -6448,26 +6803,28 @@ export default {
     sendMra() {
       console.log(this.mraEditInput);
       if (!this.mraEditInput) return;
+      let rid = this.tuneDialogCar.rid;
+      let newMRA = Number(this.mraEditInput);
 
       this.mraLoading = true;
 
       axios.post(Vue.preUrl + "/setMra", {
-        rid: this.tuneDialogCar.rid,
+        rid: rid,
         mra: this.mraEditInput
       })
       .then(res => {
         this.mraEditing = false;
-        this.tuneDialogCar.mra = Number(this.mraEditInput);
+        this.tuneDialogCar.mra = newMRA;
 
         this.all_cars.find(x => {
-          if (x.rid === this.tuneDialogCar.rid) {
-            Vue.set(x, "mra", Number(this.mraEditInput));
+          if (x.rid === rid) {
+            Vue.set(x, "mra", newMRA);
             return true
           }
         })
         this.carDetailsList.find(x => {
-          if (x.rid === this.tuneDialogCar.rid) {
-            Vue.set(x, "mra", Number(this.mraEditInput));
+          if (x.rid === rid) {
+            Vue.set(x, "mra", newMRA);
             return true
           }
         })
@@ -7681,6 +8038,17 @@ body .Main_UserT5 {
   grid-template-columns: repeat(5, var(--cg-width));
   justify-content: center;
 }
+.Cg_RoundSubmitsControl {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+}
+.Cg_RoundSubmitsControlCenter {
+  flex-grow: 1;
+}
 .Cg_CarPlaceHolder {
   height: var(--cg-height);
 }
@@ -8019,6 +8387,9 @@ body .Main_UserT5 {
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
+}
+.Cg_RoundEmptyBox + .Cg_BottomModTools {
+  margin-top: 15px;
 }
 .Cg_SelectorEventSpan {
   max-width: 300px;

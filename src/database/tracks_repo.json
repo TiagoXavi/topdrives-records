@@ -85,11 +85,19 @@
   },
   {
     "id": "butte",
-    "types": ["40","41","e0"]
+    "types": ["40"]
+  },
+  {
+    "id": "canyonButte",
+    "types": ["41","e0"]
+  },
+  {
+    "id": "lookout",
+    "types": ["10"]
   },
   {
     "id": "canyonLookout",
-    "types": ["10","11","50"]
+    "types": ["11","50"]
   },
   {
     "id": "canyonTour",
@@ -124,8 +132,12 @@
     "types": ["f0"]
   },  
   {
+    "id": "dtRoad",
+    "types": ["40"]
+  },
+  {
     "id": "canyonDtRoad",
-    "types": ["40","41","e0"]
+    "types": ["41","e0"]
   },
   {
     "id": "fast",
