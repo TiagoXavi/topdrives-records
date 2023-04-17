@@ -165,8 +165,6 @@ export default {
   "t_oceanCity": "Strade Cittadine Litoranee",
   "t_mnGforce": "Test Forza-G Monaco",
   "t_canyonTour": "Tour del Canyon",
-  "t_canyonLookout": "Panoramica nel Canyon",
-  "t_butte": "Collinetta nel Canyon",
   "t_oceanShortDrag": "Accelerazione Litoraneo Breve",
   "t_tokyoBridge": "Ponte di Tokyo",
   "t_tokyoGforce": "Test Forza-G Tokyo",
@@ -311,6 +309,11 @@ export default {
   "c_twister": null,
   "t_townTour": null,
   "t_cross": null,
-  "t_canyonDtRoad": null,
-  "t_riverSprint": null
+  "t_riverSprint": null,
+  "t_butte": "Collinetta",
+  "t_canyonLookout": "Panoramica nel Canyon",
+  "t_canyonDtRoad": "Strada Sterrata nel Canyon",
+  t_canyonButte: "Collinetta nel Canyon",
+  t_lookout: "Panoramica",
+  t_dtRoad: "Strada Sterrata",
 }

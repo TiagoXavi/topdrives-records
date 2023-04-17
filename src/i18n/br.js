@@ -230,10 +230,9 @@ export default {
   "t_airplaneSlalom": "Slalom do Avião",
   "t_figureEight": "Formato Oito",
   "t_oceanCity": "Ruas da Cidade Costeira",
-  "t_butte": "Colina no Cânion",
+  
   "t_oceanSlalom": "Slalom Praieiro",
   "t_oceanLongDrag": "Corrida Longa Costeira",
-  "t_canyonDtRoad": "Estrada de Terra",
   "t_canyonTour": "Turismo no Cânion",
   "t_tRoad": "Estrada Sinuosa",
   "t_carPark": "Estacionamento",
@@ -308,7 +307,6 @@ export default {
   "t_drag50150": null,
   "t_drag75125": null,
   "t_smallRoad": null,
-  "t_canyonLookout": "Mirante no Cânion",
   "t_townSlalom": "Slalom na Cidade",
   "t_townSprint": "Sprint na Cidade",
   "t_townTour": "Tour na Cidade",
@@ -321,5 +319,11 @@ export default {
   "t_northloop3": null,
   "t_northloop4": null,
   "t_northloop5": null,
-  "t_riverSprint": null
+  "t_riverSprint": null,
+  "t_butte": "Colina",
+  "t_canyonLookout": "Mirante no Cânion",
+  "t_canyonDtRoad": "Estrada de Terra no Cânion",
+  t_canyonButte: "Colina no Cânion",
+  t_lookout: "Mirante",
+  t_dtRoad: "Estrada de Terra",
 }

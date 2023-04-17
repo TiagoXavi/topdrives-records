@@ -276,10 +276,7 @@ export default {
   "t_waterDrag": "Hafen-Drag",
   "t_airplaneHangars": "Flugzeughallen",
   "t_smallRoad": "Nebenweg",
-  "t_butte": "Ausguck",
-  "t_canyonLookout": "Canyon-Ausguck",
   "t_townTour": "Stadt-Tour",
-  "t_canyonDtRoad": "Schmutzige Straße",
   "t_frozenRivSla": "Zugefrorener Fluss-Slalom",
   "t_mtHill": "Gebirge-Aufstieg",
   "t_mtSlalom": "Gebirge-Slalom",
@@ -306,5 +303,12 @@ export default {
   "t_cross": "Cross-Country",
   "t_fieldSlalom": "Feld-Slalom",
   "t_mtIncline": "Gebirge-Anstieg",
-  "t_riverSprint": "Fluss Sprint"
+  "t_riverSprint": "Fluss Sprint",
+
+  "t_butte": null,
+  "t_canyonLookout": "Canyon-Ausguck", // correct
+  "t_canyonDtRoad": "Canyon-Schotter", // correct
+  "t_canyonButte": "Canyon-Kuppe", // correct
+  "t_lookout": null,
+  "t_dtRoad": "Schmutzige Straße", // correct
 }

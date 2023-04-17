@@ -1710,7 +1710,7 @@
             "name": "oceanParking_a00"
           },
           {
-            "name": "butte_a41"
+            "name": "canyonButte_a41"
           },
           {
             "name": "drag120_a00"
@@ -1742,7 +1742,7 @@
             "name": "oceanCity_a00"
           },
           {
-            "name": "butte_a41"
+            "name": "canyonButte_a41"
           },
           {
             "name": "oceanSlalom_ac0"
@@ -1751,7 +1751,7 @@
             "name": "oceanLongDrag_a00"
           },
           {
-            "name": "canyonDtRoad_a40"
+            "name": "dtRoad_a40"
           }
         ]
       }
