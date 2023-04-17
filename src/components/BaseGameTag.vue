@@ -144,6 +144,11 @@ export default {
   --tag-s: 64%;
   --tag-l: 55%;
 }
+.BaseGameTag_Immortalised_in_Carbon {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 .BaseGameTag_In_the_Shadows {
   --tag-h: 187;
   --tag-s: 55%;
