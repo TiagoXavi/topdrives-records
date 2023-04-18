@@ -305,10 +305,10 @@ export default {
   "t_mtIncline": "Gebirge-Anstieg",
   "t_riverSprint": "Fluss Sprint",
 
-  "t_butte": null,
+  "t_butte": "Kuppe",
   "t_canyonLookout": "Canyon-Ausguck", // correct
   "t_canyonDtRoad": "Canyon-Schotter", // correct
   "t_canyonButte": "Canyon-Kuppe", // correct
-  "t_lookout": null,
+  "t_lookout": "Ausguck",
   "t_dtRoad": "Schmutzige Straße", // correct
 }

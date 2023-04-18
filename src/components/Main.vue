@@ -3744,7 +3744,7 @@ export default {
           "TopDrives": 'mod',
           "Asaneon": 'mod',
           "Dennis": 'mod',
-          "liamcavens": 'mod',
+          "Liam": 'mod',
           "MichaelB": 'mod',
           "Leafclaw": 'mod'
         };
