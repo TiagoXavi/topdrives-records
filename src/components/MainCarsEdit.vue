@@ -295,7 +295,7 @@ export default {
       showAllChunk: false,
       searchFilters: {
         yearStart: 1910,
-        yearEnd: 2022,
+        yearEnd: 2024,
         yearModel: [],
         rqStart: 10,
         rqEnd: 114,
@@ -738,7 +738,7 @@ export default {
       }, 200);
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1910, 2022];
+      if (type === "yearModel") return [1910, 2024];
       if (type === "rqModel") return [10, 114];
       if (type === "topSpeedModel") return [50, 330];
       if (type === "acelModel") return [1.5, 40];

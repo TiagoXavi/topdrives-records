@@ -6665,7 +6665,7 @@
       "tcs": true,
       "clearance": "Low",
       "topSpeed": 200,
-      "acel": 3.5,
+      "acel": 3.4,
       "hand": 86,
       "drive": "4WD",
       "tyres": "Performance",
@@ -36149,7 +36149,6 @@
       "name": "Dodge Challenger SRT 392",
       "rid": "Dodge_Challenger_SRT_392_2015",
       "tags": [
-          "Muscle Car",
           "American Frontier",
           "Interstellar",
           "Christmas Collection 22"
@@ -37463,7 +37462,6 @@
       "rid": "Dodge_Challenger_RT_Scat_Pack_2018",
       "tags": [
           "American Frontier",
-          "Muscle Car",
           "Old Guard",
           "Interstellar",
           "Christmas Collection 22"
