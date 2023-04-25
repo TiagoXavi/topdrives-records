@@ -2734,53 +2734,6 @@ export default {
         }
       }
 
-      if (mutation.type == "TIME_VOTE") {
-        let selectedtune = mutation.payload.car.selectedTune;
-        let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
-        if (this.mode === 'cg') {
-          car = vm.cgCacheCars.find(x => x.rid === mutation.payload.car.rid);
-        }
-        let type = mutation.payload.type
-        let TRACK = mutation.payload.item;
-        let timesObj = car.data[selectedtune].times;
-        let upArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_upList`;
-        let downArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_downList`;
-
-        if (!timesObj[upArrName]) Vue.set(timesObj, upArrName, []);
-        if (!timesObj[downArrName]) Vue.set(timesObj, downArrName, []);
-        let upArr = timesObj[upArrName];
-        let downArr = timesObj[downArrName];
-        let isUnVoteUp = false;
-        let isUnVoteDown = false;
-
-        // remove from both arr
-        if (upArr.includes(vm.user.username)) {
-          if (type === "up") isUnVoteUp = true;
-          timesObj[upArrName] = upArr.filter(x => x !== vm.user.username);
-        }
-        if (downArr.includes(vm.user.username)) {
-          if (type === "down") isUnVoteDown = true;
-          timesObj[downArrName] = downArr.filter(x => x !== vm.user.username);
-        }
-
-        if (!isUnVoteUp && !isUnVoteDown) {
-
-          if (type === "up") {
-            upArr.push(vm.user.username);
-            vm.requestVote(true, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
-          } else {
-            downArr.push(vm.user.username);
-            vm.requestVote(false, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
-          }
-          
-        } else if (isUnVoteUp) {
-          vm.requestVote(true, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
-        } else {
-          vm.requestVote(false, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
-        }
-
-      }
-
       if (mutation.type == "DELETE_TRACK") {
         vm.currentTracks.splice(mutation.payload.track, 1);
         vm.verifyActiveButtons();
@@ -3720,7 +3673,6 @@ export default {
       axios.get(Vue.preUrl + "/lastest")
       .then(res => {
         vm.highlightsUsers = {
-          "Artheof": 'mod',
           "bcp_": 'mod',
           "TiagoXavi": 'mod',
           "Bigremachine": 'mod',
@@ -3732,7 +3684,6 @@ export default {
           "rei348": 'mod',
           "Enginn": 'mod',
           "vel_8": 'mod',
-          "TheShyDragon": 'mod',
           "Ansami_MH": 'mod',
           "RenMasamune": 'mod',
           "boliveira82": 'mod',
@@ -3998,40 +3949,6 @@ export default {
       .then(() => {
         this.downloadLoading = false;
       });
-    },
-    requestVote(isUp, isDelete, rid, tune, track) {
-      this.voteLoading = true;
-      let params = {
-        isUp,
-        isDelete,
-        rid,
-        tune,
-        track
-      }
-
-      axios.post(Vue.preUrl + "/vote", params)
-      .then(res => {
-        this.successVote = true;
-        setTimeout(() => {
-          this.successVote = false;
-        }, 1000);
-      })
-      .catch(error => {
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-        if (error.response.status === 401) {
-          this.loginDialog = true;
-        }
-      })
-      .then(() => {
-        this.voteLoading = false;
-      });
-
     },
     applyNewData(newData, isCgInitial = false) {
       let obj = "carDetailsList";

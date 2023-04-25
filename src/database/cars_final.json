@@ -56330,7 +56330,6 @@
       "name": "Lotus Elise",
       "rid": "Lotus_Elise_1996",
       "tags": [
-          "Drivers Choice",
           "Year of the Rat",
           "Originals",
           "Immortalised in Carbon"
@@ -88548,7 +88547,7 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
-      "engine": "Front"
+      "engine": "Mid"
   },
   {
       "class": "E",

@@ -271,10 +271,6 @@ export default {
       type: Boolean,
       default: false
     },
-    voteLoading: {
-      type: Boolean,
-      default: false
-    },
     user: {
       required: false
     },
@@ -345,7 +341,9 @@ export default {
       timerStart: 0,
       timerEnd: 0,
       touchTrack: null,
-      touchCount: 0
+      touchCount: 0,
+      voteLoading: false,
+      successVote: false
     }
   },
   watch: {
@@ -365,6 +363,8 @@ export default {
       if (mutation.type == "HIDE_DETAIL") {
         vm.detailIndex = null;
       }
+
+      
 
     }); 
   },
@@ -613,11 +613,7 @@ export default {
         this.votedDownIndex = null;
       }
       
-      this.$store.commit("TIME_VOTE", {
-        item,
-        car: this.car,
-        type: type
-      });
+      this.processVote( item, this.car, type);
 
       
 
@@ -881,7 +877,88 @@ export default {
           });
         }
       }
-    }
+    },
+    processVote(TRACK, car, type) {
+      let selectedtune = car.selectedTune;
+      // let car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
+      // if (this.mode === 'cg') {
+      //   car = vm.cgCacheCars.find(x => x.rid === mutation.payload.car.rid);
+      // }
+      let timesObj;
+      if (this.customData) {
+        timesObj = this.customData.data[selectedtune].times;
+      } else {
+        timesObj = car.data[selectedtune].times;
+      }
+      let upArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_upList`;
+      let downArrName = `${TRACK.id}_a${TRACK.surface}${TRACK.cond}_downList`;
+
+      if (!timesObj[upArrName]) Vue.set(timesObj, upArrName, []);
+      if (!timesObj[downArrName]) Vue.set(timesObj, downArrName, []);
+      let upArr = timesObj[upArrName];
+      let downArr = timesObj[downArrName];
+      let isUnVoteUp = false;
+      let isUnVoteDown = false;
+
+      // remove from both arr
+      if (upArr.includes(this.user.username)) {
+        if (type === "up") isUnVoteUp = true;
+        timesObj[upArrName] = upArr.filter(x => x !== this.user.username);
+      }
+      if (downArr.includes(this.user.username)) {
+        if (type === "down") isUnVoteDown = true;
+        timesObj[downArrName] = downArr.filter(x => x !== this.user.username);
+      }
+
+      if (!isUnVoteUp && !isUnVoteDown) {
+
+        if (type === "up") {
+          upArr.push(this.user.username);
+          this.requestVote(true, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+        } else {
+          downArr.push(this.user.username);
+          this.requestVote(false, false, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+        }
+
+      } else if (isUnVoteUp) {
+        this.requestVote(true, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+      } else {
+        this.requestVote(false, true, car.rid, selectedtune, `${TRACK.id}_a${TRACK.surface}${TRACK.cond}`);
+      }
+
+    },
+    
+    requestVote(isUp, isDelete, rid, tune, track) {
+      this.voteLoading = true;
+      let params = {
+        isUp,
+        isDelete,
+        rid,
+        tune,
+        track
+      }
+
+      axios.post(Vue.preUrl + "/vote", params)
+      .then(res => {
+        this.successVote = true;
+        setTimeout(() => {
+          this.successVote = false;
+        }, 1000);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.voteLoading = false;
+      });
+
+    },
 
   },
 }

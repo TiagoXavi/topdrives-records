@@ -3,6 +3,7 @@ import {
     toTimeNumber,
     clearNumber,
 } from './formatters.js';
+import tracks_factor from '../database/tracks_factor.json'
 import plOld15 from '../database/cars_final_PL15.json'
 import plOld16 from '../database/cars_final_PL16.json'
 import plOld17 from '../database/cars_final_PL17.json'
@@ -178,6 +179,22 @@ export default {
         Vue.isMobile = function () {
             return 'ontouchstart' in window || navigator.msMaxTouchPoints;
         },
+        Vue.userPoints = function (userTime, oppoTime, track) {
+            if (isNaN(userTime) || isNaN(oppoTime)) return;
+            if (!tracks_factor[track] || isNaN(tracks_factor[track])) return;
+            if (track && track.includes("testBowl")) {
+                return "";
+            }
+
+            let wt = Math.min(userTime, oppoTime);
+            let lt = Math.max(userTime, oppoTime);
+            let isLose = userTime < oppoTime;
+            let factor = tracks_factor[track];
+            let result = (factor * -1) * (wt / lt) + factor;
+            if (isLose) result = result * -1;
+
+            return result;
+        },
 
 
         Vue.filter('toTimeString', toTimeString);
@@ -192,5 +209,6 @@ export default {
         Vue.filter('resolveCond', Vue.resolveCond);
         Vue.filter('getOldCar', Vue.getOldCar);
         Vue.filter('isMobile', Vue.isMobile);
+        Vue.filter('userPoints', Vue.userPoints);
     }
 };
