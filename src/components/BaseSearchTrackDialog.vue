@@ -196,6 +196,7 @@ export default {
             !bestOption ||
             this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
             y.irace < bestOption.irace && !this.isChamp(y.city) ||
+            this.isChamp(bestOption.city) && this.isChamp(y.city) && y.icity > bestOption.icity ||
             (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
             (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
           ) {

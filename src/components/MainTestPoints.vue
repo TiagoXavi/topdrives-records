@@ -1,7 +1,7 @@
 <template>
   <div class="MainTestPoints_Layout">
     <div class="MainTestPoints_BlockBack" @click.stop="outsideClick()"></div>
-    <div class="MainTestPoints_Header">
+    <div v-if="showCarsFix" class="MainTestPoints_Header">
       <div class="Cg_Track">
         <Row
           v-if="chartTrack"
@@ -20,9 +20,6 @@
           <i v-if="chartTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
           <span v-else>{{ $t("m_selectTrack") }}</span>
         </button>
-      </div>
-      <div class="MainTestPoints_FactorsBox">
-        <div class="MainTestPoints_Factor">Track factor: {{ currentTrackFactor }}</div>
       </div>
       <!-- <BaseConfigCheckBox
         v-model="showBigCards"
@@ -57,81 +54,68 @@
           </div>
         </div>
       </BaseDialog> -->
-    </div>
-    <div v-if="showCarsFix" class="MainTestPoints_Body">
-      <div v-for="(car, rid) in downTimes" class="MainTestPoints_Car">
-        <div class="MainTestPoints_CarTop">
-          <div :class="{ MainTestPoints_BodyBig: showBigCards }" class="MainTestPoints_CarBody">
-            <div
-              :style="`--color: ${all_cars_obj[rid].color}`"
-              class="MainTestPoints_CarItem">
-              <!-- <BaseCardGallery
-                v-if="showBigCards"
-                :car="car[0].car"
-                :options="false"
-                class="MainTestPoints_GalleryCard" /> -->
-              <BaseCard
-                v-if="showBigCards"
-                :car="car[0].car"
-                :fix-back="true"
-                :downloadLoading="false"
-                :needSave="false"
-                :cg="true"
-                :hideClose="true"
-                :showResetTune="false"
-                @cog="cgShowTuneDialog(race.car, race, true)"
-                @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
-                @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
-              <div v-else class="MainTestPoints_CarCard">
-                <div class="MainTestPoints_BankPhoto">
-                  <img :src="all_cars_obj[rid].photo" class="MainTestPoints_BankPhotoImg" alt="">
-                </div>
-                <div class="MainTestPoints_RQ">{{ all_cars_obj[rid].rq }}</div>
-              </div>
-              <!-- <div class="MainTestPoints_Right">
-                <div class="MainTestPoints_Desc">{{ car.location }}</div>
-                <div :class="`MainTestPoints_Chance_${car.chance}`" class="MainTestPoints_Chance">{{ car.chance }}</div>
-              </div> -->
-            </div>
-          </div>
+      <div class="MainTestPoints_Time">
+        <div class="MainTestPoints_TimeLeft">Your time: </div>
+        <Row
+          :car="fakeCar1"
+          :list="[chartTrack]"
+          :loggedin="!!user"
+          :user="user"
+          :voteLoading="voteLoading"
+          :cg="true"
+          :cgOppo="true"
+          :cgTime="fakeTime1"
+          :forceDisabled="!user || !user.mod || !chartTrack"
+          :forceCustomAuthor="true"
+          :customData="fakeCustomData1"
+          placeholder="Time 1"
+          type="times"
+          @deleteTime="deleteTime(fakeCar1, $event)"
+          @changeTime="changeTime(fakeCar1, $event)" />
+      </div>
+      <div class="MainTestPoints_Time">
+        <div class="MainTestPoints_TimeLeft">Oppo time: </div>
+        <Row
+          :car="fakeCar2"
+          :list="[chartTrack]"
+          :loggedin="!!user"
+          :user="user"
+          :voteLoading="voteLoading"
+          :cg="true"
+          :cgOppo="true"
+          :cgTime="fakeTime2"
+          :forceDisabled="!user || !user.mod || !chartTrack"
+          :forceCustomAuthor="true"
+          :customData="fakeCustomData2"
+          placeholder="Time 2"
+          type="times"
+          @deleteTime="deleteTime(fakeCar2, $event)"
+          @changeTime="changeTime(fakeCar2, $event)" />
+      </div>
+      <div v-if="pointsResult" class="MainTestPoints_Result">
+        <div class="MainTestPoints_ResultTdr">
+          <div class="BaseText_Label">Points:</div>
+          <div :class="{ MainTestPoints_ResultTdrPointsLose: pointsResult < 0 }" class="MainTestPoints_ResultTdrPoints">{{ pointsResult }}</div>
         </div>
-        <div class="MainTestPoints_CarBottom">
-          <div v-for="item in car" class="MainTestPoints_CarTime">
-            <div class="MainTestPoints_CarLeft">{{ item.selectedTune }}</div>
-            <div class="MainTestPoints_CarRight">
-              <Row
-                :list="item.resolvedTracks"
-                :loggedin="!!user"
-                :user="user"
-                :options="user && user.mod"
-                :cg="true"
-                class="Cg_TrackBox"
-                type="tracks" />
-              <Row
-                :car="item.car"
-                :list="item.resolvedTracks"
-                :loggedin="!!user"
-                :user="user"
-                :voteLoading="voteLoading"
-                :cg="true"
-                :cgOppo="false"
-                :cgTime="item.time"
-                :customData="item.car.data"
-                :forceDisabled="!user || !user.mod"
-                type="times"
-                @deleteTime="deleteTime(item, $event)"
-                @changeTime="changeTime(item, $event)" />
-              <div v-if="item.car.dataToSave" class="MainTestPoints_SaveBox">
-                <button
-                  :class="{ D_Button_Loading: ridLoading === rid }"
-                  class="D_Button Main_SaveAllButton"
-                  @click="saveRid(rid)">{{ $t("m_save") }}</button>
-              </div>
-            </div>
-          </div>
+        <div class="MainTestPoints_ResultByUser">
+          <BaseText
+            v-model="informCorrectPoints"
+            class="BaseText_Big"
+            iid="correctPoints"
+            label="Incorrect points?"
+            type="integer"
+            placeholder="" />
         </div>
       </div>
+      <div v-if="pointsResult" class="MainTestPoints_FactorsBox" style="margin-top: 30px;">
+        <div class="MainTestPoints_Factor">'{{ $t(`t_${chartTrack.id}`) }}' factor: <b>{{ currentTrackFactor }}</b></div>
+      </div>
+      <div v-if="pointsResult && informCorrectPoints && !isNaN(informCorrectPoints)" class="MainTestPoints_FactorsBox">
+        <div class="MainTestPoints_Factor">New track factor: <b>~{{ fixedTrackFactor }}</b></div>
+      </div>
     </div>
+
+
 
     <BaseSearchTrackDialog
       :active="customTrackDialog"
@@ -150,6 +134,7 @@ import BaseCard from './BaseCard.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 import Row from './Row.vue'
 import BaseDialog from './BaseDialog.vue'
+import BaseText from './BaseText.vue'
 import all_cars from '../database/cars_final.json'
 import tracksRepo from '../database/tracks_repo.json'
 import campaign from '../database/campaign.json'
@@ -163,7 +148,8 @@ export default {
     Row,
     BaseCard,
     BaseDialog,
-    BaseSearchTrackDialog
+    BaseSearchTrackDialog,
+    BaseText
   },
   props: {
     test: {
@@ -197,49 +183,118 @@ export default {
         classe: ""
       },
       showCarsFix: true,
+      fakeCar1: {
+        rid: "fake1",
+        selectedTune: "Other"
+      },
+      fakeCustomData1: {},
+      fakeTime1: undefined,
+      fakeCar2: {
+        rid: "fake2",
+        selectedTune: "Other"
+      },
+      fakeCustomData2: {},
+      fakeTime2: undefined,
+      informCorrectPoints: null,
+      showCarsFix: true,
     }
   },
-  watch: {},
+  watch: {
+    chartTrack() {
+      this.changedTrack();
+    }
+  },
   beforeMount() {
     // let showBigCards = window.localStorage.getItem("showBigCards");
     // if (showBigCards) {
     //   showBigCards = JSON.parse(showBigCards);
     //   this.showBigCards = showBigCards;
     // }
-    this.all_cars.map(x => {
-      this.all_cars_obj[x.rid] = x;
-    })
+    // this.all_cars.map(x => {
+    //   this.all_cars_obj[x.rid] = x;
+    // })
   },
   mounted() {
     let vm = this;
-    this.getDownTimes();
-    this.user = this.$store.state.user;
-    this.asMod = this.$store.state.asMod;
+    // this.getDownTimes();
+    this.user = { "username": "fake", "mod": true };
+    this.asMod = true;
 
-    vm.unsubscribe = vm.$store.subscribe(mutation => {
+    // this.chartTrack = {"id":"drag100","surface":"0","cond":"0","code":"drag100_a00","campaign":"IT Milan 10"}
+    // this.fakeTime1 = 10.1;
+    // this.fakeTime2 = 12;
+    // this.informCorrectPoints = "90";
 
-      if (mutation.type == "CHANGE_USER") {
-        vm.user = mutation.payload.user;
-        vm.asMod = mutation.payload.asMod;
-      }
+    // vm.unsubscribe = vm.$store.subscribe(mutation => {
 
-      if (mutation.type == "LOGOUT") {
-        vm.user = null;
-        vm.asMod = false;
-      }
+    //   if (mutation.type == "CHANGE_USER") {
+    //     vm.user = mutation.payload.user;
+    //     vm.asMod = mutation.payload.asMod;
+    //   }
 
-    })
+    //   if (mutation.type == "LOGOUT") {
+    //     vm.user = null;
+    //     vm.asMod = false;
+    //   }
+
+    // })
   },
   beforeDestroy() {
-    this.unsubscribe();
+    // this.unsubscribe();
   },
   computed: {
     currentTrackFactor() {
       if (!this.chartTrack) return;
       return this.tracks_factor[this.chartTrack.id];
+    },
+    fixedTrackFactor() {
+      if (!this.chartTrack) return;
+      if (!this.informCorrectPoints) return;
+      if (!this.fakeTime1) return;
+      if (!this.fakeTime2) return;
+
+      let wt = Math.min(this.fakeTime1, this.fakeTime2);
+      let lt = Math.max(this.fakeTime1, this.fakeTime2);
+      let points = this.informCorrectPoints;
+      let newFactor = points / (-wt/lt + 1);
+
+      return Math.round(newFactor);
+    },
+    pointsResult() {
+      if (!this.chartTrack) return;
+      if (!this.fakeTime1) return;
+      if (!this.fakeTime2) return;
+
+      return Vue.options.filters.userPoints(this.fakeTime1, this.fakeTime2, this.chartTrack.code)
     }
   },
   methods: {
+    changedTrack() {
+      // if (this.fakeTime1 !== undefined) {
+      //   this.fakeCar1.data.Other.times = {};
+      //   Vue.set(this.fakeCar1.data.Other.times, this.chartTrack.code, this.fakeTime1);
+      //   Vue.set(this.fakeCar1.data.Other.times, `${this.chartTrack.code}_user`, this.user.username);
+      // }
+      // if (this.fakeTime2 !== undefined) {
+      //   this.fakeCar2.data.Other.times = {};
+      //   Vue.set(this.fakeCar2.data.Other.times, this.chartTrack.code, this.fakeTime2);
+      //   Vue.set(this.fakeCar2.data.Other.times, `${this.chartTrack.code}_user`, this.user.username);
+      // }
+      delete this.fakeCar1.data;
+      delete this.fakeCar2.data;
+      this.fakeTime1 = undefined;
+      this.fakeTime2 = undefined;
+      this.informCorrectPoints = null;
+
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+        this.$nextTick().then(() => {
+          document.querySelector("div.MainTestPoints_Header > div:nth-child(2) div.Row_Content").focus();
+        })
+      })
+    },
     openDialogTrackSearch() {
       this.customTrackDialog = true;
       setTimeout(() => {
@@ -297,6 +352,10 @@ export default {
             downtime.resolvedTracks.map((x, ix) => {
               let bestOption;
               currentTracksOptions[ix].map(y => {
+                debugger;
+                if (x.code === 'drag60_a01') {
+                  debugger;
+                }
                 if (
                   !bestOption ||
                   this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
@@ -369,13 +428,15 @@ export default {
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
     },
-    changeTime(carObj, e) {
+    changeTime(car, e) {
       let vm = this;
-      let car = carObj.car;
-      let tune = carObj.selectedTune;
-      let track = carObj.track;
+      let tune = car.selectedTune;
+      let track = this.chartTrack.code;
       let number = e.number;
 
+      if (!car.data) Vue.set(car, "data", {});
+      if (!car.data[tune]) Vue.set(car.data, tune, {});
+      if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
       /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
       /**/ if (!car.dataToSave[tune]) Vue.set(car.dataToSave, tune, {});
       /**/ if (!car.dataToSave[tune].times) Vue.set(car.dataToSave[tune], "times", {});
@@ -385,6 +446,9 @@ export default {
       Vue.set(car.data[tune].times, [`${track}_downList`], []);
       Vue.set(car.data[tune].times, [`${track}_upList`], []);
       /**/ Vue.set(car.dataToSave[tune].times, [`${track}`], number);
+
+      if (car.rid === "fake1") this.fakeTime1 = number;
+      if (car.rid === "fake2") this.fakeTime2 = number;
       
     },
     deleteTime(item, event) {
@@ -462,6 +526,21 @@ export default {
 <style>
 .MainTestPoints_Layout {
   position: relative;
+  min-height: 500px;
+}
+.MainTestPoints_Time {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.MainTestPoints_Time > .Row_Layout {
+  flex-grow: 1;
+  max-width: 200px;
+}
+.MainTestPoints_Header .Row_Layout {
+  box-shadow: inset 2px 2px 0px 0px #ffffff07;
 }
 .MainTestPoints_BlockBack {
   position: absolute;
@@ -470,6 +549,24 @@ export default {
   left: 0;
   right: 0;
   background-color: transparent;
+}
+.MainTestPoints_Header {
+  position: relative;
+}
+.MainTestPoints_Result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.MainTestPoints_FactorsBox {
+  text-align: center;
+  color: #777;
+}
+.MainTestPoints_FactorsBox + .MainTestPoints_FactorsBox {
+  margin-top: -10px;
+}
+.MainTestPoints_FactorsBox b {
+  color: var(--d-text-b);
+  font-weight: normal;
 }
 .MainTestPoints_Body {
   margin: 0 auto;
@@ -492,7 +589,7 @@ export default {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
   padding-top: 20px;
 }
 .Main_ChartFilter {
@@ -575,6 +672,14 @@ export default {
   height: 100%;
   align-items: center;
   top: 0;
+}
+.MainTestPoints_ResultTdrPoints {
+  color: rgb(var(--d-text-green));
+  font-size: 30px;
+  font-weight: bold;
+}
+.MainTestPoints_ResultTdrPointsLose {
+  color: rgb(var(--d-text-red));
 }
 
 @media only screen and (max-width: 767px) {

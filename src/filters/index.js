@@ -179,8 +179,11 @@ export default {
         Vue.isMobile = function () {
             return 'ontouchstart' in window || navigator.msMaxTouchPoints;
         },
-        Vue.userPoints = function (userTime, oppoTime, track) {
+        Vue.userPoints = function (userTime, oppoTime, trackCode) {
             if (isNaN(userTime) || isNaN(oppoTime)) return;
+            if (!trackCode) return;
+            let track = trackCode;
+            if (trackCode.includes("_a")) track = trackCode.slice(0,-4);
             if (!tracks_factor[track] || isNaN(tracks_factor[track])) return;
             if (track && track.includes("testBowl")) {
                 return "";
@@ -188,10 +191,24 @@ export default {
 
             let wt = Math.min(userTime, oppoTime);
             let lt = Math.max(userTime, oppoTime);
-            let isLose = userTime < oppoTime;
+            let isLose = userTime > oppoTime;
             let factor = tracks_factor[track];
+
+            if (trackCode.includes("mnHairpin_a4")) factor = 1200; // especial
+
             let result = (factor * -1) * (wt / lt) + factor;
+            console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
+            let decimal = Number((result % 1).toFixed(2));
+            let isImprecise = false;
+            if (decimal < 0.13 || decimal > 0.87) {
+                isImprecise = true;
+            }
+            result = Math.floor(Number((result - 0.09).toFixed(1)));
+            
+            if (result < 50) result = 50;
             if (isLose) result = result * -1;
+
+            if (isImprecise) result = `~${result}`;
 
             return result;
         },
