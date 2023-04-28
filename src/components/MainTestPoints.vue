@@ -95,7 +95,7 @@
       <div v-if="pointsResult" class="MainTestPoints_Result">
         <div class="MainTestPoints_ResultTdr">
           <div class="BaseText_Label">Points:</div>
-          <div :class="{ MainTestPoints_ResultTdrPointsLose: pointsResult < 0 }" class="MainTestPoints_ResultTdrPoints">{{ pointsResult }}</div>
+          <div :class="{ MainTestPoints_ResultTdrPointsLose: pointsResult.v < 0 }" class="MainTestPoints_ResultTdrPoints">{{ pointsResult.i ? "~" : "" }}{{ pointsResult.v }}</div>
         </div>
         <div class="MainTestPoints_ResultByUser">
           <BaseText
@@ -352,14 +352,11 @@ export default {
             downtime.resolvedTracks.map((x, ix) => {
               let bestOption;
               currentTracksOptions[ix].map(y => {
-                debugger;
-                if (x.code === 'drag60_a01') {
-                  debugger;
-                }
                 if (
                   !bestOption ||
                   this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
                   y.irace < bestOption.irace && !this.isChamp(y.city) ||
+                  this.isChamp(bestOption.city) && this.isChamp(y.city) && y.icity > bestOption.icity ||
                   (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
                   (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
                 ) {

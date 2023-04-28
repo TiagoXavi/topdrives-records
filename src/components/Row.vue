@@ -153,7 +153,7 @@
               <span v-if="item.upList && item.upList.length > 0" class="Row_UpCount">{{ item.upList.length }}</span>
             </button>
             <button
-              v-if="user && user.mod"
+              v-if="user && user.mod && !forceDisabled"
               class="D_Button Row_ModEditButton"
               @click="modEdit($event, item, ix)">
               <i

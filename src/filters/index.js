@@ -208,9 +208,9 @@ export default {
             if (result < 50) result = 50;
             if (isLose) result = result * -1;
 
-            if (isImprecise) result = `~${result}`;
+            // if (isImprecise) result = `~${result}`;
 
-            return result;
+            return { v: result, i: isImprecise };
         },
 
 

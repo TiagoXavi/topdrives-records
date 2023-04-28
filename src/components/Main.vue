@@ -431,7 +431,11 @@
           </button>
         </div>
 
-        <template v-if="(cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate) || cgNewSubmitByMod || (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) || (cgRound.reservedTo && cgRound.reservedTo !== user.username)"></template>
+        <template v-if="
+          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate) ||
+          cgNewSubmitByMod ||
+          (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) ||
+          (cgRound.reservedTo && cgRound.reservedTo !== user.username)" />
         
         <template v-else-if="cgRound.date">
           <div
@@ -529,7 +533,7 @@
                   :cgOppo="true"
                   :cgTime="race.time"
                   :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
-                  :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser)"
+                  :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser) || cgIsApproving"
                   :placeholder="$t('m_timeToBeat')"
                   :forceCustomAuthor="isRoundEmptyForUser"
                   type="times"
@@ -2967,15 +2971,24 @@ export default {
       }
     },
     isRoundEmptyForModders() {
+      console.log(0);
       if (this.mode !== 'cg') return false;
+      console.log(1);
       if (!this.user) return false;
+      console.log(2);
       if (!this.user.mod) return false;
-      if (!this.cgRound) return false;
-      if (this.cgRound.reservedTo) return false;
-      if (this.cgRound.creator) return false;
-      if (!this.cgRound.lastAnalyze) {
+      console.log(3);
+      if (!this.cgCurrentRound || !this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
+      console.log(4);
+      if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
+      console.log(5);
+      if (this.cg.rounds[this.cgCurrentRound].creator) return false;
+      console.log(6);
+      if (!this.cg.rounds[this.cgCurrentRound].lastAnalyze) {
         return true
       }
+      console.log(7);
+      if (this.cgNewSubmitByMod) return true;
     },
     isRoundReadyForSaveUser() {
       if (!this.isRoundEmptyForUser) return false;
