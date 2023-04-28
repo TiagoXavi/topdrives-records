@@ -185,10 +185,8 @@ export default {
             let track = trackCode;
             if (trackCode.includes("_a")) track = trackCode.slice(0,-4);
             if (!tracks_factor[track] || isNaN(tracks_factor[track])) return;
-            if (track && track.includes("testBowl")) {
-                return "";
-            }
 
+            let result;
             let wt = Math.min(userTime, oppoTime);
             let lt = Math.max(userTime, oppoTime);
             let isLose = userTime > oppoTime;
@@ -196,7 +194,30 @@ export default {
 
             if (trackCode.includes("mnHairpin_a4")) factor = 1200; // especial
 
-            let result = (factor * -1) * (wt / lt) + factor;
+            if (trackCode.includes("testBowl")) {
+                let wt = Math.max(userTime, oppoTime);
+                let lt = Math.min(userTime, oppoTime);
+                let isLose = userTime < oppoTime;
+
+                if (wt === lt) return { v: 0, i: true };
+
+                let diffPercent = lt/wt*100;
+                result = -373.3608 + (64019.48 - -373.3608)/(1 + Math.pow(diffPercent/0.7405556, 1.047131));
+                result = Math.round(result);
+
+                if (result < 50) result = 50;
+                if (isLose) result = result * -1;
+                return { v: result, i: true };
+            }
+
+            if (wt == lt) return { v: 0, i: false };
+            if (wt == 0 || lt == 0) {
+                result = 250;
+                if (isLose) result = result * -1;
+                return { v: result, i: false };
+            }
+
+            result = (factor * -1) * (wt / lt) + factor;
             console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
             let decimal = Number((result % 1).toFixed(2));
             let isImprecise = false;
