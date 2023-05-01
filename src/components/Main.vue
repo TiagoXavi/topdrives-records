@@ -432,7 +432,7 @@
         </div>
 
         <template v-if="
-          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate) ||
+          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate && !showAnalyse) ||
           cgNewSubmitByMod ||
           (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) ||
           (cgRound.reservedTo && cgRound.reservedTo !== user.username)" />
@@ -4571,7 +4571,7 @@ export default {
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
 
-      if (this.cgRound.toApprove && !this.cgRound.reservedTo) {
+      if (Array.isArray(this.cgRound.toApprove) && this.cgRound.toApprove.length > 0 && !this.cgRound.reservedTo && !this.cgRound.creator && !this.cgRound.lastAnalyze) {
         this.cgViewSubmit();
       } else {
         this.cgIsApproving = false;
@@ -4599,11 +4599,13 @@ export default {
         let votes = res.data.filter(x => x.sort.includes("votes_"));
         if (votes) {
           let realCgRound = this.cg.rounds[this.cgCurrentRound];
-          if (realCgRound.toApprove) {
+          if (Array.isArray(realCgRound.toApprove) && realCgRound.toApprove.length > 0) {
             votes.map(item => {
               let index = Number(item.sort.substr(6));
-              realCgRound.toApprove[index].downList = item.value.down;
-              realCgRound.toApprove[index].upList = item.value.up;
+              if (realCgRound.toApprove[index]) {
+                realCgRound.toApprove[index].downList = item.value.down;
+                realCgRound.toApprove[index].upList = item.value.up;
+              }
             })
           }
         }
