@@ -87,7 +87,7 @@ export default {
           var isAcel = acel.test(e);
           var topHand = new RegExp(/^[0-9]{2,3}$/g);
           var isTopHand = topHand.test(e);
-          var integer = new RegExp(/^[0-9]+$/g);
+          var integer = new RegExp(/^-?[0-9]+$/g);
           var isInteger = integer.test(e);
           var tune = new RegExp(/^[0-9]{3}$/g);
           var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
