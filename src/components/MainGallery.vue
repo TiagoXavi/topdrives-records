@@ -357,8 +357,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final.json'
-import plOld from '../database/cars_final_PL18.json'
+import data_cars from '../database/cars_final_PL19_1-fixed.json'
+import plOld from '../database/cars_final_PL19.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
