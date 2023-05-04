@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_19.json'
+import cars_new_rq from '../database/cars_new_rq_19_1.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -37,8 +37,8 @@ export default {
     let temp2;
     let xName;
     let yModel;
-    let newStr = "19.0 RQ";
-    let oldStr = "18.0 RQ";
+    let newStr = "19.1 RQ";
+    let oldStr = "19.0 RQ";
 
 
     // this.cars_final.map(x => {
@@ -104,7 +104,7 @@ export default {
       if (temp && temp.length > 1) {
         let achouExato = -1;
         temp.map((x, index) => {
-          let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+          let xModelName = x.onlyName.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
           if (xModelName === yModelName) {
             achouExato = index;
           }
