@@ -1,0 +1,1386 @@
+[
+  {
+    "Make": "Ginetta",
+    "Model": "G56 GT4 Supercup",
+    "Year": 2021,
+    "19.0 RQ": 105,
+    "19.1 RQ": 91,
+    "RQ Change": -14
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 RSR-19 (991.2)",
+    "Year": 2019,
+    "19.0 RQ": 104,
+    "19.1 RQ": 93,
+    "RQ Change": -11
+  },
+  {
+    "Make": "BMW",
+    "Model": "M8 GTE",
+    "Year": 2018,
+    "19.0 RQ": 104,
+    "19.1 RQ": 93,
+    "RQ Change": -11
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S GT3",
+    "Year": 2019,
+    "19.0 RQ": 102,
+    "19.1 RQ": 92,
+    "RQ Change": -10
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R GT500 (R35)",
+    "Year": 2016,
+    "19.0 RQ": 102,
+    "19.1 RQ": 92,
+    "RQ Change": -10
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "908 HDi FAP",
+    "Year": 2007,
+    "19.0 RQ": 107,
+    "19.1 RQ": 97,
+    "RQ Change": -10
+  },
+  {
+    "Make": "Audi",
+    "Model": "R10 TDI",
+    "Year": 2006,
+    "19.0 RQ": 104,
+    "19.1 RQ": 96,
+    "RQ Change": -8
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra MkIII 427 S/C",
+    "Year": 1965,
+    "19.0 RQ": 72,
+    "19.1 RQ": 65,
+    "RQ Change": -7
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tuscan S",
+    "Year": 2005,
+    "19.0 RQ": 72,
+    "19.1 RQ": 65,
+    "RQ Change": -7
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 LMS GT3",
+    "Year": 2018,
+    "19.0 RQ": 100,
+    "19.1 RQ": 93,
+    "RQ Change": -7
+  },
+  {
+    "Make": "Renault",
+    "Model": "R.S. 01",
+    "Year": 2015,
+    "19.0 RQ": 100,
+    "19.1 RQ": 93,
+    "RQ Change": -7
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT3",
+    "Year": 2018,
+    "19.0 RQ": 100,
+    "19.1 RQ": 93,
+    "RQ Change": -7
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1-98",
+    "Year": 1998,
+    "19.0 RQ": 97,
+    "19.1 RQ": 91,
+    "RQ Change": -6
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow GTX",
+    "Year": 2020,
+    "19.0 RQ": 99,
+    "19.1 RQ": 93,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Furai",
+    "Year": 2007,
+    "19.0 RQ": 102,
+    "19.1 RQ": 96,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "Benz C11",
+    "Year": 1990,
+    "19.0 RQ": 103,
+    "19.1 RQ": 97,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS Clubsport 25",
+    "Year": 2021,
+    "19.0 RQ": 103,
+    "19.1 RQ": 97,
+    "RQ Change": -6
+  },
+  {
+    "Make": "BAC",
+    "Model": "Mono",
+    "Year": 2015,
+    "19.0 RQ": 104,
+    "19.1 RQ": 98,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G57 P2",
+    "Year": 2016,
+    "19.0 RQ": 107,
+    "19.1 RQ": 101,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "I.D. R Pikes Peak",
+    "Year": 2018,
+    "19.0 RQ": 110,
+    "19.1 RQ": 104,
+    "RQ Change": -6
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G58",
+    "Year": 2018,
+    "19.0 RQ": 110,
+    "19.1 RQ": 104,
+    "RQ Change": -6
+  },
+  {
+    "Make": "TVR",
+    "Model": "Sagaris",
+    "Year": 2005,
+    "19.0 RQ": 72,
+    "19.1 RQ": 67,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT40 race car",
+    "Year": 1969,
+    "19.0 RQ": 78,
+    "19.1 RQ": 73,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Demon",
+    "Year": 2017,
+    "19.0 RQ": 85,
+    "19.1 RQ": 80,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra R",
+    "Year": 2021,
+    "19.0 RQ": 103,
+    "19.1 RQ": 98,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR \"Yellowbird\"",
+    "Year": 1987,
+    "19.0 RQ": 79,
+    "19.1 RQ": 75,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "405 T16 Pikes Peak",
+    "Year": 1988,
+    "19.0 RQ": 90,
+    "19.1 RQ": 86,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Intensa Emozione",
+    "Year": 2019,
+    "19.0 RQ": 98,
+    "19.1 RQ": 94,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18 TDI Ultra",
+    "Year": 2011,
+    "19.0 RQ": 107,
+    "19.1 RQ": 103,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V12 Vanquish S",
+    "Year": 2004,
+    "19.0 RQ": 68,
+    "19.1 RQ": 65,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Bristol",
+    "Model": "Fighter",
+    "Year": 2004,
+    "19.0 RQ": 71,
+    "19.1 RQ": 68,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger SRT Hellcat",
+    "Year": 2015,
+    "19.0 RQ": 76,
+    "19.1 RQ": 73,
+    "RQ Change": -3
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 378 Superblower MkIV",
+    "Year": 2021,
+    "19.0 RQ": 79,
+    "19.1 RQ": 76,
+    "RQ Change": -3
+  },
+  {
+    "Make": "AC",
+    "Model": "Mk VI GTSR",
+    "Year": 2015,
+    "19.0 RQ": 83,
+    "19.1 RQ": 80,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "905B",
+    "Year": 1992,
+    "19.0 RQ": 105,
+    "19.1 RQ": 102,
+    "RQ Change": -3
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 212 S/C",
+    "Year": 2000,
+    "19.0 RQ": 68,
+    "19.1 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "908 RC",
+    "Year": 2006,
+    "19.0 RQ": 75,
+    "19.1 RQ": 73,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf GTI W12",
+    "Year": 2007,
+    "19.0 RQ": 77,
+    "19.1 RQ": 75,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJ220",
+    "Year": 1992,
+    "19.0 RQ": 78,
+    "19.1 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "TVR",
+    "Model": "Typhon",
+    "Year": 2000,
+    "19.0 RQ": 82,
+    "19.1 RQ": 80,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Double 12 S (Stage V)",
+    "Year": 2002,
+    "19.0 RQ": 82,
+    "19.1 RQ": 80,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "206 WRC",
+    "Year": 2000,
+    "19.0 RQ": 83,
+    "19.1 RQ": 81,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "959 Dakar",
+    "Year": 1986,
+    "19.0 RQ": 84,
+    "19.1 RQ": 82,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Audi",
+    "Model": "Sport quattro S1",
+    "Year": 1985,
+    "19.0 RQ": 87,
+    "19.1 RQ": 85,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "205 T16 Evo 2",
+    "Year": 1985,
+    "19.0 RQ": 89,
+    "19.1 RQ": 87,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 500 V8",
+    "Year": 2011,
+    "19.0 RQ": 95,
+    "19.1 RQ": 93,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18",
+    "Year": 2016,
+    "19.0 RQ": 110,
+    "19.1 RQ": 108,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "Benz CLK 63 AMG Black Series",
+    "Year": 2009,
+    "19.0 RQ": 66,
+    "19.1 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DBS V12",
+    "Year": 2007,
+    "19.0 RQ": 67,
+    "19.1 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa",
+    "Model": "Romeo 8C Spider",
+    "Year": 2010,
+    "19.0 RQ": 68,
+    "19.1 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 8 GTR",
+    "Year": 2021,
+    "19.0 RQ": 68,
+    "19.1 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB10",
+    "Year": 2015,
+    "19.0 RQ": 68,
+    "19.1 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Boxster GTS",
+    "Year": 2015,
+    "19.0 RQ": 68,
+    "19.1 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M3 CRT",
+    "Year": 2011,
+    "19.0 RQ": 68,
+    "19.1 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XKR-S GT",
+    "Year": 2014,
+    "19.0 RQ": 69,
+    "19.1 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Aileron",
+    "Year": 2009,
+    "19.0 RQ": 70,
+    "19.1 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M4",
+    "Year": 2016,
+    "19.0 RQ": 70,
+    "19.1 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora 400",
+    "Year": 2015,
+    "19.0 RQ": 70,
+    "19.1 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach-E",
+    "Year": 2020,
+    "19.0 RQ": 70,
+    "19.1 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Diablo SE30",
+    "Year": 1993,
+    "19.0 RQ": 71,
+    "19.1 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 RS",
+    "Year": 2004,
+    "19.0 RQ": 72,
+    "19.1 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C12 Zagato",
+    "Year": 2007,
+    "19.0 RQ": 72,
+    "19.1 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora Sport 410",
+    "Year": 2019,
+    "19.0 RQ": 72,
+    "19.1 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3",
+    "Year": 2006,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "M4S",
+    "Year": 1981,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "718 Boxster GTS 4.0 (982)",
+    "Year": 2020,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige S LF1",
+    "Year": 2014,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Vanquish Volante",
+    "Year": 2013,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Q60 Black S",
+    "Year": 2017,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "De",
+    "Model": "Tomaso Pantera Group 4",
+    "Year": 1972,
+    "19.0 RQ": 73,
+    "19.1 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "W12 Roadster",
+    "Year": 1997,
+    "19.0 RQ": 74,
+    "19.1 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJS TWR",
+    "Year": 1982,
+    "19.0 RQ": 74,
+    "19.1 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper GTS-R Concept",
+    "Year": 2000,
+    "19.0 RQ": 75,
+    "19.1 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora GT430 Sport",
+    "Year": 2017,
+    "19.0 RQ": 75,
+    "19.1 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayman GT4 Clubsport R-GT 4.0 (982)",
+    "Year": 2018,
+    "19.0 RQ": 76,
+    "19.1 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Preliator Spyder",
+    "Year": 2017,
+    "19.0 RQ": 78,
+    "19.1 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Caterham",
+    "Model": "JPE",
+    "Year": 1992,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Hayabusa Sport Prototype",
+    "Year": 2003,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige Cup 430",
+    "Year": 2019,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06 tuned",
+    "Year": 2006,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Vanquish Zagato",
+    "Year": 2017,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V12 Vantage RS",
+    "Year": 2007,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Vanquish S",
+    "Year": 2018,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa",
+    "Model": "Romeo TZ3 Stradale",
+    "Year": 2011,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 RS 4.0",
+    "Year": 2011,
+    "19.0 RQ": 79,
+    "19.1 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "AC",
+    "Model": "Mk VI GT Big Block",
+    "Year": 2013,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "AC",
+    "Model": "Mk VI GTS",
+    "Year": 2015,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "SRT Viper",
+    "Year": 2013,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GTS (992)",
+    "Year": 2021,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta HF Integrale 16v",
+    "Year": 1989,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "Benz SLS AMG Black Series",
+    "Year": 2013,
+    "19.0 RQ": 81,
+    "19.1 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3",
+    "Year": 2008,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Superlight R500",
+    "Year": 2008,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "Benz CLK GTR",
+    "Year": 1998,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "MC12 Stradale",
+    "Year": 2004,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M760Li xDrive V12",
+    "Year": 2017,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán LP580-2",
+    "Year": 2016,
+    "19.0 RQ": 82,
+    "19.1 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "COPO Camaro",
+    "Year": 2018,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR-15",
+    "Year": 1990,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1 Strassenversion",
+    "Year": 1997,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "AMG GT R",
+    "Year": 2018,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Saleen",
+    "Model": "S5S Raptor",
+    "Year": 2008,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT90",
+    "Year": 1995,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "GT Concept",
+    "Year": 2008,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Saleen",
+    "Model": "S7",
+    "Year": 2000,
+    "19.0 RQ": 83,
+    "19.1 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 2 Supercharged",
+    "Year": 2003,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper TA",
+    "Year": 2013,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "718 Cayman GT4 RS",
+    "Year": 2022,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Carrera GT",
+    "Year": 2003,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Roadster F",
+    "Year": 2005,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda F",
+    "Year": 2005,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS",
+    "Year": 2011,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "570S Spider",
+    "Year": 2017,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper ACR",
+    "Year": 2016,
+    "19.0 RQ": 84,
+    "19.1 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3 Supercharged",
+    "Year": 2008,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCX",
+    "Year": 2006,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCR",
+    "Year": 2004,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "570S Coupe",
+    "Year": 2015,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1",
+    "Year": 1992,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 RS",
+    "Year": 2018,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Aero 8 race car",
+    "Year": 2002,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "12C",
+    "Year": 2011,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Tricolore",
+    "Year": 2010,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Cinque",
+    "Year": 2009,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera 4 3.0 (992)",
+    "Year": 2019,
+    "19.0 RQ": 85,
+    "19.1 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3.5",
+    "Year": 2013,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Evolution Convertible",
+    "Year": 2015,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa",
+    "Model": "Romeo TZ3 Corsa",
+    "Year": 2010,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3",
+    "Year": 2007,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "GT",
+    "Year": 2019,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Cinque Roadster",
+    "Year": 2009,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 GT",
+    "Year": 1997,
+    "19.0 RQ": 86,
+    "19.1 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "3-Eleven 430",
+    "Year": 2018,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Skyline GT-R Group A (R32)",
+    "Year": 1990,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra",
+    "Year": 2016,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5",
+    "Year": 2018,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "ECV",
+    "Year": 1986,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Apollo",
+    "Year": 2006,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-Type SVR Coupe",
+    "Year": 2017,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Cerbera Speed 12",
+    "Year": 2003,
+    "19.0 RQ": 87,
+    "19.1 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "ME Four-Twelve",
+    "Year": 2004,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "917",
+    "Year": 1970,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "650S",
+    "Year": 2014,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Murciélago LP650-4 Roadster",
+    "Year": 2009,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Saleen",
+    "Model": "S7 Twin Turbo",
+    "Year": 2005,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda HP Barchetta",
+    "Year": 2017,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R Egoist (R35)",
+    "Year": 2012,
+    "19.0 RQ": 88,
+    "19.1 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT",
+    "Year": 2017,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3 Clubsport",
+    "Year": 2012,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Apollo Basic",
+    "Year": 2007,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "600LT Coupe",
+    "Year": 2018,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Onyx",
+    "Year": 2012,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5 Competition",
+    "Year": 2018,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCXR Edition",
+    "Year": 2008,
+    "19.0 RQ": 89,
+    "19.1 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Apollo S",
+    "Year": 2010,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCGT",
+    "Year": 2007,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes",
+    "Model": "AMG GT 4-Door Coupé",
+    "Year": 2018,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "R Turbo",
+    "Year": 2001,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra Roadster",
+    "Year": 2017,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Quasar",
+    "Year": 1984,
+    "19.0 RQ": 90,
+    "19.1 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Apollo Enraged",
+    "Year": 2012,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Hunaudières",
+    "Year": 1999,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S Spider",
+    "Year": 2019,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 GTR Short Tail",
+    "Year": 1995,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S",
+    "Year": 2017,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1 Evo",
+    "Year": 1997,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Spyder",
+    "Year": 2015,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "N",
+    "Year": 2016,
+    "19.0 RQ": 91,
+    "19.1 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP 570-4 Edizione Tecnica",
+    "Year": 2013,
+    "19.0 RQ": 92,
+    "19.1 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.8 Cabriolet (991.2)",
+    "Year": 2016,
+    "19.0 RQ": 92,
+    "19.1 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP570-4 Superleggera (2nd gen)",
+    "Year": 2012,
+    "19.0 RQ": 92,
+    "19.1 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R390 GT1 Race Car",
+    "Year": 1997,
+    "19.0 RQ": 92,
+    "19.1 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "919 Hybrid Evo",
+    "Year": 2018,
+    "19.0 RQ": 114,
+    "19.1 RQ": 113,
+    "RQ Change": -1
+  }
+]
