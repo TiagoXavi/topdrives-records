@@ -2208,7 +2208,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v19",
+      gameVersion: "Game v19.1",
       mode: "classic",
       cgLoading: false,
       cgCurrentRound: 0,
@@ -2978,7 +2978,7 @@ export default {
       console.log(2);
       if (!this.user.mod) return false;
       console.log(3);
-      if (!this.cgCurrentRound || !this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
+      if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
       console.log(4);
       if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
       console.log(5);

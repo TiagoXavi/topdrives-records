@@ -22346,7 +22346,7 @@
       "hand": 84,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": 80,
+      "mra": 61,
       "weight": 1834,
       "name": "Volvo V60 Polestar",
       "rid": "Volvo_V60_Polestar_2015",
@@ -50398,7 +50398,8 @@
       "rid": "Nissan_Leopard_Type-X_(Y32)_1992",
       "tags": [
           "Japan Pro Tour",
-          "Christmas Collection 22"
+          "Christmas Collection 22",
+          "Drivers Choice"
       ],
       "bodyTypes": [
           "Saloon"
