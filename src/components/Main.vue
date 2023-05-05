@@ -1967,15 +1967,11 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Events is out!</div>
-          <div class="Main_AnnouncementBody">Your new best way to check tracksets</div>
-          <div class="Main_AnnouncementMaybe">Also some best cars</div>
+          <div class="Main_AnnouncementTitle">Contest!</div>
+          <div class="Main_AnnouncementBody">There is a contest happening.<br>Check our discord for more information.</div>
+          <div class="Main_AnnouncementMaybe">8th may - 21th may</div>
 
-          <button
-            class="D_Button D_ButtonDark D_ButtonDark2 Main_AnnouncementButton"
-            @click="changeMode('events'); announcementDialog = false;">
-            <span>Events</span>
-          </button>
+          <BaseDiscordButton style="margin-top: 20px;" />
         </div>
       </div>
     </BaseDialog>
@@ -6510,16 +6506,14 @@ export default {
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     },
     checkAnnouncement() {
-      if (window.localStorage.getItem("lastEvent")) return;
-      if (window.localStorage.getItem("announce2")) return;
-      if (this.mode === 'events') return;
+      if (window.localStorage.getItem("contest1")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('announce2', "t");
+      window.localStorage.setItem('contest1', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);

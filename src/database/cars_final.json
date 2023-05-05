@@ -30321,7 +30321,7 @@
       "drive": "4WD",
       "tyres": "All-surface",
       "mra": 56.25,
-      "weight": 1833,
+      "weight": 1645,
       "name": "Land Rover Evoque Autobiography Dynamic",
       "rid": "Land_Rover_Range_Rover_Evoque_Autobiography_Dynamic_2015",
       "tags": [
@@ -45386,8 +45386,7 @@
           "Concept",
           "French Renaissance",
           "Ride of the Valkyries",
-          "Year of the Rat",
-          "Immortalised in Carbon"
+          "Year of the Rat"
       ],
       "bodyTypes": [
           "Hatchback"

@@ -681,7 +681,7 @@ export default {
         if (vm.type === 'cg') {
           vm.cgResetFilterForAdd();
         }
-        let rqMax = mutation.payload.rqMax || 100;
+        let rqMax = mutation.payload.rqMax || 130;
         let rqMin = mutation.payload.rqMin || 10;
         let total = mutation.payload.total || 5000;
         let listOfRids = [];
