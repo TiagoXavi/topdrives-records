@@ -226,7 +226,10 @@ export default {
             }
             result = Math.floor(Number((result - 0.09).toFixed(1)));
             
-            if (result < 50) result = 50;
+            if (result < 50) {
+                result = 50;
+                isImprecise = false;
+            }
             if (isLose) result = result * -1;
 
             // if (isImprecise) result = `~${result}`;

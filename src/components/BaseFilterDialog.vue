@@ -217,6 +217,7 @@
                 class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                 :value="item" />
             </template>
+            <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="toggleRoadTrip()">Road Trip</button>
           </div>
           <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.brands">
@@ -1212,13 +1213,30 @@ export default {
         this.secretYearList.push(initial);
         initial++;
       } while (initial <= end);
+    },
+    toggleRoadTrip() {
+      let t = ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"];
+      let included = [];
+      this.searchFilters.tagsModel.map(x => {
+        if (t.includes(x)) included.push(x);
+      })
+      let includesAll = included.length === 6;
+      if (includesAll) this.searchFilters.tagsModel = this.searchFilters.tagsModel.filter(x => !t.includes(x));
+      else t.map(x => {
+        if (!included.includes(x)) this.searchFilters.tagsModel.push(x);
+      })
+
     }
   },
 }
 </script>
 
 <style>
-.BaseFilterDialog_SortBox {
-
+.BaseFilterDialog_TransparentChip {
+  background-color: #0004;
+  height: 32px;
+  padding: 7px 10px;
+  transform: translateY(6px);
+  font-size: 0.9em;
 }
 </style>

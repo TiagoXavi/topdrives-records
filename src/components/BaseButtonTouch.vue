@@ -35,6 +35,7 @@ export default {
       this.timerEnd = performance.now();
       if (this.timerEnd - this.timerStart > 800 && e.cancelable) {
         this.$emit('longTouch');
+        navigator.vibrate(100);
       }
     }
   },

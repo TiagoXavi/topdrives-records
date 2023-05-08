@@ -15540,6 +15540,38 @@
   {
       "class": "A",
       "rq": 78,
+      "onlyName": "Challenger SRT Hellcat Redeye Widebody",
+      "brand": "Dodge",
+      "year": 2019,
+      "tdid": "4246",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "US",
+      "topSpeed": 203,
+      "acel": 3.4,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 2037,
+      "name": "Dodge Challenger SRT Hellcat Redeye Widebody",
+      "rid": "Dodge_Challenger_SRT_Hellcat_Redeye_Widebody_2019",
+      "prize": false,
+      "tags": [
+          "Pacific Coast Highway",
+          "Muscle Car"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 78,
       "onlyName": "2-Eleven S'charged",
       "brand": "Lotus",
       "country": "GB",
@@ -17710,38 +17742,6 @@
       ],
       "bodyTypes": [
           "Hatchback"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 76,
-      "onlyName": "Challenger SRT Hellcat Redeye Widebody",
-      "brand": "Dodge",
-      "year": 2019,
-      "tdid": "4246",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "US",
-      "topSpeed": 203,
-      "acel": 3.4,
-      "hand": 84,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 2037,
-      "name": "Dodge Challenger SRT Hellcat Redeye Widebody",
-      "rid": "Dodge_Challenger_SRT_Hellcat_Redeye_Widebody_2019",
-      "prize": false,
-      "tags": [
-          "Pacific Coast Highway",
-          "Muscle Car"
-      ],
-      "bodyTypes": [
-          "Coupe"
       ],
       "fuel": "Petrol",
       "seats": "5",
@@ -23450,6 +23450,39 @@
   {
       "class": "A",
       "rq": 71,
+      "onlyName": "Vision 6 Cabriolet Maybach",
+      "brand": "Mercedes-Benz",
+      "year": 2016,
+      "tdid": "3268",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 155,
+      "acel": 3.9,
+      "hand": 77,
+      "drive": "4WD",
+      "tyres": "Performance",
+      "mra": 88.83,
+      "weight": 2100,
+      "name": "Maybach Vision 6 Cabriolet Maybach",
+      "rid": "Maybach_Vision_6_Cabriolet_2016",
+      "tags": [
+          "World Expo",
+          "Loves Me, Loves Me Not",
+          "Concept",
+          "Electric Excellence"
+      ],
+      "bodyTypes": [
+          "Roadster"
+      ],
+      "fuel": "Electric",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 71,
       "onlyName": "M6 Gran Coupe",
       "brand": "BMW",
       "country": "DE",
@@ -23971,39 +24004,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 70,
-      "onlyName": "Vision 6 Cabriolet Maybach",
-      "brand": "Mercedes-Benz",
-      "year": 2016,
-      "tdid": "3268",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 155,
-      "acel": 3.9,
-      "hand": 77,
-      "drive": "4WD",
-      "tyres": "Performance",
-      "mra": 88.83,
-      "weight": 2100,
-      "name": "Maybach Vision 6 Cabriolet Maybach",
-      "rid": "Maybach_Vision_6_Cabriolet_2016",
-      "tags": [
-          "World Expo",
-          "Loves Me, Loves Me Not",
-          "Concept",
-          "Electric Excellence"
-      ],
-      "bodyTypes": [
-          "Roadster"
-      ],
-      "fuel": "Electric",
-      "seats": "2",
       "engine": "Front"
   },
   {
