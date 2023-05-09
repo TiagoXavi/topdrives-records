@@ -137,6 +137,19 @@
         {{ scanSessionRes }}
       </div>
     </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Contest</div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="contest()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ contestRes }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -168,7 +181,8 @@ export default {
       rids: null,
       pastVersion: "18",
       backupCarsRes: null,
-      scanSessionRes: null
+      scanSessionRes: null,
+      contestRes: null
     }
   },
   watch: {},
@@ -301,6 +315,21 @@ export default {
       })
       .then(res => {
         this.scanSessionRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    contest() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrl + "/contest")
+      .then(res => {
+        this.contestRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
