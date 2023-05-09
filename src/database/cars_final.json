@@ -17874,6 +17874,38 @@
   {
       "class": "A",
       "rq": 76,
+      "onlyName": "Charger SRT Hellcat",
+      "brand": "Dodge",
+      "country": "US",
+      "year": 2015,
+      "tdid": "1140",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 204,
+      "acel": 3.4,
+      "hand": 83,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": null,
+      "weight": 2075,
+      "name": "Dodge Charger SRT Hellcat",
+      "rid": "Dodge_Charger_SRT_Hellcat_2015",
+      "tags": [
+          "American Dream",
+          "Muscle Car",
+          "Loves Me, Loves Me Not"
+      ],
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "5",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 76,
       "onlyName": "X-Bow GT",
       "brand": "KTM",
       "country": "AT",
@@ -20310,38 +20342,6 @@
       "fuel": "Petrol",
       "seats": "1",
       "engine": "Mid"
-  },
-  {
-      "class": "A",
-      "rq": 73,
-      "onlyName": "Charger SRT Hellcat",
-      "brand": "Dodge",
-      "country": "US",
-      "year": 2015,
-      "tdid": "1140",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 204,
-      "acel": 3.4,
-      "hand": 83,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": null,
-      "weight": 2075,
-      "name": "Dodge Charger SRT Hellcat",
-      "rid": "Dodge_Charger_SRT_Hellcat_2015",
-      "tags": [
-          "American Dream",
-          "Muscle Car",
-          "Loves Me, Loves Me Not"
-      ],
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "5",
-      "engine": "Front"
   },
   {
       "class": "A",
@@ -36151,7 +36151,8 @@
       "tags": [
           "American Frontier",
           "Interstellar",
-          "Christmas Collection 22"
+          "Christmas Collection 22",
+          "Muscle Car"
       ],
       "bodyTypes": [
           "Coupe"
@@ -37464,7 +37465,8 @@
           "American Frontier",
           "Old Guard",
           "Interstellar",
-          "Christmas Collection 22"
+          "Christmas Collection 22",
+          "Muscle Car"
       ],
       "bodyTypes": [
           "Coupe"
@@ -39914,7 +39916,8 @@
           "Call of the Wild",
           "Muscle Car",
           "Team Favourite",
-          "Originals"
+          "Originals",
+          "Muscle Car"
       ],
       "bodyTypes": [
           "Coupe"
@@ -41772,7 +41775,8 @@
           "Concept",
           "Muscle Car",
           "American Frontier",
-          "Interstellar"
+          "Interstellar",
+          "Muscle Car"
       ],
       "bodyTypes": [
           "Coupe"
