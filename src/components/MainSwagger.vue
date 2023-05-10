@@ -138,6 +138,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Set user confirmed</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="email"
+          type="normal"
+          label="E-mail"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setUserConfirmed()">Confirm user</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ userConfirmRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Contest</div>
       <div class="MainSwagger_Buttons">
         <button
@@ -182,7 +203,8 @@ export default {
       pastVersion: "18",
       backupCarsRes: null,
       scanSessionRes: null,
-      contestRes: null
+      contestRes: null,
+      userConfirmRes: null,
     }
   },
   watch: {},
@@ -338,6 +360,23 @@ export default {
         vm.loading = false;
       });
     },
+    setUserConfirmed() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/validateEmailToken", {
+        email: this.email
+      })
+      .then(res => {
+        this.userConfirmRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    }
   },
 }
 </script>
