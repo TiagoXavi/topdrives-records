@@ -6698,7 +6698,7 @@ export default {
             tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
             if (vm.carHoverIndex > -1 && vm.carHoverIndex !== ix) {
               let referenceTime = vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId];
-              x[trackId] = Vue.options.filters.userPoints(tempValue, referenceTime, trackId);
+              x[trackId] = Vue.options.filters.userPoints(referenceTime, tempValue, trackId);
             }
           }
         });
