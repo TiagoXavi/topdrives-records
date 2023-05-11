@@ -61,6 +61,8 @@
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
               `${type === 'tracks' && item.text.length > 19 ? 'Row_TrackNameBig ' : '' }`+
+              `${showPoints ? 'Row_HideColorBack ' : '' }`+
+              `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
@@ -74,12 +76,20 @@
       @mousedown="dragMouseDown($event, ix)"
       @touchstart="touchstart($event, ix)">
       <div
-        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) ? false : true"
+        v-if="!showPoints"
+        :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) || isReferencePoints ? false : true"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
-        
         class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
+      <div
+        v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
+        :class="{
+          Row_PointsWin: points[item.code].v > 0,
+          Row_PointsLose: points[item.code].v < 0,
+          Row_PointsDraw: points[item.code].v === 0
+        }"
+        class="Row_Content">{{ points[item.code].v }}</div>
       <template v-if="car.selectedTune || cg">
         <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
@@ -315,6 +325,17 @@ export default {
       default() {
         return null
       }
+    },
+    points: {
+      required: false
+    },
+    showPoints: {
+      type: Boolean,
+      default: false
+    },
+    isReferencePoints: {
+      type: Boolean,
+      default: false
     },
   },
   data() {
@@ -576,6 +597,8 @@ export default {
         item,
         car: this.car
       });
+
+      if (this.isReferencePoints) return;
 
       this.$nextTick().then(() => {
         if (this.type === "times" && this.loggedin && item.text !== '' ) {
@@ -850,6 +873,7 @@ export default {
       }, 10);
     },
     touchstart(e, ix) {
+      if (this.type !== 'tracks') return;
       if (this.touchCount === 0) {
         this.timerStart = performance.now();
         this.touchCount = this.touchCount+1
@@ -1347,13 +1371,25 @@ export default {
   color: #ebc5a6;
 }
 
-.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1) {  
+.Main_ColorsFull .Row_ColorByIndex:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1):not(.Row_HideColorBack) {  
   background-color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), 100%, 30%, calc( (((var(--color-index) * (100/var(--last-index))) / -120) + 1) * 0.5 ));
   color: hsl(calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100 ), calc( (((var(--color-index) * (100/var(--last-index))) / -100) + 1) * 100% ), 80%, calc( (((var(--color-index) * (100/var(--last-index))) / -400) + 1) * 1 ));
 }
-.Main_ColorsFull .Row_ColorHighFirst.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1):not(.Row_DetailsActive) {
+.Main_ColorsFull .Row_ColorHighFirst.Row_ColorByIndex0:not(.Row_ContentEmpty):not(.Row_ItemCorrect):not(.Row_ItemError):not(.Row_DNF):not(.Row_ColorByIndex-1):not(.Row_DetailsActive):not(.Row_HideColorBack) {
   --d-first: #599939;
   box-shadow: inset -2px -2px 0px 0px var(--d-first), inset 2px 2px 0px 0px var(--d-first), 0px 0px 0px 0px var(--d-first) !important;
+}
+.Row_HideColorBack {
+  background-color: transparent !important;
+  color: #bbb !important;
+}
+.Row_PointsWin {
+  background-color: rgba(115, 255, 0, 0.09);
+  color: #7bed41;
+}
+.Row_PointsLose {
+  background-color: rgba(255, 0, 0, 0.09);
+  color: #d79d9d;
 }
 
 .Row_Conditions {

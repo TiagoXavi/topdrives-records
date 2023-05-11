@@ -2314,6 +2314,38 @@
   },
   {
       "class": "S",
+      "rq": 95,
+      "onlyName": "AMG SLS GT3",
+      "brand": "Mercedes-Benz",
+      "country": "DE",
+      "year": 2014,
+      "tdid": "389",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 183,
+      "acel": 3.3,
+      "hand": 96,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 110,
+      "weight": 1300,
+      "name": "Mercedes-Benz AMG SLS GT3",
+      "rid": "Mercedes-Benz_AMG_SLS_GT3_2014",
+      "tags": [
+          "Motorsport",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 94,
       "onlyName": "Intensa Emozione",
       "brand": "Apollo",
@@ -4436,38 +4468,6 @@
       "fuel": "Petrol",
       "seats": "4",
       "engine": "Rear"
-  },
-  {
-      "class": "S",
-      "rq": 91,
-      "onlyName": "AMG SLS GT3",
-      "brand": "Mercedes-Benz",
-      "country": "DE",
-      "year": 2014,
-      "tdid": "389",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 183,
-      "acel": 3.3,
-      "hand": 96,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 110,
-      "weight": 1300,
-      "name": "Mercedes-Benz AMG SLS GT3",
-      "rid": "Mercedes-Benz_AMG_SLS_GT3_2014",
-      "tags": [
-          "Motorsport",
-          "Originals"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
   },
   {
       "class": "S",
@@ -7374,6 +7374,39 @@
   },
   {
       "class": "S",
+      "rq": 87,
+      "onlyName": "Sport quattro S1",
+      "brand": "Audi",
+      "country": "DE",
+      "year": 1985,
+      "tdid": "16",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Mid",
+      "topSpeed": 140,
+      "acel": 3,
+      "hand": 86,
+      "drive": "4WD",
+      "tyres": "Off-road",
+      "mra": 87.66,
+      "weight": 1100,
+      "name": "Audi Sport quattro S1",
+      "rid": "Audi_Sport_quattro_S1_1985",
+      "tags": [
+          "Motorsport",
+          "Year of the Ox",
+          "Originals"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
       "rq": 86,
       "onlyName": "F-Type SVR Coupe",
       "brand": "Jaguar",
@@ -7991,39 +8024,6 @@
           "World Expo",
           "Concept",
           "Wild Ride"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 85,
-      "onlyName": "Sport quattro S1",
-      "brand": "Audi",
-      "country": "DE",
-      "year": 1985,
-      "tdid": "16",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Mid",
-      "topSpeed": 140,
-      "acel": 3,
-      "hand": 86,
-      "drive": "4WD",
-      "tyres": "Off-road",
-      "mra": 87.66,
-      "weight": 1100,
-      "name": "Audi Sport quattro S1",
-      "rid": "Audi_Sport_quattro_S1_1985",
-      "tags": [
-          "Motorsport",
-          "Year of the Ox",
-          "Originals"
       ],
       "prize": true,
       "bodyTypes": [
@@ -8656,6 +8656,38 @@
       ],
       "fuel": "Petrol",
       "seats": "2",
+      "engine": "Front"
+  },
+  {
+      "class": "S",
+      "rq": 85,
+      "onlyName": "AMG GT4",
+      "brand": "Mercedes-Benz",
+      "year": 2018,
+      "tdid": "3276",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "country": "DE",
+      "topSpeed": 180,
+      "acel": 4,
+      "hand": 95,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 1390,
+      "name": "Mercedes-Benz AMG GT4",
+      "rid": "Mercedes-Benz_AMG_GT4_2018",
+      "tags": [
+          "World Expo",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
       "engine": "Front"
   },
   {
@@ -12849,38 +12881,6 @@
   {
       "class": "S",
       "rq": 80,
-      "onlyName": "AMG GT4",
-      "brand": "Mercedes-Benz",
-      "year": 2018,
-      "tdid": "3276",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "country": "DE",
-      "topSpeed": 180,
-      "acel": 4,
-      "hand": 95,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 1390,
-      "name": "Mercedes-Benz AMG GT4",
-      "rid": "Mercedes-Benz_AMG_GT4_2018",
-      "tags": [
-          "World Expo",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "S",
-      "rq": 80,
       "onlyName": "R8 RWS",
       "brand": "Audi",
       "year": 2018,
@@ -16818,6 +16818,40 @@
   },
   {
       "class": "A",
+      "rq": 77,
+      "onlyName": "Laguna Super Touring",
+      "brand": "Renault",
+      "country": "FR",
+      "year": 1999,
+      "tdid": "1234",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 160,
+      "acel": 4.5,
+      "hand": 92,
+      "drive": "FWD",
+      "tyres": "Slick",
+      "mra": 91.84,
+      "weight": 975,
+      "name": "Renault Laguna Super Touring",
+      "rid": "Renault_Sport_Laguna_BTCC_1999",
+      "tags": [
+          "Famous Tracks",
+          "French Renaissance",
+          "Motorsport",
+          "Year of the Rabbit"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 76,
       "onlyName": "XJ220",
       "brand": "Jaguar",
@@ -19751,40 +19785,6 @@
   {
       "class": "A",
       "rq": 74,
-      "onlyName": "Laguna Super Touring",
-      "brand": "Renault",
-      "country": "FR",
-      "year": 1999,
-      "tdid": "1234",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 160,
-      "acel": 4.5,
-      "hand": 92,
-      "drive": "FWD",
-      "tyres": "Slick",
-      "mra": 91.84,
-      "weight": 975,
-      "name": "Renault Laguna Super Touring",
-      "rid": "Renault_Sport_Laguna_BTCC_1999",
-      "tags": [
-          "Famous Tracks",
-          "French Renaissance",
-          "Motorsport",
-          "Year of the Rabbit"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 74,
       "onlyName": "S4 Avant TDI (B9)",
       "brand": "Audi",
       "year": 2019,
@@ -21306,6 +21306,72 @@
   },
   {
       "class": "A",
+      "rq": 73,
+      "onlyName": "Firenza Baby Bertha",
+      "brand": "Vauxhall",
+      "country": "GB",
+      "year": 1974,
+      "tdid": "1888",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 175,
+      "acel": 4.2,
+      "hand": 86,
+      "drive": "RWD",
+      "tyres": "Slick",
+      "mra": 98.13,
+      "weight": 1018,
+      "name": "Vauxhall Firenza Baby Bertha",
+      "rid": "Vauxhall_Firenza_Baby_Bertha_1974",
+      "tags": [
+          "Great Exhibition",
+          "Motorsport",
+          "Wild Ride",
+          "Year of the Tiger"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
+      "rq": 73,
+      "onlyName": "155 TS Super Touring",
+      "brand": "Alfa Romeo",
+      "country": "IT",
+      "year": 1994,
+      "tdid": "1463",
+      "abs": false,
+      "tcs": false,
+      "clearance": "Low",
+      "topSpeed": 150,
+      "acel": 4.7,
+      "hand": 91,
+      "drive": "FWD",
+      "tyres": "Slick",
+      "mra": null,
+      "weight": 950,
+      "name": "Alfa Romeo 155 TS Super Touring",
+      "rid": "Alfa_Romeo_155_TS_BTCC_1994",
+      "tags": [
+          "Italian Renaissance",
+          "Motorsport"
+      ],
+      "prize": true,
+      "bodyTypes": [
+          "Saloon"
+      ],
+      "fuel": "Petrol",
+      "seats": "1",
+      "engine": "Front"
+  },
+  {
+      "class": "A",
       "rq": 72,
       "onlyName": "M4S",
       "brand": "Dodge",
@@ -21957,40 +22023,6 @@
       ],
       "fuel": "Petrol",
       "seats": "4",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 72,
-      "onlyName": "Firenza Baby Bertha",
-      "brand": "Vauxhall",
-      "country": "GB",
-      "year": 1974,
-      "tdid": "1888",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 175,
-      "acel": 4.2,
-      "hand": 86,
-      "drive": "RWD",
-      "tyres": "Slick",
-      "mra": 98.13,
-      "weight": 1018,
-      "name": "Vauxhall Firenza Baby Bertha",
-      "rid": "Vauxhall_Firenza_Baby_Bertha_1974",
-      "tags": [
-          "Great Exhibition",
-          "Motorsport",
-          "Wild Ride",
-          "Year of the Tiger"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
       "engine": "Front"
   },
   {
@@ -23291,38 +23323,6 @@
       ],
       "fuel": "Petrol",
       "seats": "5",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 71,
-      "onlyName": "155 TS Super Touring",
-      "brand": "Alfa Romeo",
-      "country": "IT",
-      "year": 1994,
-      "tdid": "1463",
-      "abs": false,
-      "tcs": false,
-      "clearance": "Low",
-      "topSpeed": 150,
-      "acel": 4.7,
-      "hand": 91,
-      "drive": "FWD",
-      "tyres": "Slick",
-      "mra": null,
-      "weight": 950,
-      "name": "Alfa Romeo 155 TS Super Touring",
-      "rid": "Alfa_Romeo_155_TS_BTCC_1994",
-      "tags": [
-          "Italian Renaissance",
-          "Motorsport"
-      ],
-      "prize": true,
-      "bodyTypes": [
-          "Saloon"
-      ],
-      "fuel": "Petrol",
-      "seats": "1",
       "engine": "Front"
   },
   {
@@ -25972,37 +25972,7 @@
   },
   {
       "class": "A",
-      "rq": 68,
-      "onlyName": "XKR-S GT",
-      "brand": "Jaguar",
-      "country": "GB",
-      "year": 2014,
-      "tdid": "821",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 186,
-      "acel": 3.9,
-      "hand": 84,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 77.75,
-      "weight": 1713,
-      "name": "Jaguar XKR-S GT",
-      "rid": "Jaguar_XKR-S_GT_2014",
-      "tags": [
-          "Originals"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Front"
-  },
-  {
-      "class": "A",
-      "rq": 68,
+      "rq": 69,
       "onlyName": "3008 DKR Maxi",
       "brand": "Peugeot",
       "country": "FR",
@@ -26031,6 +26001,36 @@
       "fuel": "Diesel",
       "seats": "2",
       "engine": "Mid"
+  },
+  {
+      "class": "A",
+      "rq": 68,
+      "onlyName": "XKR-S GT",
+      "brand": "Jaguar",
+      "country": "GB",
+      "year": 2014,
+      "tdid": "821",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 186,
+      "acel": 3.9,
+      "hand": 84,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 77.75,
+      "weight": 1713,
+      "name": "Jaguar XKR-S GT",
+      "rid": "Jaguar_XKR-S_GT_2014",
+      "tags": [
+          "Originals"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Front"
   },
   {
       "class": "A",
@@ -61173,7 +61173,6 @@
       "name": "Citroen BX 4TC",
       "rid": "Citroen_BX_4TC_1982",
       "tags": [
-          "Motorsport",
           "Originals"
       ],
       "prize": true,

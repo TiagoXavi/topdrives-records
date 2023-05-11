@@ -7,12 +7,14 @@
     }"
     v-if="car !== null"
     style="--drag-left: 0;--drag-top: 0;"
-    class="Car_Layout">
+    class="Car_Layout"
+    @mouseenter="$emit('enter')">
     <BaseCard
       :car="car"
       :fix-back="true"
       :downloadLoading="downloadLoading"
       :needSave="needSave"
+      @longTouch="$emit('longTouch')"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
@@ -20,6 +22,9 @@
         :car="car"
         :list="trackList"
         :highlights="highlights"
+        :points="points"
+        :showPoints="showPoints"
+        :isReferencePoints="isReferencePoints"
         :countPerTrack="countPerTrack"
         :hoverIndex="hoverIndex"
         :carIndex="index"
@@ -100,6 +105,9 @@ export default {
     user: {
       required: false
     },
+    points: {
+      required: false
+    },
     index: {
       required: true
     },
@@ -108,6 +116,14 @@ export default {
       default: -1
     },
     loggedin: {
+      type: Boolean,
+      default: false
+    },
+    showPoints: {
+      type: Boolean,
+      default: false
+    },
+    isReferencePoints: {
       type: Boolean,
       default: false
     },

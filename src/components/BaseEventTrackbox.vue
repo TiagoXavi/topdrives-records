@@ -200,7 +200,7 @@ export default {
   display: contents;
 }
 .EventTrack {
-  width: var(--cell-width);
+  width: var(--cg-width);
   
   /* margin-right: 3px; */
   transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );

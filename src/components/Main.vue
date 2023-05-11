@@ -6,7 +6,7 @@
       Main_ColorsFull: fullColors,
       Main_ColorsMedal: !fullColors,
       Main_isMobile: isMobile,
-      
+      Main_ShowPoints: showPoints
     }" class="Main_Layout" @click.stop="outsideClick()">
     <div
       v-if="mode === 'classic'"
@@ -15,26 +15,18 @@
       @click.stop="outsideClick()">
       <div class="Main_Backtop"></div>
       <div class="Main_Corner">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-        <div class="Main_CornerMid">
-          <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
-            <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
-          </button>
-          <button v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl(); generateCarsList()">
-            <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
-          </button>
-        </div>
-        <div v-if="user && inverted" class="Main_PrintBy">
-          <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-          <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
-        </div>
-        <div class="Main_GamePrintInfo">
-          <div class="Main_GameVersionText">{{ gameVersion }}</div>
-          <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
-        </div>
+        <BaseCorner
+          style="display: contents;"
+          :gameVersion="gameVersion"
+          @menu="optionsDialogActive = true;"
+          @camera="shareDialog = true; generateUrl(); generateCarsList();">
+          <template slot="by">
+            <div v-if="user && inverted" class="Main_PrintBy">
+              <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+              <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+            </div>
+          </template>
+        </BaseCorner>
         <div class="Main_RowCornerBox">
           
           <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
@@ -100,7 +92,7 @@
         </div>
       </div>
       <div class="Main_Mid">
-        <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1">
+        <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1;">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
               :car="car"
@@ -109,6 +101,9 @@
               :countPerTrack="countTimesPerTrack"
               :trackList="currentTracks"
               :highlights="highlights[carIx]"
+              :points="pointsResolved[carIx]"
+              :showPoints="showPoints && carHoverIndex !== carIx"
+              :isReferencePoints="showPoints && carHoverIndex === carIx"
               :hoverIndex="hoverIndex"
               :maxCarNumber="maxCarNumber"
               :loggedin="!!user"
@@ -119,9 +114,11 @@
               :needSave="needSave"
               :invertedView="inverted"
               :compact="compact"
+              @longTouch="carLongTouch(carIx)"
               @delete="deleteCar(carIx)"
               @moreTracks="moreTracksCar($event)"
-              @newindex="newIndex($event)" />
+              @newindex="newIndex($event)"
+              @enter="hoverCarJs(carIx)" />
           </template>
           <Car
             v-if="carDetailsList.length < maxCarNumber"
@@ -169,25 +166,10 @@
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <div class="Cg_Corner">
-            <div class="Main_Logo">
-              <div class="Main_LogoPre">Top Drives</div>
-              <Logo />
-            </div>
-            <div class="Main_CornerMid">
-              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
-                <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
-              </button>
-              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
-                <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
-              </button>
-            </div>
-            <div class="Main_GamePrintInfo">
-              <div class="Main_GameVersionText">{{ gameVersion }}</div>
-              <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
-            </div>
-            
-          </div>
+          <BaseCorner
+            :gameVersion="gameVersion"
+            @menu="optionsDialogActive = true;"
+            @camera="shareDialog = true; generateUrl();"/>
           <div class="Cg_RowCornerBox">
             <!-- top CHALLENGE -->
             <div v-if="cg.rounds" class="Cg_SelectorLayout">
@@ -467,7 +449,7 @@
                   :cgOppo="true"
                   :hideClose="!user || !user.mod"
                   :showResetTune="(user && user.mod) || isRoundEmptyForUser"
-                  @cog="cgShowTuneDialog(race.car, race, true)"
+                  @longTouch="cgShowTuneDialog(race.car, race, true)"
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
                   @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
                 <div v-else class="Cg_CarPlaceHolder">
@@ -664,7 +646,7 @@
         <div v-else-if="cgLoading" class="Cg_MidLoading">
           <BaseContentLoader
             :contents="true"
-            itemWidth="216px"
+            :itemWidth="windowWidth < 1200 ? '111px' : '216px'"
             :itemHeight="144"
             style="padding: 10px 10px 10px 20px; width: 100%;"
             type="block"
@@ -694,25 +676,11 @@
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <div class="Cg_Corner">
-            <div class="Main_Logo">
-              <div class="Main_LogoPre">Top Drives</div>
-              <Logo />
-            </div>
-            <div class="Main_CornerMid">
-              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="optionsDialogActive = true;">
-                <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
-              </button>
-              <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu" @click="shareDialog = true; generateUrl()">
-                <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
-              </button>
-            </div>
-            <div class="Main_GamePrintInfo">
-              <div class="Main_GameVersionText">{{ gameVersion }}</div>
-              <div class="Main_GameVersionText">{{ new Date().toISOString().slice(0,10) }}</div>
-            </div>
-            
-          </div>
+          <BaseCorner
+            :gameVersion="gameVersion"
+            @menu="optionsDialogActive = true;"
+            @longCamera="showPoints = !showPoints;"
+            @camera="shareDialog = true; generateUrl();"/>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
             <div v-if="event.date" class="Cg_SelectorLayout">
@@ -725,6 +693,12 @@
                     <span>{{ event.name }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
+                </div>
+                <div v-if="event && event.user">
+                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                  <span
+                    :class="`Main_UserT${highlightsUsers[event.user]}`"
+                    class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
                 </div>
                 <div class="Cg_CenterBottom">
                   <div class="Cg_RqText">
@@ -832,34 +806,50 @@
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
             <div class="Cg_Box" style="margin-top: 15px;">
               <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
-                <div class="Cg_YouBankBox">
+                <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0, Event_ShowOnlyPicks: eventShowOnlyPicks }">
                   <template v-for="(car, icar) in group">
                     <button
                       :disabled="eventLoadingAny"
                       :key="icar"
+                      :class="{
+                        Event_BankReference: eventPointsReference[igroup].icar === icar,
+                        Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune)
+                      }"
+                      :style="`--cor: ${ car.color }`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                      @click="eventOpenShowCarDialog(car, $event, igroup);">
+                      @contextmenu="eventTogglePick(car, $event)"
+                      @click="eventOpenShowCarDialog(car, $event, igroup, icar);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
                       </div>
                       <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
                       <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                      <div class="Cg_BankTune" :style="`--cor: ${ car.color }`">{{ car.tune }}</div>
+                      <div class="Cg_BankTune">{{ car.tune }}</div>
                       <!-- <div class="Cg_BankResult">
                         <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
                       </div> -->
-                      <div class="Cg_BankResult Event_BankTime">
-                        <span class="Cg_BankPoints">{{ car.timeToPrint }}</span>
+                      <div v-if="!showPoints || (icar === 0 && eventPointsReference[igroup].icar === undefined) || eventPointsReference[igroup].icar === icar" class="Cg_BankResult Event_BankTime">
+                        <span class="">{{ car.timeToPrint }}</span>
+                      </div>
+                      <div
+                        v-else-if="car.points !== undefined && car.points !== null"
+                        :class="{ 
+                          Cg_PointsRed: car.points.v < 0,
+                          Cg_PointsGreen: car.points.v > 0,
+                          Cg_PointsGrey: car.points.v === 0
+                        }"
+                        class="Cg_BankResult Event_BankTime">
+                        <span class="Cg_BankPoints">{{ car.points.v }}</span>
                       </div>
                     </button>
                   </template>
-                  <button
+                  <!-- <button
                     v-if="user && user.mod"
                     :disabled="eventLoadingAny"
                     class="D_Button Main_AddTrackDirect"
                     @click="eventAddCar(igroup);">
                     <i class="ticon-plus_2" aria-hidden="true"/>
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -878,6 +868,19 @@
               <span>{{ $t("p_eventsKingLogin") }}</span>
             </div>
 
+            <!-- <div v-if="eventPicksList.length > 0" class="Event_PicksManage">
+              <div v-for="pick in eventPicksList" class="Main_EventPick Cg_BankButton Event_BankButton">
+                <div class="Cg_BankPhoto Event_BankPhoto">
+                  <img :src="pick.photo" class="Cg_BankPhotoImg" alt="">
+                </div>
+                <div :style="`color: ${ pick.color }`" class="Event_BankClass">{{ (pick.car || {}).class }}{{ (pick.car || {}).rq }}</div>
+                <div class="Cg_BankTune" :style="`--cor: ${ pick.color }`">{{ pick.tune }}</div>
+                <button class="D_Button D_ButtonDark D_ButtonDark2 Event_PickRemoveButton" @click="eventRemovePick(pick)">
+                  <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
+                </button>
+              </div>
+            </div> -->
+
             <div class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: eventLoadingAny }"
@@ -890,7 +893,7 @@
         <div v-else-if="eventLoading" class="Cg_MidLoading">
           <BaseContentLoader
             :contents="true"
-            itemWidth="216px"
+            :itemWidth="windowWidth < 1200 ? '111px' : '216px'"
             :itemHeight="144"
             style="padding: 10px 10px 10px 20px; width: 100%;"
             type="block"
@@ -1104,8 +1107,13 @@
       @close="eventCloseKingFilter()"
       @filterUpdate="eventEventKFilter()"
       @clearFilterUpdate="eventFilterForKing = $event"
-      @listRids="eventAnalyseKFilter();"
-    />
+      @listRids="eventAnalyseKFilter();">
+      <template v-if="user && user.tier <= 3 && eventPicksList.length > 0" slot="header">
+        <div class="Main_FilterHeaderLeft">
+          <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
+        </div>
+      </template>
+    </BaseFilterDialog>
 
     <BaseFilterDialog
       v-model="eventAddCarDialog"
@@ -2061,7 +2069,6 @@ import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseAboutDialog from './BaseAboutDialog.vue'
 import MainLogin from './MainLogin.vue'
 import BaseTypeName from './BaseTypeName.vue'
-import Logo from './Logo.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseChip from './BaseChip.vue'
 import BaseGameTag from './BaseGameTag.vue'
@@ -2078,6 +2085,7 @@ import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseEventTrackbox from './BaseEventTrackbox.vue'
 import BaseButtonTouch from './BaseButtonTouch.vue'
+import BaseCorner from './BaseCorner.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -2091,7 +2099,6 @@ export default {
     Row,
     BaseDialog,
     Loading,
-    Logo,
     BaseAvatar,
     BaseChip,
     BaseGameTag,
@@ -2114,7 +2121,8 @@ export default {
     BaseUserCard,
     BaseAboutDialog,
     BaseEventTrackbox,
-    BaseButtonTouch
+    BaseButtonTouch,
+    BaseCorner
   },
   props: {
     phantomCar: {
@@ -2206,6 +2214,9 @@ export default {
       hoverIndex: -1,
       gameVersion: "Game v19.1",
       mode: "classic",
+      showPoints: false,
+      pointsResolved: [],
+      carHoverIndex: -1,
       cgLoading: false,
       cgCurrentRound: 0,
       cgCurrentRoundSum: 0,
@@ -2301,6 +2312,10 @@ export default {
       eventBlockAddTrackset: false,
       eventTracksetSelected: 0,
       eventRaceSelected: 0,
+      eventResponse: [],
+      eventPointsReference: [{}, {}, {}, {}, {}],
+      eventPicksList: [],
+      eventShowOnlyPicks: false,
       kingDialog: false,
       kingFilterDialog: false,
       kingTrack: false,
@@ -2612,6 +2627,11 @@ export default {
       cgDontRepeatSolution = JSON.parse(cgDontRepeatSolution);
       this.cgDontRepeatSolution = cgDontRepeatSolution;
     }
+    let eventShowOnlyPicks = window.localStorage.getItem("eventShowOnlyPicks");
+    if (eventShowOnlyPicks) {
+      eventShowOnlyPicks = JSON.parse(eventShowOnlyPicks);
+      this.eventShowOnlyPicks = eventShowOnlyPicks;
+    }
     
 
     
@@ -2650,6 +2670,8 @@ export default {
 
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('keyup', this.handleKeyUp);
 
 
 
@@ -2789,6 +2811,8 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('keydown', this.handleKeydown);
+    window.removeEventListener('keyup', this.handleKeyUp);
     this.unsubscribe();
   },
   computed: {
@@ -3579,6 +3603,7 @@ export default {
       this.optionsDialogActive = false;
       this.kingDialog = false;
       this.kingFixed = false;
+      this.showPoints = false;
 
       setTimeout(() => {
         this.mode = mode;
@@ -3761,7 +3786,7 @@ export default {
         
       }
       Vue.set(this, "carDetailsList", result);
-      this.downloadDataCars();
+      this.downloadDataCars(true);
     },
     saveAll(saveBankAfter = false) {
       this.saveLoading = true;
@@ -3864,11 +3889,11 @@ export default {
       });
 
     },
-    downloadDataCars() {
+    downloadDataCars(forceClassic = false) {
       this.downloadLoading = true;
       let simplifiedCars = [];
 
-      if (this.mode === 'classic') {
+      if (this.mode === 'classic' || forceClassic) {
         this.carDetailsList.map(x => {
           simplifiedCars.push({ rid: x.rid })
         });
@@ -4203,6 +4228,7 @@ export default {
           })
         }
         this.updateCarLocalStorage();
+        this.showPoints = false;
       }
 
     },
@@ -5941,6 +5967,7 @@ export default {
       this.eventCheckFilterCode = null;
       this.eventKingTracks = [];
       this.eventFilterForKing = {};
+      this.eventLoadPicks();
 
       this.eventBlockAddTrackset = this.event.trackset.length > 1;
       if (this.event.trackset.length === 0) {
@@ -6045,20 +6072,34 @@ export default {
         
       });
     },
-    eventListKings(data) {
+    eventListKings() {
+      let data = JSON.parse(JSON.stringify(this.eventResponse));
       data.map((dataTrack, itrack) => {
         let bestTime;
+        let bestTimePure;
+        if (this.eventPointsReference[itrack].rid !== undefined) {
+          let ixOfBest = dataTrack.findIndex(x => x.rid === this.eventPointsReference[itrack].rid && x.tune === this.eventPointsReference[itrack].tune);
+          if (ixOfBest > -1) {
+            this.eventPointsReference[itrack].icar = ixOfBest;
+            bestTime = dataTrack[ixOfBest].time;
+            bestTimePure = dataTrack[ixOfBest].time;
+          }
+        }
         dataTrack.map((car, icar) => {
-          if (icar === 0) {
+          if (bestTime === undefined || (icar === this.eventPointsReference[itrack].icar)) {
             bestTime = car.time;
+            bestTimePure = car.time;
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
-          } else if (this.eventKingTracks[itrack].includes("testBowl")) {
-            car.timeToPrint = car.time;
           } else {
-            if (car.time < bestTime) {
-              car.timeToPrint = `${(car.time - bestTime).toFixed(2)}`
+            car.points = Vue.options.filters.userPoints(car.time, bestTimePure, this.eventKingTracks[itrack]);
+            if (this.eventKingTracks[itrack].includes("testBowl")) {
+              car.timeToPrint = car.time;
             } else {
-              car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+              if (car.time < bestTime) {
+                car.timeToPrint = `${(car.time - bestTime).toFixed(2)}`
+              } else {
+                car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+              }
             }
           }
           this.frontCompleteCar(car);
@@ -6357,14 +6398,33 @@ export default {
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
 
-      axios.post(Vue.preUrl + "/eventKings", {
+      let params = {
         filter: this.eventFilterForKing,
         tracks: this.eventKingTracks,
         includeDownvotes: this.kingShowDownvoted,
         forceFree
-      })
+      }
+
+      if (this.eventShowOnlyPicks && this.eventPicksList.length > 0) {
+        let list = [];
+        this.eventPicksList.map(car => {
+          list.push({ rid: car.rid, tune: car.tune });
+        })
+        this.eventPointsReference.map((car, ix) => {
+          if (car.rid) {
+            list.push({ rid: car.rid, tune: car.tune });
+          }
+        })
+        params.picks = list;
+      }
+
+      axios.post(Vue.preUrl + "/eventKings", params)
       .then(res => {
-        this.eventListKings(res.data);
+        this.eventResponse = res.data;
+        this.eventPointsReference.map(x => {
+          x.icar = undefined;
+        })
+        this.eventListKings();
       })
       .catch(error => {
         console.log(error);
@@ -6383,6 +6443,7 @@ export default {
       });
     },
     eventAnalyse() {
+      // RQ savers, unreleased
       this.eventAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/analyseEvent", {
@@ -6435,8 +6496,13 @@ export default {
       }, 100);
       this.decodeTemplateString(result, true);
     },
-    eventOpenShowCarDialog(car, e, igroup) {
+    eventOpenShowCarDialog(car, e, igroup, icar) {
+      if (e.altKey) {
+        this.eventToggleReference(car, igroup);
+        return;
+      }
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        if (!this.user || !this.user.mod) return;
         this.askDeleteTimeGeneral(car.rid, car.tune, this.eventKingTracks[igroup]);
         return;
       }
@@ -6450,6 +6516,46 @@ export default {
       this.tuneDialogCarIndex = -1;
       this.tuneDialogisOppo = true;
       this.tuneDialogActive = true;
+    },
+    eventLoadPicks() {
+      this.eventPicksList = [];
+      this.eventPointsReference = [{}, {}, {}, {}, {}];
+
+      let _picks = window.localStorage.getItem(`picks_${this.eventCurrentName}`);
+      if (_picks) {
+        this.eventPicksList = JSON.parse(_picks);
+      }
+      let _reference = window.localStorage.getItem(`reference_${this.eventCurrentName}`);
+      if (_reference) {
+        this.eventPointsReference = JSON.parse(_reference);
+      }
+    },
+    eventToggleReference(car, igroup) {
+      let found = this.eventPointsReference[igroup] && this.eventPointsReference[igroup].rid === car.rid && this.eventPointsReference[igroup].tune === car.tune;
+      if (found) {
+        this.eventPointsReference[igroup] = {};
+      } else {
+        this.eventPointsReference[igroup] = { rid: car.rid, tune: car.tune };
+      }
+
+      window.localStorage.setItem(`reference_${this.eventCurrentName}`, JSON.stringify(this.eventPointsReference));
+      this.eventListKings();
+    },
+    eventTogglePick(car, e) {
+      let found = this.eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune);
+      if (found) {
+        this.eventPicksList = this.eventPicksList.filter(x => x.rid !== car.rid || x.tune !== car.tune);
+      } else {
+        this.eventPicksList.push(JSON.parse(JSON.stringify(car)));
+      }
+      if (e) {
+        e.preventDefault();
+      }
+      window.localStorage.setItem(`picks_${this.eventCurrentName}`, JSON.stringify(this.eventPicksList));
+    },
+    eventRemovePick(car) {
+      this.eventPicksList = this.eventPicksList.filter(x => x !== car);
+      window.localStorage.setItem(`picks_${this.eventCurrentName}`, JSON.stringify(this.eventPicksList));
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
@@ -6504,6 +6610,100 @@ export default {
       document.documentElement.style.setProperty('--vw', `${vw}px`);
       let vh = document.documentElement.clientHeight;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+    },
+    handleKeyDown(e) {
+      if (this.showPoints) return;
+      if (e.altKey) {
+        
+        e.preventDefault();
+        // console.log("on");
+        this.pointsInit(e);
+
+        // this.showCarsFix = false;
+        // this.$nextTick().then(() => {
+        //   this.showCarsFix = true;
+        // });
+      }
+    },
+    handleKeyUp(e) {
+      if (!e.altKey) {
+        if (this.showPoints) {
+          
+          console.log("off");
+          this.pointsEnd();
+
+          // this.showCarsFix = false;
+          // this.$nextTick().then(() => {
+          //   this.showCarsFix = true;
+          // })
+        }
+      }
+    },
+    carLongTouch(carIx) {
+      if (this.carHoverIndex === carIx) {
+        this.pointsToggle();
+      } else {
+        this.carHoverIndex = carIx;
+        this.pointsInit();
+      }
+    },
+    pointsInit(e) {
+      this.showPoints = true;
+      console.log(e);
+      if (this.mode === "classic") {
+        this.resolvePointsClassic();
+      }
+    },
+    pointsEnd() {
+      this.showPoints = false;
+    },
+    pointsToggle() {
+      if (this.showPoints) {
+        this.pointsEnd();
+      } else {
+        this.pointsInit();
+      }
+    },
+    hoverCarJs(index) {
+      this.carHoverIndex = index;
+      if (this.showPoints) {
+        this.resolvePointsClassic();
+      }
+    },
+    resolvePointsClassic() {
+      console.log(this.carHoverIndex);
+      if (this.carHoverIndex === -1) return;
+      let vm = this;
+      let result = [];
+      
+      this.carDetailsList.map(x => {
+        result.push({});
+      });
+
+      this.currentTracks.map((x, ix) => {
+        result.map(y => {
+          y[`${x.id}_a${x.surface}${x.cond}`] = null;
+        })
+      });
+
+      let tempValue;
+      result.map((x, ix) => {
+        Object.keys( x ).forEach(function (trackId) {
+          if (
+            vm.carDetailsList[ix].data &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times
+          ) {
+            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
+            if (vm.carHoverIndex > -1 && vm.carHoverIndex !== ix) {
+              let referenceTime = vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId];
+              x[trackId] = Vue.options.filters.userPoints(tempValue, referenceTime, trackId);
+            }
+          }
+        });
+      })
+
+      this.pointsResolved = result;
     },
     checkAnnouncement() {
       if (window.localStorage.getItem("contest1")) return;
@@ -8068,7 +8268,7 @@ body .Main_UserT5 {
   --translate: 14px;
 }
 .Cg_PointsRed {
-  --cor: rgb(var(--d-text-red));
+  --cor: rgb(var(--d-text-red2));
   --cor2: #000;
   --size: 70px;
 }
@@ -8379,6 +8579,35 @@ body .Main_UserT5 {
 .Event_BankButton {
   width: 100%;
   justify-content: flex-start;
+}
+.D_Button.Event_BankPick {
+  --back-color: 255, 255, 255;
+  --back-opac: 0.1;
+  /* background-color: rgba(var(--back-color), var(--back-opac)); */
+  /* box-shadow: inset 0px -2px 0px 0px var(--cor); */
+  /* box-shadow: inset 0px -36px 0px 0px rgba(var(--back-color), var(--back-opac)); */
+}
+.D_Button.Event_BankReference {
+  --back-color: 255, 255, 255;
+  --back-opac: 0.10;
+  background-color: rgba(var(--back-color), var(--back-opac));
+  /* box-shadow: inset 0px -36px 0px 0px rgba(var(--back-color), var(--back-opac)); */
+}
+.Event_PicksManage {
+  background-color: #444;
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 20px;
+  display: grid;
+}
+.Main_FilterHeaderLeft {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.Event_HasPickList > .Event_BankButton:not(.Event_BankReference):not(.Event_BankPick) {
+  opacity: 0.4;
 }
 .Event_BankPhoto {
   margin-right: 7px;
@@ -8816,6 +9045,9 @@ body .Main_UserT5 {
     justify-content: center;
     margin-top: -10px;
     margin-bottom: -5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
   .Main_CampaignMatch {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -8874,6 +9106,17 @@ body .Main_UserT5 {
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {
     color: var(--cor);
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankTune {
+    display: none;
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult {
+    display: block;
+    margin-right: 0;
+    transform: translateX(-7px);
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
+    font-size: 0.7em;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider {
     --size: 30px;

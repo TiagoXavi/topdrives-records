@@ -156,9 +156,9 @@ export default {
   data() {
     return {
       timer: null,
-      touchduration: 800,
       timerStart: 0,
-      touchCount: 0
+      touchCount: 0,
+      touchedLong: false
     }
   },
   watch: {},
@@ -207,39 +207,44 @@ export default {
       }
     },
     touchstart(e) {
-        e.preventDefault();
-        if (!this.timer) {
-            this.timer = setTimeout(this.onlongtouch, this.touchduration);
-        }
+      e.preventDefault();
+      clearTimeout(this.timer);
+      this.timer = setTimeout(this.onlongtouch, 600);
+      
 
-        if (this.touchCount === 0) {
-          this.timerStart = performance.now();
-          this.touchCount = this.touchCount+1
-          return;
+      if (this.touchCount === 0) {
+        // first touch or quickTouch
+        this.timerStart = performance.now();
+        this.touchCount = this.touchCount+1;
+        return;
+      }
+      if (performance.now() - this.timerStart < 400) {
+        // secound quickTouch
+        this.touchCount = this.touchCount+1;
+      } else {
+        // secound touch
+        this.timerStart = performance.now();
+        this.touchCount = 1;
+      }
+      if (this.touchCount > 2) {
+        if ((!this.needSave || this.cgOppo) && !this.hideClose) {
+          this.$emit('delete');
         }
-        if (performance.now() - this.timerStart < 400) {
-          this.touchCount = this.touchCount+1
-        } else {
-          this.timerStart = performance.now();
-          this.touchCount = 1;
-        }
-        if (this.touchCount > 2) {
-          if ((!this.needSave || this.cgOppo) && !this.hideClose) {
-            this.$emit('delete');
-          }
-          this.touchCount = 0;
-        }
+        this.touchCount = 0;
+        clearTimeout(this.timer);
+      }
     },
     touchend() {
-        //stops short touches from firing the event
-        if (this.timer) {
-            clearTimeout(this.timer);
-            this.timer = null;
-        }
+      //stops short touches from firing the event
+      clearTimeout(this.timer);
+      if (this.touchedLong) {
+        this.touchedLong = false;
+        this.$emit('longTouch');
+      }
     },
     onlongtouch() {
-      this.timer = null;
-      this.$emit('cog');
+      navigator.vibrate(30);
+      this.touchedLong = true;
     }
   },
 }

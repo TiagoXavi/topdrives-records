@@ -34,6 +34,7 @@
       <div v-if="isFiltering || filterOnly" class="Main_SearchMid">
         <div class="Main_FilterItems">
           <div v-if="!cgAddingYouCar" class="Main_FilterClearTop">
+            <slot name="header"></slot>
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
               @click="clearFilter('searchFilters')">{{ $t("m_clear") }}</button>

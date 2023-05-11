@@ -280,6 +280,7 @@ body {
   --d-text-red: 215, 0, 0;
   --d-text-red-b: 251, 131, 131;
   --d-text-yellow: 255, 199, 23;
+  --d-text-red2: 255, 88, 88;
 
   /* tracks */
   --color-dry: 204, 204, 204;

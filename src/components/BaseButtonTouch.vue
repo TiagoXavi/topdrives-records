@@ -19,7 +19,8 @@ export default {
       touchduration: 800,
       timerStart: 0,
       timerEnd: 0,
-      element: null
+      element: null,
+      tm: null
     }
   },
   watch: {},
@@ -29,13 +30,16 @@ export default {
   methods: {
     touchstart(e) {
       this.timerStart = performance.now();
+      this.tm = setTimeout(() => {
+        navigator.vibrate(30);
+      }, 600);
     },
     touchend(e) {
+      clearTimeout(this.tm);
       console.log(e.cancelable);
       this.timerEnd = performance.now();
       if (this.timerEnd - this.timerStart > 800 && e.cancelable) {
         this.$emit('longTouch');
-        navigator.vibrate(100);
       }
     }
   },
