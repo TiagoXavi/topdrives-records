@@ -4190,6 +4190,7 @@ export default {
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
+      this.showPoints = false;
     },
     resolveChangeTime(car, NEW, number, tune) {
       let vm = this;

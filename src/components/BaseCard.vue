@@ -81,6 +81,7 @@
       class="Car_Header2"
       @mousedown="$emit('dragdown', $event)"
       @touchstart="touchstart($event)"
+      @touchend="touchend()"
       @click="invertedClick($event)">
       <div class="BaseCard_Header2Left">
         <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
