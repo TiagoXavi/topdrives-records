@@ -57,6 +57,7 @@
                 :cg="true"
                 :hideClose="true"
                 :showResetTune="false"
+                @cog="cgShowTuneDialog(race.car, race, true)"
                 @longTouch="cgShowTuneDialog(race.car, race, true)"
                 @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
                 @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />

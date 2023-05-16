@@ -449,6 +449,7 @@
                   :cgOppo="true"
                   :hideClose="!user || !user.mod"
                   :showResetTune="(user && user.mod) || isRoundEmptyForUser"
+                  @cog="cgShowTuneDialog(race.car, race, true)"
                   @longTouch="cgShowTuneDialog(race.car, race, true)"
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
                   @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
@@ -813,7 +814,8 @@
                       :key="icar"
                       :class="{
                         Event_BankReference: eventPointsReference[igroup].icar === icar,
-                        Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune)
+                        Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
+                        Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
                       }"
                       :style="`--cor: ${ car.color }`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
@@ -976,7 +978,7 @@
         <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder' href='https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323'>{{ $t('m_here') }}</a></span>
         </div>
-        <div
+        <!-- <div
           v-if="!kingFixed"
           class="Main_KingTrackBox Main_FilterChipsInside"
           style="margin-top: 4px;">
@@ -986,7 +988,7 @@
               class="BaseChip_MinWidth BaseChip_TuneStyle"
               :value="item" />
           </template>
-        </div>
+        </div> -->
         <BaseConfigCheckBox
           v-if="!kingFixed"
           v-model="kingShowDownvoted"
@@ -1037,9 +1039,12 @@
       v-model="kingFilterDialog"
       :filterOnly="true"
       :all_cars="all_cars"
+      :config="{
+        tunes: true
+      }"
       ridsMutationName="KING_EMIT_RIDS"
       @filterUpdate="updateKingFilter($event)"
-      @listRids="kingAnalyseFinish($event);"
+      @clearFilterUpdate="kingClearFilter = $event"
     />
 
     <BaseFilterDialog
@@ -1111,6 +1116,7 @@
       <template v-if="user && user.tier <= 3 && eventPicksList.length > 0" slot="header">
         <div class="Main_FilterHeaderLeft">
           <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
+          <BaseConfigCheckBox v-model="eventForcePicks" name="eventForcePicks" :label="$t('m_eventForcePicks')" />
         </div>
       </template>
     </BaseFilterDialog>
@@ -2316,6 +2322,7 @@ export default {
       eventPointsReference: [{}, {}, {}, {}, {}],
       eventPicksList: [],
       eventShowOnlyPicks: false,
+      eventForcePicks: false,
       kingDialog: false,
       kingFilterDialog: false,
       kingTrack: false,
@@ -2327,7 +2334,7 @@ export default {
       kingFixed: false,
       kingAddindTrack: false,
       kingForceVerticalView: true,
-      kingTunes: [],
+      kingClearFilter: {},
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -2631,6 +2638,11 @@ export default {
     if (eventShowOnlyPicks) {
       eventShowOnlyPicks = JSON.parse(eventShowOnlyPicks);
       this.eventShowOnlyPicks = eventShowOnlyPicks;
+    }
+    let eventForcePicks = window.localStorage.getItem("eventForcePicks");
+    if (eventForcePicks) {
+      eventForcePicks = JSON.parse(eventForcePicks);
+      this.eventForcePicks = eventForcePicks;
     }
     
 
@@ -3069,7 +3081,8 @@ export default {
           topSpeed: false,
           acel: false,
           hand: false,
-          weight: false
+          weight: false,
+          tunes: true
         };
       }
       return {
@@ -6092,7 +6105,7 @@ export default {
             bestTimePure = car.time;
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
           } else {
-            car.points = Vue.options.filters.userPoints(car.time, bestTimePure, this.eventKingTracks[itrack]);
+            car.points = Vue.options.filters.userPoints(bestTimePure, car.time, this.eventKingTracks[itrack]);
             if (this.eventKingTracks[itrack].includes("testBowl")) {
               car.timeToPrint = car.time;
             } else {
@@ -6403,10 +6416,13 @@ export default {
         filter: this.eventFilterForKing,
         tracks: this.eventKingTracks,
         includeDownvotes: this.kingShowDownvoted,
-        forceFree
+        forceFree,
+        onlyPicks: this.eventShowOnlyPicks,
+        forcePicks: this.eventForcePicks,
+        picks: []
       }
 
-      if (this.eventShowOnlyPicks && this.eventPicksList.length > 0) {
+      if (this.eventPicksList.length > 0) {
         let list = [];
         this.eventPicksList.map(car => {
           list.push({ rid: car.rid, tune: car.tune });
@@ -6654,6 +6670,7 @@ export default {
       if (this.mode === "classic") {
         this.resolvePointsClassic();
       }
+      this.$store.commit("START_LOGROCKET", {});
     },
     pointsEnd() {
       this.showPoints = false;
@@ -6837,17 +6854,17 @@ export default {
     },
     kingAnalyse() {
       if (!this.kingTrack.code) return;
-      this.$store.commit("KING_EMIT_RIDS", {});
+      // this.$store.commit("KING_EMIT_RIDS", {});
+      this.kingAnalyseFinish();
     },
-    kingAnalyseFinish(listOfRids) {
+    kingAnalyseFinish() {
       this.kingLoading = true;
       if (this.kingFixed) this.downloadLoading = true;
 
       axios.post(Vue.preUrl + "/king", {
-        rids: listOfRids,
         track: this.kingTrack.code,
         includeDownvotes: this.kingShowDownvoted,
-        tunes: this.kingTunes
+        filter: this.kingClearFilter
       })
       .then(res => {
         this.clearAllTracks();
@@ -6924,7 +6941,7 @@ export default {
     closeCustomTuneDialog() {
       this.customTuneDialogActive = false;
       if (this.customTuneDialogTune) {
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
         Vue.set(this.customTuneDialogCar, "forceTune", this.customTuneDialogTune);
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
         this.updateCarLocalStorage();
@@ -8588,9 +8605,10 @@ body .Main_UserT5 {
   /* box-shadow: inset 0px -2px 0px 0px var(--cor); */
   /* box-shadow: inset 0px -36px 0px 0px rgba(var(--back-color), var(--back-opac)); */
 }
-.D_Button.Event_BankReference {
+.D_Button.Event_BankReference,
+.D_Button.Event_BankSemiReference {
   --back-color: 255, 255, 255;
-  --back-opac: 0.10;
+  --back-opac: 0.07;
   background-color: rgba(var(--back-color), var(--back-opac));
   /* box-shadow: inset 0px -36px 0px 0px rgba(var(--back-color), var(--back-opac)); */
 }
@@ -8606,8 +8624,12 @@ body .Main_UserT5 {
   display: flex;
   align-items: center;
   margin-right: 10px;
+  gap: 15px;
 }
 .Event_HasPickList > .Event_BankButton:not(.Event_BankReference):not(.Event_BankPick) {
+  opacity: 0.4;
+}
+.Event_HasPickList > .Event_BankSemiReference:not(.Event_BankPick) {
   opacity: 0.4;
 }
 .Event_BankPhoto {

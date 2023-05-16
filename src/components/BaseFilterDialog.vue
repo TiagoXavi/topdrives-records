@@ -48,6 +48,14 @@
                 :value="item" />
             </template>
           </div>
+          <div v-if="config.tunes === true && internalConfig.tunes !== false" class="Main_FilterChipsFlex">
+            <template v-for="(item, ix) in searchFilters.tunes">
+              <BaseChip
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                v-model="searchFilters.tunesModel"
+                :value="item" />
+            </template>
+          </div>
           <div v-if="config.classes !== false && internalConfig.classes !== false" class="Main_FilterChips Main_FilterClassChips">
             <template v-for="(item, ix) in searchFilters.classes">
               <BaseChip
@@ -459,6 +467,8 @@ export default {
         seatsStart: 1,
         seatsEnd: 9,
         seatsModel: [],
+        tunes: ["332", "323", "233", "111"],
+        tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
         classesModel: [],
@@ -703,6 +713,9 @@ export default {
           ...mutation.payload.filter
         };
         vm.searchStr = "";
+        if (mutation.payload.filter.year2Model) {
+          this.initSecretYear(true);
+        }
         setTimeout(() => {
           vm.applyFilter();
         }, 101);
@@ -1017,6 +1030,7 @@ export default {
       this.searchFilters.mraModel = this.defaultFilters("mraModel");
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
+      this.searchFilters.tunesModel = [];
       this.searchFilters.classesModel = [];
       this.searchFilters.tyresModel = [];
       this.searchFilters.drivesModel = [];
@@ -1043,6 +1057,7 @@ export default {
         mraModel: this.defaultFilters("mraModel"),
         weightModel: this.defaultFilters("weightModel"),
         seatsModel: this.defaultFilters("seatsModel"),
+        tunesModel: [],
         classesModel: [],
         tyresModel: [],
         drivesModel: [],

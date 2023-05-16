@@ -256,7 +256,7 @@ export default {
   "t_mnCityNarrow": "Monaco-Gassen",
   "t_mnCity": "Monaco-Innenstadt",
   "t_mnCityLong": "Monaco-Innenstadt (Lang)",
-  "t_moto": "Motocroos-Strecke",
+  "t_moto": "Motocross-Strecke",
   "t_mtHairpin": "Gebirge-Haarnadel",
   "t_mtTwisty": "Gebirge-Kurven",
   "t_oceanSlalom": "Strandslalom am Meer",

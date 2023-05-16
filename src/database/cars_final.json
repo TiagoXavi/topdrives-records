@@ -7270,6 +7270,7 @@
       "name": "Porsche Cayenne Turbo (958.2)",
       "rid": "Porsche_Cayenne_Turbo_2017",
       "tags": [
+          "Drivers Choice",
           "Originals",
           "Christmas Collection 22"
       ],
@@ -21923,7 +21924,8 @@
       "name": "Audi Sport quattro",
       "rid": "Audi_Sport_quattro_1984",
       "tags": [
-          "World Expo"
+          "World Expo",
+          "Team Favourite"
       ],
       "bodyTypes": [
           "Coupe"
@@ -26515,7 +26517,6 @@
       "rid": "Audi_S8_2006",
       "tags": [
           "Originals",
-          "Team Favourite",
           "Christmas Collection 22"
       ],
       "bodyTypes": [
@@ -46460,7 +46461,6 @@
       "rid": "Chrysler_Atlantic_1995",
       "tags": [
           "American Frontier",
-          "Concept",
           "Christmas Collection 22",
           "The Great Outdoors"
       ],
@@ -73208,6 +73208,7 @@
       "name": "Alfa Romeo 90",
       "rid": "Alfa_Romeo_90_1984",
       "tags": [
+          "Drivers Choice",
           "Year of the Rat",
           "Originals"
       ],
@@ -74769,6 +74770,7 @@
       "rid": "Aston_Martin_V8_1972",
       "tags": [
           "Great Exhibition",
+          "Drivers Choice",
           "Year of the Rat",
           "In the Shadows"
       ],

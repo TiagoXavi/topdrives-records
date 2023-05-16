@@ -43,6 +43,7 @@ export default {
       if (f.mraModel && JSON.stringify(f.mraModel) !== '[0,160]') result.push({ label: "MRA", value: f.mraModel.join("-") });
       if (f.weightModel && JSON.stringify(f.weightModel) !== '[300,7000]') result.push({ label: this.$t("c_weight"), value: f.weightModel.join("-") });
 
+      if (f.tunesModel && f.tunesModel.length > 0) result.push({ label: this.$t("c_tune"), value: f.tunesModel.join(", ") });
       if (f.classesModel && f.classesModel.length > 0) result.push({ label: this.$tc("c_class", 1), value: f.classesModel.join(", ") });
       if (f.tyresModel && f.tyresModel.length > 0) result.push({ label: this.$tc("c_tyre", 1), value: f.tyresModel.map(x => this.$t(`c_${x.toLowerCase()}`)).join(", ") });
       if (f.drivesModel && f.drivesModel.length > 0) result.push({ label: this.$tc("c_drive", 1), value: f.drivesModel.join(", ") });
