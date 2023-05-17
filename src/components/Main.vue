@@ -6434,6 +6434,10 @@ export default {
         })
         params.picks = list;
       }
+      if (params.picks.length === 0) {
+        params.forcePicks = false;
+        params.onlyPicks = false;
+      }
 
       axios.post(Vue.preUrl + "/eventKings", params)
       .then(res => {

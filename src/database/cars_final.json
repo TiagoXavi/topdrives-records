@@ -1716,7 +1716,7 @@
       "hand": 90,
       "drive": "4WD",
       "tyres": "Performance",
-      "mra": null,
+      "mra": 101.8,
       "weight": 1800,
       "name": "Arash AF10 Hybrid",
       "rid": "Arash_AF10_Hybrid_2016",
