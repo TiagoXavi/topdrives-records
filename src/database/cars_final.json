@@ -48926,7 +48926,8 @@
           "Interstellar"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Coupe",
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
