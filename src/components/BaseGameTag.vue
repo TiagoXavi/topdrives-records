@@ -259,11 +259,6 @@ export default {
   --tag-s: 66%;
   --tag-l: 39%;
 }
-.BaseGameTag_Supercar {
-  --tag-h: 214;
-  --tag-s: 70%;
-  --tag-l: 58%;
-}
 .BaseGameTag_Team_Favourite {
   --tag-h: 47;
   --tag-s: 70%;

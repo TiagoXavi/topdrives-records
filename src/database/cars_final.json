@@ -1622,8 +1622,7 @@
       "name": "Lamborghini Aventador SVJ",
       "rid": "Lamborghini_Aventador_SVJ_2018",
       "tags": [
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1721,8 +1720,7 @@
       "name": "Arash AF10 Hybrid",
       "rid": "Arash_AF10_Hybrid_2016",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -1786,7 +1784,6 @@
       "rid": "Lamborghini_Aventador_SV_2015",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Loves Me, Loves Me Not"
       ],
       "bodyTypes": [
@@ -2113,7 +2110,6 @@
       "rid": "Lamborghini_Aventador_S_2018",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "As Seen on YT"
       ],
       "bodyTypes": [
@@ -2495,8 +2491,7 @@
       "name": "Lamborghini Aventador SV Roadster",
       "rid": "Lamborghini_Aventador_SV_Roadster_2015",
       "tags": [
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "bodyTypes": [
           "Roadster"
@@ -2654,8 +2649,7 @@
       "name": "Lamborghini Aventador S Roadster",
       "rid": "Lamborghini_Aventador_S_Roadster_2018",
       "tags": [
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "bodyTypes": [
           "Roadster"
@@ -3073,7 +3067,6 @@
       "tags": [
           "Italian Renaissance",
           "Style Icon",
-          "Supercar",
           "Year of the Rabbit"
       ],
       "bodyTypes": [
@@ -3611,7 +3604,6 @@
       "rid": "Lamborghini_Aventador_Roadster_2012",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "5th Anniversary"
       ],
       "bodyTypes": [
@@ -4556,8 +4548,7 @@
       "seats": "2",
       "engine": "Mid",
       "tags": [
-          "Enter the Black Forest",
-          "Supercar"
+          "Enter the Black Forest"
       ]
   },
   {
@@ -5001,7 +4992,6 @@
       "rid": "Audi_R8_GT_2011",
       "tags": [
           "World Expo",
-          "Supercar",
           "Year of the Rabbit"
       ],
       "bodyTypes": [
@@ -5099,7 +5089,6 @@
       "tags": [
           "Call of the Wild",
           "Italian Renaissance",
-          "Supercar",
           "Year of the Ox"
       ],
       "bodyTypes": [
@@ -5293,8 +5282,7 @@
       "seats": "2",
       "engine": "Mid",
       "tags": [
-          "Enter the Black Forest",
-          "Supercar"
+          "Enter the Black Forest"
       ]
   },
   {
@@ -5481,7 +5469,8 @@
       ],
       "prize": true,
       "bodyTypes": [
-          "Coupe"
+          "Coupe",
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -6058,6 +6047,36 @@
   },
   {
       "class": "S",
+      "rq": 89,
+      "onlyName": "GT",
+      "brand": "McLaren",
+      "country": "GB",
+      "year": 2019,
+      "tdid": "1719",
+      "abs": true,
+      "tcs": true,
+      "clearance": "Low",
+      "topSpeed": 203,
+      "acel": 2.8,
+      "hand": 89,
+      "drive": "RWD",
+      "tyres": "Performance",
+      "mra": 86.81,
+      "weight": 1483,
+      "name": "McLaren GT",
+      "rid": "McLaren_GT_2019",
+      "tags": [
+          "Great Exhibition"
+      ],
+      "bodyTypes": [
+          "Coupe"
+      ],
+      "fuel": "Petrol",
+      "seats": "2",
+      "engine": "Mid"
+  },
+  {
+      "class": "S",
       "rq": 88,
       "onlyName": "M5 Competition",
       "brand": "BMW",
@@ -6425,8 +6444,7 @@
       "name": "Audi R8 LMX",
       "rid": "Audi_R8_LMX_2014",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -6550,8 +6568,7 @@
       "rid": "Lamborghini_Murcielago_LP640_2006",
       "tags": [
           "Call of the Wild",
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "bodyTypes": [
           "Coupe"
@@ -6705,8 +6722,7 @@
       "name": "Arash LM",
       "rid": "Arash_LM_2002",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -6895,7 +6911,6 @@
       "tags": [
           "Call of the Wild",
           "Italian Renaissance",
-          "Supercar",
           "Year of the Ox"
       ],
       "bodyTypes": [
@@ -8069,36 +8084,6 @@
   {
       "class": "S",
       "rq": 85,
-      "onlyName": "GT",
-      "brand": "McLaren",
-      "country": "GB",
-      "year": 2019,
-      "tdid": "1719",
-      "abs": true,
-      "tcs": true,
-      "clearance": "Low",
-      "topSpeed": 203,
-      "acel": 2.8,
-      "hand": 89,
-      "drive": "RWD",
-      "tyres": "Performance",
-      "mra": 86.81,
-      "weight": 1483,
-      "name": "McLaren GT",
-      "rid": "McLaren_GT_2019",
-      "tags": [
-          "Great Exhibition"
-      ],
-      "bodyTypes": [
-          "Coupe"
-      ],
-      "fuel": "Petrol",
-      "seats": "2",
-      "engine": "Mid"
-  },
-  {
-      "class": "S",
-      "rq": 85,
       "onlyName": "Zonda Cinque Roadster",
       "brand": "Pagani",
       "country": "IT",
@@ -8305,8 +8290,7 @@
       "rid": "Lamborghini_Murcielago_LP640_Roadster_2007",
       "tags": [
           "Call of the Wild",
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "bodyTypes": [
           "Roadster"
@@ -8530,7 +8514,6 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar",
           "The Great Outdoors"
       ]
   },
@@ -8910,7 +8893,6 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar",
           "The Great Outdoors"
       ]
   },
@@ -8942,7 +8924,6 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar",
           "The Great Outdoors"
       ]
   },
@@ -9188,8 +9169,7 @@
       "tags": [
           "Call of the Wild",
           "Italian Renaissance",
-          "Style Icon",
-          "Supercar"
+          "Style Icon"
       ],
       "bodyTypes": [
           "Coupe"
@@ -9317,8 +9297,7 @@
       "seats": "2",
       "engine": "Mid",
       "tags": [
-          "Enter the Black Forest",
-          "Supercar"
+          "Enter the Black Forest"
       ]
   },
   {
@@ -9634,7 +9613,6 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar",
           "The Great Outdoors"
       ]
   },
@@ -10705,8 +10683,7 @@
       "rid": "Lamborghini_Murcielago_Roadster_2004",
       "tags": [
           "Call of the Wild",
-          "Italian Renaissance",
-          "Supercar"
+          "Italian Renaissance"
       ],
       "bodyTypes": [
           "Roadster"
@@ -10737,8 +10714,7 @@
       "rid": "Lamborghini_Diablo_6.0_SE_2001",
       "tags": [
           "Italian Renaissance",
-          "Ride of the Valkyries",
-          "Supercar"
+          "Ride of the Valkyries"
       ],
       "bodyTypes": [
           "Coupe"
@@ -10893,8 +10869,7 @@
       "rid": "Lamborghini_Diablo_6.0_2000",
       "tags": [
           "Italian Renaissance",
-          "Ride of the Valkyries",
-          "Supercar"
+          "Ride of the Valkyries"
       ],
       "bodyTypes": [
           "Coupe"
@@ -11781,7 +11756,6 @@
       "engine": "Mid",
       "tags": [
           "Amalfi Coast Cruising",
-          "Supercar",
           "The Great Outdoors"
       ]
   },
@@ -12459,8 +12433,7 @@
       "name": "De Tomaso P72",
       "rid": "De_Tomaso_P72_2020",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "prize": true,
       "bodyTypes": [
@@ -12775,8 +12748,7 @@
       "rid": "Pagani_Zonda_S_2000",
       "tags": [
           "Italian Renaissance",
-          "Riders on the Storm",
-          "Supercar"
+          "Riders on the Storm"
       ],
       "bodyTypes": [
           "Coupe"
@@ -12869,8 +12841,7 @@
       "name": "Arash AF8",
       "rid": "Arash_AF8_2014",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -12906,8 +12877,7 @@
       "seats": "2",
       "engine": "Mid",
       "tags": [
-          "Enter the Black Forest",
-          "Supercar"
+          "Enter the Black Forest"
       ]
   },
   {
@@ -13059,7 +13029,6 @@
       "tags": [
           "Italian Renaissance",
           "Ride of the Valkyries",
-          "Supercar",
           "Old Guard"
       ],
       "bodyTypes": [
@@ -13591,7 +13560,6 @@
       "rid": "Audi_R8_RWD_2020",
       "tags": [
           "World Expo",
-          "Supercar",
           "As Seen on YT"
       ],
       "prize": true,
@@ -13717,7 +13685,8 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Coupe",
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -14119,7 +14088,8 @@
           "5th Anniversary"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Coupe",
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -16935,8 +16905,7 @@
       "name": "Audi R8 4.2 quattro",
       "rid": "Audi_R8_4.2_quattro_2008",
       "tags": [
-          "World Expo",
-          "Supercar"
+          "World Expo"
       ],
       "bodyTypes": [
           "Coupe"
@@ -17124,8 +17093,7 @@
       "rid": "Lamborghini_Diablo_VT_Roadster_1995",
       "tags": [
           "Italian Renaissance",
-          "Ride of the Valkyries",
-          "Supercar"
+          "Ride of the Valkyries"
       ],
       "bodyTypes": [
           "Roadster"
@@ -19396,7 +19364,6 @@
           "Drivers Choice",
           "Italian Renaissance",
           "Riders on the Storm",
-          "Supercar",
           "The Great Outdoors"
       ],
       "bodyTypes": [
@@ -19738,7 +19705,6 @@
       "tags": [
           "Italian Renaissance",
           "Ride of the Valkyries",
-          "Supercar",
           "Year of the Rabbit"
       ],
       "prize": true,
@@ -20990,8 +20956,7 @@
       "seats": "2",
       "engine": "Mid",
       "tags": [
-          "Enter the Black Forest",
-          "Supercar"
+          "Enter the Black Forest"
       ]
   },
   {
@@ -23598,8 +23563,7 @@
       "rid": "Lamborghini_Diablo_SE_1993",
       "tags": [
           "Italian Renaissance",
-          "Ride of the Valkyries",
-          "Supercar"
+          "Ride of the Valkyries"
       ],
       "bodyTypes": [
           "Coupe"
@@ -24683,7 +24647,6 @@
       "rid": "Lamborghini_Miura_SVJ_1971",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Wild Ride",
           "Immortalised in Carbon"
       ],
@@ -25403,7 +25366,6 @@
       "tags": [
           "Italian Renaissance",
           "Ride of the Valkyries",
-          "Supercar",
           "Year of the Rat"
       ],
       "bodyTypes": [
@@ -27853,8 +27815,7 @@
           "Italian Renaissance",
           "Ride of the Valkyries",
           "Style Icon",
-          "Team Favourite",
-          "Supercar"
+          "Team Favourite"
       ],
       "bodyTypes": [
           "Coupe"
@@ -35497,7 +35458,6 @@
       "rid": "Lamborghini_Countach_25th_Anniversario_1988",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Old Guard"
       ],
       "bodyTypes": [
@@ -41277,7 +41237,6 @@
       "rid": "Lamborghini_Countach_5000_Quattrovalvole_1985",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Year of the Ox",
           "Old Guard"
       ],
@@ -44181,7 +44140,6 @@
       "tags": [
           "Christmas Collection",
           "Italian Renaissance",
-          "Supercar",
           "Immortalised in Carbon"
       ],
       "bodyTypes": [
@@ -46769,7 +46727,6 @@
       "rid": "Lamborghini_Miura_S_1968",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Immortalised in Carbon"
       ],
       "bodyTypes": [
@@ -47988,7 +47945,6 @@
       "tags": [
           "Italian Renaissance",
           "Style Icon",
-          "Supercar",
           "Year of the Tiger"
       ],
       "bodyTypes": [
@@ -53406,7 +53362,6 @@
       "rid": "Lamborghini_Miura_P_400_1966",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Style Icon",
           "Immortalised in Carbon"
       ],
@@ -54524,7 +54479,6 @@
       "rid": "Lamborghini_Countach_LP500_S_1982",
       "tags": [
           "Italian Renaissance",
-          "Supercar",
           "Old Guard"
       ],
       "bodyTypes": [
@@ -59517,7 +59471,6 @@
       "tags": [
           "In the Shadows",
           "Italian Renaissance",
-          "Supercar",
           "Old Guard"
       ],
       "bodyTypes": [
@@ -64485,7 +64438,6 @@
       "tags": [
           "Italian Renaissance",
           "Ultra Expensive",
-          "Supercar",
           "Immortalised in Carbon"
       ],
       "bodyTypes": [
@@ -85550,7 +85502,7 @@
           "Originals"
       ],
       "bodyTypes": [
-          "Roadster"
+          "Convertible"
       ],
       "fuel": "Petrol",
       "seats": "2",

@@ -495,7 +495,6 @@ export default {
           "Style Icon",
           "Sub-Zero",
           "Summer Games",
-          "Supercar",
           "Team Favourite",
           "The Great Outdoors",
           "The Horror Show",
