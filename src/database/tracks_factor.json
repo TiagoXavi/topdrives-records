@@ -72,7 +72,7 @@
    "oceanSlalom": 1000,
    "oceanCity": 1000,
    "oceanHighway": 1000,
-   "oceanLongDrag": 800,
+   "oceanLongDrag": 640,
    "oceanParking": 1000,
    "oceanShortDrag": 800,
    "rallyMed": 1000,
