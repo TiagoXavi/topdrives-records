@@ -171,6 +171,19 @@
         {{ contestRes }}
       </div>
     </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Update Git</div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="updateGit()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ gitRes }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -205,6 +218,7 @@ export default {
       scanSessionRes: null,
       contestRes: null,
       userConfirmRes: null,
+      gitRes: null,
     }
   },
   watch: {},
@@ -369,6 +383,21 @@ export default {
       })
       .then(res => {
         this.userConfirmRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    updateGit() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrl + "/updategit")
+      .then(res => {
+        this.gitRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
