@@ -6674,7 +6674,7 @@ export default {
       if (this.mode === "classic") {
         this.resolvePointsClassic();
       }
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
     },
     pointsEnd() {
       this.showPoints = false;

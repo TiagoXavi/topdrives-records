@@ -19646,7 +19646,8 @@
           "World Expo"
       ],
       "bodyTypes": [
-          "Coupe"
+          "Coupe",
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
@@ -21671,7 +21672,7 @@
       ],
       "bodyTypes": [
           "Pickup",
-          "Convertible"
+          "Roadster"
       ],
       "fuel": "Petrol",
       "seats": "2",
