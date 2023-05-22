@@ -3722,7 +3722,7 @@ export default {
         vm.highlightsUsers = {
           "bcp_": 'mod',
           "TiagoXavi": 'mod',
-          "Bigremachine": 'mod',
+          "Bigredmachine": 'mod',
           "duck": 'mod',
           "HansKasai": 'mod',
           "fiero": 'mod',
