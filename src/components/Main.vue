@@ -6728,17 +6728,17 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      if (window.localStorage.getItem("contest1")) return;
-      let dt = window.localStorage.getItem("_dt");
-      if (dt) {
-        dt = Number(dt) + (60*60*1000) > new Date().getTime()
-      }
-      if (dt) return;
+      // if (window.localStorage.getItem("contest1")) return;
+      // let dt = window.localStorage.getItem("_dt");
+      // if (dt) {
+      //   dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      // }
+      // if (dt) return;
 
-      window.localStorage.setItem('contest1', "t");
-      setTimeout(() => {
-        this.announcementDialog = true;
-      }, 100);
+      // window.localStorage.setItem('contest1', "t");
+      // setTimeout(() => {
+      //   this.announcementDialog = true;
+      // }, 100);
     },
     openAbout() {
       this.aboutDialog = true;
