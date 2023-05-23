@@ -817,6 +817,7 @@ export default {
       let strIndex = -1;
       let prePush;
       let tryFind;
+      let foundExact = false;
       this.clearFilterObj = this.resolveFilterCount();
       if (this.type === 'cg' && this.cgAddingYouCar) {
         vm.internalConfig = {};
@@ -832,44 +833,48 @@ export default {
 
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 200 || true) {
 
-          let shouldPush = false;
-          if (searchStr && searchStr !== "") {
-            strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
-          } else {
-            strIndex = -2;
-          }
+        if (foundExact) return;
+        if (x.rid === this.searchInput) {
+          result = [];
+          foundExact = true;
+        }
 
-          if (this.filterCount > 0 || (this.cgAddingOppoCar)) {
-            if (strIndex > -1 || strIndex === -2) {
-              if (this.checkMatchFilter(x)) {
-                shouldPush = true;
-              }
-            }
-          } else {
-            if (strIndex > -1) {
+        let shouldPush = foundExact;
+        if (searchStr && searchStr !== "") {
+          strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
+        } else {
+          strIndex = -2;
+        }
+
+        if (this.filterCount > 0 || (this.cgAddingOppoCar)) {
+          if (strIndex > -1 || strIndex === -2) {
+            if (this.checkMatchFilter(x)) {
               shouldPush = true;
             }
           }
+        } else {
+          if (strIndex > -1) {
+            shouldPush = true;
+          }
+        }
 
-          if (shouldPush) {
-            prePush = JSON.parse(JSON.stringify(x));
-            if (strIndex > -1) {
-              prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
-              prePush.locatedIndex = strIndex;
-              if (x.name[strIndex - 1] === ' ') {
-                prePush.locatedPlus = true;
-              }
-            } else {
-              prePush.locatedName = x.name;
+        if (shouldPush) {
+          prePush = JSON.parse(JSON.stringify(x));
+          if (strIndex > -1) {
+            prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
+            prePush.locatedIndex = strIndex;
+            if (x.name[strIndex - 1] === ' ') {
+              prePush.locatedPlus = true;
             }
-
-            result.push(prePush);
+          } else {
+            prePush.locatedName = x.name;
           }
 
-
+          result.push(prePush);
         }
+
+
       })
 
       this.searchResultLength = result.length;

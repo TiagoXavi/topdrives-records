@@ -311,6 +311,10 @@ body {
   --t3: #d93c3e;
   --t4: #41c3e9;
   --t5: #45df40;
+  --w1: #d1aa3c;
+  --w2: #a2bec9;
+  --w3: #cf7d29;
+
 
   font-size: 18px;
   background-color: var(--d-back);

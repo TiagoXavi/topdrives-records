@@ -3769,8 +3769,10 @@ export default {
           pUsers[key].map(user => {
             Vue.set(vm.highlightsUsers, user, Number(key.slice(-1)));
           })
-          
         })
+        vm.highlightsUsers["duck"] = "w1";
+        vm.highlightsUsers["MichaTDR"] = "w2";
+        vm.highlightsUsers["CapSora"] = "w3";
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
@@ -7351,6 +7353,30 @@ body .Main_UserT4 {
 }
 body .Main_UserT5 {
   color: var(--t5);
+}
+body .Main_UserTw1 {
+  color: var(--w1);
+}
+body .Main_UserTw2 {
+  color: var(--w2);
+}
+body .Main_UserTw3 {
+  color: var(--w3);
+}
+body .Main_UserTw1:before {
+  content: "🥇";
+}
+body .Main_UserTw2:before {
+  content: "🥈";
+}
+body .Main_UserTw3:before {
+  content: "🥉";
+}
+body .Main_UserTw1:before,
+body .Main_UserTw2:before,
+body .Main_UserTw3:before {
+  margin: 0 -2px;
+  line-height: 0.6;
 }
 .Main_SearchLastestTitle {
   font-size: 1.7em;
