@@ -133,6 +133,7 @@ export default {
   m_newByCopy: "New by copy",
   m_eventShowOnlyPicks: "Show picks only",
   m_eventForcePicks: "Force show picks",
+  m_showPointsCgForce: "show points",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

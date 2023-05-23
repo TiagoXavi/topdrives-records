@@ -169,6 +169,7 @@
           <BaseCorner
             :gameVersion="gameVersion"
             @menu="optionsDialogActive = true;"
+            @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();"/>
           <div class="Cg_RowCornerBox">
             <!-- top CHALLENGE -->
@@ -534,12 +535,20 @@
                     Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
                   }"
                   class="Cg_Divider"
-                  @click="cgOpenPointsEdit(race)">
+                  @click="cgOpenPointsEdit(race)"
+                  @mousedown="showPoints = true;"
+                  @mouseup="showPoints = false;"
+                  @mouseleave="showPoints = false;">
                   <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === 50" class="Cg_Points">{{ $t("m_win") }}</div>
-                  <div v-else-if="(race.cars[race.carIndex] || {}).points === -50" class="Cg_Points">{{ $t("m_lose") }}</div>
-                  <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
+                  <template v-else-if="showPointsCg">
+                    <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
+                  </template>
+                  <template v-else>
+                    <div v-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
+                    <div v-else-if="(race.cars[race.carIndex] || {}).points > 0" class="Cg_Points">{{ $t("m_win") }}</div>
+                    <div v-else-if="(race.cars[race.carIndex] || {}).points < -50" class="Cg_Points">{{ $t("m_lose") }}</div>
+                    <!-- <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div> -->
+                  </template>
                 </div>
                 <div class="CgYouCar">
                   <BaseCard
@@ -609,16 +618,20 @@
                         <div class="Cg_BankTune">{{ bankCar.tune }}</div>
                         <div
                           class="Cg_BankResult">
-                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">
-                            <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                          <span v-else-if="bankCar.points === 50" class="Cg_BankPoints">
-                            <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                          <span v-else-if="bankCar.points === -50" class="Cg_BankPoints">
-                            <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                          <span v-else class="Cg_BankPoints">{{ bankCar.points }}</span>
+                          <template v-if="showPointsCg">
+                            <span class="Cg_BankPoints">{{ bankCar.points }}</span>
+                          </template>
+                          <template v-else>
+                            <span v-if="bankCar.points === 0" class="Cg_BankPoints">
+                              <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
+                            </span>
+                            <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
+                              <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
+                            </span>
+                            <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
+                              <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
+                            </span>
+                          </template>
                         </div>
                       </button>
                     </template>
@@ -2001,6 +2014,7 @@
         <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
         <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
         <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
+        <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" @change="cgReCalcRound()" />
       </div>
     </BaseDialog>
     <BaseDialog
@@ -2221,6 +2235,7 @@ export default {
       gameVersion: "Game v19.1",
       mode: "classic",
       showPoints: false,
+      showPointsCgForce: false,
       pointsResolved: [],
       carHoverIndex: -1,
       cgLoading: false,
@@ -3106,6 +3121,9 @@ export default {
       }
 
       
+    },
+    showPointsCg() {
+      return this.showPoints || this.showPointsCgForce;
     }
   },
   methods: {
@@ -4919,24 +4937,31 @@ export default {
         }
         return;
       }
-      if (race.track.includes("testBowl")) {
-        if (oppotime > youtime) points = -50;
-        if (oppotime < youtime) points = 50;
-      } else {
-        if ((oppotime > youtime && youtime > 0) || (oppotime === 0 && youtime > 0)) points = 50;
-        else if ((oppotime < youtime && oppotime !== 0) || (youtime === 0 && oppotime > 0) ) points = -50;
-      }
-      let origPoints = race.cars[race.carIndex].points;
-      if (typeof origPoints === 'number' && origPoints !== points) {
-        if (points === 50 && origPoints > 50) points = origPoints;
-        if (points === -50 && origPoints < -50) points = origPoints;
-        if (points === 0 && origPoints !== 0) points = origPoints;
-      }
+      
+      // if (race.track.includes("testBowl")) {
+      //   if (oppotime > youtime) points = -50;
+      //   if (oppotime < youtime) points = 50;
+      // } else {
+      //   if ((oppotime > youtime && youtime > 0) || (oppotime === 0 && youtime > 0)) points = 50;
+      //   else if ((oppotime < youtime && oppotime !== 0) || (youtime === 0 && oppotime > 0) ) points = -50;
+      // }
+      // // until now is boolean point
+      // if (this.showPoints) {
+      // }
+      // Vue.set(race.cars[race.carIndex], "points", points);
 
-      if (!this.downloadLoading && origPoints !== points) {
-        this.cgResolveBankToSave("add", irace, youRid, youTune, points);
-      }
+      let origPoints = race.cars[race.carIndex].points;
+      // if (typeof origPoints === 'number' && origPoints !== points) {
+      //   if (points === 50 && origPoints > 50) points = origPoints;
+      //   if (points === -50 && origPoints < -50) points = origPoints;
+      //   if (points === 0 && origPoints !== 0) points = origPoints;
+      // }
+
+      points = Vue.options.filters.userPoints(youtime, oppotime, race.track).v;
       Vue.set(race.cars[race.carIndex], "points", points);
+      if (!this.downloadLoading && origPoints !== points) {
+          this.cgResolveBankToSave("add", irace, youRid, youTune, points);
+      }
       
     },
     cgReCalcRound() {
@@ -5543,6 +5568,7 @@ export default {
       }
     },
     cgOpenPointsEdit(race) {
+      return;
       if (!this.user) return;
       if (typeof race.carIndex !== 'number') return;
       let points = (race.cars[race.carIndex] || {}).points;

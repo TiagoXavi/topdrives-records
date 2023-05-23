@@ -125,6 +125,8 @@ export default {
   "m_modShowSuspectTimes": "Esconder tempos suspeitos",
   "m_newByCopy": "Novo via cópia",
   "m_eventShowOnlyPicks": "Somente selecionados",
+  "m_eventForcePicks": "Forçar selecionados",
+  "m_showPointsCgForce": "mostrar pontos",
 
   "p_userSentCgForAnalyse": "Obrigado! Seu round será analisado. Vem pro Discord se quiser discutir sobre.",
   "p_emptyRoundForUser": "Este round não está pronto ainda. Você pode ajudar criando e enviando para análise.",

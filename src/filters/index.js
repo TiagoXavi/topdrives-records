@@ -201,19 +201,8 @@ export default {
 
                 if (wt === lt) return { v: 0, i: true };
 
-                // result = -373.3608 + (64019.48 - -373.3608)/(1 + Math.pow(diffPercent/0.7405556, 1.047131)); // v1
-
                 var diffPercent = lt/wt*100;
                 result = -384.0318 + (490971 - -384.0318)/(1 + Math.pow(diffPercent/0.08919558, 1.017337)); // v2
-                
-                // const a = 371.455;
-                // const b = 3.26554;
-                // const c = 4053.69;
-                // let x = (wt - lt) / wt;
-                // result = a * x * Math.pow(b, x) + Math.pow(c, x);
-
-                // let x = (wt-lt)/wt;
-                // result = x*100*Math.pow(3.81251, x+1)
 
                 result = Math.round(result);
 
@@ -243,8 +232,6 @@ export default {
                 isImprecise = false;
             }
             if (isLose) result = result * -1;
-
-            // if (isImprecise) result = `~${result}`;
 
             return { v: result, i: isImprecise };
         },
