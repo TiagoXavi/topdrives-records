@@ -2659,6 +2659,11 @@ export default {
       eventForcePicks = JSON.parse(eventForcePicks);
       this.eventForcePicks = eventForcePicks;
     }
+    let showPointsCgForce = window.localStorage.getItem("showPointsCgForce");
+    if (showPointsCgForce) {
+      showPointsCgForce = JSON.parse(showPointsCgForce);
+      this.showPointsCgForce = showPointsCgForce;
+    }
     
 
     
