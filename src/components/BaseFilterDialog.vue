@@ -300,7 +300,7 @@
             <div v-else class="Main_ImgPlaceholder"></div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
             <div class="Main_SearchItemRight">
-              <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" :class="`Main_UserT${highlightsUsers[item.lastestUser]}`" class="Main_SearchResultUser">by {{ item.lastestUser }}</span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
+              <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span> <span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
             </div>
           </button>
         </template>
