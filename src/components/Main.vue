@@ -4963,16 +4963,18 @@ export default {
       // Vue.set(race.cars[race.carIndex], "points", points);
 
       let origPoints = race.cars[race.carIndex].points;
+      let isManualPoints = race.cars[race.carIndex].manual;
       // if (typeof origPoints === 'number' && origPoints !== points) {
       //   if (points === 50 && origPoints > 50) points = origPoints;
       //   if (points === -50 && origPoints < -50) points = origPoints;
       //   if (points === 0 && origPoints !== 0) points = origPoints;
       // }
-
-      points = Vue.options.filters.userPoints(youtime, oppotime, race.track).v;
-      Vue.set(race.cars[race.carIndex], "points", points);
-      if (!this.downloadLoading && origPoints !== points) {
+      if (!isManualPoints) {
+        points = Vue.options.filters.userPoints(youtime, oppotime, race.track).v;
+        Vue.set(race.cars[race.carIndex], "points", points);
+        if ( !this.downloadLoading && origPoints !== points && !isManualPoints ) {
           this.cgResolveBankToSave("add", irace, youRid, youTune, points);
+        }
       }
       
     },
@@ -5322,10 +5324,10 @@ export default {
       
     },
     cgSaveBank(customArray) {
-      if (!window.location.origin.includes('topdrives')) {
-        console.log("trySave", customArray);
-        return;
-      };
+      // if (!window.location.origin.includes('topdrives')) {
+      //   console.log("trySave", customArray);
+      //   return;
+      // };
       if (this.cgBankToSave.length === 0 && !customArray) return;
       this.cgBankToSaveLoading = true;
 
@@ -5580,7 +5582,6 @@ export default {
       }
     },
     cgOpenPointsEdit(race) {
-      debugger;
       if (!this.user) return;
       if (typeof race.carIndex !== 'number') return;
       let points = (race.cars[race.carIndex] || {}).points;
@@ -5633,7 +5634,7 @@ export default {
         let raceIndex = this.cgRound.races.indexOf(race);
         let rid = race.cars[race.carIndex].rid;
         let tune = race.cars[race.carIndex].tune;
-        let arrayToSave = [{ type: "add", raceIndex, rid, tune, points, round: this.cgCurrentRound, date: this.cg.date }];
+        let arrayToSave = [{ type: "add", raceIndex, rid, tune, points, round: this.cgCurrentRound, date: this.cg.date, manual: true }];
         this.cgSaveBank(arrayToSave);
 
         Vue.set(race.cars[race.carIndex], "points", points);
