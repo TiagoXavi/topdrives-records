@@ -88,6 +88,19 @@ export default {
   },
   watch: {
     active(newValue) {
+      this.set(newValue);
+    }
+  },
+  beforeMount() {
+    if (this.active) {
+      this.set(true);
+      
+    }
+  },
+  mounted() {},
+  computed: {},
+  methods: {
+    set(newValue) {
       if (newValue === true) {
         this.preActive = true;
         this.animIntro = true;
@@ -104,14 +117,9 @@ export default {
           this.preActive = false;
           this.realActive = false;
         }, 99);
-
       }
     }
   },
-  beforeMount() {},
-  mounted() {},
-  computed: {},
-  methods: {},
 }
 </script>
 

@@ -284,8 +284,85 @@
       <!-- classic -->
       <div v-else-if="searchResult.length > 0" class="Main_SearchMid">
         <div v-if="showingLastest" class="Main_SearchLastestTitle">{{ $t("m_lastContribution") }}</div>
-        <div v-else class="BaseFilterDialog_SortBox">
-          <!-- RQ, Top Speed, 0-60, Handling, MRA, Weight -->
+        <div v-else-if="sortEnabled" class="BaseFilterDialog_ToolBox">
+          <div class="BaseFilterDialog_SortBox">
+            <!-- <div class="BaseFilterDialog_ToolTitle">{{ $t("m_sort") }}</div> -->
+            <div class="BaseFilterDialog_ToolList">
+              <template v-for="item in sortList">
+                <BaseChip
+                  :inputValue="sortModel"
+                  :value="item"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_SortStyle"
+                  @click="sortClick(item)">
+                  <span>{{ $tc(`c_${item}`, 1) }}</span>
+                  <i
+                    v-if="sortModel === item"
+                    :class="`ticon-sort${sortInverted ? '_inverted' : ''} BaseFilterDialog_SortIcon`"
+                    aria-hidden="true"/>
+                </BaseChip>
+              </template>
+              <button
+                class="D_Button BaseFilterDialog_MoreButton" @click="showMoreSort = !showMoreSort">
+                <i :class="{ BaseFilterDialog_MoreActive: showMoreSort }" class="ticon-keyboard_arrow_down BaseFilterDialog_MoreIcon" aria-hidden="true"/>
+              </button>
+            </div>
+            <div class="BaseFilterDialog_SortBoxRight">
+              <BaseConfigCheckBox v-model="statsView" name="statsView" :label="$t('m_statsView')" />
+            </div>
+          </div>
+          <BaseExpandDiv :active="showMoreSort">
+            <div class="BaseFilterDialog_SortBox BaseFilterDialog_SortMoreBox">
+              <div class="BaseFilterDialog_ToolList">
+                <template v-for="item in sortListMore">
+                  <template v-if="typeof item === 'string'">
+                    <BaseChip
+                      :inputValue="sortModel"
+                      :value="item"
+                      class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_SortStyle"
+                      @click="sortClick(item)">
+                      <span>{{ $tc(`c_${item}`, 1) }}</span>
+                      <i
+                        v-if="sortModel === item"
+                        :class="`ticon-sort${sortInverted ? '_inverted' : ''} BaseFilterDialog_SortIcon`"
+                        aria-hidden="true"/>
+                    </BaseChip>
+                  </template>
+                  <template v-else>
+                    <BaseChip
+                      :inputValue="sortModel"
+                      :value="item.join('_')"
+                      class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_SortStyle"
+                      @click="sortClick(item)">
+                      <span>
+                        <template v-for="(word, ix) in item">
+                          <template v-if="ix > 0">*</template>
+                          <template>{{ $tc(`c_${word}`, 1) }}</template>
+                        </template>
+                      </span>
+                      <i
+                        v-if="sortModel === item.join('_')"
+                        :class="`ticon-sort${sortInverted ? '_inverted' : ''} BaseFilterDialog_SortIcon`"
+                        aria-hidden="true"/>
+                    </BaseChip>
+                  </template>
+                </template>
+              </div>
+            </div>
+          </BaseExpandDiv>
+        </div>
+        <div v-if="showStats && !showingLastest" class="BaseFilterDialog_ColumnHeaders">
+          <div class="Main_SearchItemImg" style="background-color: transparent; height: 1px;"></div>
+          <div class="Main_SearchItemLeft"></div>
+          <div v-if="sortModelSpecial" class="Main_SearchItemColumn BaseFilterDialog_ColumnHeader Main_SearchItemValue_Special">
+            <span class="BaseFilterDialog_ColumnHeaderTxt">Score</span>
+          </div>
+          <div
+            v-for="column in columns"
+            :class="`Main_SearchItemValue_${column.type} ${sortModel === column.type ? 'Main_SearchItemColumnActive' : ''}`"
+            class="Main_SearchItemColumn BaseFilterDialog_ColumnHeader"
+            @click="sortClick(column.type)">
+            <span class="BaseFilterDialog_ColumnHeaderTxt">{{ column.nick }}</span>
+          </div>
         </div>
         <template v-for="(item, index) in searchResult">
           <button
@@ -299,9 +376,20 @@
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
-            <div class="Main_SearchItemRight">
-              <span v-html="item.locatedName" /><template v-if="item.prize"><i class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/></template>&nbsp;<span class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span> <span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra" class="Main_SearchItemYear">{{ item.mra }}</span>
+            <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
+              <template v-if="sortModel === 'acel' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(1) }}</template>
+              <template v-else-if="sortModel === 'mra' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(2) }}</template>
+              <template v-else>{{ item[sortModel] }}</template>
             </div>
+            <div v-if="!showStats || showingLastest" class="Main_SearchItemRight">
+              <span v-html="item.locatedName" /><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/>&nbsp;<span v-if="sortModel !== 'year' || showingLastest" class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span>&nbsp;<span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra && sortModel !== 'mra'" class="Main_SearchItemYear">{{ item.mra }}</span>
+            </div>
+            <template v-else>
+              <div
+                v-for="column in columns"
+                :class="`Main_SearchItemValue_${column.type} ${sortModel === column.type ? 'Main_SearchItemColumnActive' : ''}  Main_SearchItemMedal_${item[column.type+'_']}`"
+                class="Main_SearchItemColumn">{{ typeof item[column.type] === 'number' ? item[column.type].toFixed(column.fixed) : (item[column.type] || "~") }}</div>
+            </template>
           </button>
         </template>
         <div v-if="!showAllFilter">
@@ -329,6 +417,9 @@ import BaseDualSlider from './BaseDualSlider.vue'
 import BaseFlag from './BaseFlag.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
 import BaseGalleryItem from './BaseGalleryItem.vue'
+import BaseExpandDiv from './BaseExpandDiv.vue'
+import BaseCheckBox from './BaseCheckBox.vue'
+import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 import custom_tags from '../database/custom_tags.json'
 
 var id = 0;
@@ -341,7 +432,10 @@ export default {
     BaseDualSlider,
     BaseFlag,
     BaseContentLoader,
-    BaseGalleryItem
+    BaseGalleryItem,
+    BaseExpandDiv,
+    BaseCheckBox,
+    BaseConfigCheckBox
   },
   model: {
     prop: 'active',
@@ -398,6 +492,10 @@ export default {
       type: Boolean,
       default: false
     },
+    sortEnabled: {
+      type: Boolean,
+      default: true
+    },
     type: {
       type: String,
       default: "classic"
@@ -440,6 +538,39 @@ export default {
       alreadySearched: false,
       cgIsFiltering: false,
       filterCount: 0,
+      sortModel: null,
+      sortModelSpecial: null,
+      sortInverted: false,
+      showMoreSort: false,
+      factor: false,
+      statsView: false,
+      sortList: [
+        "topSpeed",
+        "acel",
+        "hand",
+        "mra",
+        "weight"
+      ],
+      sortListMore: [
+        "rq",
+        "year",
+        ["mra", "acel"],
+        ["mra", "acel", "topSpeed"],
+        ["mra", "topSpeed"],
+        ["hand", "acel"],
+        ["hand", "weight"],
+        ["hand", "weight", "acel"],
+        ["hand", "mra", "acel"],
+        ["hand", "ola"],
+      ],
+      columns: [
+        { type: "topSpeed", fixed: 0, nick: "Speed" },
+        { type: "acel", fixed: 1, nick: "0-60" },
+        { type: "hand", fixed: 0, nick: "Hand" },
+        { type: "mra", fixed: 2, nick: "MRA" },
+        { type: "weight", fixed: 0, nick: "Weight" },
+        { type: "year", fixed: 0, nick: "Year" },
+      ],
       clearFilterObj: {},
       internalConfig: {},
       searchFilters: {
@@ -657,6 +788,12 @@ export default {
     this.clearFilter('searchFilters');
     id++;
     this.id = id;
+
+    let statsView = window.localStorage.getItem("statsView");
+    if (statsView) {
+      statsView = JSON.parse(statsView);
+      this.statsView = statsView;
+    }
   },
   mounted() {
     let vm = this;
@@ -664,7 +801,6 @@ export default {
     this.user = this.$store.state.user;
 
     if (this.libraryApprove) {
-      debugger;
       this.searchFilters["approveModel"] = true;
     }
 
@@ -728,6 +864,9 @@ export default {
   computed: {
     customTagsList() {
       return Object.keys(this.custom_tags);
+    },
+    showStats() {
+      return this.statsView && this.sortEnabled;
     }
   },
   methods: {
@@ -812,12 +951,18 @@ export default {
       // console.log("changeFilter");
       // this.searchLoading = false;
       let result = [];
+      let bestTopSpeed = [];
+      let bestAccel = [];
+      let bestHand = [];
+      let bestMra = [];
+      let bestWeight = [];
       // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = -1;
       let prePush;
       let tryFind;
       let foundExact = false;
+      let sortString = this.sortModel ? this.sortModel.toString() : '';
       this.clearFilterObj = this.resolveFilterCount();
       if (this.type === 'cg' && this.cgAddingYouCar) {
         vm.internalConfig = {};
@@ -835,6 +980,8 @@ export default {
       this.all_cars.map((x, ix) => {
 
         if (foundExact) return;
+        // if (sortString.includes("mra") && !x.mra) return;
+        // if (sortString.includes("acel") && !x.acel) return;
         if (x.rid === this.searchInput) {
           result = [];
           foundExact = true;
@@ -871,6 +1018,12 @@ export default {
             prePush.locatedName = x.name;
           }
 
+          bestTopSpeed.push(prePush.topSpeed);
+          bestHand.push(prePush.hand);
+          bestWeight.push(prePush.weight);
+          if (prePush.acel) bestAccel.push(prePush.acel);
+          if (prePush.mra) bestMra.push(prePush.mra);
+
           result.push(prePush);
         }
 
@@ -879,8 +1032,32 @@ export default {
 
       this.searchResultLength = result.length;
 
+      bestTopSpeed.sort((a, b) => b - a);
+      bestHand.sort((a, b) => b - a);
+      bestWeight.sort((a, b) => a - b);
+      bestAccel.sort((a, b) => a - b);
+      bestMra.sort((a, b) => b - a);
+
+      bestTopSpeed = [...new Set(bestTopSpeed)];
+      bestHand = [...new Set(bestHand)];
+      bestWeight = [...new Set(bestWeight)];
+      bestAccel = [...new Set(bestAccel)];
+      bestMra = [...new Set(bestMra)];
+
+      bestTopSpeed = bestTopSpeed.splice(0, 3);
+      bestHand = bestHand.splice(0, 3);
+      bestWeight = bestWeight.splice(0, 3);
+      bestAccel = bestAccel.splice(0, 3);
+      bestMra = bestMra.splice(0, 3);
+
       // class and photo
       result.map(x => {
+        x.topSpeed_ = bestTopSpeed.indexOf(x.topSpeed);
+        x.hand_ = bestHand.indexOf(x.hand);
+        x.weight_ = bestWeight.indexOf(x.weight);
+        x.acel_ = bestAccel.indexOf(x.acel);
+        x.mra_ = bestMra.indexOf(x.mra);
+
         Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
         Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
         try {
@@ -893,13 +1070,112 @@ export default {
         }    
       })
 
-      // inteligent sort
-      if (searchStr && searchStr !== "") {
+      let kSort = this.sortModel;
+      let reversed = this.sortInverted;
+      // inteligent sort (default)
+      if (searchStr && searchStr !== "" && kSort === null) {
         result.sort(function(a, b) {
           if (a.locatedPlus && !b.locatedPlus) return -1;
           if (b.locatedPlus && !a.locatedPlus) return 1;
           return a.locatedIndex - b.locatedIndex;
         });
+      }
+      // sort
+      if (kSort) {
+        let plus = 1;
+        let minus = -1;
+        if (kSort === "acel") {
+          reversed = !reversed;
+          plus = -1;
+          minus = 1;
+        }
+        if (this.sortModelSpecial) {
+          result.map(car => {
+            let newValue = 0;
+            this.sortModelSpecial.map((item, xItem) => {
+              let reducedValue = car[item] || 0;
+
+              if (kSort === 'mra_acel'){
+                if (item === "mra") reducedValue = Math.pow(reducedValue, 0.6) / 2;
+                if (item === "acel") reducedValue = reducedValue / 25;
+              }
+              if (kSort === 'mra_acel_topSpeed'){
+                if (item === "acel") reducedValue = reducedValue / 1;
+                if (item === "topSpeed") reducedValue = reducedValue / 50;
+              }
+              if (kSort === 'mra_topSpeed'){
+                if (item === "topSpeed") reducedValue = Math.pow(reducedValue, 2) / 20000;
+              }
+              if (kSort === 'hand_acel') {
+                if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 100;
+                if (item === "acel") reducedValue = reducedValue * 10;
+              }
+              if (kSort === 'hand_weight') {
+                if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 100;
+                if (item === "weight") reducedValue = Math.pow(reducedValue - 200, 0.4) * 3;
+              }
+              if (kSort === 'hand_weight_acel') {
+                if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 10;
+                if (item === "acel") reducedValue = reducedValue * 5;
+                if (item === "weight") reducedValue = Math.pow(reducedValue - 200, 0.4);
+              }
+              if (kSort === 'hand_mra_acel') {
+                if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 90000;
+                if (item === "mra") reducedValue = Math.pow(reducedValue, 2) / 9000;
+                if (item === "acel") reducedValue = reducedValue / 90;
+              }
+              if (kSort === 'hand_ola') {
+                if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 5000;
+                if (item === "ola") {
+                  if (car.topSpeed < 101) reducedValue = 0;
+                  else if (!car.mra) reducedValue = 0;
+                  else reducedValue = (Math.pow(car.topSpeed - 100, 0.4) * 10) / (car.mra || 10000);
+                }
+              }
+
+              if (xItem === 0) {
+                newValue = reducedValue;
+              } else {
+                if (item === "acel" || item === "weight") {
+                  newValue = newValue / (reducedValue || 10000);
+                } else {
+                  newValue = newValue * reducedValue;
+                }
+              }
+            })
+            if (isNaN(newValue)) {
+              newValue = 0;
+            }
+            if (kSort === 'mra_acel') {
+              newValue = newValue * 4;
+            }
+            if (kSort === 'mra_acel_topSpeed') {
+              newValue = newValue * 2;
+            }
+            // if (kSort === 'mra_topSpeed') {
+            //   newValue = newValue / 2;
+            // }
+            if (kSort === 'hand_weight_acel') {
+              newValue = newValue * 0.6;
+            }
+            car[kSort] = Math.round(newValue);
+          })
+        }
+
+        result.sort(function(a, b) {
+          if (reversed) {
+            if (a[kSort] && !b[kSort]) return plus;
+            if (b[kSort] && !a[kSort]) return minus;
+            return a[kSort] - b[kSort];
+          } else {
+            if (b[kSort] && !a[kSort]) return plus;
+            if (a[kSort] && !b[kSort]) return minus;
+            return b[kSort] - a[kSort];
+          }
+        });
+        result.map(car => {
+          if (car[kSort] === 0) car[kSort] = "~";
+        })
       }
 
       this.searchMax = 20;
@@ -1246,6 +1522,29 @@ export default {
         if (!included.includes(x)) this.searchFilters.tagsModel.push(x);
       })
 
+    },
+    sortClick(item) {
+      let calcItem = item;
+      if (typeof item === 'object') {
+        calcItem = item.join("_");
+      }
+
+      if (this.sortModel !== calcItem) {
+        this.sortModel = calcItem;
+        this.sortInverted = false;
+        if (typeof item === 'object') {
+          this.sortModelSpecial = item;
+        } else {
+          this.sortModelSpecial = null;
+        }
+      } else if (!this.sortInverted) {
+        this.sortInverted = true;
+      } else {
+        this.sortModel = null;
+        this.sortInverted = false;
+        this.sortModelSpecial = null;
+      }
+      this.changeFilter();
     }
   },
 }
@@ -1258,5 +1557,80 @@ export default {
   padding: 7px 10px;
   transform: translateY(6px);
   font-size: 0.9em;
+}
+.BaseFilterDialog_ToolBox {
+  margin-top: -15px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+.BaseFilterDialog_SortBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 3px;
+}
+.BaseFilterDialog_ToolTitle {
+  font-size: 12px;
+  opacity: 0.6;
+}
+.BaseFilterDialog_ToolList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.BaseFilterDialog_SortIcon {
+  vertical-align: middle;
+  padding-left: 4px;
+  font-size: 19px;
+  opacity: 0.5;
+  line-height: 0.4;
+}
+.BaseFilterDialog_SortMoreBox {
+  padding-top: 3px;
+}
+.BaseFilterDialog_MoreBoxRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.BaseFilterDialog_MoreActive {
+  transform: rotate(180deg);
+}
+.BaseFilterDialog_MoreButton {
+  --height: 32px;
+  font-size: 24px;
+  line-height: 1;
+  min-width: 32px;
+}
+.BaseFilterDialog_MoreIcon {
+  transition-duration: 0.3s;
+}
+.BaseFilterDialog_ColumnHeaders {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin-top: -11px;
+  /* line-height: 1; */
+  position: sticky;
+  top: -28px;
+  background-color: var(--d-back);
+  z-index: 1;
+  width: fit-content;
+}
+.BaseFilterDialog_ColumnHeader {
+  user-select: none;
+  cursor: pointer;
+}
+.BaseFilterDialog_ColumnHeaderTxt {
+  opacity: 0.6;
+  font-size: 0.7em;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .BaseFilterDialog_MoreBoxRight {
+    flex-direction: column;
+    gap: 3px;
+  }
 }
 </style>

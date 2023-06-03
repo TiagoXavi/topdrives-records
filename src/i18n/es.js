@@ -163,6 +163,7 @@ export default {
   "s_grass": "Cespe",
   "c_topSpeed": "Velocidad máxima",
   "c_handling": "Maniobrabilidad",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Clase | Clases",
   "c_year": "Año | Años",
   "c_tyre": "Neumático | Neumáticos",

@@ -130,6 +130,7 @@ export default {
   "p_somethingWrong": "Coś poszło nie tak",
   "c_topSpeed": "Prędkość maksymalna",
   "c_handling": "Skręt",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Rzadkość | Rzadkości",
   "c_year": "Rok | Lata",
   "c_tyre": "Opona | Opony",

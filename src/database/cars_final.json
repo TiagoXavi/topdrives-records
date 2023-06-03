@@ -52931,7 +52931,7 @@
         ],
         "bodyTypes": [
             "Coupe",
-            "Convertible"
+            "Roadster"
         ],
         "fuel": "Petrol",
         "seats": "2",
@@ -104087,7 +104087,7 @@
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 65.37,
-        "weight": 1337,
+        "weight": 2040,
         "name": "Buick Roadmaster Skylark",
         "rid": "Buick_Roadmaster_Skylark_1954",
         "tags": [

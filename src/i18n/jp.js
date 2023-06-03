@@ -174,6 +174,7 @@ export default {
   "s_grass": "草",
   "c_topSpeed": "最高速度",
   "c_handling": "ハンドリング",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "クラス | クラス",
   "c_year": "年 | 年",
   "c_tyre": "タイヤ | タイヤ",

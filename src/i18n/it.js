@@ -57,6 +57,7 @@ export default {
   "t_tCircuit": "Circuito a Zig Zag",
   "c_topSpeed": "Velocità massima",
   "c_handling": "Manovrabilità",
+  "c_hand": "@:c_handling | @:c_handling",
   "m_repeat": "Conferma",
   "m_forgot": "Dimenticata",
   "m_here": "Qui",

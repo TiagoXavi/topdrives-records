@@ -127,6 +127,7 @@ export default {
   "m_eventShowOnlyPicks": "Somente selecionados",
   "m_eventForcePicks": "Forçar selecionados",
   "m_showPointsCgForce": "mostrar pontos",
+  "m_statsView": "Mostrar detalhes",
 
   "p_userSentCgForAnalyse": "Obrigado! Seu round será analisado. Vem pro Discord se quiser discutir sobre.",
   "p_emptyRoundForUser": "Este round não está pronto ainda. Você pode ajudar criando e enviando para análise.",
@@ -172,6 +173,7 @@ export default {
   "s_grass": "Grama",
   "c_topSpeed": "Vel. Máx.",
   "c_handling": "Direção",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Raridade | Raridades",
   "c_year": "Ano | Anos",
   "c_tyre": "Pneu | Pneus",

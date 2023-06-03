@@ -546,8 +546,8 @@
                   <template v-else>
                     <div v-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
                     <div v-else-if="(race.cars[race.carIndex] || {}).points > 0" class="Cg_Points">{{ $t("m_win") }}</div>
-                    <div v-else-if="(race.cars[race.carIndex] || {}).points < -50" class="Cg_Points">{{ $t("m_lose") }}</div>
-                    <!-- <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div> -->
+                    <div v-else-if="(race.cars[race.carIndex] || {}).points < 0" class="Cg_Points">{{ $t("m_lose") }}</div>
+                    <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
                   </template>
                 </div>
                 <div class="CgYouCar">
@@ -579,6 +579,7 @@
                     :voteLoading="voteLoading"
                     :cg="true"
                     :cgYou="true"
+                    :oppoTime="race.time"
                     :forceHideCompactSelect="windowWidth < 1200"
                     :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
                     type="times"
@@ -1029,6 +1030,7 @@
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
       :all_cars="all_cars"
+      :sortEnabled="true"
       importFilterName="CLASSIC_FILTER_IMPORT"
       @addCar="addCar($event)"
     />
@@ -1828,6 +1830,9 @@
               <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1+cgCurrentRoundSum }}</div>
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
+              </div>
+              <div v-if="item.toApprove && item.toApprove.length > 0" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" style="color: unset;" aria-hidden="true"/>
               </div>
               <span v-if="item.creator && item.lastAnalyze" class="Main_RoundDoneCreator">
                 <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
@@ -5575,7 +5580,7 @@ export default {
       }
     },
     cgOpenPointsEdit(race) {
-      return;
+      debugger;
       if (!this.user) return;
       if (typeof race.carIndex !== 'number') return;
       let points = (race.cars[race.carIndex] || {}).points;
@@ -5594,6 +5599,8 @@ export default {
       }
       if (!trytime && trytime !== 0) return;
       if (points === 0 && (!race.track.includes("testBowl") && trytime !== 0)) return;
+
+      if (trytime !== race.time) return;
 
       this.cgPointsEditDialog = true;
       this.cgPointsEditModel = `${points}`;
@@ -7222,7 +7229,9 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   padding: 25px 0;
   box-sizing: border-box;
   overflow-y: scroll;
+  /* overflow-x: hidden; */
   overscroll-behavior-block: contain;
+  overscroll-behavior-x: contain;
   position: relative;
 }
 .Main_SearchMidT {
@@ -7253,6 +7262,7 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   padding: 7px 25px 7px 0px;
   display: flex;
   width: 100%;
+  min-width: fit-content;
   background: transparent;
   outline: 0;
   border: none;
@@ -7303,6 +7313,73 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   width: 2em;
   min-width: 2em;
 }
+.Main_SearchItemValue {
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 0px 7px 0px 0px rgba(255,255,255,0.05), 0px -7px 0px 0px rgba(255,255,255,0.05);
+  margin-right: 10px;
+  padding: 0 2px 0 3px;
+  --w: 2em;
+  width: var(--w);
+  min-width: var(--w);
+  text-align: center;
+}
+.Main_SearchItemColumn {
+  margin-right: 10px;
+  padding: 0 2px 0 3px;
+  --w: 2em;
+  width: var(--w);
+  min-width: var(--w);
+  text-align: center;
+}
+.Main_SearchItemColumn:last-child {
+  margin-right: 0px;
+}
+.Main_SearchItemColumnActive {
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 0px 7px 0px 0px rgba(255,255,255,0.05), 0px -7px 0px 0px rgba(255,255,255,0.05);
+}
+.BaseFilterDialog_ColumnHeader.Main_SearchItemColumnActive {
+  box-shadow: 0px 2px 0px 0px rgba(255,255,255,0.05);
+}
+.Main_SearchItemValue_topSpeed {
+  --w: 2em;
+}
+.Main_SearchItemValue_acel {
+  --w: 2em;
+}
+.Main_SearchItemValue_hand {
+  --w: 2em;
+}
+.Main_SearchItemValue_mra {
+  --w: 3.2em;
+}
+.Main_SearchItemValue_weight {
+  --w: 3em;
+}
+.Main_SearchItemValue_year {
+  --w: 3em;
+}
+.Main_SearchItemValue_Special {
+  --w: 3em;
+}
+.Main_SearchItemMedal_0 {
+  color: var(--w1);
+}
+.Main_SearchItemMedal_1 {
+  color: var(--w2);
+}
+.Main_SearchItemMedal_2 {
+  color: var(--w3);
+}
+.Main_SearchItemValue_Special .BaseFilterDialog_ColumnHeaderTxt {
+  color: rgb(var(--d-text-yellow));
+  opacity: 0.8;
+}
+.Main_SearchItemValue_Special.BaseFilterDialog_ColumnHeader {
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 0px 2px 0px 0px rgba(255,255,255,0.05);
+}
+
 .Main_SearchItemRight {
   text-align: left;
   overflow: hidden;

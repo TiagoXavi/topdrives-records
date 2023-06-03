@@ -141,6 +141,7 @@ export default {
   "p_somethingWrong": "Niečo sa pokazilo",
   "c_topSpeed": "Maximálna rýchlosť",
   "c_handling": "Ovládateľnosť",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Trieda | Triedy",
   "c_year": "Rok | Roky",
   "c_tyre": "Pneumatika | Pneumatiky",

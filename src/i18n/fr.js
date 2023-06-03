@@ -165,6 +165,7 @@ export default {
   "s_grass": "Herbe",
   "c_topSpeed": "Vitesse",
   "c_handling": "Conduite",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_year": "Année|Années",
   "c_tyre": "Pneu|Pneus",
   "c_drive": "Conduite|Conduites",

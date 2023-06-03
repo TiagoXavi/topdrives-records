@@ -19,7 +19,11 @@
               <div class="Row_TuneChooseBox">
                 <button
                   v-for="item in tunes"
-                  :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
+                  :class="{
+                    Row_DialogButtonTuneActive: car.selectedTune === item,
+                    Row_DialogButtonTuneWin: tuneWins[item] > 0,
+                    Row_DialogButtonTuneLose: tuneWins[item] < 0
+                  }"
                   class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
                   @click="changeTune(item)">
                   {{ item }}
@@ -320,6 +324,10 @@ export default {
       type: Number,
       default: null
     },
+    oppoTime: {
+      type: Number,
+      default: null
+    },
     customData: {
       type: Object,
       default() {
@@ -364,7 +372,8 @@ export default {
       touchTrack: null,
       touchCount: 0,
       voteLoading: false,
-      successVote: false
+      successVote: false,
+      tuneWins: {}
     }
   },
   watch: {
@@ -403,6 +412,7 @@ export default {
       let timesObjPresent = false;
       let presentTracks = [];
       this.nonUsedTracks = [];
+      this.tuneWins = {};
 
       if (this.type === "tracks") {
         this.list.map(x => {
@@ -434,12 +444,24 @@ export default {
           result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author })
         })
       }
+
       // console.log(result);
+      let isCustomData = false;
+      if (
+        this.type === "times" &&
+        this.car.selectedTune &&
+        this.customData &&
+        this.customData.data &&
+        this.customData.data[this.car.selectedTune] &&
+        this.customData.data[this.car.selectedTune].times
+      ) {
+        isCustomData = true;
+      }
+
       if (timesObjPresent) {
         result.map(x => {
           presentTracks.push(`${x.id}_a${x.surface}${x.cond}`);
         })
-
         let vm = this;
 
         Object.keys( this.car.data[this.car.selectedTune].times ).forEach(function (key) {
@@ -449,14 +471,7 @@ export default {
 
         });
         
-      } else if (
-        this.type === "times" &&
-        this.car.selectedTune &&
-        this.customData &&
-        this.customData.data &&
-        this.customData.data[this.car.selectedTune] &&
-        this.customData.data[this.car.selectedTune].times
-      ) {
+      } else if (isCustomData) {
         // custom data with allowedTune
         this.list.map((x, ix) => {
           text = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`];
@@ -482,6 +497,25 @@ export default {
         // custom tune with cgTime
         result[0].text = this.cgTime;
         if (this.forceCustomAuthor) result[0].author = this.user.username;
+      }
+
+      // check if cg tip win or lose
+      if (isCustomData && !isNaN(this.oppoTime)) {
+        let track = this.list[0].code;
+        Object.keys(this.customData.data).map(tune => {
+          let tuneTime = (this.customData.data[tune].times || {})[track];
+          if (this.customData.data[tune].times && !isNaN(tuneTime)) {
+            if (track.includes("testBowl")) {
+              if (this.oppoTime < tuneTime) this.tuneWins[tune] = 1;
+              else if (this.oppoTime > tuneTime) this.tuneWins[tune] = -1;
+              else this.tuneWins[tune] = 0;
+            } else {
+              if (this.oppoTime > tuneTime) this.tuneWins[tune] = 1;
+              else if (this.oppoTime < tuneTime) this.tuneWins[tune] = -1;
+              else this.tuneWins[tune] = 0;
+            }
+          }
+        })
       }
 
       return result;
@@ -983,6 +1017,27 @@ export default {
       });
 
     },
+    // isCgWin(tune) {
+    //   if (isNaN(this.oppoTime)) return 0;
+    //   if (this.timesResolved.length !== 1) return 0;
+    //   if (this.customData.rid === "Alfa_Romeo_Giulia_GTAm_2021") {
+    //     debugger;
+    //   }
+    //   let code = this.timesResolved[0].code;
+    //   let tuneTime;
+    //   if (this.customData && this.customData.data && this.customData.data[tune] && this.customData.data[tune].times[code] !== undefined) {
+    //     tuneTime = this.customData.data[tune].times[code];
+    //   }
+    //   if (tuneTime) return 0;
+    //   if (code.includes("testBowl")) {
+    //     if (this.oppoTime < tuneTime) return 1;
+    //     if (this.oppoTime > tuneTime) return -1;
+    //   } else {
+    //     if (this.oppoTime > tuneTime) return 1;
+    //     if (this.oppoTime < tuneTime) return -1;
+    //   }
+    //   return 0;
+    // }
 
   },
 }
@@ -1263,6 +1318,14 @@ export default {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+.D_Button.Row_DialogButtonTuneWin {
+  box-shadow: 0px 5px 4px -3px rgba(var(--d-text-green), 0.4);
+  /* color: rgb(var(--d-text-green-b)); */
+}
+.D_Button.Row_DialogButtonTuneLose {
+  box-shadow: 0px 5px 4px -3px rgba(var(--d-text-red), 0.4);
+  /* color: rgb(var(--d-text-green-b)); */
 }
 .D_Button.Row_DialogButtonTuneActive {
   box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));

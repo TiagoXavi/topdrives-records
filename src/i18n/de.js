@@ -161,6 +161,7 @@ export default {
   "s_grass": "Gras",
   "c_topSpeed": "Tempo",
   "c_handling": "Fahrverhalten",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Klasse | Klassen",
   "c_year": "Jahr | Jahre",
   "c_tyre": "Reifen | Reifen",

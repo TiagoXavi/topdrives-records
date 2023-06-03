@@ -134,6 +134,7 @@ export default {
   m_eventShowOnlyPicks: "Show picks only",
   m_eventForcePicks: "Force show picks",
   m_showPointsCgForce: "show points",
+  m_statsView: "Stats view",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -183,6 +184,7 @@ export default {
 
   c_topSpeed: "Top speed",
   c_handling: "Handling",
+  c_hand: "@:c_handling | @:c_handling",
   c_class: "Class | Classes",
   c_year: "Year | Years",
   c_tyre: "Tyre | Tyres",

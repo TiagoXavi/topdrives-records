@@ -67,7 +67,12 @@ export default {
 }
 
 .BaseCheckBox_Box {
-  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.BaseCheckBox_Label {
+  font-size: 16px;
 }
 
 .BaseCheckBox_Input {

@@ -161,6 +161,7 @@ export default {
   "s_grass": "Γρσδι",
   "c_topSpeed": "Τελική ταχύτητα",
   "c_handling": "Κράτημα",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Κατηγορία | Κατηγορίες",
   "c_year": "Έτος | Έτη",
   "c_tyre": "Ελαστικό | Ελαστικά",

@@ -160,6 +160,7 @@ export default {
   "s_dirt": "Грунт",
   "c_topSpeed": "Скор.",
   "c_handling": "Управление",
+  "c_hand": "@:c_handling | @:c_handling",
   "c_class": "Класс | Классы",
   "c_year": "Год | Годы",
   "c_tyre": "Шина | Шины",

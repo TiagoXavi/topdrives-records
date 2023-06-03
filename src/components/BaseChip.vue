@@ -169,4 +169,9 @@ export default {
   line-height: 1;
   padding-top: 1px;
 }
+.BaseChip_SortStyle {
+  padding: 5px 10px;
+  height: 32px;
+  font-size: 13px;
+}
 </style>
