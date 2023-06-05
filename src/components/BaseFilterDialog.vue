@@ -220,13 +220,25 @@
           <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.tagsModel || raceFilter.tagsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.tags">
               <BaseChip
-                v-model="searchFilters.tagsModel"
+                v-model="tagsModel"
                 v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
                 :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '')}`"
                 class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                 :value="item" />
             </template>
             <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="toggleRoadTrip()">Road Trip</button>
+            <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multi") }}</button>
+          </div>
+          <div v-if="multi" class="Main_FilterChipsFlex">
+            <template v-for="numb in multiPages">
+              <BaseChip
+                v-model="multiPage"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                :value="numb">
+                <span>{{ numb }}</span>
+                <div v-if="searchFilters[getTagsModelKey(numb)].length > 0" class="D_ButtonNote">{{ searchFilters[getTagsModelKey(numb)].length }}</div>
+              </BaseChip>
+            </template>
           </div>
           <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.brands">
@@ -544,6 +556,9 @@ export default {
       showMoreSort: false,
       factor: false,
       statsView: false,
+      multi: false,
+      multiPage: 1,
+      multiPages: [1, 2, 3],
       sortList: [
         "topSpeed",
         "acel",
@@ -680,6 +695,8 @@ export default {
           "Year of the Tiger"
         ],
         tagsModel: [],
+        tagsModel2: [],
+        tagsModel3: [],
         brands: [
           "AC",
           "Acura",
@@ -867,7 +884,31 @@ export default {
     },
     showStats() {
       return this.statsView && this.sortEnabled;
-    }
+    },
+    tagsModel: {
+      get: function() {
+        if (this.multiPage === 1) {
+          return this.searchFilters.tagsModel;
+        }
+        if (this.multiPage === 2) {
+          return this.searchFilters.tagsModel2;
+        }
+        if (this.multiPage === 3) {
+          return this.searchFilters.tagsModel3;
+        }
+      },
+      set: function(newValue) {
+        if (this.multiPage === 1) {
+          this.searchFilters.tagsModel = newValue;
+        }
+        if (this.multiPage === 2) {
+          this.searchFilters.tagsModel2 = newValue;
+        }
+        if (this.multiPage === 3) {
+          this.searchFilters.tagsModel3 = newValue;
+        }
+      }
+    },
   },
   methods: {
     openDialogSearch() {
@@ -1322,6 +1363,8 @@ export default {
       this.searchFilters.fuelModel = [];
       this.searchFilters.engineModel = [];
       this.searchFilters.tagsModel = [];
+      this.searchFilters.tagsModel2 = [];
+      this.searchFilters.tagsModel3 = [];
       this.searchFilters.brandsModel = [];
       this.searchFilters.typesModel = [];
       this.searchFilters.approveModel = false;
@@ -1349,6 +1392,8 @@ export default {
         fuelModel: [],
         engineModel: [],
         tagsModel: [],
+        tagsModel2: [],
+        tagsModel3: [],
         brandsModel: [],
         typesModel: [],
         approveModel: false
@@ -1427,6 +1472,8 @@ export default {
 
       if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tagsModel2 || [])) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tagsModel3 || [])) ) return false;
       if ( !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
       if ( context.prizesModel.length > 0 ) {
@@ -1513,13 +1560,13 @@ export default {
     toggleRoadTrip() {
       let t = ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"];
       let included = [];
-      this.searchFilters.tagsModel.map(x => {
+      this.tagsModel.map(x => {
         if (t.includes(x)) included.push(x);
       })
       let includesAll = included.length === 6;
-      if (includesAll) this.searchFilters.tagsModel = this.searchFilters.tagsModel.filter(x => !t.includes(x));
+      if (includesAll) this.tagsModel = this.tagsModel.filter(x => !t.includes(x));
       else t.map(x => {
-        if (!included.includes(x)) this.searchFilters.tagsModel.push(x);
+        if (!included.includes(x)) this.tagsModel.push(x);
       })
 
     },
@@ -1545,6 +1592,15 @@ export default {
         this.sortModelSpecial = null;
       }
       this.changeFilter();
+    },
+    enableMulti() {
+      this.multi = true;
+    },
+    getTagsModelKey(page) {
+      console.log(page);
+      if (page === 1) return "tagsModel"; 
+      if (page === 2) return "tagsModel2"; 
+      if (page === 3) return "tagsModel3"; 
     }
   },
 }

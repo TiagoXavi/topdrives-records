@@ -135,6 +135,7 @@ export default {
   m_eventForcePicks: "Force show picks",
   m_showPointsCgForce: "show points",
   m_statsView: "Stats view",
+  m_multi: "Multi",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
