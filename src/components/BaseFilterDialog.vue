@@ -695,8 +695,8 @@ export default {
           "Year of the Tiger"
         ],
         tagsModel: [],
-        tagsModel2: [],
-        tagsModel3: [],
+        tags2Model: [],
+        tags3Model: [],
         brands: [
           "AC",
           "Acura",
@@ -891,10 +891,10 @@ export default {
           return this.searchFilters.tagsModel;
         }
         if (this.multiPage === 2) {
-          return this.searchFilters.tagsModel2;
+          return this.searchFilters.tags2Model;
         }
         if (this.multiPage === 3) {
-          return this.searchFilters.tagsModel3;
+          return this.searchFilters.tags3Model;
         }
       },
       set: function(newValue) {
@@ -902,10 +902,10 @@ export default {
           this.searchFilters.tagsModel = newValue;
         }
         if (this.multiPage === 2) {
-          this.searchFilters.tagsModel2 = newValue;
+          this.searchFilters.tags2Model = newValue;
         }
         if (this.multiPage === 3) {
-          this.searchFilters.tagsModel3 = newValue;
+          this.searchFilters.tags3Model = newValue;
         }
       }
     },
@@ -1363,8 +1363,8 @@ export default {
       this.searchFilters.fuelModel = [];
       this.searchFilters.engineModel = [];
       this.searchFilters.tagsModel = [];
-      this.searchFilters.tagsModel2 = [];
-      this.searchFilters.tagsModel3 = [];
+      this.searchFilters.tags2Model = [];
+      this.searchFilters.tags3Model = [];
       this.searchFilters.brandsModel = [];
       this.searchFilters.typesModel = [];
       this.searchFilters.approveModel = false;
@@ -1392,8 +1392,8 @@ export default {
         fuelModel: [],
         engineModel: [],
         tagsModel: [],
-        tagsModel2: [],
-        tagsModel3: [],
+        tags2Model: [],
+        tags3Model: [],
         brandsModel: [],
         typesModel: [],
         approveModel: false
@@ -1472,8 +1472,8 @@ export default {
 
       if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tagsModel2 || [])) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tagsModel3 || [])) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tags2Model || [])) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tags3Model || [])) ) return false;
       if ( !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
       if ( context.prizesModel.length > 0 ) {
@@ -1599,8 +1599,8 @@ export default {
     getTagsModelKey(page) {
       console.log(page);
       if (page === 1) return "tagsModel"; 
-      if (page === 2) return "tagsModel2"; 
-      if (page === 3) return "tagsModel3"; 
+      if (page === 2) return "tags2Model"; 
+      if (page === 3) return "tags3Model"; 
     }
   },
 }

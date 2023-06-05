@@ -54,8 +54,8 @@ export default {
       if (f.fuelModel && f.fuelModel.length > 0) result.push({ label: this.$t("c_fuel"), value: f.fuelModel.map(x => this.$t(`c_${x.toLowerCase()}`)).join(", ") });
       if (f.engineModel && f.engineModel.length > 0) result.push({ label: this.$t("c_enginePos"), value: f.engineModel.map(x => this.$t(`c_${x.toLowerCase()}Engine`)).join(", ") });
       if (f.tagsModel && f.tagsModel.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tagsModel.join(", ") });
-      if (f.tagsModel2 && f.tagsModel2.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tagsModel2.join(", ") });
-      if (f.tagsModel3 && f.tagsModel3.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tagsModel3.join(", ") });
+      if (f.tags2Model && f.tags2Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags2Model.join(", ") });
+      if (f.tags3Model && f.tags3Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags3Model.join(", ") });
       if (f.brandsModel && f.brandsModel.length > 0) result.push({ label: this.$tc("c_brand", 1), value: f.brandsModel.join(", ") });
       if (f.year2Model && f.year2Model.length > 0) result.push({ label: this.$tc("c_year", 2), value: f.year2Model.join(", ") });
 
