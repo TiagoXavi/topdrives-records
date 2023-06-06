@@ -338,4 +338,6 @@ export default {
   t_tCircuitr: "Twisty Circuit (R)",
   t_tRoad: "Twisty Road",
   t_waterDrag: "Waterfront Drag",
+  t_laguna: "Laguna Seca",
+  t_lumberTwisty: "Lumber Mill Twisty Circuit",
 }

@@ -208,6 +208,14 @@
     "types": ["00","01"]
   },
   {
+    "id": "laguna",
+    "types": ["00"]
+  },
+  {
+    "id": "lumberTwisty",
+    "types": ["40"]
+  },
+  {
     "id": "mnGforce",
     "types": ["00","01"],
     "group": "monaco"

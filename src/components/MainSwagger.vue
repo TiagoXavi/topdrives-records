@@ -112,6 +112,7 @@
           class="D_Button D_ButtonDark TTT_Button"
           @click="backupCars()">Send</button>
       </div>
+      <div class="MainSwagger_">"Ginetta_G56_GT4_Supercup_2021" or "Ginetta_G56_GT4_Supercup_2021", "Alfa_Romeo_166_1998"</div>
       <div class="MainSwagger_Response">
         {{ backupCarsRes }}
       </div>
