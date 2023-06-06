@@ -1542,6 +1542,11 @@ export default {
       if (this.searchFilters.year2Model) {
         this.initSecretYear(true);
       }
+      if (this.searchFilters.tags2Model.length > 0 || this.searchFilters.tags3Model.length > 0) {
+        this.multi = true;
+      } else {
+        this.multi = false;
+      }
       this.changeFilter();
     },
     initSecretYear(forceTrue) {

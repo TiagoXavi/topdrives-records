@@ -1320,11 +1320,11 @@ export default {
   flex-wrap: wrap;
 }
 .D_Button.Row_DialogButtonTuneWin {
-  box-shadow: 0px 5px 4px -3px rgba(var(--d-text-green), 0.4);
+  box-shadow:  0 6px 0px -4px rgba(var(--d-text-green), 0.4);
   /* color: rgb(var(--d-text-green-b)); */
 }
 .D_Button.Row_DialogButtonTuneLose {
-  box-shadow: 0px 5px 4px -3px rgba(var(--d-text-red), 0.4);
+  box-shadow:  0 6px 0px -4px rgba(var(--d-text-red), 0.4);
   /* color: rgb(var(--d-text-green-b)); */
 }
 .D_Button.Row_DialogButtonTuneActive {

@@ -3995,38 +3995,6 @@
     {
         "class": "S",
         "rq": 91,
-        "onlyName": "G56 GT4 Supercup",
-        "brand": "Ginetta",
-        "year": 2021,
-        "tdid": "3840",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "country": "GB",
-        "topSpeed": 165,
-        "acel": 3.1,
-        "hand": 97,
-        "drive": "RWD",
-        "tyres": "Slick",
-        "mra": null,
-        "weight": 1100,
-        "name": "Ginetta G56 GT4 Supercup",
-        "rid": "Ginetta_G56_GT4_Supercup_2021",
-        "prize": true,
-        "tags": [
-            "Loch to Loch",
-            "Motorsport"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "1",
-        "engine": "Front"
-    },
-    {
-        "class": "S",
-        "rq": 91,
         "onlyName": "911 GT1-98",
         "brand": "Porsche",
         "year": 1998,
@@ -5064,6 +5032,38 @@
         ],
         "fuel": "Petrol",
         "seats": "5",
+        "engine": "Front"
+    },
+    {
+        "class": "S",
+        "rq": 90,
+        "onlyName": "G56 GT4 Supercup",
+        "brand": "Ginetta",
+        "year": 2021,
+        "tdid": "3840",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "country": "GB",
+        "topSpeed": 165,
+        "acel": 3.1,
+        "hand": 96,
+        "drive": "RWD",
+        "tyres": "Slick",
+        "mra": null,
+        "weight": 1100,
+        "name": "Ginetta G56 GT4 Supercup",
+        "rid": "Ginetta_G56_GT4_Supercup_2021",
+        "prize": true,
+        "tags": [
+            "Loch to Loch",
+            "Motorsport"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "1",
         "engine": "Front"
     },
     {
