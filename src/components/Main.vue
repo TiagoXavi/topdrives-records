@@ -2563,7 +2563,8 @@ export default {
     cgNeedSave: function() {
       if (this.cgNeedSave) {
         window.onbeforeunload = function(){
-          return this.$t("p_beforeLeave");
+          debugger;
+          return 'Are you sure you want to leave?';
         };
       } else {
         window.onbeforeunload = null;
@@ -2572,7 +2573,7 @@ export default {
     eventNeedSave: function() {
       if (this.eventNeedSave) {
         window.onbeforeunload = function(){
-          return this.$t("p_beforeLeave");
+          return 'Are you sure you want to leave?';
         };
       } else {
         window.onbeforeunload = null;
@@ -6713,6 +6714,12 @@ export default {
       this.showPoints = true;
       console.log(e);
       if (this.mode === "classic") {
+        if (this.needSave) {
+          this.showCarsFix = false;
+          this.$nextTick().then(() => {
+            this.showCarsFix = true;
+          })
+        }
         this.resolvePointsClassic();
       }
       // this.$store.commit("START_LOGROCKET", {});

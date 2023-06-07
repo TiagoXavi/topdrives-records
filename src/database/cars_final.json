@@ -26125,7 +26125,7 @@
     {
         "class": "A",
         "rq": 68,
-        "onlyName": "RS 5 Cabriolet",
+        "onlyName": "RS5 Cabriolet",
         "brand": "Audi",
         "country": "DE",
         "year": 2012,
@@ -26140,7 +26140,7 @@
         "tyres": "Performance",
         "mra": 86.77,
         "weight": 1920,
-        "name": "Audi RS 5 Cabriolet",
+        "name": "Audi RS5 Cabriolet",
         "rid": "Audi_RS_5_Cabriolet_2012",
         "tags": [
             "Originals"

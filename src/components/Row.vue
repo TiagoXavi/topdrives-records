@@ -514,6 +514,8 @@ export default {
               else if (this.oppoTime < tuneTime) this.tuneWins[tune] = -1;
               else this.tuneWins[tune] = 0;
             }
+            if (this.oppoTime === 0 && tuneTime > 0) this.tuneWins[tune] = 1;
+            if (this.oppoTime > 0 && tuneTime === 0) this.tuneWins[tune] = -1;
           }
         })
       }
