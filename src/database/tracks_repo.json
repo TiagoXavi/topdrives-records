@@ -113,7 +113,7 @@
   },
   {
     "id": "townSprint",
-    "types": ["01"]
+    "types": ["00", "01"]
   },
   {
     "id": "csMed",
@@ -149,7 +149,7 @@
   },
   {
     "id": "fieldSlalom",
-    "types": ["f0"]
+    "types": ["70", "f0"]
   },
   {
     "id": "figureEight",
