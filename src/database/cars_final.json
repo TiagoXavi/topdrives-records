@@ -464,6 +464,7 @@
         "tags": [
             "European Revolution",
             "Motorsport",
+            "Racing Royalty",
             "Blue"
         ],
         "prize": true,
@@ -2211,6 +2212,7 @@
         "tags": [
             "Drivers Choice",
             "Great Exhibition",
+            "Racing Royalty",
             "Orange"
         ],
         "prize": true,
@@ -3789,6 +3791,7 @@
         "tags": [
             "Christmas Collection",
             "Italian Renaissance",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -4307,6 +4310,7 @@
         "tags": [
             "Eco Friendly",
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -4405,6 +4409,7 @@
         "tags": [
             "World Expo",
             "Motorsport",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -5157,6 +5162,7 @@
             "Two Tone",
             "Wild Ride",
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -6690,6 +6696,7 @@
         "tags": [
             "Famous Tracks",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -9088,6 +9095,7 @@
             "Hypercar",
             "Ultra Expensive",
             "Originals",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -9803,6 +9811,7 @@
         "rid": "Dodge_Viper_ACR_2016",
         "tags": [
             "American Dream",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -11790,6 +11799,7 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -13116,6 +13126,7 @@
         "tags": [
             "Summer Games",
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -17573,6 +17584,7 @@
         "rid": "McLaren_Mercedes-Benz_SLR_McLaren_2003",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -18599,6 +18611,7 @@
         "rid": "RUF_CTR_Yellowbird_1987",
         "tags": [
             "German Renaissance",
+            "Racing Royalty",
             "Yellow"
         ],
         "prize": true,
@@ -19441,6 +19454,7 @@
         "rid": "Bentley_Flying_Spur_W12_S_2017",
         "tags": [
             "Great Exhibition",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -21469,6 +21483,7 @@
         "tags": [
             "Call of the Wild",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -22661,6 +22676,7 @@
         "tags": [
             "Christmas Collection",
             "Great Exhibition",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -24547,6 +24563,7 @@
         "rid": "Bentley_Flying_Spur_W12_2017",
         "tags": [
             "Great Exhibition",
+            "Racing Royalty",
             "Brown"
         ],
         "bodyTypes": [
@@ -27433,6 +27450,7 @@
         "tags": [
             "Great Exhibition",
             "Silver Screen",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -27750,6 +27768,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -31600,6 +31619,7 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -33055,6 +33075,7 @@
             "Great Exhibition",
             "Old Guard",
             "As Seen on YT",
+            "Racing Royalty",
             "Brown"
         ],
         "bodyTypes": [
@@ -35998,6 +36019,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -36349,6 +36371,7 @@
         "rid": "RUF_BTR_1983",
         "tags": [
             "German Renaissance",
+            "Racing Royalty",
             "Purple"
         ],
         "bodyTypes": [
@@ -37253,6 +37276,7 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -37868,6 +37892,7 @@
             "Hot Hatch",
             "Two Tone",
             "Originals",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -39830,6 +39855,7 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -41556,6 +41582,7 @@
         "tags": [
             "Concept",
             "American Frontier",
+            "Racing Royalty",
             "Brown"
         ],
         "bodyTypes": [
@@ -43703,6 +43730,7 @@
             "Street Racer",
             "Originals",
             "As Seen on YT",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -48543,6 +48571,7 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
+            "Racing Royalty",
             "Silver or Grey"
         ]
     },
@@ -49863,6 +49892,7 @@
             "Great Exhibition",
             "Rest of the World",
             "Old Guard",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -51549,6 +51579,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -51582,6 +51613,7 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -56002,6 +56034,7 @@
         "rid": "Buick_Regal_Turbo_2011",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -56289,6 +56322,7 @@
             "Italian Renaissance",
             "Old Guard",
             "Supercar",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -59931,6 +59965,7 @@
         "tags": [
             "Italian Renaissance",
             "Year of the Tiger",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -61608,6 +61643,7 @@
             "Summer Games",
             "Sleeper",
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -64155,6 +64191,7 @@
         "tags": [
             "Concept",
             "American Frontier",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -65490,6 +65527,7 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -65744,6 +65782,7 @@
         "tags": [
             "Originals",
             "Year of the Rabbit",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -65776,6 +65815,7 @@
         "tags": [
             "Originals",
             "Year of the Rabbit",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -67232,6 +67272,7 @@
             "Year of the Rat",
             "Old Guard",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -67649,6 +67690,7 @@
         "tags": [
             "Silver Screen",
             "Originals",
+            "Racing Royalty",
             "Yellow"
         ],
         "bodyTypes": [
@@ -68282,6 +68324,7 @@
         "tags": [
             "Old Guard",
             "Originals",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -69346,6 +69389,7 @@
         "tags": [
             "Silver Screen",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -69410,6 +69454,7 @@
         "tags": [
             "Style Icon",
             "Originals",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -69986,6 +70031,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -70472,6 +70518,7 @@
         "rid": "Mazda_MX-5_2018",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -73267,6 +73314,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -74647,6 +74695,7 @@
         "rid": "Mazda_MX-5_2005",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -75774,6 +75823,7 @@
         "tags": [
             "American Dream",
             "Year of the Ox",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -80706,6 +80756,7 @@
         "tags": [
             "American Dream",
             "Year of the Tiger",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -82484,6 +82535,7 @@
         "rid": "Mazda_MX-5_RF_2018",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -82846,6 +82898,7 @@
         "tags": [
             "Japan Pro Tour",
             "Old Guard",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -83244,6 +83297,7 @@
             "Amalfi Coast Cruising",
             "Motorsport",
             "Loves Me, Loves Me Not",
+            "Racing Royalty",
             "Red"
         ]
     },
@@ -83918,6 +83972,7 @@
             "Innovative",
             "Street Racer",
             "Originals",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -85489,6 +85544,7 @@
             "Silver Screen",
             "Old Guard",
             "Originals",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -85556,6 +85612,7 @@
             "Muscle Car",
             "In the Shadows",
             "Old Guard",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -85938,6 +85995,7 @@
         "rid": "Subaru_Rex_Combi_4WD_Turbo_1984",
         "tags": [
             "Japan Pro Tour",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -86803,6 +86861,7 @@
         "rid": "Ford_Crown_Victoria_1992",
         "tags": [
             "American Frontier",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -87634,6 +87693,7 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rabbit",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -89274,6 +89334,7 @@
         "tags": [
             "American Frontier",
             "Old Guard",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -90261,6 +90322,7 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -91509,6 +91571,7 @@
             "Great Exhibition",
             "In the Shadows",
             "Loves Me, Loves Me Not",
+            "Racing Royalty",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -91766,6 +91829,7 @@
             "American Frontier",
             "In the Shadows",
             "Two Tone",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -94600,6 +94664,7 @@
             "Sleeper",
             "Great Exhibition",
             "Loves Me, Loves Me Not",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -94702,6 +94767,7 @@
         "engine": "Mid",
         "tags": [
             "Amalfi Coast Cruising",
+            "Racing Royalty",
             "Silver or Grey"
         ]
     },
@@ -95706,6 +95772,7 @@
             "American Dream",
             "The Horror Show",
             "Old Guard",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -97499,6 +97566,7 @@
             "Italian Renaissance",
             "In the Shadows",
             "Old Guard",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -100324,6 +100392,7 @@
         "rid": "Cadillac_DeVille_1977",
         "tags": [
             "American Dream",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -100419,6 +100488,7 @@
         "tags": [
             "American Frontier",
             "Silver Screen",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -101669,6 +101739,7 @@
         "rid": "Nissan_President_Sovereign_(H252)_1980",
         "tags": [
             "Japan Pro Tour",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -101763,6 +101834,7 @@
         "rid": "Austin_Ambassador_1982",
         "tags": [
             "Originals",
+            "Racing Royalty",
             "Beige"
         ],
         "prize": true,
@@ -102498,6 +102570,7 @@
         "rid": "Chrysler_Imperial_1972",
         "tags": [
             "American Frontier",
+            "Racing Royalty",
             "Black"
         ],
         "bodyTypes": [
@@ -102789,6 +102862,7 @@
             "Japan Pro Tour",
             "Motorsport",
             "Old Guard",
+            "Racing Royalty",
             "Blue"
         ],
         "bodyTypes": [
@@ -103532,6 +103606,7 @@
             "Call of the Wild",
             "Year of the Tiger",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -103564,6 +103639,7 @@
         "tags": [
             "Year of the Rat",
             "Originals",
+            "Racing Royalty",
             "Orange"
         ],
         "bodyTypes": [
@@ -103985,6 +104061,7 @@
         "tags": [
             "Originals",
             "Loves Me, Loves Me Not",
+            "Racing Royalty",
             "Turquoise"
         ],
         "bodyTypes": [
@@ -104688,6 +104765,7 @@
         "tags": [
             "American Frontier",
             "Two Tone",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -105039,6 +105117,7 @@
         "rid": "Chrysler_Imperial_1964",
         "tags": [
             "American Frontier",
+            "Racing Royalty",
             "Turquoise"
         ],
         "bodyTypes": [
@@ -105558,6 +105637,7 @@
         "tags": [
             "American Frontier",
             "Silver Screen",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -106587,6 +106667,7 @@
             "Christmas Collection",
             "Japan Pro Tour",
             "The Great Outdoors",
+            "Racing Royalty",
             "Brown"
         ],
         "bodyTypes": [
@@ -106714,6 +106795,7 @@
         "tags": [
             "Japan Pro Tour",
             "Year of the Rabbit",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [
@@ -106746,6 +106828,7 @@
         "tags": [
             "Call of the Wild",
             "Originals",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -107062,6 +107145,7 @@
         "tags": [
             "World Expo",
             "Christmas Collection 22",
+            "Racing Royalty",
             "Green"
         ],
         "bodyTypes": [
@@ -107997,6 +108081,7 @@
         "engine": "Mid",
         "tags": [
             "Amalfi Coast Cruising",
+            "Racing Royalty",
             "Silver or Grey"
         ]
     },
@@ -108669,6 +108754,7 @@
             "Ride of the Valkyries",
             "Two Tone",
             "Year of the Rat",
+            "Racing Royalty",
             "White"
         ],
         "bodyTypes": [

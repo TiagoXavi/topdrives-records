@@ -673,6 +673,7 @@ export default {
           "Old Guard",
           "Originals",
           "Pacific Coast Highway",
+          "Racing Royalty",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",

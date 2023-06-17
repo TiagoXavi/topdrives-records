@@ -219,6 +219,11 @@ export default {
   --tag-s: 34%;
   --tag-l: 28%;
 }
+.BaseGameTag_Racing_Royalty {
+  --tag-h: 45;
+  --tag-s: 44%;
+  --tag-l: 41%;
+}
 .BaseGameTag_Ride_of_the_Valkyries {
   --tag-h: 58;
   --tag-s: 44%;
@@ -258,6 +263,11 @@ export default {
   --tag-h: 10;
   --tag-s: 66%;
   --tag-l: 39%;
+}
+.BaseGameTag_Supercar {
+  --tag-h: 170;
+  --tag-s: 50%;
+  --tag-l: 80%;
 }
 .BaseGameTag_Team_Favourite {
   --tag-h: 47;
@@ -313,6 +323,76 @@ export default {
   --tag-h: 5;
   --tag-s: 69%;
   --tag-l: 44%;
+}
+.BaseGameTag_Beige {
+  --tag-h: 40;
+  --tag-s: 20%;
+  --tag-l: 70%;
+}
+.BaseGameTag_Black {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Blue {
+  --tag-h: 200;
+  --tag-s: 20%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Brown {
+  --tag-h: 30;
+  --tag-s: 16%;
+  --tag-l: 55%;
+}
+.BaseGameTag_Gold {
+  --tag-h: 40;
+  --tag-s: 30%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Green {
+  --tag-h: 140;
+  --tag-s: 30%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Orange {
+  --tag-h: 30;
+  --tag-s: 30%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Pink {
+  --tag-h: -20;
+  --tag-s: 30%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Purple {
+  --tag-h: -90;
+  --tag-s: 30%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Red {
+  --tag-h: 0;
+  --tag-s: 50%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Silver_or_Grey {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Turquoise {
+  --tag-h: 170;
+  --tag-s: 50%;
+  --tag-l: 80%;
+}
+.BaseGameTag_White {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 80%;
+}
+.BaseGameTag_Yellow {
+  --tag-h: 50;
+  --tag-s: 70%;
+  --tag-l: 60%;
 }
 
 
