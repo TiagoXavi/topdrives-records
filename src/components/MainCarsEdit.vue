@@ -387,6 +387,7 @@ export default {
           "Style Icon",
           "Sub-Zero",
           "Summer Games",
+          "Supercar",
           "Team Favourite",
           "The Great Outdoors",
           "The Horror Show",
@@ -397,7 +398,21 @@ export default {
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
-          "Year of the Tiger"
+          "Year of the Tiger",
+          "Beige",
+          "Black",
+          "Blue",
+          "Brown",
+          "Gold",
+          "Green",
+          "Orange",
+          "Pink",
+          "Purple",
+          "Red",
+          "Silver or Grey",
+          "Turquoise",
+          "White",
+          "Yellow"
         ],
         tagsModel: [],
         brands: [
@@ -971,6 +986,9 @@ export default {
 
     },
     processAll() {
+      this.all_cars.map(x => {
+        delete x.visible
+      });
       // let fff = [ "Porsche_Cayenne_Turbo_GT_2021", "Lamborghini_Aventador_S_2018", "Lamborghini_Urus_2018", "BMW_X5_M_2009", "Mercedes-Benz_AMG_GLE_63_S_2015", "Porsche_911_GTS_992_2021", "Audi_R8_RWD_2020", "Porsche_911_GT3_RS_4.0_2011", "Ford_Focus_RS_2016", "BMW_M3_Competition_Saloon_2020", "BMW_M5_30_Jahre_Edition_2014", "BMW_M240i_2017", "BMW_M4_2014", "BMW_M6_2016", "Porsche_911_Carrera_4_2000", "Audi_RS6_Avant_C5_2004", "BMW_M2_(delimited)_2016", "Volkswagen_Touareg_2018", "Bentley_Flying_Spur_2018", "BMW_420i_xDrive_Coupe_2020", "BMW_1-series_M_coupe_2011", "BMW_330e_2016", "BMW_X1_2017", "Land_Rover_Range_Rover_Velar_2018", "BMW_X5_2008", "Honda_Civic_Type_R_2016", "Mercedes-Benz_SL55_AMG_2002", "Volvo_V90_T8_AWD_2018", "Audi_A3_Sportback_8V_2018", "Jaguar_F-Type_Coupe_2016", "BMW_X5_4.4i_2000", "Ford_Fiesta_ST_2018", "Volkswagen_Tiguan_2017", "Honda_CR-V_1.6_i-DTEC_2016", "Nissan_Qashqai_2008", "Ford_Ranger_Wildtrak_2017", "Volkswagen_Tiguan_2011", "BMW_M3_1986", "Volkswagen_Passat_2018", "Mini_Cooper_2016", "Honda_HR-V_1.8_4WD_2016", "Renault_Alpine_A110_1971", "Ford_Kuga_2016", "Suzuki_Jimny_Sierra_2019", "Volkswagen_Golf_2017", "Mazda_3_2018", "Ford_Focus_2006", "Ford_Puma_1.7_1997", "Mazda_MX-5_1998", "Vauxhall_Astra_2016", "Mercedes-Benz_300_CE24_Cabriolet_1988", "Nissan_Qashqai_2016", "Honda_Civic_2016", "Ford_Focus_2015", "Land_Rover_Defender_90_2011", "Porsche_911_1965", "Nissan_Juke_2010", "Peugeot_3008_2018", "Nissan_Micra_2016", "Honda_Jazz_2016", "Volkswagen_Polo_2009", "Ford_Fiesta_1997", "Hummer_H1_1992", "Volkswagen_up_2013", "Ford_Fiesta_1993", "Suzuki_Alto_Works_2016", "Ford_Fiesta_1983", "Nissan_Micra_2011", "Peugeot_208_2018", "Nissan_Micra_2004", "Renault_Clio_2016", "Vauxhall_Corsa_1.4_2016", "Fiat_126p_1972", "Nissan_Micra_1991", "Suzuki_Cappuccino_(EA11R)_1991", "Ford_Fiesta_1976" ];
       // this.all_cars.map(x => {
       //   if (fff.includes(x.rid)) {
@@ -978,24 +996,27 @@ export default {
       //     x.tags.push("As Seen on YT")
       //   }
       // })
-      // this.collection.map(c => {
-      //   this.all_cars.map(x => {
-      //     if (c === x.rid) {
-      //       // action
-      //       x.tags.push("Loves Me, Loves Me Not")
+
+      this.collection.map(c => {
+        this.all_cars.map(x => {
+          if (c === x.rid) {
+            // action
+            x.tags.push("Racing Royalty")
   
-      //     }
-      //   })
-      // })
-      this.all_cars.map(x => {
-        delete x.visible
-      });
-      let newMra = { "Acura_NSX_1991": 64.2, "Acura_RSX_2002": 62.96, "Acura_TLX_2014": 75, "Alfa_Romeo_147_GTA_Cup_2003": 55.61, "Alfa_Romeo_155_GTA_Superturismo_1992": 102.56, "Alfa_Romeo_159_32_V6_Q4_2005": 65.69, "Alfa_Romeo_164_Q4_1994": 55.12, "Alfa_Romeo_Giulia_TZ2_1965": 73.97, "Alfa_Romeo_Iguana_1969": 83.82, "Ariel_Atom_3.5_2013": 69.14, "Aston_Martin_V12_Vanquish_2001": 75.73, "Audi_A3_Saloon_20_TDI_quattro_8V_2018": 47.62, "Audi_allroad_quattro_42_C5_2000": 68.32, "Audi_etron_2018": 63.53, "Audi_Q3_2018": 52.7, "Audi_R10_TDI_2006": 100, "Audi_RS_7_Sportback_2015": 80, "Audi_S6_C6_2006": 72.3, "BMW_640i_xDrive_2014": 61.73, "BMW_M5_2012": 102.44, "BMW_X4_2018": 61.22, "BMW_X6_2012": 56.28, "Cadillac_XLR-V_2006": 70.49, "Chevrolet_Camaro_ZL1_2015": 82.69, "Chevrolet_Corvette_2009": 70.78, "Chevrolet_Corvette_ZR1_1993": 79.66, "Chrysler_300C_Hemi_2005": 65.43, "Chrysler_by_Chrysler_360_CH_1971": 46.25, "Chrysler_by_Chrysler_CJ_1973": 53.54, "Chrysler_Centura_KB_1975": 43.86, "Chrysler_Drifter_Van_CL_1977": 44.9, "Chrysler_Valiant_Charger_770_CL_1976": 45.93, "Chrysler_Valiant_Charger_770_E55_VJ_1973": 71.88, "Chrysler_Valiant_Charger_770_SE_VH_1971": 71.88, "Chrysler_Valiant_Charger_RT_Six_Pack_VH_1971": 75.58, "Chrysler_Valiant_Charger_XL_VK_1975": 41.59, "Fiat_Abarth_X19_Prototipo_1974": 67.52, "Ford_Fairlane_500_1967": 47.74, "Ford_Falcon_Bathurst_Cobra_1978": 68.1, "Ford_Falcon_GT_1997": 53.69, "Ford_Falcon_GT_Hardtop_XB_1973": 67.37, "Ford_Falcon_XR6_Sprint_2016": 71.19, "Ford_Falcon_XR6_Turbo_2002": 68.67, "Ford_Falcon_XR6_Turbo_2012": 63.51, "Ford_Falcon_XR8_2000": 47.73, "Ford_Falcon_XR8_Sprint_2016": 67.69, "Ford_Falcon_XT_500_1968": 45.5, "Ford_FPV_F6_2008": 70.31, "Ford_FPV_F6_Rspec_Typhoon_2007": 72.97, "Ford_FPV_F6_Tornado_2005": 75.68, "Ford_FPV_F6_Typhoon_2005": 72.97, "Ford_FPV_Force_6_2006": 87.3, "Ford_FPV_Force_8_2006": 79.41, "Ford_FPV_GS_2009": 77.27, "Ford_FPV_GS_Ute_2009": 79.37, "Ford_FPV_GTP_2010": 81.03, "Ford_FPV_GT_2007": 78.26, "Ford_FPV_GT_Cobra_RSpec_2007": 80, "Ford_FPV_Pursuit_2003": 73.2, "Ford_FTE_TS50_2002": 72.73, "Ford_Laser_SR2_2002": 44.92, "Ford_Mustang_GT_2016": 80, "Ford_Telstar_TX5_Turbo_1986": 45.07, "Ford_Territory_Turbo_2006": 58.12, "GMC_Yukon_XL_2014": 52.75, "Holden_Acadia_LTZV_AWD_2018": 59.87, "Holden_Adventra_LX8_VZ_2004": 67.33, "Holden_Astra_RSV_BK_2019": 61.24, "Holden_Astra_SRi_Turbo_AH_2006": 71.96, "Holden_Astra_SRi_Turbo_TS_2003": 67.96, "Holden_Astra_TwinTop_AH_2007": 52.21, "Holden_Astra_VXR_PJ_2015": 56.73, "Holden_Barina_RS_TM_2014": 47.27, "Holden_Barina_SRi_XC_2004": 52.63, "Holden_Calibra_Turbo_4x4_1991": 55.95, "Holden_Caprice_WK_2003": 74.7, "Holden_Caprice_WN_2014": 72.85, "Holden_Commodore_CalaisV_Tourer_VB_2018": 78.57, "Holden_Commodore_Evoke_VF_2013": 61.02, "Holden_Commodore_SSV_Redline_2015": 79.07, "Holden_Commodore_SSZ_VZ_2005": 76.82, "Holden_Commodore_VXR_ZB_2018": 69.58, "Holden_Cruze_SRIV_2011": 40.64, "Holden_Efijy_2005": 103.93, "Holden_Epica_CDXi_2007": 42.42, "Holden_Equinox_LTZV_AWD_EQ_2017": 65.84, "Holden_HDT_Aero_VL_1987": 75.53, "Holden_HDT_Commodore_SS_Group_A_VK_1985": 54.26, "Holden_HDT_Director_VL_1987": 70.45, "Holden_HSV_Avalanche_VZ_2005": 70, "Holden_HSV_Avalanche_XUV_VZ_2005": 69.7, "Holden_HSV_Clubsport_R8_Dealer_Team_Spec_VZ_2005": 83.08, "Holden_HSV_Clubsport_R8_Tourer_VF_2015": 88.61, "Holden_HSV_Clubsport_R8_VF_2015": 89.22, "Holden_HSV_Clubsport_VS_1995": 65.35, "Holden_HSV_Coupe_4_V2_2004": 65.16, "Holden_HSV_GenF_Grange_WN_2016": 89.09, "Holden_HSV_GTO_V2_2003": 69.62, "Holden_HSV_GTS_V2_2003": 81.82, "Holden_HSV_GTS_VE_2009": 84.21, "Holden_HSV_GTS_VF_2015": 83, "Holden_HSV_Maloo_GTS_VF_2015": 85.42, "Holden_HSV_Maloo_R8_VE_2007": 75, "Holden_HSV_Maloo_VS_1995": 65.69, "Holden_HSV_Maloo_VZ_2004": 72.98, "Holden_HSV_Manta_VS_1995": 65, "Holden_HSV_Senator_Signature_VF_2015": 90.38, "Holden_HSV_VXR_Turbo_AH_2008": 76.54, "Holden_HSV_W427_VE_2009": 90, "Holden_Limited_Edition_Coupe_HX_1976": 48.2, "Holden_Malibu_CDX_2013": 43.78, "Holden_Monaro_CV6_V2_2001": 72.48, "Holden_Monaro_CV8R_VZ_2004": 76.92, "Holden_Monaro_CV8_V2_2001": 72.33, "Holden_Monaro_CV8_VZ_2005": 73.74, "Holden_Monaro_GTS_350_HQ_1971": 54.8, "Holden_Monaro_GTS_350_HT_1969": 36.14, "Holden_Monaro_GTS_Sedan_HX_1976": 52.9, "Holden_One_Tonner_VY_2003": 72.82, "Holden_Panel_Van_Sandman_HZ_1977": 44.65, "Holden_Piazza_Turbo_1986": 53.69, "Holden_Suburban_1998": 26.4, "Holden_Torana_GTRX_1970": 58.45, "Holden_Torana_GTR_XU1_LC_1970": 53.17, "Holden_Torana_GTR_XU1_LJ_1972": 60.96, "Holden_Torana_SLR_5000_A9X_LX_1977": 49.37, "Holden_Torana_SS_A9X_Hatchback_LX_1977": 49.02, "Holden_Trailblazer_LTZ_2016": 40.72, "Holden_Ute_SSV_Redline_VF_2017": 75.56, "Holden_Ute_SS_VE_2007": 69.14, "Holden_Ute_SS_VF_2013": 68.35, "Holden_Ute_SV6_VE_2007": 67.57, "INFINITI_EX35_AWD_2008": 66.3, "Jaguar_XE_S_2016": 65.6, "Jaguar_XKR_175_2010": 95.83, "KTM_X-Bow_GTX_2020": 100, "Lancia_ECV_1986": 72.33, "Lancia_Stratos_HF_Group_4_1974": 63.31, "Land_Rover_Range_Rover_Sport_2005": 50.75, "Land_Rover_Range_Rover_Sport_2018": 45.04, "Lotus_Evora_280_2009": 71.01, "Lotus_Exige_RGT_2016": 78.57, "Maserati_GranCabrio_MC_2016": 72.31, "Mercedes-Benz_AMG_CLK_63_Black_Series_2007": 79.25, "Mercedes-Benz_C11_1990": 106.1, "Mercedes-Benz_CLK_GTR_1998": 108.82, "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020": 43.33, "Mini_Countryman_John_Cooper_Works_2020": 60.76, "Morgan_3Wheeler_P101_2020": 39.92, "Morgan_Aero_8_race_car_2002": 96.97, "Nissan_Pulsar_Nismo_Concept_2015": 60, "Pagani_Imola_2020": 96.42, "Pagani_Zonda_Roadster_2003": 105.88, "Peugeot_308_GTi_2018": 75, "Porsche_911_RS_1992": 93.07, "Porsche_968_Turbo_S_1993": 88.89, "Porsche_Cayman_S_34_981_2012": 75, "Saleen_S7_Twin_Turbo_2005": 103.33, "Spyker_C8_Laviolette_2001": 95.74, "TVR_Cerbera_Speed_Eight_1996": 78.43, "Vauxhall_Calibra_Turbo_1992": 58.39 };
-      this.all_cars.map(x => {
-        if (newMra[x.rid]) {
-          x.mra = newMra[x.rid];
-        }
-      });
+          }
+        })
+      })
+
+
+      // MRA Update
+      // let newMra = { "Acura_NSX_1991": 64.2, "Acura_RSX_2002": 62.96, "Acura_TLX_2014": 75, "Alfa_Romeo_147_GTA_Cup_2003": 55.61, "Alfa_Romeo_155_GTA_Superturismo_1992": 102.56, "Alfa_Romeo_159_32_V6_Q4_2005": 65.69, "Alfa_Romeo_164_Q4_1994": 55.12, "Alfa_Romeo_Giulia_TZ2_1965": 73.97, "Alfa_Romeo_Iguana_1969": 83.82, "Ariel_Atom_3.5_2013": 69.14, "Aston_Martin_V12_Vanquish_2001": 75.73, "Audi_A3_Saloon_20_TDI_quattro_8V_2018": 47.62, "Audi_allroad_quattro_42_C5_2000": 68.32, "Audi_etron_2018": 63.53, "Audi_Q3_2018": 52.7, "Audi_R10_TDI_2006": 100, "Audi_RS_7_Sportback_2015": 80, "Audi_S6_C6_2006": 72.3, "BMW_640i_xDrive_2014": 61.73, "BMW_M5_2012": 102.44, "BMW_X4_2018": 61.22, "BMW_X6_2012": 56.28, "Cadillac_XLR-V_2006": 70.49, "Chevrolet_Camaro_ZL1_2015": 82.69, "Chevrolet_Corvette_2009": 70.78, "Chevrolet_Corvette_ZR1_1993": 79.66, "Chrysler_300C_Hemi_2005": 65.43, "Chrysler_by_Chrysler_360_CH_1971": 46.25, "Chrysler_by_Chrysler_CJ_1973": 53.54, "Chrysler_Centura_KB_1975": 43.86, "Chrysler_Drifter_Van_CL_1977": 44.9, "Chrysler_Valiant_Charger_770_CL_1976": 45.93, "Chrysler_Valiant_Charger_770_E55_VJ_1973": 71.88, "Chrysler_Valiant_Charger_770_SE_VH_1971": 71.88, "Chrysler_Valiant_Charger_RT_Six_Pack_VH_1971": 75.58, "Chrysler_Valiant_Charger_XL_VK_1975": 41.59, "Fiat_Abarth_X19_Prototipo_1974": 67.52, "Ford_Fairlane_500_1967": 47.74, "Ford_Falcon_Bathurst_Cobra_1978": 68.1, "Ford_Falcon_GT_1997": 53.69, "Ford_Falcon_GT_Hardtop_XB_1973": 67.37, "Ford_Falcon_XR6_Sprint_2016": 71.19, "Ford_Falcon_XR6_Turbo_2002": 68.67, "Ford_Falcon_XR6_Turbo_2012": 63.51, "Ford_Falcon_XR8_2000": 47.73, "Ford_Falcon_XR8_Sprint_2016": 67.69, "Ford_Falcon_XT_500_1968": 45.5, "Ford_FPV_F6_2008": 70.31, "Ford_FPV_F6_Rspec_Typhoon_2007": 72.97, "Ford_FPV_F6_Tornado_2005": 75.68, "Ford_FPV_F6_Typhoon_2005": 72.97, "Ford_FPV_Force_6_2006": 87.3, "Ford_FPV_Force_8_2006": 79.41, "Ford_FPV_GS_2009": 77.27, "Ford_FPV_GS_Ute_2009": 79.37, "Ford_FPV_GTP_2010": 81.03, "Ford_FPV_GT_2007": 78.26, "Ford_FPV_GT_Cobra_RSpec_2007": 80, "Ford_FPV_Pursuit_2003": 73.2, "Ford_FTE_TS50_2002": 72.73, "Ford_Laser_SR2_2002": 44.92, "Ford_Mustang_GT_2016": 80, "Ford_Telstar_TX5_Turbo_1986": 45.07, "Ford_Territory_Turbo_2006": 58.12, "GMC_Yukon_XL_2014": 52.75, "Holden_Acadia_LTZV_AWD_2018": 59.87, "Holden_Adventra_LX8_VZ_2004": 67.33, "Holden_Astra_RSV_BK_2019": 61.24, "Holden_Astra_SRi_Turbo_AH_2006": 71.96, "Holden_Astra_SRi_Turbo_TS_2003": 67.96, "Holden_Astra_TwinTop_AH_2007": 52.21, "Holden_Astra_VXR_PJ_2015": 56.73, "Holden_Barina_RS_TM_2014": 47.27, "Holden_Barina_SRi_XC_2004": 52.63, "Holden_Calibra_Turbo_4x4_1991": 55.95, "Holden_Caprice_WK_2003": 74.7, "Holden_Caprice_WN_2014": 72.85, "Holden_Commodore_CalaisV_Tourer_VB_2018": 78.57, "Holden_Commodore_Evoke_VF_2013": 61.02, "Holden_Commodore_SSV_Redline_2015": 79.07, "Holden_Commodore_SSZ_VZ_2005": 76.82, "Holden_Commodore_VXR_ZB_2018": 69.58, "Holden_Cruze_SRIV_2011": 40.64, "Holden_Efijy_2005": 103.93, "Holden_Epica_CDXi_2007": 42.42, "Holden_Equinox_LTZV_AWD_EQ_2017": 65.84, "Holden_HDT_Aero_VL_1987": 75.53, "Holden_HDT_Commodore_SS_Group_A_VK_1985": 54.26, "Holden_HDT_Director_VL_1987": 70.45, "Holden_HSV_Avalanche_VZ_2005": 70, "Holden_HSV_Avalanche_XUV_VZ_2005": 69.7, "Holden_HSV_Clubsport_R8_Dealer_Team_Spec_VZ_2005": 83.08, "Holden_HSV_Clubsport_R8_Tourer_VF_2015": 88.61, "Holden_HSV_Clubsport_R8_VF_2015": 89.22, "Holden_HSV_Clubsport_VS_1995": 65.35, "Holden_HSV_Coupe_4_V2_2004": 65.16, "Holden_HSV_GenF_Grange_WN_2016": 89.09, "Holden_HSV_GTO_V2_2003": 69.62, "Holden_HSV_GTS_V2_2003": 81.82, "Holden_HSV_GTS_VE_2009": 84.21, "Holden_HSV_GTS_VF_2015": 83, "Holden_HSV_Maloo_GTS_VF_2015": 85.42, "Holden_HSV_Maloo_R8_VE_2007": 75, "Holden_HSV_Maloo_VS_1995": 65.69, "Holden_HSV_Maloo_VZ_2004": 72.98, "Holden_HSV_Manta_VS_1995": 65, "Holden_HSV_Senator_Signature_VF_2015": 90.38, "Holden_HSV_VXR_Turbo_AH_2008": 76.54, "Holden_HSV_W427_VE_2009": 90, "Holden_Limited_Edition_Coupe_HX_1976": 48.2, "Holden_Malibu_CDX_2013": 43.78, "Holden_Monaro_CV6_V2_2001": 72.48, "Holden_Monaro_CV8R_VZ_2004": 76.92, "Holden_Monaro_CV8_V2_2001": 72.33, "Holden_Monaro_CV8_VZ_2005": 73.74, "Holden_Monaro_GTS_350_HQ_1971": 54.8, "Holden_Monaro_GTS_350_HT_1969": 36.14, "Holden_Monaro_GTS_Sedan_HX_1976": 52.9, "Holden_One_Tonner_VY_2003": 72.82, "Holden_Panel_Van_Sandman_HZ_1977": 44.65, "Holden_Piazza_Turbo_1986": 53.69, "Holden_Suburban_1998": 26.4, "Holden_Torana_GTRX_1970": 58.45, "Holden_Torana_GTR_XU1_LC_1970": 53.17, "Holden_Torana_GTR_XU1_LJ_1972": 60.96, "Holden_Torana_SLR_5000_A9X_LX_1977": 49.37, "Holden_Torana_SS_A9X_Hatchback_LX_1977": 49.02, "Holden_Trailblazer_LTZ_2016": 40.72, "Holden_Ute_SSV_Redline_VF_2017": 75.56, "Holden_Ute_SS_VE_2007": 69.14, "Holden_Ute_SS_VF_2013": 68.35, "Holden_Ute_SV6_VE_2007": 67.57, "INFINITI_EX35_AWD_2008": 66.3, "Jaguar_XE_S_2016": 65.6, "Jaguar_XKR_175_2010": 95.83, "KTM_X-Bow_GTX_2020": 100, "Lancia_ECV_1986": 72.33, "Lancia_Stratos_HF_Group_4_1974": 63.31, "Land_Rover_Range_Rover_Sport_2005": 50.75, "Land_Rover_Range_Rover_Sport_2018": 45.04, "Lotus_Evora_280_2009": 71.01, "Lotus_Exige_RGT_2016": 78.57, "Maserati_GranCabrio_MC_2016": 72.31, "Mercedes-Benz_AMG_CLK_63_Black_Series_2007": 79.25, "Mercedes-Benz_C11_1990": 106.1, "Mercedes-Benz_CLK_GTR_1998": 108.82, "Mini_Countryman_Cooper_S_ALL4_Boardwalk_2020": 43.33, "Mini_Countryman_John_Cooper_Works_2020": 60.76, "Morgan_3Wheeler_P101_2020": 39.92, "Morgan_Aero_8_race_car_2002": 96.97, "Nissan_Pulsar_Nismo_Concept_2015": 60, "Pagani_Imola_2020": 96.42, "Pagani_Zonda_Roadster_2003": 105.88, "Peugeot_308_GTi_2018": 75, "Porsche_911_RS_1992": 93.07, "Porsche_968_Turbo_S_1993": 88.89, "Porsche_Cayman_S_34_981_2012": 75, "Saleen_S7_Twin_Turbo_2005": 103.33, "Spyker_C8_Laviolette_2001": 95.74, "TVR_Cerbera_Speed_Eight_1996": 78.43, "Vauxhall_Calibra_Turbo_1992": 58.39 };
+      // this.all_cars.map(x => {
+      //   if (newMra[x.rid]) {
+      //     x.mra = newMra[x.rid];
+      //   }
+      // });
+
+
       debugger;
       navigator.clipboard.writeText(JSON.stringify(this.all_cars));
 

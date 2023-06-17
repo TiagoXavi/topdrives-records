@@ -63,6 +63,7 @@ export default new Vuex.Store({
       "Silver Screen",
       "Sub-Zero",
       "Summer Games",
+      "Supercar",
       "The Great Outdoors",
       "The Horror Show",
       "Two Tone",
