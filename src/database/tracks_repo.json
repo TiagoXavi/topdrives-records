@@ -209,7 +209,7 @@
   },
   {
     "id": "laguna",
-    "types": ["00"]
+    "types": ["00", "01"]
   },
   {
     "id": "lumberTwisty",
