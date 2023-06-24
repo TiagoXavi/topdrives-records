@@ -471,7 +471,7 @@
         "bodyTypes": [
             "Coupe"
         ],
-        "fuel": "Petrol",
+        "fuel": "Diesel",
         "seats": "1",
         "engine": "Mid"
     },
@@ -990,7 +990,7 @@
     {
         "class": "S",
         "rq": 98,
-        "onlyName": "787b",
+        "onlyName": "787B",
         "brand": "Mazda",
         "country": "JP",
         "year": 1990,
@@ -1005,7 +1005,7 @@
         "tyres": "Slick",
         "mra": 112,
         "weight": 830,
-        "name": "Mazda 787b",
+        "name": "Mazda 787B",
         "rid": "Mazda_787b_1990",
         "tags": [
             "Motorsport",
@@ -7474,7 +7474,6 @@
         "rid": "Ultima_GTR640_2005",
         "tags": [
             "World Expo",
-            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
@@ -16812,6 +16811,7 @@
         "rid": "Ultima_GTR_2000",
         "tags": [
             "World Expo",
+            "Racing Royalty",
             "Red"
         ],
         "bodyTypes": [
