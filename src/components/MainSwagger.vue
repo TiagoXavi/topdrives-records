@@ -118,6 +118,28 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Backend config</div>
+      <div class="MainSwagger_Fields">
+        <textarea
+          v-model="configObj"
+          rows="20"
+          class="MainSwagger_TextArea data-hj-allow"
+          placeholder="Config obj" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setConfig()">Send</button>
+      </div>
+      <div class="MainSwagger_">DailyVar===20 - day 16</div>
+      <div class="MainSwagger_">DailyVar===21 - day 15</div>
+      <div class="MainSwagger_Response">
+        {{ setConfigRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Scan sessions</div>
       <div class="MainSwagger_Fields">
         <BaseText
@@ -220,6 +242,8 @@ export default {
       contestRes: null,
       userConfirmRes: null,
       gitRes: null,
+      configObj: null,
+      setConfigRes: null,
     }
   },
   watch: {},
@@ -242,7 +266,24 @@ export default {
         }
         if (res.data.username) {
           this.user = res.data;
+          this.getConfig();
         }
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+
+    },
+    getConfig() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrl + "/getConfig")
+      .then(res => {
+        vm.configObj = JSON.stringify(res.data, null, 4);
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
@@ -406,7 +447,36 @@ export default {
       .then(() => {
         vm.loading = false;
       });
-    }
+    },
+    setConfig() {
+      let vm = this;
+      vm.loading = true;
+
+      let obj;
+      let isParsed = false;
+      try {
+        obj = JSON.parse(this.configObj);
+        isParsed = true;
+      } catch (error) {
+        
+      }
+
+      if (!isParsed) {
+        this.setConfigRes = "Inválido parse"
+        return;
+      }
+
+      axios.post(Vue.preUrl + "/setConfig", obj)
+      .then(res => {
+        this.setConfigRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
   },
 }
 </script>
