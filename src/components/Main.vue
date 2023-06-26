@@ -2237,7 +2237,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v19.1",
+      gameVersion: "Game v19.3",
       mode: "classic",
       showPoints: false,
       showPointsCgForce: false,
