@@ -382,7 +382,7 @@
             :style="{ '--color': item.classColor }"
             :class="{ Main_SearchItemAdded: item.added }"
             class="Main_SearchItem"
-            @click="item.added ? '' : addCar(index)">
+            @click="item.added ? '' : addCar(index, $event)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
               <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
             </div>
@@ -1539,7 +1539,12 @@ export default {
       }
       this.alreadySearched = false;
     },
-    addCar(index) {
+    addCar(index, e) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        navigator.clipboard.writeText(this.searchResult[index].rid);
+        return;
+      }
+
       this.$emit("addCar", JSON.parse(JSON.stringify(this.searchResult[index])));
 
       Vue.set(this.searchResult[index], "added", true);
