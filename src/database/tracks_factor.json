@@ -32,6 +32,8 @@
    "csSmall": 1000,
   "townTour": 1000,
    "cross": 1000,
+   "desertHill": 1000,
+   "desertSmall": 1000,
    "dtRoad": 1100,
   "canyonDtRoad": 1000,
    "fast": 1100,

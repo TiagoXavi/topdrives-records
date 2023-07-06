@@ -340,4 +340,6 @@ export default {
   t_waterDrag: "Waterfront Drag",
   t_laguna: "Laguna Seca",
   t_lumberTwisty: "Lumber Mill Twisty Circuit",
+  t_desertHill: "Desert Rally Hill",
+  t_desertSmall: "Desert Rally Small",
 }

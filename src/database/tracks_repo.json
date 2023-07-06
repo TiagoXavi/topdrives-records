@@ -132,6 +132,14 @@
     "types": ["f0"]
   },  
   {
+    "id": "desertHill",
+    "types": ["40"]
+  },  
+  {
+    "id": "desertSmall",
+    "types": ["40"]
+  },  
+  {
     "id": "dtRoad",
     "types": ["40"]
   },
