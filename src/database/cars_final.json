@@ -19787,6 +19787,39 @@
     {
         "class": "A",
         "rq": 74,
+        "onlyName": "AMG CLK DTM",
+        "brand": "Mercedes-Benz",
+        "country": "DE",
+        "year": 2007,
+        "tdid": "396",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 186,
+        "acel": 3.8,
+        "hand": 84,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 99.59,
+        "weight": 1840,
+        "name": "Mercedes-Benz AMG CLK DTM",
+        "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
+        "tags": [
+            "Motorsport",
+            "Originals",
+            "5th Anniversary",
+            "Silver or Grey"
+        ],
+        "bodyTypes": [
+            "Convertible"
+        ],
+        "fuel": "Petrol",
+        "seats": "4",
+        "engine": "Front"
+    },
+    {
+        "class": "A",
+        "rq": 74,
         "onlyName": "Viper GTS-R Concept",
         "brand": "Dodge",
         "country": "US",
@@ -22716,39 +22749,6 @@
         ],
         "fuel": "Petrol",
         "seats": "2",
-        "engine": "Front"
-    },
-    {
-        "class": "A",
-        "rq": 72,
-        "onlyName": "AMG CLK DTM",
-        "brand": "Mercedes-Benz",
-        "country": "DE",
-        "year": 2007,
-        "tdid": "396",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 186,
-        "acel": 3.8,
-        "hand": 84,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 99.59,
-        "weight": 1840,
-        "name": "Mercedes-Benz AMG CLK DTM",
-        "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
-        "tags": [
-            "Motorsport",
-            "Originals",
-            "5th Anniversary",
-            "Silver or Grey"
-        ],
-        "bodyTypes": [
-            "Convertible"
-        ],
-        "fuel": "Petrol",
-        "seats": "4",
         "engine": "Front"
     },
     {
@@ -30326,7 +30326,7 @@
         "clearance": "Mid",
         "country": "DE",
         "topSpeed": 155,
-        "acel": 5.3,
+        "acel": 5.2,
         "hand": 80,
         "drive": "4WD",
         "tyres": "Performance",
@@ -51429,7 +51429,7 @@
     {
         "class": "C",
         "rq": 49,
-        "onlyName": "Trans Am 3",
+        "onlyName": "Trans Am 35th Anniversary",
         "brand": "Pontiac",
         "country": "US",
         "year": 2002,
@@ -51444,7 +51444,7 @@
         "tyres": "Performance",
         "mra": 65.97,
         "weight": 1541,
-        "name": "Pontiac Trans Am 3",
+        "name": "Pontiac Trans Am 35th Anniversary",
         "rid": "Pontiac_Trans_Am_35th_Anniversary_2002",
         "tags": [
             "American Dream",

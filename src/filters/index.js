@@ -193,7 +193,6 @@ export default {
             let factor = tracks_factor[track];
 
             if (trackCode.includes("mnHairpin_a4")) factor = 1200; // especial
-            if (trackCode.includes("drag75125_a01")) factor = 300; // especial
 
             if (trackCode.includes("testBowl")) {
                 let wt = Math.max(userTime, oppoTime);
