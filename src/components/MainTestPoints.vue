@@ -113,6 +113,9 @@
       <div v-if="pointsResult && informCorrectPoints && !isNaN(informCorrectPoints)" class="MainTestPoints_FactorsBox">
         <div class="MainTestPoints_Factor">New track factor: <b>~{{ fixedTrackFactor }}</b></div>
       </div>
+      <div v-if="campaignList.length > 0" class="MainTestPoints_FactorsBox">
+        <div v-for="item in campaignList" class="MainTestPoints_Factor">{{ item }}</div>
+      </div>
     </div>
 
 
@@ -197,6 +200,7 @@ export default {
       fakeTime2: undefined,
       informCorrectPoints: null,
       showCarsFix: true,
+      campaignList: []
     }
   },
   watch: {
@@ -294,6 +298,7 @@ export default {
           document.querySelector("div.MainTestPoints_Header > div:nth-child(2) div.Row_Content").focus();
         })
       })
+      this.listOptions();
     },
     openDialogTrackSearch() {
       this.customTrackDialog = true;
@@ -313,74 +318,72 @@ export default {
     getResolvedTrack(track) {
       this.chartTrack = track;
     },
-    getDownTimes() {
-      this.loading = false;
-      let vm = this;
-
-      axios.get(Vue.preUrl + "/downTimes")
-      .then(res => {
-        this.downTimes = res.data;
-        Object.keys(this.downTimes).map(rid => {
-          this.all_cars_obj[rid].color = Vue.resolveClass(this.all_cars_obj[rid].rq, this.all_cars_obj[rid].class, "color");
-          this.all_cars_obj[rid].photo = this.cgResolvePhotoUrl(rid);
-          this.downTimes[rid].map(downtime => {
-            downtime.car.selectedTune = downtime.selectedTune;
-
-            Vue.set(downtime, "resolvedTracks", this.validateTracks([downtime.track]));
-
-            // list all options
-            let currentTracksOptions = [];
-            let options = [];
-            this.campaign.map((city, icity) => {
-              city.matches.map((match, imatch) => {
-                match.races.map((rac, irace) => {
-                  if (rac.name === downtime.track) {
-                    options.push({
-                      city: city.name,
-                      icity,
-                      imatch,
-                      irace,
-                      code: `${icity}${imatch}`
-                    })
-                  }
-                })
-              })
-            })
-            currentTracksOptions.push(options);
-
-            // delivery best option
-            downtime.resolvedTracks.map((x, ix) => {
-              let bestOption;
-              currentTracksOptions[ix].map(y => {
-                if (
-                  !bestOption ||
-                  this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
-                  y.irace < bestOption.irace && !this.isChamp(y.city) ||
-                  this.isChamp(bestOption.city) && this.isChamp(y.city) && y.icity > bestOption.icity ||
-                  (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
-                  (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
-                ) {
-                  bestOption = y;
-                }
-              })
-              if (bestOption) {
-                x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
-              } else {
-                x.campaign = `Not in campaign`;
-              }
-            })
-
+    listOptions() {
+      // list all options
+      let currentTracksOptions = [];
+      let options = [];
+      this.campaign.map((city, icity) => {
+        city.matches.map((match, imatch) => {
+          match.races.map((rac, irace) => {
+            if (rac.name === this.chartTrack.code) {
+              options.push(`${city.name} ${imatch+1} r${irace+1}`)
+            }
           })
         })
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        })
       })
-      .catch(error => {
-        this.loading = false;
-        console.log(error);
-      })
+
+      this.campaignList = options;
+
+      // this.loading = false;
+      // let vm = this;
+
+      // axios.get(Vue.preUrl + "/downTimes")
+      // .then(res => {
+      //   this.downTimes = res.data;
+      //   Object.keys(this.downTimes).map(rid => {
+      //     this.all_cars_obj[rid].color = Vue.resolveClass(this.all_cars_obj[rid].rq, this.all_cars_obj[rid].class, "color");
+      //     this.all_cars_obj[rid].photo = this.cgResolvePhotoUrl(rid);
+      //     this.downTimes[rid].map(downtime => {
+      //       downtime.car.selectedTune = downtime.selectedTune;
+
+      //       Vue.set(downtime, "resolvedTracks", this.validateTracks([downtime.track]));
+
+            
+      //       currentTracksOptions.push(options);
+
+      //       // delivery best option
+      //       downtime.resolvedTracks.map((x, ix) => {
+      //         let bestOption;
+      //         currentTracksOptions[ix].map(y => {
+      //           if (
+      //             !bestOption ||
+      //             this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+      //             y.irace < bestOption.irace && !this.isChamp(y.city) ||
+      //             this.isChamp(bestOption.city) && this.isChamp(y.city) && y.icity > bestOption.icity ||
+      //             (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+      //             (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+      //           ) {
+      //             bestOption = y;
+      //           }
+      //         })
+      //         if (bestOption) {
+      //           x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+      //         } else {
+      //           x.campaign = `Not in campaign`;
+      //         }
+      //       })
+
+      //     })
+      //   })
+      //   this.showCarsFix = false;
+      //   this.$nextTick().then(() => {
+      //     this.showCarsFix = true;
+      //   })
+      // })
+      // .catch(error => {
+      //   this.loading = false;
+      //   console.log(error);
+      // })
     },
     cgResolvePhotoUrl(rid) {
       try {

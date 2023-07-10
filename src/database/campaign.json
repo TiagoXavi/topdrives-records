@@ -807,10 +807,7 @@
             "name": "rallySmall_a40"
           },
           {
-            "time": 72.63,
-            "rid": "Subaru_Forester_tS_300_(SJ)_2014",
-            "name": "tCircuitr_a00",
-            "tune": "000"
+            "name": "tCircuitr_a00"
           },
           {
             "name": "testBowlr_a01"
@@ -2351,10 +2348,7 @@
             "name": "tokyoLoop_a01"
           },
           {
-            "time": 70.41,
-            "rid": "Honda_Jazz_2016",
-            "name": "tokyoGforce_a01",
-            "tune": "000"
+            "name": "tokyoGforce_a01"
           },
           {
             "name": "gForce_a01"
