@@ -29572,6 +29572,38 @@
     },
     {
         "class": "A",
+        "rq": 67,
+        "onlyName": "1750 GTAm",
+        "brand": "Alfa Romeo",
+        "year": 1970,
+        "tdid": "3558",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Low",
+        "country": "IT",
+        "topSpeed": 143,
+        "acel": 4.3,
+        "hand": 85,
+        "drive": "RWD",
+        "tyres": "Slick",
+        "mra": 79.63,
+        "weight": 940,
+        "name": "Alfa Romeo 1750 GTAm",
+        "rid": "Alfa_Romeo_1750_GTAm_1970",
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "1",
+        "engine": "Front",
+        "tags": [
+            "Amalfi Coast Cruising",
+            "Motorsport",
+            "Red"
+        ]
+    },
+    {
+        "class": "A",
         "rq": 66,
         "onlyName": "Cobra 212 S/C",
         "brand": "AC",
@@ -31489,38 +31521,6 @@
         "fuel": "Petrol",
         "seats": "1",
         "engine": "Mid"
-    },
-    {
-        "class": "A",
-        "rq": 65,
-        "onlyName": "1750 GTAm",
-        "brand": "Alfa Romeo",
-        "year": 1970,
-        "tdid": "3558",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Low",
-        "country": "IT",
-        "topSpeed": 143,
-        "acel": 4.3,
-        "hand": 85,
-        "drive": "RWD",
-        "tyres": "Slick",
-        "mra": 79.63,
-        "weight": 940,
-        "name": "Alfa Romeo 1750 GTAm",
-        "rid": "Alfa_Romeo_1750_GTAm_1970",
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "1",
-        "engine": "Front",
-        "tags": [
-            "Amalfi Coast Cruising",
-            "Motorsport",
-            "Red"
-        ]
     },
     {
         "class": "A",
@@ -62254,7 +62254,7 @@
         "clearance": "Low",
         "country": "IT",
         "topSpeed": 144,
-        "acel": 6.6,
+        "acel": 6.5,
         "hand": 83,
         "drive": "RWD",
         "tyres": "Performance",
