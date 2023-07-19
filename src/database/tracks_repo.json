@@ -132,7 +132,15 @@
     "types": ["f0"]
   },  
   {
+    "id": "desertBig",
+    "types": ["40"]
+  },  
+  {
     "id": "desertHill",
+    "types": ["40"]
+  },  
+  {
+    "id": "desertRallyDirt",
     "types": ["40"]
   },  
   {

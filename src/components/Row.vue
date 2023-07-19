@@ -112,6 +112,7 @@
         item.id === 'oceanCity' ||
         item.id === 'speedbump12km' ||
         item.id === 'speedbump1km' ||
+        item.id === 'desertRallyDirt' ||
         item.id === 'desertHill'
         )"
         class="Row_xRA">low</div>

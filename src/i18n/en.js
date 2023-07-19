@@ -342,4 +342,6 @@ export default {
   t_lumberTwisty: "Lumber Mill Twisty Circuit",
   t_desertHill: "Desert Rally Hill",
   t_desertSmall: "Desert Rally Small",
+  t_desertBig: "Desert Rally Big",
+  t_desertRallyDirt: "Desert Rally Dirt",
 }
