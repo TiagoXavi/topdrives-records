@@ -111,9 +111,7 @@
         item.id === 'csMed' ||
         item.id === 'oceanCity' ||
         item.id === 'speedbump12km' ||
-        item.id === 'speedbump1km' ||
-        item.id === 'desertRallyDirt' ||
-        item.id === 'desertHill'
+        item.id === 'speedbump1km'
         )"
         class="Row_xRA">low</div>
       <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions">

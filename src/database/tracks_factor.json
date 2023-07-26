@@ -83,7 +83,7 @@
    "oceanShortDrag": 800,
    "rallyMed": 1000,
    "rallySmall": 1000,
-  "riverSprint": 1000,
+   "riverSprint": 800,
    "runwayDrag": 1000,
    "runwayDragSlalom": 1000,
    "runwayLoop": 1000,

@@ -1,0 +1,6806 @@
+[
+  {
+    "Make": "Abarth",
+    "Model": "1000 Monoposto record car",
+    "19.3 RQ": 22,
+    "20.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "124 GT",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "124 Spider",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "124 Spider Rally",
+    "19.3 RQ": 70,
+    "20.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "1500 Biposto",
+    "19.3 RQ": 12,
+    "20.0 RQ": 13,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "500 R3T",
+    "19.3 RQ": 53,
+    "20.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "695 Tributo Maserati",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Abarth",
+    "Model": "Grande Punto S2000",
+    "19.3 RQ": 76,
+    "20.0 RQ": 71,
+    "RQ Change": -5
+  },
+  {
+    "Make": "AC",
+    "Model": "Ace V8",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Aceca V8",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 140 Charter",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 212 S/C",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 378 Superblower MkIV",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra MkI 289",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra MkIII 427",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra MkIII 427 S/C",
+    "19.3 RQ": 67,
+    "20.0 RQ": 65,
+    "RQ Change": -2
+  },
+  {
+    "Make": "AC",
+    "Model": "Frua Coupé",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AC",
+    "Model": "Mk VI GTSR",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "3.2 CL Type-S",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Acura",
+    "Model": "Integra LS",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "Integra Type R",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Acura",
+    "Model": "MDX",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "MDX",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "NSX",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Acura",
+    "Model": "NSX",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Acura",
+    "Model": "RDX",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "RSX",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "RSX Type S",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Acura",
+    "Model": "SLX",
+    "19.3 RQ": 39,
+    "20.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Acura",
+    "Model": "ZDX",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 33,
+    "19.3 RQ": 35,
+    "20.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 75,
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 159,
+    "19.3 RQ": 42,
+    "20.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 166,
+    "19.3 RQ": 35,
+    "20.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 177,
+    "19.3 RQ": 94,
+    "20.0 RQ": 92,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "155 GTA Superturismo",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "155 TS Super Touring",
+    "19.3 RQ": 73,
+    "20.0 RQ": 69,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "155 V6 TI DTM",
+    "19.3 RQ": 83,
+    "20.0 RQ": 81,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "156 GTA Super 2000",
+    "19.3 RQ": 72,
+    "20.0 RQ": 69,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "159 Alfetta",
+    "19.3 RQ": 62,
+    "20.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "164 ProCar",
+    "19.3 RQ": 101,
+    "20.0 RQ": 98,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "164 Q4",
+    "19.3 RQ": 49,
+    "20.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "1750 GTAm",
+    "19.3 RQ": 67,
+    "20.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "1750 GTV",
+    "19.3 RQ": 13,
+    "20.0 RQ": 14,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "2000 Sportiva",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "2600 Sprint",
+    "19.3 RQ": 15,
+    "20.0 RQ": 16,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "2600 SZ",
+    "19.3 RQ": 15,
+    "20.0 RQ": 16,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "4C",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Alfetta GT Rally Version",
+    "19.3 RQ": 62,
+    "20.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Carabo",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Coloni S1 156",
+    "19.3 RQ": 92,
+    "20.0 RQ": 103,
+    "RQ Change": 11
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Disco Volante (C52)",
+    "19.3 RQ": 24,
+    "20.0 RQ": 25,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Giulia GTAm",
+    "19.3 RQ": 78,
+    "20.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Giulia TZ2",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Giulietta TCR",
+    "19.3 RQ": 63,
+    "20.0 RQ": 61,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "GT 1600 Junior",
+    "19.3 RQ": 12,
+    "20.0 RQ": 13,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "GTV 3.2 V6",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "GTV Cup",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Issima",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "MiTo GTA",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "RZ",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider (S4)",
+    "19.3 RQ": 19,
+    "20.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider 3.2 V6",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider Monoposto",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider Veloce (S2)",
+    "19.3 RQ": 19,
+    "20.0 RQ": 17,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Sprint 6C",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Stelvio Quadrifoglio",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Tipo 33 TT12",
+    "19.3 RQ": 90,
+    "20.0 RQ": 88,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Tipo C Bimotore",
+    "19.3 RQ": 55,
+    "20.0 RQ": 50,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "TZ3 Corsa",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Visconti",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AMC",
+    "Model": "AMX/3",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "AMC",
+    "Model": "Concord 304",
+    "19.3 RQ": 18,
+    "20.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Make": "AMC",
+    "Model": "Rebel Machine",
+    "19.3 RQ": 33,
+    "20.0 RQ": 34,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Intensa Emozione",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Apollo",
+    "Model": "N",
+    "19.3 RQ": 90,
+    "20.0 RQ": 92,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Arash",
+    "Model": "AF10 Hybrid",
+    "19.3 RQ": 96,
+    "20.0 RQ": 98,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Arash",
+    "Model": "LM",
+    "19.3 RQ": 88,
+    "20.0 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 1",
+    "19.3 RQ": 55,
+    "20.0 RQ": 52,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 2 Supercharged",
+    "19.3 RQ": 83,
+    "20.0 RQ": 80,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 4",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 500 V8",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Nomad",
+    "19.3 RQ": 75,
+    "20.0 RQ": 73,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Bulldog",
+    "19.3 RQ": 53,
+    "20.0 RQ": 50,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB4",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB4 GT Zagato",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB5",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DBS",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Lagonda Vignale",
+    "19.3 RQ": 42,
+    "20.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V12 Vanquish S",
+    "19.3 RQ": 65,
+    "20.0 RQ": 68,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V8",
+    "19.3 RQ": 33,
+    "20.0 RQ": 34,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V8 Vantage",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V8 Volante",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V8 Zagato",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Virage",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Vulcan",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Audi",
+    "Model": "A1 1.4 TFSI (8X)",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "A4 DTM Edition (B7)",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "A5 DTM",
+    "19.3 RQ": 92,
+    "20.0 RQ": 88,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Audi",
+    "Model": "A6 Saloon 40 TDI (C8)",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "A8 L W12 6.3FSI quattro (D4)",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "e-tron",
+    "19.3 RQ": 65,
+    "20.0 RQ": 68,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Audi",
+    "Model": "Q2 2.0 TDI quattro",
+    "19.3 RQ": 54,
+    "20.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "Q5 2.0 TDI",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "Q5 3.0 TDI (8R)",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "Q7 3.0 TDI",
+    "19.3 RQ": 63,
+    "20.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R10 TDI",
+    "19.3 RQ": 96,
+    "20.0 RQ": 98,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18",
+    "19.3 RQ": 108,
+    "20.0 RQ": 106,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18 TDI Ultra",
+    "19.3 RQ": 103,
+    "20.0 RQ": 102,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 4.2 quattro",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 GT",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 LMS GT3",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 Spyder V10",
+    "19.3 RQ": 82,
+    "20.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 V10",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 V10 Plus",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 V10 Plus Spyder",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS3 LMS TCR (8V)",
+    "19.3 RQ": 78,
+    "20.0 RQ": 73,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS6 Avant (C6)",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "S1 EKS RX quattro (8X)",
+    "19.3 RQ": 96,
+    "20.0 RQ": 98,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Audi",
+    "Model": "S3 Cabriolet (8V)",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "S4",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "Sport quattro S1",
+    "19.3 RQ": 87,
+    "20.0 RQ": 86,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "SQ5 TDI",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT 225 quattro (8N)",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT 3.2 quattro (8N)",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT Roadster 1.8 TFSI (8J)",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT S (8J)",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Audi",
+    "Model": "V8 quattro DTM (4C)",
+    "19.3 RQ": 83,
+    "20.0 RQ": 81,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Azure",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT Convertible",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT Convertible Number 1 Edition by Mulliner",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT3",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT3",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental Supersports",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental Supersports Convertible ISR",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "EXP 100 GT",
+    "19.3 RQ": 100,
+    "20.0 RQ": 98,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Flying Spur W12 S",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Hunaudières",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bentley",
+    "Model": "The Sir Peter Blake Continental GT",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": 507,
+    "19.3 RQ": 14,
+    "20.0 RQ": 15,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "128ti",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "2800 CS",
+    "19.3 RQ": 16,
+    "20.0 RQ": 17,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "320d",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "320i Touring",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "335d",
+    "19.3 RQ": 70,
+    "20.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "520d Touring",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "528i",
+    "19.3 RQ": 39,
+    "20.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "530d",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "530e Saloon",
+    "19.3 RQ": 63,
+    "20.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "550i",
+    "19.3 RQ": 56,
+    "20.0 RQ": 57,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "640d",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "650i Convertible",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "740d",
+    "19.3 RQ": 78,
+    "20.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "750i",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "750i xDrive",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "750Li",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "760Li xDrive Shining Shadow Special Edition",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "840i Gran Coupe",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "850CSi",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "i4 eDrive40",
+    "19.3 RQ": 59,
+    "20.0 RQ": 62,
+    "RQ Change": 3
+  },
+  {
+    "Make": "BMW",
+    "Model": "i4 M50",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "iX M60",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M Coupe",
+    "19.3 RQ": 56,
+    "20.0 RQ": 57,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M3 Competition M xDrive Saloon",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M3 Convertible",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M3 GTR",
+    "19.3 RQ": 87,
+    "20.0 RQ": 84,
+    "RQ Change": -3
+  },
+  {
+    "Make": "BMW",
+    "Model": "M340d xDrive Saloon",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M340i xDrive Saloon",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M340i xDrive Touring",
+    "19.3 RQ": 74,
+    "20.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M4 Competition M xDrive Coupe",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M440i xDrive Coupe",
+    "19.3 RQ": 74,
+    "20.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5",
+    "19.3 RQ": 58,
+    "20.0 RQ": 59,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5 Competition",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5 CS",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M6",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "BMW",
+    "Model": "M6 Gran Coupe",
+    "19.3 RQ": 71,
+    "20.0 RQ": 69,
+    "RQ Change": -2
+  },
+  {
+    "Make": "BMW",
+    "Model": "M8 Competition Coupé",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "M8 GTE",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "BMW",
+    "Model": "Nazca C2",
+    "19.3 RQ": 70,
+    "20.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X3 35d",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X3 M40i",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5 3.0d",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5 xDrive40e",
+    "19.3 RQ": 58,
+    "20.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6 50i",
+    "19.3 RQ": 74,
+    "20.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6 xDrive40i",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X7 M50d",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "X7 M50i Dark Shadow Edition",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "BMW",
+    "Model": "Z4M Coupe",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "BMW",
+    "Model": "Z8",
+    "19.3 RQ": 50,
+    "20.0 RQ": 51,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bristol",
+    "Model": "Fighter T",
+    "19.3 RQ": 86,
+    "20.0 RQ": 84,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Bristol",
+    "Model": "Zagato 406S",
+    "19.3 RQ": 18,
+    "20.0 RQ": 19,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Chiron",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Chiron Sport",
+    "19.3 RQ": 98,
+    "20.0 RQ": 99,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Veyron 16.4",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Veyron 16.4 Grand Sport",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Veyron 16.4 Super Sport",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Buick",
+    "Model": "Century Special Coupe",
+    "19.3 RQ": 22,
+    "20.0 RQ": 20,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Buick",
+    "Model": "GNX",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Buick",
+    "Model": "LeSabre",
+    "19.3 RQ": 38,
+    "20.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "ELR",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade ESV",
+    "19.3 RQ": 53,
+    "20.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade EXT",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "STS",
+    "19.3 RQ": 62,
+    "20.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "XLR-V",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "XT5",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Caterham",
+    "Model": "JPE",
+    "19.3 RQ": 78,
+    "20.0 RQ": 75,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Caterham",
+    "Model": "RST-V8 Levante",
+    "19.3 RQ": 95,
+    "20.0 RQ": 94,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 360",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 420",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 620R",
+    "19.3 RQ": 85,
+    "20.0 RQ": 87,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Aerovette",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Camaro Z/28",
+    "19.3 RQ": 30,
+    "20.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Camaro Z/28",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Camaro Z28 SS",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Captiva LTX",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Chevelle SS 454",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Cobalt SS S/C",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette 396",
+    "19.3 RQ": 35,
+    "20.0 RQ": 31,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette LT-1",
+    "19.3 RQ": 32,
+    "20.0 RQ": 30,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette ZR1",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette ZR2",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Cruze SW",
+    "19.3 RQ": 24,
+    "20.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "El Camino",
+    "19.3 RQ": 20,
+    "20.0 RQ": 21,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Impala",
+    "19.3 RQ": 23,
+    "20.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Impala SS",
+    "19.3 RQ": 20,
+    "20.0 RQ": 21,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Impala SS 427",
+    "19.3 RQ": 25,
+    "20.0 RQ": 26,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Lacetti",
+    "19.3 RQ": 22,
+    "20.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Miray",
+    "19.3 RQ": 66,
+    "20.0 RQ": 69,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Monte Carlo SS",
+    "19.3 RQ": 16,
+    "20.0 RQ": 17,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Monte Carlo SS 454",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Monte Carlo SS Jeff Gordon Edition",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Trailblazer SS",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "200 S",
+    "19.3 RQ": 49,
+    "20.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300 Glacier Edition",
+    "19.3 RQ": 60,
+    "20.0 RQ": 63,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300 Motown Edition",
+    "19.3 RQ": 46,
+    "20.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Atlantic",
+    "19.3 RQ": 51,
+    "20.0 RQ": 53,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Drifter",
+    "19.3 RQ": 19,
+    "20.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Drifter Van (CL)",
+    "19.3 RQ": 13,
+    "20.0 RQ": 14,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Falcon",
+    "19.3 RQ": 15,
+    "20.0 RQ": 16,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "LeBaron GTC",
+    "19.3 RQ": 26,
+    "20.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "LeBaron GTC Turbo Convertible",
+    "19.3 RQ": 25,
+    "20.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "LeBaron GTS Turbo",
+    "19.3 RQ": 34,
+    "20.0 RQ": 32,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "ME Four-Twelve",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Phaeton",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Turbine Car",
+    "19.3 RQ": 16,
+    "20.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Valiant Charger 770 (CL)",
+    "19.3 RQ": 14,
+    "20.0 RQ": 15,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Valiant Charger 770 SE (VH)",
+    "19.3 RQ": 31,
+    "20.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Valiant Charger R/T Six Pack (VH)",
+    "19.3 RQ": 33,
+    "20.0 RQ": 34,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "BX GTi 16V",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C-Crosser 2.2 L HDi",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C3-XR",
+    "19.3 RQ": 23,
+    "20.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 V6",
+    "19.3 RQ": 36,
+    "20.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "CX GTi Turbo",
+    "19.3 RQ": 26,
+    "20.0 RQ": 27,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Traction Avant",
+    "19.3 RQ": 11,
+    "20.0 RQ": 12,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Datsun",
+    "Model": "240Z",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Datsun",
+    "Model": "240Z Rally Car",
+    "19.3 RQ": 61,
+    "20.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Guara",
+    "19.3 RQ": 58,
+    "20.0 RQ": 60,
+    "RQ Change": 2
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Guara",
+    "19.3 RQ": 60,
+    "20.0 RQ": 63,
+    "RQ Change": 3
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Longchamp",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Mangusta",
+    "19.3 RQ": 40,
+    "20.0 RQ": 41,
+    "RQ Change": 1
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Pampero",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Caliber SRT4",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Demon",
+    "19.3 RQ": 80,
+    "20.0 RQ": 83,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Hellcat",
+    "19.3 RQ": 74,
+    "20.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Hellcat Redeye Widebody",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Hellcat Redeye Widebody Jailbreak",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Hellcat Widebody",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Super Stock",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT-10",
+    "19.3 RQ": 69,
+    "20.0 RQ": 67,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger T/A",
+    "19.3 RQ": 27,
+    "20.0 RQ": 29,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger Daytona",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger III",
+    "19.3 RQ": 53,
+    "20.0 RQ": 50,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger Juiced",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger R/T",
+    "19.3 RQ": 42,
+    "20.0 RQ": 40,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger R/T",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger SRT Hellcat",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger SRT Hellcat Redeye Widebody",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger SRT Hellcat Redeye Widebody Jailbreak",
+    "19.3 RQ": 79,
+    "20.0 RQ": 76,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger Super Bee",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Circuit EV",
+    "19.3 RQ": 50,
+    "20.0 RQ": 52,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Coronet Super Bee",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "D-100",
+    "19.3 RQ": 23,
+    "20.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Dakota Laramie 4.7L",
+    "19.3 RQ": 44,
+    "20.0 RQ": 40,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Dart Swinger 340",
+    "19.3 RQ": 30,
+    "20.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Daytona Turbo Z",
+    "19.3 RQ": 23,
+    "20.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Durango GT",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Durango SRT",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Durango SRT Hellcat",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Journey",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "M80",
+    "19.3 RQ": 54,
+    "20.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Powerbox",
+    "19.3 RQ": 56,
+    "20.0 RQ": 63,
+    "RQ Change": 7
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Slingshot",
+    "19.3 RQ": 22,
+    "20.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "SRT-4",
+    "19.3 RQ": 54,
+    "20.0 RQ": 55,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Stealth",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper ACR",
+    "19.3 RQ": 83,
+    "20.0 RQ": 84,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper GTS-R",
+    "19.3 RQ": 93,
+    "20.0 RQ": 89,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper SRT-10 ACR X",
+    "19.3 RQ": 91,
+    "20.0 RQ": 87,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 270",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 270 RS",
+    "19.3 RQ": 78,
+    "20.0 RQ": 75,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 Audi (E-gas) Wide Track",
+    "19.3 RQ": 67,
+    "20.0 RQ": 65,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GT",
+    "19.3 RQ": 77,
+    "20.0 RQ": 75,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO",
+    "19.3 RQ": 86,
+    "20.0 RQ": 88,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO-40",
+    "19.3 RQ": 92,
+    "20.0 RQ": 90,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO-RS",
+    "19.3 RQ": 91,
+    "20.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "S7",
+    "19.3 RQ": 32,
+    "20.0 RQ": 30,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "S8",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "S8A",
+    "19.3 RQ": 40,
+    "20.0 RQ": 41,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "S8AT",
+    "19.3 RQ": 50,
+    "20.0 RQ": 51,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Eagle",
+    "Model": "Vision",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "124 Abarth Rally",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "8V Supersonic",
+    "19.3 RQ": 11,
+    "20.0 RQ": 12,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Abarth 131 Rally",
+    "19.3 RQ": 53,
+    "20.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Dino Coupe",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Panda Cross 4x4 Mark 3",
+    "19.3 RQ": 32,
+    "20.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "S76",
+    "19.3 RQ": 18,
+    "20.0 RQ": 19,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Seicento Sporting Abarth",
+    "19.3 RQ": 13,
+    "20.0 RQ": 12,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Stilo Abarth Group N",
+    "19.3 RQ": 53,
+    "20.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Uno Turbo",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Fiat",
+    "Model": "X1/9 Dallara",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco Heritage Edition",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco R",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco Raptor",
+    "19.3 RQ": 65,
+    "20.0 RQ": 68,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Ford",
+    "Model": "Capri 3.0 S",
+    "19.3 RQ": 27,
+    "20.0 RQ": 29,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Edge ST",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort Rally Spec",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort Rally Spec",
+    "19.3 RQ": 70,
+    "20.0 RQ": 67,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort RS1700T",
+    "19.3 RQ": 75,
+    "20.0 RQ": 73,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort XR3i",
+    "19.3 RQ": 16,
+    "20.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Evos",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Explorer Sport-Trac Adrenalin",
+    "19.3 RQ": 46,
+    "20.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-100 Eluminator",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Raptor 37 Performance Package",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Tremor FX2",
+    "19.3 RQ": 42,
+    "20.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-250 Super Chief",
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fairlane 500",
+    "19.3 RQ": 22,
+    "20.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Falcon XR8 Sprint",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta RS1800",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta ST",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta XR2",
+    "19.3 RQ": 17,
+    "20.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta XR2",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Focus ST",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Focus ST remapped",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "FPV F6 Tornado",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "GN34",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT40 race car",
+    "19.3 RQ": 72,
+    "20.0 RQ": 70,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT40 race car",
+    "19.3 RQ": 73,
+    "20.0 RQ": 77,
+    "RQ Change": 4
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT70",
+    "19.3 RQ": 68,
+    "20.0 RQ": 66,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT90",
+    "19.3 RQ": 86,
+    "20.0 RQ": 82,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Ford",
+    "Model": "Iosis",
+    "19.3 RQ": 37,
+    "20.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Kuga",
+    "19.3 RQ": 31,
+    "20.0 RQ": 38,
+    "RQ Change": 7
+  },
+  {
+    "Make": "Ford",
+    "Model": "Laser SR2",
+    "19.3 RQ": 25,
+    "20.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mach-E 1400 Prototype",
+    "19.3 RQ": 103,
+    "20.0 RQ": 104,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Maverick",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Maya II EM",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mondeo",
+    "19.3 RQ": 39,
+    "20.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mondeo Hybrid",
+    "19.3 RQ": 32,
+    "20.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang 289",
+    "19.3 RQ": 20,
+    "20.0 RQ": 22,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Boss 302",
+    "19.3 RQ": 26,
+    "20.0 RQ": 29,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Cobra Jet 1400",
+    "19.3 RQ": 92,
+    "20.0 RQ": 89,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang GT",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang GT4",
+    "19.3 RQ": 79,
+    "20.0 RQ": 77,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang I",
+    "19.3 RQ": 17,
+    "20.0 RQ": 15,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach 1",
+    "19.3 RQ": 25,
+    "20.0 RQ": 26,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach 1",
+    "19.3 RQ": 35,
+    "20.0 RQ": 31,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach 1 Super Cobra Jet",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach 2",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach-E GT",
+    "19.3 RQ": 67,
+    "20.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Police Interceptor Sedan",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Puma 1.7",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranchero",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger",
+    "19.3 RQ": 39,
+    "20.0 RQ": 37,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger Rally Raid",
+    "19.3 RQ": 54,
+    "20.0 RQ": 56,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ford",
+    "Model": "RS200 Group B Rally Car",
+    "19.3 RQ": 81,
+    "20.0 RQ": 83,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ford",
+    "Model": "S-Max 2.5",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Scorpio 24-valve",
+    "19.3 RQ": 48,
+    "20.0 RQ": 45,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ford",
+    "Model": "Taurus SHO",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Taurus SHO",
+    "19.3 RQ": 30,
+    "20.0 RQ": 39,
+    "RQ Change": 9
+  },
+  {
+    "Make": "Ford",
+    "Model": "Thunderbird",
+    "19.3 RQ": 16,
+    "20.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Thunderbird Turbo Coupe",
+    "19.3 RQ": 27,
+    "20.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Torino Cobra",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ford",
+    "Model": "Torino Talladega",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Geo",
+    "Model": "Tracker",
+    "19.3 RQ": 36,
+    "20.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "Akula",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G26",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G31",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G33",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G4 Series II Coupe",
+    "19.3 RQ": 45,
+    "20.0 RQ": 43,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G40 Cup",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G40 GT5",
+    "19.3 RQ": 52,
+    "20.0 RQ": 50,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G40 Junior",
+    "19.3 RQ": 39,
+    "20.0 RQ": 35,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G40R",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G55 GT3",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G55 GT4",
+    "19.3 RQ": 84,
+    "20.0 RQ": 80,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G56 GT4 Supercup",
+    "19.3 RQ": 90,
+    "20.0 RQ": 92,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G56 GTA",
+    "19.3 RQ": 72,
+    "20.0 RQ": 69,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G57 P2",
+    "19.3 RQ": 101,
+    "20.0 RQ": 96,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G58",
+    "19.3 RQ": 104,
+    "20.0 RQ": 100,
+    "RQ Change": -4
+  },
+  {
+    "Make": "GMC",
+    "Model": "Acadia",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "GMC",
+    "Model": "Denali XT",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "GMC",
+    "Model": "Envoy",
+    "19.3 RQ": 31,
+    "20.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Make": "GMC",
+    "Model": "Sierra All Terrain X",
+    "19.3 RQ": 59,
+    "20.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Make": "GMC",
+    "Model": "Yukon Denali",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Gumpert",
+    "Model": "Apollo",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Gumpert",
+    "Model": "Apollo Basic",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Gumpert",
+    "Model": "Apollo Enraged",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Gumpert",
+    "Model": "Apollo R",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Gumpert",
+    "Model": "Apollo S",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom F5",
+    "19.3 RQ": 102,
+    "20.0 RQ": 99,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom GT",
+    "19.3 RQ": 96,
+    "20.0 RQ": 93,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom GT Spyder",
+    "19.3 RQ": 99,
+    "20.0 RQ": 95,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Holden",
+    "Model": "Astra VXR (PJ)",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Calais V International (VE)",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Caprice (WN)",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Commodore Calais-V Tourer (ZB)",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Commodore SS-V Redline",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Efijy",
+    "19.3 RQ": 59,
+    "20.0 RQ": 61,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Holden",
+    "Model": "Epica CDXi",
+    "19.3 RQ": 32,
+    "20.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Equinox LTZ-V AWD (EQ)",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "HDT Commodore SS Group A (VK)",
+    "19.3 RQ": 38,
+    "20.0 RQ": 39,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Avalanche (VZ)",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Clubsport R8 (VF)",
+    "19.3 RQ": 68,
+    "20.0 RQ": 69,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Clubsport R8 Tourer (VF)",
+    "19.3 RQ": 66,
+    "20.0 RQ": 67,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Limited Edition Coupe (HX)",
+    "19.3 RQ": 17,
+    "20.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Monaro CV8-R (VZ)",
+    "19.3 RQ": 52,
+    "20.0 RQ": 50,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Holden",
+    "Model": "Monaro GTS 350 (HT)",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Suburban",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Trailblazer LTZ",
+    "19.3 RQ": 42,
+    "20.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Ute SS (VE)",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Ute SS (VF)",
+    "19.3 RQ": 54,
+    "20.0 RQ": 55,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Holden",
+    "Model": "Ute SS-V Redline (VF)",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Capa 4WD",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Civic Hybrid",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Civic Si",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Civic Type R",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V",
+    "19.3 RQ": 36,
+    "20.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 1.6 i-DTEC",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 2.0 i-VTEC",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 2.2 i-DTEC",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-Z",
+    "19.3 RQ": 36,
+    "20.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Integra Type R",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Legend 3.5 V6",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "NSX",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Pilot 4WD",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Pilot 4WD",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Honda",
+    "Model": "Ridgeline",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Honda",
+    "Model": "S2000 Type S",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H1",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3T",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3T",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "FX Vettel Edition (S51)",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "FX45 (S50)",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "G20 (P10)",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Infiniti",
+    "Model": "G35 S",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "I30 (A32)",
+    "19.3 RQ": 32,
+    "20.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "J30 (Y32)",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "M56 (Y51)",
+    "19.3 RQ": 73,
+    "20.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Q50S",
+    "19.3 RQ": 54,
+    "20.0 RQ": 55,
+    "RQ Change": 1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Q60 3.0t",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "QX70",
+    "19.3 RQ": 70,
+    "20.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "QX80 AWD (Z62)",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "C-Type",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "C-X75",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "C-X75",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-PACE SVR",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-Type R AWD Convertible",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-Type SVR Coupe",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "Mark 2",
+    "19.3 RQ": 25,
+    "20.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "Mark 2 BTCC",
+    "19.3 RQ": 24,
+    "20.0 RQ": 25,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "X-Type 3.0 V6 AWD",
+    "19.3 RQ": 62,
+    "20.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XE SV Project 8",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XF S",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XFR-S Sportbrake",
+    "19.3 RQ": 62,
+    "20.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJ220",
+    "19.3 RQ": 76,
+    "20.0 RQ": 78,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR-9",
+    "19.3 RQ": 95,
+    "20.0 RQ": 97,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XKR 4.2-S",
+    "19.3 RQ": 55,
+    "20.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Agera",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Agera Final",
+    "19.3 RQ": 98,
+    "20.0 RQ": 95,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Agera R",
+    "19.3 RQ": 96,
+    "20.0 RQ": 93,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Agera RS",
+    "19.3 RQ": 93,
+    "20.0 RQ": 94,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCGT",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCXR Edition",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCXR Trevita",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Jesko Absolut",
+    "19.3 RQ": 101,
+    "20.0 RQ": 96,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Jesko Attack",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "One:1",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Regera",
+    "19.3 RQ": 99,
+    "20.0 RQ": 94,
+    "RQ Change": -5
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow GT",
+    "19.3 RQ": 76,
+    "20.0 RQ": 74,
+    "RQ Change": -2
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow GT4",
+    "19.3 RQ": 86,
+    "20.0 RQ": 82,
+    "RQ Change": -4
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow GTX",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow R",
+    "19.3 RQ": 78,
+    "20.0 RQ": 76,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "350GT",
+    "19.3 RQ": 32,
+    "20.0 RQ": 30,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "400GT",
+    "19.3 RQ": 32,
+    "20.0 RQ": 30,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador Coupé",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador J",
+    "19.3 RQ": 92,
+    "20.0 RQ": 94,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador Roadster",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador S",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador S Roadster",
+    "19.3 RQ": 94,
+    "20.0 RQ": 95,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SV",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SV Roadster",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SVJ",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Centenario",
+    "19.3 RQ": 97,
+    "20.0 RQ": 99,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Diablo VT 6.0",
+    "19.3 RQ": 82,
+    "20.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Espada Serie I",
+    "19.3 RQ": 30,
+    "20.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Espada Serie II",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Espada Serie III",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo (1st gen)",
+    "19.3 RQ": 82,
+    "20.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP 570-4 Edizione Tecnica",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP560-4 Spyder (2nd gen)",
+    "19.3 RQ": 85,
+    "20.0 RQ": 82,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP570-4 Superleggera (2nd gen)",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo Spyder (1st gen)",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo Superleggera (1st gen)",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Coupé",
+    "19.3 RQ": 93,
+    "20.0 RQ": 94,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Performante",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Performante Spyder",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Spyder",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Islero",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Islero S",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Jalpa",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Jarama GT",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Jarama GTS",
+    "19.3 RQ": 30,
+    "20.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Miura P 400",
+    "19.3 RQ": 47,
+    "20.0 RQ": 44,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Miura SV",
+    "19.3 RQ": 53,
+    "20.0 RQ": 50,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Miura SVJ",
+    "19.3 RQ": 70,
+    "20.0 RQ": 68,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Murciélago LP640 Roadster",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Murciélago LP650-4 Roadster",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Murciélago LP670-4 SuperVeloce",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Reventón",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Sesto Elemento",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Urraco P300",
+    "19.3 RQ": 30,
+    "20.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Urus",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Veneno Roadster",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "037 Rally",
+    "19.3 RQ": 72,
+    "20.0 RQ": 70,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lancia",
+    "Model": "D24 Pininfarina Spider Sport",
+    "19.3 RQ": 40,
+    "20.0 RQ": 41,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "D50",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta HF Integrale Evoluzione",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta Integrale 16v",
+    "19.3 RQ": 55,
+    "20.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "ECV",
+    "19.3 RQ": 91,
+    "20.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Flavia 2000 Coupe",
+    "19.3 RQ": 10,
+    "20.0 RQ": 11,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Fulvia Coupe",
+    "19.3 RQ": 13,
+    "20.0 RQ": 12,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Hyena",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "LC1 Spider",
+    "19.3 RQ": 92,
+    "20.0 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Montecarlo Turbo",
+    "19.3 RQ": 87,
+    "20.0 RQ": 85,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Stratos HF Group 4",
+    "19.3 RQ": 70,
+    "20.0 RQ": 67,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Thema Turbo 16v",
+    "19.3 RQ": 49,
+    "20.0 RQ": 45,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery",
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery 2",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery Si4",
+    "19.3 RQ": 52,
+    "20.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Freelander",
+    "19.3 RQ": 39,
+    "20.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Continental",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Corsair AWD",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Mark VII LSC SE",
+    "19.3 RQ": 25,
+    "20.0 RQ": 29,
+    "RQ Change": 4
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKT",
+    "19.3 RQ": 54,
+    "20.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKZ Hybrid",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Nautilus Black Label AWD",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "2-Eleven S'charged",
+    "19.3 RQ": 78,
+    "20.0 RQ": 75,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lotus",
+    "Model": "3-Eleven 430",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "340R",
+    "19.3 RQ": 60,
+    "20.0 RQ": 62,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elan Sprint",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise 1.6",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise 111S",
+    "19.3 RQ": 53,
+    "20.0 RQ": 55,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Club Racer",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise SC",
+    "19.3 RQ": 62,
+    "20.0 RQ": 64,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Sport 135",
+    "19.3 RQ": 50,
+    "20.0 RQ": 52,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Sprint",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Sprint 220",
+    "19.3 RQ": 70,
+    "20.0 RQ": 68,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Emira GT4",
+    "19.3 RQ": 89,
+    "20.0 RQ": 86,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Esprit V8",
+    "19.3 RQ": 62,
+    "20.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Essex Turbo Esprit",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evija",
+    "19.3 RQ": 100,
+    "20.0 RQ": 103,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora 400",
+    "19.3 RQ": 69,
+    "20.0 RQ": 70,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige Cup 260",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige GT3",
+    "19.3 RQ": 78,
+    "20.0 RQ": 75,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige S1",
+    "19.3 RQ": 59,
+    "20.0 RQ": 61,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige S2",
+    "19.3 RQ": 58,
+    "20.0 RQ": 60,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige Scura",
+    "19.3 RQ": 72,
+    "20.0 RQ": 70,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Mk1 Cortina",
+    "19.3 RQ": 16,
+    "20.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Motorsport Elise",
+    "19.3 RQ": 74,
+    "20.0 RQ": 71,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Maserati",
+    "Model": "3500 GT",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Ghibli SS",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "GranCabrio MC",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "GranCabrio Sport",
+    "19.3 RQ": 55,
+    "20.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Khamsin",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Kyalami",
+    "19.3 RQ": 26,
+    "20.0 RQ": 27,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Quattroporte",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Quattroporte",
+    "19.3 RQ": 58,
+    "20.0 RQ": 59,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Quattroporte Sport GT S",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Spyder GranSport",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Tipo 61 'Birdcage'",
+    "19.3 RQ": 52,
+    "20.0 RQ": 54,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Maybach",
+    "Model": "Vision 6 Cabriolet",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": 3,
+    "19.3 RQ": 37,
+    "20.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": 6,
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "787B",
+    "19.3 RQ": 98,
+    "20.0 RQ": 96,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mazda",
+    "Model": "BBR MX-5 GT270",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Cosmo",
+    "19.3 RQ": 26,
+    "20.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Cosmo",
+    "19.3 RQ": 64,
+    "20.0 RQ": 62,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Eunos Roadster RS-Limited",
+    "19.3 RQ": 33,
+    "20.0 RQ": 30,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Furai",
+    "19.3 RQ": 96,
+    "20.0 RQ": 94,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Jota MX-5 GT",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-5",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-5",
+    "19.3 RQ": 38,
+    "20.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-5 BBR Turbo",
+    "19.3 RQ": 39,
+    "20.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-7",
+    "19.3 RQ": 27,
+    "20.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-7",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-7 Turbo",
+    "19.3 RQ": 44,
+    "20.0 RQ": 40,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-7 Type RS",
+    "19.3 RQ": 53,
+    "20.0 RQ": 55,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-8",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "12C",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "12C GT3",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "570S Coupe",
+    "19.3 RQ": 88,
+    "20.0 RQ": 85,
+    "RQ Change": -3
+  },
+  {
+    "Make": "McLaren",
+    "Model": "570S Spider",
+    "19.3 RQ": 87,
+    "20.0 RQ": 84,
+    "RQ Change": -3
+  },
+  {
+    "Make": "McLaren",
+    "Model": "600LT Coupe",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "600LT Spider",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "650S Coupe",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "650S GT3",
+    "19.3 RQ": 95,
+    "20.0 RQ": 92,
+    "RQ Change": -3
+  },
+  {
+    "Make": "McLaren",
+    "Model": "675LT",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S Coupe",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S GT3",
+    "19.3 RQ": 92,
+    "20.0 RQ": 94,
+    "RQ Change": 2
+  },
+  {
+    "Make": "McLaren",
+    "Model": "720S Spider",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 GT",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 GTR Short Tail",
+    "19.3 RQ": 90,
+    "20.0 RQ": 92,
+    "RQ Change": 2
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 LM",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "GT",
+    "19.3 RQ": 89,
+    "20.0 RQ": 86,
+    "RQ Change": -3
+  },
+  {
+    "Make": "McLaren",
+    "Model": "P1™",
+    "19.3 RQ": 94,
+    "20.0 RQ": 95,
+    "RQ Change": 1
+  },
+  {
+    "Make": "McLaren",
+    "Model": "P1™ GTR",
+    "19.3 RQ": 95,
+    "20.0 RQ": 97,
+    "RQ Change": 2
+  },
+  {
+    "Make": "McLaren",
+    "Model": "Senna",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "CLK DTM",
+    "19.3 RQ": 74,
+    "20.0 RQ": 72,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "G 63",
+    "19.3 RQ": 55,
+    "20.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "G 63 6x6",
+    "19.3 RQ": 53,
+    "20.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "GT 4-Door Coupé",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "GT4",
+    "19.3 RQ": 85,
+    "20.0 RQ": 82,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "S 63 Cabriolet",
+    "19.3 RQ": 78,
+    "20.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-AMG",
+    "Model": "SLS GT3",
+    "19.3 RQ": 95,
+    "20.0 RQ": 92,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "190 E Evo II",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "300 SL",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "300 SLR",
+    "19.3 RQ": 35,
+    "20.0 RQ": 36,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "500 SLC",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "C 55 AMG Estate",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "C11",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "C111-II",
+    "19.3 RQ": 52,
+    "20.0 RQ": 50,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "CLK 230 K",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "CLS 400",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "E 430",
+    "19.3 RQ": 56,
+    "20.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "E 55 AMG",
+    "19.3 RQ": 62,
+    "20.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 500 Cabriolet",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 55 AMG",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "GLA 220d",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "GLC 250d",
+    "19.3 RQ": 52,
+    "20.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "S 55 AMG",
+    "19.3 RQ": 55,
+    "20.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SL 500",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLK 200",
+    "19.3 RQ": 38,
+    "20.0 RQ": 39,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLR McLaren 722",
+    "19.3 RQ": 78,
+    "20.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLS AMG Electric",
+    "19.3 RQ": 83,
+    "20.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Cyclone Cobra Jet",
+    "19.3 RQ": 27,
+    "20.0 RQ": 28,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Cyclone GT",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Grand Marquis",
+    "19.3 RQ": 27,
+    "20.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Marauder",
+    "19.3 RQ": 27,
+    "20.0 RQ": 28,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Marauder S-55",
+    "19.3 RQ": 37,
+    "20.0 RQ": 33,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Mercury",
+    "Model": "MC2",
+    "19.3 RQ": 28,
+    "20.0 RQ": 29,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Meta One",
+    "19.3 RQ": 60,
+    "20.0 RQ": 55,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Milan",
+    "19.3 RQ": 20,
+    "20.0 RQ": 21,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Montego",
+    "19.3 RQ": 31,
+    "20.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mini",
+    "Model": "Cooper S",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mini",
+    "Model": "Cooper S",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mini",
+    "Model": "Cooper S Convertible Sidewalk",
+    "19.3 RQ": 40,
+    "20.0 RQ": 41,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mini",
+    "Model": "Countryman Cooper SD ALL4",
+    "19.3 RQ": 63,
+    "20.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mini",
+    "Model": "Electric Pacesetter inspired by JCW",
+    "19.3 RQ": 36,
+    "20.0 RQ": 38,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Mini",
+    "Model": "JCW ALL4 Countryman",
+    "19.3 RQ": 67,
+    "20.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mini",
+    "Model": "JCW Convertible",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mini",
+    "Model": "John Cooper Works",
+    "19.3 RQ": 54,
+    "20.0 RQ": 55,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Colt",
+    "19.3 RQ": 23,
+    "20.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evo VIII 260",
+    "19.3 RQ": 68,
+    "20.0 RQ": 71,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer GS4",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Outlander PHEV",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "3-Wheeler",
+    "19.3 RQ": 44,
+    "20.0 RQ": 42,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Morgan",
+    "Model": "3-Wheeler P101",
+    "19.3 RQ": 45,
+    "20.0 RQ": 43,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Aero 8 race car",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "AR Plus 4",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "EV3",
+    "19.3 RQ": 17,
+    "20.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 4 Super Sports Baby Doll VI",
+    "19.3 RQ": 38,
+    "20.0 RQ": 39,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 8",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Four",
+    "19.3 RQ": 51,
+    "20.0 RQ": 53,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Four race car",
+    "19.3 RQ": 55,
+    "20.0 RQ": 57,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Roadster 3.0 V6",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Roadster 3.7 V6",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Super 3",
+    "19.3 RQ": 31,
+    "20.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "200SX",
+    "19.3 RQ": 38,
+    "20.0 RQ": 39,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "240SX (S13)",
+    "19.3 RQ": 25,
+    "20.0 RQ": 26,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Bluebird SSS ATTESA (U14)",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Cherry Coupé X-1",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R Egoist (R35)",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R GT500 (R35)",
+    "19.3 RQ": 92,
+    "20.0 RQ": 94,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R LM Nismo",
+    "19.3 RQ": 97,
+    "20.0 RQ": 95,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R Nismo",
+    "19.3 RQ": 93,
+    "20.0 RQ": 94,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Juke",
+    "19.3 RQ": 27,
+    "20.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Juke",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Juke Nismo RS 4WD M-Xtronic",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Juke-R",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Leaf",
+    "19.3 RQ": 23,
+    "20.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Leopard XR (Y33)",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Nismo Z GT500",
+    "19.3 RQ": 92,
+    "20.0 RQ": 89,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pathfinder",
+    "19.3 RQ": 32,
+    "20.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Primera Super Touring (P11)",
+    "19.3 RQ": 77,
+    "20.0 RQ": 72,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pulsar",
+    "19.3 RQ": 19,
+    "20.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pulsar Nismo",
+    "19.3 RQ": 50,
+    "20.0 RQ": 51,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Qashqai",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R381",
+    "19.3 RQ": 84,
+    "20.0 RQ": 82,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R390 GT1 Race Car",
+    "19.3 RQ": 91,
+    "20.0 RQ": 93,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R85V",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia 200SX Group A (S12)",
+    "19.3 RQ": 67,
+    "20.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia 240RS",
+    "19.3 RQ": 69,
+    "20.0 RQ": 67,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia Nismo 270R (S14)",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia Spec-R (S15)",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Skyline 370GT Type-S (V36)",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Skyline GT-R Group A (R32)",
+    "19.3 RQ": 86,
+    "20.0 RQ": 84,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Skyline GT-R LM Nismo (R33) Road Car",
+    "19.3 RQ": 60,
+    "20.0 RQ": 62,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Wingroad (Y11)",
+    "19.3 RQ": 38,
+    "20.0 RQ": 35,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Nissan",
+    "Model": "X-Trail",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Nissan",
+    "Model": "X-Trail GT (T30)",
+    "19.3 RQ": 64,
+    "20.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Achieva",
+    "19.3 RQ": 35,
+    "20.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Cutlass 442",
+    "19.3 RQ": 23,
+    "20.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Jetstar 1",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "Adam R2",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Opel",
+    "Model": "GT",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "GT",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "GTC",
+    "19.3 RQ": 61,
+    "20.0 RQ": 62,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "Insignia Country Tourer",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Opel",
+    "Model": "Manta 400",
+    "19.3 RQ": 33,
+    "20.0 RQ": 34,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "Manta 400 Rally",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Opel",
+    "Model": "OPC Extreme",
+    "19.3 RQ": 51,
+    "20.0 RQ": 53,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra",
+    "19.3 RQ": 86,
+    "20.0 RQ": 87,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra BC",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra R",
+    "19.3 RQ": 98,
+    "20.0 RQ": 101,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra Roadster",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra Roadster BC",
+    "19.3 RQ": 91,
+    "20.0 RQ": 93,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra Tricolore",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Imola",
+    "19.3 RQ": 93,
+    "20.0 RQ": 94,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda 760RS",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Cinque",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Cinque Roadster",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda HP Barchetta",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda R",
+    "19.3 RQ": 96,
+    "20.0 RQ": 97,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Revolución",
+    "19.3 RQ": 97,
+    "20.0 RQ": 99,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Tricolore",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": 2008,
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "205 T16 Pikes Peak",
+    "19.3 RQ": 90,
+    "20.0 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "207 S2000",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 T16 Pikes Peak",
+    "19.3 RQ": 107,
+    "20.0 RQ": 106,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 T16 R5",
+    "19.3 RQ": 70,
+    "20.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 WRX",
+    "19.3 RQ": 96,
+    "20.0 RQ": 98,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "3008 DKR Maxi",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "306 Maxi",
+    "19.3 RQ": 63,
+    "20.0 RQ": 64,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "405 T16 Pikes Peak",
+    "19.3 RQ": 91,
+    "20.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "407 Silhouette",
+    "19.3 RQ": 74,
+    "20.0 RQ": 72,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "908 HDi FAP",
+    "19.3 RQ": 102,
+    "20.0 RQ": 100,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "908 RC",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "EX1",
+    "19.3 RQ": 93,
+    "20.0 RQ": 91,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Onyx",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Oxia",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Quasar",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Rally 504",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "RC Diamonds",
+    "19.3 RQ": 47,
+    "20.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "RCZ R",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Plymouth",
+    "Model": "Barracuda 383",
+    "19.3 RQ": 32,
+    "20.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Plymouth",
+    "Model": "Barracuda Fastback",
+    "19.3 RQ": 24,
+    "20.0 RQ": 25,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Plymouth",
+    "Model": "GTX",
+    "19.3 RQ": 31,
+    "20.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Plymouth",
+    "Model": "HEMI ‘Cuda",
+    "19.3 RQ": 36,
+    "20.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Firebird Trans Am",
+    "19.3 RQ": 36,
+    "20.0 RQ": 33,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Grand Am GT",
+    "19.3 RQ": 37,
+    "20.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "GTO Judge Ram Air IV",
+    "19.3 RQ": 33,
+    "20.0 RQ": 30,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Trans Am",
+    "19.3 RQ": 21,
+    "20.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Trans Am 20th Anniversary",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": 917,
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": 936,
+    "19.3 RQ": 90,
+    "20.0 RQ": 88,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Porsche",
+    "Model": 968,
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "550 Spyder",
+    "19.3 RQ": 38,
+    "20.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "718 RSK",
+    "19.3 RQ": 47,
+    "20.0 RQ": 45,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera 4 3.0 (992)",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera 4 3.4 (991)",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera RSR 3.0",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1 Evo",
+    "19.3 RQ": 90,
+    "20.0 RQ": 92,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1-98",
+    "19.3 RQ": 91,
+    "20.0 RQ": 93,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2",
+    "19.3 RQ": 73,
+    "20.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS",
+    "19.3 RQ": 83,
+    "20.0 RQ": 84,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS Clubsport 25",
+    "19.3 RQ": 97,
+    "20.0 RQ": 99,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 Cup (992)",
+    "19.3 RQ": 94,
+    "20.0 RQ": 91,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 RS",
+    "19.3 RQ": 84,
+    "20.0 RQ": 85,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 RSR (997)",
+    "19.3 RQ": 89,
+    "20.0 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 RSR-19 (991.2)",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Targa 4 GTS 3.8 (991)",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Targa 4S",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.7 (992)",
+    "19.3 RQ": 95,
+    "20.0 RQ": 96,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.8 (991.2)",
+    "19.3 RQ": 93,
+    "20.0 RQ": 94,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.8 Cabriolet (991.2)",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "918 Spyder",
+    "19.3 RQ": 100,
+    "20.0 RQ": 103,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Porsche",
+    "Model": "919 Hybrid Evo",
+    "19.3 RQ": 113,
+    "20.0 RQ": 112,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "924 Carrera GTS Rallye",
+    "19.3 RQ": 69,
+    "20.0 RQ": 67,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "935 ‘Moby Dick’",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "935 (991.2)",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "956 C",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "962 C",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Boxster",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Boxster",
+    "19.3 RQ": 54,
+    "20.0 RQ": 55,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne 3.0 (9Y0)",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne 3.6 (958)",
+    "19.3 RQ": 66,
+    "20.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Diesel 3.0 (958)",
+    "19.3 RQ": 61,
+    "20.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo",
+    "19.3 RQ": 76,
+    "20.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo Coupé 4.0 (9Y3)",
+    "19.3 RQ": 91,
+    "20.0 RQ": 92,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo GT",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo S E-Hybrid 4.0 (9Y0)",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Macan S Diesel 3.0 (95B)",
+    "19.3 RQ": 73,
+    "20.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Panamera 2.9 (971.2)",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Panamera Turbo",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Panamera Turbo S E-Hybrid Sport Turismo 4.0 (971.2)",
+    "19.3 RQ": 90,
+    "20.0 RQ": 91,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "RS Spyder Evo",
+    "19.3 RQ": 98,
+    "20.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Taycan Turbo S",
+    "19.3 RQ": 86,
+    "20.0 RQ": 88,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Taycan Turbo S Cross Turismo",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ram",
+    "Model": "1500 Classic Warlock",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ram",
+    "Model": "1500 TRX",
+    "19.3 RQ": 74,
+    "20.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ram",
+    "Model": "Rebel TRX",
+    "19.3 RQ": 71,
+    "20.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Range Rover",
+    "Model": "4.4 V8",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Range Rover",
+    "Model": "Sport",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "5 Turbo",
+    "19.3 RQ": 41,
+    "20.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Alaskan",
+    "19.3 RQ": 45,
+    "20.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Fuego Turbo",
+    "19.3 RQ": 19,
+    "20.0 RQ": 17,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Renault",
+    "Model": "Kadjar",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Koleos",
+    "19.3 RQ": 34,
+    "20.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "R20 Turbo 4x4",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "R5 MAXI TURBO",
+    "19.3 RQ": 68,
+    "20.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Safrane Biturbo",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Trezor",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Renault",
+    "Model": "Twizy",
+    "19.3 RQ": 16,
+    "20.0 RQ": 17,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Clio 172 Cup",
+    "19.3 RQ": 42,
+    "20.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Clio 182 Trophy",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Clio V6",
+    "19.3 RQ": 44,
+    "20.0 RQ": 45,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Laguna Super Touring",
+    "19.3 RQ": 77,
+    "20.0 RQ": 72,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Mégane",
+    "19.3 RQ": 48,
+    "20.0 RQ": 49,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Mégane 275 Trophy-R",
+    "19.3 RQ": 60,
+    "20.0 RQ": 61,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "Mégane IV R.S.",
+    "19.3 RQ": 50,
+    "20.0 RQ": 52,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Renault Sport",
+    "Model": "R.S. 01",
+    "19.3 RQ": 93,
+    "20.0 RQ": 95,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Rezvani",
+    "Model": "Beast",
+    "19.3 RQ": 89,
+    "20.0 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Rezvani",
+    "Model": "Beast Alpha",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Rezvani",
+    "Model": "Beast Alpha X Blackbird",
+    "19.3 RQ": 90,
+    "20.0 RQ": 86,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Rezvani",
+    "Model": "Beast X",
+    "19.3 RQ": 92,
+    "20.0 RQ": 90,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Concept_One",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Concept_S",
+    "19.3 RQ": 98,
+    "20.0 RQ": 100,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Rimac",
+    "Model": "E-Runner Concept_One",
+    "19.3 RQ": 102,
+    "20.0 RQ": 105,
+    "RQ Change": 3
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Nevera",
+    "19.3 RQ": 105,
+    "20.0 RQ": 107,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Rover",
+    "Model": 800,
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3 Clubsport",
+    "19.3 RQ": 88,
+    "20.0 RQ": 89,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "Dakara",
+    "19.3 RQ": 81,
+    "20.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "R Turbo",
+    "19.3 RQ": 89,
+    "20.0 RQ": 90,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "Rt 12 S",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Ruf",
+    "Model": "RtR",
+    "19.3 RQ": 97,
+    "20.0 RQ": 98,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ruf",
+    "Model": "Turbo Florio",
+    "19.3 RQ": 92,
+    "20.0 RQ": 93,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Saleen",
+    "Model": "S7",
+    "19.3 RQ": 82,
+    "20.0 RQ": 83,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Saleen",
+    "Model": "S7 Twin Turbo",
+    "19.3 RQ": 87,
+    "20.0 RQ": 88,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Ion",
+    "19.3 RQ": 23,
+    "20.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Vue",
+    "19.3 RQ": 42,
+    "20.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Vue Redline",
+    "19.3 RQ": 57,
+    "20.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Scuderia Cameron Glickenhaus",
+    "Model": "SCG003S",
+    "19.3 RQ": 94,
+    "20.0 RQ": 96,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Smart",
+    "Model": "Fortwo Coupe T",
+    "19.3 RQ": 23,
+    "20.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Double 12 S (Stage V)",
+    "19.3 RQ": 80,
+    "20.0 RQ": 82,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Spyder T",
+    "19.3 RQ": 74,
+    "20.0 RQ": 72,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Subaru",
+    "Model": 360,
+    "19.3 RQ": 13,
+    "20.0 RQ": 14,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Ascent",
+    "19.3 RQ": 55,
+    "20.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Baja Turbo",
+    "19.3 RQ": 54,
+    "20.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Brat",
+    "19.3 RQ": 29,
+    "20.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Crosstrek Limited",
+    "19.3 RQ": 58,
+    "20.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Crosstrek Sport",
+    "19.3 RQ": 58,
+    "20.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester XT Turbo (SG)",
+    "19.3 RQ": 69,
+    "20.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza",
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza Casa Blanca",
+    "19.3 RQ": 33,
+    "20.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza Gravel Express (GC8C)",
+    "19.3 RQ": 62,
+    "20.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza WRX (GC8G)",
+    "19.3 RQ": 63,
+    "20.0 RQ": 64,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy 2.0GT (BP)",
+    "19.3 RQ": 58,
+    "20.0 RQ": 59,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy B4 GT300 (BM)",
+    "19.3 RQ": 84,
+    "20.0 RQ": 81,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy B4 RS30 (BE)",
+    "19.3 RQ": 51,
+    "20.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Leone",
+    "19.3 RQ": 26,
+    "20.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Rex Combi 4WD Turbo",
+    "19.3 RQ": 28,
+    "20.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Tribeca",
+    "19.3 RQ": 52,
+    "20.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "XV (GT)",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Subaru",
+    "Model": "XV Crosstrek",
+    "19.3 RQ": 46,
+    "20.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Celerio",
+    "19.3 RQ": 21,
+    "20.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "GSX-R/4",
+    "19.3 RQ": 73,
+    "20.0 RQ": 71,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Hayabusa Sport Prototype",
+    "19.3 RQ": 78,
+    "20.0 RQ": 75,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny Sierra",
+    "19.3 RQ": 38,
+    "20.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Pikes Peak XL7",
+    "19.3 RQ": 99,
+    "20.0 RQ": 103,
+    "RQ Change": 4
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Swift Sport Cup",
+    "19.3 RQ": 55,
+    "20.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "SX4",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara",
+    "19.3 RQ": 38,
+    "20.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara S",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "XL-7",
+    "19.3 RQ": 47,
+    "20.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Make": "TVR",
+    "Model": "400SE",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "420 SEAC",
+    "19.3 RQ": 51,
+    "20.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "420 Sports Saloon",
+    "19.3 RQ": 45,
+    "20.0 RQ": 46,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "450 SEAC",
+    "19.3 RQ": 56,
+    "20.0 RQ": 57,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "450SE",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Cerbera Speed 12",
+    "19.3 RQ": 91,
+    "20.0 RQ": 89,
+    "RQ Change": -2
+  },
+  {
+    "Make": "TVR",
+    "Model": "Cerbera Speed Six",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Chimaera 5.0",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Grantura",
+    "19.3 RQ": 14,
+    "20.0 RQ": 13,
+    "RQ Change": -1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Griffith 200",
+    "19.3 RQ": 52,
+    "20.0 RQ": 50,
+    "RQ Change": -2
+  },
+  {
+    "Make": "TVR",
+    "Model": "Griffith 4.3",
+    "19.3 RQ": 53,
+    "20.0 RQ": 50,
+    "RQ Change": -3
+  },
+  {
+    "Make": "TVR",
+    "Model": "Griffith 400",
+    "19.3 RQ": 50,
+    "20.0 RQ": 52,
+    "RQ Change": 2
+  },
+  {
+    "Make": "TVR",
+    "Model": "Griffith 500",
+    "19.3 RQ": 53,
+    "20.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "S3C",
+    "19.3 RQ": 36,
+    "20.0 RQ": 37,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Taimar Turbo",
+    "19.3 RQ": 38,
+    "20.0 RQ": 39,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tamora",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tuscan race car",
+    "19.3 RQ": 79,
+    "20.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tuscan V8",
+    "19.3 RQ": 34,
+    "20.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Make": "TVR",
+    "Model": "Typhon",
+    "19.3 RQ": 80,
+    "20.0 RQ": 81,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Can-Am",
+    "19.3 RQ": 77,
+    "20.0 RQ": 75,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Evolution Convertible",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Evolution Coupe",
+    "19.3 RQ": 95,
+    "20.0 RQ": 92,
+    "RQ Change": -3
+  },
+  {
+    "Make": "Ultima",
+    "Model": "RS",
+    "19.3 RQ": 101,
+    "20.0 RQ": 97,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Spyder",
+    "19.3 RQ": 71,
+    "20.0 RQ": 69,
+    "RQ Change": -2
+  },
+  {
+    "Make": "Vauxhall",
+    "Model": "Firenza Baby Bertha",
+    "19.3 RQ": 73,
+    "20.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Vauxhall",
+    "Model": "GTC VXR",
+    "19.3 RQ": 52,
+    "20.0 RQ": 53,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Vauxhall",
+    "Model": "Maloo R8 LSA",
+    "19.3 RQ": 63,
+    "20.0 RQ": 64,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Vauxhall",
+    "Model": "Mokka 4x4",
+    "19.3 RQ": 31,
+    "20.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Vauxhall",
+    "Model": "Signum",
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Arteon",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Atlas",
+    "19.3 RQ": 41,
+    "20.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Beetle Cabriolet",
+    "19.3 RQ": 37,
+    "20.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Corrado VR6",
+    "19.3 RQ": 40,
+    "20.0 RQ": 41,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf GTI TCR",
+    "19.3 RQ": 74,
+    "20.0 RQ": 69,
+    "RQ Change": -5
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf GTI W12",
+    "19.3 RQ": 75,
+    "20.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf R",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf R400",
+    "19.3 RQ": 85,
+    "20.0 RQ": 86,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Jetta",
+    "19.3 RQ": 43,
+    "20.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Lupo GTI",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Passat",
+    "19.3 RQ": 23,
+    "20.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Polo",
+    "19.3 RQ": 22,
+    "20.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Scirocco R",
+    "19.3 RQ": 46,
+    "20.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Tiguan",
+    "19.3 RQ": 44,
+    "20.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Tiguan",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Touareg",
+    "19.3 RQ": 48,
+    "20.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "850 BTCC",
+    "19.3 RQ": 71,
+    "20.0 RQ": 67,
+    "RQ Change": -4
+  },
+  {
+    "Make": "Volvo",
+    "Model": "C30 T5 R-Design",
+    "19.3 RQ": 43,
+    "20.0 RQ": 44,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S60 R AWD",
+    "19.3 RQ": 67,
+    "20.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S60 T6 AWD",
+    "19.3 RQ": 59,
+    "20.0 RQ": 60,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V60 Polestar",
+    "19.3 RQ": 72,
+    "20.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V60 T8 Polestar",
+    "19.3 RQ": 77,
+    "20.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 R",
+    "19.3 RQ": 57,
+    "20.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC90 T5 AWD",
+    "19.3 RQ": 60,
+    "20.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC90 V8",
+    "19.3 RQ": 56,
+    "20.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Make": "W Motors",
+    "Model": "Fenyr SuperSport",
+    "19.3 RQ": 88,
+    "20.0 RQ": 91,
+    "RQ Change": 3
+  },
+  {
+    "Make": "W Motors",
+    "Model": "Lykan HyperSport",
+    "19.3 RQ": 87,
+    "20.0 RQ": 89,
+    "RQ Change": 2
+  },
+  {
+    "Make": "Zenos",
+    "Model": "E10",
+    "19.3 RQ": 63,
+    "20.0 RQ": 64,
+    "RQ Change": 1
+  },
+  {
+    "Make": "Zenos",
+    "Model": "E10S",
+    "19.3 RQ": 73,
+    "20.0 RQ": 70,
+    "RQ Change": -3
+  }
+]

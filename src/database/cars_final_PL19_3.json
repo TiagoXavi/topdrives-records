@@ -12,7 +12,7 @@
         "country": "DE",
         "topSpeed": 230,
         "acel": 1.9,
-        "hand": 104,
+        "hand": 102,
         "drive": "4WD",
         "tyres": "Slick",
         "mra": null,
@@ -45,7 +45,7 @@
         "country": "DE",
         "topSpeed": 225,
         "acel": 2.4,
-        "hand": 102,
+        "hand": 100,
         "drive": "4WD",
         "tyres": "Slick",
         "mra": null,
@@ -56,7 +56,7 @@
         "bodyTypes": [
             "Coupe"
         ],
-        "fuel": "Hybrid",
+        "fuel": "Diesel",
         "seats": "1",
         "engine": "Mid",
         "tags": [
@@ -78,7 +78,7 @@
         "clearance": "Low",
         "topSpeed": 149,
         "acel": 1.8,
-        "hand": 98,
+        "hand": 97,
         "drive": "4WD",
         "tyres": "Slick",
         "mra": 106.07,
@@ -111,11 +111,11 @@
         "tcs": true,
         "clearance": "Low",
         "topSpeed": 258,
-        "acel": 1.7,
+        "acel": 1.9,
         "hand": 90,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 117.11,
         "weight": 2150,
         "name": "Rimac Nevera",
         "rid": "Rimac_Nevera_2021",
@@ -183,7 +183,7 @@
         "clearance": "Low",
         "topSpeed": 137,
         "acel": 2.2,
-        "hand": 101,
+        "hand": 100,
         "drive": "4WD",
         "tyres": "Slick",
         "mra": 126.59,
@@ -253,10 +253,10 @@
         "country": "DE",
         "topSpeed": 225,
         "acel": 2.5,
-        "hand": 101,
+        "hand": 99,
         "drive": "RWD",
         "tyres": "Slick",
-        "mra": 100,
+        "mra": 126.26,
         "weight": 900,
         "name": "Audi R18 TDI Ultra",
         "rid": "Audi_R18_TDI_Ultra_2011",
@@ -302,7 +302,7 @@
             "Silver or Grey"
         ],
         "bodyTypes": [
-            "SUV"
+            "Hatchback"
         ],
         "fuel": "Electric",
         "seats": "2",
@@ -344,7 +344,7 @@
     {
         "class": "S",
         "rq": 102,
-        "onlyName": "Mission R",
+        "onlyName": "Mission R Concept",
         "brand": "Porsche",
         "year": 2021,
         "tdid": "3486",
@@ -359,7 +359,7 @@
         "tyres": "Slick",
         "mra": null,
         "weight": 1499,
-        "name": "Porsche Mission R",
+        "name": "Porsche Mission R Concept",
         "rid": "Porsche_Mission_R_Concept_2021",
         "tags": [
             "World Expo",
@@ -455,7 +455,7 @@
         "clearance": "Low",
         "topSpeed": 218,
         "acel": 2.6,
-        "hand": 100,
+        "hand": 99,
         "drive": "RWD",
         "tyres": "Slick",
         "mra": 108.33,
@@ -1500,7 +1500,7 @@
         "country": "DE",
         "topSpeed": 230,
         "acel": 2.6,
-        "hand": 99,
+        "hand": 98,
         "drive": "RWD",
         "tyres": "Slick",
         "mra": 100,
@@ -1768,7 +1768,7 @@
         "country": "GB",
         "topSpeed": 200,
         "acel": 2.8,
-        "hand": 91,
+        "hand": 90,
         "drive": "4WD",
         "tyres": "Performance",
         "mra": 101.8,
@@ -2899,7 +2899,7 @@
         "hand": 98,
         "drive": "RWD",
         "tyres": "Slick",
-        "mra": null,
+        "mra": 96.16,
         "weight": 1245,
         "name": "Porsche 911 RSR-19 (991.2)",
         "rid": "Porsche_911_RSR-19_(991.2)_2019",
@@ -3050,7 +3050,7 @@
     {
         "class": "S",
         "rq": 93,
-        "onlyName": "Atom V8",
+        "onlyName": "Atom 500 V8",
         "brand": "Ariel",
         "country": "GB",
         "year": 2011,
@@ -3065,7 +3065,7 @@
         "tyres": "Performance",
         "mra": 75.56,
         "weight": 550,
-        "name": "Ariel Atom V8",
+        "name": "Ariel Atom 500 V8",
         "rid": "Ariel_Atom_500_V8_2011",
         "tags": [
             "Wild Ride",
@@ -6143,7 +6143,7 @@
         "hand": 95,
         "drive": "RWD",
         "tyres": "Slick",
-        "mra": null,
+        "mra": 118.81,
         "weight": 1225,
         "name": "Porsche 911 GT3 RSR (997)",
         "rid": "Porsche_911_GT3_RSR_997_2007",
@@ -6207,7 +6207,7 @@
         "country": "GB",
         "topSpeed": 170,
         "acel": 3.5,
-        "hand": 96,
+        "hand": 95,
         "drive": "RWD",
         "tyres": "Slick",
         "mra": 89.74,
@@ -7890,12 +7890,12 @@
         "tcs": false,
         "clearance": "Mid",
         "topSpeed": 175,
-        "acel": 3.5,
+        "acel": 3.3,
         "hand": 87,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": null,
-        "weight": 1470,
+        "mra": 58.3,
+        "weight": 1410,
         "name": "Mitsubishi Lancer Evo VIII FQ-400",
         "rid": "Mitsubishi_Lancer_Evo_VIII_FQ-400_2004",
         "tags": [
@@ -8647,7 +8647,6 @@
         "tags": [
             "German Renaissance",
             "Year of the Ox",
-            "Concept",
             "Yellow"
         ],
         "bodyTypes": [
@@ -8700,11 +8699,11 @@
         "tcs": true,
         "clearance": "Low",
         "topSpeed": 202,
-        "acel": 4,
+        "acel": 3.2,
         "hand": 86,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 67.23,
         "weight": 1705,
         "name": "Lamborghini Gallardo LP560-4 Spyder (2nd gen)",
         "rid": "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009",
@@ -10655,7 +10654,7 @@
     {
         "class": "S",
         "rq": 82,
-        "onlyName": "GT",
+        "onlyName": "GT Concept",
         "brand": "Citroen",
         "country": "FR",
         "year": 2008,
@@ -10670,7 +10669,7 @@
         "tyres": "Performance",
         "mra": 107.88,
         "weight": 1400,
-        "name": "Citroen GT",
+        "name": "Citroen GT Concept",
         "rid": "Citroen_GT_2008",
         "tags": [
             "Concept",
@@ -11219,7 +11218,7 @@
         "hand": 91,
         "drive": "RWD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 102.17,
         "weight": 1250,
         "name": "Porsche 911 GT1 Strassenversion (993)",
         "rid": "Porsche_911_GT1_Strassenversion_993_1996",
@@ -12545,7 +12544,7 @@
         "country": "IT",
         "year": 1989,
         "tdid": "1588",
-        "abs": false,
+        "abs": true,
         "tcs": false,
         "clearance": "Mid",
         "topSpeed": 134,
@@ -13223,12 +13222,12 @@
         "abs": false,
         "tcs": false,
         "clearance": "Mid",
-        "topSpeed": 125,
-        "acel": 4.2,
+        "topSpeed": 120,
+        "acel": 3.9,
         "hand": 86,
         "drive": "4WD",
         "tyres": "Off-road",
-        "mra": 97.67,
+        "mra": 93.99,
         "weight": 1230,
         "name": "Subaru Impreza Group A",
         "rid": "Subaru_Impreza_Group_A_1995",
@@ -15755,7 +15754,7 @@
         "drive": "4WD",
         "tyres": "Performance",
         "mra": 63.35,
-        "weight": 1470,
+        "weight": 1400,
         "name": "Mitsubishi Lancer Evo VIII MR FQ-340",
         "rid": "Mitsubishi_Lancer_Evo_VIII_MR_FQ-340_2005",
         "tags": [
@@ -15836,7 +15835,7 @@
     {
         "class": "A",
         "rq": 78,
-        "onlyName": "DS Numero 9",
+        "onlyName": "DS Numero 9 Concept",
         "brand": "Citroen",
         "country": "FR",
         "year": 2012,
@@ -15851,7 +15850,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1500,
-        "name": "Citroen DS Numero 9",
+        "name": "Citroen DS Numero 9 Concept",
         "rid": "DS_DS_Numero_9_2012",
         "tags": [
             "Concept",
@@ -16995,7 +16994,7 @@
     {
         "class": "A",
         "rq": 77,
-        "onlyName": "D12",
+        "onlyName": "D12 Concept",
         "brand": "Spyker",
         "country": "NL",
         "year": 2006,
@@ -17010,7 +17009,7 @@
         "tyres": "All-surface",
         "mra": 84.59,
         "weight": 1850,
-        "name": "Spyker D12",
+        "name": "Spyker D12 Concept",
         "rid": "Spyker_D12_Peking-to-Paris_2006",
         "tags": [
             "Concept",
@@ -17847,7 +17846,7 @@
         "clearance": "Mid",
         "topSpeed": 145,
         "acel": 4.9,
-        "hand": 84,
+        "hand": 85,
         "drive": "4WD",
         "tyres": "Performance",
         "mra": 83.5,
@@ -18968,7 +18967,7 @@
     {
         "class": "A",
         "rq": 75,
-        "onlyName": "Mustang GT-R",
+        "onlyName": "Mustang GT-R Concept",
         "brand": "Ford",
         "country": "US",
         "year": 2004,
@@ -18983,7 +18982,7 @@
         "tyres": "Slick",
         "mra": 79.97,
         "weight": 1350,
-        "name": "Ford Mustang GT-R",
+        "name": "Ford Mustang GT-R Concept",
         "rid": "Ford_Mustang_GT-R_Concept_2004",
         "tags": [
             "American Frontier",
@@ -19099,7 +19098,7 @@
     {
         "class": "A",
         "rq": 75,
-        "onlyName": "Survolt",
+        "onlyName": "Survolt Concept",
         "brand": "DS",
         "country": "FR",
         "year": 2010,
@@ -19114,7 +19113,7 @@
         "tyres": "Performance",
         "mra": 70.15,
         "weight": 1400,
-        "name": "DS Survolt",
+        "name": "DS Survolt Concept",
         "rid": "DS_Survolt_2010",
         "tags": [
             "Concept",
@@ -19274,7 +19273,7 @@
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 66.07,
-        "weight": 1299,
+        "weight": 1258,
         "name": "Lotus Evora GT430",
         "rid": "Lotus_Evora_GT430_2018",
         "tags": [
@@ -20254,7 +20253,7 @@
     {
         "class": "A",
         "rq": 74,
-        "onlyName": "C Xperience",
+        "onlyName": "C Xperience Concept",
         "brand": "Citroen",
         "country": "FR",
         "year": 2016,
@@ -20269,7 +20268,7 @@
         "tyres": "Standard",
         "mra": 83.84,
         "weight": 1500,
-        "name": "Citroen C Xperience",
+        "name": "Citroen C Xperience Concept",
         "rid": "Citroen_CXperience_2016",
         "tags": [
             "Concept",
@@ -21116,7 +21115,6 @@
         "tags": [
             "German Renaissance",
             "Year of the Ox",
-            "Concept",
             "Red"
         ],
         "bodyTypes": [
@@ -22975,7 +22973,7 @@
         "hand": 84,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 61,
         "weight": 1834,
         "name": "Volvo V60 Polestar",
         "rid": "Volvo_V60_Polestar_2015",
@@ -23321,7 +23319,7 @@
     {
         "class": "A",
         "rq": 71,
-        "onlyName": "Rebel TRX",
+        "onlyName": "Rebel TRX Concept",
         "brand": "RAM",
         "country": "US",
         "year": 2016,
@@ -23336,7 +23334,7 @@
         "tyres": "Off-road",
         "mra": 90,
         "weight": 2721,
-        "name": "RAM Rebel TRX",
+        "name": "RAM Rebel TRX Concept",
         "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
         "tags": [
             "American Frontier",
@@ -24096,7 +24094,7 @@
         "hand": 82,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": 72.46,
+        "mra": 75.76,
         "weight": 1755,
         "name": "Audi S5 Sportback (B8)",
         "rid": "Audi_S5_Sportback_(B8)_2013",
@@ -24337,7 +24335,7 @@
     {
         "class": "A",
         "rq": 71,
-        "onlyName": "850 Touring Car",
+        "onlyName": "850 BTCC",
         "brand": "Volvo",
         "country": "SE",
         "year": 1994,
@@ -24352,7 +24350,7 @@
         "tyres": "Slick",
         "mra": 88.24,
         "weight": 975,
-        "name": "Volvo 850 Touring Car",
+        "name": "Volvo 850 BTCC",
         "rid": "Volvo_850_BTCC_1994",
         "tags": [
             "Motorsport",
@@ -25651,7 +25649,7 @@
             "Black"
         ],
         "bodyTypes": [
-            "SUV"
+            "Hatchback"
         ],
         "fuel": "Electric",
         "seats": "5",
@@ -25982,7 +25980,7 @@
     {
         "class": "A",
         "rq": 69,
-        "onlyName": "Deauville",
+        "onlyName": "Deauville Concept",
         "brand": "De Tomaso",
         "year": 2011,
         "tdid": "3369",
@@ -25997,7 +25995,7 @@
         "tyres": "Standard",
         "mra": 59.74,
         "weight": 1850,
-        "name": "De Tomaso Deauville",
+        "name": "De Tomaso Deauville Concept",
         "rid": "De_Tomaso_Deauville_Concept_2011",
         "tags": [
             "World Expo",
@@ -27874,11 +27872,11 @@
         "tcs": false,
         "clearance": "Mid",
         "topSpeed": 152,
-        "acel": 4.9,
+        "acel": 5.8,
         "hand": 86,
         "drive": "4WD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 70.13,
         "weight": 1470,
         "name": "Mitsubishi Lancer Evo VIII 260",
         "rid": "Mitsubishi_Lancer_Evo_VIII_260_2004",
@@ -29327,7 +29325,7 @@
         "clearance": "Mid",
         "country": "US",
         "topSpeed": 120,
-        "acel": 3.8,
+        "acel": 3.7,
         "hand": 80,
         "drive": "4WD",
         "tyres": "Performance",
@@ -29343,7 +29341,7 @@
             "Orange"
         ],
         "bodyTypes": [
-            "SUV"
+            "Hatchback"
         ],
         "fuel": "Electric",
         "seats": "5",
@@ -30054,7 +30052,7 @@
     {
         "class": "A",
         "rq": 66,
-        "onlyName": "Metropolis",
+        "onlyName": "Metropolis Concept",
         "brand": "Citroen",
         "country": "FR",
         "year": 2010,
@@ -30069,7 +30067,7 @@
         "tyres": "Standard",
         "mra": 51.55,
         "weight": 2100,
-        "name": "Citroen Metropolis",
+        "name": "Citroen Metropolis Concept",
         "rid": "Citroen_Metropolis_2010",
         "tags": [
             "Concept",
@@ -31665,12 +31663,12 @@
         "year": 2022,
         "tdid": "4308",
         "abs": true,
-        "tcs": true,
+        "tcs": false,
         "clearance": "High",
         "country": "US",
         "topSpeed": 130,
         "acel": 5.9,
-        "hand": 72,
+        "hand": 69,
         "drive": "4WD",
         "tyres": "Off-road",
         "mra": 45.28,
@@ -31683,11 +31681,10 @@
             "Red"
         ],
         "bodyTypes": [
-            "SUV",
-            "Convertible"
+            "SUV"
         ],
         "fuel": "Petrol",
-        "seats": "4",
+        "seats": "5",
         "engine": "Front"
     },
     {
@@ -31695,7 +31692,7 @@
         "rq": 65,
         "onlyName": "F-150 Lightning",
         "brand": "Ford",
-        "year": 2022,
+        "year": 2021,
         "tdid": "4284",
         "abs": true,
         "tcs": true,
@@ -32356,7 +32353,7 @@
         "clearance": "Mid",
         "topSpeed": 155,
         "acel": 5.7,
-        "hand": 77,
+        "hand": 80,
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 56.92,
@@ -34192,7 +34189,7 @@
         "hand": 75,
         "drive": "RWD",
         "tyres": "Standard",
-        "mra": 65.12,
+        "mra": 70.89,
         "weight": 1910,
         "name": "BMW 530e Saloon",
         "rid": "BMW_530e_Saloon_2020",
@@ -34403,7 +34400,7 @@
     {
         "class": "B",
         "rq": 63,
-        "onlyName": "Eva GT",
+        "onlyName": "Eva GT Concept",
         "brand": "Morgan",
         "year": 2010,
         "tdid": "3870",
@@ -34418,7 +34415,7 @@
         "tyres": "Performance",
         "mra": 76.79,
         "weight": 1250,
-        "name": "Morgan Eva GT",
+        "name": "Morgan Eva GT Concept",
         "rid": "Morgan_Eva_GT_Concept_2010",
         "prize": false,
         "tags": [
@@ -34787,7 +34784,6 @@
             "Brown"
         ],
         "bodyTypes": [
-            "Saloon",
             "SUV"
         ],
         "fuel": "Petrol",
@@ -38542,11 +38538,10 @@
             "Red"
         ],
         "bodyTypes": [
-            "SUV",
-            "Convertible"
+            "SUV"
         ],
         "fuel": "Petrol",
-        "seats": "4",
+        "seats": "5",
         "engine": "Front"
     },
     {
@@ -39485,7 +39480,7 @@
     {
         "class": "B",
         "rq": 59,
-        "onlyName": "F-100 Eluminator",
+        "onlyName": "F-100 Eluminator Concept",
         "brand": "Ford",
         "year": 2021,
         "tdid": "4306",
@@ -39500,7 +39495,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 2331,
-        "name": "Ford F-100 Eluminator",
+        "name": "Ford F-100 Eluminator Concept",
         "rid": "Ford_F100_Eluminator_Concept_2021",
         "prize": true,
         "tags": [
@@ -41151,7 +41146,7 @@
     {
         "class": "B",
         "rq": 57,
-        "onlyName": "H3T",
+        "onlyName": "H3T Concept",
         "brand": "Hummer",
         "year": 2004,
         "tdid": "3280",
@@ -41166,7 +41161,7 @@
         "tyres": "Off-road",
         "mra": 19.87,
         "weight": 2109,
-        "name": "Hummer H3T",
+        "name": "Hummer H3T Concept",
         "rid": "Hummer_H3T_Concept_2004",
         "tags": [
             "World Expo",
@@ -41598,7 +41593,7 @@
     {
         "class": "B",
         "rq": 57,
-        "onlyName": "Imperial",
+        "onlyName": "Imperial Concept",
         "brand": "Chrysler",
         "country": "US",
         "year": 2006,
@@ -41613,7 +41608,7 @@
         "tyres": "Standard",
         "mra": 77.98,
         "weight": 1900,
-        "name": "Chrysler Imperial",
+        "name": "Chrysler Imperial Concept",
         "rid": "Chrysler_Imperial_Concept_2006",
         "tags": [
             "Concept",
@@ -42024,7 +42019,7 @@
         "acel": 6.9,
         "hand": 71,
         "drive": "4WD",
-        "tyres": "Off-road",
+        "tyres": "All-surface",
         "mra": 52.75,
         "weight": 1814,
         "name": "Dodge Powerbox",
@@ -43622,8 +43617,8 @@
         "country": "IT",
         "year": 1989,
         "tdid": "933",
-        "abs": true,
-        "tcs": false,
+        "abs": false,
+        "tcs": true,
         "clearance": "Mid",
         "topSpeed": 132,
         "acel": 6.3,
@@ -44917,7 +44912,7 @@
         "country": "US",
         "topSpeed": 106,
         "acel": 6.3,
-        "hand": 74,
+        "hand": 72,
         "drive": "4WD",
         "tyres": "Off-road",
         "mra": null,
@@ -47548,7 +47543,7 @@
     {
         "class": "B",
         "rq": 52,
-        "onlyName": "Monaro CV8-R (V2)",
+        "onlyName": "Monaro CV8-R (VZ)",
         "brand": "Holden",
         "year": 2004,
         "tdid": "3950",
@@ -47558,12 +47553,12 @@
         "country": "AU",
         "topSpeed": 165,
         "acel": 5.7,
-        "hand": 77,
+        "hand": 80,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 76.92,
         "weight": 1640,
-        "name": "Holden Monaro CV8-R (V2)",
+        "name": "Holden Monaro CV8-R (VZ)",
         "rid": "Holden_Monaro_CV8R_VZ_2004",
         "prize": false,
         "tags": [
@@ -47725,12 +47720,12 @@
         "abs": false,
         "tcs": false,
         "clearance": "Mid",
-        "topSpeed": 130,
+        "topSpeed": 145,
         "acel": 7.1,
         "hand": 75,
         "drive": "RWD",
         "tyres": "Off-road",
-        "mra": null,
+        "mra": 52.66,
         "weight": 1350,
         "name": "Peugeot Rally 504",
         "rid": "Peugeot_Rally_504_1971",
@@ -47817,7 +47812,7 @@
     {
         "class": "B",
         "rq": 51,
-        "onlyName": "DS Wild Rubis",
+        "onlyName": "DS Wild Rubis Concept",
         "brand": "Citroen",
         "country": "FR",
         "year": 2013,
@@ -47832,7 +47827,7 @@
         "tyres": "Standard",
         "mra": 62.98,
         "weight": 1800,
-        "name": "Citroen DS Wild Rubis",
+        "name": "Citroen DS Wild Rubis Concept",
         "rid": "DS_Wild_Rubis_2013",
         "tags": [
             "Concept",
@@ -49845,7 +49840,7 @@
     {
         "class": "B",
         "rq": 50,
-        "onlyName": "Pulsar Nismo",
+        "onlyName": "Pulsar Nismo Concept",
         "brand": "Nissan",
         "country": "JP",
         "year": 2015,
@@ -49860,7 +49855,7 @@
         "tyres": "Performance",
         "mra": 60,
         "weight": 1340,
-        "name": "Nissan Pulsar Nismo",
+        "name": "Nissan Pulsar Nismo Concept",
         "rid": "Nissan_Pulsar_Nismo_Concept_2015",
         "tags": [
             "Concept",
@@ -50203,7 +50198,7 @@
     {
         "class": "C",
         "rq": 49,
-        "onlyName": "300M",
+        "onlyName": "300M Concept",
         "brand": "Chrysler",
         "country": "US",
         "year": 1991,
@@ -50218,7 +50213,7 @@
         "tyres": "Performance",
         "mra": 82.74,
         "weight": 1650,
-        "name": "Chrysler 300M",
+        "name": "Chrysler 300M Concept",
         "rid": "Chrysler_300M_Concept_1991",
         "tags": [
             "Concept",
@@ -51289,7 +51284,7 @@
         "country": "IT",
         "topSpeed": 142,
         "acel": 6.8,
-        "hand": 73,
+        "hand": 77,
         "drive": "FWD",
         "tyres": "Standard",
         "mra": 59.8,
@@ -53785,7 +53780,7 @@
         "clearance": "High",
         "topSpeed": 106,
         "acel": 9.7,
-        "hand": 72,
+        "hand": 73,
         "drive": "4WD",
         "tyres": "All-surface",
         "mra": 33.51,
@@ -54209,7 +54204,7 @@
         "drive": "RWD",
         "tyres": "Slick",
         "mra": 81.19,
-        "weight": 1429,
+        "weight": 1800,
         "name": "Jaguar XJS Trans-Am",
         "rid": "Jaguar_XJ-S_Trans-Am_1978",
         "tags": [
@@ -54220,7 +54215,7 @@
             "Coupe"
         ],
         "fuel": "Petrol",
-        "seats": "1",
+        "seats": "4",
         "engine": "Front"
     },
     {
@@ -54915,7 +54910,7 @@
         "bodyTypes": [
             "Saloon"
         ],
-        "fuel": "Diesel",
+        "fuel": "Petrol",
         "seats": "5",
         "engine": "Front",
         "tags": [
@@ -55677,7 +55672,7 @@
     {
         "class": "C",
         "rq": 46,
-        "onlyName": "HX",
+        "onlyName": "HX Concept",
         "brand": "Hummer",
         "year": 2008,
         "tdid": "3282",
@@ -55692,7 +55687,7 @@
         "tyres": "Off-road",
         "mra": 19.16,
         "weight": 1900,
-        "name": "Hummer HX",
+        "name": "Hummer HX Concept",
         "rid": "Hummer_HX_Concept_2008",
         "tags": [
             "World Expo",
@@ -59154,7 +59149,7 @@
     {
         "class": "C",
         "rq": 45,
-        "onlyName": "Fairlane",
+        "onlyName": "Fairlane Concept",
         "brand": "Ford",
         "year": 2005,
         "tdid": "4300",
@@ -59169,7 +59164,7 @@
         "tyres": "Standard",
         "mra": 63.2,
         "weight": 2100,
-        "name": "Ford Fairlane",
+        "name": "Ford Fairlane Concept",
         "rid": "Ford_Fairlane_Concept_2005",
         "prize": false,
         "tags": [
@@ -59187,14 +59182,14 @@
     {
         "class": "C",
         "rq": 45,
-        "onlyName": "Zephyr Reflection",
+        "onlyName": "Zephyr Reflection Concept",
         "brand": "Lincoln",
         "year": 2021,
         "tdid": "4348",
         "abs": true,
         "tcs": true,
         "clearance": "Mid",
-        "country": "CN",
+        "country": "US",
         "topSpeed": 140,
         "acel": 6.4,
         "hand": 74,
@@ -59202,7 +59197,7 @@
         "tyres": "Standard",
         "mra": 55.27,
         "weight": 2050,
-        "name": "Lincoln Zephyr Reflection",
+        "name": "Lincoln Zephyr Reflection Concept",
         "rid": "Lincoln_Zephyr_Reflection_Concept_2021",
         "prize": false,
         "tags": [
@@ -59868,7 +59863,7 @@
         "tdid": "957",
         "abs": false,
         "tcs": false,
-        "clearance": "Low",
+        "clearance": "Mid",
         "topSpeed": 149,
         "acel": 6.7,
         "hand": 80,
@@ -61059,7 +61054,7 @@
         "rq": 44,
         "onlyName": "Evos",
         "brand": "Ford",
-        "year": 2021,
+        "year": 2020,
         "tdid": "4305",
         "abs": true,
         "tcs": true,
@@ -62632,7 +62627,7 @@
         "bodyTypes": [
             "Coupe"
         ],
-        "fuel": "Hybrid",
+        "fuel": "Electric",
         "seats": "4",
         "engine": "Front"
     },
@@ -62704,7 +62699,7 @@
     {
         "class": "C",
         "rq": 43,
-        "onlyName": "Zephyr",
+        "onlyName": "Zephyr Concept",
         "brand": "Lincoln",
         "year": 2004,
         "tdid": "4343",
@@ -62719,7 +62714,7 @@
         "tyres": "Standard",
         "mra": 56.74,
         "weight": 1600,
-        "name": "Lincoln Zephyr",
+        "name": "Lincoln Zephyr Concept",
         "rid": "Lincoln_Zephyr_Concept_2004",
         "prize": false,
         "tags": [
@@ -63612,7 +63607,7 @@
     {
         "class": "C",
         "rq": 42,
-        "onlyName": "Spider Monoposto",
+        "onlyName": "Spider Monoposto Concept",
         "brand": "Alfa Romeo",
         "year": 1998,
         "tdid": "3582",
@@ -63627,7 +63622,7 @@
         "tyres": "Performance",
         "mra": 53.46,
         "weight": 1380,
-        "name": "Alfa Romeo Spider Monoposto",
+        "name": "Alfa Romeo Spider Monoposto Concept",
         "rid": "Alfa_Romeo_Spider_Monoposto_Concept_1998",
         "bodyTypes": [
             "Roadster"
@@ -64060,7 +64055,7 @@
     {
         "class": "C",
         "rq": 42,
-        "onlyName": "Mighty F-350 Tonka",
+        "onlyName": "Mighty F-350 Tonka Concept",
         "brand": "Ford",
         "year": 2002,
         "tdid": "4296",
@@ -64075,7 +64070,7 @@
         "tyres": "Off-road",
         "mra": 22.51,
         "weight": 2950,
-        "name": "Ford Mighty F-350 Tonka",
+        "name": "Ford Mighty F-350 Tonka Concept",
         "rid": "Ford_Mighty_F350_Tonka_Concept_2002",
         "prize": false,
         "tags": [
@@ -64093,7 +64088,7 @@
     {
         "class": "C",
         "rq": 42,
-        "onlyName": "Police Interceptor",
+        "onlyName": "Police Interceptor Concept",
         "brand": "Ford",
         "year": 2002,
         "tdid": "4295",
@@ -64108,7 +64103,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2050,
-        "name": "Ford Police Interceptor",
+        "name": "Ford Police Interceptor Concept",
         "rid": "Ford_Police_Interceptor_Concept_2002",
         "prize": true,
         "tags": [
@@ -64196,7 +64191,7 @@
         "tdid": "4339",
         "abs": true,
         "tcs": true,
-        "clearance": "High",
+        "clearance": "Mid",
         "country": "US",
         "topSpeed": 115,
         "acel": 8.4,
@@ -68274,7 +68269,7 @@
         "clearance": "Low",
         "topSpeed": 130,
         "acel": 6.8,
-        "hand": 81,
+        "hand": 83,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 51.84,
@@ -69501,7 +69496,7 @@
         "clearance": "Low",
         "topSpeed": 117,
         "acel": 8.5,
-        "hand": 77,
+        "hand": 79,
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 61.46,
@@ -69949,7 +69944,7 @@
         "country": "ZA",
         "topSpeed": 142,
         "acel": 6.7,
-        "hand": 77,
+        "hand": 75,
         "drive": "RWD",
         "tyres": "Slick",
         "mra": 82.11,
@@ -69967,7 +69962,7 @@
             "Coupe"
         ],
         "fuel": "Petrol",
-        "seats": "1",
+        "seats": "4",
         "engine": "Front"
     },
     {
@@ -71424,7 +71419,7 @@
     {
         "class": "D",
         "rq": 37,
-        "onlyName": "Opel GT",
+        "onlyName": "Opel GT Concept",
         "brand": "Vauxhall",
         "country": "DE",
         "year": 2016,
@@ -71439,7 +71434,7 @@
         "tyres": "Performance",
         "mra": 49.03,
         "weight": 998,
-        "name": "Vauxhall Opel GT",
+        "name": "Vauxhall Opel GT Concept",
         "rid": "Vauxhall_Opel_GT_Concept_2016",
         "tags": [
             "Concept",
@@ -71713,7 +71708,7 @@
     {
         "class": "D",
         "rq": 37,
-        "onlyName": "Mark VIII LSC",
+        "onlyName": "Mark VIII",
         "brand": "Lincoln",
         "year": 1997,
         "tdid": "4320",
@@ -71722,13 +71717,13 @@
         "clearance": "Mid",
         "country": "US",
         "topSpeed": 135,
-        "acel": 7.0,
+        "acel": 7.9,
         "hand": 70,
         "drive": "RWD",
         "tyres": "Standard",
-        "mra": 62.61,
+        "mra": 55.63,
         "weight": 1709,
-        "name": "Lincoln Mark VIII LSC",
+        "name": "Lincoln Mark VIII",
         "rid": "Lincoln_Mark_VIII_1997",
         "prize": false,
         "tags": [
@@ -72359,7 +72354,7 @@
         "rq": 36,
         "onlyName": "300 Touring",
         "brand": "Chrysler",
-        "country": "GB",
+        "country": "US",
         "year": 2005,
         "tdid": "1040",
         "abs": true,
@@ -72621,7 +72616,7 @@
         "rq": 36,
         "onlyName": "6",
         "brand": "DS",
-        "country": "CN",
+        "country": "FR",
         "year": 2015,
         "tdid": "1138",
         "abs": true,
@@ -73389,7 +73384,7 @@
     {
         "class": "D",
         "rq": 36,
-        "onlyName": "L2K",
+        "onlyName": "L2K Concept",
         "brand": "Lincoln",
         "year": 1995,
         "tdid": "4340",
@@ -73404,7 +73399,7 @@
         "tyres": "Standard",
         "mra": 58.59,
         "weight": 1500,
-        "name": "Lincoln L2K",
+        "name": "Lincoln L2K Concept",
         "rid": "Lincoln_L2K_Concept_1995",
         "prize": false,
         "tags": [
@@ -75006,7 +75001,7 @@
         "country": "US",
         "topSpeed": 143,
         "acel": 6.7,
-        "hand": 73,
+        "hand": 72,
         "drive": "FWD",
         "tyres": "Performance",
         "mra": 65.18,
@@ -75743,7 +75738,7 @@
         "onlyName": "XM V6 24V",
         "brand": "Citroen",
         "country": "FR",
-        "year": 1990,
+        "year": 1989,
         "tdid": "178",
         "abs": true,
         "tcs": false,
@@ -75878,7 +75873,7 @@
         "clearance": "Mid",
         "topSpeed": 125,
         "acel": 8.1,
-        "hand": 71,
+        "hand": 73,
         "drive": "FWD",
         "tyres": "Standard",
         "mra": 52.06,
@@ -76140,7 +76135,7 @@
         "clearance": "Low",
         "topSpeed": 119,
         "acel": 9.7,
-        "hand": 78,
+        "hand": 80,
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 63.91,
@@ -77031,7 +77026,7 @@
         "rq": 34,
         "onlyName": "Blackwood",
         "brand": "Lincoln",
-        "year": 2002,
+        "year": 2001,
         "tdid": "4310",
         "abs": true,
         "tcs": false,
@@ -77847,11 +77842,11 @@
         "tcs": false,
         "clearance": "Low",
         "topSpeed": 116,
-        "acel": 7.9,
+        "acel": 10.1,
         "hand": 81,
         "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 44.18,
+        "tyres": "Standard",
+        "mra": 58.45,
         "weight": 983,
         "name": "Mazda Eunos Roadster RS-Limited",
         "rid": "Mazda_Eunos_Roadster_RS-Limited_1994",
@@ -78484,7 +78479,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "Fulvia Coupe",
+        "onlyName": "Fulvia Coupe Concept",
         "brand": "Lancia",
         "year": 2003,
         "tdid": "3737",
@@ -78499,7 +78494,7 @@
         "tyres": "Performance",
         "mra": 44.18,
         "weight": 990,
-        "name": "Lancia Fulvia Coupe",
+        "name": "Lancia Fulvia Coupe Concept",
         "rid": "Lancia_Fulvia_Coupe_Concept_2003",
         "bodyTypes": [
             "Coupe"
@@ -79222,7 +79217,7 @@
         "rq": 32,
         "onlyName": "Orlando LTZ",
         "brand": "Chevrolet",
-        "country": "KR",
+        "country": "US",
         "year": 2010,
         "tdid": "157",
         "abs": true,
@@ -82565,9 +82560,9 @@
         "clearance": "Mid",
         "topSpeed": 140,
         "acel": 7.5,
-        "hand": 72,
+        "hand": 73,
         "drive": "FWD",
-        "tyres": "Standard",
+        "tyres": "Performance",
         "mra": 58.32,
         "weight": 1520,
         "name": "Ford Taurus SHO",
@@ -84034,7 +84029,7 @@
         "clearance": "Low",
         "topSpeed": 115,
         "acel": 9.9,
-        "hand": 75,
+        "hand": 77,
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 44.8,
@@ -86821,7 +86816,7 @@
     {
         "class": "E",
         "rq": 28,
-        "onlyName": "Mustang Mach 2",
+        "onlyName": "Mustang Mach 2 Concept",
         "brand": "Ford",
         "year": 1967,
         "tdid": "4293",
@@ -86836,7 +86831,7 @@
         "tyres": "Performance",
         "mra": 68.42,
         "weight": 1202,
-        "name": "Ford Mustang Mach 2",
+        "name": "Ford Mustang Mach 2 Concept",
         "rid": "Ford_Mustang_Mach_2_Concept_1967",
         "prize": false,
         "tags": [
@@ -87246,7 +87241,7 @@
         "clearance": "Mid",
         "topSpeed": 146,
         "acel": 6,
-        "hand": 62,
+        "hand": 61,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 55.37,
@@ -87568,7 +87563,7 @@
         "clearance": "Low",
         "topSpeed": 134,
         "acel": 8.5,
-        "hand": 77,
+        "hand": 78,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 60.28,
@@ -88121,7 +88116,7 @@
         "hand": 72,
         "drive": "RWD",
         "tyres": "Performance",
-        "mra": null,
+        "mra": 56.3,
         "weight": 1545,
         "name": "Ford Thunderbird Turbo Coupe",
         "rid": "Ford_Thunderbird_Turbo_Coupe_1987",
@@ -88195,11 +88190,10 @@
             "Brown"
         ],
         "bodyTypes": [
-            "SUV",
-            "Convertible"
+            "SUV"
         ],
         "fuel": "Petrol",
-        "seats": "2",
+        "seats": "5",
         "engine": "Front"
     },
     {
@@ -88335,7 +88329,7 @@
     {
         "class": "E",
         "rq": 27,
-        "onlyName": "Marauder Convertible",
+        "onlyName": "Marauder Convertible Concept",
         "brand": "Mercury",
         "year": 2002,
         "tdid": "4369",
@@ -88350,7 +88344,7 @@
         "tyres": "Performance",
         "mra": 62.66,
         "weight": 1889,
-        "name": "Mercury Marauder Convertible",
+        "name": "Mercury Marauder Convertible Concept",
         "rid": "Mercury_Marauder_Convertible_Concept_2002",
         "prize": false,
         "tags": [
@@ -88470,7 +88464,7 @@
         "onlyName": "CX GTi Turbo",
         "brand": "Citroen",
         "country": "FR",
-        "year": 1985,
+        "year": 1974,
         "tdid": "179",
         "abs": false,
         "tcs": false,
@@ -89310,7 +89304,7 @@
         "clearance": "Low",
         "topSpeed": 140,
         "acel": 6.9,
-        "hand": 71,
+        "hand": 60,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 80.7,
@@ -90506,7 +90500,7 @@
             "Red"
         ],
         "bodyTypes": [
-            "Convertible"
+            "Coupe"
         ],
         "fuel": "Petrol",
         "seats": "5",
@@ -90704,7 +90698,7 @@
     {
         "class": "E",
         "rq": 24,
-        "onlyName": "Mark 2 Touring Car",
+        "onlyName": "Mark 2 BTCC",
         "brand": "Jaguar",
         "country": "GB",
         "year": 1960,
@@ -90719,7 +90713,7 @@
         "tyres": "Performance",
         "mra": 68.49,
         "weight": 1400,
-        "name": "Jaguar Mark 2 Touring Car",
+        "name": "Jaguar Mark 2 BTCC",
         "rid": "Jaguar_Mark_2_BTCC_1960",
         "tags": [
             "Motorsport",
@@ -91961,7 +91955,7 @@
         "year": 2002,
         "tdid": "4330",
         "abs": true,
-        "tcs": true,
+        "tcs": false,
         "clearance": "Mid",
         "country": "US",
         "topSpeed": 110,
@@ -93436,7 +93430,7 @@
     {
         "class": "E",
         "rq": 23,
-        "onlyName": "500 Coupe",
+        "onlyName": "500 Coupe Concept",
         "brand": "Fiat",
         "year": 2011,
         "tdid": "3721",
@@ -93451,7 +93445,7 @@
         "tyres": "Performance",
         "mra": 48.77,
         "weight": 940,
-        "name": "Fiat 500 Coupe",
+        "name": "Fiat 500 Coupe Concept",
         "rid": "Fiat_500_Coupe_Concept_2011",
         "bodyTypes": [
             "Hatchback"
@@ -94382,7 +94376,7 @@
         "clearance": "Mid",
         "topSpeed": 106,
         "acel": 10.7,
-        "hand": 61,
+        "hand": 70,
         "drive": "RWD",
         "tyres": "Standard",
         "mra": 41.7,
@@ -94697,8 +94691,8 @@
         "rq": 22,
         "onlyName": "Lacetti",
         "brand": "Chevrolet",
-        "country": "GB",
-        "year": 2005,
+        "country": "US",
+        "year": 2004,
         "tdid": "1026",
         "abs": true,
         "tcs": true,
@@ -96966,8 +96960,7 @@
             "Beige"
         ],
         "bodyTypes": [
-            "Pickup",
-            "SUV"
+            "Pickup"
         ],
         "fuel": "Hybrid",
         "seats": "4",
@@ -97445,7 +97438,7 @@
         "clearance": "Mid",
         "topSpeed": 124,
         "acel": 8.1,
-        "hand": 67,
+        "hand": 59,
         "drive": "RWD",
         "tyres": "Performance",
         "mra": 61.83,
@@ -98505,7 +98498,7 @@
     {
         "class": "E",
         "rq": 20,
-        "onlyName": "Airstream",
+        "onlyName": "Airstream Concept",
         "brand": "Ford",
         "year": 2007,
         "tdid": "4302",
@@ -98520,7 +98513,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1600,
-        "name": "Ford Airstream",
+        "name": "Ford Airstream Concept",
         "rid": "Ford_Airstream_Concept_2007",
         "prize": false,
         "tags": [
@@ -98543,8 +98536,8 @@
         "brand": "Mercury",
         "year": 2010,
         "tdid": "4354",
-        "abs": true,
-        "tcs": true,
+        "abs": false,
+        "tcs": false,
         "clearance": "Mid",
         "country": "US",
         "topSpeed": 110,
@@ -102869,7 +102862,7 @@
     {
         "class": "F",
         "rq": 17,
-        "onlyName": "Mustang I",
+        "onlyName": "Mustang I Concept",
         "brand": "Ford",
         "year": 1962,
         "tdid": "4258",
@@ -102884,7 +102877,7 @@
         "tyres": "Performance",
         "mra": 57.11,
         "weight": 700,
-        "name": "Ford Mustang I",
+        "name": "Ford Mustang I Concept",
         "rid": "Ford_Mustang_I_Concept_1962",
         "prize": false,
         "tags": [
@@ -103818,13 +103811,13 @@
         "abs": false,
         "tcs": false,
         "clearance": "Mid",
-        "topSpeed": 115,
-        "acel": 13.2,
+        "topSpeed": 112,
+        "acel": 12,
         "hand": 61,
         "drive": "RWD",
         "tyres": "Standard",
-        "mra": null,
-        "weight": 1769,
+        "mra": 54.27,
+        "weight": 1793,
         "name": "Chrysler Turbine Car",
         "rid": "Chrysler_Turbine_Car_1963",
         "tags": [
