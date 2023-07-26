@@ -903,6 +903,7 @@
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
               <button
+                v-if="user && user.username === 'TiagoXavi'"
                 :class="{ D_Button_Loading: eventLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
                 @click="eventSetVisible()">Set visible</button>
