@@ -6571,7 +6571,8 @@ export default {
       this.eventAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/setEventVisible", {
-        date: this.event.date
+        date: this.event.date,
+        name: this.event.name
       })
       .then(res => {
         // nada
