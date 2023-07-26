@@ -902,6 +902,10 @@
                 :class="{ D_Button_Loading: eventLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+                @click="eventSetVisible()">Set visible</button>
             </div>
 
           </template>
@@ -6081,6 +6085,9 @@ export default {
           Vue.set(x, "index", 1);
           styl = `<span class="Event_Daily">Daily Event: </span>${x.name.substr(13)}`
         }
+        if (x.hidden) {
+          styl = `<span class="Event_Hidden">${x.name} (h)</span>`
+        }
         Vue.set(x, "nameStyled", styl);
       })
 
@@ -6559,6 +6566,31 @@ export default {
       }, 100);
       this.decodeTemplateString(result, true);
     },
+    eventSetVisible() {
+      this.eventAnalyseLoading = true;
+
+      axios.post(Vue.preUrl + "/setEventVisible", {
+        date: this.event.date
+      })
+      .then(res => {
+        // nada
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.eventAnalyseLoading = false;
+      });
+    },
     eventOpenShowCarDialog(car, e, igroup, icar) {
       if (e.altKey) {
         this.eventToggleReference(car, igroup);
@@ -6805,85 +6837,68 @@ export default {
       this.optionsDialogActive = true;
     },
     lookForChangedCars(data) {
-      let changed19 = [
-        "Mercedes-Benz_C11_1990",
-        "Jaguar_F-Type_SVR_Coupe_2017",
-        "Audi_Sport_quattro_S1_1985",
-        "Dodge_Challenger_SRT_Demon_2017",
-        "Jaguar_F-Type_R_Coupe_AWD_2016",
-        "Jaguar_F-Type_R_Convertible_2016",
-        "Jaguar_XJ220_1992",
-        "Dodge_Charger_SRT_Hellcat_2015",
-        "Dodge_Challenger_SRT_Hellcat_Widebody_2018",
-        "TVR_Sagaris_2005",
-        "TVR_Tuscan_S_2005",
-        "RAM_RAM_Rebel_TRX_Concept_2016",
-        "Dodge_Challenger_SRT_Hellcat_2015",
-        "MercedesAMG_G_63_2018",
-        "Ford_F-150_Raptor_2018",
-        "Dodge_Charger_Juiced_2013",
-        "Chevrolet_Camaro_SS_2019",
-        "Holden_Commodore_CalaisV_Tourer_VB_2018",
-        "TVR_Cerbera_Speed_Eight_1996",
-        "GMC_Acadia_Denali_2018",
-        "Dodge_Challenger_SRT-10_Concept_2009",
-        "Ford_F-150_SVT_Raptor_2014",
-        "TVR_Tuscan_Convertible_2005",
-        "Dodge_Charger_RT_Scat_Pack_2015",
-        "Chrysler_300C_2013",
-        "Dodge_Challenger_SRT_392_2015",
-        "Dodge_Challenger_SRT8_2009",
-        "GMC_Sierra_All_Terrain_X_2017",
-        "Ram_1500_Rebel_2019",
-        "Vauxhall_Insignia_VXR_Unlimited_2011",
-        "Dodge_Challenger_RT_Scat_Pack_2018",
-        "TVR_Cerbera_Speed_Six_1998",
-        "TVR_Chimaera_5.0_1993",
-        "Dodge_Charger_SRT8_2012",
-        "Dodge_Charger_SRT-8_2006",
-        "Chrysler_300C_Hemi_2005",
+      let changed20 = [
+        "Porsche_919_Hybrid_Evo_2018",
+        "Rimac_Nevera_2021",
+        "Audi_R18_2016",
+        "Peugeot_208_T16_Pikes_Peak_2013",
+        "Volkswagen_I.D._R_Pikes_Peak_2018",
+        "Audi_R18_TDI_Ultra_2011",
+        "Peugeot_908_HDi_FAP_2007",
+        "Audi_R10_TDI_2006",
+        "Arash_AF10_Hybrid_2016",
+        "Porsche_911_RSR-19_(991.2)_2019",
+        "Porsche_911_GT3_RSR_997_2007",
+        "Lotus_Emira_GT4_2021",
+        "Mitsubishi_Lancer_Evo_VIII_FQ-400_2004",
+        "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009",
+        "Porsche_911_GT1_Strassenversion_993_1996",
+        "Lancia_Delta_HF_Integrale_16v_1990",
+        "Subaru_Impreza_Group_A_1995",
+        "Mitsubishi_Lancer_Evo_VIII_MR_FQ-340_2005",
+        "Mitsubishi_Lancer_Evo_IV_1996",
+        "Lotus_Evora_GT430_2018",
+        "Volvo_V60_Polestar_2015",
+        "Audi_S5_Sportback_(B8)_2013",
+        "Mitsubishi_Lancer_Evo_VIII_260_2004",
+        "Ford_Bronco_Raptor_2022",
+        "Ford_Mustang_MachE_GT_2021",
         "Dodge_Powerbox_2001",
-        "Holden_Acadia_LTZV_AWD_2018",
-        "Dodge_Magnum_SRT-8_2006",
-        "Dodge_Charger_Daytona_2017",
-        "Mercedes-Benz_X350d_2018",
-        "Mercedes-Benz_AMG_G_55_2006",
-        "Ford_Thunderbird_3.9l_V8_2002",
-        "Dodge_Charger_RT_2006",
-        "Buick_GNX_1987",
-        "Nissan_Frontier_Attack_(D23)_2017",
-        "Renault_Alaskan_2015",
-        "Ford_F-150_Lightning_2001",
-        "Dodge_Super_8_HEMI_2001",
-        "Chevrolet_Silverado_2016",
-        "Ford_Ranger_Wildtrak_2017",
-        "Ford_F-150_Tremor_FX2_2014",
-        "Dodge_Magnum_RT_2005",
-        "Ford_F-250_Super_Chief_2006",
-        "Chevrolet_Silverado_SS_2006",
-        "Chevrolet_SSR_6.0L_2007",
-        "Nissan_Navara_2005",
-        "Nissan_NP300_Navara_2017",
-        "Fiat_Fullback_Cross_2017",
-        "Ford_Ranger_2016b",
-        "Mitsubishi_L200_2016",
-        "Ford_Ranger_2010",
-        "Ford_Ranger_2012",
-        "Chrysler_Prowler_2001",
-        "Ford_F-150_2007",
-        "Chevrolet_SSR_2003",
-        "Ford_Crown_Victoria_1992",
-        "Chrysler_LeBaron_GTC_1988",
-        "Ford_Ranger_2016a",
-        "Smart_Brabus_Roadster_2005",
-        "Dodge_Slingshot_2004",
-        "Ford_Mustang_Cobra_1979",
-        "Chrysler_LeBaron_Town_&_Country_Station_Wagon_1978"
+        "Mazda_Cosmo_1990",
+        "BMW_530e_Saloon_2020",
+        "Lancia_Delta_Integrale_16v_1989",
+        "Ford_Ranger_Rally_Raid_2014",
+        "Holden_Monaro_CV8R_VZ_2004",
+        "Peugeot_Rally_504_1971",
+        "Jaguar_XJ-S_Trans-Am_1978",
+        "Suzuki_XL-7_1998",
+        "Lancia_Thema_Turbo_16v_1989",
+        "Lincoln_Navigator_2007",
+        "Mazda_RX-7_Turbo_1985",
+        "Ford_Taurus_SHO_1993",
+        "Mazda_MX-5_BBR_Turbo_1990",
+        "Mazda_MX-5_1989",
+        "Ford_Capri_Perana_1971",
+        "Lincoln_Mark_VIII_1997",
+        "Ford_Taurus_SHO_1989",
+        "Mazda_MX-5_1998",
+        "Chrysler_LeBaron_GTS_Turbo_1985",
+        "Mazda_Eunos_Roadster_RS-Limited_1994",
+        "Dodge_Challenger_TA_1970",
+        "Ford_Mustang_Boss_302_1970",
+        "Mazda_RX-7_1978",
+        "Mazda_RX-7_1985",
+        "Ford_Thunderbird_Turbo_Coupe_1987",
+        "Lincoln_Town_Car_Cartier_L_2002",
+        "Ford_Mustang_289_1966",
+        "Mercury_Milan_2010",
+        "Buick_Century_Special_Coupe_1973",
+        "Chrysler_Turbine_Car_1963"
       ];
 
       data.rounds.map((round, iround) => {
         round.races.map((race, irace) => {
-          if (changed19.includes(race.rid)) {
+          if (changed20.includes(race.rid)) {
             console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
           }
         })
@@ -8795,6 +8810,9 @@ body .Main_UserTw3:before {
 }
 .Event_Daily {
   color: #5899fb;
+}
+.Event_Hidden {
+  color: #9ac712;
 }
 .Main_StyledItemMargin {
   margin-top: 10px;

@@ -185,6 +185,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Hidden Event</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="newEventName"
+          type="normal"
+          label="Event name"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setNewEvent()">Create hidden event</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ newEventRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Contest</div>
       <div class="MainSwagger_Buttons">
         <button
@@ -247,6 +268,8 @@ export default {
       gitRes: null,
       configObj: null,
       setConfigRes: null,
+      newEventName: null,
+      newEventRes: null
     }
   },
   watch: {},
@@ -472,6 +495,24 @@ export default {
       axios.post(Vue.preUrl + "/setConfig", obj)
       .then(res => {
         this.setConfigRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    setNewEvent() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/newEvent", {
+        name: this.newEventName,
+        hidden: true
+      })
+      .then(res => {
+        this.newEventRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
