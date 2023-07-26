@@ -758,6 +758,8 @@ export default {
 
       this.searchMax = 20;
 
+      // debugger;
+
       this.searchResult = result;
       this.searchLoading = false;
       this.showingLastest = false;
