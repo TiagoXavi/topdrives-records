@@ -160,6 +160,7 @@ export default {
   p_beforeLeave: "Are you sure you want to leave?",
   p_eventsKingDescription: "You can only see 1 car per rarity. Here is how the complete list works:",
   p_eventsKingLogin: "Login to see the best car for each rarity",
+  p_eventHiddenForPatreons: "This event is a preview available for patreons at least tier 3",
   
   g_joinDiscord: "Join the TDR Discord server to talk about improvement of your template or why your template has been declined.",
   g_rule0: "Your template should have a context for cars that make sense. Like same tag, same country, same tires, same brand, same class... Or any context like Hutch does as requirements for events/challenges.",

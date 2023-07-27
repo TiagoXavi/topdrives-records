@@ -878,6 +878,13 @@
             </div>
 
             <div
+              v-if="event.hidden"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_eventHiddenForPatreons") }}</span>
+            </div>
+
+            <div
               v-if="!user"
               style="margin: 20px auto; max-width: 500px;"
               class="Event_CompilationIncomplete Main_SaveGalleryGuide">
@@ -6020,6 +6027,12 @@ export default {
       if (!event) {
         return;
       }
+      if (event.hidden) {
+        if (!this.user || !this.user.tier || this.user.tier > 3) {
+          return;
+        }
+      }
+      console.log(event);
 
       this.event = event;
       this.eventCurrentId = event.date;
@@ -6087,7 +6100,7 @@ export default {
           styl = `<span class="Event_Daily">Daily Event: </span>${x.name.substr(13)}`
         }
         if (x.hidden) {
-          styl = `<span class="Event_Hidden">${x.name} (h)</span>`
+          styl = `<span class="Event_Hidden">${x.name} (preview)</span>`
         }
         Vue.set(x, "nameStyled", styl);
       })
