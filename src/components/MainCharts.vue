@@ -221,7 +221,7 @@ export default {
     },
     chartAnalyseFinish(listOfRids) {
       this.chartLoading = true;
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
 
       axios.post(Vue.preUrl + "/chart", {
         track: this.chartTrack.code,

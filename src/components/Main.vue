@@ -1974,6 +1974,15 @@
             :label="$t('m_eventName')"
             placeholder="" />
         </div>
+        <div v-if="user && user.username === 'TiagoXavi'" class="Main_SaveGalleryBoxCheck">
+          <div class="Main_SaveGalleryCheckLeft">
+            <BaseCheckBox v-model="eventNewIsHidden"/>
+          </div>
+          <div class="Main_SaveGalleryCheckRight">
+            <div class="Main_OptionsLabel">{{ $t("m_hidden") }}</div>
+          </div>
+        </div>
+              
         <button
           :class="{ D_Button_Loading: eventNewLoading, D_Button_Error: eventNewError }"
           :disabled="eventNewLoading || eventNewError || !eventNewName"
@@ -2320,6 +2329,7 @@ export default {
       eventSelectorDialog: false,
       eventNewDialog: false,
       eventNewName: null,
+      eventNewIsHidden: false,
       eventNewLoading: false,
       eventNewError: false,
       eventRqEditDialog: false,
@@ -6031,8 +6041,8 @@ export default {
         if (!this.user || !this.user.tier || this.user.tier > 3) {
           return;
         }
+        this.$store.commit("START_LOGROCKET", {});
       }
-      console.log(event);
 
       this.event = event;
       this.eventCurrentId = event.date;
@@ -6306,7 +6316,8 @@ export default {
       this.eventNewLoading = true;
 
       axios.post(Vue.preUrl + "/newEvent", {
-        name: this.eventNewName
+        name: this.eventNewName,
+        hidden: this.eventNewIsHidden
       })
       .then(res => {
         setTimeout(() => {
