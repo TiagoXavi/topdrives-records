@@ -34865,25 +34865,24 @@
         "onlyName": "Guara",
         "brand": "De Tomaso",
         "country": "IT",
-        "year": 1993,
-        "tdid": "2720",
+        "year": 1998,
+        "tdid": "2721",
         "abs": false,
         "tcs": false,
         "clearance": "Low",
-        "topSpeed": 170,
-        "acel": 4.9,
+        "topSpeed": 172,
+        "acel": 4.5,
         "hand": 86,
         "drive": "RWD",
         "tyres": "Performance",
-        "mra": 58.48,
-        "weight": 1200,
+        "mra": 55.83,
+        "weight": 1400,
         "name": "De Tomaso Guara",
-        "rid": "De_Tomaso_Guara_1993",
+        "rid": "De_Tomaso_Guara_1998",
         "tags": [
             "Call of the Wild",
             "European Revolution",
-            "The Great Outdoors",
-            "Blue"
+            "Yellow"
         ],
         "bodyTypes": [
             "Coupe"
@@ -38116,24 +38115,25 @@
         "onlyName": "Guara",
         "brand": "De Tomaso",
         "country": "IT",
-        "year": 1998,
-        "tdid": "2721",
+        "year": 1993,
+        "tdid": "2720",
         "abs": false,
         "tcs": false,
         "clearance": "Low",
-        "topSpeed": 172,
-        "acel": 4.5,
+        "topSpeed": 170,
+        "acel": 4.9,
         "hand": 86,
         "drive": "RWD",
         "tyres": "Performance",
-        "mra": 55.83,
-        "weight": 1400,
+        "mra": 58.48,
+        "weight": 1200,
         "name": "De Tomaso Guara",
-        "rid": "De_Tomaso_Guara_1998",
+        "rid": "De_Tomaso_Guara_1993",
         "tags": [
             "Call of the Wild",
             "European Revolution",
-            "Yellow"
+            "The Great Outdoors",
+            "Blue"
         ],
         "bodyTypes": [
             "Coupe"
@@ -69394,39 +69394,6 @@
     {
         "class": "D",
         "rq": 38,
-        "onlyName": "MX-5",
-        "brand": "Mazda",
-        "country": "JP",
-        "year": 1989,
-        "tdid": "961",
-        "abs": true,
-        "tcs": false,
-        "clearance": "Low",
-        "topSpeed": 117,
-        "acel": 8.5,
-        "hand": 77,
-        "drive": "RWD",
-        "tyres": "Standard",
-        "mra": 61.46,
-        "weight": 970,
-        "name": "Mazda MX-5",
-        "rid": "Mazda_MX-5_1989",
-        "tags": [
-            "Style Icon",
-            "Originals",
-            "Racing Royalty",
-            "Black"
-        ],
-        "bodyTypes": [
-            "Roadster"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Front"
-    },
-    {
-        "class": "D",
-        "rq": 38,
         "onlyName": "Cooper Convertible",
         "brand": "Mini",
         "country": "DE",
@@ -70678,6 +70645,39 @@
         "tags": [
             "Italian Renaissance",
             "Silver or Grey"
+        ],
+        "bodyTypes": [
+            "Roadster"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Front"
+    },
+    {
+        "class": "D",
+        "rq": 37,
+        "onlyName": "MX-5",
+        "brand": "Mazda",
+        "country": "JP",
+        "year": 1989,
+        "tdid": "961",
+        "abs": true,
+        "tcs": false,
+        "clearance": "Low",
+        "topSpeed": 117,
+        "acel": 8.5,
+        "hand": 77,
+        "drive": "RWD",
+        "tyres": "Standard",
+        "mra": 61.46,
+        "weight": 970,
+        "name": "Mazda MX-5",
+        "rid": "Mazda_MX-5_1989",
+        "tags": [
+            "Style Icon",
+            "Originals",
+            "Racing Royalty",
+            "Black"
         ],
         "bodyTypes": [
             "Roadster"

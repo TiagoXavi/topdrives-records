@@ -6106,10 +6106,11 @@ export default {
         let styl = x.name;
         Vue.set(x, "index", 0);
         if (x.name.substr(0, 13) === 'Daily Event: ') {
-          Vue.set(x, "index", 1);
+          Vue.set(x, "index", 2);
           styl = `<span class="Event_Daily">Daily Event: </span>${x.name.substr(13)}`
         }
         if (x.hidden) {
+          Vue.set(x, "index", 1);
           styl = `<span class="Event_Hidden">${x.name} (preview)</span>`
         }
         Vue.set(x, "nameStyled", styl);
