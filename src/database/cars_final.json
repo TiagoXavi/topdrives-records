@@ -1586,7 +1586,7 @@
     },
     {
         "class": "S",
-        "rq": 97,
+        "rq": 96,
         "onlyName": "C-X75",
         "brand": "Jaguar",
         "country": "GB",
@@ -1788,7 +1788,7 @@
     },
     {
         "class": "S",
-        "rq": 96,
+        "rq": 97,
         "onlyName": "C-X75",
         "brand": "Jaguar",
         "country": "GB",
@@ -2752,7 +2752,7 @@
     },
     {
         "class": "S",
-        "rq": 95,
+        "rq": 93,
         "onlyName": "Continental GT3",
         "brand": "Bentley",
         "country": "GB",
@@ -3316,7 +3316,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 95,
         "onlyName": "Continental GT3",
         "brand": "Bentley",
         "country": "GB",
@@ -34914,6 +34914,7 @@
         "tags": [
             "American Frontier",
             "Concept",
+            "Eco Friendly",
             "Summer Games",
             "Silver or Grey"
         ],
@@ -54279,6 +54280,7 @@
         "rid": "Jaguar_XJ-S_Trans-Am_1978",
         "tags": [
             "Originals",
+            "Motorsport",
             "White"
         ],
         "bodyTypes": [
