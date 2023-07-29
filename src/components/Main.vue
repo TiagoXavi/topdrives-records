@@ -6835,12 +6835,12 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // if (window.localStorage.getItem("contest2")) return;
+      if (window.localStorage.getItem("contest2")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
-      // if (dt) return;
+      if (dt) return;
 
       window.localStorage.setItem('contest2', "t");
       setTimeout(() => {
