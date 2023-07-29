@@ -50,6 +50,17 @@ export default {
         console.log(x.rid);
         // debugger
       }
+      if (x.country === "XXX") {
+        if (x.brand === "Brabham") x.country = "AU";
+        if (x.brand === "Bufori") x.country = "MY";
+        if (x.brand === "Ford") x.country = "AU";
+        if (x.brand === "Giocattolo") x.country = "AU";
+        if (x.brand === "Holden") x.country = "AU";
+        if (x.brand === "Hyundai") x.country = "KR";
+        if (x.brand === "Mazda") x.country = "JP";
+        if (x.brand === "Mitsubishi") x.country = "JP";
+      }
+
       if (!_this.searchFilters.tyres.includes(x.tyres)) {
         console.log(x.tyres);
         debugger;

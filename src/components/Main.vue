@@ -2021,8 +2021,8 @@
         </div>
         <div class="Main_AnnouncementBox">
           <div class="Main_AnnouncementTitle">Contest!</div>
-          <div class="Main_AnnouncementBody">There is a contest happening.<br>Check our discord for more information.</div>
-          <div class="Main_AnnouncementMaybe">8th may - 21th may</div>
+          <div class="Main_AnnouncementBody">New cars are there. There is a 2nd edition of TDR Contest happening for them.<br><br>Check our discord for more information.</div>
+          <div class="Main_AnnouncementMaybe">29th july - 13th august</div>
 
           <BaseDiscordButton style="margin-top: 20px;" />
         </div>
@@ -6835,17 +6835,17 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // if (window.localStorage.getItem("contest1")) return;
-      // let dt = window.localStorage.getItem("_dt");
-      // if (dt) {
-      //   dt = Number(dt) + (60*60*1000) > new Date().getTime()
-      // }
+      // if (window.localStorage.getItem("contest2")) return;
+      let dt = window.localStorage.getItem("_dt");
+      if (dt) {
+        dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      }
       // if (dt) return;
 
-      // window.localStorage.setItem('contest1', "t");
-      // setTimeout(() => {
-      //   this.announcementDialog = true;
-      // }, 100);
+      window.localStorage.setItem('contest2', "t");
+      setTimeout(() => {
+        this.announcementDialog = true;
+      }, 100);
     },
     openAbout() {
       this.aboutDialog = true;

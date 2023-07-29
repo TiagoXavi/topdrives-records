@@ -49,14 +49,18 @@ export default new Vuex.Store({
     oldTags: [
       "5th Anniversary",
       "Around the World",
+      "As Seen on YT",
       "Call of the Wild",
       "Christmas Collection",
       "Christmas Collection 22",
       "Famous Tracks",
+      "Electric Excellence",
       "In the Shadows",
       "Interstellar",
+      "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
       "Old Guard",
+      "Racing Royalty",
       "Rest of the World",
       "Ride of the Valkyries",
       "Riders on the Storm",
@@ -70,7 +74,7 @@ export default new Vuex.Store({
       "Year of the Ox",
       "Year of the Rat",
       "Year of the Tiger",
-      "Year of the Rabbit"
+      "Year of the Rabbit",
     ],
     showOldTags: false
   },

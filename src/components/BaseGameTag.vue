@@ -69,6 +69,11 @@ export default {
   --tag-s: 100%;
   --tag-l: 63%;
 }
+.BaseGameTag_Asia-Pacific_Grand_Prix {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 .BaseGameTag_Call_of_the_Wild {
   --tag-h: 0;
   --tag-s: 0%;
@@ -287,6 +292,11 @@ export default {
 .BaseGameTag_The_Horror_Show {
   --tag-h: 74;
   --tag-s: 23%;
+  --tag-l: 52%;
+}
+.BaseGameTag_The_Unicorns {
+  --tag-h: 18;
+  --tag-s: 53%;
   --tag-l: 52%;
 }
 .BaseGameTag_Two_Tone {
