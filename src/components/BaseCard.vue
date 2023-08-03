@@ -244,8 +244,11 @@ export default {
       }
     },
     onlongtouch() {
-      navigator.vibrate(30);
-      this.touchedLong = true;
+      if (navigator.vibrate) {
+        navigator.vibrate(30);
+      }
+      // this.touchedLong = true;
+      this.$emit('longTouch');
     }
   },
 }

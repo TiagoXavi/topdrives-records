@@ -31,7 +31,9 @@ export default {
     touchstart(e) {
       this.timerStart = performance.now();
       this.tm = setTimeout(() => {
-        navigator.vibrate(30);
+        if (navigator.vibrate) {
+          navigator.vibrate(30);
+        }
       }, 600);
     },
     touchend(e) {
