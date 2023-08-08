@@ -6026,6 +6026,7 @@
             "Drivers Choice",
             "Ultra Expensive",
             "Originals",
+            "The Unicorns",
             "Orange"
         ],
         "bodyTypes": [
@@ -6848,6 +6849,7 @@
             "Wild Ride",
             "Originals",
             "Loves Me, Loves Me Not",
+            "Concept",
             "Black"
         ],
         "bodyTypes": [
@@ -8399,7 +8401,6 @@
         "name": "Ford GT",
         "rid": "Ford_GT_2017",
         "tags": [
-            "Hypercar",
             "Summer Games",
             "Originals",
             "Loves Me, Loves Me Not",
@@ -12349,7 +12350,6 @@
         "name": "Maserati MC12 Stradale",
         "rid": "Maserati_MC12_Stradale_2004",
         "tags": [
-            "Hypercar",
             "Italian Renaissance",
             "Two Tone",
             "Ultra Expensive",
@@ -100437,7 +100437,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "Leone",
         "brand": "Subaru",
         "country": "JP",
@@ -107571,7 +107571,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 20,
         "onlyName": "Fiesta",
         "brand": "Ford",
         "country": "GB",
