@@ -5899,17 +5899,17 @@ export default {
       this.cgList.map(x => {
         let styl = x.name;
         Vue.set(x, "index", 0);
-        if (x.name.substr(0, 11) === 'Yellowbird ') {
+        if (x.name.substr(0, 7) === 'JTTEC: ') {
           Vue.set(x, "index", 1);
+          styl = `<span class="Cg_EX">JTTEC: </span>${x.name.substr(14)}`
+        }
+        if (x.name.substr(0, 11) === 'Yellowbird ') {
+          Vue.set(x, "index", 2);
           styl = `<span class="Cg_YB">Yellowbird </span>${x.name.substr(11)}`
         }
         if (x.name.substr(0, 14) === 'Skyline Nismo ') {
-          Vue.set(x, "index", 2);
-          styl = `<span class="Cg_SN">Skyline Nismo </span>${x.name.substr(14)}`
-        }
-        if (x.name.substr(0, 14) === 'Expo Campaign ') {
           Vue.set(x, "index", 3);
-          styl = `<span class="Cg_EX">Expo Campaign </span>${x.name.substr(14)}`
+          styl = `<span class="Cg_SN">Skyline Nismo </span>${x.name.substr(14)}`
         }
         if (x.name.substr(0, 17) === 'Proving Grounds: ') {
           Vue.set(x, "index", 4);
@@ -6835,17 +6835,17 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      if (window.localStorage.getItem("contest2")) return;
-      let dt = window.localStorage.getItem("_dt");
-      if (dt) {
-        dt = Number(dt) + (60*60*1000) > new Date().getTime()
-      }
-      if (dt) return;
+      // if (window.localStorage.getItem("contest2")) return;
+      // let dt = window.localStorage.getItem("_dt");
+      // if (dt) {
+      //   dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      // }
+      // if (dt) return;
 
-      window.localStorage.setItem('contest2', "t");
-      setTimeout(() => {
-        this.announcementDialog = true;
-      }, 100);
+      // window.localStorage.setItem('contest2', "t");
+      // setTimeout(() => {
+      //   this.announcementDialog = true;
+      // }, 100);
     },
     openAbout() {
       this.aboutDialog = true;

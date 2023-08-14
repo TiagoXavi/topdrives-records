@@ -70,9 +70,9 @@ export default {
   --tag-l: 63%;
 }
 .BaseGameTag_Asia-Pacific_Grand_Prix {
-  --tag-h: 0;
-  --tag-s: 0%;
-  --tag-l: 100%;
+  --tag-h: 97;
+  --tag-s: 40%;
+  --tag-l: 45%;
 }
 .BaseGameTag_Call_of_the_Wild {
   --tag-h: 0;

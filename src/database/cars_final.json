@@ -1485,7 +1485,7 @@
     {
         "class": "S",
         "rq": 97,
-        "onlyName": "RS Spyder Evo",
+        "onlyName": "RS Spyder",
         "brand": "Porsche",
         "year": 2005,
         "tdid": "3800",
@@ -1500,7 +1500,7 @@
         "tyres": "Slick",
         "mra": null,
         "weight": 825,
-        "name": "Porsche RS Spyder Evo",
+        "name": "Porsche RS Spyder",
         "rid": "Porsche_RS_Spyder_Evo_2008",
         "prize": true,
         "bodyTypes": [
