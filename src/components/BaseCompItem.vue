@@ -4,7 +4,7 @@
     :class="{ D_Button: isMod }"
     class="BaseCompItem_Layout"
     @click="isMod ? $emit('edit') : ''">
-    <template v-if="!empty">
+    <div v-if="!empty" class="BaseCompItem_LayoutBox">
       <svg v-if="comp.meta && comp.meta[0] === 'Dragster'" class="BaseCompItem_MetaDragster" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Layer_1" x="0" y="0" style="enable-background:new 0 0 95 58" version="1.1" viewBox="0 0 95 58">
         <path d="M29.1 12.6h11c6.8.1 13.6 4.8 16.5 11.5.2.6.8.9 1.4.9 3.3 0 6.7-.1 11.2-.1h15c-2.4 3.1-4.9 6.3-7.3 9.5H64c-3.9 0-7.2 0-10.4.1-.3 0-.6.1-.9.3-.3.3-.9.7-1.5 1.2-.4.3-.7.6-.9.7-.5.4-.7 1.1-.5 1.7.2.6.8 1 1.4 1h13.1c-1.7 2.2-3.4 4.4-5 6.6-.6.8-1.2 1.6-1.9 2.5H37.8c-7.2 0-14.1-5.1-16.9-12.2-.2-.6-.8-.9-1.4-1h-8c2.2-2.9 4.4-5.8 7-9.1h6.3c.4 0 .7-.1 1-.4l1.4-1.2c.5-.4.6-1.1.4-1.7s-.8-1-1.4-1H9c2.5-3.1 4.8-6.1 7-9.2l13.1-.1zm0-1.5H15.6c-3.1 4.2-6.2 8.5-9.6 12.4 7.3 0 13.2-.1 20.4-.1L25 24.6h-7c-3.1 4-6.3 8-9.3 12.1 2.9 0 5.8-.1 8.7-.1h2.3C22.6 44 29.9 49.7 38 49.8h20.4c3.1-4 6.1-8.1 9.2-12.1H51.4c.5-.4 1.8-1.5 2.4-1.9 3.6-.1 7-.1 10.4-.1 4.5 0 8.9 0 13.6.1 3.2-4.2 6.4-8.4 9.6-12.5H69.3c-3.8 0-7.5 0-11.3.1-3-7-10.1-12.4-17.8-12.4-3.8.1-7.4.1-11.1.1z" style="fill:#ff8a5c"/>
         <path d="M17.6 15.7c5.4 0 7.3-.1 14.4-.1 4.8.1 10-.7 14.4 1.9 4.3 2.2 7.2 6.7 8 11.4H77" style="fill:none;stroke:#ff8a5c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
@@ -73,7 +73,7 @@
           <div class="BaseCompItem_Label">{{ $tc("c_clearance", 1) }}</div>
         </div>
       </div>
-    </template>
+    </div>
     <template v-else>
       <i v-if="isMod" class="ticon-pencil BaseCompItem_Icon" aria-hidden="true"/>
       <i v-else class="ticon-line BaseCompItem_Icon" aria-hidden="true"/>
@@ -129,14 +129,17 @@ export default {
 .BaseCompItem_Layout {
   text-align: center;
 }
+.BaseCompItem_LayoutBox {
+  position: relative;
+}
 .D_Button.BaseCompItem_Layout {
   text-align: center;
   flex-direction: column;
   font-size: inherit;
   color: inherit;
   line-height: 1.2;
-  margin: -5px;
-  padding: 5px;
+  margin: -10px;
+  padding: 10px;
   position: relative;
 }
 .BaseCompItem_Layout:hover .BaseCompItem_Label,
@@ -214,7 +217,7 @@ export default {
   width: 120px;
   transform: translateX(-50%);
   left: 50%;
-  top: -19px;
+  top: -26px;
   opacity: 0.3;
 }
 .BaseCompItem_MetaTwister {
@@ -222,7 +225,7 @@ export default {
   width: 120px;
   transform: translateX(-50%);
   left: 50%;
-  top: -21px;
+  top: -28px;
   opacity: 0.3;
 }
 .BaseCompItem_MetaSpeedster {
@@ -230,7 +233,7 @@ export default {
   width: 120px;
   transform: translateX(-50%);
   left: 50%;
-  top: -18px;
+  top: -25px;
   opacity: 0.3;
 }
 
