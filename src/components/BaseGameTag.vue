@@ -370,8 +370,8 @@ export default {
   --tag-l: 60%;
 }
 .BaseGameTag_Orange {
-  --tag-h: 30;
-  --tag-s: 30%;
+  --tag-h: 29;
+  --tag-s: 70%;
   --tag-l: 50%;
 }
 .BaseGameTag_Pink {

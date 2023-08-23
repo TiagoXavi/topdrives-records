@@ -2,7 +2,12 @@ export function toTimeString(input, id) {
   if (input === null || input === undefined || input === "") return "";
   let num = Number(input);
   if (input == 0) return "DNF";
-  if (isNaN(input)) return input;
+  if (isNaN(input)) {
+    if (input.includes('(R)')) {
+      return input.slice(0, -4);
+    }
+    return input;
+  }
   if (id.includes("testBowl")) {
     if (!isNaN(num)) {
       return `${Math.floor(num)}`;

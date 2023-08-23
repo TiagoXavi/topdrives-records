@@ -27,7 +27,9 @@
           v-for="(circuit, index) in filteredTracks"
           class="Main_CustomTrackItem" :key="index">
           <div class="Main_CustomTrackLeft">
-            <div class="Main_CustomTrackName">{{ circuit.nameCalc }}</div>
+            <div class="Main_CustomTrackName">{{ circuit.nameCalc | toTimeString }}<span v-if="circuit.nameEng.includes('(R)')">
+              <BaseIconSvg/>
+            </span></div>
           </div>
           <div class="Main_CustomTrackRight">
             <template>
@@ -46,6 +48,7 @@
 <script>
 import BaseDialog from './BaseDialog.vue'
 import BaseTrackType from './BaseTrackType.vue'
+import BaseIconSvg from './BaseIconSvg.vue'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
 
@@ -53,7 +56,8 @@ export default {
   name: 'BaseSearchTrackDialog',
   components: {
     BaseDialog,
-    BaseTrackType
+    BaseTrackType,
+    BaseIconSvg
   },
   props: {
     active: {
@@ -145,11 +149,14 @@ export default {
 
       filteredTracks.map(x => {
         x.nameCalc = this.$t('t_'+x.id);
+        x.nameEng = this.$t('t_'+x.id, "en");
       })
 
       filteredTracks.sort((a,b) => {
         return a.nameCalc.localeCompare(b.nameCalc);
       })
+
+      console.log(filteredTracks)
       
       return filteredTracks;
     }

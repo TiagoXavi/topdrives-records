@@ -12,11 +12,31 @@
           '--drag-top-slo': 7
         }"
         class="Cg_Track EventTrack">
-        <div v-if="itrackMonoArray === 0 && user" class="BaseEventTrackbox_ClassCheck">
+        <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
             :value="check === `${itrackset}_${itrackMonoArray}`"
             @change="$emit('openKingFilter', {itrackset, itrackMonoArray});"
             @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event })"/>
+        </div>
+        <div v-if="itrackMonoArray === 0 && user && eventForceAnalyze" class="BaseEventTrackbox_EditBox">
+          <button
+            class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+            :class="{ D_ButtonRed: deleteTime && deleteTimeIndex === itrackset }"
+            @click="deleteClick(itrackset)">
+            <i class="ticon-close_3 BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
+          </button>
+          <div class="BaseEventTrackbox_UpDownBox">
+            <button
+              class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+              @click="$emit('up', {itrackset});">
+              <i class="ticon-keyboard_arrow_up BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
+            </button>
+            <button
+              class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+              @click="$emit('down', {itrackset});">
+              <i class="ticon-keyboard_arrow_down BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
+            </button>
+          </div>
         </div>
         <Row
           v-if="trackMonoArray && trackMonoArray.length === 1"
@@ -92,12 +112,18 @@ export default {
       type: Boolean,
       default: false
     },
+    eventForceAnalyze: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
       isMobile: false,
       itrackset: null,
-      itrackMonoArray: null
+      itrackMonoArray: null,
+      deleteTime: false,
+      deleteTimeIndex: 0
     }
   },
   watch: {},
@@ -191,6 +217,18 @@ export default {
       document.onmouseup = null;
       document.onmousemove = null;
     },
+    deleteClick(itrackset) {
+      if (this.deleteTime) {
+        this.deleteTime = false;
+        this.$emit('delete', {itrackset});
+      } else {
+        this.deleteTime = true;
+        this.deleteTimeIndex = itrackset;
+        setTimeout(() => {
+          this.deleteTime = false;
+        }, 1000);
+      }
+    }
   },
 }
 </script>
@@ -244,8 +282,23 @@ export default {
   left: -32px;
   top: 7px;
 }
+.BaseEventTrackbox_EditBox {
+  position: absolute;
+  left: -76px;
+  top: 3px;
+  display: flex;
+}
 .BaseEventTrackbox_LineInactive {
   opacity: 0.5;
+}
+.BaseEventTrackbox_UpDownBox {
+  display: flex;
+  flex-direction: column;
+  height: 34px;
+}
+.BaseEventTrackbox_UpDownBox > button {
+  height: 50%;
+  min-height: unset;
 }
 
 @media only screen and (max-width: 1200px) {

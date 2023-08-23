@@ -128,6 +128,11 @@ export default {
   "m_eventForcePicks": "Forçar selecionados",
   "m_showPointsCgForce": "mostrar pontos",
   "m_statsView": "Mostrar detalhes",
+  "m_multi": "Multi",
+  "m_hidden": "Escondido",
+  "m_enablePicks": "Habilitar escolhas",
+  "m_clearPicks": "Limpas escolhas",
+  "m_findRqSavers": "Procurar RQ savers",
 
   "p_userSentCgForAnalyse": "Obrigado! Seu round será analisado. Vem pro Discord se quiser discutir sobre.",
   "p_emptyRoundForUser": "Este round não está pronto ainda. Você pode ajudar criando e enviando para análise.",

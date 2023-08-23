@@ -64,7 +64,7 @@
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
-              `${type === 'tracks' && item.text.length > 19 ? 'Row_TrackNameBig ' : '' }`+
+              `${type === 'tracks' && item.text.length > 18 ? 'Row_TrackNameBig ' : '' }`+
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
@@ -85,7 +85,10 @@
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
-        class="Row_Content">{{ item.text | toTimeString(item.id) }}</div>
+        class="Row_Content">{{ item.text | toTimeString(item.id) }}<span v-if="type === 'tracks' && (item.textEng.includes('(R)') || item.id.includes('forestRiver') )">
+          <BaseIconSvg v-if="item.textEng.includes('(R)')"/>
+          <BaseIconSvg v-else :type="item.cond === '1' ? 'rain' : 'sun'"/>
+        </span></div>
       <div
         v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
         :class="{
@@ -114,7 +117,7 @@
         item.id === 'speedbump1km'
         )"
         class="Row_xRA">low</div>
-      <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions">
+      <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions" :class="{ Row_Conditions_Forest: item.id.includes('forestRiver') }">
         <BaseTypeName :type="item.trackType" />
       </div>
       <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">
@@ -209,6 +212,7 @@
 <script>
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseTypeName from '@/components/BaseTypeName.vue';
+import BaseIconSvg from '@/components/BaseIconSvg.vue';
 
 var pos1 = 0;
 var pos2 = 0;
@@ -222,7 +226,8 @@ export default {
   name: 'Row',
   components: {
     BaseSelect,
-    BaseTypeName
+    BaseTypeName,
+    BaseIconSvg
   },
   props: {
     list: {
@@ -416,7 +421,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: this.$t('t_'+x.id), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
+          result.push({ text: this.$t('t_'+x.id), textEng: this.$t('t_'+x.id, "en"), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
         })
       } else if (this.type === "times") {
         car = this.car;
@@ -1470,6 +1475,10 @@ export default {
   bottom: 0px;
   flex-wrap: wrap;
   padding-left: 2px;
+}
+.Row_Conditions_Forest {
+  left: 5px;
+  right: unset;
 }
 .Row_OrderBoxLayout {
   padding: 5px;
