@@ -745,6 +745,9 @@
                           @click="eventSaveAll()">{{ $t("m_save") }}</button>
                       </div>
                     </template>
+                    <template v-else-if="isMobile && event.compilation && event.compilation.length > 0">
+                      <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
+                    </template>
                     <template v-if="eventShowAnalyse">
                       <div class="Main_SaveAllBox">
                         <button
@@ -2170,6 +2173,7 @@ import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseEventTrackbox from './BaseEventTrackbox.vue'
 import BaseButtonTouch from './BaseButtonTouch.vue'
 import BaseCorner from './BaseCorner.vue'
+import BaseSwitch from './BaseSwitch.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -2206,7 +2210,8 @@ export default {
     BaseAboutDialog,
     BaseEventTrackbox,
     BaseButtonTouch,
-    BaseCorner
+    BaseCorner,
+    BaseSwitch
   },
   props: {
     phantomCar: {
@@ -4298,7 +4303,9 @@ export default {
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
-      this.showPoints = false;
+      if (this.mode !== "events") {
+        this.showPoints = false;
+      }
     },
     resolveChangeTime(car, NEW, number, tune) {
       let vm = this;
@@ -9488,6 +9495,11 @@ body .Main_UserTw3:before {
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsRed,
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGreen,
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGrey {
+    --size: 40px;
+  }
+  .Event_CompilationBox .Event_BankTime {
+    text-align: left;
+    padding-left: 7px;
     --size: 40px;
   }
   .Event_BankClass {
