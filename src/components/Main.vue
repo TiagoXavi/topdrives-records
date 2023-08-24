@@ -3098,23 +3098,15 @@ export default {
       }
     },
     isRoundEmptyForModders() {
-      console.log(0);
       if (this.mode !== 'cg') return false;
-      console.log(1);
       if (!this.user) return false;
-      console.log(2);
       if (!this.user.mod) return false;
-      console.log(3);
       if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
-      console.log(4);
       if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
-      console.log(5);
       if (this.cg.rounds[this.cgCurrentRound].creator) return false;
-      console.log(6);
       if (!this.cg.rounds[this.cgCurrentRound].lastAnalyze) {
         return true
       }
-      console.log(7);
       if (this.cgNewSubmitByMod) return true;
     },
     isRoundReadyForSaveUser() {

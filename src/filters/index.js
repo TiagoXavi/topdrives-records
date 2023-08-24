@@ -222,7 +222,7 @@ export default {
             }
 
             result = (factor * -1) * (wt / lt) + factor;
-            console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
+            // console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
             let decimal = Number((result % 1).toFixed(2));
             let isImprecise = false;
             if (decimal < 0.13 || decimal > 0.87) {

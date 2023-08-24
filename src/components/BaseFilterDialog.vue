@@ -613,7 +613,7 @@ export default {
         seatsStart: 1,
         seatsEnd: 9,
         seatsModel: [],
-        tunes: ["332", "323", "233", "111"],
+        tunes: ["332", "323", "233", "111", "Custom"],
         tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
