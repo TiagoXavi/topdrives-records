@@ -1383,16 +1383,6 @@
                 
               </div>
             </div>
-            <div class="Row_DialogCardExternalBox">
-              <a
-                :href="`https://topdrives.club/vehicle/${tuneDialogCar.tdid}`"
-                class="D_Button D_ButtonDark D_ButtonDark2 Row_DialogTdc"
-                target="_blank"
-                rel="noopener noreferrer">
-                <span>TDC</span>
-                <i class="ticon-internal Row_DialogExternal" aria-hidden="true"/>
-              </a>
-            </div>
           </div>
           <div v-if="tuneDialogCar.users" class="Row_DialogCardUsers Space_TopPlus">
             <div class="Row_DialogCardStat">

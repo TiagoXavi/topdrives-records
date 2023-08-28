@@ -312,4 +312,8 @@ export default {
   "t_canyonButte": "Canyon-Kuppe", // correct
   "t_lookout": "Ausguck",
   "t_dtRoad": "Schmutzige Straße", // correct
+
+  "t_dockKart": "Werft (Kart)",
+  "t_dockUdrag": "Werft (U-Drag)",
+  "t_lumberTwisty": "Lumber Mill (Kurvenreiche Runde)",
 }
