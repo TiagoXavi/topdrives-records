@@ -146,14 +146,30 @@
   {
     "id": "desertSmall",
     "types": ["40"]
-  },  
+  },
   {
-    "id": "dockKart",
+    "id": "dockAltCirc",
+    "types": ["c0", "c1"]
+  },
+  {
+    "id": "dockCirc",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "dockCity",
     "types": ["00"]
   },
   {
-    "id": "dockUdrag",
+    "id": "dockGforceDrag",
     "types": ["00"]
+  },
+  {
+    "id": "dockKart",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "dockUdrag",
+    "types": ["00", "01"]
   },  
   {
     "id": "dtRoad",

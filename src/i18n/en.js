@@ -349,7 +349,10 @@ export default {
   t_desertSmall: "Desert Rally Small",
   t_desertBig: "Desert Rally Big",
   t_desertRallyDirt: "Desert Rally Dirt",
-  t_dockKart: "Dockyard Karting",
   t_dockAltCirc: "Dockyard Alternative Circuit",
+  t_dockCirc: "Dockyard Circuit",
+  t_dockCity: "Dockyard City Streets",
+  t_dockGforceDrag: "Dockyard G-Force Drag",
+  t_dockKart: "Dockyard Karting",
   t_dockUdrag: "Dockyard U-Drag",
 }

@@ -111,6 +111,7 @@
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00']) }}</div>
       <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
         item.id === 'csSmall' ||
+        item.id === 'dockCity' ||
         item.id === 'csMed' ||
         item.id === 'oceanCity' ||
         item.id === 'speedbump12km' ||
