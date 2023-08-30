@@ -53,6 +53,12 @@
                   @click="saveAll()">{{ $t("m_save") }}</button>
               </div>
             </template>
+            <template v-else-if="isMobile || homePointsToggle">
+              <div class="Main_SaveAllBox" @click.stop>
+                <BaseSwitch v-model="showPoints" :label="$t('m_points')" :horizontal="true" @click="pointsToggle()" />
+              </div>
+            </template>
+
             <div v-if="user && !inverted" class="Main_PrintBy">
               <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
               <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
@@ -830,7 +836,7 @@
               <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
                 <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
                   <template v-for="(car, icar) in group">
-                    <button
+                    <BaseButtonTouch
                       :disabled="eventLoadingAny"
                       :key="icar"
                       :class="{
@@ -840,7 +846,8 @@
                       }"
                       :style="`--cor: ${ car.color }`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                      @contextmenu="eventTogglePick(car, $event)"
+                      @longTouch="eventTogglePick(car, $event)"
+                      @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
                       @click="eventOpenShowCarDialog(car, $event, igroup, icar);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
@@ -870,7 +877,7 @@
                         <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
                       </div>
                       
-                    </button>
+                    </BaseButtonTouch>
                   </template>
                   <!-- <button
                     v-if="user && user.mod"
@@ -2070,6 +2077,7 @@
         <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
         <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
         <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
+        <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
         <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
         <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" @change="cgReCalcRound()" />
       </div>
@@ -2343,6 +2351,7 @@ export default {
       cgNewSubmitByModTemplate: null,
       cgLoadedAssets: [],
       cgSentForReview: false,
+      homePointsToggle: false,
       cgDontRepeatSolution: true,
       cgPointsEditDialog: false,
       cgPointsEditModel: null,
@@ -2728,6 +2737,11 @@ export default {
     if (showPointsCgForce) {
       showPointsCgForce = JSON.parse(showPointsCgForce);
       this.showPointsCgForce = showPointsCgForce;
+    }
+    let homePointsToggle = window.localStorage.getItem("homePointsToggle");
+    if (homePointsToggle) {
+      homePointsToggle = JSON.parse(homePointsToggle);
+      this.homePointsToggle = homePointsToggle;
     }
     
 
@@ -4705,7 +4719,40 @@ export default {
       this.cgUpdateLocalStorage();
 
       this.cgResolveRoundCars(false);
+      this.checkRaceTimesNull();
       this.loadCgRoundAsset(id, round);
+    },
+    checkRaceTimesNull() {
+      this.cgRound.races.map(race => {
+        if (race.time !== null) return;
+        if (!race.car || !race.car.selectedTune || !race.track) {
+          race.time = null
+          return;
+        }
+
+        let oppo = this.cgCacheCars.find(x => x.rid === race.car.rid)
+        let tryoppotime;
+        try {
+          tryoppotime = oppo.data[race.car.selectedTune].times[race.track]
+        } catch (error) {
+          // nada
+        }
+        if (tryoppotime || tryoppotime === 0) {
+          if (race.time && race.time !== tryoppotime && this.cgRoundToSave.length > 0) {
+            // commit the change to database
+            this.cgRoundToSave.push({
+              type: "oppoTime",
+              time: tryoppotime,
+              raceIndex: this.cgRound.races.indexOf(race)
+            })
+          }
+          race.time = tryoppotime;
+        }
+
+        
+        
+        
+      })
     },
     loadCgRoundAsset(id, round) {
       let roundId = `${id}_${round}`;
@@ -6928,7 +6975,13 @@ export default {
     },
     resolvePointsClassic() {
       console.log(this.carHoverIndex);
-      if (this.carHoverIndex === -1) return;
+      if (this.carHoverIndex === -1) {
+        if (this.isMobile || this.homePointsToggle) {
+          this.carHoverIndex = 0;
+        } else {
+          return;
+        }
+      };
       let vm = this;
       let result = [];
       
@@ -9357,6 +9410,9 @@ body .Main_UserTw3:before {
   display: none;
 }
 .Main_BodyPrint .Event_CompilationIncomplete {
+  display: none;
+}
+.Main_BodyPrint .BaseSwitch_Layout {
   display: none;
 }
 

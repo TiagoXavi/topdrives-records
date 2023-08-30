@@ -140,6 +140,7 @@ export default {
   m_enablePicks: "Enable picks",
   m_clearPicks: "Clear picks",
   m_findRqSavers: "Find RQ savers",
+  m_homePointsToggle: "Show a toggle to show points",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

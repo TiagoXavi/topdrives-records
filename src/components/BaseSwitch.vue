@@ -1,5 +1,5 @@
 <template>
-  <div class="BaseSwitch_Layout">
+  <div class="BaseSwitch_Layout" :class="{ BaseSwitch_Horizontal: horizontal }">
     <label class="BaseSwitch_Box">
       <input
         v-if="showFix"
@@ -39,6 +39,10 @@ export default {
       type: Boolean,
       default: false
     },
+    horizontal: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -66,6 +70,10 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 2px;
+}
+.BaseSwitch_Horizontal {
+  flex-direction: row;
+  gap: 5px;
 }
 .BaseSwitch_Box {
   position: relative;

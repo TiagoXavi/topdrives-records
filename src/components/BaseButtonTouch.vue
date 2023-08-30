@@ -29,20 +29,15 @@ export default {
   computed: {},
   methods: {
     touchstart(e) {
-      this.timerStart = performance.now();
       this.tm = setTimeout(() => {
         if (navigator.vibrate) {
           navigator.vibrate(30);
         }
+        this.$emit('longTouch');
       }, 600);
     },
     touchend(e) {
       clearTimeout(this.tm);
-      console.log(e.cancelable);
-      this.timerEnd = performance.now();
-      if (this.timerEnd - this.timerStart > 800 && e.cancelable) {
-        this.$emit('longTouch');
-      }
     }
   },
 }
