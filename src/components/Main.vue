@@ -798,7 +798,7 @@
       </div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="event.date">
-          <template v-if="showCarsFix">
+          <template>
 
             <div class="Cg_Box">
               <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
@@ -838,14 +838,15 @@
                   <template v-for="(car, icar) in group">
                     <BaseButtonTouch
                       :disabled="eventLoadingAny"
-                      :key="icar"
                       :class="{
                         Event_BankReference: eventPointsReference[igroup].icar === icar,
                         Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
                         Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
                       }"
                       :style="`--cor: ${ car.color }`"
+                      :key="`${car.rid}${car.tune}`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
+                      style="will-change: opacity, transform;"
                       @longTouch="eventTogglePick(car, $event)"
                       @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
                       @click="eventOpenShowCarDialog(car, $event, igroup, icar);">
@@ -8972,8 +8973,8 @@ body .Main_UserTw3:before {
   justify-content: flex-start;
 }
 .D_Button.Event_BankPick {
-  --back-color: 255, 255, 255;
-  --back-opac: 0.1;
+  /* --back-color: 255, 255, 255;
+  --back-opac: 0.1; */
   /* background-color: rgba(var(--back-color), var(--back-opac)); */
   /* box-shadow: inset 0px -2px 0px 0px var(--cor); */
   /* box-shadow: inset 0px -36px 0px 0px rgba(var(--back-color), var(--back-opac)); */

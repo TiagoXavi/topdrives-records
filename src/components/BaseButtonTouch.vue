@@ -3,7 +3,8 @@
     v-bind="$attrs"
     v-on="$listeners"
     @touchstart="touchstart($event)"
-    @touchend="touchend($event)">
+    @touchend="touchend($event)"
+    @touchmove="touchmove($event)">
     <slot />
   </button>
 </template>
@@ -37,6 +38,9 @@ export default {
       }, 600);
     },
     touchend(e) {
+      clearTimeout(this.tm);
+    },
+    touchmove(e) {
       clearTimeout(this.tm);
     }
   },
