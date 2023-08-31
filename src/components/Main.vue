@@ -848,8 +848,9 @@
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
                       style="will-change: opacity, transform;"
                       @longTouch="eventTogglePick(car, $event)"
+                      @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
                       @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
-                      @click="eventOpenShowCarDialog(car, $event, igroup, icar);">
+                      @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
                       </div>
@@ -2081,6 +2082,19 @@
         <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
         <BaseConfigCheckBox v-model="cgDontRepeatSolution" name="cgDontRepeatSolution" :label="`${$t('m_challenges')}: ${$t('m_cgDontRepeatSolution')}`" @change="cgReCalcRound()" />
         <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" @change="cgReCalcRound()" />
+        <div v-if="isMobile" class="Main_SaveGalleryBox" style="margin-top: 15px;">
+          <div class="Main_OptionsLabel">{{ $t("m_zoom") }}</div>
+          <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
+            <template v-for="(item, ix) in zoomLevels">
+              <BaseChip
+                v-model="zoomLevel"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                required="true"
+                :value="item"
+                @click="changeZoom($event)" />
+            </template>
+          </div>
+        </div>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -2266,6 +2280,9 @@ export default {
       customTuneDialogTune: null,
       optionsDialogActive: false,
       printImageDialog: false,
+      zoomLevel: "100%",
+      zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
+      currentViewport: null,
       mraEditing: false,
       mraEditInput: null,
       mraLoading: false,
@@ -2744,6 +2761,11 @@ export default {
       homePointsToggle = JSON.parse(homePointsToggle);
       this.homePointsToggle = homePointsToggle;
     }
+    let zoomLevel = window.localStorage.getItem("zoomLevel");
+    if (zoomLevel) {
+      this.zoomLevel = zoomLevel;
+      this.changeZoom(zoomLevel);
+    }
     
 
     
@@ -3136,21 +3158,13 @@ export default {
       return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
     },
     eventNeedSave() {
-      console.log(0);
       if (this.mode !== 'events') return false;
-      console.log(1);
       if (!this.event.date) return false;
-      console.log(2);
       if (!this.user || (this.user && !this.user.mod)) return false;
-      console.log(3);
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
-      console.log(4);
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
-      console.log(5);
       if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
-      console.log(6);
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
-      console.log(7);
       return false;
     },
     eventShowAnalyse() {
@@ -7265,6 +7279,31 @@ export default {
         this.mraLoading = false;
       });
     },
+    changeZoom(level = "100%") {
+      let string;
+      if (level === "60%") {
+        string = "width=device-width,height=device-height, initial-scale=0.45, maximum-scale=0.45, minimum-scale=0.45"
+      }
+      if (level === "80%") {
+        string = "width=device-width,height=device-height, initial-scale=0.55, maximum-scale=0.55, minimum-scale=0.55"
+      }
+      if (level === "100%") {
+        string = "width=device-width,height=device-height, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65"
+      }
+      if (level === "120%") {
+        string = "width=device-width,height=device-height, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75"
+      }
+      if (level === "140%") {
+        string = "width=device-width,height=device-height, initial-scale=0.85, maximum-scale=0.85, minimum-scale=0.85"
+      }
+
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if ( viewport ) {
+        viewport.content = string;
+      }
+      window.localStorage.setItem('zoomLevel', level);
+      
+    }
   }
 }
 </script>

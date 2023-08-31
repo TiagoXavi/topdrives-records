@@ -30,6 +30,7 @@ export default {
   computed: {},
   methods: {
     touchstart(e) {
+      this.timerStart = performance.now();
       this.tm = setTimeout(() => {
         if (navigator.vibrate) {
           navigator.vibrate(30);
@@ -39,6 +40,12 @@ export default {
     },
     touchend(e) {
       clearTimeout(this.tm);
+
+
+      this.timerEnd = performance.now();
+      if (this.timerEnd - this.timerStart < 400 && e.cancelable) {
+        this.$emit('shortTouch', e);
+      }
     },
     touchmove(e) {
       clearTimeout(this.tm);

@@ -155,8 +155,6 @@ export default {
       filteredTracks.sort((a,b) => {
         return a.nameCalc.localeCompare(b.nameCalc);
       })
-
-      console.log(filteredTracks)
       
       return filteredTracks;
     }
