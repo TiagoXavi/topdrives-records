@@ -4703,6 +4703,7 @@ export default {
 
       this.cgCurrentId = cg.date;
       this.cgCurrentName = cg.name;
+      if (!cg.rounds[round]) round = 0;
       this.cgCurrentRound = round;
       this.cgRound = cg.rounds[this.cgCurrentRound];
       if (this.cgRound.filter) {
