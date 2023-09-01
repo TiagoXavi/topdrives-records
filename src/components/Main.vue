@@ -1,5 +1,6 @@
 <template>
-  <div :class="{
+  <div
+    :class="{
       Main_Normal: !inverted,
       Main_2: inverted && mode === 'classic',
       Main_Compact: (compact && mode === 'classic') || ((mode === 'cg' || mode === 'events') && windowWidth < 1200),
@@ -7,7 +8,10 @@
       Main_ColorsMedal: !fullColors,
       Main_isMobile: isMobile,
       Main_ShowPoints: showPoints
-    }" class="Main_Layout" @click.stop="outsideClick()">
+    }"
+    class="Main_Layout"
+    @gestureend="gestureResolve($event)"
+    @click.stop="outsideClick()">
     <div
       v-if="mode === 'classic'"
       :class="{ Main_BodyEmpty: carDetailsList.length === 0 }"
@@ -7304,6 +7308,36 @@ export default {
       }
       window.localStorage.setItem('zoomLevel', level);
       
+    },
+    gestureResolve(e) {
+      // this.$store.commit("DEFINE_SNACK", {
+      //   active: true,
+      //   error: true,
+      //   text: e.scale,
+      //   type: "error"
+      // });
+      let zoomDirection = 0;
+      if (e.scale < 1.0) {
+        zoomDirection = -1;
+      } else if (e.scale > 1.0) {
+        // "100% > 120%"
+        zoomDirection = 1;
+      }
+      if (zoomDirection !== 0) {
+        let currentIndex = this.zoomLevels.indexOf(this.zoomLevel);
+        let indexDest = 0;
+        let maxIndex = this.zoomLevels.length - 1;
+        if (zoomDirection < 0) {
+          // "100% > 80%" decrease index
+          indexDest = Math.max(0, currentIndex - 1)
+        } else {
+          // "100% > 120%" increase index
+          indexDest = Math.min(maxIndex, currentIndex + 1)
+        }
+        this.zoomLevel = this.zoomLevels[indexDest];
+        this.changeZoom(this.zoomLevels[indexDest]);
+      }
+      e.preventDefault();
     }
   }
 }
