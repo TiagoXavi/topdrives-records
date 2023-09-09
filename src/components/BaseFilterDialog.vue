@@ -649,6 +649,7 @@ export default {
           "Christmas Collection",
           "Christmas Collection 22",
           "Concept",
+          "Cutting Edge",
           "Drivers Choice",
           "Eco Friendly",
           "Electric Excellence",

@@ -94,6 +94,11 @@ export default {
   --tag-s: 66%;
   --tag-l: 89%;
 }
+.BaseGameTag_Cutting_Edge {
+  --tag-h: 177;
+  --tag-s: 66%;
+  --tag-l: 63%;
+}
 .BaseGameTag_Drivers_Choice {
   --tag-h: 4;
   --tag-s: 70%;

@@ -307,13 +307,18 @@ export default {
   "t_riverSprint": "Fluss Sprint",
 
   "t_butte": "Kuppe",
-  "t_canyonLookout": "Canyon-Ausguck", // correct
-  "t_canyonDtRoad": "Canyon-Schotter", // correct
-  "t_canyonButte": "Canyon-Kuppe", // correct
+  "t_canyonLookout": "Canyon-Ausguck",
+  "t_canyonDtRoad": "Canyon-Schotter",
+  "t_canyonButte": "Canyon-Kuppe",
   "t_lookout": "Ausguck",
-  "t_dtRoad": "Schmutzige Straße", // correct
+  "t_dtRoad": "Schmutzige Straße",
 
   "t_dockKart": "Werft (Kart)",
   "t_dockUdrag": "Werft (U-Drag)",
   "t_lumberTwisty": "Lumber Mill (Kurvenreiche Runde)",
+
+  "t_dockAltCirc": "Alternative Werft-Rennstrecke",
+  "t_dockCirc": "Werft-Rennstrecke",
+  "t_dockCity": "Werft (Stadtstraßen)",
+  "t_dockGforceDrag": "Werft (G-Force Drag)",
 }

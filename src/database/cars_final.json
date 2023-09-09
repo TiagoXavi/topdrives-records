@@ -912,7 +912,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Motorsport"
+            "Motorsport",
+            "Cutting Edge"
         ]
     },
     {
@@ -1077,7 +1078,8 @@
             "Hypercar",
             "Eco Friendly",
             "5th Anniversary",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -1110,7 +1112,8 @@
             "Hypercar",
             "Ultra Expensive",
             "Originals",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -1540,7 +1543,8 @@
             "Two Tone",
             "Ultra Expensive",
             "Originals",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -2444,7 +2448,8 @@
         "tags": [
             "Italian Renaissance",
             "Supercar",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -4548,7 +4553,8 @@
             "European Revolution",
             "Concept",
             "Interstellar",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -7855,7 +7861,8 @@
         "tags": [
             "Innovative",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -8175,7 +8182,8 @@
         "tags": [
             "Great Exhibition",
             "Summer Games",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -8703,7 +8711,8 @@
         "tags": [
             "Enter the Black Forest",
             "Eco Friendly",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ]
     },
     {
@@ -9637,7 +9646,8 @@
         "rid": "McLaren_570S_Spider_2017",
         "tags": [
             "Great Exhibition",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -10913,7 +10923,8 @@
         "rid": "Saleen_S7_2000",
         "tags": [
             "World Expo",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -12649,7 +12660,8 @@
         "tags": [
             "Riders on the Storm",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -13691,7 +13703,8 @@
         "tags": [
             "American Dream",
             "Call of the Wild",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -17972,7 +17985,8 @@
         "engine": "Mixed",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ]
     },
     {
@@ -18126,7 +18140,8 @@
         "rid": "KTM_X-Bow_R_2016",
         "tags": [
             "Originals",
-            "Green"
+            "Green",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -18385,7 +18400,8 @@
         "tags": [
             "European Revolution",
             "Interstellar",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Estate"
@@ -20770,7 +20786,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Concept",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ]
     },
     {
@@ -21542,7 +21559,8 @@
             "American Dream",
             "Sleeper",
             "Riders on the Storm",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Pickup"
@@ -21961,7 +21979,8 @@
         "rid": "Subaru_Impreza_RB320_2006",
         "tags": [
             "Japan Pro Tour",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -22480,7 +22499,8 @@
             "German Renaissance",
             "Year of the Ox",
             "Concept",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -24620,7 +24640,8 @@
             "Japan Pro Tour",
             "Concept",
             "Summer Games",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -25545,7 +25566,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Ox",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -30147,7 +30169,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ]
     },
     {
@@ -30239,7 +30262,8 @@
             "Hot Hatch",
             "Motorsport",
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -31272,7 +31296,8 @@
         "tags": [
             "Japan Pro Tour",
             "Year of the Tiger",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -31664,7 +31689,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver or Grey",
-            "Motorsport"
+            "Motorsport",
+            "Cutting Edge"
         ]
     },
     {
@@ -31984,7 +32010,8 @@
         "tags": [
             "European Revolution",
             "Silver Screen",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -32079,7 +32106,8 @@
         "tags": [
             "Eco Friendly",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -32339,7 +32367,8 @@
             "Concept",
             "French Renaissance",
             "Old Guard",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -34663,7 +34692,8 @@
             "Street Racer",
             "Year of the Ox",
             "Originals",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -37510,7 +37540,8 @@
             "Concept",
             "Eco Friendly",
             "Summer Games",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -38226,7 +38257,8 @@
             "Innovative",
             "Street Racer",
             "Originals",
-            "Orange"
+            "Orange",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -38878,7 +38910,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ]
     },
     {
@@ -39143,7 +39176,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Hot Hatch",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ]
     },
     {
@@ -42496,7 +42530,8 @@
         "tags": [
             "American Dream",
             "Style Icon",
-            "Orange"
+            "Orange",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -43038,7 +43073,8 @@
         "rid": "Volkswagen_Touareg_R50_2008",
         "tags": [
             "German Renaissance",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -46147,7 +46183,8 @@
             "Hot Hatch",
             "Year of the Rat",
             "Originals",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -48439,7 +48476,8 @@
             "Innovative",
             "Summer Games",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -49051,7 +49089,8 @@
             "Famous Tracks",
             "The Horror Show",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Pickup"
@@ -49277,7 +49316,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -50299,7 +50339,8 @@
         "tags": [
             "Great Exhibition",
             "Interstellar",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -51430,7 +51471,8 @@
         "tags": [
             "World Expo",
             "Style Icon",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -53060,7 +53102,8 @@
         "rid": "Mercedes-Benz_AMG_G_55_2006",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -53962,7 +54005,8 @@
         "tags": [
             "Year of the Rat",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -55273,7 +55317,8 @@
         "rid": "Vauxhall_VX220_2000",
         "tags": [
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -57150,7 +57195,8 @@
         "tags": [
             "Hot Hatch",
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -57345,7 +57391,8 @@
             "American Dream",
             "Wild Ride",
             "Muscle Car",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "prize": true,
         "bodyTypes": [
@@ -59226,7 +59273,8 @@
             "Style Icon",
             "Summer Games",
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -61124,7 +61172,8 @@
         "tags": [
             "Street Racer",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -61545,7 +61594,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ]
     },
     {
@@ -63933,7 +63983,8 @@
             "Innovative",
             "Silver Screen",
             "Originals",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -64448,7 +64499,8 @@
         "tags": [
             "American Frontier",
             "Summer Games",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -64806,7 +64858,8 @@
             "Summer Games",
             "Old Guard",
             "Originals",
-            "Orange"
+            "Orange",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -66164,7 +66217,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Turquoise"
+            "Turquoise",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -66389,7 +66443,8 @@
         "tags": [
             "Year of the Ox",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -67868,7 +67923,8 @@
             "Italian Renaissance",
             "Old Guard",
             "Supercar",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -69297,7 +69353,8 @@
         "tags": [
             "Loch to Loch",
             "Style Icon",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -69330,7 +69387,8 @@
             "Eco Friendly",
             "Old Guard",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -69839,7 +69897,8 @@
         "tags": [
             "Originals",
             "Motorsport",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "prize": true,
         "bodyTypes": [
@@ -70069,7 +70128,8 @@
         "tags": [
             "Japan Pro Tour",
             "Old Guard",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Estate"
@@ -70649,7 +70709,8 @@
         "tags": [
             "Year of the Rat",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -71654,7 +71715,8 @@
             "German Renaissance",
             "Summer Games",
             "Old Guard",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -73083,7 +73145,8 @@
             "American Dream",
             "The Horror Show",
             "Muscle Car",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Pickup",
@@ -73751,7 +73814,8 @@
             "Style Icon",
             "The Horror Show",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "prize": true,
         "bodyTypes": [
@@ -73850,7 +73914,8 @@
             "Ride of the Valkyries",
             "The Horror Show",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -75833,7 +75898,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ]
     },
     {
@@ -77377,7 +77443,8 @@
         "tags": [
             "German Renaissance",
             "Hot Hatch",
-            "Turquoise"
+            "Turquoise",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -78704,7 +78771,8 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "Turquoise"
+            "Turquoise",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV",
@@ -79187,7 +79255,8 @@
             "Drivers Choice",
             "Style Icon",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -79543,7 +79612,8 @@
             "Innovative",
             "Street Racer",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -81272,7 +81342,8 @@
         "rid": "Audi_100_Avant_quattro_C3_1982",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Estate"
@@ -81467,7 +81538,8 @@
         "rid": "Porsche_928_1977",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -81889,7 +81961,8 @@
         "tags": [
             "World Expo",
             "Motorsport",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "prize": true,
         "bodyTypes": [
@@ -84267,7 +84340,8 @@
         "rid": "Nissan_Terrano_II_2002",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -84363,7 +84437,8 @@
             "Innovative",
             "Summer Games",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -84985,7 +85060,8 @@
             "Eco Friendly",
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -86991,7 +87067,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -88345,7 +88422,8 @@
             "Innovative",
             "Summer Games",
             "Originals",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -88798,7 +88876,8 @@
             "French Renaissance",
             "The Horror Show",
             "Old Guard",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "MPV"
@@ -90025,7 +90104,8 @@
             "Eco Friendly",
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -91643,7 +91723,8 @@
         "tags": [
             "European Revolution",
             "In the Shadows",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -92031,7 +92112,8 @@
         "tags": [
             "Japan Pro Tour",
             "Year of the Tiger",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV"
@@ -92193,7 +92275,8 @@
         "tags": [
             "American Frontier",
             "The Horror Show",
-            "Brown"
+            "Brown",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Estate"
@@ -96500,7 +96583,8 @@
         "tags": [
             "Innovative",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -96723,7 +96807,8 @@
         "tags": [
             "Originals",
             "5th Anniversary",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -98427,7 +98512,8 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -98914,7 +99000,8 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -100005,7 +100092,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Pickup"
@@ -100554,7 +100642,8 @@
         "tags": [
             "American Dream",
             "The Horror Show",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -102708,7 +102797,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "White"
+            "White",
+            "Cutting Edge"
         ]
     },
     {
@@ -102830,7 +102920,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -104311,7 +104402,8 @@
             "Team Favourite",
             "Old Guard",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV",
@@ -104600,7 +104692,8 @@
             "Summer Games",
             "Two Tone",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -106349,7 +106442,8 @@
             "Style Icon",
             "Ultra Expensive",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -107560,7 +107654,8 @@
             "Call of the Wild",
             "Old Guard",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -108828,7 +108923,8 @@
             "Great Exhibition",
             "Innovative",
             "The Horror Show",
-            "Beige"
+            "Beige",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -109024,7 +109120,8 @@
         "tags": [
             "Italian Renaissance",
             "In the Shadows",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "SUV",
@@ -109452,7 +109549,8 @@
             "Year of the Tiger",
             "Old Guard",
             "Originals",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -113665,7 +113763,8 @@
             "Innovative",
             "Silver Screen",
             "Style Icon",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Roadster"
@@ -114211,7 +114310,8 @@
         "tags": [
             "Enter the Black Forest",
             "Innovative",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ]
     },
     {
@@ -115727,7 +115827,8 @@
             "Two Tone",
             "Year of the Rat",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "MPV"
@@ -117376,7 +117477,8 @@
         "rid": "Smart_Crossblade_2002",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Convertible"
@@ -117638,7 +117740,8 @@
             "Year of the Ox",
             "Originals",
             "Electric Excellence",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -119340,7 +119443,8 @@
         "tags": [
             "Japan Pro Tour",
             "The Horror Show",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -119466,7 +119570,8 @@
         "rid": "Lotus_Elite_1957",
         "tags": [
             "Great Exhibition",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -120078,7 +120183,8 @@
         "tags": [
             "German Renaissance",
             "Two Tone",
-            "Blue"
+            "Blue",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "MPV"
@@ -120499,7 +120605,8 @@
         "tags": [
             "Christmas Collection",
             "Originals",
-            "Red"
+            "Red",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
@@ -120598,7 +120705,8 @@
             "German Renaissance",
             "Silver Screen",
             "Style Icon",
-            "White"
+            "White",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -120726,7 +120834,8 @@
         "rid": "Citroen_Traction_Avant_1934",
         "tags": [
             "French Renaissance",
-            "Black"
+            "Black",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Saloon"
@@ -120921,7 +121030,8 @@
         "rid": "Fiat_8V_1952",
         "tags": [
             "Italian Renaissance",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
