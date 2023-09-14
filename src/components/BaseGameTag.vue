@@ -244,6 +244,11 @@ export default {
   --tag-s: 55%;
   --tag-l: 35%;
 }
+.BaseGameTag_Road {
+  --tag-h: 0;
+  --tag-s: 100%;
+  --tag-l: 100%;
+}
 .BaseGameTag_Roads_Most_Travelled {
   --tag-h: 239;
   --tag-s: 55%;

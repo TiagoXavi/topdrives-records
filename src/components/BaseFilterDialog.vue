@@ -25,7 +25,11 @@
         <button
           v-if="!isFiltering && !filterOnly"
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
-          @click="openFilter()">{{ $tc("m_filter", 2) }}<span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span></button>
+          @click="openFilter()">
+          <div>{{ $tc("m_filter", 2) }}</div>
+          <div v-if="searchResult.length > 0 && !showingLastest" style="font-size: 0.5em;">({{ searchResult.length }})</div>
+          <span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span>
+        </button>
         <button
           v-else
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
@@ -679,6 +683,7 @@ export default {
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
+          "Road",
           "Roads Most Travelled",
           "Silver Screen",
           "Sleeper",
@@ -1495,9 +1500,9 @@ export default {
       if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
 
       if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tags2Model || [])) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tags3Model || [])) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tags2Model || []), car.rid) ) return false;
+      if ( !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
       if ( !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
       if ( context.prizesModel.length > 0 ) {
@@ -1524,10 +1529,14 @@ export default {
       if (array.length === 0) return true;
       return array.includes(value);
     },
-    filterCheckIncludesArray(valuesArray, array) {
+    filterCheckIncludesArray(valuesArray, array, rid) {
       if (array === undefined) return true;
       if (array.length === 0) return true;
       return !!array.find(x => {
+        if (x === "Road") {
+          if (rid === "Brabham_BT62_Ultimate_Track_2018") return true;
+          return !valuesArray.includes("Motorsport") && !valuesArray.includes("Concept");
+        }
         return valuesArray.includes(x);
       });
     },

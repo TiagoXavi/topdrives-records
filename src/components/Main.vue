@@ -7496,6 +7496,7 @@ export default {
   flex-grow: 1;
   min-height: 74px;
   position: relative;
+  flex-direction: column;
 }
 .Main_FiltersButton:first-child {
   border-top-left-radius: 10px;

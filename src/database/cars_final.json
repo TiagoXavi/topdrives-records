@@ -192,8 +192,8 @@
         "rid": "Rimac_E-Runner_Concept_One_2016",
         "tags": [
             "World Expo",
-            "Motorsport",
             "Electric Excellence",
+            "Concept",
             "Blue"
         ],
         "prize": true,
@@ -673,6 +673,7 @@
             "World Expo",
             "Hypercar",
             "Electric Excellence",
+            "Concept",
             "White"
         ],
         "prize": true,
@@ -1079,6 +1080,7 @@
             "Eco Friendly",
             "5th Anniversary",
             "Silver or Grey",
+            "Concept",
             "Cutting Edge"
         ],
         "bodyTypes": [
@@ -1647,6 +1649,7 @@
             "Italian Renaissance",
             "Riders on the Storm",
             "Silver or Grey",
+            "Motorsport",
             "The Unicorns"
         ],
         "bodyTypes": [
@@ -1746,6 +1749,7 @@
             "Drivers Choice",
             "Ultra Expensive",
             "Originals",
+            "Motorsport",
             "Red"
         ],
         "prize": true,
@@ -1818,6 +1822,7 @@
         "engine": "Mid",
         "tags": [
             "Asia-Pacific Grand Prix",
+            "Motorsport",
             "Orange"
         ]
     },
@@ -1851,6 +1856,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Yellow",
+            "Motorsport",
             "Concept"
         ]
     },
@@ -6364,6 +6370,7 @@
             "Wild Ride",
             "Originals",
             "Red",
+            "Concept",
             "The Unicorns"
         ],
         "prize": true,
@@ -11254,6 +11261,7 @@
             "Summer Games",
             "Originals",
             "Electric Excellence",
+            "Concept",
             "Yellow"
         ],
         "bodyTypes": [
@@ -11322,6 +11330,7 @@
         "tags": [
             "Muscle Car",
             "American Dream",
+            "Motorsport",
             "Old Guard",
             "Blue"
         ],
@@ -12893,6 +12902,7 @@
         "tags": [
             "American Dream",
             "Muscle Car",
+            "Motorsport",
             "Old Guard",
             "White"
         ],
@@ -15093,7 +15103,6 @@
             "Motorsport",
             "The Great Outdoors",
             "Electric Excellence",
-            "Concept",
             "Silver or Grey"
         ],
         "prize": true,
@@ -16163,6 +16172,7 @@
         "rid": "Citroen_BX_4TC_Group_B_1986",
         "tags": [
             "French Renaissance",
+            "Motorsport",
             "Wild Ride",
             "Year of the Tiger",
             "White"
@@ -21330,6 +21340,7 @@
             "European Revolution",
             "Eco Friendly",
             "Old Guard",
+            "Concept",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -22852,7 +22863,6 @@
             "Drivers Choice",
             "Year of the Tiger",
             "Originals",
-            "Motorsport",
             "Orange"
         ],
         "prize": true,
@@ -28916,7 +28926,6 @@
             "Japan Pro Tour",
             "Two Tone",
             "Loves Me, Loves Me Not",
-            "Motorsport",
             "White"
         ],
         "bodyTypes": [
@@ -30423,7 +30432,6 @@
         "tags": [
             "Originals",
             "Year of the Rabbit",
-            "Motorsport",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -44647,7 +44655,6 @@
         "tags": [
             "Year of the Rat",
             "Originals",
-            "Motorsport",
             "White"
         ],
         "bodyTypes": [
@@ -49732,7 +49739,6 @@
         "tags": [
             "Originals",
             "The Great Outdoors",
-            "Motorsport",
             "Black"
         ],
         "bodyTypes": [
@@ -69896,7 +69902,6 @@
         "rid": "Citroen_BX_4TC_1982",
         "tags": [
             "Originals",
-            "Motorsport",
             "White",
             "Cutting Edge"
         ],
@@ -70806,7 +70811,6 @@
         "rid": "Mercedes-Benz_190_E_Evo_II_1990",
         "tags": [
             "Originals",
-            "Motorsport",
             "Silver or Grey",
             "The Unicorns"
         ],
@@ -92668,6 +92672,7 @@
             "Wild Ride",
             "Old Guard",
             "Electric Excellence",
+            "Concept",
             "Yellow"
         ],
         "bodyTypes": [
@@ -104368,7 +104373,6 @@
             "Two Tone",
             "Year of the Rat",
             "Originals",
-            "Motorsport",
             "Orange"
         ],
         "bodyTypes": [
