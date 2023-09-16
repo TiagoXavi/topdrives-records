@@ -246,8 +246,8 @@ export default {
 }
 .BaseGameTag_Road {
   --tag-h: 0;
-  --tag-s: 100%;
-  --tag-l: 100%;
+  --tag-s: 70%;
+  --tag-l: 74%;
 }
 .BaseGameTag_Roads_Most_Travelled {
   --tag-h: 239;
