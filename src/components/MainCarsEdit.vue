@@ -380,10 +380,12 @@ export default {
           "Old Guard",
           "Originals",
           "Pacific Coast Highway",
+          "Photo Finish",
           "Racing Royalty",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
+          "Road",
           "Roads Most Travelled",
           "Silver Screen",
           "Sleeper",
@@ -1010,7 +1012,7 @@ export default {
         this.all_cars.map(x => {
           if (c === x.rid) {
             // action
-            x.tags.push("Racing Royalty")
+            x.tags.push("Photo Finish")
   
           }
         })
@@ -1026,8 +1028,8 @@ export default {
       // });
 
 
+      console.log(this.all_cars);
       debugger;
-      navigator.clipboard.writeText(JSON.stringify(this.all_cars));
 
       // let ids = [];
       // ids.map(c => {

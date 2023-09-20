@@ -224,6 +224,11 @@ export default {
   --tag-s: 30%;
   --tag-l: 60%;
 }
+.BaseGameTag_Photo_Finish {
+  --tag-h: 333;
+  --tag-s: 50%;
+  --tag-l: 50%;
+}
 .BaseGameTag_Rest_of_the_World {
   --tag-h: 141;
   --tag-s: 34%;

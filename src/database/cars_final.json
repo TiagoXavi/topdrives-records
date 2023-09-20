@@ -2255,7 +2255,8 @@
         "rid": "Porsche_911_Turbo_S_3.7_(992)_2020",
         "tags": [
             "World Expo",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -3458,7 +3459,8 @@
         "engine": "Rear",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -6109,6 +6111,7 @@
             "Summer Games",
             "Originals",
             "Christmas Collection 22",
+            "Cutting Edge",
             "Orange"
         ],
         "bodyTypes": [
@@ -6146,7 +6149,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -6177,7 +6181,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -6241,8 +6246,42 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Motorsport"
+            "Motorsport",
+            "Photo Finish"
         ]
+    },
+    {
+        "class": "S",
+        "rq": 89,
+        "onlyName": "GT",
+        "brand": "Ford",
+        "country": "US",
+        "year": 2017,
+        "tdid": "203",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 216,
+        "acel": 3,
+        "hand": 93,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 92.15,
+        "weight": 1385,
+        "name": "Ford GT",
+        "rid": "Ford_GT_2017",
+        "tags": [
+            "Summer Games",
+            "Originals",
+            "Loves Me, Loves Me Not",
+            "Blue"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid"
     },
     {
         "class": "S",
@@ -6443,7 +6482,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Orange"
+            "Orange",
+            "Photo Finish"
         ]
     },
     {
@@ -6998,7 +7038,8 @@
         "tags": [
             "Enter the Black Forest",
             "Motorsport",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -7095,7 +7136,8 @@
         "tags": [
             "Enter the Black Forest",
             "Motorsport",
-            "Yellow"
+            "Yellow",
+            "Photo Finish"
         ]
     },
     {
@@ -7280,7 +7322,8 @@
         "rid": "Porsche_Macan_GTS_2021",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -8393,39 +8436,6 @@
         ],
         "fuel": "Petrol",
         "seats": "1",
-        "engine": "Mid"
-    },
-    {
-        "class": "S",
-        "rq": 86,
-        "onlyName": "GT",
-        "brand": "Ford",
-        "country": "US",
-        "year": 2017,
-        "tdid": "203",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 216,
-        "acel": 3,
-        "hand": 93,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 92.15,
-        "weight": 1385,
-        "name": "Ford GT",
-        "rid": "Ford_GT_2017",
-        "tags": [
-            "Summer Games",
-            "Originals",
-            "Loves Me, Loves Me Not",
-            "Blue"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
         "engine": "Mid"
     },
     {
@@ -10149,7 +10159,8 @@
         "tags": [
             "Enter the Black Forest",
             "Drivers Choice",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -11036,7 +11047,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Motorsport"
+            "Motorsport",
+            "Photo Finish"
         ]
     },
     {
@@ -12146,7 +12158,8 @@
         "tags": [
             "World Expo",
             "Motorsport",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -13107,7 +13120,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Motorsport"
+            "Motorsport",
+            "Photo Finish"
         ]
     },
     {
@@ -13140,7 +13154,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Concept"
+            "Concept",
+            "Photo Finish"
         ]
     },
     {
@@ -14461,7 +14476,8 @@
         "tags": [
             "Enter the Black Forest",
             "Supercar",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -14590,7 +14606,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Motorsport"
+            "Motorsport",
+            "Photo Finish"
         ]
     },
     {
@@ -14748,7 +14765,8 @@
         "tags": [
             "Great Exhibition",
             "Old Guard",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -16141,7 +16159,8 @@
         "tags": [
             "Great Exhibition",
             "Old Guard",
-            "Orange"
+            "Orange",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -17118,7 +17137,8 @@
         "rid": "Benz_AMG_S_63_Cabriolet_2018",
         "tags": [
             "World Expo",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Convertible"
@@ -19216,7 +19236,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Brown"
+            "Brown",
+            "Photo Finish"
         ]
     },
     {
@@ -21932,7 +21953,8 @@
         "tags": [
             "Enter the Black Forest",
             "Drivers Choice",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -23769,7 +23791,8 @@
         "rid": "Lotus_Exige_S_LF1_2014",
         "tags": [
             "World Expo",
-            "Black"
+            "Black",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -24288,7 +24311,8 @@
         "rid": "Subaru_WRX_STI_Type_RA_(VAF)_2018",
         "tags": [
             "Japan Pro Tour",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -24424,7 +24448,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Motorsport"
+            "Motorsport",
+            "Photo Finish"
         ]
     },
     {
@@ -25865,6 +25890,7 @@
             "Italian Renaissance",
             "Motorsport",
             "Old Guard",
+            "Cutting Edge",
             "White"
         ],
         "bodyTypes": [
@@ -26670,7 +26696,8 @@
         "rid": "Lotus_Emira_2022",
         "tags": [
             "World Expo",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -27228,7 +27255,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Motorsport",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -28002,7 +28030,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -28065,7 +28094,8 @@
         "engine": "Rear",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -28995,7 +29025,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -31794,7 +31825,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -32057,7 +32089,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Motorsport",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -32885,7 +32918,8 @@
         "rid": "Audi_TT_45_TFSI_quattro_FV_2018",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -32924,7 +32958,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Concept"
+            "Concept",
+            "Photo Finish"
         ]
     },
     {
@@ -34403,7 +34438,8 @@
             "Great Exhibition",
             "Year of the Tiger",
             "Old Guard",
-            "Black"
+            "Black",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -35382,7 +35418,8 @@
         "tags": [
             "Loch to Loch",
             "Style Icon",
-            "Green"
+            "Green",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -37159,7 +37196,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -37745,7 +37783,8 @@
         "tags": [
             "Enter the Black Forest",
             "Eco Friendly",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -38946,7 +38985,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Gold"
+            "Gold",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -39119,7 +39159,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Motorsport",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -40310,7 +40351,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Green"
+            "Green",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Pickup"
@@ -42699,7 +42741,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -43050,7 +43093,8 @@
         "rid": "Ford_Expedition_Platinum_2018",
         "tags": [
             "American Frontier",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -45036,7 +45080,8 @@
         "rid": "Subaru_Legacy_B4_Blitzen_(BE)_2000",
         "tags": [
             "Japan Pro Tour",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -45330,7 +45375,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -45644,7 +45690,8 @@
         "rid": "BMW_X3_2006",
         "tags": [
             "German Renaissance",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -45743,7 +45790,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -47127,7 +47175,8 @@
         "engine": "Mid",
         "tags": [
             "Enter the Black Forest",
-            "Yellow"
+            "Yellow",
+            "Photo Finish"
         ]
     },
     {
@@ -49582,7 +49631,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "White"
+            "White",
+            "Photo Finish"
         ]
     },
     {
@@ -50217,7 +50267,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Green"
+            "Green",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -51581,7 +51632,8 @@
         "tags": [
             "Enter the Black Forest",
             "Hot Hatch",
-            "White"
+            "White",
+            "Photo Finish"
         ]
     },
     {
@@ -52028,7 +52080,8 @@
         "rid": "Mercedes-Benz_GLC_250d_2015",
         "tags": [
             "Originals",
-            "White"
+            "White",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -53306,7 +53359,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Turquoise"
+            "Turquoise",
+            "Photo Finish"
         ]
     },
     {
@@ -54341,7 +54395,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Motorsport",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -54372,7 +54427,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -56596,7 +56652,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -56817,7 +56874,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -57757,7 +57815,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Orange"
+            "Orange",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -58411,7 +58470,8 @@
         "engine": "Rear",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White"
+            "White",
+            "Photo Finish"
         ]
     },
     {
@@ -59180,7 +59240,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Brown"
+            "Brown",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -61819,7 +61880,8 @@
         "tags": [
             "German Renaissance",
             "Old Guard",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -61982,7 +62044,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -62413,7 +62476,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ]
     },
     {
@@ -65448,7 +65512,8 @@
         "rid": "BMW_320d_2005",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -66640,7 +66705,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -67097,7 +67163,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -67448,7 +67515,8 @@
         "rid": "Suzuki_SX4_2006",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -67766,7 +67834,8 @@
             "Summer Games",
             "Old Guard",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -70882,7 +70951,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -72184,7 +72254,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Hot Hatch",
-            "White"
+            "White",
+            "Photo Finish"
         ]
     },
     {
@@ -72408,7 +72479,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Turquoise"
+            "Turquoise",
+            "Photo Finish"
         ]
     },
     {
@@ -72600,7 +72672,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -73213,7 +73286,8 @@
         "rid": "Nissan_NP300_Navara_2017",
         "tags": [
             "Originals",
-            "Orange"
+            "Orange",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Pickup"
@@ -73275,7 +73349,8 @@
         "rid": "Ford_Ranger_2016b",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Pickup"
@@ -73499,7 +73574,8 @@
         "tags": [
             "Two Tone",
             "Originals",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -76748,7 +76824,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -78024,7 +78101,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "White"
+            "White",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -79837,7 +79915,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Black"
+            "Black",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -83264,7 +83343,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -84098,7 +84178,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -84130,7 +84211,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Brown"
+            "Brown",
+            "Photo Finish"
         ]
     },
     {
@@ -87339,7 +87421,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "White"
+            "White",
+            "Photo Finish"
         ]
     },
     {
@@ -87715,7 +87798,8 @@
         "rid": "Mercedes-Benz_500_SLC_1980",
         "tags": [
             "World Expo",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -88140,7 +88224,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -88198,7 +88283,8 @@
         "tags": [
             "Japan Pro Tour",
             "Two Tone",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -90074,7 +90160,8 @@
         "rid": "Suzuki_Jimny_2007",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -91047,7 +91134,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -91080,7 +91168,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -91507,7 +91596,8 @@
         "engine": "Rear",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -91539,7 +91629,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -94879,7 +94970,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -95601,7 +95693,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Eco Friendly",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -98387,7 +98480,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Tiger",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -98874,7 +98968,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Brown"
+            "Brown",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV",
@@ -100265,7 +100360,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -101384,7 +101480,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Convertible"
@@ -102893,7 +102990,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Green"
+            "Green",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -103322,7 +103420,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Concept"
+            "Concept",
+            "Photo Finish"
         ]
     },
     {
@@ -104663,7 +104762,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Van"
@@ -105439,7 +105539,8 @@
         "rid": "Chevrolet_Blazer_S-10_1983",
         "tags": [
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "SUV"
@@ -106381,7 +106482,8 @@
         "rid": "Aston_Martin_DBS_1967",
         "tags": [
             "Great Exhibition",
-            "Brown"
+            "Brown",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -106511,7 +106613,8 @@
             "Call of the Wild",
             "Muscle Car",
             "Originals",
-            "Black"
+            "Black",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -106583,7 +106686,8 @@
             "Asia-Pacific Grand Prix",
             "Eco Friendly",
             "White",
-            "Concept"
+            "Concept",
+            "Photo Finish"
         ]
     },
     {
@@ -107559,7 +107663,8 @@
             "Call of the Wild",
             "Old Guard",
             "Originals",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -108213,7 +108318,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Concept",
-            "White"
+            "White",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -108665,7 +108771,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -108729,7 +108836,8 @@
         "tags": [
             "Hot Hatch",
             "Originals",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -110076,7 +110184,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -110166,7 +110275,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Pink"
+            "Pink",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
@@ -111464,7 +111574,8 @@
         "rid": "Ford_StreetKa_2003",
         "tags": [
             "World Expo",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -112297,7 +112408,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -112837,7 +112949,8 @@
         "rid": "Oldsmobile_NinetyEight_1971",
         "tags": [
             "World Expo",
-            "Black"
+            "Black",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -113477,7 +113590,8 @@
         "tags": [
             "Summer Games",
             "Originals",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -113509,7 +113623,8 @@
         "tags": [
             "Style Icon",
             "Great Exhibition",
-            "Green"
+            "Green",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -114150,7 +114265,8 @@
         "rid": "De_Tomaso_Innocenti_Mini_De_Tomaso_1977",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -114244,7 +114360,8 @@
         "rid": "BMW_524td_1983",
         "tags": [
             "German Renaissance",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Saloon"
@@ -114735,7 +114852,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -115347,7 +115465,8 @@
         "rid": "Chevrolet_Matiz_2005",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -116351,7 +116470,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Yellow"
+            "Yellow",
+            "Photo Finish"
         ]
     },
     {
@@ -116415,7 +116535,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Style Icon",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -116768,7 +116889,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Silver or Grey"
+            "Silver or Grey",
+            "Photo Finish"
         ]
     },
     {
@@ -116866,7 +116988,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Orange"
+            "Orange",
+            "Photo Finish"
         ]
     },
     {
@@ -118101,7 +118224,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Red"
+            "Red",
+            "Photo Finish"
         ]
     },
     {
@@ -120675,7 +120799,8 @@
         "tags": [
             "Year of the Ox",
             "Originals",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -120742,7 +120867,8 @@
         "tags": [
             "Call of the Wild",
             "German Renaissance",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Convertible"
@@ -121003,7 +121129,8 @@
             "German Renaissance",
             "Style Icon",
             "The Horror Show",
-            "Blue"
+            "Blue",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -121746,7 +121873,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Black"
+            "Black",
+            "Photo Finish"
         ]
     },
     {
@@ -121835,7 +121963,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Roadster"
@@ -121867,7 +121996,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Red"
+            "Red",
+            "Photo Finish"
         ],
         "bodyTypes": [
             "Coupe"
