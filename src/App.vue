@@ -573,6 +573,33 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   margin-right: 5px;
   font-size: 16px;
 }
+.D_Button.Main_SaveAllButton {
+  --back-color: 49, 141, 8;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 0.7);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+.D_Button.Main_LoginToEdit {
+  --back-color: 44, 37, 16;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 1);
+  color: rgb(var(--d-text-yellow));
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+.D_Button.Main_Share {
+  background-color: rgba(0,0,0,0.2);
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
 .D_ButtonActive:not(p) {
   box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
   color: rgb(var(--d-text-green-b));

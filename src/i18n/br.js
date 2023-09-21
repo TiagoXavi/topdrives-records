@@ -133,6 +133,12 @@ export default {
   "m_enablePicks": "Habilitar escolhas",
   "m_clearPicks": "Limpas escolhas",
   "m_findRqSavers": "Procurar RQ savers",
+  "m_homePointsToggle": "Mostrar botão de pontos",
+  "m_zoom": "Zoom",
+  "m_review": "Análise | Análises",
+  "m_addReview": "Adicionar análise",
+  "m_clubs": "Clubs",
+  "m_showContributors": "Mostrar colaboradores",
 
   "p_userSentCgForAnalyse": "Obrigado! Seu round será analisado. Vem pro Discord se quiser discutir sobre.",
   "p_emptyRoundForUser": "Este round não está pronto ainda. Você pode ajudar criando e enviando para análise.",

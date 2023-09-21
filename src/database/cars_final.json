@@ -585,39 +585,6 @@
     {
         "class": "S",
         "rq": 100,
-        "onlyName": "G58",
-        "brand": "Ginetta",
-        "year": 2018,
-        "tdid": "3837",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "country": "GB",
-        "topSpeed": 190,
-        "acel": 2.7,
-        "hand": 100,
-        "drive": "RWD",
-        "tyres": "Slick",
-        "mra": null,
-        "weight": 940,
-        "name": "Ginetta G58",
-        "rid": "Ginetta_G58_2018",
-        "prize": true,
-        "tags": [
-            "Loch to Loch",
-            "Motorsport",
-            "White"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid"
-    },
-    {
-        "class": "S",
-        "rq": 100,
         "onlyName": "908 HDi FAP",
         "brand": "Peugeot",
         "country": "FR",
@@ -716,6 +683,39 @@
             "Green",
             "Motorsport"
         ]
+    },
+    {
+        "class": "S",
+        "rq": 99,
+        "onlyName": "G58",
+        "brand": "Ginetta",
+        "year": 2018,
+        "tdid": "3837",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "country": "GB",
+        "topSpeed": 190,
+        "acel": 2.7,
+        "hand": 100,
+        "drive": "RWD",
+        "tyres": "Slick",
+        "mra": null,
+        "weight": 940,
+        "name": "Ginetta G58",
+        "rid": "Ginetta_G58_2018",
+        "prize": true,
+        "tags": [
+            "Loch to Loch",
+            "Motorsport",
+            "White"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid"
     },
     {
         "class": "S",
