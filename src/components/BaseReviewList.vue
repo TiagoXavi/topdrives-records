@@ -102,8 +102,10 @@ export default {
       required: true
     },
     reviewUrl: {
-      type: String,
-      default: ""
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   data() {
@@ -118,7 +120,7 @@ export default {
   },
   watch: {
     reviewUrl() {
-      this.linkModel = `${window.location.origin}?` + this.reviewUrl;
+      this.linkModel = `${window.location.origin}?` + this.reviewUrl.url;
     }
   },
   beforeMount() {},

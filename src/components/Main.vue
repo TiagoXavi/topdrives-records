@@ -1683,7 +1683,7 @@
                 :reviewUrl="reviewUrl"
                 @isReviewing="isReviewing = $event"
                 @submited="resolveCarReview($event)"
-                @getUrl="reviewUrl = generateUrl(true)"
+                @getUrl="reviewUrl = { url: generateUrl(true) }"
                 @loadTemplate="reviewLoadTemplate($event)"/>
             </div>
           </div>
@@ -2570,7 +2570,7 @@ export default {
       showOldTags: false,
       showReviews: false,
       isReviewing: false,
-      reviewUrl: "",
+      reviewUrl: {},
       optionsAdvancedDialog: false,
       isFilteringT: false,
       nextId: 0,
