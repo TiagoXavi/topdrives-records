@@ -22,7 +22,7 @@
             </button>
           </div>
         </div>
-        <div v-if="rev.link" class="BaseReviewList_LinkBox">
+        <div v-if="rev.link && rev.link.includes('~C')" class="BaseReviewList_LinkBox">
           <button class="D_Button BaseReviewList_ImageLayout" @click="$emit('loadTemplate', rev.link)">
             <div v-for="car in galleryCars[irev]" class="BaseReviewList_ImageBlock">
               <img :src="car" class="BaseReviewList_Image" alt="">
@@ -72,7 +72,7 @@
 
     </div>
     <button
-      v-if="!isEditing && (!car.reviews || car.reviews.length === 0 || !car.reviews.find(x => x.user === user.username))"
+      v-if="!isEditing && (!car.reviews || car.reviews.length === 0 || !car.reviews.find(x => x.user === user.username)) && (user && user.canReview)"
       :class="{ D_Button_Loading: loading }"
       :disabled="loading"
       class="D_Button BaseReviewList_Button D_ButtonDark"

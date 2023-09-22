@@ -1673,7 +1673,7 @@
               </div>
             </div>
           </div>
-          <div v-if="tuneDialogCar.reviews || (user && user.canReview)" class="Row_DialogCardUsers Space_TopPlus">
+          <div v-if="(tuneDialogCar.reviews && tuneDialogCar.reviews.length > 0) || (user && user.canReview)" class="Row_DialogCardUsers Space_TopPlus">
             <div class="Row_DialogCardStat">
               <div v-if="!isReviewing" class="Row_DialogCardStatLabel">{{ $tc("m_review", 2) }}</div>
               <BaseReviewList
