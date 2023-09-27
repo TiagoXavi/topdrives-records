@@ -26841,6 +26841,38 @@
     {
         "class": "A",
         "rq": 70,
+        "onlyName": "AMG C 63",
+        "brand": "Mercedes-Benz",
+        "country": "DE",
+        "year": 2012,
+        "tdid": "399",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "topSpeed": 155,
+        "acel": 4.4,
+        "hand": 84,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 89.48,
+        "weight": 1730,
+        "name": "Mercedes-Benz AMG C 63",
+        "rid": "Mercedes-Benz_AMG_C_63_2012",
+        "tags": [
+            "Originals",
+            "Loves Me, Loves Me Not",
+            "Silver or Grey"
+        ],
+        "bodyTypes": [
+            "Saloon"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front"
+    },
+    {
+        "class": "A",
+        "rq": 70,
         "onlyName": "M240i",
         "brand": "BMW",
         "country": "DE",
@@ -27645,38 +27677,6 @@
         "fuel": "Hybrid",
         "seats": "2",
         "engine": "Mid"
-    },
-    {
-        "class": "A",
-        "rq": 69,
-        "onlyName": "AMG C 63",
-        "brand": "Mercedes-Benz",
-        "country": "DE",
-        "year": 2012,
-        "tdid": "399",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "topSpeed": 155,
-        "acel": 4.4,
-        "hand": 84,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 89.48,
-        "weight": 1730,
-        "name": "Mercedes-Benz AMG C 63",
-        "rid": "Mercedes-Benz_AMG_C_63_2012",
-        "tags": [
-            "Originals",
-            "Loves Me, Loves Me Not",
-            "Silver or Grey"
-        ],
-        "bodyTypes": [
-            "Saloon"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front"
     },
     {
         "class": "A",
