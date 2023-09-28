@@ -252,8 +252,12 @@
     "types": ["00", "01"]
   },
   {
+    "id": "lumberForest",
+    "types": ["h1"]
+  },
+  {
     "id": "lumberTwisty",
-    "types": ["40", "41"]
+    "types": ["40", "41", "h1"]
   },
   {
     "id": "mnGforce",

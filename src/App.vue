@@ -364,7 +364,7 @@ body {
   pointer-events: initial;
 }
 .App_SnackActive {
-  z-index: 100;
+  z-index: 200;
   pointer-events: initial;
 }
 .App_SnacKError {

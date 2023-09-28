@@ -130,6 +130,7 @@ export default {
                     if (type == 'e0') result = "Sand/Dirt";
                     else if (type == 'f0') result = "Asphalt/Grass/Dirt";
                     else if (type == 'g0') result = "Ice/Snow";
+                    else if (type == 'h0' || type == 'h1') result = "Snow/Dirt";
                     else {
                         if (type !== '01') result = "Asphalt";
                         if (type == '40') result += " Dirt";

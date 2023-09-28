@@ -146,6 +146,8 @@ export default {
   m_addReview: "Add review",
   m_clubs: "Clubs",
   m_showContributors: "Show car contributors",
+  m_tracksnreqs: "Tracks {tc} Reqs {rc}",
+  m_tracksetName: "Trackset's name",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -361,4 +363,5 @@ export default {
   t_dockGforceDrag: "Dockyard G-Force Drag",
   t_dockKart: "Dockyard Karting",
   t_dockUdrag: "Dockyard U-Drag",
+  t_lumberForest: "Lumber Mill Forest Rally",
 }

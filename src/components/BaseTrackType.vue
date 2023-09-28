@@ -28,6 +28,14 @@
           <span class="TypeText_Ice">{{ $t('s_ice') }}</span>
           <span class="TypeText_Snow">{{ `\n${$t('s_snow')}` }}</span>
         </template>
+        <template v-else-if="type == 'h0'">
+          <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
+          <span class="TypeText_Dirt">{{ `\n${$t('s_dirt')}` }}</span>
+        </template>
+        <template v-else-if="type == 'h1'">
+          <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
+          <span class="TypeText_Dirt">{{ ` ${$t('s_dirt')}` }}</span>
+        </template>
         <template v-else>
           <span v-if="type !== '01'" class="TypeText_Dry">{{ $t('s_aspht') }}</span>
           <span class="TypeText_Dirt" v-if="type == '40'">{{ `\n${$t('s_dirt')}` }}</span>

@@ -1,6 +1,7 @@
 <template>
   <button
     :class="`${isSelected ? activeClass : ''}`"
+    :disabled="disabled"
     class="BaseChip"
     @click="toggle">
     <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
@@ -37,7 +38,11 @@ export default {
     label: {
       type: String,
       default: null
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {}
