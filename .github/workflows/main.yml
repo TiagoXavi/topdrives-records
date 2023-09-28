@@ -19,10 +19,12 @@ jobs:
     name: Build Vue
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.17.0
     - id: Build-Vue
       uses: xRealNeon/VuePagesAction@1.0.1
       with:
-        node-version: '16.x'
         username: 'TiagoXavi'
         reponame: 'topdrives-records'
         token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
