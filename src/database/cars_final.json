@@ -6524,37 +6524,6 @@
     {
         "class": "S",
         "rq": 89,
-        "onlyName": "GT",
-        "brand": "McLaren",
-        "country": "GB",
-        "year": 2019,
-        "tdid": "1719",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 203,
-        "acel": 2.8,
-        "hand": 89,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 86.81,
-        "weight": 1530,
-        "name": "McLaren GT",
-        "rid": "McLaren_GT_2019",
-        "tags": [
-            "Great Exhibition",
-            "Brown"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid"
-    },
-    {
-        "class": "S",
-        "rq": 89,
         "onlyName": "M5 Competition",
         "brand": "BMW",
         "country": "DE",
@@ -8536,6 +8505,37 @@
         "fuel": "Petrol",
         "seats": "4",
         "engine": "Front"
+    },
+    {
+        "class": "S",
+        "rq": 86,
+        "onlyName": "GT",
+        "brand": "McLaren",
+        "country": "GB",
+        "year": 2019,
+        "tdid": "1719",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 203,
+        "acel": 2.8,
+        "hand": 89,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 86.81,
+        "weight": 1530,
+        "name": "McLaren GT",
+        "rid": "McLaren_GT_2019",
+        "tags": [
+            "Great Exhibition",
+            "Brown"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid"
     },
     {
         "class": "S",
@@ -34438,8 +34438,7 @@
             "Great Exhibition",
             "Year of the Tiger",
             "Old Guard",
-            "Black",
-            "Photo Finish"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -35187,6 +35186,7 @@
             "Great Exhibition",
             "Year of the Rat",
             "Old Guard",
+            "Photo Finish",
             "Black"
         ],
         "bodyTypes": [
@@ -56691,6 +56691,41 @@
     },
     {
         "class": "C",
+        "rq": 49,
+        "onlyName": "iMax N Drift Bus",
+        "brand": "Hyundai",
+        "year": 2019,
+        "tdid": "4473",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "country": "KR",
+        "topSpeed": 104,
+        "acel": 4.9,
+        "hand": 74,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": null,
+        "weight": 2250,
+        "name": "Hyundai iMax N Drift Bus",
+        "rid": "Hyundai_iMax_N_Drift_Bus_2019",
+        "prize": true,
+        "bodyTypes": [
+            "MPV"
+        ],
+        "fuel": "Petrol",
+        "seats": "8",
+        "engine": "Front",
+        "tags": [
+            "Asia-Pacific Grand Prix",
+            "Wild Ride",
+            "Team Favourite",
+            "Blue",
+            "Concept"
+        ]
+    },
+    {
+        "class": "C",
         "rq": 48,
         "onlyName": "200 S",
         "brand": "Chrysler",
@@ -69077,41 +69112,6 @@
         "fuel": "Petrol",
         "seats": "4",
         "engine": "Front"
-    },
-    {
-        "class": "C",
-        "rq": 43,
-        "onlyName": "iMax N Drift Bus",
-        "brand": "Hyundai",
-        "year": 2019,
-        "tdid": "4473",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "country": "KR",
-        "topSpeed": 104,
-        "acel": 4.9,
-        "hand": 74,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": null,
-        "weight": 2250,
-        "name": "Hyundai iMax N Drift Bus",
-        "rid": "Hyundai_iMax_N_Drift_Bus_2019",
-        "prize": true,
-        "bodyTypes": [
-            "MPV"
-        ],
-        "fuel": "Petrol",
-        "seats": "8",
-        "engine": "Front",
-        "tags": [
-            "Asia-Pacific Grand Prix",
-            "Wild Ride",
-            "Team Favourite",
-            "Blue",
-            "Concept"
-        ]
     },
     {
         "class": "C",
