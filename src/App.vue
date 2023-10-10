@@ -613,6 +613,11 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   opacity: 0.2;
   pointer-events: none;
 }
+.D_ButtonDisabledVisible {
+  cursor: initial;
+  opacity: 1 !important;
+  pointer-events: none;
+}
 .D_Button.D_Button_Loading {
   position: relative;
   color: rgba(255, 255, 255, 0.2);

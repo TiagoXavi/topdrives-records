@@ -37,7 +37,7 @@
       </div>
       <div v-if="isFiltering || filterOnly" class="Main_SearchMid">
         <div class="Main_FilterItems">
-          <div v-if="!cgAddingYouCar" class="Main_FilterClearTop">
+          <div v-if="!cgAddingYouCar || (user && user.mod)" class="Main_FilterClearTop">
             <slot name="header"></slot>
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
@@ -1065,7 +1065,7 @@ export default {
           strIndex = -2;
         }
 
-        if (this.filterCount > 0 || (this.cgAddingOppoCar)) {
+        if (this.filterCount > 0 || this.cgAddingOppoCar || this.cgAddingYouCar) {
           if (strIndex > -1 || strIndex === -2) {
             if (this.checkMatchFilter(x)) {
               shouldPush = true;

@@ -458,6 +458,7 @@
                   :needSave="needSave"
                   :cg="true"
                   :cgOppo="true"
+                  :options="!cgIsApproving"
                   :hideClose="!user || !user.mod"
                   :showResetTune="(user && user.mod) || isRoundEmptyForUser"
                   @cog="cgShowTuneDialog(race.car, race, true)"
@@ -788,7 +789,7 @@
               <button
                 :disabled="eventLoadingAny"
                 class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
-                @click="eventOpenRequirementDialog()">{{ event.filter ? 'Change' : 'Requirements' }}</button>
+                @click="eventRequirementsDialog = true">{{ event.filter ? 'Change' : 'Requirements' }}</button>
             </div>
           </div>
 
@@ -956,7 +957,7 @@
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
               <button
-                v-if="user && user.username === 'TiagoXavi' && eventCurrentIsHidden"
+                v-if="user && user.mod && eventCurrentIsHidden"
                 :class="{ D_Button_Loading: eventLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
                 @click="eventSetVisible()">Set visible</button>
@@ -1005,18 +1006,46 @@
             @camera="shareDialog = true; generateUrl();"/>
           <div class="Cg_RowCornerBox">
             <!-- top club -->
-            <div v-if="!clubLoading" class="Cg_SelectorLayout">
+            <div class="Cg_SelectorLayout">
               <div class="Cg_SelectorCenter">
-                <div class="Cg_SelectorEvent">
+                <div class="Cg_SelectorEvent Clubs_DayBox">
                   <button
-                    :disabled="eventLoading || eventNeedSave"
+                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave || clubDayNeedSave || !user || !user.mod"
+                    :class="{ D_ButtonDisabledVisible: !clubLoading && (!user || !user.mod) }"
                     class="D_Button Row_DialogButtonTune"
-                    @click="clubTrackReqDialog = true;">
-                    <span>{{ $t("m_tracksnreqs", {tc: `(${3})`, rc: `(${4})`}) }}</span>
+                    @click="clubDayConfigDialog = true;">
+                    <span>{{ clubDaySelected || "-" }}</span>
+                    <i v-if="user && user.mod" class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                  </button>
+                  <button
+                    v-if="clubDayNeedSave && user && user.mod"
+                    :class="{ D_Button_Loading: clubLoadingAny }"
+                    class="D_Button Main_SaveAllButton"
+                    @click="clubDaySaveAll()">{{ $t("m_saveDay") }}</button>
+                </div>
+                <div v-if="user && user.mod" class="Cg_SelectorEvent">
+                  <button
+                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
+                    class="D_Button Row_DialogButtonTune"
+                    @click="clubTracksetDialog = true;">
+                    <span>{{ $t("m_tracksets") }} {{`(${clubTracksGroupsActive.length})`}}</span>
+                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                  </button>
+                  <button
+                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
+                    class="D_Button Row_DialogButtonTune"
+                    @click="clubReqsDialog = true;">
+                    <span>{{ $t("m_reqs") }} {{`(${clubReqGroupsActive.length})`}}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div class="Cg_CenterBottom">
+                <div v-if="clubDaySelectedObj && clubDaySelectedObj.user">
+                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                  <span
+                    :class="`Main_UserT${highlightsUsers[clubDaySelectedObj.user]}`"
+                    class="Main_SearchResultUser Cg_Creator">{{ clubDaySelectedObj.user }}</span>
+                </div>
+                <div class="Cg_CenterBottom" style="min-height: unset;">
                   <!-- <div class="Cg_RqText">
                     <span class="Cg_RqRq">RQ</span>
                     <span>{{ club.rqLimit }}</span>
@@ -1038,15 +1067,23 @@
                           @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="clubNeedSave && user && user.mod">
+                    <template v-else-if="clubTrackNeedSave && user && user.mod">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: clubLoadingAny }"
                           class="D_Button Main_SaveAllButton"
-                          @click="clubSaveAll()">{{ $t("m_save") }}</button>
+                          @click="clubSaveTrackset()">{{ $t("m_saveTrackset") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="isMobile && club.compilation && club.compilation.length > 0">
+                    <template v-else-if="clubReqNeedSave && user && user.mod">
+                      <div class="Main_SaveAllBox">
+                        <button
+                          :class="{ D_Button_Loading: clubLoadingAny }"
+                          class="D_Button Main_SaveAllButton"
+                          @click="clubSaveReq()">{{ $t("m_saveReqs") }}</button>
+                      </div>
+                    </template>
+                    <template v-else-if="isMobile && clubCompilation && clubCompilation.length > 0">
                       <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
                     </template>
                     <template v-if="clubShowAnalyse">
@@ -1069,6 +1106,18 @@
           </div>
 
           <div class="Cg_Right Main_DarkScroll">
+            <template v-if="clubReqsGroupModel.filter">
+              <div class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
+              <div class="Cg_Reqs">
+                <BaseFilterDescription :filter="clubReqsGroupModel.filter" />
+              </div>
+            </template>
+            <div v-if="clubReqsGroupModel.date && user && user.mod" class="Cg_FilterButtons">
+              <button
+                :disabled="clubLoadingAny"
+                class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
+                @click="clubShowRequirementsDialog($event)">{{ clubReqsGroupModel.filter ? 'Change' : 'Requirements' }}</button>
+            </div>
           </div>
 
           <!-- <div class="Cg_RqCount">
@@ -1083,10 +1132,10 @@
         <div class="Clubs_SemiBox">
           <div class="Clubs_Box">
             <div class="Clubs_SelectorBox">
-              <template v-for="(trackset, ix) in clubTracksGroups">
+              <template v-for="(trackset, ix) in clubTracksGroupsActive">
                 <BaseChip
                   v-model="clubTracksGroupModel"
-                  :disabled="clubLoading || clubNeedSave"
+                  :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                   required="true"
                   :value="trackset"
@@ -1095,10 +1144,10 @@
               </template>
             </div>
             <div class="Clubs_SelectorBox">
-              <template v-for="(req, ix) in clubReqGroups">
+              <template v-for="(req, ix) in clubReqGroupsActive">
                 <BaseChip
                   v-model="clubReqsGroupModel"
-                  :disabled="clubLoading || clubNeedSave"
+                  :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                   required="true"
                   :value="req"
@@ -1145,7 +1194,7 @@
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
             <div class="Cg_Box" style="margin-top: 15px;">
               <div v-for="(group, igroup) in clubCompilation" class="Cg_YouBank Event_CompilationBox">
-                <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
+                <div class="Cg_YouBankBox" :class="{ Event_HasPickList: clubPicksList.length > 0 && clubEnablePicks }">
                   <template v-for="(car, icar) in group">
                     <BaseButtonTouch
                       :disabled="clubLoadingAny"
@@ -1159,7 +1208,7 @@
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
                       style="will-change: opacity, transform;"
                       @longTouch="clubTogglePick(car, $event)"
-                      @shortTouch="clubOpenShowCarDialog(car, $event, igroup, icar)"
+                      @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
                       @contextmenu="isMobile ? $event.preventDefault() : clubTogglePick(car, $event)"
                       @click="isMobile ? $event.preventDefault() : clubOpenShowCarDialog(car, $event, igroup, icar);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
@@ -1204,17 +1253,10 @@
             </div>
 
             <div
-              v-if="club.compilation && club.compilation.length && user && (!user.tier || user.tier > 3)"
+              v-if="clubCompilation && clubCompilation.length && user && (!user.tier || user.tier > 3)"
               style="margin: 20px auto; max-width: 500px;"
               class="Event_CompilationIncomplete Main_SaveGalleryGuide">
               <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
-            </div>
-
-            <div
-              v-if="club.hidden"
-              style="margin: 20px auto; max-width: 500px;"
-              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-              <span>{{ $t("p_eventHiddenForPatreons") }}</span>
             </div>
 
             <div
@@ -1242,9 +1284,9 @@
             </div>
 
             <div v-if="user && user.username === 'TiagoXavi' && clubForceAnalyze" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <template v-for="(type, ix) in clubScoreList">
+              <template v-for="(type, ix) in eventScoreList">
                 <BaseChip
-                  v-model="clubScoreType"
+                  v-model="eventScoreType"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                   required="true"
                   :value="type"
@@ -1262,6 +1304,41 @@
                 :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="clubClearPicks()">{{ $t("m_clearPicks") }}</button>
+            </div>
+
+            <div v-if="user && user.username === 'TiagoXavi' && clubForceAnalyze" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+              <div class="Main_AdminFields Main_AdminLayout">
+                <BaseText
+                  v-model="clubTracksGroupModel.trackGroupuuid"
+                  type="normal"
+                  label="Trackset Group uuid"
+                  class="Space_Bottom"
+                  placeholder="" />
+              </div>
+              <div class="Main_AdminFields Main_AdminLayout">
+                <BaseText
+                  v-model="clubTracksGroupModel.tracksetuuids"
+                  type="normal"
+                  label="Trackset uuid"
+                  class="Space_Bottom"
+                  placeholder="" />
+              </div>
+              <div v-if="clubReqsGroupModel.name" class="Main_AdminFields Main_AdminLayout">
+                <BaseText
+                  v-model="clubReqsGroupModel.name"
+                  type="normal"
+                  label="Requirement Name"
+                  class="Space_Bottom"
+                  placeholder="" />
+              </div>
+              <div class="Main_AdminFields Main_AdminLayout">
+                <BaseText
+                  v-model="clubReqsGroupModel.criteriauuid"
+                  type="normal"
+                  label="Requirement uuid"
+                  class="Space_Bottom"
+                  placeholder="" />
+              </div>
             </div>
 
           </template>
@@ -1460,6 +1537,23 @@
       type="event"
       @filterUpdate="eventUpdateRequirements($event)"
       @clearFilterUpdate="eventFilterToSave = $event"
+    />
+
+    <BaseFilterDialog
+      v-model="clubRequirementsDialog"
+      :filterOnly="true"
+      :raceFilter="clubReqsGroupModel.filter"
+      :all_cars="all_cars"
+      :config="{
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false
+      }"
+      :initialFilterString="clubCurrentFilterString"
+      type="event"
+      @filterUpdate="eventUpdateRequirements($event)"
+      @clearFilterUpdate="clubCurrentFilterToSave = $event"
     />
 
     <BaseFilterDialog
@@ -1959,14 +2053,14 @@
             </button>
             <button
               :class="{ D_ButtonChangeModeDisabled: mode === 'cg' }"
-              :disabled="mode === 'cg' || needSave || eventLoadingAny || eventNeedSave || clubLoadingAny || clubNeedSave"
+              :disabled="mode === 'cg' || needSave || eventLoadingAny || eventNeedSave || clubLoadingAny || clubTrackNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('cg')">
               {{ $t("m_challenges") }}
             </button>
             <button
               :class="{ D_ButtonChangeModeDisabled: mode === 'events' }"
-              :disabled="mode === 'events' || needSave || cgLoadingAny || cgNeedSave || clubLoadingAny || clubNeedSave"
+              :disabled="mode === 'events' || needSave || cgLoadingAny || cgNeedSave || clubLoadingAny || clubTrackNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
               @click="changeMode('events')">
               {{ $t("m_events") }}
@@ -2474,17 +2568,18 @@
       </div>
     </BaseDialog>
     <BaseDialog
-      :active="clubTrackReqDialog"
+      :active="clubTracksetDialog"
       :transparent="true"
       :lazy="true"
       max-width="460px"
       min-width="240px"
-      @close="clubTrackReqDialog = false;">
+      @close="clubTracksetDialog = false;">
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
-          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_trackset") }}</div>
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_tracksets") }} • {{ clubDaySelected }}</div>
           <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
             <button
+              :disabled="clubTrackNeedSave || clubDayNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="clubOpenNewTrackset()">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
@@ -2499,7 +2594,41 @@
               class="Main_SearchItem"
               @click="clubTracksetSelectorClick(item.date, $event)"
               @longTouch="clubTracksetSelectorClick(item.date, { shiftKey: true, ctrlKey: true })">
-              <!-- <div v-html="item.nameStyled" class="Main_SearchItemRight" /> -->
+              <BaseCheckBox :value="clubTracksGroupsActive.find(x => x.date === item.date)" style="margin-right: 10px"/>
+              <div class="Main_SearchItemRight">{{ item.name }}</div>
+            </BaseButtonTouch>
+          </template>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="clubReqsDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="460px"
+      min-width="240px"
+      @close="clubReqsDialog = false;">
+      <div style="Cg_SelectorDialogBox">
+        <div class="Cg_SelectorDialogHeader">
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_reqs") }} • {{ clubDaySelected }}</div>
+          <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
+            <button
+              :disabled="clubTrackNeedSave || clubDayNeedSave"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="clubOpenNewReqs()">
+              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+              <span>{{ $t("m_new") }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="Main_SearchMid Cg_SelectorDialogMid">
+          <template v-for="item in clubReqGroups">
+            <BaseButtonTouch
+              style="padding-left: 15px;"
+              class="Main_SearchItem"
+              @click="clubReqsSelectorClick(item.date, $event)"
+              @longTouch="clubReqsSelectorClick(item.date, { shiftKey: true, ctrlKey: true })">
+              <BaseCheckBox :value="clubReqGroupsActive.find(x => x.date === item.date)" style="margin-right: 10px"/>
               <div class="Main_SearchItemRight">{{ item.name }}</div>
             </BaseButtonTouch>
           </template>
@@ -2527,7 +2656,67 @@
           :disabled="clubNewTracksetLoading || clubNewTracksetError || !clubNewTracksetName"
           style="margin-top: 20px;"
           class="D_Button Main_SaveAllButton"
-          @click="clubSaveNewTrackset()">{{ $t("m_createNewEvent") }}</button>
+          @click="clubSaveNewTrackset()">{{ $t("m_createNewTrackset") }}</button>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="clubNewReqsDialog"
+      :transparent="false"
+      max-width="340px"
+      min-width="240px"
+      @close="clubNewReqsDialog = false;">
+      <div class="Main_SaveGalleryDialog">
+        <div class="Main_SaveGalleryBox">
+          <BaseText
+            v-model="clubNewReqsName"
+            class="BaseText_Big"
+            iid="Club_NewReqsName"
+            type="normal"
+            :label="$t('m_reqsName')"
+            placeholder="" />
+        </div>              
+        <button
+          :class="{ D_Button_Loading: clubNewReqsLoading, D_Button_Error: clubNewReqsError }"
+          :disabled="clubNewReqsLoading || clubNewReqsError || !clubNewReqsName"
+          style="margin-top: 20px;"
+          class="D_Button Main_SaveAllButton"
+          @click="clubSaveNewReqs()">{{ $t("m_createNewReqs") }}</button>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="clubDayConfigDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="460px"
+      min-width="240px"
+      @close="clubDayConfigDialog = false;">
+      <div style="Cg_SelectorDialogBox">
+        <div class="Cg_SelectorDialogHeader">
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_daySelector") }}</div>
+          <div v-if="user && user.mod && !clubDays[clubServerDateISO]" class="Cg_SelectorDialogRight">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              :class="{ D_Button_Loading: clubLoadingAny }"
+              :disabled="clubLoadingAny"
+              @click="clubNewDayConfig(clubServerDateISO)">
+              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+              <span>{{ clubServerDateISO }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="Main_SearchMid Cg_SelectorDialogMid">
+          <template v-for="(item, key) in clubArrayClubDays">
+            <BaseButtonTouch
+              style="padding-left: 15px;"
+              class="Main_SearchItem"
+              :class="{ Clubs_DaySelectorActive: item.date === clubDaySelected }"
+              @click="clubsLoadDay(item.date, $event)"
+              @longTouch="clubsLoadDay(item.date, { shiftKey: true, ctrlKey: true })">
+              <!-- <div v-html="item.nameStyled" class="Main_SearchItemRight" /> -->
+              <div class="Main_SearchItemRight">{{ item.date }}{{ item.date === clubServerDateISO ? ` (${$t('m_current')})` : '' }}</div>
+            </BaseButtonTouch>
+          </template>
+        </div>
       </div>
     </BaseDialog>
   </div>
@@ -2814,11 +3003,28 @@ export default {
       clubLoading: false,
       clubNewLoading: false,
       clubAnalyseLoading: false,
+      clubFirstLoading: true,
+      clubServerDate: null, 
+      clubServerDateISO: null, 
       clubTracksGroupModel: {},
       clubReqsGroupModel: {},
       clubTracksGroups: [],
+      clubTracksGroupsActive: [],
       clubReqGroups: [],
+      clubReqGroupsActive: [],
       clubCompilation: [],
+      clubCurrentTracksetString: null,
+      clubCurrentCompString: null,
+      clubCurrentTrackGroupuuid: null,
+      clubCurrentTracksetuuids: null,
+      clubCurrentName: null,
+      clubRequirementsDialog: false,
+      clubDays: {},
+      clubDayConfigDialog: false,
+      clubDaySelected: null,
+      clubDaySelectedObj: {},
+      clubDayCurrentTracksetStrig: null,
+      clubDayCurrentReqStrig: null,
       clubCheckFilterCodePre: null,
       clubCheckFilterCode: null,
       clubForceAnalyze: false,
@@ -2831,11 +3037,24 @@ export default {
       clubEnablePicks: true,
       clubPointsReference: [{}, {}, {}, {}, {}],
       clubScoreType: "saverScore3",
-      clubTrackReqDialog: false,
+      clubTracksetDialog: false,
+      clubReqsDialog: false,
       clubNewTracksetDialog: false,
       clubNewTracksetName: "",
       clubNewTracksetLoading: false,
       clubNewTracksetError: false,
+      clubNewReqsDialog: false,
+      clubNewReqsName: "",
+      clubNewReqsLoading: false,
+      clubNewReqsError: false,
+      clubCurrentFilterString: null,
+      clubCurrentFilterToSave: null,
+      clubCurrentFilterForKing: {},
+      clubCurrentCriteriaUuidString: null,
+      clubCurrentCriteriaNameString: null,
+      clubCurrentKingDialog: false,
+      clubCurrentKingFilterCodePre: null,
+      clubCurrentKingFilterCode: null,
       kingDialog: false,
       kingFilterDialog: false,
       kingTrack: false,
@@ -2848,6 +3067,7 @@ export default {
       kingAddindTrack: false,
       kingForceVerticalView: true,
       kingClearFilter: {},
+      trackTimes: null,
       user: null,
       asMod: false,
       showCarsFix: true,
@@ -3072,8 +3292,26 @@ export default {
         window.onbeforeunload = null;
       }
     },
-    clubNeedSave: function() {
-      if (this.eventNeedSave) {
+    clubTrackNeedSave: function() {
+      if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
+        window.onbeforeunload = function(){
+          return 'Are you sure you want to leave?';
+        };
+      } else {
+        window.onbeforeunload = null;
+      }
+    },
+    clubDayNeedSave: function() {
+      if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
+        window.onbeforeunload = function(){
+          return 'Are you sure you want to leave?';
+        };
+      } else {
+        window.onbeforeunload = null;
+      }
+    },
+    clubReqNeedSave: function() {
+      if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
         window.onbeforeunload = function(){
           return 'Are you sure you want to leave?';
         };
@@ -3594,15 +3832,54 @@ export default {
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
       return false;
     },
-    clubNeedSave() {
+    clubTrackNeedSave() {
       if (this.mode !== 'clubs') return false;
-      if (!this.club.date) return false;
+      // if (!this.club.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
-      // if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
+      if (this.clubFirstLoading) return false;
       // if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
-      if (this.eventCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) return true;
+      if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.trackset)) return true;
+      if (this.clubCurrentCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) return true;
+      if (this.clubCurrentTrackGroupuuid !== JSON.stringify(this.clubTracksGroupModel.trackGroupuuid)) return true;
+      if (this.clubCurrentTracksetuuids !== JSON.stringify(this.clubTracksGroupModel.tracksetuuids)) return true;
+      if (this.clubCurrentName !== JSON.stringify(this.clubTracksGroupModel.name)) return true;
       // if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
       return false;
+    },
+    clubReqNeedSave() {
+      if (this.mode !== 'clubs') return false;
+      // if (!this.club.date) return false;
+      if (!this.user || (this.user && !this.user.mod)) return false;
+      if (!this.clubReqsGroupModel.name) return false;
+      if (this.clubFirstLoading) return false;
+      if (this.clubCurrentFilterToSave && JSON.stringify(this.clubCurrentFilterToSave) !== this.clubCurrentFilterString) return true;
+      if (this.clubCurrentCriteriaUuidString !== JSON.stringify(this.clubReqsGroupModel.criteriauuid)) return true;
+      if (this.clubCurrentCriteriaNameString !== JSON.stringify(this.clubReqsGroupModel.name)) return true;
+      return false;
+    },
+    clubDayNeedSave() {
+      if (this.mode !== 'clubs') return false;
+      // if (!this.club.date) return false;
+      if (!this.user || (this.user && !this.user.mod)) return false;
+      // console.log("1");
+      if (this.clubFirstLoading) return false;
+      // if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
+      // if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
+      // console.log(this.clubDayCurrentTracksetStrig, JSON.stringify(this.clubDaySelectedObj.tracksetGroups));
+      if (this.clubDayCurrentTracksetStrig !== JSON.stringify(this.clubDaySelectedObj.tracksetGroups)) return true;
+      if (this.clubDayCurrentReqStrig !== JSON.stringify(this.clubDaySelectedObj.criterias)) return true;
+      // if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
+      return false;
+    },
+    clubArrayClubDays() {
+      let result = [];
+      Object.keys(this.clubDays).map(key => {
+        result.push(this.clubDays[key]);
+      })
+      result.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+      })
+      return result;
     },
     eventShowAnalyse() {
       if (this.mode !== 'events') return false;
@@ -3716,6 +3993,12 @@ export default {
       if (this.mode === 'events') {
         Vue.set(this.event.trackset[this.eventTracksetSelected], this.eventRaceSelected, track);
         this.eventResolveTrackset()
+        this.closeDialogTrackSearch();
+        return;
+      }
+      if (this.mode === 'clubs') {
+        Vue.set(this.clubTracksGroupModel.trackset[this.eventTracksetSelected], this.eventRaceSelected, track);
+        this.clubsResolveTrackGroup()
         this.closeDialogTrackSearch();
         return;
       }
@@ -5886,10 +6169,10 @@ export default {
       
     },
     cgSaveBank(customArray) {
-      // if (!window.location.origin.includes('topdrives')) {
-      //   console.log("trySave", customArray);
-      //   return;
-      // };
+      if (!window.location.origin.includes('topdrives')) {
+        console.log("trySave", customArray);
+        return;
+      };
       if (this.cgBankToSave.length === 0 && !customArray) return;
       this.cgBankToSaveLoading = true;
 
@@ -6660,33 +6943,42 @@ export default {
       })
     },
     eventResolveCompilation(tracksetUsed) {
-      if (!this.event.trackTimes) return;
-      Vue.set(this.event, "compilation", []);
+      if (!this.trackTimes) return;
+
+      
+      if (this.isEvents) {
+        Vue.set(this.event, "compilation", []);
+      } else {
+        Vue.set(this, "clubCompilation", []);
+      }
+
+      let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
+
       Array.from(Array(5)).map((_, itrack) => {
         let compilation = [];
-        Array.from(Array(this.event.trackset.length)).map((_, itrackset) => {
-          if (tracksetUsed && JSON.stringify(tracksetUsed[0]) !== JSON.stringify(this.event.trackset[itrackset])) {
+        Array.from(Array(this[key].trackset.length)).map((_, itrackset) => {
+          if (tracksetUsed && JSON.stringify(tracksetUsed[0]) !== JSON.stringify(this[key].trackset[itrackset])) {
             return;
           }
 
-          // if (Object.keys(this.event.trackTimes).length === 5) {
+          // if (Object.keys(this.trackTimes).length === 5) {
           //   let foundAll = true;
-          //   this.event.trackset[itrackset].map(x => {
-          //     if (!this.event.trackTimes[x]) foundAll = false;
+          //   this[key].trackset[itrackset].map(x => {
+          //     if (!this.trackTimes[x]) foundAll = false;
           //   })
           //   if (!foundAll) return;
           // }
 
-          let track = this.event.trackset[itrackset][itrack];
+          let track = this[key].trackset[itrackset][itrack];
           if (itrackset === 0) {
-            compilation = this.event.trackTimes[track];
+            compilation = this.trackTimes[track];
             compilation.map(car => {
               car.presentCount = [track];
             })
           }
           else {
-            if (this.event.trackTimes[track]) {
-              this.event.trackTimes[track].map(car => {
+            if (this.trackTimes[track]) {
+              this.trackTimes[track].map(car => {
                 let found = compilation.find(x => x.rid === car.rid && x.tune === car.tune);
                 if (found) {
                   found.saverScore1 = Math.floor((found.saverScore1 + car.saverScore1) / 1.9)
@@ -6708,7 +7000,7 @@ export default {
         })
 
         let uniqueTracks = [];
-        this.event.trackset.map(trackset => uniqueTracks.push(trackset[itrack]));
+        this[key].trackset.map(trackset => uniqueTracks.push(trackset[itrack]));
         uniqueTracks = [...new Set(uniqueTracks)];
         let minCount = uniqueTracks.length;
 
@@ -6728,27 +7020,34 @@ export default {
             car.track = car.presentCount[0];
           }
         })
-        Vue.set(this.event.compilation, itrack, compilation);
 
-        console.log(compilation);
+        if (this.isEvents) {
+          Vue.set(this.event.compilation, itrack, compilation);
+        } else {
+          Vue.set(this.clubCompilation, itrack, compilation);
+        }
+
+        // console.log(compilation);
         
       });
     },
     eventListKings() {
+      let key = this.isEvents ? 'eventPointsReference' : 'clubPointsReference';
+
       let data = JSON.parse(JSON.stringify(this.eventResponse));
       data.map((dataTrack, itrack) => {
         let bestTime;
         let bestTimePure;
-        if (this.eventPointsReference[itrack].rid !== undefined) {
-          let ixOfBest = dataTrack.findIndex(x => x.rid === this.eventPointsReference[itrack].rid && x.tune === this.eventPointsReference[itrack].tune);
+        if (this[key][itrack].rid !== undefined) {
+          let ixOfBest = dataTrack.findIndex(x => x.rid === this[key][itrack].rid && x.tune === this[key][itrack].tune);
           if (ixOfBest > -1) {
-            this.eventPointsReference[itrack].icar = ixOfBest;
+            this[key][itrack].icar = ixOfBest;
             bestTime = dataTrack[ixOfBest].time;
             bestTimePure = dataTrack[ixOfBest].time;
           }
         }
         dataTrack.map((car, icar) => {
-          if (bestTime === undefined || (icar === this.eventPointsReference[itrack].icar)) {
+          if (bestTime === undefined || (icar === this[key][itrack].icar)) {
             bestTime = car.time;
             bestTimePure = car.time;
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
@@ -6767,49 +7066,13 @@ export default {
           this.frontCompleteCar(car);
         })
       })
-      Vue.set(this.event, "compilation", data);
+
+      if (this.isEvents) {
+        Vue.set(this.event, "compilation", data);
+      } else {
+        Vue.set(this, "clubCompilation", data);
+      }
       return;
-
-      data.map((dataTrack, itrack) => {
-
-      })
-      
-      Array.from(Array(5)).map((_, itrack) => {
-        let compilation = [];
-        Array.from(Array(this.event.trackset.length)).map((_, itrackset) => {
-          let track = this.event.trackset[itrackset][itrack];
-          if (track.includes('testBowl')) return;
-          if (itrackset === 0) {
-            compilation = this.event.trackTimes[track];
-            compilation.map(car => {
-              car.presentCount = 1;
-            })
-          }
-          else {
-            this.event.trackTimes[track].map(car => {
-              let found = compilation.find(x => x.rid === car.rid);
-              if (found) {
-                found.saverScore1 = Math.floor((found.saverScore1 + car.saverScore1) / 2)
-                found.saverScore2 = Math.floor((found.saverScore2 + car.saverScore2) / 2)
-                car.presentCount += 1;
-              } else {
-                // allow score if not present on all tracks (part1)
-                car.presentCount = 1;
-                compilation.push(car);
-              }
-
-            })
-          }
-        })
-        compilation.sort((a,b) => {
-          return b.saverScore1 - a.saverScore1;
-        })
-        compilation.map(car => {
-          this.frontCompleteCar(car);
-        })
-        Vue.set(this.event.compilation, itrack, compilation);
-        
-      });
     },
     eventAskDelete(date) {
       let vm = this;
@@ -6957,12 +7220,11 @@ export default {
     eventEditCompClose() {
       this.eventCompDialog = false;
     },
-    eventOpenRequirementDialog() {
-      this.eventRequirementsDialog = true;
-    },
     eventUpdateRequirements(filter) {
-      this.event.filter = filter;
+      let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
+      this[key].filter = filter;
       this.eventRequirementsDialog = false;
+      this.clubRequirementsDialog = false;
     },
     eventOpenAddYouCar() {
       this.eventAddCarDialog = true;
@@ -7158,7 +7420,7 @@ export default {
         filter: this.event.filter
       })
       .then(res => {
-        Vue.set(this.event, 'trackTimes', res.data)
+        Vue.set(this, 'trackTimes', res.data)
         // if (disableAfter) this.eventForceAnalyze = false;
         this.eventResolveCompilation();
       })
@@ -7180,21 +7442,30 @@ export default {
 
     },
     eventFindRqSavers() {
-      // RQ savers, unreleased
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
+
+      let trackset;
+      let filter;
+      if (this.isEvents) {
+        trackset = [this.event.trackset[this.eventCheckFilterCode[0]]];
+        filter = this.event.filter;
+      } else {
+        trackset = [this.clubTracksGroupModel.trackset[this.eventCheckFilterCode[0]]];
+        filter = this.clubReqsGroupModel.filter;
+      }
+
+      
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/analyseEvent", {
-        date: this.event.date,
-        rqLimit: this.event.rqLimit,
-        trackset: [this.event.trackset[this.eventCheckFilterCode[0]]],
-        filter: this.event.filter
+        trackset: trackset,
+        filter: filter
       })
       .then(res => {
-        Vue.set(this.event, 'trackTimes', res.data)
+        Vue.set(this, 'trackTimes', res.data)
         // if (disableAfter) this.eventForceAnalyze = false;
-        this.eventResolveCompilation([this.event.trackset[this.eventCheckFilterCode[0]]]);
+        this.eventResolveCompilation(trackset);
       })
       .catch(error => {
         console.log(error);
@@ -7244,6 +7515,7 @@ export default {
       })
       .then(res => {
         // nada
+        this.loadEvents(true);
       })
       .catch(error => {
         console.log(error);
@@ -7260,12 +7532,6 @@ export default {
       .then(() => {
         this.eventAnalyseLoading = false;
       });
-    },
-    eventClearPicks() {
-      this.eventPicksList = [];
-      window.localStorage.setItem(`picks_${this.eventCurrentName}`, '[]');
-      this.eventPointsReference = [{}, {}, {}, {}, {}];
-      window.localStorage.setItem(`reference_${this.eventCurrentName}`, '[{}, {}, {}, {}, {}]');
     },
     eventOpenShowCarDialog(car, e, igroup, icar) {
       if (e.altKey) {
@@ -7287,6 +7553,12 @@ export default {
       this.tuneDialogCarIndex = -1;
       this.tuneDialogisOppo = true;
       this.tuneDialogActive = true;
+    },
+    eventClearPicks() {
+      this.eventPicksList = [];
+      window.localStorage.setItem(`picks_${this.eventCurrentName}`, '[]');
+      this.eventPointsReference = [{}, {}, {}, {}, {}];
+      window.localStorage.setItem(`reference_${this.eventCurrentName}`, '[{}, {}, {}, {}, {}]');
     },
     eventLoadPicks() {
       this.eventPicksList = [];
@@ -7837,10 +8109,16 @@ export default {
 
       axios.get(Vue.preUrl + "/searchClubs")
       .then(res => {
-        this.clubTracksGroups = res.data.find(x => x.id === 'clubsTracksets').value;
-        this.clubReqGroups = res.data.find(x => x.id === 'clubsReqs').value;
-        if (resolveInitial) {
-          this.clubsResolveInitial();
+        this.clubFirstLoading = false;
+        if (res.data.res) {
+          this.clubTracksGroups = res.data.res.find(x => x.id === 'clubsTracksets').value;
+          this.clubReqGroups = res.data.res.find(x => x.id === 'clubsReqs').value;
+          this.clubDays = res.data.res.find(x => x.id === 'clubsDaysObj').value;
+          this.clubServerDate = res.data.date;
+          this.clubServerDateISO = res.data.date.substring(0,10);
+          if (resolveInitial) {
+            this.clubsResolveInitial();
+          }
         }
       })
       .catch(error => {
@@ -7858,17 +8136,92 @@ export default {
       })
     },
     clubsResolveInitial() {
-      this.clubsChangeTrackGroup(0);
-      this.clubsChangeReqsGroup(0);
+      // this.clubsChangeTrackGroup(0);
+      // this.clubsChangeReqsGroup(0);
+      this.clubsLoadDay(this.clubDaySelected);
+      this.clubsTrackResetStringsToSave();  
+    },
+    clubsLoadDay(date, e) {
+      this.clubDaySelected = date;
+      if (this.clubDays[date]) {
+        this.clubDaySelectedObj = this.clubDays[date];
+        this.clubDaySelected = date;
+      } else {
+        let lastKey = Object.keys(this.clubDays);
+        lastKey.sort((a,b) => {
+          return a.localeCompare(b);
+        })
+        lastKey = lastKey[lastKey.length - 1];
+        this.clubDaySelectedObj = this.clubDays[lastKey];
+        this.clubDaySelected = lastKey;
+      }
+
+      // sort
+      this.clubDaySelectedObj.tracksetGroups.sort((a, b) => {
+        return a.localeCompare(b);
+      })
+      this.clubDaySelectedObj.criterias.sort((a, b) => {
+        return a.localeCompare(b);
+      })
+
+      this.clubFillTrackGroupsActive();
+      this.clubsDayResetStringsToSave();
+
+      // trackset
+      if (this.clubTracksGroupsActive.length > 0) {
+        this.clubsChangeTrackGroup(0);
+      } else {
+        this.clubsChangeTrackGroup(null);
+      }
+      // reqs
+      if (this.clubReqGroupsActive.length > 0) {
+        this.clubsChangeReqsGroup(0);
+      } else {
+        this.clubsChangeReqsGroup(null);
+      }
+      
+      this.clubDayConfigDialog = false;
+    },
+    clubsTrackResetStringsToSave() {
+      this.clubCurrentTracksetString = JSON.stringify(this.clubTracksGroupModel.trackset);
+      this.clubCurrentCompString = JSON.stringify(this.clubTracksGroupModel.comp);
+      this.clubCurrentTrackGroupuuid = JSON.stringify(this.clubTracksGroupModel.trackGroupuuid);
+      this.clubCurrentTracksetuuids = JSON.stringify(this.clubTracksGroupModel.tracksetuuids);
+      this.clubCurrentName = JSON.stringify(this.clubTracksGroupModel.name);
+    },
+    clubsReqResetStringsToSave(isAfterSave = false) {
+      if (isAfterSave) {
+        this.clubCurrentFilterString = JSON.stringify(this.clubCurrentFilterToSave);
+        this.clubReqsGroupModel.filter = JSON.parse(this.clubCurrentFilterString);
+        this.clubCurrentFilterToSave = null;
+      } else {
+        this.clubCurrentFilterString = JSON.stringify(this.clubReqsGroupModel.filter);
+      }
+      this.clubCurrentCriteriaUuidString = JSON.stringify(this.clubReqsGroupModel.criteriauuid);
+      this.clubCurrentCriteriaNameString = JSON.stringify(this.clubReqsGroupModel.name);
+    },
+    clubsDayResetStringsToSave() {
+      this.clubDayCurrentTracksetStrig = JSON.stringify(this.clubDaySelectedObj.tracksetGroups);
+      this.clubDayCurrentReqStrig = JSON.stringify(this.clubDaySelectedObj.criterias);
     },
     clubsChangeTrackGroup(index) {
-      this.clubTracksGroupModel = this.clubTracksGroups[index];
+      if (index === null) {
+        this.clubTracksGroupModel = {};
+        this.clubsTrackResetStringsToSave();
+        return;
+      }
+      this.clubTracksGroupModel = this.clubTracksGroupsActive[index];
+      if (this.clubTracksGroupModel.trackset.length === 0) {
+        this.clubTracksGroupModel.trackset.push([null,null,null,null,null])
+      }
       if (this.clubTracksGroupModel.comp.length === 0) {
         Array.from(Array(5)).map((_, i) => {
           this.clubTracksGroupModel.comp.push({tyres: [], clearance: [], drives: [], meta: []})
         });
       }
       this.clubsResolveTrackGroup();
+      this.clubsTrackResetStringsToSave();
+      this.clubLoadPicks();
     },
     clubsResolveTrackGroup() {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.clubTracksGroupModel.trackset));
@@ -7881,13 +8234,35 @@ export default {
       })
       Vue.set(this.clubTracksGroupModel, "resolvedTrackset", resolvedTrackset);
     },
+    clubsResolveReqGroup() {
+      // resolve filter
+      this.eventCheckFilterCodePre = null;
+      this.eventCheckFilterCode = null;
+      this.eventFilterForKing = {};
+      this.eventLoadPicks();
+      this.clubCurrentFilterString = JSON.stringify(this.clubReqsGroupModel.filter);
+    },
     clubsChangeReqsGroup(index) {
-      this.clubReqsGroupModel = this.clubReqGroups[index];
+      if (index === null) {
+        this.clubReqsGroupModel = {};
+        this.clubsReqResetStringsToSave();
+        return;
+      }
+      this.clubReqsGroupModel = this.clubReqGroupsActive[index];
+
+      this.clubsResolveReqGroup();
+      this.clubsReqResetStringsToSave();
+      this.clubLoadPicks();
+    },    
+    clubAddTrackset() {
+      this.clubTracksGroupModel.trackset.push([null,null,null,null,null]);
+      this.clubsResolveTrackGroup();
     },
 
+    // TRACKSET
     clubOpenNewTrackset() {
       this.clubClearSaveNewTrackset();
-      this.clubTrackReqDialog = false;
+      this.clubTracksetDialog = false;
       this.clubNewTracksetDialog = true;
       setTimeout(() => {
         try {
@@ -7899,7 +8274,7 @@ export default {
       this.clubNewTracksetName = null;
     },
     clubCloseNewTrackset() {
-      this.clubTrackReqDialog = true;
+      this.clubTracksetDialog = true;
       this.clubNewTracksetDialog = false;
     },
     clubSaveNewTrackset() {
@@ -7933,11 +8308,27 @@ export default {
       })
     },
     clubTracksetSelectorClick(date, e) {
+      console.log("clubTracksetSelectorClick");
       if (e && e.shiftKey && this.user && this.user.canDelete && this.user.mod) {
         this.clubAskDeleteTrackset(date);
         return;
       }
-      // nada
+      let found = this.clubTracksGroupsActive.find(x => x.date === date);
+      if (found) {
+        if (found.date === this.clubTracksGroupModel.date) {
+          // desativou selecionado
+          this.clubTracksGroupModel = {};
+          this.clubsTrackResetStringsToSave();
+        }
+        this.clubTracksGroupsActive = this.clubTracksGroupsActive.filter(x => x.date !== found.date);
+      } else {
+        // this.clubTracksGroupsActive.push(JSON.parse(JSON.stringify(this.clubTracksGroups.find(x => x.date === date))))
+        this.clubTracksGroupsActive.push(this.clubTracksGroups.find(x => x.date === date));
+      }
+      this.clubTracksGroupsActive.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      })
+      this.clubDaySelectedObj.tracksetGroups = this.clubTracksGroupsActive.map(x => x.date);
 
     },
     clubAskDeleteTrackset(date) {
@@ -7978,8 +8369,323 @@ export default {
         loading: false,
         classe: `D_ButtonRed`
       }
+    },
+
+    // REQUIREMENTS
+    clubOpenNewReqs() {
+      this.clubClearSaveNewReqs();
+      this.clubReqsDialog = false;
+      this.clubNewReqsDialog = true;
+      setTimeout(() => {
+        try {
+          document.querySelector("#Club_NewReqsName").focus();  
+        } catch (error) {}
+      }, 10);
+    },
+    clubClearSaveNewReqs() {
+      this.clubNewReqsName = null;
+    },
+    clubCloseNewReqs() {
+      this.clubReqsDialog = true;
+      this.clubNewReqsDialog = false;
+    },
+    clubSaveNewReqs() {
+      this.clubNewReqsLoading = true;
+
+      axios.post(Vue.preUrl + "/updateClubsReqs", {
+        name: this.clubNewReqsName
+      })
+      .then(res => {
+        setTimeout(() => {
+          this.clubCloseNewReqs();
+          this.loadClubs(false);
+          this.clubNewReqsLoading = false;
+        }, 1000);
+      })
+      .catch(error => {
+        this.clubNewReqsError = true;
+        this.clubNewReqsLoading = false;
+        setTimeout(() => { this.clubNewReqsError = false}, 1500);
+
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    clubReqsSelectorClick(date, e) {
+      console.log("clubReqsSelectorClick");
+      if (e && e.shiftKey && this.user && this.user.canDelete && this.user.mod) {
+        this.clubAskDeleteReqs(date);
+        return;
+      }
+      let found = this.clubReqGroupsActive.find(x => x.date === date);
+      if (found) {
+        if (found.date === this.clubReqsGroupModel.date) {
+          // desativou selecionado
+          this.clubReqsGroupModel = {};
+          this.clubsTrackResetStringsToSave();
+        }
+        this.clubReqGroupsActive = this.clubReqGroupsActive.filter(x => x.date !== found.date);
+      } else {
+        // this.clubReqGroupsActive.push(JSON.parse(JSON.stringify(this.clubReqGroups.find(x => x.date === date))))
+        this.clubReqGroupsActive.push(this.clubReqGroups.find(x => x.date === date));
+      }
+      this.clubReqGroupsActive.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      })
+      this.clubDaySelectedObj.criterias = this.clubReqGroupsActive.map(x => x.date);
 
     },
+    clubAskDeleteReqs(date) {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.clubLoading = true;
+
+        axios.post(Vue.preUrl + "/updateClubsReqs", {
+          date: date,
+          isDelete: true
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.loadClubs(false);
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.clubLoading = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete "${date}"?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+    },
+
+    clubSaveTrackset() {
+      this.clubLoading = true;
+      
+      let params = { date: this.clubTracksGroupModel.date };
+      // if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.filter)) params.filter = this.eventFilterToSave;
+      if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.trackset)) params.trackset = this.clubTracksGroupModel.trackset;
+      if (this.clubCurrentCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) params.comp = this.clubTracksGroupModel.comp;
+      if (this.clubCurrentTrackGroupuuid !== JSON.stringify(this.clubTracksGroupModel.trackGroupuuid)) params.trackGroupuuid = this.clubTracksGroupModel.trackGroupuuid;
+      if (this.clubCurrentTracksetuuids !== JSON.stringify(this.clubTracksGroupModel.tracksetuuids)) params.tracksetuuids = this.clubTracksGroupModel.tracksetuuids;
+      if (this.clubCurrentName !== JSON.stringify(this.clubTracksGroupModel.name)) params.name = this.clubTracksGroupModel.name;
+
+      axios.post(Vue.preUrl + "/updateClubsTracksets", params)
+      .then(res => {
+        this.clubsTrackResetStringsToSave();
+        this.clubLoading = false;
+      })
+      .catch(error => {
+        this.clubLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    clubSaveReq() {
+      this.clubLoading = true;
+      
+      let params = { date: this.clubReqsGroupModel.date };
+
+      if (this.clubCurrentFilterString !== JSON.stringify(this.clubReqsGroupModel.filter)) params.filter = this.clubCurrentFilterToSave;
+      if (this.clubCurrentCriteriaUuidString !== JSON.stringify(this.clubReqsGroupModel.filter)) params.criteriauuid = this.clubReqsGroupModel.criteriauuid;
+      if (this.clubCurrentCriteriaNameString !== JSON.stringify(this.clubReqsGroupModel.name)) params.name = this.clubReqsGroupModel.name;
+
+      axios.post(Vue.preUrl + "/updateClubsReqs", params)
+      .then(res => {
+        this.clubsReqResetStringsToSave(true);
+        this.clubLoading = false;
+      })
+      .catch(error => {
+        this.clubLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    clubDaySaveAll() {
+      this.clubLoading = true;
+      
+      let params = { date: this.clubDaySelected };
+      if (this.clubDayCurrentTracksetStrig !== JSON.stringify(this.clubDaySelectedObj.tracksetGroups)) params.tracksetGroups = this.clubDaySelectedObj.tracksetGroups;
+      if (this.clubDayCurrentReqStrig !== JSON.stringify(this.clubDaySelectedObj.criterias)) params.criterias = this.clubDaySelectedObj.criterias;
+
+      axios.post(Vue.preUrl + "/updateClubsDayConfigs", params)
+      .then(res => {
+        this.clubsDayResetStringsToSave();
+        this.clubLoading = false;
+      })
+      .catch(error => {
+        this.clubLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    clubNewDayConfig(date) {
+      this.clubLoading = true;
+
+      axios.post(Vue.preUrl + "/updateClubsDayConfigs", {
+        date: date
+      })
+      .then(res => {
+        setTimeout(() => {
+          this.loadClubs(false);
+          this.clubLoading = false;
+        }, 1000);
+      })
+      .catch(error => {
+        this.clubLoading = false;
+
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+    },
+    clubFillTrackGroupsActive() {
+      this.clubTracksGroupsActive = [];
+      this.clubReqGroupsActive = [];
+      this.clubDaySelectedObj.tracksetGroups.map(date => {
+        let trackset = this.clubTracksGroups.find(x => x.date === date);
+        if (trackset) this.clubTracksGroupsActive.push(trackset);
+      })
+      this.clubDaySelectedObj.criterias.map(date => {
+        let req = this.clubReqGroups.find(x => x.date === date);
+        if (req) this.clubReqGroupsActive.push(req);
+      })
+    },
+    clubExportTracksToWorkspace() {
+      let result = "";
+      let tracks = [];
+      this.clubTracksGroupModel.trackset.map(trackset => {
+        trackset.map(track => {
+          tracks.push(track);
+        })
+      })
+      tracks = [...new Set(tracks)];
+      tracks = this.orderTracksIds(tracks);
+      tracks.map(track => {
+        result += `~K${track}`
+      })
+      
+      this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.clubReqsGroupModel.filter });
+
+      this.changeMode('classic');
+      setTimeout(() => {
+        this.searchFilterDialog = true;
+      }, 100);
+      this.decodeTemplateString(result, true);
+    },
+    clubClearPicks() {
+      this.clubPicksList = [];
+      window.localStorage.setItem(`picks_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`, '[]');
+      this.clubPointsReference = [{}, {}, {}, {}, {}];
+      window.localStorage.setItem(`reference_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`, '[{}, {}, {}, {}, {}]');
+    },
+    clubLoadPicks() {
+      this.clubPicksList = [];
+      this.clubPointsReference = [{}, {}, {}, {}, {}];
+      this.clubCompilation = [];
+      this.eventCheckFilterCodePre = null;
+      this.eventCheckFilterCode = null;
+
+
+      let _picks = window.localStorage.getItem(`picks_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`);
+      if (_picks) {
+        this.clubPicksList = JSON.parse(_picks);
+      }
+      let _reference = window.localStorage.getItem(`reference_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`);
+      if (_reference) {
+        this.clubPointsReference = JSON.parse(_reference);
+      }
+    },
+    clubToggleReference(car, igroup) {
+      let found = this.clubPointsReference[igroup] && this.clubPointsReference[igroup].rid === car.rid && this.clubPointsReference[igroup].tune === car.tune;
+      if (found) {
+        this.clubPointsReference[igroup] = {};
+      } else {
+        this.clubPointsReference[igroup] = { rid: car.rid, tune: car.tune };
+      }
+
+      window.localStorage.setItem(`reference_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`, JSON.stringify(this.clubPointsReference));
+      this.eventListKings();
+    },
+    clubTogglePick(car, e) {
+      let found = this.clubPicksList.find(x => x.rid === car.rid && x.tune === car.tune);
+      if (found) {
+        this.clubPicksList = this.clubPicksList.filter(x => x.rid !== car.rid || x.tune !== car.tune);
+      } else {
+        this.clubPicksList.push(JSON.parse(JSON.stringify(car)));
+      }
+      if (e) {
+        e.preventDefault();
+      }
+      window.localStorage.setItem(`picks_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`, JSON.stringify(this.clubPicksList));
+      this.eventEnablePicks = true;
+    },
+    clubRemovePick(car) {
+      this.clubPicksList = this.clubPicksList.filter(x => x !== car);
+      window.localStorage.setItem(`picks_${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}`, JSON.stringify(this.clubPicksList));
+    },
+    clubShowRequirementsDialog(e) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey) && this.user && this.user.mod) {
+        this.clubForceAnalyze = !this.clubForceAnalyze;
+        return;
+      }
+      this.clubRequirementsDialog = true;
+    }
   }
 }
 </script>
@@ -9750,7 +10456,7 @@ body .Main_UserTw3:before {
 }
 .Clubs_SemiBox {
   background-color: hsl(var(--back-h), var(--back-s), 23%);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 20px 10px;
 }
 .Clubs_Box {
@@ -9761,7 +10467,41 @@ body .Main_UserTw3:before {
   justify-content: center;
   gap: 30px;
 }
-
+.Clubs_DayBox {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3px;
+}
+.Clubs_DaySelectorActive {
+  color: var(--d-text-b);
+  box-shadow: inset 4px 0px 0px 0px #ffffff1f;
+}
+.Main_AdminText {
+  color: rgb(var(--d-text-yellow));
+  margin-bottom: 7px;
+}
+.Main_AdminTextArea {
+  background-color: rgba(0,0,0,.2);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--d-text);
+  padding: 6px;
+  resize: none;
+  margin-top: 2px;
+  width: 100%;
+}
+.Main_AdminLayoutBox {
+  flex-direction: column;
+  align-items: center;
+}
+.Main_AdminLayout {
+  max-width: 500px;
+  flex-grow: 1;
+  width: 100%;
+}
 
 
 
@@ -9898,7 +10638,7 @@ body .Main_UserTw3:before {
   --card-top-height: 11.5%;
   --card-stat-height: 31.9px;
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip) {
   display: none;
 }
 .Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {

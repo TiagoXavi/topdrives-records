@@ -1,9 +1,12 @@
 <template>
   <button
-    :class="`${isSelected ? activeClass : ''}`"
+    :class="`${isSelected ? activeClass : ''} ${disabled ? '' : '' }`"
     :disabled="disabled"
     class="BaseChip"
-    @click="toggle">
+    @click="toggle"
+    @touchstart="touchstart($event)"
+    @touchend="touchend($event)"
+    @touchmove="touchmove($event)">
     <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
   </button>
 </template>
@@ -45,7 +48,14 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      timer: null,
+      touchduration: 800,
+      timerStart: 0,
+      timerEnd: 0,
+      element: null,
+      tm: null
+    }
   },
   watch: {},
   beforeMount() {},
@@ -85,6 +95,27 @@ export default {
       } else {
         this.$emit('click', isChecked ? true : false);
       }
+    },
+    touchstart(e) {
+      this.timerStart = performance.now();
+      this.tm = setTimeout(() => {
+        if (navigator.vibrate) {
+          navigator.vibrate(30);
+        }
+        this.$emit('longTouch');
+      }, 600);
+    },
+    touchend(e) {
+      clearTimeout(this.tm);
+
+
+      this.timerEnd = performance.now();
+      if (this.timerEnd - this.timerStart < 400 && e.cancelable) {
+        this.$emit('shortTouch', e);
+      }
+    },
+    touchmove(e) {
+      clearTimeout(this.tm);
     }
   },
 }
@@ -178,5 +209,38 @@ export default {
   padding: 5px 10px;
   height: 32px;
   font-size: 13px;
+}
+.BaseChip[disabled] {
+  cursor: initial;
+  pointer-events: none;
+}
+.BaseChip[disabled]:not(.D_ButtonActive) {
+  opacity: 0.2;
+}
+.BaseChip_IconToggle {
+  transition-duration: 0.2s;
+}
+.BaseChip_IconToggle .BaseChip_IconToggleText {
+  transition-duration: 0.2s;
+}
+.BaseChip_Absolute {
+  position: absolute;
+  transition-duration: 0.2s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  
+}
+.BaseChip_IconToggle .BaseChip_Absolute {
+  
+}
+.BaseChip_IconToggle:hover .BaseChip_Absolute,
+.BaseChip_IconToggle.focus-visible .BaseChip_Absolute {
+  opacity: 1;
+}
+.BaseChip_IconToggle:hover .BaseChip_IconToggleText,
+.BaseChip_IconToggle.focus-visible .BaseChip_IconToggleText {
+  opacity: 0;
 }
 </style>
