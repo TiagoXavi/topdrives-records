@@ -27,7 +27,7 @@
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
           @click="openFilter()">
           <div>{{ $tc("m_filter", 2) }}</div>
-          <div v-if="searchResult.length > 0 && !showingLastest" style="font-size: 0.5em;">({{ searchResult.length }})</div>
+          <div v-if="searchResult && searchResult.length > 0 && !showingLastest" style="font-size: 0.5em;">({{ searchResult.length }})</div>
           <span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span>
         </button>
         <button
@@ -1149,6 +1149,14 @@ export default {
           if (a.locatedPlus && !b.locatedPlus) return -1;
           if (b.locatedPlus && !a.locatedPlus) return 1;
           return a.locatedIndex - b.locatedIndex;
+        });
+      }
+      // sort alphabetical
+      if (!searchStr && kSort === null) {
+        result.sort(function(a, b) {
+          if (a.rq === b.rq) {
+            return a.name.localeCompare(b.name);
+          }
         });
       }
       // sort

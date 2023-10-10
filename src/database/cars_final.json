@@ -9177,7 +9177,7 @@
         "rid": "BMW_M850i_xDrive_2018",
         "tags": [
             "German Renaissance",
-            "Red"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -9438,7 +9438,7 @@
             "Ultra Expensive",
             "Originals",
             "Racing Royalty",
-            "Silver or Grey"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -12650,7 +12650,7 @@
             "Ultra Expensive",
             "Hypercar",
             "Summer Games",
-            "Green"
+            "Black"
         ],
         "bodyTypes": [
             "Roadster"
@@ -16095,7 +16095,7 @@
         "rid": "Chevrolet_Corvette_Z06_Lingenfelter_2006",
         "tags": [
             "Originals",
-            "Green"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -21558,7 +21558,7 @@
         "tags": [
             "Street Racer",
             "Originals",
-            "Silver or Grey"
+            "White"
         ],
         "bodyTypes": [
             "Saloon"
@@ -25410,7 +25410,7 @@
         "rid": "RUF_BTR2_1993",
         "tags": [
             "German Renaissance",
-            "Silver or Grey"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -30039,7 +30039,7 @@
             "Motorsport",
             "Old Guard",
             "Originals",
-            "Orange"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -31884,7 +31884,7 @@
         "tags": [
             "Drivers Choice",
             "Originals",
-            "Red"
+            "Pink"
         ],
         "bodyTypes": [
             "Roadster"
@@ -31957,6 +31957,39 @@
         ],
         "fuel": "Petrol",
         "seats": "2",
+        "engine": "Front"
+    },
+    {
+        "class": "A",
+        "rq": 66,
+        "onlyName": "HSV Gen-F Grange (WN)",
+        "brand": "Holden",
+        "year": 2016,
+        "tdid": "3980",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "country": "AU",
+        "topSpeed": 168,
+        "acel": 4.9,
+        "hand": 83,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 89.09,
+        "weight": 1880,
+        "name": "Holden HSV Gen-F Grange (WN)",
+        "rid": "Holden_HSV_GenF_Grange_WN_2016",
+        "prize": false,
+        "tags": [
+            "Learn the Savannah Way",
+            "Muscle Car",
+            "White"
+        ],
+        "bodyTypes": [
+            "Saloon"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
         "engine": "Front"
     },
     {
@@ -32307,7 +32340,7 @@
         "rid": "RUF_RCT_1991",
         "tags": [
             "German Renaissance",
-            "Black",
+            "Green",
             "The Unicorns"
         ],
         "bodyTypes": [
@@ -32574,7 +32607,7 @@
         "engine": "Rear",
         "tags": [
             "Enter the Black Forest",
-            "Beige"
+            "White"
         ]
     },
     {
@@ -34156,39 +34189,6 @@
     {
         "class": "A",
         "rq": 65,
-        "onlyName": "HSV Gen-F Grange (WN)",
-        "brand": "Holden",
-        "year": 2016,
-        "tdid": "3980",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "country": "AU",
-        "topSpeed": 168,
-        "acel": 4.9,
-        "hand": 83,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 89.09,
-        "weight": 1880,
-        "name": "Holden HSV Gen-F Grange (WN)",
-        "rid": "Holden_HSV_GenF_Grange_WN_2016",
-        "prize": false,
-        "tags": [
-            "Learn the Savannah Way",
-            "Muscle Car",
-            "White"
-        ],
-        "bodyTypes": [
-            "Saloon"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front"
-    },
-    {
-        "class": "A",
-        "rq": 65,
         "onlyName": "HSV Senator Signature (VF)",
         "brand": "Holden",
         "year": 2015,
@@ -34865,7 +34865,7 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Brown",
+            "Black",
             "The Unicorns"
         ],
         "bodyTypes": [
@@ -36384,7 +36384,7 @@
         "rid": "Chevrolet_Trailblazer_SS_2006",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "SUV"
@@ -37064,7 +37064,7 @@
         "tags": [
             "German Renaissance",
             "Old Guard",
-            "Blue"
+            "Black"
         ],
         "bodyTypes": [
             "Convertible"
@@ -38137,7 +38137,7 @@
             "Hot Hatch",
             "Year of the Tiger",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -38533,7 +38533,7 @@
             "Great Exhibition",
             "Rest of the World",
             "Silver Screen",
-            "Green"
+            "Gold"
         ],
         "bodyTypes": [
             "Saloon"
@@ -39126,7 +39126,7 @@
             "Enter the Black Forest",
             "Eco Friendly",
             "Electric Excellence",
-            "Silver or Grey"
+            "White"
         ]
     },
     {
@@ -40615,7 +40615,7 @@
             "Learn the Savannah Way",
             "Wild Ride",
             "Concept",
-            "Red"
+            "Purple"
         ],
         "bodyTypes": [
             "Coupe"
@@ -41554,7 +41554,7 @@
         "tags": [
             "Team Favourite",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -42357,7 +42357,7 @@
         "rid": "Mercedes-Benz_AMG_SLC_43_2016",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Roadster"
@@ -42580,7 +42580,7 @@
         "tags": [
             "American Dream",
             "Style Icon",
-            "Orange",
+            "Red",
             "Cutting Edge"
         ],
         "bodyTypes": [
@@ -43158,7 +43158,7 @@
         "tags": [
             "Sleeper",
             "Originals",
-            "Black",
+            "Green",
             "The Unicorns"
         ],
         "bodyTypes": [
@@ -43965,7 +43965,7 @@
             "Amalfi Coast Cruising",
             "Concept",
             "The Great Outdoors",
-            "Silver or Grey"
+            "Blue"
         ]
     },
     {
@@ -45209,7 +45209,7 @@
         "tags": [
             "Team Favourite",
             "Great Exhibition",
-            "Brown"
+            "Green"
         ],
         "bodyTypes": [
             "Roadster"
@@ -55571,7 +55571,7 @@
             "French Renaissance",
             "Motorsport",
             "Interstellar",
-            "Blue"
+            "Silver or Grey"
         ],
         "bodyTypes": [
             "Saloon"
@@ -56030,7 +56030,7 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Turquoise"
+            "Green"
         ],
         "bodyTypes": [
             "Pickup"
@@ -58956,7 +58956,7 @@
             "Silver Screen",
             "Old Guard",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Pickup"
@@ -59923,7 +59923,7 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Purple"
+            "Red"
         ]
     },
     {
@@ -61369,7 +61369,7 @@
         "rid": "RUF_SCR_1978",
         "tags": [
             "German Renaissance",
-            "Brown"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -62343,7 +62343,7 @@
         "rid": "AC_Aceca_V8_1999",
         "tags": [
             "World Expo",
-            "Black"
+            "Purple"
         ],
         "bodyTypes": [
             "Coupe"
@@ -66160,7 +66160,7 @@
         "tags": [
             "Originals",
             "Year of the Rabbit",
-            "Silver or Grey"
+            "White"
         ],
         "bodyTypes": [
             "Saloon"
@@ -66458,7 +66458,7 @@
             "Enter the Black Forest",
             "Eco Friendly",
             "Electric Excellence",
-            "Silver or Grey"
+            "White"
         ]
     },
     {
@@ -66485,7 +66485,7 @@
             "American Frontier",
             "Concept",
             "Year of the Ox",
-            "Red"
+            "Orange"
         ],
         "bodyTypes": [
             "Roadster"
@@ -66902,7 +66902,7 @@
         "tags": [
             "Year of the Rat",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -69104,7 +69104,7 @@
         "rid": "Aston_Martin_V8_Vantage_1977",
         "tags": [
             "Great Exhibition",
-            "Blue"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -70817,7 +70817,7 @@
             "Drivers Choice",
             "Street Racer",
             "Originals",
-            "Blue"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -73189,7 +73189,7 @@
         "rid": "Chevrolet_Silverado_SS_2006",
         "tags": [
             "American Dream",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Pickup"
@@ -73416,7 +73416,7 @@
             "Originals",
             "Year of the Rabbit",
             "Racing Royalty",
-            "Silver or Grey"
+            "Brown"
         ],
         "bodyTypes": [
             "SUV"
@@ -73960,7 +73960,7 @@
             "American Dream",
             "Call of the Wild",
             "Silver Screen",
-            "Red"
+            "Orange"
         ],
         "bodyTypes": [
             "SUV"
@@ -75625,7 +75625,7 @@
         "tags": [
             "French Renaissance",
             "Year of the Tiger",
-            "Silver or Grey"
+            "Blue"
         ],
         "bodyTypes": [
             "Coupe"
@@ -82111,7 +82111,7 @@
         "tags": [
             "Pacific Coast Highway",
             "Sleeper",
-            "Silver or Grey"
+            "White"
         ],
         "bodyTypes": [
             "Saloon"
@@ -82471,7 +82471,7 @@
             "Christmas Collection",
             "Japan Pro Tour",
             "Christmas Collection 22",
-            "Brown"
+            "Gold"
         ],
         "bodyTypes": [
             "Estate"
@@ -85470,7 +85470,7 @@
         "tags": [
             "Street Racer",
             "Originals",
-            "Orange"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -88383,7 +88383,7 @@
             "Christmas Collection",
             "Japan Pro Tour",
             "Old Guard",
-            "Black"
+            "Red"
         ],
         "bodyTypes": [
             "Saloon"
@@ -94291,7 +94291,7 @@
         "tags": [
             "American Dream",
             "Christmas Collection 22",
-            "Silver or Grey"
+            "Beige"
         ],
         "bodyTypes": [
             "Saloon"
@@ -96471,38 +96471,6 @@
     {
         "class": "E",
         "rq": 28,
-        "onlyName": "Juke",
-        "brand": "Nissan",
-        "country": "JP",
-        "year": 2020,
-        "tdid": "3044",
-        "abs": true,
-        "tcs": true,
-        "clearance": "High",
-        "topSpeed": 111,
-        "acel": 10.3,
-        "hand": 75,
-        "drive": "FWD",
-        "tyres": "Standard",
-        "mra": 48.97,
-        "weight": 1236,
-        "name": "Nissan Juke",
-        "rid": "Nissan_Juke_2020",
-        "tags": [
-            "Japan Pro Tour",
-            "Summer Games",
-            "Red"
-        ],
-        "bodyTypes": [
-            "SUV"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front"
-    },
-    {
-        "class": "E",
-        "rq": 28,
         "onlyName": "Frontera",
         "brand": "Vauxhall",
         "country": "GB",
@@ -97854,6 +97822,38 @@
     {
         "class": "E",
         "rq": 27,
+        "onlyName": "Juke",
+        "brand": "Nissan",
+        "country": "JP",
+        "year": 2020,
+        "tdid": "3044",
+        "abs": true,
+        "tcs": true,
+        "clearance": "High",
+        "topSpeed": 111,
+        "acel": 10.3,
+        "hand": 75,
+        "drive": "FWD",
+        "tyres": "Standard",
+        "mra": 48.97,
+        "weight": 1236,
+        "name": "Nissan Juke",
+        "rid": "Nissan_Juke_2020",
+        "tags": [
+            "Japan Pro Tour",
+            "Summer Games",
+            "Red"
+        ],
+        "bodyTypes": [
+            "SUV"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front"
+    },
+    {
+        "class": "E",
+        "rq": 27,
         "onlyName": "Terrano",
         "brand": "Nissan",
         "country": "JP",
@@ -98230,38 +98230,6 @@
         ],
         "fuel": "Petrol",
         "seats": "4",
-        "engine": "Front"
-    },
-    {
-        "class": "E",
-        "rq": 27,
-        "onlyName": "Juke",
-        "brand": "Nissan",
-        "country": "JP",
-        "year": 2013,
-        "tdid": "518",
-        "abs": true,
-        "tcs": true,
-        "clearance": "High",
-        "topSpeed": 111,
-        "acel": 10.5,
-        "hand": 74,
-        "drive": "FWD",
-        "tyres": "Standard",
-        "mra": 51.14,
-        "weight": 1236,
-        "name": "Nissan Juke",
-        "rid": "Nissan_Juke_2013",
-        "tags": [
-            "The Horror Show",
-            "Originals",
-            "Black"
-        ],
-        "bodyTypes": [
-            "SUV"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
         "engine": "Front"
     },
     {
@@ -99423,7 +99391,7 @@
         "tags": [
             "Famous Tracks",
             "Great Exhibition",
-            "Turquoise"
+            "Green"
         ],
         "bodyTypes": [
             "Saloon"
@@ -99681,7 +99649,7 @@
             "Christmas Collection",
             "Originals",
             "Loves Me, Loves Me Not",
-            "Orange"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -100140,6 +100108,38 @@
     {
         "class": "E",
         "rq": 26,
+        "onlyName": "Juke",
+        "brand": "Nissan",
+        "country": "JP",
+        "year": 2013,
+        "tdid": "518",
+        "abs": true,
+        "tcs": true,
+        "clearance": "High",
+        "topSpeed": 111,
+        "acel": 10.5,
+        "hand": 74,
+        "drive": "FWD",
+        "tyres": "Standard",
+        "mra": 51.14,
+        "weight": 1236,
+        "name": "Nissan Juke",
+        "rid": "Nissan_Juke_2013",
+        "tags": [
+            "The Horror Show",
+            "Originals",
+            "Black"
+        ],
+        "bodyTypes": [
+            "SUV"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front"
+    },
+    {
+        "class": "E",
+        "rq": 26,
         "onlyName": "Plus 4",
         "brand": "Morgan",
         "year": 2014,
@@ -100258,7 +100258,7 @@
             "Call of the Wild",
             "Muscle Car",
             "Originals",
-            "Black"
+            "Purple"
         ],
         "bodyTypes": [
             "Coupe"
@@ -103187,7 +103187,7 @@
         "tags": [
             "Pacific Coast Highway",
             "Muscle Car",
-            "Green"
+            "Silver or Grey"
         ],
         "bodyTypes": [
             "Coupe"
@@ -104053,7 +104053,7 @@
         "rid": "Chrysler_New_Yorker_1992",
         "tags": [
             "American Frontier",
-            "Brown"
+            "Black"
         ],
         "bodyTypes": [
             "Saloon"
@@ -105508,7 +105508,7 @@
         "tags": [
             "Call of the Wild",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -106154,7 +106154,7 @@
             "Great Exhibition",
             "Loves Me, Loves Me Not",
             "Racing Royalty",
-            "Black"
+            "Green"
         ],
         "bodyTypes": [
             "Saloon"
@@ -106284,7 +106284,7 @@
             "Christmas Collection",
             "Great Exhibition",
             "Style Icon",
-            "Brown"
+            "Gold"
         ],
         "bodyTypes": [
             "Coupe"
@@ -106515,7 +106515,7 @@
         "tags": [
             "American Dream",
             "Muscle Car",
-            "Brown"
+            "Black"
         ],
         "bodyTypes": [
             "Coupe"
@@ -107300,7 +107300,7 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "Brown"
+            "Beige"
         ],
         "bodyTypes": [
             "Van"
@@ -108095,7 +108095,7 @@
             "Amalfi Coast Cruising",
             "Motorsport",
             "Immortalised in Carbon",
-            "Silver or Grey"
+            "White"
         ]
     },
     {
@@ -108418,7 +108418,7 @@
             "American Dream",
             "Call of the Wild",
             "Muscle Car",
-            "Silver or Grey"
+            "Blue"
         ],
         "bodyTypes": [
             "Convertible"
@@ -109330,7 +109330,7 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Silver or Grey"
+            "Black"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -109363,7 +109363,7 @@
             "Old Guard",
             "Originals",
             "Christmas Collection 22",
-            "Silver or Grey"
+            "Brown"
         ],
         "bodyTypes": [
             "Convertible"
@@ -109596,7 +109596,7 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Blue"
+            "Purple"
         ],
         "bodyTypes": [
             "MPV"
@@ -110376,7 +110376,7 @@
             "Rest of the World",
             "Old Guard",
             "Originals",
-            "Blue",
+            "Turquoise",
             "Roads Most Travelled"
         ],
         "bodyTypes": [
@@ -121226,7 +121226,7 @@
             "German Renaissance",
             "Style Icon",
             "Two Tone",
-            "Blue"
+            "Green"
         ],
         "bodyTypes": [
             "MPV"
