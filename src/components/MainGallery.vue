@@ -485,6 +485,7 @@ export default {
           "Loves Me, Loves Me Not",
           "Motorsport",
           "Muscle Car",
+          "Nightmare Fuel",
           "Old Guard",
           "Originals",
           "Pacific Coast Highway",

@@ -849,7 +849,7 @@
                         Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
                       }"
                       :style="`--cor: ${ car.color }`"
-                      :key="`${car.rid}${car.tune}`"
+                      :key="`${car.rid}${car.tune}${icar}`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
                       style="will-change: opacity, transform;"
                       @longTouch="eventTogglePick(car, $event)"

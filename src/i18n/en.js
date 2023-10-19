@@ -295,7 +295,7 @@ export default {
   t_csMed: "City Streets Medium",
   t_csSmall: "City Streets Small",
   t_townTour: "City Tour",
-  t_cross: "Cross Country",
+  t_cross: "Cross-Country",
   t_fast: "Fast Circuit",
   t_fastr: "Fast Circuit (R)",
   t_fieldSlalom: "Field Slalom",

@@ -377,6 +377,7 @@ export default {
           "Loves Me, Loves Me Not",
           "Motorsport",
           "Muscle Car",
+          "Nightmare Fuel",
           "Old Guard",
           "Originals",
           "Pacific Coast Highway",
@@ -1012,7 +1013,7 @@ export default {
         this.all_cars.map(x => {
           if (c === x.rid) {
             // action
-            x.tags.push("Photo Finish")
+            x.tags.push("Nightmare Fuel")
   
           }
         })

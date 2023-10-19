@@ -209,6 +209,11 @@ export default {
   --tag-s: 0%;
   --tag-l: 82%;
 }
+.BaseGameTag_Nightmare_Fuel {
+  --tag-h: 177;
+  --tag-s: 66%;
+  --tag-l: 63%;
+}
 .BaseGameTag_Old_Guard {
   --tag-h: 0;
   --tag-s: 0%;
