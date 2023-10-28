@@ -253,7 +253,11 @@
   },
   {
     "id": "lumberForest",
-    "types": ["h1"]
+    "types": ["40", "h1"]
+  },
+  {
+    "id": "lumberRiver",
+    "types": ["11"]
   },
   {
     "id": "lumberTwisty",

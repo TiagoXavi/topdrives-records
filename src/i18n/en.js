@@ -157,6 +157,8 @@ export default {
   m_createNewReqs: "Create new requirement",
   m_saveTrackset: "Save trackset",
   m_saveReqs: "Save requirement",
+  m_saveOriginalOrder: "Save as original order",
+  m_showOriginalOrder: "Show original order",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -373,4 +375,5 @@ export default {
   t_dockKart: "Dockyard Karting",
   t_dockUdrag: "Dockyard U-Drag",
   t_lumberForest: "Lumber Mill Forest Rally",
+  t_lumberRiver: "Lumber Mill River Rally",
 }
