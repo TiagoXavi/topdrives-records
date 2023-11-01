@@ -159,6 +159,7 @@ export default {
   m_saveReqs: "Save requirement",
   m_saveOriginalOrder: "Save as original order",
   m_showOriginalOrder: "Show original order",
+  m_filterPage: "Filter page",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -376,4 +377,6 @@ export default {
   t_dockUdrag: "Dockyard U-Drag",
   t_lumberForest: "Lumber Mill Forest Rally",
   t_lumberRiver: "Lumber Mill River Rally",
+  t_drag62: "0-62mph",
+  t_drag124: "0-124mph",
 }
