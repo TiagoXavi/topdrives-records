@@ -23,7 +23,7 @@
           </div>
           <div v-if="descResolved.length === 0" class="BaseFilterDescription_Empty">{{ $t("m_empty") }}</div>
         </div>
-        <div v-if="!loading && ready && user && user.mod" class="BaseFilterDescription_Bottom Cg_FilterButtons">
+        <div v-if="(!loading && ready && user && user.mod) || isKing" class="BaseFilterDescription_Bottom Cg_FilterButtons">
           <button
             class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
             @click="$emit('changeClick', $event)">{{ currentFilter ? 'Change' : 'Requirements' }}</button>
@@ -65,6 +65,10 @@ export default {
       default: 0
     },
     loading: {
+      type: Boolean,
+      default: false
+    },
+    isKing: {
       type: Boolean,
       default: false
     },

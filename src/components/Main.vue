@@ -1440,6 +1440,7 @@
           :loading="kingLoading"
           :user="user"
           :ready="true"
+          :isKing="true"
           class="Main_KingFilter"
           @changeClick="kingFilterDialog = true" />
 
@@ -7563,6 +7564,7 @@ export default {
 
       if (this.mode === "clubs") {
         params.isClubs = true;
+        this.$store.commit("START_LOGROCKET", {});
       }
 
       axios.post(Vue.preUrl + "/eventKings", params)
@@ -7637,6 +7639,10 @@ export default {
       
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
+
+      if (this.mode === "clubs") {
+        this.$store.commit("START_LOGROCKET", {});
+      }
 
       axios.post(Vue.preUrl + "/analyseEvent", {
         trackset: trackset,
