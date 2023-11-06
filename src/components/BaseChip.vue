@@ -243,4 +243,14 @@ export default {
 .BaseChip_IconToggle.focus-visible .BaseChip_IconToggleText {
   opacity: 0;
 }
+.BaseChip_SmallWide {
+  padding: 3px 10px;
+  height: auto;
+  line-height: 1;
+  font-size: 0.8em;
+  flex-grow: 1;
+}
+.BaseChip_SmallWide.D_ButtonActive {
+  background-color: rgba(var(--d-text-green), 0.2);
+}
 </style>

@@ -321,4 +321,6 @@ export default {
   "t_dockCirc": "Werft-Rennstrecke",
   "t_dockCity": "Werft (Stadtstraßen)",
   "t_dockGforceDrag": "Werft (G-Force Drag)",
+
+  "lumberForest": "Lumber Mill (Wald-Rally)",
 }

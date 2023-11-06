@@ -1,25 +1,79 @@
 <template>
-  <div class="BaseFilterDescription_Layout">
-    <div v-for="item in descResolved" class="BaseFilterDescription_Item">
-      <div class="BaseFilterDescription_Label">{{ item.label }}</div>
-      <div class="BaseFilterDescription_Value">{{ item.value }}</div>
-    </div>
-    <div v-if="descResolved.length === 0" class="BaseFilterDescription_Empty">{{ $t("m_empty") }}</div>
+  <div class="Cg_Right Main_DarkScroll">
+    <template v-if="currentFilter !== undefined">
+      <div v-if="hasFilter2 || hasFilter3" class="BaseFilterDescription_MultiBox">
+        <template v-for="n in 3">
+          <BaseChip
+            v-if="n === 1 || (n === 2 && hasFilter2) || (n === 3 && hasFilter3)"
+            :inputValue="useWhatFilter"
+            :disabled="loading"
+            class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_SmallWide"
+            required="true"
+            :value="n-1"
+            :label="`${n}`"
+            @click="$emit('useFilter', n-1)" />
+        </template>
+      </div>
+      <div v-else class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
+      <div class="Cg_Reqs">
+        <div class="BaseFilterDescription_Layout">
+          <div v-for="item in descResolved" class="BaseFilterDescription_Item">
+            <div class="BaseFilterDescription_Label">{{ item.label }}</div>
+            <div class="BaseFilterDescription_Value">{{ item.value }}</div>
+          </div>
+          <div v-if="descResolved.length === 0" class="BaseFilterDescription_Empty">{{ $t("m_empty") }}</div>
+        </div>
+        <div v-if="!loading && ready && user && user.mod" class="BaseFilterDescription_Bottom Cg_FilterButtons">
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
+            @click="$emit('changeClick', $event)">{{ currentFilter ? 'Change' : 'Requirements' }}</button>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
+import BaseChip from './BaseChip.vue'
 
 export default {
   name: 'BaseFilterDescription',
-  components: {},
+  components: {
+    BaseChip
+  },
   props: {
     filter: {
       type: Object,
       default() {
         return {}
       }
-    }
+    },
+    filter2: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    filter3: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    useWhatFilter: {
+      type: Number,
+      default: 0
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    user: {
+      required: false
+    },
+    ready: {
+      required: false
+    },
   },
   data() {
     return {}
@@ -28,9 +82,24 @@ export default {
   beforeMount() {},
   mounted() {},
   computed: {
+    hasFilter2() {
+      return this.filter2 && Object.keys(this.filter2).length > 0;
+    },
+    hasFilter3() {
+      return this.filter3 && Object.keys(this.filter3).length > 0;
+    },
+    currentFilter() {
+      if (this.useWhatFilter === 1 && this.hasFilter2) {
+        return this.filter2;
+      }
+      if (this.useWhatFilter === 2 && this.hasFilter3) {
+        return this.filter3;
+      }
+      return this.filter;
+    },
     descResolved() {
-      let f = this.filter;
-      if (Object.keys( this.filter ).length === 0) return [];
+      let f = this.currentFilter;
+      if (Object.keys( f ).length === 0) return [];
       let result = [];
 
       if (f.yearModel && JSON.stringify(f.yearModel) !== '[1910,2024]') result.push({ label: this.$tc("c_year", 2), value: f.yearModel.join("-") });
@@ -87,5 +156,9 @@ export default {
 .BaseFilterDescription_Empty {
   color: #a90000;
   font-size: 13px;
+}
+.BaseFilterDescription_MultiBox {
+  display: flex;
+  margin-bottom: 3px;
 }
 </style>

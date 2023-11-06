@@ -96,7 +96,7 @@
         <textarea
           v-model="rids"
           rows="6"
-          class="MainSwagger_TextArea data-hj-allow"
+          class="Main_TextArea data-hj-allow"
           placeholder="array of rids" />
         <BaseText
           v-model="pastVersion"
@@ -126,7 +126,7 @@
         <textarea
           v-model="configObj"
           rows="20"
-          class="MainSwagger_TextArea data-hj-allow"
+          class="Main_TextArea data-hj-allow"
           placeholder="Config obj" />
       </div>
       <div class="MainSwagger_Buttons">
@@ -543,16 +543,5 @@ export default {
   white-space: pre;
   overflow: hidden;
   font-size: 14px;
-}
-.MainSwagger_TextArea {
-  background-color: rgba(0,0,0,.2);
-  border: 0;
-  box-sizing: border-box;
-  outline: none;
-  color: var(--d-text);
-  padding: 6px;
-  resize: none;
-  margin-top: 2px;
-  width: 100%;
 }
 </style>

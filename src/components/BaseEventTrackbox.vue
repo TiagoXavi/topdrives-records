@@ -48,7 +48,7 @@
           class="Cg_TrackBox"
           type="tracks" />
         <button
-          v-if="user && user.mod"
+          v-if="user && user.mod && !readonly"
           :disabled="eventLoadingAny"
           :class="{ Cg_SelectTrackButtonEdit: trackMonoArray && trackMonoArray.length === 1 }"
           class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
@@ -57,14 +57,14 @@
           <span v-else>{{ $t("m_selectTrack") }}</span>
         </button>
         <button
-          v-if="isMobile && user && user.mod && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4"
+          v-if="isMobile && user && user.mod && !readonly && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4"
           :disabled="eventLoadingAny"
           class="D_Button EventTrack_AddButton Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_SelectTrackButtonMoveRight"
           @click="$emit('eventMoveTrackRight', {itrackset, itrackMonoArray});">
           <i class="ticon-arrow_right_3 Cg_SelectTrackButtonIcon" aria-hidden="true"/>
         </button>
         <button
-          v-if="!isMobile && user && user.mod && trackMonoArray && trackMonoArray.length === 1"
+          v-if="!isMobile && user && user.mod && !readonly && trackMonoArray && trackMonoArray.length === 1"
           :disabled="eventLoadingAny"
           class="D_Button EventTrack_AddButton Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_DragButtonIcon"
           @mousedown="dragMouseDown($event, itrackset, itrackMonoArray);">
@@ -116,6 +116,10 @@ export default {
       type: Boolean,
       default: false
     },
+    readonly: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {

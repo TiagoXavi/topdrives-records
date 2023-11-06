@@ -733,6 +733,12 @@ button.D_Button.D_Button_Error {
   --back-opac-foc: 1;
   background-color: rgba(0,150,0,1);
 }
+.D_Button.Main_ArrowDownSelect {
+  color: var(--d-text-b);
+  font-size: 1.2em;
+  padding: 0 2px 0 9px;
+  border-radius: 0;
+}
 
 
 .D_Link {
@@ -797,6 +803,17 @@ button.D_Button.D_Button_Error {
 }
 .D_SearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
   transform: translateY(-42%);
+}
+.Main_TextArea {
+  background-color: rgba(0,0,0,.2);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--d-text);
+  padding: 6px;
+  resize: none;
+  margin-top: 2px;
+  width: 100%;
 }
 
 .Main_SearchEmpty::-webkit-scrollbar,

@@ -41,7 +41,20 @@
             <slot name="header"></slot>
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-              @click="clearFilter('searchFilters')">{{ $t("m_clear") }}</button>
+              @click="clearFilter($event)">{{ $t("m_clear") }}</button>
+          </div>
+          <div v-if="(hasFilter2 || hasFilter3) && filterOnly" class="Main_FilterChipsFlex">
+            <div class="Main_FilterChipsLabel">{{ $t("m_filterPage") }}</div>
+            <template v-for="n in 3">
+              <BaseChip
+                v-if="n === 1 || (n === 2 && hasFilter2) || (n === 3 && hasFilter3)"
+                :inputValue="useWhatFilter"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                required="true"
+                :value="n-1"
+                :label="`${n}`"
+                @click="changeUseFilter(n-1)" />
+            </template>
           </div>
           <div v-if="type === 'library'" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in libraryTypes">
@@ -184,7 +197,7 @@
               </BaseChip>
             </template>
           </div>
-          <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.prizesModel || raceFilter.prizesModel.length === 0)" class="Main_FilterChipsFlex">
+          <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.prizesModel || raceFilterResolved.prizesModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
                 v-model="searchFilters.prizesModel"
@@ -193,7 +206,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="config.bodyTypes !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.bodyTypesModel || raceFilter.bodyTypesModel.length === 0)" class="Main_FilterChipsFlex" style="margin: 0 10px;">
+          <div v-if="config.bodyTypes !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.bodyTypesModel || raceFilterResolved.bodyTypesModel.length === 0)" class="Main_FilterChipsFlex" style="margin: 0 10px;">
             <template v-for="(item, ix) in searchFilters.bodyTypes">
               <BaseChip
                 v-model="searchFilters.bodyTypesModel"
@@ -202,7 +215,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="config.fuel !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.fuelModel || raceFilter.fuelModel.length === 0)" class="Main_FilterChipsFlex">
+          <div v-if="config.fuel !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.fuelModel || raceFilterResolved.fuelModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.fuel">
               <BaseChip
                 v-model="searchFilters.fuelModel"
@@ -211,7 +224,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="config.engine !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.engineModel || raceFilter.engineModel.length === 0)" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+          <div v-if="config.engine !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.engineModel || raceFilterResolved.engineModel.length === 0)" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
             <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
             <template v-for="(item, ix) in searchFilters.engine">
               <BaseChip
@@ -221,7 +234,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.tagsModel || raceFilter.tagsModel.length === 0)" class="Main_FilterChipsFlex">
+          <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.tags">
               <BaseChip
                 v-model="tagsModel"
@@ -244,7 +257,7 @@
               </BaseChip>
             </template>
           </div>
-          <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilter || !raceFilter.brandsModel || raceFilter.brandsModel.length === 0)" class="Main_FilterChipsFlex">
+          <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.brandsModel || raceFilterResolved.brandsModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.brands">
               <BaseChip
                 v-model="searchFilters.brandsModel"
@@ -264,7 +277,7 @@
             <button
               v-if="!cgAddingYouCar"
               class="D_Button D_ButtonDark D_ButtonDarkTransparent D_ButtonBig"
-              @click="clearFilter('searchFilters')">{{ $t("m_clear") }}</button>
+              @click="clearFilter()">{{ $t("m_clear") }}</button>
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
               @click="applyFilter()">{{ $t("m_done") }}</button>
@@ -492,6 +505,18 @@ export default {
         return {}
       }
     },
+    raceFilter2: {
+      type: [Object, Boolean],
+      default: false
+    },
+    raceFilter3: {
+      type: [Object, Boolean],
+      default: false
+    },
+    useWhatFilter: {
+      type: Number,
+      default: 0
+    },
     cgAddingOppoCar: {
       type: Boolean,
       default: false
@@ -517,6 +542,14 @@ export default {
       default: "classic"
     },
     initialFilterString: {
+      type: String,
+      default: null
+    },
+    initialFilterString2: {
+      type: String,
+      default: null
+    },
+    initialFilterString3: {
       type: String,
       default: null
     },
@@ -560,6 +593,9 @@ export default {
       showMoreSort: false,
       factor: false,
       statsView: false,
+      showFilterInstance: false,
+      instance: 1,
+      filterInstances: [1, 2],
       multi: false,
       multiPage: 1,
       multiPages: [1, 2, 3],
@@ -833,7 +869,7 @@ export default {
     }
   },
   beforeMount() {
-    this.clearFilter('searchFilters');
+    this.clearFilter();
     id++;
     this.id = id;
 
@@ -873,6 +909,11 @@ export default {
       }
 
       if (mutation.type == vm.ridsMutationName) {
+        if (vm.type === 'event') {
+          this.cgResetFilterForAdd();
+          this.applyFilter();
+          return;
+        }
         if (vm.type === 'cg') {
           vm.cgResetFilterForAdd();
         }
@@ -940,6 +981,39 @@ export default {
         }
       }
     },
+    raceFilterResolved: {
+      get: function() {
+        if (this.useWhatFilter === 0) {
+          return this.raceFilter;
+        }
+        if (this.useWhatFilter === 1) {
+          return this.raceFilter2;
+        }
+        if (this.useWhatFilter === 2) {
+          return this.raceFilter3;
+        }
+      },
+      set: function(newValue) {
+
+      }
+    },
+    hasFilter2() {
+      return this.filterOnly && this.raceFilter2;
+    },
+    hasFilter3() {
+      return this.filterOnly && this.raceFilter3;
+    },
+    initialFilterStringResolved() {
+      if (this.useWhatFilter === 0) {
+        return this.initialFilterString;
+      }
+      if (this.useWhatFilter === 1) {
+        return this.initialFilterString2;
+      }
+      if (this.useWhatFilter === 2) {
+        return this.initialFilterString3;
+      }
+    }
   },
   methods: {
     openDialogSearch() {
@@ -983,7 +1057,7 @@ export default {
         this.changeFilter();
 
         let clearFilterInitial;
-        if (this.initialFilterString) clearFilterInitial = this.resolveFilterCount(JSON.parse(this.initialFilterString));
+        if (this.initialFilterStringResolved) clearFilterInitial = this.resolveFilterCount(JSON.parse(this.initialFilterStringResolved));
         if (JSON.stringify(clearFilterInitial, Object.keys(clearFilterInitial || []).sort()) !== JSON.stringify(this.clearFilterObj, Object.keys(this.clearFilterObj || []).sort())) {
           this.$emit("clearFilterUpdate", this.insertKeyModel(this.clearFilterObj));
         } else {
@@ -1381,7 +1455,13 @@ export default {
       if (type === "weightModel") return [300, 7000];
       if (type === "seatsModel") return [1, 9];
     },
-    clearFilter() {
+    clearFilter(e) {
+      if (e && e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        if (!this.raceFilter._2) {
+          this.$emit("dual");
+        }
+        return;
+      }
       this.searchFilters.yearModel = this.defaultFilters("yearModel");
       this.searchFilters.rqModel = this.defaultFilters("rqModel");
       this.searchFilters.topSpeedModel = this.defaultFilters("topSpeedModel");
@@ -1480,7 +1560,7 @@ export default {
     checkMatchFilter(car) {
       let context = this.searchFilters;
       if (this.kingIsFiltering) context = this.kingFilter;
-      if (this.cgIsFiltering) context = this.raceFilter;
+      if (this.cgIsFiltering) context = this.raceFilterResolved;
       if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = this.cgFilterForAddCar;
 
 
@@ -1585,7 +1665,7 @@ export default {
       this.clearFilter();
       this.searchFilters = {
         ...this.searchFilters,
-        ...this.raceFilter
+        ...this.raceFilterResolved
       };
       if (this.searchFilters.year2Model) {
         this.initSecretYear(true);
@@ -1654,6 +1734,12 @@ export default {
       if (page === 1) return "tagsModel"; 
       if (page === 2) return "tags2Model"; 
       if (page === 3) return "tags3Model"; 
+    },
+    changeUseFilter(useFilter) {
+      this.$emit('useFilter', useFilter);
+      setTimeout(() => {
+        this.cgResetFilterForAdd();
+      }, 50);
     }
   },
 }
