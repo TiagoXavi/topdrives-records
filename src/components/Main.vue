@@ -287,20 +287,14 @@
             
 
           </div>
-          <div class="Cg_Right Main_DarkScroll">
-            <template v-if="cgRound.filter">
-              <div class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
-              <div class="Cg_Reqs">
-                <BaseFilterDescription :filter="cgRound.filter" />
-              </div>
-            </template>
-            <div v-if="cgRound.date && user && (user.mod || isRoundEmptyForUser) && !cgIsApproving" class="Cg_FilterButtons">
-              <button
-                :disabled="cgLoadingAny"
-                class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
-                @click="cgOpenRequirementDialog()">{{ cgRound.filter ? 'Change' : 'Requirements' }}</button>
-            </div>
-          </div>
+
+          <BaseFilterDescription
+            :filter="cgRound.filter"
+            :loading="cgLoadingAny"
+            :user="user"
+            :ready="cgRound.date && user && (user.mod || isRoundEmptyForUser) && !cgIsApproving"
+            class="Cg_Right"
+            @changeClick="cgOpenRequirementDialog()" />
 
           <div class="Cg_RqCount">
             <div
@@ -783,6 +777,7 @@
             :loading="eventLoadingAny"
             :user="user"
             :ready="event.date"
+            class="Cg_Right"
             @changeClick="eventRequirementsDialog = true" />
 
           <div class="Cg_RqCount">
@@ -890,7 +885,7 @@
             </div>
 
             <div
-              v-if="event.compilation && event.compilation.length && user && (!user.tier || user.tier > 3)"
+              v-if="event.compilation && event.compilation.length && (!whatTier || whatTier > 3)"
               style="margin: 20px auto; max-width: 500px;"
               class="Event_CompilationIncomplete Main_SaveGalleryGuide">
               <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
@@ -1106,6 +1101,7 @@
             :user="user"
             :ready="clubReqsGroupModel.date"
             :useWhatFilter="clubUseWhatFilter"
+            class="Cg_Right"
             @changeClick="clubShowRequirementsDialog($event)"
             @useFilter="clubUseWhatFilter = $event; eventRefreshKingFilter();" />
 
@@ -1244,7 +1240,7 @@
             </div>
 
             <div
-              v-if="clubCompilation && clubCompilation.length && user && (!user.tier || user.tier > 3)"
+              v-if="clubCompilation && clubCompilation.length && (!whatTier || whatTier > 3)"
               style="margin: 20px auto; max-width: 500px;"
               class="Event_CompilationIncomplete Main_SaveGalleryGuide">
               <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
@@ -1299,6 +1295,10 @@
                   <BaseIconSvg :type="icon" :useMargin="false" />
                 </BaseChip>
               </template>
+            </div>
+
+            <div v-if="user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
+              <BaseSwitch v-model="clubForceAnalyze" :label="$t('m_admin')" :horizontal="true" />
             </div>
 
 
@@ -1404,7 +1404,7 @@
       <div :class="{ Main_KingFixed: kingFixed }" class="Main_AdvancedDialogBox Main_KingDialogBox">
         <div class="Main_DialogTitleDual">
           <div class="Main_DialogTitle">{{ $t("m_bestOf") }}</div>
-          <div v-if="user && user.tier <= 4">
+          <div v-if="whatTier && whatTier <= 4">
             <button class="D_Button Main_KingPinButton" @click="kingFixed = !kingFixed; kingFixed ? kingAnalyse() : ''">
               <i class="ticon-internal Main_KingPinIcon" aria-hidden="true"/>
             </button>
@@ -1434,21 +1434,16 @@
             </button>
           </div>
         </div>
-        <div class="Main_KingFilter Main_DarkScroll">
-          <template v-if="kingFilter">
-            <div class="Cg_ReqsTitle">{{ $tc("m_filter", 1) }}</div>
-            <div class="Cg_Reqs">
-              <BaseFilterDescription :filter="kingFilter" />
-            </div>
-          </template>
-          <div class="Cg_FilterButtons">
-            <button
-              :disabled="kingLoading"
-              class="D_Button D_ButtonDark D_ButtonDark2 Cg_TopButton"
-              @click="kingFilterDialog = true;">{{ kingFilter ? $t("m_change") : $t("m_requirements") }}</button>
-          </div>
-        </div>
-        <div v-if="!user || !user.tier || user.tier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+
+        <BaseFilterDescription
+          :filter="kingFilter"
+          :loading="kingLoading"
+          :user="user"
+          :ready="true"
+          class="Main_KingFilter"
+          @changeClick="kingFilterDialog = true" />
+
+        <div v-if="!whatTier || whatTier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
           <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder' href='https://www.topdrivesrecords.com?share=~KcsMed_a01~CHonda_Legend_3.7_SH-AWD_2004~T323~CBMW_420i_xDrive_Coupe_2020~T323~CChrysler_300_Glacier_Edition_2013~T323~CBMW_520d_xDrive_Touring_2020~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CSubaru_Levorg_(VN)_2021~T323~CSuzuki_Kizashi_4x4_2010~T323~CMazda_Cosmo_1990~T323~CBMW_i4_eDrive40_2021~T323~CAudi_A3_Saloon_20_TDI_quattro_8V_2018~T323~CBMW_530e_Saloon_2020~T323~CSubaru_Impreza_WRX_300_2005~T323~CSubaru_Impreza_WRX_300_2005~T233~CMazda_6_MPS_2005~T323~CBMW_760i_2002~T323~CBMW_330e_Touring_2020~T323~CSubaru_Legacy_B4_RSK_(BE)_2001~T323~CCadillac_STS_2005~T323~CFord_Escort_RS_Cosworth_1992~T323~CAudi_A1_quattro_2012~T233~CBMW_330d_Touring_2014~T323~CAudi_A1_quattro_2012~T323~CINFINITI_Q70_Hybrid_(Y51)_2016~T323~CAudi_S1_2014~T323~CSubaru_Impreza_WRX_(GDG)_2006~T323~CAudi_S1_2014~T233~CSubaru_Forester_STI_2004~T323'>{{ $t('m_here') }}</a></span>
         </div>
         <!-- <div
@@ -1476,7 +1471,7 @@
           name="kingForceVerticalView"
           :label="$t('m_kingForceVertical')" />
         <button
-          v-if="user && user.tier <= 4 && !kingFixed"
+          v-if="whatTier && whatTier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
           :disabled="kingLoading || !kingTrack"
           class="D_Button Main_SaveAllButton Main_KingAnalyzeButton"
@@ -1577,6 +1572,7 @@
     <BaseFilterDialog
       v-model="clubRequirementsDialog"
       :filterOnly="true"
+      :requirementFilter="true"
       :raceFilter="clubReqsGroupModel.filter"
       :raceFilter2="clubReqsGroupModel.filter2"
       :raceFilter3="clubReqsGroupModel.filter3"
@@ -1612,7 +1608,7 @@
       @filterUpdate="eventEventKFilter()"
       @clearFilterUpdate="eventFilterForKing = $event"
       @listRids="eventAnalyseKFilter();">
-      <template v-if="user && user.tier <= 3" slot="header">
+      <template v-if="whatTier && whatTier <= 3" slot="header">
         <div class="Main_FilterHeaderLeft">
           <div v-if="eventPicksList.length > 0" class="Main_FilterHeaderLeftBox">
             <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
@@ -1697,7 +1693,7 @@
               <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
             </button>
             <button
-              v-if="user && user.tier <= 2 && showCustomTunes"
+              v-if="whatTier && whatTier <= 2 && showCustomTunes"
               class="D_Button Row_DialogButtonTune"
               @click="chooseCustomTune(tuneDialogCar)">
               <i class="ticon-plus_1" style="font-size: 18px;" aria-hidden="true"/>
@@ -3996,7 +3992,7 @@ export default {
       // return show;
     },
     eventFilterConfig() {
-      if (this.user && this.user.tier <= 3) {
+      if (this.whatTier && this.whatTier <= 3) {
         return {
           topSpeed: false,
           acel: false,
@@ -4005,6 +4001,7 @@ export default {
           tunes: true
         };
       }
+
       return {
         topSpeed: false,
         acel: false,
@@ -4024,11 +4021,19 @@ export default {
         tags: false,
         brands: false
       }
-
-      
     },
     showPointsCg() {
       return this.showPoints || this.showPointsCgForce;
+    },
+    whatTier() {
+      let result = 0;
+      if (!this.user) return 0;
+      if (this.user.tier) result = this.user.tier;
+      if (this.mode === "clubs" && this.user.mod && (result > 3 || result === 0)) {
+        result = 3;
+        this.$store.commit("START_LOGROCKET", {});
+      }
+      return result;
     }
   },
   methods: {
@@ -6959,10 +6964,10 @@ export default {
         return;
       }
       if (event.hidden) {
-        if (!this.user || !this.user.tier || this.user.tier > 3) {
+        if (!this.whatTier || this.whatTier > 3) {
           return;
         }
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
       }
 
       this.event = event;
@@ -7483,12 +7488,14 @@ export default {
       }
 
       if (this.eventAnalyseLoading) return true;
-      if (key === "clubReqsGroupModel") {
+      // if (key === "clubReqsGroupModel") {
+      if (!Object.keys(this.eventFilterForKing).length || direct) {
         this.eventFilterForKing = JSON.parse(JSON.stringify(this[key][filterAtr]));
       }
       this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
       this.eventCheckFilterCode = null;
-      if (this.user && this.user.tier <= 3 && (!e || !e.ctrlKey) && !direct) {
+
+      if (this.whatTier && this.whatTier <= 3 && (!e || !e.ctrlKey) && !direct) {
         this.eventKingDialog = true;
       } else {
         this.eventEventKFilter(e.ctrlKey);
@@ -7554,7 +7561,7 @@ export default {
         params.onlyPicks = false;
       }
 
-      if (mode === "clubs") {
+      if (this.mode === "clubs") {
         params.isClubs = true;
       }
 
@@ -7633,7 +7640,8 @@ export default {
 
       axios.post(Vue.preUrl + "/analyseEvent", {
         trackset: trackset,
-        filter: filter
+        filter: filter,
+        isClubs: this.mode === "clubs"
       })
       .then(res => {
         Vue.set(this, 'trackTimes', res.data)

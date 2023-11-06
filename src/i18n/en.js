@@ -161,6 +161,7 @@ export default {
   m_showOriginalOrder: "Show original order",
   m_filterPage: "Filter page",
   m_notCurrent: "Not current",
+  m_admin: "Admin",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

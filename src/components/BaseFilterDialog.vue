@@ -39,9 +39,15 @@
         <div class="Main_FilterItems">
           <div v-if="!cgAddingYouCar || (user && user.mod)" class="Main_FilterClearTop">
             <slot name="header"></slot>
-            <button
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-              @click="clearFilter($event)">{{ $t("m_clear") }}</button>
+            <div class="BaseFilterDialog_ButtonsTop">
+              <button
+                v-if="requirementFilter && (!raceFilter2 || !raceFilter3)"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="addDualFilter()">{{ $t("m_multi") }}</button>
+              <button
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
+                @click="clearFilter()">{{ $t("m_clear") }}</button>
+            </div>
           </div>
           <div v-if="(hasFilter2 || hasFilter3) && filterOnly" class="Main_FilterChipsFlex">
             <div class="Main_FilterChipsLabel">{{ $t("m_filterPage") }}</div>
@@ -536,6 +542,10 @@ export default {
     sortEnabled: {
       type: Boolean,
       default: true
+    },
+    requirementFilter: {
+      type: Boolean,
+      default: false
     },
     type: {
       type: String,
@@ -1455,13 +1465,10 @@ export default {
       if (type === "weightModel") return [300, 7000];
       if (type === "seatsModel") return [1, 9];
     },
+    addDualFilter() {
+      this.$emit("dual");
+    },
     clearFilter(e) {
-      if (e && e.shiftKey && (e.ctrlKey || e.metaKey)) {
-        if (!this.raceFilter._2) {
-          this.$emit("dual");
-        }
-        return;
-      }
       this.searchFilters.yearModel = this.defaultFilters("yearModel");
       this.searchFilters.rqModel = this.defaultFilters("rqModel");
       this.searchFilters.topSpeedModel = this.defaultFilters("topSpeedModel");
@@ -1819,6 +1826,11 @@ export default {
 .BaseFilterDialog_ColumnHeaderTxt {
   opacity: 0.6;
   font-size: 0.7em;
+}
+.BaseFilterDialog_ButtonsTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 
