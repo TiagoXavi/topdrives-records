@@ -36,7 +36,7 @@ export function toTimeString(input, id) {
 }
 export function toTimeNumber(input, id = "") {
   if (input === "DNF" || input === "dnf" || input === "0" || input === "99:99:99") return 0;
-  if (input === "") return "";  
+  if (input === "") return "";
 
   if (input.includes(".") && (input.match(/\./g) || []).length === 2) {
     input = input.replaceAll(".", ":")
@@ -51,6 +51,7 @@ export function toTimeNumber(input, id = "") {
   let result = 0;
   let arr;
   try {
+    if (input.includes("-")) throw new Error("hifen not allowed");
     let num = Number(input);
     if (id.includes("testBowl")) {
       if (!isNaN(num)) {

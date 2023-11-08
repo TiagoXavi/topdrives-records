@@ -933,7 +933,7 @@
               </template>
             </div>
 
-            <div class="Cg_BottomModTools" style="margin-top: 30px;">
+            <div v-if="!eventNeedSave" class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: eventLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1270,7 +1270,7 @@
               <BaseCheckBox v-model="clubEnablePicks" :label="$t('m_enablePicks')"/>
             </div>
 
-            <div class="Cg_BottomModTools" style="margin-top: 30px;">
+            <div v-if="!clubDayNeedSave && !clubReqNeedSave && !clubTrackNeedSave" class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
@@ -3016,7 +3016,6 @@ export default {
       eventRqEditDialog: false,
       eventRqEditModel: null,
       eventRqEditString: null,
-      eventRqNeedToSave: false,
       eventRequirementsDialog: false,
       eventKingDialog: false,
       eventCheckFilterCodePre: null,
@@ -6999,7 +6998,7 @@ export default {
 
       this.eventResolveTrackset();
       this.eventUpdateLocalStorage();
-      this.eventResolveCompilation();
+      // this.eventResolveCompilation();
     },
     eventResolveTrackset() {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
@@ -7556,6 +7555,14 @@ export default {
           params.picks = list;
         }
       }
+      let clearPicksList = [];
+      params.picks.map(x => {
+        let found = clearPicksList.find(y => x.rid === y.rid && x.tune === y.tune)
+        if (!found) {
+          clearPicksList.push(x);
+        }
+      })
+      params.picks = clearPicksList;
 
       if (params.picks.length === 0) {
         params.forcePicks = false;

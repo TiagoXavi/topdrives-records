@@ -265,7 +265,7 @@
   },
   {
     "id": "lumberRiver",
-    "types": ["11"]
+    "types": ["10", "11"]
   },
   {
     "id": "lumberTwisty",
