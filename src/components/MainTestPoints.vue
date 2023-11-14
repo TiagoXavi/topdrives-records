@@ -385,13 +385,6 @@ export default {
       //   console.log(error);
       // })
     },
-    cgResolvePhotoUrl(rid) {
-      try {
-        return require('@/imgs_final/' + decodeURI(rid) + '.jpg')
-      } catch (error) {
-        return ''
-      }
-    },
     validateTracks(tracks, group = false) {
       let tracksClear = [];
       let groupName;

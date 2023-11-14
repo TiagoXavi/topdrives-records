@@ -135,7 +135,9 @@ export default {
             let decoded = Vue.decodeTdr(rev.link);
             decoded.cars.map((car, icar) => {
               if (icar > 6) return;
-              cars.push(require('@/imgs_final/' + decodeURI(car.rid) + '.jpg'));
+
+              if (car.photoId) cars.push(require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg'));
+              else cars.push(require('@/imgs_final/' + decodeURI(car.rid) + '.jpg'));
             });
             
           } catch (error) {

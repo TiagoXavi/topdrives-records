@@ -405,6 +405,15 @@ export default {
         if (!inSeries.data) {
           inSeries.data = [];
         }
+
+        let photo;
+        try {
+          if (x.photoId) photo = require('@/incoming_pics/' + decodeURI(x.photoId) + '.jpg')
+          else photo = require('@/imgs_final/' + decodeURI(x.rid) + '.jpg');  
+        } catch (error) {
+          
+        }
+      
         inSeries.data.push({
             y: x.rq,
             x: x.time,
@@ -412,7 +421,7 @@ export default {
             className: `${objListRid[x.rid] ? '' : "Highcharts_HidePoint "}${x.suspect ? "Highcharts_Suspect " : '' }`,
             custom: {
               ...x,
-              photo: require('@/imgs_final/' + decodeURI(x.rid) + '.jpg'),
+              photo: photo,
               color: Vue.resolveClass(x.rq, x.car.class, "color"),
               user: x.user
             }

@@ -440,7 +440,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["DE", "JP", "US", "GB", "IT", "FR", "AU", "KR", "SE", "NL", "MY", "AT", "CN", "HR", "NZ", "AE", "BR", "CH", "ZA"],
+        countrys: ["DE", "JP", "US", "GB", "IT", "FR", "AU", "KR", "SE", "CZ", "NL", "MY", "AT", "DK", "CN", "HR", "NZ", "AE", "BR", "CH", "ZA"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -468,6 +468,7 @@ export default {
           "Electric Excellence",
           "Enter the Black Forest",
           "European Revolution",
+          "European New Wave",
           "Famous Tracks",
           "French Renaissance",
           "German Renaissance",
@@ -543,6 +544,7 @@ export default {
           "Audi",
           "Austin",
           "BAC",
+          "Bizzarrini",
           "Bentley",
           "BMW",
           "Brabham",
@@ -595,9 +597,11 @@ export default {
           "Oldsmobile",
           "Pagani",
           "Peugeot",
+          "Pininfarina",
           "Plymouth",
           "Pontiac",
           "Porsche",
+          "Radical",
           "RAM",
           "Renault",
           "Rezvani",
@@ -607,6 +611,7 @@ export default {
           "Saleen",
           "Saturn",
           "SCG", // logic "Scuderia Cameron Glickenhaus"
+          "Skoda",
           "Smart",
           "Spyker",
           "Subaru",
@@ -617,7 +622,8 @@ export default {
           "Volkswagen",
           "Volvo",
           "W Motors",
-          "Zenos"
+          "Zenos",
+          "Zenvo"
         ],
         brandsModel: [],
       },
@@ -653,28 +659,28 @@ export default {
   },
   computed: {},
   methods: {
-    carPicture(file) {
-      try {
-        return require('@/imgs_final/' + file + '.jpg');
-      } catch (error) {
-        console.log(file);
-        return require('@/assets/blank.jpg');
-      }
-    },
+    // carPicture(file) {
+    //   try {
+    //     return require('@/imgs_final/' + file + '.jpg');
+    //   } catch (error) {
+    //     console.log(file);
+    //     return require('@/assets/blank.jpg');
+    //   }
+    // },
     click(car) {
       console.log(JSON.parse(JSON.stringify(car)));
     },
-    carPhoto(car) {
-      let parsed;
-      try {
-        parsed = require('@/imgs_final/' + car.rid + '.jpg');
-      } catch (error) {
-        return ''
-      }
-      parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
-      parsed = parsed.replaceAll("'","\\'");
-      return parsed ? 'background-image: url('+parsed+');' : ''
-    },
+    // carPhoto(car) {
+    //   let parsed;
+    //   try {
+    //     parsed = require('@/imgs_final/' + car.rid + '.jpg');
+    //   } catch (error) {
+    //     return ''
+    //   }
+    //   parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
+    //   parsed = parsed.replaceAll("'","\\'");
+    //   return parsed ? 'background-image: url('+parsed+');' : ''
+    // },
     searchInputFunc(e) {
       // debugger;
       // console.log(e);
@@ -750,7 +756,8 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
+            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');

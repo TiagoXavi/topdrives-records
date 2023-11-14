@@ -2216,6 +2216,7 @@
       </div>
     </BaseDialog>
     <BaseAboutDialog
+      :user="user"
       :active="aboutDialog"
       @close="closeAbout()"/>
     <BaseDialog
@@ -2881,6 +2882,8 @@ export default {
       optionsAdvancedDialog: false,
       isFilteringT: false,
       nextId: 0,
+      icmcMemoryLocalStorageCars: null,
+      icmcMemoryQuery: null,
       countTimesPerTrack: {},
       debounceFilterT: null,
       debounceCgSaveBank: null,
@@ -2933,7 +2936,6 @@ export default {
         null,
         null
       ],
-      mraData: {},
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
@@ -3348,7 +3350,6 @@ export default {
     cgNeedSave: function() {
       if (this.cgNeedSave) {
         window.onbeforeunload = function(){
-          debugger;
           return 'Are you sure you want to leave?';
         };
       } else {
@@ -4503,7 +4504,7 @@ export default {
         } else {
           race.cars.push( { rid: newCar.rid } );
           race.carIndex = race.cars.length-1;
-          Vue.set(race.cars[race.carIndex], "photo", this.cgResolvePhotoUrl(newCar.rid));
+          Vue.set(race.cars[race.carIndex], "photo", this.cgResolvePhotoUrl(newCar));
           Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
           Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
         }
@@ -4579,6 +4580,7 @@ export default {
 
         let cars = window.localStorage.getItem("cars");
         if (cars) {
+          this.icmcMemoryLocalStorageCars = cars;
           this.prepareCars(JSON.parse(cars));
         }
 
@@ -4699,13 +4701,32 @@ export default {
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
-        this.mraData = res.data.find(x => x.id === 'mra').value;
+        let mraData = res.data.find(x => x.id === 'mra').value;
         this.all_cars.map(x => {
-          Vue.set(x, "mra", this.mraData[x.rid] || x.mra);
+          Vue.set(x, "mra", mraData[x.rid] || x.mra);
         })
         this.carDetailsList.map(x => {
-          Vue.set(x, "mra", this.mraData[x.rid] || x.mra);
+          Vue.set(x, "mra", mraData[x.rid] || x.mra);
         })
+
+        let incomingCars = res.data.find(x => x.id === 'newCars').value;
+        if (incomingCars && incomingCars.length > 0) {
+          incomingCars.map(car => {
+            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
+              this.all_cars.push(car);
+            }
+          })
+          if (this.icmcMemoryQuery) {
+            this.decodeTemplateString(this.icmcMemoryQuery, true);
+            this.icmcMemoryQuery = null;
+            this.updateCarLocalStorage();
+          } else if (this.icmcMemoryLocalStorageCars) {
+            this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
+            this.icmcMemoryLocalStorageCars = null;
+            this.updateCarLocalStorage();
+          }
+        }
+
 
 
       })
@@ -5106,6 +5127,8 @@ export default {
       let tracksFromQuery = decoded.tracks;
 
       if (this.$route.query && this.$route.query.share) {
+        console.log(template);
+        this.icmcMemoryQuery = template;
         this.$router.replace({'query': null});
       }
 
@@ -5679,7 +5702,7 @@ export default {
         if (race.tune) Vue.set(race.car, "selectedTune", race.tune);
 
         race.cars.map((car, icar) => {
-          Vue.set(car, "photo", this.cgResolvePhotoUrl(car.rid));
+          Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
           Vue.set(car, "car", JSON.parse(JSON.stringify(minCars.find(x => x.rid === car.rid))));
           Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
           Vue.set(car.car, "selectedTune", car.tune);
@@ -5971,9 +5994,10 @@ export default {
       if (car['233'] > 0) return '233';
       if (car['332'] > 0) return '332';
     },
-    cgResolvePhotoUrl(rid) {
+    cgResolvePhotoUrl(car) {
       try {
-        return require('@/imgs_final/' + decodeURI(rid) + '.jpg')
+        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg');
+        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg');
       } catch (error) {
         return ''
       }
@@ -7369,7 +7393,7 @@ export default {
       } else {
         event.cars.push( { rid: newCar.rid } );
         event.carIndex = event.cars.length-1;
-        Vue.set(event.cars[event.carIndex], "photo", this.cgResolvePhotoUrl(newCar.rid));
+        Vue.set(event.cars[event.carIndex], "photo", this.cgResolvePhotoUrl(newCar));
         Vue.set(event.cars[event.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
         Vue.set(event.cars[event.carIndex], "color", Vue.resolveClass(event.cars[event.carIndex].car.rq, event.cars[event.carIndex].car.class, "color"));
       }
@@ -8150,7 +8174,7 @@ export default {
       return str.startsWith("SN") || str.startsWith("YB");
     },
     frontCompleteCar(car) {
-      Vue.set(car, "photo", this.cgResolvePhotoUrl(car.rid));
+      Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
       Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
       Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
     },
@@ -9881,12 +9905,25 @@ body .Main_UserTw3:before {
 }
 .Type_10,
 .Type_11,
-.Type_40,
-.Type_41,
+.Type_40:not([data="lumberTwisty_a40"]),
+.Type_41:not([data="lumberTwisty_a41"]),
 .Type_10 ~ .BaseCompItem_Drives {
   color: rgb(var(--color-dirt));
   --type-back-opac: 0.1;
   background-color: rgba(var(--color-dirt), var(--type-back-opac));
+}
+/* [data="lumberTwisty_a40"] {
+  --type-back-opac: 0.07;
+  background-color: rgba(255,255,255, var(--type-back-opac));
+} */
+.EventTrack [data="lumberTwisty_a40"] {
+  --type-back-opac: 0.1;
+  background-color: rgba(255,255,255, 0.03);
+}
+[data="lumberTwisty_a41"] {
+  color: rgb(var(--color-wet));
+  --type-back-opac: 0.1;
+  background-color: rgba(var(--color-wet), var(--type-back-opac));
 }
 .Type_20,
 .Type_b0 {

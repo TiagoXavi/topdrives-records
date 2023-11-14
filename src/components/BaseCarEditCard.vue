@@ -65,7 +65,8 @@ export default {
     carPhoto() {
       let parsed;
       try {
-        parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+        if (this.car.photoId) parsed = require('@/incoming_pics/' + this.car.photoId + '.jpg');
+        else parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
       } catch (error) {
         return ''
       }

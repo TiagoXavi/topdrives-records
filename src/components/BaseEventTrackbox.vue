@@ -15,8 +15,9 @@
         <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
             :value="check === `${itrackset}_${itrackMonoArray}`"
-            @change="$emit('openKingFilter', {itrackset, itrackMonoArray});"
-            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event })"/>
+            @change="$emit('openKingFilter', {itrackset, itrackMonoArray}); runAnimation = false;"
+            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event }); runAnimation = false;"/>
+          <div v-if="itrackset === 0 && runAnimation" class="BaseEventTrackbox_CheckAnimation ticon-">check_box_outline_blank</div>
         </div>
         <div v-if="itrackMonoArray === 0 && user && eventForceAnalyze" class="BaseEventTrackbox_EditBox">
           <button
@@ -127,7 +128,8 @@ export default {
       itrackset: null,
       itrackMonoArray: null,
       deleteTime: false,
-      deleteTimeIndex: 0
+      deleteTimeIndex: 0,
+      runAnimation: true
     }
   },
   watch: {},
@@ -304,6 +306,82 @@ export default {
   height: 50%;
   min-height: unset;
 }
+.BaseEventTrackbox_CheckAnimation {
+  position: absolute;
+  pointer-events: none;
+  width: 130%;
+  height: 130%;
+  overflow: hidden;
+  border-radius: 8px;
+  font-size: 36px;
+  top: -6px;
+  left: -4px;
+  /* animation: KingCheckBox 7s linear 1s 4 normal both; */
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    135deg,
+    transparent,
+    transparent 26px,
+    rgba(255, 199, 23, 1) 0,
+    rgba(255, 199, 23, 1) 50px,
+    transparent 0,
+    transparent 25px
+  );
+  animation: KingCheck 3.4s linear 1s 6 normal both;
+  background-size: 300%;
+}
+@keyframes KingCheck {
+  0% {
+    /* transform: translateX(-42px); */
+    background-position-x: -70px;
+  }
+  50% {
+    /* transform: translateX(0px); */
+    background-position-x: 50px;
+  }
+  100% {
+    /* transform: translateX(0px); */
+    background-position-x: 50px;
+  }
+}
+@keyframes KingCheckBox {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* .BaseEventTrackbox_CheckAnimation::after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 16px,
+    rgba(255, 199, 23, 1) 0,
+    rgba(255, 199, 23, 1) 30px
+  );
+  animation: KingCheck 0.7s linear 0s infinite normal forwards;
+} */
 
 @media only screen and (max-width: 1200px) {
   .EventTrack:first-child {

@@ -249,7 +249,6 @@
                 class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                 :value="item" />
             </template>
-            <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="toggleRoadTrip()">Road Trip</button>
             <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multi") }}</button>
           </div>
           <div v-if="multi" class="Main_FilterChipsFlex">
@@ -411,7 +410,7 @@
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
-            <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
+            <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && sortModel !== 'name' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
               <template v-if="sortModel === 'acel' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(1) }}</template>
               <template v-else-if="sortModel === 'mra' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(2) }}</template>
               <template v-else>{{ item[sortModel] }}</template>
@@ -619,6 +618,7 @@ export default {
       sortListMore: [
         "rq",
         "year",
+        "name",
         ["mra", "acel"],
         ["mra", "acel", "topSpeed"],
         ["mra", "topSpeed"],
@@ -674,7 +674,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["DE", "JP", "US", "GB", "IT", "FR", "AU", "KR", "SE", "NL", "MY", "AT", "CN", "HR", "NZ", "AE", "BR", "CH", "ZA"],
+        countrys: ["DE", "JP", "US", "GB", "IT", "FR", "AU", "KR", "SE", "CZ", "NL", "MY", "AT", "DK", "CN", "HR", "NZ", "AE", "BR", "CH", "ZA"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -705,6 +705,7 @@ export default {
           "Electric Excellence",
           "Enter the Black Forest",
           "European Revolution",
+          "European New Wave",
           "Famous Tracks",
           "French Renaissance",
           "German Renaissance",
@@ -782,6 +783,7 @@ export default {
           "Audi",
           "Austin",
           "BAC",
+          "Bizzarrini",
           "Bentley",
           "BMW",
           "Brabham",
@@ -834,9 +836,11 @@ export default {
           "Oldsmobile",
           "Pagani",
           "Peugeot",
+          "Pininfarina",
           "Plymouth",
           "Pontiac",
           "Porsche",
+          "Radical",
           "RAM",
           "Renault",
           "Rezvani",
@@ -846,6 +850,7 @@ export default {
           "Saleen",
           "Saturn",
           "SCG", // logic "Scuderia Cameron Glickenhaus"
+          "Skoda",
           "Smart",
           "Spyker",
           "Subaru",
@@ -856,7 +861,8 @@ export default {
           "Volkswagen",
           "Volvo",
           "W Motors",
-          "Zenos"
+          "Zenos",
+          "Zenvo"
         ],
         brandsModel: [],
       },
@@ -1219,7 +1225,8 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
+            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');
@@ -1327,14 +1334,22 @@ export default {
         }
 
         result.sort(function(a, b) {
-          if (reversed) {
-            if (a[kSort] && !b[kSort]) return plus;
-            if (b[kSort] && !a[kSort]) return minus;
-            return a[kSort] - b[kSort];
+          if (kSort === "name") {
+            if (reversed) {
+              return b.name.localeCompare(a.name);
+            } else {
+              return a.name.localeCompare(b.name);
+            }
           } else {
-            if (b[kSort] && !a[kSort]) return plus;
-            if (a[kSort] && !b[kSort]) return minus;
-            return b[kSort] - a[kSort];
+            if (reversed) {
+              if (a[kSort] && !b[kSort]) return plus;
+              if (b[kSort] && !a[kSort]) return minus;
+              return a[kSort] - b[kSort];
+            } else {
+              if (b[kSort] && !a[kSort]) return plus;
+              if (a[kSort] && !b[kSort]) return minus;
+              return b[kSort] - a[kSort];
+            }
           }
         });
         result.map(car => {
@@ -1443,7 +1458,8 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
+            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');
@@ -1582,8 +1598,12 @@ export default {
       if ( JSON.stringify(context.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
         if ( !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
       }
-      if ( !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
-      if ( !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
+      if (JSON.stringify(this.defaultFilters("weightModel")) !== JSON.stringify(context.weightModel)) {
+        if ( !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
+      }
+      if (JSON.stringify(this.defaultFilters("seatsModel")) !== JSON.stringify(context.seatsModel)) {
+        if ( !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
+      }
 
       // includes
       if ( !this.filterCheckIncludes(car.class, context.classesModel) ) return false;

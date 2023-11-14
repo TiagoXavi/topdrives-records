@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="MainTranslate_Header">
-        <div class="MainTranslate_HeaderTitle">Translation creator</div>
+        <div class="MainTranslate_HeaderTitle">Translation tool</div>
         <ol class="MainTranslate_Ol">
           <li class="MainTranslate_Rule">Follow the letter case the same way as you see on the left, some words are full lowercase or full UPPERCASE.</li>
           <li class="MainTranslate_Rule">Keep the track and surfaces names how its in the game. Top Drives probably doesn't has a good translation for your language. Maybe you want to improve, no probem, but don't improve track names. People will not find the track using your translation.</li>

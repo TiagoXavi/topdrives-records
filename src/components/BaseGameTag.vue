@@ -124,6 +124,11 @@ export default {
   --tag-s: 34%;
   --tag-l: 28%;
 }
+.BaseGameTag_European_New_Wave {
+  --tag-h: 290;
+  --tag-s: 74%;
+  --tag-l: 72%;
+}
 .BaseGameTag_Famous_Tracks {
   --tag-h: 273;
   --tag-s: 67%;

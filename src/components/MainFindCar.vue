@@ -144,7 +144,7 @@ export default {
               chance,
               car,
               color: Vue.resolveClass(car.rq, car.class, "color"),
-              photo: this.cgResolvePhotoUrl(rid)
+              photo: this.cgResolvePhotoUrl(car)
             })
           })
         })
@@ -155,9 +155,10 @@ export default {
       })
 
     },
-    cgResolvePhotoUrl(rid) {
+    cgResolvePhotoUrl(car) {
       try {
-        return require('@/imgs_final/' + decodeURI(rid) + '.jpg')
+        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
+        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
       } catch (error) {
         return ''
       }

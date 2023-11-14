@@ -114,7 +114,8 @@ export default {
       this.config.cars.map((x, ix) => {
         if (ix < 7) {
           try {
-            result.push(require('@/imgs_final/' + decodeURI(x.rid) + '.jpg'))
+            if (x.photoId) result.push(require('@/incoming_pics/' + decodeURI(x.photoId) + '.jpg'))
+            else result.push(require('@/imgs_final/' + decodeURI(x.rid) + '.jpg'))
           } catch (error) {
             return ''
           }

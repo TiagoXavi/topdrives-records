@@ -19,6 +19,41 @@
         <BaseDiscordButton />
         <BaseDonateButton />
       </div>
+      <div style="gap: 10px; flex-wrap: wrap;" class="D_Center Space_TopPlus">
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainFindCar' })">
+          <span>{{ $t("m_carFinder") }}</span>
+        </button>
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainNewPhotos' })">
+          <span>{{ $t("m_newPhotos") }}</span>
+        </button>
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainTestPoints' })">
+          <span>{{ $t("m_testPoints") }}</span>
+        </button>
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainDownTimes' })">
+          <span>{{ $t("m_downTimes") }}</span>
+        </button>
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainTranslate' })">
+          <span>{{ $t("m_translationTool") }}</span>
+        </button>
+      </div>
+      <div v-if="user && user.mod" style="gap: 10px;" class="D_Center Space_TopPlus">
+        <button
+          class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainAddNewCars' })">
+          <i class="ticon-plus_2 D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+          <span>{{ $t("m_newCar") }}</span>
+        </button>
+      </div>
 
       <div class="Main_AboutFlag">
         <div class="Main_AboutFlagBox">
@@ -59,7 +94,13 @@ export default {
     active: {
       type: Boolean,
       default: false
-    }
+    },
+    user: {
+      type: Object,
+      default() {
+        return null
+      }
+    },
   },
   data() {
     return {}

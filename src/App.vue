@@ -604,7 +604,7 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   min-height: calc( var(--height) * 0.8 );
 }
 .D_ButtonActive:not(p) {
-  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+  box-shadow: inset 0px -43px 25px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
   color: rgb(var(--d-text-green-b));
   border-radius: 0;
 }

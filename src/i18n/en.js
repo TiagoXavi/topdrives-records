@@ -162,6 +162,12 @@ export default {
   m_filterPage: "Filter page",
   m_notCurrent: "Not current",
   m_admin: "Admin",
+  m_carFinder: "Car Finder",
+  m_newPhotos: "New Photos",
+  m_testPoints: "Test Points",
+  m_downTimes: "Downvoted Times",
+  m_translationTool: "Translation Tool",
+  m_newCar: "New Car",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",
@@ -265,6 +271,7 @@ export default {
   c_mixedEngine: "Mixed",
   c_rearEngine: "Rear",
   c_tune: "Tune",
+  c_name: "Name",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",
