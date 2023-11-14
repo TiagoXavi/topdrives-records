@@ -389,7 +389,9 @@ export default {
     align-items: center;
   }
   .BaseEventTrackbox_ClassCheck {
-    position: static;
+    position: relative;
+    left: unset;
+    top: unset;
   }
   .EventTrack:first-child .Cg_SelectTrackButtonEdit {
     left: 29px;

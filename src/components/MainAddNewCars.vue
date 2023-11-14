@@ -329,7 +329,6 @@ export default {
         photoId: "Photo",
         color: "Color (optional)",
         clearance: "Clearance (optional)",
-        drive: "Drive (optional)",
         weight: "Weight (optional)",
         fuel: "Fuel (optional)",
         seats: "Seats (optional)"
@@ -351,7 +350,7 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ['Bizzarrini', 'Caterham', 'Citroen', 'Ford', 'McMurtry', 'Pininfarina', 'Radical', 'Simca', 'Skoda', 'Volvo', 'Zenvo'],
+        brand: ["Bizzarrini", "Caterham", "Citroen", "Ford", "McMurtry", "Pininfarina", "Radical", "Simca", "Skoda", "Volvo", "Zenvo"],
         country: ["GB", "IT", "FR", "SE", "CZ", "DK"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
