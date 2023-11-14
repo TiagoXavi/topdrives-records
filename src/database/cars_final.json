@@ -6495,41 +6495,6 @@
     {
         "class": "S",
         "rq": 89,
-        "onlyName": "Continental GT Pikes Peak",
-        "brand": "Bentley",
-        "country": "GB",
-        "year": 2019,
-        "tdid": "1707",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 207,
-        "acel": 3.3,
-        "hand": 87,
-        "drive": "4WD",
-        "tyres": "Performance",
-        "mra": 79.49,
-        "weight": 2165,
-        "name": "Bentley Continental GT Pikes Peak",
-        "rid": "Bentley_Continental_GT_Pikes_Peak_2019",
-        "tags": [
-            "Famous Tracks",
-            "Great Exhibition",
-            "Motorsport",
-            "Green",
-            "Roads Most Travelled"
-        ],
-        "prize": true,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "1",
-        "engine": "Front"
-    },
-    {
-        "class": "S",
-        "rq": 89,
         "onlyName": "M5 Competition",
         "brand": "BMW",
         "country": "DE",
@@ -8744,6 +8709,41 @@
     {
         "class": "S",
         "rq": 86,
+        "onlyName": "Continental GT Pikes Peak",
+        "brand": "Bentley",
+        "country": "GB",
+        "year": 2019,
+        "tdid": "1707",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 207,
+        "acel": 3.3,
+        "hand": 87,
+        "drive": "4WD",
+        "tyres": "Performance",
+        "mra": 79.49,
+        "weight": 2165,
+        "name": "Bentley Continental GT Pikes Peak",
+        "rid": "Bentley_Continental_GT_Pikes_Peak_2019",
+        "tags": [
+            "Famous Tracks",
+            "Great Exhibition",
+            "Motorsport",
+            "Green",
+            "Roads Most Travelled"
+        ],
+        "prize": true,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "1",
+        "engine": "Front"
+    },
+    {
+        "class": "S",
+        "rq": 86,
         "onlyName": "F1 GT",
         "brand": "McLaren",
         "country": "GB",
@@ -10068,8 +10068,7 @@
             "Italian Renaissance",
             "Style Icon",
             "Supercar",
-            "Orange",
-            "Nightmare Fuel"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -11717,7 +11716,8 @@
             "Call of the Wild",
             "Italian Renaissance",
             "Supercar",
-            "Yellow"
+            "Yellow",
+            "Nightmare Fuel"
         ],
         "bodyTypes": [
             "Roadster"
