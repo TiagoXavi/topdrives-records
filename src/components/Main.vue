@@ -774,11 +774,15 @@
 
           <BaseFilterDescription
             :filter="event.filter"
+            :filter2="event.filter2"
+            :filter3="event.filter3"
             :loading="eventLoadingAny"
             :user="user"
             :ready="event.date"
+            :useWhatFilter="eventUseWhatFilter"
             class="Cg_Right"
-            @changeClick="eventRequirementsDialog = true" />
+            @changeClick="eventRequirementsDialog = true"
+            @useFilter="eventUseWhatFilter = $event; eventRefreshKingFilter();" />
 
           <div class="Cg_RqCount">
             <div
@@ -1556,7 +1560,10 @@
     <BaseFilterDialog
       v-model="eventRequirementsDialog"
       :filterOnly="true"
+      :requirementFilter="true"
       :raceFilter="event.filter"
+      :raceFilter2="event.filter2"
+      :raceFilter3="event.filter3"
       :all_cars="all_cars"
       :config="{
         topSpeed: false,
@@ -1565,9 +1572,15 @@
         weight: false
       }"
       :initialFilterString="eventFilterString"
+      :initialFilterString2="eventFilterString2"
+      :initialFilterString3="eventFilterString3"
+      :useWhatFilter="eventUseWhatFilter"
+      ridsMutationName="EVENT_EXPORT_FILTER"
       type="event"
-      @filterUpdate="eventUpdateRequirements($event)"
-      @clearFilterUpdate="eventFilterToSave = $event"
+      @filterUpdate="eventUpdateRequirements($event, eventUseWhatFilter)"
+      @clearFilterUpdate="eventClearFilterUpdate($event, eventUseWhatFilter)"
+      @dual="eventFilterAddDual()"
+      @useFilter="eventUseWhatFilter = $event"
     />
 
     <BaseFilterDialog
@@ -1588,7 +1601,7 @@
       :initialFilterString2="clubCurrentFilterString2"
       :initialFilterString3="clubCurrentFilterString3"
       :useWhatFilter="clubUseWhatFilter"
-      ridsMutationName="EVENT_EXPORT_FILTER"
+      ridsMutationName="CLUBS_EXPORT_FILTER"
       type="event"
       @filterUpdate="eventUpdateRequirements($event, clubUseWhatFilter)"
       @clearFilterUpdate="eventClearFilterUpdate($event, clubUseWhatFilter)"
@@ -3025,7 +3038,11 @@ export default {
       eventKingTracks: [],
       eventAddCarDialog: false,
       eventFilterToSave: null,
+      eventFilterToSave2: null,
+      eventFilterToSave3: null,
       eventFilterString: null,
+      eventFilterString2: null,
+      eventFilterString3: null,
       eventFilterForKing: {},
       eventTracksetString: null,
       eventCompString: null,
@@ -3050,6 +3067,7 @@ export default {
       eventEnablePicks: true,
       eventScoreType: "saverScore3",
       eventScoreList: ["saverScore1", "saverScore2", "saverScore3"],
+      eventUseWhatFilter: 0,
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -3900,6 +3918,8 @@ export default {
       if (!this.event.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
+      if (this.eventFilterToSave2 && JSON.stringify(this.eventFilterToSave2) !== this.eventFilterString2) return true;
+      if (this.eventFilterToSave3 && JSON.stringify(this.eventFilterToSave3) !== this.eventFilterString3) return true;
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
@@ -4685,7 +4705,6 @@ export default {
           "TopDrives": 'mod',
           "Asaneon": 'mod',
           "Dennis": 'mod',
-          "Liam": 'mod',
           "MichaelB": 'mod',
           "Leafclaw": 'mod'
         };
@@ -7000,6 +7019,7 @@ export default {
       this.eventCurrentIsHidden = (this.eventList.find(x => x.date === event.date) || {}).hidden;
       this.eventCheckFilterCodePre = null;
       this.eventCheckFilterCode = null;
+      this.eventUseWhatFilter = 0;
       this.eventKingTracks = [];
       this.eventFilterForKing = {};
       this.eventLoadPicks();
@@ -7015,6 +7035,8 @@ export default {
       }
       this.eventFilterToSave = null;
       this.eventFilterString = JSON.stringify(this.event.filter);
+      this.eventFilterString2 = JSON.stringify(this.event.filter2);
+      this.eventFilterString3 = JSON.stringify(this.event.filter3);
       this.eventTracksetString = JSON.stringify(this.event.trackset);
       this.eventCompString = JSON.stringify(this.event.comp);
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
@@ -7314,16 +7336,15 @@ export default {
       this.saveLoading = true;
       let params = { date: this.event.date };
       if (this.eventFilterString !== JSON.stringify(this.event.filter)) params.filter = this.eventFilterToSave;
+      if (this.eventFilterString2 !== JSON.stringify(this.event.filter2)) params.filter2 = this.eventFilterToSave2;
+      if (this.eventFilterString3 !== JSON.stringify(this.event.filter3)) params.filter3 = this.eventFilterToSave3;
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) params.trackset = this.event.trackset;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) params.comp = this.event.comp;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) params.rqLimit = this.event.rqLimit;
 
       axios.post(Vue.preUrl + "/updateEvent", params)
       .then(res => {
-        if (this.eventFilterToSave) this.eventFilterString = JSON.stringify(this.eventFilterToSave);
-        this.eventTracksetString = JSON.stringify(this.event.trackset);
-        this.eventCompString = JSON.stringify(this.event.comp);
-        this.eventRqEditString = JSON.stringify(this.event.rqLimit);
+        this.eventResetStringsToSave(true);
         this.saveLoading = false;
       })
       .catch(error => {
@@ -7494,10 +7515,14 @@ export default {
     },
     eventRefreshKingFilter() {
       if (this.eventCheckFilterCode) {
-        console.log(this.clubUseWhatFilter);
         
         setTimeout(() => {
-          this.$store.commit("EVENT_EXPORT_FILTER");
+          if (this.mode === "events") {
+            this.$store.commit("EVENT_EXPORT_FILTER");
+          }
+          if (this.mode === "clubs") {
+            this.$store.commit("CLUBS_EXPORT_FILTER");
+          }
           setTimeout(() => {
             this.eventOpenKingFilter(Number(this.eventCheckFilterCode[0]), Number(this.eventCheckFilterCode[2]), {}, true);
           }, 50);
@@ -7507,6 +7532,9 @@ export default {
     eventOpenKingFilter(itrackset, itrackMonoArray, e, direct = false) {
       let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
       let filterAtr = 'filter';
+      if (key === "event") {
+        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+      }
       if (key === "clubReqsGroupModel") {
         if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
       }
@@ -7659,12 +7687,15 @@ export default {
 
       let trackset;
       let filter;
+      let filterAtr = 'filter';
       if (this.isEvents) {
         trackset = [this.event.trackset[this.eventCheckFilterCode[0]]];
-        filter = this.event.filter;
+        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+        filter = this.event[filterAtr];
       } else {
         trackset = [this.clubTracksGroupModel.trackset[this.eventCheckFilterCode[0]]];
-        filter = this.clubReqsGroupModel.filter;
+        if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
+        filter = this.clubReqsGroupModel[filterAtr];
       }
 
       
@@ -7818,6 +7849,26 @@ export default {
     eventRemovePick(car) {
       this.eventPicksList = this.eventPicksList.filter(x => x !== car);
       window.localStorage.setItem(`picks_${this.eventCurrentName}`, JSON.stringify(this.eventPicksList));
+    },
+    eventResetStringsToSave(isAfterSave = false) {
+      if (isAfterSave) {
+        if (this.eventFilterToSave) this.eventFilterString = JSON.stringify(this.eventFilterToSave);
+        if (this.eventFilterToSave2) this.eventFilterString2 = JSON.stringify(this.eventFilterToSave2);
+        if (this.eventFilterToSave3) this.eventFilterString3 = JSON.stringify(this.eventFilterToSave3);
+        if (this.eventFilterString) this.event.filter = JSON.parse(this.eventFilterString);
+        if (this.eventFilterString2) this.event.filter2 = JSON.parse(this.eventFilterString2);
+        if (this.eventFilterString3) this.event.filter3 = JSON.parse(this.eventFilterString3);
+        this.eventFilterToSave = null;
+        this.eventFilterToSave2 = null;
+        this.eventFilterToSave3 = null;
+      } else {
+        this.eventFilterString = JSON.stringify(this.event.filter);
+        this.eventFilterString2 = JSON.stringify(this.event.filter2);
+        this.eventFilterString3 = JSON.stringify(this.event.filter3);
+      }
+      this.eventTracksetString = JSON.stringify(this.event.trackset);
+      this.eventCompString = JSON.stringify(this.event.comp);
+      this.eventRqEditString = JSON.stringify(this.event.rqLimit);
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;

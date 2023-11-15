@@ -322,5 +322,6 @@ export default {
   "t_dockCity": "Werft (Stadtstraßen)",
   "t_dockGforceDrag": "Werft (G-Force Drag)",
 
-  "lumberForest": "Lumber Mill (Wald-Rally)",
+  "t_lumberForest": "Lumber Mill (Wald-Rally)",
+  "t_lumberRiver": "Lumber Mill (Fluss-Rally)",
 }

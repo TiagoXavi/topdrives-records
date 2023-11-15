@@ -15,8 +15,8 @@
         <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
             :value="check === `${itrackset}_${itrackMonoArray}`"
-            @change="$emit('openKingFilter', {itrackset, itrackMonoArray}); runAnimation = false;"
-            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event }); runAnimation = false;"/>
+            @change="$emit('openKingFilter', {itrackset, itrackMonoArray}); changeRunAnimation()"
+            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event }); changeRunAnimation()"/>
           <div v-if="itrackset === 0 && runAnimation" class="BaseEventTrackbox_CheckAnimation ticon-">check_box_outline_blank</div>
         </div>
         <div v-if="itrackMonoArray === 0 && user && eventForceAnalyze" class="BaseEventTrackbox_EditBox">
@@ -85,6 +85,7 @@ var mouseY = 0;
 var elmnt = null;
 var dragNum = 0;
 var lastDragNum = 0;
+var runAnimationRoot = true;
 
 
 import Row from './Row.vue'
@@ -136,9 +137,17 @@ export default {
   beforeMount() {
     this.isMobile = Vue.options.filters.isMobile();
   },
-  mounted() {},
+  mounted() {
+    if (!runAnimationRoot) {
+      this.runAnimation = false;
+    }
+  },
   computed: {},
   methods: {
+    changeRunAnimation() {
+      this.runAnimation = false;
+      runAnimationRoot = false;
+    },
     dragMouseDown(e, itrackset, itrackMonoArray) {
       this.itrackset = itrackset;
       this.itrackMonoArray = itrackMonoArray;

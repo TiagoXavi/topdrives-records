@@ -351,7 +351,7 @@ export default {
       searchFilters: {},
       typesList: {
         brand: ["Bizzarrini", "Caterham", "Citroen", "Ford", "McMurtry", "Pininfarina", "Radical", "Simca", "Skoda", "Volvo", "Zenvo"],
-        country: ["GB", "IT", "FR", "SE", "CZ", "DK"],
+        country: ["GB", "IT", "FR", "SE", "CZ", "DK", "CN", "AU"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
