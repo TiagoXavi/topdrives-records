@@ -7514,6 +7514,7 @@ export default {
       else this.clubsResolveTrackGroup();
     },
     eventRefreshKingFilter() {
+      this.eventFilterForKing = {};
       if (this.eventCheckFilterCode) {
         
         setTimeout(() => {

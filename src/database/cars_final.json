@@ -15015,7 +15015,7 @@
         "onlyName": "C30 Polestar",
         "brand": "Volvo",
         "country": "SE",
-        "year": 2013,
+        "year": 2010,
         "tdid": "2753",
         "abs": true,
         "tcs": true,
@@ -26541,7 +26541,7 @@
     },
     {
         "class": "A",
-        "rq": 70,
+        "rq": 71,
         "onlyName": "Impreza WRX STI (GR)",
         "brand": "Subaru",
         "country": "JP",
