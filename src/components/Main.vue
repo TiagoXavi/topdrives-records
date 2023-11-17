@@ -7633,7 +7633,7 @@ export default {
         params.onlyPicks = false;
       }
 
-      if (this.mode === "clubs" && whatTier && whatTier <= 3) {
+      if (this.mode === "clubs" && this.whatTier && this.whatTier <= 3) {
         params.isClubs = true;
         // this.$store.commit("START_LOGROCKET", {});
       }
