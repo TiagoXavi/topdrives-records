@@ -4059,7 +4059,7 @@ export default {
       if (this.user.tier) result = this.user.tier;
       if (this.mode === "clubs" && this.user.mod && (result > 3 || result === 0)) {
         result = 3;
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
       }
       return result;
     }
@@ -7633,9 +7633,9 @@ export default {
         params.onlyPicks = false;
       }
 
-      if (this.mode === "clubs") {
+      if (this.mode === "clubs" && whatTier && whatTier <= 3) {
         params.isClubs = true;
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
       }
 
       axios.post(Vue.preUrl + "/eventKings", params)
@@ -7715,7 +7715,7 @@ export default {
       this.eventAnalyseLoading = true;
 
       if (this.mode === "clubs") {
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
       }
 
       axios.post(Vue.preUrl + "/analyseEvent", {
