@@ -61,19 +61,20 @@ export default {
   }
 }
 .BaseLogoSpining_Svg1 {
-  animation: spin1 2s linear 2;
-  animation-timing-function: ease-in-out;
+  animation: spin1 1s linear 4;
+  animation-timing-function: cubic-bezier(0, 0.46, 0.49, 0.99);
+  animation-direction: alternate;
 }
 @keyframes spin1 {
   0% {
     transform: translateY(0px);
   }
-  50% {
+  100% {
     transform: translateY(-30px);
   }
-  100% {
+  /* 100% {
     transform: translateY(0px);
-  }
+  } */
 }
 
 

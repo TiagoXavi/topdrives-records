@@ -1015,7 +1015,7 @@
                     @click="clubDaySaveAll()">{{ $t("m_saveDay") }}</button>
                 </div>
                 <div v-if="!clubLoading && clubDaySelected !== clubServerDateISO" class="Clubs_DayNotCurrent">({{ $t('m_notCurrent') }})</div>
-                <div v-if="user && user.mod" class="">
+                <div v-if="user && user.mod" class="Clubs_TrackReqSelectBox">
                   <button
                     :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
                     class="D_Button Main_ArrowDownSelect"
@@ -1086,7 +1086,7 @@
                           @click="clubAnalyse()">{{ $t("m_analyze") }}</button>
                       </div>
                     </template>
-                    <div v-if="user" class="Main_PrintBy">
+                    <div v-if="user" class="Main_PrintBy" style="margin-top: 5px;">
                       <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
                       <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
@@ -2119,7 +2119,6 @@
               {{ $t("m_events") }}
             </button>
             <button
-              v-if="this.user && this.user.mod"
               :class="{ D_ButtonChangeModeDisabled: mode === 'clubs' }"
               :disabled="mode === 'clubs' || needSave || cgLoadingAny || cgNeedSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
@@ -2527,11 +2526,15 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest!</div>
-          <div class="Main_AnnouncementBody">New cars are there. There is a 2nd edition of TDR Contest happening for them.<br><br>Check our discord for more information.</div>
-          <div class="Main_AnnouncementMaybe">29th july - 13th august</div>
+          <div class="Main_AnnouncementTitle">Clubs is out!</div>
+          <div class="Main_AnnouncementBody">Your new best way to grind clubs</div>
+          <div class="Main_AnnouncementMaybe">Check some best cars</div>
 
-          <BaseDiscordButton style="margin-top: 20px;" />
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2 Main_AnnouncementButton"
+            @click="changeMode('clubs'); announcementDialog = false;">
+            <span>Clubs</span>
+          </button>
         </div>
       </div>
     </BaseDialog>
@@ -3513,8 +3516,6 @@ export default {
     }
     
 
-    
-
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
       // from query string
       this.changeMode('classic');
@@ -3541,6 +3542,12 @@ export default {
           this.eventCurrentId = decodeURI(x.substr(1))
         }
       })
+      this.$router.replace({'query': null});
+
+    } else if (this.$route.query && this.$route.query.clubs !== undefined) {
+      // from query string
+      this.changeMode('clubs');
+      
       this.$router.replace({'query': null});
 
     } else {
@@ -5019,7 +5026,7 @@ export default {
       let currentCanvas = document.querySelector('#printCanvas');
 
       let boxName = ".Main_Body";
-      if (this.mode === 'cg' || this.mode === 'events') boxName = ".Cg_Layout";
+      if (this.mode === 'cg' || this.mode === 'events' || this.mode === 'clubs') boxName = ".Cg_Layout";
 
       let pose = document.querySelector(boxName);
       pose.classList.add("Main_BodyPrint");
@@ -5043,10 +5050,12 @@ export default {
       } else if (this.mode === 'cg') {
         _width = (pose.clientWidth) * 1.3;
         _height = (pose.clientHeight) * 1.3;
-      } else if (this.mode === 'events') {
+      } else if (this.mode === 'events' || this.mode === 'clubs') {
         let reduceHeight = 0;
         let box1 = document.querySelector(".Cg_Header");
-        let box2 = document.querySelector(".Cg_Mid");
+        let box2;
+        if (this.mode === 'events') box2 = document.querySelector(".Cg_Mid");
+        if (this.mode === 'clubs') box2 = document.querySelector(".Clubs_Mid");
         reduceHeight = pose.clientHeight - box1.clientHeight - box2.clientHeight;
         _width = (pose.clientWidth) * 1.3;
         _height = (pose.clientHeight - reduceHeight) * 1.3;
@@ -5099,6 +5108,8 @@ export default {
       } else if (this.mode === 'events') {
         result += `event=`;
         result += `~G${this.event.date}`
+      } else if (this.mode === 'clubs') {
+        result += `clubs`;
       }
 
       if (result.length > 2045) {
@@ -8043,17 +8054,18 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // if (window.localStorage.getItem("contest2")) return;
-      // let dt = window.localStorage.getItem("_dt");
-      // if (dt) {
-      //   dt = Number(dt) + (60*60*1000) > new Date().getTime()
-      // }
-      // if (dt) return;
+      if (window.localStorage.getItem("club_already")) return;
+      if (window.localStorage.getItem("clubs")) return;
+      let dt = window.localStorage.getItem("_dt");
+      if (dt) {
+        dt = Number(dt) + (60*60*1000) > new Date().getTime()
+      }
+      if (dt) return;
 
-      // window.localStorage.setItem('contest2', "t");
-      // setTimeout(() => {
-      //   this.announcementDialog = true;
-      // }, 100);
+      window.localStorage.setItem('clubs', "t");
+      setTimeout(() => {
+        this.announcementDialog = true;
+      }, 100);
     },
     openAbout() {
       this.aboutDialog = true;
@@ -8385,6 +8397,7 @@ export default {
       e.preventDefault();
     },
     loadClubs(resolveInitial = true) {
+      window.localStorage.setItem('club_already', true);
       this.clubLoading = true;
 
       axios.get(Vue.preUrl + "/searchClubs")
@@ -11269,7 +11282,8 @@ body .Main_UserTw3:before {
   border-radius: unset;
   transition-duration: unset;
 }
-.Main_BodyPrint.Cg_Layout .Row_DialogButtonTuneActive {
+.Main_BodyPrint.Cg_Layout .Row_DialogButtonTuneActive,
+.Main_BodyPrint.Cg_Layout .BaseChip.D_ButtonActive {
   box-shadow: unset;
   background-color: rgba(var(--d-text-green), 0.4) !important;
   color: white;
@@ -11297,6 +11311,12 @@ body .Main_UserTw3:before {
   display: none;
 }
 .Main_BodyPrint .BaseSwitch_Layout {
+  display: none;
+}
+.Main_BodyPrint .Main_AdminLayoutBox {
+  display: none;
+}
+.Main_BodyPrint .Clubs_TrackReqSelectBox {
   display: none;
 }
 
