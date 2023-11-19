@@ -4742,14 +4742,18 @@ export default {
               this.all_cars.push(car);
             }
           })
+          // this.all_cars = [...new Set(this.all_cars)];
           if (this.icmcMemoryQuery) {
             this.decodeTemplateString(this.icmcMemoryQuery, true);
             this.icmcMemoryQuery = null;
             this.updateCarLocalStorage();
           } else if (this.icmcMemoryLocalStorageCars) {
-            this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
+            let parsed = JSON.parse(this.icmcMemoryLocalStorageCars);
+            if (parsed.length !== this.carDetailsList.length) {
+              this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
+              this.updateCarLocalStorage();
+            }
             this.icmcMemoryLocalStorageCars = null;
-            this.updateCarLocalStorage();
           }
         }
 
