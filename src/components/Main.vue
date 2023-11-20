@@ -4742,7 +4742,7 @@ export default {
               this.all_cars.push(car);
             }
           })
-          // this.all_cars = [...new Set(this.all_cars)];
+          this.all_cars = [...new Set(this.all_cars)];
           if (this.icmcMemoryQuery) {
             this.decodeTemplateString(this.icmcMemoryQuery, true);
             this.icmcMemoryQuery = null;
