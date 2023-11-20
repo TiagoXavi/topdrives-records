@@ -4720,14 +4720,6 @@ export default {
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
-        let mraData = res.data.find(x => x.id === 'mra').value;
-        this.all_cars.map(x => {
-          Vue.set(x, "mra", mraData[x.rid] || x.mra);
-        })
-        this.carDetailsList.map(x => {
-          Vue.set(x, "mra", mraData[x.rid] || x.mra);
-        })
-
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {
           incomingCars.map(car => {
@@ -4736,6 +4728,9 @@ export default {
             }
           })
           this.all_cars = [...new Set(this.all_cars)];
+          this.all_cars.sort((a,b) => {
+            return b.rq - a.rq;
+          })
           if (this.icmcMemoryQuery) {
             this.decodeTemplateString(this.icmcMemoryQuery, true);
             this.icmcMemoryQuery = null;
@@ -4749,6 +4744,14 @@ export default {
             this.icmcMemoryLocalStorageCars = null;
           }
         }
+
+        let mraData = res.data.find(x => x.id === 'mra').value;
+        this.all_cars.map(x => {
+          Vue.set(x, "mra", mraData[x.rid] || x.mra);
+        })
+        this.carDetailsList.map(x => {
+          Vue.set(x, "mra", mraData[x.rid] || x.mra);
+        })
 
 
 
