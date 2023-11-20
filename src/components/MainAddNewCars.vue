@@ -7,15 +7,31 @@
           <Logo />
         </div>
       </div>
+      <div class="MainAddNewCars_SearchLayout">
+        <div class="Main_SearchFieldBox">
+          <input
+            v-model="searchInput"
+            :placeholder="$t('m_searchCar')"
+            class="D_SearchInput data-hj-allow"
+            type="text"
+            autocomplete="off"
+            @input="searchInputFunc()">
+        </div>
+      </div>
       <div class="MainAddNewCars_ListNewCarsBox">
         <div class="MainAddNewCars_ListNewCars Main_DarkScroll">
-          <div v-for="item in incomingCars" class="MainAddNewCars_ListCar Main_SearchItem" @click="carListClick(item, $event)">
+          <div
+            v-for="item in filteredIncomingCars"
+            :style="{ '--color': item.classColor }"
+            class="MainAddNewCars_ListCar Main_SearchItem"
+            @click="carListClick(item, $event)">
             <div class="Main_SearchItemImg">
               <img :src="item.photoCalc" class="MainGallery_Img" alt="">
             </div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
             <div class="Main_SearchItemRight">
-              <span>{{ item.name }}</span><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/><span class="MainAddNewCars_ListCarPercent" :class="{ MainAddNewCars_ListCarPercent100: item.percent === 100 }">{{ item.percent }}%</span>
+              <span v-if="item.locatedName" v-html="item.locatedName"></span>
+              <span v-else>{{ item.name }}</span><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/><span class="MainAddNewCars_ListCarPercent" :class="{ MainAddNewCars_ListCarPercent100: item.percent === 100 }">{{ item.percent }}%</span>
             </div>
           </div>
           <div v-if="incomingCarsLoading && incomingCars.length === 0" class="MainAddNewCars_ListLoading">Loading</div>
@@ -291,6 +307,9 @@ export default {
       previewDialogActive: false,
       photoDialogActive: false,
       photos: [],
+      searchInput: "",
+      searchInputLazy: "",
+      debounceFilter: null,
       incomingCars: [],
       incomingCarsLoading: false,
       newCar: {
@@ -411,6 +430,7 @@ export default {
     this.searchFilters = this.$refs.newCarsFilter.$data.searchFilters;
     this.refreshPhotos();
     this.$store.commit("START_LOGROCKET", {});
+    this.debounceFilter = Vue.debounce(this.changeFilter, 500);
   },
   computed: {
     valid() {
@@ -434,6 +454,38 @@ export default {
       if (this.newCar.tags.length === 0) return false;
       // if (this.newCar.bodyTypes.length === 0) return false;
       return true;
+    },
+    filteredIncomingCars() {
+      if (this.searchInputLazy === "") return this.incomingCars;
+
+      let strIndex = -1;
+      let searchStr = this.searchInputLazy.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      let result = [];
+      let shouldPush = false;
+      let prePush;
+
+      this.incomingCars.map((x, ix) => {
+        strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
+
+        if (strIndex > -1) {
+          prePush = JSON.parse(JSON.stringify(x));
+          prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
+          prePush.locatedIndex = strIndex;
+          if (x.name[strIndex - 1] === ' ') {
+            prePush.locatedPlus = true;
+          }
+
+          result.push(prePush)
+        }
+      })
+
+      result.sort(function(a, b) {
+        if (a.locatedPlus && !b.locatedPlus) return -1;
+        if (b.locatedPlus && !a.locatedPlus) return 1;
+        return a.locatedIndex - b.locatedIndex;
+      });
+
+      return result;
     }
   },
   methods: {
@@ -539,6 +591,7 @@ export default {
         try {
           this.incomingCars.map(car => {
             car.percent = this.howMuchPercentDone(car);
+            car.classColor = Vue.resolveClass(car.rq, car.class, "color");
             car.photoCalc = require('@/incoming_pics/' + car.photoId + '.jpg')
           })
         } catch (error) {
@@ -719,6 +772,12 @@ export default {
       let result = 50 + (amount * 7);
       if (result === 99) result = 100;
       return result;
+    },
+    searchInputFunc(e) {
+      this.debounceFilter();
+    },
+    changeFilter() {
+      this.searchInputLazy = this.searchInput;
     }
   },
 }
@@ -808,8 +867,12 @@ export default {
   width: 100%;
   transform: scale(1.3) translate(15px, -7px);
 }
+.MainAddNewCars_SearchLayout {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
 .MainAddNewCars_ListNewCarsBox {
-  margin-top: 20px;
 }
 .MainAddNewCars_ListNewCars {
   max-width: 600px;

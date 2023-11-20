@@ -1168,6 +1168,14 @@ export default {
           }
         }
 
+        if (searchStr === "nomra") {
+          if (x.mra === null && x.topSpeed > 100) {
+            if (this.checkMatchFilter(x)) {
+              shouldPush = true;
+            }
+          }
+        }
+
         if (shouldPush) {
           prePush = JSON.parse(JSON.stringify(x));
           if (strIndex > -1) {
