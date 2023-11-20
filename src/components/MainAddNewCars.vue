@@ -369,7 +369,7 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ["Bizzarrini", "Caterham", "Citroen", "Ford", "McMurtry", "Pininfarina", "Radical", "Simca", "Skoda", "Volvo", "Zenvo"],
+        brand: ["Ariel", "Bizzarrini", "Bugatti", "Caterham", "Citroen", "Ford", "Koenigsegg", "McMurtry", "Pininfarina", "Radical", "Skoda", "Talbot", "Volvo", "Zenvo"],
         country: ["GB", "IT", "FR", "SE", "CZ", "DK", "CN", "AU"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
