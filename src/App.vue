@@ -52,7 +52,6 @@ export default {
       snackShake: false,
       shakeTimeout: null,
       user: null,
-      asMod: false,
       logRocketInitialized: false,
     }
   },
@@ -207,9 +206,6 @@ export default {
           this.user = res.data;
           if (this.user && this.user.mod) {
             window.localStorage.setItem('_md', "t");
-            this.asMod = true;
-          } else {
-            this.asMod = false;
           }
 
           LogRocket.identify(res.data.username, {
@@ -228,14 +224,12 @@ export default {
           }
 
           this.$store.commit("CHANGE_USER", {
-            user: this.user,
-            asMod: this.asMod
+            user: this.user
           });
 
         } else {
           this.$store.commit("CHANGE_USER", {
-            user: null,
-            asMod: false
+            user: null
           });
         }
       })

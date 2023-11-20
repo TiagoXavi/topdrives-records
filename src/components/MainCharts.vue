@@ -142,7 +142,6 @@ export default {
       chartTunes: [],
       highchartsConfig: {},
       user: null,
-      asMod: false,
       unsubscribe: null,
       counter: 0
     }
@@ -166,18 +165,15 @@ export default {
   mounted() {
     let vm = this;
     this.user = this.$store.state.user;
-    this.asMod = this.$store.state.asMod;
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
       if (mutation.type == "CHANGE_USER") {
         vm.user = mutation.payload.user;
-        vm.asMod = mutation.payload.asMod;
       }
 
       if (mutation.type == "LOGOUT") {
         vm.user = null;
-        vm.asMod = false;
       }
 
     })

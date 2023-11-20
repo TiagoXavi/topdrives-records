@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_20.json'
+import cars_new_rq from '../database/cars_new_rq_21.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -37,8 +37,8 @@ export default {
     let temp2;
     let xName;
     let yModel;
-    let newStr = "20.0 RQ";
-    let oldStr = "19.3 RQ";
+    let oldStr = "20.3 RQ";
+    let newStr = "21.0 RQ";
 
 
 
@@ -87,8 +87,15 @@ export default {
 
 
 
-    // until 19.3
-    // has Year atribute
+    // 19.3
+    // {
+    //   "Make": "Ginetta",
+    //   "Model": "G56 GT4 Supercup",
+    //   "Year": 2021,
+    //   "19.0 RQ": 105,
+    //   "19.1 RQ": 91,
+    //   "RQ Change": -14
+    // },
     {
       // let notFound = [];
   
@@ -160,39 +167,132 @@ export default {
 
 
     // v20.0
+    // {
+    //   "Make": "Abarth",
+    //   "Model": "1000 Monoposto record car",
+    //   "19.3 RQ": 22,
+    //   "20.0 RQ": 21,
+    //   "RQ Change": -1
+    // },
+    {
+      // let notFound = [];
+
+      // this.cars_new_rq.map(y => {
+      //   // let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+      //   // if (y.Model === '2016 Vauxhall/Opel Adam R2') {
+      //   //   debugger;
+      //   // }
+      //   y.Model = `${y.Model}`; // force string
+        
+      //   if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
+      //   let yModelName = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      //   // let yModelYear = yModel.substr(0, 4);
+      //   // yModelName = yModelName.replace("vauxhall/opel ", "");
+      //   // yModelName = yModelName.replace("fiat ", "");
+      //   // yModelName = yModelName.replace("abarth ", "");
+
+      //   temp = this.cars_final.filter(x => {
+      //     let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      //     // xName = xName.replace("vauxhall opel ", "");
+      //     // xName = xName.replace("vauxhall ", "");
+      //     // xName = xName.replace("fiat ", "");
+      //     // xName = xName.replace("abarth ", "");
+          
+      //     if (xModelName.includes(yModelName) && y.Make.toUpperCase === x.brand.toUpperCase && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
+      //       return true
+      //     }
+      //   });
+
+      //   if (temp && temp.length > 1) {
+      //     let achouExato = -1;
+      //     temp.map((x, index) => {
+      //       let xModelName = x.onlyName.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+      //       if (xModelName === yModelName) {
+      //         achouExato = index;
+      //       }
+      //     })
+      //     if (achouExato > -1) {
+      //       temp = temp.filter((x, index) => index === achouExato);
+      //     }
+      //   }
+
+      //   if (temp && temp.length === 1) {
+      //     // OK
+
+      //     if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
+      //       // OK
+      //       temp[0].rq = y[newStr];
+      //       temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
+      //     } else {
+      //       console.log(`${oldStr} diferente`, temp[0]);
+      //       debugger;
+      //     }
+
+      //   } else if (temp && temp.length > 1) {
+      //     // achou 2
+      //     console.log("achou 2", y.Model, `${y[oldStr]} > ${y[newStr]}`, temp);
+      //     // debugger;
+      //   } else if (temp.length === 0) {
+      //     // achou nada
+      //     console.log("achou nada", y.Model, `${y[oldStr]} > ${y[newStr]}`);
+      //     // debugger;
+      //     // notFound.push(y.Model);
+      //   }
+      // })
+    }
+
+
+    // 21.0
+    // {
+    //   "Year": 1997,
+    //   "Car": "AC Ace V8",
+    //   "20.3 RQ": 45,
+    //   "21.0 RQ": 44,
+    //   "RQ Change": -1
+    // },
     {
       let notFound = [];
-
+  
       this.cars_new_rq.map(y => {
         // let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
         // if (y.Model === '2016 Vauxhall/Opel Adam R2') {
         //   debugger;
         // }
-        y.Model = `${y.Model}`; // force string
-        
-        if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
-        let yModelName = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        // if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
+        let yModelName = y.Car.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
         // let yModelYear = yModel.substr(0, 4);
-        // yModelName = yModelName.replace("vauxhall/opel ", "");
-        // yModelName = yModelName.replace("fiat ", "");
-        // yModelName = yModelName.replace("abarth ", "");
-
+        yModelName = yModelName.replace("vauxhall/opel ", "");
+        yModelName = yModelName.replace("fiat ", "");
+        yModelName = yModelName.replace("abarth ", "");
+        yModelName = yModelName.replace("apollo apollo ", "");
+        yModelName = yModelName.replace("™", "");
+        yModelName = yModelName.replace("mclaren slr mclaren ", "slr mclaren ");
+        yModelName = yModelName.replace("mclaren slr mclaren", "slr mclaren");
+        yModelName = yModelName.replace("‘", "'");
+        yModelName = yModelName.replace("’", "'");
+        yModelName = yModelName.replace("scuderia cameron glickenhaus ", "scg ");
+        yModelName = yModelName.replace("datsun ", "");
+        yModelName = yModelName.replace("amg ", "");
+  
         temp = this.cars_final.filter(x => {
           let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-          // xName = xName.replace("vauxhall opel ", "");
-          // xName = xName.replace("vauxhall ", "");
-          // xName = xName.replace("fiat ", "");
-          // xName = xName.replace("abarth ", "");
+          xModelName = xModelName.replace("vauxhall opel ", "");
+          xModelName = xModelName.replace("vauxhall ", "");
+          xModelName = xModelName.replace("fiat ", "");
+          xModelName = xModelName.replace("abarth ", "");
+          xModelName = xModelName.replace("austin healey ", "austin ");
+          xModelName = xModelName.replace("amg ", "");
+          xModelName = xModelName.replace("datsun ", "");
           
-          if (xModelName.includes(yModelName) && y.Make.toUpperCase === x.brand.toUpperCase && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
+          if (xModelName.includes(yModelName) && y.Year == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
             return true
           }
         });
-
+  
         if (temp && temp.length > 1) {
           let achouExato = -1;
           temp.map((x, index) => {
-            let xModelName = x.onlyName.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+            let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
             if (xModelName === yModelName) {
               achouExato = index;
             }
@@ -201,10 +301,10 @@ export default {
             temp = temp.filter((x, index) => index === achouExato);
           }
         }
-
+  
         if (temp && temp.length === 1) {
           // OK
-
+  
           if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
             // OK
             temp[0].rq = y[newStr];
@@ -213,14 +313,14 @@ export default {
             console.log(`${oldStr} diferente`, temp[0]);
             debugger;
           }
-
+  
         } else if (temp && temp.length > 1) {
           // achou 2
-          console.log("achou 2", y.Model, `${y[oldStr]} > ${y[newStr]}`, temp);
+          console.log("achou 2", yModelName, `${y[oldStr]} > ${y[newStr]}`, temp);
           // debugger;
         } else if (temp.length === 0) {
           // achou nada
-          console.log("achou nada", y.Model, `${y[oldStr]} > ${y[newStr]}`);
+          console.log("achou nada", yModelName, `${y[oldStr]} > ${y[newStr]}`);
           // debugger;
           // notFound.push(y.Model);
         }

@@ -35,7 +35,7 @@
         <button
           class="D_Button Main_OptionsButton"
           @click="$router.push({ name: 'Gallery' })">
-          <span>{{ $t("m_vChanges", { version: '20.0' }) }}</span>
+          <span>{{ $t("m_vChanges", { version: '21.0' }) }}</span>
         </button>
         <BaseDiscordButton />
         <BaseDonateButton />

@@ -38,7 +38,6 @@ export default new Vuex.Store({
     },
     filter: {},
     user: null,
-    asMod: false,
     userLoading: false,
     loading: false,
     tabs: [],
@@ -88,12 +87,10 @@ export default new Vuex.Store({
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
     CHANGE_USER: (state, item) => {
-      state.user = item.user,
-      state.asMod = item.asMod
+      state.user = item.user
     },
     LOGOUT: (state, item) => {
-      state.user = null,
-      state.asMod = false
+      state.user = null
     },
     CHANGE_TIME: (state, obj) => null,
     DELETE_TIME: (state, obj) => null,

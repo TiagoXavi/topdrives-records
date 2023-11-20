@@ -3164,7 +3164,6 @@ export default {
       kingClearFilter: {},
       trackTimes: null,
       user: null,
-      asMod: false,
       showCarsFix: true,
       needSave: false,
       saveLoading: false,
@@ -3421,9 +3420,6 @@ export default {
     this.cgGetLocalStorage();
     this.eventGetLocalStorage();
     let _md = window.localStorage.getItem("_md");
-    if (_md) {
-      this.asMod = true;
-    }
 
 
 
@@ -3571,7 +3567,6 @@ export default {
 
     this.getLastest();
     this.user = this.$store.state.user;
-    this.asMod = this.$store.state.asMod;
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
@@ -3685,12 +3680,10 @@ export default {
 
       if (mutation.type == "CHANGE_USER") {
         vm.user = mutation.payload.user;
-        vm.asMod = mutation.payload.asMod;
       }
 
       if (mutation.type == "LOGOUT") {
         vm.user = null;
-        vm.asMod = false;
       }
 
     });

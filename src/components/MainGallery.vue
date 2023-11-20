@@ -240,26 +240,34 @@
 
             <div
               v-if="diff_searchResult[ix].rq"
-              class="MainGallery_Rq MainGallery_Color">
-              {{ diff_searchResult[ix].rq }}
+              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].rq > car.rq }"
+              class="MainGallery_Rq MainGallery_Color MainGallery_ColorValue">
+              <template v-if="car.rq > diff_searchResult[ix].rq">+</template>{{ car.rq - diff_searchResult[ix].rq }}
             </div>
 
             <div
               v-if="diff_searchResult[ix].topSpeed"
-              class="MainGallery_topSpeed MainGallery_Color">
-              {{ diff_searchResult[ix].topSpeed }}
+              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].topSpeed < car.topSpeed }"
+              :style="`--char-count:` + (JSON.stringify(car.topSpeed)).length"
+              class="MainGallery_topSpeed MainGallery_Color MainGallery_ColorValue">
+              <template v-if="car.topSpeed > diff_searchResult[ix].topSpeed">+</template>{{ car.topSpeed - diff_searchResult[ix].topSpeed }}
             </div>
 
             <div
               v-if="diff_searchResult[ix].acel"
-              class="MainGallery_acel MainGallery_Color">
-              {{ diff_searchResult[ix].acel }}
+              style="--char-isAcel: 4px"
+              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].acel < car.acel }"
+              :style="`--char-count:` + (JSON.stringify(car.acel)).length"
+              class="MainGallery_acel MainGallery_Color MainGallery_ColorValue">
+              <template v-if="car.acel > diff_searchResult[ix].acel">+</template>{{ (car.acel - diff_searchResult[ix].acel).toFixed(1) }}
             </div>
 
             <div
               v-if="diff_searchResult[ix].hand"
-              class="MainGallery_hand MainGallery_Color">
-              {{ diff_searchResult[ix].hand }}
+              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].hand < car.hand }"
+              :style="`--char-count:` + (JSON.stringify(car.hand)).length"
+              class="MainGallery_hand MainGallery_Color MainGallery_ColorValue">
+              <template v-if="car.hand > diff_searchResult[ix].hand">+</template>{{ car.hand - diff_searchResult[ix].hand }}
             </div>
 
             <div
@@ -289,22 +297,22 @@
 
             <div
               v-if="diff_searchResult[ix].abs !== diff_searchResult[ix]._abs"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._abs }"
-              class="MainGallery_Small MainGallery_Abs MainGallery_Color">
+              :class="{ MainGallery_BoolUp: car.abs }"
+              class="MainGallery_Small MainGallery_Bool MainGallery_Abs MainGallery_Color">
               ABS
             </div>
 
             <div
               v-if="diff_searchResult[ix].tcs !== diff_searchResult[ix]._tcs"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._tcs }"
-              class="MainGallery_Small MainGallery_Tcs MainGallery_Color">
+              :class="{ MainGallery_BoolUp: car.tcs }"
+              class="MainGallery_Small MainGallery_Bool MainGallery_Tcs MainGallery_Color">
               TCS
             </div>
 
             <div
               v-if="diff_searchResult[ix].prize !== diff_searchResult[ix]._prize"
-              :class="{ MainGallery_ColorUp: diff_searchResult[ix]._prize }"
-              class="MainGallery_Small MainGallery_Prize MainGallery_Color">
+              :class="{ MainGallery_BoolUp: car.prize }"
+              class="MainGallery_Small MainGallery_Bool MainGallery_Prize MainGallery_Color">
               Prize
             </div>
 
@@ -357,8 +365,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL20-fixed.json'
-import plOld from '../database/cars_final_PL19_3.json'
+import data_cars from '../database/cars_final_PL21-fixed.json'
+import plOld from '../database/cars_final_PL20_3.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -777,6 +785,7 @@ export default {
 
       this.searchMax = 20;
 
+      // console.log(result);
       // debugger;
 
       this.searchResult = result;
@@ -1185,7 +1194,7 @@ export default {
   left: 18px;
 }
 .MainGallery_Color {
-  background-color: #a30000;
+  background-color: #232121;
   padding: 4px 7px;
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
@@ -1201,7 +1210,7 @@ export default {
   color: white;
   position: absolute;
   top: 149px;
-  right: 362px;
+  right: 360px;
   align-items: center;
 }
 .MainGallery_Empty + .BaseCardGallery_Layout .Car_Header {
@@ -1212,7 +1221,7 @@ export default {
   gap: 6px;
   color: white;
   position: absolute;
-  top: 34px;
+  top: 29px;
   left: 355px;
   align-items: center;
 }
@@ -1221,7 +1230,7 @@ export default {
   gap: 6px;
   color: white;
   position: absolute;
-  top: 73px;
+  top: 70px;
   left: 355px;
   align-items: center;
 }
@@ -1230,7 +1239,7 @@ export default {
   gap: 6px;
   color: white;
   position: absolute;
-  top: 113px;
+  top: 110px;
   left: 355px;
   align-items: center;
 }
@@ -1262,7 +1271,7 @@ export default {
   font-size: 10px;
 }
 .MainGallery_Year {  
-  top: 34px;
+  top: 29px;
   right: 121px;  
 }
 .MainGallery_Abs {  
@@ -1305,6 +1314,54 @@ export default {
   right: calc(100% + 2px);
   font-size: 11px;
   opacity: 0.4;
+}
+.MainGallery_Arrow {
+  --char-isAcel: 0px;
+}
+.MainGallery_Arrow:before {
+  content: "\e924";
+  font-family: 'JurisT' !important;
+  position: absolute;
+  top: 5px;
+  /* left: -45px; */
+  left: calc(-24px - (10px * var(--char-count)) + var(--char-isAcel));
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  z-index: 200;
+  color: #ff4c4c;
+  font-weight: bold;
+}
+.MainGallery_ArrowUp:before {
+  content: "\e921";
+  color: #b2ff50;
+}
+.MainGallery_Bool:before {
+  content: "\e927";
+  font-family: 'JurisT' !important;
+  position: absolute;
+  top: 6px;
+  left: -6px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  z-index: 200;
+  color: #ff4c4c;
+  font-weight: bold;
+}
+.MainGallery_BoolUp:before {
+  content: "\e943";
+  color: #b2ff50;
+}
+.MainGallery_ArrowUp:before {
+  content: "\e921";
+  color: #b2ff50;
+}
+.MainGallery_ColorValue {
+  color: #ff4c4c;
+}
+.MainGallery_ColorValueUp {
+  color: #b2ff50;
 }
 
 

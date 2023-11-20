@@ -217,6 +217,10 @@ export default {
   color: rgb(var(--d-text-yellow));
   transition-duration: 0.2s;
   opacity: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .BaseCompItem_MetaDragster {
   position: absolute;

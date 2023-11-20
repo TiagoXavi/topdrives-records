@@ -175,7 +175,6 @@ export default {
       tracks_factor,
       user: null,
       unsubscribe: null,
-      asMod: false,
       voteLoading: false,
       confirmDelete: {
         dialog: false,
@@ -222,7 +221,6 @@ export default {
     let vm = this;
     // this.getDownTimes();
     this.user = { "username": "fake", "mod": true };
-    this.asMod = true;
 
     // this.chartTrack = {"id":"drag100","surface":"0","cond":"0","code":"drag100_a00","campaign":"IT Milan 10"}
     // this.fakeTime1 = 10.1;
@@ -233,12 +231,10 @@ export default {
 
     //   if (mutation.type == "CHANGE_USER") {
     //     vm.user = mutation.payload.user;
-    //     vm.asMod = mutation.payload.asMod;
     //   }
 
     //   if (mutation.type == "LOGOUT") {
     //     vm.user = null;
-    //     vm.asMod = false;
     //   }
 
     // })

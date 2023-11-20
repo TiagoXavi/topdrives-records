@@ -101,7 +101,7 @@
         <BaseText
           v-model="pastVersion"
           type="integer"
-          label="Version"
+          label="Past Version"
           class="Space_Bottom"
           placeholder="" />
       </div>
@@ -260,7 +260,7 @@ export default {
       setTierRes: null,
       setModRes: null,
       rids: null,
-      pastVersion: "18",
+      pastVersion: "20",
       backupCarsRes: null,
       scanSessionRes: null,
       contestRes: null,
