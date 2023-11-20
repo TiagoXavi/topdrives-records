@@ -5597,8 +5597,8 @@ export default {
         if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[1] === 2022) {
           this.cgRound.filter.yearModel[1] = 2024;
         }
-        if (this.cgRound.filter.rqModel && this.cgRound.filter.rqModel[1] === 100) {
-          this.cgRound.filter.rqModel[1] = 114;
+        if (this.cgRound.filter.rqModel && this.cgRound.filter.rqModel[1] === 114) {
+          this.cgRound.filter.rqModel[1] = 119;
         }
       }
       this.cgRoundsNumber = cg.rounds.length;
@@ -8081,68 +8081,67 @@ export default {
       this.optionsDialogActive = true;
     },
     lookForChangedCars(data) {
-      let changed20 = [
-        "Porsche_919_Hybrid_Evo_2018",
+      let changed21 = [
         "Rimac_Nevera_2021",
-        "Audi_R18_2016",
-        "Peugeot_208_T16_Pikes_Peak_2013",
-        "Volkswagen_I.D._R_Pikes_Peak_2018",
-        "Audi_R18_TDI_Ultra_2011",
-        "Peugeot_908_HDi_FAP_2007",
-        "Audi_R10_TDI_2006",
-        "Arash_AF10_Hybrid_2016",
-        "Porsche_911_RSR-19_(991.2)_2019",
-        "Porsche_911_GT3_RSR_997_2007",
-        "Lotus_Emira_GT4_2021",
-        "Mitsubishi_Lancer_Evo_VIII_FQ-400_2004",
-        "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009",
-        "Porsche_911_GT1_Strassenversion_993_1996",
-        "Lancia_Delta_HF_Integrale_16v_1990",
-        "Subaru_Impreza_Group_A_1995",
-        "Mitsubishi_Lancer_Evo_VIII_MR_FQ-340_2005",
-        "Mitsubishi_Lancer_Evo_IV_1996",
-        "Lotus_Evora_GT430_2018",
+        "Brabham_BT63_GT2_2021",
+        "Volvo_C30_Polestar_Performance_2010",
+        "DS_DS_Numero_9_2012",
+        "Volvo_V60_T8_Polestar_2020",
+        "Volvo_S80_V8_2006",
+        "Citroen_CXperience_2016",
+        "Volvo_S60_T8_AWD_2020",
+        "Mitsubishi_Colt_SR_4X_Ralliart_2002",
         "Volvo_V60_Polestar_2015",
-        "Audi_S5_Sportback_(B8)_2013",
-        "Mitsubishi_Lancer_Evo_VIII_260_2004",
-        "Ford_Bronco_Raptor_2022",
-        "Ford_Mustang_MachE_GT_2021",
-        "Dodge_Powerbox_2001",
-        "Mazda_Cosmo_1990",
-        "BMW_530e_Saloon_2020",
-        "Lancia_Delta_Integrale_16v_1989",
-        "Ford_Ranger_Rally_Raid_2014",
-        "Holden_Monaro_CV8R_VZ_2004",
-        "Peugeot_Rally_504_1971",
-        "Jaguar_XJ-S_Trans-Am_1978",
-        "Suzuki_XL-7_1998",
-        "Lancia_Thema_Turbo_16v_1989",
-        "Lincoln_Navigator_2007",
-        "Mazda_RX-7_Turbo_1985",
-        "Ford_Taurus_SHO_1993",
-        "Mazda_MX-5_BBR_Turbo_1990",
-        "Mazda_MX-5_1989",
-        "Ford_Capri_Perana_1971",
-        "Lincoln_Mark_VIII_1997",
-        "Ford_Taurus_SHO_1989",
-        "Mazda_MX-5_1998",
-        "Chrysler_LeBaron_GTS_Turbo_1985",
-        "Mazda_Eunos_Roadster_RS-Limited_1994",
-        "Dodge_Challenger_TA_1970",
-        "Ford_Mustang_Boss_302_1970",
-        "Mazda_RX-7_1978",
-        "Mazda_RX-7_1985",
-        "Ford_Thunderbird_Turbo_Coupe_1987",
-        "Lincoln_Town_Car_Cartier_L_2002",
-        "Ford_Mustang_289_1966",
-        "Mercury_Milan_2010",
-        "Buick_Century_Special_Coupe_1973",
-        "Chrysler_Turbine_Car_1963"
+        "Volvo_S90_T8_AWD_2018",
+        "Volvo_S60_R_AWD_2004",
+        "Citroen_Metropolis_2010",
+        "Volvo_S60_T6_AWD_2013",
+        "Volvo_V70_R_2000",
+        "Volvo_V90_T8_AWD_2018",
+        "DS_Wild_Rubis_2013",
+        "DS_3_Performance_2016",
+        "Volvo_850_AWD_1997",
+        "Volkswagen_Golf_GTD_2009",
+        "Citroen_C-Crosser_2.2_L_HDi_2007",
+        "Volvo_S90_T5_2016",
+        "Ford_Mondeo_ST220_2000",
+        "Citroen_C5_Tourer_3.0_L_2016",
+        "Citroen_C4_Picasso_THP_165_2016",
+        "Ford_Kuga_2016",
+        "Citroen_C6_3.0_L_V6_HDi_2005",
+        "DS_3_DSport_HDi_2016",
+        "Citroen_BX_16v_1987",
+        "Citroen_Xantia_Activa_V6_1997",
+        "DS_DS_6_2015",
+        "Citroen_C5_V6_2003",
+        "DS_3_Convertible_2016",
+        "Citroen_C2_VTS_2003",
+        "Volvo_960_3.0_1991",
+        "Mazda_CX7_Adrenaline_2006",
+        "Citroen_Saxo_VTS_16V_1996",
+        "Citroen_Grand_C4_Picasso_2015",
+        "Citroen_Xantia_VSX_1993",
+        "Citroen_C5_Saloon_1.6_L_2004",
+        "DS_5_2012",
+        "DS_4_2011",
+        "Citroen_C5_HPi_2001",
+        "Citroen_C3-XR_2014",
+        "Citroen_AX_GTi_1993",
+        "Citroen_C3_Picasso_2016",
+        "Citroen_Visa_GTi_1978",
+        "Volvo_1800ES_1972",
+        "Volvo_P1800_1961",
+        "Citroen_ZX_Volcane_TD_1991",
+        "Volvo_Amazon_1958",
+        "Citroen_GZ_1973",
+        "Citroen_Xsara_Picasso_1997",
+        "Citroen_M35_1969",
+        "Citroen_2CV_6_1979"
       ];
 
       data.rounds.map((round, iround) => {
         round.races.map((race, irace) => {
-          if (changed20.includes(race.rid)) {
+          if (changed21.includes(race.rid)) {
             console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
           }
         })

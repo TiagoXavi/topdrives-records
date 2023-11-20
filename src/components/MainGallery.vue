@@ -412,7 +412,7 @@ export default {
         yearEnd: 2024,
         yearModel: [],
         rqStart: 10,
-        rqEnd: 114,
+        rqEnd: 119,
         rqModel: [],
         topSpeedStart: 50,
         topSpeedEnd: 330,
@@ -467,6 +467,7 @@ export default {
           "As Seen on YT",
           "Asia-Pacific Grand Prix",
           "Call of the Wild",
+          "Chariots of the Gods",
           "Christmas Collection",
           "Christmas Collection 22",
           "Concept",
@@ -888,7 +889,7 @@ export default {
     },
     defaultFilters(type) {
       if (type === "yearModel") return [1910, 2024];
-      if (type === "rqModel") return [10, 114];
+      if (type === "rqModel") return [10, 119];
       if (type === "topSpeedModel") return [50, 330];
       if (type === "acelModel") return [1.5, 40];
       if (type === "handModel") return [30, 110];

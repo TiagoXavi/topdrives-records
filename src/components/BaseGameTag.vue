@@ -79,6 +79,11 @@ export default {
   --tag-s: 0%;
   --tag-l: 94%;
 }
+.BaseGameTag_Chariots_of_the_Gods {
+  --tag-h: 40;
+  --tag-s: 31%;
+  --tag-l: 84%;
+}
 .BaseGameTag_Christmas_Collection {
   --tag-h: 57;
   --tag-s: 75%;

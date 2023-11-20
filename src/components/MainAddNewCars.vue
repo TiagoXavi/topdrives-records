@@ -321,12 +321,12 @@ export default {
         year: null,
         abs: false,
         tcs: false,
-        clearance: null,
         topSpeed: null,
         acel: null,
         hand: null,
         drive: null,
         tyres: null,
+        clearance: null,
         mra: null,
         weight: null,
         tags: ["European New Wave"],
@@ -392,7 +392,8 @@ export default {
           "Ultra Expensive",
           "Hypercar",
           "Sleeper",
-          "Concept"
+          "Concept",
+          "Chariots of the Gods"
         ],
         color: [
           "Beige",
@@ -628,6 +629,9 @@ export default {
           ...car
         }
         delete vm.newCar.percent;
+        delete vm.newCar.classColor;
+        delete vm.newCar.locatedName;
+        delete vm.newCar.locatedIndex;
         vm.refreshPhotos();
 
         const illustrations = require.context(
