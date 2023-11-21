@@ -9,6 +9,7 @@ import plOld16 from '../database/cars_final_PL16.json'
 import plOld17 from '../database/cars_final_PL17.json'
 import plOld18 from '../database/cars_final_PL18.json'
 import plOld19 from '../database/cars_final_PL19_3.json'
+import plOld20 from '../database/cars_final_PL20.json'
 
 export default {
     install(Vue) {
@@ -152,6 +153,7 @@ export default {
             if (version === "17") car = plOld17.find(x => x.rid === rid);
             if (version === "18") car = plOld18.find(x => x.rid === rid);
             if (version === "19") car = plOld19.find(x => x.rid === rid);
+            if (version === "20") car = plOld20.find(x => x.rid === rid);
             if (car) {
                 return car;
             } else {

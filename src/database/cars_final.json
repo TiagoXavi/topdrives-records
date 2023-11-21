@@ -23353,7 +23353,7 @@
     {
         "class": "A",
         "rq": 72,
-        "onlyName": "Vision 6 Coupe Maybach",
+        "onlyName": "Vision 6 Coupe",
         "brand": "Mercedes-Benz",
         "year": 2016,
         "tdid": "3269",
@@ -23368,7 +23368,7 @@
         "tyres": "Performance",
         "mra": 89.41,
         "weight": 2000,
-        "name": "Mercedes-Benz Vision 6 Coupe Maybach",
+        "name": "Maybach Vision 6 Coupe",
         "rid": "Maybach_Vision_6_CoupВ_2016",
         "tags": [
             "World Expo",
@@ -27068,7 +27068,7 @@
     {
         "class": "A",
         "rq": 69,
-        "onlyName": "Vision 6 Cabriolet Maybach",
+        "onlyName": "Vision 6 Cabriolet",
         "brand": "Mercedes-Benz",
         "year": 2016,
         "tdid": "3268",
@@ -27083,7 +27083,7 @@
         "tyres": "Performance",
         "mra": 88.83,
         "weight": 2100,
-        "name": "Maybach Vision 6 Cabriolet Maybach",
+        "name": "Maybach Vision 6 Cabriolet",
         "rid": "Maybach_Vision_6_Cabriolet_2016",
         "tags": [
             "World Expo",

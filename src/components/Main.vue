@@ -4727,10 +4727,16 @@ export default {
               this.all_cars.push(car);
             }
           })
-          this.all_cars = [...new Set(this.all_cars)];
+
+          this.all_cars = this.all_cars.filter((value, index, self) =>
+            index === self.findIndex((t) => (
+              t.rid === value.rid
+            ))
+          )
           this.all_cars.sort((a,b) => {
             return b.rq - a.rq;
           })
+
           if (this.icmcMemoryQuery) {
             this.decodeTemplateString(this.icmcMemoryQuery, true);
             this.icmcMemoryQuery = null;
