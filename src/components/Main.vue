@@ -5713,9 +5713,18 @@ export default {
       });
 
     },
-    cgResolveRoundCars(download = true) {
+    cgResolveRoundCars(download = true, retry = 0) {
+      if (this.lastestList.length === 0) {
+        if (retry > 20) return;
+        console.log("retry", retry);
+        setTimeout(() => {
+          this.cgResolveRoundCars(download, retry+1)
+        }, 500);
+        return;
+      }
       let listRids = [];
       let minCars = [];
+      let ridToPhotoId = {};
 
       this.cgRound.races.map(race => {
         listRids.push(race.rid);
@@ -5732,6 +5741,9 @@ export default {
         if (listRids.includes(x.rid)) {
           minCars.push(x)
         }
+        if (x.photoId) {
+          ridToPhotoId[x.rid] = x.photoId
+        }
       })
 
       this.cgRound.races.map(race => {
@@ -5741,7 +5753,11 @@ export default {
         if (race.tune) Vue.set(race.car, "selectedTune", race.tune);
 
         race.cars.map((car, icar) => {
-          Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
+          let obj = {}
+          if (ridToPhotoId[car.rid]) obj.photoId = ridToPhotoId[car.rid];
+          else obj.rid = car.rid;
+
+          Vue.set(car, "photo", this.cgResolvePhotoUrl(obj));
           Vue.set(car, "car", JSON.parse(JSON.stringify(minCars.find(x => x.rid === car.rid))));
           Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
           Vue.set(car.car, "selectedTune", car.tune);
