@@ -414,7 +414,7 @@ export default {
         rqStart: 10,
         rqEnd: 119,
         rqModel: [],
-        topSpeedStart: 50,
+        topSpeedStart: 25,
         topSpeedEnd: 330,
         topSpeedModel: [],
         acelStart: 1.5,
@@ -890,7 +890,7 @@ export default {
     defaultFilters(type) {
       if (type === "yearModel") return [1910, 2024];
       if (type === "rqModel") return [10, 119];
-      if (type === "topSpeedModel") return [50, 330];
+      if (type === "topSpeedModel") return [25, 330];
       if (type === "acelModel") return [1.5, 40];
       if (type === "handModel") return [30, 110];
       if (type === "mraModel") return [0, 160];

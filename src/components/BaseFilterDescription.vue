@@ -110,7 +110,7 @@ export default {
       if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,119]') result.push({ label: "RQ", value: f.rqModel.join("-") });
       if (f.seatsModel && JSON.stringify(f.seatsModel) !== '[1,9]') result.push({ label: this.$t("c_seats"), value: f.seatsModel.join("-") });
 
-      if (f.topSpeedModel && JSON.stringify(f.topSpeedModel) !== '[50,330]') result.push({ label: this.$t("c_topSpeed"), value: f.topSpeedModel.join("-") });
+      if (f.topSpeedModel && JSON.stringify(f.topSpeedModel) !== '[25,330]') result.push({ label: this.$t("c_topSpeed"), value: f.topSpeedModel.join("-") });
       if (f.acelModel && JSON.stringify(f.acelModel) !== '[1.5,40]') result.push({ label: "0-60", value: f.acelModel.join("-") });
       if (f.handModel && JSON.stringify(f.handModel) !== '[30,110]') result.push({ label: this.$t("c_handling"), value: f.handModel.join("-") });
       if (f.mraModel && JSON.stringify(f.mraModel) !== '[0,160]') result.push({ label: "MRA", value: f.mraModel.join("-") });

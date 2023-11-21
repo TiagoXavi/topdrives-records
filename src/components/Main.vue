@@ -5603,6 +5603,9 @@ export default {
         if (this.cgRound.filter.rqModel && this.cgRound.filter.rqModel[1] === 114) {
           this.cgRound.filter.rqModel[1] = 119;
         }
+        if (this.cgRound.filter.topSpeedModel && this.cgRound.filter.topSpeedModel[0] === 50) {
+          this.cgRound.filter.topSpeedModel[0] = 25;
+        }
       }
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
