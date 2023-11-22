@@ -118,7 +118,7 @@
               :maxCarNumber="maxCarNumber"
               :loggedin="!!user"
               :user="user"
-              :downloadLoading="downloadLoading"
+              :downloadLoading="downloadLoading || needRePrepare"
               :key="carIx"
               :voteLoading="voteLoading"
               :needSave="needSave"
@@ -2526,15 +2526,12 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Clubs is out!</div>
-          <div class="Main_AnnouncementBody">Your new best way to grind clubs</div>
-          <div class="Main_AnnouncementMaybe">Check some best cars</div>
+          <div class="Main_AnnouncementTitle">Contest #3</div>
+          <div class="Main_AnnouncementSubTitle">European New Wave</div>
+          <div class="Main_AnnouncementBody">Prizes: TDR premium, medals, gold in game</div>
+          <div class="Main_AnnouncementMaybe">20th november - 3rd december</div>
 
-          <button
-            class="D_Button D_ButtonDark D_ButtonDark2 Main_AnnouncementButton"
-            @click="changeMode('clubs'); announcementDialog = false;">
-            <span>Clubs</span>
-          </button>
+          <BaseDiscordButton style="margin-top: 20px;" />
         </div>
       </div>
     </BaseDialog>
@@ -2919,6 +2916,7 @@ export default {
       customTuneDialogTune: null,
       optionsDialogActive: false,
       printImageDialog: false,
+      needRePrepare: true,
       zoomLevel: "100%",
       zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
       currentViewport: null,
@@ -2955,7 +2953,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v20.2",
+      gameVersion: "Game v21.0",
       mode: "classic",
       showPoints: false,
       showPointsCgForce: true,
@@ -4721,7 +4719,7 @@ export default {
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
-        if (incomingCars && incomingCars.length > 0) {
+        if (this.needRePrepare) {
           incomingCars.map(car => {
             if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
               this.all_cars.push(car);
@@ -4742,11 +4740,8 @@ export default {
             this.icmcMemoryQuery = null;
             this.updateCarLocalStorage();
           } else if (this.icmcMemoryLocalStorageCars) {
-            let parsed = JSON.parse(this.icmcMemoryLocalStorageCars);
-            if (parsed.length !== this.carDetailsList.length) {
-              this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
-              this.updateCarLocalStorage();
-            }
+            this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
+            this.updateCarLocalStorage();
             this.icmcMemoryLocalStorageCars = null;
           }
         }
@@ -4779,10 +4774,11 @@ export default {
     },
     prepareCars(cars) {
       let result = [];
+      this.needRePrepare = false;
       if (cars && cars.length > 0) {
         
         cars.map(y => {
-          this.all_cars.find(x => {
+          let found = this.all_cars.find(x => {
             if (x.rid === y.rid) {
               result.push(JSON.parse(JSON.stringify(x)));
               if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
@@ -4791,6 +4787,38 @@ export default {
               return true;
             }
           })
+          if (!found) {
+            this.needRePrepare = true;
+            result.push({
+              rid: y.rid,
+              selectedTune: y.selectedTune,
+              class: "?",
+              rq: null,
+              onlyName: "",
+              brand: "",
+              year: null,
+              abs: true,
+              tcs: true,
+              clearance: null,
+              country: null,
+              topSpeed: null,
+              acel: null,
+              hand: null,
+              drive: null,
+              tyres: null,
+              mra: null,
+              weight: 1000,
+              name: "",
+              tags: [],
+              prize: false,
+              bodyTypes: [],
+              fuel: "Petrol",
+              seats: "1",
+              engine: "Mid"
+            });
+            result[result.length-1].softId = this.nextId;
+            this.nextId++;
+          }
         })
         
       }
@@ -8079,15 +8107,14 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      if (window.localStorage.getItem("club_already")) return;
-      if (window.localStorage.getItem("clubs")) return;
+      if (window.localStorage.getItem("contest3")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('clubs', "t");
+      window.localStorage.setItem('contest3', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);
@@ -10764,6 +10791,12 @@ body .Main_UserTw3:before {
 .Main_AnnouncementTitle {
   margin: 20px 0;
   font-size: 2.4em;
+  line-height: 1.1;
+  color: #cdcdcd;
+}
+.Main_AnnouncementSubTitle {
+  margin: -10px 0 20px 0;
+  font-size: 1.3em;
   line-height: 1.1;
   color: #cdcdcd;
 }

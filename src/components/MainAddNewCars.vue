@@ -88,32 +88,32 @@
               </template>
             </button>
           </template>
-        </div>
-        <div class="MainAddNewCars_FormItem">
-          <div class="MainAddNewCars_FormTitle">Others</div>
-          <div class="MainAddNewCars_FormChipsBox">
-            <BaseChip
-              v-model="newCar.abs"
-              :value="true"
-              class="BaseChip_MinWidth BaseChip_DontCrop"
-              @click="">
-              <span>ABS</span>
-            </BaseChip>
-            <BaseChip
-              v-model="newCar.tcs"
-              :value="true"
-              class="BaseChip_MinWidth BaseChip_DontCrop"
-              @click="">
-              <span>TCS</span>
-            </BaseChip>
-            <BaseChip
-              v-model="newCar.prize"
-              :value="true"
-              class="BaseChip_MinWidth BaseChip_DontCrop"
-              @click="">
-              <span>Prize car</span>
-            </BaseChip>
-          </div>
+          <template v-if="key === 'abs'">
+            <div class="MainAddNewCars_FormTitle">Others</div>
+            <div class="MainAddNewCars_FormChipsBox">
+              <BaseChip
+                v-model="newCar.abs"
+                :value="true"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                @click="">
+                <span>ABS</span>
+              </BaseChip>
+              <BaseChip
+                v-model="newCar.tcs"
+                :value="true"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                @click="">
+                <span>TCS</span>
+              </BaseChip>
+              <BaseChip
+                v-model="newCar.prize"
+                :value="true"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                @click="">
+                <span>Prize car</span>
+              </BaseChip>
+            </div>
+          </template>
         </div>
         <div class="MainAddNewCars_Submit">
           <button
@@ -319,23 +319,23 @@ export default {
         onlyName: null,
         country: null,
         year: null,
-        abs: false,
-        tcs: false,
         topSpeed: null,
         acel: null,
         hand: null,
         drive: null,
         tyres: null,
-        clearance: null,
         mra: null,
         weight: null,
+        clearance: null,
+        abs: false,
+        tcs: false,
+        engine: null,
         tags: ["European New Wave"],
         color: null,
         prize: false,
-        bodyTypes: [],
         fuel: null,
+        bodyTypes: [],
         seats: null, // string
-        engine: null,
       },
       newCarBackup: {},
       labels: {

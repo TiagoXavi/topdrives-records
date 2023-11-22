@@ -14,7 +14,7 @@
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
-        <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${car.tyres.toLowerCase()}`) || "-" }}</span>
+        <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(car.tyres || "?").toLowerCase()}`) || "-" }}</span>
         <span class="Car_HeaderBlockTiresLabel"> {{ $tc("c_tyre", 2) }}</span>
       </div>
       <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
