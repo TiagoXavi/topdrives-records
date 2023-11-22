@@ -118,7 +118,7 @@
               :maxCarNumber="maxCarNumber"
               :loggedin="!!user"
               :user="user"
-              :downloadLoading="downloadLoading || needRePrepare"
+              :downloadLoading="downloadLoading || lastestLoading"
               :key="carIx"
               :voteLoading="voteLoading"
               :needSave="needSave"
@@ -2895,8 +2895,6 @@ export default {
       optionsAdvancedDialog: false,
       isFilteringT: false,
       nextId: 0,
-      icmcMemoryLocalStorageCars: null,
-      icmcMemoryQuery: null,
       countTimesPerTrack: {},
       debounceFilterT: null,
       debounceCgSaveBank: null,
@@ -2916,7 +2914,7 @@ export default {
       customTuneDialogTune: null,
       optionsDialogActive: false,
       printImageDialog: false,
-      needRePrepare: true,
+      lastestLoading: false,
       zoomLevel: "100%",
       zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
       currentViewport: null,
@@ -4598,7 +4596,6 @@ export default {
 
         let cars = window.localStorage.getItem("cars");
         if (cars) {
-          this.icmcMemoryLocalStorageCars = cars;
           this.prepareCars(JSON.parse(cars));
         }
 
@@ -4676,10 +4673,12 @@ export default {
     },
     getLastest() {
       let vm = this;
+      this.lastestLoading = true;
 
       // lastest cars
       axios.get(Vue.preUrl + "/lastest")
       .then(res => {
+        this.lastestLoading = false;
         vm.highlightsUsers = {
           "bcp_": 'mod',
           "TiagoXavi": 'mod',
@@ -4719,7 +4718,7 @@ export default {
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
-        if (this.needRePrepare) {
+        if (incomingCars && incomingCars.length > 0) {
           incomingCars.map(car => {
             if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
               this.all_cars.push(car);
@@ -4735,15 +4734,7 @@ export default {
             return b.rq - a.rq;
           })
 
-          if (this.icmcMemoryQuery) {
-            this.decodeTemplateString(this.icmcMemoryQuery, true);
-            this.icmcMemoryQuery = null;
-            this.updateCarLocalStorage();
-          } else if (this.icmcMemoryLocalStorageCars) {
-            this.prepareCars(JSON.parse(this.icmcMemoryLocalStorageCars));
-            this.updateCarLocalStorage();
-            this.icmcMemoryLocalStorageCars = null;
-          }
+          this.recheckCarDetailsList();
         }
 
         let mraData = res.data.find(x => x.id === 'mra').value;
@@ -4774,7 +4765,6 @@ export default {
     },
     prepareCars(cars) {
       let result = [];
-      this.needRePrepare = false;
       if (cars && cars.length > 0) {
         
         cars.map(y => {
@@ -4788,7 +4778,6 @@ export default {
             }
           })
           if (!found) {
-            this.needRePrepare = true;
             result.push({
               rid: y.rid,
               selectedTune: y.selectedTune,
@@ -4824,6 +4813,17 @@ export default {
       }
       Vue.set(this, "carDetailsList", result);
       this.downloadDataCars(true);
+    },
+    recheckCarDetailsList() {
+      this.carDetailsList.map((car, index) => {
+        if (car.clearance === null) {
+          let found = this.all_cars.find(x => x.rid === car.rid);
+          Vue.set(this.carDetailsList, index, {
+            ...car,
+            ...(JSON.parse(JSON.stringify(found)))
+          })
+        }
+      })
     },
     saveAll(saveBankAfter = false) {
       this.saveLoading = true;
@@ -5191,8 +5191,6 @@ export default {
       let tracksFromQuery = decoded.tracks;
 
       if (this.$route.query && this.$route.query.share) {
-        console.log(template);
-        this.icmcMemoryQuery = template;
         this.$router.replace({'query': null});
       }
 
