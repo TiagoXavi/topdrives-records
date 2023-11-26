@@ -632,6 +632,7 @@ export default {
         delete vm.newCar.classColor;
         delete vm.newCar.locatedName;
         delete vm.newCar.locatedIndex;
+        delete vm.newCar.locatedPlus;
         vm.refreshPhotos();
 
         const illustrations = require.context(
