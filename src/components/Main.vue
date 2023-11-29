@@ -211,11 +211,16 @@
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div v-if="cgRound && cgRound.creator && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
-                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-                  <span
-                    :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
-                    class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+                <div v-if="cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
+                  <template v-if="cgRound.creator">
+                    <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                    <span
+                      :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
+                      class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+                  </template>
+                  <span class="Cg_ViewsCount Main_ViewsBox">
+                    <span class="Main_ViewsCount">{{ (statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
+                  </span>
                 </div>
                 <div class="Cg_CenterBottom">
                   <div
@@ -719,6 +724,9 @@
                   <span
                     :class="`Main_UserT${highlightsUsers[event.user]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
+                  <span class="Cg_ViewsCount Main_ViewsBox">
+                    <span class="Main_ViewsCount">{{ (statistics[`events_${event.date}`] || {}).c || 0 }} views</span>
+                  </span>
                 </div>
                 <div class="Cg_CenterBottom">
                   <div class="Cg_RqText">
@@ -1036,6 +1044,9 @@
                   <span
                     :class="`Main_UserT${highlightsUsers[clubDaySelectedObj.user]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ clubDaySelectedObj.user }}</span>
+                  <span class="Cg_ViewsCount Main_ViewsBox">
+                    <span class="Main_ViewsCount">{{ (statistics[`clubs_${clubDaySelected}`] || {}).c || 0 }} views</span>
+                  </span>
                 </div>
                 <div class="Cg_CenterBottom" style="min-height: unset;">
                   <!-- <div class="Cg_RqText">
@@ -1720,6 +1731,9 @@
                   :car="tuneDialogCar"
                   :isDialogBox="true"
                   :options="false" />
+                <div v-if="mode === 'classic' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
+                  <div class="Main_ViewsCountDialog">{{ statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
+                </div>
               </div>
               <div v-if="tuneDialogCar.selectedTune !== 'Other' && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
                 <BaseText
@@ -1758,7 +1772,7 @@
               </div>
             </div>
           </div>
-          <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags Space_TopPlus">
+          <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
             <BaseGameTag
               v-for="tag in tuneDialogCar.tags"
               :key="tag"
@@ -2882,6 +2896,8 @@ export default {
       announcementDialog: false,
       highlightsUsers: {},
       lastestList: [],
+      statistics: {},
+      statisticsLoading: false,
       searchInputT: '',
       searchFilterDialog: false,
       librarySearchDialog: false,
@@ -3562,6 +3578,7 @@ export default {
     this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 2000);
 
     this.getLastest();
+    this.getStatistics();
     this.user = this.$store.state.user;
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
@@ -4671,6 +4688,19 @@ export default {
         this.showCarsFix = true;
       })
     },
+    getStatistics() {
+      this.statisticsLoading = true;
+
+      axios.get(Vue.preUrl + "/statistics")
+      .then(res => {
+        this.statisticsLoading = false;
+        this.statistics = res.data;
+      })
+      .catch(error => {
+        this.statisticsLoading = false;
+        console.log(error);
+      });
+    },
     getLastest() {
       let vm = this;
       this.lastestLoading = true;
@@ -4749,6 +4779,7 @@ export default {
 
       })
       .catch(error => {
+        this.lastestLoading = false;
         console.log(error);
       });
 
@@ -5632,7 +5663,7 @@ export default {
         if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[1] === 2022) {
           this.cgRound.filter.yearModel[1] = 2024;
         }
-        if (this.cgRound.filter.rqModel && this.cgRound.filter.rqModel[1] === 114) {
+        if (this.cgRound.filter.rqModel && (this.cgRound.filter.rqModel[1] === 114 || this.cgRound.filter.rqModel[1] === 100)) {
           this.cgRound.filter.rqModel[1] = 119;
         }
         if (this.cgRound.filter.topSpeedModel && this.cgRound.filter.topSpeedModel[0] === 50) {
@@ -10989,6 +11020,30 @@ body .Main_UserTw3:before {
   align-items: center;
   text-align: left;
 }
+.Row_DialogMidBox {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.Main_ViewsBox {
+}
+.Main_ViewsCountDialog {
+  font-size: 0.8em;
+  white-space: nowrap;
+  line-height: 1;
+  margin-left: 2px;
+}
+.Cg_ViewsCount {
+  font-size: 0.8em;
+  white-space: nowrap;
+  margin-left: 15px;
+  opacity: 0.7;
+}
+.Cg_ViewsCount:first-child {
+  margin-left: 0px;
+}
+
 
 
 
@@ -11372,6 +11427,9 @@ body .Main_UserTw3:before {
   display: none;
 }
 .Main_BodyPrint .Clubs_TrackReqSelectBox {
+  display: none;
+}
+.Main_BodyPrint .Main_ViewsBox {
   display: none;
 }
 
