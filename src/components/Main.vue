@@ -6984,7 +6984,8 @@ export default {
       this.cgList.map(x => {
         let split = x.name.split(" ");
         let romanString = null;
-        let indexOfRoman = split.findIndex( part => {
+        x.indexOfRoman = split.findIndex( part => {
+          part = part.replace(":", "");
           if (roman.includes(part)) {
             romanString = part;
             return true;
@@ -6994,9 +6995,16 @@ export default {
             return true;
           }
         } );
-        if ( indexOfRoman > -1 ) {
+        if ( x.indexOfRoman > -1 ) {
           // contain roman
           x.romanValue = roman.indexOf(romanString)+1;
+          let arr = x.name.split(" ");
+          let i = arr.findIndex(x => x.includes(":"));
+          if (i === 0) {
+            x.prefix = arr[0].replace(":", "");
+          } else if (i > 0) {
+            x.prefix = arr.filter((x, ix) => ix < i).join(" ");
+          }
         }
       })
 
@@ -7006,17 +7014,15 @@ export default {
       this.cgList.sort((a,b) => {
         let aIndex = a.name.indexOf(":");
         let bIndex = b.name.indexOf(":");
-        let agroup = a.name.slice(0, aIndex);
-        let bgroup = b.name.slice(0, bIndex);
 
-        if (a.romanValue && b.romanValue && agroup === bgroup) {
-          let num = this.generateRandom(colors.length-1, agroup);
+        if (a.romanValue && b.romanValue && a.prefix === b.prefix) {
+          let num = this.generateRandom(colors.length-1, a.prefix);
           let color;
           let styl;
-          if (chooseColors[agroup]) color = chooseColors[agroup];
+          if (chooseColors[a.prefix]) color = chooseColors[a.prefix];
           else {
             color = colors[num];
-            chooseColors[agroup] = color;
+            chooseColors[a.prefix] = color;
             colors.splice(num, 1)
           }
 
