@@ -14,7 +14,7 @@
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
-        <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(car.tyres || "?").toLowerCase()}`) || "-" }}</span>
+        <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(resolveCar.tyres || "?").toLowerCase()}`) || "-" }}</span>
         <span class="Car_HeaderBlockTiresLabel"> {{ $tc("c_tyre", 2) }}</span>
       </div>
       <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
@@ -38,12 +38,12 @@
       </div>
       <div class="Car_HeaderToolsBack" />
       <div class="Car_HeaderBlockRQ">
-        <div class="Car_HeaderRQValue">{{ resolvedRq }}</div>
+        <div class="Car_HeaderRQValue">{{ resolveCar.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
       </div>
       <div class="Car_HeaderBlockClass">
         <div class="Car_HeaderClassBack" />
-        <div class="Car_HeaderClassValue">{{ this.car.rq | resolveClass(this.car.class, "letter") }}</div>
+        <div class="Car_HeaderClassValue">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
       </div>
       <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
         <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
@@ -87,10 +87,10 @@
         <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
       </div>
       <div class="BaseCard_Header2Right">
-        <div class="BaseCard_Header2Top"><b>[{{ car.rq }}]</b> {{ car.brand }}</div>
+        <div class="BaseCard_Header2Top"><b>[{{ resolveCar.rq }}]</b> {{ car.brand }}</div>
         <div class="BaseCard_Header2Bottom">{{ car.onlyName }}</div>
       </div>
-      <div class="BaseCard_Header2Right2">{{ car.rq }}</div>
+      <div class="BaseCard_Header2Right2">{{ resolveCar.rq }}</div>
     </div>
   </div>
 </template>
@@ -167,7 +167,7 @@ export default {
   mounted() {},
   computed: {
     carClassColor() {
-      return Vue.resolveClass(this.car.rq, this.car.class, "color");
+      return Vue.resolveClass(this.resolveCar.rq, this.resolveCar.class, "color");
     },
     carClassColorRgb() {
       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(this.carClassColor);
@@ -195,11 +195,11 @@ export default {
       }
       return parsed ? parsed : ''
     },
-    resolvedRq() {
+    resolveCar() {
       if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
-        return Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2)).rq;
+        return Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2));
       } else {
-        return this.car.rq
+        return this.car
       }
     }
   },

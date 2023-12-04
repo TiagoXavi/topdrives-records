@@ -256,7 +256,7 @@
             <div
               v-if="diff_searchResult[ix].acel"
               style="--char-isAcel: 4px"
-              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].acel < car.acel }"
+              :class="{ MainGallery_ColorValueUp: diff_searchResult[ix].acel > car.acel }"
               :style="`--char-count:` + (JSON.stringify(car.acel)).length"
               class="MainGallery_acel MainGallery_Color MainGallery_ColorValue">
               <template v-if="car.acel > diff_searchResult[ix].acel">+</template>{{ (car.acel - diff_searchResult[ix].acel).toFixed(1) }}
@@ -318,6 +318,10 @@
 
             <div
               v-if="diff_searchResult[ix].clearance"
+              :class="{
+                MainGallery_ColorUp: (diff_searchResult[ix].clearance === 'Low' && diff_searchResult[ix]._clearance === 'Mid') || (diff_searchResult[ix].clearance === 'Mid' && diff_searchResult[ix]._clearance === 'High'),
+                MainGallery_ColorDown: (diff_searchResult[ix].clearance === 'Mid' && diff_searchResult[ix]._clearance === 'Low') || (diff_searchResult[ix].clearance === 'High' && diff_searchResult[ix]._clearance === 'Mid')
+              }"
               class="MainGallery_Clearance MainGallery_Compare">
               <div class="MainGallery_CompareLabel">Clearance</div>
               <div class="MainGallery_Old">{{ diff_searchResult[ix].clearance }}</div>
