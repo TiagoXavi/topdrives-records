@@ -4741,9 +4741,9 @@ export default {
             Vue.set(vm.highlightsUsers, user, Number(key.slice(-1)));
           })
         })
-        vm.highlightsUsers["Ekukickz"] = "w1";
-        vm.highlightsUsers["Jayzoku"] = "w2";
-        vm.highlightsUsers["Kabash"] = "w3";
+        vm.highlightsUsers["Jayzoku"] = "w1";
+        vm.highlightsUsers["Aubeto"] = "w2";
+        vm.highlightsUsers["Innoxen"] = "w3";
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
