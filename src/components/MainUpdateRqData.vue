@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_21.json'
+import cars_new_rq from '../database/cars_new_rq_21_1.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -273,6 +273,8 @@ export default {
         yModelName = yModelName.replace("scuderia cameron glickenhaus ", "scg ");
         yModelName = yModelName.replace("datsun ", "");
         yModelName = yModelName.replace("amg ", "");
+        yModelName = yModelName.replace("citroën ", "citroen ");
+        yModelName = yModelName.replace("škoda ", "skoda ");
   
         temp = this.cars_final.filter(x => {
           let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
@@ -283,6 +285,7 @@ export default {
           xModelName = xModelName.replace("austin healey ", "austin ");
           xModelName = xModelName.replace("amg ", "");
           xModelName = xModelName.replace("datsun ", "");
+          xModelName = xModelName.replace("gumpert ", "");
           
           if (xModelName.includes(yModelName) && y.Year == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
             return true

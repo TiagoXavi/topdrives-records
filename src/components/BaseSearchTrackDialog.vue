@@ -15,7 +15,8 @@
             id="SearchTrackInput"
             :placeholder="$t('m_searchTracks')"
             class="D_SearchInput Track_SearchInput data-hj-allow"
-            type="text" />
+            type="text"
+            autocomplete="off" />
           <button
             v-if="searchTracks && searchTracks.length > 0"
             class="D_Button Main_TrackSearchInputClose"

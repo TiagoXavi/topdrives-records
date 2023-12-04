@@ -1,0 +1,7800 @@
+[
+  {
+    "Year": 2021,
+    "Car": "AC Cobra 140 Charter",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1959,
+    "Car": "AC Greyhound 2.0",
+    "20.3 RQ": 10,
+    "21.0 RQ": 11,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2000,
+    "Car": "Acura 3.0CL",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Acura Integra GS-R",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Acura Legend 3.2 V6",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Acura MDX",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Acura RDX",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Acura RDX",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Acura RSX",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Acura SLX",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Acura TSX",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Acura TSX",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Acura ZDX",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Alfa Romeo 146 ti",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "Alfa Romeo 155 TS Super Touring",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Alfa Romeo 156 GTA",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Alfa Romeo 156 GTA Sportwagon",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Alfa Romeo 156 GTA Super 2000",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Alfa Romeo 159",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Alfa Romeo 1750 GTAm",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Alfa Romeo 2uettottanta",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Alfa Romeo 33",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Alfa Romeo 4C Concept",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Alfa Romeo Alfasud",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Alfa Romeo Alfasud Sprint Trofeo",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Alfa Romeo Dardo",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Alfa Romeo Disco Volante (8C)",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1952,
+    "Car": "Alfa Romeo Disco Volante (C52)",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Alfa Romeo Disco Volante Spyder",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1966,
+    "Car": "Alfa Romeo Giulia GT 1300 Junior",
+    "20.3 RQ": 11,
+    "21.0 RQ": 12,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2017,
+    "Car": "Alfa Romeo Giulia Quadrifoglio",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Alfa Romeo Giulietta Quadrifoglio Verde",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Alfa Romeo GT",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Alfa Romeo GTV",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Alfa Romeo GTV Cup",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Alfa Romeo Junior Z",
+    "20.3 RQ": 15,
+    "21.0 RQ": 14,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Alfa Romeo MiTo Quadrifoglio Verde",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Alfa Romeo RZ",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Alfa Romeo Spider Monoposto",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Alfa Romeo Spider V6",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Alfa Romeo SZ",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1974,
+    "Car": "Alfa Romeo Tipo 33 TT12",
+    "20.3 RQ": 91,
+    "21.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1940,
+    "Car": "Alfa Romeo Tipo 512",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Alfa Romeo Vola",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "AMC AMX 390",
+    "20.3 RQ": 34,
+    "21.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1959,
+    "Car": "AMC M422 Mighty Mite",
+    "20.3 RQ": 21,
+    "21.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2012,
+    "Car": "Apollo Apollo Enraged",
+    "20.3 RQ": 91,
+    "21.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Apollo Apollo R",
+    "20.3 RQ": 96,
+    "21.0 RQ": 95,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Arash GTS",
+    "20.3 RQ": 78,
+    "21.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Ariel Atom 1",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Ariel Atom 4R",
+    "20.3 RQ": 88,
+    "21.0 RQ": 90,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2011,
+    "Car": "Ariel Atom V8",
+    "20.3 RQ": 94,
+    "21.0 RQ": 93,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1961,
+    "Car": "Aston Martin DB4 GT Zagato",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Aston Martin DB7 GT",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Aston Martin DB7 Vantage",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Aston Martin DB9",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Aston Martin DBS Carbon Black Edition",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Aston Martin Lagonda Vignale",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Aston Martin Rapide",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Aston Martin Rapide Bertone Jet 2+2",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Aston Martin V12 Vanquish",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Aston Martin V12 Vantage Carbon Black Edition",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Aston Martin V8 Coupe",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "Aston Martin V8 Vantage",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Aston Martin V8 Vantage N400",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Aston Martin V8 Vantage Volante",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Aston Martin V8 Volante",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Aston Martin V8 Volante",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Aston Martin V8 Zagato",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Aston Martin Vanquish S",
+    "20.3 RQ": 78,
+    "21.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Aston Martin Vanquish Zagato",
+    "20.3 RQ": 78,
+    "21.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Aston Martin Vantage",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Aston Martin Virage",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Aston Martin Virage",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Aston Martin Virage Volante",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Audi 100 Avant quattro (C3)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Audi 200 quattro (C3)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1974,
+    "Car": "Audi 50",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Audi 80 2.2 quattro (B2)",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Audi 90 quattro 2.3 20V (B2)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi A3 Cabriolet (8V)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Audi A3 Saloon 1.8 TFSI (8V)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Audi A4 2.0 TFSI (B8)",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Audi A4 DTM Edition (B7)",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Audi A5 DTM",
+    "20.3 RQ": 90,
+    "21.0 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi A6 allroad quattro",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi A6 Avant 40 TDI (C8)",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi A6 Saloon 40 TDI (C8)",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Audi allroad quattro 4.2 (C5)",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi Q2 2.0 TDI quattro",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi Q3",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi Q5 2.0 TDI",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Audi Q5 3.0 TDI (8R)",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Audi R10 TDI",
+    "20.3 RQ": 100,
+    "21.0 RQ": 99,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Audi R18",
+    "20.3 RQ": 102,
+    "21.0 RQ": 103,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2015,
+    "Car": "Audi R8 V10 Plus",
+    "20.3 RQ": 93,
+    "21.0 RQ": 92,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi R8 V10 Plus Spyder",
+    "20.3 RQ": 91,
+    "21.0 RQ": 90,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Audi RS3 LMS TCR (8V)",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Audi S8 (D2)",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Audi SQ5 TDI",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Audi TT Roadster 1.8 TFSI (8J)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Audi V8 quattro 4.2 (4C)",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1979,
+    "Car": "Austin Allegro",
+    "20.3 RQ": 15,
+    "21.0 RQ": 14,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Austin Ambassador",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Bentley Arnage",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Bentley Arnage Final Series",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Bentley Arnage T",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Bentley Azure",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Bentley Azure",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Bentley Azure T",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Bentley Brooklands",
+    "20.3 RQ": 26,
+    "21.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Bentley Brooklands",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Bentley EXP 100 GT",
+    "20.3 RQ": 99,
+    "21.0 RQ": 98,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Bentley Mulsanne Blue Train Limited Edition",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Bentley Mulsanne Grand Convertible",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Bentley Mulsanne Speed",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "Bizzarrini Manta",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "BMW 116d",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW 120d xDrive",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "BMW 128ti",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1963,
+    "Car": "BMW 1800",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "BMW 220d Active Tourer",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW 220i Gran Coupe",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "BMW 2800 CS",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "BMW 320d",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "BMW 325i Convertible",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "BMW 325i Convertible",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "BMW 330d",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "BMW 520d Touring",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "BMW 528i",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "BMW 530e xDrive Touring",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "BMW 645ci",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "BMW 730d",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW 730d xDrive",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "BMW 730i",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "BMW 740i",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "BMW 850CSi",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "BMW H2R",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "BMW i3",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "BMW i3 S",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "BMW iX xDrive40",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "BMW iX xDrive50",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1978,
+    "Car": "BMW M1",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1979,
+    "Car": "BMW M1 Procar Group 4",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "BMW M240i Convertible",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "BMW M5",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "BMW M5 30 Jahre Edition",
+    "20.3 RQ": 72,
+    "21.0 RQ": 73,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2016,
+    "Car": "BMW M6",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "BMW Nazca C2",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "BMW X1",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "BMW X1",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "BMW X3 xDrive 28d",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "BMW X5",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "BMW X5 3.0d",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW X5 xDrive40d",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "BMW X5 xDrive40e",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "BMW X6",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW X6 xDrive40i",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "BMW X7 M50d",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW Z4 M40i 3.0i",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "BMW Z4 sDrive18i",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "BMW Z4 sDrive20i",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "BMW Z4M Coupe",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "BMW Z8",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Brabham BT62 Competition",
+    "20.3 RQ": 99,
+    "21.0 RQ": 98,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Bristol 411 Series 6",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1976,
+    "Car": "Bristol 603S",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Bristol Fighter",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Bristol Fighter T",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Bufori BMS R1",
+    "20.3 RQ": 77,
+    "21.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Bufori Geneva",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Bufori Madison",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Bufori MKI Offroad Race Car",
+    "20.3 RQ": 61,
+    "21.0 RQ": 63,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2003,
+    "Car": "Bufori MKIII La Joya",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Buick Enclave",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Buick GNX",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Buick LeSabre",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Buick Regal GS",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Cadillac CTS-V",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Cadillac DTS",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Cadillac Eldorado",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Cadillac ELR",
+    "20.3 RQ": 46,
+    "21.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2011,
+    "Car": "Cadillac Escalade",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Cadillac Escalade",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Cadillac Escalade ESV",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Cadillac Escalade EXT",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Cadillac Sedan de Ville",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Cadillac STS",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Cadillac STS-V",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Caterham 21",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Caterham JPE",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Caterham RST-V8 Levante",
+    "20.3 RQ": 96,
+    "21.0 RQ": 95,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Caterham Seven 160",
+    "20.3 RQ": 46,
+    "21.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2022,
+    "Car": "Caterham Super Seven 600",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Chevrolet 454 SS",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Chevrolet Beretta GTZ",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Chevrolet Blazer S-10",
+    "20.3 RQ": 21,
+    "21.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1990,
+    "Car": "Chevrolet Camaro IROC-Z",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Chevrolet Camaro IROC-Z",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Chevrolet Camaro SS Coupe",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Chevrolet Camaro Z/28",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Chevrolet Camaro Z/28",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Chevrolet Captiva",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Chevrolet Captiva LTX",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Chevrolet Cobalt SS S/C",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Chevrolet Code 130R",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Chevrolet Corvette",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Chevrolet Corvette C5",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Chevrolet Corvette Grand Sport",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Chevrolet Corvette Z06",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Chevrolet Corvette Z06",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1971,
+    "Car": "Chevrolet Corvette ZR1",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Chevrolet Cruze LS",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Chevrolet HHR SS Turbocharged",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Chevrolet Impala SS",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1967,
+    "Car": "Chevrolet Impala SS 427",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Chevrolet Monte Carlo SS",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Chevrolet Monte Carlo SS 454",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Chevrolet SSR 6.0L",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Chevrolet Tahoe",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Chevrolet Trailblazer SS",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Chrysler 300 Motown Edition",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Chrysler 300 SRT-8",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Chrysler 300C Touring Hemi",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Chrysler 300S",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Chrysler Atlantic",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Chrysler Citadel",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Chrysler Crossfire Coupe",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Chrysler ecoVoyager",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Chrysler Firepower",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1984,
+    "Car": "Chrysler LeBaron Town & Country Convertible",
+    "20.3 RQ": 15,
+    "21.0 RQ": 14,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1978,
+    "Car": "Chrysler LeBaron Town & Country Station Wagon",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Chrysler Phaeton",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Chrysler Sebring",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Chrysler Town and Country",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Citroën 19_19",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Citroën Ami Buggy",
+    "20.3 RQ": 12,
+    "21.0 RQ": 13,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2020,
+    "Car": "Citroën Berlingo",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Citroën BX GT",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Citroën BX GTi 16V",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Citroën C-Airdream",
+    "20.3 RQ": 27,
+    "21.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Citroën C-Buggy",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Citroën C-Crosser 2.2 L HDi",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Citroën C2 Citroën Sport",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Citroën C3",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Citroën C3 WRC",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Citroën C4 2.0 16v VTS",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Citroën C4 Picasso THP 165",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Citroën C4 WRC",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Citroën C4 WRC HYmotion4",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Citroën C5 Aircross PureTech 130",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Citroën C5 HPi",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Citroën C5 Tourer 3.0 L V6 HDi",
+    "20.3 RQ": 39,
+    "21.0 RQ": 35,
+    "RQ Change": -4
+  },
+  {
+    "Year": 2007,
+    "Car": "Citroën C8",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Citroën Cactus Airflow 2L",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Citroën Cactus Aventure",
+    "20.3 RQ": 47,
+    "21.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1985,
+    "Car": "Citroën CX GTi Turbo",
+    "20.3 RQ": 26,
+    "21.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Citroën DS Numéro 9",
+    "20.3 RQ": 79,
+    "21.0 RQ": 65,
+    "RQ Change": -14
+  },
+  {
+    "Year": 2014,
+    "Car": "Citroën DS3 Cabrio Racing",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Citroën DS3 R3T",
+    "20.3 RQ": 53,
+    "21.0 RQ": 51,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2015,
+    "Car": "Citroën DS4 1.6 THP 200",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Citroën DS5 1.6 THP 200",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Citroën DS5 2.0 HDi",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Citroën DS5 LS",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Citroën DS5 LS R",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Citroën GT",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1980,
+    "Car": "Citroën Mehari 4x4",
+    "20.3 RQ": 22,
+    "21.0 RQ": 23,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2010,
+    "Car": "Citroën Metropolis",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Citroën Saxo Super 1600",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Citroën Saxo VTR",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Citroën SM Michelin 'Breadvan'",
+    "20.3 RQ": 31,
+    "21.0 RQ": 33,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2017,
+    "Car": "Citroën SpaceTourer 4x4 E",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Citroën Visa 1000 pistes",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Citroën Visa GTi",
+    "20.3 RQ": 20,
+    "21.0 RQ": 23,
+    "RQ Change": 3
+  },
+  {
+    "Year": 1982,
+    "Car": "Citroën Visa Lotus",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Citroën Xantia 4x4 Turbo",
+    "20.3 RQ": 90,
+    "21.0 RQ": 89,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Citroën Xsara Kit Car",
+    "20.3 RQ": 67,
+    "21.0 RQ": 65,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2003,
+    "Car": "Citroën Xsara WRC",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "De Tomaso Biguà",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "De Tomaso Guara",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1967,
+    "Car": "De Tomaso Mangusta",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "De Tomaso Pantera Group 4",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "De Tomaso Pantera GT5-S",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1964,
+    "Car": "De Tomaso Vallelunga Competizione",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Dodge Aries",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Dodge Caliber R/T AWD",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Dodge Caliber SRT4",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Dodge Challenger Concept",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Dodge Challenger SRT 392",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Dodge Challenger SRT Hellcat",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Dodge Charger Daytona",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Dodge Charger Daytona",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Dodge Charger GLHS",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Dodge Charger R/T Concept",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Dodge Charger SRT Hellcat",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Dodge Charger SRT Hellcat Redeye Widebody Jailbreak",
+    "20.3 RQ": 75,
+    "21.0 RQ": "",
+    "RQ Change": -75
+  },
+  {
+    "Year": 2006,
+    "Car": "Dodge Charger SRT-8",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Dodge Circuit EV",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Dodge Copperhead",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "Dodge Coronet Super Bee",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Dodge Dakota R/T",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Dodge Dart",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Dodge Daytona IROC R/T",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Dodge Durango GT",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Dodge Grand Caravan",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Dodge Magnum SRT-8",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Dodge Neon ACR",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Dodge Powerbox",
+    "20.3 RQ": 62,
+    "21.0 RQ": 63,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1981,
+    "Car": "Dodge Ram 1st Gen",
+    "20.3 RQ": 32,
+    "21.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2002,
+    "Car": "Dodge Razor",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1958,
+    "Car": "Dodge Regal Lancer Super D-500",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Dodge Spirit R/T",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Dodge SRT-4",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Dodge Stealth",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "Dodge Venom",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Dodge Viper ACR",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Dodge Viper SRT-10",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Donkervoort D8 270",
+    "20.3 RQ": 77,
+    "21.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "Donkervoort D8 Cosworth",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1980,
+    "Car": "Donkervoort S8",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Donkervoort S8A",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Donkervoort S8AT",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "DS 3 BlueHDi 120",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "DS 6",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "DS 7 Crossback",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "DS Survolt",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Eagle Summit Wagon",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1960,
+    "Car": "Fiat 1000 Monoposto record car",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Fiat 124 Abarth Rally",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Fiat 124 GT",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Fiat 124 Spider",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Fiat 124 Spider",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Fiat 124 Spider Rally",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Fiat 126p",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1974,
+    "Car": "Fiat 131 Mirafiori",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Fiat 500 R3T",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Fiat 500L",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Fiat 695 Biposto",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Fiat 695 Biposto R",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Fiat 695 Tributo Ferrari",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1953,
+    "Car": "Fiat 8V Supersonic",
+    "20.3 RQ": 10,
+    "21.0 RQ": 11,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1975,
+    "Car": "Fiat Abarth 131 Mirafiori Evoluzione",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1974,
+    "Car": "Fiat Abarth X1/9 Prototipo",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Fiat Autobianchi A112 Abarth",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Fiat Barchetta",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Fiat Grande Punto S2000",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Fiat Panda 100hp",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Fiat Punto Evo Esseesse",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Fiat Punto Sporting",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Fiat Ritmo 130TC Abarth",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1962,
+    "Car": "Fiat Simca 1300 Bialbero",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Fiat Stilo Abarth",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Fiat Strada Abarth 130TC",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Fiat Tipo 2.0 Sedicivalvole",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Ford Bronco Heritage Edition",
+    "20.3 RQ": 58,
+    "21.0 RQ": 59,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2022,
+    "Car": "Ford Bronco Raptor",
+    "20.3 RQ": 66,
+    "21.0 RQ": 67,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1969,
+    "Car": "Ford Corcel GT (1.3)",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Ford Edge ST",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Ford Escort XR3i",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Ford Evos",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Ford Expedition Platinum",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Explorer",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Ford Explorer Sport-Trac Adrenalin",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Explorer ST",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Ford F-150",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Ford F-150 Tremor FX2",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Ford Fairlane",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1978,
+    "Car": "Ford Falcon 'Bathurst' Cobra",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Ford Falcon GT",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Ford Falcon XR6 Turbo",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Ford Fiesta",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Ford Fiesta RS turbo",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Ford Fiesta RS1800",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Ford Fiesta ST",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Ford Focus RS",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Ford Focus RS500",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Ford Focus ST",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Ford Focus ST",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Ford Focus ST170",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Ford FPV F6 R-spec Typhoon",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Ford FPV Force 8",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Ford FPV GT",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Ford GN34",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "Ford Granada 2.8i S",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1965,
+    "Car": "Ford GT40 race car",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "Ford GT40 race car",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Ford Kuga",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Ford Kuga 2.5T",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Ford Laser SR2",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Mach-E 1400 Prototype",
+    "20.3 RQ": 105,
+    "21.0 RQ": 103,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2021,
+    "Car": "Ford Maverick",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1984,
+    "Car": "Ford Maya",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Ford Maya II EM",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Ford Model U",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Ford Mondeo",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Ford Mondeo 2.0 TDCI",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Ford Mondeo 2.5 T",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Ford Mondeo Estate",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Ford Mondeo ST200",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Ford Mondeo ST220",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1966,
+    "Car": "Ford Mustang 289",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Ford Mustang GT",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Ford Mustang GT",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Ford Mustang GT Power & Perf. Pack",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Ford Mustang GT-R",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1978,
+    "Car": "Ford Mustang II King Cobra",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Ford Mustang M81",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Ford Mustang Mach 1",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Ford Mustang Mach 1 Super Cobra Jet",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1967,
+    "Car": "Ford Mustang Mach 2",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Mustang Mach-E",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Ford Mustang Mach-E GT",
+    "20.3 RQ": 67,
+    "21.0 RQ": 68,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1993,
+    "Car": "Ford Probe GT",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Puma 1.0 MHEV",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Ford Racing Puma",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Ford Ranchero",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Ford Ranger",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Ford Ranger",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Ford Ranger",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Ford Ranger Rally Raid",
+    "20.3 RQ": 56,
+    "21.0 RQ": 57,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2017,
+    "Car": "Ford Ranger Wildtrak",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Ford RS200 Group B Rally Car",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Ford S-Max 2.5",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Ford Scorpio 24-valve",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Ford Sierra RS Cosworth",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Super Duty F-250",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Super Duty F-350",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Ford Super Duty F-450",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1971,
+    "Car": "Ford Supervan 1",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1984,
+    "Car": "Ford Supervan 2",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Ford Supervan 4",
+    "20.3 RQ": 103,
+    "21.0 RQ": 105,
+    "RQ Change": 2
+  },
+  {
+    "Year": 1998,
+    "Car": "Ford SVT Mustang Cobra",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Ford Taurus SHO",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Ford Taurus SHO",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Ford Taurus SHO",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Ford Territory Turbo",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Ford Thunderbird SC",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Ford Torino Talladega",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Ford Transit SSV",
+    "20.3 RQ": 27,
+    "21.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Geo Storm",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Ginetta G40 Cup",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Ginetta G40R",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Ginetta G57 P2",
+    "20.3 RQ": 98,
+    "21.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "GMC Acadia",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "GMC Denali XT",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "GMC Yukon",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "GMC Yukon Denali",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hennessey Venom F5",
+    "20.3 RQ": 100,
+    "21.0 RQ": 99,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Hennessey Venom GT Spyder",
+    "20.3 RQ": 97,
+    "21.0 RQ": 94,
+    "RQ Change": -3
+  },
+  {
+    "Year": 2018,
+    "Car": "Holden Acadia LTZ-V AWD",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Holden Adventra LX8 (VZ)",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Holden Astra GTC Sport (PJ)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Holden Astra RS-V (BK)",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Holden Astra SRi Turbo (AH)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Holden Astra TwinTop (AH)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Holden Barina RS (TM)",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Holden Calais V International (VE)",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Holden Caprice (WN)",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Holden Commodore RS (ZB)",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Holden Commodore SS-V Redline",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Holden Cruze SRI-V",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Holden Drover",
+    "20.3 RQ": 26,
+    "21.0 RQ": 27,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2017,
+    "Car": "Holden Equinox LTZ-V AWD (EQ)",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Holden HDT Commodore SS Group A (VK)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Holden HDT Director (VL)",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Holden HSV Avalanche XUV (VZ)",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Holden HSV Clubsport (VS)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Holden HSV Clubsport R8 Tourer (VF)",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Holden HSV GTS (V2)",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Holden HSV GTSR W1",
+    "20.3 RQ": 77,
+    "21.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Holden HSV Maloo (VS)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Holden HSV Manta (VS)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Holden HSV Senator 215i (VS)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Holden HSV W427 (VE)",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Holden Monaro CV6 (V2)",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Holden Monaro CV8 (V2)",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Holden Monaro CV8 (VZ)",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Holden One Tonner (VZ)",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Holden Torana GTR XU-1 (LJ)",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "Holden Torana SS A9X Hatchback (LX)",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Holden Trailblazer LTZ",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Holden Ute SS (VF)",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Holden Ute SV6 (VE)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Honda Civic CRX Si",
+    "20.3 RQ": 26,
+    "21.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Honda Civic Type R",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Honda CR-V 1.6 i-DTEC",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Honda CR-V 2.0 i-VTEC",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Honda CR-V 2.2 i-DTEC",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Honda CR-Z",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Honda FR-V 2.2 i-CTDi",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Honda HR-V 1.8 4WD",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Honda Integra Type R",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Honda Integra Type R",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Honda Odyssey 2.3",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Honda Pilot 4WD",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Honda Pilot 4WD",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Honda Prelude 2.0Si 4WS",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Honda Prelude Type S",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Honda Prelude VTEC",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Honda S2000",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Honda S2000 Type S",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Hummer H1",
+    "20.3 RQ": 21,
+    "21.0 RQ": 22,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2006,
+    "Car": "Hummer H1 Alpha Wagon",
+    "20.3 RQ": 31,
+    "21.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1996,
+    "Car": "Hummer H1 Hard-Top",
+    "20.3 RQ": 23,
+    "21.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2005,
+    "Car": "Hummer H2 SUT",
+    "20.3 RQ": 37,
+    "21.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2003,
+    "Car": "Hummer H2 SUV",
+    "20.3 RQ": 37,
+    "21.0 RQ": 38,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2006,
+    "Car": "Hummer H3",
+    "20.3 RQ": 42,
+    "21.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2004,
+    "Car": "Hummer H3T",
+    "20.3 RQ": 55,
+    "21.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1996,
+    "Car": "Hyundai Dynasty 3.5",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Elantra 1.6 GDI Hybrid",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Elantra 2.0 MPI",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Hyundai Elantra Sport",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Hyundai Genesis Coupe 2.0T",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Hyundai Genesis Coupe 3.8",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Grandeur",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Hyundai Grandeur 3.3",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Hyundai Grandeur 3.8",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai i20 N",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Hyundai i30 Fastback 1.5 T-GDI",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai i30 Fastback N",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai i30 Fastback N Performance",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Hyundai i30 N",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai i30 N Fastback Time Attack",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai i800 2.5 CRDi",
+    "20.3 RQ": 15,
+    "21.0 RQ": 14,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Ioniq 5 58 kWh",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Ioniq 5 77 kWh 4WD",
+    "20.3 RQ": 78,
+    "21.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Hyundai Ioniq 6 77 kWh 4WD",
+    "20.3 RQ": 76,
+    "21.0 RQ": 78,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai Kona 1.6 Turbo",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Kona 1.6 Turbo",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai Kona Electric",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Hyundai OLV",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Hyundai Palisade 2.2 CRDi",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Hyundai Palisade 3.8 V6",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Hyundai Santa Cruz",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Santa Cruz 2.5 Turbo T-GDI",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Santa Fe 1.6 T-GDI Hybrid",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Santa Fe 1.6 T-GDI PHEV",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Santa Fe 2.5 T-GDI",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Hyundai Santa Fe Sport 2.0T",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Hyundai Sonata PHEV",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Hyundai Sonata V6",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Hyundai Tucson 1.6 T-GDI PHEV",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Hyundai Tucson 2.0 CRDi",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Hyundai Tucson 2.4 GDI AWD",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Hyundai Veloster Grappler",
+    "20.3 RQ": 53,
+    "21.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2013,
+    "Car": "Hyundai Veloster Turbo",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Hyundai Vision G Coupe",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Infiniti FX35",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Infiniti FX45 (S50)",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Infiniti G20 (P10)",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Infiniti G37",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Infiniti I35 (A33)",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Infiniti J30 (Y32)",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Infiniti M35",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Infiniti Q45 (F50)",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Infiniti Q50S",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Infiniti Q60 3.0t",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Infiniti QX30",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Infiniti QX50",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Infiniti QX70",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Infiniti QX80 AWD (Z62)",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1954,
+    "Car": "Jaguar D-Type",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Jaguar F-Pace 3.0D S",
+    "20.3 RQ": 71,
+    "21.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Jaguar F-Type Project 7",
+    "20.3 RQ": 71,
+    "21.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1955,
+    "Car": "Jaguar Mark 1",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Jaguar XF S",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Jaguar XJ 3.0 V6",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1966,
+    "Car": "Jaguar XJ13",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Jaguar XJR 575",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Jaguar XJR-15",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Jaguar XJS",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Jaguar XK Convertible",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Jaguar XK8",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Jaguar XKR",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Jaguar XKR 4.2-S",
+    "20.3 RQ": 56,
+    "21.0 RQ": 54,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2011,
+    "Car": "Jaguar XKR-S Convertible",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Koenigsegg Agera R",
+    "20.3 RQ": 96,
+    "21.0 RQ": 92,
+    "RQ Change": -4
+  },
+  {
+    "Year": 2023,
+    "Car": "Koenigsegg Gemera HV8",
+    "20.3 RQ": 103,
+    "21.0 RQ": 105,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2021,
+    "Car": "Koenigsegg Jesko Attack",
+    "20.3 RQ": 97,
+    "21.0 RQ": 96,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "KTM X-Bow GT4",
+    "20.3 RQ": 84,
+    "21.0 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Lamborghini Aventador J",
+    "20.3 RQ": 94,
+    "21.0 RQ": 93,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Lamborghini Aventador Roadster",
+    "20.3 RQ": 93,
+    "21.0 RQ": 92,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Lamborghini Countach 25th Anniversario",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Lamborghini Countach 5000 Quattrovalvole",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1978,
+    "Car": "Lamborghini Countach LP400 S",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Lamborghini Diablo SV",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Lamborghini Espada Serie II",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Lamborghini Gallardo LP550-2 Spyder (2nd gen)",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Lamborghini Huracán Performante",
+    "20.3 RQ": 98,
+    "21.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1968,
+    "Car": "Lamborghini Islero",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Lamborghini Jalpa",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1966,
+    "Car": "Lamborghini Miura P 400",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1971,
+    "Car": "Lamborghini Miura SVJ",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1971,
+    "Car": "Lancia 2000 HF Coupe",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1953,
+    "Car": "Lancia D24 Pininfarina Spider Sport",
+    "20.3 RQ": 41,
+    "21.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1954,
+    "Car": "Lancia D50",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Lancia Delta HF Integrale Evoluzione",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Lancia Delta HF Turbo",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Lancia ECV",
+    "20.3 RQ": 94,
+    "21.0 RQ": 93,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1964,
+    "Car": "Lancia Flaminia GT",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Lancia Rally 037 Stradale",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1973,
+    "Car": "Lancia Stratos",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Lancia Stratos Zero",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Lancia Thema Turbo 16v",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Lancia Thesis 3.2 V6 24v",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Lancia Ypsilon",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Land Rover 4.4 V8",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "Land Rover 4.6 HSE",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Land Rover 5.0 V8",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Land Rover Defender 110",
+    "20.3 RQ": 31,
+    "21.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2004,
+    "Car": "Land Rover Discovery 3",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Land Rover Discovery 5",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Land Rover Discovery Sport P250 AWD",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Land Rover Evoque Convertible",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Land Rover Evoque SD4",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Land Rover Evoque Si4",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Land Rover Freelander",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Land Rover P400e PHEV",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Land Rover Sport",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Land Rover Suffix A",
+    "20.3 RQ": 31,
+    "21.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2018,
+    "Car": "Land Rover Velar",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Lincoln Corsair AWD",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Lincoln Corsair Grand Touring Hybrid",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Lincoln L2K",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Lincoln MKC",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Lincoln MKT",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Lincoln MKX",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Lincoln MKZ Hybrid",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Lincoln Nautilus",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Lincoln Nautilus AWD",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Lincoln Nautilus Black Label AWD",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Lincoln Navicross",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Lincoln Navigator",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Lincoln Navigator",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Lincoln Navigator",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Lincoln Navigator Concept",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Lincoln Town Car",
+    "20.3 RQ": 14,
+    "21.0 RQ": 13,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Lincoln Zephyr Reflection",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1976,
+    "Car": "Lotus Eclat",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Lotus Eclat Excel",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Lotus Elise",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Lotus Elise 1.6",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Lotus Elise 111R",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Lotus Elise SC",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Lotus Elise Sprint",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Lotus Emira GT4",
+    "20.3 RQ": 86,
+    "21.0 RQ": 85,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Lotus Esprit Sport 350",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1980,
+    "Car": "Lotus Essex Turbo Esprit",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Lotus Europa SE",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1973,
+    "Car": "Lotus Europa Special",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Lotus Evora 280",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Lotus Evora 400",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Lotus Evora GT430 Sport",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Lotus Excel",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Lotus Exige Cup 260",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Lotus Exige Cup 380",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1957,
+    "Car": "Lotus Seven",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Maserati Biturbo S",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Maserati Ghibli",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Maserati Ghibli Diesel",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Maserati Ghibli SS",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Maserati Ghibli SS Spyder",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Maserati GranTurismo Sport",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Maserati Levante Diesel",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1976,
+    "Car": "Maserati Merak SS",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Maserati Quattroporte Sport GT S",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Maserati Racing",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Maserati Spyder",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Maserati Spyder GranSport",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Mazda 3",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Mazda 3 e-Skyactiv-X hatchback",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Mazda 3 e-Skyactiv-X Saloon",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Mazda 323 MPS",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Mazda 6 Estate 2.5",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Mazda 787B",
+    "20.3 RQ": 98,
+    "21.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Mazda Axela MS",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Mazda Axela Sport 2.3",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Mazda BT-50 3.0d",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1967,
+    "Car": "Mazda Cosmo",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Mazda CX-7 Adrenaline",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mazda Demio 1.5",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Mazda Demio Turbo2",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Mazda Familia GT-X",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mazda Familia Sport20 Special 4WD",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Mazda HR-X",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mazda Ibuki",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mazda Koeru",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Mazda Lantis Type R",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Mazda Miata M Speedster",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Mazda Mono-Posto",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Mazda MPV Mazdaspeed Package",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Mazda MX-30 R-EV",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Mazda MX-5",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Mazda MX-5",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Mazda MX-5 1.5",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Mazda MX-5 10th Anniversary (NB)",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Mazda MX-5 BBR Turbo",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mazda MX-5 Cup",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Mazda MX-5 Le Mans 24 (NA)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Mazda MX-5 MPS",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Mazda MX-5 RF 2.0",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Mazda MX-6 2.5 V6",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Mazda Roadster",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Mazda Roadster NR-A",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1973,
+    "Car": "Mazda RX-3 GSII",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Mazda RX-500",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Mazda RX-7 Turbo",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Mazda RX-7 Type RS",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Mazda RX-8 NR-A",
+    "20.3 RQ": 46,
+    "21.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2012,
+    "Car": "Mazda RX-8 Spirit R",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Mazda SkyActiv-D LMP2 Prototype",
+    "20.3 RQ": 97,
+    "21.0 RQ": 96,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "McLaren 720S GT3",
+    "20.3 RQ": 93,
+    "21.0 RQ": 92,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "McLaren Senna",
+    "20.3 RQ": 96,
+    "21.0 RQ": 95,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "McLaren SLR McLaren",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Mercedes-Benz 190 E Evo II",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Mercedes-Benz 230 TE Estate",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1979,
+    "Car": "Mercedes-Benz 280 GE",
+    "20.3 RQ": 34,
+    "21.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1990,
+    "Car": "Mercedes-Benz 500 SL",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1980,
+    "Car": "Mercedes-Benz 500 SLC",
+    "20.3 RQ": 32,
+    "21.0 RQ": 31,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Mercedes-Benz 560 SEC",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Mercedes-Benz 62 Landaulet",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mercedes-Benz C 63",
+    "20.3 RQ": 64,
+    "21.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Mercedes-Benz C 63 AMG",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Mercedes-Benz C112",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Mercedes-Benz CLK DTM",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Mercedes-Benz E 430",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Mercedes-Benz E 63 AMG",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Mercedes-Benz G 500 Cabriolet",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mercedes-Benz G 63",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Mercedes-Benz G 63 6x6",
+    "20.3 RQ": 51,
+    "21.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mercedes-Benz GT",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Mercedes-Benz GT Roadster",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Mercedes-Benz S 350 CDI 4MATIC",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Mercedes-Benz SL55 AMG",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mercedes-Benz SLC 43",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mercedes-Benz SLK 200",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Mercedes-Benz SLK 32 AMG",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Mercedes-Benz SLS AMG",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Mercedes-Benz X350d",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1984,
+    "Car": "Mercury Capri RS",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Mercury Cougar Eliminator",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Mercury Milan",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1973,
+    "Car": "MG MGB GT V8",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Mini Convertible John Cooper Works",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mini Cooper",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Mini Cooper SD",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Mini Countryman Cooper SD ALL4",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Mini Countryman PHEV",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mini JCW Convertible",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mini JCW Coupe",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Mitsubishi Colt Galant GTO MR",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Mitsubishi Diamante 30R-SE 4WD",
+    "20.3 RQ": 46,
+    "21.0 RQ": 48,
+    "RQ Change": 2
+  },
+  {
+    "Year": 2019,
+    "Car": "Mitsubishi e-Yi",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Mitsubishi Endeavor Ralliart",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Mitsubishi FTO GP Version R",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Mitsubishi FTO GPX",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Mitsubishi Galant GTi-16V",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Mitsubishi Galant Ralliart",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mitsubishi GT-PHEV",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Mitsubishi HSR-IV",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Mitsubishi L200",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Mitsubishi L200 Triton Sport R",
+    "20.3 RQ": 51,
+    "21.0 RQ": 52,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1973,
+    "Car": "Mitsubishi Lancer 1600 GSR Rally Car",
+    "20.3 RQ": 53,
+    "21.0 RQ": 54,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2009,
+    "Car": "Mitsubishi Lancer Evo X FQ-360",
+    "20.3 RQ": 84,
+    "21.0 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mitsubishi Lancer Ralliart Wagon",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Mitsubishi Lancer WRC04",
+    "20.3 RQ": 84,
+    "21.0 RQ": 83,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mitsubishi Magna VR-X (TL)",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Mitsubishi Outlander",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Mitsubishi Outlander PHEV",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Mitsubishi Outlander PHEV",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Mitsubishi Outlander PHEV Baja",
+    "20.3 RQ": 65,
+    "21.0 RQ": 66,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1989,
+    "Car": "Mitsubishi Pajero",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Mitsubishi Pajero",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Mitsubishi Pajero",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Mitsubishi Pajero 3500 V6",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Mitsubishi Pajero Dakar",
+    "20.3 RQ": 42,
+    "21.0 RQ": 43,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2001,
+    "Car": "Mitsubishi Pajero Evolution 2+2",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Mitsubishi Pajero Evolution MPR13",
+    "20.3 RQ": 71,
+    "21.0 RQ": 72,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1993,
+    "Car": "Mitsubishi Pajero Field Guard",
+    "20.3 RQ": 27,
+    "21.0 RQ": 28,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1995,
+    "Car": "Mitsubishi Pajero Junior",
+    "20.3 RQ": 34,
+    "21.0 RQ": 35,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2003,
+    "Car": "Mitsubishi Pajero Pinin",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Mitsubishi RVR",
+    "20.3 RQ": 33,
+    "21.0 RQ": 34,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1985,
+    "Car": "Mitsubishi Starion GSR-V",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Mitsubishi TMR 380",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Mitsubishi Triton Ralliart AXCR",
+    "20.3 RQ": 47,
+    "21.0 RQ": 48,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2019,
+    "Car": "Mitsubishi Triton SuperUte",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Morgan 3-Wheeler",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Morgan 3-Wheeler P101",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Morgan Aero 8 race car",
+    "20.3 RQ": 88,
+    "21.0 RQ": 87,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Morgan Aeromax",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Morgan AR Plus 4",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1964,
+    "Car": "Morgan Plus 4 SLR",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Morgan Plus 4 Super Sports Baby Doll VI",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Morgan Plus 8 GTR",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Morgan Plus E",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Morgan Plus Four",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Morgan Plus Four race car",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Nissan 200SX",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Nissan 300ZX (Z32)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Nissan 300ZX Twin Turbo (Z32)",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Nissan 370Z Nismo",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Nissan Almera",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Nissan Almera GTI",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Nissan Cefiro 3.0 Brougham VIP (A33)",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1965,
+    "Car": "Nissan Datsun Bluebird 1300SS Rally Car (410)",
+    "20.3 RQ": 32,
+    "21.0 RQ": 33,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2012,
+    "Car": "Nissan GT-R Egoist (R35)",
+    "20.3 RQ": 89,
+    "21.0 RQ": 88,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Nissan Juke",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Nissan Juke Nismo",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Nissan Juke Nismo RS",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Nissan Leopard XR (Y33)",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Nissan Micra 350SR (K12)",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Nissan Murano",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Nissan Murano",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Nissan Navara (D22)",
+    "20.3 RQ": 23,
+    "21.0 RQ": 24,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2013,
+    "Car": "Nissan Pathfinder",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Nissan Patrol",
+    "20.3 RQ": 26,
+    "21.0 RQ": 27,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2009,
+    "Car": "Nissan Pixo",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Nissan Primera",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Nissan Qashqai",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Nissan S-Cargo",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Nissan Silvia RS-X (S12)",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Nissan Silvia Spec-R (S15)",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "Nissan Skyline 2000 GT-EL (C210)",
+    "20.3 RQ": 14,
+    "21.0 RQ": 13,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "Nissan Skyline 2000 GT-X (C110)",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Nissan Skyline GT Turbo (R30)",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Nissan Skyline GT-R LM Nismo (R33) Road Car",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Nissan Stagea X Four (WC34)",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Nissan Sunny (B12)",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Nissan Terrano Rally Car (R50)",
+    "20.3 RQ": 41,
+    "21.0 RQ": 42,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2001,
+    "Car": "Nissan X-Trail",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Nissan X-Trail",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Nissan Xterra Off-Road (N50)",
+    "20.3 RQ": 55,
+    "21.0 RQ": 56,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1993,
+    "Car": "Oldsmobile Achieva SCX",
+    "20.3 RQ": 31,
+    "21.0 RQ": 30,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Oldsmobile Aurora",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Oldsmobile Aurora 4.0",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Oldsmobile Bravada",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Pagani Imola",
+    "20.3 RQ": 94,
+    "21.0 RQ": 93,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Pagani Zonda C12",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Pagani Zonda F",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Pagani Zonda Roadster F",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Peugeot 1007",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Peugeot 106 Rallye (S1)",
+    "20.3 RQ": 26,
+    "21.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Peugeot 2008",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1984,
+    "Car": "Peugeot 205 GTi 1.6",
+    "20.3 RQ": 26,
+    "21.0 RQ": 25,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Peugeot 206 GTi",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Peugeot 206 RC",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Peugeot 207 S2000",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Peugeot 208",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Peugeot 208 R2",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Peugeot 208 T16 Pikes Peak",
+    "20.3 RQ": 108,
+    "21.0 RQ": 109,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1996,
+    "Car": "Peugeot 306 GTi-6",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Peugeot 306 Rallye",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Peugeot 407 Silhouette",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1969,
+    "Car": "Peugeot 504 Coupe",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Peugeot 607 Pescarolo",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Peugeot 907",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Peugeot 908 HDi FAP",
+    "20.3 RQ": 100,
+    "21.0 RQ": 101,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2012,
+    "Car": "Peugeot Onyx",
+    "20.3 RQ": 91,
+    "21.0 RQ": 88,
+    "RQ Change": -3
+  },
+  {
+    "Year": 1966,
+    "Car": "Plymouth Barracuda Formula S",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1958,
+    "Car": "Plymouth Fury",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Plymouth HEMI ‘Cuda",
+    "20.3 RQ": 33,
+    "21.0 RQ": 36,
+    "RQ Change": 3
+  },
+  {
+    "Year": 2000,
+    "Car": "Pontiac Bonneville SSEi",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Pontiac Fiero GT",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Pontiac Firebird Trans Am",
+    "20.3 RQ": 31,
+    "21.0 RQ": 34,
+    "RQ Change": 3
+  },
+  {
+    "Year": 1992,
+    "Car": "Pontiac Grand Am GT",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Pontiac Grand Prix GTP",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Porsche 718 Boxster GTS 4.0 (982)",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Porsche 718 Cayman GTS 4.0 (982)",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1957,
+    "Car": "Porsche 718 RSK",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1994,
+    "Car": "Porsche 911 Carrera",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Porsche 911 Carrera 3.4 (991)",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Porsche 911 Carrera 4S 3.6 (993)",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Porsche 911 GT1 Evo",
+    "20.3 RQ": 93,
+    "21.0 RQ": 92,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Porsche 911 GT1 Strassenversion",
+    "20.3 RQ": 82,
+    "21.0 RQ": 81,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Porsche 911 GT1-98 Strassenversion",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Porsche 911 GT2 (996.2)",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Porsche 911 GT3 3.6 (996.2)",
+    "20.3 RQ": 68,
+    "21.0 RQ": 67,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Porsche 911 GT3 RS",
+    "20.3 RQ": 85,
+    "21.0 RQ": 84,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Porsche 911 GT3 RS 4.0",
+    "20.3 RQ": 78,
+    "21.0 RQ": 77,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Porsche 911 RS",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Porsche 911 Speedster (964)",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Porsche 911 Turbo S 3.8 (997.2)",
+    "20.3 RQ": 92,
+    "21.0 RQ": 91,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1980,
+    "Car": "Porsche 928 S",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Porsche 935 (991.2)",
+    "20.3 RQ": 98,
+    "21.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Porsche 968",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Porsche Boxster",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Porsche Boxster",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Porsche Boxster 2.7 (986)",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Porsche Boxster GTS",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "Porsche Boxster S 3.2 (987)",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Porsche Boxster Spyder",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Porsche Cayenne Coupé 3.0 (9Y3)",
+    "20.3 RQ": 73,
+    "21.0 RQ": 72,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Porsche Cayenne Diesel 3.0 (958)",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Porsche Cayenne Turbo",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Porsche Cayenne Turbo S E-Hybrid 4.0 (9Y0)",
+    "20.3 RQ": 94,
+    "21.0 RQ": 93,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Porsche Cayman",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Porsche Cayman GT4",
+    "20.3 RQ": 69,
+    "21.0 RQ": 68,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Porsche Cayman GT4 Clubsport R-GT 4.0 (982)",
+    "20.3 RQ": 77,
+    "21.0 RQ": 76,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Porsche Cayman GTS",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Porsche Cayman S 3.4 (981)",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Porsche Macan S Diesel 3.0 (95B)",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Radical 1100 Clubsport",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Radical SR3 SL",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Radical SR3 XXR",
+    "20.3 RQ": 93,
+    "21.0 RQ": 92,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Ram 2500 Power Wagon",
+    "20.3 RQ": 46,
+    "21.0 RQ": 47,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1976,
+    "Car": "Renault 17 Coupe",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1975,
+    "Car": "Renault 30",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1961,
+    "Car": "Renault 4",
+    "20.3 RQ": 11,
+    "21.0 RQ": 12,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1985,
+    "Car": "Renault 5 GT Turbo",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Renault Alaskan",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Renault Captur",
+    "20.3 RQ": 22,
+    "21.0 RQ": 23,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2016,
+    "Car": "Renault Clio",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Renault Clio R.S.16",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Renault Laguna",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Renault Mégane IV R.S.",
+    "20.3 RQ": 52,
+    "21.0 RQ": 51,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Renault R21 Turbo Europa Cup",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1987,
+    "Car": "Renault R5 MAXI TURBO",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Renault Spider",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Renault Talisman",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Rezvani Beast Alpha X",
+    "20.3 RQ": 79,
+    "21.0 RQ": 78,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Rimac E-Runner Concept_One",
+    "20.3 RQ": 104,
+    "21.0 RQ": 105,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2021,
+    "Car": "Rimac Nevera",
+    "20.3 RQ": 106,
+    "21.0 RQ": 107,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1976,
+    "Car": "Rover SD1",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Ruf 3400S",
+    "20.3 RQ": 58,
+    "21.0 RQ": 57,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Ruf 3800S",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Ruf BTR",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Ruf RK Coupe",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "Ruf Turbo 3.3",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Saturn Ion",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Saturn Ion Red Line",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Saturn Outlook",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Saturn Vue",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Saturn Vue Redline",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Škoda 130 LR",
+    "20.3 RQ": 57,
+    "21.0 RQ": 58,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1974,
+    "Car": "Škoda 200 RS",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Škoda Enyaq Coupe iV 80",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Škoda Enyaq Coupe iV 80x",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Enyaq iV 80",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Enyaq iV 80x",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Škoda Fabia R5",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Škoda Fabia vRS Estate",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Škoda Fabia vRS Hatchback",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Škoda Felicia Kit Car",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Karoq 2.0 TDI 4x4",
+    "20.3 RQ": 52,
+    "21.0 RQ": 50,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Kodiaq 2.0 TSI 4x4",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Kodiaq vRS 2.0 BiTDI",
+    "20.3 RQ": 64,
+    "21.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Octavia Estate 2.0 TDI",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Škoda Octavia Estate 2.0 TDI CR 4x4",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Octavia Hatchback 1.5 TSI",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Škoda Octavia Hatchback 1.8T FSI",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Škoda Octavia Hatchback 2.0 TDI",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Octavia iV Hatchback 1.4 TSI PHEV",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Octavia iV vRS Estate",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Octavia iV vRS Hatchback",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2014,
+    "Car": "Škoda Octavia Scout 2.0 TDI",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Škoda Octavia Scout 2.0 TSI",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Škoda Octavia vRS",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Škoda Octavia vRS 245 Estate",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Škoda Octavia vRS Hatchback 2.0 TSI",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Octavia vRS Hatchback 2.0 TSI",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Škoda Octavia WRC",
+    "20.3 RQ": 81,
+    "21.0 RQ": 80,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Škoda Scala 1.5 TSI",
+    "20.3 RQ": 38,
+    "21.0 RQ": 37,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Škoda Scala 1.6 TDI",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "Škoda Superb iV 1.4 TSI PHEV",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Škoda Superb Saloon 2.8 V6",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Škoda Yeti 1.8 TSI 4x4",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Spyker C12 La Turbie",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Spyker C8 Laviolette",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Spyker C8 Preliator",
+    "20.3 RQ": 76,
+    "21.0 RQ": 75,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Subaru Ascent",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Subaru Baja Turbo",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Subaru BRZ",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Subaru Crosstrek Limited",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Subaru Crosstrek Sport",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Subaru Forester",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "Subaru Forester",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Subaru Forester",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Subaru Forester (SJ)",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Subaru Forester XT Turbo (SG)",
+    "20.3 RQ": 67,
+    "21.0 RQ": 66,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2000,
+    "Car": "Subaru Impreza",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Subaru Impreza Gravel Express (GC8C)",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Subaru Legacy",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Subaru Legacy",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Subaru Legacy Outback (BG)",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Subaru Outback",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Subaru R2",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Subaru Vivio Bistro",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Subaru WRX STI Type RA (VAF)",
+    "20.3 RQ": 72,
+    "21.0 RQ": 73,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2019,
+    "Car": "Subaru XV (GT)",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Subaru XV Crosstrek",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Suzuki Alto",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Suzuki Alto Works",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Suzuki Cappuccino (EA11R)",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1993,
+    "Car": "Suzuki Cara",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Suzuki Cervo (CG72)",
+    "20.3 RQ": 17,
+    "21.0 RQ": 16,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Suzuki Escudo Pikes Peak",
+    "20.3 RQ": 98,
+    "21.0 RQ": 97,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Suzuki GSX-R/4",
+    "20.3 RQ": 70,
+    "21.0 RQ": 69,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Suzuki Hayabusa Sport Prototype",
+    "20.3 RQ": 75,
+    "21.0 RQ": 74,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Suzuki Ignis",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2007,
+    "Car": "Suzuki Jimny",
+    "20.3 RQ": 30,
+    "21.0 RQ": 31,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2019,
+    "Car": "Suzuki Jimny",
+    "20.3 RQ": 31,
+    "21.0 RQ": 32,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2019,
+    "Car": "Suzuki Jimny Sierra",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Suzuki Kizashi 4x4",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Suzuki Splash",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "Suzuki Swift GTi (SF)",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Suzuki Swift Sport (A2L)",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Suzuki SX4",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Suzuki Vitara S",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1972,
+    "Car": "TVR 3000M",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "TVR 400SE",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "TVR 420 SEAC",
+    "20.3 RQ": 51,
+    "21.0 RQ": 50,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "TVR 450 SEAC",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1989,
+    "Car": "TVR 450SE",
+    "20.3 RQ": 53,
+    "21.0 RQ": 52,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "TVR Cerbera Speed Eight",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "TVR Cerbera Speed Six",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "TVR Chimaera 4.3",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2020,
+    "Car": "TVR Griffith",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "TVR S-Series",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "TVR S3C",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2002,
+    "Car": "TVR T350",
+    "20.3 RQ": 61,
+    "21.0 RQ": 60,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1977,
+    "Car": "TVR Taimar Turbo",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "TVR Tamora",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "TVR Tasmin 280i 2+2 Coupe",
+    "20.3 RQ": 24,
+    "21.0 RQ": 23,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "TVR Tuscan",
+    "20.3 RQ": 63,
+    "21.0 RQ": 62,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2005,
+    "Car": "TVR Tuscan Convertible",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2021,
+    "Car": "Ultima RS",
+    "20.3 RQ": 98,
+    "21.0 RQ": 99,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1992,
+    "Car": "Ultima Sports",
+    "20.3 RQ": 74,
+    "21.0 RQ": 73,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1965,
+    "Car": "Vauxhall/Opel Admiral V8",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Vauxhall/Opel Antara 2.2CDTi",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Vauxhall/Opel Astra",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Vauxhall/Opel Astra VXR",
+    "20.3 RQ": 49,
+    "21.0 RQ": 48,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Vauxhall/Opel Cascada",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Vauxhall/Opel Cavalier SRi",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1971,
+    "Car": "Vauxhall/Opel Firenza 2000 SL Coupé",
+    "20.3 RQ": 23,
+    "21.0 RQ": 22,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1974,
+    "Car": "Vauxhall/Opel Firenza Baby Bertha",
+    "20.3 RQ": 72,
+    "21.0 RQ": 71,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Vauxhall/Opel Insignia Grand Sport",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1979,
+    "Car": "Vauxhall/Opel Manta 400",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1982,
+    "Car": "Vauxhall/Opel Manta 400 Rally",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Vauxhall/Opel Manta GTE",
+    "20.3 RQ": 22,
+    "21.0 RQ": 21,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1983,
+    "Car": "Vauxhall/Opel Monza GSE",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Vauxhall/Opel Signum",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Vauxhall/Opel Vectra GSi",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Vauxhall/Opel Vectra VXR",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Volkswagen Beetle",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2012,
+    "Car": "Volkswagen Beetle Cabriolet",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Volkswagen Corrado 16v G60",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Volkswagen Corrado VR6",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Volkswagen Golf",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2003,
+    "Car": "Volkswagen Golf",
+    "20.3 RQ": 25,
+    "21.0 RQ": 24,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Volkswagen Golf",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Volkswagen Golf G60 Rallye",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Volkswagen Golf GTI",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Volkswagen Golf GTI",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Volkswagen Golf GTI G60",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1991,
+    "Car": "Volkswagen Golf VR6",
+    "20.3 RQ": 36,
+    "21.0 RQ": 35,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Volkswagen I.D. R Pikes Peak",
+    "20.3 RQ": 105,
+    "21.0 RQ": 106,
+    "RQ Change": 1
+  },
+  {
+    "Year": 2004,
+    "Car": "Volkswagen Jetta",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Volkswagen Jetta",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Volkswagen Jetta",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1988,
+    "Car": "Volkswagen Jetta GTI",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1992,
+    "Car": "Volkswagen Jetta VR6",
+    "20.3 RQ": 34,
+    "21.0 RQ": 33,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Volkswagen Lupo GTI",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1976,
+    "Car": "Volkswagen Polo",
+    "20.3 RQ": 16,
+    "21.0 RQ": 15,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1999,
+    "Car": "Volkswagen Polo GTI",
+    "20.3 RQ": 29,
+    "21.0 RQ": 28,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2006,
+    "Car": "Volkswagen Polo GTI",
+    "20.3 RQ": 33,
+    "21.0 RQ": 32,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Volkswagen Polo GTI",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Volkswagen Scirocco",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1986,
+    "Car": "Volkswagen Scirocco GTI",
+    "20.3 RQ": 27,
+    "21.0 RQ": 26,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Volkswagen Scirocco R",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Volkswagen Tiguan",
+    "20.3 RQ": 43,
+    "21.0 RQ": 42,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Volkswagen Tiguan",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Volkswagen Touareg",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Volkswagen Touareg R50",
+    "20.3 RQ": 56,
+    "21.0 RQ": 55,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Volvo 262C Solaire",
+    "20.3 RQ": 15,
+    "21.0 RQ": 14,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1981,
+    "Car": "Volvo 345 2.0",
+    "20.3 RQ": 18,
+    "21.0 RQ": 17,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Volvo 740 GL Saloon",
+    "20.3 RQ": 21,
+    "21.0 RQ": 20,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1990,
+    "Car": "Volvo 740 Turbo",
+    "20.3 RQ": 37,
+    "21.0 RQ": 36,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1985,
+    "Car": "Volvo 760 2.4D Estate",
+    "20.3 RQ": 19,
+    "21.0 RQ": 18,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Volvo 850 AWD",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Volvo 850 R",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1995,
+    "Car": "Volvo 850 T-5R",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Volvo C30 T5 R-Design",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Volvo C40 Recharge",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Volvo C40 Recharge Twin",
+    "20.3 RQ": 72,
+    "21.0 RQ": 70,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2023,
+    "Car": "Volvo EX30 Single Motor",
+    "20.3 RQ": 62,
+    "21.0 RQ": 61,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Volvo EX30 Twin Motor Performance",
+    "20.3 RQ": 83,
+    "21.0 RQ": 82,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2024,
+    "Car": "Volvo EX90 Twin Motor",
+    "20.3 RQ": 66,
+    "21.0 RQ": 65,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1970,
+    "Car": "Volvo P1800E",
+    "20.3 RQ": 28,
+    "21.0 RQ": 27,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Volvo S40 T4",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2013,
+    "Car": "Volvo S60 T6",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1996,
+    "Car": "Volvo V40 2.0T",
+    "20.3 RQ": 35,
+    "21.0 RQ": 34,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1998,
+    "Car": "Volvo V40 T4",
+    "20.3 RQ": 44,
+    "21.0 RQ": 43,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Volvo V40 T5",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2016,
+    "Car": "Volvo V40 T5 Cross Country",
+    "20.3 RQ": 64,
+    "21.0 RQ": 63,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2019,
+    "Car": "Volvo V60 Cross Country T5 AWD",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2011,
+    "Car": "Volvo V60 Plug-in Hybrid",
+    "20.3 RQ": 60,
+    "21.0 RQ": 59,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2015,
+    "Car": "Volvo V60 T6 AWD",
+    "20.3 RQ": 58,
+    "21.0 RQ": 59,
+    "RQ Change": 1
+  },
+  {
+    "Year": 1996,
+    "Car": "Volvo V70 2.4T AWD",
+    "20.3 RQ": 48,
+    "21.0 RQ": 47,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Volvo V70 2.5T",
+    "20.3 RQ": 42,
+    "21.0 RQ": 41,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2009,
+    "Car": "Volvo V70 Plug-in Hybrid",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 1997,
+    "Car": "Volvo V70 T5",
+    "20.3 RQ": 39,
+    "21.0 RQ": 38,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Volvo V70 T5",
+    "20.3 RQ": 45,
+    "21.0 RQ": 44,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2001,
+    "Car": "Volvo V70 XC 2.4T AWD",
+    "20.3 RQ": 47,
+    "21.0 RQ": 46,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2017,
+    "Car": "Volvo V90 Cross Country D5 AWD",
+    "20.3 RQ": 59,
+    "21.0 RQ": 58,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Volvo XC40 P8 AWD Recharge",
+    "20.3 RQ": 72,
+    "21.0 RQ": 70,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2023,
+    "Car": "Volvo XC40 Recharge",
+    "20.3 RQ": 41,
+    "21.0 RQ": 40,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2022,
+    "Car": "Volvo XC60 T6 Recharge",
+    "20.3 RQ": 69,
+    "21.0 RQ": 67,
+    "RQ Change": -2
+  },
+  {
+    "Year": 2018,
+    "Car": "Volvo XC60 T8",
+    "20.3 RQ": 71,
+    "21.0 RQ": 70,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2008,
+    "Car": "Volvo XC70 T6 AWD",
+    "20.3 RQ": 57,
+    "21.0 RQ": 56,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2018,
+    "Car": "Volvo XC90 T5 AWD",
+    "20.3 RQ": 55,
+    "21.0 RQ": 54,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2004,
+    "Car": "Volvo XC90 T6 AWD",
+    "20.3 RQ": 46,
+    "21.0 RQ": 45,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2010,
+    "Car": "Volvo XC90 V8",
+    "20.3 RQ": 54,
+    "21.0 RQ": 53,
+    "RQ Change": -1
+  },
+  {
+    "Year": 2023,
+    "Car": "Zenvo Aurora Agil",
+    "20.3 RQ": 97,
+    "21.0 RQ": 100,
+    "RQ Change": 3
+  },
+  {
+    "Year": 2018,
+    "Car": "Zenvo TSR",
+    "20.3 RQ": 90,
+    "21.0 RQ": 88,
+    "RQ Change": -2
+  }
+]
