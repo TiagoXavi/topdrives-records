@@ -424,7 +424,6 @@
     "Dodge_Hornet_2006",
     "Ford_Focus_ST_TDCi_Estate_2016",
     "Honda_Accord_Hybrid_2016",
-    "Citroen_C5_Tourer_3.0_L_2016",
     "Audi_TT_20_TDI_FV_2015",
     "Lotus_Esprit_1988",
     "Fiat_Formula_4_1996",
@@ -1109,7 +1108,6 @@
     "Volvo_144_1971",
     "Volvo_340_17_1985",
     "Volvo_740_24_Estate_1985",
-    "Skoda_Citigoe_iV_2020",
     "Skoda_Funstar_2015",
     "Skoda_Atero_2016",
     "Citroen_Activa_1_1988",
@@ -1180,7 +1178,12 @@
     "Citroen_SpaceTourer_3x3_E_2017",
     "Citroen_Visa_GTi_1978",
     "Volkswagen_Golf_GTI_1985",
-    "Volvo_760_2_D_Estate_1985"
+    "Volvo_760_2_D_Estate_1985",
+    "Citroen_GZ_1973",
+    "Renault_Fluence_2013",
+    "Citroen_Activa_2_1990",
+    "Skoda_Octavia_vRS_Hatchback_20T_FSI_2009",
+    "Citroen_Karin_1980"
   ],
   "Tongi's Selection": [
     "Nissan_Leaf_Nismo_(ZE1)_2017",

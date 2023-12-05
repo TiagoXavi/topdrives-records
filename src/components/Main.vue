@@ -10071,7 +10071,7 @@ body .Main_UserTw3:before {
   --type-back-opac: 0.1;
   background-color: rgba(255,255,255, 0.03);
 }
-[data="lumberTwisty_a41"] {
+.Row_Tracks [data="lumberTwisty_a41"] {
   color: rgb(var(--color-wet));
   --type-back-opac: 0.1;
   background-color: rgba(var(--color-wet), var(--type-back-opac));
