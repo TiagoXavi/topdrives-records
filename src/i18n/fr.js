@@ -382,5 +382,5 @@ export default {
   "p_eventsKingLogin": null,
   "p_eventHiddenForPatreons": null,
   "c_speedster": null,
-  "t_desertHill": null
+  "t_desertHill": "Rallye dans le désert colline"
 }
