@@ -46,6 +46,8 @@
           :user="user"
           :options="user && user.mod"
           :cg="true"
+          :showCampaignTip="!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']"
+          :showingBestPerTrack="showBestPerTrack && Object.keys(eventBestPerTrack).length > 0"
           class="Cg_TrackBox"
           type="tracks" />
         <button
@@ -71,6 +73,15 @@
           @mousedown="dragMouseDown($event, itrackset, itrackMonoArray);">
           <i class="ticon-expand Cg_SelectTrackButtonIcon" style="transform: rotate(45deg);" aria-hidden="true"/>
         </button>
+        <div
+          v-if="showBestPerTrack && eventBestPerTrack[(trackMonoArray[0].code) || '']"
+          :style="`--cor: ${ eventBestPerTrack[trackMonoArray[0].code].color }`"
+          class="BaseEventTrackbox_BestBox">
+          <div class="BaseEventTrackbox_BestPhoto">
+            <img :src="eventBestPerTrack[trackMonoArray[0].code].photo" class="BaseEventTrackbox_BestImg" alt="">
+            <div class="BaseEventTrackbox_BestTune" :class="`BaseEventTrackbox_BestTune${eventBestPerTrack[trackMonoArray[0].code].tune}`">{{ eventBestPerTrack[trackMonoArray[0].code].tune }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -118,9 +129,19 @@ export default {
       type: Boolean,
       default: false
     },
+    showBestPerTrack: {
+      type: Boolean,
+      default: false
+    },
     readonly: {
       type: Boolean,
       default: false
+    },
+    eventBestPerTrack: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   data() {
@@ -391,6 +412,59 @@ export default {
   );
   animation: KingCheck 0.7s linear 0s infinite normal forwards;
 } */
+
+.BaseEventTrackbox_BestBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.BaseEventTrackbox_BestPhoto {
+  display: flex;
+  height: 38px;
+  width: 57px;
+  min-width: 57px;
+  border-radius: 6px 0px 0px 6px;
+  overflow: hidden;
+  margin-right: 0px;
+  background-color: #00000038;
+  height: var(--cell-height);
+  position: relative;
+}
+.BaseEventTrackbox_BestImg {
+  height: 100%;
+  transform: scale(1.3) translateX(4px) translateY(-1px);
+}
+.BaseEventTrackbox_BestTune {
+  /* 323 or other */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cor);
+  color: #000;
+  font-weight: 700;
+  border-top-right-radius: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
+  font-size: 12px;
+}
+.BaseEventTrackbox_BestTune332 {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 4px;
+  bottom: unset;
+  top: 0;
+}
+.BaseEventTrackbox_BestTune233 {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  left: unset;
+  right: 0;
+}
+
+
+
+
 
 @media only screen and (max-width: 1200px) {
   .EventTrack:first-child {

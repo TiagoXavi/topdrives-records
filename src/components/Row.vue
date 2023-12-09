@@ -67,6 +67,7 @@
               `${type === 'tracks' && item.text.length > 18 ? 'Row_TrackNameBig ' : '' }`+
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
+              `${showingBestPerTrack ? 'Row_ShowingBestPerTrack ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
@@ -101,7 +102,7 @@
         <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
-      <div v-if="type === 'tracks'" class="Row_Campaign">{{ item.campaign }}</div>
+      <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign">{{ item.campaign }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).info || {}).acel) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00']) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'], 25) }}</div>
@@ -291,6 +292,10 @@ export default {
       type: Boolean,
       default: false
     },
+    showCampaignTip: {
+      type: Boolean,
+      default: true
+    },
     user: {
       required: false
     },
@@ -319,6 +324,10 @@ export default {
       default: false
     },
     normalSize: {
+      type: Boolean,
+      default: false
+    },
+    showingBestPerTrack: {
       type: Boolean,
       default: false
     },
@@ -1723,6 +1732,12 @@ export default {
 }
 .Main_2 .Row_TrackNameBig {
   font-size: 13px;
+}
+.Row_ShowingBestPerTrack {
+  overflow: hidden;
+}
+.Row_ShowingBestPerTrack .Row_Content {
+  transform: translateX(54px);
 }
 
 

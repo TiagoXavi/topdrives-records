@@ -820,6 +820,8 @@
               :user="user"
               :check="eventCheckFilterCode"
               :eventForceAnalyze="eventForceAnalyze"
+              :eventBestPerTrack="eventBestPerTrack"
+              :showBestPerTrack="showPoints"
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
@@ -1178,6 +1180,8 @@
               :eventForceAnalyze="clubForceAnalyze"
               :readonly="clubIsShowingOriginal"
               :useWhatFilter="clubUseWhatFilter"
+              :eventBestPerTrack="clubBestPerTrack"
+              :showBestPerTrack="showPoints"
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
@@ -3083,6 +3087,7 @@ export default {
       eventScoreType: "saverScore3",
       eventScoreList: ["saverScore1", "saverScore2", "saverScore3"],
       eventUseWhatFilter: 0,
+      eventBestPerTrack: {},
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -3162,6 +3167,7 @@ export default {
       clubIsShowingOriginal: false,
       clubBlockOriginalButton: false,
       clubUseWhatFilter: 0,
+      clubBestPerTrack: {},
       kingDialog: false,
       kingFilterDialog: false,
       kingTrack: false,
@@ -7285,6 +7291,7 @@ export default {
     eventListKings() {
       let key = this.isEvents ? 'eventPointsReference' : 'clubPointsReference';
 
+      let bestPerTrack = {};
       let data = JSON.parse(JSON.stringify(this.eventResponse));
       data.map((dataTrack, itrack) => {
         let bestTime;
@@ -7315,6 +7322,13 @@ export default {
             }
           }
           this.frontCompleteCar(car);
+          if (icar === 0) {
+            if (this.isEvents && this.eventShowOnlyPicks && this.eventPicksList.length > 0) {
+              Vue.set(this.eventBestPerTrack, [this.eventKingTracks[itrack]], car);
+            } else if (this.eventShowOnlyPicks && this.clubPicksList.length > 0) {
+              Vue.set(this.clubBestPerTrack, [this.eventKingTracks[itrack]], car);
+            }
+          }
         })
       })
 
