@@ -937,7 +937,8 @@
         "tags": [
             "World Expo",
             "Motorsport",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -1676,7 +1677,8 @@
         "tags": [
             "Motorsport",
             "Great Exhibition",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -1750,7 +1752,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Motorsport"
+            "Motorsport",
+            "New Beginnings"
         ]
     },
     {
@@ -3514,7 +3517,8 @@
             "European Revolution",
             "Ultra Expensive",
             "Hypercar",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -3781,7 +3785,8 @@
             "Hypercar",
             "Ultra Expensive",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -5972,7 +5977,8 @@
         "tags": [
             "Drivers Choice",
             "Originals",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -8673,7 +8679,8 @@
         "rid": "McLaren_650S_2014",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -8991,7 +8998,8 @@
         "rid": "Lotus_3-Eleven_430_2018",
         "tags": [
             "Great Exhibition",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -9029,7 +9037,8 @@
         "engine": "Mixed",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ]
     },
     {
@@ -10555,7 +10564,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White"
+            "White",
+            "New Beginnings"
         ]
     },
     {
@@ -10679,7 +10689,8 @@
         "rid": "McLaren_570S_Coupe_2015",
         "tags": [
             "Originals",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -11007,7 +11018,8 @@
             "Italian Renaissance",
             "Style Icon",
             "Supercar",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -13405,7 +13417,8 @@
         "rid": "Aston_Martin_DBS_Superleggera_2019",
         "tags": [
             "Great Exhibition",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -14550,7 +14563,8 @@
         "rid": "Jaguar_F-Type_R_Coupe_AWD_2016",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -15971,7 +15985,8 @@
         "rid": "BMW_750d_xDrive_2013",
         "tags": [
             "German Renaissance",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -16035,7 +16050,8 @@
         "rid": "KTM_X-Bow_RR_2016",
         "tags": [
             "Originals",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -16778,7 +16794,8 @@
         "rid": "Audi_SQ8_TDI_2019",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -16809,7 +16826,8 @@
         "rid": "Audi_SQ2_2019",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -17695,7 +17713,8 @@
             "Eco Friendly",
             "German Renaissance",
             "Summer Games",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -18023,7 +18042,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Motorsport"
+            "Motorsport",
+            "New Beginnings"
         ]
     },
     {
@@ -18121,7 +18141,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Motorsport"
+            "Motorsport",
+            "New Beginnings"
         ]
     },
     {
@@ -18703,7 +18724,8 @@
         "rid": "Bentley_Continental_GT_Speed_Coupe_2015",
         "tags": [
             "Great Exhibition",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -22381,7 +22403,8 @@
         "tags": [
             "Japan Pro Tour",
             "Concept",
-            "Yellow"
+            "Yellow",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -22520,7 +22543,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver or Grey",
-            "Concept"
+            "Concept",
+            "New Beginnings"
         ]
     },
     {
@@ -23777,7 +23801,8 @@
         "rid": "McLaren_Mercedes-Benz_SLR_McLaren_Roadster_2007",
         "tags": [
             "Originals",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -24615,7 +24640,8 @@
         "tags": [
             "Motorsport",
             "American Frontier",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -25926,7 +25952,8 @@
             "Motorsport",
             "Wild Ride",
             "Year of the Tiger",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -26959,7 +26986,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 112,
@@ -28891,7 +28919,8 @@
         "rid": "BMW_M2_Competition_(delimited)_2019",
         "tags": [
             "German Renaissance",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -32529,7 +32558,8 @@
         "rid": "Aston_Martin_V12_Vanquish_S_2004",
         "tags": [
             "Great Exhibition",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -34144,7 +34174,8 @@
         "tags": [
             "Great Exhibition",
             "Silver Screen",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -38085,7 +38116,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -38353,7 +38385,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -38451,7 +38484,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver or Grey",
-            "Concept"
+            "Concept",
+            "New Beginnings"
         ]
     },
     {
@@ -39294,7 +39328,8 @@
         "tags": [
             "World Expo",
             "Sleeper",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "MPV"
@@ -40270,7 +40305,8 @@
         "tags": [
             "Christmas Collection",
             "Originals",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -41509,7 +41545,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -41698,7 +41735,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 111,
@@ -42601,7 +42639,8 @@
         "rid": "Aston_Martin_Rapide_S_2014",
         "tags": [
             "Great Exhibition",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -43023,7 +43062,8 @@
         "tags": [
             "German Renaissance",
             "Year of the Ox",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Estate"
@@ -43187,7 +43227,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -43535,7 +43576,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Sleeper",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -44060,7 +44102,8 @@
         "tags": [
             "Silver Screen",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "New Beginnings"
         ],
         "prize": true,
         "bodyTypes": [
@@ -44319,7 +44362,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Red"
+            "Red",
+            "New Beginnings"
         ]
     },
     {
@@ -46465,7 +46509,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Pickup"
@@ -47047,7 +47092,8 @@
         "tags": [
             "German Renaissance",
             "Year of the Rat",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -47820,7 +47866,8 @@
         "rid": "Aston_Martin_DB9_2004",
         "tags": [
             "Great Exhibition",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -59441,7 +59488,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Concept"
+            "Concept",
+            "New Beginnings"
         ]
     },
     {
@@ -61058,7 +61106,8 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -62716,7 +62765,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Yellow"
+            "Yellow",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -65456,7 +65506,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Beige"
+            "Beige",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 131,
@@ -67178,7 +67229,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -67373,7 +67425,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Black",
-            "Hot Hatch"
+            "Hot Hatch",
+            "New Beginnings"
         ]
     },
     {
@@ -67436,7 +67489,8 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -68567,7 +68621,8 @@
         "rid": "Cadillac_SRX_2006",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -69278,7 +69333,8 @@
         "tags": [
             "European New Wave",
             "Hot Hatch",
-            "Green"
+            "Green",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 137,
@@ -74897,7 +74953,8 @@
         "tags": [
             "German Renaissance",
             "Year of the Tiger",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -77358,7 +77415,8 @@
         "tags": [
             "Pacific Coast Highway",
             "Wild Ride",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Pickup"
@@ -77428,7 +77486,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Red"
+            "Red",
+            "New Beginnings"
         ]
     },
     {
@@ -79619,7 +79678,8 @@
         "tags": [
             "American Frontier",
             "Call of the Wild",
-            "Beige"
+            "Beige",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -80947,7 +81007,8 @@
         "rid": "Renault_Fluence_2013",
         "tags": [
             "French Renaissance",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -83094,7 +83155,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Hot Hatch",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -86403,7 +86465,8 @@
             "Call of the Wild",
             "Hot Hatch",
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -88150,7 +88213,8 @@
         "tags": [
             "German Renaissance",
             "Hot Hatch",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -91937,7 +92001,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 119,
@@ -92287,7 +92352,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Pickup"
@@ -93285,7 +93351,8 @@
             "American Dream",
             "Call of the Wild",
             "In the Shadows",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Pickup"
@@ -93448,7 +93515,8 @@
         "tags": [
             "Year of the Ox",
             "Originals",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -94873,7 +94941,8 @@
         "tags": [
             "American Dream",
             "Year of the Tiger",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -97692,7 +97761,8 @@
         "tags": [
             "Pacific Coast Highway",
             "Muscle Car",
-            "Yellow"
+            "Yellow",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -98501,7 +98571,8 @@
         "rid": "Lamborghini_350GT_1964",
         "tags": [
             "Italian Renaissance",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -100710,7 +100781,8 @@
         "rid": "Renault_Sport_Twingo_GT_2016",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -103224,7 +103296,8 @@
         "rid": "Fiat_500X_2017",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -105057,7 +105130,8 @@
         "rid": "Mercedes-Benz_A_200_CDI_2004",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -106343,7 +106417,8 @@
         "tags": [
             "German Renaissance",
             "Year of the Rat",
-            "Orange"
+            "Orange",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -107056,7 +107131,8 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -107194,7 +107270,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Eco Friendly"
+            "Eco Friendly",
+            "New Beginnings"
         ]
     },
     {
@@ -107641,7 +107718,8 @@
             "French Renaissance",
             "Year of the Rat",
             "Hot Hatch",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -107672,7 +107750,8 @@
         "rid": "Honda_Civic_CRX_Si_1983",
         "tags": [
             "Originals",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -109522,7 +109601,8 @@
         "rid": "Subaru_Legacy_1989",
         "tags": [
             "Originals",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Estate"
@@ -111097,7 +111177,8 @@
         "rid": "Suzuki_Swift_GTi_(SF)_1989",
         "tags": [
             "Japan Pro Tour",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -113966,7 +114047,8 @@
         "tags": [
             "Great Exhibition",
             "Interstellar",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "SUV"
@@ -121619,7 +121701,8 @@
         "rid": "Plymouth_Reliant_1981",
         "tags": [
             "American Dream",
-            "Brown"
+            "Brown",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Saloon"
@@ -121715,7 +121798,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "tcs": true,
         "topSpeed": 84,
@@ -121901,7 +121985,8 @@
         "tags": [
             "Two Tone",
             "Originals",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -122767,7 +122852,8 @@
             "Innovative",
             "Two Tone",
             "Originals",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -122926,7 +123012,8 @@
         "rid": "Peugeot_505_Break_1982",
         "tags": [
             "French Renaissance",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Estate"
@@ -123087,7 +123174,8 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "Brown"
+            "Brown",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -124516,7 +124604,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver or Grey"
+            "Silver or Grey",
+            "New Beginnings"
         ]
     },
     {
@@ -125963,7 +126052,8 @@
         "tags": [
             "Two Tone",
             "Originals",
-            "Gold"
+            "Gold",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -126222,7 +126312,8 @@
         "tags": [
             "Year of the Rat",
             "Originals",
-            "Black"
+            "Black",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "MPV"
@@ -126348,7 +126439,8 @@
         "tags": [
             "Summer Games",
             "Originals",
-            "Beige"
+            "Beige",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Roadster"
@@ -127320,7 +127412,8 @@
         "rid": "Geo_Metro_1995",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -128327,7 +128420,8 @@
             "American Frontier",
             "Silver Screen",
             "Team Favourite",
-            "Red"
+            "Red",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -129293,7 +129387,8 @@
         "tags": [
             "American Dream",
             "Two Tone",
-            "White"
+            "White",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "MPV"
@@ -129968,7 +130063,8 @@
         "tags": [
             "German Renaissance",
             "Silver Screen",
-            "Green"
+            "Green",
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -130747,7 +130843,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Blue"
+            "Blue",
+            "New Beginnings"
         ],
         "tcs": false,
         "topSpeed": 57,

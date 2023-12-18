@@ -379,6 +379,7 @@ export default {
           "Loves Me, Loves Me Not",
           "Motorsport",
           "Muscle Car",
+          "New Beginnings",
           "Nightmare Fuel",
           "Old Guard",
           "Originals",
