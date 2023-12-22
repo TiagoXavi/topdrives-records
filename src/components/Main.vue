@@ -3266,7 +3266,7 @@ export default {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["waterDrag_a00","runwayDrag_a00","mile1r_a00","mile4r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00"]
+              tracks: ["waterDrag_a00","runwayDrag_a00","mile4r_a00","mile1r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00"]
             },
             {
               type: "01",
