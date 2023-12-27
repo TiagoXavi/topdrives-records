@@ -2773,14 +2773,14 @@
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
           <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_daySelector") }}</div>
-          <div v-if="user && user.mod && !clubDays[clubServerDateISO]" class="Cg_SelectorDialogRight">
+          <div v-if="user && user.mod && (!clubDays[clubServerDateISO] || user.username === 'TiagoXavi')" class="Cg_SelectorDialogRight">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2"
               :class="{ D_Button_Loading: clubLoadingAny }"
               :disabled="clubLoadingAny"
-              @click="clubNewDayConfig(clubServerDateISO)">
+              @click="clubNewDayConfig(clubServerNextDateAvailableISO)">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ clubServerDateISO }}</span>
+              <span>{{ clubServerNextDateAvailableISO }}</span>
             </button>
           </div>
         </div>
@@ -3095,6 +3095,7 @@ export default {
       clubFirstLoading: true,
       clubServerDate: null, 
       clubServerDateISO: null, 
+      clubServerNextDateAvailableISO: null, 
       clubTracksGroupModel: {},
       clubReqsGroupModel: {},
       clubTracksGroups: [],
@@ -8534,19 +8535,26 @@ export default {
         this.clubAskDeleteDay(date);
         return;
       }
+      
+      if (!date) date = this.clubServerDateISO;
       this.clubDaySelected = date;
+
+      let lastKey = Object.keys(this.clubDays);
+      lastKey.sort((a,b) => {
+        return a.localeCompare(b);
+      })
+      lastKey = lastKey[lastKey.length - 1];
+
       if (this.clubDays[date]) {
         this.clubDaySelectedObj = this.clubDays[date];
         this.clubDaySelected = date;
       } else {
-        let lastKey = Object.keys(this.clubDays);
-        lastKey.sort((a,b) => {
-          return a.localeCompare(b);
-        })
-        lastKey = lastKey[lastKey.length - 1];
         this.clubDaySelectedObj = this.clubDays[lastKey];
         this.clubDaySelected = lastKey;
       }
+      let dateObj = new Date(lastKey)
+      dateObj.setDate(dateObj.getDate() + 1);
+      this.clubServerNextDateAvailableISO = dateObj.toISOString().substring(0,10);
 
       // sort
       this.clubDaySelectedObj.tracksetGroups.sort((a, b) => {

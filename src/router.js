@@ -19,6 +19,8 @@ import MainTranslate from "./components/MainTranslate.vue";
 import MainNewPhotos from "./components/MainNewPhotos.vue";
 import MainTestPoints from "./components/MainTestPoints.vue";
 import MainAddNewCars from "./components/MainAddNewCars.vue";
+import MainCheatSheet from "./components/MainCheatSheet.vue";
+import MainCodeUtility from "./components/MainCodeUtility.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -123,6 +125,18 @@ const routes = [
     name: 'MainAddNewCars',
     title: 'MainAddNewCars',
     component: MainAddNewCars,
+  },
+  {
+    path: '/cheatSheet',
+    name: 'MainCheatSheet',
+    title: 'MainCheatSheet',
+    component: MainCheatSheet,
+  },
+  {
+    path: '/codeutil',
+    name: 'MainCodeUtility',
+    title: 'MainCodeUtility',
+    component: MainCodeUtility,
   },
   {
     path: '/testPoints',

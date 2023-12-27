@@ -143,6 +143,26 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Clubs obj</div>
+      <div class="MainSwagger_Fields">
+        <textarea
+          v-model="clubsObj"
+          rows="10"
+          class="Main_TextArea data-hj-allow"
+          placeholder="Clubs obj" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setClubsObj()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ setClubsObjRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Scan sessions</div>
       <div class="MainSwagger_Fields">
         <BaseText
@@ -231,6 +251,14 @@
         {{ gitRes }}
       </div>
     </div>
+    <button
+      style="margin-top: 100px;"
+      class="D_Button D_ButtonDark"
+      @click="$router.push({ name: 'MainSwagger' })">Go to swagger</button>
+    <button
+      style="margin-top: 20px; margin-bottom: 50px;"
+      class="D_Button D_ButtonDark"
+      @click="$router.push({ name: 'Records' })">Go to home</button>
   </div>
 </template>
 
@@ -268,6 +296,8 @@ export default {
       gitRes: null,
       configObj: null,
       setConfigRes: null,
+      clubsObj: null,
+      setClubsObjRes: null,
       newEventName: null,
       newEventRes: null
     }
@@ -495,6 +525,35 @@ export default {
       axios.post(Vue.preUrl + "/setConfig", obj)
       .then(res => {
         this.setConfigRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    setClubsObj() {
+      let vm = this;
+      vm.loading = true;
+
+      let obj;
+      let isParsed = false;
+      try {
+        obj = JSON.parse(this.clubsObj);
+        isParsed = true;
+      } catch (error) {
+        
+      }
+
+      if (!isParsed) {
+        this.setClubsObjRes = "Inválido parse"
+        return;
+      }
+
+      axios.post(Vue.preUrl + "/setClubsPredict", obj)
+      .then(res => {
+        this.setClubsObjRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

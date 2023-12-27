@@ -14,7 +14,8 @@
       :id="iid"
       class="BaseText_Input"
       @change="resolveChange($event.target.value)"
-      @blur="$emit('blur')">
+      @blur="$emit('blur')"
+      @paste="$emit('paste', $event)">
     <div v-if="disabled" class="BaseText_Lock">
       <i class="ticon-lock BaseText_LockIcon" aria-hidden="true"/>
     </div>
