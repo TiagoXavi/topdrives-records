@@ -2817,6 +2817,7 @@
         "seats": "2",
         "tags": [
             "European New Wave",
+            "Motorsport",
             "Black"
         ],
         "tcs": false,
@@ -100324,7 +100325,7 @@
         "country": "CZ",
         "drive": "FWD",
         "engine": "Front",
-        "fuel": "Petrol",
+        "fuel": "Diesel",
         "hand": 75,
         "mra": null,
         "name": "Skoda Octavia vRS Estate 2.0 TDI CR",
@@ -132255,7 +132256,7 @@
         "clearance": "Mid",
         "country": "FR",
         "drive": "4WD",
-        "engine": "Front",
+        "engine": "Mixed",
         "fuel": "Petrol",
         "hand": 45,
         "mra": null,
