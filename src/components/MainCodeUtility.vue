@@ -23,18 +23,26 @@
             >
               {{ r }}
             </div>
-            <div class="round_boxesYou">
-              <span>You: </span>
-              <span>{{
-                result.resultData.roundData[index].playerData.time.toHHMMSS()
-              }}</span>
-            </div>
-            <div class="round_boxesThey">
-              <span>They: </span>
-              <span>{{
-                result.resultData.roundData[index].opponentData.time.toHHMMSS()
-              }}</span>
-            </div>
+            <template v-if="result.resultData.roundData[index].playerData.distance < 2546 || result.resultData.roundData[index].playerData.distance > 2548.7">
+              <div class="round_boxesYou">
+                <span>You: </span>
+                <span>{{ result.resultData.roundData[index].playerData.time.toHHMMSS() }}</span>
+              </div>
+              <div class="round_boxesThey">
+                <span>They: </span>
+                <span>{{ result.resultData.roundData[index].opponentData.time.toHHMMSS() }}</span>
+              </div>
+            </template>
+            <template v-else>
+              <div class="round_boxesYou">
+                <span>You: </span>
+                <span>{{ result.resultData.roundData[index].playerData.speed.toTestBowl() }}</span>
+              </div>
+              <div class="round_boxesThey">
+                <span>They: </span>
+                <span>{{ result.resultData.roundData[index].opponentData.speed.toTestBowl() }}</span>
+              </div>
+            </template>
           </div>
         </div>
         <div class="round_scores">
@@ -205,6 +213,10 @@ export default {
       var minutes = Math.floor((sec_num - hours * 3600) / 60);
       var seconds = sec_num - hours * 3600 - minutes * 60;
       var milesi = Math.round((numm - parseInt(numm)) * 100);
+      if (this * 10000 - parseInt(this) * 10000 >= 9995) {
+        milesi = 0;
+        seconds += 1;
+      }
 
       if (hours < 10) {
         hours = '0' + hours;
@@ -219,6 +231,9 @@ export default {
         milesi = '0' + milesi;
       }
       return minutes + ':' + seconds + ':' + milesi;
+    };
+    Number.prototype.toTestBowl = function () {
+      return parseInt(this * 2.237)
     };
 
     this.loadClubs();

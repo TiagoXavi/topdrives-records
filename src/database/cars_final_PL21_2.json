@@ -318,7 +318,7 @@
         "clearance": "Low",
         "country": "NZ",
         "topSpeed": 143,
-        "acel": 2.7,
+        "acel": 2.8,
         "hand": 92,
         "drive": "4WD",
         "tyres": "All-surface",
@@ -3461,38 +3461,6 @@
         "year": 2022
     },
     {
-        "abs": true,
-        "acel": 2.7,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "brand": "Zenvo",
-        "class": "S",
-        "clearance": "Low",
-        "country": "DK",
-        "drive": "RWD",
-        "engine": "Mid",
-        "fuel": "Petrol",
-        "hand": 92,
-        "mra": null,
-        "name": "Zenvo TSR-S",
-        "onlyName": "TSR-S",
-        "prize": false,
-        "rid": "Zenvo_TSRS_2018",
-        "rq": 95,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Hypercar",
-            "Red"
-        ],
-        "tcs": true,
-        "topSpeed": 202,
-        "tyres": "Performance",
-        "weight": 1595,
-        "year": 2018
-    },
-    {
         "class": "S",
         "rq": 94,
         "onlyName": "Venom GT Spyder",
@@ -4287,6 +4255,38 @@
         "tyres": "Slick",
         "weight": 650,
         "year": 2011
+    },
+    {
+        "abs": true,
+        "acel": 2.7,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "brand": "Zenvo",
+        "class": "S",
+        "clearance": "Low",
+        "country": "DK",
+        "drive": "RWD",
+        "engine": "Mid",
+        "fuel": "Petrol",
+        "hand": 90,
+        "mra": null,
+        "name": "Zenvo TSR-S",
+        "onlyName": "TSR-S",
+        "prize": false,
+        "rid": "Zenvo_TSRS_2018",
+        "rq": 94,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Hypercar",
+            "Red"
+        ],
+        "tcs": true,
+        "topSpeed": 202,
+        "tyres": "Performance",
+        "weight": 1595,
+        "year": 2018
     },
     {
         "class": "S",
@@ -9402,37 +9402,6 @@
         ]
     },
     {
-        "abs": true,
-        "acel": 2.9,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "brand": "Zenvo",
-        "class": "S",
-        "clearance": "Low",
-        "country": "DK",
-        "drive": "RWD",
-        "engine": "Mid",
-        "fuel": "Petrol",
-        "hand": 90,
-        "mra": null,
-        "name": "Zenvo TS1 GT",
-        "onlyName": "TS1 GT",
-        "prize": false,
-        "rid": "Zenvo_TS1_GT_2016",
-        "rq": 87,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Blue"
-        ],
-        "tcs": true,
-        "topSpeed": 233,
-        "tyres": "Performance",
-        "weight": 1680,
-        "year": 2016
-    },
-    {
         "class": "S",
         "rq": 86,
         "onlyName": "Apollo",
@@ -9953,6 +9922,37 @@
         "fuel": "Petrol",
         "seats": "1",
         "engine": "Front"
+    },
+    {
+        "abs": true,
+        "acel": 2.9,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "brand": "Zenvo",
+        "class": "S",
+        "clearance": "Low",
+        "country": "DK",
+        "drive": "RWD",
+        "engine": "Mid",
+        "fuel": "Petrol",
+        "hand": 89,
+        "mra": null,
+        "name": "Zenvo TS1 GT",
+        "onlyName": "TS1 GT",
+        "prize": false,
+        "rid": "Zenvo_TS1_GT_2016",
+        "rq": 86,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Blue"
+        ],
+        "tcs": true,
+        "topSpeed": 233,
+        "tyres": "Performance",
+        "weight": 1680,
+        "year": 2016
     },
     {
         "class": "S",
@@ -11989,40 +11989,6 @@
     },
     {
         "class": "S",
-        "rq": 83,
-        "onlyName": "Mustang Cobra Jet 1400",
-        "brand": "Ford",
-        "year": 2020,
-        "tdid": "4304",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Low",
-        "country": "US",
-        "topSpeed": 180,
-        "acel": 1.5,
-        "hand": 66,
-        "drive": "RWD",
-        "tyres": "Slick",
-        "mra": null,
-        "weight": 2270,
-        "name": "Ford Mustang Cobra Jet 1400",
-        "rid": "Ford_Mustang_Cobra_Jet_1400_2020",
-        "prize": true,
-        "tags": [
-            "Pacific Coast Highway",
-            "Motorsport",
-            "Electric Excellence",
-            "Silver or Grey"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Electric",
-        "seats": "1",
-        "engine": "Front"
-    },
-    {
-        "class": "S",
         "rq": 82,
         "onlyName": "Fighter T",
         "brand": "Bristol",
@@ -13135,40 +13101,6 @@
     },
     {
         "class": "S",
-        "rq": 82,
-        "onlyName": "Veloster N ETCR",
-        "brand": "Hyundai",
-        "year": 2020,
-        "tdid": "4452",
-        "abs": false,
-        "tcs": true,
-        "clearance": "Low",
-        "country": "KR",
-        "topSpeed": 168,
-        "acel": 3.1,
-        "hand": 89,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": null,
-        "weight": 1800,
-        "name": "Hyundai Veloster N ETCR",
-        "rid": "Hyundai_Veloster_N_ETCR_2020",
-        "prize": false,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Electric",
-        "seats": "1",
-        "engine": "Front",
-        "tags": [
-            "Asia-Pacific Grand Prix",
-            "Blue",
-            "Motorsport",
-            "Photo Finish"
-        ]
-    },
-    {
-        "class": "S",
         "rq": 81,
         "onlyName": "RS200 Group B Rally Car",
         "brand": "Ford",
@@ -14100,7 +14032,7 @@
         "drive": "4WD",
         "engine": "Front",
         "fuel": "Petrol",
-        "hand": 88,
+        "hand": 90,
         "mra": null,
         "name": "Citroen DS3 WRC",
         "onlyName": "DS3 WRC",
@@ -14342,6 +14274,74 @@
         "tyres": "Off-road",
         "weight": 1230,
         "year": 1999
+    },
+    {
+        "class": "S",
+        "rq": 80,
+        "onlyName": "Mustang Cobra Jet 1400",
+        "brand": "Ford",
+        "year": 2020,
+        "tdid": "4304",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Low",
+        "country": "US",
+        "topSpeed": 180,
+        "acel": 1.5,
+        "hand": 61,
+        "drive": "RWD",
+        "tyres": "Slick",
+        "mra": null,
+        "weight": 2270,
+        "name": "Ford Mustang Cobra Jet 1400",
+        "rid": "Ford_Mustang_Cobra_Jet_1400_2020",
+        "prize": true,
+        "tags": [
+            "Pacific Coast Highway",
+            "Motorsport",
+            "Electric Excellence",
+            "Silver or Grey"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Electric",
+        "seats": "1",
+        "engine": "Front"
+    },
+    {
+        "class": "S",
+        "rq": 80,
+        "onlyName": "Veloster N ETCR",
+        "brand": "Hyundai",
+        "year": 2020,
+        "tdid": "4452",
+        "abs": false,
+        "tcs": true,
+        "clearance": "Low",
+        "country": "KR",
+        "topSpeed": 168,
+        "acel": 3.1,
+        "hand": 89,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 79.49,
+        "weight": 1800,
+        "name": "Hyundai Veloster N ETCR",
+        "rid": "Hyundai_Veloster_N_ETCR_2020",
+        "prize": false,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Electric",
+        "seats": "1",
+        "engine": "Front",
+        "tags": [
+            "Asia-Pacific Grand Prix",
+            "Blue",
+            "Motorsport",
+            "Photo Finish"
+        ]
     },
     {
         "class": "S",
@@ -18209,38 +18209,6 @@
             "Black",
             "Cutting Edge"
         ]
-    },
-    {
-        "class": "A",
-        "rq": 78,
-        "onlyName": "DS Numéro 9",
-        "brand": "Citroen",
-        "country": "FR",
-        "year": 2012,
-        "tdid": "1132",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "topSpeed": 152,
-        "acel": 5.1,
-        "hand": 78,
-        "drive": "4WD",
-        "tyres": "Standard",
-        "mra": null,
-        "weight": 1500,
-        "name": "Citroen DS Numéro 9",
-        "rid": "DS_DS_Numero_9_2012",
-        "tags": [
-            "Concept",
-            "French Renaissance",
-            "Purple"
-        ],
-        "bodyTypes": [
-            "Estate"
-        ],
-        "fuel": "Hybrid",
-        "seats": "5",
-        "engine": "Mixed"
     },
     {
         "class": "A",
@@ -33864,6 +33832,38 @@
     {
         "class": "A",
         "rq": 65,
+        "onlyName": "DS Numéro 9",
+        "brand": "Citroen",
+        "country": "FR",
+        "year": 2012,
+        "tdid": "1132",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "topSpeed": 152,
+        "acel": 5.1,
+        "hand": 79,
+        "drive": "4WD",
+        "tyres": "Performance",
+        "mra": null,
+        "weight": 1500,
+        "name": "Citroen DS Numéro 9",
+        "rid": "DS_DS_Numero_9_2012",
+        "tags": [
+            "Concept",
+            "French Renaissance",
+            "Purple"
+        ],
+        "bodyTypes": [
+            "Estate"
+        ],
+        "fuel": "Hybrid",
+        "seats": "5",
+        "engine": "Mixed"
+    },
+    {
+        "class": "A",
+        "rq": 65,
         "onlyName": "Challenger SRT-10 Concept",
         "brand": "Dodge",
         "country": "US",
@@ -40380,38 +40380,6 @@
         "year": 2019
     },
     {
-        "abs": false,
-        "acel": 5.7,
-        "bodyTypes": [
-            "Hatchback"
-        ],
-        "brand": "Citroen",
-        "class": "B",
-        "clearance": "Mid",
-        "country": "FR",
-        "drive": "FWD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 82,
-        "mra": null,
-        "name": "Citroen DS3 R3T",
-        "onlyName": "DS3 R3T",
-        "prize": false,
-        "rid": "Citroen_DS3_R3T_2010",
-        "rq": 62,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Motorsport",
-            "White"
-        ],
-        "tcs": false,
-        "topSpeed": 124,
-        "tyres": "Off-road",
-        "weight": 1230,
-        "year": 2010
-    },
-    {
         "class": "B",
         "rq": 61,
         "onlyName": "Explorer",
@@ -43360,37 +43328,6 @@
         "year": 2004
     },
     {
-        "abs": true,
-        "acel": 5.5,
-        "bodyTypes": [
-            "Estate"
-        ],
-        "brand": "Volvo",
-        "class": "B",
-        "clearance": "Mid",
-        "country": "SE",
-        "drive": "4WD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 78,
-        "mra": null,
-        "name": "Volvo V60 T6 AWD",
-        "onlyName": "V60 T6 AWD",
-        "prize": false,
-        "rid": "Volvo_V60_T6_AWD_2015",
-        "rq": 60,
-        "seats": "5",
-        "tags": [
-            "European New Wave",
-            "Silver or Grey"
-        ],
-        "tcs": true,
-        "topSpeed": 143,
-        "tyres": "Performance",
-        "weight": 1741,
-        "year": 2015
-    },
-    {
         "class": "B",
         "rq": 59,
         "onlyName": "5.0 V8",
@@ -44652,6 +44589,37 @@
         "fuel": "Petrol",
         "seats": "4",
         "engine": "Front"
+    },
+    {
+        "abs": true,
+        "acel": 5.5,
+        "bodyTypes": [
+            "Estate"
+        ],
+        "brand": "Volvo",
+        "class": "B",
+        "clearance": "Mid",
+        "country": "SE",
+        "drive": "4WD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 77,
+        "mra": null,
+        "name": "Volvo V60 T6 AWD",
+        "onlyName": "V60 T6 AWD",
+        "prize": false,
+        "rid": "Volvo_V60_T6_AWD_2015",
+        "rq": 59,
+        "seats": "5",
+        "tags": [
+            "European New Wave",
+            "Silver or Grey"
+        ],
+        "tcs": true,
+        "topSpeed": 143,
+        "tyres": "Performance",
+        "weight": 1741,
+        "year": 2015
     },
     {
         "class": "B",
@@ -54291,6 +54259,38 @@
         ]
     },
     {
+        "abs": false,
+        "acel": 5.7,
+        "bodyTypes": [
+            "Hatchback"
+        ],
+        "brand": "Citroen",
+        "class": "B",
+        "clearance": "Low",
+        "country": "FR",
+        "drive": "FWD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 82,
+        "mra": null,
+        "name": "Citroen DS3 R3T",
+        "onlyName": "DS3 R3T",
+        "prize": false,
+        "rid": "Citroen_DS3_R3T_2010",
+        "rq": 51,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Motorsport",
+            "White"
+        ],
+        "tcs": false,
+        "topSpeed": 124,
+        "tyres": "Off-road",
+        "weight": 1230,
+        "year": 2010
+    },
+    {
         "class": "B",
         "rq": 51,
         "onlyName": "QX50",
@@ -60328,7 +60328,7 @@
             "Blue"
         ],
         "tcs": true,
-        "topSpeed": 152,
+        "topSpeed": 140,
         "tyres": "Performance",
         "weight": 1718,
         "year": 1998
@@ -71373,38 +71373,6 @@
         "year": 2012
     },
     {
-        "abs": false,
-        "acel": 7,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "brand": "Skoda",
-        "class": "C",
-        "clearance": "Mid",
-        "country": "CZ",
-        "drive": "RWD",
-        "engine": "Rear",
-        "fuel": "Petrol",
-        "hand": 83,
-        "mra": null,
-        "name": "Skoda 200 RS",
-        "onlyName": "200 RS",
-        "prize": false,
-        "rid": "Skoda_200_RS_1974",
-        "rq": 44,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Motorsport",
-            "Red"
-        ],
-        "tcs": false,
-        "topSpeed": 149,
-        "tyres": "Slick",
-        "weight": 805,
-        "year": 1974
-    },
-    {
         "class": "C",
         "rq": 43,
         "onlyName": "Enclave",
@@ -72366,6 +72334,38 @@
             "Asia-Pacific Grand Prix",
             "Blue"
         ]
+    },
+    {
+        "abs": false,
+        "acel": 7,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "brand": "Skoda",
+        "class": "C",
+        "clearance": "Mid",
+        "country": "CZ",
+        "drive": "RWD",
+        "engine": "Rear",
+        "fuel": "Petrol",
+        "hand": 81,
+        "mra": null,
+        "name": "Skoda 200 RS",
+        "onlyName": "200 RS",
+        "prize": false,
+        "rid": "Skoda_200_RS_1974",
+        "rq": 43,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Motorsport",
+            "Red"
+        ],
+        "tcs": false,
+        "topSpeed": 149,
+        "tyres": "Performance",
+        "weight": 805,
+        "year": 1974
     },
     {
         "abs": true,
@@ -84160,41 +84160,6 @@
     },
     {
         "class": "D",
-        "rq": 38,
-        "onlyName": "Rebel Machine",
-        "brand": "AMC",
-        "country": "US",
-        "year": 1970,
-        "tdid": "2945",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Mid",
-        "topSpeed": 127,
-        "acel": 6.4,
-        "hand": 64,
-        "drive": "RWD",
-        "tyres": "Standard",
-        "mra": null,
-        "weight": 1656,
-        "name": "AMC Rebel Machine",
-        "rid": "AMC_Rebel_Machine_1970",
-        "tags": [
-            "Muscle Car",
-            "American Frontier",
-            "In the Shadows",
-            "Loves Me, Loves Me Not",
-            "White"
-        ],
-        "prize": true,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front"
-    },
-    {
-        "class": "D",
         "rq": 37,
         "onlyName": "SLX",
         "brand": "Acura",
@@ -89249,6 +89214,7 @@
             "American Dream",
             "Famous Tracks",
             "Rest of the World",
+            "Muscle Car",
             "Blue"
         ],
         "bodyTypes": [
@@ -92400,6 +92366,41 @@
     {
         "class": "D",
         "rq": 33,
+        "onlyName": "Rebel Machine",
+        "brand": "AMC",
+        "country": "US",
+        "year": 1970,
+        "tdid": "2945",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Mid",
+        "topSpeed": 127,
+        "acel": 6.4,
+        "hand": 60,
+        "drive": "RWD",
+        "tyres": "Standard",
+        "mra": null,
+        "weight": 1656,
+        "name": "AMC Rebel Machine",
+        "rid": "AMC_Rebel_Machine_1970",
+        "tags": [
+            "Muscle Car",
+            "American Frontier",
+            "In the Shadows",
+            "Loves Me, Loves Me Not",
+            "White"
+        ],
+        "prize": true,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front"
+    },
+    {
+        "class": "D",
+        "rq": 33,
         "onlyName": "Valiant Charger R/T Six Pack (VH)",
         "brand": "Chrysler",
         "year": 1971,
@@ -93237,7 +93238,6 @@
         "abs": true,
         "acel": 8.1,
         "bodyTypes": [
-            "SUV",
             "Convertible"
         ],
         "brand": "Skoda",
@@ -100317,7 +100317,7 @@
         "abs": true,
         "acel": 8.1,
         "bodyTypes": [
-            "Estate"
+            "Hatchback"
         ],
         "brand": "Skoda",
         "class": "D",
@@ -103745,7 +103745,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Red"
+            "Black"
         ],
         "tcs": false,
         "topSpeed": 126,
@@ -105983,7 +105983,7 @@
         "abs": true,
         "acel": 9.5,
         "bodyTypes": [
-            "Saloon"
+            "Hatchback"
         ],
         "brand": "Skoda",
         "class": "E",
@@ -107568,7 +107568,7 @@
         "abs": true,
         "acel": 8.4,
         "bodyTypes": [
-            "Roadster"
+            "Convertible"
         ],
         "brand": "Skoda",
         "class": "E",
@@ -109497,7 +109497,7 @@
         "country": "CZ",
         "drive": "FWD",
         "engine": "Front",
-        "fuel": "Diesel",
+        "fuel": "Petrol",
         "hand": 71,
         "mra": 49.27,
         "name": "Skoda Scala 1.6 TDI",
@@ -132407,7 +132407,7 @@
         "abs": false,
         "acel": 60.1,
         "bodyTypes": [
-            "Convertible"
+            "Saloon"
         ],
         "brand": "Skoda",
         "class": "F",

@@ -100,7 +100,7 @@
           placeholder="array of rids" />
         <BaseText
           v-model="pastVersion"
-          type="integer"
+          type="normal"
           label="Past Version"
           class="Space_Bottom"
           placeholder="" />
@@ -252,9 +252,9 @@
       </div>
     </div>
     <button
-      style="margin-top: 100px;"
+      style="margin-top: 100px; margin-bottom: 50px;"
       class="D_Button D_ButtonDark"
-      @click="$router.push({ name: 'MainSwagger' })">Go to swagger</button>
+      @click="$router.push({ name: 'MainCodeUtility' })">Go to code utils</button>
     <button
       style="margin-top: 20px; margin-bottom: 50px;"
       class="D_Button D_ButtonDark"

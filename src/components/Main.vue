@@ -8188,56 +8188,18 @@ export default {
     },
     lookForChangedCars(data) {
       let changed21 = [
-        "Rimac_E-Runner_Concept_One_2016",
-        "Ginetta_G57_P2_2016",
-        "Koenigsegg_Jesko_Attack_2021",
-        "Alfa_Romeo_177_1978",
-        "McLaren_720S_GT3_2019",
-        "Alfa_Romeo_Tipo_33_TT12_1974",
-        "McLaren_12C_GT3_2012",
-        "Mitsubishi_Lancer_Evolution_X_MR_FQ440_2015",
-        "Mitsubishi_Lancer_Evolution_X_FQ400_2011",
-        "Saleen_S7_Twin_Turbo_2005",
-        "Hyundai_i20_WRC_2020",
-        "Hyundai_RN22e_2022",
-        "Hyundai_i20_WRC_2014",
-        "Hyundai_Accent_WRC_2002",
-        "Hyundai_i20_R5_2019",
+        "Hyundai_Genesis_PM580_2010",
+        "Zenvo_TSRS_2018",
+        "Zenvo_TS1_GT_2016",
+        "Ford_Mustang_Cobra_Jet_1400_2020",
         "Hyundai_Veloster_N_ETCR_2020",
+        "Citroen_DS3_WRC_2011",
         "DS_DS_Numero_9_2012",
-        "Mitsubishi_Lancer_Evolution_X_Final_Edition_2015",
-        "Mitsubishi_Lancer_Evolution_X_GSR_FQ300_2015",
-        "Mitsubishi_Carisma_GT_Evolution_V_Group_A_1998",
-        "Mitsubishi_Lancer_Evolution_VII_FQ300_2001",
-        "Mazda_323_4WD_Turbo_Group_A_1987",
-        "Mitsubishi_Lancer_Evo_IV_1996",
-        "Mazda_3_25_Turbo_AWD_2023",
-        "Hyundai_N_Vision_74_2022",
-        "Volvo_XC60_T8_2018",
-        "Volvo_XC90_T8_Twin_Engine_2016",
-        "Mazda_CX90_33_Turbo_S_AWD_2024",
-        "Mazda_323_GT_Turbo_4WD_1985",
-        "Mazda_MXCrossport_2005",
-        "Volvo_XC90_T5_AWD_2018",
-        "Mitsubishi_GTO_1992",
-        "Volvo_V90_T8_AWD_2018",
-        "Hyundai_Sonata_20T_2013",
-        "Giocattolo_Group_B_1986",
-        "Mitsubishi_Lancer_Sportback_Ralliart_2010",
-        "Mazda_3_MPS_2013",
-        "Mazda_3_MPS_2007",
-        "Mitsubishi_eEvolution_2017",
-        "Mitsubishi_eYi_2019",
-        "Lamborghini_Miura_Roadster_1968",
-        "Hyundai_Tucson_24_GDI_AWD_2020",
-        "Volvo_850_T-5R_1995",
-        "Volvo_S90_T5_2016",
-        "Volkswagen_Golf_GTD_2009",
-        "Hyundai_Prophecy_2020",
-        "Mitsubishi_Galant_AMG_1989",
-        "Hyundai_Pony_Coupe_1974",
-        "Mitsubishi_FTOEV_1999",
-        "Volvo_P1800_1961"
+        "Citroen_DS3_R3T_2010",
+        "Volvo_V60_T6_AWD_2015",
+        "Volvo_V70_R_AWD_1998",
+        "Skoda_200_RS_1974",
+        "AMC_Rebel_Machine_1970"
       ];
 
       data.rounds.map((round, iround) => {
@@ -8536,7 +8498,7 @@ export default {
         this.clubAskDeleteDay(date);
         return;
       }
-      
+
       if (!date) date = this.clubServerDateISO;
       this.clubDaySelected = date;
 
