@@ -41,7 +41,13 @@ export default {
 
 
     
-    this.cars_final.sort((a, b) => b.rq - a.rq)    
+    this.cars_final.sort((a, b) => {
+      if (a.rq === b.rq) {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.rq - a.rq;
+      }
+    })
     let _this = this.$refs.validateFilter.$data;
 
     this.cars_final.map(x => {
@@ -107,8 +113,10 @@ export default {
     })
 
 
+
+    console.log(this.cars_final);
     debugger;
-    navigator.clipboard.writeText(JSON.stringify(this.cars_final));
+    // navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
   computed: {},
   methods: {},

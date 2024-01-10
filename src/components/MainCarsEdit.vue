@@ -370,6 +370,7 @@ export default {
           "Hypercar",
           "Immortalised in Carbon",
           "In the Shadows",
+          "In the Shadows 2",
           "Innovative",
           "Interstellar",
           "Italian Renaissance",
@@ -1024,7 +1025,7 @@ export default {
         this.all_cars.map(x => {
           if (c === x.rid) {
             // action
-            x.tags.push("Nightmare Fuel")
+            x.tags.push("XXXXXXX")
   
           }
         })

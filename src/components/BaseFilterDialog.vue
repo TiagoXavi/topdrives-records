@@ -715,6 +715,7 @@ export default {
           "Hypercar",
           "Immortalised in Carbon",
           "In the Shadows",
+          "In the Shadows 2",
           "Innovative",
           "Interstellar",
           "Italian Renaissance",
@@ -1258,6 +1259,8 @@ export default {
         result.sort(function(a, b) {
           if (a.rq === b.rq) {
             return a.name.localeCompare(b.name);
+          } else {
+            return b.rq - a.rq;
           }
         });
       }

@@ -174,6 +174,11 @@ export default {
   --tag-s: 55%;
   --tag-l: 38%;
 }
+.BaseGameTag_In_the_Shadows_2 {
+  --tag-h: 187;
+  --tag-s: 55%;
+  --tag-l: 38%;
+}
 .BaseGameTag_Innovative {
   --tag-h: 38;
   --tag-s: 70%;
