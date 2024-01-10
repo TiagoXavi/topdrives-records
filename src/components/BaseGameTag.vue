@@ -339,6 +339,11 @@ export default {
   --tag-s: 53%;
   --tag-l: 52%;
 }
+.BaseGameTag_Track {
+  --tag-h: 0;
+  --tag-s: 70%;
+  --tag-l: 74%;
+}
 .BaseGameTag_Two_Tone {
   --tag-h: 321;
   --tag-s: 55%;

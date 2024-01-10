@@ -748,6 +748,7 @@ export default {
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
+          "Track",
           "Two Tone",
           "Ultra Expensive",
           "Wild Ride",
@@ -1664,8 +1665,7 @@ export default {
       if (array.length === 0) return true;
       return !!array.find(x => {
         if (x === "Road") {
-          if (rid === "Brabham_BT62_Ultimate_Track_2018") return true;
-          return !valuesArray.includes("Motorsport") && !valuesArray.includes("Concept");
+          return !valuesArray.includes("Motorsport") && !valuesArray.includes("Concept") && !valuesArray.includes("Track");
         }
         return valuesArray.includes(x);
       });

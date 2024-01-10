@@ -1218,6 +1218,7 @@
             "Ultra Expensive",
             "Hypercar",
             "Immortalised in Carbon",
+            "Track",
             "Black"
         ]
     },
@@ -1718,6 +1719,7 @@
             "Italian Renaissance",
             "Ultra Expensive",
             "The Great Outdoors",
+            "Track",
             "Brown"
         ],
         "prize": true,
@@ -1750,6 +1752,7 @@
         "rid": "Porsche_911_GT2_RS_Clubsport_25_2021",
         "tags": [
             "World Expo",
+            "Motorsport",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -1815,6 +1818,7 @@
         "seats": "2",
         "tags": [
             "European New Wave",
+            "Motorsport",
             "Orange"
         ],
         "tcs": true,
@@ -1886,7 +1890,7 @@
         "engine": "Mid",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Motorsport",
+            "Track",
             "Orange"
         ]
     },
@@ -2182,7 +2186,7 @@
             "Italian Renaissance",
             "Riders on the Storm",
             "Silver or Grey",
-            "Motorsport",
+            "Track",
             "The Unicorns"
         ],
         "bodyTypes": [
@@ -2722,7 +2726,7 @@
             "Drivers Choice",
             "Ultra Expensive",
             "Originals",
-            "Motorsport",
+            "Track",
             "Red"
         ],
         "prize": true,
@@ -3025,6 +3029,7 @@
             "Two Tone",
             "Wild Ride",
             "Red",
+            "Track",
             "Chariots of the Gods"
         ],
         "prize": true,
@@ -3421,7 +3426,6 @@
         "rid": "Scuderia_Cameron_Glickenhaus_SCG003S_2018",
         "tags": [
             "American Dream",
-            "Motorsport",
             "Silver or Grey"
         ],
         "prize": true,
@@ -4974,7 +4978,6 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Yellow",
-            "Motorsport",
             "Concept"
         ]
     },
@@ -13690,7 +13693,6 @@
         "name": "Jaguar XJR-15",
         "rid": "Jaguar_XJR-15_1990",
         "tags": [
-            "Motorsport",
             "Originals",
             "Blue"
         ],
@@ -14017,7 +14019,6 @@
         "name": "Porsche 911 GT1 Strassenversion",
         "rid": "Porsche_911_GT1_road_car_1997",
         "tags": [
-            "Motorsport",
             "Year of the Ox",
             "Originals",
             "Silver or Grey",
@@ -21224,7 +21225,6 @@
             "Enter the Black Forest",
             "Christmas Collection 22",
             "As Seen on YT",
-            "Motorsport",
             "Green"
         ]
     },
@@ -26397,7 +26397,6 @@
         "name": "Mercedes-Benz AMG CLK DTM",
         "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
         "tags": [
-            "Motorsport",
             "Originals",
             "5th Anniversary",
             "Silver or Grey"
@@ -38579,7 +38578,6 @@
         "tags": [
             "French Renaissance",
             "Year of the Rat",
-            "Motorsport",
             "Silver or Grey"
         ],
         "bodyTypes": [
@@ -42501,9 +42499,9 @@
         "name": "Dodge Avenger Rally Sedan",
         "rid": "Dodge_Avenger_Rally_Sedan_2011",
         "tags": [
-            "Motorsport",
             "American Frontier",
             "Year of the Rabbit",
+            "Concept",
             "Blue"
         ],
         "prize": true,
