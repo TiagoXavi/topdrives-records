@@ -115,7 +115,7 @@ export default {
     finCarFinish(listOfRids) {
       listOfRids = listOfRids.map(x => x.rid);
       this.list = [];
-      this.custom_tags["20.1 new photos"].map(rid => {
+      this.custom_tags["21.1 new photos"].map(rid => {
 
         let car = this.all_cars_obj[rid];
         this.list.push({
