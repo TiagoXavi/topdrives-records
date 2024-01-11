@@ -8,6 +8,7 @@ MainExtr.vue
 db.json
 rude_all.json
 *.ini
+hutch_*
 
 
 # local env files
