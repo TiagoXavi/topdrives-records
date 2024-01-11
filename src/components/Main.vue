@@ -1505,6 +1505,7 @@
       :highlightsUsers="highlightsUsers"
       :all_cars="all_cars"
       :sortEnabled="true"
+      :enableCounters="true"
       importFilterName="CLASSIC_FILTER_IMPORT"
       @addCar="addCar($event)"
     />

@@ -86,6 +86,7 @@
                 activeClass="Main_ClassChipActive"
                 :style="`--classC: ${searchFilters.classesColors[ix]}`"
                 v-model="searchFilters.classesModel"
+                :counter="counters[`classes_${item}`]"
                 :value="item" />
             </template>
           </div>
@@ -119,6 +120,7 @@
                   v-model="searchFilters.tyresModel"
                   class="BaseChip_MinWidth"
                   :label="$t(`c_${item.toLowerCase()}2`)"
+                  :counter="counters[`tyres_${item}`]"
                   :value="item" />
               </template>
 
@@ -128,6 +130,7 @@
                 <BaseChip
                   v-model="searchFilters.drivesModel"
                   class="BaseChip_MinWidth"
+                  :counter="counters[`drives_${item}`]"
                   :value="item" />
               </template>
 
@@ -138,6 +141,7 @@
                   v-model="searchFilters.clearancesModel"
                   class="BaseChip_MinWidth"
                   :label="$t(`c_${item.toLowerCase()}`)"
+                  :counter="counters[`clearances_${item}`]"
                   :value="item" />
               </template>
 
@@ -198,6 +202,7 @@
               <BaseChip
                 v-model="searchFilters.countrysModel"
                 class="BaseChip_ChipFlag"
+                :counter="counters[`countrys_${item}`]"
                 :value="item" >
                 <BaseFlag :flag="item" />
               </BaseChip>
@@ -208,6 +213,7 @@
               <BaseChip
                 v-model="searchFilters.prizesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :counter="counters[`${item}`]"
                 :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
@@ -218,6 +224,7 @@
                 v-model="searchFilters.bodyTypesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :label="$t(`c_${item.toLowerCase()}`)"
+                :counter="counters[`bodyTypes_${item}`]"
                 :value="item" />
             </template>
           </div>
@@ -227,6 +234,7 @@
                 v-model="searchFilters.fuelModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :label="$t(`c_${item.toLowerCase()}`)"
+                :counter="counters[`fuel_${item}`]"
                 :value="item" />
             </template>
           </div>
@@ -237,29 +245,76 @@
                 v-model="searchFilters.engineModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :label="$t(`c_${item.toLowerCase()}Engine`)"
+                :counter="counters[`engine_${item}`]"
                 :value="item" />
             </template>
           </div>
+          <template v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" >
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags_challenge">
+                <BaseChip
+                  v-model="tagsModel"
+                  v-if="!$store.state.oldTags.includes(item)"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :counter="counters[`tags_${item}`]"
+                  :value="item" />
+              </template>
+              <template v-if="$store.state.showOldTags">
+                <template v-for="(item, ix) in searchFilters.tags_challenge">
+                  <BaseChip
+                    v-model="tagsModel"
+                    v-if="$store.state.oldTags.includes(item)"
+                    :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                    :counter="counters[`tags_${item}`]"
+                    :value="item" />
+                </template>
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags_expansion">
+                <BaseChip
+                  v-model="tagsModel"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :counter="counters[`tags_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags_permanent">
+                <BaseChip
+                  v-model="tagsModel"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :counter="counters[`tags_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags_color">
+                <BaseChip
+                  v-model="tagsModel"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :counter="counters[`tags_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
+          </template>
           <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" class="Main_FilterChipsFlex">
-            <template v-for="(item, ix) in searchFilters.tags">
-              <BaseChip
-                v-model="tagsModel"
-                v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
-                :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '')}`"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                :value="item" />
-            </template>
-            <button class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multi") }}</button>
-          </div>
-          <div v-if="multi" class="Main_FilterChipsFlex">
-            <template v-for="numb in multiPages">
-              <BaseChip
-                v-model="multiPage"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                :value="numb">
-                <span>{{ numb }}</span>
-                <div v-if="searchFilters[getTagsModelKey(numb)].length > 0" class="D_ButtonNote">{{ searchFilters[getTagsModelKey(numb)].length }}</div>
-              </BaseChip>
+            <button v-if="!multi" class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multi") }}</button>
+            <template v-else>
+              <template v-for="numb in multiPages">
+                <BaseChip
+                  v-model="multiPage"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :value="numb">
+                  <span>{{ numb }}</span>
+                  <div v-if="searchFilters[getTagsModelKey(numb)].length > 0" class="D_ButtonNote">{{ searchFilters[getTagsModelKey(numb)].length }}</div>
+                </BaseChip>
+              </template>
             </template>
           </div>
           <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.brandsModel || raceFilterResolved.brandsModel.length === 0)" class="Main_FilterChipsFlex">
@@ -267,6 +322,7 @@
               <BaseChip
                 v-model="searchFilters.brandsModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :counter="counters[`brands_${item}`]"
                 :value="item" />
             </template>
           </div>
@@ -428,7 +484,7 @@
         </template>
         <div v-if="!showAllFilter">
           <button
-            v-if="searchResult.length > searchMax"
+            v-if="searchResult && searchResult.length > searchMax"
             class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
             @click="searchMax = searchMax + 41">{{ $t("m_showMore") }}</button>
         </div>
@@ -542,6 +598,10 @@ export default {
       type: Boolean,
       default: true
     },
+    enableCounters: {
+      type: Boolean,
+      default: false
+    },
     requirementFilter: {
       type: Boolean,
       default: false
@@ -581,6 +641,7 @@ export default {
       searchInput: '',
       isFiltering: false,
       debounceFilter: null,
+      debounceCounter: null,
       searchMax: 20,
       showAllFilter: false,
       searchResult: [],
@@ -602,6 +663,19 @@ export default {
       showMoreSort: false,
       factor: false,
       statsView: false,
+      counters: {},
+      countersDefault: null,
+      countersBetween: {
+        rq: 0,
+        year: 0,
+        topSpeed: 0,
+        acel: 0,
+        hand: 0,
+        mra: 0,
+        weight: 0,
+        seats: 0,
+      },
+      counterKeys: ["classes", "tyres", "drives", "clearances", "countrys", "prizes", "bodyTypes", "fuel", "engine", "tags", "brands"],
       showFilterInstance: false,
       instance: 1,
       filterInstances: [1, 2],
@@ -687,76 +761,81 @@ export default {
         engineModel: [],
         typesModel: [],
         approveModel: false,
-        tags: [
+        tags_challenge: [
           "5th Anniversary",
-          "Amalfi Coast Cruising",
-          "American Dream",
-          "American Frontier",
           "Around the World",
           "As Seen on YT",
-          "Asia-Pacific Grand Prix",
           "Call of the Wild",
           "Chariots of the Gods",
           "Christmas Collection",
           "Christmas Collection 22",
-          "Concept",
           "Cutting Edge",
-          "Drivers Choice",
-          "Eco Friendly",
           "Electric Excellence",
-          "Enter the Black Forest",
-          "European Revolution",
-          "European New Wave",
           "Famous Tracks",
-          "French Renaissance",
-          "German Renaissance",
-          "Great Exhibition",
-          "Hot Hatch",
-          "Hypercar",
           "Immortalised in Carbon",
-          "In the Shadows",
-          "In the Shadows 2",
-          "Innovative",
+          "In the Shadows 24",
           "Interstellar",
-          "Italian Renaissance",
-          "Japan Pro Tour",
-          "Learn the Savannah Way",
-          "Loch to Loch",
           "Loves Me, Loves Me Not",
-          "Motorsport",
-          "Muscle Car",
           "New Beginnings",
           "Nightmare Fuel",
           "Old Guard",
-          "Originals",
-          "Pacific Coast Highway",
           "Photo Finish",
           "Racing Royalty",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
-          "Road",
           "Roads Most Travelled",
           "Silver Screen",
-          "Sleeper",
-          "Street Racer",
-          "Style Icon",
           "Sub-Zero",
           "Summer Games",
           "Supercar",
-          "Team Favourite",
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
-          "Track",
           "Two Tone",
-          "Ultra Expensive",
-          "Wild Ride",
-          "World Expo",
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
           "Year of the Tiger",
+        ],
+        tags_expansion: [
+          "European New Wave",
+          "Asia-Pacific Grand Prix",
+          "Pacific Coast Highway",
+          "Learn the Savannah Way",
+          "Loch to Loch",
+          "Amalfi Coast Cruising",
+          "Enter the Black Forest",
+          "World Expo",
+          "Japan Pro Tour",
+          "American Frontier",
+          "European Revolution",
+          "Great Exhibition",
+          "Italian Renaissance",
+          "German Renaissance",
+          "French Renaissance",
+          "American Dream",
+          "Originals"
+        ],
+        tags_permanent: [
+          "Concept",
+          "Drivers Choice",
+          "Eco Friendly",
+          "Hot Hatch",
+          "Hypercar",
+          "Innovative",
+          "Motorsport",
+          "Muscle Car",
+          "Road",
+          "Sleeper",
+          "Street Racer",
+          "Style Icon",
+          "Team Favourite",
+          "Track",
+          "Ultra Expensive",
+          "Wild Ride",
+        ],
+        tags_color: [
           "Beige",
           "Black",
           "Blue",
@@ -767,11 +846,12 @@ export default {
           "Pink",
           "Purple",
           "Red",
-          "Silver or Grey",
+          "Silver/Grey",
           "Turquoise",
           "White",
           "Yellow"
         ],
+        tags: [],
         tagsModel: [],
         tags2Model: [],
         tags3Model: [],
@@ -890,6 +970,11 @@ export default {
       }
     }
   },
+  created() {
+    // if (this.enableCounters) {
+    //   this.$watch('searchFilters', this.calcCounters, { immediate: false, deep: true });
+    // }
+  },
   beforeMount() {
     this.clearFilter();
     id++;
@@ -900,11 +985,24 @@ export default {
       statsView = JSON.parse(statsView);
       this.statsView = statsView;
     }
+
+    this.searchFilters.tags = [];
+    this.searchFilters.tags_challenge.map(x => this.searchFilters.tags.push(x));
+    this.searchFilters.tags_expansion.map(x => this.searchFilters.tags.push(x));
+    this.searchFilters.tags_permanent.map(x => this.searchFilters.tags.push(x));
+    this.searchFilters.tags_color.map(x => this.searchFilters.tags.push(x));
+    
   },
   mounted() {
     let vm = this;
-    this.debounceFilter = Vue.debounce(this.changeFilter, 500);
+    this.debounceFilter = Vue.debounce(this.changeFilterViaText, 500);
+    this.debounceCounter = Vue.debounce(this.calcCounters, 300);
     this.user = this.$store.state.user;
+
+    if (this.enableCounters) {
+      this.createCounters();
+      this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+    }
 
     if (this.libraryApprove) {
       this.searchFilters["approveModel"] = true;
@@ -1071,6 +1169,9 @@ export default {
     openFilter() {
       this.isFiltering = !this.isFiltering;
       document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
+      if (this.enableCounters) {
+        this.calcCounters();
+      }
     },
     applyFilter() {
       if (this.filterOnly) {
@@ -1107,7 +1208,10 @@ export default {
         }, 99);
       }
     },
-    changeFilter() {
+    changeFilterViaText() {
+      this.changeFilter(true);
+    },
+    changeFilter(viaText) {
       if (this.type === 'library') {
         this.changeFilterT();
         return;
@@ -1122,6 +1226,7 @@ export default {
       let bestHand = [];
       let bestMra = [];
       let bestWeight = [];
+      this.resetCounters();
       // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = -1;
@@ -1197,6 +1302,8 @@ export default {
           bestWeight.push(prePush.weight);
           if (prePush.acel) bestAccel.push(prePush.acel);
           if (prePush.mra) bestMra.push(prePush.mra);
+
+          this.carStatsToCounters(prePush);
 
           result.push(prePush);
         }
@@ -1485,6 +1592,67 @@ export default {
       this.lastestContributionsResolved = result;
       this.searchResult = result;
     },
+    createCounters() {
+      this.counterKeys.map(key => {
+        if (Array.isArray(this.searchFilters[key])) {
+          this.searchFilters[key].map(item => {
+            Vue.set(this.counters, `${key}_${item}`, 0);
+          })
+        }
+      })
+
+      Vue.set(this.counters, `abs`, 0);
+      Vue.set(this.counters, `tcs`, 0);
+      Vue.set(this.counters, `Prize Cars`, 0);
+      Vue.set(this.counters, `Non-Prize Cars`, 0);
+
+      // console.log(this.counters);
+      this.countersDefault = JSON.stringify(this.counters);
+    },
+    resetCounters() {
+      this.counters = JSON.parse(this.countersDefault);
+    },
+    carStatsToCounters(car) {
+      this.counters[`classes_${car.class}`] += 1
+      this.counters[`tyres_${car.tyres}`] += 1
+      this.counters[`drives_${car.drive}`] += 1
+      this.counters[`clearances_${car.clearance}`] += 1
+      this.counters[`countrys_${car.country}`] += 1
+      this.counters[`fuel_${car.fuel}`] += 1
+      this.counters[`engine_${car.engine}`] += 1
+      this.counters[`brands_${car.brand}`] += 1
+      
+      car.bodyTypes.map(item => {
+        this.counters[`bodyTypes_${item}`] += 1
+      })
+      let temp = [];
+      car.tags.map(item => {
+        if (temp.includes(item)) {
+          console.log(car.rid);
+        }
+        temp.push(item);
+        this.counters[`tags_${item}`] += 1
+      })
+
+      if (car.abs) this.counters[`abs`] += 1
+      if (car.tcs) this.counters[`tcs`] += 1
+      if (car.prize) this.counters[`Prize Cars`] += 1
+      else this.counters[`Non-Prize Cars`] += 1
+
+      // this.counters[`classes_${car.year}`] += 1 // between
+      // this.counters[`classes_${car.topSpeed}`] += 1 // between
+      // this.counters[`classes_${car.acel}`] += 1 // between
+      // this.counters[`classes_${car.hand}`] += 1 // between
+      // this.counters[`classes_${car.mra}`] += 1 // between
+      // this.counters[`classes_${car.weight}`] += 1 // between
+      // this.counters[`classes_${car.seats}`] += 1 // between
+    },
+    calcCounters() {
+      console.log("Passei");
+      if (this.countersDefault) {
+        this.changeFilter();
+      }
+    },
     defaultFilters(type) {
       if (type === "yearModel") return [1910, 2024];
       if (type === "rqModel") return [10, 119];
@@ -1688,7 +1856,12 @@ export default {
     },
     addCar(index, e) {
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
-        navigator.clipboard.writeText(this.searchResult[index].rid);
+        try {
+          navigator.clipboard.writeText(this.searchResult[index].rid);
+        } catch (error) {
+          console.log("localhost")
+        }
+        console.log(this.searchResult[index].rid);
         return;
       }
 

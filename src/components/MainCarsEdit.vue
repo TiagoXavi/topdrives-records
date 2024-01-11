@@ -370,7 +370,7 @@ export default {
           "Hypercar",
           "Immortalised in Carbon",
           "In the Shadows",
-          "In the Shadows 2",
+          "In the Shadows 24",
           "Innovative",
           "Interstellar",
           "Italian Renaissance",
@@ -422,7 +422,7 @@ export default {
           "Pink",
           "Purple",
           "Red",
-          "Silver or Grey",
+          "Silver/Grey",
           "Turquoise",
           "White",
           "Yellow"

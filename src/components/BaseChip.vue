@@ -8,6 +8,7 @@
     @touchend="touchend($event)"
     @touchmove="touchmove($event)">
     <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
+    <span v-if="!isNaN(counter) && counter !== 0" class="BaseChip_Sub">{{ counter }}</span>
   </button>
 </template>
 
@@ -46,6 +47,10 @@ export default {
       type: Boolean,
       default: false
     },
+    counter: {
+      type: Number,
+      default: undefined
+    }
   },
   data() {
     return {
@@ -252,5 +257,25 @@ export default {
 }
 .BaseChip_SmallWide.D_ButtonActive {
   background-color: rgba(var(--d-text-green), 0.2);
+}
+.BaseChip_Sub {
+  position: absolute;
+  text-align: center;
+  bottom: 3px;
+  font-size: 0.5em;
+  font-weight: normal;
+  opacity: 0.7;
+}
+.Main_ClassChip .BaseChip_Sub {
+  bottom: -19px;
+  font-size: 0.5em;
+  font-weight: normal;
+  color: var(--d-text-b);
+}
+.BaseChip_ChipFlag .BaseChip_Sub {
+  bottom: -11px;
+  font-size: 0.5em;
+  font-weight: normal;
+  color: var(--d-text-b);
 }
 </style>

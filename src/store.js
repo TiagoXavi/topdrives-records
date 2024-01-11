@@ -50,6 +50,7 @@ export default new Vuex.Store({
       "Around the World",
       "As Seen on YT",
       "Call of the Wild",
+      "Chariots of the Gods",
       "Christmas Collection",
       "Christmas Collection 22",
       "Cutting Edge",

@@ -62,7 +62,7 @@
                   v-model="newCar[key]"
                   :value="item"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '')}`"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   @click="changedChip(key, item)">
                   <span>{{ item }}</span>
                 </BaseChip>

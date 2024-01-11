@@ -203,7 +203,7 @@
                 <BaseChip
                   v-model="searchFilters.tagsModel"
                   v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '')}`"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
               </template>
@@ -490,7 +490,7 @@ export default {
           "Hypercar",
           "Immortalised in Carbon",
           "In the Shadows",
-          "In the Shadows 2",
+          "In the Shadows 24",
           "Innovative",
           "Interstellar",
           "Italian Renaissance",
@@ -542,7 +542,7 @@ export default {
           "Pink",
           "Purple",
           "Red",
-          "Silver or Grey",
+          "Silver/Grey",
           "Turquoise",
           "White",
           "Yellow"

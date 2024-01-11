@@ -2,7 +2,7 @@
   <div
     v-if="!$store.state.oldTags.includes(tag) || $store.state.showOldTags"
     class="BaseGameTag_Layout"
-    :class="`BaseGameTag_${tag.replaceAll(' ', '_').replaceAll(',', '')}`">{{ tag }}</div>
+    :class="`BaseGameTag_${tag.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`">{{ tag }}</div>
 </template>
 
 <script>
@@ -174,7 +174,7 @@ export default {
   --tag-s: 55%;
   --tag-l: 38%;
 }
-.BaseGameTag_In_the_Shadows_2 {
+.BaseGameTag_In_the_Shadows_24 {
   --tag-h: 187;
   --tag-s: 55%;
   --tag-l: 38%;
@@ -434,7 +434,7 @@ export default {
   --tag-s: 50%;
   --tag-l: 50%;
 }
-.BaseGameTag_Silver_or_Grey {
+.BaseGameTag_SilverGrey {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 60%;
