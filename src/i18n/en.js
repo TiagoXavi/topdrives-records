@@ -135,7 +135,7 @@ export default {
   m_eventForcePicks: "Force show picks",
   m_showPointsCgForce: "show points",
   m_statsView: "Stats view",
-  m_multi: "Multi",
+  m_multi: "Multiple tags",
   m_hidden: "Hidden",
   m_enablePicks: "Enable picks",
   m_clearPicks: "Clear picks",
