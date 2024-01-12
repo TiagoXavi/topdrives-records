@@ -1169,9 +1169,7 @@ export default {
     openFilter() {
       this.isFiltering = !this.isFiltering;
       document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
-      if (this.enableCounters) {
-        this.calcCounters();
-      }
+      this.calcCounters();
     },
     applyFilter() {
       if (this.filterOnly) {
@@ -1303,7 +1301,10 @@ export default {
           if (prePush.acel) bestAccel.push(prePush.acel);
           if (prePush.mra) bestMra.push(prePush.mra);
 
-          this.carStatsToCounters(prePush);
+          if (this.enableCounters) {
+            this.carStatsToCounters(prePush);
+          }
+
 
           result.push(prePush);
         }
@@ -1593,6 +1594,7 @@ export default {
       this.searchResult = result;
     },
     createCounters() {
+      if (!this.enableCounters) return;
       this.counterKeys.map(key => {
         if (Array.isArray(this.searchFilters[key])) {
           this.searchFilters[key].map(item => {
@@ -1610,9 +1612,11 @@ export default {
       this.countersDefault = JSON.stringify(this.counters);
     },
     resetCounters() {
+      if (!this.enableCounters) return;
       this.counters = JSON.parse(this.countersDefault);
     },
     carStatsToCounters(car) {
+      if (!this.enableCounters) return;
       this.counters[`classes_${car.class}`] += 1
       this.counters[`tyres_${car.tyres}`] += 1
       this.counters[`drives_${car.drive}`] += 1
@@ -1648,7 +1652,7 @@ export default {
       // this.counters[`classes_${car.seats}`] += 1 // between
     },
     calcCounters() {
-      console.log("Passei");
+      if (!this.enableCounters) return;
       if (this.countersDefault) {
         this.changeFilter();
       }
