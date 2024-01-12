@@ -1011,12 +1011,11 @@
               <div class="Cg_SelectorCenter">
                 <div class="Clubs_DayBox">
                   <button
-                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave || clubDayNeedSave || !user || !user.mod"
-                    :class="{ D_ButtonDisabledVisible: !clubLoading && (!user || !user.mod) }"
+                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave || clubDayNeedSave"
                     class="D_Button Main_ArrowDownSelect"
                     @click="clubDayConfigDialog = true;">
                     <span>{{ clubDaySelected || "-" }}</span>
-                    <i v-if="user && user.mod" class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                   <button
                     v-if="clubDayNeedSave && user && user.mod"
@@ -8507,6 +8506,22 @@ export default {
       lastKey.sort((a,b) => {
         return a.localeCompare(b);
       })
+      
+      if (!this.user || !this.user.mod) {
+        let yesterdayToFuture = new Date(this.clubServerDateISO);
+        yesterdayToFuture.setDate(yesterdayToFuture.getDate() - 1);
+        yesterdayToFuture = yesterdayToFuture.getTime();
+        let length = lastKey.length;
+        lastKey.map((key, index) => {
+          let tempDate = new Date(key);
+          if (tempDate.getTime() < yesterdayToFuture && index < length-1) {
+            delete this.clubDays[key];
+          } else {
+            // console.log(key);
+          }
+        })
+      }
+
       lastKey = lastKey[lastKey.length - 1];
 
       if (this.clubDays[date]) {
