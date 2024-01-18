@@ -76,6 +76,10 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    logarithm: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

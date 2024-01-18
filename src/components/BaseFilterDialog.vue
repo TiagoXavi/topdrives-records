@@ -159,6 +159,7 @@
               :min="searchFilters.acelStart"
               :max="searchFilters.acelEnd"
               :step="0.1"
+              :logarithm="true"
               label="0-60mph"
               class="Main_FilterSlider" />
           </div>
@@ -260,7 +261,9 @@
                   :counter="counters[`tags_${item}`]"
                   :value="item" />
               </template>
-              <template v-if="$store.state.showOldTags">
+            </div>
+            <div v-if="$store.state.showOldTags" class="Main_FilterChipsFlex">
+              <template>
                 <template v-for="(item, ix) in searchFilters.tags_challenge">
                   <BaseChip
                     v-model="tagsModel"
@@ -292,6 +295,16 @@
                   :value="item" />
               </template>
             </div>
+            <div v-if="$store.state.showOldTags" class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.tags_permanentDied">
+                <BaseChip
+                  v-model="tagsModel"
+                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  :counter="counters[`tags_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
             <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.tags_color">
                 <BaseChip
@@ -304,7 +317,7 @@
             </div>
           </template>
           <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" class="Main_FilterChipsFlex">
-            <button v-if="!multi" class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multi") }}</button>
+            <button v-if="!multi" class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multiTags") }}</button>
             <template v-else>
               <template v-for="numb in multiPages">
                 <BaseChip
@@ -781,14 +794,11 @@ export default {
           "Old Guard",
           "Photo Finish",
           "Racing Royalty",
-          "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
           "Roads Most Travelled",
           "Silver Screen",
-          "Sub-Zero",
           "Summer Games",
-          "Supercar",
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
@@ -834,6 +844,11 @@ export default {
           "Track",
           "Ultra Expensive",
           "Wild Ride",
+        ],
+        tags_permanentDied: [
+          "Rest of the World",
+          "Sub-Zero",
+          "Supercar"
         ],
         tags_color: [
           "Beige",
@@ -990,6 +1005,7 @@ export default {
     this.searchFilters.tags_challenge.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_expansion.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_permanent.map(x => this.searchFilters.tags.push(x));
+    this.searchFilters.tags_permanentDied.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_color.map(x => this.searchFilters.tags.push(x));
     
   },
@@ -1967,7 +1983,6 @@ export default {
   background-color: #0004;
   height: 32px;
   padding: 7px 10px;
-  transform: translateY(6px);
   font-size: 0.9em;
 }
 .BaseFilterDialog_ToolBox {

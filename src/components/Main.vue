@@ -1674,6 +1674,7 @@
       :mode="mode"
       @close="closeDialogTrackSearch()"
       @toggleTrack="toggleTrack($event.track, $event.e)"
+      @pushCpSuggest="pushCpSuggest($event)"
     />
 
     <BaseDialog
@@ -4275,6 +4276,12 @@ export default {
       })
       this.updateCarLocalStorage();
     },
+    pushCpSuggest(obj) {
+      if (obj.e && (obj.e.ctrlKey || obj.e.metaKey)) {
+        this.clearAllTracks();
+      }
+      this.toggleTrackSet(obj.list.map(x => x.code));
+    },
     verifyActiveButtons() {
       this.tracksButtons.map(group => {
         group.list.map(x => {
@@ -4740,7 +4747,8 @@ export default {
           "Asaneon": 'mod',
           "Dennis": 'mod',
           "MichaelB": 'mod',
-          "Leafclaw": 'mod'
+          "Leafclaw": 'mod',
+          "biava": 'mod'
         };
         let pUsers = res.data.find(x => x.id === 'pUsers').value;
         Object.keys( pUsers ).forEach(key => {

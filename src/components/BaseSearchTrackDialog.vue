@@ -41,6 +41,17 @@
             </template>
           </div>
         </div>
+        <div v-if="cpTrackSuggestion" class="BaseSearchTrackDialog_CpSuggest">
+          <button
+            class="BaseSearchTrackDialog_CpSuggestButton D_Button D_ButtonDark D_ButtonDark2 Main_SaveAllButton"
+            @click="$emit(`pushCpSuggest`, { list: cpTrackSuggestion.list, e: $event})">{{ $t("m_load") }} {{ cpTrackSuggestion.name }}</button>
+          <div class="BaseSearchTrackDialog_RowList">
+            <Row
+              style="pointer-events: none;"
+              :list="cpTrackSuggestion.list"
+              :showCampaignTip="false" />
+          </div>
+        </div>
       </div>
     </div>
   </BaseDialog>
@@ -50,6 +61,7 @@
 import BaseDialog from './BaseDialog.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
+import Row from './Row.vue'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
 
@@ -58,7 +70,8 @@ export default {
   components: {
     BaseDialog,
     BaseTrackType,
-    BaseIconSvg
+    BaseIconSvg,
+    Row
   },
   props: {
     active: {
@@ -75,6 +88,7 @@ export default {
       searchTracks: '',
       campaign,
       tracksRepo,
+      cpTrackSuggestion: null
     }
   },
   watch: {
@@ -95,6 +109,36 @@ export default {
       let inputArray = input.split(" ");
       let typesInput = inputArray.filter(x => conds.includes(x));
       let tracksInput = inputArray.filter(x => !conds.includes(x));
+      let lastWord = inputArray[inputArray.length - 1];
+
+      this.cpTrackSuggestion = null;
+      if (inputArray.length > 1 && Number(lastWord) > 0 && Number(lastWord) < 11) {
+        let subWord = inputArray[inputArray.length - 2];
+        let found = this.campaign.find((x, ix) => {
+          if (ix > 13) {
+            if (x.name.toLowerCase().includes(subWord)) {
+              return true;
+            }
+          }
+        })
+        if (found) {
+          let arr = [];
+          found.matches[Number(lastWord) - 1].races.map(code => {
+            // {"id":"gForce","surface":"0","cond":"0","code":"gForce_a00","campaign":"GER Stuttgart 4"}
+            arr.push({
+              surface: code.name.slice(-2,-1),
+              cond: code.name.slice(-1),
+              code: code.name,
+              id: code.name.slice(0, -4)
+            })
+          })
+          this.cpTrackSuggestion = {
+            name: `${found.name} ${lastWord}`,
+            list: arr
+          }
+        }
+      }
+
 
       if (typesInput.length > 0) {
         let Surfaces = [];
@@ -110,6 +154,7 @@ export default {
         if ( typesInput.includes("dirt") ) {
           Surfaces.push("1");
           Surfaces.push("4");
+          Surfaces.push("h");
         }
         if ( typesInput.includes("gravel") ) {
           Surfaces.push("2");
@@ -117,6 +162,7 @@ export default {
         }
         if ( typesInput.includes("ice") ) {
           Surfaces.push("3");
+          Surfaces.push("g");
         }
         if ( typesInput.includes("sand") ) {
           Surfaces.push("5");
@@ -125,9 +171,12 @@ export default {
         if ( typesInput.includes("snow") ) {
           Surfaces.push("6");
           Surfaces.push("d");
+          Surfaces.push("g");
+          Surfaces.push("h");
         }
         if ( typesInput.includes("grass") ) {
           Surfaces.push("7");
+          Surfaces.push("f");
         }
 
         filteredTracks = filteredTracks.filter(x => {
@@ -246,5 +295,21 @@ export default {
 }
 .Main_TrackSearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
   transform: translateY(-42%);
+}
+.BaseSearchTrackDialog_CpSuggest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.BaseSearchTrackDialog_CpSuggestButton {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.BaseSearchTrackDialog_RowList {
+  width: var(--left-width);
+  box-shadow: -2px -2px 0px 0px #ffffff07;
+}
+.BaseSearchTrackDialog_RowList .Row_ConfigCell {
+  display: none;
 }
 </style>

@@ -29,7 +29,7 @@
                   {{ item }}
                   <div v-if="tunesCount[item] && !cg" class="D_ButtonNote">{{ tunesCount[item] }}</div>
                 </button>
-                <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                <button class="D_Button Row_ConfigButton" @click="showTuneDialog($event)">
                   <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
                 </button>
               </div>
@@ -37,7 +37,7 @@
             <template v-else> 
               <div class="Row_Tune">{{ car.selectedTune }}</div>
               <div class="Row_ConfigBox">
-                <button class="D_Button Row_ConfigButton" @click="showTuneDialog()">
+                <button class="D_Button Row_ConfigButton" @click="showTuneDialog($event)">
                   <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
                 </button>
               </div>
@@ -116,9 +116,15 @@
         item.id === 'csMed' ||
         item.id === 'oceanCity' ||
         item.id === 'speedbump12km' ||
-        item.id === 'speedbump1km'
+        item.id === 'speedbump1km' ||
+        item.id === 'desertHill'
         )"
         class="Row_xRA">low</div>
+      <div v-else-if="item.text && type === 'times' && (car.clearance === 'Low' || car.clearance === 'Mid') && (
+        item.id === 'moto' ||
+        item.id === 'desertRallyDirt'
+        )"
+        class="Row_xRA">{{ car.clearance.toLowerCase() }}</div>
       <div v-if="type === 'tracks' && item.trackType !== '00'" class="Row_Conditions" :class="{ Row_Conditions_Forest: item.id.includes('forestRiver') }">
         <BaseTypeName :type="item.trackType" />
       </div>
@@ -789,10 +795,19 @@ export default {
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
     },
-    showTuneDialog() {
+    showTuneDialog(e) {
       if (this.cg) {
         this.$emit('showTuneDialog');
       } else {
+        if (e.ctrlKey || e.metaKey) {
+          if (this.car.selectedTune) {
+            this.tempTune = this.car.selectedTune;
+            this.changeTune(undefined);
+          } else if (this.tempTune) {
+            this.changeTune(this.tempTune);
+          }
+          return;
+        }
         this.$store.commit("SHOW_TUNE", {
           active: true,
           car: this.car
