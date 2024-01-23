@@ -21,6 +21,7 @@ import MainTestPoints from "./components/MainTestPoints.vue";
 import MainAddNewCars from "./components/MainAddNewCars.vue";
 import MainCheatSheet from "./components/MainCheatSheet.vue";
 import MainCodeUtility from "./components/MainCodeUtility.vue";
+import BaseMergeDatabase from "./components/BaseMergeDatabase.vue";
 
 import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
 import MainLogin from "./components/MainLogin.vue";
@@ -127,7 +128,7 @@ const routes = [
     component: MainAddNewCars,
   },
   {
-    path: '/cheatSheet',
+    path: '/c',
     name: 'MainCheatSheet',
     title: 'MainCheatSheet',
     component: MainCheatSheet,
@@ -137,6 +138,12 @@ const routes = [
     name: 'MainCodeUtility',
     title: 'MainCodeUtility',
     component: MainCodeUtility,
+  },
+  {
+    path: '/BaseMergeDatabase',
+    name: 'BaseMergeDatabase',
+    title: 'BaseMergeDatabase',
+    component: BaseMergeDatabase,
   },
   {
     path: '/testPoints',

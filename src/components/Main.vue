@@ -309,7 +309,7 @@
         </div>
       </div>
       <div class="Cg_Mid">
-        <!-- CHALLENGE MID -->
+        <!-- CG MID -->
         <div v-if="isRoundEmptyForUser && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
           <div v-else-if="!cgRound.reservedTo && !cgIsApproving" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
@@ -362,7 +362,7 @@
             </button>
           </div>
         </div>
-        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined">
+        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].track === null">
           <div class="Cg_RoundEmptyBox">
             <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
             <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRound2") }}</div>
@@ -370,8 +370,8 @@
             <BaseDiscordButton style="margin-top: 20px;" />
           </div>
         </template>
-        <template v-else-if="isRoundEmptyForModders && cgRound.date && ((cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) || cgNewSubmitByMod) && !cgRound.reservedTo">
-          <div class="Cg_RoundEmptyBox">
+        <template v-else-if="isRoundEmptyForModders && cgRound.date && ((cgRound.races && cgRound.races[0] && cgRound.races[0].track === null) || cgNewSubmitByMod) && !cgRound.reservedTo">
+          <div class="Cg_RoundEmptyBox Cg_RoundEmptyBoxMods">
             <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
             <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
             <button
@@ -424,9 +424,9 @@
         </div>
 
         <template v-if="
-          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate && !showAnalyse) ||
+          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate && cgIsEmptyRoundForDownloadAssets) ||
           cgNewSubmitByMod ||
-          (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].car === undefined) ||
+          (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].track === null) ||
           (cgRound.reservedTo && cgRound.reservedTo !== user.username)" />
         
         <template v-else-if="cgRound.date">
@@ -651,7 +651,7 @@
               </template>
             </div>
           </div>
-          <div v-if="cgShowResetSavedHand && cgRound.date && !isRoundEmptyForUser" class="Cg_BottomModTools">
+          <div v-if="cgShowResetSavedHand && cgRound.date && !isRoundEmptyForUser && !isRoundEmptyForModders && !cgNewSubmitByMod && !cgRound.reservedTo" class="Cg_BottomModTools">
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -667,6 +667,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
               @click="cgResetRound()">{{ $t("m_resetRound") }}</button>
           </div>
+
         </template>
         <div v-else-if="cgLoading" class="Cg_MidLoading">
           <BaseContentLoader
@@ -693,6 +694,28 @@
         <div v-else class="Cg_Offline">
           <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
         </div>
+
+        
+        <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+          <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
+            <div class="Main_AdminFields Main_AdminLayout">
+              <div class="BaseText_Label">Challenge complete json</div>
+              <textarea
+                v-model="cgCompleteJson"
+                rows="3"
+                class="Main_TextArea data-hj-allow"
+                placeholder="Challenge complete json" />
+              <div style="text-align: center;">
+                <button
+                  :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                  @click="cgSubmitCompleteJson()">{{ $t("m_send") }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
     <div
@@ -3033,6 +3056,7 @@ export default {
       cgPointsIsDraw: false,
       cgShowResetSavedHand: false,
       cgFilterForAnalyse: {},
+      cgCompleteJson: "",
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -3911,6 +3935,18 @@ export default {
         if (race.cars && race.cars.length > 4) ready = false;
       })
       return ready;
+    },
+    cgIsEmptyRoundForDownloadAssets() {
+      if (this.mode !== 'cg') return false;
+      if (!this.cgRound || !this.cgRound.races) return true;
+      let isEmpty = true;
+      this.cgRound.races.find(race => {
+        if (race.rid) {
+          isEmpty = false;
+          return true;
+        }
+      })
+      return isEmpty;
     },
     cgLoadingAny() {
       if (this.mode !== 'cg') return false;
@@ -5740,7 +5776,7 @@ export default {
     loadCgRoundAsset(id, round) {
       let roundId = `${id}_${round}`;
       if (this.cgLoadedAssets.includes(roundId)) return;
-      if (this.cgIsEmptyRound()) return;
+      if (this.cgIsEmptyRoundForDownloadAssets) return;
       this.cgLoading = true;
 
       axios.get(Vue.preUrl + `/asset/${roundId}`)
@@ -6922,17 +6958,6 @@ export default {
       });
 
     },
-    cgIsEmptyRound() {
-      if (!this.cgRound || !this.cgRound.races) return true;
-      let isEmpty = true;
-      this.cgRound.races.find(race => {
-        if (race.track) {
-          isEmpty = false;
-          return true;
-        }
-      })
-      return isEmpty;
-    },
     cgUserNewSubmit(copy = false) {
       this.cgIsApproving = false;
       if (copy) {
@@ -6968,6 +6993,89 @@ export default {
           this.cgNewSubmitByModTemplate = JSON.parse(JSON.stringify(this.cgRound));
         }
       }
+    },
+    cgSubmitCompleteJson() {
+      let json = JSON.parse(this.cgCompleteJson);
+      let oppos = json.ladder.opponents;
+      let list = oppos.map(x => x.cardId);
+      list = [...new Set(list)];
+      let newCg = JSON.parse(JSON.stringify(this.cg));
+      let myCarsFiltered = [];
+
+      this.all_cars.map(x => {
+        if (list.includes(x.guid)) {
+          myCarsFiltered.push(JSON.parse(JSON.stringify(x)));
+        }
+      })
+
+      let count = 0;
+      newCg.rounds.map((round, iround) => {
+        round.races.map((race, irace) => {
+          if (!race.rid) {
+            let op = oppos[count];
+            let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
+            let car = myCarsFiltered.find(x => x.guid === op.cardId);
+            if (car) {
+              let allowedTunes = ["332", "323", "233", "000"];
+              if (car.class === 'S' || car.class === 'A') {
+                allowedTunes.push("111")
+              }
+              if (!allowedTunes.includes(tune)) {
+                tune = `Other`;
+              }
+              round.rqLimit = json.ladder.zoneEligibility[iround].targetRQ
+
+              race.rid = car.rid;
+              race.tune = tune;
+              race.time = null;
+              race.track = null;
+              race.cars = [];
+            }
+          }
+          count++;
+        })
+      })
+
+      this.cg = newCg;
+      this.cgList.find(x => {
+        if (x.date === newCg.date) {
+          x = newCg;
+          return true;
+        }
+      })
+
+      this.cgSaveLoading = true;
+
+      axios.post(Vue.preUrl + "/setCgPredict", newCg)
+      .then(res => {
+        this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
+        this.cgCompleteJson = "";
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: this.user.mod ? this.$t('m_saveSuccess') : this.$t('m_sentReview')
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if (error.response.status === 401) {
+          this.loginDialog = true;
+        }
+      })
+      .then(() => {
+        this.cgSaveLoading = false;
+      });
+
+
+
+      console.log(newCg);
+      
     },
     styleCgList() {
       this.cgList.sort((a,b) => {
@@ -10809,6 +10917,10 @@ body .Main_UserTw3:before {
 .Cg_Creator {
   color: var(--d-text);
   opacity: 0.7;
+}
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_Track,
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_ThemTime {
+  display: none;
 }
 .Main_AnnouncementLayout {
 

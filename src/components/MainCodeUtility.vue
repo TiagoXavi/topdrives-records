@@ -147,6 +147,7 @@
 
 <script>
 import BaseText from './BaseText.vue';
+import cars_final from '../database/cars_final.json'
 
 export default {
   name: 'MainCodeUtility',
@@ -176,7 +177,8 @@ export default {
       letResolvedCriterias: {},
       letResolvedTracksets: {},
       clubsParsedResult: {},
-      possiblesResult: []
+      possiblesResult: [],
+      cars_final
     };
   },
   watch: {},
@@ -259,6 +261,9 @@ export default {
       }
       if (this.result.Message) {
         this.resolveClubs();
+      }
+      if (this.result.playerDeck) {
+        this.resolvePlayerDeck();
       }
       if (typeof this.result === 'string' && this.result.length === 36) {
         this.lookUuid();
@@ -822,6 +827,26 @@ export default {
       Object.keys(obj).map(key => {
         if (obj[key].possibles.includes(uuid)) result.push(key);
       })
+    },
+    resolvePlayerDeck() {
+      let prizes = this.cars_final.filter(x => x.prize);
+      this.result.playerDeck.map(x => {
+        if (prizes.length > 0) {
+          let nextInsert = prizes.shift();
+          x.cardId = nextInsert.guid;
+          x.engineMajor = 2;
+          x.engineMinor = 3;
+          x.weightMajor = 3;
+          x.weightMinor = 3;
+          x.chassisMajor = 3;
+          x.chassisMinor = 3;
+        }
+      })
+      this.user.eloScore = 5000;
+      this.user.softCurrency1 = 100000;
+      this.user.hardCurrency1 = 100000;
+
+      navigator.clipboard.writeText(JSON.stringify(this.result, null, 4));
     }
   },
 };
