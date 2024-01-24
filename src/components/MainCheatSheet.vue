@@ -1,276 +1,206 @@
 <template>
-  <div class="MainCheatSheet_Layout">
+  <div class="MainCheatSheet_Root">
     <div class="MainCheatSheet_Box">
-      <div class="MainTranslate_Logo">
+      <div class="MainTranslate_Logo" style="margin-top: 30px;">
         <div class="Main_Logo">
           <div class="Main_LogoPre">Top Drives</div>
           <Logo />
         </div>
       </div>
-      <div class="MainCheatSheet_SearchLayout">
-        <div class="Main_SearchFieldBox">
-          <input
-            v-model="searchInput"
-            :placeholder="$t('m_searchCar')"
-            class="D_SearchInput data-hj-allow"
-            type="text"
-            autocomplete="off"
-            @input="searchInputFunc()">
-        </div>
-      </div>
-      <div class="MainCheatSheet_ListNewCarsBox">
-        <div class="MainCheatSheet_ListNewCars Main_DarkScroll">
-          <div
-            v-for="item in filteredIncomingCars"
-            :style="{ '--color': item.classColor }"
-            class="MainCheatSheet_ListCar Main_SearchItem"
-            @click="carListClick(item, $event)">
-            <div class="Main_SearchItemImg">
-              <img :src="item.photoCalc" class="MainGallery_Img" alt="">
+      <div class="MainCheatSheet_Layout">
+        <div class="MainCheatSheet_TyresLayout">
+          <div class="MainCheatSheet_TyresGrid" :class="{ MainCheatSheet_TyresRelative: tyres.relativeToBest }">
+            <!-- Line1 -->
+            <div class="MainCheatSheet_TyresTopLeftBox">
+              <div class="MainCheatSheet_Title" style="margin-bottom: 0px;">Tyres grip</div>
+              <div class="MainCheatSheet_TyresTopLeft">
+                <template v-for="(item, ix) in tyres.drives">
+                  <BaseChip
+                    v-model="tyres.drivesModel"
+                    class="BaseChip_MinWidth BaseChip_Small"
+                    required="true"
+                    :value="item"
+                    @click="tyreDriveChanged()" />
+                </template>
+              </div>
             </div>
-            <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
-            <div class="Main_SearchItemRight">
-              <span v-if="item.locatedName" v-html="item.locatedName"></span>
-              <span v-else>{{ item.name }}</span><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/><span class="MainCheatSheet_ListCarPercent" :class="{ MainCheatSheet_ListCarPercent100: item.percent === 100 }">{{ item.percent }}%</span>
+            <div v-for="(tyre, xtyre) in tyres.tyres" class="MainCheatSheet_TyresTopItem">
+              <BaseTyreSvg :tyre="tyre" class="MainCheatSheet_TyreSvg" :style="`z-index: ${xtyre*-1+6}`"/>
+              <div class="MainCheatSheet_TyresTopName">
+                <div class="MainCheatSheet_TyresLabel MainCheatSheet_TyresLabelShort">{{ $t(`c_${tyre.toLowerCase()}2`) }}</div>
+                <div class="MainCheatSheet_TyresLabel MainCheatSheet_TyresLabelComplete">{{ $t(`c_${tyre.toLowerCase()}`) }}</div>
+              </div>
             </div>
+            <!-- Lines 1~8 -->
+            <template v-for="(line, xline) in tyres[tyres.relativeToBest ? 'valuesRelative' : 'values']">
+              <div class="MainCheatSheet_TyresLeftSurface MainCheatSheet_Cell MainCheatSheet_CellBold MainCheatSheet_CellSurface">
+                <BaseTypeName :type="line.type" class="MainCheatSheet_TyresSurfaceName" />
+              </div>
+              <div
+                v-for="(friction, xfriction) in line[tyres.drivesModel]"
+                :class="{ MainCheatSheet_CellTop: xline === 0 }"
+                :style="`--opac: ${friction}%; --color-index: ${friction-10};`"
+                class="MainCheatSheet_TyresFrictionItem MainCheatSheet_Cell">
+                <span>{{ friction }}%</span>
+                <span
+                  v-if="line.diffs && line.diffs[xfriction] !== 0"
+                  :class="{
+                    MainCheatSheet_TyresDiffsNegative: line.diffs[xfriction] < 0,
+                    MainCheatSheet_TyresDiffsAnimate: tyreAnimation,
+                  }"
+                  class="MainCheatSheet_TyresDiffs">{{ line.diffs[xfriction] > 0 ? '+' : '' }}{{ line.diffs[xfriction] }}</span>
+              </div>
+            </template>
           </div>
-          <div v-if="incomingCarsLoading && incomingCars.length === 0" class="MainCheatSheet_ListLoading">Loading</div>
-          <div v-if="!incomingCarsLoading && incomingCars.length === 0" class="MainCheatSheet_ListLoading">No cars</div>
+          <div class="MainCheatSheet_TipBox">
+            <BaseSwitch
+              v-model="tyres.relativeToBest"
+              :horizontal="true"
+              :label="$t('m_relativeBest')"
+              @change="tyreDriveChanged()" />
+          </div>
         </div>
-      </div>
-      <div class="MainCheatSheet_Header">Add a new car</div>
-      <div class="MainCheatSheet_FormBox">
-        <div
-          v-for="(item, key) in newCar"
-          class="MainCheatSheet_FormItem">
-          <template v-if="key !== 'abs' && key !== 'tcs' && key !== 'prize' && key !== 'photoId' && key !== 'rid' && key !== 'name' && key !== 'photoCalc' && key !== 'class'">
-            <div class="MainCheatSheet_FormTitle">{{ labels[key] || $tc(`c_${key}`, 1) }}</div>
-            <div v-if="textTypes[key]" class="MainCheatSheet_FormField" :class="`MainCheatSheet_${textTypes[key]}`">
-              <BaseText
-                v-model="newCar[key]"
-                :type="textTypes[key]"
-                class="BaseText_Big"
-                :placeholder="placeholders[key] || ''" />
+        <div class="MainCheatSheet_MRA_CalcLayout MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">MRA Calculator</div>
+          <div class="MainCheatSheet_MRA_Calculator">
+            <BaseText
+              v-model="mra1"
+              class="BaseText_Big"
+              type="acel"
+              label="0-60 value"
+              style="width: 130px;"
+              placeholder=""
+              @change="calcMra();" />
+            <div class="MainCheatSheet_MRA_RowBox">
+              <div class="BaseText_Label">0-100 time</div>
+              <Row
+                :car="fakeCar1"
+                :list="[chartTrack]"
+                :loggedin="!!user"
+                :user="user"
+                :voteLoading="voteLoading"
+                :cg="true"
+                :cgOppo="true"
+                :cgTime="fakeTime1"
+                :forceDisabled="!user || !user.mod || !chartTrack"
+                :forceCustomAuthor="true"
+                :customData="fakeCustomData1"
+                class="MainCheatSheet_MRA_Row"
+                style="width: 130px;"
+                placeholder=""
+                type="times"
+                @changeTime="mra2 = $event.number; calcMra();" />
             </div>
-            <div v-if="key === 'onlyName'" class="MainCheatSheet_FormTitleAlert">Please, exactly how is in game</div>
-            <div v-if="key === 'onlyName'" class="MainCheatSheet_FormTitleResult">Result: <span class="MainCheatSheet_FormTitleGreen">{{ newCar.brand }} {{ newCar.onlyName }}</span></div>
-            <div
-              v-if="typesList[key]"
-              class="MainCheatSheet_FormChipsBox">
-              <template v-for="item in typesList[key]">
-                <BaseChip
-                  v-model="newCar[key]"
-                  :value="item"
-                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
-                  @click="changedChip(key, item)">
-                  <span>{{ item }}</span>
-                </BaseChip>
-              </template>
-            </div>
-          </template>
-          <template v-if="key === 'photoId'">
-            <div class="MainCheatSheet_FormTitle">Photo</div>
             <button
-              style="min-width: 200px;"
-              class="D_Button D_ButtonDark MainCheatSheet_SelectPhoto"
-              @click="photoDialogActive = true;">
-              <template v-if="!newCar.photoId || !newCar.photoId.src">
-                <i class="ticon-camera D_ButtonIcon" aria-hidden="true"/>
-                <span>Select photo</span>
-              </template>
-              <template v-else>
-                <div class="MainCheatSheet_PhotosChip">
-                  <div class="MainCheatSheet_PhotoDiv">
-                    <img :src="newCar.photoId.src" class="MainCheatSheet_PhotoImg" alt="">
-                  </div>
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              style="margin-top: 19px;"
+              @click="calcMra()">
+              <i class="ticon-arrow_down_3" aria-hidden="true"/>
+            </button>
+          </div>
+          <div class="MainCheatSheet_MRA_Result">
+            <div v-if="mraResult" class="MainCheatSheet_MRA_ResultValue">{{ mraResult }} MRA</div>
+          </div>
+        </div>
+        <div class="MainCheatSheet_ClassesInfo MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">Car costs</div>
+          <div class="MainCheatSheet_ClassesGrid">
+            <template v-for="(item, key, index) in carCosts">
+              <template v-if="key === 'classes' || key === 'classesEnd'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_EmptySpace MainCheatSheet_ClassesHeader" :class="{ MainCheatSheet_EmptySpaceEnd: key === 'classesEnd' }"></div>
+                <div v-for="(h, ih) in carCosts.classes" class="MainCheatSheet_ClassesCell MainCheatSheet_ClassesHeader" :style="`--classC: ${classesColorsRgb[ih]}`">
+                  <div class="MainCheatSheet_ClassesClass">{{ h }}</div>
                 </div>
               </template>
+              <template v-if="key.includes('upgrade')">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel MainCheatSheet_UpgradeLabel" :class="{ MainCheatSheet_CellHighlight: (Math.ceil((index-3)/3) % 3)+1 === 2 }">{{ (Math.ceil((index-3)/3) % 3)+1 }}.{{ ((index-1) % 3)+0 }}<i class="ticon-arrow_right_3 MainCheatSheet_UpgradeArrow" aria-hidden="true"/>{{ (Math.ceil((index-3)/3) % 3)+1 }}.{{ ((index-1) % 3)+1 }}</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell" :class="{ MainCheatSheet_CellHighlight: (Math.ceil((index-3)/3) % 3)+1 === 2 }">
+                  <div class="MainCheatSheet_CellInner"><BaseIconSvg type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key === 'fuse1' || key === 'fuse2'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">Stage {{ key.replace(/[^\d]/g, '') }}</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">
+                  <div class="MainCheatSheet_CellInner"><BaseIconSvg type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key === 'fuse1Time' || key === 'fuse2Time'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">Time</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">
+                  <div class="MainCheatSheet_CellInner">{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key === 'fuse1SkipGold' || key === 'fuse2SkipGold'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">Skip</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell" :class="{ MainCheatSheet_CellHighlight: key.includes('1') }">
+                  <div class="MainCheatSheet_CellInner"><BaseIconSvg type="gold" :useMargin="false" class="MainCheatSheet_ClassesIcon" />{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key.includes('serviceTime')">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel">Time {{ key === 'serviceTime10' ? '10x' : '' }}</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell">
+                  <div class="MainCheatSheet_CellInner">{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key === 'serviceSkipGold'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel">Skip</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell">
+                  <div class="MainCheatSheet_CellInner"><BaseIconSvg type="gold" :useMargin="false" class="MainCheatSheet_ClassesIcon" />{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key === 'Upgrades' || key === 'Fuse Time' || key === 'Fuse Skip' || key === 'Stock' || key === 'Maxed'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_RowLabel">{{ key }}</div>
+                <div v-for="h in carCosts[key]" class="MainCheatSheet_ClassesCell" :class="{ MainCheatSheet_Classes_LongNumber: typeof h === 'number' && key !== 'Fuse Skip' }">
+                  <div class="MainCheatSheet_CellInner"><BaseIconSvg v-if="typeof h === 'number'" :type="key === 'Fuse Skip' ? 'gold' : 'cash'" :useMargin="false" class="MainCheatSheet_ClassesIcon" />{{ h }}</div>
+                </div>
+              </template>
+              <template v-if="key.includes('divider')">
+                <div class="MainCheatSheet_RowDivider">{{ item }}</div>
+              </template>
+            </template>
+          </div>
+          <div class="MainCheatSheet_TipBox">
+            <div class="MainCheatSheet_Tip">Legendary (S) cars can be fused using 3x epics (A) or 1x duplicate S</div>
+          </div>
+        </div>
+        <div class="MainCheatSheet_DictLayout MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">Dictionary</div>
+          <div class="MainCheatSheet_Dict">
+            <button
+              v-for="item in dictionary"
+              :class="{
+                MainCheatSheet_DictItemSelected: dictionarySelected && dictionarySelected.term === item.term,
+                D_ButtonDisabledVisible: !item.short
+              }"
+              class="MainCheatSheet_DictItem D_Button"
+              @click="dictClick(item)">
+              <div class="MainCheatSheet_D_Title">{{ item.term }}</div>
+              <div class="MainCheatSheet_DictSub">{{ item.name }} <i v-if="item.short" :class="dictionarySelected && dictionarySelected.term === item.term ? `ticon-arrow_up_2` : `ticon-arrow_down_2`" style="font-size: 0.7em;" aria-hidden="true"/></div>
             </button>
-          </template>
-          <template v-if="key === 'abs'">
-            <div class="MainCheatSheet_FormTitle">Others</div>
-            <div class="MainCheatSheet_FormChipsBox">
-              <BaseChip
-                v-model="newCar.abs"
-                :value="true"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                @click="">
-                <span>ABS</span>
-              </BaseChip>
-              <BaseChip
-                v-model="newCar.tcs"
-                :value="true"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                @click="">
-                <span>TCS</span>
-              </BaseChip>
-              <BaseChip
-                v-model="newCar.prize"
-                :value="true"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                @click="">
-                <span>Prize car</span>
-              </BaseChip>
+          </div>
+        </div>
+        <div v-if="dictionarySelected" class="MainCheatSheet_DictExpanded MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_D_Title">{{ dictionarySelected.term }}</div>
+          <div class="MainCheatSheet_DictDescriptionSub">{{ dictionarySelected.name }}</div>
+          <div class="MainCheatSheet_DictDescriptionShort">{{ dictionarySelected.short }}</div>
+          <div class="MainCheatSheet_DictDescriptionDesc">{{ dictionarySelected.desc }}</div>
+        </div>
+        <div class="MainCheatSheet_PenaltyLayout MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">Special tracks</div>
+          <div class="MainCheatSheet_Penalty">
+            <div
+              v-for="item in tracksPenalty"
+              class="MainCheatSheet_PenaltyItem">
+              <div class="MainCheatSheet_PenaltyTitle">{{ item.name }}</div>
+              <div class="MainCheatSheet_PenaltyList">
+                <div v-for="code in item.tracks" class="MainCheatSheet_PenaltyTrack">{{ $t(`t_${code}`) }}</div>
+              </div>
             </div>
-          </template>
-        </div>
-        <div class="MainCheatSheet_Submit">
-          <button
-            :class="{ D_Button_Loading: loading, D_Button_Disabled: !valid }"
-            :disabled="loading || !valid"
-            style="min-width: 200px;"
-            class="D_Button Main_SaveAllButton"
-            @click="submit(true)">Preview</button>
-        </div>
-        <div class="MainCheatSheet_Submit" style=" margin-top: 20px;">
-          <button
-            :class="{ D_Button_Loading: loading }"
-            :disabled="loading"
-            style="min-width: 120px;"
-            class="D_Button D_ButtonDark"
-            @click="askReset()">Reset</button>
+          </div>
         </div>
       </div>
     </div>
-    <BaseDialog
-      :active="previewDialogActive"
-      :transparent="false"
-      max-width="420px"
-      min-width="240px"
-      @close="previewDialogActive = false">
-      <div class="Main_TuneDialog">
-
-        <div v-if="previewDialogActive" class="Row_DialogLayout">
-          <div class="Row_DialogBody Space_TopPlus">
-            <div class="Row_DialogCard">
-              <div class="Row_DialogCardLeft">
-                <BaseCard
-                  :car="previewCar"
-                  :isDialogBox="true"
-                  :options="false" />
-              </div>
-            </div>
-          </div>
-          <div v-if="previewCar.tags && previewCar.tags.length > 0" class="Row_DialogCardTags Space_TopPlus">
-            <BaseGameTag
-              v-for="tag in previewCar.tags"
-              :key="tag"
-              :tag="tag" />
-          </div>
-          <div class="Row_DialogCardDual Space_TopPlus">
-            <div class="Row_DialogCardBottom">
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">ABS</div>
-                <div :class="{ Row_DialogCardStatCorrect: previewCar.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ previewCar.abs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">TCS</div>
-                <div :class="{ Row_DialogCardStatCorrect: previewCar.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ previewCar.tcs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${previewCar.clearance.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">
-                  <span v-if="previewCar.mra" style="margin-right: 7px;">{{ previewCar.mra }}</span>
-                </div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">{{ previewCar.weight }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${previewCar.fuel.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-                <div class="Row_DialogCardStatValue">{{ previewCar.seats }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${previewCar.engine.toLowerCase()}Engine`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-                <div class="Row_DialogCardStatValue">
-                  <template v-for="(body, index) in previewCar.bodyTypes">
-                    <template v-if="index !== 0">,&nbsp;</template>
-                    <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                  </template>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="MainCheatSheet_DialogSubmit" style="margin-top: 30px;">
-            <div class="MainCheatSheet_Submit">
-              <button
-                :class="{ D_Button_Loading: loading, D_Button_Disabled: !valid }"
-                :disabled="loading || !valid"
-                style="min-width: 200px;"
-                class="D_Button Main_SaveAllButton"
-                @click="submit(false)">Submit</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </BaseDialog>
-    <BaseDialog
-      :active="photoDialogActive"
-      :transparent="false"
-      max-width="420px"
-      min-width="240px"
-      @close="photoDialogActive = false">
-      <div class="Main_TuneDialog">
-        <div class="MainCheatSheet_PhotosBox">
-          <template v-for="photo in photos">
-            <BaseChip
-              v-model="newCar.photoId"
-              :value="photo"
-              :class="{ MainCheatSheet_PhotoInUse: photo.inUse }"
-              :disabled="photo.inUse"
-              class="MainCheatSheet_PhotosChip">
-              <div class="MainCheatSheet_PhotoDiv">
-                <img :src="photo.src" class="MainCheatSheet_PhotoImg" alt="">
-                <div v-if="photo.inUse" class="MainCheatSheet_PhotoInUseText">In use</div>
-              </div>
-            </BaseChip>
-          </template>
-        </div>
-      </div>
-    </BaseDialog>
-    <BaseDialog
-      :active="confirmDelete.dialog"
-      :transparent="false"
-      :lazy="true"
-      zindex="101"
-      max-width="420px"
-      min-width="240px"
-      @close="confirmDelete.dialog = false;">
-      <div style="Main_DialogConfirm">
-        <div class="Main_DialogMessage">{{ confirmDelete.msg }}</div>
-        <div class="Main_DialogBottom">
-          <button
-            class="D_Button Main_OptionsButton"
-            @click="confirmDelete.dialog = false;">
-            <span>{{ $t("m_cancel") }}</span>
-          </button>
-          <button
-            :class="`${ confirmDelete.loading ? 'D_Button_Loading ' : '' }`+
-                    `${ confirmDelete.classe }`"
-            :disabled="confirmDelete.loading"
-            class="D_Button Main_OptionsButton"
-            @click="confirmDelete.action">
-            <span>{{ confirmDelete.actionLabel }}</span>
-          </button>
-        </div>
-      </div>
-    </BaseDialog>
-    <BaseFilterDialog ref="newCarsFilter"/>
+    <BaseFilterDialog ref="cheatSheetFilter"/>
   </div>
 </template>
 
@@ -280,6 +210,11 @@ import BaseChip from "./BaseChip.vue";
 import BaseDialog from "./BaseDialog.vue";
 import BaseGameTag from "./BaseGameTag.vue";
 import BaseCard from "./BaseCard.vue";
+import BaseTyreSvg from "./BaseTyreSvg.vue";
+import BaseTypeName from "./BaseTypeName.vue";
+import BaseIconSvg from "./BaseIconSvg.vue";
+import BaseSwitch from "./BaseSwitch.vue";
+import Row from "./Row.vue";
 import Logo from "./Logo.vue";
 import BaseFilterDialog from "./BaseFilterDialog.vue";
 
@@ -292,7 +227,12 @@ export default {
     BaseChip,
     BaseDialog,
     BaseCard,
-    BaseGameTag
+    BaseGameTag,
+    BaseTyreSvg,
+    BaseTypeName,
+    Row,
+    BaseIconSvg,
+    BaseSwitch
   },
   props: {
     test: {
@@ -303,512 +243,668 @@ export default {
   data() {
     return {
       loading: false,
-      tyres: [],
-      surfaces: {}
+      tyres: {
+        tyres: ["off-road", "all-surface", "standard", "performance", "slick"],
+        drivesModel: "4WD",
+        relativeToBest: false,
+        oldDrivesModel: "4WD",
+        oldValueKey: "values",
+        drives: ["FWD", "RWD", "4WD"],
+        values: [ //             of  al  st  pf  sl            of  al  st  pf  sl            of  al  st  pf  sl
+          { type: "00", "4WD": [100,100,100,100,100], "RWD": [100,100,100,100,100], "FWD": [100,100,100,100,100] }, // aspht
+          { type: "01", "4WD": [ 80, 95, 98, 90, 65], "RWD": [ 78, 90, 94, 87, 61], "FWD": [ 76, 88, 92, 85, 59] }, // wet
+          { type: "10", "4WD": [ 80, 75, 70, 65, 60], "RWD": [ 73, 70, 65, 60, 55], "FWD": [ 71, 68, 63, 58, 53] }, // dirt
+          { type: "11", "4WD": [ 70, 65, 60, 50, 35], "RWD": [ 64, 60, 55, 45, 35], "FWD": [ 63, 58, 54, 43, 33] }, // dirtWet
+          { type: "20", "4WD": [ 70, 70, 65, 60, 50], "RWD": [ 65, 65, 60, 55, 50], "FWD": [ 64, 64, 59, 54, 49] }, // gravel
+          { type: "50", "4WD": [ 70, 65, 60, 55, 45], "RWD": [ 68, 60, 55, 50, 42], "FWD": [ 66, 58, 53, 48, 40] }, // sand
+          { type: "70", "4WD": [ 65, 60, 55, 50, 40], "RWD": [ 60, 55, 50, 45, 37], "FWD": [ 58, 53, 48, 43, 35] }, // grass
+          { type: "71", "4WD": [ 60, 55, 50, 40, 25], "RWD": [ 55, 50, 43, 35, 25], "FWD": [ 53, 48, 42, 34, 24] }, // grassWet
+          { type: "60", "4WD": [ 60, 55, 50, 40, 25], "RWD": [ 55, 50, 43, 35, 25], "FWD": [ 53, 48, 42, 34, 24] }, // snow
+          { type: "30", "4WD": [ 35, 30, 25, 20, 15], "RWD": [ 28, 25, 22, 19, 15], "FWD": [ 27, 24, 21, 18, 14] }, // ice
+        ],
+        valuesRelative: [
+          { "type": "00", "4WD": [100,100,100,100,100], "RWD": [100,100,100,100,100], "FWD": [100,100,100,100,100] },
+          { "type": "01", "4WD": [82,97,100,92,66], "RWD": [83,96,100,93,65], "FWD": [83,96,100,92,64] },
+          { "type": "10", "4WD": [100,94,88,81,75], "RWD": [100,96,89,82,75], "FWD": [100,96,89,82,75] },
+          { "type": "11", "4WD": [100,93,86,71,50], "RWD": [100,94,86,70,55], "FWD": [100,92,86,68,52] },
+          { "type": "20", "4WD": [100,100,93,86,71], "RWD": [100,100,92,85,77], "FWD": [100,100,92,84,77] },
+          { "type": "50", "4WD": [100,93,86,79,64], "RWD": [100,88,81,74,62], "FWD": [100,88,80,73,61] },
+          { "type": "70", "4WD": [100,92,85,77,62], "RWD": [100,92,83,75,62], "FWD": [100,91,83,74,60] },
+          { "type": "71", "4WD": [100,92,83,67,42], "RWD": [100,91,78,64,45], "FWD": [100,91,79,64,45] },
+          { "type": "60", "4WD": [100,92,83,67,42], "RWD": [100,91,78,64,45], "FWD": [100,91,79,64,45] },
+          { "type": "30", "4WD": [100,86,71,57,43], "RWD": [100,89,79,68,54], "FWD": [100,89,78,67,52] }
+        ]
+      },
+      surfaces: {},
+      zoomLevel: "100%",
+      zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
+      tyreAnimation: false,
+      mra1: "",
+      mra2: "",
+      chartTrack: {"id":"drag100","surface":"0","cond":"0","code":"drag100_a00","campaign":"IT Milan 10"},
+      fakeCar1: {
+        rid: "fake1",
+        selectedTune: "Other"
+      },
+      mraResult: null,
+      user: null,
+      voteLoading: false,
+      fakeTime1: undefined,
+      fakeCustomData1: {},
+      dictionarySelected: null,
+      dictionary: [
+        {
+          term: "MRA",
+          name: "Mid-Range Acceleration",
+          short: "Factor of 60-100mph",
+          desc: "How good a car is at 60-100mph compared to its 0-60mph time. The higher the better. A car with 100 MRA means that its 60-100 time is the same as its 0-60. Also, 50 MRA means that 60-100 time is the double of its 0-60 time."
+        },
+        {
+          term: "HRA",
+          name: "High-Range Acceleration",
+          short: "Factor of 100-150mph",
+          desc: "The same as MRA, but 100-150mph time"
+        },
+        {
+          term: "OLA",
+          name: "Off the Line Acceleration",
+          short: "Factor of 0-30mph",
+          desc: "How good a car is at 0-30mph. Very useful on low speed tracks with a lot of turns: Slalom Test, Indoor Karting, Karting Circuit..."
+        },
+        {
+          term: "ETB",
+          name: "Engine Traction Bonus",
+          short: "Boost from engine upgrades",
+          desc: "Engine upgrades gives the car handling bonus. More notieced on off-road and wet tracks. Almost no effect on dry asphalt tracks. Thats why 323 usually is the best tune for off-road cars."
+        },
+        {
+          term: "323",
+          name: "Tune of a car",
+          short: "3 engine, 2 weight, 3 chassis",
+          desc: "Means the number stage upgrades for each category: engine 3.3, weight 2.3, chassis 3.3. Also known as 969. Fully upgraded engine and chassis. A stock a is 000, upgrades without any fuse is 111. 333 isn't possible"
+        },
+        {
+          term: "GC",
+          name: "Ground Clearance",
+        },
+        {
+          term: "CS",
+          name: "City Streets"
+        },
+        {
+          term: "T1",
+          name: "Tier 1"
+        },
+        {
+          term: "Leggy",
+          name: "Legendary car"
+        },
+        {
+          term: "UR",
+          name: "Ultra Rare car"
+        },
+        {
+          term: "SR",
+          name: "Super Rare car"
+        },
+        {
+          term: "UC",
+          name: "Uncommon car"
+        },
+        {
+          term: "YB",
+          name: "Yellowbird Championship"
+        },
+        {
+          term: "SN",
+          name: "Skyline Nismo Championship"
+        },
+        {
+          term: "TDR",
+          name: "Top Drives Records",
+          short: "www.topdrivesrecords.com"
+        },
+        {
+          term: "TDC",
+          name: "Top Drives Club",
+          short: "www.topdrives.club"
+        },
+        {
+          term: "TDO",
+          name: "Top Drives official discord"
+        },
+        {
+          term: "Hutch",
+          name: "Developer of the game"
+        },
+        {
+          term: "TB",
+          name: "Test Bowl"
+        },
+        {
+          term: "WE",
+          name: "World Expo tag"
+        },
+        {
+          term: "ENW",
+          name: "European New Wave tag"
+        },
+        {
+          term: "APGP",
+          name: "Asia-Pacific Grand Prix tag"
+        },
+        {
+          term: "JPT",
+          name: "Japan Pro Tour tag"
+        },
+        {
+          term: "OG",
+          name: "Original cars"
+        },
+        {
+          term: "DNF",
+          name: "Do Not Finish"
+        },
+      ],
+      tracksPenalty: [
+        {
+          name: "Low GC Penalty",
+          tracks: [ "csSmall", "csMed", "dockCity", "oceanCity", "speedbump12km", "speedbump1km", "desertHill" ]
+        },
+        {
+          name: "Low/Mid GC Penalty",
+          tracks: [ "moto", "desertRallyDirt" ]
+        },
+        {
+          name: "Hill Climb Bonus",
+          tracks: [ "hClimb", "mtHill", "tRoad" ]
+        },
+      ],
+      classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
+      classesColorsRgb: [
+        "135, 135, 135",
+        "118, 242, 115",
+        "28, 204, 255",
+        "255, 246, 43",
+        "255, 53, 56",
+        "140, 92, 255",
+        "255, 199, 23"
+      ],
+      carCosts: {
+        classes: ["F","E","D","C","B","A","S"],
+        upgrade1: [200,400,700,1100,1600,2200,2900],
+        upgrade2: [250,475,800,1225,1750,2375,3100],
+        upgrade3: [300,550,900,1350,1900,2550,3300],
+        upgrade4: [300,550,900,1350,1900,2550,3300],
+        upgrade5: [375,650,1025,1500,2075,2750,3525],
+        upgrade6: [450,750,1150,1650,2250,2950,3750],
+        upgrade7: [450,750,1150,1650,2250,2975,3750],
+        upgrade8: [550,875,1300,1825,2450,3200,4050],
+        upgrade9: [750,1125,1600,2175,2850,3650,4550],
+        divider1: "Fuse",
+        fuse1: [400,700,1100,1600,2200,2900,3700],
+        fuse1Time: ["5m","15m","30m","1h","2h","4h","8h"],
+        fuse1SkipGold: [10,125,345,85,160,300,550],
+        fuse2: [600,950,1400,1950,2600,3350,4200],
+        fuse2Time: ["15m","30m","1h","2h","4h","8h","16h"],
+        fuse2SkipGold: [25,45,85,160,300,550,1000],
+        divider2: "Service",
+        serviceTime: ["1m","2m30s","4m","5m45s","7m30s","9m30s","12m30s"],
+        serviceTime10: ["10m","25m","40m","57m30s","1h15m","1h35m","2h5m"],
+        serviceSkipGold: [5,10,25,20,24,28,30],
+        divider3: "Total to Max",
+        "Upgrades": [11525,19625,30625,44525,61325,81175,103825],
+        "Fuse Time": ["45m","1h45m","3h30m","7h","14h","28h","56h"],
+        "Fuse Skip": [80,465,1205,575,1080,2000,3650],
+        divider4: "Sell Price",
+        "Stock": [125,250,1000,2500,12500,65000,275000],
+        "Maxed": [8769,14969,23969,35894,58494,125882,352944],
+        classesEnd: ["F","E","D","C","B","A","S"],
+      }
+
     }
   },
   watch: {},
   beforeMount() {
-    // this.getIncomingCars();
-    // this.newCarBackup = JSON.parse(JSON.stringify(this.newCar));
+    let zoomLevel = window.localStorage.getItem("zoomLevel");
+    if (zoomLevel) {
+      this.zoomLevel = zoomLevel;
+      this.changeZoom(zoomLevel);
+    }
+    this.dictionary.sort((a, b) => {
+      return a.term.localeCompare(b.term);
+    })
+
+    // let valuesRelative = [];
+    // this.tyres.values.map(line => {
+    //   let nLine = JSON.parse(JSON.stringify(line));
+    //   Object.keys(nLine).map(key => {
+    //     if (key === "type") return;
+    //     let best = Math.max(...nLine[key]);
+    //     nLine[key] = nLine[key].map(friction => {
+    //       return Math.round((friction / best) * 100)
+    //     })
+    //   })
+    //   valuesRelative.push(nLine);
+    // })
+    // console.log(valuesRelative);
   },
   mounted() {
-    // this.searchFilters = this.$refs.newCarsFilter.$data.searchFilters;
-    // this.refreshPhotos();
-    // this.$store.commit("START_LOGROCKET", {});
-    // this.debounceFilter = Vue.debounce(this.changeFilter, 500);
+    this.user = { "username": "fake", "mod": true };
   },
-  computed: {
-    valid() {
-      if (!this.newCar.rq) return false;
-      if (!this.newCar.brand) return false;
-      if (!this.newCar.onlyName) return false;
-      if (!this.newCar.country) return false;
-      if (!this.newCar.year) return false;
-      // if (!this.newCar.clearance) return false;
-      if (!this.newCar.topSpeed) return false;
-      if (!this.newCar.acel) return false;
-      if (!this.newCar.hand) return false;
-      if (!this.newCar.drive) return false;
-      if (!this.newCar.tyres) return false;
-      // if (!this.newCar.weight) return false;
-      // if (!this.newCar.color) return false;
-      // if (!this.newCar.fuel) return false;
-      // if (!this.newCar.seats) return false;
-      // if (!this.newCar.engine) return false;
-      if (!this.newCar.photoId.src) return false;
-      if (this.newCar.tags.length === 0) return false;
-      // if (this.newCar.bodyTypes.length === 0) return false;
-      return true;
-    },
-    filteredIncomingCars() {
-      if (this.searchInputLazy === "") return this.incomingCars;
-
-      let strIndex = -1;
-      let searchStr = this.searchInputLazy.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-      let result = [];
-      let shouldPush = false;
-      let prePush;
-
-      this.incomingCars.map((x, ix) => {
-        strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
-
-        if (strIndex > -1) {
-          prePush = JSON.parse(JSON.stringify(x));
-          prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
-          prePush.locatedIndex = strIndex;
-          if (x.name[strIndex - 1] === ' ') {
-            prePush.locatedPlus = true;
-          }
-
-          result.push(prePush)
-        }
-      })
-
-      result.sort(function(a, b) {
-        if (a.locatedPlus && !b.locatedPlus) return -1;
-        if (b.locatedPlus && !a.locatedPlus) return 1;
-        return a.locatedIndex - b.locatedIndex;
-      });
-
-      return result;
-    }
-  },
+  computed: {},
   methods: {
-    reset() {
-      this.newCar = JSON.parse(JSON.stringify(this.newCarBackup));
-    },
-    askReset() {
-      let vm = this;
-
-      let action = function() {
-        vm.reset();
-        vm.confirmDelete.dialog = false;
+    changeZoom(level = "100%") {
+      let string;
+      if (level === "60%") {
+        string = "width=device-width,height=device-height, initial-scale=0.45, maximum-scale=0.45, minimum-scale=0.45"
+      }
+      if (level === "80%") {
+        string = "width=device-width,height=device-height, initial-scale=0.55, maximum-scale=0.55, minimum-scale=0.55"
+      }
+      if (level === "100%") {
+        string = "width=device-width,height=device-height, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65"
+      }
+      if (level === "120%") {
+        string = "width=device-width,height=device-height, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75"
+      }
+      if (level === "140%") {
+        string = "width=device-width,height=device-height, initial-scale=0.85, maximum-scale=0.85, minimum-scale=0.85"
       }
 
-      this.confirmDelete = {
-        dialog: true,
-        msg: `Confirm reset?`,
-        actionLabel: `Reset`,
-        action: action,
-        loading: false,
-        classe: `D_ButtonRed`
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if ( viewport ) {
+        viewport.content = string;
       }
-    },
-    submit(isPreview = false) {
-      let result = JSON.parse(JSON.stringify(this.newCar));
-
-
-
-      if (result.abs === null) result.abs = false;
-      if (result.tcs === null) result.tcs = false;
-      if (result.prize === null) result.prize = false;
-      if (result.acel === "N/A") result.acel = null;
-      if (result.photoId.filename) result.photoId = result.photoId.filename;
-
-      if (!result.clearance) result.clearance = "?";
-      if (!result.weight) result.weight = "?";
-      if (!result.fuel) result.fuel = "?";
-      if (!result.seats) result.seats = "?";
-      if (!result.engine) result.engine = "?";
-
-      Object.keys(this.textTypes).map(key => {
-        if (this.textTypes[key] !== "normal" && key !== "seats" && result[key] !== "?") {
-          result[key] = Number(result[key]);
-        }
-      })
-
-      if (result.mra === 0) result.mra = null;
-      if (result.acel === 0) result.acel = null;
-      if (result.color) result.tags.push(result.color);
-      delete result.color;
-
-      console.log(result);
-
-      if (isPreview) {
-        result.name = `${result.brand} ${result.onlyName}`
-        this.previewCar = result;
-        this.previewDialogActive = true;
-        return
-      }
-
-      // lets submit
-      this.loading = true;
-
-      axios.post(Vue.preUrl + "/updateNewCar", result)
-      .then(res => {
-        this.previewDialogActive = false;
-        this.getIncomingCars();
-        this.reset();
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          correct: true,
-          text: this.$t('m_saveSuccess')
-        });
-        
-      })
-      .catch(error => {
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-      })
-      .then(() => {
-        this.loading = false;
-      });
-    },
-    getIncomingCars() {
-      this.incomingCarsLoading = true;
-
-      axios.get(Vue.preUrl + "/getNewCars")
-      .then(res => {
-        this.incomingCarsLoading = false;
-        this.incomingCars = res.data.value;
-        this.incomingCars.sort((a, b) => {
-          if (a.rq === b.rq) {
-            return a.rid.localeCompare(b.rid)
-          } else {
-            return a.rq  - b.rq 
-          }
-        })
-        try {
-          this.incomingCars.map(car => {
-            car.percent = this.howMuchPercentDone(car);
-            car.classColor = Vue.resolveClass(car.rq, car.class, "color");
-            car.photoCalc = require('@/incoming_pics/' + car.photoId + '.jpg')
-          })
-        } catch (error) {
-          
-        }
-        // console.log(res.data);
-      })
-      .catch(error => {
-        this.incomingCarsLoading = false;
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-      })
-    },
-    carListClick(car, e) {
-      if (e && e.shiftKey && (e.ctrlKey || e.metaKey)) {
-        this.carAskDelete(car);
-      } else {
-        this.carAskLoad(car);
-      }
+      window.localStorage.setItem('zoomLevel', level);
       
     },
-    carAskLoad(car) {
-      let vm = this;
+    tyreDriveChanged() {
+      // debugger;
+      let currentKey = this.tyres.relativeToBest ? 'valuesRelative' : 'values';
+      if (this.tyres.drivesModel === this.tyres.oldDrivesModel && currentKey === this.tyres.oldValueKey) return;
+      let shouldAnimate = currentKey === this.tyres.oldValueKey;
 
-      let action = function() {
-        vm.reset();
-        vm.newCar = {
-          ...vm.newCar,
-          ...car
-        }
-        delete vm.newCar.percent;
-        delete vm.newCar.classColor;
-        delete vm.newCar.locatedName;
-        delete vm.newCar.locatedIndex;
-        delete vm.newCar.locatedPlus;
-        vm.refreshPhotos();
-
-        const illustrations = require.context(
-          '@/incoming_pics',
-          true,
-          /^.*\.jpg$/
-        )
-
-        let photos;
-        let photosKeys = illustrations.keys();
-        photos = photosKeys.map(illustrations);
-        photos = photos.map((x, index) => {
-          return {
-            src: x,
-            filename: photosKeys[index].substr(2).slice(0, -4)
-          }
+      this.tyres[currentKey].map((line, xline) => {
+        let diffs = [];
+        line[this.tyres.drivesModel].map((frict, xfrict) => {
+          diffs.push(frict - this.tyres[this.tyres.oldValueKey][xline][this.tyres.oldDrivesModel][xfrict])
         })
-        vm.newCar.photoId = photos.find(x => x.filename === vm.newCar.photoId);
-        vm.confirmDelete.dialog = false;
-
-        let color;
-        vm.newCar.tags.map(tag => {
-          vm.typesList.color.map(colorOption => {
-            if (tag === colorOption) {
-              color = tag;
-            }
-          })
-        })
-        vm.newCar.tags = vm.newCar.tags.filter(tag => tag !== color);
-        vm.newCar.color = color;
-
-        
-        
-        // console.log(vm.newCar);
-        // console.log(newCar);
-        // vm.newCar = newCar;
-        
-      }
-
-      this.confirmDelete = {
-        dialog: true,
-        msg: `Load "${car.rid}"?`,
-        actionLabel: `Load`,
-        action: action,
-        loading: false,
-        classe: `D_ButtonGreen`
-      }
-    },
-    carAskDelete(car) {
-      let vm = this;
-
-      let action = function() {
-        vm.confirmDelete.loading = true;
-
-        axios.post(Vue.preUrl + "/updateNewCar", {
-          ...car,
-          isDelete: true
-        })
-        .then(res => {
-          vm.confirmDelete.dialog = false;
-          vm.getIncomingCars();
-        })
-        .catch(error => {
-          console.log(error);
-          vm.$store.commit("DEFINE_SNACK", {
-            active: true,
-            error: true,
-            text: error,
-            type: "error"
-          });
-        })
-        .then(() => {
-          vm.confirmDelete.loading = false;
-        });
-      }
-
-      this.confirmDelete = {
-        dialog: true,
-        msg: `Delete "${car.rid}"?`,
-        actionLabel: `Delete`,
-        action: action,
-        loading: false,
-        classe: `D_ButtonRed`
-      }
-    },
-    refreshPhotos() {
-      const illustrations = require.context(
-        '@/incoming_pics',
-        true,
-        /^.*\.jpg$/
-      )
-      let photos;
-      let photosKeys = illustrations.keys();
-      photos = photosKeys.map(illustrations);
-      photos = photos.map((x, index) => {
-        return {
-          src: x,
-          filename: photosKeys[index].substr(2).slice(0, -4)
-        }
+        Vue.set(line, "diffs", diffs);
       })
-      let brandName = (this.newCar.brand || "").normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'');
-      photos = photos.filter(x => {
-        if (x.filename.normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'').includes(brandName)) return true;
-      })
-      if (this.incomingCars.length > 0) {
-        photos.map(x => {
-          if (this.incomingCars.find(y => y.photoId === x.filename)) {
-            x.inUse = true;
-          } else {
-            x.inUse = false;
-          }
-        })
-      }
-      // console.log(photos[0]);
-      this.photos = photos;
-    },
-    changedChip(key, item) {
-      if (key === "brand" && this.newCar.brand) {
-        this.refreshPhotos();
+
+      this.tyres.oldDrivesModel = this.tyres.drivesModel;
+      this.tyres.oldValueKey = currentKey;
+
+      if (shouldAnimate) {
+        this.tyreAnimation = false;
+        if (this.tyreAnimationClear) clearTimeout(this.tyreAnimationClear);
+        this.tyreAnimationClear = setTimeout(() => {
+          this.tyreAnimation = true;
+        }, 10);
+      } else {
+        this.tyreAnimation = false;
       }
     },
-    howMuchPercentDone(car) {
-      let amount = 0;
-      if (car.clearance && car.clearance !== "?") amount++;
-      if (car.weight && car.weight !== "?") amount++;
-      if (car.fuel && car.fuel !== "?") amount++;
-      if (car.seats && car.seats !== "?") amount++;
-      if (car.engine && car.engine !== "?") amount++;
-      if (car.bodyTypes.length > 0) amount++;
-
-      let hasColor = false;
-      car.tags.map(tag => {
-        this.typesList.color.map(colorOption => {
-          if (tag === colorOption) {
-            hasColor = true;
-          }
-        })
-      })
-      if (hasColor) amount++;
-
-
-      let result = 50 + (amount * 7);
-      if (result === 99) result = 100;
-      return result;
+    calcMra() {
+      if (!this.mra1 || !this.mra2) {
+        this.mraResult = null;
+        return;
+      };
+      this.mraResult = Vue.mra(this.mra2, Number(this.mra1));
     },
-    searchInputFunc(e) {
-      this.debounceFilter();
-    },
-    changeFilter() {
-      this.searchInputLazy = this.searchInput;
+    dictClick(item) {
+      if (!item.short) return;
+      if (this.dictionarySelected && this.dictionarySelected.term === item.term) {
+        this.dictionarySelected = null;
+        return;
+      } else {
+        this.dictionarySelected = item;
+      }
+
+      setTimeout(() => {
+        let div = document.querySelector(`.MainCheatSheet_DictExpanded`);
+        let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+        window.scrollTo({ top: div.offsetTop + (div.offsetHeight / 2) - (vh / 2), behavior: 'smooth' });
+      }, 50);
     }
   },
 }
 </script>
 
 <style>
+.MainCheatSheet_Root {
+}
 .MainCheatSheet_Layout {
-  padding: 20px;
-}
-.MainCheatSheet_Layout .BaseText_Input {
-  margin-top: 0px;
-}
-.MainCheatSheet_Header {
-  text-align: center;
-  margin: 50px 0 50px 0;
-  font-size: 30px;
+  margin-top: 30px;
+  padding-bottom: 60px;
 }
 .MainCheatSheet_Box {
-
-}
-.MainTranslate_Logo {
-  width: 210px;
+  max-width: 1150px;
   margin: 0 auto;
 }
-.MainCheatSheet_FormBox {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 15px;
-  margin-bottom: 40px;
+.MainCheatSheet_TyresGrid {
+  /* padding: 20px; */
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr 1fr;
 }
-.MainCheatSheet_FormItem {
-  margin-bottom: 30px;
-}
-.MainCheatSheet_FormTitleAlert {
-  color: rgb(var(--d-text-red));
-  text-align: right;
-}
-.MainCheatSheet_FormTitleResult {
-  text-align: right;
-}
-.MainCheatSheet_FormTitleGreen {
-  color: rgb(var(--d-text-green));
-}
-.MainCheatSheet_FormChipsBox {
+.MainCheatSheet_Cell {
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  align-items: center;
+  white-space: nowrap;
+  height: var(--cell-height);
+  box-sizing: border-box;
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00;
+  padding: 3px;
 }
-.MainCheatSheet_integer,
-.MainCheatSheet_topSpeed,
-.MainCheatSheet_acel,
-.MainCheatSheet_hand,
-.MainCheatSheet_mra,
-.MainCheatSheet_integer {
-  max-width: 200px;
+.MainCheatSheet_CellTop {
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00, inset 0px 2px 0px 0px #ffffff07;
 }
-.MainCheatSheet_Submit {
+.MainCheatSheet_CellBold {
+  background-color: rgb(0, 0, 0, 0.13);
+}
+.MainCheatSheet_CellSurface {
+  padding: 0px 8px 0px 4px;
+  box-shadow: inset -2px -2px 0px 0px #ffffff10, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00;
+}
+.MainCheatSheet_TyresTopName {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 7;
+  background-image: radial-gradient(#000000ba 0%, transparent 69%);
+  background-position: 50% 6px;
+  background-size: 80% 53px;
 }
-.MainCheatSheet_SelectPhoto {
-  font-size: 18px;
+.MainCheatSheet_TyresFrictionItem {
+  justify-content: center;
+  position: relative;
+  /* background-color: rgba(150, 255, 0, calc(var(--opac) * 0.3 + -15%)); */
+  /* color: rgba(150, 255, 0, calc(var(--opac) * 0.3 + -15%)); */
+  /* --color-index */
+  --last-index: 100;
+  /* color: var(--d-text-b); */
+  --h: calc( (((var(--color-index) * (100/var(--last-index))) / 75) + 90) * 100 );
+  --s: calc( (((var(--color-index) * (100/var(--last-index))) / -470) + 1) * 100% );
+  color: hsl(var(--h), var(--s), 86%, 0.8);
+  background-color: hsl(var(--h), var(--s), 35%, 0.25);
 }
-.MainCheatSheet_PhotosBox {
+.MainCheatSheet_TyresRelative .MainCheatSheet_TyresFrictionItem {
+  --h: calc( (((var(--color-index) * (100/var(--last-index))) / 224) + 80) * 400 );
+}
+.MainCheatSheet_TyresTopItem {
+  height: 150px;
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  width: 100%;
+  flex-direction: column;
+  /* overflow: hidden; */
+  justify-content: flex-end;
 }
-.MainCheatSheet_PhotosChip {
-  width: 170px;
-  height: 117px;
-  padding: 0;
-  border-radius: 8px;
+.MainCheatSheet_TyreSvg {
+  position: absolute;
+  height: 150px;
+  width: 150%;
+  /* right: 1px; */
+  right: 31px;
+  top: 0;
   overflow: hidden;
 }
-.MainCheatSheet_PhotosChip .BaseChip_Text {
-  display: contents;
+.MainCheatSheet_TyresLabel {
+  z-index: 6;
+  color: rgb(var(--d-text-yellow));
 }
-.MainCheatSheet_PhotosChip.D_ButtonActive {
-  box-shadow: 0px 0px 0px 3px rgb(var(--d-text-green));
-}
-.MainCheatSheet_PhotoDiv {
+.MainCheatSheet_TyresTopLeftBox {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  z-index: 7;
 }
-.MainCheatSheet_PhotoImg {
-  width: 100%;
-  transform: scale(1.3) translate(15px, -7px);
+.MainCheatSheet_TyresTopLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  z-index: 7;
+  flex-wrap: wrap;
 }
-.MainCheatSheet_SearchLayout {
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: 30px;
+.MainCheatSheet_TyresDiffs {
+  position: absolute;
+  transform: translateX(calc(0% + 1em));
+  color: #71d771;
+  opacity: 0;
+  left: 50%;
+  width: 2em;
+  text-align: right;
 }
-.MainCheatSheet_ListNewCarsBox {
+.MainCheatSheet_TyresDiffsNegative {
+  color: #ff6666;
 }
-.MainCheatSheet_ListNewCars {
-  max-width: 600px;
-  height: 300px;
-  margin: 0 auto;
-  overflow-y: scroll;
+.MainCheatSheet_TyresDiffsAnimate {
+  animation: fadeOut 2s linear forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.MainCheatSheet_MRA_Calculator {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.MainCheatSheet_Title {
+  color: rgb(var(--d-text-yellow));
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.MainCheatSheet_SpaceTop {
+  margin-top: 40px;
+}
+.MainCheatSheet_MRA_Row .Row_Cell {
   background-color: rgba(0,0,0,0.2);
-  padding: 10px;
-  box-sizing: border-box;
+  --cell-height: 41px;
+  margin-top: 2px;
+  box-shadow: unset;
 }
-.MainCheatSheet_ListCar {
-  width: auto;
+.MainCheatSheet_MRA_Row {
+  color: var(--d-text-b);
 }
-.MainCheatSheet_ListLoading {
+.MainCheatSheet_MRA_Row .Row_Content {
+  padding: 9px;
+}
+.MainCheatSheet_MRA_Calculator .BaseText_Input {
+  /* color: var(--d-text); */
   text-align: center;
 }
-.MainCheatSheet_ListCarPercent {
-  font-size: .6em;
-  box-shadow: 0 0 0 2px #0003;
-  background-color: #0003;
-  padding: 1px 3px;
-  margin-left: 7px;
-  margin-right: 2px;
+.MainCheatSheet_MRA_RowBox {
+
 }
-.MainCheatSheet_ListCarPercent100 {
-  box-shadow: 0 0 0 2px #9dff0059;
-  background-color: #9dff0059;
-  color: white;
+.MainCheatSheet_MRA_Result {
+  display: flex;
+  justify-content: center;
 }
-.MainCheatSheet_PhotoInUse {
-  background-color: black;
-  opacity: 1 !important;
+.MainCheatSheet_MRA_ResultValue {
+  /* background-color: rgba(0,0,0,0.2); */
+  margin-top: 5px;
+  padding: 5px;
 }
-.MainCheatSheet_PhotoInUse .MainCheatSheet_PhotoImg {
-  opacity: 0.4;
+.MainCheatSheet_Dict {
+  gap: 15px;
+  columns: 200px auto;
 }
-.MainCheatSheet_PhotoInUseText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 39px;
-  color: white;
+.MainCheatSheet_DictItem {
+  display: flex;
+  /* flex-direction: column; */
+  padding: 6px;
+  justify-content: flex-start;
+  gap: 4px;
+  text-align: left;
+  --height: 28px;
+  color: var(--d-text);
 }
-.MainCheatSheet_FormTitle {
-  margin-bottom: 5px;
-  color: rgba(var(--d-text-yellow), 0.8);
+.MainCheatSheet_D_Title {
+  color: rgb(var(--d-text-green));
+  font-size: 1.2em;
+}
+.MainCheatSheet_DictExpanded {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+.MainCheatSheet_Penalty {
+  gap: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.MainCheatSheet_PenaltyTitle {
+  color: rgb(var(--d-text-green));
+}
+.MainCheatSheet_PenaltyTrack {
+  font-size: 0.8em;
+}
+.MainCheatSheet_ClassesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* gap: 2px; */
+  /* box-shadow: inset 2px 2px 0px 0px #ffffff10; */
+}
+.MainCheatSheet_ClassesIcon {
+  width: 21px;
+  margin-right: 3px;
+}
+.MainCheatSheet_CellInner {
+  display: flex;
+}
+.MainCheatSheet_ClassesClass {
+  text-align: center;
+}
+.MainCheatSheet_UpgradeArrow {
+  font-size: 0.8em;
+  margin: 0 3px;
+  opacity: 0.5;
+}
+.MainCheatSheet_UpgradeLabel {
+  
+}
+.MainCheatSheet_ClassesCell,
+.MainCheatSheet_ClassesLabelCell {
+  box-shadow: inset -2px -2px 0px 0px #ffffff07;
+  padding: 3px 0px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: var(--cell-height);
+  justify-content: center;
+}
+.MainCheatSheet_ClassesLabelCell:not(.MainCheatSheet_EmptySpace ) {
+  /* padding: 3px 8px 3px 4px; */
+  background-color: #ffffff09;
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 2px 0px 0px 0px #ffffff07;
+}
+.MainCheatSheet_EmptySpaceEnd {
+  box-shadow: unset;
+}
+.MainCheatSheet_ClassesClass {
+  font-size: 1.2em;
+  transform: skewY(9deg);
+  font-weight: 700;
+  background-color: rgb(var(--classC));
+  color: #000;
+  display: inline-flex;
+  padding: 3px 7px;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+.MainCheatSheet_ClassesHeader {
+  background-color: rgba(var(--classC), 0.1);
+  padding: 8px 3px;
+}
+.MainCheatSheet_CellHighlight {
+  /* background-color: rgba(255,255,255, 0.04); */
+  background-color: rgba(0,0,0, 0.16);
+}
+.MainCheatSheet_RowDivider {
+  
+  /* box-shadow: inset 0px 0px 0px 2px #ffe39417; */
+  padding: 3px 0px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  justify-content: center;
+  grid-column: 1/9;
+  height: auto;
+  color: rgb(var(--d-text-yellow));
+  background-color: #a9904129;
+  font-size: 0.9em;
+}
+.MainCheatSheet_TipBox {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.MainCheatSheet_Tip {
+  font-size: 14px;
+  background-color: #a9904129;
+  box-shadow: inset 0 0 0 2px #ffe39417;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #cdc2a3;
+  text-align: center;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+  .MainCheatSheet_TyresGrid {
+    grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .MainCheatSheet_Box {
+    max-width: 575px;
+  }
+  .MainCheatSheet_TyreSvg {
+    height: 110px;
+    top: 40px;
+    right: 16px;
+  }
+  .MainCheatSheet_TyresTopName {
+    background-image: radial-gradient(#000000ba 0%, transparent 69%);
+    background-size: 100% 53px;
+  }
+  .MainCheatSheet_TyresLabelComplete {
+    display: none;
+  }
+  .MainCheatSheet_ClassesGrid {
+    font-size: 16px;
+  }
+  .MainCheatSheet_ClassesIcon {
+    width: 18px;
+    margin-right: 1px;
+  }
+  .MainCheatSheet_Classes_LongNumber .MainCheatSheet_ClassesIcon {
+    /* display: none; */
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .MainCheatSheet_TyresLabelShort {
+    display: none;
+  }
 }
 </style>

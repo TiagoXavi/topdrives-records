@@ -105,6 +105,22 @@
       <polyline class="BaseIconSvg_SnowPath" points="5.4,13.7 8.7,11.8 8.7,8 "/>
       <polyline class="BaseIconSvg_SnowPath" points="13.2,5.3 16.5,7.3 19.8,5.3 "/>
     </svg>
+    <svg v-else-if="type === 'gold'" class="BaseIconSvg_Gold" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 33 33" style="enable-background:new 0 0 33 33;" xml:space="preserve">
+      <path style="fill:#FBAD14;" d="M30.6,14.8l-6-10.4c-0.5-0.8-1.3-1.3-2.2-1.3h-12c-0.9,0-1.8,0.5-2.2,1.3l-6,10.4
+        c-0.5,0.8-0.5,1.8,0,2.6l6,10.4c0.5,0.8,1.3,1.3,2.2,1.3h12c0.9,0,1.8-0.5,2.2-1.3l6-10.4C31,16.5,31,15.6,30.6,14.8z M14.9,22.2
+        h2.8l1.6-3.7l-3.4,0l1.1-2.3H23l-3.3,8.5c0,0-3.5,0-6.1,0S9.2,23.5,9.2,20c0-3.7,2.3-8.1,5.2-10.7s8-1.8,8-1.8l1.3,2.6
+        c0,0-3.8-0.4-6.6,0.6s-4.8,5.7-4.9,8.7C12,22.5,14.9,22.2,14.9,22.2z"/>
+    </svg>
+    <svg v-else-if="type === 'cash'" class="BaseIconSvg_Cash" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 33 33" style="enable-background:new 0 0 33 33;" xml:space="preserve">
+      <path style="fill:#37EBAC;" d="M13.2,26.4c-3.1-0.3-4.7-2.2-4.9-5.5l3.9-1c0,2.1,0.9,3.1,2.9,3.1c0.9,0,1.6-0.2,2.1-0.7
+        c0.5-0.4,0.8-1,0.9-1.6c0.1-0.7,0-1.2-0.4-1.5c-0.4-0.3-1.2-0.8-2.6-1.3c-1.2-0.5-2.2-0.9-2.9-1.4c-0.7-0.4-1.2-1.1-1.5-1.9
+        c-0.3-0.8-0.4-1.7-0.2-2.8c0.2-1.4,0.9-2.7,1.9-3.8c1-1.1,2.5-1.8,4.3-2.1l0.3-1.9H5l-4,24.6h11.8L13.2,26.4z"/>
+      <path style="fill:#37EBAC;" d="M19.5,4.2l-0.3,1.9c2.6,0.3,4.1,1.8,4.4,4.6L20.1,12c-0.3-1.9-1.2-2.8-2.5-2.8
+        c-0.7,0-1.3,0.2-1.7,0.6c-0.5,0.4-0.8,0.9-0.9,1.5c-0.1,0.6,0,1.1,0.4,1.4c0.3,0.3,1.1,0.7,2.3,1.2c1.3,0.5,2.4,1,3.1,1.5
+        c0.7,0.5,1.3,1.1,1.6,1.9c0.3,0.8,0.4,1.8,0.2,2.9c-0.3,1.7-1,3.1-2.2,4.2c-1.2,1.1-2.8,1.8-4.7,2l-0.4,2.4h12.6l4-24.6H19.5z"/>
+    </svg>
   </div>
 </template>
 
@@ -183,5 +199,11 @@ export default {
 }
 .BaseIconSvg_SnowPath {
   fill:none;stroke:#FFFFFF;stroke-width:1.8;stroke-linecap:round;stroke-miterlimit:10;
+}
+.BaseIconSvg_Gold {
+  
+}
+.BaseIconSvg_Cash {
+  
 }
 </style>

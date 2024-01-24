@@ -330,7 +330,7 @@ export default {
         abs: false,
         tcs: false,
         engine: null,
-        tags: ["European New Wave"],
+        tags: ["American New Wave"],
         color: null,
         prize: false,
         fuel: null,
@@ -341,7 +341,7 @@ export default {
       labels: {
         onlyName: "Name only",
         tyres: "Tyres",
-        tags: "Tags (leave only 'European New Wave' if you are no 100% sure)",
+        tags: "Tags (leave only 'American New Wave' if you are no 100% sure)",
         prize: "Prize",
         bodyTypes: "Body types (optional)",
         engine: "Engine position (optional)",
@@ -369,8 +369,8 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ["Ariel", "Bizzarrini", "Bugatti", "Caterham", "Citroen", "Ford", "Koenigsegg", "McMurtry", "Pininfarina", "Radical", "Skoda", "Talbot", "Volvo", "Zenvo"],
-        country: ["GB", "IT", "FR", "SE", "CZ", "DK", "CN", "AU"],
+        brand: ["Buick", "Cadillac", "Chevrolet", "Dodge", "GMC", "Hummer", "RAM"],
+        country: ["US"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
@@ -378,7 +378,7 @@ export default {
         fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         tags: [
-          "European New Wave",
+          "American New Wave",
           "Motorsport",
           "Muscle Car",
           "Drivers Choice",
@@ -393,7 +393,7 @@ export default {
           "Hypercar",
           "Sleeper",
           "Concept",
-          "Chariots of the Gods"
+          "In the Shadows 24"
         ],
         color: [
           "Beige",
