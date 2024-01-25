@@ -843,5 +843,20 @@ body::-webkit-scrollbar-corner {
 }
 
 
+.LoadingRectangle {
+  animation: vnt666wwqSK5qL63sBn9P 1.5s ease infinite;
+  background: linear-gradient(90deg,#272729,#343536,#272729);
+  background-size: 200%;
+}
+@keyframes vnt666wwqSK5qL63sBn9P {
+  0% {
+      background-position: 0 0;
+  }
+  100% {
+      background-position: -200% 0;
+  }
+}
+
+
 
 </style>

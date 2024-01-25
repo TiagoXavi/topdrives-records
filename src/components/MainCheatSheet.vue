@@ -1,7 +1,7 @@
 <template>
   <div class="MainCheatSheet_Root">
     <div class="MainCheatSheet_Box">
-      <div class="MainTranslate_Logo" style="margin-top: 30px;">
+      <div class="MainTranslate_Logo" style="margin-top: 40px;">
         <div class="Main_Logo">
           <div class="Main_LogoPre">Top Drives</div>
           <Logo />
@@ -58,48 +58,6 @@
               :horizontal="true"
               :label="$t('m_relativeBest')"
               @change="tyreDriveChanged()" />
-          </div>
-        </div>
-        <div class="MainCheatSheet_MRA_CalcLayout MainCheatSheet_SpaceTop">
-          <div class="MainCheatSheet_Title">MRA Calculator</div>
-          <div class="MainCheatSheet_MRA_Calculator">
-            <BaseText
-              v-model="mra1"
-              class="BaseText_Big"
-              type="acel"
-              label="0-60 value"
-              style="width: 130px;"
-              placeholder=""
-              @change="calcMra();" />
-            <div class="MainCheatSheet_MRA_RowBox">
-              <div class="BaseText_Label">0-100 time</div>
-              <Row
-                :car="fakeCar1"
-                :list="[chartTrack]"
-                :loggedin="!!user"
-                :user="user"
-                :voteLoading="voteLoading"
-                :cg="true"
-                :cgOppo="true"
-                :cgTime="fakeTime1"
-                :forceDisabled="!user || !user.mod || !chartTrack"
-                :forceCustomAuthor="true"
-                :customData="fakeCustomData1"
-                class="MainCheatSheet_MRA_Row"
-                style="width: 130px;"
-                placeholder=""
-                type="times"
-                @changeTime="mra2 = $event.number; calcMra();" />
-            </div>
-            <button
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              style="margin-top: 19px;"
-              @click="calcMra()">
-              <i class="ticon-arrow_down_3" aria-hidden="true"/>
-            </button>
-          </div>
-          <div class="MainCheatSheet_MRA_Result">
-            <div v-if="mraResult" class="MainCheatSheet_MRA_ResultValue">{{ mraResult }} MRA</div>
           </div>
         </div>
         <div class="MainCheatSheet_ClassesInfo MainCheatSheet_SpaceTop">
@@ -163,6 +121,158 @@
             <div class="MainCheatSheet_Tip">Legendary (S) cars can be fused using 3x epics (A) or 1x duplicate S</div>
           </div>
         </div>
+        <div class="MainCheatSheet_ClassesInfo MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">Club rewards per event</div>
+          <div class="MainCheatSheet_ClubRewardsGrid">
+            <template v-for="(item, key, index) in clubEvent">
+              <template v-if="key === 'headers'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_EmptySpace MainCheatSheet_ClubRewardsHeader"></div>
+                <div v-for="(h, ih) in clubEvent[key]" class="MainCheatSheet_ClassesCell MainCheatSheet_ClubRewardsHeader">{{ h }}</div>
+              </template>
+              <template v-else-if="!key.includes('divider') && !key.includes('total')">
+                <div
+                  v-for="(h, ih) in clubEvent[key]"
+                  class="MainCheatSheet_ClassesCell"
+                  :class="{
+                    MainCheatSheet_ClubsCellImg: typeof h === 'string' && (h.includes('BadgeParticipaation') || h.includes('BadgeRank')),
+                    MainCheatSheet_ClassesLabelCell: ih === 0,
+                    MainCheatSheet_CellHighlight: false
+                  }">
+                  <div class="MainCheatSheet_CellInner">
+                    <BaseIconSvg v-if="ih === 2" type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" alt="" />
+                    <span v-else-if="typeof h === 'number'">{{ h * (clubMultiplier ? 2 : 1) }}</span>
+                    <span v-else>{{ h }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell">
+                  <BaseCheckBox :value="clubEventCheckObj[key.replace(/[\d]/g, '')] === key" @change="clubEventCheckObj[key.replace(/[\d]/g, '')] = key"/>
+                </div>
+              </template>
+              <template v-else-if="key.includes('total')">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_EmptySpace MainCheatSheet_ClubRewardsHeader MainCheatSheet_EmptySpaceEnd"></div>
+                <div class="MainCheatSheet_ClassesCell MainCheatSheet_EmptySpaceEnd"></div>
+                <div class="MainCheatSheet_ClassesCell MainCheatSheet_EmptySpaceSemiEnd">
+                  <div class="MainCheatSheet_CellInner">
+                    <BaseIconSvg type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <span>{{ Object.keys(clubEventCheckObj).map(k => clubEvent[clubEventCheckObj[k]][2]).reduce((a,b) => a+b) * (clubMultiplier ? 2 : 1) }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell">
+                  <div class="MainCheatSheet_CellInner">
+                    <span>{{ Object.keys(clubEventCheckObj).map(k => clubEvent[clubEventCheckObj[k]][3]).reduce((a,b) => a+b) * (clubMultiplier ? 2 : 1) }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell" style="grid-column: 5 / -1;">
+                  <BaseSwitch
+                    v-model="clubMultiplier"
+                    :horizontal="true"
+                    :label="$t('m_2xmultiplier')" />
+                </div>
+              </template>
+              <template v-else-if="key.includes('divider')">
+                <div class="MainCheatSheet_RowDivider">{{ item }}</div>
+              </template>
+            </template>
+          </div>
+          <div class="MainCheatSheet_TipBox">
+            
+          </div>
+        </div>
+        <div class="MainCheatSheet_ClassesInfo MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">Club rewards per season (48h)</div>
+          <div class="MainCheatSheet_ClubRewardsSeasonGrid">
+            <template v-for="(item, key, index) in clubSeason">
+              <template v-if="key === 'headers'">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_EmptySpace MainCheatSheet_ClubRewardsHeader"></div>
+                <div v-for="(h, ih) in clubSeason[key]" class="MainCheatSheet_ClassesCell MainCheatSheet_ClubRewardsHeader">{{ h }}</div>
+              </template>
+              <template v-else-if="!key.includes('divider') && !key.includes('total')">
+                <div
+                  v-for="(h, ih) in clubSeason[key]"
+                  class="MainCheatSheet_ClassesCell"
+                  :class="{
+                    MainCheatSheet_ClubsCellImg: typeof h === 'string' && (h.includes('BadgeParticipaation') || h.includes('BadgeRank')),
+                    MainCheatSheet_ClassesLabelCell: ih === 0,
+                    MainCheatSheet_CellHighlight: false
+                  }">
+                  <div class="MainCheatSheet_CellInner">
+                    <BaseIconSvg v-if="ih === 2" type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <BaseIconSvg v-if="ih === 3" type="gold" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" alt="" />
+                    <span v-else-if="typeof h === 'number'">{{ h }}</span>
+                    <span v-else>{{ h }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell">
+                  <BaseCheckBox :value="clubSeasonCheckObj[key.replace(/[\d]/g, '')] === key" @change="clubSeasonCheckObj[key.replace(/[\d]/g, '')] = key"/>
+                </div>
+              </template>
+              <template v-else-if="key.includes('total')">
+                <div class="MainCheatSheet_ClassesLabelCell MainCheatSheet_EmptySpace MainCheatSheet_ClubRewardsHeader MainCheatSheet_EmptySpaceEnd"></div>
+                <div class="MainCheatSheet_ClassesCell MainCheatSheet_EmptySpaceEnd"></div>
+                <div class="MainCheatSheet_ClassesCell MainCheatSheet_EmptySpaceSemiEnd">
+                  <div class="MainCheatSheet_CellInner">
+                    <BaseIconSvg type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <span>{{ Object.keys(clubSeasonCheckObj).map(k => clubSeason[clubSeasonCheckObj[k]][2]).reduce((a,b) => a+b) }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell">
+                  <div class="MainCheatSheet_CellInner">
+                    <BaseIconSvg type="gold" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
+                    <span>{{ Object.keys(clubSeasonCheckObj).map(k => clubSeason[clubSeasonCheckObj[k]][3]).reduce((a,b) => a+b) }}</span>
+                  </div>
+                </div>
+                <div class="MainCheatSheet_ClassesCell"></div>
+              </template>
+              <template v-else-if="key.includes('divider')">
+                <div class="MainCheatSheet_RowDivider">{{ item }}</div>
+              </template>
+            </template>
+          </div>
+        </div>
+        <div class="MainCheatSheet_MRA_CalcLayout MainCheatSheet_SpaceTop">
+          <div class="MainCheatSheet_Title">MRA Calculator</div>
+          <div class="MainCheatSheet_MRA_Calculator">
+            <BaseText
+              v-model="mra1"
+              class="BaseText_Big"
+              type="acel"
+              label="0-60 value"
+              style="width: 130px;"
+              placeholder=""
+              @change="calcMra();" />
+            <div class="MainCheatSheet_MRA_RowBox">
+              <div class="BaseText_Label">0-100 time</div>
+              <Row
+                :car="fakeCar1"
+                :list="[chartTrack]"
+                :loggedin="!!user"
+                :user="user"
+                :voteLoading="voteLoading"
+                :cg="true"
+                :cgOppo="true"
+                :cgTime="fakeTime1"
+                :forceDisabled="!user || !user.mod || !chartTrack"
+                :forceCustomAuthor="true"
+                :customData="fakeCustomData1"
+                class="MainCheatSheet_MRA_Row"
+                style="width: 130px;"
+                placeholder=""
+                type="times"
+                @changeTime="mra2 = $event.number; calcMra();" />
+            </div>
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              style="margin-top: 19px;"
+              @click="calcMra()">
+              <i class="ticon-arrow_down_3" aria-hidden="true"/>
+            </button>
+          </div>
+          <div class="MainCheatSheet_MRA_Result">
+            <div v-if="mraResult" class="MainCheatSheet_MRA_ResultValue">{{ mraResult }} MRA</div>
+          </div>
+        </div>
         <div class="MainCheatSheet_DictLayout MainCheatSheet_SpaceTop">
           <div class="MainCheatSheet_Title">Dictionary</div>
           <div class="MainCheatSheet_Dict">
@@ -214,6 +324,7 @@ import BaseTyreSvg from "./BaseTyreSvg.vue";
 import BaseTypeName from "./BaseTypeName.vue";
 import BaseIconSvg from "./BaseIconSvg.vue";
 import BaseSwitch from "./BaseSwitch.vue";
+import BaseCheckBox from "./BaseCheckBox.vue";
 import Row from "./Row.vue";
 import Logo from "./Logo.vue";
 import BaseFilterDialog from "./BaseFilterDialog.vue";
@@ -232,7 +343,8 @@ export default {
     BaseTypeName,
     Row,
     BaseIconSvg,
-    BaseSwitch
+    BaseSwitch,
+    BaseCheckBox
   },
   props: {
     test: {
@@ -460,12 +572,81 @@ export default {
         "Stock": [125,250,1000,2500,12500,65000,275000],
         "Maxed": [8769,14969,23969,35894,58494,125882,352944],
         classesEnd: ["F","E","D","C","B","A","S"],
-      }
+      },
+      clubMultiplier: false,
 
+      clubEvent: {
+        headers: ["Icon", "Cash", "Club XP", "Requirement", "Simulate"],
+        win1: ["Team Lose", "", 100, 1, "Lose event"],
+        win2: ["Team Win", "", 600, 5, "Win event"],
+        divider1: "Participation",
+        participation1: ["Bronze", "BadgeParticipaation01", 100, 1, "1 race"],
+        participation2: ["Silver", "BadgeParticipaation02", 500, 3, "5 races"],
+        participation3: ["Gold", "BadgeParticipaation03", 1000, 4, "15 races"],
+        participation4: ["Platinum", "BadgeParticipaation04", 2000, 5, "30 races"],
+        divider2: "Performance",
+        perf1: ["Bronze", "BadgePerformance01", 100, 1, "Top 100%"],
+        perf2: ["Silver", "BadgePerformance02", 500, 3, "Top 50%"],
+        perf3: ["Gold", "BadgePerformance03", 1000, 4, "Top 25%"],
+        perf4: ["Platinum", "BadgePerformance04", 2000, 5, "Top 10%"],
+        perf5: ["MVP", "BadgePerformance05", 3000, 6, "Top 1%"],
+        divider3: "Team Rank Bonus",
+        ranking1: ["Recruit", "BadgeRank01", 100, 0, "0 XP"],
+        ranking2: ["Rookie", "BadgeRank02", 200, 1, "100 XP"],
+        ranking3: ["Challenger", "BadgeRank03", 300, 2, "500 XP"],
+        ranking4: ["Veteran", "BadgeRank04", 400, 3, "2000 XP"],
+        ranking5: ["Master", "BadgeRank05", 500, 4, "5000 XP"],
+        ranking6: ["Elite", "BadgeRank06", 600, 5, "10000 XP"],
+        ranking7: ["Legendary", "BadgeRank07", 700, 6, "25000 XP"],
+        divider4: "Total",
+        total: ""
+      },
+      imgsObj: {},
+      clubEventCheckObj: {
+        win: "win2",
+        participation: "participation4",
+        perf: "perf5",
+        ranking: "ranking7"
+      },
+      clubSeason: {
+        headers: ["Icon", "Cash", "Gold", "Simulate"],
+        win1: ["Team 3rd", "🥉", 700, 60],
+        win2: ["Team 2nd", "🥈", 1400, 85],
+        win3: ["Team 1st", "🥇", 2100, 110],
+        divider1: "Participation",
+        participation1: ["1 event", "", 280, 3],
+        participation2: ["3 events", "", 600, 6],
+        participation3: ["5 events", "", 1400, 15],
+        participation4: ["10 events", "", 2100, 30],
+        divider2: "Best Performance in any event",
+        perf1: ["Bronze", "BadgePerformance01", 280, 3],
+        perf2: ["Silver", "BadgePerformance02", 600, 6],
+        perf3: ["Gold", "BadgePerformance03", 850, 9],
+        perf4: ["Platinum", "BadgePerformance04", 1400, 15],
+        perf5: ["MVP", "BadgePerformance05", 2100, 30],
+        divider3: "Team Rank Bonus",
+        ranking1: ["Recruit", "BadgeRank01", 150, 2],
+        ranking2: ["Rookie", "BadgeRank02", 300, 6],
+        ranking3: ["Challenger", "BadgeRank03", 400, 8],
+        ranking4: ["Veteran", "BadgeRank04", 550, 10],
+        ranking5: ["Master", "BadgeRank05", 700, 12],
+        ranking6: ["Elite", "BadgeRank06", 850, 15],
+        ranking7: ["Legendary", "BadgeRank07", 1000, 18],
+        divider4: "Total",
+        total: ""
+      },
+      clubSeasonCheckObj: {
+        win: "win3",
+        participation: "participation4",
+        perf: "perf5",
+        ranking: "ranking7"
+      },
     }
   },
   watch: {},
   beforeMount() {
+    document.title = `Cheatsheet - TDR`
+
     let zoomLevel = window.localStorage.getItem("zoomLevel");
     if (zoomLevel) {
       this.zoomLevel = zoomLevel;
@@ -473,6 +654,22 @@ export default {
     }
     this.dictionary.sort((a, b) => {
       return a.term.localeCompare(b.term);
+    })
+
+    Object.keys(this.clubEvent).map(key => {
+      if (!Array.isArray(this.clubEvent[key])) return;
+
+      // Vue.set(this.clubEventCheckObj, key.replace(/[\d]/g, ''), false);
+      // this.clubEventCheckObj.win = "win1";
+      // this.clubEventCheckObj.participation = "participation1";
+      // this.clubEventCheckObj.perf = "perf1";
+      // this.clubEventCheckObj.ranking = "ranking1";
+
+      this.clubEvent[key].map(x => {
+        if (typeof x === 'string' && x.includes("Badge")) {
+          this.imgsObj[x] = require('@/assets/clubs/' + x + '.png')
+        }
+      })
     })
 
     // let valuesRelative = [];
@@ -491,6 +688,9 @@ export default {
   },
   mounted() {
     this.user = { "username": "fake", "mod": true };
+  },
+  beforeDestroy() {
+    document.title = `Top Drives Records`
   },
   computed: {},
   methods: {
@@ -576,7 +776,7 @@ export default {
 .MainCheatSheet_Root {
 }
 .MainCheatSheet_Layout {
-  margin-top: 30px;
+  margin-top: 40px;
   padding-bottom: 60px;
 }
 .MainCheatSheet_Box {
@@ -777,11 +977,10 @@ export default {
 .MainCheatSheet_ClassesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  /* gap: 2px; */
-  /* box-shadow: inset 2px 2px 0px 0px #ffffff10; */
 }
 .MainCheatSheet_ClassesIcon {
   width: 21px;
+  height: 22px;
   margin-right: 3px;
 }
 .MainCheatSheet_CellInner {
@@ -817,6 +1016,9 @@ export default {
 .MainCheatSheet_EmptySpaceEnd {
   box-shadow: unset;
 }
+.MainCheatSheet_EmptySpaceSemiEnd {
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 2px 0px 0px 0px #ffffff07;
+}
 .MainCheatSheet_ClassesClass {
   font-size: 1.2em;
   transform: skewY(9deg);
@@ -845,7 +1047,7 @@ export default {
   align-items: center;
   white-space: nowrap;
   justify-content: center;
-  grid-column: 1/9;
+  grid-column: 1 / -1;
   height: auto;
   color: rgb(var(--d-text-yellow));
   background-color: #a9904129;
@@ -866,7 +1068,24 @@ export default {
   color: #cdc2a3;
   text-align: center;
 }
-
+.MainCheatSheet_ClubRewardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 75px;
+}
+.MainCheatSheet_ClubRewardsHeader:not(.MainCheatSheet_EmptySpace) {
+  background-color: #ffffff09;
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 0px 2px 0px 0px #ffffff07;
+}
+.MainCheatSheet_ClubBadge {
+  /* height: calc(var(--cell-height) + 4px); */
+}
+.MainCheatSheet_ClubsCellImg {
+  overflow: hidden;
+}
+.MainCheatSheet_ClubRewardsSeasonGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 75px;
+}
 
 
 
@@ -891,7 +1110,8 @@ export default {
   .MainCheatSheet_TyresLabelComplete {
     display: none;
   }
-  .MainCheatSheet_ClassesGrid {
+  .MainCheatSheet_ClassesGrid,
+  .MainCheatSheet_ClubRewardsGrid {
     font-size: 16px;
   }
   .MainCheatSheet_ClassesIcon {

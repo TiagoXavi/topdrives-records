@@ -324,7 +324,7 @@ export default {
   "t_drag30130": null,
   "t_drag50150": null,
   "t_drag75125": null,
-  "t_smallRoad": null,
+  "t_smallRoad": "Estrada Escondida",
   "t_townSlalom": "Slalom na Cidade",
   "t_townSprint": "Sprint na Cidade",
   "t_townTour": "Tour na Cidade",

@@ -170,6 +170,8 @@ export default {
   m_translationTool: "Translation Tool",
   m_newCar: "New Car",
   m_relativeBest: "Relative to best",
+  m_2xmultiplier: "2x Multiplier",
+  m_cheatSheet: "Cheatsheet",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",
   p_emptyRoundForUser: "This round isn't done yet. You can help creating it, then, submiting for review.",

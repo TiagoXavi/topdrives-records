@@ -22,6 +22,11 @@
       <div style="gap: 10px; flex-wrap: wrap;" class="D_Center Space_TopPlus">
         <button
           class="D_Button Main_OptionsButton"
+          @click="$router.push({ name: 'MainCheatSheet' })">
+          <span>{{ $t("m_cheatSheet") }}</span>
+        </button>
+        <button
+          class="D_Button Main_OptionsButton"
           @click="$router.push({ name: 'MainFindCar' })">
           <span>{{ $t("m_carFinder") }}</span>
         </button>
