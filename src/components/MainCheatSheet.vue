@@ -427,13 +427,13 @@ export default {
           term: "ETB",
           name: "Engine Traction Bonus",
           short: "Boost from engine upgrades",
-          desc: "Engine upgrades gives the car handling bonus. More notieced on off-road and wet tracks. Almost no effect on dry asphalt tracks. Thats why 323 usually is the best tune for off-road cars."
+          desc: "Engine upgrades gives the car traction bonus, less wheel-spin. More notieced on off-road and wet tracks. Almost no effect on dry asphalt tracks. Thats why 323 usually is the best tune for off-road cars."
         },
         {
           term: "323",
           name: "Tune of a car",
           short: "3 engine, 2 weight, 3 chassis",
-          desc: "Means the number stage upgrades for each category: engine 3.3, weight 2.3, chassis 3.3. Also known as 969. Fully upgraded engine and chassis. A stock a is 000, upgrades without any fuse is 111. 333 isn't possible"
+          desc: "Means the number stage upgrades for each category: engine 3.3, weight 2.3, chassis 3.3. Also known as 969. Fully upgraded engine and chassis. A stock car is 000, upgrades without any fuse is 111. 333 isn't possible"
         },
         {
           term: "GC",
@@ -441,7 +441,9 @@ export default {
         },
         {
           term: "CS",
-          name: "City Streets"
+          name: "City Streets",
+          short: "It refers to tracks that have low GC penalty",
+          desc: "Other possible acronyms: CSS (City Streets Small), CSM (City Streets Medium), OCS (Ocean City Streets)"
         },
         {
           term: "T1",
@@ -515,7 +517,7 @@ export default {
         },
         {
           term: "DNF",
-          name: "Do Not Finish"
+          name: "Did Not Finish"
         },
       ],
       tracksPenalty: [
@@ -556,7 +558,7 @@ export default {
         divider1: "Fuse",
         fuse1: [400,700,1100,1600,2200,2900,3700],
         fuse1Time: ["5m","15m","30m","1h","2h","4h","8h"],
-        fuse1SkipGold: [10,125,345,85,160,300,550],
+        fuse1SkipGold: [10,25,45,85,160,300,550],
         fuse2: [600,950,1400,1950,2600,3350,4200],
         fuse2Time: ["15m","30m","1h","2h","4h","8h","16h"],
         fuse2SkipGold: [25,45,85,160,300,550,1000],
@@ -567,7 +569,7 @@ export default {
         divider3: "Total to Max",
         "Upgrades": [11525,19625,30625,44525,61325,81175,103825],
         "Fuse Time": ["45m","1h45m","3h30m","7h","14h","28h","56h"],
-        "Fuse Skip": [80,465,1205,575,1080,2000,3650],
+        "Fuse Skip": [80,165,305,575,1080,2000,3650],
         divider4: "Sell Price",
         "Stock": [125,250,1000,2500,12500,65000,275000],
         "Maxed": [8769,14969,23969,35894,58494,125882,352944],
