@@ -2996,6 +2996,7 @@ export default {
       backToOptionsDialog: true,
       hoverIndex: -1,
       gameVersion: "Game v21.2",
+      mode: "classic",
       showPoints: false,
       showPointsCgForce: true,
       pointsResolved: [],
