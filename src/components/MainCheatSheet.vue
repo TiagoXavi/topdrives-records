@@ -2,10 +2,6 @@
   <div class="MainCheatSheet_Root">
     <div class="MainCheatSheet_Box">
       <div class="MainTranslate_Logo" style="margin-top: 40px;">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
       </div>
       <div class="MainCheatSheet_Layout">
         <div class="MainCheatSheet_TyresLayout">

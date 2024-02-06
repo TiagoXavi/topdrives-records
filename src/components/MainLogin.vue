@@ -1,12 +1,6 @@
 <template>
   <div class="TTT_Layout">
     <div class="TTT_Box">
-      <div class="TTT_Top">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-      </div>
       <div class="TTT_Mid">
         <BaseText
           v-model="email"

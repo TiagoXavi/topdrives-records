@@ -2,8 +2,8 @@
   <div
     :class="{
       Main_Normal: !inverted,
-      Main_2: inverted && mode === 'classic',
-      Main_Compact: (compact && mode === 'classic') || ((mode === 'cg' || mode === 'events') && windowWidth < 1200),
+      Main_2: inverted && mode === 'compare',
+      Main_Compact: (compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200),
       Main_ColorsFull: fullColors,
       Main_ColorsMedal: !fullColors,
       Main_isMobile: isMobile,
@@ -13,95 +13,100 @@
     @gestureend="gestureResolve($event)"
     @click.stop="outsideClick()">
     <div
-      v-if="mode === 'classic'"
+      v-if="mode === 'compare'"
       :class="{ Main_BodyEmpty: carDetailsList.length === 0 }"
       class="Main_Body"
       @click.stop="outsideClick()">
-      <div class="Main_Backtop"></div>
-      <div class="Main_Corner">
-        <BaseCorner
-          style="display: contents;"
-          :gameVersion="gameVersion"
-          @menu="optionsDialogActive = true;"
-          @camera="shareDialog = true; generateUrl(); generateCarsList();">
-          <template slot="by">
-            <div v-if="user && inverted" class="Main_PrintBy">
-              <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-              <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
-            </div>
-          </template>
-        </BaseCorner>
-        <div class="Main_RowCornerBox">
-          
-          <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
-            <template v-if="!user">
-              <div class="Main_SaveAllBox">
-                <button
-                  class="D_Button Main_LoginToEdit"
-                  @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+      <div class="Main_LeftPlusTop">
+        
+        <div class="Main_Corner">
+          <BaseCorner
+            style="display: contents;"
+            :gameVersion="gameVersion"
+            @menu="optionsDialogActive = true;"
+            @camera="shareDialog = true; generateUrl(); generateCarsList();">
+            <template slot="by">
+              <div v-if="user && inverted" class="Main_PrintBy">
+                <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+                <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
               </div>
             </template>
-            <template v-else-if="!!user && isImport">
-              <div class="Main_SaveAllBox">
-                <button
-                  :class="{ D_Button_Loading: saveLoading }"
-                  class="D_Button Main_SaveAllButton"
-                  @click="saveImport()">Import</button>
-              </div>
-            </template>
-            <template v-else-if="!!user && needSave">
-              <div class="Main_SaveAllBox">
-                <button
-                  :class="{ D_Button_Loading: saveLoading }"
-                  class="D_Button Main_SaveAllButton"
-                  @click="saveAll()">{{ $t("m_save") }}</button>
-              </div>
-            </template>
-            <template v-else-if="isMobile || homePointsToggle">
-              <div class="Main_SaveAllBox" @click.stop>
-                <BaseSwitch v-model="showPoints" :label="$t('m_points')" :horizontal="true" @click="pointsToggle()" />
-              </div>
-            </template>
+          </BaseCorner>
+          <div class="Main_RowCornerBox">
+            
+            <div v-if="carDetailsList.length > 0 && currentTracks.length > 0" class="Main_RowCorner">
+              <template v-if="!user">
+                <div class="Main_SaveAllBox">
+                  <button
+                    class="D_Button Main_LoginToEdit"
+                    @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+                </div>
+              </template>
+              <template v-else-if="!!user && isImport">
+                <div class="Main_SaveAllBox">
+                  <button
+                    :class="{ D_Button_Loading: saveLoading }"
+                    class="D_Button Main_SaveAllButton"
+                    @click="saveImport()">Import</button>
+                </div>
+              </template>
+              <template v-else-if="!!user && needSave">
+                <div class="Main_SaveAllBox">
+                  <button
+                    :class="{ D_Button_Loading: saveLoading }"
+                    class="D_Button Main_SaveAllButton"
+                    @click="saveAll()">{{ $t("m_save") }}</button>
+                </div>
+              </template>
+              <template v-else-if="isMobile || homePointsToggle">
+                <div class="Main_SaveAllBox" @click.stop>
+                  <BaseSwitch v-model="showPoints" :label="$t('m_points')" :horizontal="true" @click="pointsToggle()" />
+                </div>
+              </template>
 
-            <div v-if="user && !inverted" class="Main_PrintBy">
-              <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-              <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+              <div v-if="user && !inverted" class="Main_PrintBy">
+                <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+                <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+              </div>
             </div>
-          </div>
 
-        </div>
-      </div>
-      <div class="Main_Left">
-        <div class="Main_TrackList">
-          <Row
-            :list="currentTracks"
-            :hoverIndex="hoverIndex"
-            :loggedin="!!user"
-            :user="user"
-            :needSave="needSave"
-            :saveLoading="saveLoading"
-            :voteLoading="voteLoading"
-            :invertedView="inverted"
-            type="tracks"
-            @newindex="newIndex($event, false, true)" />
-          <div class="Row_ShowMoreTracks Main_AddTrackBox">
-            <button class="D_Button Main_AddTrackDirect" @click="openDialogTrackSearch(false)">
-              <i class="ticon-plus_2" aria-hidden="true"/>
-            </button>
-            <button
-              v-if="smartCampaign.length > 0"
-              style="opacity: 1;"
-              class="D_Button D_ButtonLink Row_ShowMoreButton"
-              @click="campaignDialog = true;">{{ $t("m_campaign") }}</button>
           </div>
         </div>
-        <div v-if="user && !inverted" class="Main_UserBottom">
+        <div class="Main_Left">
+          <div class="Main_TrackList">
+            <Row
+              :list="currentTracks"
+              :hoverIndex="hoverIndex"
+              :loggedin="!!user"
+              :user="user"
+              :needSave="needSave"
+              :saveLoading="saveLoading"
+              :voteLoading="voteLoading"
+              :invertedView="inverted"
+              type="tracks"
+              @newindex="newIndex($event, false, true)" />
+            <div class="Row_ShowMoreTracks Main_AddTrackBox">
+              <button class="D_Button Main_AddTrackDirect" @click="openDialogTrackSearch(false)">
+                <i class="ticon-plus_2" aria-hidden="true"/>
+              </button>
+              <button
+                v-if="smartCampaign.length > 0"
+                style="opacity: 1;"
+                class="D_Button D_ButtonLink Row_ShowMoreButton"
+                @click="campaignDialog = true;">{{ $t("m_campaign") }}</button>
+            </div>
+          </div>
+          <div v-if="user && !inverted" class="Main_UserBottom">
 
-          <BaseUserCard :user="user" :showMod="false"/>
+            <BaseUserCard :user="user" :showMod="false"/>
 
+          </div>
         </div>
       </div>
       <div class="Main_Mid">
+        <div class="Main_BacktopBox">
+          <div class="Main_Backtop"></div>
+        </div>
         <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1;">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
@@ -171,7 +176,7 @@
       </div>
     </div>
     <div
-      v-else-if="mode === 'cg'"
+      v-else-if="mode === 'challenges'"
       class="Cg_Layout"
       @click.stop="outsideClick()">
       <div class="Cg_Header">
@@ -1759,7 +1764,7 @@
                   :car="tuneDialogCar"
                   :isDialogBox="true"
                   :options="false" />
-                <div v-if="mode === 'classic' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
+                <div v-if="mode === 'compare' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
                   <div class="Main_ViewsCountDialog">{{ statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
                 </div>
               </div>
@@ -1945,7 +1950,7 @@
               </button>
             </div>
           </div>
-          <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1 && mode === 'classic'" class="Main_">
+          <div v-if="user && currentTracks.length > 0 && carDetailsList.length > 1 && mode === 'compare'" class="Main_">
             <div class="Main_DialogTitle">{{ $t("m_library") }}</div>
             <div class="Main_ShareDownloadBox">
               <button
@@ -1973,7 +1978,7 @@
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="copyUrl()">{{ $t("m_copy") }}</button>
         </div>
-        <template v-if="mode === 'classic'">
+        <template v-if="mode === 'compare'">
           <div class="Main_DialogTitle">{{ $t("m_listCars") }}</div>
           <div class="Main_ShareLinkBox">
             <textarea
@@ -2140,17 +2145,17 @@
         <div class="Main_SectionSelectorLayout">
           <div class="Main_SectionSelectorBox">
             <button
-              :class="{ D_ButtonChangeModeDisabled: mode === 'classic' }"
-              :disabled="mode === 'classic' || cgLoadingAny || cgNeedSave || eventLoadingAny || eventNeedSave"
+              :class="{ D_ButtonChangeModeDisabled: mode === 'compare' }"
+              :disabled="mode === 'compare' || cgLoadingAny || cgNeedSave || eventLoadingAny || eventNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
-              @click="changeMode('classic')">
+              @click="changeMode('compare')">
               {{ $t("m_home") }}
             </button>
             <button
-              :class="{ D_ButtonChangeModeDisabled: mode === 'cg' }"
-              :disabled="mode === 'cg' || needSave || eventLoadingAny || eventNeedSave || clubLoadingAny || clubTrackNeedSave"
+              :class="{ D_ButtonChangeModeDisabled: mode === 'challenges' }"
+              :disabled="mode === 'challenges' || needSave || eventLoadingAny || eventNeedSave || clubLoadingAny || clubTrackNeedSave"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonChangeMode"
-              @click="changeMode('cg')">
+              @click="changeMode('challenges')">
               {{ $t("m_challenges") }}
             </button>
             <button
@@ -2169,7 +2174,7 @@
             </button>
           </div>
         </div>
-        <div v-if="!needSave && mode === 'classic'" class="Main_OptionsItem" style="margin-top: 5px;">
+        <div v-if="!needSave && mode === 'compare'" class="Main_OptionsItem" style="margin-top: 5px;">
           <div class="Main_OptionsLabel MainClearLabelBox">
             <span>{{ $t("m_trackset") }}</span>
             <div class="Main_ClearButtonsBox">
@@ -2202,13 +2207,13 @@
               @click="openDialogTrackSearch()">{{ $t("m_more3dot") }}</button>
           </div>
         </div>
-        <div v-else-if="!!user && needSave && mode === 'classic'" class="Main_OptionsSaveData">
+        <div v-else-if="!!user && needSave && mode === 'compare'" class="Main_OptionsSaveData">
           <button
             :class="{ D_Button_Loading: saveLoading }"
             class="D_Button Main_SaveAllButton"
             @click="saveAll()">{{ $t("m_save") }}</button>
         </div>
-        <div v-if="mode === 'classic'" class="Main_OptionsDual">
+        <div v-if="mode === 'compare'" class="Main_OptionsDual">
           <div class="Main_OptionsItem">
             <div class="Main_OptionsLabel">{{ $t("m_display") }}</div>
             <div class="Main_OptionsButtons">
@@ -2239,7 +2244,7 @@
             </div>
           </div>
         </div>        
-        <div v-if="mode === 'classic'" class="Main_OptionsMemory">
+        <div v-if="mode === 'compare'" class="Main_OptionsMemory">
           <div class="Main_MemoryLine">
             <span class="Main_MemoryLabel">{{ memory.find(x => typeof x === 'string') ? $t("m_load") : $t("m_memory") }}</span>
             <button
@@ -3467,12 +3472,12 @@ export default {
 
 
     let mode = window.localStorage.getItem("mode");
-    if (mode) {
+    if (mode && mode !== 'compare' && mode !== 'cg') {
       this.mode = mode;
     }
 
     if (this.$route.query && this.$route.query.approve) {
-      this.mode = 'classic';
+      this.mode = 'compare';
       this.libraryApprove = true;
       setTimeout(() => {
         this.librarySearchDialog = true;
@@ -3557,11 +3562,11 @@ export default {
 
     if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
       // from query string
-      this.changeMode('classic');
+      this.changeMode('compare');
       this.decodeTemplateString(this.$route.query.share, true);
     } else if (this.$route.query && this.$route.query.cg && this.$route.query.cg.includes("~")) {
       // from query string
-      this.changeMode('cg');
+      this.changeMode('challenges');
 
       this.$route.query.cg.split("~").map(x => {
         if (x[0] === "G") {
@@ -3689,9 +3694,9 @@ export default {
 
       if (mutation.type == "CHANGE_TUNE") {
         let car;
-        if (vm.mode === 'classic') {
+        if (vm.mode === 'compare') {
           car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
-        } else if (vm.mode === 'classic') {
+        } else if (vm.mode === 'compare') {
 
         }
 
@@ -3739,6 +3744,22 @@ export default {
     this.unsubscribe();
   },
   computed: {
+    mode: {
+      get: function () {
+        if (this.$route.name === "Records" || this.$route.name === "Compare") return "compare";
+        if (this.$route.name === "Challenges") return "challenges";
+        if (this.$route.name === "Events") return "events";
+        if (this.$route.name === "Clubs") return "clubs";
+      },
+      set: function (newValue) {
+        if (this.$route.path.includes(newValue)) return;
+        
+        if (newValue === "compare") this.$router.push({ name: "Compare" });
+        if (newValue === "challenges") this.$router.push({ name: "Challenges" });
+        if (newValue === "events") this.$router.push({ name: "Events" });
+        if (newValue === "clubs") this.$router.push({ name: "Clubs" });
+      },
+    },
     optionsDialogComputed() {
       if (this.aboutDialog) return false;
       if (this.loginDialog) return false;
@@ -3862,7 +3883,7 @@ export default {
 
       if ((this.tuneDialogCar.class === "S" || this.tuneDialogCar.class === "A") && !result.includes("111")) result.push("111");
 
-      if (this.mode === 'classic' && this.tuneDialogCar.data && this.showDataFromPast) {
+      if (this.mode === 'compare' && this.tuneDialogCar.data && this.showDataFromPast) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
           if (tune[0] === "v") {
             result.push(tune);
@@ -3889,7 +3910,7 @@ export default {
       return this.cgRoundToSave.length > 0 || this.needSave || this.cgRoundFilterToSave || this.cgRqNeedToSave;
     },
     showAnalyse() {
-      if (this.mode !== 'cg') return false;
+      if (this.mode !== 'challenges') return false;
       if (!this.user || !this.user.mod) return false;
       if (this.cgNeedSave) return false;
       if (!this.cgRound) return false;
@@ -3905,7 +3926,7 @@ export default {
       return show;
     },
     isRoundEmptyForUser() {
-      if (this.mode !== 'cg') return false;
+      if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (this.user.mod) return false;
       if (!this.cgRound) return false;
@@ -3914,7 +3935,7 @@ export default {
       }
     },
     isRoundEmptyForModders() {
-      if (this.mode !== 'cg') return false;
+      if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (!this.user.mod) return false;
       if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
@@ -3936,7 +3957,7 @@ export default {
       return ready;
     },
     cgIsEmptyRoundForDownloadAssets() {
-      if (this.mode !== 'cg') return false;
+      if (this.mode !== 'challenges') return false;
       if (!this.cgRound || !this.cgRound.races) return true;
       let isEmpty = true;
       this.cgRound.races.find(race => {
@@ -3948,7 +3969,7 @@ export default {
       return isEmpty;
     },
     cgLoadingAny() {
-      if (this.mode !== 'cg') return false;
+      if (this.mode !== 'challenges') return false;
       return this.downloadLoading || this.cgLoading || this.cgSaveLoading || this.cgNewLoading || this.saveLoading || this.cgBankToSaveLoading || this.cgAnalyseLoading;
     },
     eventLoadingAny() {
@@ -4161,7 +4182,7 @@ export default {
       }
     },
     toggleTrack(track, e = {}) {
-      if (this.mode === 'cg') {
+      if (this.mode === 'challenges') {
         Vue.set(this.cgRound.races[this.cgRaceSelected], "track", track);
         this.resolveTrack(this.cgRound.races[this.cgRaceSelected]);
         this.closeDialogTrackSearch();
@@ -4489,7 +4510,7 @@ export default {
       }
     },
     deleteCar(index) {
-      if (this.mode === 'cg') {
+      if (this.mode === 'challenges') {
         // only via dialog
         if (this.tuneDialogisOppo) {
           this.tuneDialogRace.car = undefined;
@@ -4646,7 +4667,7 @@ export default {
       }, 100);
     },
     changedMode() {
-      if (this.mode === "classic" && this.currentTracks.length === 0) {
+      if (this.mode === "compare" && this.currentTracks.length === 0) {
         // from local storage
         let tracks = window.localStorage.getItem("tracks");
         if (tracks) {
@@ -4666,11 +4687,11 @@ export default {
         }
 
       }
-      if (this.mode === "classic") {
+      if (this.mode === "compare") {
         this.searchFilterDialog = false;
       }
 
-      if (this.mode === "cg") {
+      if (this.mode === "challenges") {
         if (this.cgList.length === 0) {
           this.loadChallenges();
         }
@@ -4911,7 +4932,7 @@ export default {
 
 
       let obj = "carDetailsList";
-      if (this.mode === 'cg') obj = "cgCacheCars";
+      if (this.mode === 'challenges') obj = "cgCacheCars";
       let simplifiedCars = [];
       this[obj].map(x => {
         if (x.dataToSave) {
@@ -4934,7 +4955,7 @@ export default {
       .then(res => {
         this.needSaveChange(false);
         this.clearDataToSave();
-        if (this.mode === 'classic') {
+        if (this.mode === 'compare') {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             correct: true,
@@ -5011,11 +5032,11 @@ export default {
       this.downloadLoading = true;
       let simplifiedCars = [];
 
-      if (this.mode === 'classic' || forceClassic) {
+      if (this.mode === 'compare' || forceClassic) {
         this.carDetailsList.map(x => {
           simplifiedCars.push({ rid: x.rid })
         });
-      } else if (this.mode === 'cg') {
+      } else if (this.mode === 'challenges') {
         this.cgCacheCars.map(x => {
           if (x.rid && !x.data) {
             simplifiedCars.push({ rid: x.rid })
@@ -5026,7 +5047,7 @@ export default {
       if (simplifiedCars.length === 0) {
         this.downloadLoading = false;
         this.checkAnnouncement();
-        if (this.mode === 'cg') {
+        if (this.mode === 'challenges') {
           setTimeout(() => {
             this.cgResolveRqFill();
           }, 100);
@@ -5039,7 +5060,7 @@ export default {
 
       axios.post(url, simplifiedCars)
       .then(res => {        
-        this.applyNewData(res.data, this.mode === 'cg');
+        this.applyNewData(res.data, this.mode === 'challenges');
       })
       .catch(error => {
         console.log(error);
@@ -5063,7 +5084,7 @@ export default {
 
       axios.get(url)
       .then(res => {
-        if (this.mode === 'classic') {
+        if (this.mode === 'compare') {
           if (
               res.data === "" ||
               !res.data.data ||
@@ -5105,7 +5126,7 @@ export default {
     applyNewData(newData, isCgInitial = false) {
       let obj = "carDetailsList";
 
-      if (this.mode === 'cg') {
+      if (this.mode === 'challenges') {
         obj = "cgCacheCars";
       }
       if (this.mode === 'events') {
@@ -5122,7 +5143,7 @@ export default {
         })
       });
 
-      if (this.mode === 'cg' && this.cgRound.date) {
+      if (this.mode === 'challenges' && this.cgRound.date) {
         this.downloadLoading = false;
         this.cgRound.races.map(race => {
           this.calcRaceResult(race, isCgInitial);
@@ -5141,12 +5162,12 @@ export default {
       let currentCanvas = document.querySelector('#printCanvas');
 
       let boxName = ".Main_Body";
-      if (this.mode === 'cg' || this.mode === 'events' || this.mode === 'clubs') boxName = ".Cg_Layout";
+      if (this.mode === 'challenges' || this.mode === 'events' || this.mode === 'clubs') boxName = ".Cg_Layout";
 
       let pose = document.querySelector(boxName);
       pose.classList.add("Main_BodyPrint");
 
-      if (this.mode === 'classic') {
+      if (this.mode === 'compare') {
         c_container.classList.add("App_PrintContainerShow");
         let mainLayout = document.querySelector(".Main_Layout");
         let reduceWidth = 0;
@@ -5162,7 +5183,7 @@ export default {
         _width = (pose.clientWidth - reduceWidth) * 1.3;
         _height = (pose.clientHeight - reduceHeight) * 1.3;
 
-      } else if (this.mode === 'cg') {
+      } else if (this.mode === 'challenges') {
         _width = (pose.clientWidth) * 1.3;
         _height = (pose.clientHeight) * 1.3;
       } else if (this.mode === 'events' || this.mode === 'clubs') {
@@ -5209,7 +5230,7 @@ export default {
       let result = `${window.location.origin}?`;
       if (isForTemplate) result = '';
 
-      if (this.mode === 'classic') {
+      if (this.mode === 'compare') {
         result += `share=`;
         this.currentTracks.map(x => {
           result += `~K${x.id}_a${x.surface}${x.cond}`
@@ -5217,7 +5238,7 @@ export default {
         this.carDetailsList.map(x => {
           result += `~C${x.rid}${x.selectedTune ? '~T'+x.selectedTune : '' }`
         });
-      } else if (this.mode === 'cg') {
+      } else if (this.mode === 'challenges') {
         result += `cg=`;
         result += `~G${this.cg.date}~R${this.cgCurrentRound+1}`
       } else if (this.mode === 'events') {
@@ -5343,7 +5364,7 @@ export default {
         newTune = undefined
       }
 
-      if (this.mode === 'cg' && this.tuneDialogActive) {
+      if (this.mode === 'challenges' && this.tuneDialogActive) {
         this.cgChangeTuneYou(this.tuneDialogRace, newTune);
       } else {
         Vue.set(car, "selectedTune", newTune);
@@ -5361,7 +5382,7 @@ export default {
     changeStatCar(car, type, value) {
       let selectedTune = car.selectedTune;
 
-      if (this.mode === 'cg')  {
+      if (this.mode === 'challenges')  {
         car = this.cgCacheCars.find(x => x.rid === car.rid);
       }
 
@@ -5618,7 +5639,7 @@ export default {
     },
     clearDataToSave() {
       let obj = "carDetailsList";
-      if (this.mode === 'cg') obj = "cgCacheCars";
+      if (this.mode === 'challenges') obj = "cgCacheCars";
 
       this[obj].map(x => {
         delete x.dataToSave;
@@ -6114,7 +6135,7 @@ export default {
       
     },
     cgReCalcRound() {
-      if (this.mode !== 'cg') return;
+      if (this.mode !== 'challenges') return;
       this.cgRound.races.map(race => {
         race.carIndex = undefined;
         this.cgSortBankCars(race);
@@ -7979,7 +8000,7 @@ export default {
 
       this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.event.filter });
 
-      this.changeMode('classic');
+      this.changeMode('compare');
       setTimeout(() => {
         this.searchFilterDialog = true;
       }, 100);
@@ -8203,7 +8224,7 @@ export default {
     pointsInit(e) {
       this.showPoints = true;
       console.log(e);
-      if (this.mode === "classic") {
+      if (this.mode === "compare") {
         if (this.needSave) {
           this.showCarsFix = false;
           this.$nextTick().then(() => {
@@ -8372,7 +8393,7 @@ export default {
           })
         })
         Vue.set(this, "carDetailsList", result);
-        this.applyNewData(res.data, this.mode === 'cg');
+        this.applyNewData(res.data, this.mode === 'challenges');
         this.updateOptions();
         this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
@@ -9201,7 +9222,7 @@ export default {
       
       this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.clubReqsGroupModel.filter });
 
-      this.changeMode('classic');
+      this.changeMode('compare');
       setTimeout(() => {
         this.searchFilterDialog = true;
       }, 100);
@@ -9290,8 +9311,10 @@ export default {
 <style>
 
 .Main_Layout {
-  min-height: 100%;
-  max-width: 100%;
+  min-height: calc(100% - var(--top-menu));
+  /* max-width: 100%; */
+  /* width: min-content; */
+  width: 100%;
   display: flex;
   -webkit-user-select: none;
 }
@@ -9307,7 +9330,7 @@ export default {
   width: var(--left-width);
   position: sticky;
   left: 0;
-  margin-top: var(--top-height);
+  margin-top: 0;
   overflow: hidden;
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
   z-index: 10;
@@ -9320,11 +9343,18 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
+.Main_LeftPlusTop {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 .Main_Corner {
-  background-color: hsl(var(--back-h), var(--back-s), 10%);
+  background-color: hsl(var(--back-h), var(--back-s), 18%);
   height: var(--top-height);
   width: var(--left-width);
-  position: fixed;
+  position: sticky;
+  /* position: fixed; */
   top: 0;
   left: 0;
   z-index: 30;
@@ -9343,6 +9373,13 @@ export default {
   margin: 10px 10px;
   display: flex;
   flex-direction: column;
+  display: none;
+}
+.Main_LogoSidePages {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  display: none;
 }
 .Main_LogoPre {
   white-space: nowrap;
@@ -9363,18 +9400,26 @@ export default {
   justify-content: center;
   /* height: calc(var(--top-height) - 20px); */
 }
+.Main_BacktopBox {
+  position: sticky;
+  height: 0;
+  top: 0;
+  pointer-events: none;
+}
 .Main_Backtop {
-  position: fixed;
-  background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
+  /* position: fixed; */
+  background-color: hsl(var(--back-h), var(--back-s), 18%);
   height: var(--top-height);
   width: 100%;
-  z-index: 0;
-  top: 0;
-  left: 0;
+  min-width: calc(var(--wBody) - var(--left-width));
+  /* z-index: 0;
+  top: var(--top-menu);
+  left: 0; */
 }
 .Main_Mid {
   /* position: absolute; */
-  top: 0;
+  position: relative;
+  /* top: 0; */
   /* margin-left: var(--left-width); */
   height: 100%;
 }
@@ -10225,7 +10270,8 @@ body .Main_UserTw3:before {
   position: absolute;
   /* position: fixed; */
   top: var(--top-height);
-  background-color: #2e2e2e;
+  /* background-color: #2e2e2e; */
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
   z-index: 1;
   width: var(--left-width);
 
@@ -10505,7 +10551,7 @@ body .Main_UserTw3:before {
 
 }
 .Cg_Corner {
-  background-color: hsl(var(--back-h), var(--back-s), 10%);
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
   height: var(--top-height);
   width: var(--left-width);
   /* position: fixed; */
@@ -10520,7 +10566,7 @@ body .Main_UserTw3:before {
   position: relative;
 }
 .Cg_RowCornerBox {
-  background-color: hsl(var(--back-h), var(--back-s), 10%);
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
   z-index: 1;
   white-space: nowrap;
   box-sizing: border-box;
@@ -10788,7 +10834,7 @@ body .Main_UserTw3:before {
   opacity: 0.4;
 }
 .Cg_Right {
-  background-color: hsl(var(--back-h), var(--back-s), 10%);
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
   height: var(--top-height);
   width: var(--left-width);
   padding: 3px;
@@ -11190,8 +11236,20 @@ body .Main_UserTw3:before {
   box-shadow: none;
   min-height: unset;
   margin-left: var(--left-width);
+  margin-left: 0;
   z-index: 5;
   display: block;
+  left: unset;
+  flex-grow: 1;
+}
+.Main_2 .Main_LeftPlusTop {
+  display: flex;
+}
+.Main_2 .Main_Backtop {
+  background-color: transparent;
+}
+.Main_2 .Main_RowCornerBox {
+  background-color: hsl(var(--back-h), var(--back-s), 21%);
 }
 .Main_2 .Main_Credits {
   /* display: none; */
@@ -11552,6 +11610,15 @@ body .Main_UserTw3:before {
 }
 .Main_BodyPrint .Main_ViewsBox {
   display: none;
+}
+.Main_BodyPrint .Main_ViewsBox {
+  display: none;
+}
+.Main_BodyPrint .Main_Backtop {
+  min-width: unset;
+}
+.Main_BodyPrint .Main_Logo {
+  display: block;
 }
 
 

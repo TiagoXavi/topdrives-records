@@ -1,12 +1,6 @@
 <template>
   <div class="MainTranslate_Layout">
     <div class="MainTranslate_Box">
-      <div class="MainTranslate_Logo">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-      </div>
       <div class="MainTranslate_Header">
         <div class="MainTranslate_HeaderTitle">Translation tool</div>
         <ol class="MainTranslate_Ol">

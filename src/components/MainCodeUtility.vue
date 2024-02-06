@@ -252,7 +252,7 @@ export default {
 
       // console.log(this.result);
       if (this.result.tieredPrizes) {
-        this.resolveCarsDisplay();
+        this.resolveEvents();
       }
       if (this.result.ladders) {
         this.resolveLadders();
@@ -283,7 +283,7 @@ export default {
         e.srcElement.value = '';
       }, 10);
     },
-    resolveCarsDisplay() {
+    resolveEvents() {
 
       //"prizeType": 3, CAR
       // let eventMockup = {"prizesAwarded":false,"eventBonusPointFlexibleCriteriaId":"00000000-0000-0000-0000-000000000000","eventBonusPointRequirement":"00000000-0000-0000-0000-000000000000","eventBonusPointMultiplier":100,"eligibilityCardGroupIds":[],"eligibilityCardGroupCardsRequired":[],"flexibleCriteriaIds":["ef849861-d1f5-4e9b-a769-77da3ccb5f8f"],"maxHQ":415,"noDuplicates":false,"prizeCardEntryRequirement":null,"requirePrizeCard":false,"id":"ce32e3f5-2680-4a43-a9b3-06e2748ce0dc","name":"LOOK CARS","version":1,"quote":"0-500","mpMatchType":1,"tieredPrizeId":"6f64fcf6-34c3-457b-8cd1-b31ee76a921c","bucketSize":500,"ticketRegenerationTime":1800000,"image":"EventSuzuki","minRQ":0,"maxRQ":500,"minEloScore":0,"maxEloScore":9999999,"eventCardPackId":"4884441a-74a3-4b27-b1c8-53f604e5ffd4","startDateTime":"2022-06-16T21:00:00.000Z","endDateTime":"2023-06-19T21:00:00.000Z","filteringQueryStrings":["[\"((\\\"manufacturerguid\\\"=\\\"2e561187-fb92-4ef7-91b2-33ff5c99b1b7\\\"|\\\"manufacturerguid\\\"=\\\"fe020624-d3aa-4370-839c-7fd2586298cf\\\"|\\\"manufacturerguid\\\"=\\\"9dd15c7e-d896-4f0b-af3b-71fede233138\\\")&(\\\"drivetype\\\"=\\\"RWD\\\")&(\\\"isprizecar\\\"=\\\"0\\\"))\"]"],"flexibleCriteriaRequired":[5],"flexibleCriteriaAnalyticsNames":["(Tri Series) Suzuki Escudo Pikes Peak Finals - 5x (Lancia, Pagani, Maserati) & RWD & NP"],"analyticsName":"CARS LOOK"};
@@ -339,14 +339,19 @@ export default {
       newStart.setDate(newStart.getDate() - 2);
       let tempDate;
       this.result.events.map(x => {
+        return;
         tempDate = new Date(x.startDateTime);
         if (tempDate > today) {
           x.startDateTime = newStart.toISOString();
         }
+        x.minDataVersion = 57;
         // if (x.analyticsName && (x.analyticsName.includes("QUALS") || x.analyticsName.includes("PRELIMS"))) {
         //   x.minRQ = 150;
         //   x.maxRQ = 500;
         // }
+      })
+      this.result.eventPlayerData.map(x => {
+        x.bucketDataVersion = 61;
       })
 
       // let realEvent = this.result.events.find(x => x.id === eventMockup.id);

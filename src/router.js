@@ -50,165 +50,158 @@ Vue.use(VueRouter);
 // ];
 const routes = [
   {
-    path: '',
+    path: '/',
     name: 'Records',
     component: Main,
-    title: 'Records',
+  },
+  {
+    path: '/compare',
+    name: 'Compare',
+    component: Main,
+  },
+  {
+    path: '/challenges',
+    name: 'Challenges',
+    component: Main,
+  },
+  {
+    path: '/events',
+    name: 'Events',
+    component: Main,
+  },
+  {
+    path: '/clubs',
+    name: 'Clubs',
+    component: Main,
   },
   // {
   //   path: '/convert',
   //   name: 'Convert',
-  //   title: 'Convert',
   //   component: MainConvertCsv,
   // },
   {
     path: '/extract', // internal
     name: 'Extract',
-    title: 'Extract',
     component: MainExtractTD,
   },
   // {
   //   path: '/merge',
   //   name: 'Merge',
-  //   title: 'Merge',
   //   component: MainConvertInsertCountry,
   // },
   {
     path: '/gallery',
     name: 'Gallery',
-    title: 'Gallery',
     component: MainGallery,
   },
   {
     path: '/MainCarsEdit', // internal
     name: 'MainCarsEdit',
-    title: 'MainCarsEdit',
     component: MainCarsEdit,
   },
   {
     path: '/validatejson', // internal
     name: 'Validate',
-    title: 'Validate',
     component: MainValidateFinalJson,
   },
   {
     path: '/importrude', // internal
     name: 'ImportRude',
-    title: 'ImportRude',
     component: MainImportRude,
   },
   {
     path: '/swagger', // internal
     name: 'MainSwagger',
-    title: 'MainSwagger',
     component: MainSwagger,
   },
   {
     path: '/charts',
     name: 'MainCharts',
-    title: 'MainCharts',
     component: MainCharts,
   },
   {
     path: '/findCar',
     name: 'MainFindCar',
-    title: 'MainFindCar',
     component: MainFindCar,
   },
   {
     path: '/newPhotos',
     name: 'MainNewPhotos',
-    title: 'MainNewPhotos',
     component: MainNewPhotos,
   },
   {
     path: '/addNewCars',
     name: 'MainAddNewCars',
-    title: 'MainAddNewCars',
     component: MainAddNewCars,
   },
   {
     path: '/c',
     name: 'MainCheatSheet',
-    title: 'MainCheatSheet',
     component: MainCheatSheet,
   },
   {
     path: '/codeutil',
     name: 'MainCodeUtility',
-    title: 'MainCodeUtility',
     component: MainCodeUtility,
   },
   {
     path: '/BaseMergeDatabase',
     name: 'BaseMergeDatabase',
-    title: 'BaseMergeDatabase',
     component: BaseMergeDatabase,
   },
   {
     path: '/testPoints',
     name: 'MainTestPoints',
-    title: 'MainTestPoints',
     component: MainTestPoints,
   },
   {
     path: '/downTimes',
     name: 'MainDownTimes',
-    title: 'MainDownTimes',
     component: MainDownTimes,
   },
   {
     path: '/translate',
     name: 'MainTranslate',
-    title: 'MainTranslate',
     component: MainTranslate,
   },
   {
     path: '/analysedb', // internal
     name: 'AnalyseDb',
-    title: 'AnalyseDb',
     component: MainAnalyseDb,
   },
   {
     path: '/newrq', // internal
     name: 'Update RQ',
-    title: 'Update RQ',
     component: MainUpdateRqData,
   },
   {
     path: '/templateguide',
     name: 'TemplateGuidelines',
-    title: 'TemplateGuidelines',
     component: MainTemplateGuidelines,
   },
   {
     path: '/login',
     name: 'Login',
-    title: 'Login',
     component: MainLogin,
   },
   {
     path: '/register',
     name: 'Register',
-    title: 'Register',
     component: MainRegister,
   },
   {
     path: '/verifyemail',
     name: 'VerifyEmail',
-    title: 'VerifyEmail',
     component: MainVerifyEmail,
   },
   {
     path: '/newpassword',
     name: 'ResetPassword',
-    title: 'ResetPassword',
     component: MainResetPassword,
   },
   {
     path: '/asknewpassword',
     name: 'AskNewPassword',
-    title: 'AskNewPassword',
     component: MainAskNewPassword,
   },
   {

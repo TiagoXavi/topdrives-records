@@ -1,5 +1,6 @@
 <template>
   <div class="App_Layout">
+    <BaseTopMenu />
     <router-view></router-view>
     <div
       :class="{
@@ -30,11 +31,14 @@
 </template>
 
 <script>
+import BaseTopMenu from "@/components/BaseTopMenu.vue"
 import LogRocket from 'logrocket';
 
 export default {
   name: 'App',
-  components: {},
+  components: {
+    BaseTopMenu
+  },
   props: {},
   data() {
     return {
@@ -312,6 +316,9 @@ body {
   --w2: #a2bec9;
   --w3: #cf7d29;
 
+  /* top menu */
+  --top-menu: 40px;
+
 
   font-size: 18px;
   background-color: var(--d-back);
@@ -322,6 +329,7 @@ body {
 
 .App_Layout {
   width: 100%;
+  width: min-content;
   height: 100%;
 }
 .App_SnackLayout {
@@ -405,7 +413,7 @@ body {
   margin: 0 auto;
 }
 .TTT_Layout {
-  min-height: 100%;
+  min-height: calc(100% - var(--top-menu));
   width: 100%;
   display: flex;
   justify-content: center;
@@ -581,7 +589,7 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   min-height: calc( var(--height) * 0.8 );
 }
 .D_Button.Main_LoginToEdit {
-  --back-color: 44, 37, 16;
+  --back-color: 53, 44, 19;
   --back-opac: 1;
   background-color: rgba(var(--back-color), 1);
   color: rgb(var(--d-text-yellow));
