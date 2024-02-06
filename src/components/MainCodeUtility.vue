@@ -215,10 +215,11 @@ export default {
       var minutes = Math.floor((sec_num - hours * 3600) / 60);
       var seconds = sec_num - hours * 3600 - minutes * 60;
       var milesi = Math.round((numm - parseInt(numm)) * 100);
-      if (this * 10000 - parseInt(this) * 10000 >= 9995) {
-        milesi = 0;
-        seconds += 1;
-      }
+      // if (this * 10000 - Math.round(this) * 10000 >= -5) {
+      //   milesi = 0;
+      //   seconds += 1;
+      // }
+      // 29.99971 > 00:30:00
 
       if (hours < 10) {
         hours = '0' + hours;

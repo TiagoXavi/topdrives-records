@@ -759,8 +759,7 @@
             "Motorsport",
             "Two Tone",
             "Wild Ride",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "prize": true,
         "bodyTypes": [
@@ -1662,8 +1661,7 @@
             "Italian Renaissance",
             "Ultra Expensive",
             "Year of the Tiger",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "prize": true,
         "bodyTypes": [
@@ -2503,6 +2501,41 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "f8b3ab12-7fa9-46ec-a178-d3000b9f56b1"
+    },
+    {
+        "class": "S",
+        "rq": 96,
+        "onlyName": "Venom GT",
+        "brand": "Hennessey",
+        "year": 2011,
+        "tdid": "3409",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "country": "US",
+        "topSpeed": 278,
+        "acel": 2.7,
+        "hand": 91,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 112.5,
+        "weight": 1244,
+        "name": "Hennessey Venom GT",
+        "rid": "Hennessey_Venom_GT_2011",
+        "tags": [
+            "World Expo",
+            "Hypercar",
+            "Year of the Rabbit",
+            "Red",
+            "Nightmare Fuel"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "9da28aba-2316-4f80-a9b9-89bd9b829577"
     },
     {
         "class": "S",
@@ -4550,8 +4583,7 @@
         "tags": [
             "Loch to Loch",
             "Motorsport",
-            "Orange",
-            "Year of the Dragon"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -4560,41 +4592,6 @@
         "seats": "1",
         "engine": "Front",
         "guid": "1752dd25-3c44-47d3-aed0-93cae9e3d4b3"
-    },
-    {
-        "class": "S",
-        "rq": 93,
-        "onlyName": "Venom GT",
-        "brand": "Hennessey",
-        "year": 2011,
-        "tdid": "3409",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "country": "US",
-        "topSpeed": 278,
-        "acel": 2.7,
-        "hand": 91,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 112.5,
-        "weight": 1244,
-        "name": "Hennessey Venom GT",
-        "rid": "Hennessey_Venom_GT_2011",
-        "tags": [
-            "World Expo",
-            "Hypercar",
-            "Year of the Rabbit",
-            "Red",
-            "Nightmare Fuel"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "9da28aba-2316-4f80-a9b9-89bd9b829577"
     },
     {
         "class": "S",
@@ -4653,8 +4650,7 @@
         "tags": [
             "Italian Renaissance",
             "Ultra Expensive",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Roadster"
@@ -5763,8 +5759,7 @@
         "tags": [
             "World Expo",
             "Motorsport",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Roadster"
@@ -6375,8 +6370,7 @@
             "Drivers Choice",
             "Riders on the Storm",
             "Originals",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "prize": true,
         "bodyTypes": [
@@ -6977,8 +6971,7 @@
             "Great Exhibition",
             "Motorsport",
             "Silver Screen",
-            "Orange",
-            "Year of the Dragon"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -8750,8 +8743,7 @@
         "tags": [
             "German Renaissance",
             "Ultra Expensive",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "prize": true,
         "bodyTypes": [
@@ -9000,39 +8992,6 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "ec25a85f-8cf2-45e9-91ef-c427f4d18f95"
-    },
-    {
-        "abs": false,
-        "acel": 3.7,
-        "bodyTypes": [
-            "Hatchback"
-        ],
-        "brand": "Citroen",
-        "class": "S",
-        "clearance": "Mid",
-        "country": "FR",
-        "drive": "4WD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 90,
-        "mra": null,
-        "name": "Citroen C3 WRC",
-        "onlyName": "C3 WRC",
-        "prize": false,
-        "rid": "Citroen_C3_WRC_2017",
-        "rq": 87,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Motorsport",
-            "Silver/Grey"
-        ],
-        "tcs": false,
-        "topSpeed": 124,
-        "tyres": "Off-road",
-        "weight": 1190,
-        "year": 2017,
-        "guid": "691b53ea-1a69-4727-8388-6eec3a6bf6e8"
     },
     {
         "class": "S",
@@ -9862,8 +9821,7 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "guid": "fa902249-913f-4555-8171-935e2f55d0b0"
     },
@@ -9966,39 +9924,6 @@
         "seats": "5",
         "engine": "Front",
         "guid": "a33079bb-ffb3-4291-a45a-d53fb009ef7c"
-    },
-    {
-        "abs": false,
-        "acel": 3.9,
-        "bodyTypes": [
-            "Hatchback"
-        ],
-        "brand": "Citroen",
-        "class": "S",
-        "clearance": "Mid",
-        "country": "FR",
-        "drive": "4WD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 88,
-        "mra": null,
-        "name": "Citroen Xsara WRC",
-        "onlyName": "Xsara WRC",
-        "prize": false,
-        "rid": "Citroen_Xsara_WRC_2003",
-        "rq": 86,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Motorsport",
-            "Red"
-        ],
-        "tcs": false,
-        "topSpeed": 124,
-        "tyres": "Off-road",
-        "weight": 1230,
-        "year": 2003,
-        "guid": "a210e3cd-758c-4ee9-80cf-9c277cc24e0f"
     },
     {
         "class": "S",
@@ -10205,39 +10130,6 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "8d2f8453-7ca5-4e9e-b0ae-a781bc20a99d"
-    },
-    {
-        "class": "S",
-        "rq": 86,
-        "onlyName": "206 WRC",
-        "brand": "Peugeot",
-        "country": "FR",
-        "year": 2000,
-        "tdid": "2764",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Mid",
-        "topSpeed": 125,
-        "acel": 3.9,
-        "hand": 88,
-        "drive": "4WD",
-        "tyres": "Off-road",
-        "mra": 95.12,
-        "weight": 1230,
-        "name": "Peugeot 206 WRC",
-        "rid": "Peugeot_206_WRC_2000",
-        "tags": [
-            "European Revolution",
-            "Motorsport",
-            "Red"
-        ],
-        "bodyTypes": [
-            "Hatchback"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Front",
-        "guid": "d2c65620-8b98-4632-9a66-b15056ad1e41"
     },
     {
         "class": "S",
@@ -10506,39 +10398,6 @@
         "seats": "5",
         "engine": "Front",
         "guid": "ef2c48bd-a263-4ea6-987d-7acd097cd08f"
-    },
-    {
-        "abs": false,
-        "acel": 3.9,
-        "bodyTypes": [
-            "Hatchback"
-        ],
-        "brand": "Citroen",
-        "class": "S",
-        "clearance": "Mid",
-        "country": "FR",
-        "drive": "4WD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 88,
-        "mra": null,
-        "name": "Citroen C4 WRC",
-        "onlyName": "C4 WRC",
-        "prize": true,
-        "rid": "Citroen_C4_WRC_2007",
-        "rq": 85,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Motorsport",
-            "Red"
-        ],
-        "tcs": false,
-        "topSpeed": 124,
-        "tyres": "Off-road",
-        "weight": 1230,
-        "year": 2007,
-        "guid": "a90ef259-4ce1-40cd-bd18-143b7b4f54ee"
     },
     {
         "class": "S",
@@ -13385,6 +13244,39 @@
     {
         "class": "S",
         "rq": 82,
+        "onlyName": "206 WRC",
+        "brand": "Peugeot",
+        "country": "FR",
+        "year": 2000,
+        "tdid": "2764",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Mid",
+        "topSpeed": 125,
+        "acel": 3.9,
+        "hand": 88,
+        "drive": "4WD",
+        "tyres": "Off-road",
+        "mra": 95.12,
+        "weight": 1230,
+        "name": "Peugeot 206 WRC",
+        "rid": "Peugeot_206_WRC_2000",
+        "tags": [
+            "European Revolution",
+            "Motorsport",
+            "Red"
+        ],
+        "bodyTypes": [
+            "Hatchback"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Front",
+        "guid": "d2c65620-8b98-4632-9a66-b15056ad1e41"
+    },
+    {
+        "class": "S",
+        "rq": 82,
         "onlyName": "911 GT1-98 Strassenversion",
         "brand": "Porsche",
         "year": 1998,
@@ -13506,8 +13398,7 @@
         "seats": "2",
         "tags": [
             "European New Wave",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "tcs": true,
         "topSpeed": 165,
@@ -13874,8 +13765,7 @@
             "Muscle Car",
             "Motorsport",
             "Old Guard",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "prize": true,
         "bodyTypes": [
@@ -13885,6 +13775,39 @@
         "seats": "2",
         "engine": "Front",
         "guid": "9e8cc392-cad3-429e-841f-40c3074ab3fe"
+    },
+    {
+        "abs": false,
+        "acel": 3.7,
+        "bodyTypes": [
+            "Hatchback"
+        ],
+        "brand": "Citroen",
+        "class": "S",
+        "clearance": "Mid",
+        "country": "FR",
+        "drive": "4WD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 90,
+        "mra": null,
+        "name": "Citroen C3 WRC",
+        "onlyName": "C3 WRC",
+        "prize": false,
+        "rid": "Citroen_C3_WRC_2017",
+        "rq": 81,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Motorsport",
+            "Silver/Grey"
+        ],
+        "tcs": false,
+        "topSpeed": 124,
+        "tyres": "Off-road",
+        "weight": 1190,
+        "year": 2017,
+        "guid": "691b53ea-1a69-4727-8388-6eec3a6bf6e8"
     },
     {
         "abs": false,
@@ -15331,6 +15254,39 @@
     },
     {
         "abs": false,
+        "acel": 3.9,
+        "bodyTypes": [
+            "Hatchback"
+        ],
+        "brand": "Citroen",
+        "class": "S",
+        "clearance": "Mid",
+        "country": "FR",
+        "drive": "4WD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 88,
+        "mra": null,
+        "name": "Citroen C4 WRC",
+        "onlyName": "C4 WRC",
+        "prize": true,
+        "rid": "Citroen_C4_WRC_2007",
+        "rq": 80,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Motorsport",
+            "Red"
+        ],
+        "tcs": false,
+        "topSpeed": 124,
+        "tyres": "Off-road",
+        "weight": 1230,
+        "year": 2007,
+        "guid": "a90ef259-4ce1-40cd-bd18-143b7b4f54ee"
+    },
+    {
+        "abs": false,
         "acel": 3.7,
         "bodyTypes": [
             "Hatchback"
@@ -15361,6 +15317,39 @@
         "weight": 1350,
         "year": 2008,
         "guid": "c57dbd78-5200-45bd-a89c-a83d87ab9825"
+    },
+    {
+        "abs": false,
+        "acel": 3.9,
+        "bodyTypes": [
+            "Hatchback"
+        ],
+        "brand": "Citroen",
+        "class": "S",
+        "clearance": "Mid",
+        "country": "FR",
+        "drive": "4WD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 88,
+        "mra": null,
+        "name": "Citroen Xsara WRC",
+        "onlyName": "Xsara WRC",
+        "prize": false,
+        "rid": "Citroen_Xsara_WRC_2003",
+        "rq": 80,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Motorsport",
+            "Red"
+        ],
+        "tcs": false,
+        "topSpeed": 124,
+        "tyres": "Off-road",
+        "weight": 1230,
+        "year": 2003,
+        "guid": "a210e3cd-758c-4ee9-80cf-9c277cc24e0f"
     },
     {
         "class": "S",
@@ -15996,8 +15985,7 @@
             "Italian Renaissance",
             "Riders on the Storm",
             "Supercar",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Coupe"
@@ -17057,8 +17045,7 @@
         "tags": [
             "Pacific Coast Highway",
             "Concept",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Saloon"
@@ -19708,8 +19695,7 @@
         "rid": "Mercedes-Benz_AMG_ML_63_2012",
         "tags": [
             "Originals",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "SUV"
@@ -20657,40 +20643,6 @@
     {
         "class": "A",
         "rq": 76,
-        "onlyName": "Charger SRT Hellcat Redeye Widebody Jailbreak",
-        "brand": "Dodge",
-        "year": 2022,
-        "tdid": "4244",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "country": "US",
-        "topSpeed": 203,
-        "acel": 3.5,
-        "hand": 85,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": null,
-        "weight": 2080,
-        "name": "Dodge Charger SRT Hellcat Redeye Widebody Jailbreak",
-        "rid": "Dodge_Charger_SRT_Hellcat_Redeye_Widebody_Jailbreak_2022",
-        "prize": true,
-        "tags": [
-            "Pacific Coast Highway",
-            "Muscle Car",
-            "Purple"
-        ],
-        "bodyTypes": [
-            "Saloon"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front",
-        "guid": "3e7b564f-7ea5-4ce1-a326-94db5f5c0da4"
-    },
-    {
-        "class": "A",
-        "rq": 76,
         "onlyName": "Durango SRT",
         "brand": "Dodge",
         "country": "US",
@@ -21280,8 +21232,7 @@
         "rid": "Porsche_911_Carrera_4_3.4_(991)_2012",
         "tags": [
             "World Expo",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Coupe"
@@ -21322,6 +21273,40 @@
         "seats": "2",
         "engine": "Rear",
         "guid": "9f5d93c4-23de-4272-b005-cfb7aa997520"
+    },
+    {
+        "class": "A",
+        "rq": 76,
+        "onlyName": "Charger SRT Hellcat Redeye Widebody Jailbreak",
+        "brand": "Dodge",
+        "year": 2022,
+        "tdid": "4244",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "country": "US",
+        "topSpeed": 203,
+        "acel": 3.5,
+        "hand": 85,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": null,
+        "weight": 2080,
+        "name": "Dodge Charger SRT Hellcat Redeye Widebody Jailbreak",
+        "rid": "Dodge_Charger_SRT_Hellcat_Redeye_Widebody_Jailbreak_2022",
+        "prize": true,
+        "tags": [
+            "Pacific Coast Highway",
+            "Muscle Car",
+            "Purple"
+        ],
+        "bodyTypes": [
+            "Saloon"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front",
+        "guid": "3e7b564f-7ea5-4ce1-a326-94db5f5c0da4"
     },
     {
         "class": "A",
@@ -21647,8 +21632,7 @@
         "rid": "Audi_S4_2012",
         "tags": [
             "Originals",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Saloon"
@@ -21718,8 +21702,7 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "guid": "19184c0f-ddb1-4786-9319-f9fa8715260e"
     },
@@ -22676,8 +22659,7 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -25118,8 +25100,7 @@
         "rid": "Subaru_Impreza_WRX_P1_(GC8G)_2000",
         "tags": [
             "Japan Pro Tour",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "prize": true,
         "bodyTypes": [
@@ -27874,8 +27855,7 @@
         "rid": "Aston_Martin_V12_Zagato_2012",
         "tags": [
             "Great Exhibition",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Coupe"
@@ -27972,8 +27952,7 @@
         "rid": "Audi_RS_4_Avant_2000",
         "tags": [
             "Originals",
-            "Yellow",
-            "Year of the Dragon"
+            "Yellow"
         ],
         "bodyTypes": [
             "Estate"
@@ -28005,8 +27984,7 @@
         "rid": "Bentley_Continental_GT_2012",
         "tags": [
             "Great Exhibition",
-            "Orange",
-            "Year of the Dragon"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -28607,8 +28585,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "guid": "15fd4732-cdc7-4269-afa6-2125f51c40f4"
     },
@@ -29598,8 +29575,7 @@
             "American Dream",
             "Muscle Car",
             "Silver Screen",
-            "Orange",
-            "Year of the Dragon"
+            "Orange"
         ],
         "bodyTypes": [
             "Coupe"
@@ -30769,8 +30745,7 @@
         "rid": "Audi_RS_5_Cabriolet_2012",
         "tags": [
             "Originals",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Convertible"
@@ -34595,8 +34570,7 @@
         "rid": "Acura_MDX_2012",
         "tags": [
             "American Frontier",
-            "Brown",
-            "Year of the Dragon"
+            "Brown"
         ],
         "bodyTypes": [
             "SUV"
@@ -35088,8 +35062,7 @@
         "tags": [
             "Hot Hatch",
             "Originals",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -35653,8 +35626,7 @@
         "tags": [
             "American Dream",
             "Muscle Car",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Saloon"
@@ -38325,8 +38297,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver/Grey",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "f00549ef-c2ae-4db9-8da1-53109d7c0302"
     },
@@ -38392,8 +38363,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "guid": "3c20500d-525f-4175-8ca9-73178a268227"
     },
@@ -39238,8 +39208,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "55838c7c-ea1f-4c7d-8f43-c4c7ce1091ae"
     },
@@ -41311,8 +41280,7 @@
             "Japan Pro Tour",
             "Eco Friendly",
             "Old Guard",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Saloon"
@@ -41478,8 +41446,7 @@
         "tags": [
             "German Renaissance",
             "Old Guard",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Coupe"
@@ -45125,8 +45092,7 @@
         "tags": [
             "Pacific Coast Highway",
             "Muscle Car",
-            "Yellow",
-            "Year of the Dragon"
+            "Yellow"
         ],
         "bodyTypes": [
             "Saloon"
@@ -46163,8 +46129,7 @@
         "tags": [
             "Amalfi Coast Cruising",
             "Concept",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "guid": "bfdcd690-ab39-4289-a403-a302b21a9906"
     },
@@ -46719,8 +46684,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Orange",
-            "Year of the Dragon"
+            "Orange"
         ],
         "bodyTypes": [
             "Saloon"
@@ -48015,8 +47979,7 @@
         "rid": "BMW_X6_2012",
         "tags": [
             "German Renaissance",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "SUV"
@@ -49454,8 +49417,7 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "guid": "b56c08b2-9b72-4210-bd76-3a9ad0b8b54f"
     },
@@ -50211,8 +50173,7 @@
         "tags": [
             "Team Favourite",
             "Great Exhibition",
-            "Green",
-            "Year of the Dragon"
+            "Green"
         ],
         "bodyTypes": [
             "Roadster"
@@ -52666,8 +52627,7 @@
         "tags": [
             "Famous Tracks",
             "Originals",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Convertible"
@@ -53257,8 +53217,7 @@
         "rid": "Audi_V8_quattro_36_4C_1988",
         "tags": [
             "World Expo",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Saloon"
@@ -53493,8 +53452,7 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "tcs": true,
         "topSpeed": 155,
@@ -53831,8 +53789,7 @@
         "rid": "Lotus_Esprit_Turbo_1988",
         "tags": [
             "World Expo",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -54431,8 +54388,7 @@
         "rid": "Aston_Martin_V8_Vantage_Volante_2000",
         "tags": [
             "Great Exhibition",
-            "Black",
-            "Year of the Dragon"
+            "Black"
         ],
         "bodyTypes": [
             "Convertible"
@@ -56736,8 +56692,7 @@
         "rid": "Ford_Focus_ST_2012",
         "tags": [
             "Originals",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -57367,8 +57322,7 @@
         "rid": "TVR_Griffith_400_1964",
         "tags": [
             "Great Exhibition",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Coupe"
@@ -57805,8 +57759,7 @@
         "rid": "BMW_650i_Convertible_2012",
         "tags": [
             "German Renaissance",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Convertible"
@@ -59155,8 +59108,7 @@
         "tags": [
             "Street Racer",
             "Originals",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Coupe"
@@ -60293,38 +60245,6 @@
             "The Unicorns"
         ],
         "guid": "17408878-973b-4610-bc9d-b92fc1dae59f"
-    },
-    {
-        "abs": false,
-        "acel": 6.9,
-        "bodyTypes": [
-            "Roadster"
-        ],
-        "brand": "Caterham",
-        "class": "C",
-        "clearance": "Low",
-        "country": "GB",
-        "drive": "RWD",
-        "engine": "Front",
-        "fuel": "Petrol",
-        "hand": 81,
-        "mra": null,
-        "name": "Caterham Super Seven 600",
-        "onlyName": "Super Seven 600",
-        "prize": false,
-        "rid": "Caterham_Super_Seven_600_2022",
-        "rq": 49,
-        "seats": "2",
-        "tags": [
-            "European New Wave",
-            "Red"
-        ],
-        "tcs": false,
-        "topSpeed": 105,
-        "tyres": "Standard",
-        "weight": 460,
-        "year": 2022,
-        "guid": "b3c28cc2-a818-4b3b-8d0c-9f98eb29c560"
     },
     {
         "class": "C",
@@ -61639,8 +61559,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "guid": "749f47e5-eaab-4dd5-9f59-9976d346e5a8"
     },
@@ -63718,8 +63637,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "guid": "4d66bfa6-3fdf-4053-9e8f-82e61c648f17"
     },
@@ -65020,6 +64938,38 @@
         "seats": "2",
         "engine": "Front",
         "guid": "17bf3ef7-6100-4849-b59a-92af2f9a1c0a"
+    },
+    {
+        "abs": false,
+        "acel": 6.9,
+        "bodyTypes": [
+            "Roadster"
+        ],
+        "brand": "Caterham",
+        "class": "C",
+        "clearance": "Low",
+        "country": "GB",
+        "drive": "RWD",
+        "engine": "Front",
+        "fuel": "Petrol",
+        "hand": 81,
+        "mra": null,
+        "name": "Caterham Super Seven 600",
+        "onlyName": "Super Seven 600",
+        "prize": false,
+        "rid": "Caterham_Super_Seven_600_2022",
+        "rq": 47,
+        "seats": "2",
+        "tags": [
+            "European New Wave",
+            "Red"
+        ],
+        "tcs": false,
+        "topSpeed": 105,
+        "tyres": "Standard",
+        "weight": 460,
+        "year": 2022,
+        "guid": "b3c28cc2-a818-4b3b-8d0c-9f98eb29c560"
     },
     {
         "class": "C",
@@ -66454,8 +66404,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "tcs": true,
         "topSpeed": 155,
@@ -66716,8 +66665,7 @@
         "rid": "BMW_520d_Touring_2012",
         "tags": [
             "German Renaissance",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Estate"
@@ -73661,8 +73609,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "tcs": true,
         "topSpeed": 149,
@@ -73923,8 +73870,7 @@
         "tags": [
             "European New Wave",
             "Style Icon",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "tcs": false,
         "topSpeed": 161,
@@ -75890,8 +75836,7 @@
         "rid": "Acura_3.0CL_2000",
         "tags": [
             "American Frontier",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Coupe"
@@ -79418,8 +79363,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "bffa2783-da3b-4e66-9444-b51dbda90e7a"
     },
@@ -81492,8 +81436,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "d920461e-0a91-4bab-a218-1677db7aaa0f"
     },
@@ -81784,8 +81727,7 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "SUV"
@@ -87250,8 +87192,7 @@
         "rid": "Cadillac_Sedan_De_Ville_2000",
         "tags": [
             "Originals",
-            "Black",
-            "Year of the Dragon"
+            "Black"
         ],
         "bodyTypes": [
             "Saloon"
@@ -87318,8 +87259,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "tcs": true,
         "topSpeed": 134,
@@ -89651,8 +89591,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Black",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "fd1e819d-0458-4fd5-a952-477a47969dbc"
     },
@@ -93657,8 +93596,7 @@
         "rid": "Mercedes-Benz_A_200_2012",
         "tags": [
             "Originals",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -95385,8 +95323,7 @@
         "rid": "Lancia_Delta_2012",
         "tags": [
             "Italian Renaissance",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -95560,8 +95497,7 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Purple",
-            "Concept",
-            "Year of the Dragon"
+            "Concept"
         ],
         "guid": "f91098c6-7af3-4009-85ff-aa4664360cdb"
     },
@@ -96720,8 +96656,7 @@
         "engine": "Rear",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "guid": "a4b8609f-1dc5-43f2-b73d-62cbe9bb2427"
     },
@@ -98831,8 +98766,7 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "tcs": true,
         "topSpeed": 136,
@@ -101550,8 +101484,7 @@
         "tags": [
             "Italian Renaissance",
             "Red",
-            "New Beginnings",
-            "Year of the Dragon"
+            "New Beginnings"
         ],
         "bodyTypes": [
             "Coupe"
@@ -101982,8 +101915,7 @@
         "rid": "Maserati_Merak_SS_1976",
         "tags": [
             "Italian Renaissance",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -102088,8 +102020,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "guid": "74034d76-724a-4ac0-bba5-4cc7de45a6b4"
     },
@@ -102884,8 +102815,7 @@
         "tags": [
             "French Renaissance",
             "Old Guard",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Convertible"
@@ -107083,8 +107013,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "tcs": false,
         "topSpeed": 126,
@@ -110052,8 +109981,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "guid": "4f44884c-babb-497a-a9a4-7ee6e0ed2f78"
     },
@@ -111013,8 +110941,7 @@
             "Silver Screen",
             "Old Guard",
             "Originals",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Saloon"
@@ -111845,8 +111772,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "guid": "aea9b089-e1ca-487c-b256-feb5b162576f"
     },
@@ -112047,8 +111973,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "guid": "6e0be604-34fe-4d24-8b61-601b9f6bf37e"
     },
@@ -112539,8 +112464,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "tcs": true,
         "topSpeed": 121,
@@ -113760,8 +113684,7 @@
         "rid": "Nissan_Navara_(D22)_1997",
         "tags": [
             "Japan Pro Tour",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Pickup"
@@ -114655,8 +114578,7 @@
         "rid": "Chevrolet_Cruze_SW_2012",
         "tags": [
             "Originals",
-            "White",
-            "Year of the Dragon"
+            "White"
         ],
         "bodyTypes": [
             "Estate"
@@ -116088,8 +116010,7 @@
         "tags": [
             "World Expo",
             "Muscle Car",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Convertible"
@@ -116687,8 +116608,7 @@
         "tags": [
             "Summer Games",
             "Originals",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -116883,8 +116803,7 @@
         "rid": "Bristol_603S_1976",
         "tags": [
             "World Expo",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Coupe"
@@ -116949,8 +116868,7 @@
         "rid": "Chevrolet_Cruze_LT_2012",
         "tags": [
             "Originals",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -119096,8 +119014,7 @@
         "tags": [
             "Pacific Coast Highway",
             "Muscle Car",
-            "Black",
-            "Year of the Dragon"
+            "Black"
         ],
         "bodyTypes": [
             "Saloon"
@@ -119970,8 +119887,7 @@
         "rid": "Oldsmobile_Jetstar_1_1964",
         "tags": [
             "World Expo",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -120980,8 +120896,7 @@
             "American Dream",
             "Call of the Wild",
             "Muscle Car",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Convertible"
@@ -124364,8 +124279,7 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "tcs": false,
         "topSpeed": 108,
@@ -124800,8 +124714,7 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "guid": "38638d0a-0d4d-40a9-ba6d-3eb074be1d32"
     },
@@ -126622,8 +126535,7 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Silver/Grey",
-            "Year of the Dragon"
+            "Silver/Grey"
         ],
         "guid": "14170a2b-cd64-4d90-aab7-da98191dcdba"
     },
@@ -127607,8 +127519,7 @@
         "rid": "Chevrolet_Chevette_1976",
         "tags": [
             "American Dream",
-            "Pink",
-            "Year of the Dragon"
+            "Pink"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -129322,8 +129233,7 @@
         "tags": [
             "Christmas Collection",
             "Japan Pro Tour",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -129423,8 +129333,7 @@
         "rid": "Vauxhall_Cavalier_1.6_1988",
         "tags": [
             "Originals",
-            "Brown",
-            "Year of the Dragon"
+            "Brown"
         ],
         "bodyTypes": [
             "Saloon"
@@ -130858,8 +130767,7 @@
         "tags": [
             "Christmas Collection",
             "Japan Pro Tour",
-            "Red",
-            "Year of the Dragon"
+            "Red"
         ],
         "bodyTypes": [
             "Coupe"
@@ -131896,8 +131804,7 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Green",
-            "Year of the Dragon"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -132131,8 +132038,7 @@
         "tags": [
             "Silver Screen",
             "Originals",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -133066,8 +132972,7 @@
         "rid": "Suzuki_Swift_(SF)_1988",
         "tags": [
             "Japan Pro Tour",
-            "Blue",
-            "Year of the Dragon"
+            "Blue"
         ],
         "bodyTypes": [
             "Hatchback"

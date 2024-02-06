@@ -344,4 +344,7 @@ export default {
   t_canyonButte: "Colina no Cânion",
   t_lookout: "Mirante",
   t_dtRoad: "Estrada de Terra",
+  t_lumberTwisty: "Serraria Circuito Sinuoso",
+  t_lumberForest: "Serraria Floresta Rally",
+  t_lumberRiver: "Serraria Rio Rally",
 }

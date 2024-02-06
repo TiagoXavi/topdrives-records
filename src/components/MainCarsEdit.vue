@@ -408,6 +408,7 @@ export default {
           "Ultra Expensive",
           "Wild Ride",
           "World Expo",
+          "Year of the Dragon",
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",

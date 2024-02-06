@@ -364,6 +364,11 @@ export default {
   --tag-s: 50%;
   --tag-l: 70%;
 }
+.BaseGameTag_Year_of_the_Dragon {
+  --tag-h: 0;
+  --tag-s: 60%;
+  --tag-l: 50%;
+}
 .BaseGameTag_Year_of_the_Ox {
   --tag-h: 5;
   --tag-s: 75%;

@@ -369,8 +369,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL21_3-fixed.json'
-import plOld from '../database/cars_final_PL21_2.json'
+import data_cars from '../database/cars_final_PL21_4-fixed.json'
+import plOld from '../database/cars_final_PL21_3.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -528,6 +528,7 @@ export default {
           "Ultra Expensive",
           "Wild Ride",
           "World Expo",
+          "Year of the Dragon",
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
