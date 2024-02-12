@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "¿incluir tiempos con votos negativos?",
   "m_showDataFromPast": "Mostrar datos de versiones anteriores",
   "m_showOldTags": "Mostrar etiquetas obsoletas",
-  "m_cgDontRepeatSolution": "no mostrar duplicados",
   "m_challengeName": "Nombre del desafío",
   "m_eventName": "Nombre del evento",
   "m_numberRounds": "Número de rondas",

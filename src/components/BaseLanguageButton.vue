@@ -1,7 +1,7 @@
 <template>
   <span>
     <button
-      class="D_Button Main_OptionsButton"
+      class="D_Button Main_OptionsButton Main_OptionsButton42"
       @click="dialog = true;">
       <BaseFlag :flag="$i18n.locale.toUpperCase()" class="BaseLanguageButton_Flag" />
       <span>{{ $i18n.locale.toUpperCase() }}</span>

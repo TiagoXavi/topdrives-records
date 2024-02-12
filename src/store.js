@@ -82,7 +82,13 @@ export default new Vuex.Store({
       "Year of the Tiger",
       "Year of the Rabbit",
     ],
-    showOldTags: false
+    showDataFromPast: false,
+    showCustomTunes: false,
+    showOldTags: false,
+    homePointsToggle: false,
+    showPointsCgForce: false,
+    zoomLevel: "100%",
+    zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
   },
   mutations: {
     SET_GENERIC: (state, obj) => state[obj.key] = obj.value,
@@ -91,6 +97,40 @@ export default new Vuex.Store({
     DEFINE_DIALOG: (state, dialog) => state.mainDialog = dialog,
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
+
+    CHANGE_DATA_FROM_PAST: (state, status) => state.showDataFromPast = status,
+    CHANGE_CUSTOM_TUNES: (state, status) => state.showCustomTunes = status,
+    CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
+    CHANGE_HOME_POINTS_TOGGLE: (state, status) => state.homePointsToggle = status,
+    CHANGE_POINTS_CG_FORCE: (state, status) => state.showPointsCgForce = status,
+    CHANGE_ZOOM_LEVEL: (state, level = "100%") => {
+      state.zoomLevel = level;
+
+      let string;
+      if (level === "60%") {
+        string = "width=device-width,height=device-height, initial-scale=0.45, maximum-scale=0.45, minimum-scale=0.45"
+      }
+      if (level === "80%") {
+        string = "width=device-width,height=device-height, initial-scale=0.55, maximum-scale=0.55, minimum-scale=0.55"
+      }
+      if (level === "100%") {
+        string = "width=device-width,height=device-height, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65"
+      }
+      if (level === "120%") {
+        string = "width=device-width,height=device-height, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75"
+      }
+      if (level === "140%") {
+        string = "width=device-width,height=device-height, initial-scale=0.85, maximum-scale=0.85, minimum-scale=0.85"
+      }
+
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if ( viewport ) {
+        viewport.content = string;
+      }
+      window.localStorage.setItem('zoomLevel', level);
+    },
+
+
     CHANGE_USER: (state, item) => {
       state.user = item.user
     },

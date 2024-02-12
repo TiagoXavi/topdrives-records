@@ -3,7 +3,7 @@
     <button
       v-for="(type, itype) in resolvedList"
       :class="`Type_${type} `+
-              `${circuit[type] === true && mode === 'classic' ? 'BaseTrackType_Active ' : '' }`+
+              `${circuit[type] === true && mode === 'compare' ? 'BaseTrackType_Active ' : '' }`+
               `${isTrackSet && circuit[itype].active ? 'BaseTrackType_Active ' : '' }`"
       class="D_Button D_ButtonDark D_ButtonDark2 BaseTrackType_Button"
       @click="resolveToTrackObj(type, itype, $event)">
@@ -68,7 +68,7 @@ export default {
     },
     mode: {
       type: String,
-      default: "classic"
+      default: "compare"
     },
   },
   data() {

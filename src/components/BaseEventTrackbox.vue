@@ -358,7 +358,7 @@ export default {
     transparent 0,
     transparent 25px
   );
-  animation: KingCheck 3.4s linear 1s 6 normal both;
+  animation: KingCheck 3.4s linear 1s 2 normal both;
   background-size: 300%;
 }
 @keyframes KingCheck {

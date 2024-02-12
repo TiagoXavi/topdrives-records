@@ -74,7 +74,6 @@ export default {
   "m_includeDownvote": "Includere tempi disapprovati?",
   "m_showDataFromPast": "Mostra dati di aggiornamenti precedenti",
   "m_showOldTags": "Mostra tag non più in uso",
-  "m_cgDontRepeatSolution": "non proporre più volte la stessa auto nelle soluzioni",
   "m_challengeName": "Nome della sfida",
   "m_eventName": "Nome dell'evento",
   "m_yes": "Sì",

@@ -647,11 +647,19 @@ export default {
   top: 0;
   left: 0;
 }
+.Car_LayoutAddCarLabel {
+  display: none;
+  margin-top: 5px;
+  font-size: 21px;
+}
+.Car_WithMidEmpty .Car_LayoutAddCarLabel {
+  display: block;
+}
 
-.Main_Normal .Car_LayoutAddCar.Car_WithMidEmpty {
+/* .Main_Normal .Car_LayoutAddCar.Car_WithMidEmpty {
   position: absolute;
   margin-left: var(--left-width);
-}
+} */
 
 
 

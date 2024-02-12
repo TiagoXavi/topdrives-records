@@ -64,6 +64,8 @@ export default {
 }
 .BaseAvatar_Box {
   font-size: calc(var(--size) * 0.5);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
 }
 .BaseAvatar_Mod {
   background-color: #a10505;

@@ -1,34 +1,33 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Main from "./components/Main.vue";
-// import MainConvertCsv from "./components/MainConvertCsv.vue";
-import MainExtractTD from "./components/MainExtractTD.vue";
-// import MainConvertInsertCountry from "./components/MainConvertInsertCountry.vue";
-import MainGallery from "./components/MainGallery.vue";
-import MainCarsEdit from "./components/MainCarsEdit.vue";
-import MainUpdateRqData from "./components/MainUpdateRqData.vue";
-import MainValidateFinalJson from "./components/MainValidateFinalJson.vue";
-import MainImportRude from "./components/MainImportRude.vue";
-import MainAnalyseDb from "./components/MainAnalyseDb.vue";
-import MainSwagger from "./components/MainSwagger.vue";
-import MainCharts from "./components/MainCharts.vue";
-import MainFindCar from "./components/MainFindCar.vue";
-import MainDownTimes from "./components/MainDownTimes.vue";
-import MainTranslate from "./components/MainTranslate.vue";
-import MainNewPhotos from "./components/MainNewPhotos.vue";
-import MainTestPoints from "./components/MainTestPoints.vue";
-import MainAddNewCars from "./components/MainAddNewCars.vue";
-import MainCheatSheet from "./components/MainCheatSheet.vue";
-import MainCodeUtility from "./components/MainCodeUtility.vue";
-import BaseMergeDatabase from "./components/BaseMergeDatabase.vue";
+const Main = () => import("./components/Main.vue");
+const MainExtractTD = () => import("./components/MainExtractTD.vue");
+const MainGallery = () => import("./components/MainGallery.vue");
+const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
+const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
+const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
+const MainImportRude = () => import("./components/MainImportRude.vue");
+const MainAnalyseDb = () => import("./components/MainAnalyseDb.vue");
+const MainSwagger = () => import("./components/MainSwagger.vue");
+const MainCharts = () => import("./components/MainCharts.vue");
+const MainFindCar = () => import("./components/MainFindCar.vue");
+const MainDownTimes = () => import("./components/MainDownTimes.vue");
+const MainTranslate = () => import("./components/MainTranslate.vue");
+const MainNewPhotos = () => import("./components/MainNewPhotos.vue");
+const MainTestPoints = () => import("./components/MainTestPoints.vue");
+const MainAddNewCars = () => import("./components/MainAddNewCars.vue");
+const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
+const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
+const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
+const MainStuff = () => import("./components/MainStuff.vue");
 
-import MainTemplateGuidelines from "./components/MainTemplateGuidelines.vue";
-import MainLogin from "./components/MainLogin.vue";
-import MainRegister from "./components/MainRegister.vue";
-import MainVerifyEmail from "./components/MainVerifyEmail.vue";
-import MainResetPassword from "./components/MainResetPassword.vue";
-import MainAskNewPassword from "./components/MainAskNewPassword.vue";
+const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
+const MainLogin = () => import("./components/MainLogin.vue");
+const MainRegister = () => import("./components/MainRegister.vue");
+const MainVerifyEmail = () => import("./components/MainVerifyEmail.vue");
+const MainResetPassword = () => import("./components/MainResetPassword.vue");
+const MainAskNewPassword = () => import("./components/MainAskNewPassword.vue");
 
 Vue.use(VueRouter);
 
@@ -73,6 +72,11 @@ const routes = [
     path: '/clubs',
     name: 'Clubs',
     component: Main,
+  },
+  {
+    path: '/stuff',
+    name: 'Stuff',
+    component: MainStuff,
   },
   // {
   //   path: '/convert',
@@ -145,7 +149,7 @@ const routes = [
     component: MainCodeUtility,
   },
   {
-    path: '/BaseMergeDatabase',
+    path: '/BaseMergeDatabase', // internal
     name: 'BaseMergeDatabase',
     component: BaseMergeDatabase,
   },

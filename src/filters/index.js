@@ -4,13 +4,6 @@ import {
     clearNumber,
 } from './formatters.js';
 import tracks_factor from '../database/tracks_factor.json'
-import plOld15 from '../database/cars_final_PL15.json'
-import plOld16 from '../database/cars_final_PL16.json'
-import plOld17 from '../database/cars_final_PL17.json'
-import plOld18 from '../database/cars_final_PL18.json'
-import plOld19 from '../database/cars_final_PL19_3.json'
-import plOld20 from '../database/cars_final_PL20.json'
-import plOld2a from '../database/cars_final_PL21_2.json'
 
 export default {
     install(Vue) {
@@ -147,15 +140,23 @@ export default {
                 return result;
             }
         },
-        Vue.getOldCar = function (rid, version) {
+        Vue.getOldCar = async function (rid, version) {
             let car;
-            if (version === "15") car = plOld15.find(x => x.rid === rid);
-            if (version === "16") car = plOld16.find(x => x.rid === rid);
-            if (version === "17") car = plOld17.find(x => x.rid === rid);
-            if (version === "18") car = plOld18.find(x => x.rid === rid);
-            if (version === "19") car = plOld19.find(x => x.rid === rid);
-            if (version === "20") car = plOld20.find(x => x.rid === rid);
-            if (version === "2a") car = plOld2a.find(x => x.rid === rid);
+            
+            let arr;
+            
+            if (version === "15") arr = await import('../database/cars_final_PL15.json');
+            if (version === "16") arr = await import('../database/cars_final_PL16.json');
+            if (version === "17") arr = await import('../database/cars_final_PL17.json');
+            if (version === "18") arr = await import('../database/cars_final_PL18.json');
+            if (version === "19") arr = await import('../database/cars_final_PL19_3.json');
+            if (version === "20") arr = await import('../database/cars_final_PL20.json');
+            if (version === "2a") arr = await import('../database/cars_final_PL21_2.json');
+
+            arr = arr.default;
+            
+            car = arr.find(x => x.rid === rid);
+
             if (car) {
                 return car;
             } else {
@@ -242,6 +243,7 @@ export default {
             if (isLose) result = result * -1;
 
             return { v: result, i: isImprecise };
+            
         },
 
 

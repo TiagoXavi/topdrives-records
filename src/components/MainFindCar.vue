@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import Car from './Car.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseCardGallery from './BaseCardGallery.vue'
@@ -71,7 +72,8 @@ export default {
     BaseFilterDescription,
     BaseFilterDialog,
     BaseCardGallery,
-    BaseConfigCheckBox
+    BaseConfigCheckBox,
+    Car
   },
   props: {
     test: {

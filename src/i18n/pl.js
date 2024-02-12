@@ -71,7 +71,6 @@ export default {
   "m_includeDownvote": "Pokaż podejrzane czasy",
   "m_showDataFromPast": "Pokaż czasy z poprzednich updatów",
   "m_showOldTags": "Pokaż stare tagi",
-  "m_cgDontRepeatSolution": "nie powtarzaj aut w rozwiązaniach",
   "m_numberRounds": "Ilość rund",
   "m_yes": "Tak",
   "m_no": "Nie",

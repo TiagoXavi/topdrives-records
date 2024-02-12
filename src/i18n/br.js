@@ -71,7 +71,6 @@ export default {
   "m_includeDownvote": "Incluir tempos reportados?",
   "m_showDataFromPast": "Exibir dados de versões anteriores",
   "m_showOldTags": "Exibir tags descontinuadas",
-  "m_cgDontRepeatSolution": "não repetir carro como solução",
   "m_challengeName": "Nome do desafio",
   "m_eventName": "Nome do evento",
   "m_numberRounds": "Número de rounds",

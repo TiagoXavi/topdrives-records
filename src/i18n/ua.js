@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "Включати результати з негативними відгуками?",
   "m_showDataFromPast": "Показати дані з попередніх версій",
   "m_showOldTags": "Показати застарілі мітки",
-  "m_cgDontRepeatSolution": "не повторювати авто як рішення",
   "m_challengeName": "Назва випробування",
   "m_eventName": "Назва події",
   "m_numberRounds": "Кількість раундів",

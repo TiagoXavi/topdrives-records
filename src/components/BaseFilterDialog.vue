@@ -339,7 +339,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="type === 'classic'" class="Main_FilterChipsFlex">
+          <div v-if="type === 'compare'" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in customTagsList">
               <BaseChip
                 v-model="searchFilters.customTagsModel"
@@ -621,7 +621,7 @@ export default {
     },
     type: {
       type: String,
-      default: "classic"
+      default: "compare"
     },
     initialFilterString: {
       type: String,
@@ -1202,7 +1202,7 @@ export default {
         }
 
         this.$emit("filterUpdate", this.searchFilters);
-      } else if (this.type === 'classic' || this.type === 'library' || this.cgAddingYouCar || this.cgAddingOppoCar) {
+      } else if (this.type === 'compare' || this.type === 'library' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
         document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
