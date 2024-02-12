@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "ダウンヴォートでラップタイムを許可する？",
   "m_showDataFromPast": "古いデータを見る",
   "m_showOldTags": "古いタグを見る",
-  "m_cgDontRepeatSolution": "車種をリピートしない",
   "m_challengeName": "チャレンジの名前",
   "m_eventName": "イベントの名前",
   "m_numberRounds": "ラウンド数",

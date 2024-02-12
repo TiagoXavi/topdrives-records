@@ -1,12 +1,6 @@
 <template>
   <div class="MainAddNewCars_Layout">
     <div class="MainAddNewCars_Box">
-      <div class="MainTranslate_Logo">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-      </div>
       <div class="MainAddNewCars_SearchLayout">
         <div class="Main_SearchFieldBox">
           <input

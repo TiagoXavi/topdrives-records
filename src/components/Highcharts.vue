@@ -10,13 +10,13 @@
 
 <script>
 import Highcharts from "highcharts";
-import Exporting from "highcharts/modules/exporting";
-import Export from "highcharts/modules/export-data";
+// import Exporting from "highcharts/modules/exporting";
+// import Export from "highcharts/modules/export-data";
 import Dark from "highcharts/themes/dark-unica";
 import Accessibility from "highcharts/modules/accessibility";
-import drilldown from "highcharts/modules/drilldown";
-import wordcloud from "highcharts/modules/wordcloud";
-import Histogram from "highcharts/modules/histogram-bellcurve";
+// import drilldown from "highcharts/modules/drilldown";
+// import wordcloud from "highcharts/modules/wordcloud";
+// import Histogram from "highcharts/modules/histogram-bellcurve";
 let uid = 0;
 
 export default {

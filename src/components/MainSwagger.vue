@@ -205,27 +205,6 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
-      <div class="MainSwagger_Title">Hidden Event</div>
-      <div class="MainSwagger_Fields">
-        <BaseText
-          v-model="newEventName"
-          type="normal"
-          label="Event name"
-          class="Space_Bottom"
-          placeholder="" />
-      </div>
-      <div class="MainSwagger_Buttons">
-        <button
-          :class="{ D_Button_Loading: loading }"
-          :disabled="loading"
-          class="D_Button D_ButtonDark TTT_Button"
-          @click="setNewEvent()">Create hidden event</button>
-      </div>
-      <div class="MainSwagger_Response">
-        {{ newEventRes }}
-      </div>
-    </div>
-    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Contest</div>
       <div class="MainSwagger_Buttons">
         <button

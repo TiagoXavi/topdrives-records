@@ -1,12 +1,6 @@
 <template>
   <div class="TTT_Layout">
     <div v-if="!finished" class="TTT_Box">
-      <div class="TTT_Top">
-        <div class="Main_Logo" @click="$router.push({ name: 'Records' })">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-      </div>
       <div class="TTT_Mid">
         <BaseText
           v-model="username"

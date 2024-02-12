@@ -1,12 +1,6 @@
 <template>
   <div class="TTT_Layout">
     <div v-if="!finished" class="TTT_Box">
-      <div class="TTT_Top">
-        <div class="Main_Logo">
-          <div class="Main_LogoPre">Top Drives</div>
-          <Logo />
-        </div>
-      </div>
       <div v-if="!token" class="TTT_Mid">{{ $t("p_somethingWrong") }}</div>
       <div v-else class="TTT_Mid">
         <BaseText

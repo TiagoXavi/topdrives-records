@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "Inclure les temps avec litiges ?",
   "m_showDataFromPast": "Afficher les données d'anciennes versions",
   "m_showOldTags": "Afficher les anciens tags",
-  "m_cgDontRepeatSolution": "ne pas répéter les voitures en tant que solution",
   "m_challengeName": "Nom du défi",
   "m_eventName": "Nom de l'événement",
   "m_numberRounds": "Nombre d'étapes",

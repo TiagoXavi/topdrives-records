@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "Συμπερίληψη χρόνων με αρνητική ψήφο;",
   "m_showDataFromPast": "Εμφάνιση δεδομένων και από παλιότερα εκδόσεις ",
   "m_showOldTags": "Εμφάνιση καταργημένων ετικετών",
-  "m_cgDontRepeatSolution": "μη επανάληψη αυτοκινήτων στις λύσεις",
   "m_challengeName": "Όνομα δοκιμασίας",
   "m_eventName": "Όνομα γεγονότος",
   "m_numberRounds": "Αριθμοί γύρων",

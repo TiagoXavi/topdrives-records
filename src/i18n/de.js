@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "Beinhalte Zeiten mit suspekten Angaben?",
   "m_showDataFromPast": "Zeige Daten auch von alten Versionen",
   "m_showOldTags": "Zeige veraltete Sammlungen",
-  "m_cgDontRepeatSolution": "Keine doppelten Autos als Lösung",
   "m_challengeName": "Herausforderungs Name",
   "m_eventName": "Event Name",
   "m_numberRounds": "Anzahl der Runden",

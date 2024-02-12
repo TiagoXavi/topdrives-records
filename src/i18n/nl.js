@@ -75,7 +75,6 @@ export default {
   "m_includeDownvote": "Tijden met downvotes includeren?",
   "m_showDataFromPast": "Laat data van oudere versies zien",
   "m_showOldTags": "Laat verouderde labels zien",
-  "m_cgDontRepeatSolution": "niet auto's herhalen als oplossing",
   "m_challengeName": "Naam van de uitdaging",
   "m_eventName": "Evenementnaam",
   "m_numberRounds": "Aantal rondes",

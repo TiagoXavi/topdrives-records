@@ -74,7 +74,6 @@ export default {
   "m_includeDownvote": "Zahrnúť nahlásené časy",
   "m_showDataFromPast": "Ukázať dáta zo starších verzií",
   "m_showOldTags": "Ukázať zastarané tagy",
-  "m_cgDontRepeatSolution": "neopakovať vozidlá ako riešenie",
   "m_challengeName": "Názov Challenge",
   "m_eventName": "Názov Eventu",
   "m_numberRounds": "Počet kôl",

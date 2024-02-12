@@ -47,9 +47,6 @@ export default {
       let vm = this;
       setTimeout(() => {
         window.localStorage.setItem(vm.name, vm.value);
-        if (vm.name === "showOldTags") {
-          vm.$store.commit("CHANGE_OLD_TAGS", vm.value);
-        }
       }, 10);
     }
   },
