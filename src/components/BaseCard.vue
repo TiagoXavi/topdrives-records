@@ -159,16 +159,34 @@ export default {
       timer: null,
       timerStart: 0,
       touchCount: 0,
-      touchedLong: false
+      touchedLong: false,
+      resolveCar: {},
+      carClassColor: "",
+      currentTune: ""
     }
   },
-  watch: {},
-  beforeMount() {},
+  watch: {
+    "car.selectedTune": function() {
+      console.log(this.car.selectedTune);
+      this.load();
+    }
+  },
+  beforeMount() {
+    this.load();
+  },
   mounted() {},
   computed: {
-    carClassColor() {
-      return Vue.resolveClass(this.resolveCar.rq, this.resolveCar.class, "color");
-    },
+    // carClassColor() {
+    //   let result;
+    //   result = Vue.resolveClass(this.resolveCar.rq, this.resolveCar.class, "color");
+    //   debugger;
+    //   return result;
+    // },
+    // tune() {
+    //   let result = this.car.selectedTune
+    //   console.log("tune", result);
+    //   return result;
+    // },
     carClassColorRgb() {
       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(this.carClassColor);
       return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
@@ -194,16 +212,27 @@ export default {
         return ''
       }
       return parsed ? parsed : ''
-    },
-    resolveCar() {
-      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
-        return Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2));
-      } else {
-        return this.car
-      }
     }
   },
   methods: {
+    load() {
+      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
+        this.resolveCarMethod();
+      } else {
+        this.resolveCar = this.car;
+        this.carClassColor = Vue.resolveClass(this.car.rq, this.car.class, "color");
+      }
+    },
+    async resolveCarMethod() {
+      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
+        Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2)).then(res => {
+          this.carClassColor = Vue.resolveClass(res.rq, res.class, "color");
+          this.resolveCar = res;
+        });
+      } else {
+        return this.car
+      }
+    },
     invertedClick(e) {
       if (!this.needSave && e.shiftKey) {
         this.$emit('delete');
