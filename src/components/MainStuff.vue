@@ -84,6 +84,9 @@ export default {
   },
   computed: {},
   methods: {},
+  beforeDestroy() {
+    this.unsubscribe();
+  },
 }
 </script>
 

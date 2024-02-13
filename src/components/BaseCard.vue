@@ -167,7 +167,10 @@ export default {
   },
   watch: {
     "car.selectedTune": function() {
-      console.log(this.car.selectedTune);
+      // console.log(this.car.selectedTune);
+      this.load();
+    },
+    "car.rid": function() {
       this.load();
     }
   },
