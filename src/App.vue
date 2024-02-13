@@ -3308,6 +3308,9 @@ body .Main_UserTw3:before {
   .Main_2 .Main_Body:not(.Main_BodyPrint) .D_ButtonMenu {
     padding: 11px 8px;
   }
+  .Cg_Layout .Cg_Corner {
+    width: 20%;
+  }
 }
 @media only screen and (min-width: 768px) {
   .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
