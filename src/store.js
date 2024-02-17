@@ -86,7 +86,7 @@ export default new Vuex.Store({
     showCustomTunes: false,
     showOldTags: false,
     homePointsToggle: false,
-    showPointsCgForce: false,
+    showPointsCgForce: true,
     zoomLevel: "100%",
     zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
   },
@@ -156,6 +156,9 @@ export default new Vuex.Store({
     EVENTKING_EMIT_RIDS: (state, obj) => null,
     EVENT_EXPORT_FILTER: (state, obj) => null,
     CLASSIC_FILTER_IMPORT: (state, obj) => null,
+    FILTER_PACKS_RIDS: (state, obj) => null,
+    FILTER_FINDCAR_RIDS: (state, obj) => null,
+    FILTER_NEWPHOTOS_RIDS: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)
