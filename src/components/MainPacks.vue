@@ -1002,11 +1002,8 @@ export default {
         else if (car.rq >= 10) countPerClass.F++;
       })
 
-      if ((this.goalModel.name === 'specificCar' && this.simulateUntilGetOne) || this.goalModel.name === 'specificAttr') {
+      if (this.goalModel.name === 'specificCar' && this.simulateUntilGetOne) {
         let needed = 1;
-        if (this.goalModel.name === 'specificAttr') {
-          needed = this.numberOfMatchesNeededAttr;
-        }
         Object.keys(chancePerClass).map(key => {
           if (countPerClass[key] !== 0) {
             this.currentPackCards.map((card, icard) => {
@@ -1046,7 +1043,7 @@ export default {
         Object.keys(countPerClass).reverse().map(key => {
           if (countPerClass[key] > 0) highestClass = key;
         })
-        this.currentPackCards.map(card => {
+        this.currentPackCards.map((card, icard) => {
           Object.keys(card).map(key => {
             if (highestClass !== key) return;
             let thisChance = 0;
@@ -1065,6 +1062,42 @@ export default {
           })
         })
         result = chanceOfThisClass;
+      }
+
+      if (this.goalModel.name === 'specificAttr') {
+        let needed = this.numberOfMatchesNeededAttr;
+        let arrName = this.packFilterDescResolved.length === 0 ? "availableCars" : "freeCars";
+
+        Object.keys(chancePerClass).map(key => {
+          if (countPerClass[key] !== 0) {
+            this.currentPackCards.map((card, icard) => {
+              Object.keys(card).map(keyPack => {
+                if (key !== keyPack) return;
+                let thisChance = 0;
+
+                thisChance = card[key] / (this.simulateRunStats[arrName][key].length / (countPerClass[key] / needed))
+                // if (this.isFromFree(icard)) {
+                // } else {
+                //   thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / (countPerClass[key] / needed))
+                // }
+
+                if (chancePerClass[key] === 0) {
+                  chancePerClass[key] = thisChance;
+                } else {
+                  chancePerClass[key] = this.sumOds(chancePerClass[key], thisChance);
+                }
+              })
+            })
+          }
+        })
+        Object.keys(chancePerClass).map(key => {
+          if (chancePerClass[key] !== 0) {
+            if (result === 0) result = chancePerClass[key];
+            else {
+              result = this.sumOds(result, chancePerClass[key]);
+            }
+          }
+        })
       }
       
       this.simulateRunStats.probabilityPerOpen = result;
