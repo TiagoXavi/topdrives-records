@@ -5,6 +5,13 @@ import {
 } from './formatters.js';
 import tracks_factor from '../database/tracks_factor.json'
 
+var classes = ["F","E","D","C","B","A","S"];
+var classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
+var classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255, 246, 43", "255, 53, 56", "140, 92, 255", "255, 175, 23"];
+
+var countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
+var letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
+
 export default {
     install(Vue) {
         Vue.debounce = function (func, wait, immediate) {
@@ -28,9 +35,7 @@ export default {
                 if (callNow) func.apply(context, args);
             };
         },
-        Vue.resolveClass = function (rq, classe, type) {
-            let classes = ["F","E","D","C","B","A","S"];
-            let classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"];
+        Vue.resolveClass = function (rq, classe, type, rgb = false) {
             let resultClass;
 
             if (classe) {
@@ -45,12 +50,10 @@ export default {
                 else resultClass = 6;
             }
             if (type === "letter") return classes[resultClass];
-            if (type === "color") return classesColors[resultClass];
+            if (type === "color" && !rgb) return classesColors[resultClass];
+            if (type === "color" && rgb) return classesColorsRgb[resultClass];
         },
         Vue.resolveCountry = function (country) {
-            let countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
-            let letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
-            
             country = countrys.findIndex(x => x === country);
             return letter[country];
         },

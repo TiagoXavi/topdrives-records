@@ -20,6 +20,7 @@ const MainAddNewCars = () => import("./components/MainAddNewCars.vue");
 const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
 const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
 const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
+const MainPacks = () => import("./components/MainPacks.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
@@ -72,6 +73,11 @@ const routes = [
     path: '/clubs',
     name: 'Clubs',
     component: Main,
+  },
+  {
+    path: '/packs',
+    name: 'Packs',
+    component: MainPacks,
   },
   {
     path: '/stuff',

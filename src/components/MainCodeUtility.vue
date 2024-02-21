@@ -426,7 +426,8 @@ export default {
         ladderId: this.result.ladder.id,
         numTickets: 5,
         lastTicketRegen: "2023-08-13T23:46:33.370Z",
-        currentRung: 15, // round 
+        currentRung: this.result.ladder.rungEligibility.length - 1, // round
+        // currentRung: 10, // round
         starsWon: 0,
         entryCostPaid: true,
         rungEntryCostPaid: false,

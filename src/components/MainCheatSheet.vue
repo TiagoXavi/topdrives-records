@@ -530,7 +530,7 @@ export default {
           tracks: [ "hClimb", "mtHill", "tRoad" ]
         },
       ],
-      classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
+      classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"],
       classesColorsRgb: [
         "135, 135, 135",
         "118, 242, 115",

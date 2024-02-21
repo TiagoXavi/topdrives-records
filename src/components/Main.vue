@@ -713,12 +713,25 @@
           <div class="Cg_ListSelectBox">
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
-              <button
-                style="padding-left: 15px;"
-                class="Main_SearchItem"
-                @click="loadChallengeFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
-              </button>
+              <template v-if="item === 'divider'">
+                <div class="Main_CgListDividerLayout">
+                  <button
+                    class="D_Button D_ButtonDark D_ButtonDark2 Main_CgListDividerButton"
+                    @click="cgPermanentToggle = !cgPermanentToggle">
+                    <span class="Cg_SelectorEventSpan">{{ $t("m_permanents") }}</span>
+                    <i :class="`ticon-keyboard_arrow_${cgPermanentToggle ? 'up' : 'down'}`" aria-hidden="true"/>
+                  </button>
+                </div>
+              </template>
+              <template v-else>
+                <button
+                  v-if="cgPermanentToggle || item.index < 1"
+                  style="padding-left: 15px;"
+                  class="Main_SearchItem"
+                  @click="loadChallengeFull(item.date)">
+                  <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+                </button>
+              </template>
             </template>
           </div>
         </div>
@@ -1513,6 +1526,7 @@
           :user="user"
           :ready="true"
           :isKing="true"
+          :asFilterLabel="true"
           class="Main_KingFilter"
           @changeClick="kingFilterDialog = true" />
 
@@ -2397,13 +2411,26 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
-            <BaseButtonTouch
-              style="padding-left: 15px;"
-              class="Main_SearchItem"
-              @click="loadChallengeFull(item.date, undefined, $event)"
-              @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
-            </BaseButtonTouch>
+            <template v-if="item === 'divider'">
+              <div class="Main_CgListDividerLayout">
+                <button
+                  class="D_Button D_ButtonDark D_ButtonDark2 Main_CgListDividerButton"
+                  @click="cgPermanentToggle = !cgPermanentToggle">
+                  <span class="Cg_SelectorEventSpan">{{ $t("m_permanents") }}</span>
+                  <i :class="`ticon-keyboard_arrow_${cgPermanentToggle ? 'up' : 'down'}`" aria-hidden="true"/>
+                </button>
+              </div>
+            </template>
+            <template v-else>
+              <BaseButtonTouch
+                v-if="cgPermanentToggle || item.index < 1"
+                style="padding-left: 15px;"
+                class="Main_SearchItem"
+                @click="loadChallengeFull(item.date, undefined, $event)"
+                @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              </BaseButtonTouch>
+            </template>
           </template>
         </div>
       </div>
@@ -3055,6 +3082,7 @@ export default {
       cgShowResetSavedHand: false,
       cgFilterForAnalyse: {},
       cgCompleteJson: "",
+      cgLocalShowPermanentCgs: true,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -3490,6 +3518,12 @@ export default {
       setTimeout(() => {
         this.librarySearchDialog = true;
       }, 100);
+    }
+
+    let cgLocalShowPermanentCgs = window.localStorage.getItem("cgLocalShowPermanentCgs");
+    if (cgLocalShowPermanentCgs) {
+      cgLocalShowPermanentCgs = JSON.parse(cgLocalShowPermanentCgs);
+      this.cgPermanentToggle = cgLocalShowPermanentCgs;
     }
 
 
@@ -4106,7 +4140,17 @@ export default {
         // this.$store.commit("START_LOGROCKET", {});
       }
       return result;
-    }
+    },
+    cgPermanentToggle: {
+      get: function () {
+        return this.cgLocalShowPermanentCgs;
+      },
+      set: function (newValue) {
+        this.cgLocalShowPermanentCgs = newValue;
+        window.localStorage.setItem('cgLocalShowPermanentCgs', newValue);
+        this.$store.commit("CHANGE_PERMANENT_CGS", newValue);
+      }
+    },
   },
   methods: {
     pushTrackSet(trackset) {
@@ -5197,7 +5241,7 @@ export default {
         html2canvas.default(pose, options).then(function(canvas) {
 
           import('reimg').then(reimg => {
-            reimg.ReImg.fromCanvas(currentCanvas).downloadPng()
+            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
             c_container.classList.remove("App_PrintContainerShow")
   
             document.querySelector(boxName).classList.remove("Main_BodyPrint");
@@ -7161,6 +7205,9 @@ export default {
         }
         return a.index - b.index;
       })
+
+      this.cgList.push("divider");
+      
     },
     generateRandom(maxInt, stringParam) {
       let sum = 0;

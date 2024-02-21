@@ -339,7 +339,7 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="type === 'compare'" class="Main_FilterChipsFlex">
+          <div v-if="config.customTags !== false && type === 'compare'" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in customTagsList">
               <BaseChip
                 v-model="searchFilters.customTagsModel"
@@ -385,7 +385,7 @@
         </div>
       </div>
       <!-- classic -->
-      <div v-else-if="searchResult.length > 0" class="Main_SearchMid">
+      <div v-else-if="searchResult && searchResult.length > 0" class="Main_SearchMid">
         <div v-if="showingLastest" class="Main_SearchLastestTitle">{{ $t("m_lastContribution") }}</div>
         <div v-else-if="sortEnabled" class="BaseFilterDialog_ToolBox">
           <div class="BaseFilterDialog_SortBox">
@@ -523,6 +523,7 @@ import BaseGalleryItem from './BaseGalleryItem.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
+import BaseGameTag from './BaseGameTag.vue'
 import custom_tags from '../database/custom_tags.json'
 
 var id = 0;
@@ -753,7 +754,7 @@ export default {
         tunes: ["332", "323", "233", "111", "Custom"],
         tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
-        classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
+        classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"],
         classesModel: [],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
         tyresModel: [],
@@ -1052,6 +1053,9 @@ export default {
         }
         if (vm.type === 'cg') {
           vm.cgResetFilterForAdd();
+        }
+        if (mutation.payload.removePrizes) {
+          this.searchFilters.prizesModel = ["Non-Prize Cars"];
         }
         let rqMax = mutation.payload.rqMax || 130;
         let rqMin = mutation.payload.rqMin || 10;

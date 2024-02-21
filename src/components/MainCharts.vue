@@ -24,9 +24,8 @@
       </div>
       <div class="Main_ChartFilter Main_DarkScroll">
         <template v-if="chartFilter">
-          <div class="Cg_ReqsTitle">{{ $tc("m_filter", 1) }}</div>
           <div class="Cg_Reqs">
-            <BaseFilterDescription :filter="chartFilter" />
+            <BaseFilterDescription :filter="chartFilter" :asFilterLabel="true" />
           </div>
         </template>
         <div class="Cg_FilterButtons">

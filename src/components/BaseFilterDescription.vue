@@ -1,6 +1,6 @@
 <template>
-  <div class="Main_DarkScroll">
-    <template v-if="currentFilter !== undefined">
+  <div class="Main_DarkScroll BaseFilterDescription_Root">
+    <template v-if="(currentFilter !== undefined) && (!hideIfEmpty || descResolved.length > 0)">
       <div v-if="hasFilter2 || hasFilter3" class="BaseFilterDescription_MultiBox">
         <template v-for="n in 3">
           <BaseChip
@@ -14,7 +14,7 @@
             @click="$emit('useFilter', n-1)" />
         </template>
       </div>
-      <div v-else class="Cg_ReqsTitle">{{ $t("m_requirements") }}</div>
+      <div v-else class="Cg_ReqsTitle">{{ asFilterLabel ? $tc("m_filter", 1) : $t("m_requirements") }}</div>
       <div class="Cg_Reqs">
         <div class="BaseFilterDescription_Layout">
           <div v-for="item in descResolved" class="BaseFilterDescription_Item">
@@ -30,6 +30,7 @@
         </div>
       </div>
     </template>
+    <slot name="footer" />
   </div>
 </template>
 
@@ -65,6 +66,18 @@ export default {
       default: 0
     },
     loading: {
+      type: Boolean,
+      default: false
+    },
+    asFilterLabel: {
+      type: Boolean,
+      default: false
+    },
+    hideIfEmpty: {
+      type: Boolean,
+      default: false
+    },
+    emitDescResolved: {
       type: Boolean,
       default: false
     },
@@ -132,6 +145,9 @@ export default {
       if (f.brandsModel && f.brandsModel.length > 0) result.push({ label: this.$tc("c_brand", 1), value: f.brandsModel.join(", ") });
       if (f.year2Model && f.year2Model.length > 0) result.push({ label: this.$tc("c_year", 2), value: f.year2Model.join(", ") });
 
+      if (this.emitDescResolved) {
+        this.$emit('descResolved', result);
+      }
       return result;
     }
   },

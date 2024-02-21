@@ -87,6 +87,7 @@ export default new Vuex.Store({
     showOldTags: false,
     homePointsToggle: false,
     showPointsCgForce: true,
+    showPermanentCgs: true,
     zoomLevel: "100%",
     zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
   },
@@ -103,6 +104,7 @@ export default new Vuex.Store({
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
     CHANGE_HOME_POINTS_TOGGLE: (state, status) => state.homePointsToggle = status,
     CHANGE_POINTS_CG_FORCE: (state, status) => state.showPointsCgForce = status,
+    CHANGE_PERMANENT_CGS: (state, status) => state.showPermanentCgs = status,
     CHANGE_ZOOM_LEVEL: (state, level = "100%") => {
       state.zoomLevel = level;
 
@@ -159,6 +161,8 @@ export default new Vuex.Store({
     FILTER_PACKS_RIDS: (state, obj) => null,
     FILTER_FINDCAR_RIDS: (state, obj) => null,
     FILTER_NEWPHOTOS_RIDS: (state, obj) => null,
+    FILTER_PACKS_LIMITS: (state, obj) => null,
+    PACKS_FILTER_IMPORT: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

@@ -7,6 +7,7 @@
     <div class="BaseTopMenu_Middle">
       <button
         v-for="item in menus"
+        :key="item.name"
         :class="{ BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ) }"
         class="D_Button BaseTopMenu_Button"
         @click="$router.push({ name: item.name })">{{ item.label }}</button>
@@ -103,6 +104,7 @@ export default {
         { label: "Events", name: "Events" },
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
+        { label: "Packs", name: "Packs" },
         { label: "Stuff", name: "Stuff" },
       ],
       menuDialog: false,
@@ -170,7 +172,7 @@ export default {
       Vue.set(x, "minWidth", currentTotal);
     })
     
-    console.log(this.menus.map(x => x.minWidth));
+    // console.log(this.menus.map(x => x.minWidth));
 
     let css = '';
     this.menus.map((x, ix) => {
@@ -434,7 +436,7 @@ export default {
   height: calc(var(--top-menu) + 20px);
   left: 3px;
   /* background-color: hsla(var(--back-h), var(--back-s), 30%, 1); */
-  background-color: hsla(var(--cor-hs), var(--cor-l0), 0.7);
+  background-color: hsla(var(--cor-hs), var(--cor-l0), 1);
   border-radius: 50%;
   color: hsl(var(--back-h), var(--back-s), 10%);
   transition-property: all, box-shadow;

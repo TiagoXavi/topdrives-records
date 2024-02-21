@@ -193,15 +193,18 @@ export default {
   position: relative;
   font-size: 14px;
 }
+.BaseCompItem_Normal.Type_01 {
+  /* color: #a6c5e5 !important; */
+  background-color: rgba(var(--color-wet),var(--type-back-opac));
+}
 .BaseCompItem_Normal.Type_10,
 .Type_10 ~ .BaseCompItem_Drives {
-  color: #e9a69c !important;
-}
-.BaseCompItem_Normal.Type_01 {
-  color: #a6c5e5 !important;
+  /* color: #e9a69c !important; */
+  background-color: rgba(var(--color-dirt), var(--type-back-opac));
 }
 .BaseCompItem_Clearances.Type_60 {
-  color: #b7b9bb !important;
+  /* color: #b7b9bb !important; */
+  background-color: rgba(var(--color-snow), var(--type-back-opac));
 }
 /* .BaseCompItem_Off {
   color: rgb(var(--color-dirt));

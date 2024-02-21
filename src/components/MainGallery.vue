@@ -437,7 +437,7 @@ export default {
         seatsEnd: 9,
         seatsModel: [],
         classes: ["F","E","D","C","B","A","S"],
-        classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFC717"],
+        classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"],
         classesModel: [],
         onlyAnyChangeModel: [],
         onlyNewRarityModel: [],

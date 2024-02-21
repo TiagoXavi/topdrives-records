@@ -318,7 +318,7 @@ body {
 
   --t0: #d7d7d7;
   --tmod: #bfcd36;
-  --t1: #FFC717;
+  --t1: #FFAF17;
   --t2: #8a62eb;
   --t3: #d93c3e;
   --t4: #41c3e9;
@@ -1061,6 +1061,9 @@ body::-webkit-scrollbar-corner {
   display: flex;
   user-select: text;
   pointer-events: none;
+}
+.Main_BodyEmpty .Main_CarList {
+  min-height: 100%;
 }
 .Main_SearchHeader {
   width: 100%;
@@ -2565,7 +2568,9 @@ body .Main_UserTw3:before {
   margin-top: 15px;
 }
 .Cg_SelectorEventSpan {
-  max-width: 300px;
+  /* max-width: 300px; */
+  max-width: calc(var(--wBody) - 195px - var(--left-width));
+  min-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2577,6 +2582,14 @@ body .Main_UserTw3:before {
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_Track,
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_ThemTime {
   display: none;
+}
+.Main_CgListDividerLayout {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.D_Button.Main_CgListDividerButton {
+  padding: 0px 7px 0px 12px;
 }
 .Main_AnnouncementLayout {
 
@@ -3309,7 +3322,28 @@ body .Main_UserTw3:before {
     padding: 11px 8px;
   }
   .Cg_Layout .Cg_Corner {
-    width: 20%;
+    width: auto;
+    padding: 0 15px;
+  }
+  .Cg_Layout .Cg_SelectorLeft {
+    margin-right: 10px;
+  }
+  .Cg_Layout .Main_CornerMid {
+    margin: 0px;
+  }
+  .Cg_Layout .Cg_SelectorCenter {
+    text-align: left;
+  }
+  .Cg_Layout .Cg_CenterBottom,
+  .Cg_Layout .Clubs_DayBox,
+  .Cg_Layout .Clubs_DayNotCurrent {
+    justify-content: flex-start;
+  }
+  .Cg_Layout .Cg_RqText {
+    margin-left: 9px;
+  }
+  .Cg_Layout .D_Button.Main_ArrowDownSelect {
+    padding: 0 2px 0 2px;
   }
 }
 @media only screen and (min-width: 768px) {

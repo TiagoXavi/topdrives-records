@@ -49,6 +49,7 @@
       v-model="filterDialog"
       :filterOnly="true"
       :all_cars="all_cars"
+      ridsMutationName="FILTER_FINDCAR_RIDS"
       @filterUpdate="updateChartFilter($event)"
       @listRids="finCarFinish($event);"
     />
@@ -123,7 +124,7 @@ export default {
       this.finCar();
     },
     finCar() {
-      this.$store.commit("FILTER_EMIT_RIDS", { total: 5000 });
+      this.$store.commit("FILTER_FINDCAR_RIDS", { total: 5000 });
     },
     finCarFinish(listOfRids) {
       listOfRids = listOfRids.map(x => x.rid);
