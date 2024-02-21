@@ -3508,8 +3508,10 @@ export default {
 
 
     let mode = window.localStorage.getItem("mode");
-    if (mode && mode !== 'compare' && mode !== 'cg') {
-      this.mode = mode;
+    if (mode && mode !== 'cg') {
+      if (this.$route.name === 'Records') {
+        this.mode = mode;
+      }
     }
 
     if (this.$route.query && this.$route.query.approve) {
