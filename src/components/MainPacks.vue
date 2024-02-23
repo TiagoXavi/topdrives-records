@@ -6,7 +6,6 @@
         <template v-for="(item, ix) in packTypes">
           <BaseChip
             v-model="packModel"
-            :class="`MainPacks_`"
             :value="item" 
             :label="item.name"
             :disabled="running"
@@ -14,6 +13,9 @@
             required="true"
             class="BaseChip_MinWidth BaseChip_DontCrop MainPacks_ChipPack" />
         </template>
+        <button class="BaseChip BaseChip_MinWidth BaseChip_DontCrop MainPacks_ChipMore" @click="otherPacksDialog = true;">
+          <i class="ticon-plus_2 MainPacks_ChipMoreIcon" aria-hidden="true"/>
+        </button>
       </div>
     </div>
     <div v-if="packModel && packModel.name" class="MainPacks_PacksOdsBox">
@@ -243,6 +245,7 @@
     </div>
 
     <!-- define theme of packs -->
+    <!-- also to retrieve avaliable cars -->
     <BaseFilterDialog
       v-model="packFilterDialog"
       :filterOnly="true"
@@ -271,16 +274,19 @@
       :all_cars="all_cars"
       :sortEnabled="true"
       :enableCounters="true"
+      :forceNonPrize="true"
       importFilterName="PACKS_FILTER_IMPORT"
       @addCar="addCar($event)"
     />
 
-    <!-- to retrieve avaliable cars -->
+    
+    <!-- set attr cars I want -->
     <BaseFilterDialog
       v-model="filterDialog"
       :filterOnly="true"
       :all_cars="all_cars"
-      ridsMutationName="FILTER_PACKS_RIDS"
+      ref="attrFilter"
+      ridsMutationName="FILTER_ATTR_RIDS"
       @filterUpdate="updateFilter($event)"
       @listRids="filterFinish($event);"
     />
@@ -308,6 +314,30 @@
       :active="tuneDialogActive"
       :car="tuneDialogCar"
       @close="tuneDialogActive = false;" />
+      
+
+    <BaseDialog
+      :active="otherPacksDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="400px"
+      min-width="240px"
+      class="Cg_SelectorDialog"
+      @close="otherPacksDialog = false">
+      <div style="Cg_SelectorDialogBox">
+        <div class="Main_SearchMid Cg_SelectorDialogMid" style="padding-top: 7px;">
+          <template v-for="(item, ix) in otherPackTypes">
+            <button
+              style="padding-left: 15px;"
+              class="Main_SearchItem MainPacks_OtherPackItem"
+              :style="`--cor: ${item.color}`"
+              @click="packModel = item; otherPacksDialog = false;">
+              <div class="Main_SearchItemRight">{{ item.name }}</div>
+            </button>
+          </template>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -486,6 +516,74 @@ export default {
         },
         
       ],
+      otherPackTypes: [
+        {
+          name: "Finals Titanium",
+          color: Vue.resolveClass(10, "A", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#7244dd",
+            gStrip2: "#4c38b3",
+            name: "FINALS TITANIUM"
+          },
+          cards: [
+            { S: 20.00, A: 80.00 },
+            { A: 10.00, B: 90.00 },
+            { A: 10.00, C: 90.00 },
+            { A: 5.00, C: 95.00 },
+            { A: 5.00, C: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 4679
+        },
+        {
+          name: "Finals Platinum",
+          color: Vue.resolveClass(10, "B", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#bd1616",
+            gStrip2: "#510033",
+            name: "FINALS PLATINUM"
+          },
+          cards: [
+            { S: 5.00, A: 35.00, B: 60.00 },
+            { B: 100.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 5.00, D: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 2499
+        },
+        {
+          name: "Finals Super Carbon",
+          color: Vue.resolveClass(10, "B", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#bd1616",
+            gStrip2: "#510033",
+            name: "FINALS SUPER CARBON"
+          },
+          cards: [
+            { S: 3.00, A: 20.00, B: 77.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 5.00, D: 95.00 },
+            { B: 5.00, D: 95.00 },
+            { B: 5.00, D: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 1599
+        },
+      ],
       classes: {
         S: Vue.resolveClass(10, "S", "color"),
         A: Vue.resolveClass(10, "A", "color"),
@@ -517,7 +615,7 @@ export default {
       stop: false,
       numberOfOpensNoGoal: 10,
       numberOfMatchesNeededAttr: 1,
-      limit: 100000,
+      limit: 200000,
       finalLimit: 0,
       showingDroppedCars: false,
       listDroppedCars: [],
@@ -532,6 +630,15 @@ export default {
         E: 0,
         F: 0,
         availableCars: {
+          S: [],
+          A: [],
+          B: [],
+          C: [],
+          D: [],
+          E: [],
+          F: []
+        },
+        availableCarsAndAttr: {
           S: [],
           A: [],
           B: [],
@@ -573,7 +680,8 @@ export default {
       all_cars,
       optionsDialog: false,
       tuneDialogCar: {},
-      tuneDialogActive: false
+      tuneDialogActive: false,
+      otherPacksDialog: false,
     }
   },
   watch: {},
@@ -601,6 +709,17 @@ export default {
             }
           })
         }
+      })
+      this.otherPackTypes.map(x => {
+        x.cards.map(y => {
+          let total = 0;
+          Object.keys(y).map(key => {
+            total += y[key];
+          })
+          if (total !== 100) {
+            debugger;
+          }
+        })
       })
     }
     
@@ -727,20 +846,12 @@ export default {
     },
     updateFilterPacks(filter) {
       this.packFilter = filter;
-      this.$store.commit("PACKS_FILTER_IMPORT", { filter: JSON.parse(JSON.stringify(filter)) });
-      this.packFilterDialog = false;
-    },
-    finCar() {
-      this.$store.commit("FILTER_PACKS_RIDS", { total: 5000, removePrizes: true });
-    },
-    filterFinish(listOfRids) {
-      this.simulateRunStats.goalRids = listOfRids.map(x => x.rid);
-      this.simulateRunStats.goalRidsOriginal = JSON.parse(JSON.stringify(this.simulateRunStats.goalRids));
 
-      // console.log(this.simulateRunStats.goalRids);
-      
-      this.resolveProbabilityPerOpen(listOfRids);
-      this.startOpening();
+      let filterCopy = JSON.parse(JSON.stringify(filter));
+      filterCopy.prizesModel = ["Non-Prize Cars"];
+      this.$store.commit("PACKS_FILTER_IMPORT", { filter: filterCopy });
+
+      this.packFilterDialog = false;
     },
     filterFinishPacks(listOfRids) {
 
@@ -787,6 +898,7 @@ export default {
         this.resolveNotGarantedClasses();
         this.startOpening();
       }
+
       if (this.goalModel.name === 'specificCar') {
         this.finalLimit = this.limit;
         this.simulateRunStats.goalRids = this.carDetailsList.map(car => car.rid);
@@ -798,10 +910,24 @@ export default {
         this.resolveProbabilityPerOpen(this.carDetailsList);
         this.startOpening();
       }
+
       if (this.goalModel.name === 'specificAttr') {
-        if (this.numberOfMatchesNeededAttr < 1) this.numberOfMatchesNeededAttr = 1;
         this.finalLimit = this.limit;
-        this.finCar();
+        if (this.numberOfMatchesNeededAttr < 1) this.numberOfMatchesNeededAttr = 1;
+        if (!this.prepareCarsIwantInAvailableCars()) {
+          this.running = false;
+          return;
+        }
+
+        Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
+          this.simulateRunStats.availableCarsAndAttr[key].map(car => {
+            this.simulateRunStats.goalRids.push(car.rid);
+          })
+        });
+        this.simulateRunStats.goalRidsOriginal = JSON.parse(JSON.stringify(this.simulateRunStats.goalRids));
+
+        this.resolveProbabilityPerOpenAttr();
+        this.startOpening();
       }
     },
     removeImpossibles() {
@@ -940,9 +1066,46 @@ export default {
         this.simulateRunStats.freeCars[key] = this.all_cars.filter(car => car.class === key && !car.prize);
       })
     },
+    prepareCarsIwantInAvailableCars() {
+      let sum = 0;
+      let isViable = true;
+      let classes = [];
+      this.currentPackCards.map(x => {
+        Object.keys(x).map(key => {
+          classes.push(key);
+        })
+      })
+      classes = [...new Set(classes)];
+
+      Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
+        if (!classes.includes(key)) return;
+
+        this.simulateRunStats.availableCarsAndAttr[key] = this.all_cars.filter(car => {
+          return car.class === key && this.matchFilter(car) && this.matchFilterAttr(car)
+        });
+        sum += this.simulateRunStats.availableCarsAndAttr[key].length;
+      })
+
+      if (sum === 0) isViable = false;
+      if (isViable) return true;
+
+      this.$store.commit("DEFINE_SNACK", {
+        active: true,
+        error: true,
+        text: this.$t('m_impossibleCondition')
+      });
+
+      return false;
+
+
+    },
     matchFilter(car) {
       if (!this.$refs.packFilter.checkMatchFilter(car)) return false;
       if (!car.prize) return true;
+    },
+    matchFilterAttr(car) {
+      if (!this.$refs.attrFilter.checkMatchFilter(car)) return false;
+      return true;
     },
     resetRun() {
       this.simulateRunStats.success = false;
@@ -961,6 +1124,13 @@ export default {
       this.simulateRunStats.availableCars.D = [];
       this.simulateRunStats.availableCars.E = [];
       this.simulateRunStats.availableCars.F = [];
+      this.simulateRunStats.availableCarsAndAttr.S = [];
+      this.simulateRunStats.availableCarsAndAttr.A = [];
+      this.simulateRunStats.availableCarsAndAttr.B = [];
+      this.simulateRunStats.availableCarsAndAttr.C = [];
+      this.simulateRunStats.availableCarsAndAttr.D = [];
+      this.simulateRunStats.availableCarsAndAttr.E = [];
+      this.simulateRunStats.availableCarsAndAttr.F = [];
       this.simulateRunStats.freeCars.S = [];
       this.simulateRunStats.freeCars.A = [];
       this.simulateRunStats.freeCars.B = [];
@@ -1002,8 +1172,7 @@ export default {
         else if (car.rq >= 10) countPerClass.F++;
       })
 
-      if (this.goalModel.name === 'specificCar' && this.simulateUntilGetOne) {
-        let needed = 1;
+      if (this.simulateUntilGetOne) {
         Object.keys(chancePerClass).map(key => {
           if (countPerClass[key] !== 0) {
             this.currentPackCards.map((card, icard) => {
@@ -1012,9 +1181,9 @@ export default {
                 let thisChance = 0;
 
                 if (this.isFromFree(icard)) {
-                  thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClass[key] / needed))
+                  thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / countPerClass[key])
                 } else {
-                  thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / (countPerClass[key] / needed))
+                  thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / countPerClass[key])
                 }
 
                 if (chancePerClass[key] === 0) {
@@ -1036,7 +1205,7 @@ export default {
         })
       }
 
-      if (this.goalModel.name === 'specificCar' && this.simulateUntilGetAll) {
+      if (this.simulateUntilGetAll) {
         let highestClass = 'F';
         let chanceOfThisClass = 0;
         
@@ -1063,43 +1232,52 @@ export default {
         })
         result = chanceOfThisClass;
       }
-
-      if (this.goalModel.name === 'specificAttr') {
-        let needed = this.numberOfMatchesNeededAttr;
-        let arrName = this.packFilterDescResolved.length === 0 ? "availableCars" : "freeCars";
-
-        Object.keys(chancePerClass).map(key => {
-          if (countPerClass[key] !== 0) {
-            this.currentPackCards.map((card, icard) => {
-              Object.keys(card).map(keyPack => {
-                if (key !== keyPack) return;
-                let thisChance = 0;
-
-                thisChance = card[key] / (this.simulateRunStats[arrName][key].length / (countPerClass[key] / needed))
-                // if (this.isFromFree(icard)) {
-                // } else {
-                //   thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / (countPerClass[key] / needed))
-                // }
-
-                if (chancePerClass[key] === 0) {
-                  chancePerClass[key] = thisChance;
-                } else {
-                  chancePerClass[key] = this.sumOds(chancePerClass[key], thisChance);
-                }
-              })
-            })
-          }
-        })
-        Object.keys(chancePerClass).map(key => {
-          if (chancePerClass[key] !== 0) {
-            if (result === 0) result = chancePerClass[key];
-            else {
-              result = this.sumOds(result, chancePerClass[key]);
-            }
-          }
-        })
-      }
       
+      this.simulateRunStats.probabilityPerOpen = result;
+    },
+    resolveProbabilityPerOpenAttr() {
+      let countPerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      let chancePerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      let result = 0;
+      let needed = this.numberOfMatchesNeededAttr;
+      // let arrName = this.packFilterDescResolved.length === 0 ? "availableCars" : "freeCars";
+
+      Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
+        countPerClass[key] = this.simulateRunStats.availableCarsAndAttr[key].length;
+      })
+
+
+      Object.keys(chancePerClass).map(key => {
+        if (countPerClass[key] !== 0) {
+          this.currentPackCards.map((card, icard) => {
+            Object.keys(card).map(keyPack => {
+              if (key !== keyPack) return;
+              let thisChance = 0;
+
+              if (this.isFromFree(icard)) {
+                thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClass[key] * needed))
+              } else {
+                thisChance = card[key] / ((this.simulateRunStats.availableCars[key].length / (countPerClass[key])) * needed)
+              }
+
+              if (chancePerClass[key] === 0) {
+                chancePerClass[key] = thisChance;
+              } else {
+                chancePerClass[key] = this.sumOds(chancePerClass[key], thisChance);
+              }
+            })
+          })
+        }
+      })
+      Object.keys(chancePerClass).map(key => {
+        if (chancePerClass[key] !== 0) {
+          if (result === 0) result = chancePerClass[key];
+          else {
+            result = this.sumOds(result, chancePerClass[key]);
+          }
+        }
+      })
+
       this.simulateRunStats.probabilityPerOpen = result;
     },
 
@@ -1221,6 +1399,9 @@ export default {
       if (this.packFilterDescResolved.length === 0) return false;
       if (icard === 0) return false;
       if (icard === 1 && this.packModel.name === "Carbon Fiber") return false;
+      if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Titanium") return false;
+      if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Platinum") return false;
+      if (icard === 1 && this.packModel.name === "Finals Super Carbon") return false;
       return true;
     },
     checkIfPackIsViable() {
@@ -1562,6 +1743,13 @@ export default {
 .MainPacks_ChipPack.D_ButtonActive:not(p) {
   box-shadow: inset 0px 0px 0px 32px rgba(var(--cor), 0.2), inset 0px -40px 31px -25px rgba(var(--cor), 1);
   color: white;
+}
+.BaseChip.MainPacks_ChipMore {
+  background-color: transparent;
+  padding: 7px 9px;
+}
+.MainPacks_OtherPackItem {
+  box-shadow: inset 4px 0px 0px 0px rgba(var(--cor), 0.8);
 }
 .MainPacks_PackButton {
   width: 100%;

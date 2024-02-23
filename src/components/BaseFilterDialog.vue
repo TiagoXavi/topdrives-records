@@ -620,6 +620,10 @@ export default {
       type: Boolean,
       default: false
     },
+    forceNonPrize: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: "compare"
@@ -1027,6 +1031,10 @@ export default {
       this.searchFilters["approveModel"] = true;
     }
 
+    if (this.forceNonPrize) {
+      this.searchFilters.prizesModel = ["Non-Prize Cars"];
+    }
+
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
       if (mutation.type == "CHANGE_USER") {
@@ -1061,6 +1069,7 @@ export default {
         let rqMin = mutation.payload.rqMin || 10;
         let total = mutation.payload.total || 5000;
         let listOfRids = [];
+
         vm.all_cars.map((x, ix) => {
           if (x.rq > rqMax || x.rq < rqMin) return;
           if (vm.checkMatchFilter(x) && listOfRids.length < total) {

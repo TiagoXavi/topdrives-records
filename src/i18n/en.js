@@ -197,6 +197,7 @@ export default {
   m_impossible: "Impossible",
   m_customizePack: "Customize pack",
   m_impossiblePack: "This pack isn't possible",
+  m_impossibleCondition: "This condition isn't possible",
   m_permanents: "Permanents",
   
   p_userSentCgForAnalyse: "Thanks! Your round will be analysed. Join Discord to talk about if you want.",

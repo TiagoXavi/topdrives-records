@@ -158,7 +158,7 @@ export default new Vuex.Store({
     EVENTKING_EMIT_RIDS: (state, obj) => null,
     EVENT_EXPORT_FILTER: (state, obj) => null,
     CLASSIC_FILTER_IMPORT: (state, obj) => null,
-    FILTER_PACKS_RIDS: (state, obj) => null,
+    FILTER_ATTR_RIDS: (state, obj) => null,
     FILTER_FINDCAR_RIDS: (state, obj) => null,
     FILTER_NEWPHOTOS_RIDS: (state, obj) => null,
     FILTER_PACKS_LIMITS: (state, obj) => null,
