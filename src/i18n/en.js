@@ -419,4 +419,9 @@ export default {
   t_lumberRiver: "Lumber Mill River Rally",
   t_drag62: "0-62mph",
   t_drag124: "0-124mph",
+  t_dealsGap1: "Deals Gap Relay 1",
+  t_dealsGap2: "Deals Gap Relay 2",
+  t_dealsGap3: "Deals Gap Relay 3",
+  t_dealsGap4: "Deals Gap Relay 4",
+  t_dealsGap5: "Deals Gap Relay 5"
 }

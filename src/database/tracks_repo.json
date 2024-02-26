@@ -140,6 +140,26 @@
     "types": ["f0"]
   },  
   {
+    "id": "dealsGap1",
+    "types": ["00"]
+  },
+  {
+    "id": "dealsGap2",
+    "types": ["00"]
+  },
+  {
+    "id": "dealsGap3",
+    "types": ["00"]
+  },
+  {
+    "id": "dealsGap4",
+    "types": ["00"]
+  },
+  {
+    "id": "dealsGap5",
+    "types": ["00"]
+  },
+  {
     "id": "desertBig",
     "types": ["40"]
   },  
