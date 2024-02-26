@@ -1766,5 +1766,10 @@ export default {
 .D_Button.MainPacks_CustomizeButton[disabled] {
   opacity: 1 !important;
 }
+.BasePackSvg_C_STEEL .MainPacks_CustomizeIcon,
+.BasePackSvg_C_CERAMIC .MainPacks_CustomizeIcon,
+.BasePackSvg_C_ALUMINIUM .MainPacks_CustomizeIcon {
+  color: black;
+}
 
 </style>

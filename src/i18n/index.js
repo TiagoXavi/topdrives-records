@@ -11,9 +11,11 @@ import es from "./es.js";
 import fr from "./fr.js";
 import nl from "./nl.js";
 import br from "./br.js";
+import cn from "./cn.js";
 
 export default {
   br,
+  cn,
   de,
   en: {
     ...en,
