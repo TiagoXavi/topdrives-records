@@ -140,24 +140,32 @@
     "types": ["f0"]
   },  
   {
+    "id": "dealsGap",
+    "types": ["00", "01"]
+  },
+  {
     "id": "dealsGap1",
-    "types": ["00"]
+    "types": ["00", "01"]
   },
   {
     "id": "dealsGap2",
-    "types": ["00"]
+    "types": ["00", "01"]
   },
   {
     "id": "dealsGap3",
-    "types": ["00"]
+    "types": ["00", "01"]
   },
   {
     "id": "dealsGap4",
-    "types": ["00"]
+    "types": ["00", "01"]
   },
   {
     "id": "dealsGap5",
-    "types": ["00"]
+    "types": ["00", "01"]
+  },
+  {
+    "id": "dealsGapBack",
+    "types": ["10"]
   },
   {
     "id": "desertBig",

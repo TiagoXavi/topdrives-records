@@ -423,5 +423,7 @@ export default {
   t_dealsGap2: "Deals Gap Relay 2",
   t_dealsGap3: "Deals Gap Relay 3",
   t_dealsGap4: "Deals Gap Relay 4",
-  t_dealsGap5: "Deals Gap Relay 5"
+  t_dealsGap5: "Deals Gap Relay 5",
+  t_dealsGap: "Deals Gap",
+  t_dealsGapBack: "Deals Gap Backroads"
 }

@@ -25,6 +25,7 @@
         </button>
       </div> -->
       <!-- <div class="Car_HeaderToolsBack" /> -->
+      <div v-if="tuneText" class="Car_TuneTip">{{ tuneText }}</div>
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue">{{ car.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
@@ -58,6 +59,7 @@
 </template>
 
 <script>
+import Car from './Car.vue';
 
 export default {
   name: 'BaseCardGallery',
@@ -95,6 +97,9 @@ export default {
       type: Boolean,
       default: false
     },
+    tuneText: {
+      requred: false
+    }
   },
   data() {
     return {}

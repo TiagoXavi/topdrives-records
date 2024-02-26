@@ -13,36 +13,52 @@
         <div class="round_boxes">
           <div
             v-for="(r, index) in result.resultData.roundScores"
-            class="round_boxesItem"
-          >
-            <div
-              :class="`round_boxesPoint${
-                r > 0 ? 'Blue' : r < 0 ? 'Red' : 'Grey'
-              }`"
-              class="round_boxesPoint"
-            >
-              {{ r }}
+            class="round_boxesItem">
+            <!-- <div class="MainCodeUtility_">{{ result.resultData.roundData[index].opponentData.car.rid }}</div> -->
+            <div class="MainCodeUtility_CardBox">
+              <BaseCardGallery
+                :car="result.resultData.roundData[index].opponentData.car"
+                :options="false"
+                :tuneText="result.resultData.roundData[index].opponentData.car.selectedTune"
+                class="MainCodeUtility_GalleryCard" />
             </div>
+
+            <template v-if="result.resultData.roundData[index].playerData.distance < 2546 || result.resultData.roundData[index].playerData.distance > 2548.7">
+              <div class="round_boxesThey">
+                <span v-if="result.resultData.roundData[index].opponentData.result === 'Finished'">{{ result.resultData.roundData[index].opponentData.time.toHHMMSS() }}</span>
+                <span v-else class="round_boxesPointRed">DNF</span>
+              </div>
+            </template>
+            <template v-else>
+              <div class="round_boxesThey">
+                <span>{{ result.resultData.roundData[index].opponentData.speed.toTestBowl() }}</span>
+              </div>
+            </template>
+
+            <div style="width: 100%; min-height: 1px; background-color: #ffffff44;margin-top: 10px;"></div>
+
+            <div :class="`round_boxesPoint${r > 0 ? 'Green' : r < 0 ? 'Red' : 'Grey'}`" class="round_boxesPoint">{{ r }}</div>
+
+            <div class="MainCodeUtility_CardBox">
+              <BaseCardGallery
+                :car="result.resultData.roundData[index].playerData.car"
+                :options="false"
+                :tuneText="result.resultData.roundData[index].playerData.car.selectedTune"
+                class="MainCodeUtility_GalleryCard" />
+            </div>
+
             <template v-if="result.resultData.roundData[index].playerData.distance < 2546 || result.resultData.roundData[index].playerData.distance > 2548.7">
               <div class="round_boxesYou">
-                <span>You: </span>
-                <span>{{ result.resultData.roundData[index].playerData.time.toHHMMSS() }}</span>
-              </div>
-              <div class="round_boxesThey">
-                <span>They: </span>
-                <span>{{ result.resultData.roundData[index].opponentData.time.toHHMMSS() }}</span>
+                <span v-if="result.resultData.roundData[index].playerData.result === 'Finished'">{{ result.resultData.roundData[index].playerData.time.toHHMMSS() }}</span>
+                <span v-else class="round_boxesPointRed">DNF</span>
               </div>
             </template>
             <template v-else>
               <div class="round_boxesYou">
-                <span>You: </span>
                 <span>{{ result.resultData.roundData[index].playerData.speed.toTestBowl() }}</span>
               </div>
-              <div class="round_boxesThey">
-                <span>They: </span>
-                <span>{{ result.resultData.roundData[index].opponentData.speed.toTestBowl() }}</span>
-              </div>
             </template>
+
           </div>
         </div>
         <div class="round_scores">
@@ -126,14 +142,20 @@
         </div>
       </div>
     </div>
+    <BaseText
+      v-model="roundNumber"
+      type="integer"
+      placeholder="Round number"
+      style="margin-top: 100px;" />
     <button
-      style="margin-top: 100px;"
+      style="margin-top: 20px;"
       class="D_Button D_ButtonDark"
       @click="$router.push({ name: 'MainSwagger' })">Go to swagger</button>
     <button
       style="margin-top: 20px; margin-bottom: 50px;"
       class="D_Button D_ButtonDark"
       @click="$router.push({ name: 'Records' })">Go to home</button>
+    
     <!-- <div class="input_EventNameLayout">
       <input
         class="input_EventName"
@@ -147,12 +169,14 @@
 
 <script>
 import BaseText from './BaseText.vue';
+import BaseCardGallery from './BaseCardGallery.vue';
 import cars_final from '../database/cars_final.json'
 
 export default {
   name: 'MainCodeUtility',
   components: {
-    BaseText
+    BaseText,
+    BaseCardGallery
   },
   props: {
     test: {
@@ -178,7 +202,8 @@ export default {
       letResolvedTracksets: {},
       clubsParsedResult: {},
       possiblesResult: [],
-      cars_final
+      cars_final,
+      roundNumber: null
     };
   },
   watch: {},
@@ -251,6 +276,9 @@ export default {
       else this.result = JSON.parse(text);
 
       // console.log(this.result);
+      if (this.result.resultData) {
+        this.resolveRaces();
+      }
       if (this.result.tieredPrizes) {
         this.resolveEvents();
       }
@@ -282,6 +310,41 @@ export default {
       setTimeout(() => {
         e.srcElement.value = '';
       }, 10);
+    },
+    resolveRaces() {
+      this.result.resultData.roundData.map((race, irace) => {
+        this.resolveCar(race);
+      })
+    },
+    resolveCar(race) {
+      Array.from(Array(2)).map((_, i) => {
+        let allowedTunes = ["332", "323", "233", "000"];
+        let key = i === 0 ? "opponentData" : "playerData";
+
+        let ss = race[key].id;
+        let cardId = ss.slice(0,36);
+        let car = this.cars_final.find(x => x.guid === cardId);
+        if (car.class === 'S' || car.class === 'A') {
+          allowedTunes.push("111")
+        }
+        let tune = `${(ss[36] * ss[38]) / 3}${(ss[40] * ss[42]) / 3}${(ss[44] * ss[46]) / 3}`
+        if (!allowedTunes.includes(tune)) {
+          tune = `Other`;
+        }
+        car.selectedTune = tune;
+        car.photo = this.cgResolvePhotoUrl(car);
+        car.color = Vue.resolveClass(car.rq, car.class, "color");
+        race[key].car = car;
+
+      });
+    },
+    cgResolvePhotoUrl(car) {
+      try {
+        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
+        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
+      } catch (error) {
+        return ''
+      }
     },
     resolveEvents() {
 
@@ -426,8 +489,7 @@ export default {
         ladderId: this.result.ladder.id,
         numTickets: 5,
         lastTicketRegen: "2023-08-13T23:46:33.370Z",
-        currentRung: this.result.ladder.rungEligibility.length - 1, // round
-        // currentRung: 10, // round
+        currentRung: this.roundNumber || this.result.ladder.rungEligibility.length - 1, // round
         starsWon: 0,
         entryCostPaid: true,
         rungEntryCostPaid: false,
@@ -908,13 +970,16 @@ export default {
   justify-content: center;
   margin: 5px;
   flex-direction: column;
+  padding-top: 95px;
+  padding-bottom: 95px;
 }
 .round_boxesPoint {
   font-size: 30px;
   margin: 10px 0;
+  font-weight: bold;
 }
-.round_boxesPointBlue {
-  color: #409eff;
+.round_boxesPointGreen {
+  color: #62d100;
 }
 .round_boxesPointRed {
   color: #f95959;
@@ -924,7 +989,7 @@ export default {
 }
 .round_boxesYou > :first-child,
 .round_boxesThey > :first-child {
-  color: #777777;
+  /* color: #777777; */
 }
 .round_boxesYou {
 }
@@ -1016,5 +1081,17 @@ export default {
 }
 .MainCodeUtility_ClubListTitle {
   opacity: 0.4;
+}
+.MainCodeUtility_CardBox {
+  width: 100%;
+  height: 100px;
+}
+.MainCodeUtility_CardBox >>> .BaseCardGallery_Header {
+  transform: scale(0.5);
+  transform-origin: top left;
+  margin: 0;
+}
+.MainCodeUtility_CardBox >>> .Car_TuneTip {
+  font-size: 27px;
 }
 </style>
