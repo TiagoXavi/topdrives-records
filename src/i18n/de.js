@@ -412,5 +412,12 @@ export default {
   "t_desertBig": null,
   "t_desertRallyDirt": null,
   "t_drag62": null,
-  "t_drag124": null
+  "t_drag124": null,
+  "t_dealsGap1": "Deals Gap Abschnitt 1",
+  "t_dealsGap2": "Deals Gap Abschnitt 2",
+  "t_dealsGap3": "Deals Gap Abschnitt 3",
+  "t_dealsGap4": "Deals Gap Abschnitt 4",
+  "t_dealsGap5": "Deals Gap Abschnitt 5",
+  "t_dealsGap": "Deals Gap",
+  "t_dealsGapBack": "Deals Gap Nebenwege"
 }

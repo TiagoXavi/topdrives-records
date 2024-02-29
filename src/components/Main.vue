@@ -7064,6 +7064,7 @@ export default {
         round.races.map((race, irace) => {
           if (!race.rid) {
             let op = oppos[count];
+            let zoneSize = json.ladder.zoneSize;
             let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
             let car = myCarsFiltered.find(x => x.guid === op.cardId);
             if (car) {
@@ -7074,7 +7075,7 @@ export default {
               if (!allowedTunes.includes(tune)) {
                 tune = `Other`;
               }
-              round.rqLimit = json.ladder.zoneEligibility[iround].targetRQ
+              round.rqLimit = json.ladder.zoneEligibility[Math.floor(iround / zoneSize)].targetRQ;
 
               race.rid = car.rid;
               race.tune = tune;
