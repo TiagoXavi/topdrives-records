@@ -5184,6 +5184,7 @@ export default {
       let boxName = ".Main_Body";
       if (this.mode === 'challenges' || this.mode === 'events' || this.mode === 'clubs') boxName = ".Cg_Layout";
 
+      document.querySelector(".App_Layout").classList.add("App_isPrinting");
       let pose = document.querySelector(boxName);
       pose.classList.add("Main_BodyPrint");
 
@@ -5244,7 +5245,8 @@ export default {
 
           import('reimg').then(reimg => {
             reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
-            c_container.classList.remove("App_PrintContainerShow")
+            c_container.classList.remove("App_PrintContainerShow");
+            document.querySelector(".App_Layout").classList.remove("App_isPrinting");
   
             document.querySelector(boxName).classList.remove("Main_BodyPrint");
             vm.windowWidth = vm.tempWindowWidth;

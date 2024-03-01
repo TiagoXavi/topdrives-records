@@ -3034,6 +3034,14 @@ body .Main_UserTw3:before {
 
 
 
+.App_isPrinting .Main_Layout {
+  /* min-height: calc(100% - var(--top-menu)); */
+  max-width: 100%;
+  width: min-content;
+  /* width: 100%; */
+  /* display: flex; */
+  /* -webkit-user-select: none; */
+}
 .Main_BodyPrint .Main_Corner {
   justify-content: center;
   grid-template-columns: 1fr;
