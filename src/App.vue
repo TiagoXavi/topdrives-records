@@ -120,6 +120,14 @@ export default {
             type: "error"
           });
           return Promise.reject(error);
+        } else if (503 === error?.response?.status) {
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "TDR in under maintenance",
+            type: "error"
+          });
+          return Promise.reject(error);
         } else {
           return Promise.reject(error);
         }

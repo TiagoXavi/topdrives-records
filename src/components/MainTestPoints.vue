@@ -426,15 +426,17 @@ export default {
       if (!car.data) Vue.set(car, "data", {});
       if (!car.data[tune]) Vue.set(car.data, tune, {});
       if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
+      if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
       /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
       /**/ if (!car.dataToSave[tune]) Vue.set(car.dataToSave, tune, {});
       /**/ if (!car.dataToSave[tune].times) Vue.set(car.dataToSave[tune], "times", {});
+      /**/ if (!car.dataToSave[tune].times[track]) Vue.set(car.dataToSave[tune].times, track, {});
 
-      Vue.set(car.data[tune].times, [`${track}`], number);
-      Vue.set(car.data[tune].times, [`${track}_user`], vm.user.username);
-      Vue.set(car.data[tune].times, [`${track}_downList`], []);
-      Vue.set(car.data[tune].times, [`${track}_upList`], []);
-      /**/ Vue.set(car.dataToSave[tune].times, [`${track}`], number);
+      Vue.set(car.data[tune].times[track], "t", number);
+      Vue.set(car.data[tune].times[track], "u", vm.user.username);
+      Vue.set(car.data[tune].times[track], "down", []);
+      Vue.set(car.data[tune].times[track], "up", []);
+      /**/ Vue.set(car.dataToSave[tune].times[track], "t", number);
 
       if (car.rid === "fake1") this.fakeTime1 = number;
       if (car.rid === "fake2") this.fakeTime2 = number;

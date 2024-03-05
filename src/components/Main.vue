@@ -1810,33 +1810,33 @@
               </div>
               <div v-if="tuneDialogCar.selectedTune !== 'Other' && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
                 <BaseText
-                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed"
+                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).t"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`topSpeed_user`] !== user.username ? user.mod ? false : true : false : false )"
+                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).t ?
+                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).u !== user.username ? user.mod ? false : true : false : false )"
                   type="topSpeed"
                   :label="$t('c_topSpeed')"
                   class="Space_Bottom Row_FieldStat"
                   placeholder="-"
                   @change="changeStatCar(tuneDialogCar, 'topSpeed', $event)" />
                 <BaseText
-                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel"
+                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).t"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`acel_user`] !== user.username ? user.mod ? false : true : false : false )"
+                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).t ?
+                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).u !== user.username ? user.mod ? false : true : false : false )"
                   type="acel"
                   label="0-60mph"
                   class="Space_Bottom Row_FieldStat"
                   placeholder="-"
                   @change="changeStatCar(tuneDialogCar, 'acel', $event)" />
                 <BaseText
-                  :value="(((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand"
+                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).t"
                   :disabled="!tuneDialogCar.selectedTune ||
                              !user ||
-                             ( (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand ?
-                             (((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {})[`hand_user`] !== user.username ? user.mod ? false : true : false : false )"
+                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).t ?
+                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).u !== user.username ? user.mod ? false : true : false : false )"
                   type="hand"
                   :label="$t('c_handling')"
                   class="Row_FieldStat"
@@ -3806,7 +3806,7 @@ export default {
           Object.keys( x.data[x.selectedTune].times ).forEach(function (trackId) {
             if (sortedByTracks[trackId]) {
               vm.countTimesPerTrack[trackId] = vm.countTimesPerTrack[trackId] + 1;
-              sortedByTracks[trackId].push(x.data[x.selectedTune].times[trackId]);
+              sortedByTracks[trackId].push((x.data[x.selectedTune].times[trackId] || {}).t);
             }
           });
         }
@@ -3835,9 +3835,10 @@ export default {
           if (
             vm.carDetailsList[ix].data &&
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId]
           ) {
-            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
+            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId].t;
             x[trackId] = sortedByTracks[trackId].indexOf(tempValue);
           }
         });
@@ -3908,7 +3909,7 @@ export default {
       this.tuneDialogTunes.map(tune => {
         if (this.tuneDialogCar.data[tune]) {
           if (this.tuneDialogCar.data[tune].times) {
-            result[tune] = Object.keys(this.tuneDialogCar.data[tune].times).filter(key => typeof key === 'string' && key.substr(key.length -4, 2) === "_a" && this.tuneDialogCar.data[tune].times[key] !== 0).length;
+            result[tune] = Object.keys(this.tuneDialogCar.data[tune].times).filter(key => this.tuneDialogCar.data[tune].times[key] && this.tuneDialogCar.data[tune].times[key].t !== 0).length;
           }
         }
       })
@@ -5374,19 +5375,23 @@ export default {
     },
     resolveChangeTime(car, NEW, number, tune) {
       let vm = this;
+      let track = `${NEW.id}_a${NEW.surface}${NEW.cond}`;
 
       if (!car.data) Vue.set(car, "data", {});
       if (!car.data[tune]) Vue.set(car.data, tune, {});
       if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
+      if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
       /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
       /**/ if (!car.dataToSave[tune]) Vue.set(car.dataToSave, tune, {});
       /**/ if (!car.dataToSave[tune].times) Vue.set(car.dataToSave[tune], "times", {});
+      /**/ if (!car.dataToSave[tune].times[track]) Vue.set(car.dataToSave[tune].times, track, {});
 
-      Vue.set(car.data[tune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], number);
-      Vue.set(car.data[tune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_user`], vm.user.username);
-      Vue.set(car.data[tune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_downList`], []);
-      Vue.set(car.data[tune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}_upList`], []);
-      /**/ Vue.set(car.dataToSave[tune].times, [`${NEW.id}_a${NEW.surface}${NEW.cond}`], number);
+      Vue.set(car.data[tune].times[track], "t", number);
+      Vue.set(car.data[tune].times[track], "u", vm.user.username);
+      Vue.set(car.data[tune].times[track], "down", []);
+      Vue.set(car.data[tune].times[track], "up", []);
+      /**/ Vue.set(car.dataToSave[tune].times[track], "t", number);
+
       if (!car.users || !car.users.includes(vm.user.username)) {
         Vue.set(car, "users", car.users && car.users.length > 0 ? [...car.users, vm.user.username] : [vm.user.username]);
       }
@@ -5423,13 +5428,15 @@ export default {
       if (!car.data) Vue.set(car, "data", {});
       if (!car.data[selectedTune]) Vue.set(car.data, selectedTune, {});
       if (!car.data[selectedTune].info) Vue.set(car.data[selectedTune], "info", {});
+      if (!car.data[selectedTune].info[type]) Vue.set(car.data[selectedTune].info, type, {});
       /**/ if (!car.dataToSave) Vue.set(car, "dataToSave", {});
       /**/ if (!car.dataToSave[selectedTune]) Vue.set(car.dataToSave, selectedTune, {});
       /**/ if (!car.dataToSave[selectedTune].info) Vue.set(car.dataToSave[selectedTune], "info", {});
+      /**/ if (!car.dataToSave[selectedTune].info[type]) Vue.set(car.dataToSave[selectedTune].info, type, {});
 
-      Vue.set(car.data[selectedTune].info, type, value);
-      Vue.set(car.data[selectedTune].info, `${type}_user`, this.user.username);
-      /**/ Vue.set(car.dataToSave[selectedTune].info, type, value);
+      Vue.set(car.data[selectedTune].info[type], "t", value);
+      Vue.set(car.data[selectedTune].info[type], "u", this.user.username);
+      /**/ Vue.set(car.dataToSave[selectedTune].info[type], "t", value);
       this.needSaveChange(true);
 
     },
@@ -5806,7 +5813,7 @@ export default {
         let oppo = this.cgCacheCars.find(x => x.rid === race.car.rid)
         let tryoppotime;
         try {
-          tryoppotime = oppo.data[race.car.selectedTune].times[race.track]
+          tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
         } catch (error) {
           // nada
         }
@@ -6080,7 +6087,7 @@ export default {
       let oppo = this.cgCacheCars.find(x => x.rid === race.car.rid)
       let tryoppotime;
       try {
-        tryoppotime = oppo.data[race.car.selectedTune].times[race.track]
+        tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
       } catch (error) {
         // nada
       }
@@ -6129,7 +6136,7 @@ export default {
 
 
       let oppotime = race.time;
-      let youtime = ((you.data[youTune] || {}).times || {})[race.track]
+      let youtime = (((you.data[youTune] || {}).times || {})[race.track] || {}).t
       if (oppotime === undefined || youtime === undefined) {
         if (youtime === undefined && youTune) {
           Vue.set(race.cars[race.carIndex], "points", this.$t("m_notime"));
@@ -6783,7 +6790,7 @@ export default {
       let trytime
       if (!car) return;
       try {
-        trytime = car.data[race.cars[race.carIndex].tune].times[race.track]
+        trytime = car.data[race.cars[race.carIndex].tune].times[race.track].t
       } catch (error) {
         // nada
       }
@@ -6850,9 +6857,10 @@ export default {
           cgCar.data && 
           cgCar.data[x.tune] &&
           cgCar.data[x.tune].times &&
-          cgCar.data[x.tune].times[x.track] !== undefined
+          cgCar.data[x.tune].times[x.track] &&
+          cgCar.data[x.tune].times[x.track].t !== undefined
         ) {
-          time = cgCar.data[x.tune].times[x.track];
+          time = cgCar.data[x.tune].times[x.track].t;
         } else {
           time = x.time;
         }
@@ -8351,11 +8359,12 @@ export default {
           if (
             vm.carDetailsList[ix].data &&
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times &&
+            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId]
           ) {
-            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId];
+            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId].t;
             if (vm.carHoverIndex > -1 && vm.carHoverIndex !== ix) {
-              let referenceTime = vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId];
+              let referenceTime = vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId].t;
               x[trackId] = Vue.options.filters.userPoints(referenceTime, tempValue, trackId);
             }
           }

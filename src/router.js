@@ -8,7 +8,6 @@ const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
 const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
 const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
 const MainImportRude = () => import("./components/MainImportRude.vue");
-const MainAnalyseDb = () => import("./components/MainAnalyseDb.vue");
 const MainSwagger = () => import("./components/MainSwagger.vue");
 const MainCharts = () => import("./components/MainCharts.vue");
 const MainFindCar = () => import("./components/MainFindCar.vue");
@@ -173,11 +172,6 @@ const routes = [
     path: '/translate',
     name: 'MainTranslate',
     component: MainTranslate,
-  },
-  {
-    path: '/analysedb', // internal
-    name: 'AnalyseDb',
-    component: MainAnalyseDb,
   },
   {
     path: '/newrq', // internal

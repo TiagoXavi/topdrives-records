@@ -8,7 +8,7 @@
         class="Space_Bottom"
         @paste="intercept($event)" />
     </div>
-    <div v-if="result && result.prizeBoard">
+    <div v-if="result && result.resultData">
       <div class="round_layout">
         <div class="round_boxes">
           <div
@@ -64,32 +64,14 @@
         <div class="round_scores">
           <div class="resul_Stars">
             <span
-              v-if="
-                result.resultData.playerScore -
-                  result.resultData.opponentScore >=
-                result.prizeBoard.starPoints[2]
-              "
-              class="starYou"
-              >★★★</span
-            >
+              v-if="result.prizeBoard && result.resultData.playerScore - result.resultData.opponentScore >= result.prizeBoard.starPoints[2]"
+              class="starYou">★★★</span>
             <span
-              v-else-if="
-                result.resultData.playerScore -
-                  result.resultData.opponentScore >=
-                result.prizeBoard.starPoints[1]
-              "
-              class="starYou"
-              >★★☆</span
-            >
+              v-else-if="result.prizeBoard && result.resultData.playerScore - result.resultData.opponentScore >= result.prizeBoard.starPoints[1]"
+              class="starYou">★★☆</span>
             <span
-              v-else-if="
-                result.resultData.playerScore -
-                  result.resultData.opponentScore >
-                result.prizeBoard.starPoints[0]
-              "
-              class="starYou"
-              >★☆☆</span
-            >
+              v-else-if="result.prizeBoard && result.resultData.playerScore - result.resultData.opponentScore > result.prizeBoard.starPoints[0]"
+              class="starYou">★☆☆</span>
             <span v-else class="starYou" style="color: #5c5c5c">☆☆☆</span>
           </div>
           <span class="round_scoresYou">{{

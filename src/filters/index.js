@@ -69,15 +69,15 @@ export default {
 
             if (customData) {
                 try {
-                    if (!customData.data[car.selectedTune].info[type]) return "-";
-                    return customData.data[car.selectedTune].info[type];
+                    if (!customData.data[car.selectedTune].info[type].t) return "-";
+                    return customData.data[car.selectedTune].info[type].t;
                 } catch (error) {
                     return "-";
                 }
             } else {
                 try {
-                    if (!car.data[car.selectedTune].info[type]) return "-";
-                    return car.data[car.selectedTune].info[type];
+                    if (!car.data[car.selectedTune].info[type].t) return "-";
+                    return car.data[car.selectedTune].info[type].t;
                 } catch (error) {
                     return "-";
                 }
