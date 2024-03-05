@@ -495,11 +495,11 @@ export default {
       } else if (isCustomData) {
         // custom data with allowedTune
         this.list.map((x, ix) => {
-          text = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`].t;
+          text = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
           if (text === undefined || text === null) text = "";
-          downList = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`].down;
-          upList = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`].up;
-          author = this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`].u;
+          downList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
+          upList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
+          author = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
 
           if (text === '' && this.cgTime) {
             text = this.cgTime;
