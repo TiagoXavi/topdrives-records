@@ -808,6 +808,7 @@ export default {
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
+          "Trading Paint",
           "Two Tone",
           "Year of the Dragon",
           "Year of the Ox",

@@ -5241,7 +5241,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "guid": "72d5f6b0-bfde-419a-88ed-fa2d2e116b61",
         "break": "A"
@@ -5863,7 +5864,8 @@
         "rid": "Porsche_911_Turbo_2013",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -6701,7 +6703,8 @@
         "rid": "Porsche_911_Turbo_S_3.8_(997.2)_2010",
         "tags": [
             "World Expo",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -7013,7 +7016,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "guid": "3425d205-bb88-4a82-a19e-a199f4453948",
         "break": "A"
@@ -8971,7 +8975,8 @@
         "tags": [
             "World Expo",
             "Silver/Grey",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -12079,7 +12084,8 @@
         "rid": "Porsche_Macan_GTS_2015",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -12183,7 +12189,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
-            "Yellow"
+            "Yellow",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -12926,7 +12933,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
-            "Green"
+            "Green",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -12959,7 +12967,8 @@
         "rid": "Audi_RS6_Avant_Performance_(C7)_2013",
         "tags": [
             "World Expo",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Estate"
@@ -13231,7 +13240,8 @@
             "World Expo",
             "Concept",
             "Wild Ride",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "prize": true,
         "bodyTypes": [
@@ -15116,7 +15126,8 @@
         "rid": "AC_Mk_VI_GT_Big_Block_2013",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -15320,7 +15331,8 @@
         "rid": "Ariel_Atom_2_Supercharged_2003",
         "tags": [
             "Great Exhibition",
-            "Orange"
+            "Orange",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -16636,7 +16648,8 @@
         "rid": "Porsche_911_Turbo_2001",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -19535,7 +19548,8 @@
         "tags": [
             "Great Exhibition",
             "Old Guard",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -22594,7 +22608,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Yellow"
+            "Yellow",
+            "Trading Paint"
         ],
         "guid": "73da23c3-f2cf-417c-9fc8-d4d8fe226056",
         "break": "A"
@@ -22860,7 +22875,8 @@
         "tags": [
             "Muscle Car",
             "Pacific Coast Highway",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -24563,7 +24579,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver/Grey",
-            "In the Shadows 24"
+            "In the Shadows 24",
+            "Trading Paint"
         ],
         "guid": "31a306c2-d07c-4377-bd31-ff34a060a581",
         "break": "A"
@@ -24726,7 +24743,8 @@
         "rid": "Porsche_Macan_2.0_2021",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -27849,7 +27867,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Black",
-            "Concept"
+            "Concept",
+            "Trading Paint"
         ],
         "guid": "fb72a54c-e0c6-417d-ae30-457e3682c9cf",
         "break": "A"
@@ -28224,7 +28243,8 @@
         "rid": "Porsche_718_Boxster_GTS_40_982_2020",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -28359,7 +28379,8 @@
         "rid": "Porsche_Macan_S_Diesel_30_95B_2015",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -28665,7 +28686,8 @@
         "tags": [
             "Style Icon",
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "prize": true,
         "bodyTypes": [
@@ -29108,7 +29130,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -29793,7 +29816,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 112,
@@ -30510,7 +30534,8 @@
         "tags": [
             "American Dream",
             "Year of the Ox",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -32697,7 +32722,8 @@
         "rid": "Porsche_718_Boxster_S_2017",
         "tags": [
             "Originals",
-            "Black"
+            "Black",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -33900,7 +33926,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 112,
@@ -34410,7 +34437,8 @@
         "rid": "Chevrolet_Corvette_Z06_2001",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -35278,7 +35306,8 @@
         "tags": [
             "Summer Games",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -36953,7 +36982,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -38191,7 +38221,8 @@
         "rid": "Porsche_Boxster_S_2015",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -39600,7 +39631,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "guid": "b859dff9-1c19-43dc-a017-1b5f2f9a2586",
         "break": "A"
@@ -43122,7 +43154,8 @@
             "American Dream",
             "Muscle Car",
             "Old Guard",
-            "Orange"
+            "Orange",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Saloon"
@@ -43369,7 +43402,8 @@
             "Muscle Car",
             "Old Guard",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -44160,7 +44194,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 134,
@@ -44976,7 +45011,8 @@
         "tags": [
             "American Dream",
             "Old Guard",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -50134,7 +50170,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Silver/Grey",
-            "Motorsport"
+            "Motorsport",
+            "Trading Paint"
         ],
         "guid": "05e9e981-cdb4-4a9a-8c21-8be7db62617f",
         "break": "A"
@@ -51085,7 +51122,8 @@
         "tags": [
             "American Dream",
             "Muscle Car",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Saloon"
@@ -52692,7 +52730,8 @@
         "engine": "Mid",
         "tags": [
             "Enter the Black Forest",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "guid": "a098deaa-a846-4593-bca8-56db43a02c8e",
         "break": "A"
@@ -53616,7 +53655,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Blue",
-            "Hot Hatch"
+            "Hot Hatch",
+            "Trading Paint"
         ],
         "guid": "5e678f68-ca25-4186-82ee-43912fa18f15",
         "break": "A"
@@ -53685,7 +53725,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Red",
-            "Concept"
+            "Concept",
+            "Trading Paint"
         ],
         "guid": "7539acca-9b09-4fc4-9aaa-905001455ea0",
         "break": "B"
@@ -54095,7 +54136,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Motorsport"
+            "Motorsport",
+            "Trading Paint"
         ],
         "guid": "5a9c5a11-9884-4175-b642-0b8dff6748f2",
         "break": "B"
@@ -55331,7 +55373,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "guid": "76548b55-1ab6-42d0-81eb-a4b301d69534",
         "break": "A"
@@ -55732,7 +55775,8 @@
         "rid": "Porsche_Boxster_2015",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -55801,7 +55845,8 @@
         "rid": "Rezvani_Tank_2017",
         "tags": [
             "World Expo",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "prize": true,
         "bodyTypes": [
@@ -60528,7 +60573,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "guid": "73eadab2-5dd4-4d9e-9982-3c07bfd2f480",
         "break": "B"
@@ -61385,7 +61431,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 124,
@@ -63496,7 +63543,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "Black",
-            "In the Shadows 24"
+            "In the Shadows 24",
+            "Trading Paint"
         ],
         "guid": "92bfbec3-e986-4be8-9857-1b8acafe5cee",
         "break": "A"
@@ -67103,7 +67151,8 @@
         "tags": [
             "Muscle Car",
             "American Frontier",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Saloon"
@@ -68210,7 +68259,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -78758,7 +78808,8 @@
         "tags": [
             "American Dream",
             "Year of the Rat",
-            "Orange"
+            "Orange",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "MPV"
@@ -79001,7 +79052,8 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 68,
@@ -79071,7 +79123,8 @@
         "tags": [
             "Pacific Coast Highway",
             "Concept",
-            "Yellow"
+            "Yellow",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -79454,7 +79507,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "guid": "69cf0048-a878-4a49-82f0-eb5ce513b366",
         "break": "B"
@@ -82031,7 +82085,8 @@
         "rid": "Oldsmobile_Bravada_1996",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "prize": true,
         "bodyTypes": [
@@ -82961,7 +83016,8 @@
         "tags": [
             "American Dream",
             "Call of the Wild",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -83439,7 +83495,8 @@
         "tags": [
             "Pacific Coast Highway",
             "Concept",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -85361,7 +85418,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 100,
@@ -85428,7 +85486,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "tcs": true,
         "topSpeed": 100,
@@ -89717,7 +89776,8 @@
         "rid": "Bristol_Beaufighter_1982",
         "tags": [
             "World Expo",
-            "Beige"
+            "Beige",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Convertible"
@@ -95706,7 +95766,8 @@
             "Famous Tracks",
             "In the Shadows",
             "Year of the Ox",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -97252,7 +97313,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Orange"
+            "Orange",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -98854,7 +98916,8 @@
         "tags": [
             "French Renaissance",
             "Year of the Rat",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -100674,7 +100737,8 @@
         "tags": [
             "Christmas Collection",
             "Japan Pro Tour",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -101564,7 +101628,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -102495,7 +102560,8 @@
         "tags": [
             "Asia-Pacific Grand Prix",
             "White",
-            "Concept"
+            "Concept",
+            "Trading Paint"
         ],
         "guid": "aac52f96-fc74-479e-9a22-e91d2c324da5",
         "break": "B"
@@ -103513,7 +103579,8 @@
         "tags": [
             "Team Favourite",
             "Originals",
-            "Black"
+            "Black",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -103618,7 +103685,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Brown"
+            "Brown",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -103653,7 +103721,8 @@
         "tags": [
             "Learn the Savannah Way",
             "Muscle Car",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -104828,7 +104897,8 @@
             "Style Icon",
             "Originals",
             "As Seen on YT",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -108787,7 +108857,8 @@
         "rid": "Dodge_Avenger_1995",
         "tags": [
             "American Dream",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -112780,7 +112851,8 @@
         "tags": [
             "American Dream",
             "Summer Games",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Pickup"
@@ -112815,7 +112887,8 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "tcs": false,
         "topSpeed": 120,
@@ -115613,7 +115686,8 @@
         "rid": "Renault_Koleos_2018",
         "tags": [
             "French Renaissance",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -119406,7 +119480,8 @@
             "American Dream",
             "Silver Screen",
             "White",
-            "Chariots of the Gods"
+            "Chariots of the Gods",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -119473,7 +119548,8 @@
         "rid": "Renault_Captur_2016",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -120051,7 +120127,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Green"
+            "Green",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "SUV"
@@ -121040,7 +121117,8 @@
             "Pacific Coast Highway",
             "Muscle Car",
             "Yellow",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -121448,7 +121526,8 @@
         "tags": [
             "Japan Pro Tour",
             "Year of the Tiger",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Van"
@@ -126828,7 +126907,8 @@
         "tags": [
             "Originals",
             "Christmas Collection 22",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Estate"
@@ -126927,7 +127007,8 @@
         "tags": [
             "American Frontier",
             "Silver/Grey",
-            "In the Shadows 24"
+            "In the Shadows 24",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -130243,7 +130324,8 @@
         "rid": "Nissan_March_Turbo_(K10)_1985",
         "tags": [
             "Japan Pro Tour",
-            "Purple"
+            "Purple",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -130511,7 +130593,8 @@
         "tags": [
             "French Renaissance",
             "White",
-            "New Beginnings"
+            "New Beginnings",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Estate"
@@ -132588,7 +132671,8 @@
         "tags": [
             "French Renaissance",
             "Year of the Rat",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -133467,7 +133551,8 @@
         "rid": "Buick_Roadmaster_1954",
         "tags": [
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Coupe"
@@ -133572,7 +133657,8 @@
         "rid": "Chevrolet_Corvette_1953",
         "tags": [
             "American Dream",
-            "White"
+            "White",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Roadster"
@@ -133911,7 +133997,8 @@
         "tags": [
             "American Frontier",
             "Call of the Wild",
-            "Orange"
+            "Orange",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "MPV"
@@ -137036,7 +137123,8 @@
             "Call of the Wild",
             "The Horror Show",
             "Originals",
-            "Red"
+            "Red",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Convertible"
@@ -138524,7 +138612,8 @@
             "American Dream",
             "Muscle Car",
             "Silver/Grey",
-            "Chariots of the Gods"
+            "Chariots of the Gods",
+            "Trading Paint"
         ],
         "bodyTypes": [
             "Convertible"

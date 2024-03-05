@@ -249,6 +249,7 @@
 
 <script>
 import BaseCarEditCard from './BaseCarEditCard.vue'
+import BaseCardGallery from './BaseCardGallery.vue'
 import data_cars from '../database/cars_final.json' // internal
 import pl14 from '../database/cars_final_PL14.json'
 import BaseDualSlider from './BaseDualSlider.vue'
@@ -404,6 +405,7 @@ export default {
           "The Horror Show",
           "The Unicorns",
           "Track",
+          "Trading Paint",
           "Two Tone",
           "Ultra Expensive",
           "Wild Ride",

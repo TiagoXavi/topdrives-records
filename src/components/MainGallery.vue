@@ -524,6 +524,7 @@ export default {
           "The Horror Show",
           "The Unicorns",
           "Track",
+          "Trading Paint",
           "Two Tone",
           "Ultra Expensive",
           "Wild Ride",

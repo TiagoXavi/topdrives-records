@@ -8362,9 +8362,9 @@ export default {
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times &&
             vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId]
           ) {
-            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId].t;
+            tempValue = (vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId] || {}).t;
             if (vm.carHoverIndex > -1 && vm.carHoverIndex !== ix) {
-              let referenceTime = vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId].t;
+              let referenceTime = (vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId] || {}).t;
               x[trackId] = Vue.options.filters.userPoints(referenceTime, tempValue, trackId);
             }
           }

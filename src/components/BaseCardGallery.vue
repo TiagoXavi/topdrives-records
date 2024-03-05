@@ -175,8 +175,12 @@ export default {
   display: block;
 }
 .BaseCardGallery_Header .Car_HeaderName {
-  top: 3px;
+  top: 4px;
   font-size: 1em;
+}
+.BaseCardGallery_Header .Car_HeaderNameBigBig {
+  top: 7px;
+  font-size: 0.7em;
 }
 .BaseCardGallery_Header .Car_HeaderBlockYear {
   top: 4px;

@@ -57,6 +57,7 @@ export default new Vuex.Store({
       "Famous Tracks",
       "Electric Excellence",
       "In the Shadows",
+      "In the Shadows 24",
       "Interstellar",
       "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
