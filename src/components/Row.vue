@@ -524,7 +524,7 @@ export default {
       if (isCustomData && !isNaN(this.oppoTime)) {
         let track = this.list[0].code;
         Object.keys(this.customData.data).map(tune => {
-          let tuneTime = (this.customData.data[tune].times || {})[track].t;
+          let tuneTime = ((this.customData.data[tune].times || {})[track] || {}).t;
           if (this.customData.data[tune].times && !isNaN(tuneTime)) {
             if (track.includes("testBowl")) {
               if (this.oppoTime < tuneTime) this.tuneWins[tune] = 1;
