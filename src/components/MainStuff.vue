@@ -53,7 +53,6 @@ export default {
     this.tools = [
       { name: "Gallery", label: this.$t("m_vChanges", { version: '21.2' }) },
       { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '21.3' }) },
-      { name: "MainNewPhotos", label: this.$t("m_newPhotos") },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },
       { name: "MainTestPoints", label: this.$t("m_testPoints") },

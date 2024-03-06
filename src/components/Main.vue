@@ -5800,7 +5800,11 @@ export default {
 
       this.cgResolveRoundCars(false);
       this.checkRaceTimesNull();
-      this.loadCgRoundAsset(id, round);
+      if (this.cgIsApproving) {
+        this.loadCgRoundAsset(id, round);
+      } else {
+        this.cgResolveRoundCars();
+      }
     },
     checkRaceTimesNull() {
       this.cgRound.races.map(race => {
