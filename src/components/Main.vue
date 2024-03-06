@@ -3860,8 +3860,8 @@ export default {
         if (car.data && car.selectedTune && car.data[car.selectedTune]) {
           Object.keys( car.data[car.selectedTune] ).forEach(function ( type ) {
             Object.keys( car.data[car.selectedTune][type] ).forEach(function ( item ) {
-              if (item.includes("_user") && vm.currentTracks.find(track => item.includes(track.code))) {
-                contritrs.push(car.data[car.selectedTune][type][item])
+              if (vm.currentTracks.find(track => item.includes(track.code))) {
+                contritrs.push((car.data[car.selectedTune][type][item] || {}).u)
               }
             });
           });
