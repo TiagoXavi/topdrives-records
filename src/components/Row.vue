@@ -89,7 +89,18 @@
         class="Row_Content">{{ item.text | toTimeString(item.id) }}<span v-if="type === 'tracks' && (item.textEng.includes('(R)') || item.id.includes('forestRiver') )">
           <BaseIconSvg v-if="item.textEng.includes('(R)')"/>
           <BaseIconSvg v-else :type="item.cond === '1' ? 'rain' : 'sun'"/>
-        </span></div>
+        </span>
+        <span v-else-if="type === 'tracks' && (
+          item.id === 'csSmall' ||
+          item.id === 'dockCity' ||
+          item.id === 'csMed' ||
+          item.id === 'oceanCity' ||
+          item.id === 'speedbump12km' ||
+          item.id === 'speedbump1km'
+        )">
+          <BaseIconSvg type="clearance"/>
+        </span>
+        </div>
       <div
         v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
         :class="{

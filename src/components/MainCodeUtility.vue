@@ -311,7 +311,7 @@ export default {
         }
         let tune = `${(ss[36] * ss[38]) / 3}${(ss[40] * ss[42]) / 3}${(ss[44] * ss[46]) / 3}`
         if (!allowedTunes.includes(tune)) {
-          tune = `Other`;
+          // tune = `Other`;
         }
         car.selectedTune = tune;
         car.photo = this.cgResolvePhotoUrl(car);
