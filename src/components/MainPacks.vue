@@ -656,6 +656,15 @@ export default {
           E: [],
           F: []
         },
+        availableCarsAndAttrFree: {
+          S: [],
+          A: [],
+          B: [],
+          C: [],
+          D: [],
+          E: [],
+          F: []
+        },
         droppedRids: {
           S: [],
           A: [],
@@ -919,8 +928,8 @@ export default {
           return;
         }
 
-        Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
-          this.simulateRunStats.availableCarsAndAttr[key].map(car => {
+        Object.keys(this.simulateRunStats.availableCarsAndAttrFree).map(key => {
+          this.simulateRunStats.availableCarsAndAttrFree[key].map(car => {
             this.simulateRunStats.goalRids.push(car.rid);
           })
         });
@@ -1083,7 +1092,11 @@ export default {
         this.simulateRunStats.availableCarsAndAttr[key] = this.all_cars.filter(car => {
           return car.class === key && this.matchFilter(car) && this.matchFilterAttr(car)
         });
+        this.simulateRunStats.availableCarsAndAttrFree[key] = this.all_cars.filter(car => {
+          return car.class === key && this.matchFilterAttr(car)
+        });
         sum += this.simulateRunStats.availableCarsAndAttr[key].length;
+        sum += this.simulateRunStats.availableCarsAndAttrFree[key].length;
       })
 
       if (sum === 0) isViable = false;
@@ -1105,7 +1118,7 @@ export default {
     },
     matchFilterAttr(car) {
       if (!this.$refs.attrFilter.checkMatchFilter(car)) return false;
-      return true;
+      if (!car.prize) return true;
     },
     resetRun() {
       this.simulateRunStats.success = false;
@@ -1138,6 +1151,13 @@ export default {
       this.simulateRunStats.freeCars.D = [];
       this.simulateRunStats.freeCars.E = [];
       this.simulateRunStats.freeCars.F = [];
+      this.simulateRunStats.availableCarsAndAttrFree.S = [];
+      this.simulateRunStats.availableCarsAndAttrFree.A = [];
+      this.simulateRunStats.availableCarsAndAttrFree.B = [];
+      this.simulateRunStats.availableCarsAndAttrFree.C = [];
+      this.simulateRunStats.availableCarsAndAttrFree.D = [];
+      this.simulateRunStats.availableCarsAndAttrFree.E = [];
+      this.simulateRunStats.availableCarsAndAttrFree.F = [];
       this.simulateRunStats.droppedRids.S = [];
       this.simulateRunStats.droppedRids.A = [];
       this.simulateRunStats.droppedRids.B = [];
@@ -1160,19 +1180,29 @@ export default {
     },
     resolveProbabilityPerOpen(carList) {
       let countPerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      let countPerClassFree = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
       let chancePerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
       let chanceResultPerLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
       let result = 0;
       let result2 = 0;
       carList.map(car => {
-        if (car.rq >= 80) countPerClass.S++;
-        else if (car.rq >= 65) countPerClass.A++;
-        else if (car.rq >= 50) countPerClass.B++;
-        else if (car.rq >= 40) countPerClass.C++;
-        else if (car.rq >= 30) countPerClass.D++;
-        else if (car.rq >= 20) countPerClass.E++;
-        else if (car.rq >= 10) countPerClass.F++;
+        if (car.rq >= 80 && this.matchFilter(car)) countPerClass.S++;
+        else if (car.rq >= 65 && this.matchFilter(car)) countPerClass.A++;
+        else if (car.rq >= 50 && this.matchFilter(car)) countPerClass.B++;
+        else if (car.rq >= 40 && this.matchFilter(car)) countPerClass.C++;
+        else if (car.rq >= 30 && this.matchFilter(car)) countPerClass.D++;
+        else if (car.rq >= 20 && this.matchFilter(car)) countPerClass.E++;
+        else if (car.rq >= 10 && this.matchFilter(car)) countPerClass.F++;
+
+        if (car.rq >= 80) countPerClassFree.S++;
+        else if (car.rq >= 65) countPerClassFree.A++;
+        else if (car.rq >= 50) countPerClassFree.B++;
+        else if (car.rq >= 40) countPerClassFree.C++;
+        else if (car.rq >= 30) countPerClassFree.D++;
+        else if (car.rq >= 20) countPerClassFree.E++;
+        else if (car.rq >= 10) countPerClassFree.F++;
       })
+      
 
       if (this.simulateUntilGetOne) {
         
@@ -1180,12 +1210,14 @@ export default {
           let thisChanceResult = 0;
 
           Object.keys(card).map(key => {
-            if (countPerClass[key] === 0) return;
+            
             let thisChance = 0;
 
             if (this.isFromFree(icard)) {
-              thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / countPerClass[key])
+              if (countPerClassFree[key] === 0) return;
+              thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / countPerClassFree[key])
             } else {
+              if (countPerClass[key] === 0) return;
               thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / countPerClass[key])
             }
 
@@ -1216,8 +1248,8 @@ export default {
         let highestClass = 'F';
         let chanceOfThisClass = 0;
         
-        Object.keys(countPerClass).reverse().map(key => {
-          if (countPerClass[key] > 0) highestClass = key;
+        Object.keys(countPerClassFree).reverse().map(key => {
+          if (countPerClassFree[key] > 0) highestClass = key;
         })
         this.currentPackCards.map((card, icard) => {
           let thisChanceResult = 0;
@@ -1227,8 +1259,10 @@ export default {
             let thisChance = 0;
 
             if (this.isFromFree(icard)) {
-              thisChance = card[key] * (1 / (this.simulateRunStats.freeCars[key].length * countPerClass[key]))
+              if (countPerClassFree[key] === 0) return;
+              thisChance = card[key] * (1 / (this.simulateRunStats.freeCars[key].length * countPerClassFree[key]))
             } else {
+              if (countPerClass[key] === 0) return;
               thisChance = card[key] * (1 / (this.simulateRunStats.availableCars[key].length * countPerClass[key]))
             }
 
@@ -1260,6 +1294,7 @@ export default {
     },
     resolveProbabilityPerOpenAttr() {
       let countPerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      let countPerClassFree = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
       let chancePerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
       let chanceResultPerLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
       let result = 0;
@@ -1270,21 +1305,25 @@ export default {
       Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
         countPerClass[key] = this.simulateRunStats.availableCarsAndAttr[key].length;
       })
+      Object.keys(this.simulateRunStats.availableCarsAndAttrFree).map(key => {
+        countPerClassFree[key] = this.simulateRunStats.availableCarsAndAttrFree[key].length;
+      })
 
 
       this.currentPackCards.map((card, icard) => {
         let thisChanceResult = 0;
 
         Object.keys(card).map(key => {
-          if (countPerClass[key] === 0) return;
           let thisChance = 0;
 
           if (this.isFromFree(icard)) {
-            thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClass[key] * needed))
+            if (countPerClassFree[key] === 0) return;
+            thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClassFree[key] * needed))
           } else {
+            if (countPerClass[key] === 0) return;
             thisChance = card[key] / ((this.simulateRunStats.availableCars[key].length / (countPerClass[key])) * needed)
           }
-
+          
           thisChanceResult += thisChance;
 
           if (chancePerClass[key] === 0) {
@@ -1449,6 +1488,7 @@ export default {
     checkIfPackIsViable() {
       let isViable = true;
       let arrName = this.packFilterDescResolved.length === 0 ? "availableCars" : "freeCars";
+      let missingClass;
 
       this.currentPackCards.map((card, icard) => {
         Object.keys(card).map(cls => {
@@ -1456,10 +1496,12 @@ export default {
           if (this.isFromFree(icard)) {
             if (this.simulateRunStats.freeCars[cls].length === 0) {
               isViable = false;
+              missingClass = cls;
             }
           } else {
             if (this.simulateRunStats.availableCars[cls].length === 0) {
               isViable = false;
+              missingClass = cls;
             }
           }
 
@@ -1471,9 +1513,9 @@ export default {
       this.$store.commit("DEFINE_SNACK", {
         active: true,
         error: true,
-        text: this.$t('m_impossiblePack')
+        text: `${this.$t('m_impossiblePack')} (No ${missingClass})`
       });
-
+      
       return false;
 
     }
