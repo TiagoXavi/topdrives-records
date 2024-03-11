@@ -139,7 +139,7 @@ export default {
       if (f.bodyTypesModel && f.bodyTypesModel.length > 0) result.push({ label: this.$t("c_bodyStyle"), value: f.bodyTypesModel.map(x => this.$t(`c_${x.toLowerCase()}`)).join(", ") });
       if (f.fuelModel && f.fuelModel.length > 0) result.push({ label: this.$t("c_fuel"), value: f.fuelModel.map(x => this.$t(`c_${x.toLowerCase()}`)).join(", ") });
       if (f.engineModel && f.engineModel.length > 0) result.push({ label: this.$t("c_enginePos"), value: f.engineModel.map(x => this.$t(`c_${x.toLowerCase()}Engine`)).join(", ") });
-      if (f.brakModel && f.brakModel.length > 0) result.push({ label: this.$t("c_breakClass"), value: f.brakModel.join(", ") });
+      if (f.brakeModel && f.brakeModel.length > 0) result.push({ label: this.$t("c_brakeClass"), value: f.brakeModel.join(", ") });
       if (f.tagsModel && f.tagsModel.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tagsModel.join(", ") });
       if (f.tags2Model && f.tags2Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags2Model.join(", ") });
       if (f.tags3Model && f.tags3Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags3Model.join(", ") });

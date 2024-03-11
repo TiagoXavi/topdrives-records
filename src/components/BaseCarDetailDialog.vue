@@ -70,8 +70,8 @@
               </div>
             </div>
             <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_break") }}</div>
-              <div class="Row_DialogCardStatValue">{{ car.brak || "?" }}</div>
+              <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
+              <div class="Row_DialogCardStatValue">{{ car.brake || "?" }}</div>
             </div>
           </div>
         </div>
