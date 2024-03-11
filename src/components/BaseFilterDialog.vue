@@ -1328,7 +1328,8 @@ export default {
         }
 
         if (searchStr === "nobreak") {
-          if (x.brak === null && x.topSpeed > 95) {
+          // if (x.brak === null && x.topSpeed > 95) {
+          if (x.brak === null) {
             if (this.checkMatchFilter(x)) {
               shouldPush = true;
             }
