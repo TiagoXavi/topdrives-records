@@ -69,6 +69,10 @@
                 </template>
               </div>
             </div>
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">{{ $t("c_break") }}</div>
+              <div class="Row_DialogCardStatValue">{{ car.brak || "?" }}</div>
+            </div>
           </div>
         </div>
       </div>

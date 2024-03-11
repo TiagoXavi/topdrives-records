@@ -250,6 +250,16 @@
                 :value="item" />
             </template>
           </div>
+          <div v-if="config.brak !== false && internalConfig.brak !== false" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+            <div class="Main_FilterChipsLabel">{{ $t("c_breakClass") }}</div>
+            <template v-for="(item, ix) in searchFilters.brak">
+              <BaseChip
+                v-model="searchFilters.brakModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :counter="counters[`brak_${item}`]"
+                :value="item" />
+            </template>
+          </div>
           <template v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" >
             <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.tags_challenge">
@@ -693,7 +703,7 @@ export default {
         weight: 0,
         seats: 0,
       },
-      counterKeys: ["classes", "tyres", "drives", "clearances", "countrys", "prizes", "bodyTypes", "fuel", "engine", "tags", "brands"],
+      counterKeys: ["classes", "tyres", "drives", "clearances", "countrys", "prizes", "bodyTypes", "fuel", "engine", "brak", "tags", "brands"],
       showFilterInstance: false,
       instance: 1,
       filterInstances: [1, 2],
@@ -777,6 +787,8 @@ export default {
         fuelModel: [],
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         engineModel: [],
+        brak: ["A", "B", "C"],
+        brakModel: [],
         typesModel: [],
         approveModel: false,
         tags_challenge: [
@@ -1315,6 +1327,14 @@ export default {
           }
         }
 
+        if (searchStr === "nobreak") {
+          if (x.brak === null && x.topSpeed > 95) {
+            if (this.checkMatchFilter(x)) {
+              shouldPush = true;
+            }
+          }
+        }
+
         if (shouldPush) {
           prePush = JSON.parse(JSON.stringify(x));
           if (strIndex > -1) {
@@ -1656,6 +1676,7 @@ export default {
       this.counters[`countrys_${car.country}`] += 1
       this.counters[`fuel_${car.fuel}`] += 1
       this.counters[`engine_${car.engine}`] += 1
+      this.counters[`brak_${car.brak}`] += 1
       this.counters[`brands_${car.brand}`] += 1
       
       car.bodyTypes.map(item => {
@@ -1722,6 +1743,7 @@ export default {
       this.searchFilters.bodyTypesModel = [];
       this.searchFilters.fuelModel = [];
       this.searchFilters.engineModel = [];
+      this.searchFilters.brakModel = [];
       this.searchFilters.tagsModel = [];
       this.searchFilters.tags2Model = [];
       this.searchFilters.tags3Model = [];
@@ -1751,6 +1773,7 @@ export default {
         bodyTypesModel: [],
         fuelModel: [],
         engineModel: [],
+        brakModel: [],
         tagsModel: [],
         tags2Model: [],
         tags3Model: [],
@@ -1833,6 +1856,7 @@ export default {
 
       if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
       if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
+      if ( !this.filterCheckIncludes(car.brak, context.brakModel) ) return false;
 
       if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;

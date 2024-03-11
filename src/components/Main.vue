@@ -1613,7 +1613,8 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        brak: false
       }"
       :initialFilterString="cgRoundFilterString"
       type="cg"
@@ -1631,7 +1632,8 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        brak: false
       }"
       type="cg"
       ridsMutationName="CG_EMIT_RIDS"
@@ -1652,7 +1654,8 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        brak: false
       }"
       :initialFilterString="eventFilterString"
       :initialFilterString2="eventFilterString2"
@@ -1678,7 +1681,8 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        brak: false
       }"
       :initialFilterString="clubCurrentFilterString"
       :initialFilterString2="clubCurrentFilterString2"
@@ -1729,7 +1733,8 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        brak: false
       }"
       type="event"
       ridsMutationName="EVENT_EMIT_RIDS"
@@ -1914,6 +1919,10 @@
                     <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
                   </template>
                 </div>
+              </div>
+              <div class="Row_DialogCardStat">
+                <div class="Row_DialogCardStatLabel">{{ $t("c_break") }}</div>
+                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.brak || "?" }}</div>
               </div>
             </div>
           </div>
@@ -4926,7 +4935,8 @@ export default {
               bodyTypes: [],
               fuel: "Petrol",
               seats: "1",
-              engine: "Mid"
+              engine: "Mid",
+              brak: null
             });
             result[result.length-1].softId = this.nextId;
             this.nextId++;
