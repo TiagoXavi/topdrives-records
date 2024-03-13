@@ -1394,71 +1394,24 @@
                 :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button Main_SaveAllButton"
                 @click="clubSaveOriginalOrder()">{{ $t("m_saveOriginalOrder") }}</button>
+              
               <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
-                <div v-for="(uuid, index) in clubTracksGroupModel.tracksetuuids" class="Main_AdminTracksetUuidBox">
-                  <BaseText
-                    :value="uuid"
-                    type="normal"
-                    :label="`Trackset uuid ${index}`"
-                    class="Space_Bottom"
-                    placeholder=""
-                    @change="clubChangeUuidArr($event, index)" />
-                </div>
                 <div class="Main_AdminFields Main_AdminLayout">
-                  <div class="BaseText_Label">Trackset Group uuid</div>
+                  <div class="BaseText_Label">Clubs json</div>
                   <textarea
-                    v-model="clubTracksGroupModel.trackGroupuuid"
+                    v-model="clubJson"
                     rows="3"
                     class="Main_TextArea data-hj-allow"
-                    placeholder="Trackset Group uuid" />
+                    placeholder="Clubs json" />
+                  <div style="text-align: center;">
+                    <button
+                      :class="{ D_Button_Loading: clubLoadingAny }"
+                      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                      @click="clubSubmitCompleteJson()">{{ $t("m_send") }}</button>
+                  </div>
                 </div>
               </div>
-
-              <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout" style="--cor: #00ffde40;">
-                <div v-if="clubReqsGroupModel.name" class="Main_AdminFields Main_AdminLayout">
-                  <BaseText
-                    v-model="clubReqsGroupModel.name"
-                    type="normal"
-                    label="Requirement Name"
-                    class="Space_Bottom"
-                    placeholder="" />
-                </div>
-                <div class="Main_AdminFields Main_AdminLayout">
-                  <div class="BaseText_Label">Requirement uuid</div>
-                  <textarea
-                    v-model="clubReqsGroupModel.criteriauuid"
-                    rows="3"
-                    class="Main_TextArea data-hj-allow"
-                    placeholder="Requirement uuid" />
-                </div>
-                <div class="Main_AdminFields Main_AdminLayout">
-                  <BaseText
-                    v-model="clubReqsGroupModel.criteriaGroupUuid"
-                    type="normal"
-                    label="Requirement Group Uuid"
-                    class="Space_Bottom"
-                    placeholder="" />
-                </div>
-              </div>
-
-              <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout" style="--cor: #ff009740;">
-                <div class="Main_AdminFields Main_AdminLayout">
-                  <div class="BaseText_Label">Day tracks uuid</div>
-                  <textarea
-                    v-model="clubDaySelectedObj.tracksUuid"
-                    rows="6"
-                    class="Main_TextArea data-hj-allow"
-                    placeholder="Day tracks uuid" />
-                </div>
-                <div class="Main_AdminFields Main_AdminLayout">
-                  <div class="BaseText_Label">Day reqs uuid</div>
-                  <textarea
-                    v-model="clubDaySelectedObj.reqsUuid"
-                    rows="6"
-                    class="Main_TextArea data-hj-allow"
-                    placeholder="Day reqs uuid" />
-                </div>
-              </div>
+              
             </div>
 
           </template>
@@ -1789,7 +1742,7 @@
             <button
               v-for="item in tuneDialogTunes"
               :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
-              :title="(((tuneDialogCar.data || {})[item] || {}).info || {}).tuneCreator"
+              :title="((((tuneDialogCar.data || {})[item] || {}).info || {}).tuneCreator || {}).t"
               class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
               @click="changeTuneCar(tuneDialogCar, item)">
               {{ item }}
@@ -3229,6 +3182,7 @@ export default {
       clubBlockOriginalButton: false,
       clubUseWhatFilter: 0,
       clubBestPerTrack: {},
+      clubJson: "",
       kingDialog: false,
       kingFilterDialog: false,
       kingTrack: false,
@@ -9355,7 +9309,46 @@ export default {
     },
     clubChangeUuidArr(newValue, index) {
       Vue.set(this.clubTracksGroupModel.tracksetuuids, index, newValue);
-    }
+    },
+    clubSubmitCompleteJson() {
+      let vm = this;
+      let obj;
+      let isParsed = false;
+      try {
+        obj = JSON.parse(this.clubJson);
+        isParsed = true;
+      } catch (error) {
+        console.log(error);
+      }
+
+      if (!isParsed) {
+        console.log(error);
+        vm.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: "Parse error",
+          type: "error"
+        });
+        return;
+      }
+
+      axios.post(Vue.preUrl + "/clubObjFinalize", obj)
+      .then(res => {
+        // this.setClubsObjRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+      
+    },
   }
 }
 </script>
