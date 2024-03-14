@@ -44,9 +44,10 @@
                 v-if="requirementFilter && (!raceFilter2 || !raceFilter3)"
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
                 @click="addDualFilter()">{{ $t("m_multi") }}</button>
-              <button
+              <BaseButtonTouch
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-                @click="clearFilter()">{{ $t("m_clear") }}</button>
+                @longTouch="initSecretYear()"
+                @click="clearFilter()">{{ $t("m_clear") }}</BaseButtonTouch>
             </div>
           </div>
           <div v-if="(hasFilter2 || hasFilter3) && filterOnly" class="Main_FilterChipsFlex">
@@ -533,6 +534,7 @@ import BaseGalleryItem from './BaseGalleryItem.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
+import BaseButtonTouch from './BaseButtonTouch.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import custom_tags from '../database/custom_tags.json'
 
@@ -549,7 +551,8 @@ export default {
     BaseGalleryItem,
     BaseExpandDiv,
     BaseCheckBox,
-    BaseConfigCheckBox
+    BaseConfigCheckBox,
+    BaseButtonTouch
   },
   model: {
     prop: 'active',
