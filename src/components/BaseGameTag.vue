@@ -340,8 +340,8 @@ export default {
   --tag-l: 52%;
 }
 .BaseGameTag_Trading_Paint {
-  --tag-h: 18;
-  --tag-s: 53%;
+  --tag-h: -13;
+  --tag-s: 65%;
   --tag-l: 52%;
 }
 .BaseGameTag_Track {
