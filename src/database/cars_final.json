@@ -60510,7 +60510,8 @@
         "rid": "Hyundai_Enduro_CUV_2015",
         "prize": false,
         "bodyTypes": [
-            "SUV"
+            "SUV",
+            "Coupe"
         ],
         "fuel": "Petrol",
         "seats": "5",
@@ -74711,7 +74712,8 @@
         "rid": "Hyundai_HCD9_Talus_2006",
         "prize": false,
         "bodyTypes": [
-            "SUV"
+            "SUV",
+            "Coupe"
         ],
         "fuel": "Petrol",
         "seats": "4",
@@ -96650,7 +96652,8 @@
         "rid": "Mitsubishi_RVR_1989",
         "prize": false,
         "bodyTypes": [
-            "Roadster"
+            "Roadster",
+            "SUV"
         ],
         "fuel": "Petrol",
         "seats": "2",
@@ -109768,7 +109771,8 @@
         "rid": "Mitsubishi_Pajero_Field_Guard_1993",
         "prize": false,
         "bodyTypes": [
-            "SUV"
+            "SUV",
+            "Roadster"
         ],
         "fuel": "Diesel",
         "seats": "2",

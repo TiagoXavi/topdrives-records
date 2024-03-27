@@ -170,13 +170,13 @@
     <div v-if="showResult" class="MainPacks_Result MainPacks_Center" style="margin-top: 50px;">
       <div class="MainPacks_ResultCounts">
         <div :class="{ MainPacks_CardLineStoped: !running }" class="MainPacks_CardLine MainPacks_ResultLine" style="justify-content: center;">
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.S}; min-width: 3.5em;`" :disabled="simulateRunStats.S === 0" @click="seeCars('S')"><div>S</div><div>{{ simulateRunStats.S }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.A}; min-width: 3.5em;`" :disabled="simulateRunStats.A > 300 || simulateRunStats.A === 0" @click="seeCars('A')"><div>A</div><div>{{ simulateRunStats.A }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.B}; min-width: 3.5em;`" :disabled="simulateRunStats.B > 300 || simulateRunStats.B === 0" @click="seeCars('B')"><div>B</div><div>{{ simulateRunStats.B }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.C}; min-width: 3.5em;`" :disabled="simulateRunStats.C > 300 || simulateRunStats.C === 0" @click="seeCars('C')"><div>C</div><div>{{ simulateRunStats.C }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.D}; min-width: 3.5em;`" :disabled="simulateRunStats.D > 300 || simulateRunStats.D === 0" @click="seeCars('D')"><div>D</div><div>{{ simulateRunStats.D }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.E}; min-width: 3.5em;`" :disabled="simulateRunStats.E > 300 || simulateRunStats.E === 0" @click="seeCars('E')"><div>E</div><div>{{ simulateRunStats.E }}</div></button>
-          <button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.F}; min-width: 3.5em;`" :disabled="simulateRunStats.F > 300 || simulateRunStats.F === 0" @click="seeCars('F')"><div>F</div><div>{{ simulateRunStats.F }}</div></button>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.S}; min-width: 3.5em;`" :disabled="viewingClass === 'S' || simulateRunStats.S === 0" @click="seeCars('S')"><div>S</div><div>{{ simulateRunStats.S }}</div></button><button v-if="viewingClass === 'S'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.A}; min-width: 3.5em;`" :disabled="viewingClass === 'A' || simulateRunStats.A > 300 || simulateRunStats.A === 0" @click="seeCars('A')"><div>A</div><div>{{ simulateRunStats.A }}</div></button><button v-if="viewingClass === 'A'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.B}; min-width: 3.5em;`" :disabled="viewingClass === 'B' || simulateRunStats.B > 300 || simulateRunStats.B === 0" @click="seeCars('B')"><div>B</div><div>{{ simulateRunStats.B }}</div></button><button v-if="viewingClass === 'B'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.C}; min-width: 3.5em;`" :disabled="viewingClass === 'C' || simulateRunStats.C > 300 || simulateRunStats.C === 0" @click="seeCars('C')"><div>C</div><div>{{ simulateRunStats.C }}</div></button><button v-if="viewingClass === 'C'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.D}; min-width: 3.5em;`" :disabled="viewingClass === 'D' || simulateRunStats.D > 300 || simulateRunStats.D === 0" @click="seeCars('D')"><div>D</div><div>{{ simulateRunStats.D }}</div></button><button v-if="viewingClass === 'D'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.E}; min-width: 3.5em;`" :disabled="viewingClass === 'E' || simulateRunStats.E > 300 || simulateRunStats.E === 0" @click="seeCars('E')"><div>E</div><div>{{ simulateRunStats.E }}</div></button><button v-if="viewingClass === 'E'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
+          <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.F}; min-width: 3.5em;`" :disabled="viewingClass === 'F' || simulateRunStats.F > 300 || simulateRunStats.F === 0" @click="seeCars('F')"><div>F</div><div>{{ simulateRunStats.F }}</div></button><button v-if="viewingClass === 'F'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
         </div>
       </div>
       <div class="MainPacks_ResultInfos">
@@ -203,10 +203,10 @@
       </div>
     </div>
 
-    <div v-if="showResult && showingDroppedCars" class="MainPacks_SpecificCar Space_TopPlus">
-      <div class="MainPacks_CarsList">
+    <div v-if="showResult" class="MainPacks_SpecificCar Space_TopPlus">
+      <div class="MainPacks_CarsList" :class="{ MainPacks_CarsListEmpty: (showDefaultResultList && defaultResultList.length === 0) || ((!showingDroppedCars && !showDefaultResultList) && simulateRunStats.matched.length === 0) }">
 
-        <template v-for="car in listDroppedCars">
+        <template v-for="car in (showDefaultResultList ? defaultResultList : (showingDroppedCars ? listDroppedCars : simulateRunStats.matched) )">
           <button
             :key="car.rid"
             class="D_Button D_ButtonDark D_ButtonDark2 MainPacks_CarButton"
@@ -223,26 +223,6 @@
       </div>
     </div>
 
-    <div v-else-if="showResult" class="MainPacks_SpecificCar Space_TopPlus">
-      <div class="MainPacks_CarsList" :class="{ MainPacks_CarsListEmpty: simulateRunStats.matched.length === 0 }">
-
-        <template v-for="car in simulateRunStats.matched">
-          <button
-            :key="car.rid"
-            class="D_Button D_ButtonDark D_ButtonDark2 MainPacks_CarButton"
-            @click="eventOpenShowCarDialog(car)">
-            <div class="MainPacks_CarCard" :style="`--color: ${car.color}`">
-              <div class="MainPacks_BankPhoto">
-                <img :src="car.photo" class="MainPacks_BankPhotoImg" alt="">
-              </div>
-              <div class="MainPacks_RQ">{{ car.rq }}</div>
-              <div v-if="car.count > 1" class="MainPacks_Count">{{ car.count }}x</div>
-            </div>
-          </button>
-        </template>
-
-      </div>
-    </div>
 
     <!-- define theme of packs -->
     <!-- also to retrieve avaliable cars -->
@@ -619,6 +599,9 @@ export default {
       finalLimit: 0,
       showingDroppedCars: false,
       listDroppedCars: [],
+      showDefaultResultList: true,
+      defaultResultList: [],
+      viewingClass: null,
       simulateRunStats: {
         success: false,
         count: 0,
@@ -990,12 +973,12 @@ export default {
                 // one match
                 this.simulateRunStats.goalRids = this.simulateRunStats.goalRids.filter(x => x !== l.rid);
 
-                let found = this.simulateRunStats.matched.find(car => car.rid === l.rid);
+                let found = this.defaultResultList.find(car => car.rid === l.rid);
                 if (found) {
                   found.count++;
                 } else {
                   let arrName = this.packFilterDescResolved.length === 0 ? "availableCars" : "freeCars";
-                  this.simulateRunStats.matched.push(this.insertCarPhoto(this.simulateRunStats[arrName][l.class].find(car => car.rid == l.rid)));
+                  this.defaultResultList.push(this.insertCarPhoto(this.simulateRunStats[arrName][l.class].find(car => car.rid == l.rid)));
                 }
 
                 if (this.goalModel.name === 'specificCar' && this.simulateUntilGetOne) {
@@ -1008,7 +991,7 @@ export default {
             this.simulateRunStats.success = true;
           }
           if (this.goalModel.name === 'specificAttr') {
-            if (this.simulateRunStats.matched.reduce((accumulator, car) => accumulator + car.count, 0) >= this.numberOfMatchesNeededAttr) {
+            if (this.defaultResultList.reduce((accumulator, car) => accumulator + car.count, 0) >= this.numberOfMatchesNeededAttr) {
               this.simulateRunStats.success = true;
             }
           }
@@ -1177,6 +1160,9 @@ export default {
       this.simulateRunStats.notGarantedClasses = [];
       this.simulateRunStats.mainClasses = [];
       this.showingDroppedCars = false;
+      this.defaultResultList = [];
+      this.showDefaultResultList = true;
+      this.viewingClass = null;
     },
     resolveProbabilityPerOpen(carList) {
       let countPerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
@@ -1318,11 +1304,13 @@ export default {
 
           if (this.isFromFree(icard)) {
             if (countPerClassFree[key] === 0) return;
-            thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClassFree[key] * needed))
+            thisChance = card[key] / (this.simulateRunStats.freeCars[key].length / (countPerClassFree[key] / needed))
           } else {
             if (countPerClass[key] === 0) return;
-            thisChance = card[key] / ((this.simulateRunStats.availableCars[key].length / (countPerClass[key])) * needed)
+            thisChance = card[key] / (this.simulateRunStats.availableCars[key].length / (countPerClass[key] / needed))
           }
+
+          // console.log(this.isFromFree(icard), icard, thisChance);
           
           thisChanceResult += thisChance;
 
@@ -1336,6 +1324,8 @@ export default {
         chanceResultPerLine[icard] = thisChanceResult;
 
       })
+
+      // console.log(chanceResultPerLine);
 
 
 
@@ -1398,6 +1388,7 @@ export default {
     },
     seeCars(cls) {
       this.listDroppedCars = [];
+
       let ridsOnly = this.simulateRunStats.droppedRids[cls].map(c => c.rid);
       let carsUsedOnly = [];
       this.all_cars.map(car => {
@@ -1414,10 +1405,12 @@ export default {
         }
       })
       if (this.listDroppedCars.length > 0) {
+        this.viewingClass = cls;
         this.listDroppedCars.sort((a,b) => {
           return a.rq - b.rq;
         });
         this.showingDroppedCars = true;
+        this.showDefaultResultList = false;
       }
     },
     resolveNotGarantedClasses() {
@@ -1433,7 +1426,7 @@ export default {
       });
     },
     noGoalShowNotGaranted() {
-      this.listDroppedCars = [];
+      this.defaultResultList = [];
       let ridsOnly = [];
 
       this.simulateRunStats.mainClasses.map(cls => {
@@ -1453,20 +1446,20 @@ export default {
       this.simulateRunStats.mainClasses.map(cls => {
         if (this.simulateRunStats[cls] > 50) return;
         this.simulateRunStats.droppedRids[cls].map(c => {
-          let found = this.listDroppedCars.find(car => car.rid === c.rid);
+          let found = this.defaultResultList.find(car => car.rid === c.rid);
           if (found) {
             found.count++;
           } else {
-            this.listDroppedCars.push(this.insertCarPhoto(carsUsedOnly.find(car => car.rid == c.rid)))
+            this.defaultResultList.push(this.insertCarPhoto(carsUsedOnly.find(car => car.rid == c.rid)))
           }
         })
       })
 
-      if (this.listDroppedCars.length > 0) {
-        this.listDroppedCars.sort((a,b) => {
+      if (this.defaultResultList.length > 0) {
+        this.defaultResultList.sort((a,b) => {
           return a.rq - b.rq;
         });
-        this.showingDroppedCars = true;
+        this.showDefaultResultList = true;
       }
     },
     eventOpenShowCarDialog(car) {
@@ -1518,6 +1511,10 @@ export default {
       
       return false;
 
+    },
+    closeClass() {
+      this.viewingClass = null;
+      this.showDefaultResultList = true;
     }
   }
 }
@@ -1854,6 +1851,22 @@ export default {
 .BasePackSvg_C_CERAMIC .MainPacks_CustomizeIcon,
 .BasePackSvg_C_ALUMINIUM .MainPacks_CustomizeIcon {
   color: black;
+}
+.MainPacks_ResultLine > div {
+  position: relative;
+}
+.D_Button.MainPacks_CloseClass {
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  background-color: rgb(41 41 41);
+  border-radius: 50%;
+  padding: 0px;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  min-height: 30px;
 }
 
 </style>
