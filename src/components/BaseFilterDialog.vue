@@ -832,6 +832,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "American Overdrive",
           "European New Wave",
           "Asia-Pacific Grand Prix",
           "Pacific Coast Highway",

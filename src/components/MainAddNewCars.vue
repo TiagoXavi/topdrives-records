@@ -37,6 +37,9 @@
         <div
           v-for="(item, key) in newCar"
           class="MainAddNewCars_FormItem">
+          <template v-if="key === 'mra'">
+            <div class="MainAddNewCars_BeforeMRATip">All the fields below isn't possible to know before the update roll out. Leave them empty until the roll out.</div>
+          </template>
           <template v-if="key !== 'abs' && key !== 'tcs' && key !== 'prize' && key !== 'photoId' && key !== 'rid' && key !== 'name' && key !== 'photoCalc' && key !== 'class'">
             <div class="MainAddNewCars_FormTitle">{{ labels[key] || $tc(`c_${key}`, 1) }}</div>
             <div v-if="textTypes[key]" class="MainAddNewCars_FormField" :class="`MainAddNewCars_${textTypes[key]}`">
@@ -46,7 +49,7 @@
                 class="BaseText_Big"
                 :placeholder="placeholders[key] || ''" />
             </div>
-            <div v-if="key === 'onlyName'" class="MainAddNewCars_FormTitleAlert">Please, exactly how is in game</div>
+            <div v-if="key === 'onlyName'" class="MainAddNewCars_FormTitleAlert">Please, exactly how it is in game</div>
             <div v-if="key === 'onlyName'" class="MainAddNewCars_FormTitleResult">Result: <span class="MainAddNewCars_FormTitleGreen">{{ newCar.brand }} {{ newCar.onlyName }}</span></div>
             <div
               v-if="typesList[key]"
@@ -81,6 +84,12 @@
                 </div>
               </template>
             </button>
+            <div v-if="newCar.photoId && newCar.photoId.filename" class="MainAddNewCars_PhotoFileName">
+              <span>{{ filenameToName(newCar.photoId.filename) }} {{ filenameToYear(newCar.photoId.filename) }}</span>
+              <button
+                class="D_Button D_ButtonDark MainAddNewCars_PhotoFileNameButton"
+                @click="newCar.onlyName = filenameToName(newCar.photoId.filename); newCar.year = filenameToYear(newCar.photoId.filename);">Copy to field</button>
+            </div>
           </template>
           <template v-if="key === 'abs'">
             <div class="MainAddNewCars_FormTitle">Others</div>
@@ -311,7 +320,7 @@ export default {
         photoId: {}, // string
         rq: null,
         onlyName: null,
-        country: null,
+        country: "US",
         year: null,
         topSpeed: null,
         acel: null,
@@ -324,7 +333,7 @@ export default {
         abs: false,
         tcs: false,
         engine: null,
-        tags: ["American New Wave"],
+        tags: ["American Overdrive"],
         color: null,
         prize: false,
         fuel: null,
@@ -335,16 +344,17 @@ export default {
       labels: {
         onlyName: "Name only",
         tyres: "Tyres",
-        tags: "Tags (leave only 'American New Wave' if you are no 100% sure)",
+        tags: "Tags (leave only 'American Overdrive' if you are not 100% sure)",
         prize: "Prize",
-        bodyTypes: "Body types (optional)",
-        engine: "Engine position (optional)",
+        mra: "MRA",
+        bodyTypes: "Body types (can be multiple)",
+        engine: "Engine position",
         photoId: "Photo",
-        color: "Color (optional)",
-        clearance: "Clearance (optional)",
-        weight: "Weight (optional)",
-        fuel: "Fuel (optional)",
-        seats: "Seats (optional)"
+        color: "Color (don't try to predict the color, use in-game color filters one by one until the car shows up)",
+        clearance: "Clearance",
+        weight: "Weight",
+        fuel: "Fuel",
+        seats: "Seats"
       },
       textTypes: {
         rq: "integer",
@@ -358,12 +368,11 @@ export default {
         seats: "integer"
       },
       placeholders: {
-        onlyName: "Ex.: Charger SRT Hellcat Redeye Widebody",
-        mra: "Optional"
+        onlyName: "Ex.: Charger SRT Hellcat Redeye Widebody"
       },
       searchFilters: {},
       typesList: {
-        brand: ["Buick", "Cadillac", "Chevrolet", "Dodge", "GMC", "Hummer", "RAM"],
+        brand: ["Acura", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Drako", "GMC", "Hummer", "Ram"],
         country: ["US"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
@@ -372,7 +381,7 @@ export default {
         fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         tags: [
-          "American New Wave",
+          "American Overdrive",
           "Motorsport",
           "Muscle Car",
           "Drivers Choice",
@@ -386,8 +395,7 @@ export default {
           "Ultra Expensive",
           "Hypercar",
           "Sleeper",
-          "Concept",
-          "In the Shadows 24"
+          "Concept"
         ],
         color: [
           "Beige",
@@ -777,7 +785,29 @@ export default {
     },
     changeFilter() {
       this.searchInputLazy = this.searchInput;
-    }
+    },
+    filenameToName(filename) {
+      let result = "";
+      try {
+        result = filename.split("_").slice(1, -2).join(" ");
+      } catch (error) {
+        
+      }
+      return result;
+    },
+    filenameToYear(filename) {
+      let result = "";
+      try {
+        result = filename.split("_").slice(0, -1).join("_").split("_").pop();
+      } catch (error) {
+        
+      }
+      if (result.length === 2) {
+        if (Number(result) > 30) result = `19${result}`
+        else result = `20${result}`
+      }
+      return result;
+    },
   },
 }
 </script>
@@ -919,5 +949,20 @@ export default {
 .MainAddNewCars_FormTitle {
   margin-bottom: 5px;
   color: rgba(var(--d-text-yellow), 0.8);
+}
+.MainAddNewCars_BeforeMRATip {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 43px;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2em;
+}
+.MainAddNewCars_PhotoFileName {
+  margin-top: 5px;
+}
+.MainAddNewCars_PhotoFileNameButton {
+  margin-left: 5px;
 }
 </style>

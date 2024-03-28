@@ -422,5 +422,5 @@ export default {
   "t_dealsGap4": null,
   "t_dealsGap5": null,
   "t_dealsGap": null,
-  "t_dealsGapBack": null
+  "t_dealsGapBack": "Deals Gap Nebenwege"
 }

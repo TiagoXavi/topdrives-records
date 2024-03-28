@@ -59,6 +59,11 @@ export default {
   --tag-s: 79%;
   --tag-l: 38%;
 }
+.BaseGameTag_American_Overdrive {
+  --tag-h: 241;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
 .BaseGameTag_Around_the_World {
   --tag-h: 224;
   --tag-s: 80%;
