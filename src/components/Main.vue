@@ -4747,8 +4747,25 @@ export default {
 
       axios.get(Vue.preUrl + "/statistics")
       .then(res => {
-        this.statisticsLoading = false;
-        this.statistics = res.data;
+        this.statistics = {
+          ...this.statistics,
+          ...res.data
+        };
+
+        axios.get(Vue.preUrlCharlie + "/statisticsC")
+        .then(res => {
+          this.statisticsLoading = false;
+          this.statistics = {
+            ...this.statistics,
+            ...res.data
+          };
+        })
+        .catch(error => {
+          this.statisticsLoading = false;
+          console.log(error);
+        });
+
+
       })
       .catch(error => {
         this.statisticsLoading = false;
@@ -5653,9 +5670,17 @@ export default {
     loadChallenges(resolveInitial = true) {
       this.cgLoading = true;
 
-      axios.get(Vue.preUrl + "/searchCg")
+      axios.get(Vue.preUrlCharlie + "/searchCg")
       .then(res => {
         this.cgList = res.data.value;
+
+        if (this.user && this.user.mod) {
+          this.cgList.push({
+            "date": "proving_grounds_test",
+            "name": "Proving Grounds: test"
+          })
+        }
+
         this.styleCgList();
         if (resolveInitial && this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
           this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
@@ -5683,7 +5708,7 @@ export default {
       this.cgSeletorDialog = false;
       this.cgSentForReview = false;
 
-      axios.post(Vue.preUrl + "/getCgById", {
+      axios.post(Vue.preUrlCharlie + "/getCgById", {
         date: date
       })
       .then(res => {
@@ -5767,6 +5792,7 @@ export default {
       if (this.cgIsApproving) {
         this.loadCgRoundAsset(id, round);
       } else {
+        this.pingAssetStatistic(id, round);
         this.cgResolveRoundCars();
       }
     },
@@ -5808,7 +5834,7 @@ export default {
       if (this.cgIsEmptyRoundForDownloadAssets) return;
       this.cgLoading = true;
 
-      axios.get(Vue.preUrl + `/asset/${roundId}`)
+      axios.get(Vue.preUrlCharlie + `/asset/${roundId}`)
       .then(res => {
         // load asset
         let votes = res.data.filter(x => x.sort.includes("votes_"));
@@ -5847,6 +5873,31 @@ export default {
       })
       .then(() => {
         this.cgLoading = false;
+      });
+
+    },
+    pingAssetStatistic(id, round) {
+      let roundId = `${id}_${round}`;
+      if (this.cgLoadedAssets.includes(roundId)) return;
+      if (this.cgIsEmptyRoundForDownloadAssets) return;
+
+      axios.post(Vue.preUrlCharlie + `/pingStatistics`, {
+        type: "cg",
+        suffix: roundId
+      })
+      .then(res => {
+        this.cgLoadedAssets.push(roundId);
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
       });
 
     },
@@ -7201,9 +7252,35 @@ export default {
     loadEvents(resolveInitial = true) {
       this.eventLoading = true;
 
-      axios.get(Vue.preUrl + "/searchEvents")
+      axios.get(Vue.preUrlCharlie + "/searchEvents")
       .then(res => {
         this.eventList = res.data.value;
+
+        // filter
+        this.eventList = this.eventList.filter(x => {
+          if (x.name.includes("Daily Event")) {
+            if (this.user && this.user.mod) {
+              if (x.current) {
+                x.name = x.name + " (current)";
+              }
+            } else {
+              if (!x.current) {
+                return false;
+              }
+            }
+            return true;
+          }
+          if (x.hidden) {
+            if (this.whatTier && this.whatTier <= 3) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+          return true;
+        })
+
+
         this.eventStyleList();
         if (resolveInitial && this.eventCurrentId && this.eventList.find(x => x.date === this.eventCurrentId)) {
           this.loadEventFull(this.eventCurrentId);
@@ -7230,7 +7307,7 @@ export default {
       this.eventLoading = true;
       this.eventSelectorDialog = false;
 
-      axios.post(Vue.preUrl + "/getEventById", {
+      axios.post(Vue.preUrlCharlie + "/getEventById", {
         date: date
       })
       .then(res => {

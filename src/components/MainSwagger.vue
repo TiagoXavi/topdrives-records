@@ -504,6 +504,18 @@ export default {
       axios.post(Vue.preUrl + "/setConfig", obj)
       .then(res => {
         this.setConfigRes = res.data;
+
+        axios.get(Vue.preUrlCharlie + "/refreshConfig")
+        .then(res => {
+          this.setConfigRes = res.data + " - Charlie Refresh";
+        })
+        .catch(error => {
+          vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+        })
+        .then(() => {
+          vm.loading = false;
+        });
+
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

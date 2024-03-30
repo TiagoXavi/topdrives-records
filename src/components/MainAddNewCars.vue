@@ -598,7 +598,7 @@ export default {
             car.photoCalc = require('@/incoming_pics/' + car.photoId + '.jpg')
           })
         } catch (error) {
-          
+          console.log(error);
         }
         // console.log(res.data);
       })
@@ -791,7 +791,7 @@ export default {
       try {
         result = filename.split("_").slice(1, -2).join(" ");
       } catch (error) {
-        
+        console.log(error);
       }
       return result;
     },
@@ -800,7 +800,7 @@ export default {
       try {
         result = filename.split("_").slice(0, -1).join("_").split("_").pop();
       } catch (error) {
-        
+        console.log(error);
       }
       if (result.length === 2) {
         if (Number(result) > 30) result = `19${result}`

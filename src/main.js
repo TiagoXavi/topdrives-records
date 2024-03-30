@@ -30,11 +30,13 @@ Vue.use({i18n});
 
 if (process.env.NODE_ENV === 'production') {
   Vue.preUrl = "https://api.topdrivesrecords.com";
+  Vue.preUrlCharlie = "https://charlie.topdrivesrecords.com";
   Vue.use (Hotjar, {
     id: '3138550'
   })
 } else {
   Vue.preUrl = "http:///192.168.3.120:3000";
+  Vue.preUrlCharlie = "http:///192.168.3.120:3001";
 }
 
 new Vue({

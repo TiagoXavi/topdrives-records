@@ -874,7 +874,7 @@ export default {
       }
     },
     run() {
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
       this.resetRun();
       this.prepareAvailableCars();
       if (this.packFilterDescResolved.length > 0) this.prepareFreeCars();

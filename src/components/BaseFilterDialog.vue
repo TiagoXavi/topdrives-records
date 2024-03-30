@@ -1006,6 +1006,9 @@ export default {
     active: function() {
       if (this.active) {
         this.openDialogSearch();
+        window.addEventListener('keyup', this.handleKeyUp);
+      } else {
+        window.removeEventListener('keyup', this.handleKeyUp);
       }
     }
   },
@@ -1051,6 +1054,7 @@ export default {
     if (this.forceNonPrize) {
       this.searchFilters.prizesModel = ["Non-Prize Cars"];
     }
+
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
@@ -1114,6 +1118,7 @@ export default {
     })
   },
   beforeDestroy() {
+    window.removeEventListener('keyup', this.handleKeyUp);
     this.unsubscribe();
   },
   computed: {
@@ -1574,7 +1579,7 @@ export default {
       }
 
 
-      axios.post(Vue.preUrl + "/searchTemplate", params)
+      axios.post(Vue.preUrlCharlie + "/searchTemplate", params)
       .then(res => {
         if (res.data.Items && Array.isArray(res.data.Items)) {
           res.data.Items = res.data.Items.map(x => {
@@ -2018,7 +2023,38 @@ export default {
       setTimeout(() => {
         this.cgResetFilterForAdd();
       }, 50);
-    }
+    },
+    handleKeyUp(e) {
+      if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
+        let toCopy = this.insertKeyModel(this.clearFilterObj);
+        // console.log(JSON.stringify(toCopy));
+        navigator.clipboard.writeText(JSON.stringify(toCopy));
+      }
+      if (e.key === "v" && (e.ctrlKey || e.metaKey)) {
+        navigator.clipboard.readText()
+          .then(text => {
+            let parsed;
+            try {
+              parsed = JSON.parse(text);
+            } catch (error) {
+              console.log(error);
+            }
+            if (parsed) {
+              // all fine
+              this.searchFilters = JSON.parse(JSON.stringify(this.searchFilters));
+              this.clearFilter();
+              this.searchFilters = {
+                ...this.searchFilters,
+                ...parsed
+              };
+              this.changeFilter();
+            }
+          })
+          .catch(err => {
+            console.error('Failed to read clipboard contents: ', err);
+          });
+      }
+    },
   },
 }
 </script>

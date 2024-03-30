@@ -306,6 +306,9 @@ export default {
         let ss = race[key].id;
         let cardId = ss.slice(0,36);
         let car = this.cars_final.find(x => x.guid === cardId);
+        if (!car) return;
+        car = JSON.parse(JSON.stringify(car));
+
         if (car.class === 'S' || car.class === 'A') {
           allowedTunes.push("111")
         }
