@@ -1757,8 +1757,11 @@ export default {
 .Row_TrackNameBig {
   font-size: 15px;
 }
+.Main_2 .Row_Content {
+  font-size: 14px;
+}
 .Main_2 .Row_TrackNameBig {
-  font-size: 13px;
+  font-size: 12px;
 }
 .Row_ShowingBestPerTrack {
   overflow: hidden;

@@ -373,7 +373,7 @@ export default {
       searchFilters: {},
       typesList: {
         brand: ["Acura", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Drako", "GMC", "Hummer", "Ram"],
-        country: ["US"],
+        country: ["AU", "BR", "CN", "GB", "US"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],

@@ -2923,6 +2923,8 @@ body .Main_UserTw3:before {
 .Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Content {
   text-align: center;
   white-space: normal;
+  flex-direction: column;
+  word-break: break-word;
 }
 .Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Cell {
   border-right-width: 2px;
