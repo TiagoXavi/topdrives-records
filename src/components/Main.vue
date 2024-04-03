@@ -2550,7 +2550,7 @@
             :label="$t('m_eventName')"
             placeholder="" />
         </div>
-        <div v-if="user && user.username === 'TiagoXavi'" class="Main_SaveGalleryBoxCheck">
+        <div v-if="user && user.mod && whatTier && whatTier <= 3" class="Main_SaveGalleryBoxCheck">
           <div class="Main_SaveGalleryCheckLeft">
             <BaseCheckBox v-model="eventNewIsHidden"/>
           </div>

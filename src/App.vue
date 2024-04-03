@@ -999,7 +999,7 @@ body::-webkit-scrollbar-corner {
 }
 .Main_2 .Main_CornerMid {
   flex-grow: unset;
-  margin: 5px 5px 5px 0;
+  /* margin: 5px 5px 5px 0; */
 }
 .Main_2 .Main_LogoPre {
   /* display: none; */
@@ -2925,6 +2925,7 @@ body .Main_UserTw3:before {
   white-space: normal;
   flex-direction: column;
   word-break: break-word;
+  padding: 0 6px;
 }
 .Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Cell {
   border-right-width: 2px;

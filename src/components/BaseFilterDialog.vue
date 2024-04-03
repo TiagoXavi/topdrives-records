@@ -779,7 +779,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["DE", "JP", "US", "GB", "IT", "FR", "AU", "KR", "SE", "CZ", "NL", "MY", "AT", "DK", "CN", "HR", "NZ", "AE", "BR", "CH", "ZA"],
+        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "DK", "AT", "HR", "BR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -1006,7 +1006,9 @@ export default {
     active: function() {
       if (this.active) {
         this.openDialogSearch();
-        window.addEventListener('keyup', this.handleKeyUp);
+        if (this.filterOnly) {
+          window.addEventListener('keyup', this.handleKeyUp);
+        }
       } else {
         window.removeEventListener('keyup', this.handleKeyUp);
       }

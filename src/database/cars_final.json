@@ -8785,7 +8785,7 @@
         "year": 2011,
         "tdid": "4657",
         "abs": true,
-        "tcs": false,
+        "tcs": true,
         "clearance": "Mid",
         "country": "JP",
         "topSpeed": 155,
