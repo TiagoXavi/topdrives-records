@@ -372,7 +372,7 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ["Buick", "Cadillac", "Chevrolet", "Chrysler", "DMC", "Dodge", "Drako", "GMC", "Ram"],
+        brand: ["Buick", "Cadillac", "Chevrolet", "Chrysler", "DMC", "Dodge", "Drako", "GMC", "RAM"],
         countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "DK", "AT", "HR", "BR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
         country: ["AR", "AU", "BR", "CN", "KR", "MX", "US", "ZA"],
         clearance: ["Low", "Mid", "High"],
@@ -397,6 +397,7 @@ export default {
           "Hypercar",
           "Sleeper",
           "Concept",
+          "Track",
           "Coast to Coast",
         ],
         color: [
