@@ -99,6 +99,11 @@ export default {
   --tag-s: 0%;
   --tag-l: 100%;
 }
+.BaseGameTag_Coast_to_Coast {
+  --tag-h: -20;
+  --tag-s: 50%;
+  --tag-l: 50%;
+}
 .BaseGameTag_Concept {
   --tag-h: 168;
   --tag-s: 66%;

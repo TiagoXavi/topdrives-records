@@ -356,6 +356,7 @@ export default {
           "Chariots of the Gods",
           "Christmas Collection",
           "Christmas Collection 22",
+          "Coast to Coast",
           "Concept",
           "Cutting Edge",
           "Drivers Choice",

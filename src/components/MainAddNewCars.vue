@@ -396,7 +396,8 @@ export default {
           "Ultra Expensive",
           "Hypercar",
           "Sleeper",
-          "Concept"
+          "Concept",
+          "Coast to Coast",
         ],
         color: [
           "Beige",

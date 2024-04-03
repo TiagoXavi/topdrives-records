@@ -78,6 +78,7 @@ export default new Vuex.Store({
       "The Horror Show",
       "The Unicorns",
       "Two Tone",
+      "Year of the Dragon",
       "Year of the Ox",
       "Year of the Rat",
       "Year of the Tiger",
