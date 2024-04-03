@@ -115,6 +115,20 @@ export default {
                 return ''
             }
         },
+        Vue.kShort = function (number) {
+            
+            if ( number && typeof number === 'number' ) {
+                if (number >= 10000) {
+                    return `${Math.floor(number / 1000)}k`
+                }
+                if (number >= 1000) {
+                    return `${(Math.floor(number / 100))/10}k`
+                }
+                return `${number}k`
+            } else {
+                return ''
+            }
+        },
         Vue.resolveCond = function (type) {
             let result = '';
             if (typeof type === 'string' && type.length === 2) {
@@ -155,6 +169,8 @@ export default {
             if (version === "19") arr = await import('../database/cars_final_PL19_3.json');
             if (version === "20") arr = await import('../database/cars_final_PL20.json');
             if (version === "2a") arr = await import('../database/cars_final_PL21_2.json');
+            if (version === "21") arr = await import('../database/cars_final_PL21_4.json');
+            if (version === "22") arr = await import('../database/cars_final_PL21_4.json');
 
             arr = arr.default;
             
@@ -259,6 +275,7 @@ export default {
         Vue.filter('convertTires', Vue.convertTires);
         Vue.filter('mra', Vue.mra);
         Vue.filter('brake', Vue.brake);
+        Vue.filter('kShort', Vue.kShort);
         Vue.filter('resolveCond', Vue.resolveCond);
         Vue.filter('getOldCar', Vue.getOldCar);
         Vue.filter('isMobile', Vue.isMobile);

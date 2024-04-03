@@ -1,0 +1,8129 @@
+[
+  {
+    "Make": "Audi",
+    "Model": "Sport quattro S1",
+    "Year": 1985,
+    "21.3 RQ": 88,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Buick",
+    "Model": "GNX",
+    "Year": 1987,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLS GT3",
+    "Year": 2014,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evo VIII FQ-400",
+    "Year": 2004,
+    "21.3 RQ": 87,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Pikes Peak XL7",
+    "Year": 2007,
+    "21.3 RQ": 102,
+    "22.0 RQ": 106
+  },
+  {
+    "Make": "Audi",
+    "Model": "quattro 20V",
+    "Year": 1990,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Audi",
+    "Model": "S6",
+    "Year": 1995,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Audi",
+    "Model": "S4",
+    "Year": 1998,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS 4 Avant",
+    "Year": 2006,
+    "21.3 RQ": 71,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS 6 Plus",
+    "Year": 2004,
+    "21.3 RQ": 70,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Audi",
+    "Model": "SQ5 TDI",
+    "Year": 2015,
+    "21.3 RQ": 76,
+    "22.0 RQ": 75
+  },
+  {
+    "Make": "BMW",
+    "Model": "330d",
+    "Year": 2003,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "BMW",
+    "Model": "320d",
+    "Year": 2005,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "BMW",
+    "Model": "740i",
+    "Year": 1994,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "BMW",
+    "Model": "Z8",
+    "Year": 2000,
+    "21.3 RQ": 51,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "BMW",
+    "Model": "530i",
+    "Year": 1996,
+    "21.3 RQ": 51,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "BMW",
+    "Model": "M6",
+    "Year": 2016,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "BMW",
+    "Model": "M6 Gran Coupe",
+    "Year": 2016,
+    "21.3 RQ": 68,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Veyron 16.4",
+    "Year": 2005,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Veyron 16.4 Super Sport",
+    "Year": 2010,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Chiron",
+    "Year": 2017,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Buick",
+    "Model": "Riviera Coupe",
+    "Year": 1965,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "BMW",
+    "Model": "X3 xDrive 28d",
+    "Year": 2016,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5",
+    "Year": 2004,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5 M50d",
+    "Year": 2016,
+    "21.3 RQ": 68,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade",
+    "Year": 2011,
+    "21.3 RQ": 46,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Buick",
+    "Model": "Verano",
+    "Year": 2012,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Buick",
+    "Model": "Rendezvous",
+    "Year": 2002,
+    "21.3 RQ": 36,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Buick",
+    "Model": "LeSabre",
+    "Year": 2000,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade ESV",
+    "Year": 2016,
+    "21.3 RQ": 50,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "CTS Coupe",
+    "Year": 2014,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Buick",
+    "Model": "Regal GS",
+    "Year": 2012,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Buick",
+    "Model": "Enclave",
+    "Year": 2008,
+    "21.3 RQ": 43,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Seville",
+    "Year": 1980,
+    "21.3 RQ": 19,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Eldorado",
+    "Year": 1979,
+    "21.3 RQ": 16,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "McLaren",
+    "Model": "P1™",
+    "Year": 2014,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Esprit Sport 350",
+    "Year": 1999,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "McLaren",
+    "Model": "675LT",
+    "Year": 2015,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Eldorado",
+    "Year": 1995,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "DTS",
+    "Year": 2006,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "SRX",
+    "Year": 2006,
+    "21.3 RQ": 45,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "CTS",
+    "Year": 2008,
+    "21.3 RQ": 54,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "CTS Sport Wagon",
+    "Year": 2014,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "STS",
+    "Year": 2005,
+    "21.3 RQ": 63,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "XT5",
+    "Year": 2017,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Tahoe",
+    "Year": 1995,
+    "21.3 RQ": 19,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette 396",
+    "Year": 1965,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Silverado",
+    "Year": 2016,
+    "21.3 RQ": 41,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Captiva LTX",
+    "Year": 2008,
+    "21.3 RQ": 42,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Suburban",
+    "Year": 2016,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06",
+    "Year": 2001,
+    "21.3 RQ": 67,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Stingray Z51",
+    "Year": 2016,
+    "21.3 RQ": 72,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06",
+    "Year": 2006,
+    "21.3 RQ": 75,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06 tuned",
+    "Year": 2006,
+    "21.3 RQ": 77,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Z06",
+    "Year": 2016,
+    "21.3 RQ": 81,
+    "22.0 RQ": 82
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Cruze SW",
+    "Year": 2012,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Blazer S-10",
+    "Year": 1983,
+    "21.3 RQ": 21,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Aveo",
+    "Year": 2011,
+    "21.3 RQ": 29,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Cruze LS",
+    "Year": 2009,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Impala SS 427",
+    "Year": 1967,
+    "21.3 RQ": 24,
+    "22.0 RQ": 25
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Chevelle SS 454",
+    "Year": 1970,
+    "21.3 RQ": 35,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Captiva",
+    "Year": 2011,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Volt",
+    "Year": 2012,
+    "21.3 RQ": 35,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Camaro Z/28",
+    "Year": 1970,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Trailblazer SS",
+    "Year": 2006,
+    "21.3 RQ": 60,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 Saloon",
+    "Year": 2004,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Xantia VSX",
+    "Year": 1993,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Grand C4 Picasso BlueHDi 150",
+    "Year": 2016,
+    "21.3 RQ": 27,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C2 VTS",
+    "Year": 2003,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C4 Picasso THP 165",
+    "Year": 2016,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 Tourer 3.0 L V6 HDi",
+    "Year": 2016,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C-Crosser 2.2 L HDi",
+    "Year": 2007,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "TVR",
+    "Model": "Sagaris",
+    "Year": 2005,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Lotus",
+    "Model": "2-Eleven S'charged",
+    "Year": 2007,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Ford",
+    "Model": "Focus ST Estate Mountune",
+    "Year": 2014,
+    "21.3 RQ": 55,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise 111S",
+    "Year": 2002,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tuscan S",
+    "Year": 2005,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "TVR",
+    "Model": "Tuscan Convertible",
+    "Year": 2005,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Insignia VXR SuperSport",
+    "Year": 2016,
+    "21.3 RQ": 61,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Calibra Turbo",
+    "Year": 1992,
+    "21.3 RQ": 56,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Caterham",
+    "Model": "RST-V8 Levante",
+    "Year": 2008,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mondeo ST200",
+    "Year": 1998,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Ford",
+    "Model": "Scorpio 24-valve",
+    "Year": 1991,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Lotus",
+    "Model": "340R",
+    "Year": 2000,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Sport 135",
+    "Year": 2003,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise",
+    "Year": 1996,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Ford",
+    "Model": "Focus Coupe-Cabriolet",
+    "Year": 2007,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT40 race car",
+    "Year": 1965,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort Rally Spec",
+    "Year": 1970,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Ford",
+    "Model": "GT90",
+    "Year": 1995,
+    "21.3 RQ": 81,
+    "22.0 RQ": 83
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort RS2000",
+    "Year": 1974,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ka",
+    "Year": 2011,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Honda",
+    "Model": "S800",
+    "Year": 1967,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Honda",
+    "Model": "Civic 1500",
+    "Year": 1979,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-Z",
+    "Year": 2016,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Honda",
+    "Model": "Accord Hybrid",
+    "Year": 2016,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Acura",
+    "Model": "Legend 3.2 V6",
+    "Year": 1990,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V",
+    "Year": 1996,
+    "21.3 RQ": 34,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Honda",
+    "Model": "S2000",
+    "Year": 1999,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Honda",
+    "Model": "S2000 Type S",
+    "Year": 2008,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 2.0 i-VTEC",
+    "Year": 2002,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Honda",
+    "Model": "NSX-R",
+    "Year": 2002,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 2.2 i-DTEC",
+    "Year": 2007,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H2 SUT",
+    "Year": 2005,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H2 SUV",
+    "Year": 2003,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Honda",
+    "Model": "Pilot 4WD",
+    "Year": 2003,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3T",
+    "Year": 2009,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Honda",
+    "Model": "CR-V 1.6 i-DTEC",
+    "Year": 2016,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Honda",
+    "Model": "Pilot 4WD",
+    "Year": 2009,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Honda",
+    "Model": "Pilot 4WD",
+    "Year": 2016,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3",
+    "Year": 2006,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Infiniti",
+    "Model": "M35",
+    "Year": 2009,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Ford",
+    "Model": "Puma 1.7",
+    "Year": 1997,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Ford",
+    "Model": "C-Max",
+    "Year": 2015,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Infiniti",
+    "Model": "M45",
+    "Year": 2004,
+    "21.3 RQ": 59,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 620R",
+    "Year": 2013,
+    "21.3 RQ": 83,
+    "22.0 RQ": 86
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 420",
+    "Year": 2015,
+    "21.3 RQ": 67,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort RS1600",
+    "Year": 1968,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Infiniti",
+    "Model": "QX30",
+    "Year": 2017,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "QX70",
+    "Year": 2014,
+    "21.3 RQ": 67,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "280 GE",
+    "Year": 1979,
+    "21.3 RQ": 33,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "62 Landaulet",
+    "Year": 2010,
+    "21.3 RQ": 54,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SL 73 AMG",
+    "Year": 1999,
+    "21.3 RQ": 49,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLC 43",
+    "Year": 2016,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "57S",
+    "Year": 2012,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 55 AMG",
+    "Year": 2006,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 500 Cabriolet",
+    "Year": 2012,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 63",
+    "Year": 2015,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "S 63 AMG",
+    "Year": 2009,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "CLK 63 AMG Black Series",
+    "Year": 2009,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "S 65 AMG",
+    "Year": 2006,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "SLS AMG Black Series",
+    "Year": 2013,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Mini",
+    "Model": "Cooper Convertible",
+    "Year": 2016,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "G 63 6x6",
+    "Year": 2013,
+    "21.3 RQ": 50,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Mini",
+    "Model": "Cooper S Works GP",
+    "Year": 2006,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mini",
+    "Model": "JCW Convertible",
+    "Year": 2016,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Mini",
+    "Model": "JCW Coupe",
+    "Year": 2016,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Mini",
+    "Model": "JCW ALL4 Countryman",
+    "Year": 2016,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Colt",
+    "Year": 2004,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Sportback",
+    "Year": 2008,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "ASX",
+    "Year": 2010,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "ASX",
+    "Year": 2015,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Outlander",
+    "Year": 2012,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Outlander PHEV",
+    "Year": 2016,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evo IV",
+    "Year": 1996,
+    "21.3 RQ": 77,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evo X FQ-300 SST",
+    "Year": 2007,
+    "21.3 RQ": 77,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evo VIII MR FQ-340",
+    "Year": 2005,
+    "21.3 RQ": 79,
+    "22.0 RQ": 78
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pulsar",
+    "Year": 1978,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Micra",
+    "Year": 1991,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Patrol (type 60)",
+    "Year": 1959,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Note",
+    "Year": 2013,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pulsar",
+    "Year": 1995,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Primera",
+    "Year": 2004,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pathfinder",
+    "Year": 1985,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Patrol",
+    "Year": 2000,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Qashqai",
+    "Year": 2016,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Terrano II",
+    "Year": 2002,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Almera GTI",
+    "Year": 1997,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Nissan",
+    "Model": "X-Trail",
+    "Year": 2001,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Nissan",
+    "Model": "X-Trail",
+    "Year": 2016,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Qashqai",
+    "Year": 2008,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R",
+    "Year": 2017,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R Nismo",
+    "Year": 2016,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pathfinder",
+    "Year": 2013,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Murano",
+    "Year": 2008,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Renault",
+    "Model": "Clio",
+    "Year": 1990,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Renault",
+    "Model": "Clio",
+    "Year": 2016,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Renault",
+    "Model": "Espace",
+    "Year": 2016,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Renault",
+    "Model": "Kadjar",
+    "Year": 2016,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Renault",
+    "Model": "Mégane",
+    "Year": 1995,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Smart",
+    "Model": "Crossblade",
+    "Year": 2002,
+    "21.3 RQ": 14,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Smart",
+    "Model": "Fortwo Cabrio",
+    "Year": 2016,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Smart",
+    "Model": "Fortwo EV",
+    "Year": 2013,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Smart",
+    "Model": "Brabus Roadster",
+    "Year": 2005,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Smart",
+    "Model": "Fortwo Coupe T",
+    "Year": 2016,
+    "21.3 RQ": 24,
+    "22.0 RQ": 25
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Rex",
+    "Year": 1981,
+    "21.3 RQ": 13,
+    "22.0 RQ": 14
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Rex",
+    "Year": 1986,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Justy",
+    "Year": 1984,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Leone",
+    "Year": 1984,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "Year": 1998,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "Year": 2002,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy",
+    "Year": 2009,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "Year": 2008,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy",
+    "Year": 2003,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Subaru",
+    "Model": "XV Crosstrek",
+    "Year": 2016,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Outback",
+    "Year": 2008,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester",
+    "Year": 2016,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger",
+    "Year": 2012,
+    "21.3 RQ": 35,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger Wildtrak",
+    "Year": 2012,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza WRX",
+    "Year": 1993,
+    "21.3 RQ": 63,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger",
+    "Year": 2006,
+    "21.3 RQ": 34,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Astra",
+    "Year": 2016,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Antara 2.2CDTi",
+    "Year": 2016,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mondeo Hybrid",
+    "Year": 2016,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elan",
+    "Year": 1962,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Mokka 4x4",
+    "Year": 2016,
+    "21.3 RQ": 29,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Ford",
+    "Model": "Kuga",
+    "Year": 2016,
+    "21.3 RQ": 37,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Frontera",
+    "Year": 1989,
+    "21.3 RQ": 26,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Corsa 1.4",
+    "Year": 2016,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Volvo",
+    "Model": "740 Turbo",
+    "Year": 1990,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Volvo",
+    "Model": "850 T-5R Estate",
+    "Year": 1995,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC90 T8 Twin Engine",
+    "Year": 2015,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Alto",
+    "Year": 2004,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara",
+    "Year": 2005,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara S",
+    "Year": 2016,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "SX4",
+    "Year": 2006,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Porsche",
+    "Model": "356 B Convertible 1600",
+    "Year": 1965,
+    "21.3 RQ": 13,
+    "22.0 RQ": 14
+  },
+  {
+    "Make": "Porsche",
+    "Model": "944",
+    "Year": 1982,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayman GTS",
+    "Year": 2014,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Boxster GTS",
+    "Year": 2015,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayman GT4",
+    "Year": 2015,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Targa 4S",
+    "Year": 2006,
+    "21.3 RQ": 72,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Ignis",
+    "Year": 2016,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "XL-7",
+    "Year": 1998,
+    "21.3 RQ": 44,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo",
+    "Year": 1995,
+    "21.3 RQ": 78,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Porsche",
+    "Model": "959 Dakar",
+    "Year": 1986,
+    "21.3 RQ": 82,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo",
+    "Year": 2001,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Macan GTS",
+    "Year": 2015,
+    "21.3 RQ": 83,
+    "22.0 RQ": 84
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 R",
+    "Year": 2016,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo",
+    "Year": 2013,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Porsche",
+    "Model": "918 Spyder",
+    "Year": 2013,
+    "21.3 RQ": 99,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Suffix A",
+    "Year": 1970,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery Sport",
+    "Year": 2016,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Evoque Convertible",
+    "Year": 2016,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "5.0 V8",
+    "Year": 2016,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Sport SVR",
+    "Year": 2016,
+    "21.3 RQ": 74,
+    "22.0 RQ": 73
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJS",
+    "Year": 1988,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR",
+    "Year": 2003,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XKR-S Convertible",
+    "Year": 2011,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-Pace 3.0D S",
+    "Year": 2016,
+    "21.3 RQ": 70,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJ13",
+    "Year": 1966,
+    "21.3 RQ": 72,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XE SV Project 8",
+    "Year": 2017,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "MG",
+    "Model": "Metro 6R4 Clubman",
+    "Year": 1985,
+    "21.3 RQ": 78,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Rover",
+    "Model": "623",
+    "Year": 1993,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Austin",
+    "Model": "Ambassador",
+    "Year": 1982,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "McLaren",
+    "Model": "F1 LM",
+    "Year": 1995,
+    "21.3 RQ": 88,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "McLaren",
+    "Model": "P1™ GTR",
+    "Year": 2015,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Barchetta",
+    "Year": 1995,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Bravo",
+    "Year": 2007,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Panda 100hp",
+    "Year": 2006,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Qubo",
+    "Year": 2009,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta Integrale 8v",
+    "Year": 1989,
+    "21.3 RQ": 55,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 33,
+    "Year": 1993,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 75,
+    "Year": 1985,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "156 GTA",
+    "Year": 2002,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 159,
+    "Year": 2005,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider",
+    "Year": 2006,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "4C",
+    "Year": 2017,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS",
+    "Year": 2018,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Porsche",
+    "Model": 917,
+    "Year": 1970,
+    "21.3 RQ": 88,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Porsche",
+    "Model": "935 ‘Moby Dick’",
+    "Year": 1978,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Porsche",
+    "Model": "962 C",
+    "Year": 1985,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Porsche",
+    "Model": "924 Carrera GTS Rallye",
+    "Year": 1981,
+    "21.3 RQ": 66,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mazda",
+    "Model": 3,
+    "Year": 2018,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Mazda",
+    "Model": "BT-50",
+    "Year": 2011,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-5",
+    "Year": 2018,
+    "21.3 RQ": 27,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Furai",
+    "Year": 2007,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Carol",
+    "Year": 1962,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-3",
+    "Year": 1971,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Mazda",
+    "Model": "787B",
+    "Year": 1990,
+    "21.3 RQ": 96,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "200 S",
+    "Year": 2017,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Pacifica",
+    "Year": 2018,
+    "21.3 RQ": 39,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Crossfire SRT-6 Coupe",
+    "Year": 2004,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300 Touring",
+    "Year": 2005,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Dodge",
+    "Model": "SRT Viper",
+    "Year": 2013,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT Hellcat Widebody",
+    "Year": 2018,
+    "21.3 RQ": 74,
+    "22.0 RQ": 75
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper GTS-R",
+    "Year": 1996,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Durango GT",
+    "Year": 2018,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Intrepid ES 3.3L V6",
+    "Year": 1993,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger GT AWD",
+    "Year": 2018,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Grand Caravan",
+    "Year": 2018,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Dart",
+    "Year": 2016,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Ram 1st Gen",
+    "Year": 1981,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette ZR-1",
+    "Year": 1993,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette Grand Sport",
+    "Year": 1996,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "S-10 Blazer Xtreme",
+    "Year": 1999,
+    "21.3 RQ": 26,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Blazer",
+    "Year": 2000,
+    "21.3 RQ": 31,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Monte Carlo SS Jeff Gordon Edition",
+    "Year": 2003,
+    "21.3 RQ": 35,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Corvette",
+    "Year": 2009,
+    "21.3 RQ": 70,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Malibu",
+    "Year": 2019,
+    "21.3 RQ": 42,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Bel Air",
+    "Year": 1957,
+    "21.3 RQ": 14,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Camaro berlinetta",
+    "Year": 1985,
+    "21.3 RQ": 23,
+    "22.0 RQ": 25
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Caprice",
+    "Year": 1991,
+    "21.3 RQ": 23,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Chevette",
+    "Year": 1976,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "El Camino",
+    "Year": 1963,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "K5 Blazer 5.7L",
+    "Year": 1972,
+    "21.3 RQ": 39,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Scuderia Cameron Glickenhaus",
+    "Model": "SCG003S",
+    "Year": 2018,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300 SRT8",
+    "Year": 2012,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "LeBaron GTS Turbo",
+    "Year": 1985,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Caliber R/T AWD",
+    "Year": 2007,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Ramcharger",
+    "Year": 1981,
+    "21.3 RQ": 38,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Torrent GXP",
+    "Year": 2008,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "GMC",
+    "Model": "Envoy",
+    "Year": 1998,
+    "21.3 RQ": 30,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "GMC",
+    "Model": "Yukon Denali",
+    "Year": 2004,
+    "21.3 RQ": 43,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "GMC",
+    "Model": "Granite",
+    "Year": 2010,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "GTO Judge Ram Air IV",
+    "Year": 1970,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Firebird",
+    "Year": 1985,
+    "21.3 RQ": 14,
+    "22.0 RQ": 13
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Trans Am 20th Anniversary",
+    "Year": 1989,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Sunfire",
+    "Year": 1995,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Montana",
+    "Year": 2005,
+    "21.3 RQ": 27,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "Solstice GXP Coupe",
+    "Year": 2009,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Pontiac",
+    "Model": "G8 GXP",
+    "Year": 2009,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Code 130R",
+    "Year": 2012,
+    "21.3 RQ": 38,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Chevrolet",
+    "Model": "Tru 140S",
+    "Year": 2012,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "GMC",
+    "Model": "Sierra All Terrain X",
+    "Year": 2016,
+    "21.3 RQ": 56,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Cimarron",
+    "Year": 1982,
+    "21.3 RQ": 13,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade",
+    "Year": 1999,
+    "21.3 RQ": 27,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Escalade",
+    "Year": 2002,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Cien",
+    "Year": 2002,
+    "21.3 RQ": 78,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "CTS-V Sport Wagon",
+    "Year": 2010,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "Elmiraj",
+    "Year": 2013,
+    "21.3 RQ": 65,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Cadillac",
+    "Model": "ATS-V Coupe",
+    "Year": 2016,
+    "21.3 RQ": 78,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "204 Coupe",
+    "Year": 1965,
+    "21.3 RQ": 12,
+    "22.0 RQ": 13
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 GTi",
+    "Year": 2018,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "405 Mi16",
+    "Year": 1987,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "405 T16 Pikes Peak",
+    "Year": 1988,
+    "21.3 RQ": 89,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "3008 DKR Maxi",
+    "Year": 2017,
+    "21.3 RQ": 66,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Peugeot",
+    "Model": 308,
+    "Year": 2018,
+    "21.3 RQ": 27,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "iOn",
+    "Year": 2018,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "505 Break",
+    "Year": 1982,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Chiron Sport",
+    "Year": 2019,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Citroën",
+    "Model": "BX 4TC Group B",
+    "Year": 1986,
+    "21.3 RQ": 77,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "DS",
+    "Model": "Survolt",
+    "Year": 2010,
+    "21.3 RQ": 75,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "Citroën",
+    "Model": "DS Wild Rubis",
+    "Year": 2013,
+    "21.3 RQ": 54,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 Aircross",
+    "Year": 2018,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Renault",
+    "Model": "3.5l V6 Espace",
+    "Year": 2002,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Renault",
+    "Model": "5 GT Turbo",
+    "Year": 1985,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Renault",
+    "Model": "Mégane IV R.S.",
+    "Year": 2018,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Renault",
+    "Model": "Mégane Trophy",
+    "Year": 2009,
+    "21.3 RQ": 82,
+    "22.0 RQ": 83
+  },
+  {
+    "Make": "Renault",
+    "Model": "R20 Turbo 4x4",
+    "Year": 1979,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Renault",
+    "Model": "R21 Turbo Europa Cup",
+    "Year": 1988,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Renault",
+    "Model": "Alaskan",
+    "Year": 2016,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "I.D. R Pikes Peak",
+    "Year": 2018,
+    "21.3 RQ": 104,
+    "22.0 RQ": 106
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf GTD",
+    "Year": 2009,
+    "21.3 RQ": 44,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf VR6",
+    "Year": 1991,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf GTI",
+    "Year": 1997,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Golf G60 Rallye",
+    "Year": 1988,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Scirocco",
+    "Year": 2008,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Corrado VR6",
+    "Year": 1992,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Polo",
+    "Year": 1976,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Polo GTI",
+    "Year": 2018,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "New Beetle Cabriolet",
+    "Year": 2003,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Beetle",
+    "Year": 2011,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Beetle Cabriolet",
+    "Year": 2012,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Passat",
+    "Year": 1988,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Tiguan",
+    "Year": 2011,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Tiguan",
+    "Year": 2017,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Type 2",
+    "Year": 1966,
+    "21.3 RQ": 11,
+    "22.0 RQ": 10
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Transporter",
+    "Year": 2016,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Touareg R50",
+    "Year": 2008,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Touareg",
+    "Year": 2010,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Jetta GTI",
+    "Year": 1988,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Jetta",
+    "Year": 2019,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Lupo GTI",
+    "Year": 2001,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Fox",
+    "Year": 2005,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3",
+    "Year": 2007,
+    "21.3 RQ": 84,
+    "22.0 RQ": 85
+  },
+  {
+    "Make": "Ruf",
+    "Model": "CTR3 Clubsport",
+    "Year": 2012,
+    "21.3 RQ": 87,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Ruf",
+    "Model": "SCR 4.2",
+    "Year": 2016,
+    "21.3 RQ": 76,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Ruf",
+    "Model": "Rt 12 S",
+    "Year": 2004,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Ruf",
+    "Model": "RtR",
+    "Year": 2013,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Ruf",
+    "Model": "3400S",
+    "Year": 1999,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Ruf",
+    "Model": "3800S",
+    "Year": 2013,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "BMW",
+    "Model": "Nazca C2",
+    "Year": 1992,
+    "21.3 RQ": 67,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "BMW",
+    "Model": "123d",
+    "Year": 2007,
+    "21.3 RQ": 55,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "BMW",
+    "Model": "220d xDrive Gran Tourer",
+    "Year": 2018,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "BMW",
+    "Model": "325i Convertible",
+    "Year": 2009,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "BMW",
+    "Model": "524td",
+    "Year": 1983,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "BMW",
+    "Model": "520d Touring",
+    "Year": 2017,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "BMW",
+    "Model": "635CSi",
+    "Year": 1980,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "BMW",
+    "Model": "645ci",
+    "Year": 2003,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "BMW",
+    "Model": "650i Convertible",
+    "Year": 2012,
+    "21.3 RQ": 49,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "BMW",
+    "Model": "750iL",
+    "Year": 1995,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "BMW",
+    "Model": "750d xDrive",
+    "Year": 2013,
+    "21.3 RQ": 80,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "BMW",
+    "Model": "M6",
+    "Year": 2006,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "BMW",
+    "Model": "M8 GTE",
+    "Year": 2018,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "BMW",
+    "Model": "X1",
+    "Year": 2017,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "BMW",
+    "Model": "X3",
+    "Year": 2006,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "BMW",
+    "Model": "X4",
+    "Year": 2018,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5",
+    "Year": 2008,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6 50i",
+    "Year": 2015,
+    "21.3 RQ": 74,
+    "22.0 RQ": 73
+  },
+  {
+    "Make": "BMW",
+    "Model": "i3",
+    "Year": 2013,
+    "21.3 RQ": 38,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Volkswagen",
+    "Model": "Country Buggy",
+    "Year": 1968,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "350GT",
+    "Year": 1964,
+    "21.3 RQ": 28,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "400GT",
+    "Year": 1966,
+    "21.3 RQ": 28,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Miura P 400",
+    "Year": 1966,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Miura SVJ",
+    "Year": 1971,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Urraco P300",
+    "Year": 1973,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Countach 25th Anniversario",
+    "Year": 1988,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Silhouette",
+    "Year": 1976,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Jalpa",
+    "Year": 1981,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "LM002",
+    "Year": 1986,
+    "21.3 RQ": 41,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Diablo SV",
+    "Year": 1996,
+    "21.3 RQ": 67,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Diablo VT 6.0",
+    "Year": 2000,
+    "21.3 RQ": 81,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Murciélago LP650-4 Roadster",
+    "Year": 2009,
+    "21.3 RQ": 87,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP560-4 Spyder (2nd gen)",
+    "Year": 2009,
+    "21.3 RQ": 82,
+    "22.0 RQ": 81
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP550-2 Spyder (2nd gen)",
+    "Year": 2012,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP570-4 Super Trofeo Stradale (2nd gen)",
+    "Year": 2011,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP 550-2 Valentino Balboni",
+    "Year": 2010,
+    "21.3 RQ": 74,
+    "22.0 RQ": 75
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Gallardo LP 570-4 Edizione Tecnica",
+    "Year": 2013,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador Coupé",
+    "Year": 2011,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SV",
+    "Year": 2015,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SV Roadster",
+    "Year": 2016,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador S",
+    "Year": 2018,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Aventador SVJ",
+    "Year": 2018,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Sesto Elemento",
+    "Year": 2012,
+    "21.3 RQ": 97,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Veneno Roadster",
+    "Year": 2013,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Coupé",
+    "Year": 2014,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Spyder",
+    "Year": 2015,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Huracán Performante",
+    "Year": 2018,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Centenario",
+    "Year": 2016,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Lamborghini",
+    "Model": "Urus",
+    "Year": 2018,
+    "21.3 RQ": 96,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Ghibli SS Spyder",
+    "Year": 1969,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Ghibli",
+    "Year": 2018,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Quattroporte",
+    "Year": 1974,
+    "21.3 RQ": 22,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Kyalami",
+    "Year": 1978,
+    "21.3 RQ": 25,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Racing",
+    "Year": 1991,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Maserati",
+    "Model": "GranTurismo Sport",
+    "Year": 2018,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Maserati",
+    "Model": "Levante S",
+    "Year": 2018,
+    "21.3 RQ": 71,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Maserati",
+    "Model": "GranTurismo MC Stradale",
+    "Year": 2016,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "164 ProCar",
+    "Year": 1988,
+    "21.3 RQ": 99,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Alfetta GT Rally Version",
+    "Year": 1975,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Autodelta 156 GTA 3.7 V6",
+    "Year": 2004,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Disco Volante (8C)",
+    "Year": 2013,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Spider (S3)",
+    "Year": 1983,
+    "21.3 RQ": 11,
+    "22.0 RQ": 10
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Stelvio Quadrifoglio",
+    "Year": 2018,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Sprint GT",
+    "Year": 1963,
+    "21.3 RQ": 11,
+    "22.0 RQ": 10
+  },
+  {
+    "Make": "Fiat",
+    "Model": "126p",
+    "Year": 1972,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Grande Punto S2000",
+    "Year": 2006,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Campagnola",
+    "Year": 1951,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Seicento Rally Spec",
+    "Year": 1998,
+    "21.3 RQ": 49,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Stilo Abarth Group N",
+    "Year": 2002,
+    "21.3 RQ": 49,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Fiat",
+    "Model": "124 Spider Rally",
+    "Year": 2016,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Dedra",
+    "Year": 1996,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta HF Integrale Evoluzione",
+    "Year": 1991,
+    "21.3 RQ": 81,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta HF Integrale 16v",
+    "Year": 1989,
+    "21.3 RQ": 80,
+    "22.0 RQ": 85
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta S4 Rally",
+    "Year": 1985,
+    "21.3 RQ": 94,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Lancia",
+    "Model": "LC2",
+    "Year": 1984,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Y10",
+    "Year": 1985,
+    "21.3 RQ": 13,
+    "22.0 RQ": 14
+  },
+  {
+    "Make": "Lancia",
+    "Model": "ECV",
+    "Year": 1986,
+    "21.3 RQ": 93,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda S",
+    "Year": 2000,
+    "21.3 RQ": 78,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda R",
+    "Year": 2007,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Revolución",
+    "Year": 2013,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Azure",
+    "Year": 2006,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental Supersports",
+    "Year": 2010,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT3",
+    "Year": 2013,
+    "21.3 RQ": 92,
+    "22.0 RQ": 93
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental Supersports Convertible ISR",
+    "Year": 2011,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT Convertible",
+    "Year": 2019,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Mulsanne Speed",
+    "Year": 2019,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Flying Spur V8 S",
+    "Year": 2018,
+    "21.3 RQ": 72,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Bentayga V8",
+    "Year": 2019,
+    "21.3 RQ": 83,
+    "22.0 RQ": 82
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT3",
+    "Year": 2018,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Mulsanne Blue Train Limited Edition",
+    "Year": 2015,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Flying Spur",
+    "Year": 2020,
+    "21.3 RQ": 81,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Bentley",
+    "Model": "Continental GT Convertible Number 1 Edition by Mulliner",
+    "Year": 2019,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Bentley",
+    "Model": "EXP 100 GT",
+    "Year": 2019,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB4",
+    "Year": 1958,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DB5",
+    "Year": 1963,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "DBS",
+    "Year": 1967,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Virage",
+    "Year": 1989,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V8 Coupe",
+    "Year": 1996,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Rapide",
+    "Year": 2018,
+    "21.3 RQ": 56,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Lagonda",
+    "Year": 1976,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Lagonda Vignale",
+    "Year": 1993,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "V12 Vantage Carbon Black Edition",
+    "Year": 2010,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Aston Martin",
+    "Model": "Rapide Bertone Jet 2+2",
+    "Year": 2013,
+    "21.3 RQ": 56,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR-9",
+    "Year": 1988,
+    "21.3 RQ": 97,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "X-Type 3.0 V6 AWD",
+    "Year": 2008,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "C-X75",
+    "Year": 2010,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "C-X75",
+    "Year": 2013,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "I-PACE",
+    "Year": 2018,
+    "21.3 RQ": 83,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "XJR",
+    "Year": 2016,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Jaguar",
+    "Model": "F-Type Rally Car",
+    "Year": 2018,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery 1",
+    "Year": 1989,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "4.6 HSE",
+    "Year": 1994,
+    "21.3 RQ": 39,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Freelander",
+    "Year": 1997,
+    "21.3 RQ": 37,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery 2",
+    "Year": 1998,
+    "21.3 RQ": 27,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "4.4 V8",
+    "Year": 2002,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Sport",
+    "Year": 2004,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery 3",
+    "Year": 2004,
+    "21.3 RQ": 34,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery 5",
+    "Year": 2017,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "P400e PHEV",
+    "Year": 2018,
+    "21.3 RQ": 51,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Defender Works V8",
+    "Year": 2018,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Evoque SD4",
+    "Year": 2015,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Evoque Si4",
+    "Year": 2018,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Defender 110",
+    "Year": 2016,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Series 1",
+    "Year": 1948,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Velar SVAutobiography Dynamic Edition",
+    "Year": 2019,
+    "21.3 RQ": 81,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Land Rover",
+    "Model": "Discovery Sport P250 AWD",
+    "Year": 2020,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora 400",
+    "Year": 2015,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora S",
+    "Year": 2010,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Exige Cup 260",
+    "Year": 2009,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evora GT4",
+    "Year": 2011,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "TVR",
+    "Model": "400SE",
+    "Year": 1988,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Kadett Rallye E 4S",
+    "Year": 1985,
+    "21.3 RQ": 80,
+    "22.0 RQ": 85
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Astra VXR",
+    "Year": 2010,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "OPC Extreme",
+    "Year": 2014,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Firenza Baby Bertha",
+    "Year": 1974,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Insignia Grand Sport",
+    "Year": 2016,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Signum",
+    "Year": 2003,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Vauxhall/Opel",
+    "Model": "Corsa Super 1600",
+    "Year": 2001,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 2 Supercharged",
+    "Year": 2003,
+    "21.3 RQ": 80,
+    "22.0 RQ": 82
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3 Supercharged",
+    "Year": 2008,
+    "21.3 RQ": 81,
+    "22.0 RQ": 84
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 3.5 Supercharged",
+    "Year": 2013,
+    "21.3 RQ": 82,
+    "22.0 RQ": 85
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom V8",
+    "Year": 2011,
+    "21.3 RQ": 92,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 4",
+    "Year": 2018,
+    "21.3 RQ": 84,
+    "22.0 RQ": 86
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Nomad",
+    "Year": 2018,
+    "21.3 RQ": 74,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "S7",
+    "Year": 1978,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 Zetec Sport",
+    "Year": 1994,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 Cosworth",
+    "Year": 1994,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 270 RS",
+    "Year": 2006,
+    "21.3 RQ": 76,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 270",
+    "Year": 2008,
+    "21.3 RQ": 76,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO",
+    "Year": 2014,
+    "21.3 RQ": 84,
+    "22.0 RQ": 87
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO-RS",
+    "Year": 2016,
+    "21.3 RQ": 89,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Donkervoort",
+    "Model": "D8 GTO-40",
+    "Year": 2018,
+    "21.3 RQ": 90,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Laviolette",
+    "Year": 2001,
+    "21.3 RQ": 63,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Laviolette LM85",
+    "Year": 2008,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C8 Double 12 S (Stage V)",
+    "Year": 2002,
+    "21.3 RQ": 81,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Spyker",
+    "Model": "C12 La Turbie",
+    "Year": 2006,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Spyker",
+    "Model": "D12",
+    "Year": 2006,
+    "21.3 RQ": 77,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Regera",
+    "Year": 2016,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "CCXR Trevita",
+    "Year": 2008,
+    "21.3 RQ": 88,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Jesko Attack",
+    "Year": 2021,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Jesko Absolut",
+    "Year": 2021,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Agera Final",
+    "Year": 2016,
+    "21.3 RQ": 96,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Gemera Concept",
+    "Year": 2020,
+    "21.3 RQ": 103,
+    "22.0 RQ": 104
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Apollo Enraged",
+    "Year": 2012,
+    "21.3 RQ": 90,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Apollo",
+    "Model": "N",
+    "Year": 2016,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Apollo",
+    "Model": "Intensa Emozione",
+    "Year": 2019,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Concept_One",
+    "Year": 2017,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Nevera",
+    "Year": 2021,
+    "21.3 RQ": 104,
+    "22.0 RQ": 107
+  },
+  {
+    "Make": "Volvo",
+    "Model": "Amazon",
+    "Year": 1958,
+    "21.3 RQ": 14,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Volvo",
+    "Model": "360 GLT",
+    "Year": 1983,
+    "21.3 RQ": 15,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Volvo",
+    "Model": "C303 Paris Dakar",
+    "Year": 1983,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 R",
+    "Year": 2000,
+    "21.3 RQ": 56,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Volvo",
+    "Model": "1800ES",
+    "Year": 1972,
+    "21.3 RQ": 20,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Quasar",
+    "Year": 1984,
+    "21.3 RQ": 91,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "205 T16 Evo 2",
+    "Year": 1985,
+    "21.3 RQ": 90,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "205 T16 Pikes Peak",
+    "Year": 1987,
+    "21.3 RQ": 89,
+    "22.0 RQ": 93
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Oxia",
+    "Year": 1988,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "905B",
+    "Year": 1992,
+    "21.3 RQ": 99,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "206 WRC",
+    "Year": 2000,
+    "21.3 RQ": 81,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "607 Pescarolo",
+    "Year": 2002,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Peugeot",
+    "Model": 907,
+    "Year": 2004,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Peugeot",
+    "Model": 1007,
+    "Year": 2005,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "207 S2000",
+    "Year": 2007,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "EX1",
+    "Year": 2010,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 T16 Pikes Peak",
+    "Year": 2013,
+    "21.3 RQ": 107,
+    "22.0 RQ": 109
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "208 WRX",
+    "Year": 2018,
+    "21.3 RQ": 103,
+    "22.0 RQ": 109
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "Rally 504",
+    "Year": 1971,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Peugeot",
+    "Model": "908 HDi FAP",
+    "Year": 2007,
+    "21.3 RQ": 99,
+    "22.0 RQ": 101
+  },
+  {
+    "Make": "Ford",
+    "Model": "Thunderbird SC",
+    "Year": 1990,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Ford",
+    "Model": "Taurus SHO",
+    "Year": 1993,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco",
+    "Year": 1996,
+    "21.3 RQ": 38,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang GT",
+    "Year": 1996,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco Concept",
+    "Year": 2004,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150",
+    "Year": 2007,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Ford",
+    "Model": "Explorer Sport-Trac Adrenalin",
+    "Year": 2008,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Ford",
+    "Model": "Edge Sport",
+    "Year": 2015,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Tremor FX2",
+    "Year": 2014,
+    "21.3 RQ": 40,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Ford",
+    "Model": "Flex 3.5L",
+    "Year": 2016,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang GT4",
+    "Year": 2017,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Ford",
+    "Model": "Expedition Platinum",
+    "Year": 2018,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Raptor",
+    "Year": 2018,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Ford",
+    "Model": "Edge ST",
+    "Year": 2019,
+    "21.3 RQ": 67,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-100 302ci",
+    "Year": 1973,
+    "21.3 RQ": 25,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco II",
+    "Year": 1986,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT-10 Concept",
+    "Year": 2009,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Challenger SRT8",
+    "Year": 2009,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Charger Juiced",
+    "Year": 2013,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Circuit EV",
+    "Year": 2009,
+    "21.3 RQ": 52,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Demon Roadster",
+    "Year": 2007,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Hornet",
+    "Year": 2006,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Dodge",
+    "Model": "M80",
+    "Year": 2002,
+    "21.3 RQ": 51,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Neon ACR",
+    "Year": 2002,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Powerbox",
+    "Year": 2001,
+    "21.3 RQ": 62,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Viper ACR",
+    "Year": 1999,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Dodge",
+    "Model": "Avenger Rally Sedan",
+    "Year": 2011,
+    "21.3 RQ": 59,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Ram",
+    "Model": "Rebel TRX",
+    "Year": 2016,
+    "21.3 RQ": 69,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "200 Convertible",
+    "Year": 2013,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300 Motown Edition",
+    "Year": 2013,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300C",
+    "Year": 1957,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "300S",
+    "Year": 2015,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "ecoVoyager",
+    "Year": 2008,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Imperial",
+    "Year": 1972,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "LeBaron Town & Country Convertible",
+    "Year": 1984,
+    "21.3 RQ": 14,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Pacifica Hybrid",
+    "Year": 2018,
+    "21.3 RQ": 37,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Phaeton",
+    "Year": 1997,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "PT Cruiser GT Convertible",
+    "Year": 2005,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "AMC",
+    "Model": "Pacer",
+    "Year": 1975,
+    "21.3 RQ": 13,
+    "22.0 RQ": 14
+  },
+  {
+    "Make": "Acura",
+    "Model": "SLX",
+    "Year": 1996,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Acura",
+    "Model": "TSX",
+    "Year": 2004,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Acura",
+    "Model": "RDX",
+    "Year": 2007,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Acura",
+    "Model": "CSX Type-S",
+    "Year": 2009,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Acura",
+    "Model": "RDX",
+    "Year": 2017,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Acura",
+    "Model": "TSX",
+    "Year": 2009,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Acura",
+    "Model": "MDX",
+    "Year": 2012,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Acura",
+    "Model": "RDX",
+    "Year": 2019,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Emerg-E",
+    "Year": 2012,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Q50 Eau Rouge",
+    "Year": 2014,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "FX Vettel Edition (S51)",
+    "Year": 2013,
+    "21.3 RQ": 73,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "FX45 (S50)",
+    "Year": 2003,
+    "21.3 RQ": 67,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "G20 (P10)",
+    "Year": 1991,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "J30 (Y32)",
+    "Year": 1993,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "Q60 3.0t",
+    "Year": 2017,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "INFINITI",
+    "Model": "QX4 (R50)",
+    "Year": 1997,
+    "21.3 RQ": 38,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Nissan",
+    "Model": "280Z",
+    "Year": 1975,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Nissan",
+    "Model": "300ZX Twin Turbo (Z32)",
+    "Year": 1990,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Bluebird SSS ATTESA Limited (U13)",
+    "Year": 1991,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Bluebird SSS-R (U12)",
+    "Year": 1988,
+    "21.3 RQ": 66,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Cedric (Y34)",
+    "Year": 2000,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Cefiro 3.0 Brougham VIP (A33)",
+    "Year": 2002,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Cima 450XV (F50)",
+    "Year": 2001,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Datsun Bluebird 1300SS Rally Car (410)",
+    "Year": 1965,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Datsun 720 Bushmaster",
+    "Year": 1985,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Fairlady Z432",
+    "Year": 1969,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Frontier Attack (D23)",
+    "Year": 2017,
+    "21.3 RQ": 43,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R GT500 (R35)",
+    "Year": 2016,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Nissan",
+    "Model": "GT-R Track Edition (R35)",
+    "Year": 2019,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Juke",
+    "Year": 2020,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Leopard XR (Y33)",
+    "Year": 1997,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Pathfinder (R50)",
+    "Year": 1995,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R390 GT1 Race Car",
+    "Year": 1997,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Nissan",
+    "Model": "R85V",
+    "Year": 1986,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia 200SX Group A (S12)",
+    "Year": 1987,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia GT300 (S14a)",
+    "Year": 1998,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Silvia Spec-R (S15)",
+    "Year": 1999,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Skyline 2000 GT-EX (C210)",
+    "Year": 1977,
+    "21.3 RQ": 14,
+    "22.0 RQ": 13
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Stagea X Four (WC34)",
+    "Year": 1996,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Sunny Turbo Leprix (B11)",
+    "Year": 1983,
+    "21.3 RQ": 22,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Terrano",
+    "Year": 2013,
+    "21.3 RQ": 26,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Terrano R3M-R (R50)",
+    "Year": 1999,
+    "21.3 RQ": 33,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Terrano Rally Car (R50)",
+    "Year": 1996,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Violet Rally Car (A10)",
+    "Year": 1979,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Wingroad Aero Sport Limited (Y11)",
+    "Year": 2000,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Nissan",
+    "Model": "X-Trail GT (T30)",
+    "Year": 2003,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Nissan",
+    "Model": "Xterra Off-Road (N50)",
+    "Year": 2010,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester STI",
+    "Year": 2004,
+    "21.3 RQ": 66,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza Casa Blanca",
+    "Year": 1999,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza Group A",
+    "Year": 1995,
+    "21.3 RQ": 79,
+    "22.0 RQ": 87
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy B4 Blitzen (BE)",
+    "Year": 2000,
+    "21.3 RQ": 58,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy STI S401 (BE)",
+    "Year": 2002,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy Touring Wagon 2.0GT Spec B (BP)",
+    "Year": 2006,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Outback XT (BT)",
+    "Year": 2020,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Sumo",
+    "Year": 1986,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Subaru",
+    "Model": "XV (GT)",
+    "Year": 2019,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester (SJ)",
+    "Year": 2012,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester S-Edition (SH)",
+    "Year": 2011,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Forester XT Turbo (SG)",
+    "Year": 2003,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza WRX (GC8D)",
+    "Year": 1996,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza WRX (GC8G)",
+    "Year": 1999,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Impreza WRX Sedan (GE)",
+    "Year": 2008,
+    "21.3 RQ": 60,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Legacy 2.5GT Touring Wagon (BR)",
+    "Year": 2010,
+    "21.3 RQ": 59,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Subaru",
+    "Model": "R1",
+    "Year": 2005,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Subaru",
+    "Model": "Rex Combi 4WD Turbo",
+    "Year": 1984,
+    "21.3 RQ": 26,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Subaru",
+    "Model": "WRX STI Type RA-R (VAB)",
+    "Year": 2018,
+    "21.3 RQ": 80,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "C2",
+    "Year": 1997,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Cervo (CG72)",
+    "Year": 1988,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Escudo Pikes Peak",
+    "Year": 1998,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny Sierra",
+    "Year": 1995,
+    "21.3 RQ": 28,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny",
+    "Year": 1998,
+    "21.3 RQ": 28,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny",
+    "Year": 2019,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny Sierra",
+    "Year": 2019,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Jimny 1000",
+    "Year": 1982,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara",
+    "Year": 1995,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Suzuki",
+    "Model": "Vitara",
+    "Year": 1998,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "KTM",
+    "Model": "X-Bow GTX",
+    "Year": 2020,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Ion Red Line",
+    "Year": 2004,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Vue",
+    "Year": 2008,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Outlook",
+    "Year": 2007,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Saturn",
+    "Model": "Relay",
+    "Year": 2005,
+    "21.3 RQ": 16,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Geo",
+    "Model": "Tracker",
+    "Year": 1989,
+    "21.3 RQ": 34,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Geo",
+    "Model": "Prizm (E100)",
+    "Year": 1993,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Geo",
+    "Model": "Tracker 4-Door",
+    "Year": 1996,
+    "21.3 RQ": 24,
+    "22.0 RQ": 25
+  },
+  {
+    "Make": "Eagle",
+    "Model": "Summit Wagon",
+    "Year": 1992,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "500 SL",
+    "Year": 1980,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "560 SEC",
+    "Year": 1985,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "C11",
+    "Year": 1990,
+    "21.3 RQ": 99,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "C112",
+    "Year": 1991,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Mercedes-Benz",
+    "Model": "GT Roadster",
+    "Year": 2018,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H1 Hard-Top",
+    "Year": 1996,
+    "21.3 RQ": 22,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3T",
+    "Year": 2004,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H1 Alpha Wagon",
+    "Year": 2006,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Hummer",
+    "Model": "HX",
+    "Year": 2008,
+    "21.3 RQ": 44,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3T Alpha",
+    "Year": 2009,
+    "21.3 RQ": 42,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Hummer",
+    "Model": "H3 Rally",
+    "Year": 2006,
+    "21.3 RQ": 49,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Ford",
+    "Model": "RS200 Group B Rally Car",
+    "Year": 1985,
+    "21.3 RQ": 81,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger Wildtrak",
+    "Year": 2017,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Ford",
+    "Model": "Capri RS3100",
+    "Year": 1973,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Ford",
+    "Model": "SportKa",
+    "Year": 2003,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Ford",
+    "Model": "S-Max 2.5",
+    "Year": 2006,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Cutlass Supreme International",
+    "Year": 1993,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Cutlass 442",
+    "Year": 1964,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Delmont 88",
+    "Year": 1967,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Starfire Coupe",
+    "Year": 1962,
+    "21.3 RQ": 22,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Dynamic 76",
+    "Year": 1946,
+    "21.3 RQ": 13,
+    "22.0 RQ": 12
+  },
+  {
+    "Make": "Oldsmobile",
+    "Model": "Bravada",
+    "Year": 1991,
+    "21.3 RQ": 31,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Bristol",
+    "Model": "Fighter",
+    "Year": 2004,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "Biguà",
+    "Year": 1996,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "De Tomaso",
+    "Model": "P72",
+    "Year": 2020,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Rimac",
+    "Model": "Concept_S",
+    "Year": 2016,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Rimac",
+    "Model": "E-Runner Concept_One",
+    "Year": 2016,
+    "21.3 RQ": 104,
+    "22.0 RQ": 105
+  },
+  {
+    "Make": "Ultima",
+    "Model": "GTR640",
+    "Year": 2005,
+    "21.3 RQ": 86,
+    "22.0 RQ": 87
+  },
+  {
+    "Make": "Ultima",
+    "Model": "Can-Am",
+    "Year": 2001,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Ultima",
+    "Model": "RS",
+    "Year": 2021,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Arash",
+    "Model": "AF10 Hybrid",
+    "Year": 2016,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Arash",
+    "Model": "AF8",
+    "Year": 2014,
+    "21.3 RQ": 78,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "AC",
+    "Model": "Brooklands Ace",
+    "Year": 1993,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra 140 Charter",
+    "Year": 2021,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "AC",
+    "Model": "Cobra MkIII 427 S/C",
+    "Year": 1965,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom F5",
+    "Year": 2021,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom GT",
+    "Year": 2011,
+    "21.3 RQ": 94,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Hennessey",
+    "Model": "Venom GT Spyder",
+    "Year": 2016,
+    "21.3 RQ": 94,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Audi",
+    "Model": "A2 1.4",
+    "Year": 1999,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT 225 quattro (8N)",
+    "Year": 1998,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT 3.2 quattro (8N)",
+    "Year": 2003,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Audi",
+    "Model": "A6 allroad quattro",
+    "Year": 2018,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Audi",
+    "Model": "SQ7 TDI",
+    "Year": 2018,
+    "21.3 RQ": 77,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Audi",
+    "Model": "200 quattro (C3)",
+    "Year": 1985,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Audi",
+    "Model": "A1 1.4 TFSI (8X)",
+    "Year": 2010,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Audi",
+    "Model": "A4 DTM Edition (B7)",
+    "Year": 2005,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Audi",
+    "Model": "Coupé GT 5E (B2)",
+    "Year": 1983,
+    "21.3 RQ": 22,
+    "22.0 RQ": 23
+  },
+  {
+    "Make": "Audi",
+    "Model": "R10 TDI",
+    "Year": 2006,
+    "21.3 RQ": 98,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS3 LMS TCR (8V)",
+    "Year": 2018,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Audi",
+    "Model": "S3 Sportback (8V)",
+    "Year": 2014,
+    "21.3 RQ": 75,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "Audi",
+    "Model": "S4 Cabriolet (B6)",
+    "Year": 2004,
+    "21.3 RQ": 59,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Audi",
+    "Model": "S6 Plus (C4)",
+    "Year": 1997,
+    "21.3 RQ": 60,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Audi",
+    "Model": "TT Roadster 1.8 TFSI (8J)",
+    "Year": 2007,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Taycan 4S Cross Turismo",
+    "Year": 2021,
+    "21.3 RQ": 80,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Panamera Turbo S E-Hybrid Sport Turismo 4.0 (971.2)",
+    "Year": 2021,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Taycan Turbo S Cross Turismo",
+    "Year": 2021,
+    "21.3 RQ": 90,
+    "22.0 RQ": 93
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Mission R",
+    "Year": 2021,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Macan GTS",
+    "Year": 2021,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT2 RS Clubsport 25",
+    "Year": 2021,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo GT",
+    "Year": 2021,
+    "21.3 RQ": 98,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Taycan Turbo S",
+    "Year": 2020,
+    "21.3 RQ": 86,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Macan 2.0",
+    "Year": 2021,
+    "21.3 RQ": 74,
+    "22.0 RQ": 73
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.7 (992)",
+    "Year": 2020,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Porsche",
+    "Model": "718 Boxster GTS 4.0 (982)",
+    "Year": 2020,
+    "21.3 RQ": 71,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo Coupé 4.0 (9Y3)",
+    "Year": 2019,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Turbo S E-Hybrid 4.0 (9Y0)",
+    "Year": 2019,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne 3.0 (9Y0)",
+    "Year": 2019,
+    "21.3 RQ": 73,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Coupé 3.0 (9Y3)",
+    "Year": 2019,
+    "21.3 RQ": 73,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 RSR-19 (991.2)",
+    "Year": 2019,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Porsche",
+    "Model": "935 (991.2)",
+    "Year": 2019,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayman S 3.4 (981)",
+    "Year": 2012,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Carrera 3.4 (991)",
+    "Year": 2011,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne 3.6 (958)",
+    "Year": 2010,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne S 4.5 (955)",
+    "Year": 2003,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Boxster 2.7 (986)",
+    "Year": 2000,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Porsche",
+    "Model": "956 C",
+    "Year": 1982,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Elise Sprint 220",
+    "Year": 2017,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Lotus",
+    "Model": "Evija",
+    "Year": 2021,
+    "21.3 RQ": 99,
+    "22.0 RQ": 100
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "159 Alfetta",
+    "Year": 1951,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Tipo 33 TT 12",
+    "Year": 1974,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": 177,
+    "Year": 1978,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Alfasud TI Quadrifoglio Verde",
+    "Year": 1982,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "155 GTA Stradale",
+    "Year": 1992,
+    "21.3 RQ": 55,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "GTV Cup",
+    "Year": 1999,
+    "21.3 RQ": 50,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Coloni S1 156",
+    "Year": 2001,
+    "21.3 RQ": 99,
+    "22.0 RQ": 101
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "156 GTA Super 2000",
+    "Year": 2002,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "Brera Concept",
+    "Year": 2002,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "159 3.2 V6 Q4",
+    "Year": 2005,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Alfa Romeo",
+    "Model": "159 Sportswagon 3.2 V6 Q4",
+    "Year": 2006,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "BMW",
+    "Model": "M3 Competition M xDrive Saloon",
+    "Year": 2021,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "BMW",
+    "Model": "M4 Competition M xDrive Coupe",
+    "Year": 2021,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "BMW",
+    "Model": "M5 CS",
+    "Year": 2021,
+    "21.3 RQ": 92,
+    "22.0 RQ": 93
+  },
+  {
+    "Make": "BMW",
+    "Model": "M8 Competition Coupé",
+    "Year": 2019,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "BMW",
+    "Model": "220i Gran Coupe",
+    "Year": 2019,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "BMW",
+    "Model": "M340i xDrive Saloon",
+    "Year": 2019,
+    "21.3 RQ": 75,
+    "22.0 RQ": 74
+  },
+  {
+    "Make": "BMW",
+    "Model": "320i Touring",
+    "Year": 2019,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "BMW",
+    "Model": "320d Touring",
+    "Year": 2019,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "BMW",
+    "Model": "330e Touring",
+    "Year": 2020,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "BMW",
+    "Model": "M440i xDrive Coupe",
+    "Year": 2020,
+    "21.3 RQ": 74,
+    "22.0 RQ": 73
+  },
+  {
+    "Make": "BMW",
+    "Model": "750i xDrive",
+    "Year": 2019,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "BMW",
+    "Model": "760Li xDrive Shining Shadow Special Edition",
+    "Year": 2021,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "BMW",
+    "Model": "840d xDrive Convertible",
+    "Year": 2019,
+    "21.3 RQ": 69,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "BMW",
+    "Model": "840i Gran Coupe",
+    "Year": 2019,
+    "21.3 RQ": 60,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5 xDrive40d",
+    "Year": 2019,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6 xDrive40i",
+    "Year": 2019,
+    "21.3 RQ": 69,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "BMW",
+    "Model": "X6 M50i Black Vermilion",
+    "Year": 2021,
+    "21.3 RQ": 81,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "BMW",
+    "Model": "X7 M50d",
+    "Year": 2020,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "BMW",
+    "Model": "iX3 Premier Edition",
+    "Year": 2021,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "BMW",
+    "Model": "i4 M50",
+    "Year": 2021,
+    "21.3 RQ": 80,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "BMW",
+    "Model": "iX xDrive40",
+    "Year": 2021,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "BMW",
+    "Model": "iX xDrive50",
+    "Year": 2021,
+    "21.3 RQ": 67,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "BMW",
+    "Model": "528i",
+    "Year": 1981,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "BMW",
+    "Model": "X5 3.0d",
+    "Year": 2001,
+    "21.3 RQ": 41,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Mini",
+    "Model": "Electric Shadow Edition",
+    "Year": 2021,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Mini",
+    "Model": "Countryman Cooper S ALL4 Boardwalk",
+    "Year": 2020,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mini",
+    "Model": "Countryman Cooper SD ALL4",
+    "Year": 2020,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Mini",
+    "Model": "Countryman PHEV",
+    "Year": 2020,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Mini",
+    "Model": "Countryman John Cooper Works",
+    "Year": 2020,
+    "21.3 RQ": 76,
+    "22.0 RQ": 75
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Zonda Roadster",
+    "Year": 2003,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra Roadster BC",
+    "Year": 2019,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Pagani",
+    "Model": "Huayra R",
+    "Year": 2021,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Oltre",
+    "Year": 2005,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Fiat",
+    "Model": "PanDAKAR",
+    "Year": 2006,
+    "21.3 RQ": 28,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Fiat",
+    "Model": 500,
+    "Year": 2020,
+    "21.3 RQ": 27,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Fulvia Coupe 1.6 HF Group 4",
+    "Year": 1967,
+    "21.3 RQ": 46,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Fulvia Sport 1600",
+    "Year": 1971,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta HF Turbo",
+    "Year": 1985,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Lancia",
+    "Model": "Delta 1600 HF 4WD Group A",
+    "Year": 1987,
+    "21.3 RQ": 77,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Audi",
+    "Model": "80 2.2 quattro (B2)",
+    "Year": 1983,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Audi",
+    "Model": "90 quattro 2.3 20V (B2)",
+    "Year": 1989,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Audi",
+    "Model": "A3 Sportback (8V)",
+    "Year": 2018,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Audi",
+    "Model": "A3 Saloon 2.0 TDI quattro (8V)",
+    "Year": 2018,
+    "21.3 RQ": 58,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Audi",
+    "Model": "A4 allroad 2.0 TFSI quattro (B9)",
+    "Year": 2018,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Audi",
+    "Model": "A5 Cabriolet 45 TFSI quattro",
+    "Year": 2018,
+    "21.3 RQ": 70,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Audi",
+    "Model": "Q8 50 TDI",
+    "Year": 2018,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18",
+    "Year": 2016,
+    "21.3 RQ": 102,
+    "22.0 RQ": 103
+  },
+  {
+    "Make": "Audi",
+    "Model": "R18 TDI Ultra",
+    "Year": 2011,
+    "21.3 RQ": 100,
+    "22.0 RQ": 101
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 5.2 FSI quattro",
+    "Year": 2010,
+    "21.3 RQ": 84,
+    "22.0 RQ": 83
+  },
+  {
+    "Make": "Audi",
+    "Model": "R8 LMS GT3",
+    "Year": 2018,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Audi",
+    "Model": "RS Q3 Sportback (F3)",
+    "Year": 2020,
+    "21.3 RQ": 78,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Audi",
+    "Model": "S1 EKS RX quattro (8X)",
+    "Year": 2018,
+    "21.3 RQ": 103,
+    "22.0 RQ": 109
+  },
+  {
+    "Make": "Audi",
+    "Model": "S2 Avant (B4)",
+    "Year": 1991,
+    "21.3 RQ": 54,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Audi",
+    "Model": "S8 (D2)",
+    "Year": 1997,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.8 (991.2)",
+    "Year": 2016,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Porsche",
+    "Model": "Cayenne Diesel 3.0 (958)",
+    "Year": 2010,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Porsche",
+    "Model": "RS Spyder",
+    "Year": 2005,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT3 3.6 (996.2)",
+    "Year": 2004,
+    "21.3 RQ": 67,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 GT1-98",
+    "Year": 1998,
+    "21.3 RQ": 93,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Porsche",
+    "Model": "911 Turbo S 3.6 Flachbau (964)",
+    "Year": 1993,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Fiat",
+    "Model": "124 Abarth Rally",
+    "Year": 1972,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Abarth X1/9 Prototipo",
+    "Year": 1974,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Abarth 131 Mirafiori Evoluzione",
+    "Year": 1975,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Fiat",
+    "Model": "Ritmo 130TC Abarth",
+    "Year": 1985,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Fiat",
+    "Model": "500 R3T",
+    "Year": 2009,
+    "21.3 RQ": 50,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Fiat",
+    "Model": "124 GT",
+    "Year": 2018,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "TVR",
+    "Model": "S3C",
+    "Year": 1992,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "TVR",
+    "Model": "Cerbera Speed Eight",
+    "Year": 1996,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G60",
+    "Year": 2011,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G57 P2",
+    "Year": 2016,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "Akula",
+    "Year": 2019,
+    "21.3 RQ": 87,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G58",
+    "Year": 2018,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G56 GT4 Supercup",
+    "Year": 2021,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Ginetta",
+    "Model": "G50 GT4",
+    "Year": 2008,
+    "21.3 RQ": 81,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "BAC",
+    "Model": "Mono",
+    "Year": 2015,
+    "21.3 RQ": 94,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 4 SLR",
+    "Year": 1964,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 4",
+    "Year": 1985,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Morgan",
+    "Model": "AR Plus 4",
+    "Year": 2016,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Four",
+    "Year": 2021,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Four race car",
+    "Year": 2021,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Four CX-T",
+    "Year": 2021,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus Six",
+    "Year": 2019,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 8 GTR (GT2)",
+    "Year": 1997,
+    "21.3 RQ": 78,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Plus 8 GTR",
+    "Year": 2021,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Aero 8 Series 4",
+    "Year": 2007,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Morgan",
+    "Model": "Aeromax",
+    "Year": 2006,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Morgan",
+    "Model": "EV3",
+    "Year": 2016,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Morgan",
+    "Model": "3-Wheeler",
+    "Year": 2011,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Morgan",
+    "Model": "3-Wheeler P101",
+    "Year": 2020,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Holden",
+    "Model": "Drover",
+    "Year": 1985,
+    "21.3 RQ": 25,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Holden",
+    "Model": "Piazza Turbo",
+    "Year": 1986,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Holden",
+    "Model": "Calibra Turbo 4x4",
+    "Year": 1991,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Holden",
+    "Model": "Suburban",
+    "Year": 1998,
+    "21.3 RQ": 27,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Holden",
+    "Model": "One Tonner (VZ)",
+    "Year": 2005,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Holden",
+    "Model": "Caprice (WK)",
+    "Year": 2003,
+    "21.3 RQ": 58,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Holden",
+    "Model": "Astra SRi Turbo (TS)",
+    "Year": 2003,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Holden",
+    "Model": "Adventra LX8 (VZ)",
+    "Year": 2004,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Avalanche (VZ)",
+    "Year": 2005,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Avalanche XUV (VZ)",
+    "Year": 2005,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Holden",
+    "Model": "Ute SV6 (VE)",
+    "Year": 2007,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Holden",
+    "Model": "Calais V International (VE)",
+    "Year": 2008,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV GTS (VE)",
+    "Year": 2009,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV W427 (VE)",
+    "Year": 2009,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Holden",
+    "Model": "Cruze SRI-V",
+    "Year": 2011,
+    "21.3 RQ": 38,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Holden",
+    "Model": "Caprice (WN)",
+    "Year": 2014,
+    "21.3 RQ": 53,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Holden",
+    "Model": "Barina RS (TM)",
+    "Year": 2014,
+    "21.3 RQ": 40,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Holden",
+    "Model": "HSV Senator Signature (VF)",
+    "Year": 2015,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Holden",
+    "Model": "Trailblazer LTZ",
+    "Year": 2016,
+    "21.3 RQ": 39,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Valiant Charger 770 SE (VH)",
+    "Year": 1971,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Chrysler",
+    "Model": "Valiant Charger XL (VK)",
+    "Year": 1975,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Ford",
+    "Model": "Territory Turbo",
+    "Year": 2006,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Ford",
+    "Model": "Falcon GT",
+    "Year": 1997,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Ford",
+    "Model": "Falcon XR6 Sprint",
+    "Year": 2016,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Ford",
+    "Model": "Falcon FPV GT-F 351",
+    "Year": 2014,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fairlane",
+    "Year": 2005,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Ford",
+    "Model": "FPV Force 8",
+    "Year": 2006,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Ram",
+    "Model": "2500 Power Wagon",
+    "Year": 2019,
+    "21.3 RQ": 45,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Ram",
+    "Model": "1500 Classic Warlock",
+    "Year": 2021,
+    "21.3 RQ": 48,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Ram",
+    "Model": "1500 TRX",
+    "Year": 2021,
+    "21.3 RQ": 72,
+    "22.0 RQ": 73
+  },
+  {
+    "Make": "AMC",
+    "Model": "M422 Mighty Mite",
+    "Year": 1959,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "AMC",
+    "Model": "Concord 304",
+    "Year": 1978,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Hudson",
+    "Model": "Hornet",
+    "Year": 1954,
+    "21.3 RQ": 13,
+    "22.0 RQ": 14
+  },
+  {
+    "Make": "Ford",
+    "Model": "Super Duty F-250",
+    "Year": 2020,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Ford",
+    "Model": "Super Duty F-350",
+    "Year": 2020,
+    "21.3 RQ": 40,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Ford",
+    "Model": "Super Duty F-450",
+    "Year": 2020,
+    "21.3 RQ": 36,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Ford",
+    "Model": "Explorer ST",
+    "Year": 2020,
+    "21.3 RQ": 68,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mach-E 1400 Prototype",
+    "Year": 2020,
+    "21.3 RQ": 102,
+    "22.0 RQ": 103
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco Heritage Edition",
+    "Year": 2023,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Ford",
+    "Model": "Bronco Sport",
+    "Year": 2021,
+    "21.3 RQ": 47,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Ford",
+    "Model": "Maverick",
+    "Year": 2021,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Mach-E",
+    "Year": 2020,
+    "21.3 RQ": 67,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150",
+    "Year": 2021,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Raptor 37 Performance Package",
+    "Year": 2021,
+    "21.3 RQ": 69,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-150 Raptor R",
+    "Year": 2023,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mighty F-350 Tonka",
+    "Year": 2002,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Ford",
+    "Model": "Model U",
+    "Year": 2003,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fairlane",
+    "Year": 2005,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mustang Cobra Jet 1400",
+    "Year": 2020,
+    "21.3 RQ": 79,
+    "22.0 RQ": 83
+  },
+  {
+    "Make": "Ford",
+    "Model": "F-100 Eluminator",
+    "Year": 2021,
+    "21.3 RQ": 62,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Ford",
+    "Model": "E-Transit",
+    "Year": 2021,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Aviator",
+    "Year": 2020,
+    "21.3 RQ": 62,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Blackwood",
+    "Year": 2002,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKC",
+    "Year": 2016,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKX",
+    "Year": 2017,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKZ Black Label",
+    "Year": 2017,
+    "21.3 RQ": 81,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKZ Hybrid",
+    "Year": 2011,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Nautilus",
+    "Year": 2019,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navigator",
+    "Year": 1999,
+    "21.3 RQ": 34,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navigator",
+    "Year": 2004,
+    "21.3 RQ": 37,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navigator",
+    "Year": 2018,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Nautilus AWD",
+    "Year": 2019,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Nautilus Black Label AWD",
+    "Year": 2020,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Corsair AWD",
+    "Year": 2020,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Corsair Grand Touring Hybrid",
+    "Year": 2021,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navigator",
+    "Year": 2007,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Continental Concept",
+    "Year": 2002,
+    "21.3 RQ": 56,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navicross",
+    "Year": 2003,
+    "21.3 RQ": 60,
+    "22.0 RQ": 61
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "MKS Concept",
+    "Year": 2006,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Navigator Concept",
+    "Year": 2016,
+    "21.3 RQ": 51,
+    "22.0 RQ": 52
+  },
+  {
+    "Make": "Lincoln",
+    "Model": "Zephyr Reflection",
+    "Year": 2021,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Milan",
+    "Year": 2010,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Grand Marquis",
+    "Year": 1992,
+    "21.3 RQ": 27,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Mercury",
+    "Model": "Mountaineer",
+    "Year": 1997,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Sonata V6",
+    "Year": 1990,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Scoupe 1.5i Turbo",
+    "Year": 1993,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Tucson 2.7 V6",
+    "Year": 2004,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Sonata PHEV",
+    "Year": 2016,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Tucson 1.6 T-GDI",
+    "Year": 2017,
+    "21.3 RQ": 47,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Nexo",
+    "Year": 2019,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Palisade 2.2 CRDi",
+    "Year": 2020,
+    "21.3 RQ": 41,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Tucson 2.4 GDI AWD",
+    "Year": 2020,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Tucson 1.6 T-GDI Hybrid",
+    "Year": 2021,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Elantra 1.6 GDI Hybrid",
+    "Year": 2021,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Santa Fe 2.5 T-GDI",
+    "Year": 2021,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Santa Fe 1.6 T-GDI Hybrid",
+    "Year": 2021,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Santa Fe 1.6 T-GDI PHEV",
+    "Year": 2021,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Santa Cruz 2.5 Turbo T-GDI",
+    "Year": 2021,
+    "21.3 RQ": 61,
+    "22.0 RQ": 62
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Staria 2.2 CRDi",
+    "Year": 2021,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "i30 Fastback 1.5 T-GDI",
+    "Year": 2020,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Accent WRC",
+    "Year": 2002,
+    "21.3 RQ": 81,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Veloster Rally Car",
+    "Year": 2011,
+    "21.3 RQ": 93,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Genesis PM580T",
+    "Year": 2013,
+    "21.3 RQ": 97,
+    "22.0 RQ": 101
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "i20 WRC",
+    "Year": 2014,
+    "21.3 RQ": 81,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "i20 R5",
+    "Year": 2019,
+    "21.3 RQ": 80,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "i20 WRC",
+    "Year": 2020,
+    "21.3 RQ": 86,
+    "22.0 RQ": 94
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Veloster N ETCR",
+    "Year": 2020,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "N Vision 74",
+    "Year": 2022,
+    "21.3 RQ": 74,
+    "22.0 RQ": 75
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "RN30",
+    "Year": 2016,
+    "21.3 RQ": 82,
+    "22.0 RQ": 81
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "OLV",
+    "Year": 2003,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Enduro CUV",
+    "Year": 2015,
+    "21.3 RQ": 51,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Moab Extreme Off-Roader Santa Fe Sport",
+    "Year": 2017,
+    "21.3 RQ": 71,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Le Fil Rouge",
+    "Year": 2018,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Santa Cruz",
+    "Year": 2015,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "Grandeur",
+    "Year": 2021,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Hyundai",
+    "Model": "i30 N Fastback Time Attack",
+    "Year": 2019,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Bufori",
+    "Model": "Madison",
+    "Year": 1986,
+    "21.3 RQ": 33,
+    "22.0 RQ": 32
+  },
+  {
+    "Make": "Bufori",
+    "Model": "V6i",
+    "Year": 1992,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Bufori",
+    "Model": "MKIII La Joya",
+    "Year": 2003,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Bufori",
+    "Model": "CS Prototype Pace Car",
+    "Year": 2023,
+    "21.3 RQ": 63,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Brabham",
+    "Model": "BT62 Ultimate Track",
+    "Year": 2018,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Brabham",
+    "Model": "BT62 Competition",
+    "Year": 2019,
+    "21.3 RQ": 97,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Brabham",
+    "Model": "BT63 GT2",
+    "Year": 2021,
+    "21.3 RQ": 91,
+    "22.0 RQ": 92
+  },
+  {
+    "Make": "Holden",
+    "Model": "Commodore RS (ZB)",
+    "Year": 2018,
+    "21.3 RQ": 46,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Giocattolo",
+    "Model": "Group B",
+    "Year": 1986,
+    "21.3 RQ": 48,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Mazda",
+    "Model": "3 e-Skyactiv-X hatchback",
+    "Year": 2021,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mazda",
+    "Model": "BT-50 3.0d",
+    "Year": 2021,
+    "21.3 RQ": 38,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-50 2.5 Turbo Meridian Edition AWD",
+    "Year": 2023,
+    "21.3 RQ": 66,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-7 2.3T AWD",
+    "Year": 2009,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-90 3.3 Turbo S AWD",
+    "Year": 2024,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-30",
+    "Year": 2022,
+    "21.3 RQ": 36,
+    "22.0 RQ": 37
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-30 R-EV",
+    "Year": 2023,
+    "21.3 RQ": 35,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Mazda",
+    "Model": "2 1.5 Sport",
+    "Year": 2009,
+    "21.3 RQ": 31,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Axela Sport 2.3",
+    "Year": 2008,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Mazda",
+    "Model": "3 Sport",
+    "Year": 2010,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Mazda",
+    "Model": "6 3.7 V6",
+    "Year": 2010,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mazda",
+    "Model": "6 2.3",
+    "Year": 2002,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Mazda",
+    "Model": "AZ Offroad",
+    "Year": 1998,
+    "21.3 RQ": 30,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Mazda",
+    "Model": "3 MPS",
+    "Year": 2007,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mazda",
+    "Model": "3 MPS",
+    "Year": 2013,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mazda",
+    "Model": "323 GT-R",
+    "Year": 1992,
+    "21.3 RQ": 50,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Familia GT-X",
+    "Year": 1992,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-5 Miata",
+    "Year": 2004,
+    "21.3 RQ": 40,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Demio EV",
+    "Year": 2012,
+    "21.3 RQ": 21,
+    "22.0 RQ": 22
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Atenza Sport Wagon",
+    "Year": 2003,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Mazda",
+    "Model": 757,
+    "Year": 1986,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Mazda",
+    "Model": "2 Rally",
+    "Year": 2005,
+    "21.3 RQ": 48,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mazda",
+    "Model": "323 4WD Turbo Group A",
+    "Year": 1987,
+    "21.3 RQ": 77,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Mazda",
+    "Model": "767B",
+    "Year": 1989,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Lantis Super Touring",
+    "Year": 1994,
+    "21.3 RQ": 65,
+    "22.0 RQ": 66
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-5 GT Race Car",
+    "Year": 2011,
+    "21.3 RQ": 80,
+    "22.0 RQ": 82
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Roadster NR-A",
+    "Year": 2006,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RT24-P",
+    "Year": 2017,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Mazda",
+    "Model": "SkyActiv-D LMP2 Prototype",
+    "Year": 2014,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Xedos 6 Touring Car",
+    "Year": 1993,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mazda",
+    "Model": "RX-8 Hydrogen RE",
+    "Year": 2003,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-3 Racing",
+    "Year": 2015,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Demio Turbo2",
+    "Year": 2011,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Koeru",
+    "Year": 2015,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Mazda",
+    "Model": "Mono-Posto",
+    "Year": 2000,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mazda",
+    "Model": "MX-Crossport",
+    "Year": 2005,
+    "21.3 RQ": 58,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Mazda",
+    "Model": "CX-7 Adrenaline",
+    "Year": 2006,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Carisma GT Evolution V Group A",
+    "Year": 1998,
+    "21.3 RQ": 80,
+    "22.0 RQ": 79
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Delica D:5 Rally",
+    "Year": 2007,
+    "21.3 RQ": 53,
+    "22.0 RQ": 54
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Galant AMG",
+    "Year": 1989,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Galant Ralliart",
+    "Year": 2007,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer 1600 GSR Rally Car",
+    "Year": 1973,
+    "21.3 RQ": 52,
+    "22.0 RQ": 53
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer WRC05",
+    "Year": 2005,
+    "21.3 RQ": 82,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evolution III",
+    "Year": 1995,
+    "21.3 RQ": 70,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evolution VII WRC",
+    "Year": 2001,
+    "21.3 RQ": 81,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer Evolution X GSR FQ-300",
+    "Year": 2015,
+    "21.3 RQ": 79,
+    "22.0 RQ": 78
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Lancer WRC04",
+    "Year": 2004,
+    "21.3 RQ": 83,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Legnum VR-4",
+    "Year": 1996,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "MiEV Evolution III",
+    "Year": 2014,
+    "21.3 RQ": 99,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Evolution T2",
+    "Year": 1997,
+    "21.3 RQ": 64,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Evolution",
+    "Year": 1997,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Evolution MPR11",
+    "Year": 2005,
+    "21.3 RQ": 69,
+    "22.0 RQ": 68
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Sport AT35 Arctic Trucks",
+    "Year": 2022,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "RVR",
+    "Year": 1989,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "SST",
+    "Year": 1998,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Triton Ralliart AXCR",
+    "Year": 2022,
+    "21.3 RQ": 46,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "L200",
+    "Year": 2020,
+    "21.3 RQ": 37,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Eclipse GT Spyder",
+    "Year": 2007,
+    "21.3 RQ": 52,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Eclipse Spyder GTS",
+    "Year": 2003,
+    "21.3 RQ": 29,
+    "22.0 RQ": 30
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "FTO-EV",
+    "Year": 1999,
+    "21.3 RQ": 18,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Galant VR-4",
+    "Year": 1993,
+    "21.3 RQ": 49,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Galant VR-4 Type S",
+    "Year": 2000,
+    "21.3 RQ": 51,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "L200",
+    "Year": 1993,
+    "21.3 RQ": 16,
+    "22.0 RQ": 17
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Dakar",
+    "Year": 1983,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Raider Baja",
+    "Year": 2006,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Outlander PHEV",
+    "Year": 2021,
+    "21.3 RQ": 54,
+    "22.0 RQ": 55
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero",
+    "Year": 1989,
+    "21.3 RQ": 38,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero 3500 V6",
+    "Year": 1998,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero",
+    "Year": 2002,
+    "21.3 RQ": 41,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero",
+    "Year": 2007,
+    "21.3 RQ": 44,
+    "22.0 RQ": 45
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Junior",
+    "Year": 1995,
+    "21.3 RQ": 33,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Mini",
+    "Year": 2001,
+    "21.3 RQ": 32,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Pinin",
+    "Year": 2003,
+    "21.3 RQ": 39,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Sport",
+    "Year": 2015,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Tredia 1600 Turbo",
+    "Year": 1982,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "GT-PHEV",
+    "Year": 2016,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "e-Evolution",
+    "Year": 2017,
+    "21.3 RQ": 48,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "e-Yi",
+    "Year": 2019,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Endeavor Ralliart",
+    "Year": 2004,
+    "21.3 RQ": 37,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Evolution 2+2",
+    "Year": 2001,
+    "21.3 RQ": 66,
+    "22.0 RQ": 65
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Pajero Field Guard",
+    "Year": 1993,
+    "21.3 RQ": 27,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Mitsubishi",
+    "Model": "Triton Absolute",
+    "Year": 2019,
+    "21.3 RQ": 38,
+    "22.0 RQ": 39
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Divo",
+    "Year": 2020,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "La Voiture Noire",
+    "Year": 2021,
+    "21.3 RQ": 97,
+    "22.0 RQ": 98
+  },
+  {
+    "Make": "Bugatti",
+    "Model": "Centodieci",
+    "Year": 2022,
+    "21.3 RQ": 98,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C8",
+    "Year": 2007,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Cactus Aventure",
+    "Year": 2014,
+    "21.3 RQ": 46,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Visa 1000 pistes",
+    "Year": 1985,
+    "21.3 RQ": 57,
+    "22.0 RQ": 58
+  },
+  {
+    "Make": "Automobili Pininfarina",
+    "Model": "Battista",
+    "Year": 2022,
+    "21.3 RQ": 103,
+    "22.0 RQ": 105
+  },
+  {
+    "Make": "Automobili Pininfarina",
+    "Model": "Battista Anniversario",
+    "Year": 2022,
+    "21.3 RQ": 104,
+    "22.0 RQ": 106
+  },
+  {
+    "Make": "McMurtry",
+    "Model": "Spéirling Prototype - Goodwood Edition 22",
+    "Year": 2022,
+    "21.3 RQ": 114,
+    "22.0 RQ": 116
+  },
+  {
+    "Make": "Zenvo",
+    "Model": "TSR-S",
+    "Year": 2018,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Zenvo",
+    "Model": "TSR-GT",
+    "Year": 2022,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Zenvo",
+    "Model": "Aurora Tur",
+    "Year": 2023,
+    "21.3 RQ": 99,
+    "22.0 RQ": 104
+  },
+  {
+    "Make": "Zenvo",
+    "Model": "Aurora Agil",
+    "Year": 2023,
+    "21.3 RQ": 96,
+    "22.0 RQ": 97
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Citigo 1.0 MPI SE L",
+    "Year": 2013,
+    "21.3 RQ": 19,
+    "22.0 RQ": 20
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Favorit 1.3 E GLX",
+    "Year": 1993,
+    "21.3 RQ": 16,
+    "22.0 RQ": 15
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia Hatchback 1.8T FSI",
+    "Year": 2009,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia Estate 2.0 TDI CR 4x4",
+    "Year": 2009,
+    "21.3 RQ": 43,
+    "22.0 RQ": 42
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia Scout 1.8 TSI",
+    "Year": 2011,
+    "21.3 RQ": 48,
+    "22.0 RQ": 49
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia vRS Hatchback 2.0 TSI",
+    "Year": 2013,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia vRS 245 Estate",
+    "Year": 2017,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia iV Hatchback 1.4 TSI PHEV",
+    "Year": 2021,
+    "21.3 RQ": 41,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia Scout 2.0 TSI",
+    "Year": 2021,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Superb Scout 2.0 TSI",
+    "Year": 2021,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Superb iV 1.4 TSI PHEV",
+    "Year": 2020,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Kodiaq vRS 2.0 TSI",
+    "Year": 2021,
+    "21.3 RQ": 68,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Enyaq iV 80",
+    "Year": 2021,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Enyaq Coupe iV 80",
+    "Year": 2022,
+    "21.3 RQ": 39,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Enyaq Coupe vRS iV",
+    "Year": 2022,
+    "21.3 RQ": 47,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Felicia Kit Car",
+    "Year": 1995,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Octavia WRC",
+    "Year": 1999,
+    "21.3 RQ": 80,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Fabia R5",
+    "Year": 2019,
+    "21.3 RQ": 79,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Fabia Rally2 EVO Edition 120",
+    "Year": 2021,
+    "21.3 RQ": 81,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Mountiaq",
+    "Year": 2019,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Citijet",
+    "Year": 2014,
+    "21.3 RQ": 15,
+    "22.0 RQ": 16
+  },
+  {
+    "Make": "Škoda",
+    "Model": "Afriq",
+    "Year": 2022,
+    "21.3 RQ": 72,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Radical",
+    "Model": "SR8",
+    "Year": 2005,
+    "21.3 RQ": 89,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Radical",
+    "Model": "SR8 RSX",
+    "Year": 2014,
+    "21.3 RQ": 94,
+    "22.0 RQ": 95
+  },
+  {
+    "Make": "Radical",
+    "Model": "RXC 600R",
+    "Year": 2017,
+    "21.3 RQ": 97,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Radical",
+    "Model": "SR10",
+    "Year": 2020,
+    "21.3 RQ": 95,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Radical",
+    "Model": "RXC V8",
+    "Year": 2013,
+    "21.3 RQ": 92,
+    "22.0 RQ": 93
+  },
+  {
+    "Make": "Radical",
+    "Model": "RXC Spyder",
+    "Year": 2015,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Radical",
+    "Model": "SR10 XXR",
+    "Year": 2023,
+    "21.3 RQ": 96,
+    "22.0 RQ": 99
+  },
+  {
+    "Make": "Radical",
+    "Model": "SR1 XXR",
+    "Year": 2023,
+    "21.3 RQ": 80,
+    "22.0 RQ": 81
+  },
+  {
+    "Make": "Ford",
+    "Model": "Escort RS2000 4WD",
+    "Year": 1994,
+    "21.3 RQ": 32,
+    "22.0 RQ": 31
+  },
+  {
+    "Make": "Ford",
+    "Model": "Mondeo 2.5 T",
+    "Year": 2007,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Ford",
+    "Model": "Supervan 2",
+    "Year": 1984,
+    "21.3 RQ": 68,
+    "22.0 RQ": 69
+  },
+  {
+    "Make": "Ford",
+    "Model": "Kuga Hybrid",
+    "Year": 2019,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Ford",
+    "Model": "Puma 1.0 MHEV",
+    "Year": 2020,
+    "21.3 RQ": 34,
+    "22.0 RQ": 33
+  },
+  {
+    "Make": "Ford",
+    "Model": "Supervan 4",
+    "Year": 2022,
+    "21.3 RQ": 104,
+    "22.0 RQ": 103
+  },
+  {
+    "Make": "Ford",
+    "Model": "Focus 1.0 MHEV",
+    "Year": 2022,
+    "21.3 RQ": 36,
+    "22.0 RQ": 35
+  },
+  {
+    "Make": "Ford",
+    "Model": "Fiesta ST",
+    "Year": 2022,
+    "21.3 RQ": 51,
+    "22.0 RQ": 50
+  },
+  {
+    "Make": "Ford",
+    "Model": "Ranger Raptor V6",
+    "Year": 2022,
+    "21.3 RQ": 59,
+    "22.0 RQ": 60
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C2 Cross",
+    "Year": 2012,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C4 Aircross 4x4",
+    "Year": 2017,
+    "21.3 RQ": 43,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 Aircross PureTech 130",
+    "Year": 2022,
+    "21.3 RQ": 23,
+    "22.0 RQ": 24
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C5 Tourer 2.2 HDi",
+    "Year": 2005,
+    "21.3 RQ": 28,
+    "22.0 RQ": 27
+  },
+  {
+    "Make": "Citroën",
+    "Model": "DS4 1.6 THP 200",
+    "Year": 2015,
+    "21.3 RQ": 42,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Citroën",
+    "Model": "DS5 LS",
+    "Year": 2015,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Citroën",
+    "Model": "XM 2.0i Turbo",
+    "Year": 1999,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Xsara 1.8i 16V",
+    "Year": 1999,
+    "21.3 RQ": 30,
+    "22.0 RQ": 29
+  },
+  {
+    "Make": "Citroën",
+    "Model": "19_19",
+    "Year": 2019,
+    "21.3 RQ": 79,
+    "22.0 RQ": 80
+  },
+  {
+    "Make": "Citroën",
+    "Model": "BX Break De Chasse Dyana",
+    "Year": 1986,
+    "21.3 RQ": 27,
+    "22.0 RQ": 26
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C4 WRC HYmotion4",
+    "Year": 2008,
+    "21.3 RQ": 79,
+    "22.0 RQ": 90
+  },
+  {
+    "Make": "Citroën",
+    "Model": "SpaceTourer 4x4 E",
+    "Year": 2017,
+    "21.3 RQ": 35,
+    "22.0 RQ": 36
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C2 Citroën Sport",
+    "Year": 2003,
+    "21.3 RQ": 55,
+    "22.0 RQ": 56
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C3 WRC",
+    "Year": 2017,
+    "21.3 RQ": 80,
+    "22.0 RQ": 91
+  },
+  {
+    "Make": "Citroën",
+    "Model": "DS3 WRC",
+    "Year": 2011,
+    "21.3 RQ": 81,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Citroën",
+    "Model": "SM Rallye du Maroc",
+    "Year": 1971,
+    "21.3 RQ": 37,
+    "22.0 RQ": 38
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Visa Chrono",
+    "Year": 1982,
+    "21.3 RQ": 42,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Visa Trophee",
+    "Year": 1982,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Xantia 4x4 Turbo",
+    "Year": 1999,
+    "21.3 RQ": 88,
+    "22.0 RQ": 96
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Xsara WRC",
+    "Year": 2003,
+    "21.3 RQ": 79,
+    "22.0 RQ": 88
+  },
+  {
+    "Make": "Citroën",
+    "Model": "ZX Rallye Raid",
+    "Year": 1990,
+    "21.3 RQ": 75,
+    "22.0 RQ": 76
+  },
+  {
+    "Make": "Citroën",
+    "Model": "C4 WRC",
+    "Year": 2007,
+    "21.3 RQ": 79,
+    "22.0 RQ": 89
+  },
+  {
+    "Make": "Citroën",
+    "Model": "CX 2400 GTi Rally",
+    "Year": 1977,
+    "21.3 RQ": 38,
+    "22.0 RQ": 40
+  },
+  {
+    "Make": "Citroën",
+    "Model": "DS4 Racing",
+    "Year": 2012,
+    "21.3 RQ": 53,
+    "22.0 RQ": 51
+  },
+  {
+    "Make": "Citroën",
+    "Model": "Oli",
+    "Year": 2022,
+    "21.3 RQ": 42,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Volvo",
+    "Model": "345 2.0",
+    "Year": 1981,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Volvo",
+    "Model": "740 GL Saloon",
+    "Year": 1985,
+    "21.3 RQ": 20,
+    "22.0 RQ": 21
+  },
+  {
+    "Make": "Volvo",
+    "Model": "760 2.4D Estate",
+    "Year": 1985,
+    "21.3 RQ": 18,
+    "22.0 RQ": 19
+  },
+  {
+    "Make": "Volvo",
+    "Model": "440 Turbo",
+    "Year": 1988,
+    "21.3 RQ": 29,
+    "22.0 RQ": 28
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V40 2.0T",
+    "Year": 1996,
+    "21.3 RQ": 35,
+    "22.0 RQ": 34
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S40 T4",
+    "Year": 1998,
+    "21.3 RQ": 44,
+    "22.0 RQ": 43
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V40 T5 Cross Country",
+    "Year": 2016,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 2.4T AWD",
+    "Year": 1996,
+    "21.3 RQ": 48,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 XC 2.5T AWD",
+    "Year": 1998,
+    "21.3 RQ": 46,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 XC 2.4T AWD",
+    "Year": 2001,
+    "21.3 RQ": 46,
+    "22.0 RQ": 47
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC70 D5 AWD",
+    "Year": 2006,
+    "21.3 RQ": 45,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC70 T6 AWD",
+    "Year": 2008,
+    "21.3 RQ": 56,
+    "22.0 RQ": 57
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V70 Plug-in Hybrid",
+    "Year": 2009,
+    "21.3 RQ": 47,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S60 T6",
+    "Year": 2013,
+    "21.3 RQ": 45,
+    "22.0 RQ": 44
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S60 T6 AWD",
+    "Year": 2019,
+    "21.3 RQ": 65,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V60 Cross Country T5 AWD",
+    "Year": 2019,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Volvo",
+    "Model": "P1800S",
+    "Year": 1966,
+    "21.3 RQ": 17,
+    "22.0 RQ": 18
+  },
+  {
+    "Make": "Volvo",
+    "Model": "S90 T6 AWD",
+    "Year": 2017,
+    "21.3 RQ": 60,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V90 Cross Country Ocean Race T6 AWD",
+    "Year": 2017,
+    "21.3 RQ": 66,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Volvo",
+    "Model": "V90 Cross Country D5 AWD",
+    "Year": 2017,
+    "21.3 RQ": 58,
+    "22.0 RQ": 59
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC40 P8 AWD Recharge",
+    "Year": 2022,
+    "21.3 RQ": 70,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC40 Recharge",
+    "Year": 2023,
+    "21.3 RQ": 40,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Volvo",
+    "Model": "C40 Recharge Twin",
+    "Year": 2023,
+    "21.3 RQ": 70,
+    "22.0 RQ": 71
+  },
+  {
+    "Make": "Volvo",
+    "Model": "C40 Recharge",
+    "Year": 2023,
+    "21.3 RQ": 39,
+    "22.0 RQ": 41
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC60 T6 AWD",
+    "Year": 2014,
+    "21.3 RQ": 63,
+    "22.0 RQ": 64
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC60 T6 Recharge",
+    "Year": 2022,
+    "21.3 RQ": 68,
+    "22.0 RQ": 67
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC90 T6 AWD",
+    "Year": 2004,
+    "21.3 RQ": 44,
+    "22.0 RQ": 46
+  },
+  {
+    "Make": "Volvo",
+    "Model": "XC70 AT",
+    "Year": 2005,
+    "21.3 RQ": 73,
+    "22.0 RQ": 72
+  },
+  {
+    "Make": "Volvo",
+    "Model": "EX30 Twin Motor Performance",
+    "Year": 2023,
+    "21.3 RQ": 81,
+    "22.0 RQ": 84
+  },
+  {
+    "Make": "Volvo",
+    "Model": "EX30 Single Motor",
+    "Year": 2023,
+    "21.3 RQ": 61,
+    "22.0 RQ": 63
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven evo Edition",
+    "Year": 2023,
+    "21.3 RQ": 69,
+    "22.0 RQ": 70
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Super Seven 600",
+    "Year": 2022,
+    "21.3 RQ": 47,
+    "22.0 RQ": 48
+  },
+  {
+    "Make": "Caterham",
+    "Model": "Seven 420 Cup",
+    "Year": 2022,
+    "21.3 RQ": 74,
+    "22.0 RQ": 77
+  },
+  {
+    "Make": "Koenigsegg",
+    "Model": "Gemera HV8",
+    "Year": 2023,
+    "21.3 RQ": 103,
+    "22.0 RQ": 104
+  },
+  {
+    "Make": "Ariel",
+    "Model": "Atom 4R",
+    "Year": 2023,
+    "21.3 RQ": 90,
+    "22.0 RQ": 91
+  }
+]
