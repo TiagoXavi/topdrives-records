@@ -919,9 +919,9 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
-      this.searchFilters.onlyAnyChangeModel = [true];
+      this.searchFilters.onlyAnyChangeModel = [];
       this.searchFilters.onlyNewRarityModel = [];
-      this.searchFilters.onlyNewPerformanceModel = [];
+      this.searchFilters.onlyNewPerformanceModel = [true];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];

@@ -433,7 +433,7 @@
     },
     {
         "class": "S",
-        "rq": 104,
+        "rq": 103,
         "onlyName": "Genesis PM580",
         "brand": "Hyundai",
         "year": 2010,
@@ -3994,7 +3994,7 @@
     },
     {
         "class": "S",
-        "rq": 94,
+        "rq": 93,
         "onlyName": "Vulcan",
         "brand": "Aston Martin",
         "country": "GB",
@@ -4349,7 +4349,7 @@
     },
     {
         "class": "S",
-        "rq": 94,
+        "rq": 93,
         "onlyName": "RX-Vision GT3",
         "brand": "Mazda",
         "year": 2020,
@@ -4681,7 +4681,7 @@
         "onlyName": "SR8 RX",
         "prize": false,
         "rid": "Radical_SR8_RX_2011",
-        "rq": 94,
+        "rq": 93,
         "seats": "2",
         "tags": [
             "European New Wave",
@@ -5014,7 +5014,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 92,
         "onlyName": "BT62 R",
         "brand": "Brabham",
         "year": 2020,
@@ -5050,7 +5050,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 92,
         "onlyName": "G55 GT3",
         "brand": "Ginetta",
         "year": 2012,
@@ -5156,7 +5156,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 92,
         "onlyName": "LC1 Spider",
         "brand": "Lancia",
         "year": 1982,
@@ -5192,7 +5192,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 92,
         "onlyName": "F1 GTR Short Tail",
         "brand": "McLaren",
         "country": "GB",
@@ -5365,7 +5365,7 @@
     },
     {
         "class": "S",
-        "rq": 93,
+        "rq": 92,
         "onlyName": "Turbo Florio",
         "brand": "RUF",
         "country": "DE",
@@ -5607,7 +5607,7 @@
     },
     {
         "class": "S",
-        "rq": 92,
+        "rq": 91,
         "onlyName": "Durango SRT Hellcat",
         "brand": "Dodge",
         "year": 2021,
@@ -5746,7 +5746,7 @@
     },
     {
         "class": "S",
-        "rq": 92,
+        "rq": 91,
         "onlyName": "CCGT",
         "brand": "Koenigsegg",
         "year": 2007,
@@ -6200,7 +6200,7 @@
     },
     {
         "class": "S",
-        "rq": 92,
+        "rq": 91,
         "onlyName": "936",
         "brand": "Porsche",
         "year": 1976,
@@ -6444,7 +6444,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Hunaudières",
         "brand": "Bentley",
         "country": "GB",
@@ -6656,7 +6656,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Murcielago LP670-4 SuperVeloce",
         "brand": "Lamborghini",
         "country": "IT",
@@ -6692,7 +6692,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Reventon",
         "brand": "Lamborghini",
         "country": "IT",
@@ -6728,7 +6728,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "650S GT3",
         "brand": "McLaren",
         "country": "GB",
@@ -6796,7 +6796,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "720S Coupe",
         "brand": "McLaren",
         "country": "GB",
@@ -6900,7 +6900,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Juke-R",
         "brand": "Nissan",
         "country": "JP",
@@ -6936,7 +6936,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Zonda 760RS",
         "brand": "Pagani",
         "country": "IT",
@@ -7009,7 +7009,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "911 GT3 Cup (992)",
         "brand": "Porsche",
         "year": 2021,
@@ -7143,7 +7143,7 @@
     },
     {
         "class": "S",
-        "rq": 91,
+        "rq": 90,
         "onlyName": "Beast X",
         "brand": "Rezvani",
         "year": 2017,
@@ -7625,7 +7625,7 @@
     },
     {
         "class": "S",
-        "rq": 90,
+        "rq": 89,
         "onlyName": "12C GT3",
         "brand": "McLaren",
         "country": "GB",
@@ -7770,7 +7770,7 @@
     },
     {
         "class": "S",
-        "rq": 90,
+        "rq": 89,
         "onlyName": "Nismo Z GT500",
         "brand": "Nissan",
         "country": "JP",
@@ -7805,7 +7805,7 @@
     },
     {
         "class": "S",
-        "rq": 90,
+        "rq": 89,
         "onlyName": "Huayra Roadster",
         "brand": "Pagani",
         "country": "IT",
@@ -7911,7 +7911,7 @@
     },
     {
         "class": "S",
-        "rq": 90,
+        "rq": 89,
         "onlyName": "Panamera Turbo",
         "brand": "Porsche",
         "country": "DE",
@@ -7963,7 +7963,7 @@
         "onlyName": "SR3 RS",
         "prize": false,
         "rid": "Radical_SR3_RS_2009",
-        "rq": 90,
+        "rq": 89,
         "seats": "2",
         "tags": [
             "European New Wave",
@@ -8014,7 +8014,7 @@
     },
     {
         "class": "S",
-        "rq": 90,
+        "rq": 89,
         "onlyName": "R Turbo",
         "brand": "RUF",
         "country": "DE",
@@ -8117,7 +8117,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "R8 LMX",
         "brand": "Audi",
         "year": 2014,
@@ -8254,7 +8254,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "Agera",
         "brand": "Koenigsegg",
         "country": "SE",
@@ -8290,7 +8290,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "CCXR Edition",
         "brand": "Koenigsegg",
         "country": "SE",
@@ -8363,7 +8363,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "Gallardo Superleggera (1st gen)",
         "brand": "Lamborghini",
         "country": "IT",
@@ -8398,7 +8398,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "600LT Coupe",
         "brand": "McLaren",
         "country": "GB",
@@ -8537,7 +8537,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "Cayenne Turbo (958.2)",
         "brand": "Porsche",
         "country": "DE",
@@ -8605,7 +8605,7 @@
     },
     {
         "class": "S",
-        "rq": 89,
+        "rq": 88,
         "onlyName": "Cerbera Speed 12",
         "brand": "TVR",
         "country": "GB",
@@ -9372,7 +9372,7 @@
     },
     {
         "class": "S",
-        "rq": 88,
+        "rq": 87,
         "onlyName": "Lancer Evolution X FQ-400",
         "brand": "Mitsubishi",
         "year": 2011,
@@ -9441,7 +9441,7 @@
     },
     {
         "class": "S",
-        "rq": 88,
+        "rq": 87,
         "onlyName": "Zonda HP Barchetta",
         "brand": "Pagani",
         "year": 2017,
@@ -9547,7 +9547,7 @@
     },
     {
         "class": "S",
-        "rq": 88,
+        "rq": 87,
         "onlyName": "Beast",
         "brand": "Rezvani",
         "year": 2015,
@@ -9617,7 +9617,7 @@
     },
     {
         "class": "S",
-        "rq": 88,
+        "rq": 87,
         "onlyName": "Fenyr SuperSport",
         "brand": "W Motors",
         "year": 2017,
@@ -9670,7 +9670,7 @@
         "onlyName": "TSR",
         "prize": false,
         "rid": "Zenvo_TSR_2018",
-        "rq": 88,
+        "rq": 87,
         "seats": "1",
         "tags": [
             "European New Wave",
@@ -9789,7 +9789,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Continental GT Pikes Peak",
         "brand": "Bentley",
         "country": "GB",
@@ -9826,7 +9826,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "M3 GTR",
         "brand": "BMW",
         "country": "DE",
@@ -9861,7 +9861,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "M850i xDrive",
         "brand": "BMW",
         "country": "DE",
@@ -9894,7 +9894,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Corvette ZR1",
         "brand": "Chevrolet",
         "country": "US",
@@ -9929,7 +9929,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "ME Four-Twelve",
         "brand": "Chrysler",
         "country": "US",
@@ -10000,7 +10000,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "F-Type SVR Coupe",
         "brand": "Jaguar",
         "country": "GB",
@@ -10033,7 +10033,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "CCXR",
         "brand": "Koenigsegg",
         "country": "SE",
@@ -10069,7 +10069,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Montecarlo Turbo",
         "brand": "Lancia",
         "country": "IT",
@@ -10104,7 +10104,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "3-Eleven 430",
         "brand": "Lotus",
         "country": "GB",
@@ -10138,7 +10138,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Evora GX",
         "brand": "Lotus",
         "year": 2012,
@@ -10243,7 +10243,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "GT-R (R35)",
         "brand": "Nissan",
         "country": "JP",
@@ -10313,7 +10313,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Cayenne Turbo S 4.8 (958)",
         "brand": "Porsche",
         "year": 2012,
@@ -10413,7 +10413,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "CTR 2",
         "brand": "RUF",
         "country": "DE",
@@ -10446,7 +10446,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Turbo R",
         "brand": "RUF",
         "country": "DE",
@@ -10479,7 +10479,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "S7 Twin Turbo",
         "brand": "Saleen",
         "year": 2005,
@@ -10581,7 +10581,7 @@
     },
     {
         "class": "S",
-        "rq": 87,
+        "rq": 86,
         "onlyName": "Lykan HyperSport",
         "brand": "W Motors",
         "year": 2014,
@@ -10720,7 +10720,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "TZ3 Corsa",
         "brand": "Alfa Romeo",
         "year": 2010,
@@ -10891,7 +10891,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "X6 M",
         "brand": "BMW",
         "country": "DE",
@@ -10962,7 +10962,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "Gallardo LP570-4 Spyder Performante (2nd gen)",
         "brand": "Lamborghini",
         "country": "IT",
@@ -11033,7 +11033,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "GT",
         "brand": "McLaren",
         "country": "GB",
@@ -11066,7 +11066,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "Silvia Super Silhouette (S110)",
         "brand": "Nissan",
         "country": "JP",
@@ -11243,7 +11243,7 @@
     },
     {
         "class": "S",
-        "rq": 86,
+        "rq": 85,
         "onlyName": "Evolution Convertible",
         "brand": "Ultima",
         "year": 2015,
@@ -11382,7 +11382,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "Continental GT3-R",
         "brand": "Bentley",
         "country": "GB",
@@ -11450,7 +11450,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "RN22e",
         "brand": "Hyundai",
         "year": 2022,
@@ -11624,7 +11624,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "Skyline GT-R Group A (R32)",
         "brand": "Nissan",
         "country": "JP",
@@ -11729,7 +11729,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "911 Carrera 4 3.0 (992)",
         "brand": "Porsche",
         "year": 2019,
@@ -11762,7 +11762,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "Panamera 4S E-Hybrid Sport Turismo (971.2)",
         "brand": "Porsche",
         "year": 2021,
@@ -11795,7 +11795,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "Panamera Turbo",
         "brand": "Porsche",
         "country": "DE",
@@ -11863,7 +11863,7 @@
     },
     {
         "class": "S",
-        "rq": 85,
+        "rq": 84,
         "onlyName": "Rt 35",
         "brand": "RUF",
         "country": "DE",
@@ -11949,7 +11949,7 @@
         "onlyName": "ST1",
         "prize": false,
         "rid": "Zenvo_ST1_2010",
-        "rq": 85,
+        "rq": 84,
         "seats": "2",
         "tags": [
             "European New Wave",
@@ -12118,7 +12118,7 @@
         "hand": 78,
         "drive": "RWD",
         "tyres": "Standard",
-        "mra": 105.57,
+        "mra": 120.23,
         "weight": 2270,
         "name": "Cadillac Sixteen",
         "rid": "Cadillac_Sixteen_2003",
@@ -12138,7 +12138,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "Viper ACR",
         "brand": "Dodge",
         "country": "US",
@@ -12172,7 +12172,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "CCR",
         "brand": "Koenigsegg",
         "country": "SE",
@@ -12207,7 +12207,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "CCX",
         "brand": "Koenigsegg",
         "country": "SE",
@@ -12242,7 +12242,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "Murcielago",
         "brand": "Lamborghini",
         "country": "IT",
@@ -12312,7 +12312,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "570S Coupe",
         "brand": "McLaren",
         "country": "GB",
@@ -12346,7 +12346,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "F1",
         "brand": "McLaren",
         "country": "GB",
@@ -12593,7 +12593,7 @@
     },
     {
         "class": "S",
-        "rq": 84,
+        "rq": 83,
         "onlyName": "911 Targa 4S",
         "brand": "Porsche",
         "country": "DE",
@@ -12797,7 +12797,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "DN-X",
         "brand": "Acura",
         "country": "US",
@@ -12832,7 +12832,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "Scighera",
         "brand": "Alfa Romeo",
         "country": "IT",
@@ -12938,7 +12938,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "Viper TA",
         "brand": "Dodge",
         "country": "US",
@@ -13324,7 +13324,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "911 GT2 RS",
         "brand": "Porsche",
         "country": "DE",
@@ -13360,7 +13360,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "911 GT3 RS",
         "brand": "Porsche",
         "country": "DE",
@@ -13395,7 +13395,7 @@
     },
     {
         "class": "S",
-        "rq": 83,
+        "rq": 82,
         "onlyName": "Carrera GT",
         "brand": "Porsche",
         "country": "DE",
@@ -13503,7 +13503,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "RS6 Avant Performance (C7)",
         "brand": "Audi",
         "year": 2013,
@@ -13811,7 +13811,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "Superlight R500",
         "brand": "Caterham",
         "country": "GB",
@@ -13919,7 +13919,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "Diablo VT 6.0 SE",
         "brand": "Lamborghini",
         "country": "IT",
@@ -13955,7 +13955,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "Murcielago Roadster",
         "brand": "Lamborghini",
         "country": "IT",
@@ -13991,7 +13991,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "717C",
         "brand": "Mazda",
         "year": 1983,
@@ -14270,7 +14270,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "S5S Raptor",
         "brand": "Saleen",
         "year": 2008,
@@ -14305,7 +14305,7 @@
     },
     {
         "class": "S",
-        "rq": 82,
+        "rq": 81,
         "onlyName": "S7",
         "brand": "Saleen",
         "year": 2000,
@@ -14615,7 +14615,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "V8 quattro DTM (4C)",
         "brand": "Audi",
         "year": 1992,
@@ -14760,7 +14760,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "Viper SRT-10 ACR",
         "brand": "Dodge",
         "country": "US",
@@ -14896,7 +14896,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "Huracán LP580-2",
         "brand": "Lamborghini",
         "country": "IT",
@@ -14930,7 +14930,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "New Stratos",
         "brand": "Lancia",
         "country": "IT",
@@ -14965,7 +14965,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "RX-Vision",
         "brand": "Mazda",
         "year": 2015,
@@ -15035,7 +15035,7 @@
     },
     {
         "class": "S",
-        "rq": 81,
+        "rq": 80,
         "onlyName": "Aero 8 GT3",
         "brand": "Morgan",
         "year": 2007,
@@ -18421,7 +18421,7 @@
     },
     {
         "class": "A",
-        "rq": 78,
+        "rq": 77,
         "onlyName": "R8 RWD",
         "brand": "Audi",
         "year": 2020,
@@ -21283,7 +21283,7 @@
     },
     {
         "class": "A",
-        "rq": 76,
+        "rq": 75,
         "onlyName": "Challenger SRT Hellcat Redeye Widebody",
         "brand": "Dodge",
         "year": 2019,
@@ -30837,7 +30837,7 @@
     },
     {
         "class": "A",
-        "rq": 69,
+        "rq": 70,
         "onlyName": "XJR 575",
         "brand": "Jaguar",
         "country": "GB",
@@ -31046,7 +31046,7 @@
     },
     {
         "class": "A",
-        "rq": 69,
+        "rq": 70,
         "onlyName": "AMG C 63",
         "brand": "Mercedes-Benz",
         "country": "DE",
@@ -39585,7 +39585,7 @@
     },
     {
         "class": "B",
-        "rq": 64,
+        "rq": 63,
         "onlyName": "AMG S 65",
         "brand": "Mercedes-Benz",
         "country": "DE",
@@ -40905,7 +40905,7 @@
     },
     {
         "class": "B",
-        "rq": 63,
+        "rq": 64,
         "onlyName": "AMG C 63",
         "brand": "Mercedes-Benz",
         "country": "DE",
@@ -41351,7 +41351,7 @@
     },
     {
         "class": "B",
-        "rq": 63,
+        "rq": 64,
         "onlyName": "Maloo R8 LSA",
         "brand": "Vauxhall",
         "country": "AU",
@@ -41800,7 +41800,7 @@
     },
     {
         "class": "B",
-        "rq": 62,
+        "rq": 63,
         "onlyName": "M240i Convertible",
         "brand": "BMW",
         "country": "DE",
@@ -42180,7 +42180,7 @@
     },
     {
         "class": "B",
-        "rq": 62,
+        "rq": 63,
         "onlyName": "XKR",
         "brand": "Jaguar",
         "country": "GB",
@@ -42321,7 +42321,7 @@
     },
     {
         "class": "B",
-        "rq": 62,
+        "rq": 63,
         "onlyName": "Elise SC",
         "brand": "Lotus",
         "year": 2008,
@@ -42946,7 +42946,7 @@
     },
     {
         "class": "B",
-        "rq": 62,
+        "rq": 63,
         "onlyName": "Tuscan",
         "brand": "TVR",
         "year": 1999,
@@ -43528,7 +43528,7 @@
     },
     {
         "class": "B",
-        "rq": 61,
+        "rq": 62,
         "onlyName": "Virage",
         "brand": "Aston Martin",
         "country": "GB",
@@ -43770,7 +43770,7 @@
     },
     {
         "class": "B",
-        "rq": 61,
+        "rq": 62,
         "onlyName": "Falcon XR8 Sprint",
         "brand": "Ford",
         "year": 2016,
@@ -43806,7 +43806,7 @@
     },
     {
         "class": "B",
-        "rq": 61,
+        "rq": 62,
         "onlyName": "Focus RS500",
         "brand": "Ford",
         "country": "GB",
@@ -43982,7 +43982,7 @@
     },
     {
         "class": "B",
-        "rq": 61,
+        "rq": 62,
         "onlyName": "XFR-S Sportbrake",
         "brand": "Jaguar",
         "country": "GB",
@@ -45254,7 +45254,7 @@
     },
     {
         "class": "B",
-        "rq": 60,
+        "rq": 61,
         "onlyName": "Guara",
         "brand": "De Tomaso",
         "country": "IT",
@@ -45325,7 +45325,7 @@
     },
     {
         "class": "B",
-        "rq": 60,
+        "rq": 61,
         "onlyName": "Commodore SS-V Redline",
         "brand": "Holden",
         "year": 2015,
@@ -46494,7 +46494,7 @@
     },
     {
         "class": "B",
-        "rq": 59,
+        "rq": 60,
         "onlyName": "CTS-V",
         "brand": "Cadillac",
         "country": "US",
@@ -47965,7 +47965,7 @@
     },
     {
         "class": "B",
-        "rq": 58,
+        "rq": 59,
         "onlyName": "STS-V",
         "brand": "Cadillac",
         "country": "US",
@@ -64691,7 +64691,7 @@
     },
     {
         "class": "C",
-        "rq": 48,
+        "rq": 49,
         "onlyName": "Arnage Final Series",
         "brand": "Bentley",
         "country": "GB",
@@ -64727,7 +64727,7 @@
     },
     {
         "class": "C",
-        "rq": 48,
+        "rq": 49,
         "onlyName": "Arnage T",
         "brand": "Bentley",
         "country": "GB",
@@ -67656,7 +67656,7 @@
     },
     {
         "class": "C",
-        "rq": 47,
+        "rq": 48,
         "onlyName": "HSV GTS (V2)",
         "brand": "Holden",
         "year": 2003,
@@ -77933,7 +77933,7 @@
     },
     {
         "class": "C",
-        "rq": 43,
+        "rq": 44,
         "onlyName": "850 R",
         "brand": "Volvo",
         "country": "SE",
@@ -87480,7 +87480,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "S8",
         "brand": "Donkervoort",
         "country": "NL",
@@ -87966,7 +87966,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "HDT Commodore SS Group A (VK)",
         "brand": "Holden",
         "year": 1985,
@@ -88001,7 +88001,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "HSV Clubsport (VS)",
         "brand": "Holden",
         "year": 1995,
@@ -88311,7 +88311,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "Ghibli Diesel",
         "brand": "Maserati",
         "country": "IT",
@@ -88619,7 +88619,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "Magna VR-X (TL)",
         "brand": "Mitsubishi",
         "year": 2003,
@@ -88722,7 +88722,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "200SX",
         "brand": "Nissan",
         "country": "JP",
@@ -88857,7 +88857,7 @@
     },
     {
         "class": "D",
-        "rq": 38,
+        "rq": 39,
         "onlyName": "928 S",
         "brand": "Porsche",
         "country": "DE",
@@ -89821,7 +89821,7 @@
     },
     {
         "class": "D",
-        "rq": 37,
+        "rq": 38,
         "onlyName": "Arnage",
         "brand": "Bentley",
         "country": "GB",
@@ -90299,7 +90299,7 @@
     },
     {
         "class": "D",
-        "rq": 37,
+        "rq": 38,
         "onlyName": "Ranchero",
         "brand": "Ford",
         "country": "US",
@@ -91260,7 +91260,7 @@
     },
     {
         "class": "D",
-        "rq": 36,
+        "rq": 37,
         "onlyName": "RZ",
         "brand": "Alfa Romeo",
         "year": 1992,
@@ -91362,7 +91362,7 @@
     },
     {
         "class": "D",
-        "rq": 36,
+        "rq": 37,
         "onlyName": "A3 Saloon 1.8 TFSI (8V)",
         "brand": "Audi",
         "year": 2013,
@@ -91647,7 +91647,7 @@
         "onlyName": "Visa Lotus",
         "prize": false,
         "rid": "Citroen_Visa_Lotus_1982",
-        "rq": 36,
+        "rq": 37,
         "seats": "2",
         "tags": [
             "European New Wave",
@@ -94007,7 +94007,7 @@
     },
     {
         "class": "D",
-        "rq": 35,
+        "rq": 36,
         "onlyName": "HSV Senator 215i (VS)",
         "brand": "Holden",
         "year": 1995,
@@ -95516,7 +95516,7 @@
     },
     {
         "class": "D",
-        "rq": 34,
+        "rq": 35,
         "onlyName": "21",
         "brand": "Caterham",
         "country": "GB",
@@ -97312,7 +97312,7 @@
     },
     {
         "class": "D",
-        "rq": 33,
+        "rq": 34,
         "onlyName": "Corvette ZR1",
         "brand": "Chevrolet",
         "country": "US",
@@ -97499,7 +97499,7 @@
         "onlyName": "SM Michelin 'Breadvan'",
         "prize": false,
         "rid": "Citroen_SM_Michelin_Breadvan_1972",
-        "rq": 33,
+        "rq": 36,
         "seats": "2",
         "tags": [
             "European New Wave",
@@ -105514,7 +105514,7 @@
     },
     {
         "class": "D",
-        "rq": 30,
+        "rq": 31,
         "onlyName": "Capri RS",
         "brand": "Mercury",
         "year": 1984,
@@ -109124,7 +109124,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Fiesta RS1800",
         "brand": "Ford",
         "year": 1992,
@@ -109192,7 +109192,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Mustang Mach 2",
         "brand": "Ford",
         "year": 1967,
@@ -109534,7 +109534,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Lantis Type R",
         "brand": "Mazda",
         "year": 1993,
@@ -110259,7 +110259,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Golf GTI G60",
         "brand": "Volkswagen",
         "country": "DE",
@@ -110293,7 +110293,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Polo GTI",
         "brand": "Volkswagen",
         "country": "DE",
@@ -110432,7 +110432,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "V8 Volante",
         "brand": "Aston Martin",
         "country": "GB",
@@ -110736,7 +110736,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Challenger T/A",
         "brand": "Dodge",
         "country": "US",
@@ -110770,7 +110770,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Coronet Super Bee",
         "brand": "Dodge",
         "country": "US",
@@ -110807,7 +110807,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Dakota R/T",
         "brand": "Dodge",
         "country": "US",
@@ -112658,7 +112658,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Corrado 16v G60",
         "brand": "Volkswagen",
         "country": "DE",
@@ -113623,7 +113623,7 @@
     },
     {
         "class": "E",
-        "rq": 26,
+        "rq": 27,
         "onlyName": "Atenza Mazdaspeed",
         "brand": "Mazda",
         "year": 2008,
@@ -114346,7 +114346,7 @@
     },
     {
         "class": "E",
-        "rq": 26,
+        "rq": 27,
         "onlyName": "Scirocco GTI",
         "brand": "Volkswagen",
         "country": "DE",
@@ -114892,7 +114892,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "CX GTi Turbo",
         "brand": "Citroen",
         "country": "FR",
@@ -115681,7 +115681,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "106 Rallye (S1)",
         "brand": "Peugeot",
         "country": "FR",
@@ -117077,7 +117077,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Beta Montecarlo",
         "brand": "Lancia",
         "country": "IT",
@@ -118310,7 +118310,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Disco Volante (C52)",
         "brand": "Alfa Romeo",
         "country": "IT",
@@ -121049,7 +121049,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Mustang M81",
         "brand": "Ford",
         "year": 1981,
@@ -121297,7 +121297,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Kabura",
         "brand": "Mazda",
         "year": 2006,
@@ -122297,7 +122297,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "300H",
         "brand": "Chrysler",
         "country": "US",
@@ -128454,7 +128454,7 @@
     },
     {
         "class": "F",
-        "rq": 18,
+        "rq": 19,
         "onlyName": "Punto Sporting",
         "brand": "Fiat",
         "year": 1995,
@@ -131771,7 +131771,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Monte Carlo SS",
         "brand": "Chevrolet",
         "country": "US",
@@ -132081,7 +132081,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Autobianchi A112 Abarth",
         "brand": "Fiat",
         "year": 1982,
@@ -132183,7 +132183,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Mustang II King Cobra",
         "brand": "Ford",
         "country": "US",
@@ -132461,7 +132461,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "2000 HF Coupe",
         "brand": "Lancia",
         "country": "IT",
@@ -132843,7 +132843,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Barracuda Formula S",
         "brand": "Plymouth",
         "year": 1966,
@@ -135328,7 +135328,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "Cappuccino (EA11R)",
         "brand": "Suzuki",
         "country": "JP",
@@ -135395,7 +135395,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "Vixen S2",
         "brand": "TVR",
         "country": "GB",
@@ -135706,7 +135706,7 @@
     },
     {
         "class": "F",
-        "rq": 14,
+        "rq": 15,
         "onlyName": "2600 SZ",
         "brand": "Alfa Romeo",
         "country": "IT",
@@ -138630,7 +138630,7 @@
     },
     {
         "class": "F",
-        "rq": 12,
+        "rq": 13,
         "onlyName": "Aceca-Bristol",
         "brand": "AC",
         "year": 1957,
@@ -139009,7 +139009,7 @@
     },
     {
         "class": "F",
-        "rq": 12,
+        "rq": 13,
         "onlyName": "Fulvia Coupe",
         "brand": "Lancia",
         "country": "IT",
@@ -139740,7 +139740,7 @@
     },
     {
         "class": "F",
-        "rq": 11,
+        "rq": 12,
         "onlyName": "Flaminia Sport Zagato",
         "brand": "Lancia",
         "country": "IT",
@@ -140802,7 +140802,7 @@
     },
     {
         "class": "F",
-        "rq": 10,
+        "rq": 11,
         "onlyName": "Kei Works",
         "brand": "Suzuki",
         "country": "JP",
