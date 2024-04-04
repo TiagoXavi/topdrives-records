@@ -4932,6 +4932,12 @@ export default {
           })
         }
       })
+      if (this.carDetailsList.length > 0) {
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        })
+      }
     },
     saveAll(saveBankAfter = false) {
       this.saveLoading = true;
