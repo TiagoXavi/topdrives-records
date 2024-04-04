@@ -2596,10 +2596,10 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #3</div>
-          <div class="Main_AnnouncementSubTitle">European New Wave</div>
-          <div class="Main_AnnouncementBody">Prizes: TDR premium, medals, gold in game</div>
-          <div class="Main_AnnouncementMaybe">20th november - 3rd december</div>
+          <div class="Main_AnnouncementTitle">Contest #4</div>
+          <div class="Main_AnnouncementSubTitle">American Overdrive</div>
+          <div class="Main_AnnouncementBody">Prizes: free TDR premium, medals</div>
+          <div class="Main_AnnouncementMaybe">3rd april - 21th april</div>
 
           <BaseDiscordButton style="margin-top: 20px;" />
         </div>
@@ -8419,15 +8419,14 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      if (window.localStorage.getItem("contest3")) return;
+      if (window.localStorage.getItem("contest4")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('contest3', "t");
+      window.localStorage.setItem('contest4', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);

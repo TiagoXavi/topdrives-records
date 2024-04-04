@@ -23300,7 +23300,7 @@
         "tags": [
             "Loch to Loch",
             "Motorsport",
-            "Orange"
+            "Green"
         ],
         "bodyTypes": [
             "Coupe"
@@ -51354,7 +51354,7 @@
             "Rest of the World",
             "Old Guard",
             "Originals",
-            "Silver/Grey"
+            "Red"
         ],
         "bodyTypes": [
             "SUV"
@@ -55215,7 +55215,7 @@
             "Silver Screen",
             "Old Guard",
             "Originals",
-            "Silver/Grey"
+            "Red"
         ],
         "bodyTypes": [
             "Saloon"
@@ -58213,7 +58213,7 @@
         "rid": "Cadillac_CTS_Sport_Wagon_2014",
         "tags": [
             "Originals",
-            "Red"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Estate"
@@ -69502,7 +69502,7 @@
         "onlyName": "DS3 Cabrio Racing",
         "prize": false,
         "rid": "Citroen_DS3_Cabrio_Racing_2014",
-        "rq": 46,
+        "rq": 47,
         "seats": "4",
         "tags": [
             "European New Wave",
@@ -82894,7 +82894,7 @@
         "tags": [
             "Muscle Car",
             "Originals",
-            "Brown"
+            "Silver/Grey"
         ],
         "bodyTypes": [
             "Pickup"
@@ -85743,7 +85743,7 @@
             "Old Guard",
             "Originals",
             "Racing Royalty",
-            "Red"
+            "Gold"
         ],
         "bodyTypes": [
             "Coupe"
@@ -133991,7 +133991,7 @@
         "clearance": "Mid",
         "topSpeed": 112,
         "acel": 11,
-        "hand": 70,
+        "hand": 64,
         "drive": "FWD",
         "tyres": "Standard",
         "mra": 57.22,
