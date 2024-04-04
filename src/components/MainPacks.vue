@@ -354,6 +354,7 @@ export default {
   },
   data() {
     return {
+      lastestLoading: false,
       packModel: null,
       packTypes: [
         {
@@ -714,6 +715,13 @@ export default {
         })
       })
     }
+
+    // check new cars
+    let found = this.all_cars.find(x => x.tags && x.tags.includes("American Overdrive"));
+    if (!found) {
+      this.getLastest();
+    }
+
     
   },
   mounted() {
@@ -826,6 +834,46 @@ export default {
     }
   },
   methods: {
+    getLastest() {
+      let vm = this;
+      this.lastestLoading = true;
+      
+
+      // lastest cars
+      axios.get(Vue.preUrl + "/lastest")
+      .then(res => {
+        this.lastestLoading = false;
+
+        let incomingCars = res.data.find(x => x.id === 'newCars').value;
+        if (incomingCars && incomingCars.length > 0) {
+          let rids = this.all_cars.map(x => x.rid);
+
+          incomingCars.map(car => {
+            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
+              if (!rids.includes(car.rid)) {
+                this.all_cars.push(car);
+              }
+            }
+          })
+
+          // this.all_cars = this.all_cars.filter((value, index, self) =>
+          //   index === self.findIndex((t) => (
+          //     t.rid === value.rid
+          //   ))
+          // )
+          this.all_cars.sort((a,b) => {
+            return b.rq - a.rq;
+          })
+        }
+
+
+      })
+      .catch(error => {
+        this.lastestLoading = false;
+        console.log(error);
+      });
+
+    },
     openChartOfDialog() {
       this.filterDialog = true;
     },
@@ -910,6 +958,10 @@ export default {
           this.running = false;
           return;
         }
+
+        
+        // console.log(this.simulateRunStats.availableCarsAndAttrFree.filter(x => x.name.includes("Drako")));
+        console.log(this.simulateRunStats.availableCarsAndAttr.S.length);
 
         Object.keys(this.simulateRunStats.availableCarsAndAttrFree).map(key => {
           this.simulateRunStats.availableCarsAndAttrFree[key].map(car => {
@@ -1068,6 +1120,8 @@ export default {
         })
       })
       classes = [...new Set(classes)];
+
+      console.log(this.all_cars.length);
 
       Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
         if (!classes.includes(key)) return;

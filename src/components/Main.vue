@@ -4821,17 +4821,21 @@ export default {
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {
+          let rids = this.all_cars.map(x => x.rid);
+
           incomingCars.map(car => {
             if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
-              this.all_cars.push(car);
+              if (!rids.includes(car.rid)) {
+                this.all_cars.push(car);
+              }
             }
           })
 
-          this.all_cars = this.all_cars.filter((value, index, self) =>
-            index === self.findIndex((t) => (
-              t.rid === value.rid
-            ))
-          )
+          // this.all_cars = this.all_cars.filter((value, index, self) =>
+          //   index === self.findIndex((t) => (
+          //     t.rid === value.rid
+          //   ))
+          // )
           this.all_cars.sort((a,b) => {
             return b.rq - a.rq;
           })
