@@ -9,7 +9,7 @@
               id="SearchInput"
               :placeholder="$t('m_search')"
               class="D_SearchInput"
-              type="text"
+              type="search"
               @focus="searchFocus = true;"
               @blur="searchBlur()"
               @input="searchInputFunc($event)">
@@ -67,9 +67,9 @@
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="true">Clearance changed</BaseChip>
               <BaseChip
-                v-model="searchFilters.onlyNewCarsModel"
+                v-model="searchFilters.onlyRelevantChangesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
-                :value="true">New cars</BaseChip>
+                :value="true">Relevant changes</BaseChip>
             </div>
             <BaseDualSlider
               v-model="searchFilters.rqModel"
@@ -229,6 +229,15 @@
       </div>
     </div>
     <div class="MainGallery_Box">
+      <div class="MainGallery_BoxTitle">
+        <span v-if="this.searchFilters.onlyAnyChangeModel[0]">Any change</span>
+        <span v-if="this.searchFilters.onlyRelevantChangesModel[0]">Revelant Changes</span>
+        <span v-if="this.searchFilters.onlyNewRarityModel[0]">Rarity Changes</span>
+        <span v-if="this.searchFilters.onlyNewPerformanceModel[0]">Performance Changes</span>
+        <span v-if="this.searchFilters.onlyNewTyresModel[0]">Tyre Changes</span>
+        <span v-if="this.searchFilters.onlyNewDriveModel[0]">Drivetrain Changes</span>
+        <span v-if="this.searchFilters.onlyNewClearanceModel[0]">Clerance Changes</span>
+      </div>
       <div
         v-for="(car, ix) in searchResult"
         class="MainGallery_Item">
@@ -442,6 +451,7 @@ export default {
         onlyAnyChangeModel: [],
         onlyNewRarityModel: [],
         onlyNewPerformanceModel: [],
+        onlyRelevantChangesModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
@@ -921,7 +931,8 @@ export default {
       this.searchFilters.classesModel = [];
       this.searchFilters.onlyAnyChangeModel = [];
       this.searchFilters.onlyNewRarityModel = [];
-      this.searchFilters.onlyNewPerformanceModel = [true];
+      this.searchFilters.onlyNewPerformanceModel = [];
+      this.searchFilters.onlyRelevantChangesModel = [true];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
@@ -951,6 +962,7 @@ export default {
         onlyAnyChangeModel: [],
         onlyNewRarityModel: [],
         onlyNewPerformanceModel: [],
+        onlyRelevantChangesModel: [],
         onlyNewTyresModel: [],
         onlyNewDriveModel: [],
         onlyNewClearanceModel: [],
@@ -1079,6 +1091,30 @@ export default {
 
       if ( this.searchFilters.onlyNewClearanceModel.includes(true) ) {
         if ( !oldCar || oldCar.clearance === car.clearance ) {
+          return false;
+        }
+      }
+
+      if ( this.searchFilters.onlyRelevantChangesModel.includes(true) ) {
+        if ( !oldCar ) {
+          return false;
+        }
+        if (
+            oldCar.class === car.class &&
+            oldCar.tyres === car.tyres &&
+            oldCar.drive === car.drive &&
+            oldCar.clearance === car.clearance &&
+            Math.abs(oldCar.rq - car.rq) < 3 &&
+            oldCar.year === car.year &&
+            oldCar.abs === car.abs &&
+            oldCar.tcs === car.tcs &&
+            oldCar.prize === car.prize &&
+            oldCar.topSpeed === car.topSpeed &&
+            oldCar.acel === car.acel &&
+            oldCar.hand === car.hand &&
+            (oldCar.mra === null || oldCar.mra === car.mra) &&
+            oldCar.weight === car.weight
+          ) {
           return false;
         }
       }
@@ -1410,5 +1446,16 @@ export default {
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
+}
+.MainGallery_BoxTitle {
+  margin-top: -24px;
+  margin-bottom: 28px;
+  font-size: 1.4em;
+  opacity: 0.4;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  gap: 30px;
+  justify-content: center;
 }
 </style>

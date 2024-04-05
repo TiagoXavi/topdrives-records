@@ -1,7 +1,8 @@
 <template>
   <div
     :class="{
-      Main_isMobile: isMobile
+      Main_isMobile: isMobile,
+      Main_isDesktop: !isMobile
     }"
     class="App_Layout">
     <BaseTopMenu :user="user" />
@@ -538,6 +539,11 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
   box-shadow: inset 0px 0px 0px 20px #3a320054;
   caret-color: #a78724;
 }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 #App_PrintContainer {
   display: none;
@@ -610,7 +616,7 @@ input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:fo
 .D_Button:active:not(.D_ButtonNoActive) {
   transition-duration: 0.0s;
   background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
-  transform: translateY(3px);
+  transform: translateY(2px);
 }
 .D_ButtonLabel {
   margin-right: 5px;
@@ -970,7 +976,8 @@ body::-webkit-scrollbar-corner {
 }
 .Main_Body .Main_CornerMid {
   margin: 0px;
-  background-image: repeating-linear-gradient( 135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px );
+  /* background-image: repeating-linear-gradient( 135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px ); */
+  background-color: #292929;
 }
 .Main_CornerMidBox {
   display: flex;
@@ -999,6 +1006,7 @@ body::-webkit-scrollbar-corner {
 }
 .Main_2 .Main_CornerMid {
   flex-grow: unset;
+  flex-direction: row;
   /* margin: 5px 5px 5px 0; */
 }
 .Main_2 .Main_LogoPre {
@@ -1016,7 +1024,8 @@ body::-webkit-scrollbar-corner {
 }
 .Main_Backtop {
   /* position: fixed; */
-  background-color: hsl(var(--back-h), var(--back-s), 18%);
+  /* background-color: hsl(var(--back-h), var(--back-s), 18%); */
+  background-color: hsl(var(--back-h), var(--back-s), 16%);
   height: var(--top-height);
   width: 100%;
   min-width: calc(var(--wBody) - var(--left-width));
@@ -2077,7 +2086,7 @@ body .Main_UserTw3:before {
   text-align: center;
 }
 .Main_AddTrackBox {
-  gap: 15px;
+  /* gap: 15px; */
 }
 .Main_AddTrackDirect {
   color: #fff3;
@@ -2985,6 +2994,20 @@ body .Main_UserTw3:before {
 .Main_2 .Row_Content {
   padding: 12px 0;
 }
+.Main_2 .Car_AddButton {
+  flex-direction: row;
+  gap: 7px;
+}
+.Main_2 .Car_LayoutAddCarLabel {
+  margin-top: 0px;
+}
+.Main_2 .Main_AddTrackDirect {
+  --height: 36px;
+  font-size: 20px;
+}
+.Main_2 .Row_ShowMoreTracks {
+  margin-top: 0;
+}
 
 
 
@@ -3340,6 +3363,9 @@ body .Main_UserTw3:before {
   .Main_2 .Main_Body:not(.Main_BodyPrint) .D_ButtonMenu {
     padding: 11px 8px;
   }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_BestOfOutside {
+    display: none;
+  }
   .Cg_Layout .Cg_Corner {
     width: auto;
     padding: 0 15px;
@@ -3369,6 +3395,9 @@ body .Main_UserTw3:before {
   .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
     height: 150px;
     width: 200px;
+  }
+  .Main_Normal .Main_AddTrackDirectLarger {
+    width: 80px;
   }
 }
 @media only screen and (max-width: 1200px) {

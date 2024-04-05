@@ -379,7 +379,8 @@ export default {
 }
 .BaseTopMenu_Button.D_Button {
   font-size: 19px;
-  --cl: 40%;
+  --cl: 60%;
+  /* --cl: 70%; */
   color: hsl(var(--back-h), var(--back-s), var(--cl));
   font-family: 'Roboto Condensed', sans-serif;
   padding: 0 12px;
@@ -391,9 +392,11 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
   cursor: initial;
+  /* transition-duration: 0.15s; */
+  /* color: rgb(255, 199, 23); */
 }
 .BaseTopMenu_Layout:hover .BaseTopMenu_Button.D_Button {
-  --cl: 70%;
+  /* --cl: 70%; */
 }
 .BaseTopMenu_Layout:hover .BaseTopMenu_Active.D_Button {
 /* .BaseTopMenu_Layout .BaseTopMenu_Active.D_Button { */

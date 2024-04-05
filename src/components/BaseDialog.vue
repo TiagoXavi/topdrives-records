@@ -22,7 +22,8 @@
           BaseDialog_Opaque: !transparent,
           BaseDialog_Transparent: transparent,
           BaseDialog_ForceScroll: forceScroll,
-          BaseDialog_ForceNoScroll: disableScroll
+          BaseDialog_ForceNoScroll: disableScroll,
+          BaseDialog_Grow: grow
         }"
         class="BaseDialog_Box Main_DarkScroll">
         <slot />
@@ -74,6 +75,10 @@ export default {
       default: false
     },
     fixed: {
+      type: Boolean,
+      default: false
+    },
+    grow: {
       type: Boolean,
       default: false
     },
@@ -181,7 +186,7 @@ export default {
 }
 .BaseDialog_Body_Static {
   align-items: start;
-  margin-top: 30px;
+  margin-top: 38px;
 }
 .BaseDialog_Box {
   padding: 20px;
@@ -190,7 +195,8 @@ export default {
   width: 100%;
   user-select: text;
   margin: 10px 10px 40px 10px;
-  max-height: 80vh;
+  /* max-height: 80vh; */
+  max-height: calc(80vh - 40px);
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -209,12 +215,21 @@ export default {
   margin-bottom: 10px;
 }
 .BaseDialog_Transparent {
-
+  padding: 0 20px;
+}
+.Main_isDesktop .BaseDialog_Transparent {
+  max-height: calc(90vh - 40px);
+}
+.Main_isDesktop .BaseDialog_Opaque {
+  max-height: calc(90vh - 80px);
 }
 .BaseDialog_AnimOut .BaseDialog_Back {
   pointer-events: auto;
 }
 .Row_DisabledCell {
-      background-image: repeating-linear-gradient( 135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px );
+  background-image: repeating-linear-gradient( 135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px );
+}
+.BaseDialog_Grow {
+  height: 100%;
 }
 </style>

@@ -177,6 +177,14 @@ export default {
 .BaseCardGallery_Header .Car_HeaderName {
   top: 4px;
   font-size: 1em;
+  left: 35px;
+}
+.BaseCardGallery_Header .Car_HeaderName {
+  width: calc(100% - var(--card-right-width) - 38px);
+}
+.BaseCardGallery_Header .Car_HeaderNameBig {
+  top: 5px;
+  font-size: 0.85em;
 }
 .BaseCardGallery_Header .Car_HeaderNameBigBig {
   top: 7px;

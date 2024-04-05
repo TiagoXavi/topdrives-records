@@ -1,10 +1,12 @@
 <template>
   <BaseDialog
     :active="active"
+    :isStatic="true"
+    :grow="true"
     :transparent="true"
     maxWidth="880px"
     @close="$emit('close')">
-    <div class="Main_SearchBody">
+    <div class="Main_SearchBody BaseFilterDialog_Box">
       <div class="Main_SearchHeader">
         <div v-if="!isFiltering && !filterOnly" class="Main_SearchFieldBox">
           <input
@@ -12,7 +14,7 @@
             :id="`SearchInput${id}`"
             :placeholder="$t('m_searchCar')"
             class="D_SearchInput data-hj-allow"
-            type="text"
+            type="search"
             autocomplete="off"
             @input="searchInputFunc()">
           <button
@@ -35,7 +37,7 @@
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
           @click="applyFilter()">{{ $t("m_done") }}</button>
       </div>
-      <div v-if="isFiltering || filterOnly" class="Main_SearchMid">
+      <div v-if="isFiltering || filterOnly" class="Main_SearchMid BaseFilterDialog_Mid">
         <div class="Main_FilterItems">
           <div v-if="!cgAddingYouCar || (user && user.mod)" class="Main_FilterClearTop">
             <slot name="header"></slot>
@@ -369,7 +371,7 @@
           </div>
         </div>
       </div>
-      <div v-else-if="loading" class="Main_SearchMid Main_SearchMidT">
+      <div v-else-if="loading" class="Main_SearchMid Main_SearchMidT BaseFilterDialog_Mid">
         <BaseContentLoader
           :contents="true"
           itemWidth="220px"
@@ -379,7 +381,7 @@
           count="6" />
       </div>
       <!-- library -->
-      <div v-else-if="galleryList.length > 0 && type === 'library'" class="Main_SearchMid Main_SearchMidT">
+      <div v-else-if="galleryList.length > 0 && type === 'library'" class="Main_SearchMid Main_SearchMidT BaseFilterDialog_Mid">
         <BaseGalleryItem
           v-for="item in galleryList"
           :config="item"
@@ -396,7 +398,7 @@
         </div>
       </div>
       <!-- classic -->
-      <div v-else-if="searchResult && searchResult.length > 0" class="Main_SearchMid">
+      <div v-else-if="searchResult && searchResult.length > 0" class="Main_SearchMid BaseFilterDialog_Mid">
         <div v-if="showingLastest" class="Main_SearchLastestTitle">{{ $t("m_lastContribution") }}</div>
         <div v-else-if="sortEnabled" class="BaseFilterDialog_ToolBox">
           <div class="BaseFilterDialog_SortBox">
@@ -513,11 +515,11 @@
             @click="searchMax = searchMax + 41">{{ $t("m_showMore") }}</button>
         </div>
       </div>
-      <div v-else-if="alreadySearched" class="Main_SearchEmpty">
+      <div v-else-if="alreadySearched" class="Main_SearchEmpty BaseFilterDialog_Mid">
         <i class="ticon-search_big Main_SearchEmptyAddIcon" aria-hidden="true"/>
         <div class="Main_SearchEmptyText">{{ $t("m_nothingFound") }}</div>
       </div>
-      <div v-else class="Main_SearchEmpty">
+      <div v-else class="Main_SearchEmpty BaseFilterDialog_Mid BaseFilterDialog_Mid">
         <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
       </div>
     </div>
@@ -2141,6 +2143,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.BaseFilterDialog_Box {
+  height: 100%;
+}
+.BaseFilterDialog_Mid {
+  height: 100%;
 }
 
 

@@ -7,7 +7,7 @@
             v-model="searchInput"
             :placeholder="$t('m_searchCar')"
             class="D_SearchInput data-hj-allow"
-            type="text"
+            type="search"
             autocomplete="off"
             @input="searchInputFunc()">
         </div>

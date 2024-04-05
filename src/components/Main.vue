@@ -32,9 +32,9 @@
             </template>
             <template slot="more">
               <button
-                v-if="!inverted && whatTier && whatTier <= 4"
+                v-if="whatTier && whatTier <= 4"
                 style="font-size: 18px;     padding: 9px 9px;"
-                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu Main_BestOfOutside"
                 @click="openKingOfDialog()">
                 <i class="ticon-star D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
                 <span>{{ $t("m_bestOf") }}</span>
@@ -95,7 +95,7 @@
               type="tracks"
               @newindex="newIndex($event, false, true)" />
             <div class="Row_ShowMoreTracks Main_AddTrackBox">
-              <button class="D_Button Main_AddTrackDirect" @click="openDialogTrackSearch(false)">
+              <button class="D_Button Main_AddTrackDirect Main_AddTrackDirectLarger" @click="openDialogTrackSearch(false)">
                 <i class="ticon-plus_2" aria-hidden="true"/>
               </button>
               <button
@@ -631,7 +631,7 @@
                   <div class="Cg_YouBankBox">
                     <button
                       :disabled="cgLoadingAny"
-                      class="D_Button Main_AddTrackDirect Cg_YouBankManualAdd"
+                      class="D_Button Main_AddTrackDirect Cg_YouBankManualAdd Main_AddTrackDirectLarger"
                       @click="race.carIndex = undefined; calcRaceResult(race); cgOpenAddYouCar(irace)">
                       <i class="ticon-plus_2" aria-hidden="true"/>
                     </button>
@@ -3824,7 +3824,9 @@ export default {
           Object.keys( car.data[car.selectedTune] ).forEach(function ( type ) {
             Object.keys( car.data[car.selectedTune][type] ).forEach(function ( item ) {
               if (vm.currentTracks.find(track => item.includes(track.code))) {
-                contritrs.push((car.data[car.selectedTune][type][item] || {}).u)
+                if ((car.data[car.selectedTune][type][item] || {}).u) {
+                  contritrs.push((car.data[car.selectedTune][type][item] || {}).u)
+                }
               }
             });
           });

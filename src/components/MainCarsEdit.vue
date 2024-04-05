@@ -9,7 +9,7 @@
               id="SearchInput"
               :placeholder="$t('m_search')"
               class="Main_SearchInput"
-              type="text"
+              type="search"
               @focus="searchFocus = true;"
               @blur="searchBlur()"
               @input="searchInputFunc($event)">
