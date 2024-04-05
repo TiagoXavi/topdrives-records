@@ -6,6 +6,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
+// import old_cars_final from '../database/cars_final_PL21_4.json' // internal
 import BaseFilterDialog from './BaseFilterDialog.vue'
 
 export default {
@@ -116,7 +117,7 @@ export default {
         }
       })
 
-      if (brakeData && brakeData[x.rid]) {
+      if (!x.brake && brakeData && brakeData[x.rid]) {
         let brakeClass;
         let time = brakeData[x.rid][0];
 
@@ -136,11 +137,19 @@ export default {
         }
 
         x.brake = brakeClass;
-      } else {
-        x.brake = null;
-        if (x.topSpeed > 95) {
-          dontHaveBreak.push(x);
-          // console.log(x.rid);
+      } else if (!x.brake) {
+
+        // temp
+        // let found = this.old_cars_final.find(car => car.rid === x.rid);
+        // if (found) {
+        //   x.brake = found.brake;  
+        // } else
+
+        {
+          x.brake = null;
+          if (x.topSpeed > 95) {
+            dontHaveBreak.push(x);
+          }
         }
       }
     })
