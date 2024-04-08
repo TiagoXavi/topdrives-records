@@ -48159,7 +48159,7 @@
         "onlyName": "V60 T6 AWD",
         "prize": false,
         "rid": "Volvo_V60_T6_AWD_2015",
-        "rq": 59,
+        "rq": 61,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -49175,7 +49175,7 @@
     },
     {
         "class": "B",
-        "rq": 58,
+        "rq": 60,
         "onlyName": "FX35",
         "brand": "Infiniti",
         "country": "JP",
@@ -49376,7 +49376,7 @@
     },
     {
         "class": "B",
-        "rq": 58,
+        "rq": 60,
         "onlyName": "Quattroporte Sport GT S",
         "brand": "Maserati",
         "country": "IT",
@@ -58775,7 +58775,7 @@
     },
     {
         "class": "B",
-        "rq": 51,
+        "rq": 50,
         "onlyName": "L200 Triton Sport R",
         "brand": "Mitsubishi",
         "year": 2022,
@@ -110232,7 +110232,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Roadrunner 383",
         "brand": "Plymouth",
         "country": "US",
@@ -110437,7 +110437,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 27,
         "onlyName": "Brat",
         "brand": "Subaru",
         "country": "JP",
@@ -110505,7 +110505,7 @@
     },
     {
         "class": "E",
-        "rq": 28,
+        "rq": 29,
         "onlyName": "Opel Vectra GSi",
         "brand": "Vauxhall",
         "country": "GB",
@@ -110640,7 +110640,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "116d",
         "brand": "BMW",
         "country": "DE",
@@ -110706,7 +110706,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Britannia",
         "brand": "Bristol",
         "year": 1982,
@@ -111253,7 +111253,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Monaro CV6 (V2)",
         "brand": "Holden",
         "year": 2001,
@@ -111497,7 +111497,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Stratos Zero",
         "brand": "Lancia",
         "country": "IT",
@@ -111534,7 +111534,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Eclat",
         "brand": "Lotus",
         "country": "GB",
@@ -111602,7 +111602,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "RX-3 GSII",
         "brand": "Mazda",
         "year": 1973,
@@ -111776,7 +111776,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Galant GTi-16V",
         "brand": "Mitsubishi",
         "year": 1989,
@@ -111914,7 +111914,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Plus 4 70th Anniversary Edition",
         "brand": "Morgan",
         "year": 2020,
@@ -112018,7 +112018,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 26,
         "onlyName": "Patrol",
         "brand": "Nissan",
         "country": "JP",
@@ -112223,7 +112223,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "Cutlass S Sport Coupe",
         "brand": "Oldsmobile",
         "year": 1970,
@@ -112289,7 +112289,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "2008",
         "brand": "Peugeot",
         "country": "FR",
@@ -112661,7 +112661,7 @@
     },
     {
         "class": "E",
-        "rq": 27,
+        "rq": 28,
         "onlyName": "3000M",
         "brand": "TVR",
         "year": 1972,
@@ -112913,7 +112913,7 @@
         "onlyName": "P1800E",
         "prize": false,
         "rid": "Volvo_P1800E_1970",
-        "rq": 27,
+        "rq": 28,
         "seats": "4",
         "tags": [
             "European New Wave",
@@ -112946,7 +112946,7 @@
         "onlyName": "S80 D5",
         "prize": false,
         "rid": "Volvo_S80_D5_2001",
-        "rq": 27,
+        "rq": 28,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -112962,7 +112962,7 @@
     },
     {
         "class": "E",
-        "rq": 26,
+        "rq": 27,
         "onlyName": "2002 Tii",
         "brand": "BMW",
         "country": "DE",
@@ -113119,7 +113119,7 @@
         "onlyName": "C-Airdream",
         "prize": false,
         "rid": "Citroen_CAirdream_2002",
-        "rq": 26,
+        "rq": 27,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -113153,7 +113153,7 @@
         "onlyName": "C5 Airscape",
         "prize": false,
         "rid": "Citroen_C5_Airscape_2007",
-        "rq": 26,
+        "rq": 27,
         "seats": "4",
         "tags": [
             "European New Wave",
@@ -113309,7 +113309,7 @@
     },
     {
         "class": "E",
-        "rq": 26,
+        "rq": 27,
         "onlyName": "S-Max",
         "brand": "Ford",
         "country": "GB",
@@ -113378,7 +113378,7 @@
     },
     {
         "class": "E",
-        "rq": 26,
+        "rq": 27,
         "onlyName": "Transit SSV",
         "brand": "Ford",
         "year": 2011,
@@ -114535,7 +114535,7 @@
         "onlyName": "C30 DRIVe Electric",
         "prize": false,
         "rid": "Volvo_C30_DRIVe_Electric_2011",
-        "rq": 26,
+        "rq": 27,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -114620,7 +114620,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "Brooklands",
         "brand": "Bentley",
         "country": "GB",
@@ -115165,7 +115165,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "Civic CRX Si",
         "brand": "Honda",
         "country": "JP",
@@ -115511,7 +115511,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "Cougar",
         "brand": "Mercury",
         "year": 2001,
@@ -115579,7 +115579,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "Colt GTi-16V",
         "brand": "Mitsubishi",
         "year": 1988,
@@ -115718,7 +115718,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "240SX (S13)",
         "brand": "Nissan",
         "country": "JP",
@@ -115854,7 +115854,7 @@
     },
     {
         "class": "E",
-        "rq": 25,
+        "rq": 26,
         "onlyName": "205 GTi 1.6",
         "brand": "Peugeot",
         "country": "FR",
@@ -116633,7 +116633,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "C5 HPi",
         "brand": "Citroen",
         "country": "FR",
@@ -116717,7 +116717,7 @@
         "onlyName": "e-C4",
         "prize": false,
         "rid": "Citroen_eC4_2021",
-        "rq": 24,
+        "rq": 25,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -116938,7 +116938,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Falcon 'Bathurst' Cobra",
         "brand": "Ford",
         "year": 1978,
@@ -117008,7 +117008,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Laser SR2",
         "brand": "Ford",
         "year": 2002,
@@ -117110,7 +117110,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 23,
         "onlyName": "Kona 1.0 T-GDI",
         "brand": "Hyundai",
         "year": 2021,
@@ -117421,7 +117421,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 23,
         "onlyName": "Navara (D22)",
         "brand": "Nissan",
         "country": "JP",
@@ -117455,7 +117455,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Silvia Varietta (S15)",
         "brand": "Nissan",
         "country": "JP",
@@ -117524,7 +117524,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "205 Rallye",
         "brand": "Peugeot",
         "country": "FR",
@@ -117785,7 +117785,7 @@
         "onlyName": "Scala 1.6 TDI",
         "prize": false,
         "rid": "Skoda_Scala_16_TDI_2019",
-        "rq": 24,
+        "rq": 25,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -117904,7 +117904,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Corsa 1.4Si",
         "brand": "Vauxhall",
         "country": "GB",
@@ -117973,7 +117973,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Corrado",
         "brand": "Volkswagen",
         "country": "DE",
@@ -118007,7 +118007,7 @@
     },
     {
         "class": "E",
-        "rq": 24,
+        "rq": 25,
         "onlyName": "Golf",
         "brand": "Volkswagen",
         "country": "DE",
@@ -118228,7 +118228,7 @@
         "onlyName": "760 2.8 V6 Saloon",
         "prize": false,
         "rid": "Volvo_760_28_V6_Saloon_1983",
-        "rq": 24,
+        "rq": 25,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -118244,7 +118244,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Alfa 6",
         "brand": "Alfa Romeo",
         "country": "IT",
@@ -118310,7 +118310,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "454 SS",
         "brand": "Chevrolet",
         "country": "US",
@@ -118582,7 +118582,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 22,
         "onlyName": "Mehari 4x4",
         "brand": "Citroen",
         "country": "FR",
@@ -118756,7 +118756,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Regal Lancer Super D-500",
         "brand": "Dodge",
         "country": "US",
@@ -119133,7 +119133,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Sierra XR4i",
         "brand": "Ford",
         "country": "GB",
@@ -119202,7 +119202,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "FR-V 2.2 i-CTDi",
         "brand": "Honda",
         "country": "JP",
@@ -119373,7 +119373,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Demio 1.5",
         "brand": "Mazda",
         "year": 2003,
@@ -119510,7 +119510,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "MX-5 20th Anniversary (NC)",
         "brand": "Mazda",
         "year": 2010,
@@ -119579,7 +119579,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "280 SL",
         "brand": "Mercedes-Benz",
         "year": 1967,
@@ -119719,7 +119719,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "MGC GT",
         "brand": "MG",
         "country": "GB",
@@ -119922,7 +119922,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Fury",
         "brand": "Plymouth",
         "country": "US",
@@ -119993,7 +119993,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 22,
         "onlyName": "Captur",
         "brand": "Renault",
         "country": "FR",
@@ -120163,7 +120163,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Splash",
         "brand": "Suzuki",
         "country": "JP",
@@ -120197,7 +120197,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Swift GTi (SF)",
         "brand": "Suzuki",
         "country": "JP",
@@ -120264,7 +120264,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "280i",
         "brand": "TVR",
         "country": "GB",
@@ -120572,7 +120572,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "730i",
         "brand": "BMW",
         "country": "DE",
@@ -120606,7 +120606,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "603S",
         "brand": "Bristol",
         "year": 1976,
@@ -120966,7 +120966,7 @@
         "onlyName": "Saxo VTR",
         "prize": false,
         "rid": "Citroen_Saxo_VTR_1997",
-        "rq": 22,
+        "rq": 23,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -121151,7 +121151,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Granada 2.8i S",
         "brand": "Ford",
         "country": "GB",
@@ -121257,7 +121257,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Prelude 2.0l",
         "brand": "Honda",
         "country": "JP",
@@ -121291,7 +121291,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 21,
         "onlyName": "H1",
         "brand": "Hummer",
         "country": "US",
@@ -121605,7 +121605,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Cougar Eliminator",
         "brand": "Mercury",
         "year": 1969,
@@ -121850,7 +121850,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "504 Coupe",
         "brand": "Peugeot",
         "country": "FR",
@@ -121884,7 +121884,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Ion",
         "brand": "Saturn",
         "year": 2003,
@@ -121987,7 +121987,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Cavalier SRi",
         "brand": "Vauxhall",
         "country": "GB",
@@ -122021,7 +122021,7 @@
     },
     {
         "class": "E",
-        "rq": 22,
+        "rq": 23,
         "onlyName": "Firenza 2000 SL Coupe",
         "brand": "Vauxhall",
         "country": "GB",
@@ -122538,7 +122538,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Sebring",
         "brand": "Chrysler",
         "country": "US",
@@ -122609,7 +122609,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Town and Country",
         "brand": "Chrysler",
         "country": "US",
@@ -122661,7 +122661,7 @@
         "onlyName": "BX GT",
         "prize": false,
         "rid": "Citroen_BX_GT_1985",
-        "rq": 21,
+        "rq": 22,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -122813,7 +122813,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Daihatsu Charade De Tomaso Turbo",
         "brand": "De Tomaso",
         "year": 1983,
@@ -123057,7 +123057,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Tipo 2.0 Sedicivalvole",
         "brand": "Fiat",
         "country": "IT",
@@ -123233,7 +123233,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Mustang 289",
         "brand": "Ford",
         "country": "US",
@@ -123269,7 +123269,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Storm",
         "brand": "Geo",
         "year": 1990,
@@ -123690,7 +123690,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Almera",
         "brand": "Nissan",
         "country": "JP",
@@ -123759,7 +123759,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "EXA Turbo (N12)",
         "brand": "Nissan",
         "country": "JP",
@@ -123893,7 +123893,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "S-Cargo",
         "brand": "Nissan",
         "country": "JP",
@@ -124134,7 +124134,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "30",
         "brand": "Renault",
         "country": "FR",
@@ -124271,7 +124271,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Opel Admiral V8",
         "brand": "Vauxhall",
         "country": "DE",
@@ -124307,7 +124307,7 @@
     },
     {
         "class": "E",
-        "rq": 21,
+        "rq": 22,
         "onlyName": "Opel Manta GTE",
         "brand": "Vauxhall",
         "country": "GB",
@@ -125138,7 +125138,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Abarth 1000 Monoposto record car",
         "brand": "Fiat",
         "year": 1960,
@@ -125364,7 +125364,7 @@
         "onlyName": "Escort XR3i",
         "prize": false,
         "rid": "Ford_Escort_XR3i_1987",
-        "rq": 20,
+        "rq": 21,
         "seats": "5",
         "tags": [
             "European New Wave",
@@ -125415,7 +125415,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Fiesta",
         "brand": "Ford",
         "country": "GB",
@@ -125452,7 +125452,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Fiesta",
         "brand": "Ford",
         "country": "GB",
@@ -125662,7 +125662,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Torana GTR XU-1 (LJ)",
         "brand": "Holden",
         "year": 1972,
@@ -125942,7 +125942,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "230 TE Estate",
         "brand": "Mercedes-Benz",
         "year": 1988,
@@ -126287,7 +126287,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Laguna",
         "brand": "Renault",
         "country": "FR",
@@ -126527,7 +126527,7 @@
     },
     {
         "class": "E",
-        "rq": 20,
+        "rq": 21,
         "onlyName": "Alto Works",
         "brand": "Suzuki",
         "country": "JP",
