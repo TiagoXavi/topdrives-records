@@ -47568,7 +47568,7 @@
     },
     {
         "class": "B",
-        "rq": 59,
+        "rq": 61,
         "onlyName": "Boxster Spyder",
         "brand": "Porsche",
         "country": "DE",
@@ -130397,7 +130397,7 @@
     },
     {
         "class": "F",
-        "rq": 17,
+        "rq": 18,
         "onlyName": "Aries",
         "brand": "Dodge",
         "country": "US",
@@ -132425,7 +132425,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Odyssey 2.3",
         "brand": "Honda",
         "country": "JP",
@@ -132496,7 +132496,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Mark 1",
         "brand": "Jaguar",
         "country": "GB",
@@ -132604,7 +132604,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Plus 4 Super Sports",
         "brand": "Morgan",
         "year": 1961,
@@ -132775,7 +132775,7 @@
     },
     {
         "class": "F",
-        "rq": 16,
+        "rq": 17,
         "onlyName": "Skyline GT Turbo (R30)",
         "brand": "Nissan",
         "country": "JP",
@@ -133126,7 +133126,7 @@
     {
         "class": "F",
         "rq": 16,
-        "onlyName": "R12 Gordini",
+        "onlyName": "12 Gordini",
         "brand": "Renault",
         "country": "FR",
         "year": 1973,
@@ -133141,7 +133141,7 @@
         "tyres": "Performance",
         "mra": 51.96,
         "weight": 980,
-        "name": "Renault R12 Gordini",
+        "name": "Renault 12 Gordini",
         "rid": "Renault_R12_Gordini_1973",
         "tags": [
             "French Renaissance",
@@ -133948,7 +133948,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "2800 CS",
         "brand": "BMW",
         "country": "DE",
@@ -134015,7 +134015,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "Roadmaster",
         "brand": "Buick",
         "country": "US",
@@ -134570,7 +134570,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "Escort XR3i",
         "brand": "Ford",
         "country": "GB",
@@ -135122,7 +135122,7 @@
     },
     {
         "class": "F",
-        "rq": 15,
+        "rq": 16,
         "onlyName": "Skyline 2000 GT-X (C110)",
         "brand": "Nissan",
         "country": "JP",
@@ -135740,7 +135740,7 @@
     },
     {
         "class": "F",
-        "rq": 14,
+        "rq": 15,
         "onlyName": "Junior Z",
         "brand": "Alfa Romeo",
         "year": 1969,
@@ -138187,7 +138187,7 @@
     },
     {
         "class": "F",
-        "rq": 13,
+        "rq": 14,
         "onlyName": "Skyline 2000 GT-EL (C210)",
         "brand": "Nissan",
         "country": "JP",
@@ -138700,7 +138700,7 @@
     },
     {
         "class": "F",
-        "rq": 12,
+        "rq": 13,
         "onlyName": "GTA 1300 Junior",
         "brand": "Alfa Romeo",
         "country": "IT",
@@ -139183,7 +139183,7 @@
     },
     {
         "class": "F",
-        "rq": 12,
+        "rq": 11,
         "onlyName": "4",
         "brand": "Renault",
         "country": "FR",
