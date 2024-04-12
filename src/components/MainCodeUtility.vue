@@ -881,11 +881,12 @@ export default {
       })
     },
     resolvePlayerDeck() {
-      let prizes = this.cars_final.filter(x => x.prize);
+      // let prizes = this.cars_final.filter(x => x.prize);
+      let prizes = ["1f299953-b8ed-4cc0-90d6-5a0595c8695a"]
       this.result.playerDeck.map(x => {
         if (prizes.length > 0) {
           let nextInsert = prizes.shift();
-          x.cardId = nextInsert.guid;
+          x.cardId = nextInsert;
           x.engineMajor = 2;
           x.engineMinor = 3;
           x.weightMajor = 3;
@@ -894,9 +895,9 @@ export default {
           x.chassisMinor = 3;
         }
       })
-      this.user.eloScore = 5000;
-      this.user.softCurrency1 = 100000;
-      this.user.hardCurrency1 = 100000;
+      this.result.user.eloScore = 5000;
+      this.result.user.softCurrency1 = 100000;
+      this.result.user.hardCurrency1 = 100000;
 
       navigator.clipboard.writeText(JSON.stringify(this.result, null, 4));
     }

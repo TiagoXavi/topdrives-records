@@ -8,9 +8,12 @@
       <button
         v-for="item in menus"
         :key="item.name"
-        :class="{ BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ) }"
+        :class="{
+          BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ),
+          BaseTopMenu_New: item.new && showNew
+        }"
         class="D_Button BaseTopMenu_Button"
-        @click="$router.push({ name: item.name })">{{ item.label }}</button>
+        @click="$router.push({ name: item.name }); tabClick(item);">{{ item.label }}</button>
     </div>
     <div
       :style="`${ user && user.tier ? '--cor-hs: var(--t'+user.tier+'-hs); --cor-l: var(--t'+user.tier+'-l); --cor-l0: var(--t'+user.tier+'-l0);' : ''}`"
@@ -105,8 +108,10 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
+        { label: "Community", name: "Community", new: true },
         { label: "Stuff", name: "Stuff" },
       ],
+      showNew: true,
       menuDialog: false,
       aboutDialog: false,
       optionsAdvancedDialog: false,
@@ -151,6 +156,7 @@ export default {
   },
   mounted() {
     let vm = this;
+    this.checkNewMenu();
 
     // let top_layout = document.querySelector(".BaseTopMenu_Layout");
     // this.left_width = (document.querySelector(".BaseTopMenu_Left") || {}).offsetWidth;
@@ -339,6 +345,17 @@ export default {
       this.optionsAdvancedDialog = false;
       this.menuDialog = true;
     },
+    checkNewMenu() {
+      if (window.localStorage.getItem("newTab_Community")) {
+        this.showNew = false;
+      };
+    },
+    tabClick(item) {
+      if (item.name === "Community") {
+        this.showNew = false;
+        window.localStorage.setItem('newTab_Community', "t");
+      }
+    }
   },
 }
 </script>
@@ -469,6 +486,18 @@ export default {
 }
 .Main_isMobile .BaseTopMenu_RightBallLetter {
   margin-left: -22px;
+}
+.BaseTopMenu_New:not(.BaseTopMenu_Active) {
+  position: relative;
+}
+.BaseTopMenu_New:not(.BaseTopMenu_Active):after {
+  content: "new";
+  color: rgb(var(--d-text-yellow));
+  font-size: 14px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 

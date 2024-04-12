@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'brand';
+  src: url('./brand.woff2') format('woff2'), url('./brand.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'brand' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-reddit:before {
+  content: "\e900";
+  color: #ff4500;
+}
+.brand-telegram:before {
+  content: "\e924";
+  color: #34aadf;
+}
+.brand-discord:before {
+  content: "\e926";
+  color: #5865f2;
+}
+.brand-facebook:before {
+  content: "\e901";
+  color: #1877f2;
+}
+.brand-google:before {
+  content: "\e902";
+  color: #4285f4;
+}
+.brand-googlehangouts:before {
+  content: "\e903";
+  color: #0c9d58;
+}
+.brand-icq:before {
+  content: "\e904";
+  color: #7ebd00;
+}
+.brand-instagram:before {
+  content: "\e905";
+  color: #e4405f;
+}
+.brand-line:before {
+  content: "\e906";
+  color: #00c300;
+}
+.brand-linkedin:before {
+  content: "\e907";
+  color: #0077b5;
+}
+.brand-mastodon:before {
+  content: "\e908";
+  color: #3088d4;
+}
+.brand-microsoftteams:before {
+  content: "\e909";
+  color: #6264a7;
+}
+.brand-pinterest:before {
+  content: "\e90a";
+  color: #bd081c;
+}
+.brand-quora:before {
+  content: "\e90b";
+  color: #b92b27;
+}
+.brand-signal:before {
+  content: "\e90d";
+  color: #2592e9;
+}
+.brand-sinaweibo:before {
+  content: "\e90e";
+  color: #e6162d;
+}
+.brand-skype:before {
+  content: "\e90f";
+  color: #00aff0;
+}
+.brand-slack:before {
+  content: "\e910";
+  color: #4a154b;
+}
+.brand-snapchat:before {
+  content: "\e911";
+  color: #fffc00;
+}
+.brand-tiktok:before {
+  content: "\e913";
+}
+.brand-tumblr:before {
+  content: "\e914";
+  color: #36465d;
+}
+.brand-twitch:before {
+  content: "\e915";
+  color: #6441a4;
+}
+.brand-x:before {
+  content: "\e916";
+}
+.brand-viber:before {
+  content: "\e917";
+  color: #665cac;
+}
+.brand-vk:before {
+  content: "\e918";
+  color: #4680c2;
+}
+.brand-wechat:before {
+  content: "\e919";
+  color: #7bb32e;
+}
+.brand-whatsapp:before {
+  content: "\e91a";
+  color: #25d366;
+}
+.brand-youtube:before {
+  content: "\e91b";
+  color: #f00;
+}

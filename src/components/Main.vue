@@ -48,7 +48,7 @@
                 <div class="Main_SaveAllBox">
                   <button
                     class="D_Button Main_LoginToEdit"
-                    @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+                    @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                 </div>
               </template>
               <template v-else-if="!!user && isImport">
@@ -271,7 +271,7 @@
                       <div class="Main_SaveAllBox">
                         <button
                           class="D_Button Main_LoginToEdit"
-                          @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                       </div>
                     </template>
                     <template v-else-if="!!user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
@@ -814,7 +814,7 @@
                       <div class="Main_SaveAllBox">
                         <button
                           class="D_Button Main_LoginToEdit"
-                          @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                       </div>
                     </template>
                     <template v-else-if="eventNeedSave && user && user.mod">
@@ -1135,7 +1135,7 @@
                       <div class="Main_SaveAllBox">
                         <button
                           class="D_Button Main_LoginToEdit"
-                          @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                       </div>
                     </template>
                     <template v-else-if="clubTrackNeedSave && user && user.mod">
@@ -2340,18 +2340,6 @@
       </div>
     </BaseDialog>
     <BaseDialog
-      :active="loginDialog"
-      :transparent="false"
-      :lazy="true"
-      max-width="420px"
-      min-width="240px"
-      zindex="102"
-      @close="loginDialog = false;">
-      <div style="Main_DialogLoginWrap">
-        <MainLogin :wrap="true" @success="loginDialog = false;" />
-      </div>
-    </BaseDialog>
-    <BaseDialog
       :active="cgSeletorDialog"
       :transparent="true"
       :lazy="true"
@@ -2957,7 +2945,6 @@ export default {
       mraEditing: false,
       mraEditInput: null,
       mraLoading: false,
-      loginDialog: false,
       voteLoading: false,
       successVote: false,
       saveToGalleryDialog: false,
@@ -3639,7 +3626,7 @@ export default {
               type: "error"
             });
             if (error.response.status === 401) {
-              vm.loginDialog = true;
+              vm.$store.commit('OPEN_LOGIN');
             }
           })
           .then(() => {
@@ -3734,7 +3721,6 @@ export default {
       },
     },
     optionsDialogComputed() {
-      if (this.loginDialog) return false;
       if (this.customTrackDialog) return false;
       if (this.librarySearchDialog) return false;
       if (this.searchFilterDialog) return false;
@@ -4989,7 +4975,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -5034,7 +5020,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -5583,7 +5569,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -5624,7 +5610,7 @@ export default {
             type: "error"
           });
           if (error.response.status === 401) {
-            vm.loginDialog = true;
+            vm.$store.commit('OPEN_LOGIN');
           }
         })
         .then(() => {
@@ -6357,7 +6343,7 @@ export default {
             type: "error"
           });
           if (error.response.status === 401) {
-            vm.loginDialog = true;
+            vm.$store.commit('OPEN_LOGIN');
           }
         })
         .then(() => {
@@ -6425,7 +6411,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -6460,7 +6446,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -6490,7 +6476,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -6533,7 +6519,7 @@ export default {
             type: "error"
           });
           if (error.response.status === 401) {
-            vm.loginDialog = true;
+            vm.$store.commit('OPEN_LOGIN');
           }
         })
         .then(() => {
@@ -6573,7 +6559,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -6770,7 +6756,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -6919,7 +6905,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -7158,7 +7144,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -7680,7 +7666,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -7709,7 +7695,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -7959,7 +7945,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -7990,7 +7976,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -8041,7 +8027,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -8120,7 +8106,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
       .then(() => {
@@ -9025,7 +9011,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -9137,7 +9123,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -9233,7 +9219,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -9264,7 +9250,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -9292,7 +9278,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },
@@ -9319,7 +9305,7 @@ export default {
           type: "error"
         });
         if (error.response.status === 401) {
-          this.loginDialog = true;
+          this.$store.commit('OPEN_LOGIN');
         }
       })
     },

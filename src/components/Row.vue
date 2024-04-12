@@ -96,7 +96,10 @@
           item.id === 'csMed' ||
           item.id === 'oceanCity' ||
           item.id === 'speedbump12km' ||
-          item.id === 'speedbump1km'
+          item.id === 'speedbump1km' ||
+          item.id === 'desertHill' ||
+          item.id === 'moto' ||
+          item.id === 'desertRallyDirt'
         )">
           <BaseIconSvg type="clearance"/>
         </span>

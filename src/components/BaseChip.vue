@@ -163,6 +163,11 @@ export default {
 .BaseChip_Active.focus-visible {
   box-shadow: inset 0px 0px 0px 3px var(--active-color);
 } */
+.BaseChip:active:not(.D_ButtonActive) {
+  transition-duration: 0.0s;
+  background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
+  transform: translateY(2px);
+}
 .BaseChip_MinWidth {
   width: auto;
   padding: 7px 13px;

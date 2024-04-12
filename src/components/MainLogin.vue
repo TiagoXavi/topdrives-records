@@ -1,5 +1,5 @@
 <template>
-  <div class="TTT_Layout">
+  <div class="TTT_Layout" :class="{ MainLoginWrap: wrap }">
     <div class="TTT_Box">
       <div class="TTT_Mid">
         <BaseText
@@ -15,15 +15,15 @@
           :label="$t('m_password')"
           class="Space_Bottom"
           placeholder="" />
-        <div v-if="!wrap" class="TTT_Forgot TTT_ForgotBetween">
-          <router-link
-            :to="{ name: 'Register' }"
-            style="font-size: 13px;"
-            class="D_Link">{{ $t("m_register") }}?</router-link>
-          <router-link
-            :to="{ name: 'AskNewPassword' }"
-            style="font-size: 13px;"
-            class="D_Link">{{ $t("m_forgot") }}?</router-link>
+        <div class="TTT_Forgot TTT_ForgotBetween">
+          <button
+            style="font-size: 13px; --height: 25px;"
+            class="D_Button D_Link"
+            @click="$emit('close'); $router.push({ name: 'Register' })">{{ $t("m_register") }}?</button>
+          <button
+            style="font-size: 13px; --height: 25px;"
+            class="D_Button D_Link"
+            @click="$emit('close'); $router.push({ name: 'AskNewPassword' })">{{ $t("m_forgot") }}?</button>
         </div>
       </div>
       <div class="TTT_Bottom">
@@ -152,5 +152,7 @@ export default {
 </script>
 
 <style>
-
+.MainLoginWrap .TTT_Box {
+  margin-bottom: 20px;
+}
 </style>

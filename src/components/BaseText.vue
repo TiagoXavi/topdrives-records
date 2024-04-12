@@ -7,13 +7,14 @@
     class="BaseText_Layout">
     <div v-if="label" class="BaseText_Label">{{ label }}</div>
     <input
-      :value="value"
+      v-model="internalValue"
       :disabled="disabled"
       :placeholder="placeholder"
       :type="intype"
       :id="iid"
       class="BaseText_Input"
-      @change="resolveChange($event.target.value)"
+      @input="instantModel ? resolveChange($event.target.value) : ''"
+      @change="!instantModel ? resolveChange($event.target.value) : ''"
       @blur="$emit('blur')"
       @paste="$emit('paste', $event)">
     <div v-if="disabled" class="BaseText_Lock">
@@ -62,25 +63,36 @@ export default {
       type: Boolean,
       default: false
     },
+    instantModel: {
+      type: Boolean,
+      default: false
+    },
     acel: {
       required: false
     },
   },
   data() {
     return {
+      internalValue: null,
       pis: false,
-      correct: false
+      correct: false,
+      clearTm: null
     }
   },
   watch: {
-
+    value(newValue) {
+      this.internalValue = newValue;
+    }
   },
   beforeMount() {},
   mounted() {},
   computed: {},
   methods: {
     resolveChange(e) {
+      clearTimeout(this.clearTm);
+
       if (this.type === "normal") {
+        this.internalValue = e;
         this.$emit('change', e);
       } else {
         if (typeof e === "string") {
@@ -99,11 +111,12 @@ export default {
           if (this.type === "mra" && isTime) {
             let timeNumber = Vue.options.filters.toTimeNumber(e);
             let calcMra = Vue.options.filters.mra(timeNumber, this.acel);
+            this.internalValue = calcMra;
             this.$emit('change', calcMra);
             this.correct = true;
-            setTimeout(() => {
+            this.clearTm = setTimeout(() => {
               this.correct = false;
-            }, 1500);
+            }, 700);
             return;
           }
     
@@ -118,20 +131,22 @@ export default {
             if (this.type === "acel" && e === "0") {
               e = "N/A"
             }
+            this.internalValue = e;
             this.$emit('change', e);
             this.correct = true;
-            setTimeout(() => {
+            this.clearTm = setTimeout(() => {
               this.correct = false;
-            }, 1500);
+            }, 700);
             return;
           }
         }
   
+        this.internalValue = '';
         this.$emit('change', '');
         this.pis = true;
-        setTimeout(() => {
+        this.clearTm = setTimeout(() => {
           this.pis = false;
-        }, 1500);
+        }, 700);
       }
     }
   },

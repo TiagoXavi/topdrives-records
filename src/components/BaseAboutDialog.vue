@@ -39,6 +39,10 @@
         </div>
       </div>
 
+      <div v-if="user && user.discordName" class="D_Center Space_TopPlus">
+        <button style="font-size: 13px; color: #99a2ff;" class="D_Button D_ButtonLink Main_UserLogout" @click="unlinkDiscord()">{{ $t('m_unlinkDiscord') }}</button>
+      </div>
+
     </div>
   </BaseDialog>
 </template>
@@ -68,13 +72,35 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      loading: false
+    }
   },
   watch: {},
   beforeMount() {},
   mounted() {},
   computed: {},
-  methods: {},
+  methods: {
+    unlinkDiscord() {
+      this.loading = true;
+
+      axios.get(Vue.preUrl + "/unlinkDiscord")
+      .then(res => {
+        this.loading = false;
+        this.$store.commit("AUTH", {});
+      })
+      .catch(error => {
+        this.loading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+    }
+  },
 }
 </script>
 

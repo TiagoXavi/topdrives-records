@@ -27,6 +27,18 @@
     <div id="App_PrintContainer">
       <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
     </div>
+    <BaseDialog
+      :active="loginDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      zindex="102"
+      @close="loginDialog = false;">
+      <div style="Main_DialogLoginWrap">
+        <MainLogin :wrap="true" @success="loginDialog = false;" @close="loginDialog = false;" />
+      </div>
+    </BaseDialog>
     
     <!-- <div class="Main_SideBox">
       <div class="Main_Credits">by TiagoXavi</div>
@@ -37,12 +49,16 @@
 
 <script>
 import BaseTopMenu from "@/components/BaseTopMenu.vue"
+import BaseDialog from "@/components/BaseDialog.vue"
+import MainLogin from "@/components/MainLogin.vue"
 import LogRocket from 'logrocket';
 
 export default {
   name: 'App',
   components: {
-    BaseTopMenu
+    BaseTopMenu,
+    BaseDialog,
+    MainLogin
   },
   props: {},
   data() {
@@ -63,6 +79,7 @@ export default {
       user: null,
       logRocketInitialized: false,
       isMobile: false,
+      loginDialog: false,
     }
   },
   watch: {
@@ -151,6 +168,9 @@ export default {
 
       if (mutation.type == "LOGOUT") {
         vm.user = null;
+      }
+      if (mutation.type == "OPEN_LOGIN") {
+        vm.loginDialog = true;
       }
 
       if (mutation.type == "START_LOGROCKET") {
@@ -643,6 +663,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   padding: 8px 17px;
   min-height: calc( var(--height) * 0.8 );
 }
+.D_Button.Main_LoginToEdit:hover,
+.D_Button.Main_LoginToEdit.focus-visible:not(.D_ButtonNoActive) {
+  background-color: rgba(var(--back-color), 1);
+  color: rgb(var(--d-text-yellow)) !important;
+  --back-color: 78, 63, 26;
+}
 .D_Button.Main_Share {
   background-color: rgba(0,0,0,0.2);
   font-size: 18px;
@@ -776,12 +802,14 @@ button.D_Button.D_Button_Error {
   --back-opac: 1;
   --back-opac-foc: 1;
   background-color: rgba(150,0,0,1);
+  color: #fdc9c9;
 }
 .D_Button.D_ButtonGreen {
   --back-color: 0,200,0;
   --back-opac: 1;
   --back-opac-foc: 1;
   background-color: rgba(0,150,0,1);
+  color: #eaffc9;
 }
 .D_Button.Main_ArrowDownSelect {
   color: var(--d-text-b);
@@ -1570,6 +1598,9 @@ body .Main_UserTw3:before {
 
 .Main_UserNameLabel {
   font-size: 18px;
+}
+.Main_UserDiscordLabel {
+  font-size: 13px;
 }
 .Main_UserMod {
   font-size: 11px;

@@ -18,7 +18,7 @@
             <BaseUserCard :user="user"/>
           </div>
           <div v-else class="Main_OptionsItem Main_OptionsLogout">
-            <button class="D_Button Main_OptionsButton Main_OptionsButton42" @click="$router.push({ name: 'Login' })">{{ $t("m_login") }}</button>
+            <button class="D_Button Main_OptionsButton Main_OptionsButton42" @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
             <button class="D_Button Main_OptionsButton Main_OptionsButton42" @click="$router.push({ name: 'Register' })">{{ $t("m_register") }}</button>
           </div>
         </div>

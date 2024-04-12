@@ -20,6 +20,7 @@ const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
 const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
 const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
 const MainPacks = () => import("./components/MainPacks.vue");
+const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
@@ -77,6 +78,11 @@ const routes = [
     path: '/packs',
     name: 'Packs',
     component: MainPacks,
+  },
+  {
+    path: '/community',
+    name: 'Community',
+    component: MainCommunity,
   },
   {
     path: '/stuff',

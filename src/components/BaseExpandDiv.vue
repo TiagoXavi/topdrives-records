@@ -66,7 +66,7 @@ export default {
         this.preActive = true;
         this.animIntro = true;
         this.absolute = true;
-        setTimeout(() => {
+        this.$nextTick().then(() => {
           this.realActive = true;
           this.memoryHeight = `${document.querySelector(`#${this.id}`).offsetHeight}px`;
           if (!this.revertHeight) this.revertHeight = this.memoryHeight;
@@ -74,7 +74,7 @@ export default {
           console.log(this.memoryHeight);
           // debugger;
           this.toHeight = "0px";
-        }, 0);
+        })
         setTimeout(() => {
           if (this.revertHeight) {
             this.toHeight = this.revertHeight;

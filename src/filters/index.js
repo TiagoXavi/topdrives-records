@@ -124,6 +124,12 @@ export default {
                 if (number >= 1000) {
                     return `${(Math.floor(number / 100))/10}k`
                 }
+                if (number > 100) {
+                    return `${(Math.floor(number / 100))/1}00+`
+                }
+                if (number <= 100) {
+                    return `>100`
+                }
                 return `${number}k`
             } else {
                 return ''
