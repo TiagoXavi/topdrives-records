@@ -162,9 +162,6 @@
         :disabled="running"
         class="D_Button Main_SaveAllButton"
         @click="run()">{{ $t("m_simulate") }}</button>
-      <!-- <button class="D_Button MainPacks_ConfigButton" @click="optionsDialog = true;">
-        <i class="ticon-gear MainPacks_ConfigIcon" aria-hidden="true"/>
-      </button> -->
     </div>
 
     <div v-if="showResult" class="MainPacks_Result MainPacks_Center" style="margin-top: 50px;">
@@ -271,24 +268,6 @@
       @listRids="filterFinish($event);"
     />
     
-
-    <BaseDialog
-      :active="optionsDialog"
-      :transparent="false"
-      max-width="420px"
-      min-width="240px"
-      @close="closeOptionsDialog()">
-      <div class="Main_AdvancedDialogBox">
-        <div class="Main_DialogTitle">{{ $t("m_options") }}</div>
-        <BaseText
-          v-model="limit"
-          class="BaseText_Big"
-          type="tune"
-          style="max-width: 150px;"
-          :label="$t('m_openLimit')"
-          placeholder="" />
-      </div>
-    </BaseDialog>
 
     <BaseCarDetailDialog
       :active="tuneDialogActive"
@@ -671,7 +650,6 @@ export default {
         mainClasses: []
       },
       all_cars,
-      optionsDialog: false,
       tuneDialogCar: {},
       tuneDialogActive: false,
       otherPacksDialog: false,
@@ -1429,9 +1407,6 @@ export default {
       //   if (result > 1) return `${result.toFixed(1)}%`
       //   return `${result.toFixed(2)}%`
       // }
-    },
-    closeOptionsDialog() {
-      this.optionsDialog = false;
     },
     updatedDropped(last) {
       last.map(car => {

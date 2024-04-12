@@ -84,7 +84,9 @@ export default {
       this.internalValue = newValue;
     }
   },
-  beforeMount() {},
+  beforeMount() {
+    this.internalValue = this.value;
+  },
   mounted() {},
   computed: {},
   methods: {
