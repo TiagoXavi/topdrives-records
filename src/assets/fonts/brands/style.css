@@ -21,6 +21,9 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.brand-qq:before {
+  content: "\e90c";
+}
 .brand-reddit:before {
   content: "\e900";
   color: #ff4500;
@@ -64,6 +67,10 @@ i {
 .brand-mastodon:before {
   content: "\e908";
   color: #3088d4;
+}
+.brand-messenger:before {
+  content: "\e912";
+  color: #00b2ff;
 }
 .brand-microsoftteams:before {
   content: "\e909";

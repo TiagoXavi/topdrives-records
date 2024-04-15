@@ -144,7 +144,7 @@
             :class="{ D_Button_Loading: loading }"
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
             @click="approveCommunity(dialogSocial, true)">
-            <span class="Row_UploadLabel">{{ $t("m_delete") }}</span>
+            <span>{{ $t("m_delete") }}</span>
           </button>
           <button
             v-if="dialogSocial.approved === false"
@@ -704,14 +704,15 @@ export default {
       brands: [
         "discord",
         "facebook",
-        "googlehangouts",
         "icq",
         "instagram",
         "line",
         "linkedin",
         "mastodon",
+        "messenger",
         "microsoftteams",
         "pinterest",
+        "qq",
         "quora",
         "reddit",
         "signal",
@@ -735,6 +736,7 @@ export default {
         icq: "ICQ",
         microsoftteams: "Teams",
         vk: "VK",
+        qq: "QQ",
         whatsapp: "WhatsApp",
       },
       sentForReview: false
@@ -819,6 +821,7 @@ export default {
 
       axios.get(Vue.preUrl + "/searchCommunities")
       .then(res => {
+        this.resetList();
         if (res.data.notApproved) {
           res.data.notApproved.map(x => {
             this.list.toApprove.push(x);
@@ -969,7 +972,7 @@ export default {
           this.loading = true;
           setTimeout(() => {
             this.searchCommunities();
-          }, 1500);
+          }, 3000);
         }
 
         setTimeout(() => {
@@ -999,6 +1002,18 @@ export default {
       this.newInfoForInvite = "";
       this.newLink = "";
     },
+    resetList() {
+      this.list = {
+        toApprove: [],
+        official: [],
+        global: []
+      }
+      this.expanded = {
+        toApprove: true,
+        official: true,
+        global: true
+      }
+    },
     scrollToBottom() {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     },
@@ -1025,7 +1040,7 @@ export default {
         this.dialogActive = false;
         setTimeout(() => {
           this.searchCommunities();
-        }, 1500);
+        }, 3000);
       })
       .catch(error => {
         this.loading = false;
@@ -1198,9 +1213,6 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-.MainCommunity_DialogInfoValue {
-  color: rgb(var(--d-text-yellow));
-}
 .MainCommunity_DialogMid {
   display: flex;
   gap: 5px 25px;
@@ -1213,6 +1225,7 @@ export default {
 }
 .MainCommunity_DialogInfoValue {
   color: var(--d-text-b);
+  word-break: break-word;
 }
 .MainCommunity_DialogInviteNeeded {
   font-size: 13px;

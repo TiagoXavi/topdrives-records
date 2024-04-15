@@ -7,6 +7,7 @@ const MainGallery = () => import("./components/MainGallery.vue");
 const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
 const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
 const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
+const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
 const MainImportRude = () => import("./components/MainImportRude.vue");
 const MainSwagger = () => import("./components/MainSwagger.vue");
 const MainCharts = () => import("./components/MainCharts.vue");
@@ -118,6 +119,11 @@ const routes = [
     path: '/validatejson', // internal
     name: 'Validate',
     component: MainValidateFinalJson,
+  },
+  {
+    path: '/amp', // internal
+    name: 'Validate',
+    component: MainAmplitudeNewCars,
   },
   {
     path: '/importrude', // internal
