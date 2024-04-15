@@ -6,8 +6,13 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import hutch_v22_myCars from '@/database/hutch_v22_myCars.json' // internal
-import hutch_v22_amplitude from '@/database/hutch_v22_amplitude.json' // internal
+try {
+  var hutch_v22_myCars = require('@/database/hutch_v22_myCars.json') // internal
+  var hutch_v22_amplitude = require('@/database/hutch_v22_amplitude.json') // internal
+  
+} catch (error) {
+
+}
 import BaseFilterDialog from './BaseFilterDialog.vue'
 
 export default {
