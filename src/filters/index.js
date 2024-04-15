@@ -128,7 +128,7 @@ export default {
                     return `${(Math.floor(number / 100))/1}00+`
                 }
                 if (number <= 100) {
-                    return `>100`
+                    return `<100`
                 }
                 return `${number}k`
             } else {

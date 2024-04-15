@@ -28,6 +28,7 @@ export default {
       let flag = this.flag;
 
       if (flag === "EN") flag = "US";
+      if (flag === "inactive") flag = "global";
 
       try {
         parsed = require('@/assets/flags/' + flag.toUpperCase() + '.svg');

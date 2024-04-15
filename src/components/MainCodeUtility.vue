@@ -474,7 +474,7 @@ export default {
         ladderId: this.result.ladder.id,
         numTickets: 5,
         lastTicketRegen: "2023-08-13T23:46:33.370Z",
-        currentRung: this.roundNumber || this.result.ladder.rungEligibility.length - 1, // round
+        currentRung: Number(this.roundNumber) || this.result.ladder.rungEligibility.length - 1, // round
         starsWon: 0,
         entryCostPaid: true,
         rungEntryCostPaid: false,
@@ -486,7 +486,7 @@ export default {
         x.inventoryItemAmount = 0;
         x.inventoryItemConsumed = false;
         newPlayerData.rungs.push({
-          numWins: 1,
+          numWins: 0,
           entryCostPaid: false,
           starsWon: 3
         })

@@ -141,6 +141,7 @@
         </div>
         <div v-if="user && user.mod && (dialogSocial.approved === false || forceShowDelete)" class="MainCommunity_DialogModTools D_Center Space_TopPlus" style="gap: 5px;">
           <button
+            v-if="dialogSocial.approved === true"
             :class="{ D_Button_Loading: loading }"
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
             @click="approveCommunity(dialogSocial, true)">
@@ -152,6 +153,13 @@
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
             @click="approveCommunity(dialogSocial)">
             <span>{{ $t("m_approve") }}</span>
+          </button>
+          <button
+            v-if="dialogSocial.approved === true"
+            :class="{ D_Button_Loading: loading }"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="edit(dialogSocial)">
+            <span>{{ $t("m_edit") }}</span>
           </button>
         </div>
       </div>
@@ -431,6 +439,7 @@ export default {
         toApprove: "For review",
         official: "Official",
         global: "Global",
+        inactive: "Inactive",
         ad: "Andorra",
         ae: "United Arab Emirates",
         af: "Afghanistan",
@@ -841,6 +850,8 @@ export default {
         })
         listOfCountry = [...new Set(listOfCountry)];
         listOfCountry.sort((a,b) => {
+          if (a === "inactive") return 1;
+          if (b === "inactive") return -1;
           return (this.flagNames[a] || "").localeCompare((this.flagNames[b] || ""));
         })
         listOfCountry.map(x => {
@@ -1052,6 +1063,19 @@ export default {
           type: "error"
         });
       })
+    },
+    edit(commu) {
+      this.newName = commu.name;
+      this.newPlatform = commu.platform;
+      this.newType = commu.type;
+      this.newLanguage = commu.language;
+      this.newCountry = commu.country;
+      this.newUserCount = commu.userCount;
+      this.newDescription = commu.description || "";
+      this.newInfoForInvite = commu.infoForInvite || "";
+      this.newLink = commu.link || "";
+      this.dialogActive = false;
+      this.newDialogActive = true;
     }
   },
   beforeDestroy() {

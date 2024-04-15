@@ -359,6 +359,34 @@
     "group": "mt"
   },
   {
+    "id": "nwCircuit",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwDrag",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwGforce",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwLoop",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwCathedral",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwTour",
+    "types": ["00","01"]
+  },
+  {
+    "id": "nwSlalom",
+    "types": ["00","01"]
+  },
+  {
     "id": "northloop",
     "types": ["00","01"]
   },

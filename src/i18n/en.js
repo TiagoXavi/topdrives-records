@@ -218,6 +218,7 @@ export default {
   m_unlinkDiscord: "Unlink my discord",
   m_inviter: "Inviter",
   m_requestSent: "Request sent",
+  m_edit: "Edit",
 
   
   
@@ -458,5 +459,12 @@ export default {
   t_dealsGap4: "Deals Gap Relay 4",
   t_dealsGap5: "Deals Gap Relay 5",
   t_dealsGap: "Deals Gap",
-  t_dealsGapBack: "Deals Gap Backroads"
+  t_dealsGapBack: "Deals Gap Backroads",
+  t_nwCircuit: "New York Circuit",
+  t_nwDrag: "New York Drag",
+  t_nwGforce: "New York G-Force",
+  t_nwLoop: "New York Times Square Loop",
+  t_nwCathedral: "New York Cathedral",
+  t_nwTour: "New York Central Park Tour",
+  t_nwSlalom: "New York Train Slalom"
 }
