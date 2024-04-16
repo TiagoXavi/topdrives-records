@@ -73,7 +73,7 @@
           <div class="MainCommunity_DialogTitleRight">
             <i class="MainCommunity_DialogTitleIcon" :class="`brand-${dialogSocial.platform}`" aria-hidden="true"/>
             <template v-if="dialogSocial.country && dialogSocial.country.length > 0">
-              <BaseFlag v-for="country in dialogSocial.country" :flag="country" class="MainCommunity_DialogFlag" :class="{ MainCommunity_DialogFlagGlobal: country === 'global' }" />
+              <BaseFlag v-for="country in dialogSocial.country" :flag="country" class="MainCommunity_DialogFlag" :class="{ MainCommunity_DialogFlagGlobal: country === 'global' || country === 'inactive' }" />
             </template>
           </div>
         </div>
@@ -697,6 +697,7 @@ export default {
       dDiscordActive: false,
       newDialogActive: false,
       newLoading: false,
+      newCid: "",
       newType: "",
       newName: "",
       newPlatform: null,
@@ -801,24 +802,17 @@ export default {
     },
     isValidSubmit() {
       if (!this.newType) return false;
-      console.log(0);
       if (this.newType === 'private') {
         if (!this.newInfoForInvite) return false;
       }
-      console.log(1);
       if (this.newType === 'public') {
         if (!this.newLink) return false;
       }
-      console.log(2);
         
       if (!this.newPlatform) return false;
-      console.log(3);
       if (this.newCountry.length === 0) return false;
-      console.log(4);
       if (!this.newLanguage) return false;
-      console.log(5);
       if (isNaN(this.newUserCount) || Number(this.newUserCount) < 0) return false;
-      console.log(6);
 
       return true;
     }
@@ -929,6 +923,7 @@ export default {
     },
     newSubmit(flag) {
       if (flag) this.newCountry = [flag];
+      this.newCid = "";
       this.newDialogActive = true;
     },
     newCountryClick() {
@@ -962,6 +957,10 @@ export default {
       }
       if (this.newType === "public") {
         params.link = this.newLink;
+      }
+      if (this.newCid) {
+        params.cid = this.newCid;
+        params.isEdit = true;
       }
 
       this.newLoading = true;
@@ -1065,6 +1064,7 @@ export default {
       })
     },
     edit(commu) {
+      this.newCid = commu.cid;
       this.newName = commu.name;
       this.newPlatform = commu.platform;
       this.newType = commu.type;
