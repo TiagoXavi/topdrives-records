@@ -422,5 +422,12 @@ export default {
   "t_dealsGap4": null,
   "t_dealsGap5": null,
   "t_dealsGap": null,
-  "t_dealsGapBack": "Deals Gap Nebenwege"
+  "t_dealsGapBack": "Deals Gap Nebenwege",
+  "t_nwCircuit": "New York Circuit",
+  "t_nwDrag": "New York Drag",
+  "t_nwGforce": "New York G-Force",
+  "t_nwLoop": "New York Times-Square-Schleife",
+  "t_nwCathedral": "New York Kathedrale",
+  "t_nwTour": "New York Central-Park-Tour",
+  "t_nwSlalom": "New York Zugslalom"
 }
