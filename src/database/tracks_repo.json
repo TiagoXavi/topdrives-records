@@ -145,23 +145,28 @@
   },
   {
     "id": "dealsGap1",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "deals"
   },
   {
     "id": "dealsGap2",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "deals"
   },
   {
     "id": "dealsGap3",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "deals"
   },
   {
     "id": "dealsGap4",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "deals"
   },
   {
     "id": "dealsGap5",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "deals"
   },
   {
     "id": "dealsGapBack",
@@ -185,27 +190,33 @@
   },
   {
     "id": "dockAltCirc",
-    "types": ["c0", "c1"]
+    "types": ["c0", "c1"],
+    "group": "dock"
   },
   {
     "id": "dockCirc",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "dock"
   },
   {
     "id": "dockCity",
-    "types": ["00"]
+    "types": ["00", "01"],
+    "group": "dock"
   },
   {
     "id": "dockGforceDrag",
-    "types": ["00"]
+    "types": ["00", "01"],
+    "group": "dock"
   },
   {
     "id": "dockKart",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "dock"
   },
   {
     "id": "dockUdrag",
-    "types": ["00", "01"]
+    "types": ["00", "01"],
+    "group": "dock"
   },  
   {
     "id": "dtRoad",
@@ -360,31 +371,38 @@
   },
   {
     "id": "nwCircuit",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwDrag",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwGforce",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwLoop",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwCathedral",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwTour",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "nwSlalom",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "newYork"
   },
   {
     "id": "northloop",
@@ -459,15 +477,18 @@
   },
   {
     "id": "runwayDrag",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "runway"
   },
   {
     "id": "runwayDragSlalom",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "runway"
   },
   {
     "id": "runwayLoop",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "runway"
   },
   {
     "id": "serviceRoads",
