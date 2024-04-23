@@ -1436,7 +1436,7 @@ export default {
       if (this.listDroppedCars.length > 0) {
         this.viewingClass = cls;
         this.listDroppedCars.sort((a,b) => {
-          return a.rq - b.rq;
+          return b.rq - a.rq;
         });
         this.showingDroppedCars = true;
         this.showDefaultResultList = false;
@@ -1457,9 +1457,16 @@ export default {
     noGoalShowNotGaranted() {
       this.defaultResultList = [];
       let ridsOnly = [];
+      let importantClasses = ["S", "A", "B"];
 
       this.simulateRunStats.mainClasses.map(cls => {
-        if (this.simulateRunStats[cls] > 50) return;
+        if (!importantClasses.includes(cls)) {
+          importantClasses.push(cls);
+        }
+      })
+
+      importantClasses.map(cls => {
+        if (this.simulateRunStats[cls] > 300 && cls !== this.simulateRunStats.mainClasses[0]) return;
         this.simulateRunStats.droppedRids[cls].map(c => {
           ridsOnly.push(c.rid);
         });
@@ -1472,8 +1479,8 @@ export default {
         }
       })
 
-      this.simulateRunStats.mainClasses.map(cls => {
-        if (this.simulateRunStats[cls] > 50) return;
+      importantClasses.map(cls => {
+        if (this.simulateRunStats[cls] > 300) return;
         this.simulateRunStats.droppedRids[cls].map(c => {
           let found = this.defaultResultList.find(car => car.rid === c.rid);
           if (found) {
@@ -1486,7 +1493,7 @@ export default {
 
       if (this.defaultResultList.length > 0) {
         this.defaultResultList.sort((a,b) => {
-          return a.rq - b.rq;
+          return b.rq - a.rq;
         });
         this.showDefaultResultList = true;
       }

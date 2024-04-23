@@ -78882,6 +78882,42 @@
     {
         "class": "C",
         "rq": 45,
+        "onlyName": "Elise 1.6",
+        "brand": "Lotus",
+        "country": "GB",
+        "year": 2015,
+        "tdid": "377",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 127,
+        "acel": 6.1,
+        "hand": 85,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 49.48,
+        "weight": 876,
+        "name": "Lotus Elise 1.6",
+        "rid": "Lotus_Elise_1.6_2015",
+        "tags": [
+            "Summer Games",
+            "Old Guard",
+            "Originals",
+            "Orange",
+            "Cutting Edge"
+        ],
+        "bodyTypes": [
+            "Roadster"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "24129c74-8f5e-44a5-b3b2-003d208d36f1",
+        "brake": "A"
+    },
+    {
+        "class": "C",
+        "rq": 45,
         "onlyName": "Clio V6",
         "brand": "Renault",
         "country": "FR",
@@ -82988,42 +83024,6 @@
         "engine": "Front",
         "guid": "7aca3787-19e0-4cc7-94c8-e15953a56fb1",
         "brake": "B"
-    },
-    {
-        "class": "C",
-        "rq": 43,
-        "onlyName": "Elise 1.6",
-        "brand": "Lotus",
-        "country": "GB",
-        "year": 2015,
-        "tdid": "377",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 127,
-        "acel": 6.1,
-        "hand": 85,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 49.48,
-        "weight": 876,
-        "name": "Lotus Elise 1.6",
-        "rid": "Lotus_Elise_1.6_2015",
-        "tags": [
-            "Summer Games",
-            "Old Guard",
-            "Originals",
-            "Orange",
-            "Cutting Edge"
-        ],
-        "bodyTypes": [
-            "Roadster"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "24129c74-8f5e-44a5-b3b2-003d208d36f1",
-        "brake": "A"
     },
     {
         "class": "C",
@@ -110427,6 +110427,40 @@
     {
         "class": "D",
         "rq": 31,
+        "onlyName": "Merak SS",
+        "brand": "Maserati",
+        "country": "IT",
+        "year": 1976,
+        "tdid": "1639",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Low",
+        "topSpeed": 155,
+        "acel": 6.6,
+        "hand": 72,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 59.37,
+        "weight": 1180,
+        "name": "Maserati Merak SS",
+        "rid": "Maserati_Merak_SS_1976",
+        "tags": [
+            "Italian Renaissance",
+            "Red",
+            "Year of the Dragon"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "62bd5320-8c23-4e61-802b-9b8ef99a3319",
+        "brake": "C"
+    },
+    {
+        "class": "D",
+        "rq": 31,
         "onlyName": "CX-7 Adrenaline",
         "brand": "Mazda",
         "year": 2006,
@@ -112839,40 +112873,6 @@
         "seats": "4",
         "engine": "Front",
         "guid": "f7ce500b-41ad-40a1-a70a-fed83fa3e72f",
-        "brake": "C"
-    },
-    {
-        "class": "D",
-        "rq": 30,
-        "onlyName": "Merak SS",
-        "brand": "Maserati",
-        "country": "IT",
-        "year": 1976,
-        "tdid": "1639",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Low",
-        "topSpeed": 155,
-        "acel": 6.6,
-        "hand": 72,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 59.37,
-        "weight": 1180,
-        "name": "Maserati Merak SS",
-        "rid": "Maserati_Merak_SS_1976",
-        "tags": [
-            "Italian Renaissance",
-            "Red",
-            "Year of the Dragon"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "62bd5320-8c23-4e61-802b-9b8ef99a3319",
         "brake": "C"
     },
     {
@@ -129409,7 +129409,7 @@
     },
     {
         "class": "E",
-        "rq": 23,
+        "rq": 24,
         "onlyName": "Tasmin 280i 2+2 Coupe",
         "brand": "TVR",
         "year": 1981,
