@@ -4802,8 +4802,8 @@ export default {
           })
         })
         vm.highlightsUsers["Jayzoku"] = "w1";
-        vm.highlightsUsers["Aubeto"] = "w2";
-        vm.highlightsUsers["Innoxen"] = "w3";
+        vm.highlightsUsers["Ekukickz"] = "w2";
+        vm.highlightsUsers["johnnybro1"] = "w3";
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
