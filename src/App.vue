@@ -1381,12 +1381,15 @@ body .Main_UserT5 {
 }
 body .Main_UserTw1 {
   color: var(--w1);
+  white-space: nowrap;
 }
 body .Main_UserTw2 {
   color: var(--w2);
+  white-space: nowrap;
 }
 body .Main_UserTw3 {
   color: var(--w3);
+  white-space: nowrap;
 }
 body .Main_UserTw1:before {
   content: "🥇";
