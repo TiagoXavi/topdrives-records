@@ -725,7 +725,7 @@
               </template>
               <template v-else>
                 <button
-                  v-if="cgPermanentToggle || item.index < 1"
+                  v-if="cgPermanentToggle || item.index < 2"
                   style="padding-left: 15px;"
                   class="Main_SearchItem"
                   @click="loadChallengeFull(item.date)">
@@ -7163,9 +7163,9 @@ export default {
       this.cgList.map(x => {
         let styl = x.name;
         Vue.set(x, "index", 0);
-        if (x.name.substr(0, 7) === 'JTTEC: ') {
+        if (x.name.substr(0, 5) === 'AOT: ') {
           Vue.set(x, "index", 1);
-          styl = `<span class="Cg_EX">JTTEC: </span>${x.name.substr(14)}`
+          styl = `<span class="Cg_EX">AOT: </span>${x.name.substr(5)}`
         }
         if (x.name.substr(0, 11) === 'Yellowbird ') {
           Vue.set(x, "index", 2);
