@@ -2373,7 +2373,7 @@
             </template>
             <template v-else>
               <BaseButtonTouch
-                v-if="cgPermanentToggle || item.index < 1"
+                v-if="cgPermanentToggle || item.index < 2"
                 style="padding-left: 15px;"
                 class="Main_SearchItem"
                 @click="loadChallengeFull(item.date, undefined, $event)"
