@@ -495,6 +495,7 @@ export default {
           "European Revolution",
           "European New Wave",
           "Famous Tracks",
+          "Heavy Metal",
           "French Renaissance",
           "German Renaissance",
           "Great Exhibition",

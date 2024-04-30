@@ -164,6 +164,11 @@ export default {
   --tag-s: 76%;
   --tag-l: 37%;
 }
+.BaseGameTag_Heavy_Metal {
+  --tag-h: 40;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
 .BaseGameTag_Hot_Hatch {
   --tag-h: 290;
   --tag-s: 74%;

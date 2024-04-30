@@ -808,6 +808,7 @@ export default {
           "Cutting Edge",
           "Electric Excellence",
           "Famous Tracks",
+          "Heavy Metal",
           "Immortalised in Carbon",
           "In the Shadows",
           "In the Shadows 24",

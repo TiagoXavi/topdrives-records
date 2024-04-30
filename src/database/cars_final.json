@@ -6703,7 +6703,8 @@
         "prize": true,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -7294,7 +7295,8 @@
         "rid": "Porsche_Panamera_Turbo_S_2021",
         "tags": [
             "World Expo",
-            "Brown"
+            "Brown",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Estate"
@@ -7881,7 +7883,8 @@
         "rid": "Mercedes-Benz_AMG_GT_4-Door_Coupe_2018",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe",
@@ -10735,7 +10738,8 @@
         "tags": [
             "Great Exhibition",
             "Two Tone",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -11779,7 +11783,8 @@
             "Christmas Collection",
             "German Renaissance",
             "Year of the Ox",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -12471,7 +12476,8 @@
         "rid": "Bentley_Continental_GT3-R_2015",
         "tags": [
             "Great Exhibition",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -12984,7 +12990,8 @@
         "rid": "Porsche_Panamera_4S_2021",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Estate"
@@ -16323,7 +16330,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Convertible"
@@ -16358,7 +16366,8 @@
             "Christmas Collection",
             "Great Exhibition",
             "Year of the Rat",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Convertible"
@@ -17682,7 +17691,8 @@
             "Famous Tracks",
             "German Renaissance",
             "Year of the Ox",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -20794,7 +20804,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "guid": "9e0766f6-ec52-423a-84cd-acd02829d409",
         "brake": "A"
@@ -22160,7 +22171,8 @@
         "rid": "Audi_SQ7_TDI_2018",
         "tags": [
             "World Expo",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -22535,7 +22547,8 @@
         "rid": "Dodge_Durango_SRT_2018",
         "tags": [
             "American Frontier",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -25811,7 +25824,8 @@
         "rid": "MercedesAMG_GLS_63_2018",
         "tags": [
             "World Expo",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -26495,7 +26509,8 @@
         "rid": "BMW_X6_50i_2015",
         "tags": [
             "German Renaissance",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -27604,7 +27619,8 @@
         "rid": "Bentley_Continental_GT_V8_S_2014",
         "tags": [
             "Great Exhibition",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -29574,7 +29590,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 106,
@@ -32658,7 +32675,8 @@
         "rid": "Audi_S6_TDI_C8_2019",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -33241,7 +33259,8 @@
         "tags": [
             "American Frontier",
             "Call of the Wild",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -35084,7 +35103,8 @@
             "American Frontier",
             "Call of the Wild",
             "Concept",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "prize": true,
         "bodyTypes": [
@@ -35464,7 +35484,8 @@
         "rid": "Bentley_Continental_GT_2006",
         "tags": [
             "Great Exhibition",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -38860,7 +38881,8 @@
         "engine": "Front",
         "tags": [
             "Enter the Black Forest",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "guid": "41b9bb16-9055-45cd-973b-41b7286c1026",
         "brake": "B"
@@ -39233,7 +39255,8 @@
         "tags": [
             "American Overdrive",
             "Muscle Car",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 160,
@@ -39860,7 +39883,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -41032,7 +41056,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 112,
@@ -44098,7 +44123,8 @@
             "Team Favourite",
             "Old Guard",
             "Originals",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -44201,7 +44227,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -46373,7 +46400,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 155,
@@ -46816,7 +46844,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 98,
@@ -48198,7 +48227,8 @@
         "seats": "7",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 132,
@@ -49631,7 +49661,8 @@
         "tags": [
             "American Overdrive",
             "Eco Friendly",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 120,
@@ -54331,7 +54362,8 @@
             "Concept",
             "Great Exhibition",
             "Two Tone",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Convertible"
@@ -54805,7 +54837,8 @@
             "Rest of the World",
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -55720,7 +55753,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -56377,7 +56411,8 @@
         "engine": "Mixed",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "guid": "996376e1-d113-4c15-ae80-636506f9315f",
         "brake": "B"
@@ -57582,7 +57617,8 @@
         "rid": "INFINITI_QX80_AWD_(Y62)_2018",
         "tags": [
             "Japan Pro Tour",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -60079,7 +60115,8 @@
             "Famous Tracks",
             "Great Exhibition",
             "Year of the Rat",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -60115,7 +60152,8 @@
             "Great Exhibition",
             "Rest of the World",
             "Two Tone",
-            "Brown"
+            "Brown",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -60423,7 +60461,8 @@
         "seats": "7",
         "tags": [
             "American Overdrive",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 120,
@@ -60970,7 +61009,8 @@
         "tags": [
             "Pacific Coast Highway",
             "Concept",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -61761,7 +61801,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Ox",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Convertible"
@@ -62032,7 +62073,8 @@
         "rid": "Cadillac_Escalade_ESV_2016",
         "tags": [
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -62344,7 +62386,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 108,
@@ -62514,7 +62557,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -63235,7 +63279,8 @@
             "Famous Tracks",
             "Great Exhibition",
             "Rest of the World",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -63270,7 +63315,8 @@
             "Famous Tracks",
             "Great Exhibition",
             "Rest of the World",
-            "Turquoise"
+            "Turquoise",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -64410,7 +64456,8 @@
             "Rest of the World",
             "Silver Screen",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "prize": true,
         "bodyTypes": [
@@ -65110,7 +65157,8 @@
         "rid": "Mercedes-Benz_GL_350_2015",
         "tags": [
             "Originals",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -65352,7 +65400,8 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -71822,7 +71871,8 @@
             "Year of the Rat",
             "Old Guard",
             "Originals",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -72091,7 +72141,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 114,
@@ -72684,7 +72735,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "guid": "7f3ee002-48fc-46c2-a4b4-01de3076777d",
         "brake": "B"
@@ -74258,7 +74310,8 @@
         "tags": [
             "American Overdrive",
             "Concept",
-            "Beige"
+            "Beige",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 90,
@@ -74326,7 +74379,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 95,
@@ -76156,7 +76210,8 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "Orange"
+            "Orange",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 120,
@@ -76594,7 +76649,8 @@
         "seats": "7",
         "tags": [
             "European New Wave",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 128,
@@ -77793,7 +77849,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 98,
@@ -82156,7 +82213,8 @@
         "tags": [
             "American Overdrive",
             "Concept",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 130,
@@ -82222,7 +82280,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 107,
@@ -84725,7 +84784,8 @@
         "tags": [
             "American Overdrive",
             "Concept",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 130,
@@ -84932,7 +84992,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -87379,7 +87440,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Brown"
+            "Brown",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 99,
@@ -87412,7 +87474,8 @@
         "seats": "8",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 97,
@@ -88101,7 +88164,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 106,
@@ -89746,7 +89810,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -90917,7 +90982,8 @@
         "rid": "Nissan_Navara_2005",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -94073,7 +94139,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 108,
@@ -94972,7 +95039,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -95687,7 +95755,8 @@
         "tags": [
             "European New Wave",
             "Eco Friendly",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 99,
@@ -96135,7 +96204,8 @@
             "American Frontier",
             "Two Tone",
             "Old Guard",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -97049,7 +97119,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 98,
@@ -100554,7 +100625,8 @@
             "Famous Tracks",
             "Great Exhibition",
             "Rest of the World",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -101442,7 +101514,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -102843,7 +102916,8 @@
         "seats": "7",
         "tags": [
             "American Overdrive",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 106,
@@ -105208,7 +105282,8 @@
         "rid": "Ford_F-150_2007",
         "tags": [
             "American Frontier",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -108997,7 +109072,8 @@
             "Great Exhibition",
             "Silver Screen",
             "Year of the Ox",
-            "Turquoise"
+            "Turquoise",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -111684,7 +111760,8 @@
         "tags": [
             "American Dream",
             "The Horror Show",
-            "Yellow"
+            "Yellow",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup",
@@ -117704,7 +117781,8 @@
         "prize": false,
         "tags": [
             "Learn the Savannah Way",
-            "Red"
+            "Red",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "SUV"
@@ -121361,7 +121439,8 @@
         "tags": [
             "Famous Tracks",
             "Great Exhibition",
-            "Green"
+            "Green",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -121430,7 +121509,8 @@
         "tags": [
             "American Overdrive",
             "Muscle Car",
-            "Beige"
+            "Beige",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 125,
@@ -125531,7 +125611,8 @@
         "rid": "Chevrolet_454_SS_1990",
         "tags": [
             "American Dream",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -126901,7 +126982,8 @@
         "seats": "2",
         "tags": [
             "American Overdrive",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 99,
@@ -127516,7 +127598,8 @@
         "seats": "7",
         "tags": [
             "American Overdrive",
-            "Turquoise"
+            "Turquoise",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 121,
@@ -128365,7 +128448,8 @@
         "rid": "Ford_Ranger_2016a",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Pickup"
@@ -131970,7 +132054,8 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 120,
@@ -135476,7 +135561,8 @@
         "rid": "Mercedes-Benz_V_250d_2015",
         "tags": [
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "MPV"
@@ -136853,7 +136939,8 @@
         "tags": [
             "European New Wave",
             "Concept",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "tcs": true,
         "topSpeed": 100,
@@ -141954,7 +142041,8 @@
         "seats": "6",
         "tags": [
             "American Overdrive",
-            "Green"
+            "Green",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 114,
@@ -144388,7 +144476,8 @@
         "seats": "6",
         "tags": [
             "American Overdrive",
-            "Brown"
+            "Brown",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 115,
@@ -144656,7 +144745,8 @@
         "seats": "6",
         "tags": [
             "American Overdrive",
-            "Black"
+            "Black",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 125,
@@ -145549,7 +145639,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -145583,7 +145674,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Coupe"
@@ -146581,7 +146673,8 @@
         "seats": "6",
         "tags": [
             "American Overdrive",
-            "Beige"
+            "Beige",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 124,
@@ -147176,7 +147269,8 @@
         "engine": "Front",
         "tags": [
             "Asia-Pacific Grand Prix",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Heavy Metal"
         ],
         "guid": "6ead40df-c9bd-45ab-a93c-28f911e24a57",
         "brake": "B"
@@ -147308,7 +147402,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Convertible"
@@ -147342,7 +147437,8 @@
         "prize": false,
         "tags": [
             "Pacific Coast Highway",
-            "White"
+            "White",
+            "Heavy Metal"
         ],
         "bodyTypes": [
             "Saloon"
@@ -151493,7 +151589,8 @@
         "seats": "6",
         "tags": [
             "American Overdrive",
-            "Yellow"
+            "Yellow",
+            "Heavy Metal"
         ],
         "tcs": false,
         "topSpeed": 97,
