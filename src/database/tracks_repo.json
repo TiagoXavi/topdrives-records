@@ -371,37 +371,37 @@
   },
   {
     "id": "nwCircuit",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
     "id": "nwDrag",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
     "id": "nwGforce",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
     "id": "nwLoop",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
     "id": "nwCathedral",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
     "id": "nwTour",
-    "types": ["00","01"],
+    "types": ["00","01", "60", "41", "h1"],
     "group": "newYork"
   },
   {
     "id": "nwSlalom",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
