@@ -3,6 +3,38 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+
+
+function changeZoom(state, level) {
+  let isVertical = window.innerHeight > window.innerWidth;
+  let storeString = isVertical ? "zoomLevel" : "zoomLevelHorizontal";
+
+  state[storeString] = level;
+
+  let string;
+  if (level === "60%") {
+    string = "width=device-width,height=device-height, initial-scale=0.45, maximum-scale=0.45, minimum-scale=0.45"
+  }
+  if (level === "80%") {
+    string = "width=device-width,height=device-height, initial-scale=0.55, maximum-scale=0.55, minimum-scale=0.55"
+  }
+  if (level === "100%") {
+    string = "width=device-width,height=device-height, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65"
+  }
+  if (level === "120%") {
+    string = "width=device-width,height=device-height, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75"
+  }
+  if (level === "140%") {
+    string = "width=device-width,height=device-height, initial-scale=0.85, maximum-scale=0.85, minimum-scale=0.85"
+  }
+
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if ( viewport ) {
+    viewport.content = string;
+  }
+  window.localStorage.setItem(storeString, level);
+}
+
 export default new Vuex.Store({
   state: {
     mainDialog: {
@@ -92,6 +124,7 @@ export default new Vuex.Store({
     showPointsCgForce: true,
     showPermanentCgs: true,
     zoomLevel: "100%",
+    zoomLevelHorizontal: "80%",
     zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
   },
   mutations: {
@@ -109,30 +142,10 @@ export default new Vuex.Store({
     CHANGE_POINTS_CG_FORCE: (state, status) => state.showPointsCgForce = status,
     CHANGE_PERMANENT_CGS: (state, status) => state.showPermanentCgs = status,
     CHANGE_ZOOM_LEVEL: (state, level = "100%") => {
-      state.zoomLevel = level;
-
-      let string;
-      if (level === "60%") {
-        string = "width=device-width,height=device-height, initial-scale=0.45, maximum-scale=0.45, minimum-scale=0.45"
-      }
-      if (level === "80%") {
-        string = "width=device-width,height=device-height, initial-scale=0.55, maximum-scale=0.55, minimum-scale=0.55"
-      }
-      if (level === "100%") {
-        string = "width=device-width,height=device-height, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65"
-      }
-      if (level === "120%") {
-        string = "width=device-width,height=device-height, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75"
-      }
-      if (level === "140%") {
-        string = "width=device-width,height=device-height, initial-scale=0.85, maximum-scale=0.85, minimum-scale=0.85"
-      }
-
-      const viewport = document.querySelector('meta[name="viewport"]');
-      if ( viewport ) {
-        viewport.content = string;
-      }
-      window.localStorage.setItem('zoomLevel', level);
+      changeZoom(state, level);
+    },
+    CHANGE_ZOOM_LEVEL_HORIZONTAL: (state, level = "100%") => {
+      changeZoom(state, level);
     },
 
 

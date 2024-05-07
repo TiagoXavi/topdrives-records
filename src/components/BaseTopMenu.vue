@@ -57,13 +57,25 @@
           <div v-if="isMobile" class="Main_SaveGalleryBox" style="margin-top: 15px;">
             <div class="Main_OptionsLabel">{{ $t("m_zoom") }}</div>
             <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
-              <template v-for="(item, ix) in $store.state.zoomLevels">
-                <BaseChip
-                  v-model="zoomLevel"
-                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
-                  required="true"
-                  :value="item"
-                  @click="$store.commit('CHANGE_ZOOM_LEVEL', $event)" />
+              <template v-if="isVertical">
+                <template v-for="(item, ix) in $store.state.zoomLevels">
+                  <BaseChip
+                    v-model="zoomLevel"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                    required="true"
+                    :value="item"
+                    @click="checkZoom()" />
+                </template>
+              </template>
+              <template v-else>
+                <template v-for="(item, ix) in $store.state.zoomLevels">
+                  <BaseChip
+                    v-model="zoomLevelHorizontal"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                    required="true"
+                    :value="item"
+                    @click="checkZoom()" />
+                </template>
               </template>
             </div>
           </div>
@@ -121,13 +133,15 @@ export default {
       local_homePointsToggle: false,
       local_showPointsCgForce: true,
       local_zoomLevel: "100%",
+      local_zoomLevelHorizontal: "80%",
       isMobile: false,
       left_width: 0,
       left_widthBig: 145,
       right_width: 0,
       all_width: 0,
       doc_width: 0,
-      safe_margin: 40
+      safe_margin: 40,
+      isVertical: true
     }
   },
   watch: {
@@ -138,6 +152,9 @@ export default {
     }
   },
   beforeMount() {
+    this.localStorageRead("zoomLevel");
+    this.localStorageRead("zoomLevelHorizontal");
+    
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
     this.isMobile = Vue.options.filters.isMobile();
@@ -147,7 +164,6 @@ export default {
     this.localStorageRead("showOldTags");
     this.localStorageRead("homePointsToggle");
     this.localStorageRead("showPointsCgForce");
-    this.localStorageRead("zoomLevel");
 
   },
   beforeDestroy() {
@@ -237,6 +253,9 @@ export default {
       if (mutation.type == "CHANGE_ZOOM_LEVEL") {
         vm.local_zoomLevel = mutation.payload;
       }
+      if (mutation.type == "CHANGE_ZOOM_LEVEL_HORIZONTAL") {
+        vm.local_zoomLevelHorizontal = mutation.payload;
+      }
 
     })
   },
@@ -298,7 +317,14 @@ export default {
       },
       set: function (newValue) {
         this.local_zoomLevel = newValue;
-        this.$store.commit("CHANGE_ZOOM_LEVEL", newValue);
+      }
+    },
+    zoomLevelHorizontal: {
+      get: function () {
+        return this.local_zoomLevelHorizontal;
+      },
+      set: function (newValue) {
+        this.local_zoomLevelHorizontal = newValue;
       }
     },
   },
@@ -308,6 +334,8 @@ export default {
       document.documentElement.style.setProperty('--wBody', `${wBody}px`);
       let hBody = document.documentElement.offsetHeight;
       document.documentElement.style.setProperty('--hBody', `${hBody}px`);
+
+      this.checkZoom();
     },
     logoClick() {
       if (this.$route.name !== 'Records') {
@@ -316,8 +344,9 @@ export default {
     },
     localStorageRead(key) {
       let newVal = window.localStorage.getItem(key);
+      console.log(key, newVal);
       if (newVal) {
-        if (key !== "zoomLevel") {
+        if (key !== "zoomLevel" && key !== "zoomLevelHorizontal") {
           newVal = JSON.parse(newVal);
         }
         this[key] = newVal;
@@ -354,6 +383,15 @@ export default {
       if (item.name === "Community") {
         this.showNew = false;
         window.localStorage.setItem('newTab_Community', "t");
+      }
+    },
+    checkZoom() {
+      this.isVertical = window.innerHeight > window.innerWidth;
+
+      if (this.isVertical) {
+        this.$store.commit("CHANGE_ZOOM_LEVEL", this.local_zoomLevel);
+      } else {
+        this.$store.commit("CHANGE_ZOOM_LEVEL_HORIZONTAL", this.local_zoomLevelHorizontal);
       }
     }
   },
