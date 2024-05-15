@@ -7255,9 +7255,11 @@ export default {
         this.eventList = res.data.value;
 
         // filter
+        let isTier = this.whatTier && this.whatTier <= 3;
         this.eventList = this.eventList.filter(x => {
+
           if (x.name.includes("Daily Event")) {
-            if (this.user && this.user.mod) {
+            if ((this.user && this.user.mod) || isTier) {
               if (x.current) {
                 x.name = x.name + " (current)";
               }
@@ -7403,7 +7405,7 @@ export default {
     },
     eventStyleList() {
       this.eventList.sort((a,b) => {
-        return a.name.localeCompare(b.name);
+        return a.name.localeCompare(b.name, "en", {numeric: true});
       })
       this.eventList.map(x => {
         let styl = x.name;
