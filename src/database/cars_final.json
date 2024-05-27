@@ -48320,8 +48320,8 @@
         "fuel": "Petrol",
         "hand": 68,
         "mra": null,
-        "name": "Chevrolet Silverado LT Trailboss",
-        "onlyName": "Silverado LT Trailboss",
+        "name": "Chevrolet Silverado 1500 LT Trailboss",
+        "onlyName": "Silverado 1500 LT Trailboss",
         "prize": false,
         "rid": "Chevrolet_Silverado_LT_Trailboss_2019",
         "rq": 60,
@@ -63848,7 +63848,7 @@
     },
     {
         "abs": true,
-        "acel": 5.7,
+        "acel": 5.4,
         "bodyTypes": [
             "Coupe"
         ],
@@ -151297,7 +151297,7 @@
         "abs": false,
         "acel": null,
         "bodyTypes": [
-            "Hatchback"
+            "Saloon"
         ],
         "brand": "Citroen",
         "class": "F",

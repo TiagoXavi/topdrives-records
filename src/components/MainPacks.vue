@@ -1044,8 +1044,10 @@ export default {
         let rng = Math.random() * 100;
         let classDroped = null;
         let arr = Object.keys(card);
+        let cumulativeClassValue = 0;
         arr.find(key => {
-          if (card[key] >= rng) {
+          cumulativeClassValue += card[key];
+          if (cumulativeClassValue >= rng) {
             // console.log(key, rng);
             classDroped = key;
             return true;
