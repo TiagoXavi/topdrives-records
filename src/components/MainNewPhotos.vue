@@ -116,7 +116,7 @@ export default {
     finCarFinish(listOfRids) {
       listOfRids = listOfRids.map(x => x.rid);
       this.list = [];
-      this.custom_tags["22.1 new photos"].map(rid => {
+      this.custom_tags["22.2 new photos"].map(rid => {
 
         let car = this.all_cars_obj[rid];
         this.list.push({
@@ -142,7 +142,7 @@ export default {
         // })
       })
       this.list.sort((a, b) => {
-        return `${a.car.rq}_${a.car.rid}`.localeCompare(`${b.car.rq}_${b.car.rid}`);
+        return `${b.car.rq}_${b.car.rid}`.localeCompare(`${a.car.rq}_${a.car.rid}`, "en", {numeric: true});
         return b.car.rq - a.car.rq;
       })
 

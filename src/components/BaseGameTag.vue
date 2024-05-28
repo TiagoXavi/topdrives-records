@@ -114,6 +114,11 @@ export default {
   --tag-s: 66%;
   --tag-l: 63%;
 }
+.BaseGameTag_Desperados {
+  --tag-h: 53;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
 .BaseGameTag_Drivers_Choice {
   --tag-h: 4;
   --tag-s: 70%;

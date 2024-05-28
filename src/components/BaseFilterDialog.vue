@@ -806,6 +806,7 @@ export default {
           "Christmas Collection 22",
           "Coast to Coast",
           "Cutting Edge",
+          "Desperados",
           "Electric Excellence",
           "Famous Tracks",
           "Heavy Metal",

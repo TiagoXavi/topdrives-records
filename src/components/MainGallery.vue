@@ -488,6 +488,7 @@ export default {
           "Coast to Coast",
           "Concept",
           "Cutting Edge",
+          "Desperados",
           "Drivers Choice",
           "Eco Friendly",
           "Electric Excellence",

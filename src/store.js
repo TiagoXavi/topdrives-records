@@ -85,6 +85,7 @@ export default new Vuex.Store({
       "Chariots of the Gods",
       "Christmas Collection",
       "Christmas Collection 22",
+      "Coast to Coast",
       "Cutting Edge",
       "Famous Tracks",
       "Electric Excellence",
