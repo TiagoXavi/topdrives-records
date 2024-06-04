@@ -344,7 +344,7 @@ export default {
     },
     localStorageRead(key) {
       let newVal = window.localStorage.getItem(key);
-      console.log(key, newVal);
+      // console.log(key, newVal);
       if (newVal) {
         if (key !== "zoomLevel" && key !== "zoomLevelHorizontal") {
           newVal = JSON.parse(newVal);

@@ -396,9 +396,9 @@ export default {
         //   x.maxRQ = 500;
         // }
       })
-      // this.result.eventPlayerData.map(x => {
-      //   x.bucketDataVersion = 61;
-      // })
+      this.result.eventPlayerData.map(x => {
+        x.bucketDataVersion = 64;
+      })
 
       // let realEvent = this.result.events.find(x => x.id === eventMockup.id);
       // if (realEvent) {

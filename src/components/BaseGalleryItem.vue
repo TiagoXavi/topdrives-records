@@ -8,11 +8,14 @@
           </div>
           <div v-if="moreThanNineCars" class="BaseGalleryItem_PlusCars">+{{ config.cars.length - 7 }}</div>
         </div>
-        <div class="BaseGalleryItem_Author">{{ $t(`m_${config.type.toLowerCase()}`) }} | {{ $t(`m_by`) }} <span class="BaseGalleryItem_AuthorValue">{{ config.user }}</span></div>
+        <div v-if="config.user" class="BaseGalleryItem_Author"><span v-if="config.type">{{ $t(`m_${config.type.toLowerCase()}`) }}</span> | {{ $t(`m_by`) }} <span class="BaseGalleryItem_AuthorValue">{{ config.user }}</span></div>
       </div>
       <div class="BaseGalleryItem_Mid">
         <div class="BaseGalleryItem_MidLeft">
-          <div class="BaseGalleryItem_Name">{{ config.name }}</div>
+          <div class="BaseGalleryItem_Name">
+            <span>{{ config.name }}</span>
+            
+          </div>
           
           <div class="BaseGalleryItem_TagsDuo">
             <div class="BaseGalleryItem_Tags">
@@ -62,14 +65,20 @@
       v-if="showDelete"
       class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed Row_UploadButton BaseGalleryItem_Delete"
       @click.stop="$emit('delete', config)">
-      <span class="Row_UploadLabel">{{ $t("m_delete") }}</span>
+      <span class="BaseGalleryItem_MiniButtonLabel">{{ $t("m_delete") }}</span>
+    </button>
+    <button
+      v-if="showRename"
+      class="D_Button D_ButtonDark D_ButtonDark2 Row_UploadButton BaseGalleryItem_Delete BaseGalleryItem_Rename"
+      @click.stop="$emit('rename', config)">
+      <i class="ticon-pencil" style="font-size: 15px;" aria-hidden="true"/>
     </button>
     <button
       v-if="showApprove"
       style="right: unset; left: 0;"
       class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen Row_UploadButton BaseGalleryItem_Delete"
       @click.stop="$emit('approve', config)">
-      <span class="Row_UploadLabel">{{ $t("m_approve") }}</span>
+      <span class="BaseGalleryItem_MiniButtonLabel">{{ $t("m_approve") }}</span>
     </button>
   </div>
 </template>
@@ -94,6 +103,10 @@ export default {
       default: false
     },
     showApprove: {
+      type: Boolean,
+      default: false
+    },
+    showRename: {
       type: Boolean,
       default: false
     }
@@ -277,6 +290,30 @@ export default {
 .BaseGalleryItem_Layout:hover ~ .BaseGalleryItem_Delete,
 .BaseGalleryItem_Layout.focus-visible ~ .BaseGalleryItem_Delete {
   opacity: 1;
+}
+
+.D_Button.BaseGalleryItem_Add {
+  width: 240px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+}
+.BaseGalleryItem_Rename {
+  right: unset !important;
+  left: -21px !important;
+  top: 117px !important;
+  background-color: rgb(37, 37, 37);
+  min-width: unset;
+  padding: 7px 7px;
+}
+.BaseGalleryItem_Rename:hover,
+.BaseGalleryItem_Rename.focus-visible {
+  background-color: rgb(80, 80, 80) !important;
+}
+.BaseGalleryItem_MiniButtonLabel {
+  font-size: 15px;
 }
 
 </style>

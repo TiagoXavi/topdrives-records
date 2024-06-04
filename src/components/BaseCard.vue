@@ -20,7 +20,10 @@
       <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
       </div>
-      <div v-if="cgOppo" class="Car_TuneTip">{{ car.selectedTune }}</div>
+      <template v-if="cgOppo">
+        <div v-if="car.selectedTune && car.selectedTune.includes('Other') && car.selectedTune !== 'Other'" class="Car_TuneTip">{{ car.selectedTune.slice(5) }}</div>
+        <div v-else class="Car_TuneTip">{{ car.selectedTune }}</div>
+      </template>
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
         <button v-if="showResetTune" class="D_Button Car_HeaderButton" @click="$emit('refreshTune')">

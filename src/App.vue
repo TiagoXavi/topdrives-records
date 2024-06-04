@@ -1183,7 +1183,8 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-content: flex-start;
 }
 .Main_SearchEmpty {
   height: 60vh;
@@ -2081,6 +2082,10 @@ body .Main_UserTw3:before {
 }
 .Main_OptionsMemory {
   margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 .Main_MemoryLine {
   display: flex;

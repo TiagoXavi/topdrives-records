@@ -13,6 +13,7 @@
       :type="intype"
       :id="iid"
       class="BaseText_Input"
+      @keyup.enter.stop="$emit('enter')"
       @input="instantModel ? resolveChange($event.target.value) : ''"
       @change="!instantModel ? resolveChange($event.target.value) : ''"
       @blur="$emit('blur')"

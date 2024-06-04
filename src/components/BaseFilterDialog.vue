@@ -663,6 +663,10 @@ export default {
       type: String,
       default: "FILTER_IMPORT"
     },
+    refName: {
+      type: String,
+      default: "FILTER_REF"
+    },
 
   },
   data() {
@@ -1029,6 +1033,7 @@ export default {
     this.clearFilter();
     id++;
     this.id = id;
+    console.log("BaseDialog loaded id", this.id);
 
     let statsView = window.localStorage.getItem("statsView");
     if (statsView) {
@@ -1121,6 +1126,12 @@ export default {
         setTimeout(() => {
           vm.applyFilter();
         }, 101);
+      }
+
+      if (mutation.type == vm.refName) {
+        this.$store.commit(mutation.payload.returnName, {
+          returnRef: this
+        });
       }
 
     })

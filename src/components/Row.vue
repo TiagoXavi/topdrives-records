@@ -200,7 +200,7 @@
                 aria-hidden="true"/>
             </button>
             <button
-              v-if="user && user.canDelete && car.selectedTune !== 'Other' && car.selectedTune !== '000'"
+              v-if="user && user.canDelete && (car.selectedTune && !car.selectedTune.includes('Other')) && car.selectedTune !== '000'"
               class="D_Button Row_ModEditButton"
               @click="modDelete($event, item, ix)">
               <i

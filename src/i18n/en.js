@@ -219,6 +219,8 @@ export default {
   m_inviter: "Inviter",
   m_requestSent: "Request sent",
   m_edit: "Edit",
+  m_saveToFile: "Save to file",
+  m_loadFile: "Load file",
 
   
   

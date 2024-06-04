@@ -62,7 +62,7 @@ export default {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
                 return car[type] || "-";
             }
-            if (car.selectedTune === "Other") {
+            if (car.selectedTune && car.selectedTune.includes("Other")) {
                 return "?";
             }
             if (typeof car.selectedTune !== 'string') return "err";
