@@ -525,6 +525,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   flex-grow: 1;
+  align-content: flex-start;
 }
 .BaseMemoryDialog_MidFooter {
   display: flex;

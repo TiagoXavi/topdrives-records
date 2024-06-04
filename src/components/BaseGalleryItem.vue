@@ -35,15 +35,15 @@
             <div class="BaseGalleryItem_Tags2">
               <div v-if="config.country" class="BaseGalleryItem_TagBox">
                 <div class="BaseGalleryItem_TagLabel">{{ $tc("c_country", 1) }}</div>
-                <div v-for="country in config.country" class="BaseGalleryItem_TagValue">{{ country }}</div>
+                <div v-for="country in config.country.filter((x,ix) => ix < 3)" class="BaseGalleryItem_TagValue">{{ country }}</div>
               </div>
               <div v-if="config.brand" class="BaseGalleryItem_TagBox">
                 <div class="BaseGalleryItem_TagLabel">{{ $tc("c_brand", 1) }}</div>
-                <div v-for="brand in config.brand" class="BaseGalleryItem_TagValue">{{ brand }}</div>
+                <div v-for="brand in config.brand.filter((x,ix) => ix < 3)" class="BaseGalleryItem_TagValue">{{ brand }}</div>
               </div>
               <div v-if="config.tag" class="BaseGalleryItem_TagBox">
                 <div class="BaseGalleryItem_TagLabel">{{ $tc("c_tag", 1) }}</div>
-                <div v-for="tag in config.tag" class="BaseGalleryItem_TagValue">{{ tag }}</div>
+                <div v-for="tag in config.tag.filter((x,ix) => ix < 3)" class="BaseGalleryItem_TagValue">{{ tag }}</div>
               </div>
             </div>
           </div>
