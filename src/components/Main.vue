@@ -8878,6 +8878,7 @@ export default {
       })
     },
     openMemoryDialog() {
+      this.$store.commit("START_LOGROCKET", {});
       this.memorySearchDialogLoad = true;
       this.memorySearchDialog = true;
     },
