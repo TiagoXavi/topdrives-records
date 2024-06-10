@@ -355,6 +355,13 @@ export default {
             { C: 5.00, D: 95.00 },
             { C: 5.00, D: 95.00 },
           ],
+          cardsCustomNoLeg: [
+            { A: 22.75, B: 77.25 },
+            { A: 3.75, B: 7.00, C: 89.25 },
+            { C: 10.00, D: 90.00 },
+            { C: 5.00, D: 95.00 },
+            { C: 5.00, D: 95.00 },
+          ],
           priceCash: 0,
           priceGold: 1499
         },
@@ -379,6 +386,13 @@ export default {
           ],
           cardsCustom: [
             { S: 0.45, A: 2.00, B: 11.00, C: 86.55 },
+            { S: 0.06, A: 0.09, B: 0.33, C: 24.00, D: 75.52 },
+            { C: 1.75, D: 16.00, E: 82.25 },
+            { D: 5.00, E: 95.00 },
+            { D: 5.00, E: 95.00 },
+          ],
+          cardsCustomNoLeg: [
+            { A: 2.90, B: 10.55, C: 86.55 },
             { S: 0.06, A: 0.09, B: 0.33, C: 24.00, D: 75.52 },
             { C: 1.75, D: 16.00, E: 82.25 },
             { D: 5.00, E: 95.00 },
@@ -582,6 +596,7 @@ export default {
       showDefaultResultList: true,
       defaultResultList: [],
       viewingClass: null,
+      isNoLeggyPack: false,
       simulateRunStats: {
         success: false,
         count: 0,
@@ -807,6 +822,12 @@ export default {
     currentPackCards() {
       if (!this.packModel || !this.packModel.name) return [];
       
+
+      if (this.packModel.name === "Carbon Fiber" || this.packModel.name === "Ceramic") {
+        if (this.isNoLeggyPack) {
+          return this.packModel.cardsCustomNoLeg;
+        }
+      }
       if (this.packFilterDescResolved.length > 0 && this.packModel.cardsCustom) return this.packModel.cardsCustom;
       return this.packModel.cards;
     }
@@ -907,6 +928,17 @@ export default {
       this.removeImpossibles();
       if (!this.checkIfPackIsViable()) {
         return;
+      }
+      if (this.checkIfPackIsViable() === "noS") {
+        // start again with isNoLeggyPack === true;
+        this.resetRun();
+        this.isNoLeggyPack = true;
+        this.prepareAvailableCars();
+        if (this.packFilterDescResolved.length > 0) this.prepareFreeCars();
+        this.removeImpossibles();
+        if (!this.checkIfPackIsViable()) {
+          return;
+        }
       }
       this.showResult = true;
       this.running = true;
@@ -1197,6 +1229,7 @@ export default {
       this.defaultResultList = [];
       this.showDefaultResultList = true;
       this.viewingClass = null;
+      this.isNoLeggyPack = false;
     },
     resolveProbabilityPerOpen(carList) {
       let countPerClass = { S: 0, A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
@@ -1540,6 +1573,10 @@ export default {
       })
 
       if (isViable) return true;
+
+      if (missingClass === "S") {
+        return "noS";
+      }
 
       this.$store.commit("DEFINE_SNACK", {
         active: true,

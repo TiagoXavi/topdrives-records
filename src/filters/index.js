@@ -240,6 +240,8 @@ export default {
                 result = Math.round(result);
 
                 if (trackCode.includes("testBowlr")) result = result - 5;
+                if (trackCode === "testBowl_a10") result = result - 3;
+                if (trackCode === "testBowlr_a20") result = result + 5;
                 if (result < 50) result = 50;
                 if (isLose) result = result * -1;
                 return { v: result, i: true };

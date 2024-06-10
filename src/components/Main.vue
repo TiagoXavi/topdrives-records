@@ -3141,6 +3141,7 @@ export default {
       eventFilterString2: null,
       eventFilterString3: null,
       eventFilterForKing: {},
+      eventFilterForKingLast: "",
       eventTracksetString: null,
       eventCompString: null,
       eventCompDialog: false,
@@ -8201,18 +8202,20 @@ export default {
     eventRefreshKingFilter() {
       this.eventFilterForKing = {};
       if (this.eventCheckFilterCode) {
-        
-        setTimeout(() => {
+
+        this.$nextTick().then(() => {
           if (this.mode === "events") {
             this.$store.commit("EVENT_EXPORT_FILTER");
           }
           if (this.mode === "clubs") {
             this.$store.commit("CLUBS_EXPORT_FILTER");
           }
-          setTimeout(() => {
+          
+          this.$nextTick().then(() => {
             this.eventOpenKingFilter(Number(this.eventCheckFilterCode[0]), Number(this.eventCheckFilterCode[2]), {}, true);
-          }, 50);
-        }, 50);
+          })
+        })
+        
       }
     },
     eventOpenKingFilter(itrackset, itrackMonoArray, e, direct = false) {
@@ -8224,10 +8227,12 @@ export default {
       if (key === "clubReqsGroupModel") {
         if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
       }
+      let refreshFilter = this.eventFilterForKingLast !== this[key].date;
+      this.eventFilterForKingLast = this[key].date;
 
       if (this.eventAnalyseLoading) return true;
       // if (key === "clubReqsGroupModel") {
-      if (!Object.keys(this.eventFilterForKing).length || direct) {
+      if (!Object.keys(this.eventFilterForKing).length || direct || refreshFilter) {
         this.eventFilterForKing = JSON.parse(JSON.stringify(this[key][filterAtr]));
       }
       this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
@@ -8235,7 +8240,9 @@ export default {
 
       if (this.whatTier && this.whatTier <= 3 && (!e || !e.ctrlKey) && !direct) {
         this.eventKingDialogLoad = true;
-        this.eventKingDialog = true;
+        this.$nextTick().then(() => {
+          this.eventKingDialog = true;
+        })
       } else {
         this.eventEventKFilter(e.ctrlKey);
       }
