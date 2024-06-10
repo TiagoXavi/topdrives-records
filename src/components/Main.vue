@@ -8050,6 +8050,9 @@ export default {
 
     },
     eventEditComp(igroup) {
+      if (this.user.username === 'TiagoXavi' && !this.eventCompTypes.metas.includes("Template")) {
+        this.eventCompTypes.metas.push("Template");
+      }
       this.eventCompIndex = igroup;
       this.eventCompDialog = true;
     },

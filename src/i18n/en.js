@@ -339,6 +339,7 @@ export default {
   c_rearEngine: "Rear",
   c_tune: "Tune",
   c_name: "Name",
+  c_template: "Template",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",
