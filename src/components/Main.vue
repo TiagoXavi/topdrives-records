@@ -7904,6 +7904,13 @@ export default {
         })
       })
 
+      // fix null tracks order
+      this.eventKingTracks.map((x, ix) => {
+        if (x === null) {
+          data.splice( ix, 0, [] )
+        }
+      })
+
       if (this.isEvents) {
         Vue.set(this.event, "compilation", data);
       } else {
