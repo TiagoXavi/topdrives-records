@@ -3708,7 +3708,7 @@ export default {
               text: error,
               type: "error"
             });
-            if (error.response.status === 401) {
+            if ((error.response || {}).status === 401) {
               vm.$store.commit('OPEN_LOGIN');
             }
           })
@@ -5058,7 +5058,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -5103,7 +5103,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -5652,7 +5652,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -5693,7 +5693,7 @@ export default {
             text: error,
             type: "error"
           });
-          if (error.response.status === 401) {
+          if ((error.response || {}).status === 401) {
             vm.$store.commit('OPEN_LOGIN');
           }
         })
@@ -6518,7 +6518,7 @@ export default {
             text: error,
             type: "error"
           });
-          if (error.response.status === 401) {
+          if ((error.response || {}).status === 401) {
             vm.$store.commit('OPEN_LOGIN');
           }
         })
@@ -6586,7 +6586,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -6621,7 +6621,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -6651,7 +6651,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -6694,7 +6694,7 @@ export default {
             text: error,
             type: "error"
           });
-          if (error.response.status === 401) {
+          if ((error.response || {}).status === 401) {
             vm.$store.commit('OPEN_LOGIN');
           }
         })
@@ -6734,7 +6734,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -6934,7 +6934,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -7083,7 +7083,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -7326,7 +7326,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -7883,7 +7883,7 @@ export default {
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
           } else {
             car.points = Vue.options.filters.userPoints(bestTimePure, car.time, this.eventKingTracks[itrack]);
-            if (this.eventKingTracks[itrack].includes("testBowl")) {
+            if ((this.eventKingTracks[itrack] || "").includes("testBowl")) {
               car.timeToPrint = car.time;
             } else {
               if (car.time < bestTime) {
@@ -8012,7 +8012,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -8041,7 +8041,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -8302,7 +8302,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -8333,7 +8333,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -8384,7 +8384,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -8463,7 +8463,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9395,7 +9395,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9507,7 +9507,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9603,7 +9603,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9634,7 +9634,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9662,7 +9662,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })
@@ -9689,7 +9689,7 @@ export default {
           text: error,
           type: "error"
         });
-        if (error.response.status === 401) {
+        if ((error.response || {}).status === 401) {
           this.$store.commit('OPEN_LOGIN');
         }
       })

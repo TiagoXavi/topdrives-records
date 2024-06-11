@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import Car from './Car.vue';
+// import Car from './Car.vue';
 
 export default {
   name: 'BaseCard',
@@ -293,85 +293,4 @@ export default {
 </script>
 
 <style>
-.BaseCard_Layout {
-  display: contents;
-}
-.BaseCard_FixBack {
-  background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
-  top: 0;
-  left: 0;
-  position: sticky;
-  width: 100%;
-  height: var(--top-height);
-  z-index: 20;
-}
-.BaseCard_FixBack + .Car_Header {
-  margin-top: calc((var(--top-height) - 3px) * -1);
-}
-.Main_2 .BaseCard_FixBack {
-  display: none;
-}
-.BaseCard_Header2Left {
-  /* width: calc(var(--cell-height) * 1.7);
-  min-width: calc(var(--cell-height) * 1.7);
-  height: 100%;
-  background-size: 90px;
-  background-position: 33%;
-  transform: scale(1.0001);
-  margin-right: 5px; */
-
-  display: flex;
-  height: var(--cell-height);
-  /* margin: -7px 0; */
-  width: 53px;
-  min-width: 53px;
-  border-radius: 0px 3px 3px 0px;
-  overflow: hidden;
-  margin-right: 5px;
-  background-color: #00000038;
-}
-.BaseCard_Header2Img {
-  transform: scale(1.4) translateX(1px);
-  height: 100%;
-}
-.BaseCard_Header2Right {
-  font-size: 14px;
-  flex-grow: 1;
-  max-width: calc(100% - 56px);
-}
-.BaseCard_Header2Top {
-  color: grey;
-}
-.BaseCard_Header2Bottom {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.BaseCard_Header2Right2 {
-  display: none;
-  color: black;
-  background-color: var(--class-color);
-  height: 20px;
-  justify-content: center;
-  width: 19px;
-  font-weight: 700;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  line-height: 21px;
-  border-top-right-radius: 4px;
-  padding-right: 1px;
-}
-.BaseCard_EffectBackGround {
-  bottom: -60px;
-  left: -90px;
-  background: radial-gradient(rgba(var(--class-color-rgb),0.5) 0%, rgba(var(--class-color-rgb),0) 60%);
-  position: absolute;
-  pointer-events: none;
-  width: 330px;
-  height: 260px;
-}
-.Row_DialogCardLeft {
-  position: relative;
-}
 </style>

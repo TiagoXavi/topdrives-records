@@ -8,7 +8,7 @@ export function toTimeString(input, id) {
     }
     return input;
   }
-  if (id.includes("testBowl")) {
+  if ((id || "").includes("testBowl")) {
     if (!isNaN(num)) {
       return `${Math.floor(num)}`;
     }
