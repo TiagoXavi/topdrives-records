@@ -819,7 +819,7 @@
                     <span class="Cg_RqRq">RQ</span>
                     <span>{{ event.rqLimit }}</span>
                     <BaseButtonTouch
-                      v-if="user && user.mod"
+                      v-if="user && user.mod && event.canViewEvent"
                       :disabled="eventLoading"
                       class="D_Button Main_AddTrackDirect"
                       @click="eventOpenRqEdit($event)"
@@ -836,7 +836,7 @@
                           @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="eventNeedSave && user && user.mod">
+                    <template v-else-if="eventNeedSave && user && user.mod && event.canViewEvent">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: eventLoadingAny }"
@@ -871,12 +871,13 @@
             :filter2="event.filter2"
             :filter3="event.filter3"
             :loading="eventLoadingAny"
-            :user="user"
+            :user="event.canViewEvent ? user : {}"
             :ready="event.date"
             :useWhatFilter="eventUseWhatFilter"
             class="Cg_Right"
             @changeClick="openEventRequirementsDialog()"
-            @useFilter="eventUseWhatFilter = $event; eventRefreshKingFilter();" />
+            @useFilter="eventUseWhatFilter = $event; eventRefreshKingFilter();"
+            @newNameFilter="eventRenameFilter($event)" />
 
           <div class="Cg_RqCount">
             <div
@@ -890,7 +891,15 @@
         <template v-if="event.date">
           <template>
 
-            <div class="Cg_Box">
+            <template v-if="event.noAccess">
+              <div v-for="m in 4" class="Cg_Box">
+                <div v-for="n in 5" class="Event_CompItem Event_CompItemPlaceholder">
+                  <div v-if="m === 1" class="Event_CompPlaceholderQuestion">?</div>
+                </div>
+              </div>
+            </template>
+
+            <div v-else class="Cg_Box">
               <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
                 <BaseCompItem
                   :isMod="user && user.mod"
@@ -916,7 +925,7 @@
               @down="eventMove('down', $event.itrackset);"
               @delete="eventDeleteTrackset($event.itrackset);"
             />
-            <div v-if="!eventBlockAddTrackset && event.resolvedTrackset.length < 4 && user && user.mod" class="Event_NewTracksetBox">
+            <div v-if="event.canViewEvent && !eventBlockAddTrackset && (event.resolvedTrackset || []).length < 6 && user && user.mod" class="Event_NewTracksetBox">
               <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
                 <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
                 <span>{{ $t("m_trackset") }}</span>
@@ -999,7 +1008,7 @@
             </div>
 
             <div
-              v-if="!user"
+              v-if="!user && !event.hidden"
               style="margin: 20px auto; max-width: 500px;"
               class="Event_CompilationIncomplete Main_SaveGalleryGuide">
               <span>{{ $t("p_eventsKingLogin") }}</span>
@@ -1033,7 +1042,7 @@
               </template>
             </div>
 
-            <div v-if="!eventNeedSave" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: eventLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1205,7 +1214,8 @@
             :useWhatFilter="clubUseWhatFilter"
             class="Cg_Right"
             @changeClick="clubShowRequirementsDialog($event)"
-            @useFilter="clubUseWhatFilter = $event; eventRefreshKingFilter();" />
+            @useFilter="clubUseWhatFilter = $event; eventRefreshKingFilter();"
+            @newNameFilter="clubRenameFilter($event)" />
 
           <!-- <div class="Cg_RqCount">
             <div
@@ -4040,6 +4050,7 @@ export default {
       if (this.mode !== 'events') return false;
       if (!this.event.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
+      if (this.event.noAccess) return false;
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
       if (this.eventFilterToSave2 && JSON.stringify(this.eventFilterToSave2) !== this.eventFilterString2) return true;
       if (this.eventFilterToSave3 && JSON.stringify(this.eventFilterToSave3) !== this.eventFilterString3) return true;
@@ -6858,7 +6869,9 @@ export default {
     },
     cgOpenRequirementDialog() {
       this.cgRequirementsDialogLoad = true;
-      this.cgRequirementsDialog = true;
+      this.$nextTick().then(() => {
+        this.cgRequirementsDialog = true;
+      })
     },
     cgUpdateRequirements(filter) {
       this.cgRound.filter = filter;
@@ -6870,7 +6883,9 @@ export default {
       this.cgAddingOppoCar = false;
 
       this.cgFilterDialogLoad = true;
-      this.cgFilterDialog = true;
+      this.$nextTick().then(() => {
+        this.cgFilterDialog = true;
+      })
     },
     cgOpenAddOppoCar(irace) {
       this.cgRaceSelected = irace;
@@ -6878,7 +6893,9 @@ export default {
       this.cgAddingYouCar = false;
 
       this.cgFilterDialogLoad = true;
-      this.cgFilterDialog = true;
+      this.$nextTick().then(() => {
+        this.cgFilterDialog = true;
+      })
     },
     loadPrevRound() {
       this.cgSentForReview = false;
@@ -7615,13 +7632,13 @@ export default {
             }
             return true;
           }
-          if (x.hidden) {
-            if (this.whatTier && this.whatTier <= 3) {
-              return true;
-            } else {
-              return false;
-            }
-          }
+          // if (x.hidden) {
+          //   if (this.whatTier && this.whatTier <= 3) {
+          //     return true;
+          //   } else {
+          //     return false;
+          //   }
+          // }
           return true;
         })
 
@@ -7649,10 +7666,21 @@ export default {
         this.eventAskDelete(date);
         return;
       }
+      // if (e && !this.whatTier || this.whatTier > 3) {
+      //   this.eventList.map(x => {
+      //     if (x.date === date) {
+      //       Vue.set(x, "noAccess", true);
+      //       setTimeout(() => {
+      //         Vue.set(x, "noAccess", false);
+      //       }, 800);
+      //     }
+      //   })
+      //   return;
+      // }
       this.eventLoading = true;
       this.eventSelectorDialog = false;
 
-      axios.post(Vue.preUrlCharlie + "/getEventById", {
+      axios.post(Vue.preUrl + "/getEventById", {
         date: date
       })
       .then(res => {
@@ -7683,12 +7711,6 @@ export default {
       if (!event) {
         return;
       }
-      if (event.hidden) {
-        if (!this.whatTier || this.whatTier > 3) {
-          return;
-        }
-        // this.$store.commit("START_LOGROCKET", {});
-      }
 
       this.event = event;
       this.eventCurrentId = event.date;
@@ -7700,7 +7722,6 @@ export default {
       this.eventKingTracks = [];
       this.eventFilterForKing = {};
       this.eventLoadPicks();
-
       this.eventBlockAddTrackset = this.event.trackset.length > 1;
       if (this.event.trackset.length === 0) {
         this.event.trackset.push([null,null,null,null,null])
@@ -7710,7 +7731,27 @@ export default {
           this.event.comp.push({tyres: [], clearance: [], drives: [], meta: []})
         });
       }
+      this.eventForceAnalyze = false;
+
       this.eventFilterToSave = null;
+
+      Vue.set(event, "canViewEvent", true);
+      if (event.hidden) {
+        if (!this.whatTier || this.whatTier > 3) {
+          Vue.set(event, "noAccess", true);
+          Vue.set(event, "canViewEvent", false);
+
+          // reset comp
+          let tempComp = [];
+          Array.from(Array(5)).map((_, i) => {
+            tempComp.push({tyres: [], clearance: [], drives: [], meta: []})
+          });
+          this.event.comp = tempComp;
+          return;
+        }
+      }
+      Vue.set(event, "noAccess", false);
+      
       this.eventFilterString = JSON.stringify(this.event.filter);
       this.eventFilterString2 = JSON.stringify(this.event.filter2);
       this.eventFilterString3 = JSON.stringify(this.event.filter3);
@@ -8093,7 +8134,9 @@ export default {
     },
     eventOpenAddYouCar() {
       this.eventAddCarDialogLoad = true;
-      this.eventAddCarDialog = true;
+      this.$nextTick().then(() => {
+        this.eventAddCarDialog = true;
+      })
     },
     addCarEvent(newCar) {
       let event = this.event;
@@ -8317,6 +8360,11 @@ export default {
         this.eventAnalyseLoading = false;
       });
     },
+    eventRenameFilter(event) {
+      let n = event.n;
+      Vue.set(this.event[`filter${n+1 > 1 ? n+1 : ''}`], "name", event.newName);
+      this.eventClearFilterUpdate(this.event[`filter${n+1 > 1 ? n+1 : ''}`], n);
+    },
     eventAnalyse(disableAfter = true) {
       // RQ savers, unreleased
       this.eventAnalyseLoading = true;
@@ -8456,7 +8504,8 @@ export default {
 
       axios.post(Vue.preUrl + "/setEventVisible", {
         date: this.event.date,
-        name: this.event.name
+        name: this.event.name,
+        hidden: false
       })
       .then(res => {
         // nada
@@ -8897,7 +8946,9 @@ export default {
     openMemoryDialog() {
       this.$store.commit("START_LOGROCKET", {});
       this.memorySearchDialogLoad = true;
-      this.memorySearchDialog = true;
+      this.$nextTick().then(() => {
+        this.memorySearchDialog = true;
+      })
     },
     openLibraryDialog() {
       this.librarySearchDialogLoad = true;
@@ -8907,11 +8958,15 @@ export default {
     },
     openKingFilterDialog() {
       this.kingFilterDialogLoad = true;
-      this.kingFilterDialog = true;
+      this.$nextTick().then(() => {
+        this.kingFilterDialog = true;
+      })
     },
     openEventRequirementsDialog() {
       this.eventRequirementsDialogLoad = true;
-      this.eventRequirementsDialog = true;
+      this.$nextTick().then(() => {
+        this.eventRequirementsDialog = true;
+      })
     },
     openMainDialog() {
       if (!this.memoryFirstTimeLoaded) {
@@ -9831,7 +9886,14 @@ export default {
         return;
       }
       this.clubRequirementsDialogLoad = true;
-      this.clubRequirementsDialog = true;
+      this.$nextTick().then(() => {
+        this.clubRequirementsDialog = true;
+      })
+    },
+    clubRenameFilter(event) {
+      let n = event.n;
+      Vue.set(this.clubReqsGroupModel[`filter${n+1 > 1 ? n+1 : ''}`], "name", event.newName);
+      this.eventClearFilterUpdate(this.clubReqsGroupModel[`filter${n+1 > 1 ? n+1 : ''}`], n);
     },
     clubSaveOriginalOrder() {
       this.clubTracksGroupModel.tracksetOriginal = JSON.parse(JSON.stringify(this.clubTracksGroupModel.trackset));

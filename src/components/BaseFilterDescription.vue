@@ -9,9 +9,10 @@
             :disabled="loading"
             class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_SmallWide"
             required="true"
+            :allowCtrl="true"
             :value="n-1"
-            :label="`${n}`"
-            @click="$emit('useFilter', n-1)" />
+            :label="`${n === 1 ? (filter.name || n) : n === 2 ? (filter2.name || n) : n === 3 ? (filter3.name || n) : '' }`"
+            @click="chipClick($event, n-1)" />
         </template>
       </div>
       <div v-else class="Cg_ReqsTitle">{{ asFilterLabel ? $tc("m_filter", 1) : $t("m_requirements") }}</div>
@@ -31,16 +32,38 @@
       </div>
     </template>
     <slot name="footer" />
+    <BaseDialog
+      v-if="hasFilter2 || hasFilter3"
+      :active="renameDialog"
+      :transparent="false"
+      max-width="420px"
+      min-width="240px"
+      @close="closeRenameDialog()">
+      <div class="Main_TuneDialog">
+        <BaseText
+          v-model="renameModel"
+          class="BaseText_Big"
+          iid="Filter_Rename"
+          type="normal"
+          :label="`${$t('c_name')} - Filter ${renameFilterNumber+1}`"
+          placeholder="e.g. 2x or 3x"
+          @enter="closeRenameDialog()" />
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
 <script>
 import BaseChip from './BaseChip.vue'
+import BaseDialog from './BaseDialog.vue'
+import BaseText from './BaseText.vue'
 
 export default {
   name: 'BaseFilterDescription',
   components: {
-    BaseChip
+    BaseChip,
+    BaseDialog,
+    BaseText
   },
   props: {
     filter: {
@@ -93,7 +116,11 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      renameDialog: false,
+      renameModel: null,
+      renameFilterNumber: 0
+    }
   },
   watch: {},
   beforeMount() {},
@@ -152,7 +179,32 @@ export default {
       return result;
     }
   },
-  methods: {},
+  methods: {
+    chipClick(e, n) {
+      if (e && typeof e === 'object' && e.e && (e.e.ctrlKey || e.e.metaKey) && this.user && this.user.mod) {
+        this.renameDialog = true;
+        this.renameModel = null;
+        this.renameFilterNumber = n;
+        if (this[`filter${n+1 > 1 ? n+1 : ''}`].name) {
+          // console.log(this[`filter${n+1 > 1 ? n+1 : ''}`]);
+          this.renameModel = this[`filter${n+1 > 1 ? n+1 : ''}`].name;
+        }
+        setTimeout(() => {
+          try {
+            document.querySelector("#Filter_Rename").focus();  
+          } catch (error) {}
+        }, 10);
+        return;
+      }
+      this.$emit('useFilter', n);
+    },
+    closeRenameDialog() {
+      this.renameDialog = false;
+      if (this.renameModel && this.renameModel.length < 10) {
+        this.$emit('newNameFilter', { n: this.renameFilterNumber, newName: this.renameModel });
+      }
+    }
+  },
 }
 </script>
 

@@ -1827,6 +1827,9 @@ export default {
             clearFilter[key.replace("Model","")] = filter[key];
           }
         }
+        if (key === "name") {
+          clearFilter["name"] = filter[key];
+        }
       });
 
       if (!customFilter) this.filterCount = count;
@@ -1846,7 +1849,8 @@ export default {
     insertKeyModel(obj) {
       let result = {};
       Object.keys(obj).find(key => {
-        result[`${key}Model`] = obj[key];
+        if (key === "name") result[key] = obj[key];
+        else result[`${key}Model`] = obj[key];
       })
       return result;
     },

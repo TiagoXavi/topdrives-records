@@ -2687,6 +2687,22 @@ body .Main_UserTw3:before {
   margin-bottom: 13px;
   margin-top: 7px;
 }
+.Event_CompItemPlaceholder {
+  position: relative;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0.15) 24px);
+  box-shadow: inset -2px -2px 0px 0px #ffffff07, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00;
+  height: var(--cell-height);
+  margin-top: 3px;
+}
+.Event_CompPlaceholderQuestion {
+  position: absolute;
+  font-size: 70px;
+  top: 29px;
+  z-index: 2;
+  color: var(--d-text);
+}
 .Event_SubTitle {
   color: rgb(var(--d-text-yellow));
   font-size: 1.2em;

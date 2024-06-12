@@ -3,7 +3,7 @@
     :class="`${isSelected ? activeClass : ''} ${disabled ? '' : '' }`"
     :disabled="disabled"
     class="BaseChip"
-    @click="toggle"
+    @click="toggle($event)"
     @touchstart="touchstart($event)"
     @touchend="touchend($event)"
     @touchmove="touchmove($event)">
@@ -50,6 +50,10 @@ export default {
     counter: {
       type: Number,
       default: undefined
+    },
+    allowCtrl: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -81,7 +85,10 @@ export default {
     }
   },
   methods: {
-    toggle() {
+    toggle(e) {
+      if (!this.allowCtrl || !e || (!e.ctrlKey && !e.shiftKey && !e.metaKey)) {
+        e = null;
+      }
       const isChecked = !this.isSelected;
       if (this.inputValue instanceof Array) {
         let newValue = [...this.inputValue];
@@ -93,12 +100,15 @@ export default {
         }
 
         if ((this.isRequired && newValue.length > 0) || !this.isRequired) {
-          this.$emit('click', newValue);
+          if (e) this.$emit('click', { newValue, e });
+          else this.$emit('click', newValue);
         }
       } else if (this.value !== null) {
-        this.$emit('click', isChecked || this.isRequired ? this.value : null);
+        if (e) this.$emit('click', { newValue: isChecked || this.isRequired ? this.value : null, e });
+        else this.$emit('click', isChecked || this.isRequired ? this.value : null);
       } else {
-        this.$emit('click', isChecked ? true : false);
+        if (e) this.$emit('click', { newValue: isChecked ? true : false, e });
+        else this.$emit('click', isChecked ? true : false);
       }
     },
     touchstart(e) {
