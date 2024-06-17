@@ -25,7 +25,7 @@
             class="D_Button MainPacks_CustomizeButton"
             :disabled="running"
             @click="openPacksFitlerDialog()">
-            <BasePackSvg :packColors="packModel.packColor" class="MainPacks_PackButton" />
+            <BasePackSvg :packColors="packModel.packColor" :count="(packModel.cards || []).length" class="MainPacks_PackButton" />
             <div v-if="packFilterDescResolved.length === 0" class="MainPacks_CustomizeIcon">
               <i class="ticon-pencil" aria-hidden="true"/>
             </div>
@@ -556,6 +556,24 @@ export default {
           ],
           priceCash: 0,
           priceGold: 1599
+        },
+        {
+          name: "Racing Pack (Daily Objectives)",
+          color: Vue.resolveClass(10, "D", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#009eb9",
+            gStrip2: "#049dc1",
+            name: "RACING PACK"
+          },
+          cards: [
+            { S: 0.50, A: 1.50, B: 8.00, C: 30.00, D: 60.00 },
+          ],
+          priceCash: 0,
+          priceGold: 0
         },
       ],
       classes: {

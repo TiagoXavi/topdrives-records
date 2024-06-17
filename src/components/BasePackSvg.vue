@@ -45,7 +45,7 @@
       </g>
       <path class="BasePackSvg_Blur BasePackSvg_Opac1" d="M42.2 160c.5-32.7.2-70.2 0-83.9-.2-16.2-.3-42.7-.8-46.2-.5-3.7 5.9-6.8 11.1-6.8-3.5 1.4-7.8 1.9-7.7 8.3.3 8.9-.2 70.5-1.2 100.4-.2 10-1.5 31.8-1.4 28.2zM270 158.8c-.5-32.7-.2-70.2 0-83.9.2-16.2.3-42.7.8-46.2.5-3.7-5.9-6.8-11.1-6.8 3.5 1.4 7.8 1.9 7.7 8.3-.3 8.9.2 70.5 1.2 100.4.2 9.9 1.4 31.7 1.4 28.2z" style="fill:#fff"/>
       <path class="BasePackSvg_Blur BasePackSvg_Opac2" d="M270 158.8c-.5-32.7-.2-70.2 0-83.9.2-16.2.3-42.7.8-46.2.5-3.7-5.9-6.8-11.1-6.8 3.5 1.4 7.8 1.9 7.7 8.3-.3 8.9.2 70.5 1.2 100.4.2 9.9 1.4 31.7 1.4 28.2z" style="fill:#fff;transform: translate(290px, -98px) rotate(90deg);"/>
-      <text style="fill:#fff;font-size:16.3518px" transform="translate(247.667 166.028)">x5</text>
+      <text style="fill:#fff;font-size:16.3518px" transform="translate(247.667 166.028)">x{{count}}</text>
       <text style="fill:#fff;font-size:11px" transform="translate(44.334 165.945)">{{ packColors.name }}</text>
       <path d="M228 159.4h14.7v9.6H228z" style="fill:none;stroke:#fff;stroke-miterlimit:10"/>
       <path d="M228 164.2h-7.3v-9.6h14.6v4.8" style="fill:none;stroke:#fff;stroke-miterlimit:10"/>
@@ -67,6 +67,10 @@ export default {
           bottomStrip: "#890a0a"
         }
       }
+    },
+    count: {
+      type: Number,
+      default: 5
     }
   },
   data() {
