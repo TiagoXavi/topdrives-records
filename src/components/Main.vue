@@ -4654,7 +4654,7 @@ export default {
         this.downloadCar(this.carDetailsList[this.carDetailsList.length - 1].rid);
       }
     },
-    addCarCg(newCar) {
+    addCarCg(newCar, isFromJson = false) {
       let race = this.cgRound.races[this.cgRaceSelected];
       this.cgFilterDialog = false;
 
@@ -4679,7 +4679,9 @@ export default {
           Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
         }
       }
-      this.downloadCar(newCar.rid);
+      if (!isFromJson || !found) {
+        this.downloadCar(newCar.rid);
+      }
       this.cgSaveRoundHand();
     },
     // toggleTrack(set) {
@@ -7428,7 +7430,7 @@ export default {
           this.cgAddingOppoCar = false;
           this.cgAddingYouCar = true;
           this.cgRaceSelected = irace;
-          this.addCarCg(race[key].car);
+          this.addCarCg(race[key].car, true);
         }
 
 
@@ -7450,6 +7452,7 @@ export default {
         }, 1000);
         return;
       }
+
       // all downloaded
       result.resultData.roundData.map((race, irace) => {
         Array.from(Array(2)).map((_, i) => {
@@ -7498,7 +7501,10 @@ export default {
               !carCache.data[tune].times[cgRace.track]
             ) {
               // change time
-              this.cgChangeTimeYou(cgRace, { number: resultTimeNum, item: { id: cgRace.track.slice(0, -4), surface: cgRace.track.slice(-2, -1), cond: cgRace.track.slice(-1) } });
+              setTimeout(() => {
+                this.cgChangeTimeYou(cgRace, { number: resultTimeNum, item: { id: cgRace.track.slice(0, -4), surface: cgRace.track.slice(-2, -1), cond: cgRace.track.slice(-1) } });
+                
+              }, 10);
 
             } else if (carCache.data[tune].times[cgRace.track].t !== resultTimeNum) {
               console.log(`${key} race${irace+1}`, "car time:", carCache.data[tune].times[cgRace.track].t, "resultTimeNum:", resultTimeNum);
@@ -7515,6 +7521,12 @@ export default {
 
         });
       })
+
+      this.cgRound.races.map(race => {
+        this.calcRaceResult(race, false);
+      })
+
+      this.cgRoundResultJson = "";
 
 
     },
