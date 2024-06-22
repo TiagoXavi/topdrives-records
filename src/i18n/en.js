@@ -303,7 +303,7 @@ export default {
   c_prizeCar: "Prize Car",
   'c_prize cars': "Prize Cars",
   'c_non-prize cars': "Non-Prize Cars",
-  c_mid: "Mid",
+  c_mid: "Med",
   c_low: "Low",
   c_high: "High",
   c_performance: "Performance",

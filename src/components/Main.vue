@@ -7413,7 +7413,7 @@ export default {
           allowedTunes.push("111")
         }
         let tune = `${(ss[36] * ss[38]) / 3}${(ss[40] * ss[42]) / 3}${(ss[44] * ss[46]) / 3}`
-        if (tune.length > 3) {
+        if (!tune || tune.length > 3) {
           tune = `Other`;
         }
         car.selectedTune = tune;
@@ -7423,9 +7423,21 @@ export default {
         let isTestBowl = race[key].distance >= 2546 && race[key].distance <= 2548.7;
         let isDnf = race[key].result !== 'Finished';
         
-        if (isTestBowl) race[key].timeText = race[key].speed.toTestBowl();
-        else race[key].timeText = race[key].time.toHHMMSS();
-
+        if (isDnf) {
+          race[key].timeText = "DNF";
+        } else {
+          if (isTestBowl) race[key].timeText = race[key].speed.toTestBowl();
+          else race[key].timeText = race[key].time.toHHMMSS();
+        }
+        
+        if (key === "opponentData") {
+          if (this.cgRound.races[irace].rid !== race[key].car.rid) {
+            this.cgAddingOppoCar = true;
+            this.cgAddingYouCar = false;
+            this.cgRaceSelected = irace;
+            this.addCarCg(race[key].car, true);
+          }
+        }
         if (key === "playerData") {
           this.cgAddingOppoCar = false;
           this.cgAddingYouCar = true;
@@ -7471,6 +7483,10 @@ export default {
           let resultTimeNum = Vue.options.filters.toTimeNumber(`${race[key].timeText}`, cgRace.track);
 
           if (key === "opponentData") {
+            if (cgRace.rid !== race[key].car.rid) {
+              debugger;
+              return;
+            }
             if (cgRace.time === null || cgRace.time === undefined) {
               // change time
               cgRace.time = resultTimeNum;
