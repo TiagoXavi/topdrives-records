@@ -87,7 +87,7 @@
    "mtTour": 1000,
    "mtTwisty": 1000,
    "nwCircuit": 1000,
-   "nwDrag": 1000,
+   "nwDrag": 640,
    "nwGforce": 1000,
    "nwLoop": 1000,
    "nwCathedral": 1000,
