@@ -813,6 +813,7 @@ export default {
           "Desperados",
           "Electric Excellence",
           "Famous Tracks",
+          "Gaz's Collection",
           "Heavy Metal",
           "Immortalised in Carbon",
           "In the Shadows",

@@ -5382,7 +5382,8 @@
         "seats": "2",
         "tags": [
             "European New Wave",
-            "White"
+            "White",
+            "Gaz's Collection"
         ],
         "tcs": true,
         "topSpeed": 186,
@@ -5416,7 +5417,8 @@
         "tags": [
             "European New Wave",
             "Motorsport",
-            "White"
+            "White",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 175,
@@ -7332,7 +7334,8 @@
         "seats": "2",
         "tags": [
             "European New Wave",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": true,
         "topSpeed": 186,
@@ -7782,7 +7785,8 @@
         "tags": [
             "Motorsport",
             "Great Exhibition",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -8938,7 +8942,8 @@
         "tags": [
             "European New Wave",
             "Motorsport",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 155,
@@ -9702,7 +9707,8 @@
         "tags": [
             "Great Exhibition",
             "Silver/Grey",
-            "The Unicorns"
+            "The Unicorns",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -10675,7 +10681,8 @@
             "Great Exhibition",
             "Summer Games",
             "Red",
-            "Cutting Edge"
+            "Cutting Edge",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -10918,7 +10925,8 @@
             "Drivers Choice",
             "Wild Ride",
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -12100,7 +12108,8 @@
         "rid": "McLaren_GT_2019",
         "tags": [
             "Great Exhibition",
-            "Brown"
+            "Brown",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -12342,7 +12351,8 @@
         "tags": [
             "World Expo",
             "Black",
-            "The Unicorns"
+            "The Unicorns",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe",
@@ -13238,7 +13248,8 @@
         "tags": [
             "Great Exhibition",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -14181,7 +14192,8 @@
         "tags": [
             "Great Exhibition",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -15756,7 +15768,8 @@
         "tags": [
             "European New Wave",
             "Motorsport",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 140,
@@ -15926,7 +15939,8 @@
         "rid": "AC_Mk_VI_GTS_2015",
         "tags": [
             "World Expo",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -16064,7 +16078,8 @@
         "tags": [
             "World Expo",
             "Supercar",
-            "Yellow"
+            "Yellow",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -16410,7 +16425,8 @@
             "Great Exhibition",
             "Year of the Tiger",
             "White",
-            "The Unicorns"
+            "The Unicorns",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -17038,7 +17054,8 @@
         "tags": [
             "Great Exhibition",
             "Loves Me, Loves Me Not",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -20502,7 +20519,8 @@
             "Great Exhibition",
             "Old Guard",
             "Red",
-            "The Unicorns"
+            "The Unicorns",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -21017,7 +21035,8 @@
         "tags": [
             "European New Wave",
             "Motorsport",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 136,
@@ -22876,7 +22895,8 @@
             "Old Guard",
             "Originals",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -28045,7 +28065,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -28290,7 +28311,8 @@
         "tags": [
             "World Expo",
             "Black",
-            "Photo Finish"
+            "Photo Finish",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -29743,7 +29765,8 @@
             "Great Exhibition",
             "Rest of the World",
             "Old Guard",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -31629,7 +31652,8 @@
         "rid": "Lotus_Evora_GT_2020",
         "tags": [
             "World Expo",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -33484,7 +33508,8 @@
         "tags": [
             "World Expo",
             "Immortalised in Carbon",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -33927,7 +33952,8 @@
         "tags": [
             "World Expo",
             "Blue",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -36121,7 +36147,8 @@
         "tags": [
             "World Expo",
             "Motorsport",
-            "Yellow"
+            "Yellow",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -37943,7 +37970,8 @@
         "tags": [
             "Great Exhibition",
             "Rest of the World",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -38355,7 +38383,8 @@
         "tags": [
             "World Expo",
             "Red",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -40974,7 +41003,8 @@
         "rid": "TVR_Tuscan_S_2005",
         "tags": [
             "Originals",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe",
@@ -43835,7 +43865,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -44360,7 +44391,8 @@
         "tags": [
             "Loch to Loch",
             "Immortalised in Carbon",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -45910,7 +45942,8 @@
         "tags": [
             "Loch to Loch",
             "Immortalised in Carbon",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -48291,7 +48324,8 @@
         "seats": "2",
         "tags": [
             "European New Wave",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 126,
@@ -48780,7 +48814,8 @@
             "Great Exhibition",
             "Summer Games",
             "Old Guard",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -49052,7 +49087,8 @@
         "tags": [
             "Loch to Loch",
             "Immortalised in Carbon",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -50385,7 +50421,8 @@
         "rid": "Jaguar_XJ_3.0_V6_2016",
         "tags": [
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -51139,7 +51176,8 @@
             "Great Exhibition",
             "Old Guard",
             "Year of the Rabbit",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Estate"
@@ -52989,7 +53027,8 @@
         "rid": "Aston_Martin_Rapide_2010",
         "tags": [
             "Great Exhibition",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -53057,7 +53096,8 @@
         "rid": "Aston_Martin_V8_Vantage_N400_2007",
         "tags": [
             "Great Exhibition",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -54805,7 +54845,8 @@
         "tags": [
             "Originals",
             "The Great Outdoors",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -55927,7 +55968,8 @@
         "rid": "Jaguar_S-Type_R_2007",
         "tags": [
             "Great Exhibition",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -56066,7 +56108,8 @@
         "tags": [
             "Great Exhibition",
             "As Seen on YT",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -56683,7 +56726,8 @@
         "tags": [
             "Loch to Loch",
             "Yellow",
-            "Chariots of the Gods"
+            "Chariots of the Gods",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -56891,7 +56935,8 @@
         "tags": [
             "Great Exhibition",
             "Loves Me, Loves Me Not",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -57411,7 +57456,8 @@
         "rid": "Ford_Focus_ST_Mountune_2014",
         "tags": [
             "Originals",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Estate"
@@ -57687,7 +57733,8 @@
         "rid": "Jaguar_XKR_4.2-S_2005",
         "tags": [
             "Great Exhibition",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -58439,7 +58486,8 @@
         "rid": "Aston_Martin_DB7_GT_2002",
         "tags": [
             "Great Exhibition",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -59638,7 +59686,8 @@
         "tags": [
             "Loch to Loch",
             "Green",
-            "Photo Finish"
+            "Photo Finish",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -59914,7 +59963,8 @@
         "tags": [
             "Originals",
             "Loves Me, Loves Me Not",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -60228,7 +60278,8 @@
             "Great Exhibition",
             "In the Shadows",
             "Rest of the World",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -60979,7 +61030,8 @@
         "tags": [
             "Sleeper",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -61013,7 +61065,8 @@
         "tags": [
             "Great Exhibition",
             "Loves Me, Loves Me Not",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -63250,7 +63303,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rabbit",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -63598,7 +63652,8 @@
         "tags": [
             "World Expo",
             "Black",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -64993,7 +65048,8 @@
             "Great Exhibition",
             "Summer Games",
             "Loves Me, Loves Me Not",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -65028,7 +65084,8 @@
             "Great Exhibition",
             "Year of the Rat",
             "Interstellar",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -65920,7 +65977,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -65988,7 +66046,8 @@
         "tags": [
             "Style Icon",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -67579,7 +67638,8 @@
             "Great Exhibition",
             "Summer Games",
             "Old Guard",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -69509,7 +69569,8 @@
         "seats": "2",
         "tags": [
             "European New Wave",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 105,
@@ -72532,7 +72593,8 @@
         "tags": [
             "Hot Hatch",
             "Originals",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -73053,7 +73115,8 @@
         "tags": [
             "Great Exhibition",
             "Old Guard",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -74635,7 +74698,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "tcs": true,
         "topSpeed": 152,
@@ -77793,7 +77857,8 @@
             "Interstellar",
             "Originals",
             "Brown",
-            "Chariots of the Gods"
+            "Chariots of the Gods",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -78460,7 +78525,8 @@
         "tags": [
             "Great Exhibition",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -80759,7 +80825,8 @@
         "rid": "Land_Rover_Range_Rover_4.4_V8_2002",
         "tags": [
             "Great Exhibition",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -81953,7 +82020,8 @@
         "rid": "Bentley_Azure_2006",
         "tags": [
             "Great Exhibition",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -82739,7 +82807,8 @@
         "tags": [
             "Originals",
             "Orange",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -82774,7 +82843,8 @@
             "World Expo",
             "Sleeper",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "MPV"
@@ -84978,7 +85048,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "tcs": true,
         "topSpeed": 143,
@@ -85011,7 +85082,8 @@
         "tags": [
             "Originals",
             "Blue",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -86674,7 +86746,8 @@
             "Concept",
             "Great Exhibition",
             "Old Guard",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -86708,7 +86781,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -87393,7 +87467,8 @@
         "tags": [
             "World Expo",
             "As Seen on YT",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -88632,7 +88707,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rabbit",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -89626,7 +89702,8 @@
         "tags": [
             "Originals",
             "Silver/Grey",
-            "Photo Finish"
+            "Photo Finish",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -89660,7 +89737,8 @@
         "tags": [
             "World Expo",
             "Loves Me, Loves Me Not",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -90385,7 +90463,8 @@
             "Silver Screen",
             "Year of the Ox",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -90488,7 +90567,8 @@
         "tags": [
             "Interstellar",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -91588,7 +91668,8 @@
             "Great Exhibition",
             "Old Guard",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Estate"
@@ -91621,7 +91702,8 @@
         "rid": "Vauxhall_Vectra_VXR_2006",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -94542,7 +94624,8 @@
         "tags": [
             "Originals",
             "Silver/Grey",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -98856,7 +98939,8 @@
         "tags": [
             "Originals",
             "As Seen on YT",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -98994,7 +99078,8 @@
         "rid": "Ford_Ranger_2012",
         "tags": [
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -99344,7 +99429,8 @@
             "Great Exhibition",
             "In the Shadows",
             "Year of the Tiger",
-            "Beige"
+            "Beige",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -99378,7 +99464,8 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -100962,7 +101049,8 @@
         "tags": [
             "American Dream",
             "Summer Games",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Estate"
@@ -101302,7 +101390,8 @@
         "seats": "5",
         "tags": [
             "European New Wave",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "tcs": true,
         "topSpeed": 124,
@@ -101335,7 +101424,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Pickup"
@@ -101542,7 +101632,8 @@
         "tags": [
             "Great Exhibition",
             "Interstellar",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -102089,7 +102180,8 @@
             "Year of the Rat",
             "In the Shadows",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -102329,7 +102421,8 @@
         "tags": [
             "The Horror Show",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -104360,7 +104453,8 @@
             "Summer Games",
             "Originals",
             "Silver/Grey",
-            "Cutting Edge"
+            "Cutting Edge",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -104428,7 +104522,8 @@
         "tags": [
             "Great Exhibition",
             "Year of the Rat",
-            "White"
+            "White",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -104527,7 +104622,8 @@
         "rid": "Vauxhall_Vectra_2.5_V6_1995",
         "tags": [
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -105932,7 +106028,8 @@
         "rid": "Lotus_Eclat_Excel_1982",
         "tags": [
             "World Expo",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -106829,7 +106926,8 @@
             "Interstellar",
             "Originals",
             "As Seen on YT",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -106863,7 +106961,8 @@
         "tags": [
             "Originals",
             "Blue",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -107137,7 +107236,8 @@
             "Drivers Choice",
             "Year of the Rat",
             "In the Shadows",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -107271,7 +107371,8 @@
         "rid": "Bristol_412_Series_2_1978",
         "tags": [
             "World Expo",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -109102,7 +109203,8 @@
         "tags": [
             "Christmas Collection",
             "Great Exhibition",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -109172,7 +109274,8 @@
         "tags": [
             "World Expo",
             "Brown",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -109891,7 +109994,8 @@
         "tags": [
             "European New Wave",
             "Hot Hatch",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 129,
@@ -109960,7 +110064,8 @@
             "Eco Friendly",
             "Old Guard",
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -109997,7 +110102,8 @@
             "Old Guard",
             "Originals",
             "Silver/Grey",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -110519,7 +110625,8 @@
             "Summer Games",
             "Originals",
             "Blue",
-            "Cutting Edge"
+            "Cutting Edge",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "SUV"
@@ -111519,7 +111626,8 @@
         "tags": [
             "World Expo",
             "Silver/Grey",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -112628,7 +112736,8 @@
         "tags": [
             "Great Exhibition",
             "Old Guard",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -113007,7 +113116,8 @@
         "rid": "Lotus_Elite_1980",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -115041,7 +115151,8 @@
         "tags": [
             "Summer Games",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -119898,7 +120009,8 @@
         "tags": [
             "Originals",
             "5th Anniversary",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "MPV"
@@ -121037,7 +121149,8 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
-            "White"
+            "White",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -122136,7 +122249,8 @@
             "Great Exhibition",
             "Year of the Tiger",
             "Blue",
-            "Photo Finish"
+            "Photo Finish",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -123201,7 +123315,8 @@
             "Great Exhibition",
             "Year of the Rabbit",
             "Racing Royalty",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -125078,7 +125193,8 @@
         "rid": "Vauxhall_Corsa_1.4Si_1993",
         "tags": [
             "Great Exhibition",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -126499,7 +126615,8 @@
             "Motorsport",
             "Great Exhibition",
             "Year of the Rat",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -128281,7 +128398,8 @@
         "rid": "Ford_Cortina_Crusader_1982",
         "tags": [
             "World Expo",
-            "Brown"
+            "Brown",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -128317,7 +128435,8 @@
             "Two Tone",
             "Year of the Rat",
             "Originals",
-            "Orange"
+            "Orange",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -128419,7 +128538,8 @@
         "tags": [
             "Originals",
             "Loves Me, Loves Me Not",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -129623,7 +129743,8 @@
         "tags": [
             "Originals",
             "5th Anniversary",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -129658,7 +129779,8 @@
             "Christmas Collection",
             "Great Exhibition",
             "Loves Me, Loves Me Not",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -131717,7 +131839,8 @@
         "tags": [
             "Call of the Wild",
             "Originals",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -132266,7 +132389,8 @@
         "tags": [
             "American Dream",
             "Old Guard",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -132821,7 +132945,8 @@
         "tags": [
             "European New Wave",
             "Hot Hatch",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "tcs": false,
         "topSpeed": 118,
@@ -132928,7 +133053,8 @@
             "Old Guard",
             "Originals",
             "As Seen on YT",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -134044,7 +134170,8 @@
             "Year of the Ox",
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -134531,7 +134658,8 @@
         "tags": [
             "World Expo",
             "Red",
-            "The Unicorns"
+            "The Unicorns",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -135086,7 +135214,8 @@
         "tags": [
             "Old Guard",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "MPV"
@@ -135189,7 +135318,8 @@
             "Old Guard",
             "Originals",
             "Christmas Collection 22",
-            "Brown"
+            "Brown",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Convertible"
@@ -135257,7 +135387,8 @@
         "prize": false,
         "tags": [
             "Loch to Loch",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -136265,7 +136396,8 @@
             "Hot Hatch",
             "Interstellar",
             "Originals",
-            "Silver/Grey"
+            "Silver/Grey",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -136300,7 +136432,8 @@
             "Old Guard",
             "Originals",
             "Silver/Grey",
-            "Nightmare Fuel"
+            "Nightmare Fuel",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -138734,7 +138867,8 @@
         "tags": [
             "Year of the Ox",
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -139486,7 +139620,8 @@
         "tags": [
             "Interstellar",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -139520,7 +139655,8 @@
         "tags": [
             "Originals",
             "As Seen on YT",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -142977,7 +143113,8 @@
         "rid": "Ford_Transit_2.2_TDCi_2013",
         "tags": [
             "Originals",
-            "Black"
+            "Black",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Van"
@@ -143951,7 +144088,8 @@
         "tags": [
             "Originals",
             "Loves Me, Loves Me Not",
-            "Brown"
+            "Brown",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -146315,7 +146453,8 @@
         "tags": [
             "Year of the Tiger",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -146350,7 +146489,8 @@
             "Originals",
             "Loves Me, Loves Me Not",
             "Racing Royalty",
-            "Turquoise"
+            "Turquoise",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -148286,7 +148426,8 @@
         "tags": [
             "Silver Screen",
             "Originals",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -148320,7 +148461,8 @@
         "tags": [
             "Interstellar",
             "Originals",
-            "Yellow"
+            "Yellow",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -149077,7 +149219,8 @@
             "Rest of the World",
             "Originals",
             "Green",
-            "Roads Most Travelled"
+            "Roads Most Travelled",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -149112,7 +149255,8 @@
             "Originals",
             "Christmas Collection 22",
             "As Seen on YT",
-            "Green"
+            "Green",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -149623,7 +149767,8 @@
             "Year of the Rat",
             "Interstellar",
             "Originals",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Hatchback"
@@ -149657,7 +149802,8 @@
         "tags": [
             "Great Exhibition",
             "Two Tone",
-            "Blue"
+            "Blue",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Saloon"
@@ -151344,7 +151490,8 @@
         "rid": "Bristol_403_1953",
         "tags": [
             "World Expo",
-            "Red"
+            "Red",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"
@@ -151926,7 +152073,8 @@
         "tags": [
             "Loch to Loch",
             "Red",
-            "Photo Finish"
+            "Photo Finish",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Roadster"
@@ -152165,7 +152313,8 @@
             "Loch to Loch",
             "Concept",
             "Immortalised in Carbon",
-            "White"
+            "White",
+            "Gaz's Collection"
         ],
         "bodyTypes": [
             "Coupe"

@@ -367,6 +367,7 @@ export default {
           "European Revolution",
           "European New Wave",
           "Famous Tracks",
+          "Gaz's Collection",
           "Heavy Metal",
           "French Renaissance",
           "German Renaissance",

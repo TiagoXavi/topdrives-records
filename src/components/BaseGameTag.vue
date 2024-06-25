@@ -154,6 +154,11 @@ export default {
   --tag-s: 67%;
   --tag-l: 31%;
 }
+.BaseGameTag_Gaz\'s_Collection {
+  --tag-h: 40;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
 .BaseGameTag_French_Renaissance {
   --tag-h: 235;
   --tag-s: 65%;

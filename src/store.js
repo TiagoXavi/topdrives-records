@@ -88,6 +88,7 @@ export default new Vuex.Store({
       "Coast to Coast",
       "Cutting Edge",
       "Famous Tracks",
+      "Heavy Metal",
       "Electric Excellence",
       "In the Shadows",
       "In the Shadows 24",
