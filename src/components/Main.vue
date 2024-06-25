@@ -4660,6 +4660,7 @@ export default {
 
       let found = this.cgCacheCars.find(x => x.rid === newCar.rid);
       if (!found) {
+        if (isFromJson) console.log(`!found`);
         this.cgCacheCars.push({ rid: newCar.rid });
       }
 
@@ -4667,20 +4668,24 @@ export default {
         // adding oppo
         Vue.set(race, "rid", newCar.rid);
         Vue.set(race, "car", newCar);
+        if (isFromJson) console.log(`this.cgAddingOppoCar`);
       } else if (this.cgAddingYouCar) {
         let found = race.cars.findIndex(x => x.rid === (race.cars[race.carIndex] || {}).rid && x.tune === undefined);
         if (found > -1) {
           race.carIndex = found;
+          if (isFromJson) console.log(`race.carIndex ${race.carIndex}`);
         } else {
+          if (isFromJson) console.log(`found`);
           race.cars.push( { rid: newCar.rid } );
           race.carIndex = race.cars.length-1;
           Vue.set(race.cars[race.carIndex], "photo", this.cgResolvePhotoUrl(newCar));
           Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
           Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
+          if (isFromJson) console.log(race.cars[race.carIndex]);
         }
       }
       if (!isFromJson || !found) {
-        this.downloadCar(newCar.rid);
+        this.downloadCar(newCar.rid, true);
       }
       this.cgSaveRoundHand();
     },
@@ -5173,7 +5178,7 @@ export default {
         this.checkAnnouncement();
       });
     },
-    downloadCar(rid) {
+    downloadCar(rid, isJson = false) {
       this.downloadLoading = true;
 
       let url = Vue.preUrl + "/car/" + rid;
@@ -7393,6 +7398,7 @@ export default {
 
       let result = JSON.parse(this.cgRoundResultJson);
       result.resultData.roundData.map((race, irace) => {
+        console.log(`result.resultData.roundData.map, ${irace+1}`);
         this.resolveCar(race, irace);
       })
 
@@ -7408,15 +7414,18 @@ export default {
         let car = this.all_cars.find(x => x.guid === cardId);
         if (!car) return;
         car = JSON.parse(JSON.stringify(car));
+        console.log(`${key}, irace: ${irace+1}, ${car.rid}`);
 
         if (car.class === 'S' || car.class === 'A') {
           allowedTunes.push("111")
         }
         let tune = `${(ss[36] * ss[38]) / 3}${(ss[40] * ss[42]) / 3}${(ss[44] * ss[46]) / 3}`
         if (!tune || tune.length > 3) {
+          console.log(`tune ${tune}`);
           tune = `Other`;
         }
         car.selectedTune = tune;
+        console.log(`car.selectedTune ${car.selectedTune}`);
         // car.photo = this.cgResolvePhotoUrl(car);
         // car.color = Vue.resolveClass(car.rq, car.class, "color");
         race[key].car = car;
@@ -7431,14 +7440,19 @@ export default {
         }
         
         if (key === "opponentData") {
+          console.log(`key === "opponentData"`);
           if (this.cgRound.races[irace].rid !== race[key].car.rid) {
+            console.log(`this.cgRound.races[irace].rid !== race[key].car.rid`);
             this.cgAddingOppoCar = true;
             this.cgAddingYouCar = false;
             this.cgRaceSelected = irace;
             this.addCarCg(race[key].car, true);
+          } else {
+            console.log(`rid oppo correct`);
           }
         }
         if (key === "playerData") {
+          console.log(`key === "playerData"`);
           this.cgAddingOppoCar = false;
           this.cgAddingYouCar = true;
           this.cgRaceSelected = irace;
@@ -7459,6 +7473,7 @@ export default {
       })
 
       if (!isDownloaded) {
+        console.log(`!isDownloaded`);
         setTimeout(() => {
           this.afterResolveCarJson(result, count+1)
         }, 1000);
@@ -8972,7 +8987,7 @@ export default {
       })
     },
     openMemoryDialog() {
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
       this.memorySearchDialogLoad = true;
       this.$nextTick().then(() => {
         this.memorySearchDialog = true;
