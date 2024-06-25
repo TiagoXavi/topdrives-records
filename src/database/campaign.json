@@ -2735,35 +2735,17 @@
       {
         "races": [
           {
-            "name": "tCircuitr_a00"
+            "name": "nwLoop_a00"
           },
           {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "fastr_a00"
+            "name": "oceanShortDrag_a00"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "runwayDrag_a00"
-          },
-          {
-            "name": "tCircuit_a00"
+            "name": "tokyoDrag_a00"
           },
           {
             "name": "mtHairpin_a00"
@@ -2773,152 +2755,83 @@
       {
         "races": [
           {
-            "name": "mile2_a00"
+            "name": "laguna_a00"
           },
           {
-            "name": "mtTwisty_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "draglshape_a00"
-          },
-          {
-            "name": "indoorKart_a00"
+            "name": "runwayDrag_a00"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "drag100_a00"
-          },
+            "name": "mnCity_a00"
+          }
+        ]
+      },
+      {
+        "races": [
           {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile1_a00"
+            "name": "townSlalom_a00"
           },
           {
             "name": "carPark_a00"
-          },
-          {
-            "name": "tCircuit_a00"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "carPark_a00"
-          },
-          {
             "name": "tCircuit_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "drag100b_a00"
           },
           {
             "name": "tRoad_a00"
           },
           {
-            "name": "mile2_a00"
+            "name": "mile4_a00"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "kart_a01"
+            "name": "forest_a01"
           },
           {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "hairpin_a01"
+            "name": "dealsGap1_a01"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "fast_a01"
+            "name": "testBowlr_a00"
           },
           {
-            "name": "hairpin_a01"
+            "name": "dockKart_a01"
           },
           {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "mtTwisty_a01"
+            "name": "slalom_a00"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "mile4_a01"
+            "name": "hClimb_a00"
           },
           {
-            "name": "mtHairpin_a01"
+            "name": "northloop3_a01"
           },
           {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "kart_a01"
+            "name": "canyonTour_a01"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "mtTwisty_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "hairpin_a00"
+            "name": "townTour_a00"
           }
         ]
       }

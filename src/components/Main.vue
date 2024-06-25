@@ -3305,18 +3305,18 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00","fastr_a00","canyonTour_a00"]
+              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00","fastr_a00","canyonTour_a00","laguna_a00"]
             },
             {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","mtTwisty_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00"]
+              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00","townSlalom_a00","townTour_a00","nwLoop_a00"]
             },
             {
               type: "01",
               active: false,
-              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tCircuitr_a01","tRoad_a01","fast_a01","mnGforce_a01","mnHairpin_a01","mtHairpin_a01","mtTwisty_a01","canyonTour_a01"]
+              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tCircuitr_a01","tRoad_a01","fast_a01","mnGforce_a01","mnHairpin_a01","canyonTour_a01","dockKart_a01","forest_a01","dealsGap1_a01","northloop3_a01"]
             },
             {
               type: "10",
@@ -3356,7 +3356,7 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00","draglshape_a00"]
+              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00","oceanShortDrag_a00","tokyoDrag_a00"]
             },
             {
               type: "00",
@@ -4505,8 +4505,15 @@ export default {
         })
       })
 
+
+      // // 
+      // // 
+      // // test campaign obj
       // let campaignTracksOutOfDefault = [];
       // this.campaign.map((city, icity) => {
+      //   if (city.name.startsWith("YB") || city.name.startsWith("SN")) {
+      //     return;
+      //   }
       //   city.matches.map((match, imatch) => {
       //     match.races.map((race, irace) => {
 
@@ -4522,9 +4529,40 @@ export default {
       //     })
       //   })
       // })
-      // campaignTracksOutOfDefault = [new Set(campaignTracksOutOfDefault)];
-      // console.log(campaignTracksOutOfDefault);
+      // campaignTracksOutOfDefault = [...new Set(campaignTracksOutOfDefault)];
+      // console.log("campaignTracksOutOfDefault", campaignTracksOutOfDefault);
+
+      // let defaultTracksOutOfCampaign = [];
+      // this.tracksButtons.map(group => {
+      //   group.list.map(list => {
+      //     list.tracks.map(track => {
+      //       let found = false;
+
+      //       this.campaign.map((city, icity) => {
+      //         if (city.name.startsWith("YB") || city.name.startsWith("SN")) {
+      //           return;
+      //         }
+      //         city.matches.map((match, imatch) => {
+      //           match.races.map((race, irace) => {
+      //             if (race.name === track) {
+      //               found = true;
+      //             }
+      //           })
+      //         })
+      //       })
+
+      //       if (!found) defaultTracksOutOfCampaign.push(track);
+
+      //     })
+      //   })
+      // })
+      // defaultTracksOutOfCampaign = [...new Set(defaultTracksOutOfCampaign)];
+      // console.log("defaultTracksOutOfCampaign", defaultTracksOutOfCampaign);
+
       // debugger;
+      // // 
+      // // 
+      // // 
 
 
       matchesScore.sort(function(a, b) {
