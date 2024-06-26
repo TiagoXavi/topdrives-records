@@ -372,9 +372,9 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ["Buick", "Cadillac", "Chevrolet", "Chrysler", "DMC", "Dodge", "Drako", "GMC", "RAM"],
+        brand: ["Alfa Romeo", "Apollo", "Audi", "Fiat", "KTM", "Lancia", "McLaren", "Peugeot", "Renault"],
         countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "DK", "AT", "HR", "BR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
-        country: ["AR", "AU", "BR", "CN", "KR", "MX", "US", "ZA"],
+        country: ["IT", "DE", "AT", "GB", "FR"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
@@ -740,7 +740,13 @@ export default {
       })
       let brandName = (this.newCar.brand || "").normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'');
       photos = photos.filter(x => {
-        if (x.filename.normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'').includes(brandName)) return true;
+        let str = x.filename.normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'');
+
+        if (str.startsWith("Abarth")) str = str.replace("Abarth", "Fiat");
+        if (str.startsWith("AlfaRomeo")) str = str.replace("AlfaRomeo", "Alfa_Romeo");
+        if (str.startsWith("Alpine")) str = str.replace("Alpine", "Renault");
+
+        if (str.includes(brandName)) return true;
       })
       if (this.incomingCars.length > 0) {
         photos.map(x => {

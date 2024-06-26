@@ -208,7 +208,7 @@
         "weight": 1220,
         "year": 2012,
         "guid": "896377c5-3be5-4f1c-9c91-38d668f86046",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -607,7 +607,7 @@
         "weight": 2254,
         "year": 2023,
         "guid": "1f299953-b8ed-4cc0-90d6-5a0595c8695a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3638,7 +3638,7 @@
         "weight": 1032,
         "year": 2012,
         "guid": "d8da8489-6fb6-4fff-a487-78a796e63b3a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5079,7 +5079,7 @@
         "weight": 1200,
         "year": 2007,
         "guid": "cb6c6fed-1303-4676-9b1e-b80859b31e69",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -5704,7 +5704,7 @@
         "weight": 1315,
         "year": 2015,
         "guid": "b23a22a7-4a1e-4f7e-b58b-4ddbd6e999d2",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -6750,7 +6750,7 @@
         "weight": 1295,
         "year": 2014,
         "guid": "98fe32f7-fdad-44d4-9bd0-198e081e472f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -9223,7 +9223,7 @@
         "weight": 1714,
         "year": 2022,
         "guid": "4c4d6e85-46db-4fa4-9c58-502949cd9375",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -10070,7 +10070,7 @@
         "weight": 2180,
         "year": 2022,
         "guid": "c3430ffb-4f09-487f-9d4f-f1897ab2e88e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11945,7 +11945,7 @@
         "weight": 2648,
         "year": 2024,
         "guid": "1d13cb2c-1481-42b4-9461-6396b21b47d5",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -12602,7 +12602,7 @@
         "weight": 2310,
         "year": 2024,
         "guid": "1d139110-8296-4fb3-b782-53fe88f05521",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14444,7 +14444,7 @@
         "weight": 1856,
         "year": 2022,
         "guid": "55bf88f9-6722-4f8a-a6bb-0437f4805c4a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14481,7 +14481,7 @@
         "seats": "2",
         "engine": "Front",
         "guid": "b3493d80-72af-46c5-8bdc-0570c2ef97d0",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "abs": true,
@@ -15286,7 +15286,7 @@
         "seats": "2",
         "engine": "Front",
         "guid": "9e8cc392-cad3-429e-841f-40c3074ab3fe",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "S",
@@ -18274,7 +18274,7 @@
         "weight": 1420,
         "year": 2017,
         "guid": "11ab6bd0-4e38-4f88-bad5-41c8d083251b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -35879,7 +35879,7 @@
         "weight": 1130,
         "year": 2006,
         "guid": "b6c7528f-6770-44a4-9b7b-81c18c1bee60",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -38732,7 +38732,7 @@
         "seats": "1",
         "engine": "Mid",
         "guid": "93d84a5e-b196-452d-8b37-7831309c4dae",
-        "brake": "A"
+        "brake": null
     },
     {
         "class": "A",
@@ -39106,7 +39106,7 @@
         "weight": 1982,
         "year": 2020,
         "guid": "8f3026f2-104d-4198-845d-ac60c424cd7f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -41796,7 +41796,7 @@
         "weight": 2210,
         "year": 2022,
         "guid": "5f31063a-2832-4791-a0ad-e0348f1dead9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -43733,7 +43733,7 @@
         "weight": 2411,
         "year": 2021,
         "guid": "562c8003-a5e1-4aec-8612-0d241289e235",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -48401,7 +48401,7 @@
         "weight": 2370,
         "year": 2019,
         "guid": "8282b03f-e4cc-4c47-8eb9-7eedc74bb29c",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -49976,7 +49976,7 @@
         "weight": 2641,
         "year": 2020,
         "guid": "b962fb02-59b8-4de2-a73c-81826ee38d1b",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -60627,7 +60627,7 @@
         "weight": 2250,
         "year": 2016,
         "guid": "e82c73c2-0185-48b5-94b1-2b60ca42f838",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -60866,7 +60866,7 @@
         "weight": 2725,
         "year": 2021,
         "guid": "310f8f60-df43-4614-8b02-5025c8b06e9b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -63242,7 +63242,7 @@
             "Red"
         ],
         "guid": "377d2f4e-8e78-4a44-a877-b14d89abe272",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "B",
@@ -108318,7 +108318,7 @@
         "seats": "2",
         "engine": "Front",
         "guid": "db3e19cb-8c41-4ae5-9743-08667b2bbe06",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -119001,7 +119001,7 @@
         "weight": 583,
         "year": 1957,
         "guid": "40b47e11-bb74-45f0-99be-91996f240069",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -140827,7 +140827,7 @@
             "Red"
         ],
         "guid": "089e4eed-c8a1-4b03-97ca-69b6c8190d4f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",

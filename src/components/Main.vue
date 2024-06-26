@@ -4711,7 +4711,7 @@ export default {
         let found = race.cars.findIndex(x => x.rid === (race.cars[race.carIndex] || {}).rid && x.tune === undefined);
         if (found > -1) {
           race.carIndex = found;
-          if (isFromJson) console.log(`race.carIndex ${race.carIndex}`);
+          if (isFromJson) console.log(`race.carIndex ${race.carIndex} ${(race.cars[race.carIndex] || {}).rid}`);
         } else {
           if (isFromJson) console.log(`found`);
           race.cars.push( { rid: newCar.rid } );

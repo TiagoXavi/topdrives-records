@@ -390,6 +390,7 @@ export default {
         tempDate = new Date(x.startDateTime);
         if (tempDate > today) {
           x.startDateTime = newStart.toISOString();
+          x.endDateTime = x.endDateTime.replace("21:00:00.000Z", "21:05:00.000Z");
         }
         // if (x.analyticsName && (x.analyticsName.includes("QUALS") || x.analyticsName.includes("PRELIMS"))) {
         //   x.minRQ = 150;
