@@ -5113,7 +5113,7 @@
         "weight": 1245,
         "year": 2020,
         "guid": "977b597a-5e57-4554-8142-dbe6bcdfc503",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -6613,7 +6613,7 @@
         "weight": 1245,
         "year": 2014,
         "guid": "5e26510a-568d-49a4-a8e3-d58724617508",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -6647,7 +6647,7 @@
         "weight": 1135,
         "year": 1988,
         "guid": "560d0842-af95-4828-ab63-65f8d181aaf2",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -8390,7 +8390,7 @@
         "weight": 2404,
         "year": 2020,
         "guid": "c1e8afaa-f509-41f7-a965-54b1f268c58a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -9189,7 +9189,7 @@
         "weight": 1406,
         "year": 2011,
         "guid": "6a269fa9-29d0-45ed-99fb-b05bd2438230",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -10968,7 +10968,7 @@
         "weight": 1714,
         "year": 2022,
         "guid": "5b625cef-99a0-42c9-be06-0ab3597d4968",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11144,42 +11144,6 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "e4924058-6b46-4dc1-b6a8-9669f3ab159c",
-        "brake": "A"
-    },
-    {
-        "class": "S",
-        "rq": 85,
-        "onlyName": "Murcielago LP640 Roadster",
-        "brand": "Lamborghini",
-        "country": "IT",
-        "year": 2007,
-        "tdid": "1542",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 205,
-        "acel": 3.2,
-        "hand": 86,
-        "drive": "4WD",
-        "tyres": "Performance",
-        "mra": 69.28,
-        "weight": 1778,
-        "name": "Lamborghini Murcielago LP640 Roadster",
-        "rid": "Lamborghini_Murcielago_LP640_Roadster_2007",
-        "tags": [
-            "Call of the Wild",
-            "Italian Renaissance",
-            "Supercar",
-            "Yellow",
-            "Nightmare Fuel"
-        ],
-        "bodyTypes": [
-            "Roadster"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "b21973fa-014e-4265-9a9b-43a1616f1432",
         "brake": "A"
     },
     {
@@ -11841,7 +11805,7 @@
         "weight": 1450,
         "year": 2005,
         "guid": "274f74df-9135-44bb-84ef-987a4442ff65",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -11875,7 +11839,7 @@
         "weight": 816,
         "year": 1964,
         "guid": "b8523508-6560-4764-9c02-222d34e7971c",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -11911,7 +11875,7 @@
         "weight": 1542,
         "year": 1990,
         "guid": "eda59da0-d75c-43b2-9953-5d832b13f912",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -11980,6 +11944,42 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "5d45a141-6abe-4616-b036-4ca0c460ed4c",
+        "brake": "A"
+    },
+    {
+        "class": "S",
+        "rq": 85,
+        "onlyName": "Murcielago LP640 Roadster",
+        "brand": "Lamborghini",
+        "country": "IT",
+        "year": 2007,
+        "tdid": "1542",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 205,
+        "acel": 3.2,
+        "hand": 86,
+        "drive": "4WD",
+        "tyres": "Performance",
+        "mra": 69.28,
+        "weight": 1778,
+        "name": "Lamborghini Murcielago LP640 Roadster",
+        "rid": "Lamborghini_Murcielago_LP640_Roadster_2007",
+        "tags": [
+            "Call of the Wild",
+            "Italian Renaissance",
+            "Supercar",
+            "Yellow",
+            "Nightmare Fuel"
+        ],
+        "bodyTypes": [
+            "Roadster"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "b21973fa-014e-4265-9a9b-43a1616f1432",
         "brake": "A"
     },
     {
@@ -13293,7 +13293,7 @@
         "weight": 2648,
         "year": 2023,
         "guid": "6df19399-949a-428b-9dd8-83409e4bfe42",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -13328,7 +13328,7 @@
         "weight": 1950,
         "year": 2021,
         "guid": "a0fe24c3-7d13-47e8-9a22-7bdb57e368da",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14516,7 +14516,7 @@
         "weight": 1497,
         "year": 1986,
         "guid": "0f79d074-1869-4540-a2f3-17b335b66718",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -14550,7 +14550,7 @@
         "weight": 1654,
         "year": 2020,
         "guid": "36825866-a231-4bdd-a57f-b1d90f12b56c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -15211,7 +15211,7 @@
         "weight": 2032,
         "year": 2019,
         "guid": "6683c54a-f855-4bc0-8e3c-dcf0f5e9c3dd",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -19519,7 +19519,7 @@
         "weight": 1654,
         "year": 2020,
         "guid": "d1f93162-32c0-4a74-86b5-d3c0d6be97b6",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -19553,7 +19553,7 @@
         "weight": 1349,
         "year": 2010,
         "guid": "0aa06f63-18fa-465b-ba4f-04b0a682350c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -20940,7 +20940,7 @@
         "weight": 1733,
         "year": 2018,
         "guid": "000af091-160d-4ac1-9bb5-fa9e5a6dfd32",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -21009,7 +21009,7 @@
         "weight": 1769,
         "year": 2021,
         "guid": "08834eac-d692-4f30-b9d8-ee9bf48ec3cf",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -22380,7 +22380,7 @@
         "weight": 1700,
         "year": 2022,
         "guid": "c564e509-4ff3-4a25-8d77-cea6222b211a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -23929,7 +23929,7 @@
         "weight": 1729,
         "year": 2017,
         "guid": "9a545bc9-472c-42a8-a5f2-64ef0da6fbf0",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -23962,7 +23962,7 @@
         "weight": 1792,
         "year": 2021,
         "guid": "bfcd3fa3-8e81-4e5c-a4d7-f897064962a7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -25413,7 +25413,7 @@
         "weight": 1550,
         "year": 2010,
         "guid": "8d3b8db4-1df3-4ea4-884b-63554e48aa7b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -25763,6 +25763,41 @@
         "seats": "2",
         "engine": "Mid",
         "guid": "7713a426-0fc3-42b6-aea3-8a0c991a0896",
+        "brake": "A"
+    },
+    {
+        "class": "A",
+        "rq": 74,
+        "onlyName": "Evora GT430 Sport",
+        "brand": "Lotus",
+        "country": "GB",
+        "year": 2017,
+        "tdid": "1844",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 196,
+        "acel": 3.7,
+        "hand": 89,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 67.27,
+        "weight": 1289,
+        "name": "Lotus Evora GT430 Sport",
+        "rid": "Lotus_Evora_GT430_Sport_2017",
+        "tags": [
+            "Great Exhibition",
+            "Rest of the World",
+            "Old Guard",
+            "Silver/Grey"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "39f0a720-bc2c-4f65-9b0d-0494cd632818",
         "brake": "A"
     },
     {
@@ -26585,7 +26620,7 @@
         "weight": 1618,
         "year": 2020,
         "guid": "9efd7ab9-a214-4a10-b48e-aedb244616fc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -27766,7 +27801,7 @@
         "weight": 1950,
         "year": 2015,
         "guid": "e7d8d48f-21e9-4534-8df8-7bb7bbb8d33c",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -27800,7 +27835,7 @@
         "weight": 2650,
         "year": 2020,
         "guid": "906b3a7e-22d0-46cb-870f-8269d9c20305",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -27834,7 +27869,7 @@
         "weight": 2500,
         "year": 2018,
         "guid": "50a6b248-d1c8-4d97-9914-31bf7ae0be6e",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -27867,7 +27902,7 @@
         "weight": 1764,
         "year": 2017,
         "guid": "ad519553-dd10-4a3d-91d8-5bb53fce56af",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -27901,7 +27936,7 @@
         "weight": 1905,
         "year": 2011,
         "guid": "92ee8e71-e442-4e1d-9d03-da6bd7ded075",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -27934,7 +27969,7 @@
         "weight": 1496,
         "year": 2015,
         "guid": "eb8676cd-a49f-4cc1-8e11-43a377dc9a10",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -28251,41 +28286,6 @@
         "seats": "1",
         "engine": "Front",
         "guid": "c6efedb4-54b2-4727-947e-336350b6cf71",
-        "brake": "A"
-    },
-    {
-        "class": "A",
-        "rq": 74,
-        "onlyName": "Evora GT430 Sport",
-        "brand": "Lotus",
-        "country": "GB",
-        "year": 2017,
-        "tdid": "1844",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 196,
-        "acel": 3.7,
-        "hand": 89,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 67.27,
-        "weight": 1289,
-        "name": "Lotus Evora GT430 Sport",
-        "rid": "Lotus_Evora_GT430_Sport_2017",
-        "tags": [
-            "Great Exhibition",
-            "Rest of the World",
-            "Old Guard",
-            "Silver/Grey"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "39f0a720-bc2c-4f65-9b0d-0494cd632818",
         "brake": "A"
     },
     {
@@ -29425,7 +29425,7 @@
         "weight": 1150,
         "year": 2011,
         "guid": "61772e11-1f6a-4fc5-8ab9-4231f2901576",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -31003,7 +31003,7 @@
         "weight": 1947,
         "year": 2009,
         "guid": "1e8bae23-dba2-4482-bf7d-a593fa971360",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -31106,7 +31106,7 @@
         "weight": 1496,
         "year": 2001,
         "guid": "47125fe7-584d-4119-9c33-f1c38173a1b7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -31174,7 +31174,7 @@
         "weight": 1547,
         "year": 2016,
         "guid": "f058fa27-8ee7-404b-859d-0411a57e970c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -32283,6 +32283,39 @@
     {
         "class": "A",
         "rq": 70,
+        "onlyName": "Levorg STI Sport (VM)",
+        "brand": "Subaru",
+        "country": "JP",
+        "year": 2019,
+        "tdid": "3132",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "topSpeed": 150,
+        "acel": 5.2,
+        "hand": 82,
+        "drive": "4WD",
+        "tyres": "Performance",
+        "mra": 70.65,
+        "weight": 1570,
+        "name": "Subaru Levorg STI Sport (VM)",
+        "rid": "Subaru_Levorg_STI_Sport_(VM)_2019",
+        "tags": [
+            "Japan Pro Tour",
+            "White"
+        ],
+        "bodyTypes": [
+            "Estate"
+        ],
+        "fuel": "Petrol",
+        "seats": "5",
+        "engine": "Front",
+        "guid": "1029235a-e128-42f0-9cb1-feb42b225cf5",
+        "brake": "A"
+    },
+    {
+        "class": "A",
+        "rq": 70,
         "onlyName": "GSX-R/4",
         "brand": "Suzuki",
         "country": "JP",
@@ -33170,7 +33203,7 @@
         "weight": 1400,
         "year": 2009,
         "guid": "e2daf25e-9498-457d-b1e5-dfa89e17f294",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -33626,6 +33659,40 @@
     {
         "class": "A",
         "rq": 69,
+        "onlyName": "C350 CDI 4MATIC Estate",
+        "brand": "Mercedes-Benz",
+        "country": "DE",
+        "year": 2009,
+        "tdid": "414",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Mid",
+        "topSpeed": 150,
+        "acel": 6.1,
+        "hand": 74,
+        "drive": "4WD",
+        "tyres": "Standard",
+        "mra": 67.78,
+        "weight": 1810,
+        "name": "Mercedes-Benz C350 CDI 4MATIC Estate",
+        "rid": "Mercedes-Benz_C_350_4MATIC_2009",
+        "tags": [
+            "Year of the Ox",
+            "Originals",
+            "Silver/Grey"
+        ],
+        "bodyTypes": [
+            "Estate"
+        ],
+        "fuel": "Diesel",
+        "seats": "5",
+        "engine": "Front",
+        "guid": "da73a19f-f72b-45f7-9ef6-475911b71a8b",
+        "brake": "B"
+    },
+    {
+        "class": "A",
+        "rq": 69,
         "onlyName": "207 S2000",
         "brand": "Peugeot",
         "country": "FR",
@@ -33827,39 +33894,6 @@
         "seats": "5",
         "engine": "Front",
         "guid": "7bfc0356-a325-41a7-aee1-13a2a46d023c",
-        "brake": "A"
-    },
-    {
-        "class": "A",
-        "rq": 70,
-        "onlyName": "Levorg STI Sport (VM)",
-        "brand": "Subaru",
-        "country": "JP",
-        "year": 2019,
-        "tdid": "3132",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "topSpeed": 150,
-        "acel": 5.2,
-        "hand": 82,
-        "drive": "4WD",
-        "tyres": "Performance",
-        "mra": 70.65,
-        "weight": 1570,
-        "name": "Subaru Levorg STI Sport (VM)",
-        "rid": "Subaru_Levorg_STI_Sport_(VM)_2019",
-        "tags": [
-            "Japan Pro Tour",
-            "White"
-        ],
-        "bodyTypes": [
-            "Estate"
-        ],
-        "fuel": "Petrol",
-        "seats": "5",
-        "engine": "Front",
-        "guid": "1029235a-e128-42f0-9cb1-feb42b225cf5",
         "brake": "A"
     },
     {
@@ -34428,7 +34462,7 @@
         "weight": 1803,
         "year": 2021,
         "guid": "0eb298fc-3551-45cd-b197-40085d98b34d",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -34462,7 +34496,7 @@
         "weight": 1800,
         "year": 2016,
         "guid": "47acf659-842e-4696-b4bb-f02d5fa0e6ef",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -34530,7 +34564,7 @@
         "weight": 726,
         "year": 1959,
         "guid": "0061c649-bd52-42a0-9239-8f98af06299a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -34566,42 +34600,6 @@
         "seats": "5",
         "engine": "Front",
         "guid": "d40dc232-1e6f-4370-84f4-c6e55ee0bd96",
-        "brake": "B"
-    },
-    {
-        "class": "A",
-        "rq": 66,
-        "onlyName": "Bronco Raptor",
-        "brand": "Ford",
-        "year": 2022,
-        "tdid": "4308",
-        "abs": true,
-        "tcs": true,
-        "clearance": "High",
-        "country": "US",
-        "topSpeed": 130,
-        "acel": 5.9,
-        "hand": 72,
-        "drive": "4WD",
-        "tyres": "Off-road",
-        "mra": 45.28,
-        "weight": 2621,
-        "name": "Ford Bronco Raptor",
-        "rid": "Ford_Bronco_Raptor_2022",
-        "prize": false,
-        "tags": [
-            "Pacific Coast Highway",
-            "Red",
-            "Nightmare Fuel"
-        ],
-        "bodyTypes": [
-            "SUV",
-            "Convertible"
-        ],
-        "fuel": "Petrol",
-        "seats": "4",
-        "engine": "Front",
-        "guid": "d801d0ef-beb7-48e2-938a-e4103b2ba5b0",
         "brake": "B"
     },
     {
@@ -34880,40 +34878,6 @@
             "Silver/Grey"
         ],
         "guid": "82a34e00-acfe-4151-ad5e-4481a54e7cc9",
-        "brake": "B"
-    },
-    {
-        "class": "A",
-        "rq": 69,
-        "onlyName": "C350 CDI 4MATIC Estate",
-        "brand": "Mercedes-Benz",
-        "country": "DE",
-        "year": 2009,
-        "tdid": "414",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Mid",
-        "topSpeed": 150,
-        "acel": 6.1,
-        "hand": 74,
-        "drive": "4WD",
-        "tyres": "Standard",
-        "mra": 67.78,
-        "weight": 1810,
-        "name": "Mercedes-Benz C350 CDI 4MATIC Estate",
-        "rid": "Mercedes-Benz_C_350_4MATIC_2009",
-        "tags": [
-            "Year of the Ox",
-            "Originals",
-            "Silver/Grey"
-        ],
-        "bodyTypes": [
-            "Estate"
-        ],
-        "fuel": "Diesel",
-        "seats": "5",
-        "engine": "Front",
-        "guid": "da73a19f-f72b-45f7-9ef6-475911b71a8b",
         "brake": "B"
     },
     {
@@ -35776,7 +35740,7 @@
         "weight": 2853,
         "year": 2022,
         "guid": "2c848077-8161-4731-b315-c043671561ba",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -35810,7 +35774,7 @@
         "weight": 1950,
         "year": 2010,
         "guid": "110ee70f-ef26-46ba-b43c-cd111d564df6",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -35845,7 +35809,7 @@
         "weight": 1783,
         "year": 2014,
         "guid": "6ebd93fb-7eca-4806-aa06-8b26145a60b1",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -35914,7 +35878,7 @@
         "weight": 1418,
         "year": 2009,
         "guid": "c4f88caa-955a-4fef-b27d-44862db2c3b0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -37424,7 +37388,7 @@
         "weight": 2600,
         "year": 2022,
         "guid": "8762532f-2823-4930-a2cb-b9eefbba1e68",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -37529,6 +37493,42 @@
         "engine": "Front",
         "guid": "a9018937-28e5-422b-87a8-a33034716b1d",
         "brake": "A"
+    },
+    {
+        "class": "A",
+        "rq": 66,
+        "onlyName": "Bronco Raptor",
+        "brand": "Ford",
+        "year": 2022,
+        "tdid": "4308",
+        "abs": true,
+        "tcs": true,
+        "clearance": "High",
+        "country": "US",
+        "topSpeed": 130,
+        "acel": 5.9,
+        "hand": 72,
+        "drive": "4WD",
+        "tyres": "Off-road",
+        "mra": 45.28,
+        "weight": 2621,
+        "name": "Ford Bronco Raptor",
+        "rid": "Ford_Bronco_Raptor_2022",
+        "prize": false,
+        "tags": [
+            "Pacific Coast Highway",
+            "Red",
+            "Nightmare Fuel"
+        ],
+        "bodyTypes": [
+            "SUV",
+            "Convertible"
+        ],
+        "fuel": "Petrol",
+        "seats": "4",
+        "engine": "Front",
+        "guid": "d801d0ef-beb7-48e2-938a-e4103b2ba5b0",
+        "brake": "B"
     },
     {
         "class": "A",
@@ -38254,7 +38254,7 @@
         "weight": 3070,
         "year": 2023,
         "guid": "23ca20f0-f355-4ce2-bc59-8a755ab356a1",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -39039,7 +39039,7 @@
         "weight": 1682,
         "year": 2018,
         "guid": "92c1f6c2-ba41-4ea3-bebd-05dafc21b0ac",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -39175,7 +39175,7 @@
         "weight": 1947,
         "year": 2019,
         "guid": "e5fcd4c3-bbe5-404b-8b3e-ba36178c1d29",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -39314,7 +39314,7 @@
         "weight": 2026,
         "year": 2023,
         "guid": "f4510826-c5d9-4542-9613-a19adfcc5ea7",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -39383,7 +39383,7 @@
         "weight": 1424,
         "year": 2008,
         "guid": "c284f3e3-141e-478c-828c-25608c5a1452",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -41727,7 +41727,7 @@
         "weight": 1640,
         "year": 2020,
         "guid": "a1f7ffab-bcd7-4d99-bf17-0cdb0041dc52",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -41762,7 +41762,7 @@
         "weight": 1775,
         "year": 2006,
         "guid": "306bd3b7-a2c8-4a4e-b14d-25d0decdd798",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -43596,7 +43596,7 @@
             "Photo Finish"
         ],
         "guid": "39558d61-197c-4621-ad3a-777e3ea7dbd7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -43665,7 +43665,7 @@
         "weight": 1800,
         "year": 2022,
         "guid": "442edc0c-27e1-486a-aba1-68f579ac3a42",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -44714,7 +44714,7 @@
         "weight": 2332,
         "year": 2022,
         "guid": "96c4d1b0-4e11-4c89-8f5e-f193a5b82850",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -45403,7 +45403,7 @@
         "weight": 1923,
         "year": 2016,
         "guid": "47818f70-77a2-409a-90d7-b283cfed5996",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -46846,7 +46846,7 @@
         "weight": 2088,
         "year": 2018,
         "guid": "4e71b8c7-d768-4c35-b62e-ca5995010a98",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -46915,7 +46915,7 @@
         "weight": 2626,
         "year": 2022,
         "guid": "7973b44f-e0a8-487f-beea-bbf2ba207c68",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -46949,7 +46949,7 @@
         "weight": 1660,
         "year": 2003,
         "guid": "c44c6d33-81ec-4800-b8c3-aa2af647f8d9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -47088,7 +47088,7 @@
         "weight": 2479,
         "year": 2019,
         "guid": "28a73e64-a713-4964-8c06-ff8b3f039f72",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -48299,7 +48299,7 @@
         "weight": 2109,
         "year": 2020,
         "guid": "cc7fe47c-5086-409a-8ca2-9d18c2c59040",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -48367,7 +48367,7 @@
         "weight": 1812,
         "year": 2008,
         "guid": "959bbb2d-da8f-4d9f-a949-16203fba5b3d",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -49467,7 +49467,7 @@
             "Red"
         ],
         "guid": "66cab548-c4de-42d9-a86c-3a71909330f0",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "B",
@@ -49702,7 +49702,7 @@
         "weight": 1772,
         "year": 2014,
         "guid": "3b203d81-f2b9-4c93-a1a5-5d302e406116",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -49737,7 +49737,7 @@
         "weight": 4085,
         "year": 2024,
         "guid": "3f7cea67-9d2e-4280-acf5-f5b6b16b4779",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -49772,7 +49772,7 @@
         "weight": 2609,
         "year": 2007,
         "guid": "39dc207e-9a69-4542-bfe8-5d604491a429",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -49943,7 +49943,7 @@
         "weight": 1680,
         "year": 2019,
         "guid": "6ca0f1ed-1d6d-4802-82e4-1c46fd1e4813",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -50218,7 +50218,7 @@
         "weight": 1745,
         "year": 2018,
         "guid": "28726c4f-2631-4050-bd0a-166784ab68a0",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -51695,7 +51695,7 @@
         "weight": 1565,
         "year": 2004,
         "guid": "91940286-1cfa-44f3-a49b-728a271f8076",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -51729,7 +51729,7 @@
         "weight": 2590,
         "year": 2022,
         "guid": "f2b28fe0-a2a7-43b7-8756-23d36c841321",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -52831,7 +52831,7 @@
         "weight": 2630,
         "year": 2023,
         "guid": "ddc90346-a185-4d78-b5e3-3a001a243950",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -52864,7 +52864,7 @@
         "weight": 1720,
         "year": 2024,
         "guid": "e8fc4418-b804-44bc-8c5d-c1fd36cf849c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -53376,7 +53376,7 @@
         "weight": 454,
         "year": 2010,
         "guid": "3f85f935-5dc8-4724-9e99-afdac086003c",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -53410,7 +53410,7 @@
         "weight": 1860,
         "year": 2000,
         "guid": "f835a14c-2331-413e-a0a4-8f454297a898",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -54548,7 +54548,7 @@
         "weight": 1836,
         "year": 2016,
         "guid": "4c3a3bb3-b8ba-4521-a11c-0c48f2eb0666",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -54581,7 +54581,7 @@
         "weight": 2116,
         "year": 2010,
         "guid": "6484c6ed-f1d1-4948-b30f-e833d173c7b7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -54647,7 +54647,7 @@
         "weight": 1805,
         "year": 2024,
         "guid": "531ff330-01df-4a5e-9e5f-39d09efae1f7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -54888,7 +54888,7 @@
         "weight": 2588,
         "year": 2015,
         "guid": "d9751f86-38bd-4dc6-abae-77412b0c1a81",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -57217,7 +57217,7 @@
         "weight": 1769,
         "year": 1999,
         "guid": "e3d88860-3fb1-44c6-a714-cc784d940e49",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": false,
@@ -57252,7 +57252,7 @@
         "weight": 1580,
         "year": 2016,
         "guid": "94f3e86f-fdce-4175-bd8b-1a396f6a2797",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -57533,7 +57533,7 @@
         "weight": 3095,
         "year": 2020,
         "guid": "b81f13c8-268e-4d10-b57d-9e165a473147",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -57949,7 +57949,7 @@
             "Motorsport"
         ],
         "guid": "20b6c996-cd2d-474c-a424-1db73caf27de",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -58832,7 +58832,7 @@
         "weight": 1500,
         "year": 2016,
         "guid": "6c37b366-5114-410e-852a-7bb1ab852483",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -58902,7 +58902,7 @@
         "weight": 1497,
         "year": 1968,
         "guid": "b0ab563c-4339-4799-b57e-5e2c391e792d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -59106,7 +59106,7 @@
         "weight": 2500,
         "year": 2011,
         "guid": "190e95fa-60c4-454b-b5df-a1115c4f23b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -59283,42 +59283,6 @@
         ],
         "guid": "76548b55-1ab6-42d0-81eb-a4b301d69534",
         "brake": "A"
-    },
-    {
-        "class": "B",
-        "rq": 52,
-        "onlyName": "Veloster Grappler",
-        "brand": "Hyundai",
-        "year": 2019,
-        "tdid": "4472",
-        "abs": true,
-        "tcs": true,
-        "clearance": "High",
-        "country": "KR",
-        "topSpeed": 140,
-        "acel": 7.4,
-        "hand": 78,
-        "drive": "FWD",
-        "tyres": "Off-road",
-        "mra": 58.73,
-        "weight": 1350,
-        "name": "Hyundai Veloster Grappler",
-        "rid": "Hyundai_Veloster_Grappler_2019",
-        "prize": false,
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "4",
-        "engine": "Front",
-        "tags": [
-            "Asia-Pacific Grand Prix",
-            "Red",
-            "Concept",
-            "Trading Paint"
-        ],
-        "guid": "7539acca-9b09-4fc4-9aaa-905001455ea0",
-        "brake": "B"
     },
     {
         "class": "B",
@@ -60560,7 +60524,7 @@
         "weight": 2718,
         "year": 2021,
         "guid": "cc2a3e40-e161-465d-8b53-efffa34118ce",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -60696,7 +60660,7 @@
         "weight": 1600,
         "year": 2022,
         "guid": "c3589ed8-2258-440e-aa96-29a37743ff1b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -60764,7 +60728,7 @@
         "weight": 2404,
         "year": 2000,
         "guid": "a2c05679-3942-4bd0-8b9d-dc75dab63c9f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -61005,6 +60969,42 @@
             "Chariots of the Gods"
         ],
         "guid": "7ba01fa7-fc09-4ed8-85d8-29e2c17ec8f3",
+        "brake": "B"
+    },
+    {
+        "class": "B",
+        "rq": 52,
+        "onlyName": "Veloster Grappler",
+        "brand": "Hyundai",
+        "year": 2019,
+        "tdid": "4472",
+        "abs": true,
+        "tcs": true,
+        "clearance": "High",
+        "country": "KR",
+        "topSpeed": 140,
+        "acel": 7.4,
+        "hand": 78,
+        "drive": "FWD",
+        "tyres": "Off-road",
+        "mra": 58.73,
+        "weight": 1350,
+        "name": "Hyundai Veloster Grappler",
+        "rid": "Hyundai_Veloster_Grappler_2019",
+        "prize": false,
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "4",
+        "engine": "Front",
+        "tags": [
+            "Asia-Pacific Grand Prix",
+            "Red",
+            "Concept",
+            "Trading Paint"
+        ],
+        "guid": "7539acca-9b09-4fc4-9aaa-905001455ea0",
         "brake": "B"
     },
     {
@@ -62074,7 +62074,7 @@
         "weight": 1795,
         "year": 2003,
         "guid": "687be81e-3d35-43b7-9484-c7c24a77785b",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -62108,7 +62108,7 @@
         "weight": 1890,
         "year": 2021,
         "guid": "4ad90d09-d26b-4adf-aa7b-9f6c6256d318",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -62454,7 +62454,7 @@
         "weight": 2271,
         "year": 2020,
         "guid": "5c1c0a45-6d9a-49a4-a9b7-8bde7d03f773",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -62488,7 +62488,7 @@
         "weight": 2271,
         "year": 2019,
         "guid": "e7998651-da3a-4447-8106-9c9ae82f8c8f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -63036,7 +63036,7 @@
         "weight": 2680,
         "year": 2019,
         "guid": "f7e54b40-253c-42fd-8a78-dbdde8f95d92",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -63696,7 +63696,7 @@
         "weight": 1800,
         "year": 2011,
         "guid": "3a399f85-94be-4230-85de-5acdb945d148",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -63730,7 +63730,7 @@
         "weight": 998,
         "year": 1959,
         "guid": "f5d3ca3e-3c97-4ca6-bcce-4702b02ee644",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -63973,7 +63973,7 @@
         "weight": 1882,
         "year": 2009,
         "guid": "ebca3d88-cb3b-48e6-a850-6105cce3a8c2",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -64527,7 +64527,7 @@
         "weight": 1987,
         "year": 2015,
         "guid": "e99191b2-93fb-4f99-b105-9ba8d0c62696",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -66503,7 +66503,7 @@
         "weight": 1513,
         "year": 2020,
         "guid": "86d7e1a1-5330-4544-9edc-b350d937c086",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -66573,7 +66573,7 @@
         "weight": 1525,
         "year": 1992,
         "guid": "a997e69e-3b8f-434a-ab36-bfdb89d6d728",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -66607,7 +66607,7 @@
         "weight": 1724,
         "year": 2016,
         "guid": "7545b568-f2ff-4405-94a9-0907a51bf467",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -66776,7 +66776,7 @@
         "weight": 1941,
         "year": 2018,
         "guid": "3a184e40-f31e-4d19-96b5-c2fe1f88bc7b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -67086,7 +67086,7 @@
         "weight": 2749,
         "year": 2015,
         "guid": "2c700aa4-2126-4abd-b86b-89238eee907f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -67506,7 +67506,7 @@
             "Blue"
         ],
         "guid": "2d43c7ef-1586-4f63-8e77-bdbec6bf2f55",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -68554,7 +68554,7 @@
         "weight": 3401,
         "year": 2023,
         "guid": "317d0fa8-5e0a-4703-bd84-e9ee3d7ae01f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -69373,7 +69373,7 @@
         "weight": 1710,
         "year": 2008,
         "guid": "b918f2f5-8d44-46c0-bd33-1414481259dc",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -69406,7 +69406,7 @@
         "weight": 2183,
         "year": 2005,
         "guid": "a69c7762-611c-4cbb-bdc8-701ae7a75070",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -69439,7 +69439,7 @@
         "weight": 1475,
         "year": 2013,
         "guid": "fec01603-a500-4cb3-96fe-e4febcad2ef4",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -69612,7 +69612,7 @@
         "weight": 2764,
         "year": 2021,
         "guid": "973029fd-2002-457a-8b61-fee2e6287734",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -69645,7 +69645,7 @@
         "weight": 2648,
         "year": 2020,
         "guid": "746e2a18-3743-4930-ab67-6fd3ba4e43a6",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -70167,7 +70167,7 @@
         "weight": 2688,
         "year": 2015,
         "guid": "79f31574-234e-4e9b-8864-199db6e191eb",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -70861,7 +70861,7 @@
             "Chariots of the Gods"
         ],
         "guid": "23ef2baa-1db4-40c6-bb60-180ed68c0968",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -72023,7 +72023,7 @@
         "weight": 1720,
         "year": 2005,
         "guid": "2a42ea57-fb5d-45bb-95cf-e02ff93badce",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -72056,7 +72056,7 @@
         "weight": 1676,
         "year": 2005,
         "guid": "181264a8-d7a4-4799-a7b1-5c7db332baba",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -72089,7 +72089,7 @@
         "weight": 1746,
         "year": 1999,
         "guid": "423f0fcd-5e86-4dcb-b635-7aa28c061e5d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -72159,7 +72159,7 @@
         "weight": 1834,
         "year": 2014,
         "guid": "b9dc44eb-8b22-4ec1-9bf2-b04d14888c4f",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -72192,7 +72192,7 @@
         "weight": 1713,
         "year": 2005,
         "guid": "41fd19a9-6d23-4498-b7c3-97559ba12a91",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -72225,7 +72225,7 @@
         "weight": 1648,
         "year": 2007,
         "guid": "659a94ed-40d3-4d34-9b8c-179a476145f7",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -72259,7 +72259,7 @@
         "weight": 2564,
         "year": 2021,
         "guid": "97c35b59-6818-4f96-8026-97ba083a1251",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -74396,7 +74396,7 @@
         "weight": 1880,
         "year": 2003,
         "guid": "7d723a45-8172-4026-ad12-71894e5795b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -74500,7 +74500,7 @@
         "weight": 3303,
         "year": 2021,
         "guid": "ae4d22b9-465d-4534-88c4-a665f130e42f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -74879,7 +74879,7 @@
         "weight": 2099,
         "year": 2002,
         "guid": "29856df5-09fd-42f1-bc8b-7d3c53a3a12a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -77416,7 +77416,7 @@
         "weight": 1335,
         "year": 2022,
         "guid": "9714ea47-342d-45a9-900a-a5ac8c35d314",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -77449,7 +77449,7 @@
         "weight": 1080,
         "year": 1973,
         "guid": "51ef7da6-05bf-4bb4-b9db-21064182a67b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -77516,7 +77516,7 @@
         "weight": 2766,
         "year": 2021,
         "guid": "4bae5135-6c05-4da8-98a3-eebf34cacb36",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -77973,7 +77973,7 @@
         "weight": 3747,
         "year": 2020,
         "guid": "b56c1c32-dd87-464c-906d-4808b56b9d39",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -78576,6 +78576,42 @@
     {
         "class": "C",
         "rq": 45,
+        "onlyName": "Elise 1.6",
+        "brand": "Lotus",
+        "country": "GB",
+        "year": 2015,
+        "tdid": "377",
+        "abs": true,
+        "tcs": true,
+        "clearance": "Low",
+        "topSpeed": 127,
+        "acel": 6.1,
+        "hand": 85,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 49.48,
+        "weight": 876,
+        "name": "Lotus Elise 1.6",
+        "rid": "Lotus_Elise_1.6_2015",
+        "tags": [
+            "Summer Games",
+            "Old Guard",
+            "Originals",
+            "Orange",
+            "Cutting Edge"
+        ],
+        "bodyTypes": [
+            "Roadster"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "24129c74-8f5e-44a5-b3b2-003d208d36f1",
+        "brake": "A"
+    },
+    {
+        "class": "C",
+        "rq": 45,
         "onlyName": "Familia Sport20 Special 4WD",
         "brand": "Mazda",
         "year": 2003,
@@ -79051,42 +79087,6 @@
             "Silver/Grey"
         ],
         "guid": "395c8628-3ac2-435e-a016-ea581fd42433",
-        "brake": "A"
-    },
-    {
-        "class": "C",
-        "rq": 45,
-        "onlyName": "Elise 1.6",
-        "brand": "Lotus",
-        "country": "GB",
-        "year": 2015,
-        "tdid": "377",
-        "abs": true,
-        "tcs": true,
-        "clearance": "Low",
-        "topSpeed": 127,
-        "acel": 6.1,
-        "hand": 85,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 49.48,
-        "weight": 876,
-        "name": "Lotus Elise 1.6",
-        "rid": "Lotus_Elise_1.6_2015",
-        "tags": [
-            "Summer Games",
-            "Old Guard",
-            "Originals",
-            "Orange",
-            "Cutting Edge"
-        ],
-        "bodyTypes": [
-            "Roadster"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "24129c74-8f5e-44a5-b3b2-003d208d36f1",
         "brake": "A"
     },
     {
@@ -79869,7 +79869,7 @@
         "weight": 2000,
         "year": 2011,
         "guid": "97302071-9e3b-4500-8b1b-f29dccf908d4",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -79902,7 +79902,7 @@
         "weight": 1867,
         "year": 2013,
         "guid": "a24bade2-876a-4b5e-be7a-84677ebbadba",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -79935,7 +79935,7 @@
         "weight": 2542,
         "year": 2008,
         "guid": "d34dad7c-2d50-4843-ae13-402eced285ce",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -80002,7 +80002,7 @@
         "weight": 1855,
         "year": 2006,
         "guid": "e359b180-8968-4472-b466-8bdf2212c9e0",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -80036,7 +80036,7 @@
         "weight": 1655,
         "year": 2008,
         "guid": "73e4d39f-bb22-416b-9850-9626671f4010",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -82274,7 +82274,7 @@
         "weight": 1600,
         "year": 2000,
         "guid": "075f8645-b99d-4b37-a0d7-411a22466b75",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -82307,7 +82307,7 @@
         "weight": 1616,
         "year": 1997,
         "guid": "275660b2-cb1b-4ed2-acfb-9c074fde86f4",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -82342,7 +82342,7 @@
         "weight": 2000,
         "year": 2013,
         "guid": "3e3c7855-fdf6-4a1a-93e8-9e3e16b5bcb2",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -82409,7 +82409,7 @@
         "weight": 2676,
         "year": 2002,
         "guid": "df71b2bc-e1bd-4ce9-ab5a-9833b27ed8f9",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -82442,7 +82442,7 @@
         "weight": 1727,
         "year": 2009,
         "guid": "e6d6b086-0cec-4a02-9955-d6b52d0a1500",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -82509,7 +82509,7 @@
         "weight": 1715,
         "year": 2002,
         "guid": "2ddc3d1e-fa81-49c4-b947-27a858345784",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -82646,7 +82646,7 @@
         "weight": 1480,
         "year": 2003,
         "guid": "bc758fdb-d959-4d95-a04a-62c178360d09",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -82782,7 +82782,7 @@
         "seats": "4",
         "engine": "Front",
         "guid": "ecbb27e6-004d-44c3-8ee2-9c3d75e7a67a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84570,7 +84570,7 @@
         "weight": 1805,
         "year": 2007,
         "guid": "41a888ec-a832-44e2-bb1a-6a7d85ef4d52",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84638,7 +84638,7 @@
         "weight": 1619,
         "year": 2017,
         "guid": "ada38bd9-4d46-41ea-bb73-cbca9e0aaccc",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84881,7 +84881,7 @@
         "weight": 1350,
         "year": 1989,
         "guid": "3e7ea43d-5058-4b73-a9cf-47933b2b79a9",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -84916,7 +84916,7 @@
         "weight": 5443,
         "year": 1997,
         "guid": "9217725b-4d19-4fcb-bd72-262b97ff390c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -85162,7 +85162,7 @@
         "weight": 1350,
         "year": 2007,
         "guid": "daf78413-5598-4202-bdba-bd84f4f17696",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -85196,7 +85196,7 @@
         "weight": 3790,
         "year": 2020,
         "guid": "99c91639-e189-4a3a-9c92-3cd663dc560c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -87028,7 +87028,7 @@
         "weight": 1880,
         "year": 2020,
         "guid": "54a186cb-ad62-4c07-8146-34769e74db8c",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87062,7 +87062,7 @@
         "weight": 990,
         "year": 2010,
         "guid": "cdf3a891-5aa8-4e8f-8b6a-5b280f50baf9",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87095,7 +87095,7 @@
         "weight": 1410,
         "year": 2022,
         "guid": "e44119b6-0b7d-412c-9822-3238906f19b0",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87129,7 +87129,7 @@
         "weight": 1850,
         "year": 1999,
         "guid": "38b3c94f-0a07-47e6-92f6-a31071405c57",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87162,7 +87162,7 @@
         "weight": 1275,
         "year": 2013,
         "guid": "58855e10-33c8-476b-b10c-51d8eb4d3b3d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -87374,7 +87374,7 @@
         "weight": 1696,
         "year": 2008,
         "guid": "5262aa64-e79b-48ef-bb2a-a014ec94c17a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -87546,7 +87546,7 @@
         "weight": 1921,
         "year": 1999,
         "guid": "577c6f9b-2d59-4f42-8dd8-c3be7ff3aa19",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87580,7 +87580,7 @@
         "weight": 3506,
         "year": 2015,
         "guid": "91f19be5-d11f-45ad-9caa-3a50940a2ec1",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -87614,7 +87614,7 @@
         "weight": 2472,
         "year": 2000,
         "guid": "fca478c0-b4ee-4286-8f0d-fd223165f627",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88304,7 +88304,7 @@
         "weight": 3628,
         "year": 2023,
         "guid": "dd480bcf-4005-46c2-86cb-9c945d2046b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88784,7 +88784,7 @@
         "weight": 1800,
         "year": 2006,
         "guid": "50ae0b0b-d36c-469a-9197-27cc74d3de64",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -88852,7 +88852,7 @@
         "weight": 1843,
         "year": 1998,
         "guid": "96e132ba-677c-420e-b70c-ff5ae52a3c03",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -88886,7 +88886,7 @@
         "weight": 1815,
         "year": 1998,
         "guid": "1585c2bf-b812-4beb-9bc1-cd13857a0ab7",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -88919,7 +88919,7 @@
         "weight": 1716,
         "year": 2021,
         "guid": "7f0ca85a-900b-462e-be50-3b2fbf17f17d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -89817,7 +89817,7 @@
         "weight": 3152,
         "year": 2015,
         "guid": "f4f1618d-4a23-49bf-ad78-7aa65c361ccd",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -89850,7 +89850,7 @@
         "weight": 2403,
         "year": 2006,
         "guid": "7c0b319b-ab1b-47bd-9190-918ae4a74460",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -92122,7 +92122,7 @@
         "weight": 1610,
         "year": 2017,
         "guid": "b41df728-2128-483e-853f-efe6f949c7e2",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -92156,7 +92156,7 @@
         "weight": 1660,
         "year": 2022,
         "guid": "257484b8-161d-4a37-9535-e88df99bb8a9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -92260,7 +92260,7 @@
         "weight": 1540,
         "year": 2016,
         "guid": "1c8ab5b7-58ab-4acb-9eb0-17b16492f05c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -94119,7 +94119,7 @@
         "weight": 1720,
         "year": 2008,
         "guid": "0881ad57-9fd7-4c0f-9f9f-6cc0e7044c1f",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -94152,7 +94152,7 @@
         "weight": 1315,
         "year": 2016,
         "guid": "32dff6ed-25f7-4f27-8612-078f2466f3eb",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -94186,7 +94186,7 @@
         "weight": 1500,
         "year": 1995,
         "guid": "f524c141-3459-4e49-b31b-ff0e91ad68d7",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -94220,7 +94220,7 @@
         "weight": 1714,
         "year": 2022,
         "guid": "08d95c73-0665-4cf6-b7cc-4709eba16e1e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -94289,7 +94289,7 @@
         "weight": 2121,
         "year": 1992,
         "guid": "c4a9956e-c508-437b-aa0f-ce2c5c5b9db1",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -96658,7 +96658,7 @@
         "weight": 1260,
         "year": 2018,
         "guid": "f14ee3a1-df43-4b68-b45d-99bf5ba56d3e",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -96693,7 +96693,7 @@
         "weight": 1542,
         "year": 1987,
         "guid": "8a33d4ec-4b6a-444f-b121-c9a703cb8ecc",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -96762,7 +96762,7 @@
         "weight": 1580,
         "year": 2019,
         "guid": "b7fa4457-cf08-4693-a531-9637b5cf4c4f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -96829,7 +96829,7 @@
         "weight": 1247,
         "year": 2000,
         "guid": "890ba1dd-36f2-4e42-80d2-10a7cc42bb0d",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -96862,7 +96862,7 @@
         "weight": 1650,
         "year": 2006,
         "guid": "0ddcdfad-7737-470e-b00e-3ec454c5cfce",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -96895,7 +96895,7 @@
         "weight": 1572,
         "year": 2000,
         "guid": "089197f7-2e41-43b7-bf77-a9e25a96305d",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -96928,7 +96928,7 @@
         "weight": 1636,
         "year": 2004,
         "guid": "53fc4d22-44f2-48f4-b268-e462d493ff68",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -97272,7 +97272,7 @@
         "weight": 3370,
         "year": 2020,
         "guid": "127b0ba4-6899-43c7-8ded-61ba2a49cf9b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -98438,7 +98438,7 @@
         "weight": 1597,
         "year": 1986,
         "guid": "eb3dc75f-7032-48af-84db-92f11f1a3990",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -98505,7 +98505,7 @@
         "weight": 1675,
         "year": 1998,
         "guid": "915f306c-7aa6-46a5-b1ab-4e197fc7ce5b",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -98539,7 +98539,7 @@
         "weight": 1550,
         "year": 1992,
         "guid": "de09f0a8-02e8-416e-8dc3-b3310e9d0e0d",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -98572,7 +98572,7 @@
         "weight": 1687,
         "year": 1993,
         "guid": "9e115d8e-ed21-4e3e-aa56-c68ff18aabbd",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -98638,7 +98638,7 @@
         "weight": 1609,
         "year": 2014,
         "guid": "d0181307-b60e-43b8-97a3-26d835c026d2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -100921,7 +100921,7 @@
         "weight": 2643,
         "year": 2023,
         "guid": "262bd1c3-fc25-43cc-860b-a796490d721a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -101024,7 +101024,7 @@
         "weight": 1551,
         "year": 1998,
         "guid": "d1002492-eeb4-49ee-a9b7-8bbd8d7f0988",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -101128,7 +101128,7 @@
         "weight": 1640,
         "year": 1993,
         "guid": "095d879b-19f8-42f4-ad8b-d39beac0524a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -102809,7 +102809,7 @@
         "weight": 1658,
         "year": 2016,
         "guid": "6a05482d-5485-457e-9431-4f0796c01515",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -102842,7 +102842,7 @@
         "weight": 1415,
         "year": 2010,
         "guid": "d96af270-a3d7-4776-95c9-c57389531772",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -102977,7 +102977,7 @@
         "weight": 1205,
         "year": 2005,
         "guid": "71a198de-9c45-4dba-afe5-dc37ca53fbe6",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -103010,7 +103010,7 @@
         "weight": 1569,
         "year": 2005,
         "guid": "92362c2e-bb60-40d3-9d75-6918030ae5a9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -103080,7 +103080,7 @@
         "weight": 2310,
         "year": 2023,
         "guid": "f84ef5a8-ed13-46fb-a380-e72ae52ef643",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -104869,7 +104869,7 @@
         "weight": 1900,
         "year": 2007,
         "guid": "2eaf7dcb-4ba5-4006-bfd7-abf03e88bf40",
-        "brake": null
+        "brake": "A"
     },
     {
         "abs": true,
@@ -104902,7 +104902,7 @@
         "weight": 1642,
         "year": 2006,
         "guid": "9de3fef4-03e1-497f-b7b4-26a8fb226847",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -104973,7 +104973,7 @@
         "weight": 1451,
         "year": 2007,
         "guid": "9698a147-fd60-4449-9351-47d28414e0c7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -107483,7 +107483,7 @@
         "weight": 1760,
         "year": 1999,
         "guid": "9f1e6d46-7865-4953-8d77-87f2f0300061",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -107587,7 +107587,7 @@
         "weight": 1505,
         "year": 1965,
         "guid": "dae8689e-3059-46c4-9058-50d128789b32",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -107655,7 +107655,7 @@
         "weight": 1570,
         "year": 1965,
         "guid": "2a4b4678-9cfe-4091-8cba-b394fa8ef7dd",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -107758,7 +107758,7 @@
         "weight": 1445,
         "year": 2015,
         "guid": "7fe56bc5-a905-4106-9648-4150c5bdfc94",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -109386,7 +109386,7 @@
         "weight": 2132,
         "year": 1994,
         "guid": "c5e354a2-22df-4271-826b-aa60a7ec1c5b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -109454,7 +109454,7 @@
         "weight": 1710,
         "year": 2000,
         "guid": "0a5db61e-75a9-4033-8609-d1f73eb4f1e6",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -109487,7 +109487,7 @@
         "weight": 1667,
         "year": 1991,
         "guid": "ff015a31-d94c-4e55-87fa-68aba1671803",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -109554,7 +109554,7 @@
         "weight": 1515,
         "year": 2001,
         "guid": "ae1d3ed5-c152-42ae-98ad-de011bc7cd9b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -109831,7 +109831,7 @@
         "weight": 1245,
         "year": 1985,
         "guid": "e18b2c8a-e1be-4970-a196-7383de8cbecf",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -110640,6 +110640,40 @@
     {
         "class": "D",
         "rq": 31,
+        "onlyName": "Merak SS",
+        "brand": "Maserati",
+        "country": "IT",
+        "year": 1976,
+        "tdid": "1639",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Low",
+        "topSpeed": 155,
+        "acel": 6.6,
+        "hand": 72,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 59.37,
+        "weight": 1180,
+        "name": "Maserati Merak SS",
+        "rid": "Maserati_Merak_SS_1976",
+        "tags": [
+            "Italian Renaissance",
+            "Red",
+            "Year of the Dragon"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Mid",
+        "guid": "62bd5320-8c23-4e61-802b-9b8ef99a3319",
+        "brake": "C"
+    },
+    {
+        "class": "D",
+        "rq": 31,
         "onlyName": "AZ Offroad",
         "brand": "Mazda",
         "year": 1998,
@@ -110671,40 +110705,6 @@
         ],
         "guid": "9de5c13b-3e66-4eaf-af3e-c932b544820c",
         "brake": null
-    },
-    {
-        "class": "D",
-        "rq": 31,
-        "onlyName": "Merak SS",
-        "brand": "Maserati",
-        "country": "IT",
-        "year": 1976,
-        "tdid": "1639",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Low",
-        "topSpeed": 155,
-        "acel": 6.6,
-        "hand": 72,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 59.37,
-        "weight": 1180,
-        "name": "Maserati Merak SS",
-        "rid": "Maserati_Merak_SS_1976",
-        "tags": [
-            "Italian Renaissance",
-            "Red",
-            "Year of the Dragon"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "2",
-        "engine": "Mid",
-        "guid": "62bd5320-8c23-4e61-802b-9b8ef99a3319",
-        "brake": "C"
     },
     {
         "class": "D",
@@ -111670,7 +111670,7 @@
         "weight": 1588,
         "year": 2001,
         "guid": "7da41852-b32e-49be-adbe-5da7252ea223",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -111703,7 +111703,7 @@
         "weight": 1476,
         "year": 1983,
         "guid": "03853acf-5d6a-4455-915f-91e1d36ef84d",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -111736,7 +111736,7 @@
         "weight": 2048,
         "year": 2005,
         "guid": "fed57ea9-ecea-4e63-9716-c8071f85fc75",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -111805,7 +111805,7 @@
         "weight": 1668,
         "year": 1972,
         "guid": "d6fe7980-155d-4a1f-a12b-424692174c41",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -111873,7 +111873,7 @@
         "weight": 1565,
         "year": 1969,
         "guid": "81be9c8a-513f-456c-8439-4ca1df20387a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -114752,7 +114752,7 @@
         "weight": 1815,
         "year": 2000,
         "guid": "608fce22-61b5-45f9-8f7b-eb7ce2f81b0d",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -114786,7 +114786,7 @@
         "weight": 1570,
         "year": 2001,
         "guid": "7289e30e-3dec-4981-9774-34a7545e3acb",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -116161,7 +116161,7 @@
         "weight": 1592,
         "year": 2022,
         "guid": "c493ee6f-08ec-4bb5-8d62-54fc9c06081b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -116909,7 +116909,7 @@
         "weight": 1350,
         "year": 1990,
         "guid": "b6179985-87fd-47a0-8083-e545b898d051",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -116942,7 +116942,7 @@
         "weight": 1395,
         "year": 2013,
         "guid": "68289bc3-66a6-49cc-a5cc-811d31cca9cb",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -116975,7 +116975,7 @@
         "weight": 1536,
         "year": 1996,
         "guid": "28a2d459-38cd-454d-bcf2-fd738dcd136c",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -117008,7 +117008,7 @@
         "weight": 1850,
         "year": 1991,
         "guid": "3d9f1b5c-710d-4f6e-b186-0f60593b08be",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -117042,7 +117042,7 @@
         "weight": 1610,
         "year": 1965,
         "guid": "4e2ad3d9-ee8f-4705-82d9-f9524bc321fe",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -117110,7 +117110,7 @@
         "weight": 1770,
         "year": 2000,
         "guid": "b50e7130-cf32-4522-86ef-c1895a7cae7a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -117726,7 +117726,7 @@
         "weight": 1320,
         "year": 2017,
         "guid": "cc047033-fe86-4a51-b081-112562bd9c37",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -119408,7 +119408,7 @@
         "weight": 1650,
         "year": 1992,
         "guid": "9cc9b189-f8e6-441e-b815-f1a9a0269caa",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -119441,7 +119441,7 @@
         "weight": 1760,
         "year": 2019,
         "guid": "42aa56bd-2f36-48db-902a-9555eac7b707",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -119508,7 +119508,7 @@
         "weight": 1568,
         "year": 1995,
         "guid": "429a3d70-9659-4bd2-91c8-a35d522c5490",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -119542,7 +119542,7 @@
         "weight": 1710,
         "year": 2004,
         "guid": "3460aa3f-cfd7-4052-82e6-0af08572cfbb",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -119576,7 +119576,7 @@
         "weight": 1466,
         "year": 1969,
         "guid": "242a18ce-3e35-4cb5-b0e4-3b8e0d252b0f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -121665,7 +121665,7 @@
         "weight": 1821,
         "year": 1973,
         "guid": "2d257c80-1323-4dd0-af4b-d3b433dae685",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -121700,7 +121700,7 @@
         "weight": 2005,
         "year": 1968,
         "guid": "82933947-23a8-4a7b-b1ca-50309fe80ced",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -121804,7 +121804,7 @@
         "weight": 1425,
         "year": 1966,
         "guid": "82c541b7-89a1-4e4e-a680-126d26b9d3c3",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -121908,7 +121908,7 @@
         "weight": 2129,
         "year": 2015,
         "guid": "fc730877-1623-439c-99d7-d5fc5d4a7924",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -123496,7 +123496,7 @@
         "weight": 1607,
         "year": 1968,
         "guid": "255f8849-0179-436e-a28b-cb7ad3cee09e",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -123529,7 +123529,7 @@
         "weight": 1533,
         "year": 1988,
         "guid": "fa9f6067-34b7-445f-a6ca-b8cec2ef2cd5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -123597,7 +123597,7 @@
         "weight": 1813,
         "year": 1965,
         "guid": "5701e42e-a338-4f4b-822e-a34e40df2180",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -123630,7 +123630,7 @@
         "weight": 1596,
         "year": 1992,
         "guid": "59b2e779-5c4e-4162-b7b8-d98f3052a715",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -123664,7 +123664,7 @@
         "weight": 1540,
         "year": 2002,
         "guid": "4f7ac015-1440-47e4-ba2a-21acfa78c9b4",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125675,7 +125675,7 @@
         "weight": 1245,
         "year": 2020,
         "guid": "056544cc-ef0c-4cf3-939e-a9b29228ec13",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -125709,7 +125709,7 @@
         "weight": 1500,
         "year": 1983,
         "guid": "5cb85942-7a69-4af7-a598-339aecf8d43f",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -125742,7 +125742,7 @@
         "weight": 1316,
         "year": 1992,
         "guid": "397745e8-57d9-4613-a057-3e83d0e88e0e",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -125775,7 +125775,7 @@
         "weight": 2140,
         "year": 1970,
         "guid": "3bf91d79-c801-46f1-ab6a-774cae4c9d9f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -125842,7 +125842,7 @@
         "weight": 1745,
         "year": 1961,
         "guid": "0b006f4b-2050-4591-8dda-405b8d7f35fa",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -126488,7 +126488,7 @@
         "weight": 2424,
         "year": 2017,
         "guid": "366bafc3-ae0b-4aad-9bcd-f615c975245f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -127180,7 +127180,7 @@
         "weight": 2066,
         "year": 2022,
         "guid": "f887fdf7-d99d-4bc1-9292-2c893b46feb7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -127425,36 +127425,37 @@
     },
     {
         "class": "E",
-        "rq": 23,
-        "onlyName": "280i",
+        "rq": 24,
+        "onlyName": "Tasmin 280i 2+2 Coupe",
         "brand": "TVR",
-        "country": "GB",
-        "year": 1984,
-        "tdid": "1863",
+        "year": 1981,
+        "tdid": "3909",
         "abs": false,
         "tcs": false,
         "clearance": "Low",
+        "country": "GB",
         "topSpeed": 130,
         "acel": 8.2,
         "hand": 73,
         "drive": "RWD",
         "tyres": "Performance",
-        "mra": 46.07,
-        "weight": 1050,
-        "name": "TVR 280i",
-        "rid": "TVR_280i_1984",
+        "mra": 53.66,
+        "weight": 1064,
+        "name": "TVR Tasmin 280i 2+2 Coupe",
+        "rid": "TVR_Tasmin_280i_22_Coupe_1981",
+        "prize": false,
         "tags": [
-            "Great Exhibition",
-            "Year of the Rat",
-            "Silver/Grey"
+            "Loch to Loch",
+            "Silver/Grey",
+            "Cutting Edge"
         ],
         "bodyTypes": [
             "Coupe"
         ],
         "fuel": "Petrol",
-        "seats": "2",
+        "seats": "4",
         "engine": "Front",
-        "guid": "615e525d-a9e6-49ac-9fd3-6e0087393475",
+        "guid": "cce6c078-431b-4b88-8f7b-bb8d9d9726f5",
         "brake": "C"
     },
     {
@@ -127796,7 +127797,7 @@
         "weight": 2300,
         "year": 2022,
         "guid": "459f226a-24f9-458a-a7a0-4f15ac71643e",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -127829,7 +127830,7 @@
         "weight": 1980,
         "year": 2020,
         "guid": "4eb89855-5ecd-458a-ab5e-266444e63cb3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -127965,7 +127966,7 @@
         "weight": 1060,
         "year": 1988,
         "guid": "e34e32b6-80b5-452b-be24-0790061ff24f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -129654,6 +129655,40 @@
     {
         "class": "E",
         "rq": 23,
+        "onlyName": "280i",
+        "brand": "TVR",
+        "country": "GB",
+        "year": 1984,
+        "tdid": "1863",
+        "abs": false,
+        "tcs": false,
+        "clearance": "Low",
+        "topSpeed": 130,
+        "acel": 8.2,
+        "hand": 73,
+        "drive": "RWD",
+        "tyres": "Performance",
+        "mra": 46.07,
+        "weight": 1050,
+        "name": "TVR 280i",
+        "rid": "TVR_280i_1984",
+        "tags": [
+            "Great Exhibition",
+            "Year of the Rat",
+            "Silver/Grey"
+        ],
+        "bodyTypes": [
+            "Coupe"
+        ],
+        "fuel": "Petrol",
+        "seats": "2",
+        "engine": "Front",
+        "guid": "615e525d-a9e6-49ac-9fd3-6e0087393475",
+        "brake": "C"
+    },
+    {
+        "class": "E",
+        "rq": 23,
         "onlyName": "Taimar",
         "brand": "TVR",
         "country": "GB",
@@ -129683,41 +129718,6 @@
         "seats": "2",
         "engine": "Front",
         "guid": "8db6ad33-a826-4283-9984-0c7758c55bb2",
-        "brake": "C"
-    },
-    {
-        "class": "E",
-        "rq": 24,
-        "onlyName": "Tasmin 280i 2+2 Coupe",
-        "brand": "TVR",
-        "year": 1981,
-        "tdid": "3909",
-        "abs": false,
-        "tcs": false,
-        "clearance": "Low",
-        "country": "GB",
-        "topSpeed": 130,
-        "acel": 8.2,
-        "hand": 73,
-        "drive": "RWD",
-        "tyres": "Performance",
-        "mra": 53.66,
-        "weight": 1064,
-        "name": "TVR Tasmin 280i 2+2 Coupe",
-        "rid": "TVR_Tasmin_280i_22_Coupe_1981",
-        "prize": false,
-        "tags": [
-            "Loch to Loch",
-            "Silver/Grey",
-            "Cutting Edge"
-        ],
-        "bodyTypes": [
-            "Coupe"
-        ],
-        "fuel": "Petrol",
-        "seats": "4",
-        "engine": "Front",
-        "guid": "cce6c078-431b-4b88-8f7b-bb8d9d9726f5",
         "brake": "C"
     },
     {
@@ -130028,7 +130028,7 @@
         "weight": 1930,
         "year": 2014,
         "guid": "5400a6ba-ba6d-4dbf-bddb-042533a3b002",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -130062,7 +130062,7 @@
         "weight": 1675,
         "year": 1983,
         "guid": "78a05427-1b59-48f8-8649-dca91b3f0bab",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -130096,7 +130096,7 @@
         "weight": 1406,
         "year": 1951,
         "guid": "136a38fd-c3ed-4b28-8373-c029f40e94f0",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -130198,7 +130198,7 @@
         "weight": 2118,
         "year": 1969,
         "guid": "f7f667e5-ad18-4440-994b-02edd75dc721",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -130231,7 +130231,7 @@
         "weight": 1510,
         "year": 1995,
         "guid": "f8a130cb-d882-42a4-9f88-d3236dcceee4",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -130264,7 +130264,7 @@
         "weight": 1396,
         "year": 1998,
         "guid": "aadc42e3-01de-456d-a042-9eabbf52f062",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -131018,7 +131018,7 @@
         "weight": 1803,
         "year": 1974,
         "guid": "94e99ee8-9a1d-4b42-9d38-fa9bfa0990db",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -132228,7 +132228,7 @@
         "weight": 1890,
         "year": 1963,
         "guid": "fb649f18-13bd-41e5-a5ff-468aa99e69ab",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -132262,7 +132262,7 @@
         "weight": 2010,
         "year": 1971,
         "guid": "7fc687e8-d749-45fb-9280-2f1ebf31be0f",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -132296,7 +132296,7 @@
         "weight": 1888,
         "year": 1963,
         "guid": "dc4f7eb6-0104-428d-81e2-eac37c7f40c5",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -132364,7 +132364,7 @@
         "weight": 1958,
         "year": 1971,
         "guid": "1d506cdd-b9bc-4d93-93e1-6092a58cac3d",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -132432,7 +132432,7 @@
         "weight": 741,
         "year": 1989,
         "guid": "5c27ac2b-ce78-4641-af21-fdfaa330ddf6",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -134737,7 +134737,7 @@
         "weight": 1545,
         "year": 1989,
         "guid": "9cc65e37-6f50-4360-8026-0aae651846bb",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -134805,7 +134805,7 @@
         "weight": 1215,
         "year": 1986,
         "guid": "a4731ba6-b6b4-4e3d-b2ce-ca8c5deb68c6",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -134908,7 +134908,7 @@
         "weight": 1179,
         "year": 1973,
         "guid": "93c02e49-5e51-4bc1-ba20-6940d64b9269",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -136821,7 +136821,7 @@
         "weight": 1920,
         "year": 1962,
         "guid": "324c6e69-f31b-4633-a214-ea9e6822c03c",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -136855,7 +136855,7 @@
         "weight": 1531,
         "year": 1968,
         "guid": "97e6f80d-3d59-4a29-aa09-fc50f3d79201",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -136888,7 +136888,7 @@
         "weight": 1295,
         "year": 1982,
         "guid": "1823e35e-9fd4-4976-951f-f7b0d9495c5b",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -136923,7 +136923,7 @@
         "weight": 1152,
         "year": 1965,
         "guid": "7d78c9a1-ae7f-42f3-8af6-e9461d0afb92",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -136991,7 +136991,7 @@
         "weight": 900,
         "year": 2007,
         "guid": "c4c6dcf5-1105-4768-88eb-19f8089c9b46",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -138123,7 +138123,7 @@
         "weight": 1505,
         "year": 1973,
         "guid": "6329819b-726b-4bf4-b01e-ef166761dabf",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -138157,7 +138157,7 @@
         "weight": 1159,
         "year": 1967,
         "guid": "1ee76978-200c-44eb-85aa-90354d1620ea",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -138877,7 +138877,7 @@
         "seats": "2",
         "engine": "Front",
         "guid": "1cde5225-f322-4e78-b5e3-3ef58d3c4441",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -140142,7 +140142,7 @@
         "weight": 2000,
         "year": 1956,
         "guid": "2224bc9a-7b95-4e4d-9e33-c74fe1bf4405",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -140175,7 +140175,7 @@
         "weight": 1285,
         "year": 1983,
         "guid": "24e79afb-00ff-4b4b-b3a9-e706a9e6bd2c",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -140209,7 +140209,7 @@
         "weight": 2150,
         "year": 1971,
         "guid": "1a5f20dd-e6c8-4be4-b6d3-03f8c8046ef4",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -140242,7 +140242,7 @@
         "weight": 2020,
         "year": 1959,
         "guid": "f117f00a-f842-453a-a0fa-f119c8a6e744",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -140380,7 +140380,7 @@
         "weight": 1380,
         "year": 1956,
         "guid": "82532023-30c1-4536-9bdf-64d1f3270d85",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -140414,7 +140414,7 @@
         "weight": 1703,
         "year": 1977,
         "guid": "77ba102a-292e-45d3-81b8-f143eeddb273",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -140617,7 +140617,7 @@
         "weight": 960,
         "year": 1973,
         "guid": "373c9d97-58e6-42b2-b168-ba575ae63522",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -141417,7 +141417,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "85369201-9981-4821-8c5e-792b6f1d3c87",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -142274,7 +142274,7 @@
         "weight": 2123,
         "year": 1971,
         "guid": "682a8c53-8469-46e1-a3a2-f2f71321834b",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -142307,7 +142307,7 @@
         "weight": 1479,
         "year": 1985,
         "guid": "33144c63-6174-4f83-adce-a754d4498b39",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -142340,7 +142340,7 @@
         "weight": 1914,
         "year": 1977,
         "guid": "f5bac7f3-031c-4ac2-a922-bcc7861d6966",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": true,
@@ -142373,7 +142373,7 @@
         "weight": 1865,
         "year": 2000,
         "guid": "53461277-c279-4a42-8280-55a5572537a8",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": true,
@@ -142407,7 +142407,7 @@
         "weight": 1560,
         "year": 1988,
         "guid": "dd67352b-24b0-4419-83c8-582937fc7a1b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -142475,7 +142475,7 @@
         "weight": 1990,
         "year": 1998,
         "guid": "a5290aee-71e6-4de2-9f08-b578e07cfee0",
-        "brake": null
+        "brake": "B"
     },
     {
         "abs": false,
@@ -142510,7 +142510,7 @@
         "weight": 2100,
         "year": 1959,
         "guid": "e9db3a2c-7c04-4d5a-b3bf-ef020eddef43",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -142543,7 +142543,7 @@
         "weight": 1388,
         "year": 1964,
         "guid": "4e302dd6-5b49-4383-b46c-cd6f2e15a77e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -142610,7 +142610,7 @@
         "weight": 1632,
         "year": 1989,
         "guid": "aca9f2a2-7c19-4ed6-8bef-832fbb53108a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -142678,7 +142678,7 @@
         "weight": 1499,
         "year": 1977,
         "guid": "2f4db721-8d87-4094-9127-4cf850522384",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -143747,7 +143747,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "7e4fea9f-9dc7-44d6-b958-af39f1eabb4f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -144238,7 +144238,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "f67cf284-dd0d-42a8-952b-9e7e427cc4b7",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -144272,7 +144272,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "ca9a1511-001a-43e8-a8dd-18b787fb8a56",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -144711,7 +144711,7 @@
         "weight": 2014,
         "year": 1961,
         "guid": "7d6cbf92-0860-4f66-a440-bff9b61c4b8c",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -144744,7 +144744,7 @@
         "weight": 2000,
         "year": 1959,
         "guid": "9f719935-f99e-4919-87b9-19ad6d7a4b8a",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -144777,7 +144777,7 @@
         "weight": 1795,
         "year": 1965,
         "guid": "aae23a0b-1690-4afc-80c0-72e6cc2eb209",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -144810,7 +144810,7 @@
         "weight": 1406,
         "year": 1975,
         "guid": "e751b3c8-63f9-40e9-96f1-b216b414569e",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -144843,7 +144843,7 @@
         "weight": 1095,
         "year": 1983,
         "guid": "1f8ae403-7232-4f60-98f6-7f697c6cef4b",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -144876,7 +144876,7 @@
         "weight": 1901,
         "year": 1989,
         "guid": "38d92022-a179-44a2-b1c3-bd7b8c11f401",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -144980,7 +144980,7 @@
         "weight": 2430,
         "year": 1959,
         "guid": "dc96d10b-554c-4db2-b587-4399eabcf376",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145084,7 +145084,7 @@
         "weight": 1695,
         "year": 1973,
         "guid": "be34fe98-1dd5-4eb1-84bb-d82219eba44f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145259,7 +145259,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "c340b72c-e8cf-42bc-8324-ce94c99e0399",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145293,7 +145293,7 @@
         "seats": "2",
         "engine": "Front",
         "guid": "8ec1eabc-a4ae-4bc6-be6c-a0b7e557e970",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145464,7 +145464,7 @@
         "weight": 1379,
         "year": 1967,
         "guid": "103c68fb-fa81-46e7-b169-58737a62019c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145499,7 +145499,7 @@
         "seats": "6",
         "engine": "Front",
         "guid": "01e2cbfa-b02d-4e02-9fa5-abf8b1b67443",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -145636,7 +145636,7 @@
         "weight": 1588,
         "year": 1985,
         "guid": "36f5ad7c-76fc-43b1-8756-75dfbef9dc4c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -146052,7 +146052,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "4edae89b-908c-4c31-af00-883a0bf23e86",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -146086,7 +146086,7 @@
         "seats": "5",
         "engine": "Front",
         "guid": "087cd70d-a873-42d2-b33b-cd7acf315d6c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -146291,7 +146291,7 @@
         "weight": 940,
         "year": 1993,
         "guid": "4c1d18c4-acac-46d0-85cf-659e4bf3176c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -146778,7 +146778,7 @@
         "weight": 1155,
         "year": 1984,
         "guid": "02b61e87-0b9a-43d0-b515-25cf5c1c6c50",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146812,7 +146812,7 @@
         "weight": 1710,
         "year": 1954,
         "guid": "253d3f9e-178b-4bc2-ab28-1b65d9664808",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146846,7 +146846,7 @@
         "weight": 1680,
         "year": 1955,
         "guid": "fcf78d4e-4332-4522-b06c-2e3fa24630b8",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146881,7 +146881,7 @@
         "weight": 2100,
         "year": 1954,
         "guid": "86b953f9-36c0-4bd2-866e-92408e5ad95e",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146915,7 +146915,7 @@
         "weight": 2358,
         "year": 1959,
         "guid": "26f9b13c-a1c8-42b8-bed8-366278930625",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146948,7 +146948,7 @@
         "weight": 1720,
         "year": 1958,
         "guid": "f6464791-0c81-4166-b714-1cb8c1811488",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -146983,7 +146983,7 @@
         "weight": 1365,
         "year": 1954,
         "guid": "ee513f5d-3826-4c58-8a12-4d7452080d76",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -148849,7 +148849,7 @@
         "weight": 1770,
         "year": 1953,
         "guid": "d0bd71ae-b641-4053-9bee-6becbb6d2159",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -148882,7 +148882,7 @@
         "weight": 1910,
         "year": 1949,
         "guid": "eb24ce9f-c413-4606-97f0-9821f2f68f4a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -150048,7 +150048,7 @@
         "weight": 2177,
         "year": 1953,
         "guid": "8af302a2-6fa5-409b-ae60-b5e7ef7edc8b",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -150118,7 +150118,7 @@
         "weight": 1450,
         "year": 1941,
         "guid": "2eff89cc-9c6f-4583-85ae-afcf2517c894",
-        "brake": null
+        "brake": "C"
     },
     {
         "abs": false,
@@ -151841,7 +151841,7 @@
         "weight": 2646,
         "year": 1973,
         "guid": "238d59c6-71fc-469a-8add-487754de7e74",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",

@@ -5409,7 +5409,7 @@ export default {
       if (isForTemplate) {
         return result
       } else {
-        this.shareUrl = result.replaceAll("+", "%2B");
+        this.shareUrl = result.replaceAll("+", "%2B").replaceAll("&", "%26");
       }
 
     },
