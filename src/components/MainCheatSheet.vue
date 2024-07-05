@@ -561,7 +561,7 @@ export default {
         divider2: "Service",
         serviceTime: ["1m","2m30s","4m","5m45s","7m30s","9m30s","12m30s"],
         serviceTime10: ["10m","25m","40m","57m30s","1h15m","1h35m","2h5m"],
-        serviceSkipGold: [5,10,25,20,24,28,30],
+        serviceSkipGold: [5,10,15,20,24,28,30],
         divider3: "Total to Max",
         "Upgrades": [11525,19625,30625,44525,61325,81175,103825],
         "Fuse Time": ["45m","1h45m","3h30m","7h","14h","28h","56h"],

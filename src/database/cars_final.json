@@ -44706,6 +44706,7 @@
         "tags": [
             "American Overdrive",
             "Silver/Grey",
+            "Concept",
             "Desperados"
         ],
         "tcs": true,
@@ -52812,7 +52813,7 @@
         "country": "US",
         "drive": "4WD",
         "engine": "Front",
-        "fuel": "Hybrid",
+        "fuel": "Petrol",
         "hand": 68,
         "mra": null,
         "name": "RAM 1500 Warlock",
@@ -63028,6 +63029,7 @@
         "seats": "5",
         "tags": [
             "American Overdrive",
+            "Concept",
             "Silver/Grey"
         ],
         "tcs": true,
