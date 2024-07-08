@@ -119583,7 +119583,7 @@
     {
         "class": "E",
         "rq": 27,
-        "onlyName": "S-10 Blazer Xtreme",
+        "onlyName": "S-10 Xtreme",
         "brand": "Chevrolet",
         "country": "US",
         "year": 1999,
@@ -119598,7 +119598,7 @@
         "tyres": "Performance",
         "mra": 43.48,
         "weight": 1459,
-        "name": "Chevrolet S-10 Blazer Xtreme",
+        "name": "Chevrolet S-10 Xtreme",
         "rid": "Chevrolet_S-10_Blazer_Xtreme_1999",
         "tags": [
             "American Dream",

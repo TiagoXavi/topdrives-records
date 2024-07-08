@@ -74,7 +74,7 @@
           <i class="ticon-expand Cg_SelectTrackButtonIcon" style="transform: rotate(45deg);" aria-hidden="true"/>
         </button>
         <div
-          v-if="showBestPerTrack && eventBestPerTrack[(trackMonoArray[0].code) || '']"
+          v-if="showBestPerTrack && Array.isArray(trackMonoArray) && trackMonoArray[0] && eventBestPerTrack[(trackMonoArray[0].code) || '']"
           :style="`--cor: ${ eventBestPerTrack[trackMonoArray[0].code].color }`"
           class="BaseEventTrackbox_BestBox">
           <div class="BaseEventTrackbox_BestPhoto">
