@@ -7330,7 +7330,7 @@ export default {
       let count = 0;
       newCg.rounds.map((round, iround) => {
         round.races.map((race, irace) => {
-          if (!race.rid) {
+          if (!race.track) {
             let op = oppos[count];
             let zoneSize = json.ladder.zoneSize;
             let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`

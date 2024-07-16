@@ -209,7 +209,7 @@
             </button>
           </template>
         </div>
-        <div v-if="item.author" class="Row_DetailAuthor">{{ $t("m_by") }} {{ item.author }}</div>
+        <div v-if="item.author" class="Row_DetailAuthor">{{ $t("m_by") }} {{ item.author }}<span class="Row_DetailDate">{{ item.date ? ` • ${item.date}` : '' }}</span></div>
       </div>
       <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 0 )" class="Row_CheckDoubtful">
         <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
@@ -444,6 +444,7 @@ export default {
       let downList;
       let upList;
       let car;
+      let date;
       let timesObjPresent = false;
       let presentTracks = [];
       this.nonUsedTracks = [];
@@ -474,9 +475,10 @@ export default {
             downList = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
             upList = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
             author = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
+            date = ((car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author })
+          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date })
         })
       }
 
@@ -514,6 +516,7 @@ export default {
           downList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
           upList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
           author = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
+          date = ((this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
 
           if (text === '' && this.cgTime) {
             text = this.cgTime;
@@ -525,6 +528,7 @@ export default {
           result[0].downList = downList;
           result[0].upList = upList;
           result[0].author = author;
+          result[0].date = date;
         })
 
 
@@ -1772,7 +1776,9 @@ export default {
 .Row_ShowingBestPerTrack .Row_Content {
   transform: translateX(54px);
 }
-
+.Main_Compact .Row_DetailDate {
+  display: none;
+}
 
 
 

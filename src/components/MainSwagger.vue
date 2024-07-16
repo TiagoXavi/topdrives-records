@@ -218,6 +218,19 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Contest Rarity Discord</div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="contestRarity()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ contestRarityRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Update Git</div>
       <div class="MainSwagger_Buttons">
         <button
@@ -271,6 +284,7 @@ export default {
       backupCarsRes: null,
       scanSessionRes: null,
       contestRes: null,
+      contestRarityRes: null,
       userConfirmRes: null,
       gitRes: null,
       configObj: null,
@@ -443,6 +457,21 @@ export default {
       axios.get(Vue.preUrl + "/contest")
       .then(res => {
         this.contestRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    contestRarity() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrlCharlie + "/rarityContest")
+      .then(res => {
+        this.contestRarityRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
