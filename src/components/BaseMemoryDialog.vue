@@ -197,8 +197,10 @@
                 :showDelete="true"
                 :showApprove="false"
                 :showRename="true"
+                :showReplace="true"
                 @rename="$emit('rename', { config: $event, index });"
                 @delete="$emit('delete', { config: $event, index });"
+                @replace="$emit('replace', { config: $event, index });"
                 @push="$emit('templateClick', $event); $emit('close');" />
             </div>
           </template>

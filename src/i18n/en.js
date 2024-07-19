@@ -221,6 +221,7 @@ export default {
   m_edit: "Edit",
   m_saveToFile: "Save to file",
   m_loadFile: "Load file",
+  m_replace: "Replace",
 
   
   

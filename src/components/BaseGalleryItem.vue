@@ -80,6 +80,13 @@
       @click.stop="$emit('approve', config)">
       <span class="BaseGalleryItem_MiniButtonLabel">{{ $t("m_approve") }}</span>
     </button>
+    <button
+      v-if="showReplace"
+      style="right: unset; left: 0;"
+      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen Row_UploadButton BaseGalleryItem_Delete"
+      @click.stop="$emit('replace', config)">
+      <span class="BaseGalleryItem_MiniButtonLabel">{{ $t("m_replace") }}</span>
+    </button>
   </div>
 </template>
 
@@ -107,6 +114,10 @@ export default {
       default: false
     },
     showRename: {
+      type: Boolean,
+      default: false
+    },
+    showReplace: {
       type: Boolean,
       default: false
     }

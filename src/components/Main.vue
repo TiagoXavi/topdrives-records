@@ -1583,7 +1583,8 @@
       :memory="memory"
       @addNext="memoryAddNext()"
       @rename="renameMemoryDialogOpen($event.index)"
-      @delete="loadMemory($event.index, { shiftKey: true })"
+      @delete="askDeleteMemory($event.index)"
+      @replace="askReplaceMemory($event.index)"
       @templateClick="decodeTemplateString($event, true)"
       @import="importMemory($event)"
     />
@@ -5806,13 +5807,16 @@ export default {
         this.updateOptions();
       }
     },
-    saveMemory(index, e) {
+    saveMemory(index, e, keepName) {
       this.clearSaveToGallery();
       this.computeTemplateToSave();
 
+      let name = `Memory #${index+1}`;
+      if (this.memory[index].name && keepName) name = this.memory[index].name;
+
       let temp = {
         template: this.generateUrl(true),
-        name: `Memory #${index+1}`,
+        name: name,
         brand: this.saveToGalleryModel.brand,
         class: this.saveToGalleryModel.class,
         clearance: this.saveToGalleryModel.clearance,
@@ -5887,6 +5891,50 @@ export default {
         let obj = JSON.parse(found);
         obj.name = this.memoryRenameNewName;
         window.localStorage.setItem(`m${this.memoryRenameNewNameIndex}`, JSON.stringify(obj));
+      }
+    },
+    askDeleteMemory(index) {
+      let vm = this;
+
+      let action = function() {
+        vm.loadMemory(index, { shiftKey: true });
+        vm.confirmDelete.dialog = false;
+      }
+
+      console.log(index);
+      console.log(this.memory[index]);
+      let name = `Memory #${index+1}`
+      if (this.memory[index].name) name = this.memory[index].name;
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete memory '${name}'?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+    },
+    askReplaceMemory(index) {
+      let vm = this;
+
+      let action = function() {
+        vm.saveMemory(index, null, true);
+        vm.confirmDelete.dialog = false;
+      }
+
+      console.log(index);
+      console.log(this.memory[index]);
+      let name = `Memory #${index+1}`
+      if (this.memory[index].name) name = this.memory[index].name;
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Replace memory '${name}'?`,
+        actionLabel: `Replace`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonGreen`
       }
     },
     clearDataToSave() {
