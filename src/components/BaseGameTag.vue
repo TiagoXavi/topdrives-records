@@ -139,6 +139,11 @@ export default {
   --tag-s: 69%;
   --tag-l: 30%;
 }
+.BaseGameTag_European_Grand_Tour {
+  --tag-h: 21;
+  --tag-s: 51%;
+  --tag-l: 48%;
+}
 .BaseGameTag_European_Revolution {
   --tag-h: 141;
   --tag-s: 34%;

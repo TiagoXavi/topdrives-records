@@ -364,6 +364,7 @@ export default {
           "Eco Friendly",
           "Electric Excellence",
           "Enter the Black Forest",
+          "European Grand Tour",
           "European Revolution",
           "European New Wave",
           "Famous Tracks",

@@ -2668,8 +2668,8 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #4</div>
-          <div class="Main_AnnouncementSubTitle">American Overdrive</div>
+          <div class="Main_AnnouncementTitle">Contest #5</div>
+          <div class="Main_AnnouncementSubTitle">European Grand Tour</div>
           <div class="Main_AnnouncementBody">Prizes: free TDR premium, medals</div>
           <div class="Main_AnnouncementMaybe">3rd april - 21th april</div>
 
@@ -5812,7 +5812,7 @@ export default {
       this.computeTemplateToSave();
 
       let name = `Memory #${index+1}`;
-      if (this.memory[index].name && keepName) name = this.memory[index].name;
+      if (this.memory[index] && this.memory[index].name && keepName) name = this.memory[index].name;
 
       let temp = {
         template: this.generateUrl(true),

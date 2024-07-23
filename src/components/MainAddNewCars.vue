@@ -333,7 +333,7 @@ export default {
         abs: false,
         tcs: false,
         engine: null,
-        tags: ["American Overdrive"],
+        tags: ["European Grand Tour"],
         color: null,
         prize: false,
         fuel: null,
@@ -344,7 +344,7 @@ export default {
       labels: {
         onlyName: "Name only",
         tyres: "Tyres",
-        tags: "Tags (leave only 'American Overdrive' if you are not 100% sure)",
+        tags: "Tags (leave only 'European Grand Tour' if you are not 100% sure)",
         prize: "Prize",
         mra: "MRA",
         bodyTypes: "Body types (can be multiple)",
@@ -382,7 +382,7 @@ export default {
         fuel: ["Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol"],
         engine: ["Front", "Mid", "Mid-rear", "Mixed", "Rear"],
         tags: [
-          "American Overdrive",
+          "European Grand Tour",
           "Motorsport",
           "Muscle Car",
           "Drivers Choice",
