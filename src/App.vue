@@ -3736,7 +3736,7 @@ body .Main_UserTw3:before {
   white-space: nowrap;
 }
 .Car_HeaderRQValue {
-  font-size: 1.3em;
+  font-size: 1.5em;
   line-height: 1.1;
   font-weight: bold;
 }

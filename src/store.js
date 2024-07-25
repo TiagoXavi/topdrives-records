@@ -87,6 +87,7 @@ export default new Vuex.Store({
       "Christmas Collection 22",
       "Coast to Coast",
       "Cutting Edge",
+      "Desperados",
       "Famous Tracks",
       "Heavy Metal",
       "Electric Excellence",

@@ -284,6 +284,7 @@ import BaseDialog from "./BaseDialog.vue";
 import BaseGameTag from "./BaseGameTag.vue";
 import BaseCard from "./BaseCard.vue";
 import Logo from "./Logo.vue";
+import Row from "./Row.vue";
 import BaseFilterDialog from "./BaseFilterDialog.vue";
 
 export default {

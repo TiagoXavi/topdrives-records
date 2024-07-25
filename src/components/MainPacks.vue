@@ -728,7 +728,7 @@ export default {
     }
 
     // check new cars
-    let found = this.all_cars.find(x => x.tags && x.tags.includes("American Overdrive"));
+    let found = this.all_cars.find(x => x.tags && x.tags.includes("European Grand Tour"));
     if (!found) {
       this.getLastest();
     }
