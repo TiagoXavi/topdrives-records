@@ -3740,6 +3740,9 @@ body .Main_UserTw3:before {
   line-height: 1.1;
   font-weight: bold;
 }
+.Car_HeaderRQValue3 {
+  font-size: 1.3em;
+}
 .Car_HeaderRQLabel {
   line-height: 1;
   font-size: 0.6em;

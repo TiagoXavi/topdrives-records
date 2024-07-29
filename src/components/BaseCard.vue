@@ -41,7 +41,7 @@
       </div>
       <div class="Car_HeaderToolsBack" />
       <div class="Car_HeaderBlockRQ">
-        <div class="Car_HeaderRQValue">{{ resolveCar.rq }}</div>
+        <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: resolveCar && resolveCar.rq > 99 }">{{ resolveCar.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
       </div>
       <div class="Car_HeaderBlockClass">

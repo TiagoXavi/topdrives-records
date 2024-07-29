@@ -64,6 +64,21 @@
                   <span>{{ item }}</span>
                 </BaseChip>
               </template>
+              <template v-if="key === 'country'">
+                <template v-if="newCar[key] && !typesList['country'].includes(newCar[key])">
+                  <BaseChip
+                    v-model="newCar[key]"
+                    :value="newCar[key]"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                    :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                    @click="changedChip(key, newCar[key])">
+                    <span>{{ newCar[key] }}</span>
+                  </BaseChip>
+                </template>
+                <button class="BaseChip BaseChip_MinWidth BaseChip_DontCrop MainAddNewCars_ChipMore" @click="otherCountrysDialog = true;">
+                  <i class="ticon-plus_2 MainAddNewCars_ChipMoreIcon" aria-hidden="true"/>
+                </button>
+              </template>
             </div>
           </template>
           <template v-if="key === 'photoId'">
@@ -273,6 +288,29 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="otherCountrysDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="400px"
+      min-width="240px"
+      class="Cg_SelectorDialog"
+      @close="otherCountrysDialog = false">
+      <div style="Cg_SelectorDialogBox">
+        <div class="Main_SearchMid MainAddNewCars_FormChipsBox MainAddNewCars_DialogMid">
+          <template v-for="item in typesList.countrys">
+            <BaseChip
+              v-model="newCar.country"
+              :value="item"
+              class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+              :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+              @click="changedChip('country', item); otherCountrysDialog = false;">
+              <span>{{ item }}</span>
+            </BaseChip>
+          </template>
+        </div>
+      </div>
+    </BaseDialog>
     <BaseFilterDialog ref="newCarsFilter"/>
   </div>
 </template>
@@ -316,12 +354,13 @@ export default {
       debounceFilter: null,
       incomingCars: [],
       incomingCarsLoading: false,
+      otherCountrysDialog: false,
       newCar: {
         brand: null,
         photoId: {}, // string
         rq: null,
         onlyName: null,
-        country: "US",
+        country: null,
         year: null,
         topSpeed: null,
         acel: null,
@@ -974,5 +1013,14 @@ export default {
 }
 .MainAddNewCars_PhotoFileNameButton {
   margin-left: 5px;
+}
+.BaseChip.MainAddNewCars_ChipMore {
+  background-color: transparent;
+  padding: 7px 9px;
+}
+.MainAddNewCars_DialogMid {
+  padding: 25px;
+  align-content: flex-start;
+  height: auto;
 }
 </style>

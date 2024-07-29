@@ -27,7 +27,7 @@
       <!-- <div class="Car_HeaderToolsBack" /> -->
       <div v-if="tuneText" class="Car_TuneTip">{{ tuneText }}</div>
       <div class="Car_HeaderBlockRQ">
-        <div class="Car_HeaderRQValue">{{ car.rq }}</div>
+        <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: car && car.rq > 99 }">{{ car.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
       </div>
       <div class="Car_HeaderBlockClass">
