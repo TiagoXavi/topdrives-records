@@ -51,7 +51,7 @@ export default {
     this.user = this.$store.state.user;
 
     this.tools = [
-      { name: "Gallery", label: this.$t("m_vChanges", { version: '22.0' }) },
+      { name: "Gallery", label: this.$t("m_vChanges", { version: '23.0' }) },
       { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '22.3' }) },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },

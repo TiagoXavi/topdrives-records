@@ -343,7 +343,7 @@ export default {
           if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
             // OK
             temp[0].rq = y[newStr];
-            temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
+            // temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
           } else {
             console.log(`${oldStr} diferente`, temp[0]);
             debugger;

@@ -176,7 +176,7 @@ export default {
             if (version === "20") arr = await import('../database/cars_final_PL20.json');
             if (version === "2a") arr = await import('../database/cars_final_PL21_2.json');
             if (version === "21") arr = await import('../database/cars_final_PL21_4.json');
-            if (version === "22") arr = await import('../database/cars_final_PL21_4.json');
+            if (version === "22") arr = await import('../database/cars_final_PL22.json');
 
             arr = arr.default;
             
