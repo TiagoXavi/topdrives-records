@@ -1,0 +1,8080 @@
+[
+  {
+    "Model": "McMurtry Spéirling Prototype - Goodwood Edition 22",
+    "Year": 2022,
+    "22.3": 116,
+    "23.0": 119,
+    "Diff": 3
+  },
+  {
+    "Model": "Peugeot 208 WRX",
+    "Year": 2017,
+    "22.3": 109,
+    "23.0": 113,
+    "Diff": 4
+  },
+  {
+    "Model": "Peugeot 208 T16 Pikes Peak",
+    "Year": 2013,
+    "22.3": 109,
+    "23.0": 111,
+    "Diff": 2
+  },
+  {
+    "Model": "Volkswagen I.D. R Pikes Peak",
+    "Year": 2018,
+    "22.3": 106,
+    "23.0": 108,
+    "Diff": 2
+  },
+  {
+    "Model": "Rimac Nevera",
+    "Year": 2021,
+    "22.3": 107,
+    "23.0": 108,
+    "Diff": 1
+  },
+  {
+    "Model": "Automobili Pininfarina Battista Anniversario",
+    "Year": 2022,
+    "22.3": 106,
+    "23.0": 108,
+    "Diff": 2
+  },
+  {
+    "Model": "Rimac E-Runner Concept_One",
+    "Year": 2016,
+    "22.3": 105,
+    "23.0": 107,
+    "Diff": 2
+  },
+  {
+    "Model": "Audi R18",
+    "Year": 2016,
+    "22.3": 103,
+    "23.0": 107,
+    "Diff": 4
+  },
+  {
+    "Model": "Automobili Pininfarina Battista",
+    "Year": 2022,
+    "22.3": 105,
+    "23.0": 107,
+    "Diff": 2
+  },
+  {
+    "Model": "Koenigsegg Gemera Concept",
+    "Year": 2020,
+    "22.3": 104,
+    "23.0": 106,
+    "Diff": 2
+  },
+  {
+    "Model": "Koenigsegg Gemera HV8",
+    "Year": 2023,
+    "22.3": 104,
+    "23.0": 106,
+    "Diff": 2
+  },
+  {
+    "Model": "Zenvo Aurora Tur",
+    "Year": 2023,
+    "22.3": 104,
+    "23.0": 105,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Supervan 4",
+    "Year": 2022,
+    "22.3": 103,
+    "23.0": 105,
+    "Diff": 2
+  },
+  {
+    "Model": "Audi R18 TDI Ultra",
+    "Year": 2011,
+    "22.3": 101,
+    "23.0": 104,
+    "Diff": 3
+  },
+  {
+    "Model": "Rimac Concept_S",
+    "Year": 2016,
+    "22.3": 99,
+    "23.0": 103,
+    "Diff": 4
+  },
+  {
+    "Model": "Porsche Mission R",
+    "Year": 2021,
+    "22.3": 99,
+    "23.0": 103,
+    "Diff": 4
+  },
+  {
+    "Model": "Bugatti Divo",
+    "Year": 2020,
+    "22.3": 99,
+    "23.0": 102,
+    "Diff": 3
+  },
+  {
+    "Model": "Bugatti Centodieci",
+    "Year": 2022,
+    "22.3": 99,
+    "23.0": 102,
+    "Diff": 3
+  },
+  {
+    "Model": "Pagani Zonda Revolucion",
+    "Year": 2013,
+    "22.3": 98,
+    "23.0": 101,
+    "Diff": 3
+  },
+  {
+    "Model": "Lamborghini Huracán Performante",
+    "Year": 2018,
+    "22.3": 98,
+    "23.0": 100,
+    "Diff": 2
+  },
+  {
+    "Model": "Rimac Concept_One",
+    "Year": 2017,
+    "22.3": 97,
+    "23.0": 100,
+    "Diff": 3
+  },
+  {
+    "Model": "Peugeot 908 HDi FAP",
+    "Year": 2007,
+    "22.3": 101,
+    "23.0": 100,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Mach-E 1400 Prototype",
+    "Year": 2020,
+    "22.3": 103,
+    "23.0": 100,
+    "Diff": -3
+  },
+  {
+    "Model": "Hyundai Genesis PM580T",
+    "Year": 2013,
+    "22.3": 101,
+    "23.0": 100,
+    "Diff": -1
+  },
+  {
+    "Model": "Zenvo Aurora Agil",
+    "Year": 2023,
+    "22.3": 97,
+    "23.0": 100,
+    "Diff": 3
+  },
+  {
+    "Model": "Radical SR10 XXR",
+    "Year": 2023,
+    "22.3": 99,
+    "23.0": 100,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren P1™ GTR",
+    "Year": 2015,
+    "22.3": 96,
+    "23.0": 99,
+    "Diff": 3
+  },
+  {
+    "Model": "Alfa Romeo 164 ProCar",
+    "Year": 1988,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Delta S4 Rally",
+    "Year": 1985,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Koenigsegg Jesko Attack",
+    "Year": 2021,
+    "22.3": 97,
+    "23.0": 99,
+    "Diff": 2
+  },
+  {
+    "Model": "Peugeot 905B",
+    "Year": 1992,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz C11",
+    "Year": 1990,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi R10 TDI",
+    "Year": 2006,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Cayenne Turbo GT",
+    "Year": 2021,
+    "22.3": 100,
+    "23.0": 99,
+    "Diff": -1
+  },
+  {
+    "Model": "Drako Dragon",
+    "Year": 2023,
+    "22.3": 103,
+    "23.0": 99,
+    "Diff": -4
+  },
+  {
+    "Model": "Mitsubishi MiEV Evolution III",
+    "Year": 2014,
+    "22.3": 98,
+    "23.0": 99,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XJR-9",
+    "Year": 1988,
+    "22.3": 99,
+    "23.0": 98,
+    "Diff": -1
+  },
+  {
+    "Model": "Ultima RS",
+    "Year": 2021,
+    "22.3": 96,
+    "23.0": 98,
+    "Diff": 2
+  },
+  {
+    "Model": "Hennessey Venom F5",
+    "Year": 2021,
+    "22.3": 99,
+    "23.0": 98,
+    "Diff": -1
+  },
+  {
+    "Model": "Brabham BT62 Competition",
+    "Year": 2019,
+    "22.3": 99,
+    "23.0": 98,
+    "Diff": -1
+  },
+  {
+    "Model": "Radical RXC 600R",
+    "Year": 2017,
+    "22.3": 99,
+    "23.0": 98,
+    "Diff": -1
+  },
+  {
+    "Model": "Pagani Zonda Revolución",
+    "Year": 2013,
+    "22.3": 101,
+    "23.0": 98,
+    "Diff": -3
+  },
+  {
+    "Model": "Bugatti Chiron",
+    "Year": 2017,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "McLaren P1™",
+    "Year": 2014,
+    "22.3": 94,
+    "23.0": 97,
+    "Diff": 3
+  },
+  {
+    "Model": "Porsche 959 Dakar",
+    "Year": 1986,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche 935 'Moby Dick'",
+    "Year": 1978,
+    "22.3": 95,
+    "23.0": 97,
+    "Diff": 2
+  },
+  {
+    "Model": "Mazda 787B",
+    "Year": 1990,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Ruf RtR",
+    "Year": 2013,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Veneno Roadster",
+    "Year": 2013,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Performante Spyder",
+    "Year": 2018,
+    "22.3": 95,
+    "23.0": 97,
+    "Diff": 2
+  },
+  {
+    "Model": "Lamborghini Urus",
+    "Year": 2018,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Koenigsegg Jesko Absolut",
+    "Year": 2021,
+    "22.3": 99,
+    "23.0": 97,
+    "Diff": -2
+  },
+  {
+    "Model": "Ginetta G57 P2",
+    "Year": 2016,
+    "22.3": 98,
+    "23.0": 97,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Performante",
+    "Year": 2018,
+    "22.3": 100,
+    "23.0": 97,
+    "Diff": -3
+  },
+  {
+    "Model": "Lamborghini Aventador Coupé",
+    "Year": 2011,
+    "22.3": 94,
+    "23.0": 96,
+    "Diff": 2
+  },
+  {
+    "Model": "Nissan GT-R LM Nismo",
+    "Year": 2015,
+    "22.3": 95,
+    "23.0": 96,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren P1™ GTR",
+    "Year": 2015,
+    "22.3": 99,
+    "23.0": 96,
+    "Diff": -3
+  },
+  {
+    "Model": "Bugatti Veyron 16.4",
+    "Year": 2005,
+    "22.3": 96,
+    "23.0": 95,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Aventador S",
+    "Year": 2018,
+    "22.3": 96,
+    "23.0": 95,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Coupé",
+    "Year": 2014,
+    "22.3": 94,
+    "23.0": 95,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar C-X75",
+    "Year": 2010,
+    "22.3": 96,
+    "23.0": 95,
+    "Diff": -1
+  },
+  {
+    "Model": "Koenigsegg One",
+    "Year": 2014,
+    "22.3": 94,
+    "23.0": 95,
+    "Diff": 1
+  },
+  {
+    "Model": "Apollo Intensa Emozione",
+    "Year": 2019,
+    "22.3": 96,
+    "23.0": 95,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Cayenne Turbo Coupé 4.0 (9Y3)",
+    "Year": 2019,
+    "22.3": 94,
+    "23.0": 95,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Veloster Rally Car",
+    "Year": 2011,
+    "22.3": 96,
+    "23.0": 95,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai i20 WRC",
+    "Year": 2020,
+    "22.3": 94,
+    "23.0": 95,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Fabia Rally2 EVO Edition 120",
+    "Year": 2021,
+    "22.3": 91,
+    "23.0": 95,
+    "Diff": 4
+  },
+  {
+    "Model": "Citroën C3 WRC",
+    "Year": 2017,
+    "22.3": 91,
+    "23.0": 95,
+    "Diff": 4
+  },
+  {
+    "Model": "Porsche 935 ‘Moby Dick’",
+    "Year": 1978,
+    "22.3": 97,
+    "23.0": 95,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini Huracán Performante Spyder",
+    "Year": 2018,
+    "22.3": 97,
+    "23.0": 95,
+    "Diff": -2
+  },
+  {
+    "Model": "BAC Mono",
+    "Year": 2015,
+    "22.3": 97,
+    "23.0": 95,
+    "Diff": -2
+  },
+  {
+    "Model": "Mitsubishi MiEV Evolution II",
+    "Year": 2013,
+    "22.3": 94,
+    "23.0": 95,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham RST-V8 Levante",
+    "Year": 2008,
+    "22.3": 96,
+    "23.0": 94,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini Aventador SV Roadster",
+    "Year": 2016,
+    "22.3": 95,
+    "23.0": 94,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Stelvio Quadrifoglio",
+    "Year": 2018,
+    "22.3": 95,
+    "23.0": 94,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley EXP 100 GT",
+    "Year": 2019,
+    "22.3": 98,
+    "23.0": 94,
+    "Diff": -4
+  },
+  {
+    "Model": "Aston Martin Vulcan",
+    "Year": 2018,
+    "22.3": 93,
+    "23.0": 94,
+    "Diff": 1
+  },
+  {
+    "Model": "Hennessey Venom GT Spyder",
+    "Year": 2016,
+    "22.3": 98,
+    "23.0": 94,
+    "Diff": -4
+  },
+  {
+    "Model": "BMW 760Li xDrive Shining Shadow Special Edition",
+    "Year": 2021,
+    "22.3": 95,
+    "23.0": 94,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda RX-Vision GT3",
+    "Year": 2020,
+    "22.3": 93,
+    "23.0": 94,
+    "Diff": 1
+  },
+  {
+    "Model": "Radical SR8 RX",
+    "Year": 2011,
+    "22.3": 93,
+    "23.0": 94,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette C6.R",
+    "Year": 2005,
+    "22.3": 93,
+    "23.0": 94,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren P1™",
+    "Year": 2014,
+    "22.3": 97,
+    "23.0": 94,
+    "Diff": -3
+  },
+  {
+    "Model": "Porsche 911 GT1 Evo",
+    "Year": 1997,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan GT-R Nismo",
+    "Year": 2016,
+    "22.3": 94,
+    "23.0": 93,
+    "Diff": -1
+  },
+  {
+    "Model": "Peugeot 405 T16 Pikes Peak",
+    "Year": 1988,
+    "22.3": 94,
+    "23.0": 93,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia ECV",
+    "Year": 1986,
+    "22.3": 98,
+    "23.0": 93,
+    "Diff": -5
+  },
+  {
+    "Model": "McLaren 720S GT3",
+    "Year": 2019,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren F1 GTR Short Tail",
+    "Year": 1995,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Ariel Atom V8",
+    "Year": 2011,
+    "22.3": 95,
+    "23.0": 93,
+    "Diff": -2
+  },
+  {
+    "Model": "Koenigsegg Regera",
+    "Year": 2016,
+    "22.3": 97,
+    "23.0": 93,
+    "Diff": -4
+  },
+  {
+    "Model": "Peugeot 205 T16 Evo 2",
+    "Year": 1985,
+    "22.3": 94,
+    "23.0": 93,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Cayenne Turbo S E-Hybrid 4.0 (9Y0)",
+    "Year": 2019,
+    "22.3": 94,
+    "23.0": 93,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M8 Competition Coupé",
+    "Year": 2019,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia LC1 Spider",
+    "Year": 1982,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Turbo S 3.8 (991.2)",
+    "Year": 2016,
+    "22.3": 94,
+    "23.0": 93,
+    "Diff": -1
+  },
+  {
+    "Model": "Ginetta G55 GT3",
+    "Year": 2012,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Brabham BT62 R",
+    "Year": 2020,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer WRC05",
+    "Year": 2005,
+    "22.3": 91,
+    "23.0": 93,
+    "Diff": 2
+  },
+  {
+    "Model": "Cadillac ATS-V.R",
+    "Year": 2015,
+    "22.3": 92,
+    "23.0": 93,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Aventador Coupé",
+    "Year": 2011,
+    "22.3": 96,
+    "23.0": 93,
+    "Diff": -3
+  },
+  {
+    "Model": "Lamborghini Huracán Coupé",
+    "Year": 2014,
+    "22.3": 95,
+    "23.0": 93,
+    "Diff": -2
+  },
+  {
+    "Model": "Porsche Cayenne Turbo Coupé 4.0 (9Y3)",
+    "Year": 2019,
+    "22.3": 95,
+    "23.0": 93,
+    "Diff": -2
+  },
+  {
+    "Model": "Škoda Fabia Rally2 EVO Edition 120",
+    "Year": 2021,
+    "22.3": 95,
+    "23.0": 93,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën C3 WRC",
+    "Year": 2017,
+    "22.3": 95,
+    "23.0": 93,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini Murciélago LP670-4 SuperVeloce",
+    "Year": 2009,
+    "22.3": 90,
+    "23.0": 92,
+    "Diff": 2
+  },
+  {
+    "Model": "Lamborghini Reventon",
+    "Year": 2007,
+    "22.3": 90,
+    "23.0": 92,
+    "Diff": 2
+  },
+  {
+    "Model": "Lamborghini Huracán Spyder",
+    "Year": 2015,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Hunaudières",
+    "Year": 1999,
+    "22.3": 90,
+    "23.0": 92,
+    "Diff": 2
+  },
+  {
+    "Model": "Koenigsegg CCGT",
+    "Year": 2007,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "Hennessey Venom GT",
+    "Year": 2011,
+    "22.3": 96,
+    "23.0": 92,
+    "Diff": -4
+  },
+  {
+    "Model": "Porsche 936",
+    "Year": 1976,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M5 CS",
+    "Year": 2021,
+    "22.3": 93,
+    "23.0": 92,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai i20 WRC",
+    "Year": 2014,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer WRC04",
+    "Year": 2004,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "Zenvo TSR-S",
+    "Year": 2018,
+    "22.3": 96,
+    "23.0": 92,
+    "Diff": -4
+  },
+  {
+    "Model": "Škoda Fabia R5",
+    "Year": 2019,
+    "22.3": 89,
+    "23.0": 92,
+    "Diff": 3
+  },
+  {
+    "Model": "Citroën C4 WRC HYmotion4",
+    "Year": 2008,
+    "22.3": 90,
+    "23.0": 92,
+    "Diff": 2
+  },
+  {
+    "Model": "Citroën DS3 WRC",
+    "Year": 2011,
+    "22.3": 89,
+    "23.0": 92,
+    "Diff": 3
+  },
+  {
+    "Model": "Citroën Xsara WRC",
+    "Year": 2003,
+    "22.3": 88,
+    "23.0": 92,
+    "Diff": 4
+  },
+  {
+    "Model": "Citroën C4 WRC",
+    "Year": 2007,
+    "22.3": 89,
+    "23.0": 92,
+    "Diff": 3
+  },
+  {
+    "Model": "Ariel Atom 4R",
+    "Year": 2023,
+    "22.3": 91,
+    "23.0": 92,
+    "Diff": 1
+  },
+  {
+    "Model": "Ultima Evolution Coupe",
+    "Year": 2015,
+    "22.3": 94,
+    "23.0": 92,
+    "Diff": -2
+  },
+  {
+    "Model": "BMW M8 Competition Coupé",
+    "Year": 2019,
+    "22.3": 93,
+    "23.0": 92,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi Sport quattro S1",
+    "Year": 1985,
+    "22.3": 92,
+    "23.0": 91,
+    "Diff": -1
+  },
+  {
+    "Model": "Pagani Zonda 760RS",
+    "Year": 2012,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Turbo",
+    "Year": 2013,
+    "22.3": 92,
+    "23.0": 91,
+    "Diff": -1
+  },
+  {
+    "Model": "McLaren 720S Coupe",
+    "Year": 2017,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 570-4 Edizione Tecnica",
+    "Year": 2013,
+    "22.3": 92,
+    "23.0": 91,
+    "Diff": -1
+  },
+  {
+    "Model": "McLaren 650S GT3",
+    "Year": 2016,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren 720S Spider",
+    "Year": 2019,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot Quasar",
+    "Year": 1984,
+    "22.3": 94,
+    "23.0": 91,
+    "Diff": -3
+  },
+  {
+    "Model": "Peugeot 206 WRC",
+    "Year": 2000,
+    "22.3": 89,
+    "23.0": 91,
+    "Diff": 2
+  },
+  {
+    "Model": "Mercedes-Benz GT 4-Door Coupé",
+    "Year": 2018,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Rezvani Beast X",
+    "Year": 2017,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi R8 GT",
+    "Year": 2011,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 Cup (992)",
+    "Year": 2021,
+    "22.3": 90,
+    "23.0": 91,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai i20 R5",
+    "Year": 2019,
+    "22.3": 89,
+    "23.0": 91,
+    "Diff": 2
+  },
+  {
+    "Model": "Zenvo TSR",
+    "Year": 2018,
+    "22.3": 87,
+    "23.0": 91,
+    "Diff": 4
+  },
+  {
+    "Model": "Zenvo TSR-GT",
+    "Year": 2022,
+    "22.3": 95,
+    "23.0": 91,
+    "Diff": -4
+  },
+  {
+    "Model": "Donkervoort D8 GTO-40",
+    "Year": 2018,
+    "22.3": 92,
+    "23.0": 91,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Taycan Turbo S Cross Turismo",
+    "Year": 2021,
+    "22.3": 93,
+    "23.0": 91,
+    "Diff": -2
+  },
+  {
+    "Model": "Jaguar XE SV Project 8",
+    "Year": 2017,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Delta HF Integrale Evoluzione",
+    "Year": 1991,
+    "22.3": 88,
+    "23.0": 90,
+    "Diff": 2
+  },
+  {
+    "Model": "Pagani Huayra Roadster",
+    "Year": 2017,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren 12C GT3",
+    "Year": 2012,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Apollo Apollo S",
+    "Year": 2010,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot Oxia",
+    "Year": 1988,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Infiniti Q50 Eau Rouge",
+    "Year": 2014,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan GT-R Track Edition (R35)",
+    "Year": 2019,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Nismo Z GT500",
+    "Year": 2004,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi R8 LMX",
+    "Year": 2014,
+    "22.3": 88,
+    "23.0": 90,
+    "Diff": 2
+  },
+  {
+    "Model": "Porsche Panamera Turbo S E-Hybrid Sport Turismo 4.0 (971.2)",
+    "Year": 2021,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi A5 DTM",
+    "Year": 2012,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Accent WRC",
+    "Year": 2002,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution VII WRC",
+    "Year": 2001,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Zenvo TS1 GT",
+    "Year": 2016,
+    "22.3": 87,
+    "23.0": 90,
+    "Diff": 3
+  },
+  {
+    "Model": "Škoda Octavia WRC",
+    "Year": 1999,
+    "22.3": 88,
+    "23.0": 90,
+    "Diff": 2
+  },
+  {
+    "Model": "Radical SR3 RS",
+    "Year": 2009,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Drako GTE",
+    "Year": 2020,
+    "22.3": 89,
+    "23.0": 90,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP670-4 SuperVeloce",
+    "Year": 2009,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini Reventón",
+    "Year": 2007,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini Huracán Spyder",
+    "Year": 2015,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Bentley Hunaudières",
+    "Year": 1999,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Donkervoort D8 GTO-RS",
+    "Year": 2016,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Mercedes-Benz GT 4-Door Coupé",
+    "Year": 2018,
+    "22.3": 91,
+    "23.0": 90,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Fabia R5",
+    "Year": 2019,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën C4 WRC HYmotion4",
+    "Year": 2008,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën DS3 WRC",
+    "Year": 2011,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën Xsara WRC",
+    "Year": 2003,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën C4 WRC",
+    "Year": 2007,
+    "22.3": 92,
+    "23.0": 90,
+    "Diff": -2
+  },
+  {
+    "Model": "TVR Cerbera Speed 12",
+    "Year": 2003,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan GT-R",
+    "Year": 2017,
+    "22.3": 90,
+    "23.0": 89,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP640",
+    "Year": 2006,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP650-4 Roadster",
+    "Year": 2009,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren 600LT Coupe",
+    "Year": 2018,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Koenigsegg Agera",
+    "Year": 2011,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Koenigsegg CCXR Edition",
+    "Year": 2008,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot Onyx",
+    "Year": 2012,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Viper SRT-10 ACR X",
+    "Year": 2010,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Rezvani Beast Alpha X Blackbird",
+    "Year": 2018,
+    "22.3": 86,
+    "23.0": 89,
+    "Diff": 3
+  },
+  {
+    "Model": "BMW M3 Competition M xDrive Saloon",
+    "Year": 2021,
+    "22.3": 90,
+    "23.0": 89,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M4 Competition M xDrive Coupe",
+    "Year": 2021,
+    "22.3": 90,
+    "23.0": 89,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford FG Falcon V8 Supercar",
+    "Year": 2008,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06 (Z07 Performance Package) (C8)",
+    "Year": 2022,
+    "22.3": 88,
+    "23.0": 89,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Octavia WRC",
+    "Year": 1999,
+    "22.3": 90,
+    "23.0": 89,
+    "Diff": -1
+  },
+  {
+    "Model": "McLaren 650S Coupe",
+    "Year": 2014,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Impreza Group A",
+    "Year": 1995,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "W Motors Fenyr SuperSport",
+    "Year": 2017,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "Rezvani Beast",
+    "Year": 2015,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Taycan Turbo S",
+    "Year": 2020,
+    "22.3": 89,
+    "23.0": 88,
+    "Diff": -1
+  },
+  {
+    "Model": "Pagani Zonda HP Barchetta",
+    "Year": 2017,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "Morgan Aero 8 race car",
+    "Year": 2002,
+    "22.3": 87,
+    "23.0": 88,
+    "Diff": 1
+  },
+  {
+    "Model": "Zenvo ST1",
+    "Year": 2010,
+    "22.3": 84,
+    "23.0": 88,
+    "Diff": 4
+  },
+  {
+    "Model": "Chevrolet CERV II",
+    "Year": 1964,
+    "22.3": 85,
+    "23.0": 88,
+    "Diff": 3
+  },
+  {
+    "Model": "Lamborghini Murciélago LP640",
+    "Year": 2006,
+    "22.3": 89,
+    "23.0": 88,
+    "Diff": -1
+  },
+  {
+    "Model": "McLaren 570S Coupe",
+    "Year": 2015,
+    "22.3": 83,
+    "23.0": 87,
+    "Diff": 4
+  },
+  {
+    "Model": "Pagani Huayra",
+    "Year": 2016,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 959",
+    "Year": 1986,
+    "22.3": 88,
+    "23.0": 87,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Corvette ZR1",
+    "Year": 2019,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Chrysler ME Four-Twelve",
+    "Year": 2004,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M3 GTR",
+    "Year": 2001,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M5",
+    "Year": 2018,
+    "22.3": 88,
+    "23.0": 87,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Delta HF Integrale 16v",
+    "Year": 1989,
+    "22.3": 85,
+    "23.0": 87,
+    "Diff": 2
+  },
+  {
+    "Model": "Lancia Montecarlo Turbo",
+    "Year": 1979,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus 3-Eleven 430",
+    "Year": 2018,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Ariel Atom 4",
+    "Year": 2018,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Koenigsegg CCXR",
+    "Year": 2007,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Apollo Apollo",
+    "Year": 2006,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "W Motors Lykan HyperSport",
+    "Year": 2014,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Saleen S7 Twin Turbo",
+    "Year": 2005,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Arash LM",
+    "Year": 2002,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 RSR (997)",
+    "Year": 2007,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus Evora GX",
+    "Year": 2012,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06 (C8)",
+    "Year": 2022,
+    "22.3": 86,
+    "23.0": 87,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evo VIII FQ-400",
+    "Year": 2004,
+    "22.3": 88,
+    "23.0": 87,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP650-4 Roadster",
+    "Year": 2009,
+    "22.3": 89,
+    "23.0": 87,
+    "Diff": -2
+  },
+  {
+    "Model": "McLaren F1 GT",
+    "Year": 1997,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP640 Roadster",
+    "Year": 2007,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren GT",
+    "Year": 2019,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Kadett Rallye E 4S",
+    "Year": 1985,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Silvia Super Silhouette (S110)",
+    "Year": 1983,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Ultima Evolution Convertible",
+    "Year": 2015,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo TZ3 Corsa",
+    "Year": 2010,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Panamera Turbo S 4.8 (970)",
+    "Year": 2011,
+    "22.3": 87,
+    "23.0": 86,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Emira GT4",
+    "Year": 2021,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac CTS-V Sedan Race Car",
+    "Year": 2005,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution VI RS",
+    "Year": 1999,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution VIII RS",
+    "Year": 2005,
+    "22.3": 85,
+    "23.0": 86,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 RS",
+    "Year": 2018,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Ruf Rt 35",
+    "Year": 2012,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Ariel Atom 3 Supercharged",
+    "Year": 2008,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Skyline GT-R Group A (R32)",
+    "Year": 1990,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Pagani Zonda F Clubsport",
+    "Year": 2005,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo EX30 Twin Motor Performance",
+    "Year": 2023,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Beast",
+    "Year": 2021,
+    "22.3": 83,
+    "23.0": 85,
+    "Diff": 2
+  },
+  {
+    "Model": "Lamborghini Murciélago LP640 Roadster",
+    "Year": 2007,
+    "22.3": 86,
+    "23.0": 85,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Continental Supersports",
+    "Year": 2017,
+    "22.3": 86,
+    "23.0": 85,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Continental 24",
+    "Year": 2017,
+    "22.3": 86,
+    "23.0": 85,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution IV RS",
+    "Year": 1996,
+    "22.3": 84,
+    "23.0": 85,
+    "Diff": 1
+  },
+  {
+    "Model": "KTM X-Bow GT4",
+    "Year": 2016,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren F1",
+    "Year": 1992,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford GT90",
+    "Year": 1995,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Viper ACR",
+    "Year": 2016,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault Mégane Trophy",
+    "Year": 2009,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago",
+    "Year": 2001,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren 570S Spider",
+    "Year": 2017,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin One-77",
+    "Year": 2009,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Koenigsegg CCR",
+    "Year": 2004,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Koenigsegg CCX",
+    "Year": 2006,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda 6 SkyActiv-D race car",
+    "Year": 2013,
+    "22.3": 83,
+    "23.0": 84,
+    "Diff": 1
+  },
+  {
+    "Model": "Radical SR3 SL",
+    "Year": 2012,
+    "22.3": 82,
+    "23.0": 84,
+    "Diff": 2
+  },
+  {
+    "Model": "Volkswagen W12 Syncro",
+    "Year": 1997,
+    "22.3": 85,
+    "23.0": 84,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X5 M",
+    "Year": 2009,
+    "22.3": 85,
+    "23.0": 84,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Skyline GT-R Nismo Z-Tune (R34)",
+    "Year": 2005,
+    "22.3": 85,
+    "23.0": 84,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06",
+    "Year": 2016,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Pagani Zonda F",
+    "Year": 2005,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT2 RS",
+    "Year": 2011,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3",
+    "Year": 2013,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 RS",
+    "Year": 2015,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Carrera GT",
+    "Year": 2003,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën GT",
+    "Year": 2008,
+    "22.3": 81,
+    "23.0": 83,
+    "Diff": 2
+  },
+  {
+    "Model": "Volkswagen W12 Nardo",
+    "Year": 2001,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Ariel Atom 2 Supercharged",
+    "Year": 2003,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Viper TA",
+    "Year": 2013,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan R381",
+    "Year": 1968,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Bristol Fighter T",
+    "Year": 2006,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi RS 6 Avant Performance (C7)",
+    "Year": 2013,
+    "22.3": 81,
+    "23.0": 83,
+    "Diff": 2
+  },
+  {
+    "Model": "Pagani Zonda Roadster F",
+    "Year": 2005,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT1-98 Strassenversion",
+    "Year": 1998,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda MX-5 GT Race Car",
+    "Year": 2011,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac CT5-V Blackwing",
+    "Year": 2022,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Macan GTS",
+    "Year": 2015,
+    "22.3": 84,
+    "23.0": 83,
+    "Diff": -1
+  },
+  {
+    "Model": "Dodge Challenger SRT Demon",
+    "Year": 2017,
+    "22.3": 81,
+    "23.0": 83,
+    "Diff": 2
+  },
+  {
+    "Model": "Bugatti EB110 GT",
+    "Year": 1992,
+    "22.3": 84,
+    "23.0": 83,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Mégane Trophy",
+    "Year": 2009,
+    "22.3": 84,
+    "23.0": 83,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Murciélago",
+    "Year": 2001,
+    "22.3": 84,
+    "23.0": 83,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Corvette Stingray Z51 (C8)",
+    "Year": 2020,
+    "22.3": 82,
+    "23.0": 83,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham Superlight R500",
+    "Year": 2008,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT1 Strassenversion",
+    "Year": 1997,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XJR-15",
+    "Year": 1990,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago Roadster",
+    "Year": 2004,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Huracán LP580-2",
+    "Year": 2016,
+    "22.3": 80,
+    "23.0": 82,
+    "Diff": 2
+  },
+  {
+    "Model": "Lancia New Stratos",
+    "Year": 2010,
+    "22.3": 80,
+    "23.0": 82,
+    "Diff": 2
+  },
+  {
+    "Model": "Aston Martin DBS Superleggera",
+    "Year": 2019,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Legacy B4 GT300 (BM)",
+    "Year": 2009,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Saleen S7",
+    "Year": 2000,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Saleen S5S Raptor",
+    "Year": 2008,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz GT R",
+    "Year": 2018,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT1 Strassenversion (993)",
+    "Year": 1996,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Ginetta G55 GT4",
+    "Year": 2011,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai RN30",
+    "Year": 2016,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda 717C",
+    "Year": 1983,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda RX-Vision",
+    "Year": 2015,
+    "22.3": 80,
+    "23.0": 82,
+    "Diff": 2
+  },
+  {
+    "Model": "Radical SR1 XXR",
+    "Year": 2023,
+    "22.3": 81,
+    "23.0": 82,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën GT",
+    "Year": 2008,
+    "22.3": 83,
+    "23.0": 82,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Continental GT V8",
+    "Year": 2019,
+    "22.3": 83,
+    "23.0": 82,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi RS 6 Avant Performance (C7)",
+    "Year": 2013,
+    "22.3": 83,
+    "23.0": 82,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Diablo VT 6.0",
+    "Year": 2000,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Maserati MC12 Stradale",
+    "Year": 2004,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Flying Spur",
+    "Year": 2020,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XJ220S TWR",
+    "Year": 1996,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover Velar SVAutobiography Dynamic Edition",
+    "Year": 2019,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Viper SRT-10 ACR",
+    "Year": 2008,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz CLK GTR",
+    "Year": 1998,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi V8 quattro DTM (4C)",
+    "Year": 1992,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Morgan Aero 8 GT3",
+    "Year": 2007,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S8 Plus",
+    "Year": 2016,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago Roadster",
+    "Year": 2004,
+    "22.3": 82,
+    "23.0": 81,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Huracán LP580-2",
+    "Year": 2016,
+    "22.3": 82,
+    "23.0": 81,
+    "Diff": -1
+  },
+  {
+    "Model": "Spyker C8 Double 12 S (Stage V)",
+    "Year": 2002,
+    "22.3": 80,
+    "23.0": 81,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evo VIII MR FQ-340",
+    "Year": 2005,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Camaro ZL1 1LE",
+    "Year": 2018,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR Tuscan race car",
+    "Year": 1989,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Rezvani Beast Alpha X",
+    "Year": 2017,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 Touring (992)",
+    "Year": 2021,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi RS 3 Sportback (8V)",
+    "Year": 2018,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda 254i",
+    "Year": 1982,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution X GSR FQ-300",
+    "Year": 2015,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Stingray (C8)",
+    "Year": 2020,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06X (C6)",
+    "Year": 2010,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Ioniq 6 77 kWh 4WD ",
+    "Year": 2022,
+    "22.3": 78,
+    "23.0": 79,
+    "Diff": 1
+  },
+  {
+    "Model": "KTM X-Bow R",
+    "Year": 2016,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Turbo",
+    "Year": 1995,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 RS 4.0",
+    "Year": 2011,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac ATS-V Coupe",
+    "Year": 2016,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen CC",
+    "Year": 2011,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen Arteon",
+    "Year": 2017,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M4 GTS",
+    "Year": 2016,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin Vanquish S",
+    "Year": 2018,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin V12 Vantage RS",
+    "Year": 2007,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin Vanquish Zagato",
+    "Year": 2017,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Mustang FR500GT",
+    "Year": 2007,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Skyline GT-R LM Nismo (R33) Race Car",
+    "Year": 1995,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Rezvani Beast Alpha",
+    "Year": 2016,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Farboud GTS",
+    "Year": 2003,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi R8 RWD",
+    "Year": 2020,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo TZ3 Stradale",
+    "Year": 2011,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW 740Ld xDrive",
+    "Year": 2019,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 RSR 3.8 (964)",
+    "Year": 1993,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Bufori BMS R2",
+    "Year": 2010,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham Seven 420 Cup",
+    "Year": 2022,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Ioniq 5 77 kWh 4WD ",
+    "Year": 2021,
+    "22.3": 77,
+    "23.0": 78,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi RS Q3",
+    "Year": 2015,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06 tuned",
+    "Year": 2006,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer Evo X FQ-300 SST",
+    "Year": 2007,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren SLR McLaren 722",
+    "Year": 2006,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Spyker C8 Preliator Spyder",
+    "Year": 2017,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Indigo",
+    "Year": 1996,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Ultima GTR",
+    "Year": 2000,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Ultima Can-Am",
+    "Year": 2001,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi SQ8 TDI",
+    "Year": 2019,
+    "22.3": 79,
+    "23.0": 77,
+    "Diff": -2
+  },
+  {
+    "Model": "Porsche 911 Speedster 4.0 (991.2)",
+    "Year": 2019,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Cayman GT4 Clubsport R-GT 4.0 (982)",
+    "Year": 2018,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden HSV GTSR W1",
+    "Year": 2017,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Charger SRT Hellcat Redeye Widebody Jailbreak",
+    "Year": 2022,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford F-150 Raptor R",
+    "Year": 2023,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Bufori BMS R1",
+    "Year": 2009,
+    "22.3": 76,
+    "23.0": 77,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Superb Hatchback 2.0 TSI 4x4",
+    "Year": 2016,
+    "22.3": 78,
+    "23.0": 77,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi RS 3 Sportback",
+    "Year": 2015,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi SQ5 TDI",
+    "Year": 2015,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus Exige S",
+    "Year": 2015,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham JPE",
+    "Year": 1992,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham CSR",
+    "Year": 2005,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Carrera RSR 3.0",
+    "Year": 1973,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Donkervoort D8 270 RS",
+    "Year": 2006,
+    "22.3": 77,
+    "23.0": 76,
+    "Diff": -1
+  },
+  {
+    "Model": "Spyker C8 Preliator",
+    "Year": 2016,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "AC Cobra 378 Superblower MkIV",
+    "Year": 2021,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi R8 4.2 quattro",
+    "Year": 2008,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi A5 Sportback 50 TDI quattro",
+    "Year": 2018,
+    "22.3": 77,
+    "23.0": 76,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Exige Cup 380",
+    "Year": 2016,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M3 Competition Saloon",
+    "Year": 2020,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M4 Competition Coupe",
+    "Year": 2020,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus Exige GT3",
+    "Year": 2006,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Challenger SRT Hellcat Redeye Widebody",
+    "Year": 2019,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda RX-7 Evo Group B",
+    "Year": 1984,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Radical 1100 Clubsport",
+    "Year": 1996,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Caterham Super Seven 2000",
+    "Year": 2022,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac ATS-V Sedan",
+    "Year": 2017,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Buick Electra",
+    "Year": 2020,
+    "22.3": 72,
+    "23.0": 76,
+    "Diff": 4
+  },
+  {
+    "Model": "Chevrolet Corvette GS-II",
+    "Year": 1963,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford GT40 race car",
+    "Year": 1969,
+    "22.3": 75,
+    "23.0": 76,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Z06",
+    "Year": 2006,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Carrera S",
+    "Year": 2016,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XJ13",
+    "Year": 1966,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "McLaren SLR McLaren",
+    "Year": 2003,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Giulia Quadrifoglio",
+    "Year": 2017,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "DS Survolt",
+    "Year": 2010,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M1 Procar Group 4",
+    "Year": 1979,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin CC100 Speedster",
+    "Year": 2013,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus Evora GTE Road Car",
+    "Year": 2011,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Viper SRT-10",
+    "Year": 2008,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Suzuki Hayabusa Sport Prototype",
+    "Year": 2003,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Escort RS1700T",
+    "Year": 1980,
+    "22.3": 74,
+    "23.0": 75,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi A5 Coupe 45 TFSI quattro",
+    "Year": 2018,
+    "22.3": 77,
+    "23.0": 75,
+    "Diff": -2
+  },
+  {
+    "Model": "Buick Enspire",
+    "Year": 2018,
+    "22.3": 72,
+    "23.0": 75,
+    "Diff": 3
+  },
+  {
+    "Model": "Ram 1500 TRX Gold Shot",
+    "Year": 2022,
+    "22.3": 73,
+    "23.0": 75,
+    "Diff": 2
+  },
+  {
+    "Model": "Porsche 911 GT3 RS",
+    "Year": 2006,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Challenger SRT Hellcat Widebody",
+    "Year": 2018,
+    "22.3": 75,
+    "23.0": 74,
+    "Diff": -1
+  },
+  {
+    "Model": "Dodge Charger SRT Hellcat",
+    "Year": 2015,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen Golf GTI W12",
+    "Year": 2007,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M3 CS",
+    "Year": 2018,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR Griffith",
+    "Year": 2020,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Mustang GT-R",
+    "Year": 2004,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Ultima Sports",
+    "Year": 1992,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Macan 2.0",
+    "Year": 2021,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Cayenne 3.0 (9Y0)",
+    "Year": 2019,
+    "22.3": 72,
+    "23.0": 74,
+    "Diff": 2
+  },
+  {
+    "Model": "Porsche 911 GT2 (996.2)",
+    "Year": 2004,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Ram 1500 TRX",
+    "Year": 2021,
+    "22.3": 73,
+    "23.0": 74,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai N Vision 74",
+    "Year": 2022,
+    "22.3": 75,
+    "23.0": 74,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo XC70 AT",
+    "Year": 2005,
+    "22.3": 72,
+    "23.0": 74,
+    "Diff": 2
+  },
+  {
+    "Model": "Audi TT S Coupé",
+    "Year": 2015,
+    "22.3": 74,
+    "23.0": 73,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz SLS AMG",
+    "Year": 2010,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen W12 Roadster",
+    "Year": 1997,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Pagani Zonda C12",
+    "Year": 1999,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XJS TWR",
+    "Year": 1982,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 907",
+    "Year": 2004,
+    "22.3": 69,
+    "23.0": 73,
+    "Diff": 4
+  },
+  {
+    "Model": "Ford GT40 race car",
+    "Year": 1968,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Infiniti FX Vettel Edition (S51)",
+    "Year": 2013,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Cayenne Coupé 3.0 (9Y3)",
+    "Year": 2019,
+    "22.3": 71,
+    "23.0": 73,
+    "Diff": 2
+  },
+  {
+    "Model": "Audi R8 Spyder 4.2 FSI quattro",
+    "Year": 2011,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 718 Cayman GTS 4.0 (982)",
+    "Year": 2020,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Ginetta F400",
+    "Year": 2010,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden HSV GTS (VF)",
+    "Year": 2015,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden HSV Maloo GTS (VF)",
+    "Year": 2015,
+    "22.3": 72,
+    "23.0": 73,
+    "Diff": 1
+  },
+  {
+    "Model": "Buick Wildcat",
+    "Year": 1985,
+    "22.3": 70,
+    "23.0": 73,
+    "Diff": 3
+  },
+  {
+    "Model": "GMC HUMMER EV SUV 3X",
+    "Year": 2024,
+    "22.3": 71,
+    "23.0": 73,
+    "Diff": 2
+  },
+  {
+    "Model": "Porsche 911 GT2",
+    "Year": 2001,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3",
+    "Year": 2006,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 407 Silhouette",
+    "Year": 2004,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Sidewinder",
+    "Year": 1997,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Infiniti Q60 Black S",
+    "Year": 2017,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "De Tomaso Pantera Group 4",
+    "Year": 1972,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Macan S Diesel 3.0 (95B)",
+    "Year": 2015,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Pajero Evolution MPR13 ",
+    "Year": 2007,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Afriq",
+    "Year": 2022,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo XC40 P8 AWD Recharge",
+    "Year": 2022,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo C40 Recharge Twin",
+    "Year": 2023,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "GMC HUMMER EV Pickup 3X",
+    "Year": 2023,
+    "22.3": 71,
+    "23.0": 72,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 GT3 RS",
+    "Year": 2004,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar F-Pace 3.0D S",
+    "Year": 2016,
+    "22.3": 69,
+    "23.0": 71,
+    "Diff": 2
+  },
+  {
+    "Model": "Lamborghini Diablo SE30",
+    "Year": 1993,
+    "22.3": 69,
+    "23.0": 71,
+    "Diff": 2
+  },
+  {
+    "Model": "Jaguar F-Type Project 7",
+    "Year": 2015,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Spyker C12 Zagato",
+    "Year": 2007,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo XC60 T8",
+    "Year": 2018,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 208 T16 R5",
+    "Year": 2014,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Impreza WRX STI (GR)",
+    "Year": 2008,
+    "22.3": 72,
+    "23.0": 71,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi RS 5 (B8)",
+    "Year": 2013,
+    "22.3": 73,
+    "23.0": 71,
+    "Diff": -2
+  },
+  {
+    "Model": "Audi Sport quattro",
+    "Year": 1984,
+    "22.3": 73,
+    "23.0": 71,
+    "Diff": -2
+  },
+  {
+    "Model": "Lotus Evora GT",
+    "Year": 2020,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Moab Extreme Off-Roader Santa Fe Sport",
+    "Year": 2017,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda 3 TCR",
+    "Year": 2020,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Buick Avenir",
+    "Year": 2015,
+    "22.3": 72,
+    "23.0": 71,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Borrego",
+    "Year": 2001,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Stingray Convertible (C7)",
+    "Year": 2016,
+    "22.3": 70,
+    "23.0": 71,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz E 63 S",
+    "Year": 2015,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin V12 Vantage",
+    "Year": 2009,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford F-150 Raptor",
+    "Year": 2018,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Ram Rebel TRX",
+    "Year": 2016,
+    "22.3": 68,
+    "23.0": 70,
+    "Diff": 2
+  },
+  {
+    "Model": "Chrysler Nassau",
+    "Year": 2007,
+    "22.3": 71,
+    "23.0": 70,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Emira",
+    "Year": 2022,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi A5 Cabriolet 45 TFSI quattro",
+    "Year": 2018,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Ginetta G56 GTA",
+    "Year": 2021,
+    "22.3": 69,
+    "23.0": 70,
+    "Diff": 1
+  },
+  {
+    "Model": "Fiat Grande Punto S2000",
+    "Year": 2006,
+    "22.3": 76,
+    "23.0": 70,
+    "Diff": -6
+  },
+  {
+    "Model": "Mitsubishi Lancer Evolution III",
+    "Year": 1995,
+    "22.3": 71,
+    "23.0": 70,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Flying Spur W12",
+    "Year": 2018,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Bentayga Diesel",
+    "Year": 2019,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "Acura MDX",
+    "Year": 2019,
+    "22.3": 68,
+    "23.0": 69,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Levorg STI Sport (VM)",
+    "Year": 2019,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "Maybach Vision 6 Cabriolet",
+    "Year": 2016,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "De Tomaso Deauville",
+    "Year": 2011,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford F-150 Raptor 37 Performance Package",
+    "Year": 2021,
+    "22.3": 67,
+    "23.0": 69,
+    "Diff": 2
+  },
+  {
+    "Model": "Mazda CX-60 2.5 PHEV AWD",
+    "Year": 2023,
+    "22.3": 70,
+    "23.0": 69,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Evolution MPR11 ",
+    "Year": 2005,
+    "22.3": 68,
+    "23.0": 69,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S8",
+    "Year": 2006,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X5 M50d",
+    "Year": 2016,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz C350 CDI 4MATIC Estate",
+    "Year": 2009,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "Jaguar XKR-S GT",
+    "Year": 2014,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac Elmiraj",
+    "Year": 2013,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Fiat X1/9 Dallara",
+    "Year": 1975,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Spyker C8 Aileron Spyder",
+    "Year": 2010,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S6 TDI (C8)",
+    "Year": 2019,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche 968 Turbo RS",
+    "Year": 1992,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M340d xDrive Saloon",
+    "Year": 2020,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 330i Touring",
+    "Year": 2019,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW iX xDrive50",
+    "Year": 2021,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi S5 (B8.5)",
+    "Year": 2013,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Explorer ST",
+    "Year": 2020,
+    "22.3": 67,
+    "23.0": 68,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo V60 T5 AWD",
+    "Year": 2014,
+    "22.3": 69,
+    "23.0": 68,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi S3",
+    "Year": 2006,
+    "22.3": 68,
+    "23.0": 67,
+    "Diff": -1
+  },
+  {
+    "Model": "Infiniti QX70",
+    "Year": 2014,
+    "22.3": 66,
+    "23.0": 67,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Edge ST",
+    "Year": 2019,
+    "22.3": 68,
+    "23.0": 67,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi S3 Cabriolet (8V)",
+    "Year": 2018,
+    "22.3": 66,
+    "23.0": 67,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Mustang Mach-E   ",
+    "Year": 2020,
+    "22.3": 66,
+    "23.0": 67,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Superb Hatchback 3.6 V6",
+    "Year": 2013,
+    "22.3": 68,
+    "23.0": 67,
+    "Diff": -1
+  },
+  {
+    "Model": "Aston Martin V12 Vanquish S",
+    "Year": 2004,
+    "22.3": 66,
+    "23.0": 67,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S5 Coupé",
+    "Year": 2008,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M135i",
+    "Year": 2012,
+    "22.3": 65,
+    "23.0": 66,
+    "Diff": 1
+  },
+  {
+    "Model": "Cadillac CTS Coupe",
+    "Year": 2014,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Infiniti Q60 Red Sport 400 AWD",
+    "Year": 2017,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Diablo",
+    "Year": 1990,
+    "22.3": 65,
+    "23.0": 66,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin DBS V12",
+    "Year": 2007,
+    "22.3": 65,
+    "23.0": 66,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Edge Sport",
+    "Year": 2015,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Legacy STI S402 (BL)",
+    "Year": 2008,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Forester XT Turbo (SG)",
+    "Year": 2003,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M340d xDrive Touring",
+    "Year": 2020,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X5 xDrive40d",
+    "Year": 2019,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Evolution 2+2",
+    "Year": 2001,
+    "22.3": 65,
+    "23.0": 66,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Superb Scout 2.0 TSI",
+    "Year": 2021,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V90 Cross Country Ocean Race T6 AWD",
+    "Year": 2017,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac Escalade-V",
+    "Year": 2023,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac XTS Platinum Concept",
+    "Year": 2010,
+    "22.3": 67,
+    "23.0": 66,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi RS 5 Cabriolet",
+    "Year": 2012,
+    "22.3": 68,
+    "23.0": 65,
+    "Diff": -3
+  },
+  {
+    "Model": "Alfa Romeo 8C Spider",
+    "Year": 2010,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi TT 45 TFSI quattro (FV)",
+    "Year": 2018,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi TT S (8J)",
+    "Year": 2009,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M440i xDrive Convertible",
+    "Year": 2020,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X7 M50d",
+    "Year": 2020,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Wildcat EV",
+    "Year": 2022,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "Ram 1500 Revolution",
+    "Year": 2023,
+    "22.3": 66,
+    "23.0": 65,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet WTCC Ultra",
+    "Year": 2006,
+    "22.3": 67,
+    "23.0": 65,
+    "Diff": -2
+  },
+  {
+    "Model": "Mini JCW ALL4 Countryman",
+    "Year": 2016,
+    "22.3": 65,
+    "23.0": 64,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo XC90 T8 Twin Engine",
+    "Year": 2015,
+    "22.3": 65,
+    "23.0": 64,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Cayenne S 4.5 (955)",
+    "Year": 2003,
+    "22.3": 65,
+    "23.0": 64,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Cayman R 3.4 (987.2)",
+    "Year": 2011,
+    "22.3": 63,
+    "23.0": 64,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Veloster Velocity",
+    "Year": 2012,
+    "22.3": 63,
+    "23.0": 64,
+    "Diff": 1
+  },
+  {
+    "Model": "Ram 1500 Backcountry X",
+    "Year": 2022,
+    "22.3": 63,
+    "23.0": 64,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Trailblazer SS",
+    "Year": 2006,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz 57S",
+    "Year": 2012,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz E 55 AMG",
+    "Year": 1999,
+    "22.3": 62,
+    "23.0": 63,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XE S",
+    "Year": 2016,
+    "22.3": 62,
+    "23.0": 63,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Delta Integrale Evoluzione II",
+    "Year": 1993,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Peugeot 205 T16",
+    "Year": 1984,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Jaguar X-Type 3.0 V6 AWD",
+    "Year": 2008,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Pulsar GTI-R (N14)",
+    "Year": 1990,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Impreza WRX (GDG)",
+    "Year": 2006,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 420i xDrive Coupé",
+    "Year": 2020,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Clix",
+    "Year": 2001,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda CX-50 2.5 Turbo AWD",
+    "Year": 2022,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda Familia Sport 4",
+    "Year": 1989,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Kodiaq vRS 2.0 BiTDI",
+    "Year": 2020,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën C3 Max",
+    "Year": 2015,
+    "22.3": 62,
+    "23.0": 63,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo V40 T5 Cross Country ",
+    "Year": 2016,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo XC60 T6 AWD ",
+    "Year": 2014,
+    "22.3": 64,
+    "23.0": 63,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Silverado 1500 ZR2",
+    "Year": 2022,
+    "22.3": 61,
+    "23.0": 63,
+    "Diff": 2
+  },
+  {
+    "Model": "Ford Escort RS Cosworth",
+    "Year": 1992,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Taurus SHO",
+    "Year": 2017,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz C 350e",
+    "Year": 2015,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche 911 Carrera 4",
+    "Year": 1989,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda Cosmo",
+    "Year": 1990,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Clio R.S.16",
+    "Year": 2016,
+    "22.3": 53,
+    "23.0": 62,
+    "Diff": 9
+  },
+  {
+    "Model": "BMW 330e",
+    "Year": 2016,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Maserati 250F",
+    "Year": 1955,
+    "22.3": 61,
+    "23.0": 62,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Delta S4 Stradale (SE038)",
+    "Year": 1985,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Vauxhall/Opel GTC Concept",
+    "Year": 2007,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Cima VIP (Y51)",
+    "Year": 2012,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz R 63 AMG",
+    "Year": 2006,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden HSV Clubsport R8 Dealer Team Spec (VZ)",
+    "Year": 2005,
+    "22.3": 61,
+    "23.0": 62,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Elantra N ",
+    "Year": 2022,
+    "22.3": 61,
+    "23.0": 62,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer GSR Evolution II ",
+    "Year": 1994,
+    "22.3": 63,
+    "23.0": 62,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra 1500 AT4",
+    "Year": 2019,
+    "22.3": 61,
+    "23.0": 62,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XKR 175",
+    "Year": 2010,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR T350",
+    "Year": 2002,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "De Tomaso Pantera GT5",
+    "Year": 1984,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Challenger SRT 392",
+    "Year": 2015,
+    "22.3": 59,
+    "23.0": 61,
+    "Diff": 2
+  },
+  {
+    "Model": "Dodge Powerbox",
+    "Year": 2001,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "Chrysler 300C",
+    "Year": 2013,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Acura NSX",
+    "Year": 2002,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan X-Trail GT (T30)",
+    "Year": 2003,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki C2",
+    "Year": 1997,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Mini Countryman PHEV",
+    "Year": 2020,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden HSV Avalanche (VZ)",
+    "Year": 2005,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden Ute SS-V Redline (VF)",
+    "Year": 2017,
+    "22.3": 60,
+    "23.0": 61,
+    "Diff": 1
+  },
+  {
+    "Model": "Lincoln MKX",
+    "Year": 2017,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln Nautilus Black Label AWD",
+    "Year": 2020,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln Corsair AWD",
+    "Year": 2020,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Genesis 3.8 Sedan",
+    "Year": 2009,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Santa Cruz 2.5 Turbo T-GDI",
+    "Year": 2021,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi 3000GT VR-4",
+    "Year": 1999,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V50 T5 AWD",
+    "Year": 2005,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Terrain Denali",
+    "Year": 2016,
+    "22.3": 62,
+    "23.0": 61,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda Pilot 4WD",
+    "Year": 2016,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Camaro SS Coupe",
+    "Year": 2010,
+    "22.3": 59,
+    "23.0": 60,
+    "Diff": 1
+  },
+  {
+    "Model": "Pontiac Torrent GXP",
+    "Year": 2008,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 330d",
+    "Year": 2005,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 535d Touring",
+    "Year": 2009,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Acura RDX",
+    "Year": 2007,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Skyline GT-R LM Nismo (R33) Road Car",
+    "Year": 1995,
+    "22.3": 59,
+    "23.0": 60,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz CLS 500",
+    "Year": 2005,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi S4 Avant (B5)",
+    "Year": 1998,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Mini Countryman Cooper SD ALL4",
+    "Year": 2020,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden HSV Avalanche XUV (VZ)",
+    "Year": 2005,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden Commodore VXR (ZB)",
+    "Year": 2018,
+    "22.3": 63,
+    "23.0": 60,
+    "Diff": -3
+  },
+  {
+    "Model": "Dodge Charger Super Bee",
+    "Year": 2012,
+    "22.3": 59,
+    "23.0": 60,
+    "Diff": 1
+  },
+  {
+    "Model": "Lincoln Navicross",
+    "Year": 2003,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Kona N",
+    "Year": 2021,
+    "22.3": 59,
+    "23.0": 60,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda CX-60 3.3 D MHEV AWD",
+    "Year": 2022,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V60 T6 AWD",
+    "Year": 2015,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V50 SV",
+    "Year": 2004,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Enclave",
+    "Year": 2018,
+    "22.3": 61,
+    "23.0": 60,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW M5",
+    "Year": 1998,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Infiniti FX35",
+    "Year": 2003,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche 911 RS",
+    "Year": 1992,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Pontiac GTO",
+    "Year": 2006,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Cobalt SS Turbo",
+    "Year": 2009,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M6 Convertible",
+    "Year": 2006,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Alfetta GT Rally Version",
+    "Year": 1975,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Aston Martin V12 Vanquish",
+    "Year": 2001,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW iX xDrive40",
+    "Year": 2021,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Morgan Plus Four race car",
+    "Year": 2021,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Territory Turbo",
+    "Year": 2006,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Falcon XR6 Turbo",
+    "Year": 2012,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford FPV F6",
+    "Year": 2008,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Santa Cruz",
+    "Year": 2015,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Octavia Scout 2.0 TSI",
+    "Year": 2021,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Felicia Kit Car",
+    "Year": 1995,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V60 Plug-in Hybrid ",
+    "Year": 2011,
+    "22.3": 60,
+    "23.0": 59,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Tipo 512",
+    "Year": 1940,
+    "22.3": 58,
+    "23.0": 59,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S2 Coupé",
+    "Year": 1993,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Carlton",
+    "Year": 1991,
+    "22.3": 57,
+    "23.0": 58,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford RS200",
+    "Year": 1984,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Mégane R26.R",
+    "Year": 2008,
+    "22.3": 57,
+    "23.0": 58,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru BRZ",
+    "Year": 2012,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki Kizashi 4x4",
+    "Year": 2010,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 640i xDrive Gran Coupe",
+    "Year": 2014,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW Z4M Coupe",
+    "Year": 2006,
+    "22.3": 57,
+    "23.0": 58,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW X1",
+    "Year": 2017,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Insignia VXR Unlimited",
+    "Year": 2011,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi S6 Plus (C4)",
+    "Year": 1997,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Esprit GT3",
+    "Year": 1996,
+    "22.3": 57,
+    "23.0": 58,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche Cayenne Diesel 3.0 (958)",
+    "Year": 2010,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Kona 1.6 Turbo ",
+    "Year": 2021,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda 6 MPS Concept",
+    "Year": 2002,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V60 Cross Country T5 AWD",
+    "Year": 2019,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V90 Cross Country D5 AWD",
+    "Year": 2017,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac Escalade Sport",
+    "Year": 2007,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac Imaj",
+    "Year": 2000,
+    "22.3": 57,
+    "23.0": 58,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Equinox",
+    "Year": 2019,
+    "22.3": 59,
+    "23.0": 58,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz C 250d",
+    "Year": 2015,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Delta Integrale 16v",
+    "Year": 1989,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra All Terrain X",
+    "Year": 2016,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 335i",
+    "Year": 2008,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW 540i",
+    "Year": 1996,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Maserati GranCabrio MC",
+    "Year": 2016,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin DB9",
+    "Year": 2004,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin Virage Volante",
+    "Year": 2011,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR 450 SEAC",
+    "Year": 1988,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Donkervoort D8 Zetec Sport",
+    "Year": 1994,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Chrysler Imperial",
+    "Year": 2006,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan 370Z Nismo",
+    "Year": 2015,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S4 Cabriolet (B6)",
+    "Year": 2004,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Lotus Elise 111R",
+    "Year": 2004,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia D50",
+    "Year": 1954,
+    "22.3": 59,
+    "23.0": 57,
+    "Diff": -2
+  },
+  {
+    "Model": "Fiat Abarth X1/9 Prototipo",
+    "Year": 1974,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat 500 R3T",
+    "Year": 2009,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden Adventra LX8 (VZ)",
+    "Year": 2004,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Bronco Heritage Edition",
+    "Year": 2023,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Maverick",
+    "Year": 2021,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Ranger Rally Raid",
+    "Year": 2014,
+    "22.3": 55,
+    "23.0": 57,
+    "Diff": 2
+  },
+  {
+    "Model": "Mazda CX-8 2.5 Turbo AWD",
+    "Year": 2022,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda 323 GT Turbo 4WD",
+    "Year": 1985,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën Visa 1000 pistes",
+    "Year": 1985,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Ram 1500 Warlock",
+    "Year": 2023,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Ram Rampage R/T",
+    "Year": 2024,
+    "22.3": 58,
+    "23.0": 57,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Mulsanne Grand Convertible",
+    "Year": 2014,
+    "22.3": 56,
+    "23.0": 57,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz S 55 AMG",
+    "Year": 2003,
+    "22.3": 55,
+    "23.0": 56,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Countach 5000 Quattrovalvole",
+    "Year": 1985,
+    "22.3": 55,
+    "23.0": 56,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz SL55 AMG",
+    "Year": 2002,
+    "22.3": 55,
+    "23.0": 56,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Nuvola",
+    "Year": 1996,
+    "22.3": 57,
+    "23.0": 56,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi A3 Saloon 2.0 TDI quattro (8V)",
+    "Year": 2018,
+    "22.3": 57,
+    "23.0": 56,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Boxster RS60 Spyder (987)",
+    "Year": 2007,
+    "22.3": 55,
+    "23.0": 56,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR Chimaera 4.3",
+    "Year": 1992,
+    "22.3": 55,
+    "23.0": 56,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda 130 LR",
+    "Year": 1985,
+    "22.3": 57,
+    "23.0": 56,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo XC70 T6 AWD",
+    "Year": 2008,
+    "22.3": 57,
+    "23.0": 56,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Camaro",
+    "Year": 2006,
+    "22.3": 64,
+    "23.0": 56,
+    "Diff": -8
+  },
+  {
+    "Model": "Ford Focus ST Estate Mountune",
+    "Year": 2014,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Sierra RS Cosworth 4x4",
+    "Year": 1990,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Volkswagen Touareg R50",
+    "Year": 2008,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 135i Convertible",
+    "Year": 2008,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Maserati GranCabrio Sport",
+    "Year": 2018,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar XKR 4.2-S",
+    "Year": 2005,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan 370Z Nismo",
+    "Year": 2009,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi A6 allroad quattro",
+    "Year": 2018,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Boxster S 3.2 (987)",
+    "Year": 2005,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Chrysler 300C SRT-8 Touring",
+    "Year": 2006,
+    "22.3": 54,
+    "23.0": 55,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Kona 1.6 Turbo ",
+    "Year": 2019,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Evolution",
+    "Year": 1997,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac XT4",
+    "Year": 2024,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac SRX",
+    "Year": 2010,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Envision",
+    "Year": 2016,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault DeZir",
+    "Year": 2010,
+    "22.3": 56,
+    "23.0": 55,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Sierra RS500",
+    "Year": 1987,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz 62 Landaulet",
+    "Year": 2010,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz S 350 CDI 4MATIC",
+    "Year": 2007,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz C 55 AMG Estate",
+    "Year": 2007,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Mini John Cooper Works",
+    "Year": 2016,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Murano",
+    "Year": 2008,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Baja Turbo",
+    "Year": 2003,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Boxster",
+    "Year": 2015,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda RX-7 Type RS",
+    "Year": 1998,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW 130i",
+    "Year": 2007,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin Vantage",
+    "Year": 1993,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin DB7 GT",
+    "Year": 2002,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover Velar",
+    "Year": 2018,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Discovery Sport P250 AWD",
+    "Year": 2020,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Ariel Atom 1",
+    "Year": 1999,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Xterra Off-Road (N50)",
+    "Year": 2010,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 430i Coupe",
+    "Year": 2020,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford F-150",
+    "Year": 2021,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln Nautilus AWD",
+    "Year": 2019,
+    "22.3": 55,
+    "23.0": 54,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai i30 Fastback N Performance",
+    "Year": 2021,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Astro II XP-880",
+    "Year": 1968,
+    "22.3": 53,
+    "23.0": 54,
+    "Diff": 1
+  },
+  {
+    "Model": "Suzuki Ignis Super 1600",
+    "Year": 2002,
+    "22.3": 57,
+    "23.0": 54,
+    "Diff": -3
+  },
+  {
+    "Model": "BMW M3",
+    "Year": 1993,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW M3 Convertible",
+    "Year": 2001,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Pathfinder",
+    "Year": 2013,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "Jaguar XJR",
+    "Year": 2003,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW 130i",
+    "Year": 2005,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW X3",
+    "Year": 2006,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X5",
+    "Year": 2008,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "Maserati Spyder GranSport",
+    "Year": 2005,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Mulsanne W.O. Edition",
+    "Year": 2018,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover Evoque Si4",
+    "Year": 2018,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "TVR 450SE",
+    "Year": 1989,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Neon SRT-4",
+    "Year": 2003,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Chrysler Atlantic",
+    "Year": 1995,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Micra 350SR (K12)",
+    "Year": 2005,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi V8 quattro 3.6 (4C)",
+    "Year": 1988,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi allroad quattro 4.2 (C5)",
+    "Year": 2000,
+    "22.3": 56,
+    "23.0": 53,
+    "Diff": -3
+  },
+  {
+    "Model": "Holden Caprice (WN)",
+    "Year": 2014,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden Commodore Calais-V (ZB)",
+    "Year": 2018,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda 6 Grand Touring 2.5 Turbo",
+    "Year": 2021,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Delica D",
+    "Year": 2007,
+    "22.3": 54,
+    "23.0": 53,
+    "Diff": -1
+  },
+  {
+    "Model": "Aston Martin V8 Vantage Volante",
+    "Year": 2000,
+    "22.3": 52,
+    "23.0": 53,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW X3 xDrive 28d",
+    "Year": 2016,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz G 63",
+    "Year": 2015,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche 911 Carrera",
+    "Year": 1994,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Donkervoort S8AT",
+    "Year": 1986,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "De Tomaso Pantera GTS",
+    "Year": 1974,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Pulsar Nismo",
+    "Year": 2015,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden One Tonner (VZ)",
+    "Year": 2005,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden Ute SS (VE)",
+    "Year": 2007,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Lincoln Corsair Grand Touring Hybrid",
+    "Year": 2021,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Bufori Geneva 6.4",
+    "Year": 2013,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda MX-5 Cup",
+    "Year": 2015,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Lancer 1600 GSR Rally Car",
+    "Year": 1973,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda 130 RS",
+    "Year": 1975,
+    "22.3": 53,
+    "23.0": 52,
+    "Diff": -1
+  },
+  {
+    "Model": "Bentley Azure T",
+    "Year": 2009,
+    "22.3": 51,
+    "23.0": 52,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW Z8",
+    "Year": 2000,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Mercedes-Benz G 63 6x6",
+    "Year": 2013,
+    "22.3": 52,
+    "23.0": 51,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki Swift Sport Cup",
+    "Year": 2008,
+    "22.3": 52,
+    "23.0": 51,
+    "Diff": -1
+  },
+  {
+    "Model": "Ruf Turbo 3.3",
+    "Year": 1977,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Mulsanne",
+    "Year": 2019,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Mulsanne Design Series",
+    "Year": 2017,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin DB7 Vantage",
+    "Year": 1999,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Lotus Europa SE",
+    "Year": 2008,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge M80",
+    "Year": 2002,
+    "22.3": 52,
+    "23.0": 51,
+    "Diff": -1
+  },
+  {
+    "Model": "TVR 420 SEAC",
+    "Year": 1986,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford FPV GT Cobra R-Spec",
+    "Year": 2007,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Fiesta ST",
+    "Year": 2022,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Corvette Stingray Racer",
+    "Year": 1959,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Aston Martin V8 Zagato",
+    "Year": 1986,
+    "22.3": 50,
+    "23.0": 51,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Murano",
+    "Year": 2003,
+    "22.3": 51,
+    "23.0": 50,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi Q2 2.0 TDI quattro",
+    "Year": 2018,
+    "22.3": 51,
+    "23.0": 50,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo GTV Cup",
+    "Year": 1999,
+    "22.3": 51,
+    "23.0": 50,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi A3 Sportback (8V)",
+    "Year": 2018,
+    "22.3": 52,
+    "23.0": 50,
+    "Diff": -2
+  },
+  {
+    "Model": "Buick Envision",
+    "Year": 2021,
+    "22.3": 51,
+    "23.0": 50,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Traverse",
+    "Year": 2016,
+    "22.3": 52,
+    "23.0": 50,
+    "Diff": -2
+  },
+  {
+    "Model": "Mini JCW Coupe",
+    "Year": 2016,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Chrysler Crossfire SRT-6 Coupe",
+    "Year": 2004,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Caliber SRT4",
+    "Year": 2008,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault R21 Turbo Europa Cup",
+    "Year": 1988,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen Golf GTI",
+    "Year": 2013,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "BMW H2R",
+    "Year": 2004,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Astra VXR",
+    "Year": 2010,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Infiniti Q60 3.0t",
+    "Year": 2017,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "De Tomaso Biguá ",
+    "Year": 1996,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "AC Cobra 140 Charter",
+    "Year": 2021,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Porsche 911 Speedster (964)",
+    "Year": 1993,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Thema Turbo 16v",
+    "Year": 1989,
+    "22.3": 46,
+    "23.0": 49,
+    "Diff": 3
+  },
+  {
+    "Model": "TVR S-Series",
+    "Year": 1986,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford FPV F6 R-spec Typhoon",
+    "Year": 2007,
+    "22.3": 48,
+    "23.0": 49,
+    "Diff": 1
+  },
+  {
+    "Model": "Ram 1500 Classic Warlock",
+    "Year": 2021,
+    "22.3": 51,
+    "23.0": 49,
+    "Diff": -2
+  },
+  {
+    "Model": "Cadillac Escalade",
+    "Year": 2011,
+    "22.3": 49,
+    "23.0": 48,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz G 55 AMG",
+    "Year": 2006,
+    "22.3": 50,
+    "23.0": 48,
+    "Diff": -2
+  },
+  {
+    "Model": "Mini JCW Convertible",
+    "Year": 2016,
+    "22.3": 47,
+    "23.0": 48,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Forester",
+    "Year": 2016,
+    "22.3": 50,
+    "23.0": 48,
+    "Diff": -2
+  },
+  {
+    "Model": "Maserati Ghibli",
+    "Year": 2018,
+    "22.3": 47,
+    "23.0": 48,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover Sport",
+    "Year": 2004,
+    "22.3": 50,
+    "23.0": 48,
+    "Diff": -2
+  },
+  {
+    "Model": "Peugeot Rally 504",
+    "Year": 1971,
+    "22.3": 50,
+    "23.0": 48,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford Bronco Concept",
+    "Year": 2004,
+    "22.3": 50,
+    "23.0": 48,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan Silvia Spec-R (S15)",
+    "Year": 1999,
+    "22.3": 47,
+    "23.0": 48,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford FPV Force 8 ",
+    "Year": 2006,
+    "22.3": 47,
+    "23.0": 48,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford FPV GT",
+    "Year": 2007,
+    "22.3": 47,
+    "23.0": 48,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Camaro LS",
+    "Year": 2009,
+    "22.3": 43,
+    "23.0": 48,
+    "Diff": 5
+  },
+  {
+    "Model": "GMC Yukon XL Denali",
+    "Year": 2015,
+    "22.3": 49,
+    "23.0": 48,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick GNX",
+    "Year": 1987,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Honda S2000 Type S",
+    "Year": 2008,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault Clio 182 Trophy",
+    "Year": 2005,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Jaguar D-Type",
+    "Year": 1954,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Pontiac Grand Prix GXP",
+    "Year": 2006,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Carabo",
+    "Year": 1968,
+    "22.3": 44,
+    "23.0": 47,
+    "Diff": 3
+  },
+  {
+    "Model": "Chrysler 300M",
+    "Year": 1991,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan 300ZX Twin Turbo (Z32)",
+    "Year": 1990,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi S8 (D2)",
+    "Year": 1997,
+    "22.3": 45,
+    "23.0": 47,
+    "Diff": 2
+  },
+  {
+    "Model": "Ford Bronco Sport",
+    "Year": 2021,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Hyundai Genesis Coupe 3.8",
+    "Year": 2010,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Tucson 1.6 T-GDI ",
+    "Year": 2017,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Mazda 2 Rally",
+    "Year": 2005,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Škoda Octavia vRS 245 Estate",
+    "Year": 2017,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Octavia vRS Hatchback 2.0 TSI",
+    "Year": 2020,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Škoda Enyaq Coupe vRS iV",
+    "Year": 2022,
+    "22.3": 48,
+    "23.0": 47,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën DS5 LS R",
+    "Year": 2014,
+    "22.3": 46,
+    "23.0": 47,
+    "Diff": 1
+  },
+  {
+    "Model": "Buick Rainier",
+    "Year": 2005,
+    "22.3": 48,
+    "23.0": 47,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Encore GX",
+    "Year": 2020,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Chevrolet Silverado 2500 HD",
+    "Year": 2021,
+    "22.3": 48,
+    "23.0": 47,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Yukon XL",
+    "Year": 2015,
+    "22.3": 48,
+    "23.0": 47,
+    "Diff": -1
+  },
+  {
+    "Model": "Ram 2500 Rebel",
+    "Year": 2023,
+    "22.3": 49,
+    "23.0": 47,
+    "Diff": -2
+  },
+  {
+    "Model": "Mercedes-Benz G 500 Cabriolet",
+    "Year": 2012,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Evoque Convertible",
+    "Year": 2016,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Rally 037 Stradale",
+    "Year": 1982,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo 156 GTA",
+    "Year": 2002,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen Tiguan",
+    "Year": 2017,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Volkswagen Touareg",
+    "Year": 2010,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW 645ci",
+    "Year": 2003,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "TVR 400SE",
+    "Year": 1988,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford SVT F-150 Lightning",
+    "Year": 2001,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Saturn Ion Red Line",
+    "Year": 2004,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "AC FIA 289",
+    "Year": 2001,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi 100 2.8 quattro (C4)",
+    "Year": 1990,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Holden Monaro CV8 (VZ)",
+    "Year": 2005,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Santa Fe 1.6 T-GDI PHEV",
+    "Year": 2021,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai i30 N ",
+    "Year": 2018,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Pajero Sport AT35 Arctic Trucks",
+    "Year": 2022,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Triton Ralliart AXCR ",
+    "Year": 2022,
+    "22.3": 48,
+    "23.0": 46,
+    "Diff": -2
+  },
+  {
+    "Model": "Mitsubishi Raider Baja ",
+    "Year": 2006,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën Cactus Aventure",
+    "Year": 2014,
+    "22.3": 48,
+    "23.0": 46,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën Visa Trophee",
+    "Year": 1982,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo V70 XC 2.5T AWD",
+    "Year": 1998,
+    "22.3": 48,
+    "23.0": 46,
+    "Diff": -2
+  },
+  {
+    "Model": "Volvo V70 XC 2.4T AWD",
+    "Year": 2001,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Blazer ZR2",
+    "Year": 1999,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Colorado",
+    "Year": 2014,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Equinox",
+    "Year": 2005,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Firenza CanAm",
+    "Year": 1973,
+    "22.3": 45,
+    "23.0": 46,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Silverado 1500 Duramax",
+    "Year": 2021,
+    "22.3": 47,
+    "23.0": 46,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Tahoe Z71",
+    "Year": 2020,
+    "22.3": 48,
+    "23.0": 46,
+    "Diff": -2
+  },
+  {
+    "Model": "Lancia D24 Pininfarina Spider Sport",
+    "Year": 1953,
+    "22.3": 42,
+    "23.0": 46,
+    "Diff": 4
+  },
+  {
+    "Model": "BMW M1",
+    "Year": 1978,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Buick Enclave",
+    "Year": 2008,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Cadillac Escalade EXT",
+    "Year": 2011,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Discovery Sport",
+    "Year": 2016,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Lancia Stratos",
+    "Year": 1973,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Pontiac Grand Prix GTP",
+    "Year": 1997,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault R20 Turbo 4x4",
+    "Year": 1979,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Land Rover Discovery 5",
+    "Year": 2017,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Subaru XV (GT)",
+    "Year": 2019,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Saturn Vue",
+    "Year": 2008,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Hummer HX",
+    "Year": 2008,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo 164 Q4",
+    "Year": 1994,
+    "22.3": 49,
+    "23.0": 45,
+    "Diff": -4
+  },
+  {
+    "Model": "Lancia Fulvia Coupe 1.6 HF Group 4",
+    "Year": 1967,
+    "22.3": 48,
+    "23.0": 45,
+    "Diff": -3
+  },
+  {
+    "Model": "Fiat 124 Abarth Rally",
+    "Year": 1972,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Ram 2500 Power Wagon",
+    "Year": 2019,
+    "22.3": 47,
+    "23.0": 45,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford GN34",
+    "Year": 1985,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Hyundai Santa Fe 1.6 T-GDI Hybrid ",
+    "Year": 2021,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda RX-500",
+    "Year": 1970,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Pajero Sport",
+    "Year": 2015,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi GT-PHEV",
+    "Year": 2016,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi e-Yi",
+    "Year": 2019,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Octavia vRS Hatchback 2.0 TSI",
+    "Year": 2013,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën Oli",
+    "Year": 2022,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Volvo XC70 D5 AWD",
+    "Year": 2006,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo S60 T6 ",
+    "Year": 2013,
+    "22.3": 44,
+    "23.0": 45,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet K5 Blazer-E",
+    "Year": 2020,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Silverado 3500 HD",
+    "Year": 2021,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Envoy",
+    "Year": 2002,
+    "22.3": 46,
+    "23.0": 45,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H3T",
+    "Year": 2009,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Infiniti M35",
+    "Year": 2009,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Forester",
+    "Year": 2002,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Subaru XV Crosstrek",
+    "Year": 2016,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo 850 T-5R Estate",
+    "Year": 1995,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Suzuki Vitara S",
+    "Year": 2016,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Suzuki XL-7",
+    "Year": 1998,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Fiat 124 Sport Spider",
+    "Year": 1966,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Volkswagen Polo GTI",
+    "Year": 2018,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Maserati Racing",
+    "Year": 1991,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Bentley Azure",
+    "Year": 2006,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 208 R2",
+    "Year": 2012,
+    "22.3": 42,
+    "23.0": 44,
+    "Diff": 2
+  },
+  {
+    "Model": "Acura RDX",
+    "Year": 2019,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Forester (SJ)",
+    "Year": 2012,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Porsche Boxster 2.7 (986)",
+    "Year": 2000,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Brera 3.2 V6 Q4",
+    "Year": 2005,
+    "22.3": 48,
+    "23.0": 44,
+    "Diff": -4
+  },
+  {
+    "Model": "Fiat 124 GT",
+    "Year": 2018,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Ginetta G40 Cup",
+    "Year": 2010,
+    "22.3": 43,
+    "23.0": 44,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Pajero",
+    "Year": 2007,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Mountiaq",
+    "Year": 2019,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Volvo XC90 T6 AWD",
+    "Year": 2004,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Chevrolet Colorado LS Crew Cab",
+    "Year": 2003,
+    "22.3": 46,
+    "23.0": 44,
+    "Diff": -2
+  },
+  {
+    "Model": "Chevrolet Tahoe",
+    "Year": 2021,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra 2500 HD Denali",
+    "Year": 2020,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Miura Roadster",
+    "Year": 1968,
+    "22.3": 45,
+    "23.0": 44,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Silverado",
+    "Year": 2016,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford Escort Rally Spec",
+    "Year": 1970,
+    "22.3": 44,
+    "23.0": 43,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda S2000",
+    "Year": 1999,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Honda Pilot 4WD",
+    "Year": 2009,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Mitsubishi Outlander",
+    "Year": 2012,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Subaru Forester",
+    "Year": 1998,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Suzuki Ignis",
+    "Year": 2016,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Alfa Romeo 164 Super",
+    "Year": 1993,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Durango GT",
+    "Year": 2018,
+    "22.3": 44,
+    "23.0": 43,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Camaro IROC-Z",
+    "Year": 1990,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Lamborghini Miura P 400",
+    "Year": 1966,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover Evoque SD4",
+    "Year": 2015,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford Maya II EM",
+    "Year": 1985,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Frontier Attack (D23)",
+    "Year": 2017,
+    "22.3": 45,
+    "23.0": 43,
+    "Diff": -2
+  },
+  {
+    "Model": "Citroën C4 Aircross 4x4",
+    "Year": 2017,
+    "22.3": 44,
+    "23.0": 43,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Avalanche",
+    "Year": 2008,
+    "22.3": 44,
+    "23.0": 43,
+    "Diff": -1
+  },
+  {
+    "Model": "Dodge Intrepid",
+    "Year": 1989,
+    "22.3": 42,
+    "23.0": 43,
+    "Diff": 1
+  },
+  {
+    "Model": "Honda CR-V 1.6 i-DTEC",
+    "Year": 2016,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan X-Trail",
+    "Year": 2016,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Qashqai",
+    "Year": 2008,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford Ranger Wildtrak",
+    "Year": 2012,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Antara 2.2CDTi",
+    "Year": 2016,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki SX4",
+    "Year": 2006,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo GTV",
+    "Year": 1995,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Alfa Romeo Brera S",
+    "Year": 2008,
+    "22.3": 41,
+    "23.0": 42,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 607",
+    "Year": 1999,
+    "22.3": 41,
+    "23.0": 42,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault Alaskan",
+    "Year": 2016,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Aston Martin V8 Coupe",
+    "Year": 1996,
+    "22.3": 41,
+    "23.0": 42,
+    "Diff": 1
+  },
+  {
+    "Model": "Land Rover 4.4 V8",
+    "Year": 2002,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Peugeot 207 RC",
+    "Year": 2007,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Saturn Outlook",
+    "Year": 2007,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H3T Alpha",
+    "Year": 2009,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Alfa Romeo GTV 3.2 V6",
+    "Year": 2003,
+    "22.3": 45,
+    "23.0": 42,
+    "Diff": -3
+  },
+  {
+    "Model": "BMW iX3 Premier Edition",
+    "Year": 2021,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Super Duty F-250",
+    "Year": 2020,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercury Mountaineer",
+    "Year": 1997,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Tucson 2.4 GDI AWD",
+    "Year": 2020,
+    "22.3": 44,
+    "23.0": 42,
+    "Diff": -2
+  },
+  {
+    "Model": "Hyundai OLV",
+    "Year": 2003,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën Visa Chrono",
+    "Year": 1982,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Dodge Kahuna",
+    "Year": 2003,
+    "22.3": 43,
+    "23.0": 42,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda Pilot 4WD",
+    "Year": 2003,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H3",
+    "Year": 2006,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Outlander PHEV",
+    "Year": 2016,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Forester",
+    "Year": 2008,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Volkswagen Corrado VR6",
+    "Year": 1992,
+    "22.3": 40,
+    "23.0": 41,
+    "Diff": 1
+  },
+  {
+    "Model": "Volkswagen Passat",
+    "Year": 2018,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Volkswagen Tiguan",
+    "Year": 2011,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Lamborghini LM002",
+    "Year": 1986,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford F-150 Tremor FX2",
+    "Year": 2014,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "BMW X5 3.0d",
+    "Year": 2001,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford Super Duty F-350",
+    "Year": 2020,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln MKC",
+    "Year": 2016,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Tucson 2.7 V6",
+    "Year": 2004,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Hyundai Palisade 2.2 CRDi ",
+    "Year": 2020,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Mazda Roadster NR-A",
+    "Year": 2006,
+    "22.3": 40,
+    "23.0": 41,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi Pajero Dakar ",
+    "Year": 1983,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero 3500 V6",
+    "Year": 1998,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero",
+    "Year": 2002,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Mondeo 2.2 TDCi",
+    "Year": 2011,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac Escalade EXT",
+    "Year": 2002,
+    "22.3": 43,
+    "23.0": 41,
+    "Diff": -2
+  },
+  {
+    "Model": "Dodge T-Rex 6x6",
+    "Year": 1997,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra 3500 HD Denali Ultimate",
+    "Year": 2020,
+    "22.3": 42,
+    "23.0": 41,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën C-Crosser 2.2 L HDi",
+    "Year": 2007,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda CR-V 2.0 i-VTEC",
+    "Year": 2002,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda CR-V 2.2 i-DTEC",
+    "Year": 2007,
+    "22.3": 42,
+    "23.0": 40,
+    "Diff": -2
+  },
+  {
+    "Model": "Mitsubishi ASX",
+    "Year": 2015,
+    "22.3": 42,
+    "23.0": 40,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan X-Trail",
+    "Year": 2001,
+    "22.3": 42,
+    "23.0": 40,
+    "Diff": -2
+  },
+  {
+    "Model": "Alfa Romeo 159",
+    "Year": 2005,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Peugeot 508",
+    "Year": 2018,
+    "22.3": 44,
+    "23.0": 40,
+    "Diff": -4
+  },
+  {
+    "Model": "Peugeot 206 RC",
+    "Year": 2003,
+    "22.3": 42,
+    "23.0": 40,
+    "Diff": -2
+  },
+  {
+    "Model": "Chrysler 200C EV",
+    "Year": 2009,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Terrano Rally Car (R50)",
+    "Year": 1996,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Ranger Wildtrak",
+    "Year": 2017,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Mighty F-350 Tonka",
+    "Year": 2002,
+    "22.3": 42,
+    "23.0": 40,
+    "Diff": -2
+  },
+  {
+    "Model": "Lincoln Nautilus",
+    "Year": 2019,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln Navigator",
+    "Year": 2007,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo XC40 Recharge ",
+    "Year": 2023,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "Volvo C40 Recharge   ",
+    "Year": 2023,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra Classic",
+    "Year": 1999,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Sierra Denali 2500 HD",
+    "Year": 2015,
+    "22.3": 41,
+    "23.0": 40,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC Denali XT",
+    "Year": 2008,
+    "22.3": 38,
+    "23.0": 39,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi 80 2.2 quattro (B2)",
+    "Year": 1983,
+    "22.3": 37,
+    "23.0": 39,
+    "Diff": 2
+  },
+  {
+    "Model": "Renault 21 2.0l Turbo Quadra",
+    "Year": 1986,
+    "22.3": 39,
+    "23.0": 38,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda BT-50 3.0d",
+    "Year": 2021,
+    "22.3": 39,
+    "23.0": 38,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Triton Absolute",
+    "Year": 2019,
+    "22.3": 39,
+    "23.0": 38,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Juke Nismo",
+    "Year": 2014,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Kuga",
+    "Year": 2016,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Pontiac G6",
+    "Year": 2005,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Freelander",
+    "Year": 1997,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Mustang GT",
+    "Year": 1988,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Super Duty F-450",
+    "Year": 2020,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln Navigator",
+    "Year": 2004,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda MX-30 R-EV",
+    "Year": 2023,
+    "22.3": 36,
+    "23.0": 37,
+    "Diff": 1
+  },
+  {
+    "Model": "Mitsubishi L200",
+    "Year": 2020,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero",
+    "Year": 1989,
+    "22.3": 39,
+    "23.0": 37,
+    "Diff": -2
+  },
+  {
+    "Model": "Chevrolet K1500 Blazer",
+    "Year": 1992,
+    "22.3": 38,
+    "23.0": 37,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H2 SUT",
+    "Year": 2005,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H2 SUV",
+    "Year": 2003,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Leone",
+    "Year": 1984,
+    "22.3": 35,
+    "23.0": 36,
+    "Diff": 1
+  },
+  {
+    "Model": "Suzuki Vitara",
+    "Year": 2005,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Chrysler Pacifica",
+    "Year": 2018,
+    "22.3": 35,
+    "23.0": 36,
+    "Diff": 1
+  },
+  {
+    "Model": "Acura SLX",
+    "Year": 1996,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Pathfinder (R50)",
+    "Year": 1995,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki Jimny Sierra",
+    "Year": 2019,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat Ritmo 130TC Abarth",
+    "Year": 1985,
+    "22.3": 35,
+    "23.0": 36,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën SM Rallye du Maroc",
+    "Year": 1971,
+    "22.3": 38,
+    "23.0": 36,
+    "Diff": -2
+  },
+  {
+    "Model": "GMC Sierra 2500 HD SLT",
+    "Year": 2020,
+    "22.3": 37,
+    "23.0": 36,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Ranger",
+    "Year": 2012,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Aston Martin Virage",
+    "Year": 1989,
+    "22.3": 34,
+    "23.0": 35,
+    "Diff": 1
+  },
+  {
+    "Model": "Audi A1 30 TFSI (GB)",
+    "Year": 2018,
+    "22.3": 32,
+    "23.0": 35,
+    "Diff": 3
+  },
+  {
+    "Model": "Alfa Romeo Spider 3.2 V6",
+    "Year": 2008,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Morgan AR Plus 4",
+    "Year": 2016,
+    "22.3": 34,
+    "23.0": 35,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Taurus SHO",
+    "Year": 1989,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Lincoln L2K ",
+    "Year": 1995,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Škoda Fabia vRS Estate",
+    "Year": 2013,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën SpaceTourer 4x4 E",
+    "Year": 2017,
+    "22.3": 36,
+    "23.0": 35,
+    "Diff": -1
+  },
+  {
+    "Model": "Honda CR-V",
+    "Year": 1996,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Ranger",
+    "Year": 2006,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Peugeot 407 Coupe",
+    "Year": 2006,
+    "22.3": 31,
+    "23.0": 34,
+    "Diff": 3
+  },
+  {
+    "Model": "Land Rover Discovery 3",
+    "Year": 2004,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Manta 400",
+    "Year": 1979,
+    "22.3": 33,
+    "23.0": 34,
+    "Diff": 1
+  },
+  {
+    "Model": "Geo Tracker",
+    "Year": 1989,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi 100 Avant quattro (C3)",
+    "Year": 1982,
+    "22.3": 36,
+    "23.0": 34,
+    "Diff": -2
+  },
+  {
+    "Model": "Lincoln Navigator",
+    "Year": 1999,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac Escalade",
+    "Year": 2023,
+    "22.3": 35,
+    "23.0": 34,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet Captiva",
+    "Year": 2011,
+    "22.3": 34,
+    "23.0": 33,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz 280 GE",
+    "Year": 1979,
+    "22.3": 34,
+    "23.0": 33,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Espace",
+    "Year": 2016,
+    "22.3": 32,
+    "23.0": 33,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault 19 16S",
+    "Year": 1988,
+    "22.3": 32,
+    "23.0": 33,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault 25 V6 Turbo",
+    "Year": 1983,
+    "22.3": 38,
+    "23.0": 33,
+    "Diff": -5
+  },
+  {
+    "Model": "Renault Mégane",
+    "Year": 1995,
+    "22.3": 30,
+    "23.0": 33,
+    "Diff": 3
+  },
+  {
+    "Model": "Renault 3.5l V6 Espace",
+    "Year": 2002,
+    "22.3": 30,
+    "23.0": 33,
+    "Diff": 3
+  },
+  {
+    "Model": "Nissan Terrano R3M-R (R50)",
+    "Year": 1999,
+    "22.3": 34,
+    "23.0": 33,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Junior",
+    "Year": 1995,
+    "22.3": 34,
+    "23.0": 33,
+    "Diff": -1
+  },
+  {
+    "Model": "Plymouth HEMI 'Cuda",
+    "Year": 1970,
+    "22.3": 36,
+    "23.0": 33,
+    "Diff": -3
+  },
+  {
+    "Model": "Renault Twizy F1",
+    "Year": 2013,
+    "22.3": 30,
+    "23.0": 33,
+    "Diff": 3
+  },
+  {
+    "Model": "Nissan Terrano II",
+    "Year": 2002,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Mondeo Hybrid",
+    "Year": 2016,
+    "22.3": 31,
+    "23.0": 32,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Alfasud",
+    "Year": 1982,
+    "22.3": 35,
+    "23.0": 32,
+    "Diff": -3
+  },
+  {
+    "Model": "Peugeot 309 GTi",
+    "Year": 1987,
+    "22.3": 31,
+    "23.0": 32,
+    "Diff": 1
+  },
+  {
+    "Model": "Fiat Grande Punto",
+    "Year": 2010,
+    "22.3": 34,
+    "23.0": 32,
+    "Diff": -2
+  },
+  {
+    "Model": "Ford F-150",
+    "Year": 2007,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki Vitara",
+    "Year": 1998,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Spider V6",
+    "Year": 1995,
+    "22.3": 35,
+    "23.0": 32,
+    "Diff": -3
+  },
+  {
+    "Model": "Lincoln Blackwood",
+    "Year": 2002,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi RVR ",
+    "Year": 1989,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Mini",
+    "Year": 2001,
+    "22.3": 33,
+    "23.0": 32,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi ASX",
+    "Year": 2010,
+    "22.3": 33,
+    "23.0": 31,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan Qashqai",
+    "Year": 2016,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Dodge Ram 1st Gen",
+    "Year": 1981,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat Panda Cross 4x4 Mark 3",
+    "Year": 2014,
+    "22.3": 30,
+    "23.0": 31,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford Bronco II",
+    "Year": 1986,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Cefiro 3.0 Brougham VIP (A33)",
+    "Year": 2002,
+    "22.3": 30,
+    "23.0": 31,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Datsun Bluebird 1300SS Rally Car (410)",
+    "Year": 1965,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Datsun 720 Bushmaster",
+    "Year": 1985,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Suzuki Vitara",
+    "Year": 1995,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Oldsmobile Bravada",
+    "Year": 1991,
+    "22.3": 32,
+    "23.0": 31,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Spider",
+    "Year": 2006,
+    "22.3": 30,
+    "23.0": 31,
+    "Diff": 1
+  },
+  {
+    "Model": "Pontiac Firebird Trans Am",
+    "Year": 1970,
+    "22.3": 34,
+    "23.0": 31,
+    "Diff": -3
+  },
+  {
+    "Model": "Buick Rendezvous",
+    "Year": 2002,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Pathfinder",
+    "Year": 1985,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Suffix A",
+    "Year": 1970,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Lamborghini Espada Serie III",
+    "Year": 1972,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Defender 110",
+    "Year": 2016,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Hummer H1 Alpha Wagon",
+    "Year": 2006,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda AZ Offroad",
+    "Year": 1998,
+    "22.3": 31,
+    "23.0": 30,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Delta 1600 GT",
+    "Year": 1982,
+    "22.3": 25,
+    "23.0": 29,
+    "Diff": 4
+  },
+  {
+    "Model": "Škoda 1100 OHC",
+    "Year": 1957,
+    "22.3": 28,
+    "23.0": 29,
+    "Diff": 1
+  },
+  {
+    "Model": "Dodge Grand Caravan R/T",
+    "Year": 2015,
+    "22.3": 26,
+    "23.0": 29,
+    "Diff": 3
+  },
+  {
+    "Model": "Chevrolet Cruze LS",
+    "Year": 2009,
+    "22.3": 27,
+    "23.0": 28,
+    "Diff": 1
+  },
+  {
+    "Model": "Rover 623",
+    "Year": 1993,
+    "22.3": 27,
+    "23.0": 28,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Juke",
+    "Year": 2020,
+    "22.3": 27,
+    "23.0": 28,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford SportKa",
+    "Year": 2003,
+    "22.3": 27,
+    "23.0": 28,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën C5 Tourer 2.2 HDi",
+    "Year": 2005,
+    "22.3": 27,
+    "23.0": 28,
+    "Diff": 1
+  },
+  {
+    "Model": "Subaru Leone",
+    "Year": 1979,
+    "22.3": 26,
+    "23.0": 27,
+    "Diff": 1
+  },
+  {
+    "Model": "Mazda CX-5",
+    "Year": 2018,
+    "22.3": 26,
+    "23.0": 27,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 205 GTi 1.6",
+    "Year": 1984,
+    "22.3": 26,
+    "23.0": 27,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 406 Coupe",
+    "Year": 1997,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Koleos",
+    "Year": 2018,
+    "22.3": 25,
+    "23.0": 27,
+    "Diff": 2
+  },
+  {
+    "Model": "Land Rover Discovery 2",
+    "Year": 1998,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Bristol Britannia",
+    "Year": 1982,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Fulvia Sport 1600",
+    "Year": 1971,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Holden Suburban",
+    "Year": 1998,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Mitsubishi Pajero Field Guard ",
+    "Year": 1993,
+    "22.3": 28,
+    "23.0": 27,
+    "Diff": -1
+  },
+  {
+    "Model": "Citroën BX Break De Chasse Dyana",
+    "Year": 1986,
+    "22.3": 26,
+    "23.0": 27,
+    "Diff": 1
+  },
+  {
+    "Model": "Peugeot 605",
+    "Year": 1989,
+    "22.3": 28,
+    "23.0": 26,
+    "Diff": -2
+  },
+  {
+    "Model": "Nissan Terrano",
+    "Year": 2013,
+    "22.3": 27,
+    "23.0": 26,
+    "Diff": -1
+  },
+  {
+    "Model": "Mazda 2 Evil Track",
+    "Year": 2010,
+    "22.3": 25,
+    "23.0": 26,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën Cactus M",
+    "Year": 2015,
+    "22.3": 25,
+    "23.0": 26,
+    "Diff": 1
+  },
+  {
+    "Model": "Chevrolet Nomad",
+    "Year": 2004,
+    "22.3": 27,
+    "23.0": 26,
+    "Diff": -1
+  },
+  {
+    "Model": "GMC S-15 Jimmy",
+    "Year": 1983,
+    "22.3": 27,
+    "23.0": 26,
+    "Diff": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Manta GTE",
+    "Year": 1988,
+    "22.3": 22,
+    "23.0": 25,
+    "Diff": 3
+  },
+  {
+    "Model": "Maserati Kyalami",
+    "Year": 1978,
+    "22.3": 26,
+    "23.0": 25,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Dedra",
+    "Year": 1996,
+    "22.3": 22,
+    "23.0": 25,
+    "Diff": 3
+  },
+  {
+    "Model": "Nissan Micra",
+    "Year": 2016,
+    "22.3": 23,
+    "23.0": 24,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Juke",
+    "Year": 2013,
+    "22.3": 26,
+    "23.0": 24,
+    "Diff": -2
+  },
+  {
+    "Model": "Fiat Panda",
+    "Year": 2017,
+    "22.3": 25,
+    "23.0": 24,
+    "Diff": -1
+  },
+  {
+    "Model": "Chevrolet El Camino",
+    "Year": 1981,
+    "22.3": 23,
+    "23.0": 24,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Juke",
+    "Year": 2010,
+    "22.3": 25,
+    "23.0": 24,
+    "Diff": -1
+  },
+  {
+    "Model": "Geo Tracker 4-Door",
+    "Year": 1996,
+    "22.3": 25,
+    "23.0": 24,
+    "Diff": -1
+  },
+  {
+    "Model": "Lancia Beta Montecarlo",
+    "Year": 1975,
+    "22.3": 25,
+    "23.0": 23,
+    "Diff": -2
+  },
+  {
+    "Model": "Pontiac Trans Am",
+    "Year": 1978,
+    "22.3": 21,
+    "23.0": 23,
+    "Diff": 2
+  },
+  {
+    "Model": "Nissan 280Z",
+    "Year": 1975,
+    "22.3": 24,
+    "23.0": 23,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat Oltre",
+    "Year": 2005,
+    "22.3": 24,
+    "23.0": 23,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat Panda 4x4",
+    "Year": 1983,
+    "22.3": 21,
+    "23.0": 22,
+    "Diff": 1
+  },
+  {
+    "Model": "Ford F-100 302ci",
+    "Year": 1973,
+    "22.3": 23,
+    "23.0": 22,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi Coupé GT 5E (B2)",
+    "Year": 1983,
+    "22.3": 23,
+    "23.0": 22,
+    "Diff": -1
+  },
+  {
+    "Model": "Fiat 500 Coupe",
+    "Year": 2011,
+    "22.3": 23,
+    "23.0": 22,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi 80 1.8 S (B3)",
+    "Year": 1986,
+    "22.3": 21,
+    "23.0": 22,
+    "Diff": 1
+  },
+  {
+    "Model": "Citroën C1 VTi 68",
+    "Year": 2016,
+    "22.3": 22,
+    "23.0": 21,
+    "Diff": -1
+  },
+  {
+    "Model": "Mercedes-Benz V 250d",
+    "Year": 2015,
+    "22.3": 20,
+    "23.0": 21,
+    "Diff": 1
+  },
+  {
+    "Model": "Nissan Leaf",
+    "Year": 2016,
+    "22.3": 22,
+    "23.0": 21,
+    "Diff": -1
+  },
+  {
+    "Model": "Land Rover Discovery 1",
+    "Year": 1989,
+    "22.3": 22,
+    "23.0": 21,
+    "Diff": -1
+  },
+  {
+    "Model": "Nissan Patrol (type 60)",
+    "Year": 1959,
+    "22.3": 21,
+    "23.0": 20,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault 30",
+    "Year": 1975,
+    "22.3": 22,
+    "23.0": 20,
+    "Diff": -2
+  },
+  {
+    "Model": "Peugeot 108",
+    "Year": 2018,
+    "22.3": 17,
+    "23.0": 19,
+    "Diff": 2
+  },
+  {
+    "Model": "Alfa Romeo 2000 GTV",
+    "Year": 1971,
+    "22.3": 15,
+    "23.0": 19,
+    "Diff": 4
+  },
+  {
+    "Model": "Alfa Romeo Spider Veloce (S2)",
+    "Year": 1971,
+    "22.3": 17,
+    "23.0": 19,
+    "Diff": 2
+  },
+  {
+    "Model": "Lancia Flaminia Sport Zagato",
+    "Year": 1958,
+    "22.3": 12,
+    "23.0": 19,
+    "Diff": 7
+  },
+  {
+    "Model": "Subaru R2",
+    "Year": 2003,
+    "22.3": 18,
+    "23.0": 19,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault 8 Gordini",
+    "Year": 1964,
+    "22.3": 19,
+    "23.0": 18,
+    "Diff": -1
+  },
+  {
+    "Model": "Subaru Vivio Bistro",
+    "Year": 1995,
+    "22.3": 17,
+    "23.0": 18,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Ypsilon",
+    "Year": 2017,
+    "22.3": 18,
+    "23.0": 17,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo 1750 GTV",
+    "Year": 1967,
+    "22.3": 13,
+    "23.0": 17,
+    "Diff": 4
+  },
+  {
+    "Model": "Morgan EV3",
+    "Year": 2016,
+    "22.3": 18,
+    "23.0": 17,
+    "Diff": -1
+  },
+  {
+    "Model": "Peugeot 505 Break",
+    "Year": 1982,
+    "22.3": 17,
+    "23.0": 16,
+    "Diff": -1
+  },
+  {
+    "Model": "Chrysler Imperial",
+    "Year": 1972,
+    "22.3": 17,
+    "23.0": 16,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Junior Z",
+    "Year": 1969,
+    "22.3": 15,
+    "23.0": 16,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Aurelia B20 GT",
+    "Year": 1951,
+    "22.3": 15,
+    "23.0": 16,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Flaminia GT",
+    "Year": 1964,
+    "22.3": 17,
+    "23.0": 16,
+    "Diff": -1
+  },
+  {
+    "Model": "Morgan Plus 4",
+    "Year": 1985,
+    "22.3": 17,
+    "23.0": 16,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Electra",
+    "Year": 1961,
+    "22.3": 15,
+    "23.0": 16,
+    "Diff": 1
+  },
+  {
+    "Model": "Renault 16",
+    "Year": 1965,
+    "22.3": 16,
+    "23.0": 15,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault 18",
+    "Year": 1978,
+    "22.3": 16,
+    "23.0": 15,
+    "Diff": -1
+  },
+  {
+    "Model": "Renault Espace",
+    "Year": 1984,
+    "22.3": 16,
+    "23.0": 15,
+    "Diff": -1
+  },
+  {
+    "Model": "Ford Escort XR3i",
+    "Year": 1982,
+    "22.3": 16,
+    "23.0": 15,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo GTA 1300 Junior",
+    "Year": 1968,
+    "22.3": 13,
+    "23.0": 15,
+    "Diff": 2
+  },
+  {
+    "Model": "Buick GL8",
+    "Year": 2000,
+    "22.3": 16,
+    "23.0": 15,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick Roadmaster",
+    "Year": 1954,
+    "22.3": 16,
+    "23.0": 14,
+    "Diff": -2
+  },
+  {
+    "Model": "Austin Maxi",
+    "Year": 1969,
+    "22.3": 15,
+    "23.0": 14,
+    "Diff": -1
+  },
+  {
+    "Model": "Austin 1100",
+    "Year": 1963,
+    "22.3": 16,
+    "23.0": 14,
+    "Diff": -2
+  },
+  {
+    "Model": "Chrysler LeBaron Town & Country Convertible",
+    "Year": 1984,
+    "22.3": 15,
+    "23.0": 14,
+    "Diff": -1
+  },
+  {
+    "Model": "Audi 100 Avant (C2)",
+    "Year": 1977,
+    "22.3": 16,
+    "23.0": 14,
+    "Diff": -2
+  },
+  {
+    "Model": "Cadillac Eldorado Brougham",
+    "Year": 1959,
+    "22.3": 15,
+    "23.0": 14,
+    "Diff": -1
+  },
+  {
+    "Model": "Buick LeSabre",
+    "Year": 1959,
+    "22.3": 15,
+    "23.0": 14,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Sprint GTV",
+    "Year": 1965,
+    "22.3": 12,
+    "23.0": 13,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo GT 1600 Junior",
+    "Year": 1972,
+    "22.3": 12,
+    "23.0": 13,
+    "Diff": 1
+  },
+  {
+    "Model": "Alfa Romeo Giulia GT 1300 Junior",
+    "Year": 1966,
+    "22.3": 12,
+    "23.0": 13,
+    "Diff": 1
+  },
+  {
+    "Model": "Hudson Hornet",
+    "Year": 1954,
+    "22.3": 14,
+    "23.0": 13,
+    "Diff": -1
+  },
+  {
+    "Model": "Cadillac El Camino",
+    "Year": 1954,
+    "22.3": 14,
+    "23.0": 13,
+    "Diff": -1
+  },
+  {
+    "Model": "Alfa Romeo Giulia 1300 Super",
+    "Year": 1970,
+    "22.3": 11,
+    "23.0": 12,
+    "Diff": 1
+  },
+  {
+    "Model": "Lancia Fulvia Coupe",
+    "Year": 1965,
+    "22.3": 13,
+    "23.0": 11,
+    "Diff": -2
+  },
+  {
+    "Model": "Lancia Flavia 2000 Coupe",
+    "Year": 1971,
+    "22.3": 10,
+    "23.0": 11,
+    "Diff": 1
+  },
+  {
+    "Model": "Suzuki Kei Works",
+    "Year": 2002,
+    "22.3": 11,
+    "23.0": 10,
+    "Diff": -1
+  }
+]
