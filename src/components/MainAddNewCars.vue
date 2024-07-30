@@ -84,6 +84,7 @@
           <template v-if="key === 'photoId'">
             <div class="MainAddNewCars_FormTitle">Photo</div>
             <button
+              :loading="incomingCarsLoading"
               style="min-width: 200px;"
               class="D_Button D_ButtonDark MainAddNewCars_SelectPhoto"
               @click="photoDialogActive = true;">

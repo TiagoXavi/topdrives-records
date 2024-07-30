@@ -506,7 +506,7 @@
         "abs": true,
         "acel": 1.8,
         "bodyTypes": [
-            "Roadster"
+            "Coupe"
         ],
         "brand": "Koenigsegg",
         "class": "S",
@@ -8298,7 +8298,7 @@
     },
     {
         "abs": true,
-        "acel": 2.9,
+        "acel": 2.6,
         "bodyTypes": [
             "Saloon"
         ],
@@ -8310,7 +8310,7 @@
         "engine": "Mixed",
         "fuel": "Electric",
         "hand": 85,
-        "mra": null,
+        "mra": 87.84,
         "name": "Drako GTE",
         "onlyName": "GTE",
         "prize": false,
@@ -18872,8 +18872,8 @@
             "Coupe"
         ],
         "fuel": "Electric",
-        "seats": "1",
-        "engine": "Mid",
+        "seats": "2",
+        "engine": "Mixed",
         "guid": "f7a7427b-814f-4679-b9dc-631d77a8bc76",
         "brake": "A"
     },
@@ -21086,7 +21086,7 @@
         "engine": "Front",
         "fuel": "Petrol",
         "hand": 75,
-        "mra": null,
+        "mra": 78.57,
         "name": "Skoda Superb Hatchback 2.0 TSI 4x4",
         "onlyName": "Superb Hatchback 2.0 TSI 4x4",
         "prize": false,
@@ -62966,7 +62966,7 @@
         "country": "US",
         "drive": "4WD",
         "engine": "Front",
-        "fuel": "Petrol",
+        "fuel": "Diesel",
         "hand": 68,
         "mra": 45.85,
         "name": "RAM 1500 Rebel OTG",
@@ -67218,7 +67218,8 @@
         "rid": "Hyundai_Le_Fil_Rouge_2018",
         "prize": false,
         "bodyTypes": [
-            "Saloon"
+            "Saloon",
+            "Coupe"
         ],
         "fuel": "Electric",
         "seats": "4",
@@ -71612,7 +71613,7 @@
         "country": "US",
         "drive": "4WD",
         "engine": "Front",
-        "fuel": "Hybrid",
+        "fuel": "Petrol",
         "hand": 65,
         "mra": 47.92,
         "name": "RAM 2500 Rebel",
@@ -90169,7 +90170,7 @@
         "abs": true,
         "acel": 9.1,
         "bodyTypes": [
-            "SUV"
+            "Pickup"
         ],
         "brand": "GMC",
         "class": "C",
@@ -132239,7 +132240,7 @@
             "German Renaissance",
             "Riders on the Storm",
             "The Great Outdoors",
-            "Orange"
+            "Red"
         ],
         "bodyTypes": [
             "Saloon"
@@ -152112,7 +152113,7 @@
         "prize": false,
         "rid": "Citroen_2CV_Sahara_4x4_1958",
         "rq": 10,
-        "seats": "4",
+        "seats": "2",
         "tags": [
             "European New Wave",
             "Motorsport",
