@@ -244,6 +244,11 @@ export default {
   --tag-s: 70%;
   --tag-l: 45%;
 }
+.BaseGameTag_Marilyn\'s_Collection {
+  --tag-h: 40;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
 .BaseGameTag_Motorsport {
   --tag-h: 216;
   --tag-s: 70%;
@@ -343,6 +348,11 @@ export default {
   --tag-h: 10;
   --tag-s: 66%;
   --tag-l: 39%;
+}
+.BaseGameTag_Summer_Games_24 {
+  --tag-h: 54;
+  --tag-s: 100%;
+  --tag-l: 41%;
 }
 .BaseGameTag_Supercar {
   --tag-h: 170;
