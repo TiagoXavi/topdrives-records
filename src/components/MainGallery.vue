@@ -1111,7 +1111,6 @@ export default {
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
             Math.abs(oldCar.rq - car.rq) < 3 &&
-            oldCar.year === car.year &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&
