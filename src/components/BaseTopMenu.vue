@@ -120,7 +120,7 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
-        { label: "Community", name: "Community", new: true },
+        { label: "Community", name: "Community" },
         { label: "Stuff", name: "Stuff" },
       ],
       showNew: true,

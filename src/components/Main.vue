@@ -2671,7 +2671,7 @@
           <div class="Main_AnnouncementTitle">Contest #5</div>
           <div class="Main_AnnouncementSubTitle">European Grand Tour</div>
           <div class="Main_AnnouncementBody">Prizes: free TDR premium, medals</div>
-          <div class="Main_AnnouncementMaybe">3rd april - 21th april</div>
+          <div class="Main_AnnouncementMaybe">30th july - 18th august</div>
 
           <BaseDiscordButton style="margin-top: 20px;" />
         </div>
@@ -8960,15 +8960,15 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      if (window.localStorage.getItem("contest4")) return;
+      // return;
+      if (window.localStorage.getItem("contest5")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('contest4', "t");
+      window.localStorage.setItem('contest5', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);
