@@ -1332,6 +1332,8 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2; 
   -webkit-box-orient: vertical;
+  margin-right: 5px;
+  flex-grow: 1;
 }
 .Main_SearchTrophy {
   font-size: 14px;
@@ -2619,6 +2621,7 @@ body .Main_UserTw3:before {
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
+  align-items: center;
 }
 .Cg_RoundEmptyBox + .Cg_BottomModTools {
   margin-top: 15px;

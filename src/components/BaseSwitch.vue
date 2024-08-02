@@ -107,7 +107,7 @@ export default {
   width: calc(var(--height) - 4px);
   left: 2px;
   bottom: 2px;
-  background-color: hsl(var(--back-h), var(--back-s), 10%);
+  background-color: hsl(var(--back-h), var(--back-s), 20%);
   transition: 0.2s;
   border-radius: 50%;
 }
@@ -125,5 +125,6 @@ export default {
 
 .BaseSwitch_Input:checked + .BaseSwitch_Slider:before {
   transform: translateX(calc(var(--width) - var(--height)));
+  background-color: #396d00;
 }
 </style>

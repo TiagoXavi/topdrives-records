@@ -222,6 +222,7 @@ export default {
   m_saveToFile: "Save to file",
   m_loadFile: "Load file",
   m_replace: "Replace",
+  m_eventPack: "Event pack",
 
   
   

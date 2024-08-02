@@ -237,6 +237,7 @@
         prizes: false,
         customTags: false
       }"
+      importFilterName="PACKS_INTERNALFILTER_IMPORT"
       ref="packFilter"
       ridsMutationName="FILTER_PACKS_LIMITS"
       @filterUpdate="updateFilterPacks($event)"
@@ -690,6 +691,7 @@ export default {
   },
   watch: {},
   beforeMount() {
+
     if (window.envType === 'development') {
       console.log("develop validation of pack odds");
       this.packTypes.map(x => {
@@ -736,7 +738,15 @@ export default {
     
   },
   mounted() {
-  
+    if (this.$route.params && this.$route.params.filter) {
+      let filterCopy = JSON.parse(JSON.stringify(this.$route.params.filter));
+      // filterCopy.prizesModel = ["Non-Prize Cars"];
+      this.$store.commit("PACKS_INTERNALFILTER_IMPORT", { filter: filterCopy });
+      this.updateFilterPacks(this.$route.params.filter)
+      // this.packFilter = this.$route.params.filter;
+      this.packModel = this.packTypes.find(x => x.name === "Carbon Fiber");
+    }
+
   },
   beforeDestroy() {
     // window.onblur = null;

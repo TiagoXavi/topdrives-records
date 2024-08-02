@@ -181,6 +181,7 @@ export default new Vuex.Store({
     FILTER_NEWPHOTOS_RIDS: (state, obj) => null,
     FILTER_PACKS_LIMITS: (state, obj) => null,
     PACKS_FILTER_IMPORT: (state, obj) => null,
+    PACKS_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {

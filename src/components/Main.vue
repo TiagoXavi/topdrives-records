@@ -889,177 +889,194 @@
       </div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="event.date">
-          <template>
 
-            <template v-if="event.noAccess">
-              <div v-for="m in 4" class="Cg_Box">
-                <div v-for="n in 5" class="Event_CompItem Event_CompItemPlaceholder">
-                  <div v-if="m === 1" class="Event_CompPlaceholderQuestion">?</div>
-                </div>
-              </div>
-            </template>
-
-            <div v-else class="Cg_Box">
-              <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
-                <BaseCompItem
-                  :isMod="user && user.mod"
-                  :comp="comp"
-                  @edit="eventEditComp(igroup)" />
+          <template v-if="event.noAccess">
+            <div v-for="m in 4" class="Cg_Box">
+              <div v-for="n in 5" class="Event_CompItem Event_CompItemPlaceholder">
+                <div v-if="m === 1" class="Event_CompPlaceholderQuestion">?</div>
               </div>
             </div>
-            
-            <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-            <BaseEventTrackbox
-              :event="event"
-              :eventLoadingAny="eventLoadingAny"
-              :user="user"
-              :check="eventCheckFilterCode"
-              :eventForceAnalyze="eventForceAnalyze"
-              :eventBestPerTrack="eventBestPerTrack"
-              :showBestPerTrack="showPoints"
-              @newindex="eventTrackNewIndex($event)"
-              @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
-              @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
-              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray, $event.e);"
-              @up="eventMove('up', $event.itrackset);"
-              @down="eventMove('down', $event.itrackset);"
-              @delete="eventDeleteTrackset($event.itrackset);"
-            />
-            <div v-if="event.canViewEvent && !eventBlockAddTrackset && (event.resolvedTrackset || []).length < 6 && user && user.mod" class="Event_NewTracksetBox">
-              <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
-                <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-                <span>{{ $t("m_trackset") }}</span>
+          </template>
+
+          <div v-else class="Cg_Box">
+            <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
+              <BaseCompItem
+                :isMod="user && user.mod"
+                :comp="comp"
+                @edit="eventEditComp(igroup)" />
+            </div>
+          </div>
+          
+          <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
+          <BaseEventTrackbox
+            :event="event"
+            :eventLoadingAny="eventLoadingAny"
+            :user="user"
+            :check="eventCheckFilterCode"
+            :eventForceAnalyze="eventForceAnalyze"
+            :eventBestPerTrack="eventBestPerTrack"
+            :showBestPerTrack="showPoints"
+            @newindex="eventTrackNewIndex($event)"
+            @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
+            @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
+            @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray, $event.e);"
+            @up="eventMove('up', $event.itrackset);"
+            @down="eventMove('down', $event.itrackset);"
+            @delete="eventDeleteTrackset($event.itrackset);"
+          />
+          <div v-if="event.canViewEvent && !eventBlockAddTrackset && (event.resolvedTrackset || []).length < 6 && user && user.mod" class="Event_NewTracksetBox">
+            <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
+              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+              <span>{{ $t("m_trackset") }}</span>
+            </button>
+          </div>
+
+          <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
+          <div class="Cg_Box" style="margin-top: 15px;">
+            <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
+              <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
+                <template v-for="(car, icar) in group">
+                  <BaseButtonTouch
+                    :disabled="eventLoadingAny"
+                    :class="{
+                      Event_BankReference: eventPointsReference[igroup].icar === icar,
+                      Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
+                      Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
+                    }"
+                    :style="`--cor: ${ car.color }`"
+                    :key="`${car.rid}${car.tune}${icar}`"
+                    class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
+                    style="will-change: opacity, transform;"
+                    @longTouch="eventTogglePick(car, $event)"
+                    @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
+                    @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
+                    @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
+                    <div class="Cg_BankPhoto Event_BankPhoto">
+                      <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
+                    </div>
+                    <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
+                    <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
+                    <div class="Cg_BankTune">{{ car.tune }}</div>
+                    <!-- <div class="Cg_BankResult">
+                      <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
+                    </div> -->
+                    <template v-if="car[eventScoreType] === undefined">
+                      <div v-if="!showPoints || (icar === 0 && eventPointsReference[igroup].icar === undefined) || eventPointsReference[igroup].icar === icar" class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
+                        <span class="">{{ car.timeToPrint }}</span>
+                      </div>
+                      <div
+                        v-else-if="car.points !== undefined && car.points !== null"
+                        :class="{ 
+                          Cg_PointsRed: car.points.v < 0,
+                          Cg_PointsGreen: car.points.v > 0,
+                          Cg_PointsGrey: car.points.v === 0
+                        }"
+                        class="Cg_BankResult Event_BankTime">
+                        <span class="Cg_BankPoints">{{ car.points.v }}</span>
+                      </div>
+                    </template>
+                    <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
+                      <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
+                    </div>
+                    
+                  </BaseButtonTouch>
+                </template>
+                <!-- <button
+                  v-if="user && user.mod"
+                  :disabled="eventLoadingAny"
+                  class="D_Button Main_AddTrackDirect"
+                  @click="eventAddCar(igroup);">
+                  <i class="ticon-plus_2" aria-hidden="true"/>
+                </button> -->
+              </div>
+            </div>
+          </div>
+
+          <div
+            v-if="event.compilation && event.compilation.length && (!whatTier || whatTier > 3)"
+            style="margin: 20px auto; max-width: 500px;"
+            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+            <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
+          </div>
+
+          <div
+            v-if="event.hidden"
+            style="margin: 20px auto; max-width: 500px;"
+            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+            <span>{{ $t("p_eventHiddenForPatreons") }}</span>
+          </div>
+
+          <div
+            v-if="!user && !event.hidden"
+            style="margin: 20px auto; max-width: 500px;"
+            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+            <span>{{ $t("p_eventsKingLogin") }}</span>
+          </div>
+
+          <!-- <div v-if="eventPicksList.length > 0" class="Event_PicksManage">
+            <div v-for="pick in eventPicksList" class="Main_EventPick Cg_BankButton Event_BankButton">
+              <div class="Cg_BankPhoto Event_BankPhoto">
+                <img :src="pick.photo" class="Cg_BankPhotoImg" alt="">
+              </div>
+              <div :style="`color: ${ pick.color }`" class="Event_BankClass">{{ (pick.car || {}).class }}{{ (pick.car || {}).rq }}</div>
+              <div class="Cg_BankTune" :style="`--cor: ${ pick.color }`">{{ pick.tune }}</div>
+              <button class="D_Button D_ButtonDark D_ButtonDark2 Event_PickRemoveButton" @click="eventRemovePick(pick)">
+                <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
               </button>
             </div>
+          </div> -->
 
-            <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-            <div class="Cg_Box" style="margin-top: 15px;">
-              <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
-                <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
-                  <template v-for="(car, icar) in group">
-                    <BaseButtonTouch
-                      :disabled="eventLoadingAny"
-                      :class="{
-                        Event_BankReference: eventPointsReference[igroup].icar === icar,
-                        Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
-                        Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
-                      }"
-                      :style="`--cor: ${ car.color }`"
-                      :key="`${car.rid}${car.tune}${icar}`"
-                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                      style="will-change: opacity, transform;"
-                      @longTouch="eventTogglePick(car, $event)"
-                      @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
-                      @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
-                      @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
-                      <div class="Cg_BankPhoto Event_BankPhoto">
-                        <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
-                      </div>
-                      <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
-                      <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                      <div class="Cg_BankTune">{{ car.tune }}</div>
-                      <!-- <div class="Cg_BankResult">
-                        <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
-                      </div> -->
-                      <template v-if="car[eventScoreType] === undefined">
-                        <div v-if="!showPoints || (icar === 0 && eventPointsReference[igroup].icar === undefined) || eventPointsReference[igroup].icar === icar" class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
-                          <span class="">{{ car.timeToPrint }}</span>
-                        </div>
-                        <div
-                          v-else-if="car.points !== undefined && car.points !== null"
-                          :class="{ 
-                            Cg_PointsRed: car.points.v < 0,
-                            Cg_PointsGreen: car.points.v > 0,
-                            Cg_PointsGrey: car.points.v === 0
-                          }"
-                          class="Cg_BankResult Event_BankTime">
-                          <span class="Cg_BankPoints">{{ car.points.v }}</span>
-                        </div>
-                      </template>
-                      <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
-                        <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
-                      </div>
-                      
-                    </BaseButtonTouch>
-                  </template>
-                  <!-- <button
-                    v-if="user && user.mod"
-                    :disabled="eventLoadingAny"
-                    class="D_Button Main_AddTrackDirect"
-                    @click="eventAddCar(igroup);">
-                    <i class="ticon-plus_2" aria-hidden="true"/>
-                  </button> -->
-                </div>
-              </div>
-            </div>
+          <!-- <div v-if="eventPicksList.length > 0" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <BaseCheckBox v-model="eventEnablePicks" :label="$t('m_enablePicks')"/>
+          </div> -->
 
-            <div
-              v-if="event.compilation && event.compilation.length && (!whatTier || whatTier > 3)"
-              style="margin: 20px auto; max-width: 500px;"
-              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-              <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
-            </div>
+          <!-- <div v-if="user && user.username === 'TiagoXavi' && eventForceAnalyze" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <template v-for="(type, ix) in eventScoreList">
+              <BaseChip
+                v-model="eventScoreType"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                required="true"
+                :value="type"
+                @click="eventAnalyse(false)" />
+            </template>
+          </div> -->
 
-            <div
-              v-if="event.hidden"
-              style="margin: 20px auto; max-width: 500px;"
-              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-              <span>{{ $t("p_eventHiddenForPatreons") }}</span>
-            </div>
+          <BasePrizeBoard v-if="event.canViewEvent" :id="event.date" />
 
-            <div
-              v-if="!user && !event.hidden"
-              style="margin: 20px auto; max-width: 500px;"
-              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-              <span>{{ $t("p_eventsKingLogin") }}</span>
-            </div>
+          <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <button
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
+            <button
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventExportCriteriaToPacks()">{{ $t("m_eventPack") }}</button>
+            <button
+              v-if="eventPicksList.length > 0"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
+            <button
+              v-if="user && user.mod && eventCurrentIsHidden"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="eventSetVisible()">Set visible</button>
+            <BaseSwitch v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
+            <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
+          </div>
 
-            <!-- <div v-if="eventPicksList.length > 0" class="Event_PicksManage">
-              <div v-for="pick in eventPicksList" class="Main_EventPick Cg_BankButton Event_BankButton">
-                <div class="Cg_BankPhoto Event_BankPhoto">
-                  <img :src="pick.photo" class="Cg_BankPhotoImg" alt="">
-                </div>
-                <div :style="`color: ${ pick.color }`" class="Event_BankClass">{{ (pick.car || {}).class }}{{ (pick.car || {}).rq }}</div>
-                <div class="Cg_BankTune" :style="`--cor: ${ pick.color }`">{{ pick.tune }}</div>
-                <button class="D_Button D_ButtonDark D_ButtonDark2 Event_PickRemoveButton" @click="eventRemovePick(pick)">
-                  <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-                </button>
-              </div>
-            </div> -->
+          <div v-if="user && user.mod && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <template v-for="(icon, ix) in clubsIconsList">
+              <BaseChip
+                v-model="event.icons"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                :value="icon">
+                <BaseIconSvg :type="icon" :useMargin="false" />
+              </BaseChip>
+            </template>
+          </div>
 
-            <div v-if="eventPicksList.length > 0" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <BaseCheckBox v-model="eventEnablePicks" :label="$t('m_enablePicks')"/>
-            </div>
-
-            <div v-if="user && user.username === 'TiagoXavi' && eventForceAnalyze" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <template v-for="(type, ix) in eventScoreList">
-                <BaseChip
-                  v-model="eventScoreType"
-                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
-                  required="true"
-                  :value="type"
-                  @click="eventAnalyse(false)" />
-              </template>
-            </div>
-
-            <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <button
-                :class="{ D_Button_Loading: eventLoadingAny }"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
-              <button
-                v-if="eventPicksList.length > 0"
-                :class="{ D_Button_Loading: eventLoadingAny }"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
-              <button
-                v-if="user && user.mod && eventCurrentIsHidden"
-                :class="{ D_Button_Loading: eventLoadingAny }"
-                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-                @click="eventSetVisible()">Set visible</button>
-            </div>
-
-          </template>
         </template>
         <div v-else-if="eventLoading" class="Cg_MidLoading">
           <BaseContentLoader
@@ -1075,10 +1092,11 @@
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_events") }}</div>
             <template v-for="item in eventList">
               <button
-                style="padding-left: 15px;"
+                style="padding-left: 15px; padding-right: 15px;"
                 class="Main_SearchItem"
                 @click="loadEventFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
+                <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
               </button>
             </template>
           </div>
@@ -2554,7 +2572,7 @@
       :active="eventSelectorDialog"
       :transparent="true"
       :lazy="true"
-      max-width="460px"
+      max-width="500px"
       min-width="240px"
       class="Cg_SelectorDialog"
       @close="eventSelectorDialog = false;">
@@ -2573,11 +2591,12 @@
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in eventList">
             <BaseButtonTouch
-              style="padding-left: 15px;"
+              style="padding-left: 15px; padding-right: 15px;"
               class="Main_SearchItem"
               @click="loadEventFull(item.date, $event)"
               @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
+              <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
             </BaseButtonTouch>
           </template>
         </div>
@@ -2932,6 +2951,7 @@ import BaseCorner from './BaseCorner.vue'
 import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
 import BaseReviewList from './BaseReviewList.vue'
+import BasePrizeBoard from './BasePrizeBoard.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -2970,7 +2990,8 @@ export default {
     BaseSwitch,
     BaseReviewList,
     BaseIconSvg,
-    BaseMemoryDialog
+    BaseMemoryDialog,
+    BasePrizeBoard
   },
   props: {
     phantomCar: {
@@ -3136,6 +3157,7 @@ export default {
       eventRqEditDialog: false,
       eventRqEditModel: null,
       eventRqEditString: null,
+      eventIcons: null,
       eventRequirementsDialog: false,
       eventRequirementsDialogLoad: false,
       eventKingDialog: false,
@@ -3202,10 +3224,11 @@ export default {
       clubRequirementsDialog: false,
       clubRequirementsDialogLoad: false,
       clubsIconsList: [
-        'roll',
-        'rain',
-        'sun',
         'asphalt',
+        'roll',
+        'clearance',
+        'sun',
+        'rain',
         'dirt',
         'grass',
         'gravel',
@@ -4058,26 +4081,23 @@ export default {
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
+      if (this.eventIcons !== JSON.stringify(this.event.icons)) return true;
       return false;
     },
     clubTrackNeedSave() {
       if (this.mode !== 'clubs') return false;
-      // if (!this.club.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (this.clubFirstLoading) return false;
-      // if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
       if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.trackset)) return true;
       if (this.clubCurrentCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) return true;
       if (this.clubCurrentTrackGroupuuid !== JSON.stringify(this.clubTracksGroupModel.trackGroupuuid)) return true;
       if (this.clubCurrentTracksetuuids !== JSON.stringify(this.clubTracksGroupModel.tracksetuuids)) return true;
       if (this.clubCurrentTracksetIcons !== JSON.stringify(this.clubTracksGroupModel.icons)) return true;
       if (this.clubCurrentName !== JSON.stringify(this.clubTracksGroupModel.name)) return true;
-      // if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
       return false;
     },
     clubReqNeedSave() {
       if (this.mode !== 'clubs') return false;
-      // if (!this.club.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (!this.clubReqsGroupModel.name) return false;
       if (this.clubFirstLoading) return false;
@@ -4091,18 +4111,12 @@ export default {
     },
     clubDayNeedSave() {
       if (this.mode !== 'clubs') return false;
-      // if (!this.club.date) return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
-      // console.log("1");
       if (this.clubFirstLoading) return false;
-      // if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
-      // if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
-      // console.log(this.clubDayCurrentTracksetStrig, JSON.stringify(this.clubDaySelectedObj.tracksetGroups));
       if (this.clubDayCurrentTracksetStrig !== JSON.stringify(this.clubDaySelectedObj.tracksetGroups)) return true;
       if (this.clubDayCurrentReqStrig !== JSON.stringify(this.clubDaySelectedObj.criterias)) return true;
       if (this.clubDayCurrentTrackUuidStrig !== JSON.stringify(this.clubDaySelectedObj.tracksUuid)) return true;
       if (this.clubDayCurrentReqUuidStrig !== JSON.stringify(this.clubDaySelectedObj.reqsUuid)) return true;
-      // if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
       return false;
     },
     clubArrayClubDays() {
@@ -7852,6 +7866,9 @@ export default {
       this.eventFilterForKing = {};
       this.eventLoadPicks();
       this.eventBlockAddTrackset = this.event.trackset.length > 1;
+      if (!this.event.icons) {
+        Vue.set(this.event, "icons", []);
+      }
       if (this.event.trackset.length === 0) {
         this.event.trackset.push([null,null,null,null,null])
       }
@@ -7887,6 +7904,7 @@ export default {
       this.eventTracksetString = JSON.stringify(this.event.trackset);
       this.eventCompString = JSON.stringify(this.event.comp);
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
+      this.eventIcons = JSON.stringify(this.event.icons);
 
 
       this.eventResolveTrackset();
@@ -7931,7 +7949,7 @@ export default {
         }
         if (x.hidden) {
           Vue.set(x, "index", 1);
-          styl = `<span class="Event_Hidden">${x.name} (preview)</span>`
+          styl = `<span class="Event_Hidden">${x.name}</span>`
         }
         Vue.set(x, "nameStyled", styl);
       })
@@ -8203,9 +8221,11 @@ export default {
       if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) params.trackset = this.event.trackset;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) params.comp = this.event.comp;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) params.rqLimit = this.event.rqLimit;
+      if (this.eventIcons !== JSON.stringify(this.event.icons)) params.icons = this.event.icons;
 
       axios.post(Vue.preUrl + "/updateEvent", params)
       .then(res => {
+        this.eventForceAnalyze = false;
         this.eventResetStringsToSave(true);
         this.saveLoading = false;
       })
@@ -8628,33 +8648,54 @@ export default {
         }, 250);
       }
     },
-    eventSetVisible() {
-      this.eventAnalyseLoading = true;
+    eventExportCriteriaToPacks() {
+      let filter;
+      let filterAtr = 'filter';
+      if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+      filter = this.event[filterAtr];
 
-      axios.post(Vue.preUrl + "/setEventVisible", {
-        date: this.event.date,
-        name: this.event.name,
-        hidden: false
-      })
-      .then(res => {
-        // nada
-        this.loadEvents(true);
-      })
-      .catch(error => {
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
+      this.$router.push({ name: "Packs", params: { filter } })
+    },
+    eventSetVisible() {
+      let vm = this;
+
+      let action = function() {
+        vm.eventAnalyseLoading = true;
+        vm.confirmDelete.loading = true;
+
+        axios.post(Vue.preUrl + "/setEventVisible", {
+          date: vm.event.date,
+          name: vm.event.name,
+          hidden: false
+        })
+        .then(res => {
+          vm.confirmDelete.dialog = false;
+          vm.loadEvents(true);
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.confirmDelete.loading = false;
+          vm.eventAnalyseLoading = false;
         });
-        if ((error.response || {}).status === 401) {
-          this.$store.commit('OPEN_LOGIN');
-        }
-      })
-      .then(() => {
-        this.eventAnalyseLoading = false;
-      });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Set '${vm.event.date}' visible?`,
+        actionLabel: `Set visible`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+
     },
     eventOpenShowCarDialog(car, e, igroup, icar) {
       if (e.altKey) {
@@ -8786,6 +8827,7 @@ export default {
       this.eventTracksetString = JSON.stringify(this.event.trackset);
       this.eventCompString = JSON.stringify(this.event.comp);
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
+      this.eventIcons = JSON.stringify(this.event.icons);
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
