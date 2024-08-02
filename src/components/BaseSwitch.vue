@@ -125,6 +125,6 @@ export default {
 
 .BaseSwitch_Input:checked + .BaseSwitch_Slider:before {
   transform: translateX(calc(var(--width) - var(--height)));
-  background-color: #396d00;
+  background-color: #294f00;
 }
 </style>
