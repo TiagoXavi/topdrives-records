@@ -7,8 +7,8 @@
 <script>
 import cars_final from '../database/cars_final.json' // internal
 try {
-  var hutch_v22_myCars = require('@/database/hutch_v22_myCars.json') // internal
-  var hutch_v22_amplitude = require('@/database/hutch_v22_amplitude.json') // internal
+  var hutch_v23_myCars = require('@/database/hutch_v23_myCars.json') // internal
+  var hutch_v23_amplitude = require('@/database/hutch_v23_amplitude.json') // internal
   
 } catch (error) {
 
@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       cars_final,
-      hutch_v22_myCars,
-      hutch_v22_amplitude
+      hutch_v23_myCars,
+      hutch_v23_amplitude
     }
   },
   watch: {},
@@ -40,7 +40,7 @@ export default {
 
     let newAmpObj = {};
     let newAmp = [];
-    this.hutch_v22_amplitude.map(amp => {
+    this.hutch_v23_amplitude.map(amp => {
       if (!newAmpObj[amp.Card_GUID]) {
         newAmpObj[amp.Card_GUID] = amp;
       }
@@ -51,9 +51,20 @@ export default {
     // console.log(newAmp);
     // debugger;
 
-    this.hutch_v22_amplitude.map(amp => {
-      this.hutch_v22_myCars.find(car => {
-        if (amp.CardType === car.name) {
+    this.hutch_v23_amplitude.map(amp => {
+      this.hutch_v23_myCars.find(car => {
+
+        let ampString = amp.CardType.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        ampString = ampString.replace("fiat ", "");
+        ampString = ampString.replace("abarth ", "");
+        ampString = ampString.replace("renault sport ", "renault ");
+
+        let carNameString = car.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        carNameString = carNameString.replace("fiat ", "");
+        carNameString = carNameString.replace("abarth ", "");
+        carNameString = carNameString.replace("renault sport ", "renault ");
+
+        if (ampString === carNameString) {
           if ( car.class === this.numberToClass(amp.CardTier) ) {
             if (car.guid) return true;
             car.guid = amp.Card_GUID;
@@ -63,7 +74,7 @@ export default {
       })
     })
 
-    this.hutch_v22_myCars.map(car => {
+    this.hutch_v23_myCars.map(car => {
       if (!car.guid) {
         console.log(car.name);
       }

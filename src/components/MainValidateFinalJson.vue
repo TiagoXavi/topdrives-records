@@ -51,8 +51,11 @@ export default {
         return b.rq - a.rq;
       }
     })
-    let _this = this.$refs.validateFilter.$data;
 
+
+
+
+    let _this = this.$refs.validateFilter.$data;
     let dontHaveBreak = [];
 
     this.cars_final.map(x => {
@@ -142,34 +145,82 @@ export default {
       }
     })
 
-    dontHaveBreak.sort((a,b) => {
-      return b.acel - a.acel;
-    })
+    // dontHaveBreak.sort((a,b) => {
+    //   return b.acel - a.acel;
+    // })
 
-    console.log(dontHaveBreak);
+    // console.log(dontHaveBreak);
 
-    let link = "https://www.topdrivesrecords.com?share=~Kdrag100_a00~Kdrag100b_a00";
-    let linkTemp = link;
-    let currentNum = 0;
-    dontHaveBreak.map((x, ix) => {
-      if (Math.floor(ix / 25) <= currentNum) {
-        linkTemp += `~C${x.rid}`;
-      } else {
-        console.log(linkTemp);
-        currentNum = Math.floor(ix / 25);
-        linkTemp = link;
-        linkTemp += `~C${x.rid}`;
-      }
-      if (ix === dontHaveBreak.length - 1) {
-        console.log(linkTemp);
-      }
-    })
+    // let link = "https://www.topdrivesrecords.com?share=~Kdrag100_a00~Kdrag100b_a00";
+    // let linkTemp = link;
+    // let currentNum = 0;
+    // dontHaveBreak.map((x, ix) => {
+    //   if (Math.floor(ix / 25) <= currentNum) {
+    //     linkTemp += `~C${x.rid}`;
+    //   } else {
+    //     console.log(linkTemp);
+    //     currentNum = Math.floor(ix / 25);
+    //     linkTemp = link;
+    //     linkTemp += `~C${x.rid}`;
+    //   }
+    //   if (ix === dontHaveBreak.length - 1) {
+    //     console.log(linkTemp);
+    //   }
+    // })
 
     // console.log(link);
 
 
+    let keysOrder = [
+      "class",
+      "rq",
+      "onlyName",
+      "brand",
+      "year",
+      "tdid",
+      "abs",
+      "tcs",
+      "clearance",
+      "country",
+      "topSpeed",
+      "acel",
+      "hand",
+      "drive",
+      "tyres",
+      "mra",
+      "weight",
+      "name",
+      "rid",
+      "prize",
+      "bodyTypes",
+      "fuel",
+      "seats",
+      "engine",
+      "tags",
+      "photoId",
+      "photoOrig",
+      "guid",
+      "brake"
+    ]
+    let carsFinalOrdered = [];
+    this.cars_final.map(car => {
+      var carKeysOrdered = Object.keys(car)
+      .sort((a,b) => {
+        return keysOrder.indexOf(a) - keysOrder.indexOf(b);
+      })
+      .reduce(
+        (obj, key) => { 
+          obj[key] = car[key]; 
+          return obj;
+        }, 
+        {}
+      );
+      carsFinalOrdered.push(carKeysOrdered);
+    })
+    
 
-    console.log(this.cars_final);
+
+    console.log(carsFinalOrdered);
     debugger;
     // navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },

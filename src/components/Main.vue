@@ -1095,7 +1095,7 @@
                 style="padding-left: 15px; padding-right: 15px;"
                 class="Main_SearchItem"
                 @click="loadEventFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
+                <div v-html="item.nameStyled" class="Main_SearchItemRight Main_SearchItemRightEvents" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
                 <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
               </button>
             </template>
@@ -2595,7 +2595,7 @@
               class="Main_SearchItem"
               @click="loadEventFull(item.date, $event)"
               @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
+              <div v-html="item.nameStyled" class="Main_SearchItemRight Main_SearchItemRightEvents" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
               <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
             </BaseButtonTouch>
           </template>

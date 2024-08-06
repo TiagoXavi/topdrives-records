@@ -1332,6 +1332,8 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2; 
   -webkit-box-orient: vertical;
+}
+.Main_SearchItemRightEvents {
   margin-right: 5px;
   flex-grow: 1;
 }
