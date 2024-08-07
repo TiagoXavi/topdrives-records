@@ -1,16 +1,16 @@
 <template>
-  <div class="MainStuff_PrizeCardsBox">
+  <div class="BasePrizeBoard_PrizeCardsBox">
     <template v-for="(card, iCard) in prizeboard">
-      <div v-if="prizeSelectorCard === iCard" class="MainStuff_PrizeSelectorBack" @click="prizeSelectorCard = null;" />
+      <div v-if="prizeSelectorCard === iCard" class="BasePrizeBoard_PrizeSelectorBack" @click="prizeSelectorCard = null;" />
       <div
         v-if="iCard !== 0"
-        :class="{ MainStuff_PrizeCard_Active: prizeSelectorCard === iCard }"
-        class="MainStuff_PrizeCard">
+        :class="{ BasePrizeBoard_PrizeCard_Active: prizeSelectorCard === iCard }"
+        class="BasePrizeBoard_PrizeCard">
         <button
-          class="D_Button MainStuff_PrizeCardButton"
+          class="D_Button BasePrizeBoard_PrizeCardButton"
           @click="prizeSelectorCard = iCard;">
-          <div v-if="card === null" class="MainStuff_PrizeBlank">
-            <svg class="MainStuff_PrizeBlankSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          <div v-if="card === null" class="BasePrizeBoard_PrizeBlank">
+            <svg class="BasePrizeBoard_PrizeBlankSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 200 120" style="enable-background:new 0 0 200 120;" xml:space="preserve" preserveAspectRatio="none">
               <rect style="fill:#555;" width="200" height="120"/>
               <g>
@@ -30,26 +30,26 @@
               <line style="fill:none;stroke:#EF5A20;stroke-width:7;stroke-miterlimit:10;" x1="0" y1="120" x2="200" y2="120"/>
             </svg>
           </div>
-          <div v-if="card === 'gold'" class="MainStuff_PrizeGold MainStuff_PrizeMoney" style="--classC: 251, 173, 20"><BaseIconSvg type="gold" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-          <div v-if="card === 'cash'" class="MainStuff_PrizeCash MainStuff_PrizeMoney" style="--classC: 55, 235, 172"><BaseIconSvg type="cash" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-          <div v-if="card === 'xp'" class="MainStuff_PrizeCash MainStuff_PrizeMoney" style="--classC: 21, 223, 255"><BaseIconSvg type="xp" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-          <div v-if="card === 'd'" class="MainStuff_PrizeD MainStuff_PrizeClass" style="--classC: 28, 204, 255"><div class="MainStuff_PrizeClassesIcon">D</div></div>
-          <div v-if="card === 'e'" class="MainStuff_PrizeE MainStuff_PrizeClass" style="--classC: 118, 242, 115"><div class="MainStuff_PrizeClassesIcon">E</div></div>
-          <div v-if="card === 'f'" class="MainStuff_PrizeF MainStuff_PrizeClass" style="--classC: 135, 135, 135"><div class="MainStuff_PrizeClassesIcon">F</div></div>
+          <div v-if="card === 'gold'" class="BasePrizeBoard_PrizeGold BasePrizeBoard_PrizeMoney" style="--classC: 251, 173, 20"><BaseIconSvg type="gold" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+          <div v-if="card === 'cash'" class="BasePrizeBoard_PrizeCash BasePrizeBoard_PrizeMoney" style="--classC: 55, 235, 172"><BaseIconSvg type="cash" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+          <div v-if="card === 'xp'" class="BasePrizeBoard_PrizeCash BasePrizeBoard_PrizeMoney" style="--classC: 21, 223, 255"><BaseIconSvg type="xp" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+          <div v-if="card === 'd'" class="BasePrizeBoard_PrizeD BasePrizeBoard_PrizeClass" style="--classC: 28, 204, 255"><div class="BasePrizeBoard_PrizeClassesIcon">D</div></div>
+          <div v-if="card === 'e'" class="BasePrizeBoard_PrizeE BasePrizeBoard_PrizeClass" style="--classC: 118, 242, 115"><div class="BasePrizeBoard_PrizeClassesIcon">E</div></div>
+          <div v-if="card === 'f'" class="BasePrizeBoard_PrizeF BasePrizeBoard_PrizeClass" style="--classC: 135, 135, 135"><div class="BasePrizeBoard_PrizeClassesIcon">F</div></div>
         </button>
         
-        <div v-if="prizeSelectorCard === iCard" class="MainStuff_PrizeSelector">
+        <div v-if="prizeSelectorCard === iCard" class="BasePrizeBoard_PrizeSelector">
           <button
             v-for="item in prizeTypes"
-            class="D_Button MainStuff_EditPrizeButton"
+            class="D_Button BasePrizeBoard_EditPrizeButton"
             @click="editPrizeBoard(iCard, item)">
-            <div v-if="item === 'gold'" class="MainStuff_PrizeGold MainStuff_PrizeMoney" style="--classC: 251, 173, 20; background-color: transparent;"><BaseIconSvg type="gold" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-            <div v-if="item === 'cash'" class="MainStuff_PrizeCash MainStuff_PrizeMoney" style="--classC: 55, 235, 172; background-color: transparent;"><BaseIconSvg type="cash" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-            <div v-if="item === 'xp'" class="MainStuff_PrizeCash MainStuff_PrizeMoney" style="--classC: 21, 223, 255; background-color: transparent;"><BaseIconSvg type="xp" :useMargin="false" class="MainStuff_ClassesIcon" /></div>
-            <div v-if="item === 'd'" class="MainStuff_PrizeD" style="--classC: 28, 204, 255"><div class="MainStuff_PrizeClassesIcon">D</div></div>
-            <div v-if="item === 'e'" class="MainStuff_PrizeE" style="--classC: 118, 242, 115"><div class="MainStuff_PrizeClassesIcon">E</div></div>
-            <div v-if="item === 'f'" class="MainStuff_PrizeF" style="--classC: 135, 135, 135"><div class="MainStuff_PrizeClassesIcon">F</div></div>
-            <div v-if="item === null" class="MainStuff_PrizeD" style="--classC: 28, 204, 255"><i class="ticon-close_3 MainStuff_PrizeClose" aria-hidden="true"/></div>
+            <div v-if="item === 'gold'" class="BasePrizeBoard_PrizeGold BasePrizeBoard_PrizeMoney" style="--classC: 251, 173, 20; background-color: transparent;"><BaseIconSvg type="gold" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+            <div v-if="item === 'cash'" class="BasePrizeBoard_PrizeCash BasePrizeBoard_PrizeMoney" style="--classC: 55, 235, 172; background-color: transparent;"><BaseIconSvg type="cash" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+            <div v-if="item === 'xp'" class="BasePrizeBoard_PrizeCash BasePrizeBoard_PrizeMoney" style="--classC: 21, 223, 255; background-color: transparent;"><BaseIconSvg type="xp" :useMargin="false" class="BasePrizeBoard_ClassesIcon" /></div>
+            <div v-if="item === 'd'" class="BasePrizeBoard_PrizeD" style="--classC: 28, 204, 255"><div class="BasePrizeBoard_PrizeClassesIcon">D</div></div>
+            <div v-if="item === 'e'" class="BasePrizeBoard_PrizeE" style="--classC: 118, 242, 115"><div class="BasePrizeBoard_PrizeClassesIcon">E</div></div>
+            <div v-if="item === 'f'" class="BasePrizeBoard_PrizeF" style="--classC: 135, 135, 135"><div class="BasePrizeBoard_PrizeClassesIcon">F</div></div>
+            <div v-if="item === null" class="BasePrizeBoard_PrizeD" style="--classC: 28, 204, 255"><i class="ticon-close_3 BasePrizeBoard_PrizeClose" aria-hidden="true"/></div>
           </button>
         </div>
       </div>
@@ -131,12 +131,12 @@ export default {
 </script>
 
 <style>
-.MainStuff_PrizeBoardsBox {
+.BasePrizeBoard_PrizeBoardsBox {
   margin: 0 auto;
   max-width: 500px;
   margin-bottom: 15px;
 }
-.MainStuff_PrizeCardsBox {
+.BasePrizeBoard_PrizeCardsBox {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(5, 1fr);
@@ -144,23 +144,23 @@ export default {
   max-width: 450px;
   margin: 20px auto 35px auto;
 }
-.MainStuff_PrizeCard {
+.BasePrizeBoard_PrizeCard {
   position: relative;
   height: 50px;
 }
-.MainStuff_PrizeCard_Active {
+.BasePrizeBoard_PrizeCard_Active {
   z-index: 2;
 }
-.MainStuff_PrizeBlank {
+.BasePrizeBoard_PrizeBlank {
   width: 100%;
   height: 100%;
 }
-.MainStuff_PrizeCardButton {
+.BasePrizeBoard_PrizeCardButton {
   height: 100%;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
 }
-.MainStuff_PrizeSelector {
+.BasePrizeBoard_PrizeSelector {
   position: absolute;
   height: 200%;
   width: 200%;
@@ -174,7 +174,7 @@ export default {
   justify-content: center;
   align-content: center;
 }
-.MainStuff_PrizeSelectorBack {
+.BasePrizeBoard_PrizeSelectorBack {
   position: absolute;
   height: 96vh;
   width: 96vw;
@@ -182,10 +182,10 @@ export default {
   left: 0;
   background-color: transparent;
 }
-.MainStuff_EditPrizeButton {
+.BasePrizeBoard_EditPrizeButton {
   
 }
-.MainStuff_PrizeClassesIcon {
+.BasePrizeBoard_PrizeClassesIcon {
   text-align: center;
   font-size: 1.2em;
   transform: skewY(9deg);
@@ -197,13 +197,13 @@ export default {
   border-radius: 2px;
   opacity: 0.9;
 }
-.MainStuff_PrizeBlankSvg {
+.BasePrizeBoard_PrizeBlankSvg {
   width: 100%;
   height: 100%;
   border-radius: 6px;
 }
-.MainStuff_PrizeMoney,
-.MainStuff_PrizeClass {
+.BasePrizeBoard_PrizeMoney,
+.BasePrizeBoard_PrizeClass {
   width: 100%;
   height: 100%;
   display: flex;
@@ -212,16 +212,19 @@ export default {
   background-color: rgb(var(--classC), 0.1);
   border-radius: 6px;
 }
-.MainStuff_PrizeClass {
+.BasePrizeBoard_PrizeClass {
   /* width: 20%;
   height: 46%; */
   background-color: rgb(var(--classC), 0.1);
   border-radius: 6px;
 }
-.MainStuff_ClassesIcon {
+.BasePrizeBoard_ClassesIcon {
   width: 30px;
 }
-.MainStuff_PrizeClose {
+.BasePrizeBoard_ClassesIcon svg {
+  width: 100%;
+}
+.BasePrizeBoard_PrizeClose {
   font-size: 23px;
   color: #a00;
 }

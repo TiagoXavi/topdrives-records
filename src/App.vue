@@ -390,6 +390,7 @@ body {
   width: 100%;
   width: min-content;
   height: 100%;
+  width: 100%;
 }
 .App_SnackLayout {
   position: fixed;

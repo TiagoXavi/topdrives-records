@@ -174,8 +174,6 @@ export default {
     let vm = this;
     this.checkNewMenu();
 
-    // let top_layout = document.querySelector(".BaseTopMenu_Layout");
-    // this.left_width = (document.querySelector(".BaseTopMenu_Left") || {}).offsetWidth;
     this.left_width = 55;
     this.right_width = 55;
     let menusTotal = 0;
@@ -230,19 +228,7 @@ export default {
         }
       }
     `
-    // css += `
-      
-    //   @media only screen and (max-width: ${this.left_widthBig + menusTotal + this.right_width + this.safe_margin}px) {
-    //     .BaseTopMenu_LogoFull {
-    //       display: none;
-    //     }
-    //   }
-    //   @media only screen and (min-width: ${this.left_widthBig + menusTotal + this.right_width + this.safe_margin + 1}px) {
-    //     .BaseTopMenu_LogoCompact {
-    //       display: none;
-    //     }
-    //   }
-    // `
+    
     let head = document.head;
     let style = document.createElement('style');
     head.appendChild(style);
@@ -252,9 +238,11 @@ export default {
 
       if (mutation.type == "CHANGE_ZOOM_LEVEL") {
         vm.local_zoomLevel = mutation.payload;
+        this.resolveWBody();
       }
       if (mutation.type == "CHANGE_ZOOM_LEVEL_HORIZONTAL") {
         vm.local_zoomLevelHorizontal = mutation.payload;
+        this.resolveWBody();
       }
 
     })
@@ -330,12 +318,24 @@ export default {
   },
   methods: {
     handleResize() {
+      this.resolveWBody();
+      this.checkZoom();
+
+      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) {
+        setTimeout(() => {
+          this.resolveWBody();
+          this.checkZoom();
+        }, 10);
+      }
+    },
+    resolveWBody() {
       let wBody = document.documentElement.offsetWidth;
       document.documentElement.style.setProperty('--wBody', `${wBody}px`);
       let hBody = document.documentElement.offsetHeight;
       document.documentElement.style.setProperty('--hBody', `${hBody}px`);
 
-      this.checkZoom();
+      
     },
     logoClick() {
       if (this.$route.name !== 'Records') {

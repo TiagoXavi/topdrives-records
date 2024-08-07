@@ -887,6 +887,9 @@
 
         </div>
       </div>
+      <div>{{ this.eventFilterToSave }}</div>
+      <div>{{ this.eventFilterToSave2 }}</div>
+      <div>{{ this.eventFilterToSave3 }}</div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="event.date">
 
@@ -8265,10 +8268,10 @@ export default {
       this.eventRequirementsDialog = false;
       this.clubRequirementsDialog = false;
     },
-    eventClearFilterUpdate(filter, filterNumber = 0) {
+    eventClearFilterUpdate(clearedFilter, filterNumber = 0) {
       let key = this.isEvents ? 'eventFilterToSave' : 'clubCurrentFilterToSave';
       if (filterNumber) key = key + (filterNumber+1);
-      this[key] = filter;
+      this[key] = clearedFilter;
     },
     eventFilterAddDual() {
       let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
@@ -8512,7 +8515,14 @@ export default {
     eventRenameFilter(event) {
       let n = event.n;
       Vue.set(this.event[`filter${n+1 > 1 ? n+1 : ''}`], "name", event.newName);
-      this.eventClearFilterUpdate(this.event[`filter${n+1 > 1 ? n+1 : ''}`], n);
+      
+      let currentClearedFilter = this.eventRetrieveCurrentClearedFilter(n);
+      Vue.set(currentClearedFilter, "name", event.newName);
+    },
+    eventRetrieveCurrentClearedFilter(filterNumber) {
+      let key = this.isEvents ? 'eventFilterToSave' : 'clubCurrentFilterToSave';
+      if (filterNumber) key = key + (filterNumber+1);
+      return this[key];
     },
     eventAnalyse(disableAfter = true) {
       // RQ savers, unreleased
@@ -10138,7 +10148,9 @@ export default {
     clubRenameFilter(event) {
       let n = event.n;
       Vue.set(this.clubReqsGroupModel[`filter${n+1 > 1 ? n+1 : ''}`], "name", event.newName);
-      this.eventClearFilterUpdate(this.clubReqsGroupModel[`filter${n+1 > 1 ? n+1 : ''}`], n);
+      
+      let currentClearedFilter = this.eventRetrieveCurrentClearedFilter(n);
+      Vue.set(currentClearedFilter, "name", event.newName);
     },
     clubSaveOriginalOrder() {
       this.clubTracksGroupModel.tracksetOriginal = JSON.parse(JSON.stringify(this.clubTracksGroupModel.trackset));
