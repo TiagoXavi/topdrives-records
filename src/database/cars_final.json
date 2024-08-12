@@ -35917,7 +35917,7 @@
             "Trading Paint"
         ],
         "guid": "af4dca9e-045d-4c34-bb00-fa50b9aea6c8",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -76134,7 +76134,7 @@
         "clearance": "Low",
         "country": "IT",
         "topSpeed": 162,
-        "acel": 5.1,
+        "acel": 5.3,
         "hand": 79,
         "drive": "RWD",
         "tyres": "Performance",

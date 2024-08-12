@@ -887,9 +887,6 @@
 
         </div>
       </div>
-      <div>{{ this.eventFilterToSave }}</div>
-      <div>{{ this.eventFilterToSave2 }}</div>
-      <div>{{ this.eventFilterToSave3 }}</div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="event.date">
 
@@ -5478,6 +5475,11 @@ export default {
         this.updateCarLocalStorage();
 
       }
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
+      });
 
     },
     finalizeUrl(url) {
