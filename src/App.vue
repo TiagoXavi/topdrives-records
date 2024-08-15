@@ -2625,6 +2625,7 @@ body .Main_UserTw3:before {
   gap: 10px;
   margin-bottom: 15px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .Cg_RoundEmptyBox + .Cg_BottomModTools {
   margin-top: 15px;

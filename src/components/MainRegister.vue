@@ -91,6 +91,7 @@ export default {
   },
   methods: {
     validate() {
+      this.email = this.email.trim();
       var checkEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
       if (!checkEmail.test(this.email)) {
         this.putError("Invalid email");

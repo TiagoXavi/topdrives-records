@@ -6,18 +6,21 @@
     }"
     class="BaseText_Layout">
     <div v-if="label" class="BaseText_Label">{{ label }}</div>
-    <input
-      v-model="internalValue"
-      :disabled="disabled"
-      :placeholder="placeholder"
-      :type="intype"
-      :id="iid"
-      class="BaseText_Input"
-      @keyup.enter.stop="$emit('enter')"
-      @input="instantModel ? resolveChange($event.target.value) : ''"
-      @change="!instantModel ? resolveChange($event.target.value) : ''"
-      @blur="$emit('blur')"
-      @paste="$emit('paste', $event)">
+    <div class="BaseText_InputContainer">
+      <input
+        v-model="internalValue"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        :type="intype"
+        :id="iid"
+        class="BaseText_Input"
+        @keyup.enter.stop="$emit('enter')"
+        @input="instantModel ? resolveChange($event.target.value) : ''; inputed($event.target.value);"
+        @change="!instantModel ? resolveChange($event.target.value) : ''"
+        @blur="$emit('blur')"
+        @paste="$emit('paste', $event)">
+      <span v-if="suffix && showSuffix" :style="`--left: ${left}px`" class="BaseText_Suffix">{{ suffix }}</span>
+    </div>
     <div v-if="disabled" class="BaseText_Lock">
       <i class="ticon-lock BaseText_LockIcon" aria-hidden="true"/>
     </div>
@@ -71,22 +74,29 @@ export default {
     acel: {
       required: false
     },
+    suffix: {
+      required: false
+    },
   },
   data() {
     return {
       internalValue: null,
       pis: false,
       correct: false,
-      clearTm: null
+      clearTm: null,
+      left: 0,
+      showSuffix: false
     }
   },
   watch: {
     value(newValue) {
       this.internalValue = newValue;
+      this.inputed(newValue);
     }
   },
   beforeMount() {
     this.internalValue = this.value;
+    this.inputed(this.value);
   },
   mounted() {},
   computed: {},
@@ -96,6 +106,7 @@ export default {
 
       if (this.type === "normal") {
         this.internalValue = e;
+        this.inputed(e);
         this.$emit('change', e);
       } else {
         if (typeof e === "string") {
@@ -115,6 +126,7 @@ export default {
             let timeNumber = Vue.options.filters.toTimeNumber(e);
             let calcMra = Vue.options.filters.mra(timeNumber, this.acel);
             this.internalValue = calcMra;
+            this.inputed(e);
             this.$emit('change', calcMra);
             this.correct = true;
             this.clearTm = setTimeout(() => {
@@ -129,12 +141,14 @@ export default {
               (this.type === "hand" && isTopHand) ||
               (this.type === "integer" && isInteger) ||
               (this.type === "tune" && isTune) ||
-              (this.type === "mra" && isMra)
+              (this.type === "mra" && isMra) ||
+              (this.type === "acelSoft" && (isAcel || isInteger))
             ) {
             if (this.type === "acel" && e === "0") {
               e = "N/A"
             }
             this.internalValue = e;
+            this.inputed(e);
             this.$emit('change', e);
             this.correct = true;
             this.clearTm = setTimeout(() => {
@@ -145,12 +159,30 @@ export default {
         }
   
         this.internalValue = '';
+        this.inputed(e);
         this.$emit('change', '');
         this.pis = true;
         this.clearTm = setTimeout(() => {
           this.pis = false;
         }, 700);
       }
+    },
+    inputed(value) {
+      if (!this.suffix) return;
+      if (this.internalValue === '') {
+        this.showSuffix = false;
+        return;
+      }
+
+      this.left = this.getTextWidth(value, '18px arial');
+      this.showSuffix = true;
+    },
+    getTextWidth(text, font) {
+      var canvas = this.getTextWidth.canvas || (this.getTextWidth.canvas = document.createElement("canvas"));
+      var context = canvas.getContext("2d");
+      context.font = font;
+      var metrics = context.measureText(text);
+      return metrics.width;
     }
   },
 }
@@ -222,5 +254,19 @@ export default {
 .BaseText_Big .BaseText_Input {
   font-size: 18px;
   padding: 10px 6px;
+}
+.BaseText_InputContainer {
+  position: relative;
+}
+.BaseText_Suffix {
+  position: absolute;
+  --left: 0;
+  left: var(--left);
+  top: 11px;
+  color: #555;
+  padding-left: 9px;
+  font: inherit;
+  user-select: none;
+  pointer-events: none;
 }
 </style>

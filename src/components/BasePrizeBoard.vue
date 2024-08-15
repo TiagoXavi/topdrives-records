@@ -75,7 +75,8 @@ export default {
     return {
       prizeboard: [],
       prizeSelectorCard: null,
-      prizeTypes: [null,"gold","cash","xp","d","e","f"]
+      prizeTypes: [null,"gold","cash","xp","d","e","f"],
+      unsubscribe: null,
     }
   },
   watch: {
@@ -89,7 +90,19 @@ export default {
   beforeMount() {
     this.loadPrizeBoardFromStorage();
   },
-  mounted() {},
+  mounted() {
+    let vm = this;
+    vm.unsubscribe = vm.$store.subscribe(mutation => {
+
+      if (mutation.type == "CLEAR_PRIZEBOARD") {
+        vm.createNew();
+      }
+
+    })
+  },
+  beforeDestroy() {
+    this.unsubscribe();
+  },
   computed: {
     iid() {
       return `${this.id}_pb`
@@ -103,6 +116,7 @@ export default {
       });
       this.prizeboard = b;
       this.updatePrizeBoardStorage();
+      this.$emit("hasLocal", false);
     },
     editPrizeBoard(cardIndex, type) {
       this.prizeboard[cardIndex] = type;
@@ -118,6 +132,20 @@ export default {
         storagePrizeBoard = JSON.parse(storagePrizeBoard);
         if (Array.isArray(storagePrizeBoard) && storagePrizeBoard.length > 0) {
           this.prizeboard = storagePrizeBoard;
+          
+          let isEmpty = true;
+          this.prizeboard.find(x => {
+            if (x !== null) {
+              isEmpty = false;
+              return true;
+            }
+          })
+          if (isEmpty) {
+            this.$emit("hasLocal", false);
+          } else {
+            this.$emit("hasLocal", true);
+          }
+
         }
       } else {
         this.createNew();

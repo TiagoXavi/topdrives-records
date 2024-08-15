@@ -223,6 +223,9 @@ export default {
   m_loadFile: "Load file",
   m_replace: "Replace",
   m_eventPack: "Event pack",
+  m_accelCurveMaker: "Acceleration Curve Maker",
+  m_speed: "Speed",
+  m_clearBoard: "Clear board",
 
   
   

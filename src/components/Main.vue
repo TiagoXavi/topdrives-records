@@ -1041,7 +1041,7 @@
             </template>
           </div> -->
 
-          <BasePrizeBoard v-if="event.canViewEvent" :id="event.date" />
+          <BasePrizeBoard v-if="event.canViewEvent" :id="event.date" @hasLocal="eventHasPrizeBoard = $event;" />
 
           <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
@@ -1057,6 +1057,11 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
+            <button
+              v-if="eventHasPrizeBoard"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventClearBoard()">{{ $t("m_clearBoard") }}</button>
             <button
               v-if="user && user.mod && eventCurrentIsHidden"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -3200,6 +3205,7 @@ export default {
       eventScoreList: ["saverScore1", "saverScore2", "saverScore3"],
       eventUseWhatFilter: 0,
       eventBestPerTrack: {},
+      eventHasPrizeBoard: false,
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -7769,16 +7775,20 @@ export default {
         this.eventList = this.eventList.filter(x => {
 
           if (x.name.includes("Daily Event")) {
-            if ((this.user && this.user.mod) || isTier) {
-              if (x.current) {
-                x.name = x.name + " (current)";
-              }
-            } else {
-              if (!x.current) {
-                return false;
-              }
+            if (x.currentEurope || x.currentAmerica || x.currentAsia) {
+              x.name += " (";
+              if (x.currentEurope) x.name += "EU, ";
+              if (x.currentAmerica) x.name += "US, ";
+              if (x.currentAsia) x.name += "AP, ";
+              console.log(x.name);
+              x.name = x.name.slice(0,-2);
+              x.name += ")";
+              return true;
             }
-            return true;
+            if ((this.user && this.user.mod) || isTier) {
+              return true;
+            }
+            return false;
           }
           // if (x.hidden) {
           //   if (this.whatTier && this.whatTier <= 3) {
@@ -7949,7 +7959,8 @@ export default {
         let styl = x.name;
         Vue.set(x, "index", 0);
         if (x.name.substr(0, 13) === 'Daily Event: ') {
-          Vue.set(x, "index", 2);
+          if (x.name.includes("(")) Vue.set(x, "index", 2);
+          else Vue.set(x, "index", 3);
           styl = `<span class="Event_Daily">Daily Event: </span>${x.name.substr(13)}`
         }
         if (x.hidden) {
@@ -8736,6 +8747,9 @@ export default {
       window.localStorage.setItem(`picks_${this.eventCurrentName}`, '[]');
       this.eventPointsReference = [{}, {}, {}, {}, {}];
       window.localStorage.setItem(`reference_${this.eventCurrentName}`, '[{}, {}, {}, {}, {}]');
+    },
+    eventClearBoard() {
+      this.$store.commit("CLEAR_PRIZEBOARD", {});
     },
     eventLoadPicks() {
       this.eventPicksList = [];

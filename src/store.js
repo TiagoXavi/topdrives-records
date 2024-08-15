@@ -89,6 +89,7 @@ export default new Vuex.Store({
       "Cutting Edge",
       "Desperados",
       "Famous Tracks",
+      "Gaz's Collection",
       "Heavy Metal",
       "Electric Excellence",
       "In the Shadows",
@@ -183,6 +184,7 @@ export default new Vuex.Store({
     PACKS_FILTER_IMPORT: (state, obj) => null,
     PACKS_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
+    CLEAR_PRIZEBOARD: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

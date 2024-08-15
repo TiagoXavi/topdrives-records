@@ -23,6 +23,7 @@ const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
 const MainPacks = () => import("./components/MainPacks.vue");
 const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
+const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -164,6 +165,11 @@ const routes = [
     path: '/codeutil',
     name: 'MainCodeUtility',
     component: MainCodeUtility,
+  },
+  {
+    path: '/accelMaker',
+    name: 'MainAccelCurveMaker',
+    component: MainAccelCurveMaker,
   },
   {
     path: '/BaseMergeDatabase', // internal

@@ -17,6 +17,7 @@ import Accessibility from "highcharts/modules/accessibility";
 // import drilldown from "highcharts/modules/drilldown";
 // import wordcloud from "highcharts/modules/wordcloud";
 // import Histogram from "highcharts/modules/histogram-bellcurve";
+import Stock from "highcharts/modules/stock";
 let uid = 0;
 
 export default {
@@ -68,6 +69,7 @@ export default {
     // Export(Highcharts);
     Dark(Highcharts);
     Accessibility(Highcharts);
+    Stock(Highcharts);
     // wordcloud(Highcharts);
     Highcharts.setOptions({
       lang: {
@@ -135,6 +137,7 @@ export default {
           // pointFormat: `RQ: {point.x}<br>Time: {point.y}`
           formatter: function () {
             if (this.point.className === 'Highcharts_HidePoint') return false;
+            if (!this.point.custom || this.point.custom.photo) return false;
 
             var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto">`+
             `<div><span style="color: ${this.point.custom.color}">RQ${this.point.y}</span>&nbsp;<span>${this.point.name}</span></div>`+

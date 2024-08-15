@@ -65,7 +65,10 @@
         :class="{ D_Button_Loading: chartLoading }"
         :disabled="chartLoading || !chartTrack"
         class="D_Button Main_SaveAllButton Main_ChartAnalyzeButton"
-        @click="chartAnalyse()">{{ $t("m_loadChart") }}</button>
+        @click="chartAnalyse()">
+        <span>{{ $t("m_loadChart") }}</span>
+        <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
+      </button>
     </div>
     <div v-if="highchartsConfig.chart" class="MainCharts_Body">
       <Highcharts
