@@ -68,6 +68,11 @@
       </button>
       <button
         class="D_Button Main_SaveAllButton"
+        @click="prepareChart(10)">
+        <span>Other</span>
+      </button>
+      <button
+        class="D_Button Main_SaveAllButton"
         @click="prepareChart(5)">
         <span>no mra</span>
       </button>
@@ -193,6 +198,11 @@ export default {
         { v: 62, time: 2.56 },
         { v: 186, time: 8.4 },
         { v: 311, time: 24.9 }, 
+      ],
+      speedTicks10: [ // Other
+        { v: 62, time: 5.9 },
+        { v: 124, time: 23.2 },
+        { v: 140, time: 33.7 }, 
       ],
       // 0       0
       // 60      4.1
@@ -575,6 +585,9 @@ export default {
               let last = xData[xData.length - 1];
               if (last > subLast * 2.4) {
                 this.prepareChart('', count, { last: Math.round( ((last - subLast) / 2) + subLast ) });
+                return;
+              } else if (last < subLast * 2) {
+                this.prepareChart('', count, { last: last * 1.1 });
                 return;
               }
             }
