@@ -3143,6 +3143,7 @@ export default {
       cgFilterForAnalyse: {},
       cgCompleteJson: "",
       cgRoundResultJson: "",
+      cgRoundResultJsonErrorTxt: "",
       cgLocalShowPermanentCgs: true,
       forceShowAnalyse: false,
       event: {},
@@ -7475,6 +7476,9 @@ export default {
       
     },
     cgSubmitRoundResultJson() {
+      this.cgRoundResultJsonErrorTxt = "";
+      if (!this.cgRoundResultJson) return;
+
 
       Number.prototype.toHHMMSS = function () {
         var numm = Number(this.toFixed(3).slice(0,-1))
@@ -7547,7 +7551,12 @@ export default {
           race[key].timeText = "DNF";
         } else {
           if (isTestBowl) race[key].timeText = race[key].speed.toTestBowl();
-          else race[key].timeText = race[key].time.toHHMMSS();
+          else {
+            race[key].timeText = race[key].time.toHHMMSS();
+            if (/\.\d\d95/.test(`${race[key].time}`)) {
+              this.cgRoundResultJsonErrorTxt += `${key} race${irace+1} !95\n`
+            }
+          }
         }
         
         if (key === "opponentData") {
@@ -7598,12 +7607,7 @@ export default {
           let cgRace = this.cgRound.races[irace];
 
           if (cgRace.track.includes("testBowl")) {
-            this.$store.commit("DEFINE_SNACK", {
-              active: true,
-              error: true,
-              text: `testBowl race${irace+1}`,
-              type: "error"
-            });
+            this.cgRoundResultJsonErrorTxt += `testBowl race${irace+1}\n`
           }
 
           let resultTimeNum = Vue.options.filters.toTimeNumber(`${race[key].timeText}`, cgRace.track);
@@ -7621,12 +7625,7 @@ export default {
             } else if (cgRace.time !== resultTimeNum) {
               // doesnt change
               console.log(`${key} race${irace+1}`, "cgRace.time:", cgRace.time, "resultTimeNum:", resultTimeNum);
-              this.$store.commit("DEFINE_SNACK", {
-                active: true,
-                error: true,
-                text: `${key} race${irace+1} diff time`,
-                type: "error"
-              });
+              this.cgRoundResultJsonErrorTxt += `${key} race${irace+1} diff\n`
             }
           } else {
             let carCache = this.cgCacheCars.find(x => x.rid === race[key].car.rid);
@@ -7650,12 +7649,7 @@ export default {
 
             } else if (carCache.data[tune].times[cgRace.track].t !== resultTimeNum) {
               console.log(`${key} race${irace+1}`, "car time:", carCache.data[tune].times[cgRace.track].t, "resultTimeNum:", resultTimeNum);
-              this.$store.commit("DEFINE_SNACK", {
-                active: true,
-                error: true,
-                text: `${key} race${irace+1} diff time`,
-                type: "error"
-              });
+              this.cgRoundResultJsonErrorTxt += `${key} race${irace+1} diff\n`;
             }
             
           }
@@ -7667,6 +7661,17 @@ export default {
       this.cgRound.races.map(race => {
         this.calcRaceResult(race, false);
       })
+
+      if (this.cgRoundResultJsonErrorTxt) {
+        this.cgRoundResultJsonErrorTxt = this.cgRoundResultJsonErrorTxt.slice(0,-1);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: this.cgRoundResultJsonErrorTxt,
+          type: "error",
+          time: 10000
+        });
+      }
 
       this.cgRoundResultJson = "";
 

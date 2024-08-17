@@ -57,7 +57,7 @@ export default {
       { name: "MainFindCar", label: this.$t("m_carFinder") },
       { name: "MainTestPoints", label: this.$t("m_testPoints") },
       { name: "MainDownTimes", label: this.$t("m_downTimes") },
-      // { name: "MainAccelCurveMaker", label: this.$t("m_accelCurveMaker") },
+      { name: "MainAccelCurveMaker", label: this.$t("m_accelCurveMaker") },
     ];
     this.tdrTools = [
       { name: "MainTranslate", label: this.$t("m_translationTool") },

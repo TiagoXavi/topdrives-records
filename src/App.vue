@@ -222,7 +222,7 @@ export default {
 
       vm.snackTimeout = setTimeout(() => {
         vm.snackActive = false;
-      }, 4000);
+      }, obj.time || 4000);
     },
     shake() {
       let vm = this;
@@ -409,7 +409,7 @@ body {
   transform: translateX(-110%);
 }
 .App_Snack {
-  
+  white-space: pre;
 }
 .App_PreActive {
   display: block;

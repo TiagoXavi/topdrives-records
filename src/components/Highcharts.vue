@@ -93,6 +93,9 @@ export default {
   mounted() {
     this.checkEmpty();
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.returnedFunction);
+  },
   computed: {},
   methods: {
     renderChart() {

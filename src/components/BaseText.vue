@@ -112,6 +112,8 @@ export default {
         if (typeof e === "string") {
           var acel = new RegExp(/^[0-9]{1,2}\.[0-9]$/g);
           var isAcel = acel.test(e);
+          var acelSoft = new RegExp(/^[0-9]{1,2}\.[0-9]{1,2}$/g);
+          var isAcelSoft = acelSoft.test(e);
           var topHand = new RegExp(/^[0-9]{2,3}$/g);
           var isTopHand = topHand.test(e);
           var integer = new RegExp(/^-?[0-9]+$/g);
@@ -142,7 +144,7 @@ export default {
               (this.type === "integer" && isInteger) ||
               (this.type === "tune" && isTune) ||
               (this.type === "mra" && isMra) ||
-              (this.type === "acelSoft" && (isAcel || isInteger))
+              (this.type === "acelSoft" && (isAcelSoft || isInteger))
             ) {
             if (this.type === "acel" && e === "0") {
               e = "N/A"

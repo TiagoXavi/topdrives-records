@@ -414,7 +414,7 @@ export default {
       searchFilters: {},
       typesList: {
         brand: ["Alfa Romeo", "Apollo", "Audi", "Fiat", "KTM", "Lancia", "McLaren", "Peugeot", "Renault"],
-        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "DK", "AT", "HR", "BR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
+        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
         country: ["IT", "DE", "AT", "GB", "FR"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
