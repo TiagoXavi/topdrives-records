@@ -13,6 +13,8 @@
         :placeholder="placeholder"
         :type="intype"
         :id="iid"
+        :inputmode="isNumberOnly ? 'numeric' : undefined"
+        :autocomplete="isNumberOnly ? 'off' : undefined"
         class="BaseText_Input"
         @keyup.enter.stop="$emit('enter')"
         @input="instantModel ? resolveChange($event.target.value) : ''; inputed($event.target.value);"
@@ -99,7 +101,12 @@ export default {
     this.inputed(this.value);
   },
   mounted() {},
-  computed: {},
+  computed: {
+    isNumberOnly() {
+      if (this.type === "normal") return false;
+      return true;
+    }
+  },
   methods: {
     resolveChange(e) {
       clearTimeout(this.clearTm);

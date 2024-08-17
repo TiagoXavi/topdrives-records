@@ -140,7 +140,7 @@ export default {
           // pointFormat: `RQ: {point.x}<br>Time: {point.y}`
           formatter: function () {
             if (this.point.className === 'Highcharts_HidePoint') return false;
-            if (!this.point.custom || this.point.custom.photo) return false;
+            if (!this.point.custom || !this.point.custom.photo) return false;
 
             var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto">`+
             `<div><span style="color: ${this.point.custom.color}">RQ${this.point.y}</span>&nbsp;<span>${this.point.name}</span></div>`+

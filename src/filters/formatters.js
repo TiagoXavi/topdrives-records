@@ -77,6 +77,9 @@ export function toTimeNumber(input, id = "") {
     arr = input.split(":");
     arr.reverse();
     if (arr.includes("")) throw new Error("includes empty string");
+    if (arr[0].length === 1) {
+      arr[0] = `${arr[0]}0`;
+    }
     arr = arr.map(x => Number(x));
     arr.map(x => {
       if (isNaN(x)) throw new Error("includes NaN");

@@ -233,7 +233,7 @@
             <BaseText
               v-model="mra1"
               class="BaseText_Big"
-              type="acel"
+              type="acelSoft"
               label="0-60 value"
               style="width: 130px;"
               placeholder=""

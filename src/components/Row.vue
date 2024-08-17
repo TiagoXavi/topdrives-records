@@ -83,6 +83,7 @@
       <div
         v-if="!showPoints"
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) || isReferencePoints ? false : true"
+        inputmode="numeric"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
