@@ -63,6 +63,11 @@
       </button>
       <button
         class="D_Button Main_SaveAllButton"
+        @click="prepareChart(9)">
+        <span>Venom 131</span>
+      </button>
+      <button
+        class="D_Button Main_SaveAllButton"
         @click="prepareChart(5)">
         <span>no mra</span>
       </button>
@@ -184,6 +189,11 @@ export default {
         { v: 95, time: 14.7 },
         { v: 155, time: 99 }, // 30 good
       ],
+      speedTicks9: [ // Venom F5 131
+        { v: 62, time: 2.56 },
+        { v: 186, time: 8.4 },
+        { v: 311, time: 24.9 }, 
+      ],
       // 0       0
       // 60      4.1
       // 124     16.9
@@ -246,7 +256,7 @@ export default {
     },
   },
   methods: {
-    prepareChart(key = '', count = 0, lastTimeReplacer) {
+    prepareChart(key = '', count = 0, lastTimeReplacer = {}) {
       count++;
       if (count > 5) {
         this.$store.commit("DEFINE_SNACK", {
@@ -296,8 +306,11 @@ export default {
         data.push([xForSpline[ix], x]);
       })
 
-      if (lastTimeReplacer) {
-        data[data.length - 1] = [ lastTimeReplacer, data[data.length - 1][1] ]
+      if (lastTimeReplacer.last) {
+        data[data.length - 1] = [ lastTimeReplacer.last, data[data.length - 1][1] ]
+      }
+      if (lastTimeReplacer.first) {
+        data[1] = [ lastTimeReplacer.first, data[1][1] ]
       }
 
       if (this.highestSpeed < 105) {
@@ -561,10 +574,27 @@ export default {
               let subLast = xData[xData.length - 2];
               let last = xData[xData.length - 1];
               if (last > subLast * 2.4) {
-                
-                this.prepareChart('', count, Math.round( ((last - subLast) / 2) + subLast ));
-                return
+                this.prepareChart('', count, { last: Math.round( ((last - subLast) / 2) + subLast ) });
+                return;
+              }
+            }
 
+          }
+        }
+
+        if (false) { // check if good result initial time
+          let secondDataFirstY = second_data[0].y;
+          let splineDataFirstY = spline_data[0].y;
+          if (Math.abs(secondDataFirstY - splineDataFirstY) > 2) {
+            // bad predictions
+            console.log("first predict:", secondDataFirstY, "last real:", splineDataFirstY);
+
+            if (true) { // edit long time intervals
+              this.prepareChart('', count, { first: Number((spline_data[1].y - 0.03).toFixed(2)) });
+              return;
+              let subLast = xData[xData.length - 2];
+              let last = xData[xData.length - 1];
+              if (last > subLast * 2.4) {
               }
             }
 
@@ -576,8 +606,8 @@ export default {
           if (mra > 130) {
             let subLast = xData[xData.length - 2];
             let last = xData[xData.length - 1];
-            if (last > subLast * 2.4) {
-              this.prepareChart('', count, Math.round( ((last - subLast) / 2) + subLast ));
+            if (last > subLast * 2.4 && last > 40) {
+              this.prepareChart('', count, { last: Math.round( ((last - subLast) / 2) + subLast ) });
               return;
             }
 
@@ -586,7 +616,7 @@ export default {
 
 
   
-        // console.log(spline_data);
+        // console.log(second_data);
         vm.buildChart(spline_data, second_data);
 
       }
@@ -682,10 +712,12 @@ export default {
         {
           data: algbData,
           name: "Inputed",
+          enableMouseTracking: true,
           color: "#50ab2c",
           marker: {
-            symbol: "circle"
-          }
+            symbol: "circle",
+            enabled: true
+          },
         }
       )
 

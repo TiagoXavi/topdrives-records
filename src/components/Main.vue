@@ -8677,7 +8677,7 @@ export default {
       }
     },
     eventExportCriteriaToPacks() {
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
       let filter;
       let filterAtr = 'filter';
       if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
