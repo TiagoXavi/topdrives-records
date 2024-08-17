@@ -227,10 +227,10 @@ export default {
       let currentV = 0;
       let currentT = 0;
       let foundError = this.speedTicks.find(x => {
-        if (x.v <= currentV) return true;
-        if (x.time <= currentT) return true;
-        currentV = x.v;
-        currentT = x.time;
+        if (Number(x.v) <= currentV) return true;
+        if (Number(x.time) <= currentT) return true;
+        currentV = Number(x.v);
+        currentT = Number(x.time);
       })
       if (foundError) return false;
 
