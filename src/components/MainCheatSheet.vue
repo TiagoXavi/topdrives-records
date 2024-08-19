@@ -515,6 +515,14 @@ export default {
           term: "DNF",
           name: "Did Not Finish"
         },
+        {
+          term: "AOD",
+          name: "American Overdrive"
+        },
+        {
+          term: "EGT",
+          name: "European Grand Tour"
+        },
       ],
       tracksPenalty: [
         {

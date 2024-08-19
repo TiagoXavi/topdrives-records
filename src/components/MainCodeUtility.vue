@@ -24,7 +24,7 @@
             </div>
 
             <template v-if="result.resultData.roundData[index].playerData.distance < 2546 || result.resultData.roundData[index].playerData.distance > 2548.7">
-              <div class="round_boxesThey">
+              <div :class="{ round_suspect: /\.\d\d95$/.test(`${result.resultData.roundData[index].opponentData.time}`) }" class="round_boxesThey">
                 <span v-if="result.resultData.roundData[index].opponentData.result === 'Finished'">{{ result.resultData.roundData[index].opponentData.time.toHHMMSS() }}</span>
                 <span v-else class="round_boxesPointRed">DNF</span>
               </div>
@@ -48,7 +48,7 @@
             </div>
 
             <template v-if="result.resultData.roundData[index].playerData.distance < 2546 || result.resultData.roundData[index].playerData.distance > 2548.7">
-              <div class="round_boxesYou">
+              <div :class="{ round_suspect: /\.\d\d95$/.test(`${result.resultData.roundData[index].playerData.time}`) }" class="round_boxesYou">
                 <span v-if="result.resultData.roundData[index].playerData.result === 'Finished'">{{ result.resultData.roundData[index].playerData.time.toHHMMSS() }}</span>
                 <span v-else class="round_boxesPointRed">DNF</span>
               </div>
@@ -988,6 +988,9 @@ export default {
 .round_boxesPointBlue ~ .round_boxesYou,
 .round_boxesPointRed ~ .round_boxesThey {
   color: #b7dba8;
+}
+.round_suspect {
+  box-shadow: 0px 2px 0px 0px #ff0000a1;
 }
 .round_scores {
   font-size: 30px;

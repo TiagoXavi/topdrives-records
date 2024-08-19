@@ -670,6 +670,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   color: rgb(var(--d-text-yellow)) !important;
   --back-color: 78, 63, 26;
 }
+.D_ButtonDarkYellow {
+  --back-color: 65, 53, 22;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 1);
+  color: rgb(var(--d-text-yellow));
+}
 .D_Button.Main_Share {
   background-color: rgba(0,0,0,0.2);
   font-size: 18px;
@@ -2646,6 +2652,37 @@ body .Main_UserTw3:before {
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_ThemTime {
   display: none;
 }
+.Cg_NotThisTime_Icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.Cg_NotThisTime_IconSvg {
+  width: 100px;
+  height: 72px;
+}
+.Cg_NotThisTime_IconSvg > path {
+  fill: #ffffff2b;
+}
+.Cg_NotThisTime_Header {
+  text-align: center;
+  color: rgba(var(--d-text-yellow), 0.9);
+  font-size: 1.4em;
+  margin: 20px 0 32px 0;
+}
+.Cg_NotThisTime_P {
+  max-width: 500px;
+  margin: 32px auto;
+  text-align: center;
+  line-height: 1.3;
+}
+.Cg_NotThisTime_Button {
+  --height: 7px;
+  padding: 3px 6px;
+  margin: -5px 0px;
+  vertical-align: baseline;
+}
+
 .Main_CgListDividerLayout {
   display: flex;
   justify-content: center;

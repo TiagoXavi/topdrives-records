@@ -334,7 +334,53 @@
           </div>
         </div>
       </div>
-      <div class="Cg_Mid">
+
+      <!-- NOT THIS TIME -->
+      <div v-if="cgRound.date && cgRound.notThisTime" class="Cg_Mid">
+        <div class="Cg_NotThisTime_Icon">
+          <svg class="Cg_NotThisTime_IconSvg" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 512 360" viewBox="0 0 512 360">
+            <path d="M31.4 8.2C37.4 5.5 44 4 50.6 4.1h407.7c7.6-.2 15.4.8 22.2 4.2-70.9 71-141.7 142.1-212.5 213.2-4.7 5.1-12.7 5.9-18.9 3.6-3.2-1.1-5.4-3.8-7.7-6.1-70-70.3-140-140.5-210-210.8zM5.7 44.2c.9-5.3 2.3-10.6 4.7-15.5C60.7 79.1 111 129.6 161.2 180.1 111 230.5 60.7 280.9 10.4 331.3c-2.3-4.8-3.8-10-4.7-15.3V44.2zM350.8 180.1C401 129.6 451.3 79.2 501.6 28.7c2.3 4.8 3.7 10 4.7 15.3v270.6c-.5 5.8-2.2 11.5-4.7 16.7-50.3-50.4-100.5-100.8-150.8-151.2z"/>
+            <path d="M31.4 351.9c50.2-50.3 100.4-100.7 150.5-151 14.3 14.2 28.4 28.6 42.7 42.7 14.5 14 38.4 16 55.4 5.6 5.3-3.1 9.4-7.6 13.7-11.9 12.1-12.1 24.2-24.3 36.3-36.4 50.2 50.4 100.4 100.7 150.6 151.1-6.1 2.6-12.6 4.2-19.3 4.1H50.6c-6.6 0-13.2-1.5-19.2-4.2z"/>
+          </svg>
+        </div>
+        <div class="Cg_NotThisTime_P">This challenge will not be available there</div>
+        <div class="Cg_NotThisTime_P">We decided to not put this challenge on TDR. Let's play the old school way. Before TDR we all did this, we can do again. Maybe can be too hard or risky, but is just that challenge. The other ones are running normally.</div>
+        <div class="Cg_NotThisTime_P">We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of just "did you check TDR?". I hope you understand. Are you not in any community? Go to <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button> tab, find one you like. Find your way. Have a fun!</div>
+        <div v-if="cgRound.date && user && user.username" class="Cg_BottomModTools">
+          <!-- Down -->
+          <button
+            :class="{
+              Row_VotedAgainst: cgRound.upList && cgRound.upList.includes(user.username),
+              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+            }"
+            :title="(cgRound.downList || []).join(', ')"
+            class="D_Button Row_VoteButton Row_VoteButtonDown"
+            @click="cgVote('down')">
+            <i
+              :class="`ticon-thumbs_down${ cgRound.downList && cgRound.downList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span class="Row_DownCount">{{ (cgRound.downList || []).length }}</span>
+          </button>
+          <!-- Up -->
+          <button
+            :class="{
+              Row_VotedAgainst: cgRound.downList && cgRound.downList.includes(user.username),
+              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+            }"
+            :title="(cgRound.upList || []).join(', ')"
+            class="D_Button Row_VoteButton Row_VoteButtonUp"
+            @click="cgVote('up')">
+            <i
+              :class="`ticon-thumbs_up${ cgRound.upList && cgRound.upList.includes(user.username) ? '_fill' : '' }`"
+              class="Row_VoteIcon"
+              aria-hidden="true"/>
+            <span class="Row_UpCount">{{ (cgRound.upList || []).length }}</span>
+          </button>
+        </div>
+      </div>
+
+      <div v-else class="Cg_Mid">
         <!-- CG MID -->
         <div v-if="isRoundEmptyForUser && cgRound.date" class="Cg_RoundEmptyBox">
           <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
@@ -4964,8 +5010,8 @@ export default {
           })
         })
         vm.highlightsUsers["Jayzoku"] = "w1";
-        vm.highlightsUsers["Ekukickz"] = "w2";
-        vm.highlightsUsers["johnnybro1"] = "w3";
+        vm.highlightsUsers["CapSora"] = "w2";
+        vm.highlightsUsers["Eyeon"] = "w3";
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
@@ -6020,6 +6066,7 @@ export default {
         let cg = this.cgList.find(x => x.date === date)
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
+          if (res.data.notThisTime) Vue.set(cg, "notThisTime", true);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.cgLoading = false;
           this.loadCgRound(date, round);
@@ -6075,6 +6122,8 @@ export default {
           this.cgRound.filter.topSpeedModel[0] = 25;
         }
       }
+      if (this.cg.notThisTime) this.cgRound.notThisTime = true;
+
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
 
@@ -6093,7 +6142,7 @@ export default {
 
       this.cgResolveRoundCars(false);
       this.checkRaceTimesNull();
-      if (this.cgIsApproving) {
+      if (this.cgIsApproving || this.cg.notThisTime) {
         this.loadCgRoundAsset(id, round);
       } else {
         this.pingAssetStatistic(id, round);
@@ -6152,6 +6201,10 @@ export default {
                 realCgRound.toApprove[index].upList = item.value.up;
               }
             })
+          }
+          if (this.cg.notThisTime && votes.length >= 1) {
+            Vue.set(this.cgRound, 'downList', votes[0].value.down);
+            Vue.set(this.cgRound, 'upList', votes[0].value.up);
           }
         }
         let assetCars = res.data.find(x => x.sort === 'cars');
@@ -7553,7 +7606,7 @@ export default {
           if (isTestBowl) race[key].timeText = race[key].speed.toTestBowl();
           else {
             race[key].timeText = race[key].time.toHHMMSS();
-            if (/\.\d\d95/.test(`${race[key].time}`)) {
+            if (/\.\d\d95$/.test(`${race[key].time}`)) {
               this.cgRoundResultJsonErrorTxt += `${key} race${irace+1} !95\n`
             }
           }
@@ -7606,9 +7659,9 @@ export default {
           let key = i === 0 ? "opponentData" : "playerData";
           let cgRace = this.cgRound.races[irace];
 
-          if (cgRace.track.includes("testBowl")) {
-            this.cgRoundResultJsonErrorTxt += `testBowl race${irace+1}\n`
-          }
+          // if (cgRace.track.includes("testBowl")) {
+          //   this.cgRoundResultJsonErrorTxt += `testBowl race${irace+1}\n`
+          // }
 
           let resultTimeNum = Vue.options.filters.toTimeNumber(`${race[key].timeText}`, cgRace.track);
 
