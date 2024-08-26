@@ -786,7 +786,7 @@
         </div>
 
         
-        <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+        <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
           <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
             <div class="Main_AdminFields Main_AdminLayout">
               <div class="BaseText_Label">Challenge complete json</div>
@@ -805,7 +805,7 @@
           </div>
         </div>
 
-        <div v-if="user && user.username === 'TiagoXavi' && user && cgRound.date && cgRound.races[0].track !== null" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+        <div v-if="user && user.username === 'TiagoXavi' && user && cgRound.date && cgRound.races[0].track !== null && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
           <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
             <div class="Main_AdminFields Main_AdminLayout">
               <div class="BaseText_Label">Round result json</div>
@@ -6660,8 +6660,9 @@ export default {
     },
     cgDeleteTime(race, event, isOppo = false) {
       let vm = this;
-      let car = race.cars[race.carIndex].car;
+      let car;
       if (isOppo) car = race.car;
+      else car = race.cars[race.carIndex].car;
       let tune = car.selectedTune;
       let carData = this.cgCacheCars.find(x => x.rid === car.rid);
       let track = race.track;
@@ -8591,6 +8592,7 @@ export default {
       Vue.set(currentClearedFilter, "name", event.newName);
     },
     eventRetrieveCurrentClearedFilter(filterNumber) {
+      // TODO: Só funciona se tiver filtro a ser salvo
       let key = this.isEvents ? 'eventFilterToSave' : 'clubCurrentFilterToSave';
       if (filterNumber) key = key + (filterNumber+1);
       return this[key];

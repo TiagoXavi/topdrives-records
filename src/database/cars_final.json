@@ -103122,8 +103122,7 @@
             "American Overdrive",
             "Muscle Car",
             "Coast to Coast",
-            "Black",
-            "Marilyn's Collection"
+            "Black"
         ],
         "guid": "8a33d4ec-4b6a-444f-b121-c9a703cb8ecc",
         "brake": "B"
@@ -105122,7 +105121,8 @@
         "tags": [
             "American Overdrive",
             "Muscle Car",
-            "Black"
+            "Black",
+            "Marilyn's Collection"
         ],
         "guid": "eb3dc75f-7032-48af-84db-92f11f1a3990",
         "brake": "B"
@@ -136460,7 +136460,7 @@
         "topSpeed": 115,
         "acel": 9.7,
         "hand": 66,
-        "drive": "4WD",
+        "drive": "RWD",
         "tyres": "Standard",
         "mra": null,
         "weight": 1410,
