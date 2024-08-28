@@ -344,8 +344,10 @@
           </svg>
         </div>
         <div class="Cg_NotThisTime_P">This challenge will not be available there</div>
-        <div class="Cg_NotThisTime_P">We decided to not put this challenge on TDR. Let's play the old school way. Before TDR we all did this, we can do again. Maybe can be too hard or risky, but is just that challenge. The other ones are running normally.</div>
-        <div class="Cg_NotThisTime_P">We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of just "did you check TDR?". I hope you understand. Are you not in any community? Go to <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button> tab, find one you like. Find your way. Have a fun!</div>
+        <div class="Cg_NotThisTime_P">We decided to not put this challenge on TDR. Let's play the old school way, just for the fun. Before TDR we all did this, we can do again. Maybe it can be too hard or risky, but just this challenge. The other ones are running normally.</div>
+        <div class="Cg_NotThisTime_P">Why? We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of TDR giving all the solutions. Helping each other is the core of every community. Discord, Facebook, Reddit, Youtube... There are many. Are you not in any community? <br>Go to <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button> tab, find one you like. Find your way.</div>
+        <div class="Cg_NotThisTime_P">Just to be clear, this isn't a pay wall. Not even patrons or moderators are able to check the rounds.</div>
+        <div class="Cg_NotThisTime_P">I hope you understand. Have a fun!</div>
         <div v-if="cgRound.date && user && user.username" class="Cg_BottomModTools">
           <!-- Down -->
           <button

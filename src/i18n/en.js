@@ -474,5 +474,16 @@ export default {
   t_nwLoop: "New York Times Square Loop",
   t_nwCathedral: "New York Cathedral",
   t_nwTour: "New York Central Park Tour",
-  t_nwSlalom: "New York Train Slalom"
+  t_nwSlalom: "New York Train Slalom",
+  t_miCircuit: "Miami Circuit",
+  t_miStreets1: "Miami Streets 1",
+  t_miStreets2: "Miami Streets 2",
+  t_miUdrag: "Miami U-Drag",
+  t_miCause: "Miami Causeway",
+  t_miCauseDrag: "Miami Causeway Drag",
+  t_miBridge: "Miami Bridge",
+  t_miFigure: "Miami Figure Of Eight",
+  t_miSlalom: "Miami Slalom",
+  t_miGforce: "Miami G-Force",
+  t_miBeachDrag: "Miami Beach Drag"
 }

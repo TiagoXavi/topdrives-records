@@ -311,6 +311,50 @@
     "types": ["40", "41", "h1"]
   },
   {
+    "id": "miCircuit",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miStreets1",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miStreets2",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miUdrag",
+    "types": ["c0","c1"]
+  },
+  {
+    "id": "miCause",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miCauseDrag",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miBridge",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miFigure",
+    "types": ["50"]
+  },
+  {
+    "id": "miSlalom",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miGforce",
+    "types": ["00", "01"]
+  },
+  {
+    "id": "miBeachDrag",
+    "types": ["50"]
+  },
+  {
     "id": "mnGforce",
     "types": ["00","01"],
     "group": "monaco"

@@ -100,7 +100,8 @@
           item.id === 'speedbump1km' ||
           item.id === 'desertHill' ||
           item.id === 'moto' ||
-          item.id === 'desertRallyDirt'
+          item.id === 'desertRallyDirt' ||
+          item.id === 'miStreets2'
         )">
           <BaseIconSvg type="clearance"/>
         </span>
@@ -132,7 +133,8 @@
         item.id === 'oceanCity' ||
         item.id === 'speedbump12km' ||
         item.id === 'speedbump1km' ||
-        item.id === 'desertHill'
+        item.id === 'desertHill' ||
+        item.id === 'miStreets2'
         )"
         class="Row_xRA">low</div>
       <div v-else-if="item.text && type === 'times' && (car.clearance === 'Low' || car.clearance === 'Mid') && (

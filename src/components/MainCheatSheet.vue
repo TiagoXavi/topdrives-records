@@ -527,7 +527,7 @@ export default {
       tracksPenalty: [
         {
           name: "Low GC Penalty",
-          tracks: [ "csSmall", "csMed", "dockCity", "oceanCity", "speedbump12km", "speedbump1km", "desertHill" ]
+          tracks: [ "csSmall", "csMed", "dockCity", "oceanCity", "speedbump12km", "speedbump1km", "desertHill", "miStreets2" ]
         },
         {
           name: "Low/Mid GC Penalty",

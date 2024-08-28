@@ -35319,7 +35319,7 @@
             "Coupe"
         ],
         "fuel": "Petrol",
-        "seats": "0",
+        "seats": "4",
         "engine": "Front",
         "tags": [
             "European Grand Tour",
@@ -45476,7 +45476,7 @@
     },
     {
         "class": "A",
-        "rq": 64,
+        "rq": 65,
         "onlyName": "JCW ALL4 Countryman",
         "brand": "Mini",
         "year": 2016,
@@ -45765,7 +45765,7 @@
     },
     {
         "class": "A",
-        "rq": 64,
+        "rq": 65,
         "onlyName": "Cayenne S 4.5 (955)",
         "brand": "Porsche",
         "year": 2003,
@@ -46208,7 +46208,7 @@
     },
     {
         "class": "A",
-        "rq": 64,
+        "rq": 65,
         "onlyName": "XC90 T8 Twin Engine",
         "brand": "Volvo",
         "year": 2015,
@@ -73187,7 +73187,7 @@
     },
     {
         "class": "B",
-        "rq": 49,
+        "rq": 50,
         "onlyName": "1500 Classic Warlock",
         "brand": "RAM",
         "year": 2021,
@@ -74457,7 +74457,7 @@
     },
     {
         "class": "B",
-        "rq": 48,
+        "rq": 50,
         "onlyName": "Bronco Concept",
         "brand": "Ford",
         "year": 2004,
@@ -75019,7 +75019,7 @@
     },
     {
         "class": "B",
-        "rq": 48,
+        "rq": 50,
         "onlyName": "Sport",
         "brand": "Land Rover",
         "year": 2004,
@@ -75332,7 +75332,7 @@
     },
     {
         "class": "B",
-        "rq": 48,
+        "rq": 50,
         "onlyName": "G 55 AMG",
         "brand": "Mercedes-Benz",
         "year": 2006,
@@ -75705,7 +75705,7 @@
     },
     {
         "class": "B",
-        "rq": 48,
+        "rq": 50,
         "onlyName": "Rally 504",
         "brand": "Peugeot",
         "year": 1971,
@@ -75885,7 +75885,7 @@
     },
     {
         "class": "B",
-        "rq": 48,
+        "rq": 50,
         "onlyName": "Forester",
         "brand": "Subaru",
         "year": 2016,
