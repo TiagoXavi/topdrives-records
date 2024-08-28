@@ -429,5 +429,10 @@ export default {
   "t_nwLoop": "New York Times-Square-Schleife",
   "t_nwCathedral": "New York Kathedrale",
   "t_nwTour": "New York Central-Park-Tour",
-  "t_nwSlalom": "New York Zugslalom"
+  "t_nwSlalom": "New York Zugslalom",
+  "p_cgNotThisTime1": "Diese Herausforderung ist hier nicht verfügbar",
+  "p_cgNotThisTime2": "Wir haben beschlossen, diese Herausforderung nicht auf TDR zu platzieren. Lass uns auf die altmodische Weise spielen, einfach nur zum Spaß. Bevor es TDR gab, haben wir alle das so gemacht, wir können es wieder tun. Vielleicht ist es zu schwer oder zu riskant, aber nur diese Herausforderung. Die anderen laufen normal weiter.",
+  "p_cgNotThisTime3": "Warum? Wir haben einige soziale Möglichkeiten verloren, um Hilfe und Lösungen zu finden. Dieses Mal möchten wir sehen, wie Spieler einander helfen, anstatt dass TDR alle Lösungen gibt. Sich gegenseitig zu helfen ist der Kern jeder Gemeinschaft. Discord, Facebook, Reddit, Youtube... Es gibt viele. Bist du in keiner Community? Es gibt einen Tab mit vielen, finde eine, die dir gefällt:",
+  "p_cgNotThisTime4": "Nur um das klarzustellen: Dies ist keine Paywall. Nicht einmal Patrons oder Moderatoren können die Runden überprüfen.",
+  "p_cgNotThisTime5": "Ich hoffe, du verstehst. Viel Spaß!"
 }

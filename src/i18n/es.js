@@ -412,5 +412,10 @@ export default {
   "t_dockKart": null,
   "t_dockUdrag": null,
   "t_lumberForest": null,
-  "t_lumberRiver": null
+  "t_lumberRiver": null,
+  "p_cgNotThisTime1": "Este desafío no está disponible aquí",
+  "p_cgNotThisTime2": "Decidimos no incluir este desafío en TDR. Vamos a jugar de la manera tradicional, solo por diversión. Antes de TDR todos lo hacíamos, podemos hacerlo de nuevo. Tal vez pueda ser demasiado difícil o arriesgado, pero solo este desafío. Los otros siguen funcionando normalmente.",
+  "p_cgNotThisTime3": "¿Por qué? Perdimos algunas formas sociales de buscar ayuda y soluciones. Esta vez queremos ver a los jugadores ayudándose mutuamente en lugar de que TDR dé todas las soluciones. Ayudarse mutuamente es el núcleo de cada comunidad. Discord, Facebook, Reddit, Youtube... Hay muchos. ¿No estás en ninguna comunidad? Hay una pestaña con muchas, encuentra una que te guste:",
+  "p_cgNotThisTime4": "Solo para aclarar, esto no es un paywall. Ni siquiera los patrocinadores o moderadores pueden revisar las rondas.",
+  "p_cgNotThisTime5": "Espero que entiendas. ¡Que te diviertas!"
 }

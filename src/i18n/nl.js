@@ -420,5 +420,10 @@ export default {
   "t_dealsGap4": null,
   "t_dealsGap5": null,
   "t_dealsGap": null,
-  "t_dealsGapBack": null
+  "t_dealsGapBack": null,
+  "p_cgNotThisTime1": "Deze uitdaging is hier niet beschikbaar",
+  "p_cgNotThisTime2": "We hebben besloten om deze uitdaging niet op TDR te zetten. Laten we het op de ouderwetse manier spelen, gewoon voor de lol. Voor TDR deden we dit allemaal, we kunnen het opnieuw doen. Misschien is het te moeilijk of riskant, maar gewoon deze uitdaging. De andere uitdagingen lopen normaal.",
+  "p_cgNotThisTime3": "Waarom? We zijn een aantal sociale manieren kwijtgeraakt om hulp en oplossingen te zoeken. Deze keer willen we zien dat spelers elkaar helpen in plaats van dat TDR alle oplossingen geeft. Elkaar helpen is de kern van elke community. Discord, Facebook, Reddit, Youtube... Er zijn er veel. Zit je niet in een community? Er is een tabblad met veel van hen, zoek er een die je leuk vindt:",
+  "p_cgNotThisTime4": "Voor de duidelijkheid, dit is geen betaalmuur. Zelfs patrons of moderators kunnen de rondes niet zien.",
+  "p_cgNotThisTime5": "Ik hoop dat je het begrijpt. Veel plezier!",
 }

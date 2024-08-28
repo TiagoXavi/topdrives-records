@@ -306,8 +306,13 @@ export default {
   "g_rule9": "Pozri sa či šablóna pre dané trate už náhodou existuje.",
   "t_butte": null,
   "t_canyonLookout": null,
-  "t_canyonDtRoad": null,
+"t_canyonDtRoad": null,
   t_canyonButte: null,
   t_lookout: null,
   t_dtRoad: null,
+  "p_cgNotThisTime1": "Táto výzva tu nie je k dispozícii",
+  "p_cgNotThisTime2": "Rozhodli sme sa, že túto výzvu nebudeme klásť na TDR. Poďme sa hrať na starú školu, len tak pre zábavu. Pred TDR sme to urobili všetci, môžeme to urobiť znova. Možno to môže byť príliš ťažké alebo riskantné, ale práve táto výzva. Ostatné bežia normálne.",
+  "p_cgNotThisTime3": "prečo? Stratili sme niektoré sociálne spôsoby hľadania pomoci a riešení. Tentoraz chceme vidieť hráčov, ktorí si navzájom pomáhajú namiesto toho, aby TDR dávali všetky riešenia. Vzájomná pomoc je základom každej komunity. Discord, Facebook, Reddit, Youtube... Je toho veľa. Nie si v žiadnej komunite? Existuje karta s mnohými z nich, nájdite si tú, ktorá sa vám páči:",
+  "p_cgNotThisTime4": "Aby bolo jasné, toto nie je paywall. Dokonca ani patróni alebo moderátori nemajú možnosť vidieť kolá.",
+  "p_cgNotThisTime5": "Dúfam, že rozumieš. Príjemnú zábavu!"
 }

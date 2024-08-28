@@ -321,5 +321,10 @@ export default {
   "t_tCircuit": null,
   "t_tCircuitr": null,
   "t_tRoad": null,
-  "t_waterDrag": null
+  "t_waterDrag": null,
+  "p_cgNotThisTime1": "To wyzwanie nie jest tutaj dostępne",
+  "p_cgNotThisTime2": "Postanowiliśmy nie umieszczać tego wyzwania w TDR. Zagrajmy w starym stylu, po prostu dla zabawy. Przed TDR wszyscy to robiliśmy, możemy to zrobić ponownie. Może to być zbyt trudne lub ryzykowne, ale tylko to wyzwanie. Pozostałe działają normalnie.",
+  "p_cgNotThisTime3": "Dlaczego? Straciliśmy kilka społecznych sposobów szukania pomocy i rozwiązań. Tym razem chcemy, aby gracze pomagali sobie nawzajem, zamiast aby TDR podawał wszystkie rozwiązania. Wzajemna pomoc jest rdzeniem każdej społeczności. Discord, Facebook, Reddit, Youtube... Jest ich wiele. Nie jesteś w żadnej społeczności? Jest zakładka z wieloma z nich, znajdź taką, która Ci się podoba:",
+  "p_cgNotThisTime4": "Żeby było jasne, to nie jest paywall. Nawet patroni i moderatorzy nie mogą zobaczyć rund.",
+  "p_cgNotThisTime5": "Mam nadzieję, że rozumiesz. Baw się dobrze!"
 }

@@ -2675,6 +2675,7 @@ body .Main_UserTw3:before {
   margin: 32px auto;
   text-align: center;
   line-height: 1.3;
+  -webkit-user-select: text;
 }
 .Cg_NotThisTime_Button {
   --height: 7px;
@@ -3634,6 +3635,8 @@ body .Main_UserTw3:before {
   left: 0;
   width: 100%;
   height: var(--card-top-height);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .Car_HeaderBlockBrand {
   top: 0;

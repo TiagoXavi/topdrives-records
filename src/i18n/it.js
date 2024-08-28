@@ -316,4 +316,9 @@ export default {
   t_canyonButte: "Collinetta nel Canyon",
   t_lookout: "Panoramica",
   t_dtRoad: "Strada Sterrata",
+  "p_cgNotThisTime1": "Questa sfida non è disponibile qui",
+  "p_cgNotThisTime2": "Abbiamo deciso di non inserire questa sfida su TDR. Giochiamo nel vecchio stile, solo per divertimento. Prima del TDR, tutti facevamo così, possiamo farlo di nuovo. Forse può essere troppo difficile o rischioso, ma solo questa sfida. Le altre continuano normalmente.",
+  "p_cgNotThisTime3": "Perché? Abbiamo perso alcuni modi sociali per trovare aiuto e soluzioni. Questa volta vogliamo vedere i giocatori che si aiutano invece che il TDR che fornisce tutte le soluzioni. Aiutarsi a vicenda è il cuore di ogni comunità. Discord, Facebook, Reddit, Youtube... Ce ne sono tanti. Non sei in nessuna comunità? C'è una scheda con molte di esse, trova quella che ti piace:",
+  "p_cgNotThisTime4": "Solo per essere chiari, questo non è un paywall. Nemmeno i sostenitori o i moderatori possono vedere i round.",
+  "p_cgNotThisTime5": "Spero che tu capisca. Divertiti!",
 }

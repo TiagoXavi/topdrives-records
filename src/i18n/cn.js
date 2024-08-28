@@ -460,5 +460,10 @@ export default {
   "p_privateDescript": "人们将在申请后加入（您需要一个 Discord 帐户）",
   "p_publicDescript": "这是任何人都可以加入的公开链接",
   "p_userSentCommunityForAnalyse": "十分感谢！TDR的员工将评估您的群组。",
-  "p_communityToBeInvited": "要获得邀请，请输入下面的要求："
+  "p_communityToBeInvited": "要获得邀请，请输入下面的要求：",
+  "p_cgNotThisTime1": "此挑战不在此处提供",
+  "p_cgNotThisTime2": "我们决定不在 TDR 上进行此挑战。让我们以老派的方式玩，只是为了好玩。在 TDR 之前我们都这样做过，我们可以再做一次。也许它可能太难或太冒险，但只有这个挑战。其他的都在正常运行。",
+  "p_cgNotThisTime3": "为什么？我们失去了一些寻求帮助和解决方案的社交方式。这次我们希望看到玩家互相帮助，而不是 TDR 提供所有解决方案。互相帮助是每个社区的核心。Discord、Facebook、Reddit、Youtube……有很多。你不在任何社区吗？有一个标签有很多，找到你喜欢的一个：",
+  "p_cgNotThisTime4": "只是要清楚，这不是付费墙。甚至赞助人或版主都无法看到回合。",
+  "p_cgNotThisTime5": "我希望你能理解。玩得开心！"
 }

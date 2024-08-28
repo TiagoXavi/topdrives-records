@@ -460,5 +460,10 @@ export default {
   "c_brakeClass": null,
   "c_brake": null,
   "c_speedster": null,
-  "t_desertHill": null
+  "t_desertHill": null,
+  "p_cgNotThisTime1": "Ce défi n'est pas disponible ici",
+  "p_cgNotThisTime2": "Nous avons décidé de ne pas mettre ce défi sur TDR. Jouons à l'ancienne, juste pour le plaisir. Avant TDR, nous faisions tous cela, nous pouvons le refaire. Peut-être que cela peut être trop difficile ou risqué, mais juste ce défi. Les autres se déroulent normalement.",
+  "p_cgNotThisTime3": "Pourquoi ? Nous avons perdu certaines façons sociales de chercher de l'aide et des solutions. Cette fois, nous voulons voir les joueurs s'entraider au lieu que TDR donne toutes les solutions. S'entraider est au cœur de chaque communauté. Discord, Facebook, Reddit, Youtube... Il y en a beaucoup. N'appartenez-vous à aucune communauté ? Il y a un onglet avec beaucoup d'entre elles, trouvez-en une qui vous plaît :",
+  "p_cgNotThisTime4": "Pour être clair, ce n'est pas un paywall. Même les mécènes ou les modérateurs ne peuvent pas consulter les tours.",
+  "p_cgNotThisTime5": "J'espère que vous comprenez. Amusez-vous bien !"
 }

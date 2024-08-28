@@ -343,11 +343,11 @@
             <path d="M31.4 351.9c50.2-50.3 100.4-100.7 150.5-151 14.3 14.2 28.4 28.6 42.7 42.7 14.5 14 38.4 16 55.4 5.6 5.3-3.1 9.4-7.6 13.7-11.9 12.1-12.1 24.2-24.3 36.3-36.4 50.2 50.4 100.4 100.7 150.6 151.1-6.1 2.6-12.6 4.2-19.3 4.1H50.6c-6.6 0-13.2-1.5-19.2-4.2z"/>
           </svg>
         </div>
-        <div class="Cg_NotThisTime_P">This challenge will not be available there</div>
-        <div class="Cg_NotThisTime_P">We decided to not put this challenge on TDR. Let's play the old school way, just for the fun. Before TDR we all did this, we can do again. Maybe it can be too hard or risky, but just this challenge. The other ones are running normally.</div>
-        <div class="Cg_NotThisTime_P">Why? We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of TDR giving all the solutions. Helping each other is the core of every community. Discord, Facebook, Reddit, Youtube... There are many. Are you not in any community? <br>Go to <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button> tab, find one you like. Find your way.</div>
-        <div class="Cg_NotThisTime_P">Just to be clear, this isn't a pay wall. Not even patrons or moderators are able to check the rounds.</div>
-        <div class="Cg_NotThisTime_P">I hope you understand. Have a fun!</div>
+        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime1") }}</div>
+        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime2") }}</div>
+        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime3") }} <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button></div>
+        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime4") }}</div>
+        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime5") }}</div>
         <div v-if="cgRound.date && user && user.username" class="Cg_BottomModTools">
           <!-- Down -->
           <button
