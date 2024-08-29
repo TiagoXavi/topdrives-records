@@ -266,7 +266,7 @@ export default {
   p_cgNotThisTime1: "This challenge isn't available here",
   p_cgNotThisTime2: "We decided to not put this challenge on TDR. Let's play the old school way, just for the fun. Before TDR we all did this, we can do again. Maybe it can be too hard or risky, but just this challenge. The other ones are running normally.",
   p_cgNotThisTime3: "Why? We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of TDR giving all the solutions. Helping each other is the core of every community. Discord, Facebook, Reddit, Youtube... There are many. Are you not in any community? There is a tab with a lot of them, find one you like:",
-  p_cgNotThisTime4: "Just to be clear, this isn't a pay wall. Not even patrons or moderators are able to check the rounds.",
+  p_cgNotThisTime4: "Just to be clear, this isn't a paywall. Not even patrons or moderators are able to see the rounds.",
   p_cgNotThisTime5: "I hope you understand. Have a fun!",
   
   g_joinDiscord: "Join the TDR Discord server to talk about improvement of your template or why your template has been declined.",

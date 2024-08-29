@@ -6186,7 +6186,7 @@ export default {
     loadCgRoundAsset(id, round) {
       let roundId = `${id}_${round}`;
       if (this.cgLoadedAssets.includes(roundId)) return;
-      if (this.cgIsEmptyRoundForDownloadAssets) return;
+      if (this.cgIsEmptyRoundForDownloadAssets && !this.cg.notThisTime) return;
       this.cgLoading = true;
 
       axios.get(Vue.preUrlCharlie + `/asset/${roundId}`)
