@@ -3193,6 +3193,7 @@ export default {
       cgRoundResultJson: "",
       cgRoundResultJsonErrorTxt: "",
       cgLocalShowPermanentCgs: true,
+      cgJsonDownloadRids: [],
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -5290,10 +5291,16 @@ export default {
       this.downloadLoading = true;
 
       let url = Vue.preUrl + "/car/" + rid;
-      url = this.finalizeUrl(url);      
+      url = this.finalizeUrl(url);
+      if (isJson) {
+        this.cgJsonDownloadRids.push(rid);
+      }
 
       axios.get(url)
       .then(res => {
+        if (isJson) {
+          this.cgJsonDownloadRids = this.cgJsonDownloadRids.filter(x => x !== rid);
+        }
         if (this.mode === 'compare') {
           if (
               res.data === "" ||
@@ -6030,6 +6037,24 @@ export default {
           this.cgList.push({
             "date": "proving_grounds_test",
             "name": "Proving Grounds: test"
+          })
+        }
+        if (this.user && this.user.mod && this.user.username === 'TiagoXavi') {
+          this.cgList.push({
+            "date": "a1",
+            "name": "Proving Grounds: a1"
+          })
+          this.cgList.push({
+            "date": "a2",
+            "name": "Proving Grounds: a2"
+          })
+          this.cgList.push({
+            "date": "a3",
+            "name": "Proving Grounds: a3"
+          })
+          this.cgList.push({
+            "date": "a4",
+            "name": "Proving Grounds: a4"
           })
         }
 
@@ -7532,6 +7557,7 @@ export default {
       
     },
     cgSubmitRoundResultJson() {
+      this.cgJsonDownloadRids = [];
       this.cgRoundResultJsonErrorTxt = "";
       if (!this.cgRoundResultJson) return;
 
@@ -7643,13 +7669,10 @@ export default {
     afterResolveCarJson(result, count = 0) {
       if (count > 10) return;
       
-      let isDownloaded = true;
-      this.cgCacheCars.map(car => {
-        if (!car.data) isDownloaded = false;
-      })
+      let isDownloaded = this.cgJsonDownloadRids.length === 0;
 
       if (!isDownloaded) {
-        console.log(`!isDownloaded`);
+        console.log("this.cgJsonDownloadRids", this.cgJsonDownloadRids);
         setTimeout(() => {
           this.afterResolveCarJson(result, count+1)
         }, 1000);
