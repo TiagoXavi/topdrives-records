@@ -7529,6 +7529,7 @@ export default {
       .then(res => {
         this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
         this.cgCompleteJson = "";
+        this.forceShowAnalyse = false;
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -7590,7 +7591,7 @@ export default {
         return minutes + ':' + seconds + ':' + milesi;
       };
       Number.prototype.toTestBowl = function () {
-        return parseInt(this * 2.237)
+        return parseInt(this * 2.2369)
       };
 
       let result = JSON.parse(this.cgRoundResultJson);
@@ -7753,6 +7754,7 @@ export default {
       }
 
       this.cgRoundResultJson = "";
+      this.forceShowAnalyse = false;
 
 
     },

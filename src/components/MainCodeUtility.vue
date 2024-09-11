@@ -243,7 +243,7 @@ export default {
       return minutes + ':' + seconds + ':' + milesi;
     };
     Number.prototype.toTestBowl = function () {
-      return parseInt(this * 2.237)
+      return parseInt(this * 2.2369)
     };
 
     this.loadClubs();

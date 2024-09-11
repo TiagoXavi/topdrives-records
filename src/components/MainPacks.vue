@@ -91,8 +91,8 @@
         class="MainPacks_NumOpenInput"
         placeholder="" />
       <div class="MainPacks_NumOpenPriceBox">
-        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="cash" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel.priceCash * numberOfOpensNoGoal).toLocaleString() }}</div>
-        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="gold" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel.priceGold * numberOfOpensNoGoal).toLocaleString() }}</div>
+        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="cash" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel[packFilterDescResolved.length > 0 && packModel.priceCashCustom ? 'priceCashCustom' : 'priceCash' ] * numberOfOpensNoGoal).toLocaleString() }}</div>
+        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="gold" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel[packFilterDescResolved.length > 0 && packModel.priceGoldCustom ? 'priceGoldCustom' : 'priceGold' ] * numberOfOpensNoGoal).toLocaleString() }}</div>
       </div>
     </div>
 
@@ -195,8 +195,8 @@
         </div>
       </div>
       <div class="MainPacks_NumOpenPriceBox">
-        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="cash" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel.priceCash * simulateRunStats.count).toLocaleString() }}</div>
-        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="gold" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel.priceGold * simulateRunStats.count).toLocaleString() }}</div>
+        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="cash" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel[packFilterDescResolved.length > 0 && packModel.priceCashCustom ? 'priceCashCustom' : 'priceCash' ] * simulateRunStats.count).toLocaleString() }}</div>
+        <div class="MainPacks_NumOpenPrice"><BaseIconSvg type="gold" :useMargin="false" class="MainPacks_ClassesIcon" />{{ (packModel[packFilterDescResolved.length > 0 && packModel.priceGoldCustom ? 'priceGoldCustom' : 'priceGold' ] * simulateRunStats.count).toLocaleString() }}</div>
       </div>
     </div>
 
@@ -400,7 +400,9 @@ export default {
             { D: 5.00, E: 95.00 },
           ],
           priceCash: 32500,
-          priceGold: 399
+          priceGold: 399,
+          priceCashCustom: 42500,
+          priceGoldCustom: 599,
         },
         {
           name: "Aluminium",
