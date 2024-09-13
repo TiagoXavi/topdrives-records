@@ -39,6 +39,10 @@ export default {
 .BaseGameTag_Filter {
   box-shadow: inset 0px -2px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%);
 }
+.BaseGameTag_Filter2 {
+  box-shadow: inset 0px -2px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%), -2px 0px 0px 0px hsl(var(--tag-h), var(--tag-s), 40%);
+  margin-left: 2px;
+}
 .BaseGameTag_5th_Anniversary {
   --tag-h: 152;
   --tag-s: 69%;
@@ -408,6 +412,9 @@ export default {
   --tag-h: 257;
   --tag-s: 50%;
   --tag-l: 70%;
+}
+.BaseGameTag_World_Expo.BaseGameTag_Filter {
+  z-index: 1;
 }
 .BaseGameTag_Year_of_the_Dragon {
   --tag-h: 0;

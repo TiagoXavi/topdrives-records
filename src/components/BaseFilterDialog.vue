@@ -289,14 +289,20 @@
               </template>
             </div>
             <div class="Main_FilterChipsFlex">
-              <template v-for="(item, ix) in searchFilters.tags_expansion">
+              <div v-for="(item, ix) in searchFilters.tags_expansion">
                 <BaseChip
                   v-model="tagsModel"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :counter="counters[`tags_${item}`]"
                   :value="item" />
-              </template>
+                <template v-if="item === 'World Expo'">
+                  <BaseChip
+                    :inputValue="roadTrip.every(x => tagsModel.includes(x))"
+                    class="BaseGameTag_World_Expo BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter2"
+                    @click="toggleRoadTrip">*</BaseChip>
+                </template>
+              </div>
             </div>
             <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.tags_permanent">
@@ -1010,6 +1016,7 @@ export default {
         "Event",
         "Other"
       ],
+      roadTrip: ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"],
       custom_tags
     }
   },
@@ -2001,14 +2008,13 @@ export default {
       } while (initial <= end);
     },
     toggleRoadTrip() {
-      let t = ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"];
       let included = [];
       this.tagsModel.map(x => {
-        if (t.includes(x)) included.push(x);
+        if (this.roadTrip.includes(x)) included.push(x);
       })
       let includesAll = included.length === 6;
-      if (includesAll) this.tagsModel = this.tagsModel.filter(x => !t.includes(x));
-      else t.map(x => {
+      if (includesAll) this.tagsModel = this.tagsModel.filter(x => !this.roadTrip.includes(x));
+      else this.roadTrip.map(x => {
         if (!included.includes(x)) this.tagsModel.push(x);
       })
 
