@@ -606,7 +606,7 @@
                   :forceCustomAuthor="isRoundEmptyForUser"
                   type="times"
                   @deleteTime="cgDeleteTime(race, $event, true)"
-                  @changeTime="cgChangeTimeOppo(race, $event)" />
+                  @changeTime="cgChangeTimeOppo(race, $event, irace)" />
               </div>
               <div v-else class="Cg_ThemTime">
                 <div class="Row_Cell Row_DisabledCell" />
@@ -4090,6 +4090,7 @@ export default {
         if (!race.track) ready = false;
         if (race.cars && race.cars.length > 4) ready = false;
       })
+      // console.log( this.cgRound.races.map(race => race.time) )
       return ready;
     },
     cgIsEmptyRoundForDownloadAssets() {
@@ -6653,7 +6654,7 @@ export default {
       })
       Vue.set(this.cgRound, "rqFill", fill);
     },
-    cgChangeTimeOppo(race, event) {
+    cgChangeTimeOppo(race, event, irace) {
       let car = race.car;
       let tune = car.selectedTune;
       let carData = this.cgCacheCars.find(x => x.rid === car.rid);
@@ -6667,12 +6668,29 @@ export default {
         // put on cgCacheCars
         this.resolveChangeTime(carData, NEW, number, tune);
       }
+
       Vue.set(race, "time", number);
       this.cgRoundToSave.push({
         type: "oppoTime",
         time: number,
         raceIndex: this.cgRound.races.indexOf(race)
       })
+      
+      this.cgRound.races.map((mapRace, imapRace) => {
+        if (imapRace === irace) return;
+        if (!mapRace.rid || mapRace.rid !== race.rid) return;
+        if (!mapRace.track || mapRace.track !== race.track) return;
+        if (!mapRace.tune || mapRace.tune !== race.tune) return;
+        // two races identical
+        Vue.set(mapRace, "time", number);
+        this.cgRoundToSave.push({
+          type: "oppoTime",
+          time: number,
+          raceIndex: imapRace
+        })
+      })
+
+      
       this.calcRaceResult(race);
     },
     cgChangeTimeYou(race, event) {
