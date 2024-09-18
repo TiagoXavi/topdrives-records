@@ -243,7 +243,7 @@ export default {
     getUser() {
       let vm = this;
       // user
-      axios.get(Vue.preUrlCharlie + "/getUser")
+      axios.get(Vue.preUrl + "/getUser")
       .then(res => {
         if (res.data.username) {
           this.user = res.data;
