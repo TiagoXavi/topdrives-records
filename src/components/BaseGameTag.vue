@@ -383,6 +383,11 @@ export default {
   --tag-s: 53%;
   --tag-l: 52%;
 }
+.BaseGameTag_Touma\'s_Collection {
+  --tag-h: 7;
+  --tag-s: 78%;
+  --tag-l: 53%;
+}
 .BaseGameTag_Trading_Paint {
   --tag-h: -13;
   --tag-s: 65%;

@@ -541,6 +541,7 @@ export default {
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
+          "Touma's Collection",
           "Track",
           "Trading Paint",
           "Two Tone",

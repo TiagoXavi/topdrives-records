@@ -761,26 +761,18 @@
           <div class="Cg_ListSelectBox">
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
-              <template v-if="item === 'divider'">
-                <div class="Main_CgListDividerLayout">
-                  <button
-                    class="D_Button D_ButtonDark D_ButtonDark2 Main_CgListDividerButton"
-                    @click="cgPermanentToggle = !cgPermanentToggle">
-                    <span class="Cg_SelectorEventSpan">{{ $t("m_permanents") }}</span>
-                    <i :class="`ticon-keyboard_arrow_${cgPermanentToggle ? 'up' : 'down'}`" aria-hidden="true"/>
-                  </button>
-                </div>
-              </template>
-              <template v-else>
-                <button
-                  v-if="cgPermanentToggle || item.index < 2"
-                  style="padding-left: 15px;"
-                  class="Main_SearchItem"
-                  @click="loadChallengeFull(item.date)">
-                  <div v-html="item.nameStyled" class="Main_SearchItemRight" />
-                </button>
-              </template>
+              <button
+                v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
+                style="padding-left: 15px;"
+                class="Main_SearchItem"
+                @click="loadChallengeFull(item.date)">
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              </button>
             </template>
+            <div class="Main_CgListDividerLayout">
+              <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" />
+              <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" />
+            </div>
           </div>
         </div>
         <div v-else class="Cg_Offline">
@@ -2474,7 +2466,7 @@
       :lazy="true"
       max-width="460px"
       min-width="240px"
-      class="Cg_SelectorDialog"
+      class="Cg_SelectorDialog Cg_SelectorDialogListScroll1"
       @close="cgSeletorDialog = false;">
       <div style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
@@ -2490,27 +2482,19 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
-            <template v-if="item === 'divider'">
-              <div class="Main_CgListDividerLayout">
-                <button
-                  class="D_Button D_ButtonDark D_ButtonDark2 Main_CgListDividerButton"
-                  @click="cgPermanentToggle = !cgPermanentToggle">
-                  <span class="Cg_SelectorEventSpan">{{ $t("m_permanents") }}</span>
-                  <i :class="`ticon-keyboard_arrow_${cgPermanentToggle ? 'up' : 'down'}`" aria-hidden="true"/>
-                </button>
-              </div>
-            </template>
-            <template v-else>
-              <BaseButtonTouch
-                v-if="cgPermanentToggle || item.index < 2"
-                style="padding-left: 15px;"
-                class="Main_SearchItem"
-                @click="loadChallengeFull(item.date, undefined, $event)"
-                @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
-              </BaseButtonTouch>
-            </template>
+            <BaseButtonTouch
+              v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
+              style="padding-left: 15px;"
+              class="Main_SearchItem"
+              @click="loadChallengeFull(item.date, undefined, $event)"
+              @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+            </BaseButtonTouch>
           </template>
+          <div class="Main_CgListDividerLayout">
+            <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
+            <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
+          </div>
         </div>
       </div>
     </BaseDialog>
@@ -3193,6 +3177,7 @@ export default {
       cgRoundResultJson: "",
       cgRoundResultJsonErrorTxt: "",
       cgLocalShowPermanentCgs: true,
+      cgLocalShowLongCgs: true,
       cgJsonDownloadRids: [],
       forceShowAnalyse: false,
       event: {},
@@ -3378,6 +3363,7 @@ export default {
       toLoadTrackSet: null,
       currentTracks: [],
       currentTracksSetsNames: [],
+      ignore50points: false,
       tracksButtons: [
         {
           name: "Twisty",
@@ -3649,6 +3635,12 @@ export default {
     if (cgLocalShowPermanentCgs) {
       cgLocalShowPermanentCgs = JSON.parse(cgLocalShowPermanentCgs);
       this.cgPermanentToggle = cgLocalShowPermanentCgs;
+    }
+
+    let cgLocalShowLongCgs = window.localStorage.getItem("cgLocalShowLongCgs");
+    if (cgLocalShowLongCgs) {
+      cgLocalShowLongCgs = JSON.parse(cgLocalShowLongCgs);
+      this.cgLongToggle = cgLocalShowLongCgs;
     }
 
 
@@ -4270,6 +4262,16 @@ export default {
         this.cgLocalShowPermanentCgs = newValue;
         window.localStorage.setItem('cgLocalShowPermanentCgs', newValue);
         this.$store.commit("CHANGE_PERMANENT_CGS", newValue);
+      }
+    },
+    cgLongToggle: {
+      get: function () {
+        return this.cgLocalShowLongCgs;
+      },
+      set: function (newValue) {
+        this.cgLocalShowLongCgs = newValue;
+        window.localStorage.setItem('cgLocalShowLongCgs', newValue);
+        this.$store.commit("CHANGE_LONG_CGS", newValue);
       }
     },
   },
@@ -7783,9 +7785,9 @@ export default {
       this.cgList.map(x => {
         let styl = x.name;
         Vue.set(x, "index", 0);
-        if (x.name.substr(0, 5) === 'AOT: ') {
+        if (x.name.substr(0, 5) === 'GTT: ') {
           Vue.set(x, "index", 2);
-          styl = `<span class="Cg_EX">AOT: </span>${x.name.substr(5)}`
+          styl = `<span class="Cg_EX">GTT: </span>${x.name.substr(5)}`
         }
         if (x.name.substr(0, 11) === 'Yellowbird ') {
           Vue.set(x, "index", 3);
@@ -7806,6 +7808,7 @@ export default {
       this.cgList.map(x => {
         let split = x.name.split(" ");
         let romanString = null;
+        let numberOrdinal = null;
         x.indexOfRoman = split.findIndex( part => {
           part = part.replace(":", "");
           if (roman.includes(part)) {
@@ -7816,10 +7819,17 @@ export default {
             romanString = part.slice(1 ,-1);
             return true;
           }
+          if (Number(part.slice(1 ,-1)) > 0 ) {
+            numberOrdinal = Number(part.slice(1 ,-1));
+            return true;
+          }
         } );
         if ( x.indexOfRoman > -1 ) {
+          
           // contain roman
           x.romanValue = roman.indexOf(romanString)+1;
+          if (numberOrdinal) x.romanValue = numberOrdinal;
+
           let arr = x.name.split(" ");
           let i = arr.findIndex(x => x.includes(":"));
           if (i === 0) {
@@ -7855,8 +7865,6 @@ export default {
         }
         return a.index - b.index;
       })
-
-      this.cgList.push("divider");
       
     },
     generateRandom(maxInt, stringParam) {
@@ -9031,6 +9039,15 @@ export default {
         if (this.clubIsShowingOriginal) return;
         e.preventDefault();
         this.clubsResolveTrackGroup(true);
+      }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyP") {
+        Vue.toggleIgnore50points();
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          time: 800,
+          text: "Ignore 50 points"
+        });
       }
     },
     handleKeyUp(e) {
@@ -10330,6 +10347,24 @@ export default {
       });
       
     },
+    afterTogglePermanents(selector) {
+      let el = document.querySelector(selector);
+      if (!el) return;
+
+      const resizeObserver = new ResizeObserver(entries => {
+        for (const entry of entries) {
+          entry.target.scrollTo(0, 10000);
+        }
+        if (el) {
+          resizeObserver.unobserve(el);
+        } else {
+          resizeObserver.disconnect();
+        }
+      });
+
+      resizeObserver.observe(el);
+
+    }
   }
 }
 </script>

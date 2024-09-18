@@ -243,7 +243,7 @@ export default {
     getUser() {
       let vm = this;
       // user
-      axios.get(Vue.preUrl + "/getUser")
+      axios.get(Vue.preUrlCharlie + "/getUser")
       .then(res => {
         if (res.data.username) {
           this.user = res.data;
@@ -2688,6 +2688,8 @@ body .Main_UserTw3:before {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .D_Button.Main_CgListDividerButton {
   padding: 0px 7px 0px 12px;

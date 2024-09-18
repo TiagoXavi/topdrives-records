@@ -226,6 +226,7 @@ export default {
   m_accelCurveMaker: "Acceleration Curve Maker",
   m_speed: "Speed",
   m_clearBoard: "Clear board",
+  m_longTerm: "Long term",
 
   
   

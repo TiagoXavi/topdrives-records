@@ -308,7 +308,7 @@ export default {
       let vm = this;
       vm.loading = true;
       // user
-      axios.get(Vue.preUrl + "/getUser")
+      axios.get(Vue.preUrlCharlie + "/getUser")
       .then(res => {
         if (res.data.username !== "TiagoXavi") {
           this.$router.push({ name: 'Records' })

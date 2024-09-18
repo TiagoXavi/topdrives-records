@@ -21,9 +21,11 @@ const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
 const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
 const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
 const MainPacks = () => import("./components/MainPacks.vue");
+const MainTimeline = () => import("./components/MainTimeline.vue");
 const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
+const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -77,6 +79,11 @@ const routes = [
     component: Main,
   },
   {
+    path: '/timeline',
+    name: 'Timeline',
+    component: MainTimeline,
+  },
+  {
     path: '/packs',
     name: 'Packs',
     component: MainPacks,
@@ -123,7 +130,7 @@ const routes = [
   },
   {
     path: '/amp', // internal
-    name: 'Validate',
+    name: 'Amp',
     component: MainAmplitudeNewCars,
   },
   {
@@ -135,6 +142,11 @@ const routes = [
     path: '/swagger', // internal
     name: 'MainSwagger',
     component: MainSwagger,
+  },
+  {
+    path: '/MainTestMatchMake', // internal
+    name: 'MainTestMatchMake',
+    component: MainTestMatchMake,
   },
   {
     path: '/charts',

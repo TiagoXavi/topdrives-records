@@ -12,6 +12,8 @@ var classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255, 
 var countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
 var letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
 
+var ignore50points = false;
+
 export default {
     install(Vue) {
         Vue.debounce = function (func, wait, immediate) {
@@ -234,15 +236,24 @@ export default {
 
                 if (wt === lt) return { v: 0, i: true };
 
+
+                // var diffPercent = lt/wt*100;
+                // result = -384.0318 + (490971 - -384.0318)/(1 + Math.pow(diffPercent/0.08919558, 1.017337)); // v2
+                // result = Math.round(result);
+                // if (trackCode.includes("testBowlr")) result = result - 5;
+                // if (trackCode === "testBowl_a10") result = result - 3;
+                // if (trackCode === "testBowlr_a20") result = result + 5;
+
                 var diffPercent = lt/wt*100;
-                result = -384.0318 + (490971 - -384.0318)/(1 + Math.pow(diffPercent/0.08919558, 1.017337)); // v2
-
+                result = -363.1035 + (423861800 - -363.1035)/(1 + Math.pow(diffPercent/0.00004795929, 0.9598014))
                 result = Math.round(result);
-
                 if (trackCode.includes("testBowlr")) result = result - 5;
                 if (trackCode === "testBowl_a10") result = result - 3;
                 if (trackCode === "testBowlr_a20") result = result + 5;
-                if (result < 50) result = 50;
+
+
+
+                if (result < 50 && !ignore50points) result = 50;
                 if (isLose) result = result * -1;
                 return { v: result, i: true };
             }
@@ -263,7 +274,7 @@ export default {
             }
             result = Math.floor(Number((result - 0.09).toFixed(1)));
             
-            if (result < 50) {
+            if (result < 50 && !ignore50points) {
                 result = 50;
                 isImprecise = false;
             }
@@ -271,6 +282,9 @@ export default {
 
             return { v: result, i: isImprecise };
             
+        },
+        Vue.toggleIgnore50points = function () {
+            ignore50points = !ignore50points;
         },
 
 
