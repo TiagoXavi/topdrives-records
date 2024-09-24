@@ -1405,6 +1405,9 @@ export default {
   width: 300px !important;
   height: 184px !important;
   --card-font-size: 15px;
+  position: relative;
+  top: 0;
+  margin: 0;
 }
 .Row_DialogCardCard .Car_HeaderStatLabel {
   display: block;
@@ -1414,7 +1417,7 @@ export default {
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 .Row_DialogCardBottom {
   display: flex;

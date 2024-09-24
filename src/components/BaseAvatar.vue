@@ -1,8 +1,8 @@
 <template>
   <div
     :style="`--size: ${size}; ${ user.tier ? 'background-color: var(--t'+user.tier+');' : ''}`"
-    :class="{ BaseAvatar_Mod: user && user.mod, BaseAvatar_Dark: user.tier === 1 }"
-    class="BaseAvatar_Layout">
+    :class="{ BaseAvatar_Mod: user && user.mod }"
+    class="BaseAvatar_Layout BaseAvatar_Dark">
     <div class="BaseAvatar_Box">{{ letter }}</div>
   </div>
 </template>

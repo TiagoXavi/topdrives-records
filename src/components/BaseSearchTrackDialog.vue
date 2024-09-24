@@ -28,9 +28,22 @@
           v-for="(circuit, index) in filteredTracks"
           class="Main_CustomTrackItem" :key="index">
           <div class="Main_CustomTrackLeft">
-            <div class="Main_CustomTrackName">{{ circuit.nameCalc | toTimeString }}<span v-if="circuit.nameEng.includes('(R)')">
-              <BaseIconSvg/>
-            </span></div>
+            <div class="Main_CustomTrackName">
+              <template>{{ circuit.nameCalc | toTimeString }}</template>
+              <span v-if="circuit.nameEng.includes('(R)')"><BaseIconSvg/></span>
+              <span v-if="
+                circuit.id === 'csSmall' ||
+                circuit.id === 'dockCity' ||
+                circuit.id === 'csMed' ||
+                circuit.id === 'oceanCity' ||
+                circuit.id === 'speedbump12km' ||
+                circuit.id === 'speedbump1km' ||
+                circuit.id === 'desertHill' ||
+                circuit.id === 'moto' ||
+                circuit.id === 'desertRallyDirt' ||
+                circuit.id === 'miStreets2'
+              "><BaseIconSvg type="clearance"/></span>
+            </div>
           </div>
           <div class="Main_CustomTrackRight">
             <template>

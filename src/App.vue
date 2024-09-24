@@ -266,6 +266,8 @@ export default {
             window.localStorage.removeItem('auth');
           }
 
+          document.body.classList.add(`App_UserTier${this.user.tier || 0}`);
+
           this.$store.commit("CHANGE_USER", {
             user: this.user
           });
@@ -2378,17 +2380,22 @@ body .Main_UserTw3:before {
   overflow: hidden;
   --cor: #464646;
   --cor2: #464646;
+  --light: 114, 114, 114;
+  --opacity: 0.18;
   --size: 50px;
   --translate: 14px;
+  position: relative;
 }
 .Cg_PointsRed {
   --cor: rgb(var(--d-text-red2));
   --cor2: #000;
+  --light: var(--d-text-red2);
   --size: 70px;
 }
 .Cg_PointsGreen {
   --cor: rgb(var(--d-text-green));
   --cor2: #000;
+  --light: var(--d-text-green);
   --size: 70px;
 }
 .Cg_PointsGrey {
@@ -2405,6 +2412,16 @@ body .Main_UserTw3:before {
   -webkit-background-clip: text;
   color: transparent;
   white-space: nowrap;
+}
+.Cg_DividerBackLight {
+  background: radial-gradient(rgba(var(--light), var(--opacity)) 0%, rgba(var(--light), 0) 60%);
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 90px;
+  top: 0;
+  right: 0;
+  background-repeat: no-repeat;
 }
 .Cg_Race:first-child .Cg_TrackBox {
   box-shadow: inset 2px 0px 0px 0px #ffffff07;
@@ -2495,7 +2512,7 @@ body .Main_UserTw3:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 35px;
+  margin-left: 20px;
 }
 .Cg_RqRq {
   transform: scaleX(1.7) skewX(-14deg);
@@ -2510,6 +2527,19 @@ body .Main_UserTw3:before {
   justify-content: center;
   min-height: 34px;
   margin-top: 5px;
+}
+.Cg_PointsSum {
+  margin-left: 10px;
+}
+.Cg_PointsSum_Red {
+  --color: rgb(var(--d-text-red2));
+}
+.Cg_PointsSum_Green {
+  --color: rgb(var(--d-text-green));
+}
+.Cg_PointsSumText {
+  font-weight: bold;
+  color: var(--color);
 }
 .Cg_BankButtonLose {
   opacity: 0.4;
@@ -2943,6 +2973,7 @@ body .Main_UserTw3:before {
   white-space: nowrap;
   line-height: 1;
   margin-left: 2px;
+  margin-top: 3px;
 }
 .Cg_ViewsCount {
   font-size: 0.8em;
@@ -3165,6 +3196,9 @@ body .Main_UserTw3:before {
 }
 .Main_Compact .Main_LogoPre {
   font-size: 14px;
+}
+.Main_Compact .Cg_DividerBackLight {
+  height: 80px;
 }
 
 
@@ -3591,6 +3625,9 @@ body .Main_UserTw3:before {
   pointer-events: none;
 }
 .Car_DraggingParent > :not(.Car_Dragging) {
+  transition-duration: 0.3s;
+}
+.Car_Layout:not(.Car_Dragging) {
   transition-duration: 0.3s;
 }
 .Car_PushLeft {
@@ -4054,6 +4091,7 @@ body .Main_UserTw3:before {
 /*  */
 .BaseCard_Layout {
   display: contents;
+  --opacity: 0.4;
 }
 .BaseCard_FixBack {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));
@@ -4124,17 +4162,57 @@ body .Main_UserTw3:before {
 .BaseCard_EffectBackGround {
   bottom: -60px;
   left: -90px;
-  background: radial-gradient(rgba(var(--class-color-rgb),0.5) 0%, rgba(var(--class-color-rgb),0) 60%);
+  background: radial-gradient(rgba(var(--class-color-rgb), var(--opacity)) 0%, rgba(var(--class-color-rgb),0) 60%);
   position: absolute;
   pointer-events: none;
   width: 330px;
   height: 260px;
+}
+.BaseCard_ClassA,
+.BaseCard_ClassB {
+  --opacity: 0.5;
 }
 .Row_DialogCardLeft {
   position: relative;
 }
 
 
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+
+@keyframes pulseOpaque {
+  0% {
+    background-color: rgb(246, 246, 246);
+  }
+  50% {
+    background-color: rgb(228, 228, 228);
+  }
+  100% {
+    background-color: rgb(246, 246, 246);
+  }
+}
+
+@keyframes pulseOpacity {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
 
 
 </style>

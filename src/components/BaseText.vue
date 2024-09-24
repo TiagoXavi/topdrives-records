@@ -13,7 +13,7 @@
         :placeholder="placeholder"
         :type="intype"
         :id="iid"
-        :inputmode="isNumberOnly ? 'numeric' : undefined"
+        :inputmode="custom_inputMode ? custom_inputMode : isNumberOnly ? 'decimal' : undefined"
         :autocomplete="isNumberOnly ? 'off' : undefined"
         class="BaseText_Input"
         @keyup.enter.stop="$emit('enter')"
@@ -74,6 +74,9 @@ export default {
       default: false
     },
     acel: {
+      required: false
+    },
+    custom_inputMode: {
       required: false
     },
     suffix: {

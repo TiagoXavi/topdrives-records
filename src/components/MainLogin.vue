@@ -5,6 +5,7 @@
         <BaseText
           v-model="email"
           type="normal"
+          custom_inputMode="email"
           :label="$t('m_email')"
           class="Space_Bottom"
           placeholder="" />

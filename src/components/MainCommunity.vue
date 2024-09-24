@@ -325,7 +325,7 @@
       @close="countryDialog = false;">
       <div class="MainCommunity_DialogFlagSearchLayout">
         <div class="MainCommunity_DialogTitle">
-          <div class="Main_DialogTitle">{{ $t('c_country', 1) }}</div>
+          <div class="Main_DialogTitle">{{ $tc('c_country', 1) }}</div>
         </div>
         <div class="MainCommunity_DialogFlagSearch">
           <input

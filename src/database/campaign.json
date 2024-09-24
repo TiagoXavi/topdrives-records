@@ -2730,6 +2730,54 @@
     ]
   },
   {
+    "name": "Challenge Leagues",
+    "matches": [
+      {
+        "races": [
+          {
+            "name": "mtTour_a00"
+          },
+          {
+            "name": "mile2_a00"
+          },
+          {
+            "name": "mtHairpin_a00"
+          },
+          {
+            "name": "tRoad_a00"
+          },
+          {
+            "name": "mtHill_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Daily Challenge",
+    "matches": [
+      {
+        "races": [
+          {
+            "name": "dockCirc_a00"
+          },
+          {
+            "name": "dockUdrag_a00"
+          },
+          {
+            "name": "mile4_a00"
+          },
+          {
+            "name": "dockAltCirc_ac0"
+          },
+          {
+            "name": "dockKart_a00"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "UK Midlands",
     "matches": [
       {

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ BaseCard_LayoutDialog: isDialogBox }"
+    :class="`${isDialogBox ? 'BaseCard_LayoutDialog' : ''} BaseCard_Class${resolveCar.class}`"
     :style="`--class-color: ${carClassColor}; --class-color-rgb: ${carClassColorRgb};`"
     class="BaseCard_Layout">
     <div v-if="fixBack" class="BaseCard_FixBack" />

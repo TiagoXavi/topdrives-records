@@ -3,6 +3,7 @@
     <a class="BaseTopMenu_Left" :style="`--left-width: ${left_width}px`" @click="logoClick()">
       <Logo class="BaseTopMenu_Logo BaseTopMenu_LogoFull" />
       <Logo :compact="true" class="BaseTopMenu_Logo BaseTopMenu_LogoCompact" />
+      <div class="BaseTopMenu_LeftBackLight"></div>
     </a>
     <div class="BaseTopMenu_Middle">
       <button
@@ -18,6 +19,7 @@
     <div
       :style="`${ user && user.tier ? '--cor-hs: var(--t'+user.tier+'-hs); --cor-l: var(--t'+user.tier+'-l); --cor-l0: var(--t'+user.tier+'-l0);' : ''}`"
       class="BaseTopMenu_Right">
+      <div class="BaseTopMenu_RightBackLight"></div>
       <button
         class="BaseTopMenu_RightButton"
         @click="openMenuDialog()">
@@ -410,6 +412,7 @@ export default {
   /* top: 0; */
   z-index: 31;
   display: flex;
+  --class-color-rgb: 255, 175, 23;
 }
 .BaseTopMenu_Left {
   display: flex;
@@ -418,6 +421,49 @@ export default {
   cursor: pointer;
   width: var(--left-width);
   position: relative;
+}
+.BaseTopMenu_LeftBackLightBox {
+  pointer-events: none;
+  position: absolute;
+  --height: 120px;
+  height: var(--height);
+  bottom: calc(var(--height)* -1);
+  left: 0;
+  width: 280px;
+  /* background-color: blueviolet; */
+  overflow: hidden;
+}
+.BaseTopMenu_LeftBackLight {
+  /* bottom: 18px;
+  left: -171px; */
+  bottom: -52px;
+  left: -191px;
+  background: radial-gradient(rgba(var(--class-color-rgb), 0.10) 0%, rgba(var(--class-color-rgb), 0) 60%);
+  position: absolute;
+  pointer-events: none;
+  width: 410px;
+  height: 210px;
+}
+.BaseTopMenu_RightBackLight {
+  --opacity: 0.15;
+  background: radial-gradient(hsla(var(--cor-hs), var(--cor-l0), var(--opacity)) 0%, hsla(var(--cor-hs), var(--cor-l0), 0) 60%);
+  position: absolute;
+  pointer-events: none;
+  width: 250px;
+  height: 150px;
+  top: 0;
+  right: 0;
+  background-position: 104px -60px;
+  background-repeat: no-repeat;
+}
+.Main_isMobile .BaseTopMenu_RightBackLight {
+  background-position: 104px -50px;
+}
+.App_UserTier2 .BaseTopMenu_RightBackLight {
+  --opacity: 0.3;
+}
+.App_UserTier0 .BaseTopMenu_RightBackLight {
+  --opacity: 0.2;
 }
 .BaseTopMenu_Logo {
   height: 21px;
@@ -466,8 +512,10 @@ export default {
   --cor-hs: var(--t0-hs);
   --cor-l: var(--t0-l);
   --cor-l0: var(--t0-l0);
+  position: relative;
 }
 .BaseTopMenu_RightButton {
+  -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   border: none;
   text-decoration: none;
@@ -552,6 +600,12 @@ export default {
   } */
   .BaseTopMenu_LogoFull {
     display: none;
+  }
+  .BaseTopMenu_LeftBackLight {
+    bottom: -62px;
+    left: -171px;
+    width: 310px;
+    height: 210px;
   }
   
 }

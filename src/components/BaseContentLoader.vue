@@ -175,28 +175,4 @@ export default {
 .BaseContentLoader_Contents > * {
   display: contents;
 }
-
-@keyframes pulse {
-  0% {
-    background-color: rgba(165, 165, 165, 0.1);
-  }
-  50% {
-    background-color: rgba(165, 165, 165, 0.3);
-  }
-  100% {
-    background-color: rgba(165, 165, 165, 0.1);
-  }
-}
-
-@keyframes pulseOpaque {
-  0% {
-    background-color: rgb(246, 246, 246);
-  }
-  50% {
-    background-color: rgb(228, 228, 228);
-  }
-  100% {
-    background-color: rgb(246, 246, 246);
-  }
-}
 </style>

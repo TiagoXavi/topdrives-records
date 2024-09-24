@@ -62,6 +62,8 @@ var mouseY = 0;
 var elmnt = null;
 var dragNum = 0;
 var lastDragNum = 0;
+var width = 0;
+var height = 0;
 
 
 export default {
@@ -186,8 +188,6 @@ export default {
       mouseX = e.clientX;
       mouseY = e.clientY;
       // set the element's new position:
-      getComputedStyle(elmnt).getPropertyValue("--drag-left")
-      getComputedStyle(elmnt).getPropertyValue("--drag-top")
       let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
       let newTop = getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2;
       elmnt.style.setProperty("--drag-left", newLeft );
@@ -195,9 +195,8 @@ export default {
       elmnt.classList.add("Car_Dragging");
       elmnt.parentElement.classList.add("Car_DraggingParent");
       
-      let width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2))
+      width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2))
       if (this.compact) width = Number(getComputedStyle(document.querySelector(".Main_Compact")).getPropertyValue("--cell-width").trim().slice(0,-2))
-      let height;
       if (this.invertedView) height = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-height").trim().slice(0,-2))
 
       dragNum = Math.round(newLeft / width);
@@ -205,6 +204,14 @@ export default {
       let times = Math.abs(dragNum);
       let cla = dragNum > 0 ? "Car_PushLeft" : "Car_PushRight";
       let div;
+      let total = document.querySelectorAll(".Car_Layout").length - 1;
+      if (this.index + dragNum > total - 1) {
+        console.log("incor", dragNum, "correct", total - this.index - 1);
+        dragNum = total - this.index - 1
+      }
+      if (this.index + dragNum < 0) {
+        dragNum = this.index * -1
+      }
 
       if (dragNum !== lastDragNum) {
         lastDragNum = dragNum;
@@ -228,8 +235,8 @@ export default {
     },
     closeDragElement() {
       // stop moving when mouse button is released:
-      elmnt.style.setProperty("--drag-left", 0 );
-      elmnt.style.setProperty("--drag-top", 0 );
+      
+      
       elmnt.classList.remove("Car_Dragging");
       elmnt.parentElement.classList.remove("Car_DraggingParent");
       lastDragNum = 0;
@@ -240,15 +247,40 @@ export default {
       })
 
       if (dragNum !== 0) {
-        this.$emit("newindex", { current: this.index, new: this.index + dragNum });
+        let indexDiff = (this.index + dragNum) - this.index;
+        console.log(indexDiff)
+        let pos = {
+          dragLeft: Number(elmnt.style.getPropertyValue("--drag-left")),
+          dragTop: Number(elmnt.style.getPropertyValue("--drag-top"))
+        }
+        if (this.invertedView) {
+          pos.dragTop = pos.dragTop + (height * indexDiff * -1)
+        } else {
+          pos.dragLeft = pos.dragLeft + (width * indexDiff * -1)
+        }
+        this.$emit("newindex", { current: this.index, new: this.index + dragNum, pos });
       }
+      elmnt.style.setProperty("--drag-left", 0 );
+      elmnt.style.setProperty("--drag-top", 0 );
       dragNum = 0;
 
       document.onmouseup = null;
       document.onmousemove = null;
     },
     moveCar(obj) {
-      this.$emit("newindex", { current: obj.carIndex, new: obj.direction === "left" ? obj.carIndex-1 : obj.carIndex+1 });
+      let dragN = obj.direction === "left" ? -1 : 1;
+      let newIndex = obj.carIndex + dragN;
+      let indexDiff = (this.index + dragN) - this.index;
+      let pos = { dragLeft: 0, dragTop: 0 };
+
+      if (this.invertedView) {
+        pos.dragTop = pos.dragTop + (height * indexDiff * -1)
+      } else {
+        pos.dragLeft = pos.dragLeft + (width * indexDiff * -1)
+      }
+      console.log(pos)
+      
+      this.$emit("newindex", { current: obj.carIndex, new: newIndex, pos });
     }
   },
 }

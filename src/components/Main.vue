@@ -264,6 +264,13 @@
                       @longTouch="cgOpenRqEdit({ shiftKey: true, ctrlKey: true })">
                       <i class="ticon-pencil" aria-hidden="true"/>
                     </BaseButtonTouch>
+                    <div
+                      v-if="cgRound.showPoints"
+                      :class="{ Cg_PointsSum_Red: cgRound.sumPoints < 250, Cg_PointsSum_Green: cgRound.sumPoints >= 250 }"
+                      class="Cg_PointsSum">
+                      <span class="Cg_RqRq">pts</span>
+                      <span class="Cg_PointsSumText">{{ cgRound.sumPoints }}</span>
+                    </div>
                   </div>
                   <!-- save button -->
                   <div class="Cg_SaveButtonBox">
@@ -623,6 +630,7 @@
                   @mousedown="showPoints = true;"
                   @mouseup="showPoints = false;"
                   @mouseleave="showPoints = false;">
+                  <div class="Cg_DividerBackLight"></div>
                   <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
                   <template v-else-if="showPointsCg">
                     <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
@@ -1872,9 +1880,6 @@
                   :car="tuneDialogCar"
                   :isDialogBox="true"
                   :options="false" />
-                <div v-if="mode === 'compare' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
-                  <div class="Main_ViewsCountDialog">{{ statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
-                </div>
               </div>
               <div v-if="(tuneDialogCar.selectedTune && !tuneDialogCar.selectedTune.includes('Other')) && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
                 <BaseText
@@ -1911,6 +1916,14 @@
                   placeholder="-"
                   @change="changeStatCar(tuneDialogCar, 'hand', $event)" />
               </div>
+              <div v-else class="Row_DialogCardRight">
+                <BaseText :value="resolveStat(tuneDialogCar, 'topSpeed')" :label="$t('c_topSpeed')" class="Space_Bottom Row_FieldStat" :disabled="true" />
+                <BaseText :value="resolveStat(tuneDialogCar, 'acel')" label="0-60mph" class="Space_Bottom Row_FieldStat" :disabled="true" />
+                <BaseText :value="resolveStat(tuneDialogCar, 'hand')" :label="$t('c_handling')" class="Row_FieldStat" :disabled="true" />
+              </div>
+            </div>
+            <div v-if="mode === 'compare' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
+              <div class="Main_ViewsCountDialog">{{ statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
             </div>
           </div>
           <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
@@ -4934,14 +4947,60 @@ export default {
       this[arrName].splice(obj.new, 0, this[arrName].splice(obj.current, 1)[0]);
       if (isDialog) {
         this.tuneDialogCarIndex = obj.new;
+
+        let width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2));
+        if (this.compact) width = Number(getComputedStyle(document.querySelector(".Main_Compact")).getPropertyValue("--cell-width").trim().slice(0,-2));
+        let height = 0;
+        if (this.inverted) height = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-height").trim().slice(0,-2));
+        let dragN = obj.new < obj.current ? -1 : 1;
+        let indexDiff = (obj.current + dragN) - obj.current;
+
+        obj.pos = { dragLeft: 0, dragTop: 0 };
+        obj.posOther = { dragLeft: 0, dragTop: 0 };
+        if (this.inverted) {
+          obj.pos.dragTop = (height * indexDiff * -1)
+          obj.posOther.dragTop = (height * indexDiff * 1)
+        } else {
+          obj.pos.dragLeft = (width * indexDiff * -1)
+          obj.posOther.dragLeft = (width * indexDiff * 1)
+        }
       }
       
       this.updateCarLocalStorage();
       this.updateOptions();
 
+      
+
       this.showCarsFix = false;
       this.$nextTick().then(() => {
         this.showCarsFix = true;
+
+        if (obj.pos) {
+          this.$nextTick().then(() => {
+            let elmnt = document.querySelector('#Car_Layout'+obj.new);
+            let elmntOther = document.querySelector('#Car_Layout'+obj.current);
+            if (elmnt) {
+              elmnt.style.setProperty("--drag-left", obj.pos.dragLeft );
+              elmnt.style.setProperty("--drag-top", obj.pos.dragTop );
+              if (obj.posOther) {
+                elmntOther.style.setProperty("--drag-left", obj.posOther.dragLeft );
+                elmntOther.style.setProperty("--drag-top", obj.posOther.dragTop );
+              }
+              setTimeout(() => {
+                  elmnt.style.setProperty("--drag-left", 0 );
+                  elmnt.style.setProperty("--drag-top", 0 );
+                  if (obj.posOther) {
+                    elmntOther.style.setProperty("--drag-left", 0 );
+                    elmntOther.style.setProperty("--drag-top", 0 );
+                  }
+              }, 1);
+              // this.$nextTick().then(() => {
+              //   elmnt.style.setProperty("--drag-left", 0 );
+              //   elmnt.style.setProperty("--drag-top", 0 );
+              // })
+            }
+          })
+        }
       })
     },
     getStatistics() {
@@ -6647,14 +6706,26 @@ export default {
     },
     cgResolveRqFill() {
       let fill = 0;
+      let pointsTotal = 0;
+      let showPoints = false;
       this.cgRound.races.map(race => {
         try {
-          fill = fill + race.cars[race.carIndex].car.rq
+          fill = fill + race.cars[race.carIndex].car.rq;
+          if (Number(race.cars[race.carIndex].points)) {
+            pointsTotal = pointsTotal + race.cars[race.carIndex].points;
+            if (race.cars[race.carIndex].points < 50) {
+              showPoints = true;
+            }
+          } else {
+            showPoints = true;
+          }
         } catch (error) {
           // nada
         }
       })
       Vue.set(this.cgRound, "rqFill", fill);
+      Vue.set(this.cgRound, "sumPoints", pointsTotal);
+      Vue.set(this.cgRound, "showPoints", showPoints);
     },
     cgChangeTimeOppo(race, event, irace) {
       let car = race.car;
@@ -10364,6 +10435,9 @@ export default {
 
       resizeObserver.observe(el);
 
+    },
+    resolveStat(car, type, customData = null) {
+      return Vue.resolveStat(car, type, customData);
     }
   }
 }
