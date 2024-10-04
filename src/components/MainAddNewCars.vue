@@ -476,7 +476,7 @@ export default {
   mounted() {
     this.searchFilters = this.$refs.newCarsFilter.$data.searchFilters;
     this.refreshPhotos();
-    this.$store.commit("START_LOGROCKET", {});
+    // this.$store.commit("START_LOGROCKET", {});
     this.debounceFilter = Vue.debounce(this.changeFilter, 500);
   },
   computed: {

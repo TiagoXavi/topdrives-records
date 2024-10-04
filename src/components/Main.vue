@@ -588,7 +588,7 @@
                   class="Cg_TrackBox"
                   type="tracks" />
                 <button
-                  v-if="!!user && (user.mod || isRoundEmptyForUser)"
+                  v-if="!!user && (user.mod || isRoundEmptyForUser) && !cgIsApproving"
                   :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
                   :class="{ Cg_SelectTrackButtonEdit: race.track }"
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
@@ -1100,6 +1100,11 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportCriteriaToPacks()">{{ $t("m_eventPack") }}</button>
+            <button
+              v-if="user && user.mod && !eventBlockAddTrackset"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventExportEventToTimeline()">{{ $t("m_exportToTimeline") }}</button>
             <button
               v-if="eventPicksList.length > 0"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -3582,6 +3587,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
     eventNeedSave: function() {
       if (this.eventNeedSave) {
@@ -3591,6 +3597,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
     clubTrackNeedSave: function() {
       if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
@@ -3600,6 +3607,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
     clubDayNeedSave: function() {
       if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
@@ -3609,6 +3617,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
     clubReqNeedSave: function() {
       if (this.clubTrackNeedSave || this.clubDayNeedSave || this.clubReqNeedSave) {
@@ -3618,6 +3627,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
   },
   beforeMount() {
@@ -4392,7 +4402,7 @@ export default {
 
       tracks.map(x => {
         this.tracksRepo.find(circuit => {
-          circuit.types.find(type => {
+          return circuit.types.find(type => {
             if (x === `${circuit.id}_a${type}`) {
               if (group && circuit.group) {
                 groupName = circuit.group;
@@ -4748,7 +4758,6 @@ export default {
       this.kingAddindTrack = false;
       this.customTrackDialog = false;
       if (this.backToOptionsDialog) this.openMainDialog();
-      this.searchTracks = '';
       this.updateOptions();
     },
     closeTune() {
@@ -5034,49 +5043,14 @@ export default {
       });
     },
     getLastest() {
-      let vm = this;
       this.lastestLoading = true;
 
       // lastest cars
       axios.get(Vue.preUrl + "/lastest")
       .then(res => {
         this.lastestLoading = false;
-        vm.highlightsUsers = {
-          "bcp_": 'mod',
-          "TiagoXavi": 'mod',
-          "Bigredmachine": 'mod',
-          "duck": 'mod',
-          "HansKasai": 'mod',
-          "fiero": 'mod',
-          "L1ZVRD": 'mod',
-          "intrx": 'mod',
-          "rei348": 'mod',
-          "Enginn": 'mod',
-          "vel_8": 'mod',
-          "Ansami_MH": 'mod',
-          "RenMasamune": 'mod',
-          "boliveira82": 'mod',
-          "ELtotheLIS": 'mod',
-          "CapSora": 'mod',
-          "Mattsy": 'mod',
-          "Skapis": 'mod',
-          "Draugr": 'mod',
-          "TopDrives": 'mod',
-          "Asaneon": 'mod',
-          "Dennis": 'mod',
-          "MichaelB": 'mod',
-          "Leafclaw": 'mod',
-          "biava": 'mod'
-        };
-        let pUsers = res.data.find(x => x.id === 'pUsers').value;
-        Object.keys( pUsers ).forEach(key => {
-          pUsers[key].map(user => {
-            Vue.set(vm.highlightsUsers, user, Number(key.slice(-1)));
-          })
-        })
-        vm.highlightsUsers["Jayzoku"] = "w1";
-        vm.highlightsUsers["CapSora"] = "w2";
-        vm.highlightsUsers["Eyeon"] = "w3";
+        
+        this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
@@ -5629,6 +5603,7 @@ export default {
       } else {
         window.onbeforeunload = null;
       }
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
@@ -7665,7 +7640,6 @@ export default {
         //   milesi = 0;
         //   seconds += 1;
         // }
-        // 29.99971 > 00:30:00
 
         if (hours < 10) {
           hours = '0' + hours;
@@ -8863,6 +8837,9 @@ export default {
       filter = this.event[filterAtr];
 
       this.$router.push({ name: "Packs", params: { filter } })
+    },
+    eventExportEventToTimeline() {
+      this.$router.push({ name: "Timeline", params: { event: this.event } })
     },
     eventSetVisible() {
       let vm = this;

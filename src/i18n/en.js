@@ -227,6 +227,23 @@ export default {
   m_speed: "Speed",
   m_clearBoard: "Clear board",
   m_longTerm: "Long term",
+  m_selectType: "Select type",
+  m_rewardedCar: "Rewarded cars",
+  m_deleteEvent: "Delete event",
+  m_paste: "Paste",
+  m_date: "Date",
+  m_dateEnd: "Date end",
+  m_images: "Images",
+  m_links: "Links",
+  m_exportToTimeline: "Export to Timeline",
+  m_spec: "Spec",
+  m_text: "Text",
+  m_noGoal: "No goal",
+  m_specificCar: "Specific car",
+  m_specificAttr: "Specific attribute",
+  m_nextPage: "Next page",
+  m_previousPage: "Previous page",
+
 
   
   

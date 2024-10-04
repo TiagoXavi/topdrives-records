@@ -188,6 +188,7 @@ export default new Vuex.Store({
     PACKS_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
     CLEAR_PRIZEBOARD: (state, obj) => null,
+    BEFOREUNLOAD_TOUCH: (state, obj) => null,
     CLEAR_EDITABLE: () => {
       document.querySelectorAll(".Row_Content").forEach(x => {
         x.setAttribute('contenteditable', false)

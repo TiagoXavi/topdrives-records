@@ -32,24 +32,26 @@
       </div>
     </template>
     <slot name="footer" />
-    <BaseDialog
-      v-if="hasFilter2 || hasFilter3"
-      :active="renameDialog"
-      :transparent="false"
-      max-width="420px"
-      min-width="240px"
-      @close="closeRenameDialog()">
-      <div class="Main_TuneDialog">
-        <BaseText
-          v-model="renameModel"
-          class="BaseText_Big"
-          iid="Filter_Rename"
-          type="normal"
-          :label="`${$t('c_name')} - Filter ${renameFilterNumber+1}`"
-          placeholder="e.g. 2x or 3x"
-          @enter="closeRenameDialog()" />
-      </div>
-    </BaseDialog>
+    <portal to="app_dialogs">
+      <BaseDialog
+        v-if="hasFilter2 || hasFilter3"
+        :active="renameDialog"
+        :transparent="false"
+        max-width="420px"
+        min-width="240px"
+        @close="closeRenameDialog()">
+        <div class="Main_TuneDialog">
+          <BaseText
+            v-model="renameModel"
+            class="BaseText_Big"
+            iid="Filter_Rename"
+            type="normal"
+            :label="`${$t('c_name')} - Filter ${renameFilterNumber+1}`"
+            placeholder="e.g. 2x or 3x"
+            @enter="closeRenameDialog()" />
+        </div>
+      </BaseDialog>
+    </portal>
   </div>
 </template>
 

@@ -83,7 +83,7 @@
       <div
         v-if="!showPoints"
         :contenteditable="type === 'tracks' || !loggedin || (item.text !== '' && item.author !== user.username) || (cgOppo && !user) || (forceDisabled) || isReferencePoints ? false : true"
-        inputmode="numeric"
+        inputmode="decimal"
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
@@ -235,7 +235,6 @@
 </template>
 
 <script>
-import BaseSelect from '@/components/BaseSelect.vue';
 import BaseTypeName from '@/components/BaseTypeName.vue';
 import BaseIconSvg from '@/components/BaseIconSvg.vue';
 
@@ -250,7 +249,6 @@ var lastDragNum = 0;
 export default {
   name: 'Row',
   components: {
-    BaseSelect,
     BaseTypeName,
     BaseIconSvg
   },
@@ -1403,7 +1401,7 @@ export default {
 }
 .Row_DialogCardCard {
   width: 300px !important;
-  height: 184px !important;
+  height: 186px !important;
   --card-font-size: 15px;
   position: relative;
   top: 0;

@@ -228,6 +228,7 @@ export default {
             let factor = tracks_factor[track];
 
             if (trackCode.includes("mnHairpin_a4")) factor = 1200; // especial
+            if (trackCode.includes("gForce_a") && !trackCode.includes("gForce_a0")) factor = 1000; // especial
 
             if (trackCode.includes("testBowl")) {
                 let wt = Math.max(userTime, oppoTime);
@@ -285,6 +286,47 @@ export default {
         },
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
+        },
+        Vue.resolveHighlightsUsers = function (resData) {
+            let highlightsUsers = {
+              "bcp_": 'mod',
+              "TiagoXavi": 'mod',
+              "Bigredmachine": 'mod',
+              "duck": 'mod',
+              "HansKasai": 'mod',
+              "fiero": 'mod',
+              "L1ZVRD": 'mod',
+              "intrx": 'mod',
+              "rei348": 'mod',
+              "Enginn": 'mod',
+              "vel_8": 'mod',
+              "Ansami_MH": 'mod',
+              "RenMasamune": 'mod',
+              "boliveira82": 'mod',
+              "ELtotheLIS": 'mod',
+              "CapSora": 'mod',
+              "Mattsy": 'mod',
+              "Skapis": 'mod',
+              "Draugr": 'mod',
+              "TopDrives": 'mod',
+              "Asaneon": 'mod',
+              "Dennis": 'mod',
+              "MichaelB": 'mod',
+              "Leafclaw": 'mod',
+              "biava": 'mod'
+            };
+            let pUsers = resData.find(x => x.id === 'pUsers').value;
+            Object.keys( pUsers ).forEach(key => {
+              pUsers[key].map(user => {
+                Vue.set(highlightsUsers, user, Number(key.slice(-1)));
+                highlightsUsers[user] = Number(key.slice(-1));
+              })
+            })
+            highlightsUsers["Jayzoku"] = "w1";
+            highlightsUsers["CapSora"] = "w2";
+            highlightsUsers["Eyeon"] = "w3";
+
+            return highlightsUsers;
         },
 
 

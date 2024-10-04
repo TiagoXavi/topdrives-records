@@ -490,7 +490,10 @@
           <button
             v-if="index < searchMax || showAllFilter"
             :style="{ '--color': item.classColor }"
-            :class="{ Main_SearchItemAdded: item.added }"
+            :class="{
+              Main_SearchItemAdded: item.added,
+              Main_SearchItemMarked: markedList.includes(item.rid)
+            }"
             class="Main_SearchItem"
             @click="item.added ? '' : addCar(index, $event)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
@@ -599,6 +602,12 @@ export default {
       type: Object,
       default() {
         return {}
+      }
+    },
+    markedList: {
+      type: Array,
+      default() {
+        return []
       }
     },
     raceFilter2: {

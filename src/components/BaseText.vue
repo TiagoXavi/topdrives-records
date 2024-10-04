@@ -120,6 +120,10 @@ export default {
         this.$emit('change', e);
       } else {
         if (typeof e === "string") {
+          if (this.type === "acel" || this.type === "acelSoft") {
+            e = e.replaceAll(",", ".");
+          }
+
           var acel = new RegExp(/^[0-9]{1,2}\.[0-9]$/g);
           var isAcel = acel.test(e);
           var acelSoft = new RegExp(/^[0-9]{1,2}\.[0-9]{1,2}$/g);

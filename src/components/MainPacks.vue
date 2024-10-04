@@ -74,7 +74,7 @@
               v-model="goalModel"
               :class="`MainPacks_`"
               :value="item" 
-              :label="item.label"
+              :label="$t(`m_${item}`)"
               :disabled="running"
               required="true"
               class="BaseChip_MinWidth BaseChip_DontCrop" />
@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel.name === 'noGoal'" class="MainPacks_NumOpenLayout Space_TopPlus MainPacks_Center">
+    <div v-if="goalModel && goalModel === 'noGoal'" class="MainPacks_NumOpenLayout Space_TopPlus MainPacks_Center">
       <BaseText
         v-model="numberOfOpensNoGoal"
         type="integer"
@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel.name === 'specificCar'" class="MainPacks_SpecificCar Space_TopPlus">
+    <div v-if="goalModel && goalModel === 'specificCar'" class="MainPacks_SpecificCar Space_TopPlus">
       
       <div class="MainPacks_CarsList" :class="{ MainPacks_CarsListEmpty: carDetailsList.length === 0 }">
         
@@ -123,12 +123,12 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel.name === 'specificCar' && carDetailsList.length > 1" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
+    <div v-if="goalModel && goalModel === 'specificCar' && carDetailsList.length > 1" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
       <BaseSwitch v-model="simulateUntilGetOne" :label="$t('m_simulateUntilGetOne')" :horizontal="true" :disabled="running" />
       <BaseSwitch v-model="simulateUntilGetAll" :label="$t('m_simulateUntilGetAll')" :horizontal="true" :disabled="running" />
     </div>
 
-    <div v-if="goalModel && goalModel.name === 'specificAttr'" class="MainPacks_FilterBox">
+    <div v-if="goalModel && goalModel === 'specificAttr'" class="MainPacks_FilterBox">
       <div class="MainPacks_ChartFilter Main_DarkScroll">
         <template v-if="chartFilter">
           <div class="Cg_Reqs">
@@ -143,7 +143,7 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel.name === 'specificAttr'" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
+    <div v-if="goalModel && goalModel === 'specificAttr'" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
       <BaseText
         v-model="numberOfMatchesNeededAttr"
         type="integer"
@@ -181,11 +181,11 @@
           <div class="MainPacks_InfoLabel">{{ $t('m_count') }}</div>
           <div class="MainPacks_InfoValue">{{ simulateRunStats.count }}</div>
         </div>
-        <div v-if="goalModel && goalModel.name !== 'noGoal'" class="MainPacks_Info">
+        <div v-if="goalModel && goalModel !== 'noGoal'" class="MainPacks_Info">
           <div class="MainPacks_InfoLabel">{{ $t('m_probabilityPerOpen') }}</div>
           <div class="MainPacks_InfoValue">{{ simulateRunStats.probabilityPerOpen.toFixed(2) }}%</div>
         </div>
-        <div v-if="goalModel && goalModel.name !== 'noGoal'" class="MainPacks_Info">
+        <div v-if="goalModel && goalModel !== 'noGoal'" class="MainPacks_Info">
           <div class="MainPacks_InfoLabel">{{ $t('m_cumulativeProbability') }}</div>
           <div class="MainPacks_InfoValue">{{ simulateRunStats.cumulativeProbability.toFixed(2) }}%</div>
         </div>
@@ -590,9 +590,9 @@ export default {
       },
       goalModel: null,
       goalList: [
-        { name: "noGoal", label: "No goal" },
-        { name: "specificCar", label: "Specific car" },
-        { name: "specificAttr", label: "Specific attribute" }
+        "noGoal",
+        "specificCar",
+        "specificAttr"
       ],
       ratesCompact: true,
       filterDialog: false,
@@ -765,7 +765,7 @@ export default {
     ready() {
       if (!this.packModel) return false;
       if (!this.goalModel) return false;
-      if (this.goalModel.name === 'specificCar') {
+      if (this.goalModel === 'specificCar') {
         if (this.carDetailsList.length === 0) return false;
       }
       return true;
@@ -790,7 +790,7 @@ export default {
       if (this.running) return this.$t('m_simulating');
       if (this.simulateRunStats.count === 0) return this.$t('m_impossible');
 
-      if (this.goalModel && this.goalModel.name === "noGoal") {
+      if (this.goalModel && this.goalModel === "noGoal") {
 
         let highestClass = 'F';
         let garantedClass = 'F';
@@ -884,16 +884,16 @@ export default {
               }
             }
           })
-
-          // this.all_cars = this.all_cars.filter((value, index, self) =>
-          //   index === self.findIndex((t) => (
-          //     t.rid === value.rid
-          //   ))
-          // )
+          
           this.all_cars.sort((a,b) => {
             return b.rq - a.rq;
           })
         }
+
+        let mraData = res.data.find(x => x.id === 'mra').value;
+        this.all_cars.map(x => {
+          Vue.set(x, "mra", mraData[x.rid] || x.mra);
+        })
 
 
       })
@@ -973,13 +973,13 @@ export default {
       this.showResult = true;
       this.running = true;
       
-      if (this.goalModel.name === 'noGoal') {
+      if (this.goalModel === 'noGoal') {
         this.finalLimit = this.numberOfOpensNoGoal;
         this.resolveNotGarantedClasses();
         this.startOpening();
       }
 
-      if (this.goalModel.name === 'specificCar') {
+      if (this.goalModel === 'specificCar') {
         this.finalLimit = this.limit;
         this.simulateRunStats.goalRids = this.carDetailsList.map(car => car.rid);
         this.simulateRunStats.goalRidsOriginal = JSON.parse(JSON.stringify(this.simulateRunStats.goalRids));
@@ -991,7 +991,7 @@ export default {
         this.startOpening();
       }
 
-      if (this.goalModel.name === 'specificAttr') {
+      if (this.goalModel === 'specificAttr') {
         this.finalLimit = this.limit;
         if (this.numberOfMatchesNeededAttr < 1) this.numberOfMatchesNeededAttr = 1;
         if (!this.prepareCarsIwantInAvailableCars()) {
@@ -1058,7 +1058,7 @@ export default {
         let last = this.openOne();
         this.updatedDropped(last);
 
-        if (this.goalModel.name === 'specificCar' || this.goalModel.name === 'specificAttr') {
+        if (this.goalModel === 'specificCar' || this.goalModel === 'specificAttr') {
           last.map(l => {
             this.simulateRunStats.goalRidsOriginal.map(g => {
               if (l.rid === g) {
@@ -1073,16 +1073,16 @@ export default {
                   this.defaultResultList.push(this.insertCarPhoto(this.simulateRunStats[arrName][l.class].find(car => car.rid == l.rid)));
                 }
 
-                if (this.goalModel.name === 'specificCar' && this.simulateUntilGetOne) {
+                if (this.goalModel === 'specificCar' && this.simulateUntilGetOne) {
                   this.simulateRunStats.success = true;
                 }
               }
             })
           })
-          if (this.goalModel.name === 'specificCar' && this.simulateRunStats.goalRids.length === 0) {
+          if (this.goalModel === 'specificCar' && this.simulateRunStats.goalRids.length === 0) {
             this.simulateRunStats.success = true;
           }
-          if (this.goalModel.name === 'specificAttr') {
+          if (this.goalModel === 'specificAttr') {
             if (this.defaultResultList.reduce((accumulator, car) => accumulator + car.count, 0) >= this.numberOfMatchesNeededAttr) {
               this.simulateRunStats.success = true;
             }
@@ -1094,7 +1094,7 @@ export default {
       } else {
         this.running = false;
         this.stop = false;
-        if (this.goalModel.name === 'noGoal') {
+        if (this.goalModel === 'noGoal') {
           this.noGoalShowNotGaranted();
         }
       }

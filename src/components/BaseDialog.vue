@@ -23,7 +23,8 @@
           BaseDialog_Transparent: transparent,
           BaseDialog_ForceScroll: forceScroll,
           BaseDialog_ForceNoScroll: disableScroll,
-          BaseDialog_Grow: grow
+          BaseDialog_Grow: grow,
+          BaseDialog_Contents: displayContents
         }"
         class="BaseDialog_Box Main_DarkScroll">
         <slot />
@@ -79,6 +80,10 @@ export default {
       default: false
     },
     grow: {
+      type: Boolean,
+      default: false
+    },
+    displayContents: {
       type: Boolean,
       default: false
     },
@@ -231,5 +236,8 @@ export default {
 }
 .BaseDialog_Grow {
   height: 100%;
+}
+.BaseDialog_Contents {
+  display: contents;
 }
 </style>

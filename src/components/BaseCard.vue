@@ -46,7 +46,7 @@
       </div>
       <div class="Car_HeaderBlockClass">
         <div class="Car_HeaderClassBack" />
-        <div class="Car_HeaderClassValue">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
+        <div class="Car_HeaderClassValue" @click="letterClick($event)">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
       </div>
       <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
         <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
@@ -68,8 +68,8 @@
         <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
       </div>
       <div :class="{
-        Car_HeaderNameBig: car.name.length > 31,
-        Car_HeaderNameBigBig: car.name.length > 37
+        Car_HeaderNameBig: car.name.length > 30,
+        Car_HeaderNameBigBig: car.name.length > 36
         }" class="Car_HeaderName">{{ car.name }}</div>
       <div
         class="Car_CompactOverlay"
@@ -287,6 +287,43 @@ export default {
       }
       // this.touchedLong = true;
       this.$emit('longTouch');
+    },
+    letterClick(e) {
+      if (e.ctrlKey) {
+        let input = document.createElement('input');
+        input.setAttribute("type", "file")
+        input.setAttribute("accept", "video/*")
+        input.addEventListener('change', this.renderVideo, false)
+
+        this.elCard = e.srcElement.parentElement.parentElement;
+        this.elCard.classList.add("Car_WithVideo");
+        // elCard.appendChild(input);
+        input.click();
+
+      }
+    },
+    renderVideo(event) {
+      var file = event.target.files[0]
+      var type = file.type
+      // var videoNode = document.querySelector('video')
+
+      let vid = document.createElement('video');
+      vid.setAttribute("autoplay", "")
+      vid.setAttribute("muted", "")
+      vid.setAttribute("loop", "")
+      vid.setAttribute("id", "myVideo")
+      var canPlay = vid.canPlayType(type)
+      if (canPlay === '') {
+        debugger;
+      }
+      var fileURL = URL.createObjectURL(file)
+      vid.src = fileURL
+
+      // let rightGlass = document.createElement('div');
+      // rightGlass.setAttribute("class", "Car_CardRightForVideo");
+      // this.elCard.prepend(rightGlass);
+
+      this.elCard.prepend(vid);
     }
   },
 }

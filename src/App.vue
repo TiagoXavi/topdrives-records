@@ -39,6 +39,9 @@
         <MainLogin :wrap="true" @success="loginDialog = false;" @close="loginDialog = false;" />
       </div>
     </BaseDialog>
+
+    <portal-target name="app_dialogs" multiple>
+    </portal-target>
     
     <!-- <div class="Main_SideBox">
       <div class="Main_Credits">by TiagoXavi</div>
@@ -309,7 +312,7 @@ body {
   /* main */
   --top-height: 150px;
   --left-width: 200px;
-  --cell-width: 230px;
+  --cell-width: 238px;
   --cell-height: 35px;
   --dark-back: 40, 40, 40;
   --back-h: 360;
@@ -339,9 +342,9 @@ body {
   /* car */
   --card-stat-back-l: 10%;
   --card-stat-back-a: 0.2;
-  --card-right-width: 20%;
+  --card-right-width: 20.5%;
   --card-left-width: 11%;
-  --card-top-height: 15%;
+  --card-top-height: 12%;
   --card-left-height: 28%;
   --card-stat-div: 0%;
   --card-font-size: 12px;
@@ -806,14 +809,16 @@ button.D_Button.D_Button_Error {
   background-color: hsl(var(--btn-h), var(--btn-s), 40%);
   color: black;
 }
-.D_Button.D_ButtonRed {
+.D_Button.D_ButtonRed,
+.BaseChip.D_ButtonRed {
   --back-color: 200,0,0;
   --back-opac: 1;
   --back-opac-foc: 1;
   background-color: rgba(150,0,0,1);
   color: #fdc9c9;
 }
-.D_Button.D_ButtonGreen {
+.D_Button.D_ButtonGreen,
+.BaseChip.D_ButtonGreen {
   --back-color: 0,200,0;
   --back-opac: 1;
   --back-opac-foc: 1;
@@ -825,6 +830,14 @@ button.D_Button.D_Button_Error {
   font-size: 1.2em;
   padding: 0 2px 0 9px;
   border-radius: 0;
+}
+.D_Button.D_ButtonRedLight,
+.BaseChip.D_ButtonRedLight {
+  --back-color: 253,150,150;
+  --back-opac: 0.1;
+  --back-opac-foc: 1;
+  background-color: transparent;
+  color: #e07878;
 }
 
 
@@ -1238,6 +1251,9 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
 .Main_SearchItemAdded {
   opacity: 0.5;
 }
+.Main_SearchItemMarked .Main_SearchItemRight span:first-child {
+  color: rgb(var(--d-text-green));
+}
 .Main_SearchLoading {
   position: fixed;
   width: 100%;
@@ -1467,6 +1483,16 @@ body .Main_UserTw3:before {
 .Space_BothPlus { 
   margin-bottom: 20px;
   margin-top: 20px;
+}
+.Space_BottomGiga { 
+  margin-bottom: 30px;
+}
+.Space_TopGiga { 
+  margin-top: 30px;
+}
+.Space_BothGiga { 
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .Main_OptionsDialog {
   font-size: 18px;
@@ -2530,6 +2556,8 @@ body .Main_UserTw3:before {
 }
 .Cg_PointsSum {
   margin-left: 10px;
+  display: flex;
+  align-items: center;
 }
 .Cg_PointsSum_Red {
   --color: rgb(var(--d-text-red2));
@@ -2540,6 +2568,7 @@ body .Main_UserTw3:before {
 .Cg_PointsSumText {
   font-weight: bold;
   color: var(--color);
+  opacity: 0.8;
 }
 .Cg_BankButtonLose {
   opacity: 0.4;
@@ -3732,25 +3761,25 @@ body .Main_UserTw3:before {
   box-sizing: border-box;
 }
 .Car_HeaderBlockTopSpeed {
-  top: calc(var(--card-top-height) + var(--card-stat-div));
+  top: calc(var(--card-top-height));
   right: 0;
   width: var(--card-right-width);
   height: var(--card-stat-height);
 }
 .Car_HeaderBlock060 {
-  top: calc(var(--card-top-height) + (var(--card-stat-height) + var(--card-stat-div)) * 1 + var(--card-stat-div));
+  top: calc(var(--card-top-height) + (var(--card-stat-height) * 1));
   right: 0;
   width: var(--card-right-width);
   height: var(--card-stat-height);
 }
 .Car_HeaderBlockHandling {
-  top: calc(var(--card-top-height) + (var(--card-stat-height) + var(--card-stat-div)) * 2 + var(--card-stat-div));
+  top: calc(var(--card-top-height) + (var(--card-stat-height) * 2));
   right: 0;
   width: var(--card-right-width);
   height: var(--card-stat-height);
 }
 .Car_HeaderBlockDrive {
-  top: calc(var(--card-top-height) + (var(--card-stat-height) + var(--card-stat-div)) * 3 + var(--card-stat-div));
+  top: calc(var(--card-top-height) + (var(--card-stat-height) * 3));
   right: 0;
   width: var(--card-right-width);
   height: var(--card-stat-height);
@@ -3861,11 +3890,39 @@ body .Main_UserTw3:before {
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
 .Car_HeaderBlockDrive, */
+.Car_CardRightForVideo,
 .Car_HeaderBlockTop,
 .Car_HeaderBlockBrand,
 .Car_HeaderBlockYear {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
+}
+.Car_CardRightForVideo {
+  /* top: var(--card-top-height);
+  right: 0;
+  width: var(--card-right-width);
+  height: calc(100% - var(--card-top-height)); */
+}
+.Car_WithVideo {
+  --card-stat-div: 1px;
+}
+.Car_WithVideo video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.Car_WithVideo .Car_HeaderBlockTopSpeed,
+.Car_WithVideo .Car_HeaderBlock060,
+.Car_WithVideo .Car_HeaderBlockHandling,
+.Car_WithVideo .Car_HeaderBlockDrive {
+  background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
+  backdrop-filter: blur(4px);
+  height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+}
+.Car_WithVideo .Car_HeaderBlockTop,
+.Car_WithVideo .Car_HeaderBlockBrand,
+.Car_WithVideo .Car_HeaderBlockYear {
+  backdrop-filter: blur(4px);
 }
 @media (pointer:coarse) {
   .Car_HeaderBlockTop,

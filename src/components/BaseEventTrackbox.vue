@@ -12,7 +12,7 @@
           '--drag-top-slo': 7
         }"
         class="Cg_Track EventTrack">
-        <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze" class="BaseEventTrackbox_ClassCheck">
+        <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze && !hideCheckBox" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
             :value="check === `${itrackset}_${itrackMonoArray}`"
             @change="$emit('openKingFilter', {itrackset, itrackMonoArray}); changeRunAnimation()"
@@ -46,7 +46,7 @@
           :user="user"
           :options="user && user.mod"
           :cg="true"
-          :showCampaignTip="!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']"
+          :showCampaignTip="(!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']) && !disableCampaignTip"
           :showingBestPerTrack="showBestPerTrack && Object.keys(eventBestPerTrack).length > 0"
           class="Cg_TrackBox"
           type="tracks" />
@@ -137,6 +137,14 @@ export default {
       type: Boolean,
       default: false
     },
+    hideCheckBox: {
+      type: Boolean,
+      default: false
+    },
+    disableCampaignTip: {
+      type: Boolean,
+      default: false
+    },
     eventBestPerTrack: {
       type: Object,
       default() {
@@ -200,9 +208,7 @@ export default {
       elmnt.parentElement.parentElement.classList.add("EventTrack_DraggingParent");
       elmnt.parentElement.parentElement.classList.add("EventTrack_HideButtons");
 
-      let width = Number(getComputedStyle(document.body).getPropertyValue("--cell-width").trim().slice(0,-2))
-      let isCompact = document.querySelector(".Main_Compact");
-      if (isCompact) width = Number(getComputedStyle(isCompact).getPropertyValue("--cell-width").trim().slice(0,-2))
+      let width = Number(getComputedStyle(elmnt).getPropertyValue("--cg-width").trim().slice(0,-2))
 
       dragNum = Math.round(newLeft / width);
       let times = Math.abs(dragNum);
@@ -301,10 +307,10 @@ export default {
   opacity: 0 !important;
 }
 .EventTrack_PushLeft {
-  transform: translateX(calc(var(--cell-width) * -1));
+  transform: translateX(calc(var(--cg-width) * -1));
 }
 .EventTrack_PushRight {
-  transform: translateX(var(--cell-width));
+  transform: translateX(var(--cg-width));
 }
 .EventTrack .Type_00 {
   --type-back-opac: 0.1;

@@ -13,6 +13,7 @@
           BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ),
           BaseTopMenu_New: item.new && showNew
         }"
+        :disabled="disableButtons"
         class="D_Button BaseTopMenu_Button"
         @click="$router.push({ name: item.name }); tabClick(item);">{{ item.label }}</button>
     </div>
@@ -122,7 +123,7 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
-        // { label: "Timeline", name: "Timeline" },
+        // { label: "Timeline", name: "Timeline", new: true },
         { label: "Community", name: "Community" },
         { label: "Stuff", name: "Stuff" },
       ],
@@ -144,7 +145,8 @@ export default {
       all_width: 0,
       doc_width: 0,
       safe_margin: 40,
-      isVertical: true
+      isVertical: true,
+      disableButtons: false
     }
   },
   watch: {
@@ -152,7 +154,7 @@ export default {
       this.menuDialog = false;
       this.aboutDialog = false;
       this.optionsAdvancedDialog = false;
-    }
+    },
   },
   beforeMount() {
     this.localStorageRead("zoomLevel");
@@ -247,6 +249,15 @@ export default {
         vm.local_zoomLevelHorizontal = mutation.payload;
         this.resolveWBody();
       }
+      if (mutation.type == "BEFOREUNLOAD_TOUCH") {
+        vm.disableButtons = !!window.onbeforeunload;
+        console.log(vm.disableButtons);
+      }
+      if (mutation.type == "CHANGE_USER") {
+        vm.$nextTick().then(() => {
+          vm.checkUserAllowed();
+        })
+      }
 
     })
   },
@@ -320,6 +331,16 @@ export default {
     },
   },
   methods: {
+    checkUserAllowed() {
+      if (this.user && this.user.mod) {
+        this.menus = this.menus.filter(x => !x.new);
+        this.menus.splice(5, 0, { label: "Timeline", name: "Timeline", new: true })
+      } else {
+        if (this.$route.name === "Timeline") {
+          this.$router.push({ name: 'Records' })
+        }
+      }
+    },
     handleResize() {
       this.resolveWBody();
       this.checkZoom();
@@ -341,6 +362,7 @@ export default {
       
     },
     logoClick() {
+      if (this.disableButtons) return;
       if (this.$route.name !== 'Records') {
         this.$router.push({ name: 'Records' })
       }
@@ -356,6 +378,7 @@ export default {
       }
     },
     openMenuDialog() {
+      if (this.disableButtons) return;
       this.menuDialog = true;
     },
     closeMenuDialog() {
@@ -378,14 +401,14 @@ export default {
       this.menuDialog = true;
     },
     checkNewMenu() {
-      if (window.localStorage.getItem("newTab_Community")) {
+      if (window.localStorage.getItem("newTab_Timeline")) {
         this.showNew = false;
       };
     },
     tabClick(item) {
-      if (item.name === "Community") {
+      if (item.name === "Timeline") {
         this.showNew = false;
-        window.localStorage.setItem('newTab_Community', "t");
+        window.localStorage.setItem('newTab_Timeline', "t");
       }
     },
     checkZoom() {

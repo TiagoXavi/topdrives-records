@@ -705,7 +705,7 @@ export default {
     buildChart(algbData, second_data) {
       let vm = this;
       let series = [];
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
 
       if (second_data && second_data.length > 0)  {
         series.push(
