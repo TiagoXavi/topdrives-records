@@ -1585,9 +1585,9 @@ export default {
       let one = this.getNewEvent();
       if (this.ti.type === "Tri-Series") {
         one.name = this.ti.name;
-        if (this.ti.events.length === 0) one.name += " Quals";
+        if (this.ti.events.length === 0) one.name += " Finals";
         if (this.ti.events.length === 1) one.name += " Prelims";
-        if (this.ti.events.length === 2) one.name += " Finals";
+        if (this.ti.events.length === 2) one.name += " Quals";
       }
       if (isPaste && this.eventToCopy) {
         one.name = this.eventToCopy.name;
@@ -1906,11 +1906,11 @@ export default {
 
       console.log("size after:", file.size);
 
-      if (file.size > 2 * 1000 * 1000) { // 2mb
+      if (file.size > 1 * 1000 * 1000) { // 1mb
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           error: true,
-          text: "File larger than 2 MB",
+          text: "File larger than 1 MB",
           type: "error"
         });
         return;
@@ -2956,9 +2956,10 @@ export default {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255, 0.07);
-  backdrop-filter: blur(25px);
+  /* background-color: rgb(255, 255, 255, 0.07); */
+  /* backdrop-filter: blur(25px); */
   margin-top: 50px;
+  background-color: #424242;
 }
 .MainTimeline_404 {
   display: flex;

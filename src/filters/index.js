@@ -313,7 +313,8 @@ export default {
               "Dennis": 'mod',
               "MichaelB": 'mod',
               "Leafclaw": 'mod',
-              "biava": 'mod'
+              "biava": 'mod',
+              "artkatt": 'mod'
             };
             let pUsers = resData.find(x => x.id === 'pUsers').value;
             Object.keys( pUsers ).forEach(key => {
