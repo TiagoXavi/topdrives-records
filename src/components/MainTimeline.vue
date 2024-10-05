@@ -332,7 +332,7 @@
 
           
           <!-- filter, optional, veteran -->
-          <div v-if="ti.type === 'Veteran Challenge' || ti.type === 'Extraordinary Challenge' || ti.type === 'GT Series' || ti.type === 'Other' || ti.type === 'Game Update'" class="D_Center Space_TopGiga MainTimeline_Create_W600">
+          <div v-if="ti.type === 'Veteran Challenge' || ti.type === 'Extraordinary Challenge' || ti.type === 'GT Series' || ti.type === 'Other'" class="D_Center Space_TopGiga MainTimeline_Create_W600">
             <BaseFilterDescription
               :filter="ti.filter"
               :asFilterLabel="true"
@@ -1975,12 +1975,14 @@ export default {
 
         window.scrollTo({ top: ((document.querySelector(".MainTimeline_Body") || {}).offsetTop || 0) - 20, behavior: "smooth" });
 
-        let dayStart = new Date(`${params.dayStart}T00:00:00`);
-        let dayEnd = new Date(`${params.dayStart}T01:00:00`);
-        dayStart.setDate(dayStart.getDate() - 2);
-        dayEnd.setDate(dayEnd.getDate() + 2);
-        this.searchParams.dayStart = dayStart.toISOString().slice(0,10);
-        this.searchParams.dayEnd = dayEnd.toISOString().slice(0,10);
+        if (!isDelete) {
+          let dayStart = new Date(`${params.dayStart}T00:00:00`);
+          let dayEnd = new Date(`${params.dayStart}T01:00:00`);
+          dayStart.setDate(dayStart.getDate() - 2);
+          dayEnd.setDate(dayEnd.getDate() + 2);
+          this.searchParams.dayStart = dayStart.toISOString().slice(0,10);
+          this.searchParams.dayEnd = dayEnd.toISOString().slice(0,10);
+        }
 
         console.log(this.searchParams);
 
