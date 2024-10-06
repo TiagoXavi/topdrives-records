@@ -75,7 +75,7 @@
               v-if="user && user.mod"
               :class="{ D_Button_Loading: loading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="openCreateEvent()">
+              @click="openCreateEvent($event)">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
               <span>{{ $t("m_new") }}</span>
             </button>
@@ -521,7 +521,7 @@
 
 
           <div class="D_Center Space_TopGiga MainTimeline_Create_W600">
-            <div class="BaseText_Label">Description</div>
+            <div class="BaseText_Label">{{ $t('m_description') }} ({{ $t('m_optional') }})</div>
             <textarea
               v-model="ti.description"
               rows="4"
@@ -530,7 +530,7 @@
           </div>
 
 
-          <div v-if="(ti.p_rid || []).length !== 1" class="MainTimeline_ColorPicker Space_TopGiga Main_FilterChipsFlex">
+          <div v-if="(ti.p_rid || []).length !== 1 && ti.type !== 'Veteran Challenge' && ti.type !== 'Offers'" class="MainTimeline_ColorPicker Space_TopGiga Main_FilterChipsFlex">
             <template v-for="color in colors">
               <BaseChip
                 v-model="ti.color"
@@ -742,7 +742,7 @@
 
         <div
           v-if="detailObj.links && detailObj.links.filter(x => x.url && x.url.includes('tdrimages.s3')).length > 0"
-          :class="{ MainTimeline_DialogGalleryMany: detailObj.links.filter(x => x.url && x.url.includes('tdrimages.s3')).length > 2 }"
+          :class="{ MainTimeline_DialogGalleryMany: detailObj.type !== 'Offers' && detailObj.links.filter(x => x.url && x.url.includes('tdrimages.s3')).length > 2 }"
           class="MainTimeline_DialogGalleryLayout">
           <div class="MainTimeline_DialogInfoLabel">{{ $t('m_images') }}</div>
           <div class="MainTimeline_DialogGalleryInner">
@@ -758,7 +758,7 @@
           v-if="detailObj.links && detailObj.links.filter(x => x.url && !x.url.includes('tdrimages.s3')).length > 0"
           class="MainTimeline_DialogLinkLayout">
           <div class="MainTimeline_DialogInfoLabel">{{ $t('m_links') }}</div>
-          <div class="MainTimeline_DialogLinkInner">
+          <div class="MainTimeline_DialogLinkInner" :class="{ MainTimeline_DialogLinkAlone: detailObj.links.filter(x => x.url && !x.url.includes('tdrimages.s3')).length === 1 }">
             <div
               v-for="link in detailObj.links.filter(x => x.url && !x.url.includes('tdrimages.s3'))"
               class="MainTimeline_DialogLinkItem">
@@ -1487,7 +1487,11 @@ export default {
         this.screen = 'new';
       })
     },
-    openCreateEvent() {
+    openCreateEvent(e) {
+      if (e && e.ctrlKey && e.shiftKey) {
+        this.updateBackendTimeline();
+        return;
+      }
       this.resetTi();
       this.newTools = true;
       this.animation = true;
@@ -2497,6 +2501,9 @@ export default {
 .D_Button.MainTimeline_CarButton {
   padding: 2px;
 }
+.D_Button.MainTimeline_CarButton:active:not(.D_ButtonNoActive) {
+  transform: translateY(0px);
+}
 .MainTimeline_CarButtonRed {
   filter: sepia(1);
 }
@@ -2674,6 +2681,7 @@ export default {
 .MainTimeline_DialogInfoValue {
   color: var(--d-text-b);
   word-break: break-word;
+  white-space: pre-wrap;
 }
 .MainTimeline_DialogViewDual {
   display: grid;
@@ -2755,7 +2763,7 @@ export default {
 
 .MainTimeline_DialogGalleryLayout {
   margin-top: 15px;
-  --img-width: 250px;
+  --img-width: 260px;
   --img-height: 200px;
 }
 .MainTimeline_DialogGalleryMany {
@@ -2765,18 +2773,23 @@ export default {
 .MainTimeline_DialogGalleryInner {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
 }
 .MainTimeline_DialogGalleryItem {
   width: var(--img-width);
   height: var(--img-height);
   overflow: hidden;
+  /* flex-grow: 1; */
+}
+.MainTimeline_DialogGalleryItem:only-child {
+  width: 100%;
+  height: unset;
 }
 .MainTimeline_GalleryPictureImg {
   width: 100%;
-  /* height: 100%; */
   object-fit: cover;
-  border-radius: 10px;
+  /* height: 100%; */
+  /* border-radius: 10px; */
 }
 .MainTimeline_DialogGalleryItem:hover,
 .MainTimeline_DialogGalleryItem.focus-visible {
@@ -2790,11 +2803,18 @@ export default {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
+.MainTimeline_DialogLinkAlone {
+  grid-template-columns: 1fr;
+}
 .MainTimeline_DialogLinkItem {
-  
+  display: flex;
+  flex-direction: column;
 }
 .MainTimeline_DialogLinkButton {
   min-width: 150px;
+}
+.MainTimeline_DialogLinkButton > span {
+  word-break: break-word;
 }
 .MainTimeline_DialogLinkSub {
   font-size: 12px;
@@ -2806,6 +2826,7 @@ export default {
   -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2; 
   -webkit-box-orient: vertical;
+  word-break: break-all;
 }
 .MainTimeline_DialogImageLayout {
   display: flex;
@@ -2923,17 +2944,17 @@ export default {
 }
 .MainTimeline_YearText {
   padding: 6px 16px;
-  background-color: #3d3d3d;
+  background-color: #374a21;
   border-radius: 6px;
   position: relative;
-  color: rgb(var(--d-text-yellow));
+  color: rgb(var(--d-text-green));
 }
 .MainTimeline_YearArrow {
   position: absolute;
   font-size: 30px;
   left: 22px;
   top: -20px;
-  color: #434343;
+  color: #405c1f;
 }
 .MainTimeline_YearInvert .MainTimeline_YearArrow {
   transform: rotate(180deg);
