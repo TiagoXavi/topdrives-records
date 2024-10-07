@@ -213,7 +213,7 @@
                 type="normal"
                 placeholder="paste here"
                 class="BaseText_InternalMicro"
-                @paste="cgSubmitRoundResultJson($event)" />
+                @paste="resolvePaste($event)" />
             </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
