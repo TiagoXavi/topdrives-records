@@ -346,7 +346,7 @@
 
 
           <!-- event -->
-          <div v-if="ti.type === 'Tri-Series' || ti.type === 'Extraordinary Event' || ti.type === 'Other'" class="D_Center Space_TopGiga MainTimeline_Create_W600" style="max-width: unset; padding-top: 15px;">
+          <div v-if="ti.type === 'Tri-Series' || ti.type === 'GT Series' || ti.type === 'Extraordinary Event' || ti.type === 'Other'" class="D_Center Space_TopGiga MainTimeline_Create_W600" style="max-width: unset; padding-top: 15px;">
             <div
               v-for="(event, iEvent) in ti.events"
               :class="`MainTimeline_C_${iEvent % 3}`"
