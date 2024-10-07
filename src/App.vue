@@ -390,6 +390,9 @@ body {
   overflow-x: scroll;
   overflow-y: scroll;
 }
+button {
+  font-family: 'Roboto', sans-serif;
+}
 
 .App_Layout {
   width: 100%;

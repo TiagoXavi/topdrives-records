@@ -285,4 +285,8 @@ export default {
   user-select: none;
   pointer-events: none;
 }
+.BaseText_InternalMicro {
+  width: 36px;
+  box-shadow: 0px 0px 0px 2px #333;
+}
 </style>

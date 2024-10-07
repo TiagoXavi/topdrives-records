@@ -150,7 +150,7 @@
                 </div>
                 <div class="MainTimeline_ItemCover">
                   <div
-                    v-if="(item.p_rid || []).length === 1"
+                    v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'"
                     class="MainTimeline_Card_Header2Left">
                     <img :src="resolvedRids[item.p_rid[0]].photo" class="MainTimeline_Card_Header2Img" alt="">
                     <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
@@ -185,7 +185,7 @@
                   </div>
                 </div>
                 <div class="MainTimeline_ItemTopRight">
-                  <template v-if="(item.p_rid || []).length === 1">
+                  <template v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'">
                     <div class="MainTimeline_Line1Car">
                       <b class="MainTimeline_Line1RQ">RQ{{ resolvedRids[item.p_rid[0]].rq }}&nbsp;</b>
                       <span class="MainTimeline_Line1Brand">{{ resolvedRids[item.p_rid[0]].brand }}</span>
@@ -205,7 +205,7 @@
                     </div>
                     <div v-if="item.type !== 'News' && item.type !== 'Veteran Challenge' && item.type !== 'Other'" class="MainTimeline_ItemTypeText">{{ item.type }}</div>
                     <div v-else-if="(item.p_rid || []).length === 0 && item.type === 'News'" class="MainTimeline_ItemTopSubTitle">{{ item.description }}</div>
-                    <div v-if="(item.p_rid || []).length > 1" class="MainTimeline_ItemTopMiniCars">
+                    <div v-if="(item.p_rid || []).length > 1 || item.type === 'Veteran Challenge'" class="MainTimeline_ItemTopMiniCars">
                       <template v-for="(car, icar) in item.p_rid">
                         <div
                           v-if="icar <= 4"
@@ -1871,11 +1871,28 @@ export default {
         URL.revokeObjectURL(e.target.src);             // free up memory
         var c = document.createElement("canvas")  // create a temp. canvas
         var ctx = c.getContext("2d");
-        c.width = e.target.width;                      // set size = image, draw
-        c.height = e.target.height;
+
+        let W = e.target.width;
+        let H = e.target.height;
+        console.log("Image size", e.target.width, e.target.height);
+
+        if (W > 2000) {
+          H = Math.round(H * (2000 / W));
+          W = 2000;
+          console.log("New size", W, H);
+        }
+        if (H > 2000) {
+          W = Math.round(W * (2000 / H));
+          H = 2000;
+          console.log("New size", W, H);
+        }
+
+        c.width = W;                      // set size = image, draw
+        c.height = H;
         ctx.fillStyle = '#292929';
-        ctx.fillRect(0, 0, e.target.width, e.target.height);
-        ctx.drawImage(e.target, 0, 0);
+        
+        ctx.fillRect(0, 0, W, H);
+        ctx.drawImage(e.target, 0, 0, W, H);
 
         // convert to File object, NOTE: we're using binary mime-type for the final Blob/File
         c.toBlob(function(blob) {
@@ -1908,7 +1925,7 @@ export default {
       if (directFile) file = directFile;
       if (!file) return
 
-      console.log("size after:", file.size);
+      console.log("size after:", file.size / 1000000, "MB");
 
       if (file.size > 1 * 1000 * 1000) { // 1mb
         this.$store.commit("DEFINE_SNACK", {
@@ -1982,8 +1999,8 @@ export default {
         if (!isDelete) {
           let dayStart = new Date(`${params.dayStart}T00:00:00`);
           let dayEnd = new Date(`${params.dayStart}T01:00:00`);
-          dayStart.setDate(dayStart.getDate() - 2);
-          dayEnd.setDate(dayEnd.getDate() + 2);
+          dayStart.setDate(dayStart.getDate() - 4);
+          dayEnd.setDate(dayEnd.getDate() + 4);
           this.searchParams.dayStart = dayStart.toISOString().slice(0,10);
           this.searchParams.dayEnd = dayEnd.toISOString().slice(0,10);
         }
@@ -2715,7 +2732,7 @@ export default {
 }
 .MainTimeline_DialogViewFilterDescription:only-child {
   grid-column: span 2;
-  height: 114px;
+  height: auto;
 }
 .MainTimeline_DialogViewRewardedCars:only-child {
   grid-column: span 2;
@@ -2763,7 +2780,7 @@ export default {
 
 .MainTimeline_DialogGalleryLayout {
   margin-top: 15px;
-  --img-width: 260px;
+  --img-width: 265px;
   --img-height: 200px;
 }
 .MainTimeline_DialogGalleryMany {
@@ -2815,6 +2832,13 @@ export default {
 }
 .MainTimeline_DialogLinkButton > span {
   word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }
 .MainTimeline_DialogLinkSub {
   font-size: 12px;

@@ -206,7 +206,16 @@
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
-            @camera="shareDialog = true; generateUrl();"/>
+            @camera="shareDialog = true; generateUrl();">
+            <template v-if="user && user.username === 'TiagoXavi'" slot="more">
+              <BaseText
+                v-model="pasteInputModel"
+                type="normal"
+                placeholder="paste here"
+                class="BaseText_InternalMicro"
+                @paste="cgSubmitRoundResultJson($event)" />
+            </template>
+          </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top CHALLENGE -->
             <div v-if="cg.rounds" class="Cg_SelectorLayout">
@@ -788,7 +797,7 @@
         </div>
 
         
-        <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+        <!-- <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
           <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
             <div class="Main_AdminFields Main_AdminLayout">
               <div class="BaseText_Label">Challenge complete json</div>
@@ -805,9 +814,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div v-if="user && user.username === 'TiagoXavi' && user && cgRound.date && cgRound.races[0].track !== null && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+        <!-- <div v-if="user && user.username === 'TiagoXavi' && user && cgRound.date && cgRound.races[0].track !== null && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
           <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
             <div class="Main_AdminFields Main_AdminLayout">
               <div class="BaseText_Label">Round result json</div>
@@ -824,7 +833,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
       </div>
@@ -3382,6 +3391,7 @@ export default {
       currentTracks: [],
       currentTracksSetsNames: [],
       ignore50points: false,
+      pasteInputModel: null,
       tracksButtons: [
         {
           name: "Twisty",
@@ -10357,7 +10367,6 @@ export default {
       Vue.set(this.clubTracksGroupModel.tracksetuuids, index, newValue);
     },
     clubSubmitCompleteJson() {
-      let vm = this;
       let obj;
       let isParsed = false;
       try {
@@ -10369,7 +10378,7 @@ export default {
 
       if (!isParsed) {
         console.log(error);
-        vm.$store.commit("DEFINE_SNACK", {
+        this.$store.commit("DEFINE_SNACK", {
           active: true,
           error: true,
           text: "Parse error",
@@ -10378,12 +10387,15 @@ export default {
         return;
       }
 
+      this.clubLoading = true;
+
       axios.post(Vue.preUrl + "/clubObjFinalize", obj)
       .then(res => {
-        // this.setClubsObjRes = res.data;
+        this.clubJson = "";
+        this.loadClubs();
       })
       .catch(error => {
-        vm.$store.commit("DEFINE_SNACK", {
+        this.$store.commit("DEFINE_SNACK", {
           active: true,
           error: true,
           text: error,
@@ -10391,7 +10403,7 @@ export default {
         });
       })
       .then(() => {
-        vm.loading = false;
+        this.clubLoading = false;
       });
       
     },
@@ -10415,6 +10427,45 @@ export default {
     },
     resolveStat(car, type, customData = null) {
       return Vue.resolveStat(car, type, customData);
+    },
+    resolvePaste(e) {
+      if (e) {
+        e.preventDefault();
+        let text = e.clipboardData.getData('text');
+        let success = false;
+
+        try {
+          JSON.parse(text);
+          success = true;
+        } catch (error) {}
+
+        if (!success) return;
+
+        if (text.includes('resultData') && text.includes('roundData')) { // race result
+          if (text.includes('ladderPlayerData')) { // challenge
+            if (this.mode === 'challenges' && this.cgRound && this.cgRound.date && this.cgRound.races[0].track !== null && !this.cgIsApproving) {
+              this.cgRoundResultJson = text;
+              this.cgSubmitRoundResultJson();
+              return;
+            }
+          }
+          if (text.includes('campaignProgress')) { // campaign race
+
+          }
+          if (text.includes('leaderboardEntries')) { // event race
+
+          }
+        }
+
+        if (text.includes('zoneEligibility') && text.includes('zoneSize')) { // complete cg rounds
+          if (this.mode === 'challenges' && this.cgRound && this.cgRound.date && !this.cgIsApproving) {
+            this.cgCompleteJson = text;
+            this.cgSubmitCompleteJson();
+            return;
+          }
+        }
+
+      }
     }
   }
 }

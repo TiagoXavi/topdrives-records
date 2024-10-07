@@ -17,6 +17,12 @@
         BaseDualSlider_MoreLeft: (input0 - min) * 100 / ((max - min)) > (input1 - max) * -100 / ((max - min))
       }"
       class="BaseDualSlider_InputBox">
+      <div class="BaseDualSlider_Track BaseDualSlider_TrackUnder"></div>
+      <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill BaseDualSlider_TrackUnder">
+        <div
+          v-if="label"
+          class="BaseDualSlider_FillLabel">{{ label }}</div>
+      </div>
       <input
         v-model="input0"
         class="BaseDualSlider_Input BaseDualSlider_Min"
@@ -36,8 +42,8 @@
         :min="input0"
         :max="max"
         :step="step" />
-      <div class="BaseDualSlider_Track"></div>
-      <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill">
+      <div class="BaseDualSlider_Track BaseDualSlider_TrackUpper"></div>
+      <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill BaseDualSlider_TrackUpper">
         <div
           v-if="label"
           class="BaseDualSlider_FillLabel">{{ label }}</div>
@@ -175,6 +181,19 @@ export default {
   box-sizing: border-box;
   --shaB: #e7a62f;
 }
+@supports (-moz-appearance:none) {
+  .BaseDualSlider_Input {
+    pointer-events: none;
+  }
+  .BaseDualSlider_TrackUpper {
+    display: none;
+  }
+}
+@supports (-webkit-min-device-pixel-ratio:0) {
+  .BaseDualSlider_TrackUnder {
+    display: none;
+  }
+}
 .BaseDualSlider_Min {
   left: -15px;
   --shaD: 10px;
@@ -189,11 +208,12 @@ export default {
 .BaseDualSlider_Input:focus {
   outline: none;
 }
-.BaseDualSlider_Input:focus::-webkit-slider-runnable-track {
-  /* background: #2497e3; */
-}
 .BaseDualSlider_Input::-webkit-slider-runnable-track {
   cursor: pointer;
+}
+.BaseDualSlider_Input::-moz-range-track {
+  cursor: pointer;
+  background-color: transparent;
 }
 .BaseDualSlider_Input::-webkit-slider-thumb {
   z-index: 4;
@@ -207,14 +227,41 @@ export default {
   -webkit-appearance: none;
   transition-duration: 0.2s;
 }
+.BaseDualSlider_Input::-moz-range-thumb {
+  z-index: 4;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px var(--shaB), var(--shaD) 0px 4px -8px #a96000, inset 0px 0px 0px 2px #ffc633;
+  height: 30px;
+  width: 30px;
+  border-radius: 25px;
+  background: var(--shaB);
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition-duration: 0.2s;
+  pointer-events: all;
+
+  
+
+
+}
 .BaseDualSlider_InputAbove::-webkit-slider-thumb {
+  z-index: 5;
+}
+.BaseDualSlider_InputAbove::-moz-range-thumb {
   z-index: 5;
 }
 .BaseDualSlider_Input:hover::-webkit-slider-thumb,
 .BaseDualSlider_Input.focus-visible::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px 2px #ffc633, var(--shaD) 0px 4px -8px #a96000, inset 0px 0px 0px 0px #ffc633;
 }
+.BaseDualSlider_Input:hover::-moz-range-thumb,
+.BaseDualSlider_Input.focus-visible::-moz-range-thumb {
+  box-shadow: 0px 0px 0px 2px #ffc633, var(--shaD) 0px 4px -8px #a96000, inset 0px 0px 0px 0px #ffc633;
+}
 .BaseDualSlider_Input:active::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px 4px #ffc633, var(--shaD) 0px 4px -8px #a96000, inset 0px 0px 0px 0px #ffc633;
+}
+.BaseDualSlider_Input:active::-moz-range-thumb {
   box-shadow: 0px 0px 0px 4px #ffc633, var(--shaD) 0px 4px -8px #a96000, inset 0px 0px 0px 0px #ffc633;
 }
 .BaseDualSlider_Input:hover ~ .BaseDualSlider_Fill,
