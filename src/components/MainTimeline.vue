@@ -2780,12 +2780,12 @@ export default {
 
 .MainTimeline_DialogGalleryLayout {
   margin-top: 15px;
-  --img-width: 265px;
-  --img-height: 200px;
+  --img-width: 260px;
+  --img-height: 160px;
 }
 .MainTimeline_DialogGalleryMany {
-  --img-width: 92px;
-  --img-height: 76px;
+  --img-width: 126px;
+  --img-height: 78px;
 }
 .MainTimeline_DialogGalleryInner {
   display: flex;

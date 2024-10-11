@@ -711,7 +711,7 @@ export default {
         series.push(
           {
             data: second_data,
-            name: "Predicted",
+            name: "Inputted",
             enableMouseTracking: false,
             color: '#d52c2c',
             marker: {
@@ -724,7 +724,7 @@ export default {
       series.push(
         {
           data: algbData,
-          name: "Inputed",
+          name: "Predicted",
           enableMouseTracking: true,
           color: "#50ab2c",
           marker: {
