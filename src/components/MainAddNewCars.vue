@@ -357,11 +357,11 @@ export default {
       incomingCarsLoading: false,
       otherCountrysDialog: false,
       newCar: {
-        brand: null,
+        brand: "Lamborghini",
         photoId: {}, // string
         rq: null,
         onlyName: null,
-        country: null,
+        country: "IT",
         year: null,
         topSpeed: null,
         acel: null,
@@ -413,9 +413,9 @@ export default {
       },
       searchFilters: {},
       typesList: {
-        brand: ["Alfa Romeo", "Apollo", "Audi", "Fiat", "KTM", "Lancia", "McLaren", "Peugeot", "Renault"],
+        brand: ["Lamborghini"],
         countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
-        country: ["IT", "DE", "AT", "GB", "FR"],
+        country: ["IT"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
         tyres: ["Performance", "Standard", "All-surface", "Off-road", "Slick"],
