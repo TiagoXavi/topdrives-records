@@ -17,8 +17,8 @@
         :autocomplete="isNumberOnly ? 'off' : undefined"
         class="BaseText_Input"
         @keyup.enter.stop="$emit('enter')"
-        @input="instantModel ? resolveChange($event.target.value) : ''; inputed($event.target.value);"
-        @change="!instantModel ? resolveChange($event.target.value) : ''"
+        @input="instantModel ? resolveChange($event.target.value) : ''; inputed($event.target.value); $emit('input');"
+        @change="!instantModel ? resolveChange($event.target.value) : ''; $emit('change');"
         @blur="$emit('blur')"
         @paste="$emit('paste', $event)">
       <span v-if="suffix && showSuffix" :style="`--left: ${left}px`" class="BaseText_Suffix">{{ suffix }}</span>

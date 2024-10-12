@@ -87,7 +87,7 @@
               :loading="incomingCarsLoading"
               style="min-width: 200px;"
               class="D_Button D_ButtonDark MainAddNewCars_SelectPhoto"
-              @click="photoDialogActive = true;">
+              @click="photoSearchModel = null; refreshPhotos(); photoDialogActive = true;">
               <template v-if="!newCar.photoId || !newCar.photoId.src">
                 <i class="ticon-camera D_ButtonIcon" aria-hidden="true"/>
                 <span>Select photo</span>
@@ -162,12 +162,13 @@
 
         <div v-if="previewDialogActive" class="Row_DialogLayout">
           <div class="Row_DialogBody Space_TopPlus">
-            <div class="Row_DialogCard">
+            <div class="Row_DialogCard MainAddNewCars_DialogCard">
               <div class="Row_DialogCardLeft">
                 <BaseCard
                   :car="previewCar"
                   :isDialogBox="true"
-                  :options="false" />
+                  :options="false"
+                  class="MainAddNewCars_BaseCard" />
               </div>
             </div>
           </div>
@@ -241,10 +242,19 @@
     <BaseDialog
       :active="photoDialogActive"
       :transparent="false"
+      :isStatic="true"
       max-width="420px"
       min-width="240px"
       @close="photoDialogActive = false">
       <div class="Main_TuneDialog">
+        <BaseText
+          v-model="photoSearchModel"
+          type="normal"
+          class="BaseText_Big"
+          style="margin-bottom: 15px;"
+          placeholder="Search"
+          :instantModel="true"
+          @input="refreshPhotos()" />
         <div class="MainAddNewCars_PhotosBox">
           <template v-for="photo in photos">
             <BaseChip
@@ -256,6 +266,7 @@
               <div class="MainAddNewCars_PhotoDiv">
                 <img :src="photo.src" class="MainAddNewCars_PhotoImg" alt="">
                 <div v-if="photo.inUse" class="MainAddNewCars_PhotoInUseText">In use</div>
+                <div class="MainAddNewCars_PhotoTitle">{{ photo.filename }}</div>
               </div>
             </BaseChip>
           </template>
@@ -356,6 +367,7 @@ export default {
       incomingCars: [],
       incomingCarsLoading: false,
       otherCountrysDialog: false,
+      photoSearchModel: null,
       newCar: {
         brand: "Lamborghini",
         photoId: {}, // string
@@ -644,6 +656,7 @@ export default {
         } catch (error) {
           console.log(error);
         }
+        this.refreshPhotos();
         // console.log(res.data);
       })
       .catch(error => {
@@ -679,6 +692,7 @@ export default {
         delete vm.newCar.locatedName;
         delete vm.newCar.locatedIndex;
         delete vm.newCar.locatedPlus;
+        vm.photoSearchModel = null;
         vm.refreshPhotos();
 
         const illustrations = require.context(
@@ -779,6 +793,12 @@ export default {
           filename: photosKeys[index].substr(2).slice(0, -4)
         }
       })
+      if (this.photoSearchModel) {
+        let search = this.photoSearchModel.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        photos = photos.filter((x, index) => {
+          return x.filename.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "").includes(search);
+        })
+      }
       let brandName = (this.newCar.brand || "").normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'');
       photos = photos.filter(x => {
         let str = x.filename.normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^\w]/g,'');
@@ -790,6 +810,7 @@ export default {
         if (str.includes(brandName)) return true;
       })
       if (this.incomingCars.length > 0) {
+        
         photos.map(x => {
           if (this.incomingCars.find(y => y.photoId === x.filename)) {
             x.inUse = true;
@@ -803,6 +824,7 @@ export default {
     },
     changedChip(key, item) {
       if (key === "brand" && this.newCar.brand) {
+        this.photoSearchModel = null;
         this.refreshPhotos();
       }
     },
@@ -1023,5 +1045,18 @@ export default {
   padding: 25px;
   align-content: flex-start;
   height: auto;
+}
+.MainAddNewCars_DialogCard {
+  justify-content: center;
+}
+.MainAddNewCars_PhotoTitle {
+  position: absolute;
+  font-size: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #00000070;
+  width: 100%;
+  top: 0;
+  height: 10%;
 }
 </style>
