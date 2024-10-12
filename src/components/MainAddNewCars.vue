@@ -254,7 +254,7 @@
           style="margin-bottom: 15px;"
           placeholder="Search"
           :instantModel="true"
-          @input="refreshPhotos()" />
+          @update="refreshPhotos()" />
         <div class="MainAddNewCars_PhotosBox">
           <template v-for="photo in photos">
             <BaseChip
