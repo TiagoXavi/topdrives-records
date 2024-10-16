@@ -62,6 +62,15 @@
               <div v-if="searchParams.rids && searchParams.rids.length" class="D_ButtonNote">{{ searchParams.rids.length }}</div>
             </button>
             <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              :class="{ D_Button_Loading: loading }"
+              style="position: relative;"
+              @click="openFilterByRequirements()">
+              <i class="ticon-filter D_ButtonIcon" aria-hidden="true"/>
+              <span>{{ $t("m_requirements") }}</span>
+              <div v-if="searchParams.requirements && Object.keys(searchParams.requirements).length" class="D_ButtonNote">{{ Object.keys(searchParams.requirements).length }}</div>
+            </button>
+            <button
               v-if="searchParamsEmptyString !== JSON.stringify(searchParams)"
               :class="{ D_Button_Loading: loading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRedLight"
@@ -943,7 +952,7 @@
     </BaseDialog>
 
 
-    <!-- timeline list filter by car -->
+    <!-- timeline list filter by spec -->
     <BaseFilterDialog
       v-model="filterBySpecDialog"
       :filterOnly="true"
@@ -956,6 +965,21 @@
         brake: false
       }"
       @clearFilterUpdate="updateFilterBySpec($event)"
+    />
+
+    <!-- timeline list filter by requirements -->
+    <BaseFilterDialog
+      v-model="filterByRequirementsDialog"
+      :filterOnly="true"
+      :all_cars="all_cars"
+      :config="{
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false,
+        brake: false
+      }"
+      @clearFilterUpdate="updateFilterByRequirements($event)"
     />
 
     <!-- Select car -->
@@ -1204,6 +1228,7 @@ export default {
       },
       searchParams: {},
       filterBySpecDialog: false,
+      filterByRequirementsDialog: false,
       filterByCarFilter: {},
       eventToCopy: null,
       searchParamsEmptyString: "",
@@ -1323,6 +1348,7 @@ export default {
     resetFilter() {
       this.searchParams = {
         filter: {},
+        requirements: {},
         input: "",
         dayStart: "",
         dayEnd: "",
@@ -2097,6 +2123,18 @@ export default {
       // this.filterByCarFilter = filter;
       this.filterBySpecDialog = false;
       this.searchParams.filter = filter;
+      if (this.filterTempString !== JSON.stringify(this.searchParams)) {
+        this.searchTimeline();
+      }
+    },
+    openFilterByRequirements() {
+      this.filterTempString = JSON.stringify(this.searchParams);
+      this.filterByRequirementsDialog = true;
+    },
+    updateFilterByRequirements(requirements) {
+      // this.filterByCarFilter = filter;
+      this.filterByRequirementsDialog = false;
+      this.searchParams.requirements = requirements;
       if (this.filterTempString !== JSON.stringify(this.searchParams)) {
         this.searchTimeline();
       }
