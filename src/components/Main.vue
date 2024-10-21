@@ -6086,24 +6086,24 @@ export default {
             "name": "Proving Grounds: test"
           })
         }
-        if (this.user && this.user.mod && this.user.username === 'TiagoXavi') {
-          this.cgList.push({
-            "date": "a1",
-            "name": "Proving Grounds: a1"
-          })
-          this.cgList.push({
-            "date": "a2",
-            "name": "Proving Grounds: a2"
-          })
-          this.cgList.push({
-            "date": "a3",
-            "name": "Proving Grounds: a3"
-          })
-          this.cgList.push({
-            "date": "a4",
-            "name": "Proving Grounds: a4"
-          })
-        }
+        // if (this.user && this.user.mod && this.user.username === 'TiagoXavi') {
+        //   this.cgList.push({
+        //     "date": "a1",
+        //     "name": "Proving Grounds: a1"
+        //   })
+        //   this.cgList.push({
+        //     "date": "a2",
+        //     "name": "Proving Grounds: a2"
+        //   })
+        //   this.cgList.push({
+        //     "date": "a3",
+        //     "name": "Proving Grounds: a3"
+        //   })
+        //   this.cgList.push({
+        //     "date": "a4",
+        //     "name": "Proving Grounds: a4"
+        //   })
+        // }
 
         this.styleCgList();
         if (resolveInitial && this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {

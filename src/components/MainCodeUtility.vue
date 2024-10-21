@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    <BaseText
+    <!-- <BaseText
       v-model="roundNumber"
       type="integer"
       placeholder="Round number"
@@ -136,7 +136,7 @@
     <button
       style="margin-top: 20px; margin-bottom: 50px;"
       class="D_Button D_ButtonDark"
-      @click="$router.push({ name: 'Records' })">Go to home</button>
+      @click="$router.push({ name: 'Records' })">Go to home</button> -->
     
     <!-- <div class="input_EventNameLayout">
       <input
@@ -146,6 +146,15 @@
         placeholder="event name"
       />
     </div> -->
+    <div class="MainCollageMaker_Layout">
+      <div class="MainCollageMaker_Grid">
+        <div v-for="(item, ix) in images" class="MainCollageMaker_Div" @click="askDelete(ix)">
+          <img
+            :src="item"
+            class="MainCollageMaker_Img" alt="">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -185,7 +194,9 @@ export default {
       clubsParsedResult: {},
       possiblesResult: [],
       cars_final,
-      roundNumber: null
+      roundNumber: null,
+      images: [],
+      currentIndex: -1
     };
   },
   watch: {},
@@ -241,6 +252,8 @@ export default {
       // 43.8495 > 00:43:84
       // 112.0595 > 01:52:06
       // 43.8995 > 00:43:90
+      // 43.7995 > 00:43:79
+      // 44.0995 > 00:44:09
 
       if (hours < 10) {
         hours = '0' + hours;
@@ -260,11 +273,38 @@ export default {
       return parseInt(this * 2.2369)
     };
 
-    this.loadClubs();
+    // DISABLED CLUBS FUNCTION
+    // this.loadClubs();
   },
-  mounted() {},
+  mounted() {
+    window.addEventListener('paste', this.handlePaste);
+    window.addEventListener('keyup', this.handleKeyUp);
+  },
+  beforeDestroy() {
+    window.removeEventListener('paste', this.handlePaste);
+    window.removeEventListener('keyup', this.handleKeyUp);
+  },
   computed: {},
   methods: {
+    handleKeyUp(e) {
+      if (this.images.length === 0) return;
+      if (e.shiftKey || (e.ctrlKey || e.metaKey)) return;
+      if (e.code === "KeyP" || e.code === "KeyC") {
+        this.sharePrint(e.code);
+      }
+    },
+    handlePaste(e) {
+      e.preventDefault();
+
+      for (const file of e.clipboardData.files) {
+        if (file.type.startsWith('image/')) {
+          // Do something with the image file.
+          // console.log(file);
+          const localUrl = URL.createObjectURL(file);
+          this.images.push(localUrl)
+        }
+      }
+    },
     intercept(e) {
       let text = e.clipboardData.getData('text');
 
@@ -918,6 +958,127 @@ export default {
       this.result.user.hardCurrency1 = 100000;
 
       navigator.clipboard.writeText(JSON.stringify(this.result, null, 4));
+    },
+    sharePrint(keyCode) {
+      this.tempWindowWidth = this.windowWidth;
+      this.windowWidth = 1300;
+      this.pngLoading = true;
+      window.scrollTo({ top: 0 });
+      let vm = this;
+      let _width;
+      let _height;
+      let c_container = document.querySelector('#App_PrintContainer');
+      let currentCanvas = document.querySelector('#printCanvas');
+
+      let boxName = ".MainCollageMaker_Grid";
+      let pose = document.querySelector(boxName);
+      pose.classList.add("Main_BodyPrint");
+
+
+      _width = (pose.clientWidth) * 1;
+      _height = (pose.clientHeight) * 1;
+
+
+      let options = {
+        backgroundColor: "#333",
+        canvas: currentCanvas,
+        scale: 1,
+        width: _width,
+        height: _height,
+        windowWidth: _width,
+        windowHeight: _height,
+      }
+
+      currentCanvas.setAttribute("width", `${_width}`);
+      currentCanvas.setAttribute("height", `${_height}`);
+
+      setTimeout(() => {
+        this.runSharePrint(pose, options, c_container, currentCanvas, boxName, keyCode);
+      }, 10);
+
+    },
+    runSharePrint(pose, options, c_container, currentCanvas, boxName, keyCode) {
+      let vm = this;
+
+      import('html2canvas').then(html2canvas => {
+
+        html2canvas.default(pose, options).then(function(canvas) {
+
+          import('reimg').then(reimg => {
+            let canva = reimg.ReImg.fromCanvas(currentCanvas);
+
+            if (keyCode === "KeyP") {
+              // print
+              reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
+
+              document.querySelector(boxName).classList.remove("Main_BodyPrint");
+              vm.windowWidth = vm.tempWindowWidth;
+              vm.pngLoading = false;
+            } else {
+              // copy to clipboard
+              var image = new Image();
+              image.src = canva.toBase64();
+              image.onload = function() {
+                var c = document.createElement("canvas");
+                var ctx = c.getContext("2d");
+                c.width = image.naturalWidth;
+                c.height = image.naturalHeight;
+                ctx.drawImage(image, 0, 0);
+                c.toBlob(function(blob) {
+
+                  try {
+                    navigator.clipboard.write([
+                      new ClipboardItem({
+                        'image/png': blob
+                      })
+                    ]);
+                    vm.$store.commit("DEFINE_SNACK", {
+                      active: true,
+                      correct: true,
+                      text: "Copied",
+                      time: 1000
+                    });
+                  } catch (error) {
+                    console.error(error);
+                  }
+
+
+                }, "image/png", 1);
+
+                // try {
+                //   navigator.clipboard.write([
+                //     new ClipboardItem({
+                //       'image/png': image
+                //     })
+                //   ]);
+                // } catch (error) {
+                //   console.error(error);
+                // }
+              }
+            }
+
+
+
+
+          }).catch(e => {console.log("load reimg failed", e)});
+
+        });
+
+      }).catch(e => {console.log("load html2canvas failed", e)})
+
+
+    },
+    askDelete(ix) {
+      if (this.currentIndex === ix) {
+        this.currentIndex = -1;
+        // confirm
+        this.images = this.images.filter((x, index) => index !== ix);
+      } else {
+        this.currentIndex = ix;
+        setTimeout(() => {
+          this.currentIndex = -1;
+        }, 1000);
+      }
     }
   },
 };
@@ -1100,5 +1261,28 @@ export default {
 }
 .MainCodeUtility_CardBox >>> .Car_TuneTip {
   font-size: 27px;
+}
+
+.MainCollageMaker_Layout {
+  min-height: calc(var(--hBody) - var(--top-menu));
+  display: flex;
+  align-items: center;
+}
+.MainCollageMaker_Grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+.MainCollageMaker_Div {
+  margin: 2px;
+  background-color: violet;
+  position: relative;
+  /* flex-grow: 1; */
+  /* height: 200px; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 </style>

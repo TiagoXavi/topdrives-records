@@ -787,7 +787,7 @@
         <div v-if="detailObj.description" class="MainTimeline_DialogMid">
           <div class="MainTimeline_DialogInfo">
             <div class="MainTimeline_DialogInfoLabel">{{ $t('m_description') }}</div>
-            <div class="MainTimeline_DialogInfoValue">{{ detailObj.description }}</div>
+            <div class="MainTimeline_DialogInfoValue" style="font-size: 14px;">{{ detailObj.description }}</div>
           </div>
         </div>
         <div v-if="user && user.mod" class="D_Center Space_TopPlus" style="gap: 5px;">
