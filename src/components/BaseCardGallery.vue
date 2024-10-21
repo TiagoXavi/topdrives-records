@@ -51,8 +51,8 @@
         <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
       </div>
       <div :class="{
-        Car_HeaderNameBig: car.name.length > 31,
-        Car_HeaderNameBigBig: car.name.length > 37
+        Car_HeaderNameBig: car.name.length > 30,
+        Car_HeaderNameBigBig: car.name.length > 36
         }" class="Car_HeaderName">{{ car.name }}</div>
     </div>
   </div>

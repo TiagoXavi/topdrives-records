@@ -732,7 +732,7 @@ export default {
     }
 
     // check new cars
-    let found = this.all_cars.find(x => x.tags && x.tags.includes("European Grand Tour"));
+    let found = this.all_cars.find(x => x.rid === "Lamborghini_Athon_1980");
     if (!found) {
       this.getLastest();
     }

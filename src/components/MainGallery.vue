@@ -228,7 +228,10 @@
         </div>
       </div>
     </div>
-    <div class="MainGallery_Box">
+    <div v-if="lastestLoading" class="MainGallery_Box MainGallery_BoxLoading">
+      Loading...
+    </div>
+    <div v-else class="MainGallery_Box">
       <div class="MainGallery_BoxTitle">
         <span v-if="this.searchFilters.onlyAnyChangeModel[0]">Any change</span>
         <span v-if="this.searchFilters.onlyRelevantChangesModel[0]">Revelant Changes</span>
@@ -420,6 +423,7 @@ export default {
       chunkNumber: 30,
       chunkLoaded: {},
       showAllChunk: false,
+      lastestLoading: false,
       searchFilters: {
         yearStart: 1910,
         yearEnd: 2024,
@@ -672,20 +676,17 @@ export default {
   },
   watch: {},
   beforeMount() {
-    this.clearFilter();
-    this.all_cars.map(x => {
-      Vue.set(x, "visible", false);
-    })
-
-    this.searchResult = this.all_cars;
-    this.resolveDiffs();
-
-    [...Array(Math.ceil(this.chunkNumber)).keys()].map((x,ix) => {
-      this.chunkLoaded[ix] = false;
-    })
-
+    // check new cars
+    let found = this.all_cars.find(x => x.rid === "Lamborghini_Athon_1980");
     
-    this.applyFilter();
+    if (!found) {
+      this.getLastest();
+    } else {
+      this.init();
+    }
+
+    this.clearFilter();
+    
 
   },
   mounted() {
@@ -700,6 +701,65 @@ export default {
   },
   computed: {},
   methods: {
+    init() {
+      this.all_cars.map(x => {
+        Vue.set(x, "visible", false);
+      })
+
+      this.searchResult = this.all_cars;
+      this.resolveDiffs();
+
+      [...Array(Math.ceil(this.chunkNumber)).keys()].map((x,ix) => {
+        this.chunkLoaded[ix] = false;
+      })
+
+
+      this.applyFilter();
+    },
+    getLastest() {
+      let vm = this;
+      this.lastestLoading = true;
+
+
+      // lastest cars
+      axios.get(Vue.preUrl + "/lastest")
+      .then(res => {
+        this.lastestLoading = false;
+
+        let incomingCars = res.data.find(x => x.id === 'newCars').value;
+        if (incomingCars && incomingCars.length > 0) {
+          let rids = this.all_cars.map(x => x.rid);
+
+          incomingCars.map(car => {
+            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
+              if (!rids.includes(car.rid)) {
+                this.all_cars.push(car);
+              }
+            }
+          })
+
+          this.all_cars.sort((a,b) => {
+            return b.rq - a.rq;
+          })
+        }
+
+        let mraData = res.data.find(x => x.id === 'mra').value;
+        this.all_cars.map(x => {
+          if (!x.mra && mraData[x.rid]) {
+            Vue.set(x, "mra", mraData[x.rid]);
+          }
+        })
+
+        this.init();
+
+
+      })
+      .catch(error => {
+        this.lastestLoading = false;
+        console.log(error);
+      });
+
+    },
     // carPicture(file) {
     //   try {
     //     return require('@/imgs_final/' + file + '.jpg');
@@ -1105,7 +1165,7 @@ export default {
 
       if ( this.searchFilters.onlyRelevantChangesModel.includes(true) ) {
         if ( !oldCar ) {
-          return false;
+          return true;
         }
         if (
             oldCar.class === car.class &&
@@ -1464,5 +1524,8 @@ export default {
   padding: 0 20px;
   gap: 30px;
   justify-content: center;
+}
+.MainGallery_BoxLoading {
+
 }
 </style>
