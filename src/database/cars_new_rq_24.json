@@ -1,0 +1,578 @@
+[
+  {
+    "Model": "Chrysler Town and Country (1990)",
+    "23.2": 13,
+    "24.0": 14,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Town and Country (1991)",
+    "23.2": 13,
+    "24.0": 14,
+    "Difference": 1
+  },
+  {
+    "Model": "Lincoln Town Car (1981)",
+    "23.2": 13,
+    "24.0": 14,
+    "Difference": 1
+  },
+  {
+    "Model": "Cadillac El Camino (1954)",
+    "23.2": 13,
+    "24.0": 14,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Town and Country (1996)",
+    "23.2": 14,
+    "24.0": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Monaco (1974)",
+    "23.2": 14,
+    "24.0": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Silhouette (1990)",
+    "23.2": 14,
+    "24.0": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Adam 1.2 (2016)",
+    "23.2": 16,
+    "24.0": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "De Tomaso Innocenti Mini De Tomaso (1977)",
+    "23.2": 16,
+    "24.0": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Lumina APV (1989)",
+    "23.2": 16,
+    "24.0": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Jaguar XK120 (1948)",
+    "23.2": 18,
+    "24.0": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Porsche 912 (1966)",
+    "23.2": 18,
+    "24.0": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Nova GTE (1987)",
+    "23.2": 20,
+    "24.0": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Sebring Convertible (1996)",
+    "23.2": 21,
+    "24.0": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Panda 4x4 (1983)",
+    "23.2": 22,
+    "24.0": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler LeBaron GTC (1988)",
+    "23.2": 25,
+    "24.0": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda 2 (2018)",
+    "23.2": 26,
+    "24.0": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Mercury Marauder (2003)",
+    "23.2": 28,
+    "24.0": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Atenza Sport Wagon (2003)",
+    "23.2": 29,
+    "24.0": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Mazda BT-50 (2011)",
+    "23.2": 30,
+    "24.0": 32,
+    "Difference": 2
+  },
+  {
+    "Model": "Lamborghini Espada Serie III (1972)",
+    "23.2": 30,
+    "24.0": 31,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Jarama GT (1970)",
+    "23.2": 30,
+    "24.0": 31,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Urraco P250 (1973)",
+    "23.2": 30,
+    "24.0": 31,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Silhouette (1976)",
+    "23.2": 30,
+    "24.0": 31,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Islero S (1969)",
+    "23.2": 33,
+    "24.0": 34,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Juke Nismo (2014)",
+    "23.2": 37,
+    "24.0": 38,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Jalpa (1981)",
+    "23.2": 37,
+    "24.0": 38,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan 200SX (1993)",
+    "23.2": 39,
+    "24.0": 38,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini LM002 (1986)",
+    "23.2": 41,
+    "24.0": 45,
+    "Difference": 4
+  },
+  {
+    "Model": "Lamborghini Countach LP 400 S (1978)",
+    "23.2": 42,
+    "24.0": 43,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Miura Roadster (1968)",
+    "23.2": 44,
+    "24.0": 46,
+    "Difference": 2
+  },
+  {
+    "Model": "Porsche Panamera Diesel 3.0 (970) (2011)",
+    "23.2": 44,
+    "24.0": 45,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Countach LP 500 S (1982)",
+    "23.2": 45,
+    "24.0": 46,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler 300M (1991)",
+    "23.2": 47,
+    "24.0": 48,
+    "Difference": 1
+  },
+  {
+    "Model": "Cadillac Escalade (2011)",
+    "23.2": 48,
+    "24.0": 47,
+    "Difference": -1
+  },
+  {
+    "Model": "Infiniti QX30 (2017)",
+    "23.2": 48,
+    "24.0": 47,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Galaxy (2015)",
+    "23.2": 49,
+    "24.0": 48,
+    "Difference": -1
+  },
+  {
+    "Model": "Alfa Romeo GTV Cup (1999)",
+    "23.2": 50,
+    "24.0": 51,
+    "Difference": 1
+  },
+  {
+    "Model": "Alfa Romeo 147 GTA Cup (2003)",
+    "23.2": 50,
+    "24.0": 57,
+    "Difference": 7
+  },
+  {
+    "Model": "Cadillac CTS Sport Wagon (2014)",
+    "23.2": 51,
+    "24.0": 50,
+    "Difference": -1
+  },
+  {
+    "Model": "Audi A6 allroad quattro (2018)",
+    "23.2": 55,
+    "24.0": 56,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Countach 5000 Quattrovalvole (1985)",
+    "23.2": 56,
+    "24.0": 55,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Imperial (2006)",
+    "23.2": 57,
+    "24.0": 56,
+    "Difference": -1
+  },
+  {
+    "Model": "Lotus Elise 111R (2004)",
+    "23.2": 57,
+    "24.0": 58,
+    "Difference": 1
+  },
+  {
+    "Model": "Porsche Cayenne Diesel 3.0 (958) (2010)",
+    "23.2": 58,
+    "24.0": 57,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai Elantra N (2022)",
+    "23.2": 62,
+    "24.0": 63,
+    "Difference": 1
+  },
+  {
+    "Model": "Mercedes-Benz E 55 AMG (1999)",
+    "23.2": 63,
+    "24.0": 64,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda 6 MPS (2005)",
+    "23.2": 64,
+    "24.0": 61,
+    "Difference": -3
+  },
+  {
+    "Model": "BMW 330d Touring (2014)",
+    "23.2": 64,
+    "24.0": 50,
+    "Difference": -14
+  },
+  {
+    "Model": "Mazda Atenza (2006)",
+    "23.2": 64,
+    "24.0": 58,
+    "Difference": -6
+  },
+  {
+    "Model": "Alfa Romeo Issima (1996)",
+    "23.2": 65,
+    "24.0": 73,
+    "Difference": 8
+  },
+  {
+    "Model": "Lamborghini Diablo SV (1996)",
+    "23.2": 68,
+    "24.0": 70,
+    "Difference": 2
+  },
+  {
+    "Model": "Chrysler Nassau (2007)",
+    "23.2": 70,
+    "24.0": 69,
+    "Difference": -1
+  },
+  {
+    "Model": "Lotus Emira (2022)",
+    "23.2": 70,
+    "24.0": 71,
+    "Difference": 1
+  },
+  {
+    "Model": "Jaguar F-Pace 3.0D S (2016)",
+    "23.2": 71,
+    "24.0": 70,
+    "Difference": -1
+  },
+  {
+    "Model": "BMW M440i xDrive Coupe (2020)",
+    "23.2": 73,
+    "24.0": 74,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Diablo VT Roadster (1995)",
+    "23.2": 74,
+    "24.0": 73,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 550-2 (2011)",
+    "23.2": 74,
+    "24.0": 75,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Diablo VT (1993)",
+    "23.2": 77,
+    "24.0": 75,
+    "Difference": -2
+  },
+  {
+    "Model": "Lamborghini Huracán LP 580-2 Spyder (2018)",
+    "23.2": 77,
+    "24.0": 78,
+    "Difference": 1
+  },
+  {
+    "Model": "Porsche 911 Speedster 4.0 (991.2) (2019)",
+    "23.2": 77,
+    "24.0": 76,
+    "Difference": -1
+  },
+  {
+    "Model": "Cadillac CT4-V Blackwing (2021)",
+    "23.2": 77,
+    "24.0": 78,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Diablo VT 6.0 (2000)",
+    "23.2": 81,
+    "24.0": 80,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 570-4 Spyder Performante (2010)",
+    "23.2": 85,
+    "24.0": 84,
+    "Difference": -1
+  },
+  {
+    "Model": "Porsche Cayenne Turbo (958.2) (2017)",
+    "23.2": 88,
+    "24.0": 89,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP 640 (2006)",
+    "23.2": 88,
+    "24.0": 87,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo Superleggera (2007)",
+    "23.2": 88,
+    "24.0": 87,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 560-4 (2008)",
+    "23.2": 88,
+    "24.0": 87,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Murciélago LP 670-4 SuperVeloce (2009)",
+    "23.2": 90,
+    "24.0": 89,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Reventón (2007)",
+    "23.2": 90,
+    "24.0": 89,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Spyder (2015)",
+    "23.2": 90,
+    "24.0": 89,
+    "Difference": -1
+  },
+  {
+    "Model": "Alfa Romeo Tipo 33 TT 12 (1974)",
+    "23.2": 90,
+    "24.0": 89,
+    "Difference": -1
+  },
+  {
+    "Model": "Radical SR8 (2005)",
+    "23.2": 90,
+    "24.0": 89,
+    "Difference": -1
+  },
+  {
+    "Model": "Drako GTE (2020)",
+    "23.2": 90,
+    "24.0": 91,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 570-4 Edizione Tecnica (2013)",
+    "23.2": 91,
+    "24.0": 90,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 570-4 Superleggera (2012)",
+    "23.2": 92,
+    "24.0": 91,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Gallardo LP 570-4 Super Trofeo Stradale (2011)",
+    "23.2": 92,
+    "24.0": 91,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador Roadster (2013)",
+    "23.2": 92,
+    "24.0": 91,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador Coupé (2011)",
+    "23.2": 93,
+    "24.0": 92,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador J (2012)",
+    "23.2": 93,
+    "24.0": 92,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Coupé (2014)",
+    "23.2": 93,
+    "24.0": 92,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador S Roadster (2018)",
+    "23.2": 94,
+    "24.0": 93,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Corvette C6.R (2005)",
+    "23.2": 94,
+    "24.0": 93,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador S (2018)",
+    "23.2": 95,
+    "24.0": 94,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Performante Spyder (2018)",
+    "23.2": 95,
+    "24.0": 94,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador SV (2015)",
+    "23.2": 96,
+    "24.0": 95,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën Xantia 4x4 Turbo (1999)",
+    "23.2": 96,
+    "24.0": 95,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Aventador SVJ (2018)",
+    "23.2": 97,
+    "24.0": 95,
+    "Difference": -2
+  },
+  {
+    "Model": "Lamborghini Veneno Roadster (2013)",
+    "23.2": 97,
+    "24.0": 96,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Huracán Performante (2018)",
+    "23.2": 97,
+    "24.0": 95,
+    "Difference": -2
+  },
+  {
+    "Model": "Lamborghini Urus (2018)",
+    "23.2": 97,
+    "24.0": 96,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Centenario (2016)",
+    "23.2": 98,
+    "24.0": 97,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda RT24-P (2017)",
+    "23.2": 99,
+    "24.0": 98,
+    "Difference": -1
+  },
+  {
+    "Model": "Lamborghini Sesto Elemento (2012)",
+    "23.2": 100,
+    "24.0": 97,
+    "Difference": -3
+  },
+  {
+    "Model": "Peugeot 208 WRX (2017)",
+    "23.2": 109,
+    "24.0": 104,
+    "Difference": -5
+  },
+  {
+    "Model": "Audi S1 EKS RX quattro (8X) (2018)",
+    "23.2": 109,
+    "24.0": 104,
+    "Difference": -5
+  }
+]

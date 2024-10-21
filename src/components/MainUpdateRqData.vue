@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_23.json'
+import cars_new_rq from '../database/cars_new_rq_24.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -37,8 +37,8 @@ export default {
     let temp2;
     let xName;
     let yModel;
-    let oldStr = "22.3";
-    let newStr = "23.0";
+    let oldStr = "23.2";
+    let newStr = "24.0";
 
 
 
@@ -277,17 +277,119 @@ export default {
     //   "23.0": 119,
     //   "Diff": 3
     // },
+    // {
+    //   "Model": "Chrysler Town and Country (1990)",
+    //   "23.2": 13,
+    //   "24.0": 14,
+    //   "Difference": 1
+    // },
+    // {
+    //   let notFound = [];
+  
+    //   this.cars_new_rq.map(y => {
+    //     // let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
+    //     // if (y.Model === '2016 Vauxhall/Opel Adam R2') {
+    //     //   debugger;
+    //     // }
+    //     // if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
+    //     let yModelName = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+    //     // let yModelYear = yModel.substr(0, 4);
+    //     yModelName = yModelName.replace("vauxhall/opel ", "");
+    //     yModelName = yModelName.replace("fiat ", "");
+    //     yModelName = yModelName.replace("abarth ", "");
+    //     yModelName = yModelName.replace("apollo apollo ", "");
+    //     yModelName = yModelName.replace("apollo ", "");
+    //     yModelName = yModelName.replace("™", "");
+    //     yModelName = yModelName.replace("mclaren slr mclaren ", "slr mclaren ");
+    //     yModelName = yModelName.replace("mclaren slr mclaren", "slr mclaren");
+    //     yModelName = yModelName.replace("‘", "'");
+    //     yModelName = yModelName.replace("’", "'");
+    //     yModelName = yModelName.replace("scuderia cameron glickenhaus ", "scg ");
+    //     yModelName = yModelName.replace("datsun ", "");
+    //     yModelName = yModelName.replace("amg ", "");
+    //     yModelName = yModelName.replace("citroën ", "citroen ");
+    //     yModelName = yModelName.replace("škoda ", "skoda ");
+    //     yModelName = yModelName.replace("automobili pininfarina ", "pininfarina ");
+  
+    //     temp = this.cars_final.filter(x => {
+    //       let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+    //       xModelName = xModelName.replace("vauxhall opel ", "");
+    //       xModelName = xModelName.replace("vauxhall ", "");
+    //       xModelName = xModelName.replace("fiat ", "");
+    //       xModelName = xModelName.replace("abarth ", "");
+    //       xModelName = xModelName.replace("austin healey ", "austin ");
+    //       xModelName = xModelName.replace("amg ", "");
+    //       xModelName = xModelName.replace("datsun ", "");
+    //       xModelName = xModelName.replace("gumpert ", "");
+          
+    //       if (xModelName.includes(yModelName) && y.Year == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
+    //         return true
+    //       }
+    //       if (yModelName === "peugeot 405 t16 dakar" && x.rid === "Peugeot_208_WRX_2018") {
+    //         debugger;
+    //       }
+    //     });
+  
+    //     if (temp && temp.length > 1) {
+    //       let achouExato = -1;
+    //       temp.map((x, index) => {
+    //         let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+    //         if (xModelName === yModelName) {
+    //           achouExato = index;
+    //         }
+    //       })
+    //       if (achouExato > -1) {
+    //         temp = temp.filter((x, index) => index === achouExato);
+    //       }
+    //     }
+  
+    //     if (temp && temp.length === 1) {
+    //       // OK
+  
+    //       if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
+    //         // OK
+    //         temp[0].rq = y[newStr];
+    //         // temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
+    //       } else {
+    //         console.log(`${oldStr} diferente`, temp[0]);
+    //         debugger;
+    //       }
+  
+    //     } else if (temp && temp.length > 1) {
+    //       // achou 2
+    //       console.log("achou 2", yModelName, `${y[oldStr]} > ${y[newStr]}`, temp);
+    //       // debugger;
+    //     } else if (temp.length === 0) {
+    //       // achou nada
+    //       console.log("achou nada", yModelName, `${y[oldStr]} > ${y[newStr]}`);
+    //       // debugger;
+    //       // notFound.push(y.Model);
+    //     }
+    //   })
+    // }
+
+
+
+
+
+    // 24.0
+    // {
+    //   "Model": "Chrysler Town and Country (1990)",
+    //   "23.2": 13,
+    //   "24.0": 14,
+    //   "Difference": 1
+    // },
     {
       let notFound = [];
-  
+
       this.cars_new_rq.map(y => {
         // let yModel = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "")
         // if (y.Model === '2016 Vauxhall/Opel Adam R2') {
         //   debugger;
         // }
         // if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
-        let yModelName = y.Model.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-        // let yModelYear = yModel.substr(0, 4);
+        let yModelName = y.Model.trim().slice(0,-7).toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        let yModelYear = y.Model.trim().slice(-5,-1);
         yModelName = yModelName.replace("vauxhall/opel ", "");
         yModelName = yModelName.replace("fiat ", "");
         yModelName = yModelName.replace("abarth ", "");
@@ -304,7 +406,7 @@ export default {
         yModelName = yModelName.replace("citroën ", "citroen ");
         yModelName = yModelName.replace("škoda ", "skoda ");
         yModelName = yModelName.replace("automobili pininfarina ", "pininfarina ");
-  
+
         temp = this.cars_final.filter(x => {
           let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
           xModelName = xModelName.replace("vauxhall opel ", "");
@@ -315,15 +417,15 @@ export default {
           xModelName = xModelName.replace("amg ", "");
           xModelName = xModelName.replace("datsun ", "");
           xModelName = xModelName.replace("gumpert ", "");
-          
-          if (xModelName.includes(yModelName) && y.Year == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
+
+          if (xModelName.includes(yModelName) && yModelYear == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
             return true
           }
           if (yModelName === "peugeot 405 t16 dakar" && x.rid === "Peugeot_208_WRX_2018") {
             debugger;
           }
         });
-  
+
         if (temp && temp.length > 1) {
           let achouExato = -1;
           temp.map((x, index) => {
@@ -336,10 +438,10 @@ export default {
             temp = temp.filter((x, index) => index === achouExato);
           }
         }
-  
+
         if (temp && temp.length === 1) {
           // OK
-  
+
           if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
             // OK
             temp[0].rq = y[newStr];
@@ -348,7 +450,7 @@ export default {
             console.log(`${oldStr} diferente`, temp[0]);
             debugger;
           }
-  
+
         } else if (temp && temp.length > 1) {
           // achou 2
           console.log("achou 2", yModelName, `${y[oldStr]} > ${y[newStr]}`, temp);
@@ -361,6 +463,7 @@ export default {
         }
       })
     }
+
 
 
 
