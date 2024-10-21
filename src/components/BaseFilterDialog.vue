@@ -838,6 +838,7 @@ export default {
           "Marilyn's Collection",
           "New Beginnings",
           "Nightmare Fuel",
+          "Niklas' Collection",
           "Old Guard",
           "Photo Finish",
           "Racing Royalty",

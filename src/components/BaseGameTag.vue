@@ -273,6 +273,11 @@ export default {
   --tag-s: 66%;
   --tag-l: 63%;
 }
+.BaseGameTag_Niklas\'_Collection {
+  --tag-h: 241;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
 .BaseGameTag_Old_Guard {
   --tag-h: 0;
   --tag-s: 0%;

@@ -97,6 +97,7 @@ export default new Vuex.Store({
       "Interstellar",
       "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
+      "Marilyn's Collection",
       "New Beginnings",
       "Nightmare Fuel",
       "Old Guard",

@@ -519,6 +519,7 @@ export default {
           "Muscle Car",
           "New Beginnings",
           "Nightmare Fuel",
+          "Niklas' Collection",
           "Old Guard",
           "Originals",
           "Pacific Coast Highway",
