@@ -205,6 +205,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Update car db memory</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="rid"
+          type="normal"
+          label="rid"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setUpdateMemoryCar()">Update car</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ ridConfirmRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Contest</div>
       <div class="MainSwagger_Buttons">
         <button
@@ -292,7 +313,10 @@ export default {
       clubsObj: null,
       setClubsObjRes: null,
       newEventName: null,
-      newEventRes: null
+      newEventRes: null,
+      rid: null,
+      ridConfirmRes: null,
+
     }
   },
   watch: {},
@@ -489,6 +513,21 @@ export default {
       })
       .then(res => {
         this.userConfirmRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    setUpdateMemoryCar() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrl + "/carRefresh/" + this.rid)
+      .then(res => {
+        this.ridConfirmRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

@@ -388,7 +388,7 @@
             "Hypercar",
             "Ultra Expensive",
             "Concept",
-            "White",
+            "Silver/Grey",
             "In the Shadows 24"
         ],
         "guid": "16964241-d7ca-4a76-a4e2-c8a1bc367380",
@@ -709,7 +709,7 @@
             "World Expo",
             "Concept",
             "Electric Excellence",
-            "Silver/Grey"
+            "White"
         ],
         "guid": "617bc4bd-8fe9-4df9-b6b8-2e0ab33f9c39",
         "brake": "A"
@@ -1498,7 +1498,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Ultra Expensive",
             "Track",
             "Silver/Grey"
         ],
@@ -4188,7 +4187,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Hypercar",
             "Concept",
             "Orange"
         ],
@@ -4866,7 +4864,7 @@
             "World Expo",
             "Motorsport",
             "Racing Royalty",
-            "Silver/Grey"
+            "White"
         ],
         "guid": "6596a10d-1889-4d0f-be5b-78db3c5c674b",
         "brake": "A"
@@ -5426,8 +5424,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Wild Ride",
-            "Ultra Expensive",
             "Gold"
         ],
         "photoOrig": "McLaren_Elva_20_CARD",
@@ -7984,7 +7980,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Team Favourite",
             "Concept",
             "Yellow"
         ],
@@ -8786,7 +8781,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Ultra Expensive",
             "Silver/Grey"
         ],
         "photoOrig": "McLaren_Speedtail_20_CARD",
@@ -11001,7 +10995,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Style Icon",
             "Red"
         ],
         "photoOrig": "AlfaRomeo_33_Stradale_23_CARD",
@@ -21167,7 +21160,6 @@
         "engine": "Front",
         "tags": [
             "Amalfi Coast Cruising",
-            "Concept",
             "Yellow",
             "Summer Games 24"
         ],
@@ -25007,7 +24999,7 @@
         "engine": "Mid",
         "tags": [
             "European New Wave",
-            "Motorsport",
+            "Concept",
             "White"
         ],
         "guid": "6e0eea91-3a9a-4f09-9e1c-7c6ad4d25799",
@@ -27779,7 +27771,7 @@
         "engine": "Front",
         "tags": [
             "American Overdrive",
-            "Motorsport",
+            "Concept",
             "Muscle Car",
             "White",
             "Marilyn's Collection"
@@ -28999,7 +28991,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Red"
         ],
         "photoOrig": "Audi_RS3_Sportback_(8P)_2011_CARD",
@@ -30459,7 +30450,6 @@
         "engine": "Mixed",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Black"
         ],
         "photoOrig": "Audi_Q4_55_Sportback_e-tron_quattro_2024_CARD",
@@ -32889,7 +32879,6 @@
         "engine": "Mixed",
         "tags": [
             "European Grand Tour",
-            "Sleeper",
             "Concept",
             "Silver/Grey"
         ],
@@ -33572,7 +33561,6 @@
         "engine": "Mixed",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Silver/Grey",
             "Niklas' Collection"
         ],
@@ -36347,7 +36335,6 @@
         "engine": "Mixed",
         "tags": [
             "European Grand Tour",
-            "Sleeper",
             "Silver/Grey"
         ],
         "photoOrig": "Peugeot_508SWPeugeotSportEngineeredPSE_21_CARD",
@@ -38301,7 +38288,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Style Icon",
             "Concept",
             "Red"
         ],
@@ -39445,6 +39431,7 @@
         "engine": "Front",
         "tags": [
             "European New Wave",
+            "Sleeper",
             "Silver/Grey"
         ],
         "guid": "790076b7-abdf-4100-b2fd-3c7787806ed1",
@@ -41322,7 +41309,6 @@
         "engine": "Front",
         "tags": [
             "European New Wave",
-            "Sleeper",
             "White",
             "Desperados"
         ],
@@ -44495,7 +44481,6 @@
         "engine": "Mid",
         "tags": [
             "European Grand Tour",
-            "Style Icon",
             "Concept",
             "Red"
         ],
@@ -44669,8 +44654,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Innovative",
-            "Wild Ride",
             "Silver/Grey",
             "Niklas' Collection"
         ],
@@ -47659,7 +47642,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Yellow"
         ],
         "photoOrig": "Renault_Megane_RS_Trophy_18_CARD",
@@ -56896,7 +56878,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Street Racer",
             "Red"
         ],
         "photoOrig": "Audi_TT_quattro_Sport_(8N)_2005_CARD",
@@ -59351,7 +59332,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Wild Ride",
             "Concept",
             "White"
         ],
@@ -59388,7 +59368,6 @@
         "tags": [
             "European Grand Tour",
             "Concept",
-            "Hot Hatch",
             "Red"
         ],
         "photoOrig": "Peugeot_308RConcept_13_CARD",
@@ -71133,7 +71112,6 @@
         "engine": "Rear",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Blue"
         ],
         "photoOrig": "Audi_Q4_45_e-tron_2024_CARD",
@@ -78452,7 +78430,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Blue"
         ],
         "photoOrig": "Renault_Clio_RS_197_07_CARD",
@@ -79610,7 +79587,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Yellow"
         ],
         "photoOrig": "Abarth_695_Biposto_Record_15_CARD",
@@ -84843,7 +84819,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Style Icon",
             "Concept",
             "Silver/Grey"
         ],
@@ -94455,7 +94430,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Style Icon",
             "Red"
         ],
         "photoOrig": "AlfaRomeo_Spider_24_JTDM_07_CARD",
@@ -99130,7 +99104,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Blue"
         ],
         "photoOrig": "Abarth_695_Tributo_131_Rally_22_CARD",
@@ -100382,7 +100355,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Blue"
         ],
         "photoOrig": "Renault_Clio_Williams_16V_92_CARD",
@@ -105854,7 +105826,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Black"
         ],
         "photoOrig": "Abarth_Punto_Scopione_11_CARD",
@@ -109872,7 +109843,6 @@
         "engine": "Rear",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Red"
         ],
         "photoOrig": "Audi_Q5_40_e-tron_2023_CARD",
@@ -111532,8 +111502,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Drivers Choice",
-            "Hot Hatch",
             "Blue"
         ],
         "photoOrig": "Peugeot_309GTi16_91_CARD",
@@ -112808,7 +112776,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Red"
         ],
         "photoOrig": "Fiat_600e_23_CARD",
@@ -113400,7 +113367,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Blue"
         ],
         "photoOrig": "Lancia_Ypsilon_24_CARD",
@@ -115589,7 +115555,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Concept",
             "White"
         ],
@@ -115625,7 +115590,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Gold"
         ],
         "photoOrig": "Fiat_500e_Convertible_22_CARD",
@@ -115660,7 +115624,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Hot Hatch",
             "Yellow"
         ],
         "photoOrig": "Abarth_500e_Scorpionissima_23_CARD",
@@ -120801,7 +120764,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Concept",
             "Blue"
         ],
@@ -127798,7 +127760,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "White"
         ],
         "photoOrig": "Peugeot_e-2008GT_21_CARD",
@@ -132346,7 +132307,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "White"
         ],
         "photoOrig": "Peugeot_e308_23_CARD",
@@ -132556,7 +132516,7 @@
             "Christmas Collection",
             "Originals",
             "Loves Me, Loves Me Not",
-            "Red"
+            "Orange"
         ],
         "guid": "8b586b68-2f1e-4b34-8e72-ec2b75959767",
         "brake": "C"
@@ -133751,7 +133711,7 @@
         "name": "Mazda RX-7 Convertible",
         "rid": "Mazda_RX-7_Convertible_1988",
         "bodyTypes": [
-            "Convertible"
+            "Roadster"
         ],
         "fuel": "Petrol",
         "seats": "2",
@@ -135636,7 +135596,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Silver/Grey"
         ],
         "photoOrig": "Fiat_E-Doblo_22_CARD",
@@ -148140,7 +148099,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Sleeper",
             "Red"
         ],
         "photoOrig": "Peugeot_505GTi_85_CARD",
@@ -149137,7 +149095,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Silver/Grey"
         ],
         "photoOrig": "Fiat_E-Scudo_23_CARD",
@@ -152380,7 +152337,6 @@
         "engine": "Rear",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Concept",
             "Silver/Grey"
         ],
@@ -154314,7 +154270,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Concept",
             "Silver/Grey"
         ],
@@ -160867,7 +160822,6 @@
         "engine": "Mixed",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Concept",
             "Red"
         ],
@@ -161629,7 +161583,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Blue"
         ],
         "photoOrig": "Fiat_E-Ducato_21_CARD",
@@ -161767,7 +161720,6 @@
         "tags": [
             "European Grand Tour",
             "Motorsport",
-            "Innovative",
             "Blue"
         ],
         "photoOrig": "Peugeot_404DieselRecordCar_65_CARD",
@@ -161836,7 +161788,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Concept",
             "Red"
         ],
@@ -162678,7 +162629,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Blue"
         ],
         "photoOrig": "Peugeot_106_Electrique_95_CARD",
@@ -163335,7 +163285,6 @@
         "engine": "Front",
         "tags": [
             "European Grand Tour",
-            "Eco Friendly",
             "Green"
         ],
         "photoOrig": "Fiat_Topolino_23_CARD",

@@ -368,6 +368,8 @@ export default {
   c_tune: "Tune",
   c_name: "Name",
   c_template: "Template",
+  c_tcs: "TCS",
+  c_abs: "ABS",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",

@@ -54,6 +54,10 @@ export default {
     allowCtrl: {
       type: Boolean,
       default: false
+    },
+    oneOnly: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -94,7 +98,11 @@ export default {
         let newValue = [...this.inputValue];
 
         if (isChecked) {
-          newValue.push(this.value);
+          if (this.oneOnly) {
+            newValue = [this.value];
+          } else {
+            newValue.push(this.value);
+          }
         } else {
           newValue.splice(newValue.indexOf(this.value), 1);
         }
@@ -292,5 +300,9 @@ export default {
   font-size: 0.5em;
   font-weight: normal;
   color: var(--d-text-b);
+}
+.BaseChip_Icon .BaseChip_Text {
+  display: flex;
+  padding-bottom: 2px;
 }
 </style>

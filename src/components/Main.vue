@@ -1697,7 +1697,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: true,
+        abs: true
       }"
       :initialFilterString="cgRoundFilterString"
       type="cg"
@@ -1717,7 +1719,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       type="cg"
       @addCar="addCarCg($event)"
@@ -1739,7 +1743,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       :initialFilterString="eventFilterString"
       :initialFilterString2="eventFilterString2"
@@ -1767,7 +1773,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       :initialFilterString="clubCurrentFilterString"
       :initialFilterString2="clubCurrentFilterString2"
@@ -1820,7 +1828,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       type="event"
       @addCar="addCarEvent($event)"

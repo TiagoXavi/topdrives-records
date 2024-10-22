@@ -242,26 +242,68 @@
                 :value="item" />
             </template>
           </div>
-          <div v-if="config.engine !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.engineModel || raceFilterResolved.engineModel.length === 0)" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
-            <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
-            <template v-for="(item, ix) in searchFilters.engine">
-              <BaseChip
-                v-model="searchFilters.engineModel"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                :label="$t(`c_${item.toLowerCase()}Engine`)"
-                :counter="counters[`engine_${item}`]"
-                :value="item" />
-            </template>
+          <div class="Main_FilterDualCenter">
+            <div v-if="config.engine !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.engineModel || raceFilterResolved.engineModel.length === 0)" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">{{ $t("c_enginePos") }}</div>
+              <template v-for="(item, ix) in searchFilters.engine">
+                <BaseChip
+                  v-model="searchFilters.engineModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :label="$t(`c_${item.toLowerCase()}Engine`)"
+                  :counter="counters[`engine_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
+            <div v-if="config.brake !== false && internalConfig.brake !== false" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">{{ $t("c_brakeClass") }}</div>
+              <template v-for="(item, ix) in searchFilters.brake">
+                <BaseChip
+                  v-model="searchFilters.brakeModel"
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  :counter="counters[`brake_${item}`]"
+                  :value="item" />
+              </template>
+            </div>
           </div>
-          <div v-if="config.brake !== false && internalConfig.brake !== false" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
-            <div class="Main_FilterChipsLabel">{{ $t("c_brakeClass") }}</div>
-            <template v-for="(item, ix) in searchFilters.brake">
+          <div class="Main_FilterDualCenter">
+            <div v-if="config.tcs !== false && internalConfig.tcs !== false" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">{{ $t("c_tcs") }}</div>
               <BaseChip
-                v-model="searchFilters.brakeModel"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                :counter="counters[`brake_${item}`]"
-                :value="item" />
-            </template>
+                v-model="searchFilters.tcsModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon"
+                :counter="counters[`tcs_true`]"
+                :value="true"
+                :oneOnly="true">
+                <i class="ticon-correct_1 Main_FilterGreenIcon" aria-hidden="true"/>
+              </BaseChip>
+              <BaseChip
+                v-model="searchFilters.tcsModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon"
+                :counter="counters[`tcs_false`]"
+                :value="false"
+                :oneOnly="true">
+                <i class="ticon-close_3 Main_FilterRedIcon" aria-hidden="true"/>
+              </BaseChip>
+            </div>
+            <div v-if="config.abs !== false && internalConfig.abs !== false" class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+              <div class="Main_FilterChipsLabel">{{ $t("c_abs") }}</div>
+              <BaseChip
+                v-model="searchFilters.absModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon"
+                :counter="counters[`abs_true`]"
+                :value="true"
+                :oneOnly="true">
+                <i class="ticon-correct_1 Main_FilterGreenIcon" aria-hidden="true"/>
+              </BaseChip>
+              <BaseChip
+                v-model="searchFilters.absModel"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon"
+                :counter="counters[`abs_false`]"
+                :value="false"
+                :oneOnly="true">
+                <i class="ticon-close_3 Main_FilterRedIcon" aria-hidden="true"/>
+              </BaseChip>
+            </div>
           </div>
           <template v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" >
             <div class="Main_FilterChipsFlex">
@@ -800,7 +842,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
+        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "MX", "CH"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -814,6 +856,8 @@ export default {
         brake: ["A", "B", "C"],
         brakeModel: [],
         typesModel: [],
+        tcsModel: [],
+        absModel: [],
         approveModel: false,
         tags_challenge: [
           "5th Anniversary",
@@ -1706,8 +1750,10 @@ export default {
         }
       })
 
-      Vue.set(this.counters, `abs`, 0);
-      Vue.set(this.counters, `tcs`, 0);
+      Vue.set(this.counters, `abs_true`, 0);
+      Vue.set(this.counters, `abs_false`, 0);
+      Vue.set(this.counters, `tcs_true`, 0);
+      Vue.set(this.counters, `tcs_false`, 0);
       Vue.set(this.counters, `Prize Cars`, 0);
       Vue.set(this.counters, `Non-Prize Cars`, 0);
 
@@ -1742,8 +1788,11 @@ export default {
         this.counters[`tags_${item}`] += 1
       })
 
-      if (car.abs) this.counters[`abs`] += 1
-      if (car.tcs) this.counters[`tcs`] += 1
+      if (car.abs) this.counters[`abs_true`] += 1
+      else this.counters[`abs_false`] += 1
+      if (car.tcs) this.counters[`tcs_true`] += 1
+      else this.counters[`tcs_false`] += 1
+
       if (car.prize) this.counters[`Prize Cars`] += 1
       else this.counters[`Non-Prize Cars`] += 1
 
@@ -1795,6 +1844,8 @@ export default {
       this.searchFilters.fuelModel = [];
       this.searchFilters.engineModel = [];
       this.searchFilters.brakeModel = [];
+      this.searchFilters.tcsModel = [];
+      this.searchFilters.absModel = [];
       this.searchFilters.tagsModel = [];
       this.searchFilters.tags2Model = [];
       this.searchFilters.tags3Model = [];
@@ -1825,6 +1876,8 @@ export default {
         fuelModel: [],
         engineModel: [],
         brakeModel: [],
+        absModel: [],
+        tcsModel: [],
         tagsModel: [],
         tags2Model: [],
         tags3Model: [],
@@ -1912,6 +1965,8 @@ export default {
       if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
       if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
       if ( !this.filterCheckIncludes(car.brake, context.brakeModel) ) return false;
+      if ( !this.filterCheckIncludes(car.tcs, context.tcsModel) ) return false;
+      if ( !this.filterCheckIncludes(car.abs, context.absModel) ) return false;
 
       if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
       if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
@@ -2188,6 +2243,13 @@ export default {
 .BaseFilterDialog_Mid {
   height: 100%;
 }
+.Main_FilterGreenIcon {
+  color: rgb(var(--d-text-green));
+}
+.Main_FilterRedIcon {
+  color: rgb(var(--d-text-red2));
+}
+
 
 
 @media only screen and (max-width: 500px) {

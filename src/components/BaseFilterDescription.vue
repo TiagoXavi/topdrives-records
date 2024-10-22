@@ -169,6 +169,8 @@ export default {
       if (f.fuelModel && f.fuelModel.length > 0) result.push({ label: this.$t("c_fuel"), value: f.fuelModel.map(x => this.$t(`c_${x.toLowerCase()}`)).join(", ") });
       if (f.engineModel && f.engineModel.length > 0) result.push({ label: this.$t("c_enginePos"), value: f.engineModel.map(x => this.$t(`c_${x.toLowerCase()}Engine`)).join(", ") });
       if (f.brakeModel && f.brakeModel.length > 0) result.push({ label: this.$t("c_brakeClass"), value: f.brakeModel.join(", ") });
+      if (f.tcsModel && f.tcsModel.length > 0) result.push({ label: this.$t("c_tcs"), value: f.tcsModel.join(", ") });
+      if (f.absModel && f.absModel.length > 0) result.push({ label: this.$t("c_abs"), value: f.absModel.join(", ") });
       if (f.tagsModel && f.tagsModel.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tagsModel.join(", ") });
       if (f.tags2Model && f.tags2Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags2Model.join(", ") });
       if (f.tags3Model && f.tags3Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags3Model.join(", ") });

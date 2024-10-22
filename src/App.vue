@@ -1714,6 +1714,14 @@ body .Main_UserTw3:before {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
+.Main_FilterDualCenter {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.Main_FilterDualCenter:empty {
+  display: none;
+}
 .Main_FilterThree {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;

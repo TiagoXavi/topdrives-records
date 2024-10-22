@@ -962,7 +962,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       @clearFilterUpdate="updateFilterBySpec($event)"
     />
@@ -977,7 +979,9 @@
         acel: false,
         hand: false,
         weight: false,
-        brake: false
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       @clearFilterUpdate="updateFilterByRequirements($event)"
     />
@@ -1069,7 +1073,9 @@
           acel: false,
           hand: false,
           weight: false,
-          brake: false
+          brake: false,
+          tcs: false,
+          abs: false
         }"
         @clearFilterUpdate="updateFilterMain($event)"
       />
@@ -1088,7 +1094,9 @@
           acel: false,
           hand: false,
           weight: false,
-          brake: false
+          brake: false,
+          tcs: false,
+          abs: false
         }"
         :initialFilterString="null"
         :initialFilterString2="null"
