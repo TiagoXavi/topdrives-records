@@ -105,6 +105,9 @@
 .ticon-lock:before {
   content: "\f023";
 }
+.ticon-list:before {
+  content: "\f03a";
+}
 .ticon-adjust:before {
   content: "\f042";
 }
