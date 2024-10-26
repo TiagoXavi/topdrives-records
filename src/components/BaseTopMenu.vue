@@ -333,7 +333,7 @@ export default {
   methods: {
     checkUserAllowed() {
       if (this.user && this.user.mod) {
-        this.menus = this.menus.filter(x => !x.new);
+        // this.menus = this.menus.filter(x => !x.new);
         this.menus.splice(5, 0, { label: "Timeline", name: "Timeline", new: true })
       } else {
         if (this.$route.name === "Timeline") {

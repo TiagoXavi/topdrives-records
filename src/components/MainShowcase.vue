@@ -353,6 +353,9 @@ export default {
             if (car.rid) {
               this.addToResolvedRids(car.rid);
             }
+            if (car.videoUrl) {
+              car.videoUrl = car.videoUrl.replace("http://", "https://");
+            }
           })
         } else {
           // 404
