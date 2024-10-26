@@ -1976,7 +1976,6 @@ export default {
       reader.readAsDataURL(file);
       reader.onload = e => {
         Vue.set(this.ti.links[this.linkSelectedIndex], "fileToUpload", e.target.result);
-        this.previewImage = e.target.result;
       };
 
 
@@ -2877,14 +2876,13 @@ export default {
   min-width: 150px;
 }
 .MainTimeline_DialogLinkButton > span {
-  word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2; 
   -webkit-box-orient: vertical;
-  word-break: break-all;
+  word-break: break-word;
 }
 .MainTimeline_DialogLinkSub {
   font-size: 12px;
@@ -2896,7 +2894,7 @@ export default {
   -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2; 
   -webkit-box-orient: vertical;
-  word-break: break-all;
+  word-break: break-word;
 }
 .MainTimeline_DialogImageLayout {
   display: flex;

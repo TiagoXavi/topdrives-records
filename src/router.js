@@ -26,6 +26,7 @@ const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
 const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
+const MainShowcase = () => import("./components/MainShowcase.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -147,6 +148,16 @@ const routes = [
     path: '/MainTestMatchMake', // internal
     name: 'MainTestMatchMake',
     component: MainTestMatchMake,
+  },
+  {
+    path: '/animated',
+    name: 'MainShowcase',
+    component: MainShowcase,
+  },
+  {
+    path: '/animated/:username',
+    name: 'MainShowcaseUser',
+    component: MainShowcase,
   },
   {
     path: '/charts',

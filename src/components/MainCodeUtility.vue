@@ -1277,7 +1277,7 @@ export default {
 }
 .MainCollageMaker_Div {
   margin: 2px;
-  background-color: violet;
+  /* background-color: violet; */
   position: relative;
   /* flex-grow: 1; */
   /* height: 200px; */

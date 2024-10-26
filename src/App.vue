@@ -785,6 +785,12 @@ button.D_Button.D_Button_Error {
 .D_ButtonIconRight {
   margin-left: 5px;
 }
+.D_ButtonIcon23 {
+  font-size: 23px;
+}
+.D_ButtonIcon24 {
+  font-size: 24px;
+}
 .D_ButtonNote {
   position: absolute;
   top: -6px;
@@ -1830,6 +1836,12 @@ body .Main_UserTw3:before {
 .D_Center {
   display: flex;
   justify-content: center;
+}
+.D_Center2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 .D_TextCenter {
   text-align: center;
@@ -3918,21 +3930,25 @@ body .Main_UserTw3:before {
   --card-stat-div: 1px;
 }
 .Car_WithVideo video {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   object-fit: cover;
 }
-.Car_WithVideo .Car_HeaderBlockTopSpeed,
-.Car_WithVideo .Car_HeaderBlock060,
-.Car_WithVideo .Car_HeaderBlockHandling,
-.Car_WithVideo .Car_HeaderBlockDrive {
+.Car_WithVideoHeight video {
+  height: 100%;
+  width: unset;
+}
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockTopSpeed,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlock060,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockHandling,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockDrive {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(4px);
   height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
 }
-.Car_WithVideo .Car_HeaderBlockTop,
-.Car_WithVideo .Car_HeaderBlockBrand,
-.Car_WithVideo .Car_HeaderBlockYear {
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockTop,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockBrand,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockYear {
   backdrop-filter: blur(4px);
 }
 @media (pointer:coarse) {

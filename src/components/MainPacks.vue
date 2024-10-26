@@ -235,7 +235,10 @@
         hand: false,
         weight: false,
         prizes: false,
-        customTags: false
+        customTags: false,
+        brake: false,
+        tcs: false,
+        abs: false
       }"
       importFilterName="PACKS_INTERNALFILTER_IMPORT"
       ref="packFilter"

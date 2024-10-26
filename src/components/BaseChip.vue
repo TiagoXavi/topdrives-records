@@ -305,4 +305,7 @@ export default {
   display: flex;
   padding-bottom: 2px;
 }
+.BaseChip_Icon2 .BaseChip_Text {
+  display: flex;
+}
 </style>

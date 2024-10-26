@@ -5,8 +5,11 @@
       <div class="MainStuff_Box">
         <button
           v-for="item in tools"
+          :class="{
+            MainStuff_New: item.new && showNew
+          }"
           class="D_Button MainStuff_Button"
-          @click="$router.push({ name: item.name })">
+          @click="tabClick(item); $router.push({ name: item.name });">
           <span>{{ item.label }}</span>
         </button>
       </div>
@@ -17,7 +20,7 @@
         <button
           v-for="item in tdrTools"
           class="D_Button MainStuff_Button"
-          @click="$router.push({ name: item.name })">
+          @click="tabClick(item); $router.push({ name: item.name });">
           <span>{{ item.label }}</span>
         </button>
       </div>
@@ -42,6 +45,7 @@ export default {
   data() {
     return {
       user: null,
+      showNew: true,
       tools: [],
       tdrTools: [],
     }
@@ -51,6 +55,7 @@ export default {
     this.user = this.$store.state.user;
 
     this.tools = [
+      { name: "MainShowcase", label: this.$t("m_videoShowcase"), new: true },
       { name: "Gallery", label: this.$t("m_vChanges", { version: '24.0' }) },
       { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.0' }) },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
@@ -70,6 +75,7 @@ export default {
   },
   mounted() {
     let vm = this;
+    this.checkNewMenu();
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
       if (mutation.type == "CHANGE_USER") {
@@ -83,7 +89,19 @@ export default {
     })
   },
   computed: {},
-  methods: {},
+  methods: {
+    checkNewMenu() {
+      if (window.localStorage.getItem("newTab_Showcase")) {
+        this.showNew = false;
+      };
+    },
+    tabClick(item) {
+      if (item.name === "MainShowcase") {
+        this.showNew = false;
+        window.localStorage.setItem('newTab_Showcase', "t");
+      }
+    },
+  },
   beforeDestroy() {
     this.unsubscribe();
   },
@@ -121,5 +139,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.MainStuff_New {
+  position: relative;
+}
+.MainStuff_New:after {
+  content: "new";
+  color: rgb(var(--d-text-yellow));
+  font-size: 14px;
+  position: absolute;
+  top: 3px;
+  right: -24px;
+  transform: translateX(-50%);
 }
 </style>

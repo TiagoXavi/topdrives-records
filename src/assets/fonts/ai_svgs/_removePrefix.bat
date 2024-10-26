@@ -1,0 +1,1 @@
+rename "td_jurisT_*.svg" "//////////*.svg"

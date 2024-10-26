@@ -30,6 +30,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ticon-attach_file:before {
+  content: "\e226";
+}
 .ticon-brightness_1:before {
   content: "\e3a6";
 }
@@ -48,8 +51,35 @@
 .ticon-close:before {
   content: "\e5cd";
 }
+.ticon-wb_cloudy:before {
+  content: "\e42d";
+}
+.ticon-cloud_done:before {
+  content: "\e2bf";
+}
+.ticon-cloud_download:before {
+  content: "\e2c0";
+}
+.ticon-crop_free:before {
+  content: "\e3c2";
+}
 .ticon-remove_circle:before {
   content: "\e15c";
+}
+.ticon-time_to_leave:before {
+  content: "\e62c";
+}
+.ticon-favorite:before {
+  content: "\e87d";
+}
+.ticon-favorite_border:before {
+  content: "\e87e";
+}
+.ticon-get_app:before {
+  content: "\e884";
+}
+.ticon-file_upload:before {
+  content: "\e2c6";
 }
 .ticon-indeterminate_check_box:before {
   content: "\e911";
@@ -75,12 +105,6 @@
 .ticon-lock:before {
   content: "\f023";
 }
-.ticon-camera2:before {
-  content: "\f030";
-}
-.ticon-list:before {
-  content: "\f03a";
-}
 .ticon-adjust:before {
   content: "\f042";
 }
@@ -93,18 +117,6 @@
 .ticon-ban:before {
   content: "\f05e";
 }
-.ticon-arrow-left:before {
-  content: "\f060";
-}
-.ticon-arrow-right:before {
-  content: "\f061";
-}
-.ticon-arrow-up:before {
-  content: "\f062";
-}
-.ticon-arrow-down:before {
-  content: "\f063";
-}
 .ticon-exclamation-circle:before {
   content: "\f06a";
 }
@@ -113,9 +125,6 @@
 }
 .ticon-warning:before {
   content: "\f071";
-}
-.ticon-external-link:before {
-  content: "\f08e";
 }
 .ticon-cloud:before {
   content: "\f0c2";
@@ -140,6 +149,57 @@
 }
 .ticon-question-circle-o:before {
   content: "\f29c";
+}
+.ticon-paste:before {
+  content: "\e971";
+}
+.ticon-car:before {
+  content: "\e972";
+}
+.ticon-cloud1:before {
+  content: "\e973";
+}
+.ticon-down_up_1:before {
+  content: "\e974";
+}
+.ticon-down_up_2:before {
+  content: "\e975";
+}
+.ticon-left_right_1:before {
+  content: "\e976";
+}
+.ticon-left_right_2:before {
+  content: "\e977";
+}
+.ticon-pause:before {
+  content: "\e978";
+}
+.ticon-play:before {
+  content: "\e979";
+}
+.ticon-rank:before {
+  content: "\e97a";
+}
+.ticon-right_left_1:before {
+  content: "\e97b";
+}
+.ticon-right_left_2:before {
+  content: "\e97c";
+}
+.ticon-tools:before {
+  content: "\e97d";
+}
+.ticon-up_down_1:before {
+  content: "\e97e";
+}
+.ticon-up_down_2:before {
+  content: "\e97f";
+}
+.ticon-video:before {
+  content: "\e980";
+}
+.ticon-at:before {
+  content: "\e981";
 }
 .ticon-pig:before {
   content: "\e96e";

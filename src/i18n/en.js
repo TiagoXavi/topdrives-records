@@ -243,6 +243,15 @@ export default {
   m_specificAttr: "Specific attribute",
   m_nextPage: "Next page",
   m_previousPage: "Previous page",
+  m_videoShowcase: "Animated cards",
+  m_video: "Video",
+  m_addVideo: "Add video",
+  m_removeVideo: "Remove video",
+  m_toggleVideo: "Toggle video",
+  m_downloadImage: "Download image",
+  m_removeCar: "Remove car",
+  m_needHelp: "Need help?",
+  m_instructions: "Instructions",
 
 
   

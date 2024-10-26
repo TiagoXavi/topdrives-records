@@ -7,8 +7,9 @@
     <div v-if="isDialogBox" class="BaseCard_EffectBackGround"></div>
     <div
       class="Car_Header"
-      :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading }"
+      :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading, Car_WithVideo: videoSrc }"
       :style="`${carPhoto};`">
+      <video v-if="videoSrc" autoplay="" muted="" loop="" :src="videoSrc" />
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -46,7 +47,7 @@
       </div>
       <div class="Car_HeaderBlockClass">
         <div class="Car_HeaderClassBack" />
-        <div class="Car_HeaderClassValue" @click="letterClick($event)">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
+        <div class="Car_HeaderClassValue">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
       </div>
       <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
         <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
@@ -156,6 +157,10 @@ export default {
       default() {
         return null
       }
+    },
+    videoSrc: {
+      type: String,
+      default: null
     },
   },
   data() {
@@ -287,43 +292,6 @@ export default {
       }
       // this.touchedLong = true;
       this.$emit('longTouch');
-    },
-    letterClick(e) {
-      if (e.ctrlKey) {
-        let input = document.createElement('input');
-        input.setAttribute("type", "file")
-        input.setAttribute("accept", "video/*")
-        input.addEventListener('change', this.renderVideo, false)
-
-        this.elCard = e.srcElement.parentElement.parentElement;
-        this.elCard.classList.add("Car_WithVideo");
-        // elCard.appendChild(input);
-        input.click();
-
-      }
-    },
-    renderVideo(event) {
-      var file = event.target.files[0]
-      var type = file.type
-      // var videoNode = document.querySelector('video')
-
-      let vid = document.createElement('video');
-      vid.setAttribute("autoplay", "")
-      vid.setAttribute("muted", "")
-      vid.setAttribute("loop", "")
-      vid.setAttribute("id", "myVideo")
-      var canPlay = vid.canPlayType(type)
-      if (canPlay === '') {
-        debugger;
-      }
-      var fileURL = URL.createObjectURL(file)
-      vid.src = fileURL
-
-      // let rightGlass = document.createElement('div');
-      // rightGlass.setAttribute("class", "Car_CardRightForVideo");
-      // this.elCard.prepend(rightGlass);
-
-      this.elCard.prepend(vid);
     }
   },
 }
