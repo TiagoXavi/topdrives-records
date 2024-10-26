@@ -125,7 +125,7 @@ export default {
         { label: "Packs", name: "Packs" },
         // { label: "Timeline", name: "Timeline", new: true },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff" },
+        { label: "Stuff", name: "Stuff", new: true },
       ],
       showNew: true,
       menuDialog: false,
@@ -401,14 +401,15 @@ export default {
       this.menuDialog = true;
     },
     checkNewMenu() {
-      if (window.localStorage.getItem("newTab_Timeline")) {
+      // if (window.localStorage.getItem("newTab_Timeline")) {
+      if (window.localStorage.getItem("newTab_Showcase")) {
         this.showNew = false;
       };
     },
     tabClick(item) {
-      if (item.name === "Timeline") {
+      if (item.name === "Stuff") {
         this.showNew = false;
-        window.localStorage.setItem('newTab_Timeline', "t");
+        // window.localStorage.setItem('newTab_Timeline', "t");
       }
     },
     checkZoom() {

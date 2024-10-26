@@ -128,7 +128,7 @@
           class="D_Button Main_OptionsButton"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://discord.com/channels/1008569974094311544/1008976247210135603/1297947523092185219">
+          href="https://discord.com/channels/1008569974094311544/1008976247210135603/1299543503482785792">
           <BaseIconSvg type="discord" :useMargin="false" style="width: 25px; margin: -5px 6px -5px 0;" />
           <span>{{ $t('m_instructions') }}</span>
         </a>
@@ -244,7 +244,6 @@ export default {
     this.getLastest();
   },
   mounted() {
-    this.load();
     this.loadList();
     
     let vm = this;
@@ -297,6 +296,26 @@ export default {
         this.lastestLoading = false;
 
         this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+
+        let incomingCars = res.data.find(x => x.id === 'newCars').value;
+        if (incomingCars && incomingCars.length > 0) {
+          let rids = this.all_cars.map(x => x.rid);
+
+          incomingCars.map(car => {
+            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
+              if (!rids.includes(car.rid)) {
+                this.all_cars.push(car);
+              }
+            }
+          })
+
+          this.all_cars.sort((a,b) => {
+            return b.rq - a.rq;
+          })
+        }
+
+        
+        this.load();
 
 
       })
@@ -435,6 +454,7 @@ export default {
 
     },
     prepareAddCarDialog(index) {
+      this.$store.commit("START_LOGROCKET", {});
       this.carAddIndex = index;
       this.searchCarDialog = true;
     },

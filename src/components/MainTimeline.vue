@@ -1472,7 +1472,7 @@ export default {
       this.detailDialog = true;
       this.detailObj = item;
 
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
 
       if (this.detailObj.events && this.detailObj.events.length > 0) {
         this.detailObj.events.map((event, iEvent) => {
