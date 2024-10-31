@@ -210,6 +210,11 @@ const routes = [
     component: MainDownTimes,
   },
   {
+    path: '/userTimes/:username',
+    name: 'UserTimes',
+    component: MainDownTimes,
+  },
+  {
     path: '/translate',
     name: 'MainTranslate',
     component: MainTranslate,

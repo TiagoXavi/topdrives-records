@@ -37,6 +37,13 @@
       </BaseDialog>
     </div>
     <div v-if="showCarsFix" class="MainDownTimes_Body">
+      <div class="MainDownTimes_ D_Center2" style="position: relative; margin-bottom: 20px;">
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+          @click="askDeleteAllTimes()">
+          Delete all
+        </button>
+      </div>
       <div v-for="(car, rid) in downTimes" class="MainDownTimes_Car">
         <div class="MainDownTimes_CarTop">
           <div :class="{ MainDownTimes_BodyBig: showBigCards }" class="MainDownTimes_CarBody">
@@ -144,6 +151,7 @@ export default {
       loading: false,
       ridLoading: null,
       downTimes: {},
+      downTimesClear: {},
       all_cars,
       all_cars_obj: {},
       showBigCards: true,
@@ -194,16 +202,31 @@ export default {
   beforeDestroy() {
     this.unsubscribe();
   },
-  computed: {},
+  computed: {
+    userTimes() {
+      return this.$route.params.username;
+    }
+  },
   methods: {
     getDownTimes() {
       this.loading = false;
       let vm = this;
 
-      axios.get(Vue.preUrl + "/downTimes")
+      let url = "/downTimes";
+      if (this.userTimes) url = `/timesUser/${this.userTimes}`;
+
+      axios.get(Vue.preUrl + url)
       .then(res => {
         this.downTimes = res.data;
+        this.downTimesClear = {};
         Object.keys(this.downTimes).map(rid => {
+          this.downTimesClear[rid] = this.downTimes[rid].map(x => {
+            return {
+              rid: x.rid,
+              selectedTune: x.selectedTune,
+              track: x.track
+            }
+          })
           this.all_cars_obj[rid].color = Vue.resolveClass(this.all_cars_obj[rid].rq, this.all_cars_obj[rid].class, "color");
           this.all_cars_obj[rid].photo = this.cgResolvePhotoUrl(this.downTimes[rid]);
           this.downTimes[rid].map(downtime => {
@@ -394,6 +417,49 @@ export default {
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
+    },
+    askDeleteAllTimes() {
+      let vm = this;
+
+      let action = function() {
+        vm.deleteAllTimes();
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete all times?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+    },
+    deleteAllTimes() {
+      this.loading = true;
+      this.confirmDelete.loading = true;
+
+      let params = {
+        items: this.downTimesClear
+      }
+
+      axios.post(Vue.preUrl + "/deleteCollectionOfTimes", params)
+      .then(res => {
+        this.loading = false;
+        this.confirmDelete.dialog = false;
+        this.confirmDelete.loading = false;
+
+      })
+      .catch(error => {
+        this.loading = false;
+        this.confirmDelete.loading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
     },
   },
 }

@@ -1418,10 +1418,13 @@ export default {
       })
 
     },
-    updateBackendTimeline() {
+    updateBackendTimeline(sort, isDelete) {
       this.loading = true;
 
-      axios.get(Vue.preUrlCharlie + "/updateBackendTimeline")
+      axios.post(Vue.preUrlCharlie + "/updateBackendTimeline", {
+        sort: sort,
+        isDelete: isDelete
+      })
       .then(res => {
         this.searchTimeline();
       })
@@ -1522,10 +1525,6 @@ export default {
       })
     },
     openCreateEvent(e) {
-      if (e && e.ctrlKey && e.shiftKey) {
-        this.updateBackendTimeline();
-        return;
-      }
       this.resetTi();
       this.newTools = true;
       this.animation = true;
@@ -2038,9 +2037,7 @@ export default {
           this.searchParams.dayEnd = dayEnd.toISOString().slice(0,10);
         }
 
-        console.log(this.searchParams);
-
-        this.updateBackendTimeline();
+        this.updateBackendTimeline(res.data, isDelete);
         this.closeCreateEvent();
 
       })
