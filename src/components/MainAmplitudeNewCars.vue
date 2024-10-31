@@ -7,8 +7,8 @@
 <script>
 import cars_final from '../database/cars_final.json' // internal
 try {
-  var hutch_v23_myCars = require('@/database/hutch_v23_myCars.json') // internal
-  var hutch_v23_amplitude = require('@/database/hutch_v23_amplitude.json') // internal
+  var hutch_myCars = require('@/database/hutch_v24_myCars.json') // internal
+  var hutch_amplitude = require('@/database/hutch_v24_amplitude.json') // internal
   
 } catch (error) {
 
@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       cars_final,
-      hutch_v23_myCars,
-      hutch_v23_amplitude
+      hutch_myCars,
+      hutch_amplitude
     }
   },
   watch: {},
@@ -40,7 +40,7 @@ export default {
 
     let newAmpObj = {};
     let newAmp = [];
-    this.hutch_v23_amplitude.map(amp => {
+    this.hutch_amplitude.map(amp => {
       if (!newAmpObj[amp.Card_GUID]) {
         newAmpObj[amp.Card_GUID] = amp;
       }
@@ -51,8 +51,8 @@ export default {
     // console.log(newAmp);
     // debugger;
 
-    this.hutch_v23_amplitude.map(amp => {
-      this.hutch_v23_myCars.find(car => {
+    this.hutch_amplitude.map(amp => {
+      this.hutch_myCars.find(car => {
 
         let ampString = amp.CardType.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
         ampString = ampString.replace("fiat ", "");
@@ -74,7 +74,7 @@ export default {
       })
     })
 
-    this.hutch_v23_myCars.map(car => {
+    this.hutch_myCars.map(car => {
       if (!car.guid) {
         console.log(car.name);
       }
@@ -86,7 +86,7 @@ export default {
 
 
 
-    console.log(this.cars_final);
+    console.log(this.hutch_myCars);
     debugger;
     // navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
