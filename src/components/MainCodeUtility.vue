@@ -787,6 +787,41 @@ export default {
 
       this.checkIfUnknown(this.localCriteriaIds);
       this.checkIfUnknown(this.localTracksetsIds);
+
+
+      if (false) { // get final result
+        let finalCriterias = {};
+        let finalTracksets = {};
+        
+        Object.keys(this.localCriteriaIds).map(key => {
+          if (this.localCriteriaIds[key].possibles.length === 1) {
+            finalCriterias[key] = this.localCriteriaIds[key].possibles[0];
+          } else if (this.localCriteriaIds[key].matches.length === 1) {
+            finalCriterias[key] = this.localCriteriaIds[key].matches[0];
+          } else {
+            console.log(key);
+            debugger;
+          }
+        })
+        
+        Object.keys(this.localTracksetsIds).map(key => {
+          if (this.localTracksetsIds[key].possibles.length === 1) {
+            finalTracksets[key] = this.localTracksetsIds[key].possibles[0];
+          } else if (this.localTracksetsIds[key].matches.length === 1) {
+            finalTracksets[key] = this.localTracksetsIds[key].matches[0];
+          } else {
+            console.log(key);
+            debugger;
+          }
+        })
+
+        console.log(finalCriterias);
+        console.log(finalTracksets);
+        debugger;
+      }
+      
+
+
     },
     checkMatchesClubs(criteriaOrTrackset, key, date) {
       let localDatabase = this[key];

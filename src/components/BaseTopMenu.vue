@@ -332,7 +332,7 @@ export default {
   },
   methods: {
     checkUserAllowed() {
-      if (this.user && this.user.mod) {
+      if (this.user && this.user.mod && !this.menus.find(x => x.label === "Timeline")) {
         // this.menus = this.menus.filter(x => !x.new);
         this.menus.splice(5, 0, { label: "Timeline", name: "Timeline", new: true })
       } else {

@@ -41,87 +41,106 @@
     </div>
     <div class="MainShowcase_Mid">
       <div class="MainShowcase_Cars">
-        <div
-          v-for="(car, icar) in cars"
-          :class="{ MainShowcase_CarItemNoVideo: !(car.video || car.videoUrl) }"
-          class="MainShowcase_CarItem">
-          <div class="MainShowcase_CardTop">
-            <div v-if="car.rid" class="MainShowcase_BaseCardDiv">
-              <BaseCard
-                :car="resolvedRids[car.rid]"
-                :videoSrc="showVideo ? (car.video || car.videoUrl) : null"
-                :class="{ Car_WithVideoHeight: car.fHeight, Car_WithVideoNoBox: !car.showBox }"
-                :isDialogBox="true"
-                :options="false" />
+        <template v-for="(car, icar) in cars">
+          <div
+            v-if="icar < 3 || showMore || editEnabled"
+            :class="{ MainShowcase_CarItemNoVideo: !(car.video || car.videoUrl) }"
+            class="MainShowcase_CarItem">
+            <div class="MainShowcase_CardTop">
+              <div v-if="car.rid" class="MainShowcase_BaseCardDiv">
+                <BaseCard
+                  :car="resolvedRids[car.rid]"
+                  :videoSrc="showVideo ? (car.video || car.videoUrl) : null"
+                  :class="{ Car_WithVideoHeight: car.fHeight, Car_WithVideoNoBox: !car.showBox }"
+                  :isDialogBox="true"
+                  :options="false" />
+              </div>
+              <div v-else class="MainShowcase_CarPlaceHolder">
+                <button
+                  :disabled="loading || !user || (userId && user.username !== userId)"
+                  class="D_Button Car_AddButton add MainShowcase_SearchCarButton"
+                  @click="prepareAddCarDialog(icar);">
+                  <div class="MainShowcase_SearchCarButtonBox">
+                    <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
+                    <div class="MainShowcase_SearchCarLabel">{{ $t("m_searchCar") }}</div>
+                  </div>
+                  <i class="ticon-car MainShowcase_CarPlaceholder" aria-hidden="true"/>
+                </button>
+              </div>
             </div>
-            <div v-else class="MainShowcase_CarPlaceHolder">
+            <div v-if="car && car.rid && editEnabled" class="MainShowcase_CardBottom">
               <button
-                :disabled="loading || !user || (userId && user.username !== userId)"
-                class="D_Button Car_AddButton add MainShowcase_SearchCarButton"
-                @click="prepareAddCarDialog(icar);">
-                <div class="MainShowcase_SearchCarButtonBox">
-                  <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
-                  <div class="MainShowcase_SearchCarLabel">{{ $t("m_searchCar") }}</div>
-                </div>
-                <i class="ticon-car MainShowcase_CarPlaceholder" aria-hidden="true"/>
+                v-if="!(car.video || car.videoUrl)"
+                class="D_Button D_ButtonDark D_ButtonDark2 MainShowcase_OptionButton D_ButtonGreen"
+                style="margin-bottom: 5px;"
+                @click="addVideo(icar)">
+                <i class="ticon-video D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t('m_addVideo') }}</span>
+              </button>
+              <div class="Main_FilterChipsFlex">
+                <BaseChip
+                  v-if="(car.video || car.videoUrl) && showVideo"
+                  :inputValue="car.fHeight"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon2"
+                  :value="true"
+                  :oneOnly="true"
+                  @click="car.fHeight = !car.fHeight;">
+                  <i class="ticon-up_down_1 D_ButtonIcon24" aria-hidden="true"/>
+                </BaseChip>
+                <BaseChip
+                  v-if="(car.video || car.videoUrl) && showVideo"
+                  :inputValue="car.showBox"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon2"
+                  :value="true"
+                  :oneOnly="true"
+                  @click="car.showBox = !car.showBox;">
+                  <i class="ticon-dash D_ButtonIcon24" aria-hidden="true"/>
+                </BaseChip>
+              </div>
+              <button
+                v-if="(car.video || car.videoUrl)"
+                class="D_Button MainShowcase_OptionButton"
+                @click="removeVideo(icar)">
+                <i class="ticon-close_3 D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t('m_removeVideo') }}</span>
+              </button>
+              <button
+                v-if="!(car.video || car.videoUrl)"
+                class="D_Button MainShowcase_OptionButton"
+                @click="downloadImage(car.rid)">
+                <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t('m_downloadImage') }}</span>
+              </button>
+              <button
+                v-if="!(car.video || car.videoUrl)"
+                class="D_Button MainShowcase_OptionButton"
+                @click="removeCar(icar)">
+                <i class="ticon-close_3 D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t('m_removeCar') }}</span>
               </button>
             </div>
           </div>
-          <div v-if="car && car.rid && editEnabled" class="MainShowcase_CardBottom">
-            <button
-              v-if="!(car.video || car.videoUrl)"
-              class="D_Button D_ButtonDark D_ButtonDark2 MainShowcase_OptionButton D_ButtonGreen"
-              style="margin-bottom: 5px;"
-              @click="addVideo(icar)">
-              <i class="ticon-video D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t('m_addVideo') }}</span>
-            </button>
-            <div class="Main_FilterChipsFlex">
-              <BaseChip
-                v-if="(car.video || car.videoUrl) && showVideo"
-                :inputValue="car.fHeight"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon2"
-                :value="true"
-                :oneOnly="true"
-                @click="car.fHeight = !car.fHeight;">
-                <i class="ticon-up_down_1 D_ButtonIcon24" aria-hidden="true"/>
-              </BaseChip>
-              <BaseChip
-                v-if="(car.video || car.videoUrl) && showVideo"
-                :inputValue="car.showBox"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon2"
-                :value="true"
-                :oneOnly="true"
-                @click="car.showBox = !car.showBox;">
-                <i class="ticon-dash D_ButtonIcon24" aria-hidden="true"/>
-              </BaseChip>
-            </div>
-            <button
-              v-if="(car.video || car.videoUrl)"
-              class="D_Button MainShowcase_OptionButton"
-              @click="removeVideo(icar)">
-              <i class="ticon-close_3 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t('m_removeVideo') }}</span>
-            </button>
-            <button
-              v-if="!(car.video || car.videoUrl)"
-              class="D_Button MainShowcase_OptionButton"
-              @click="downloadImage(car.rid)">
-              <i class="ticon-download D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t('m_downloadImage') }}</span>
-            </button>
-            <button
-              v-if="!(car.video || car.videoUrl)"
-              class="D_Button MainShowcase_OptionButton"
-              @click="removeCar(icar)">
-              <i class="ticon-close_3 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t('m_removeCar') }}</span>
-            </button>
-          </div>
-        </div>
+        </template>
+      </div>
+      <div v-if="!editEnabled && !showMore && cars.length > 3" class="MainShowcase_ D_Center2">
+        <button
+          class="D_Button Main_OptionsButton"
+          style="margin-top: 25px;"
+          @click="showMore = true">
+          <span>{{ $t('m_showMore') }} ({{ cars.length - 3 }})</span>
+        </button>
       </div>
     </div>
     <div v-if="editEnabled" class="MainShowcase_Help">
+      <div class="MainShowcase_ D_Center2">
+        <button
+          v-if="isFull"
+          class="D_Button Main_OptionsButton"
+          @click="addMoreCar()">
+          <i class="ticon-plus_2 D_ButtonIcon" style="font-size: 16px;" aria-hidden="true"/>
+          <span>{{ $tc('m_car', 1) }}</span>
+        </button>
+      </div>
       <div class="MainShowcase_HelpInner D_Center2">
         <span>{{ $t('m_needHelp') }}</span>
         <a
@@ -230,12 +249,12 @@ export default {
         loading: false,
         classe: ""
       },
-      tempString: null
+      tempString: null,
+      showMore: false,
+      saved: false
     }
   },
-  watch: {
-
-  },
+  watch: {},
   beforeMount() {
     this.resetCars();
     this.user = this.$store.state.user;
@@ -277,11 +296,17 @@ export default {
     },
     readyToSave() {
       if (!this.editEnabled) return false;
+      if (this.saved) return false;
+      return this.cars.some(x => x.video && x.rid );
+
       console.log(0)
       if (!this.tempString) return false;
       console.log(1)
-      if (this.tempString === this.generateTempString(this.cars)) return false;
+      if (this.cars.some(x => x.video && x.rid )) return false;
       return true;
+    },
+    isFull() {
+      return this.cars.every(x => x.videoUrl);
     }
   },
   methods: {
@@ -333,9 +358,12 @@ export default {
       ];
       this.tempString = this.generateTempString(this.cars);
     },
+    addMoreCar() {
+      this.cars.push({ rid: null, video: null, videoUrl: null, fileToUpload: null, fHeight: false, showBox: true });
+      this.tempString = this.generateTempString(this.cars);
+    },
     reload() {
       setTimeout(() => {
-        this.resetCars();
         this.load();
       }, 10);
     },
@@ -347,6 +375,7 @@ export default {
       axios.get(Vue.preUrlCharlie + `/showcase/${this.userId}`)
       .then(res => {
         this.loading = false;
+        this.saved = false;
         if (res.data && res.data.cars) {
           this.cars = res.data.cars;
           this.cars.map(car => {
@@ -399,6 +428,7 @@ export default {
           correct: true,
           text: this.$t('m_saveSuccess')
         });
+        this.saved = true;
 
         this.tempString = this.generateTempString(this.cars);
 
@@ -443,6 +473,7 @@ export default {
         // nada
         this.loading = false;
         this.loadList();
+        this.load();
       })
       .catch(error => {
         this.loading = false;
@@ -546,6 +577,9 @@ export default {
     removeCar(icar) {
       this.cars[icar].rid = null;
       this.cars[icar].video = null;
+      if (icar > 2) {
+        this.cars.splice(icar, 1);
+      }
     },
     askDeleteItem(icar) {
       let vm = this;
@@ -599,6 +633,8 @@ export default {
   display: flex;
   justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 15px;
 }
 .MainShowcase_CardBottom {
   display: flex;
@@ -714,26 +750,32 @@ export default {
   text-align: center;
   width: 100%;
 }
-.MainShowcase_Stars_6:before {
+.MainShowcase_Stars_5:before {
+  content: "\e92b\e92b\e92b\e92b\e92b";
+}
+.MainShowcase_Stars_4:before {
+  content: "\e92b\e92b\e92b\e92b";
+}
+.MainShowcase_Stars_3:before {
   content: "\e92b\e92b\e92b";
 }
-.MainShowcase_Stars_5:before,
-.MainShowcase_Stars_4:before {
+.MainShowcase_Stars_2:before {
   content: "\e92b\e92b";
 }
-.MainShowcase_Stars_3:before,
-.MainShowcase_Stars_2:before {
+.MainShowcase_Stars_1:before {
   content: "\e92b";
 }
 .MainShowcase_Help {
   margin-top: 20px;
   flex-grow: 1;
   display: flex;
-  align-items: end;
-  justify-content: center;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+  gap: 5px;
 }
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   .MainShowcase_Cars {
     flex-direction: column;
     align-items: center;
@@ -743,6 +785,6 @@ export default {
     gap: 5px;
     align-items: center;
   }
-}
+} */
 
 </style>

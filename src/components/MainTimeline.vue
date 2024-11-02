@@ -1479,6 +1479,7 @@ export default {
 
       if (this.detailObj.events && this.detailObj.events.length > 0) {
         this.detailObj.events.map((event, iEvent) => {
+          Vue.set(event, "eventUseWhatFilter", 0);
           if (event.rids && event.rids.length > 0) {
             event.rids.map(rid => {
               this.resolveRid(rid);
