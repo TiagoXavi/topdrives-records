@@ -78,6 +78,12 @@
                 <span>{{ $t('m_addVideo') }}</span>
               </button>
               <div class="Main_FilterChipsFlex">
+                <button
+                  v-if="icar !== 0 && (car.video || car.videoUrl) && showVideo"
+                  class="BaseChip BaseChip_MinWidth BaseChip_DontCrop BaseChip_Icon2"
+                  @click="moveLeft(icar)">
+                  <i class="ticon-arrow_left_3 D_ButtonIcon24" aria-hidden="true"/>
+                </button>
                 <BaseChip
                   v-if="(car.video || car.videoUrl) && showVideo"
                   :inputValue="car.fHeight"
@@ -296,13 +302,15 @@ export default {
     },
     readyToSave() {
       if (!this.editEnabled) return false;
-      if (this.saved) return false;
-      return this.cars.some(x => x.video && x.rid );
-
       console.log(0)
-      if (!this.tempString) return false;
+      if (this.saved) return false;
       console.log(1)
-      if (this.cars.some(x => x.video && x.rid )) return false;
+      if (this.cars.some(x => x.video && x.rid )) return true;
+      console.log(2)
+      if (!this.tempString) return false;
+      console.log(3)
+      if (this.tempString === this.generateTempString(this.cars)) return false;
+
       return true;
     },
     isFull() {
@@ -360,7 +368,7 @@ export default {
     },
     addMoreCar() {
       this.cars.push({ rid: null, video: null, videoUrl: null, fileToUpload: null, fHeight: false, showBox: true });
-      this.tempString = this.generateTempString(this.cars);
+      // this.tempString = this.generateTempString(this.cars);
     },
     reload() {
       setTimeout(() => {
@@ -598,14 +606,22 @@ export default {
       }
     },
     generateTempString(cars) {
-      return JSON.stringify(cars.map(x => {
+      let newObj = cars.map(x => {
         return {
           videoUrl: x.videoUrl,
           fileToUpload: x.fileToUpload,
           fHeight: x.fHeight,
-          showBox: x.showBox,
+          showBox: x.showBox
         }
-      }))
+      });
+      newObj = newObj.filter((x, ix) => ix < 3 || (x.rid && x.fileToUpload));
+      return JSON.stringify(newObj);
+    },
+    moveLeft(icar) {
+      if (icar === 0) return;
+      const item = this.cars[icar];
+      this.cars.splice(icar, 1);
+      this.cars.splice(icar-1, 0, item);
     }
   },
 }
