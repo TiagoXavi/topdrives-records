@@ -2,13 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 const Main = () => import("./components/Main.vue");
-const MainExtractTD = () => import("./components/MainExtractTD.vue");
 const MainGallery = () => import("./components/MainGallery.vue");
 const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
-const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
-const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
-const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
-const MainImportRude = () => import("./components/MainImportRude.vue");
 const MainSwagger = () => import("./components/MainSwagger.vue");
 const MainCharts = () => import("./components/MainCharts.vue");
 const MainFindCar = () => import("./components/MainFindCar.vue");
@@ -19,13 +14,11 @@ const MainTestPoints = () => import("./components/MainTestPoints.vue");
 const MainAddNewCars = () => import("./components/MainAddNewCars.vue");
 const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
 const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
-const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
 const MainPacks = () => import("./components/MainPacks.vue");
 const MainTimeline = () => import("./components/MainTimeline.vue");
 const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
-const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
 const MainShowcase = () => import("./components/MainShowcase.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
@@ -104,11 +97,6 @@ const routes = [
   //   name: 'Convert',
   //   component: MainConvertCsv,
   // },
-  {
-    path: '/extract', // internal
-    name: 'Extract',
-    component: MainExtractTD,
-  },
   // {
   //   path: '/merge',
   //   name: 'Merge',
@@ -125,29 +113,9 @@ const routes = [
     component: MainCarsEdit,
   },
   {
-    path: '/validatejson', // internal
-    name: 'Validate',
-    component: MainValidateFinalJson,
-  },
-  {
-    path: '/amp', // internal
-    name: 'Amp',
-    component: MainAmplitudeNewCars,
-  },
-  {
-    path: '/importrude', // internal
-    name: 'ImportRude',
-    component: MainImportRude,
-  },
-  {
     path: '/swagger', // internal
     name: 'MainSwagger',
     component: MainSwagger,
-  },
-  {
-    path: '/MainTestMatchMake', // internal
-    name: 'MainTestMatchMake',
-    component: MainTestMatchMake,
   },
   {
     path: '/animated',
@@ -195,11 +163,6 @@ const routes = [
     component: MainAccelCurveMaker,
   },
   {
-    path: '/BaseMergeDatabase', // internal
-    name: 'BaseMergeDatabase',
-    component: BaseMergeDatabase,
-  },
-  {
     path: '/testPoints',
     name: 'MainTestPoints',
     component: MainTestPoints,
@@ -218,11 +181,6 @@ const routes = [
     path: '/translate',
     name: 'MainTranslate',
     component: MainTranslate,
-  },
-  {
-    path: '/newrq', // internal
-    name: 'Update RQ',
-    component: MainUpdateRqData,
   },
   {
     path: '/templateguide',
@@ -259,6 +217,65 @@ const routes = [
     redirect: { name: 'Records' } 
   },
 ];
+
+
+
+if (process.env.NODE_ENV !== 'production') {
+
+  const MainRT = () => import("./components/MainRT.vue");
+  const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
+  const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
+  const MainImportRude = () => import("./components/MainImportRude.vue");
+  const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
+  const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
+  const MainExtractTD = () => import("./components/MainExtractTD.vue");
+  const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
+
+  routes.push(
+    {
+      path: '/MainRT', // internal
+      name: 'MainRT',
+      component: MainRT,
+    },
+    {
+      path: '/newrq', // internal
+      name: 'Update RQ',
+      component: MainUpdateRqData,
+    },
+    {
+      path: '/BaseMergeDatabase', // internal
+      name: 'BaseMergeDatabase',
+      component: BaseMergeDatabase,
+    },
+    {
+      path: '/importrude', // internal
+      name: 'ImportRude',
+      component: MainImportRude,
+    },
+    {
+      path: '/amp', // internal
+      name: 'Amp',
+      component: MainAmplitudeNewCars,
+    },
+    {
+      path: '/validatejson', // internal
+      name: 'Validate',
+      component: MainValidateFinalJson,
+    },
+    {
+      path: '/extract', // internal
+      name: 'Extract',
+      component: MainExtractTD,
+    },
+    {
+      path: '/MainTestMatchMake', // internal
+      name: 'MainTestMatchMake',
+      component: MainTestMatchMake,
+    },
+  );
+}
+
+
 
 window.envType = process.env.NODE_ENV;
 

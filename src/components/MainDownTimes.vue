@@ -62,12 +62,11 @@
                 :downloadLoading="false"
                 :needSave="false"
                 :cg="true"
+                :cgOppo="true"
                 :hideClose="true"
                 :showResetTune="false"
-                @cog="cgShowTuneDialog(race.car, race, true)"
-                @longTouch="cgShowTuneDialog(race.car, race, true)"
-                @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
-                @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
+                @cog="exportCar(car)"
+                @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
               <div v-else class="MainDownTimes_CarCard">
                 <div class="MainDownTimes_BankPhoto">
                   <img :src="all_cars_obj[rid].photo" class="MainDownTimes_BankPhotoImg" alt="">
@@ -461,6 +460,26 @@ export default {
         });
       })
     },
+    exportCar(car) {
+
+      let tunesList = [];
+      car.map(x => {
+        tunesList.push(x.selectedTune);
+      })
+      tunesList = [...new Set(tunesList)];
+
+      tunesList.map(tune => {
+        let url = `${window.location.origin}?share=`;
+
+        car.map(x => {
+          if (x.selectedTune !== tune) return;
+          url += `~K${x.track}`;
+        })
+
+        url += `~C${car[0].car.rid}~T${tune}`;
+        console.log(url);
+      })
+    }
   },
 }
 </script>
