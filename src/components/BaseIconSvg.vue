@@ -157,6 +157,43 @@
       <path d="M127.5 41c9.4-3.5 6.3-20.3-1.7-31.8-3.1 9.5-3 19.2 1.7 31.8z"/>
       <path d="M120.4 30.1c-.1-.1-.4 0-2.8-1-9.4-4.5-15.6-14.8-21.4-27.4 8.4 4.2 19.5 9.6 22.7 23.1.3 1 .8 2.5 1.5 5.3z"/>
     </svg>
+    <div v-else-if="type === 'baloon'">
+      <svg class="BaseIconSvg_Baloon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 87.3 229.1" viewBox="0 0 87.3 229.1">
+        <linearGradient id="a" x1="44.934" x2="44.934" y1="122.484" y2="116.302" gradientUnits="userSpaceOnUse">
+          <stop offset="0" style="stop-color:#d40613"/>
+          <stop offset="1" style="stop-color:#d40651"/>
+        </linearGradient>
+        <path d="M50.6 121.9s-6.5-2.4-11.3 0c0 0 6.7 1.3 11.3 0z" style="fill:url(#a)"/>
+        <path d="M44.8 114.5c-.1 0-1.3-.2-1.4-.2h-.1c2.4 20.6 5.1 45.2 3.1 60.7-3.2 25.7-2.4 53.1-2.4 53.1l.4-.3s-.4-18.2 1.2-34.6c1.6-16.4 3.7-27.9 1.7-51-.7-9.1-1.5-17.6-2.5-27.7z" style="fill:#7a707b"/>
+        <linearGradient id="b" x1="44.934" x2="44.934" y1="121.934" y2="116.302" gradientUnits="userSpaceOnUse">
+          <stop offset="0" style="stop-color:#d40613"/>
+          <stop offset="1" style="stop-color:#d40651"/>
+        </linearGradient>
+        <path d="M39.3 121.9s6.8-.7 11.3 0c0 0-1-5.6-5.6-5.6s-5.7 5.6-5.7 5.6z" style="fill:url(#b)"/>
+        <radialGradient id="c" cx="43.647" cy="59.052" r="50.535" fx="32.698" fy="37.262" gradientUnits="userSpaceOnUse">
+          <stop offset=".018" style="stop-color:#ff5458"/>
+          <stop offset=".183" style="stop-color:#fc4a4e"/>
+          <stop offset=".465" style="stop-color:#f42f35"/>
+          <stop offset=".68" style="stop-color:#ed161d"/>
+          <stop offset=".914" style="stop-color:#bf0000"/>
+        </radialGradient>
+        <path d="M86.3 59.1c0 32.1-19.1 58.1-42.6 58.1S1 91.1 1 59.1 20.1 1 43.6 1s42.7 26 42.7 58.1z" style="fill:url(#c)"/>
+        <linearGradient id="d" x1="135.743" x2="196.758" y1="59.145" y2="117.974" gradientTransform="matrix(.8571 0 0 .889 -104.3 -35.42)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" style="stop-color:#ffe3ff;stop-opacity:.4"/>
+          <stop offset="1" style="stop-color:#fff;stop-opacity:0"/>
+        </linearGradient>
+        <path d="M55.3 87c24.6-3 29.4-37.9 26.1-51.1-6-20.6-21.9-34.5-39-34.5-23.5 0-40.6 29.4-40.6 51.4 0 10 1.2 15.7 7.9 22.5C15.4 81 30.7 90 55.3 87z" style="fill:url(#d)"/>
+        <radialGradient id="e" cx="45.419" cy="104.724" r="25.026" gradientUnits="userSpaceOnUse">
+          <stop offset=".018" style="stop-color:#e85738"/>
+          <stop offset=".153" style="stop-color:#e44d33"/>
+          <stop offset=".383" style="stop-color:#da3227"/>
+          <stop offset=".679" style="stop-color:#ca0613"/>
+          <stop offset=".68" style="stop-color:#ca0613"/>
+          <stop offset="1" style="stop-color:#d40651"/>
+        </radialGradient>
+        <path d="M43.6 117.1c14.5 0 27.2-9.8 34.9-24.8-17.3 32.5-51 26.9-66.3 6 7.9 11.6 19 18.8 31.4 18.8z" style="opacity:.49;fill:url(#e)"/>
+      </svg>
+    </div>
   </div>
 </template>
 

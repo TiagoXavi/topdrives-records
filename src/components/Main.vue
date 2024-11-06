@@ -39,6 +39,7 @@
                 <i class="ticon-star D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
                 <span>{{ $t("m_bestOf") }}</span>
               </button>
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
             </template>
           </BaseCorner>
           <div class="Main_RowCornerBox">
@@ -207,8 +208,10 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template v-if="user && user.username === 'TiagoXavi'" slot="more">
+            <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <BaseText
+                v-if="user && user.username === 'TiagoXavi'" 
                 v-model="pasteInputModel"
                 type="normal"
                 placeholder="paste here"
@@ -848,7 +851,11 @@
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
-            @camera="shareDialog = true; generateUrl();"/>
+            @camera="shareDialog = true; generateUrl();">
+            <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
+            </template>
+          </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
             <div v-if="event.date" class="Cg_SelectorLayout">
@@ -901,7 +908,7 @@
                           @click="eventSaveAll()">{{ $t("m_save") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="isMobile && event.compilation && event.compilation.length > 0">
+                    <template v-else-if="event.compilation && event.compilation.length > 0">
                       <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
                     </template>
                     <template v-if="eventShowAnalyse">
@@ -1184,7 +1191,11 @@
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
-            @camera="shareDialog = true; generateUrl();"/>
+            @camera="shareDialog = true; generateUrl();">
+            <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
+            </template>
+          </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top club -->
             <div class="Cg_SelectorLayout">
@@ -3026,6 +3037,7 @@ import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
 import BaseReviewList from './BaseReviewList.vue'
 import BasePrizeBoard from './BasePrizeBoard.vue'
+import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -3065,7 +3077,8 @@ export default {
     BaseReviewList,
     BaseIconSvg,
     BaseMemoryDialog,
-    BasePrizeBoard
+    BasePrizeBoard,
+    BaseBlackFridayButton
   },
   props: {
     phantomCar: {
@@ -3101,6 +3114,7 @@ export default {
       libraryApprove: false,
       memorySearchDialog: false,
       memorySearchDialogLoad: false,
+      userloaded: false,
 
       showReviews: false,
       isReviewing: false,
@@ -3896,6 +3910,7 @@ export default {
 
       if (mutation.type == "CHANGE_USER") {
         vm.user = mutation.payload.user;
+        vm.userloaded = true;
       }
 
       if (mutation.type == "LOGOUT") {

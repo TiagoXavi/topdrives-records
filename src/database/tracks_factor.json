@@ -77,7 +77,7 @@
   "miCircuit": 1000,
   "miStreets1": 1000,
   "miStreets2": 1000,
-  "miUdrag": 1000,
+  "miUdrag": 640,
   "miCause": 1000,
   "miCauseDrag": 640,
   "miBridge": 1000,
