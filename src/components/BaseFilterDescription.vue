@@ -176,6 +176,7 @@ export default {
       if (f.tags3Model && f.tags3Model.length > 0) result.push({ label: this.$tc("c_tag", 1), value: f.tags3Model.join(", ") });
       if (f.brandsModel && f.brandsModel.length > 0) result.push({ label: this.$tc("c_brand", 1), value: f.brandsModel.join(", ") });
       if (f.year2Model && f.year2Model.length > 0) result.push({ label: this.$tc("c_year", 2), value: f.year2Model.join(", ") });
+      if (f.seats2Model && f.seats2Model.length > 0) result.push({ label: this.$t("c_seats"), value: f.seats2Model.join(", ") });
 
       if (this.emitDescResolved) {
         this.$emit('descResolved', result);

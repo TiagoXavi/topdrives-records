@@ -1039,6 +1039,15 @@
       min-width="240px"
       @close="closeFilterDayDialog()">
       <div class="">
+        <div class="D_Center" style="justify-content: flex-end;">
+          <button
+            :disabled="!searchParams.dayStart && !searchParams.dayEnd"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="clearDateOnly()">
+            <span>{{ $t("m_clear") }}</span>
+          </button>
+        </div>
+
         <div class="D_Center">
           <BaseDatePicker
             v-model="searchParams.dayStart"
@@ -1054,6 +1063,10 @@
             class="MainTimeline_Create_BaseText"
             :label="`${$t('m_dateEnd')} (${$t('m_optional')})`" />
         </div>
+
+        
+
+
       </div>
     </BaseDialog>
 
@@ -1382,14 +1395,15 @@ export default {
     },
     previousPage() {
       this.searchPage--;
-      this.searchTimeline();
+      this.searchTimeline(false, true);
     },
     nextPage() {
       this.searchPage++;
-      this.searchTimeline(true);
+      this.searchTimeline(true, true);
     },
-    searchTimeline(isNextPage) {
+    searchTimeline(isNextPage, keepPage) {
       this.loading = true;
+      if (!keepPage) this.searchPage = 0;
 
       axios.post(Vue.preUrlCharlie + "/searchTimeline", {
         ...this.searchParams,
@@ -2168,6 +2182,11 @@ export default {
         this.searchTimeline();
       }
     },
+    clearDateOnly() {
+      this.searchParams.dayStart = "";
+      this.searchParams.dayEnd = "";
+      this.closeFilterDayDialog();
+    }
   },
 }
 </script>

@@ -57,15 +57,15 @@
                 class="MainDownTimes_GalleryCard" /> -->
               <BaseCard
                 v-if="showBigCards"
-                :car="car[0].car"
+                :car="all_cars_obj[rid].car"
                 :fix-back="true"
                 :downloadLoading="false"
                 :needSave="false"
                 :cg="true"
-                :cgOppo="true"
+                :cgOppo="false"
                 :hideClose="true"
-                :showResetTune="false"
-                @cog="exportCar(car)"
+                :showResetTune="true"
+                @refreshTune="exportCar(car)"
                 @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
               <div v-else class="MainDownTimes_CarCard">
                 <div class="MainDownTimes_BankPhoto">
@@ -93,7 +93,7 @@
                 class="Cg_TrackBox"
                 type="tracks" />
               <Row
-                :car="item.car"
+                :car="item"
                 :list="item.resolvedTracks"
                 :loggedin="!!user"
                 :user="user"
@@ -101,12 +101,12 @@
                 :cg="true"
                 :cgOppo="false"
                 :cgTime="item.time"
-                :customData="item.car.data"
+                :customData="all_cars_obj[rid].car.data"
                 :forceDisabled="!user || !user.mod"
                 type="times"
                 @deleteTime="deleteTime(item, $event)"
-                @changeTime="changeTime(item, $event)" />
-              <div v-if="item.car.dataToSave" class="MainDownTimes_SaveBox">
+                @changeTime="changeTime(all_cars_obj[rid].car, $event)" />
+              <div v-if="all_cars_obj[rid].car.dataToSave" class="MainDownTimes_SaveBox">
                 <button
                   :class="{ D_Button_Loading: ridLoading === rid }"
                   class="D_Button Main_SaveAllButton"
@@ -226,53 +226,53 @@ export default {
               track: x.track
             }
           })
-          this.all_cars_obj[rid].color = Vue.resolveClass(this.all_cars_obj[rid].rq, this.all_cars_obj[rid].class, "color");
-          this.all_cars_obj[rid].photo = this.cgResolvePhotoUrl(this.downTimes[rid]);
+          this.frontCompleteCar(this.all_cars_obj[rid]);
+          this.buildDataStructure(this.all_cars_obj[rid], this.downTimes[rid]);
           this.downTimes[rid].map(downtime => {
-            downtime.car.selectedTune = downtime.selectedTune;
-
+            // downtime.car.selectedTune = downtime.selectedTune;
             Vue.set(downtime, "resolvedTracks", this.validateTracks([downtime.track]));
 
-            // list all options
-            let currentTracksOptions = [];
-            let options = [];
-            this.campaign.map((city, icity) => {
-              city.matches.map((match, imatch) => {
-                match.races.map((rac, irace) => {
-                  if (rac.name === downtime.track) {
-                    options.push({
-                      city: city.name,
-                      icity,
-                      imatch,
-                      irace,
-                      code: `${icity}${imatch}`
-                    })
-                  }
+            if (true) { //campaign
+              let currentTracksOptions = [];
+              let options = [];
+              this.campaign.map((city, icity) => {
+                city.matches.map((match, imatch) => {
+                  match.races.map((rac, irace) => {
+                    if (rac.name === downtime.track) {
+                      options.push({
+                        city: city.name,
+                        icity,
+                        imatch,
+                        irace,
+                        code: `${icity}${imatch}`
+                      })
+                    }
+                  })
                 })
               })
-            })
-            currentTracksOptions.push(options);
-
-            // delivery best option
-            downtime.resolvedTracks.map((x, ix) => {
-              let bestOption;
-              currentTracksOptions[ix].map(y => {
-                if (
-                  !bestOption ||
-                  this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
-                  y.irace < bestOption.irace && !this.isChamp(y.city) ||
-                  (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
-                  (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
-                ) {
-                  bestOption = y;
+              currentTracksOptions.push(options);
+  
+              // delivery best option
+              downtime.resolvedTracks.map((x, ix) => {
+                let bestOption;
+                currentTracksOptions[ix].map(y => {
+                  if (
+                    !bestOption ||
+                    this.isChamp(bestOption.city) && !this.isChamp(y.city) ||
+                    y.irace < bestOption.irace && !this.isChamp(y.city) ||
+                    (y.irace <= bestOption.irace && y.icity > bestOption.icity) ||
+                    (y.irace <= bestOption.irace && y.imatch > bestOption.imatch)
+                  ) {
+                    bestOption = y;
+                  }
+                })
+                if (bestOption) {
+                  x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+                } else {
+                  x.campaign = `Not in campaign`;
                 }
               })
-              if (bestOption) {
-                x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
-              } else {
-                x.campaign = `Not in campaign`;
-              }
-            })
+            }
 
           })
         })
@@ -476,9 +476,28 @@ export default {
           url += `~K${x.track}`;
         })
 
-        url += `~C${car[0].car.rid}~T${tune}`;
+        url += `~C${car[0].rid}~T${tune}`;
         console.log(url);
       })
+    },
+    frontCompleteCar(car) {
+      Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
+      Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
+      Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
+    },
+    buildDataStructure(car, downtime) {
+      let track = downtime.track;
+      let tune = downtime.selectedTune;
+
+      if (!car.data) Vue.set(car, "data", {});
+      if (!car.data[tune]) Vue.set(car.data, tune, {});
+      if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
+      if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
+
+      Vue.set(car.data[tune].times[track], "t", downtime.time);
+      Vue.set(car.data[tune].times[track], "u", downtime.user);
+      Vue.set(car.data[tune].times[track], "down", downtime.down || []);
+      Vue.set(car.data[tune].times[track], "up", downtime.up || []);
     }
   },
 }

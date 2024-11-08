@@ -7972,7 +7972,7 @@ export default {
               if (x.currentEurope) x.name += "EU, ";
               if (x.currentAmerica) x.name += "US, ";
               if (x.currentAsia) x.name += "AP, ";
-              console.log(x.name);
+              // console.log(x.name);
               x.name = x.name.slice(0,-2);
               x.name += ")";
               return true;

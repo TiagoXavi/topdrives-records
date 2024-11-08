@@ -5,7 +5,7 @@
     :grow="true"
     :transparent="true"
     maxWidth="880px"
-    @close="$emit('close')">
+    @close="$emit('close'); secretYear = false;">
     <div class="Main_SearchBody BaseFilterDialog_Box">
       <div class="Main_SearchHeader">
         <div v-if="!isFiltering && !filterOnly" class="Main_SearchFieldBox">
@@ -112,7 +112,7 @@
             <template v-for="(item, ix) in secretYearList">
               <BaseChip
                 v-model="searchFilters.year2Model"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                 :value="item" />
             </template>
           </div>
@@ -192,7 +192,8 @@
               :min="searchFilters.seatsStart"
               :max="searchFilters.seatsEnd"
               :label="$t('c_seats')"
-              class="Main_FilterSlider" />
+              class="Main_FilterSlider"
+              @ctrlClick="initSecretYear()" />
           </div>
           <BaseDualSlider
             v-if="(config.weight === false || internalConfig.weight === false) && config.seats !== false && internalConfig.seats !== false"
@@ -200,7 +201,16 @@
             :min="searchFilters.seatsStart"
             :max="searchFilters.seatsEnd"
             :label="$t('c_seats')"
-            class="Main_FilterSlider" />
+            class="Main_FilterSlider"
+            @ctrlClick="initSecretYear()" />
+          <div v-if="secretYear" class="Main_FilterChipsFlex">
+            <template v-for="(item, ix) in secretSeatsList">
+              <BaseChip
+                v-model="searchFilters.seats2Model"
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                :value="item" />
+            </template>
+          </div>
           <div v-if="config.countrys !== false && internalConfig.countrys !== false" class="Main_FilterChips2">
             <template v-for="(item, ix) in searchFilters.countrys">
               <BaseChip
@@ -1186,7 +1196,7 @@ export default {
           ...mutation.payload.filter
         };
         vm.searchStr = "";
-        if (mutation.payload.filter.year2Model) {
+        if (mutation.payload.filter.year2Model || mutation.payload.filter.seats2Model) {
           this.initSecretYear(true);
         }
         setTimeout(() => {
@@ -1322,6 +1332,7 @@ export default {
         }
 
         this.$emit("filterUpdate", this.searchFilters);
+        this.secretYear = false;
       } else if (this.type === 'compare' || this.type === 'library' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
@@ -1853,6 +1864,7 @@ export default {
       this.searchFilters.typesModel = [];
       this.searchFilters.approveModel = false;
       if (this.searchFilters.year2Model) this.searchFilters.year2Model = [];
+      if (this.searchFilters.seats2Model) this.searchFilters.seats2Model = [];
     },
     resolveFilterCount(customFilter) {
       let defaults = {
@@ -1886,6 +1898,7 @@ export default {
         approveModel: false
       }
       if (this.secretYear) defaults.year2Model = [];
+      if (this.secretYear) defaults.seats2Model = [];
       let count = 0;
 
       let clearFilter = {};
@@ -1961,6 +1974,7 @@ export default {
       if ( !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
       if ( this.secretYear && !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
+      if ( this.secretYear && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
 
       if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
       if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
@@ -2050,7 +2064,10 @@ export default {
         ...this.searchFilters,
         ...this.raceFilterResolved
       };
-      if (this.searchFilters.year2Model) {
+      if (
+        (this.searchFilters.year2Model && this.searchFilters.year2Model.length) ||
+        this.searchFilters.seats2Model && this.searchFilters.seats2Model.length
+      ) {
         this.initSecretYear(true);
       }
       if (this.searchFilters.tags2Model.length > 0 || this.searchFilters.tags3Model.length > 0) {
@@ -2063,15 +2080,31 @@ export default {
     initSecretYear(forceTrue) {
       // this.$store.commit("START_LOGROCKET", {});
       this.secretYearList = [];
-      if (!this.searchFilters.year2Model) Vue.set(this.searchFilters, "year2Model", []);
+      this.secretSeatsList = [];
+      if (!this.searchFilters.year2Model) {
+        Vue.set(this.searchFilters, "year2Model", []);
+      }
+      if (!this.searchFilters.seats2Model) {
+        Vue.set(this.searchFilters, "seats2Model", []);
+      }
       this.secretYear = !this.secretYear || forceTrue;
-      // let initial = this.searchFilters.yearStart;
-      let initial = 1935;
-      let end = this.searchFilters.yearEnd;
-      do {
-        this.secretYearList.push(initial);
-        initial++;
-      } while (initial <= end);
+      
+      {
+        let initial = 1935;
+        let end = this.searchFilters.yearEnd;
+        do {
+          this.secretYearList.push(initial);
+          initial++;
+        } while (initial <= end);
+      }
+      {
+        let initial = 1;
+        let end = this.searchFilters.seatsEnd;
+        do {
+          this.secretSeatsList.push(initial);
+          initial++;
+        } while (initial <= end);
+      }
     },
     toggleRoadTrip() {
       let included = [];

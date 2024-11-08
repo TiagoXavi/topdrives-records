@@ -3,9 +3,9 @@
 </template>
 
 <script>
-try {
-  var hutch_matchmakeEntries = require('@/database/hutch_matchmakeEntries.json') // internal
-} catch (error) {}
+// try {
+//   var hutch_matchmakeEntries = require('@/database/hutch_matchmakeEntries.json') // internal
+// } catch (error) {}
 
 export default {
   name: 'MainTestMatchMake',
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      hutch_matchmakeEntries
+      hutch_matchmakeEntries: []
     }
   },
   watch: {},
@@ -42,6 +42,31 @@ export default {
       events: {},
       eventsClubs: {}
     }
+
+    const harItems = require.context(
+      '@/database/matchmake',
+      true,
+      /^.*\.json$/
+    )
+    const harKeys = harItems.keys();
+    let hars = harKeys.map(harItems);
+    hars = hars.map((x, index) => {
+      this.hutch_matchmakeEntries = [
+        ...this.hutch_matchmakeEntries,
+        ...x.log.entries
+      ]
+    })
+
+
+    
+
+
+
+
+    
+
+
+
     this.hutch_matchmakeEntries.map(entry => {
       let requestParsed = JSON.parse(entry.request.postData.text);
       let eventId = requestParsed.eventId;
@@ -57,7 +82,9 @@ export default {
           x5: 0,
           x6: 0,
           repeat: 0,
-          nonRepeat: 0
+          nonRepeat: 0,
+          percSame: 0,
+          percDiff: 0
         };
         summary[key][eventId] = {};
       }
@@ -112,6 +139,8 @@ export default {
             countX++;
             stats[key][eventId][`x${countX}`]++;
             stats[key][eventId].repeat++;
+            // stats[key][eventId].percSame
+            // stats[key][eventId].percDiff
           } else {
             stats[key][eventId].nonRepeat++;
             lastTrackset = x;
@@ -197,20 +226,25 @@ export default {
       x2: { exptd: 0, real: 0 },
       x3: { exptd: 0, real: 0 },
       x4: { exptd: 0, real: 0 },
-      repeat: { exptd: 0, real: 0 },
-      nonRepeat: { exptd: 0, real: 0 }
+      repeat: { exptd: 0, real: 0, ePerc: 0, rPerc: 0 },
+      nonRepeat: { exptd: 0, real: 0, ePerc: 0, rPerc: 0 }
     };
 
     Object.keys(stats).map(key => {
       Object.keys(stats[key]).map(eventId => {
-        summaryGlobal.numPlay += stats[key][eventId].numPlay
+        summaryGlobal.numPlay += stats[key][eventId].numPlay;
+
         summary[key][eventId][`repeat`] = {
           exptd: stats[key][eventId].prb2_x2.repeat,
-          real: stats[key][eventId].repeat
+          real: stats[key][eventId].repeat,
+          ePerc: 25,
+          rPerc: (stats[key][eventId].repeat*100)/(stats[key][eventId].numPlay-1)
         };
         summary[key][eventId][`nonRepeat`] = {
           exptd: stats[key][eventId].prb2_x2.nonRepeat,
-          real: stats[key][eventId].nonRepeat
+          real: stats[key][eventId].nonRepeat,
+          ePerc: 75,
+          rPerc: (stats[key][eventId].nonRepeat*100)/(stats[key][eventId].numPlay-1)
         };
         summary[key][eventId][`x2`] = {
           exptd: stats[key][eventId].prb2_x2.consecutiveCount,
@@ -241,6 +275,11 @@ export default {
     summaryGlobal.x2.diff = Number((100 - (summaryGlobal.x2.exptd * 100 / summaryGlobal.x2.real)).toFixed(1))
     summaryGlobal.x3.diff = Number((100 - (summaryGlobal.x3.exptd * 100 / summaryGlobal.x3.real)).toFixed(1))
     summaryGlobal.x4.diff = Number((100 - (summaryGlobal.x4.exptd * 100 / summaryGlobal.x4.real)).toFixed(1))
+
+    summaryGlobal.repeat.ePerc = 25;
+    summaryGlobal.repeat.rPerc = Number(( (summaryGlobal.repeat.real * 100) / (summaryGlobal.numPlay - counts.length) ).toFixed(1))
+    summaryGlobal.nonRepeat.ePerc = 75;
+    summaryGlobal.nonRepeat.rPerc = Number(( (summaryGlobal.nonRepeat.real * 100) / (summaryGlobal.numPlay - counts.length) ).toFixed(1))
 
     summaryGlobal.numX5 = numX5;
     summaryGlobal.numX6 = numX6;

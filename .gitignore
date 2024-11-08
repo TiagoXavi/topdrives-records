@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+matchmake/
 */imgs
 */cards_imgs
 cars_short.json
