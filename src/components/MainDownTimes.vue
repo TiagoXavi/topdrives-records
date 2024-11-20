@@ -39,6 +39,7 @@
     <div v-if="showCarsFix" class="MainDownTimes_Body">
       <div class="MainDownTimes_ D_Center2" style="position: relative; margin-bottom: 20px;">
         <button
+          v-if="user && user.username === 'TiagoXavi'"
           class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
           @click="askDeleteAllTimes()">
           Delete all

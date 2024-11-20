@@ -12,6 +12,7 @@ import fr from "./fr.js";
 import nl from "./nl.js";
 import br from "./br.js";
 import cn from "./cn.js";
+import se from "./se.js";
 
 export default {
   br,
@@ -41,6 +42,7 @@ export default {
   nl,
   pl,
   ru,
+  se,
   sk,
   ua
 }

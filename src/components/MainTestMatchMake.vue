@@ -330,7 +330,7 @@ export default {
     // },
     testProb2(faces = 6, times = 5, desiredSuccess = 2, atLeastNumber) {
       let consecCounts = [];
-      Array.from(Array( 1 )).map((_, i) => {
+      Array.from(Array( 1000 )).map((_, i) => {
         consecCounts.push(this.rollOne( faces, times, desiredSuccess, atLeastNumber ));
       });
 
