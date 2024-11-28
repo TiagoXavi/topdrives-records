@@ -88,7 +88,7 @@
       @touchend="touchend()"
       @click="invertedClick($event)">
       <div class="BaseCard_Header2Left">
-        <img :src="carPhotoSrc" class="BaseCard_Header2Img" alt="">
+        <img :src="carPhotoSrc" loading="lazy" class="BaseCard_Header2Img" alt="">
       </div>
       <div class="BaseCard_Header2Right">
         <div class="BaseCard_Header2Top"><b>[{{ resolveCar.rq }}]</b> {{ car.brand }}</div>

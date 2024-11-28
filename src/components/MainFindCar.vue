@@ -33,7 +33,7 @@
           class="MainFindCar_GalleryCard" />
         <div v-else class="MainFindCar_CarCard">
           <div class="MainFindCar_BankPhoto">
-            <img :src="car.photo" class="MainFindCar_BankPhotoImg" alt="">
+            <img :src="car.photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
           </div>
           <div class="MainFindCar_RQ">{{ car.car.rq }}</div>
         </div>

@@ -717,7 +717,7 @@
                         class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
                         @click="cgBankCarClick(race, index, $event, irace, bankCar);">
                         <div class="Cg_BankPhoto">
-                          <img :src="bankCar.photo" class="Cg_BankPhotoImg" alt="">
+                          <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
                         </div>
                         <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div>
                         <div class="Cg_BankTune">{{ bankCar.tune }}</div>
@@ -1016,7 +1016,7 @@
                     @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
                     @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
                     <div class="Cg_BankPhoto Event_BankPhoto">
-                      <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
+                      <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
                     </div>
                     <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
                     <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
@@ -1409,7 +1409,7 @@
                       @contextmenu="isMobile ? $event.preventDefault() : clubTogglePick(car, $event)"
                       @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
                       <div class="Cg_BankPhoto Event_BankPhoto">
-                        <img :src="car.photo" class="Cg_BankPhotoImg" alt="">
+                        <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
                       </div>
                       <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
                       <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->

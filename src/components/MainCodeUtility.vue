@@ -151,6 +151,7 @@
         <div v-for="(item, ix) in images" class="MainCollageMaker_Div" @click="askDelete(ix)">
           <img
             :src="item"
+            loading="lazy"
             class="MainCollageMaker_Img" alt="">
         </div>
       </div>

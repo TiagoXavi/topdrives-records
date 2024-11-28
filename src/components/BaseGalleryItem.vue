@@ -4,7 +4,7 @@
       <div class="BaseGalleryItem_Thumb">
         <div class="BaseGalleryItem_ImageLayout">
           <div v-for="car in cars" class="BaseGalleryItem_ImageBlock">
-            <img :src="car" class="BaseGalleryItem_Image" alt="">
+            <img :src="car" loading="lazy" class="BaseGalleryItem_Image" alt="">
           </div>
           <div v-if="moreThanNineCars" class="BaseGalleryItem_PlusCars">+{{ config.cars.length - 7 }}</div>
         </div>

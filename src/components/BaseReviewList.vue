@@ -25,7 +25,7 @@
         <div v-if="rev.link && rev.link.includes('~C')" class="BaseReviewList_LinkBox">
           <button class="D_Button BaseReviewList_ImageLayout" @click="$emit('loadTemplate', rev.link)">
             <div v-for="car in galleryCars[irev]" class="BaseReviewList_ImageBlock">
-              <img :src="car" class="BaseReviewList_Image" alt="">
+              <img :src="car" loading="lazy" class="BaseReviewList_Image" alt="">
             </div>
           </button>
         </div>

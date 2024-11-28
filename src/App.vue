@@ -924,6 +924,9 @@ button.D_Button.D_Button_Error {
   margin-top: 2px;
   width: 100%;
 }
+.Main_TextAreaResizable {
+  resize: auto
+}
 
 .Main_SearchEmpty::-webkit-scrollbar,
 .Main_SearchMid::-webkit-scrollbar,
@@ -954,6 +957,12 @@ body::-webkit-scrollbar-corner {
   background-color: #222;
 }
 
+textarea::-webkit-resizer {
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='rgb(96, 96, 96)' stroke-width='10'><line x1='30' y1='90' x2='90' y2='30' /></svg>");
+}
 
 .LoadingRectangle {
   animation: vnt666wwqSK5qL63sBn9P 1.5s ease infinite;

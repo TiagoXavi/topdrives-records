@@ -549,7 +549,7 @@
             class="Main_SearchItem"
             @click="item.added ? '' : addCar(index, $event)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
-              <img :src="item.ridPhoto" class="MainGallery_Img" alt="">
+              <img :src="item.ridPhoto" loading="lazy" class="MainGallery_Img" alt="">
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>

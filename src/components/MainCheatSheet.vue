@@ -136,7 +136,7 @@
                   }">
                   <div class="MainCheatSheet_CellInner">
                     <BaseIconSvg v-if="ih === 2" type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
-                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" alt="" />
+                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" loading="lazy" alt="" />
                     <span v-else-if="typeof h === 'number'">{{ h * (clubMultiplier ? 2 : 1) }}</span>
                     <span v-else>{{ h }}</span>
                   </div>
@@ -195,7 +195,7 @@
                   <div class="MainCheatSheet_CellInner">
                     <BaseIconSvg v-if="ih === 2" type="cash" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
                     <BaseIconSvg v-if="ih === 3" type="gold" :useMargin="false" class="MainCheatSheet_ClassesIcon" />
-                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" alt="" />
+                    <img v-if="typeof h === 'string' && h.includes('Badge')" :src="imgsObj[h]" class="MainCheatSheet_ClubBadge" loading="lazy" alt="" />
                     <span v-else-if="typeof h === 'number'">{{ h }}</span>
                     <span v-else>{{ h }}</span>
                   </div>

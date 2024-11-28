@@ -1,5 +1,5 @@
 <template>
-  <img :src="flagSrc" class="BaseFlag_Flag" alt="">
+  <img :src="flagSrc" loading="lazy" class="BaseFlag_Flag" alt="">
 </template>
 
 <script>

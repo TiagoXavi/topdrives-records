@@ -70,7 +70,7 @@
                 @delete="race.car = undefined; race.rid = null; calcRaceResult(race);" />
               <div v-else class="MainDownTimes_CarCard">
                 <div class="MainDownTimes_BankPhoto">
-                  <img :src="all_cars_obj[rid].photo" class="MainDownTimes_BankPhotoImg" alt="">
+                  <img :src="all_cars_obj[rid].photo" class="MainDownTimes_BankPhotoImg" loading="lazy" alt="">
                 </div>
                 <div class="MainDownTimes_RQ">{{ all_cars_obj[rid].rq }}</div>
               </div>

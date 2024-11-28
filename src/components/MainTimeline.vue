@@ -161,29 +161,33 @@
                   <div
                     v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'"
                     class="MainTimeline_Card_Header2Left">
-                    <img :src="resolvedRids[item.p_rid[0]].photo" class="MainTimeline_Card_Header2Img" alt="">
+                    <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
                     <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
                   </div>
                   <img
                     v-else-if="item.type === 'Veteran Challenge'"
                     src="@/assets/tdr_veteran.png"
                     class="MainTimeline_Card_VeteranImg"
+                    loading="lazy"
                     alt="">
                   <img
                     v-else-if="item.type === 'Offers'"
                     src="@/assets/tdr_offer.png"
                     class="MainTimeline_Card_VeteranImg"
+                    loading="lazy"
                     alt="">
                   <img
                     v-else-if="item.links && item.links.find(x => x.cover)"
                     :src="item.links.find(x => x.cover).url"
                     class="MainTimeline_Card_VeteranImg"
+                    loading="lazy"
                     alt=""
                     @load="afterLoadImg($event)">
                   <img
                     v-else-if="item.type === 'Game News' || item.type === 'Community News'"
                     src="@/assets/tdr_newspaper.png"
                     class="MainTimeline_Card_VeteranImg"
+                    loading="lazy"
                     alt="">
                   <!-- <div v-if="(item.p_rid || []).length === 1" class="Main_2" style="display: contents;">
                     <div class="Main_Body" style="display: contents;">
@@ -220,7 +224,7 @@
                           v-if="icar <= 4"
                           :style="`--class-color: ${resolvedRids[car].color} ;`"
                           class="MainTimeline_MiniCard">
-                          <img :src="resolvedRids[car].photo" class="MainTimeline_MiniCard_Header2Img" alt="">
+                          <img :src="resolvedRids[car].photo" loading="lazy" class="MainTimeline_MiniCard_Header2Img" alt="">
                           <div class="MainTimeline_MiniCard_Header2Right2">{{ resolvedRids[car].rq }}</div>
                         </div>
                         <div v-if="icar === 5" class="MainTimeline_MiniCardPlus">+{{ item.p_rid.length - 5 }}</div>
@@ -451,6 +455,13 @@
                     @click="moveEventUp(iEvent)">
                     <i class="ticon-arrow_up_3" aria-hidden="true"/>
                   </button>
+                  <button
+                    v-if="eventToCopy"
+                    class="D_Button D_ButtonDark D_ButtonDark2"
+                    @click="replaceTracksetsByPaste(iEvent)">
+                    <i class="ticon-code D_ButtonIcon" aria-hidden="true"/>
+                    <span>{{ $t("m_paste") }} {{ $t("m_event") }}</span>
+                  </button>
                 </div>
               </div>
 
@@ -461,13 +472,6 @@
                 @click="pushNewEvent()">
                 <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
                 <span>{{ $t("m_event") }}</span>
-              </button>
-              <button
-                v-if="eventToCopy"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="pushNewEvent(true)">
-                <i class="ticon-code D_ButtonIcon" aria-hidden="true"/>
-                <span>{{ $t("m_paste") }} {{ $t("m_event") }}</span>
               </button>
             </div>
           </div>
@@ -533,8 +537,8 @@
             <div class="BaseText_Label">{{ $t('m_description') }} ({{ $t('m_optional') }})</div>
             <textarea
               v-model="ti.description"
-              rows="4"
-              class="Main_TextArea data-hj-allow"
+              rows="10"
+              class="Main_TextArea Main_TextAreaResizable data-hj-allow"
               placeholder="" />
           </div>
 
@@ -591,6 +595,7 @@
       :transparent="false"
       :isStatic="false"
       :forceScroll="false"
+      id="MainTimeline_DetailDialog"
       max-width="550px"
       min-width="240px"
       @close="detailDialog = false;">
@@ -603,11 +608,11 @@
           </div>
           <div class="MainTimeline_DialogInfo">
             <div class="MainTimeline_DialogInfoLabel">{{ $t('m_date') }}</div>
-            <div class="MainTimeline_DialogInfoValue">{{ new Date(detailObj.dayStart).toLocaleDateString() }}</div>
+            <div class="MainTimeline_DialogInfoValue">{{ new Date(`${detailObj.dayStart}T00:00:00`).toLocaleDateString() }}</div>
           </div>
           <div v-if="detailObj.dayEnd" class="MainTimeline_DialogInfo">
             <div class="MainTimeline_DialogInfoLabel">{{ $t('m_dateEnd') }}</div>
-            <div class="MainTimeline_DialogInfoValue">{{ new Date(detailObj.dayEnd).toLocaleDateString() }}</div>
+            <div class="MainTimeline_DialogInfoValue">{{ new Date(`${detailObj.dayEnd}T00:00:00`).toLocaleDateString() }}</div>
           </div>
           <div class="MainTimeline_DialogInfo">
             <div class="MainTimeline_DialogInfoLabel">{{ $t('m_by') }}</div>
@@ -734,6 +739,7 @@
             <div class="MainTimeline_EventsItemBottom">
               <div class="MainTimeline_TracksetList" style="margin-top: 15px;">
                 <BaseEventTrackbox
+                  v-if="!event.hideTrackset"
                   :event="event"
                   :eventLoadingAny="false"
                   :user="{ mod: false }"
@@ -1321,7 +1327,6 @@ export default {
       if (!this.ti.dayStart) return false;
       if (
           this.ti.type === "Tri-Series" ||
-          this.ti.type === "Collection Series" ||
           this.ti.type === "Veteran Challenge" ||
           this.ti.type === "GT Series"
         ) {
@@ -1490,6 +1495,12 @@ export default {
       this.detailObj = item;
 
       // this.$store.commit("START_LOGROCKET", {});
+      let el = document.querySelector("#MainTimeline_DetailDialog .BaseDialog_Box");
+      if (el) {
+        setTimeout(() => {
+          el.scrollTo({ top: 0 });
+        }, 1);
+      }
 
       if (this.detailObj.events && this.detailObj.events.length > 0) {
         this.detailObj.events.map((event, iEvent) => {
@@ -1499,7 +1510,16 @@ export default {
               this.resolveRid(rid);
             })
           }
-          if (event.trackset && event.trackset.length > 0) {
+          if (event.trackset && event.trackset.length > 0 || true) {
+            if (!this.user || !this.user.mod) {
+              if (this.detailObj.type === "Tri-Series" && event.name.toLocaleLowerCase().includes("finals")) {
+                let dateFinalInit = new Date(`${this.detailObj.dayStart}T21:00:00`);
+                dateFinalInit.setDate(dateFinalInit.getDate() + 4);
+                if (new Date() < dateFinalInit) {
+                  Vue.set(event, "hideTrackset", true);
+                }
+              }
+            }
             this.eventResolveTracksetEventParam(event);
           }
         })
@@ -1651,6 +1671,14 @@ export default {
         if (this.eventToCopy.filter3) one.filter3 = this.eventToCopy.filter3;
       }
       this.ti.events.push(one);
+    },
+    replaceTracksetsByPaste(iEvent) {
+      this.ti.events[iEvent].resolvedTrackset = this.eventToCopy.resolvedTrackset;
+      this.ti.events[iEvent].trackset = this.eventToCopy.trackset;
+      this.ti.events[iEvent].rqLimit = this.eventToCopy.rqLimit;
+      this.ti.events[iEvent].filter = this.eventToCopy.filter;
+      if (this.eventToCopy.filter2) this.ti.events[iEvent].filter2 = this.eventToCopy.filter2;
+      if (this.eventToCopy.filter3) this.ti.events[iEvent].filter3 = this.eventToCopy.filter3;
     },
     openMainFitlerDialog() {
       this.mainFilterDialog = true;

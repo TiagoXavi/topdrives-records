@@ -106,7 +106,7 @@
             @click="removeCar(car)">
             <div class="MainPacks_CarCard" :style="`--color: ${car.color}`">
               <div class="MainPacks_BankPhoto">
-                <img :src="car.photo" class="MainPacks_BankPhotoImg" alt="">
+                <img :src="car.photo" class="MainPacks_BankPhotoImg" loading="lazy" alt="">
               </div>
               <div class="MainPacks_RQ">{{ car.rq }}</div>
             </div>
@@ -210,7 +210,7 @@
             @click="eventOpenShowCarDialog(car)">
             <div class="MainPacks_CarCard" :style="`--color: ${car.color}`">
               <div class="MainPacks_BankPhoto">
-                <img :src="car.photo" class="MainPacks_BankPhotoImg" alt="">
+                <img :src="car.photo" class="MainPacks_BankPhotoImg" loading="lazy" alt="">
               </div>
               <div class="MainPacks_RQ">{{ car.rq }}</div>
               <div v-if="car.count > 1" class="MainPacks_Count">{{ car.count }}x</div>

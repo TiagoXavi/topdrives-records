@@ -20,7 +20,7 @@
             class="MainAddNewCars_ListCar Main_SearchItem"
             @click="carListClick(item, $event)">
             <div class="Main_SearchItemImg">
-              <img :src="item.photoCalc" class="MainGallery_Img" alt="">
+              <img :src="item.photoCalc" loading="lazy" class="MainGallery_Img" alt="">
             </div>
             <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
             <div class="Main_SearchItemRight">
@@ -95,7 +95,7 @@
               <template v-else>
                 <div class="MainAddNewCars_PhotosChip">
                   <div class="MainAddNewCars_PhotoDiv">
-                    <img :src="newCar.photoId.src" class="MainAddNewCars_PhotoImg" alt="">
+                    <img :src="newCar.photoId.src" loading="lazy" class="MainAddNewCars_PhotoImg" alt="">
                   </div>
                 </div>
               </template>
@@ -264,7 +264,7 @@
               :disabled="photo.inUse"
               class="MainAddNewCars_PhotosChip">
               <div class="MainAddNewCars_PhotoDiv">
-                <img :src="photo.src" class="MainAddNewCars_PhotoImg" alt="">
+                <img :src="photo.src" loading="lazy" class="MainAddNewCars_PhotoImg" alt="">
                 <div v-if="photo.inUse" class="MainAddNewCars_PhotoInUseText">In use</div>
                 <div class="MainAddNewCars_PhotoTitle">{{ photo.filename }}</div>
               </div>
