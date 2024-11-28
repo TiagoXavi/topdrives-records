@@ -123,9 +123,9 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
-        // { label: "Timeline", name: "Timeline", new: true },
+        { label: "Timeline", name: "Timeline", new: true },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", new: true },
+        { label: "Stuff", name: "Stuff" },
       ],
       showNew: true,
       menuDialog: false,
@@ -332,14 +332,13 @@ export default {
   },
   methods: {
     checkUserAllowed() {
-      if (this.user && this.user.mod && !this.menus.find(x => x.label === "Timeline")) {
-        // this.menus = this.menus.filter(x => !x.new);
-        this.menus.splice(5, 0, { label: "Timeline", name: "Timeline", new: true })
-      } else {
-        if (this.$route.name === "Timeline") {
-          this.$router.push({ name: 'Records' })
-        }
-      }
+      // if (this.user && this.user.mod && !this.menus.find(x => x.label === "Timeline")) {
+      //   this.menus.splice(5, 0, { label: "Timeline", name: "Timeline", new: true })
+      // } else {
+      //   if (this.$route.name === "Timeline") {
+      //     this.$router.push({ name: 'Records' })
+      //   }
+      // }
     },
     handleResize() {
       this.resolveWBody();
@@ -401,15 +400,13 @@ export default {
       this.menuDialog = true;
     },
     checkNewMenu() {
-      // if (window.localStorage.getItem("newTab_Timeline")) {
-      if (window.localStorage.getItem("newTab_Showcase")) {
+      if (window.localStorage.getItem("newTab_Timeline")) {
         this.showNew = false;
       };
     },
     tabClick(item) {
-      if (item.name === "Stuff") {
-        this.showNew = false;
-        // window.localStorage.setItem('newTab_Timeline', "t");
+      if (item.name === "Timeline") {
+        window.localStorage.setItem('newTab_Timeline', "t");
       }
     },
     checkZoom() {
