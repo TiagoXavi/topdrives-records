@@ -1459,6 +1459,25 @@ export default {
       })
 
     },
+    redownloadBackend() {
+      this.loading = true;
+
+      axios.get(Vue.preUrlCharlie + "/redownloadBackendTimeline")
+      .then(res => {
+        // this.searchTimeline();
+      })
+      .catch(error => {
+        this.loading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+
+    },
     resolveNewEntrys(items) {
       let result = [];
       items.map(item => {
@@ -1560,6 +1579,10 @@ export default {
       })
     },
     openCreateEvent(e) {
+      if (e && e.ctrlKey && e.shiftKey && this.user && this.user.username === 'TiagoXavi') {
+        this.redownloadBackend();
+        return;
+      }
       this.resetTi();
       this.newTools = true;
       this.animation = true;

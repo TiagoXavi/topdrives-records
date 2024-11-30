@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 
 const Main = () => import("./components/Main.vue");
 const MainGallery = () => import("./components/MainGallery.vue");
-const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
 const MainSwagger = () => import("./components/MainSwagger.vue");
 const MainCharts = () => import("./components/MainCharts.vue");
 const MainFindCar = () => import("./components/MainFindCar.vue");
@@ -106,11 +105,6 @@ const routes = [
     path: '/gallery',
     name: 'Gallery',
     component: MainGallery,
-  },
-  {
-    path: '/MainCarsEdit', // internal
-    name: 'MainCarsEdit',
-    component: MainCarsEdit,
   },
   {
     path: '/swagger', // internal
@@ -230,6 +224,7 @@ if (process.env.NODE_ENV !== 'production') {
   const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
   const MainExtractTD = () => import("./components/MainExtractTD.vue");
   const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
+  const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
 
   routes.push(
     {
@@ -271,6 +266,11 @@ if (process.env.NODE_ENV !== 'production') {
       path: '/MainTestMatchMake', // internal
       name: 'MainTestMatchMake',
       component: MainTestMatchMake,
+    },
+    {
+      path: '/MainCarsEdit', // internal
+      name: 'MainCarsEdit',
+      component: MainCarsEdit,
     },
   );
 }

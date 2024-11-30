@@ -883,6 +883,7 @@ export default {
           "Electric Excellence",
           "Famous Tracks",
           "Gaz's Collection",
+          "Gunter's Collection",
           "Heavy Metal",
           "Immortalised in Carbon",
           "In the Shadows",

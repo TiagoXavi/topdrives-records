@@ -369,6 +369,7 @@ export default {
           "European New Wave",
           "Famous Tracks",
           "Gaz's Collection",
+          "Gunter's Collection",
           "Heavy Metal",
           "French Renaissance",
           "German Renaissance",
@@ -630,7 +631,7 @@ export default {
 
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        if (result.length < 400 || showAll) {
+        if (result.length < 400 || showAll || true) {
 
           let shouldPush = false;
           if (searchStr && searchStr !== "") {

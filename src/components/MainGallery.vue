@@ -502,6 +502,7 @@ export default {
           "European New Wave",
           "Famous Tracks",
           "Gaz's Collection",
+          "Gunter's Collection",
           "Heavy Metal",
           "French Renaissance",
           "German Renaissance",

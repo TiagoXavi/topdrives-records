@@ -405,7 +405,7 @@ export default {
   "m_clubs": null,
   "m_reqs": null,
   "m_admin": null,
-  "m_testPoints": "Testpunkte",
+  "m_testPoints": "Punkte testen",
   "m_status": null,
   "m_stop": null,
   "m_openLimit": null,
