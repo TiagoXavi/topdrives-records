@@ -87,6 +87,9 @@ export default {
     }
   },
   watch: {},
+  beforeCreate() {
+    window.localStorage.setItem("photos_v24_1", "t");
+  },
   beforeMount() {
     this.all_cars.map(x => {
       this.all_cars_obj[x.rid] = x;
@@ -116,7 +119,7 @@ export default {
     finCarFinish(listOfRids) {
       listOfRids = listOfRids.map(x => x.rid);
       this.list = [];
-      this.custom_tags["24.0 new photos"].map(rid => {
+      this.custom_tags["24.1 new photos"].map(rid => {
 
         let car = this.all_cars_obj[rid];
         this.list.push({

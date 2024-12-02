@@ -63,6 +63,10 @@ export default {
       }
     })
 
+    if (true) {
+      this.addTagsToThoseRids();
+    }
+
 
 
 
@@ -249,7 +253,20 @@ export default {
     // navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
   computed: {},
-  methods: {},
+  methods: {
+    addTagsToThoseRids() {
+      let rids = ["Saturn_Sky_2007", "Mazda_Autozam_AZ-1_1992", "Nissan_Leaf_Nismo_(ZE1)_2017", "Ford_Fiesta_RS1800_1992", "Suzuki_Mighty_Boy_(SS40)_1987", "Ford_Capri_3.0_S_1978", "Buick_Verano_2012", "Holden_Monaro_GTS_350_HT_1969", "Honda_S-MX_4WD_1996", "Renault_Sport_Megane_2.0_dCi_175_2008", "Dodge_Coronet_Super_Bee_1968", "Mazda_Atenza_Mazdaspeed_2008", "Mercury_Marauder_2003", "Mitsubishi_Galant_AMG_1989", "Mitsubishi_L200_2006", "Subaru_Rex_Combi_4WD_Turbo_1984", "Cadillac_Escalade_1999", "Chevrolet_Impala_SS_427_1967", "Dodge_Challenger_TA_1970", "Ford_Mustang_Boss_302_1970", "Ford_Transit_SSV_2011", "Mazda_Lantis_Type_R_1993", "Mercury_Marauder_Convertible_Concept_2002", "Mitsubishi_Galant_2000_Turbo_ECI_1984", "Mitsubishi_Pajero_Field_Guard_1993", "Peugeot_106_Rallye_(S2)_1997", "Suzuki_Cara_1993", "Volkswagen_up_GTI_2018", "Chevrolet_Tahoe_1995", "Citroen_Tubil_2011", "Peugeot_Hoggar_2010", "Volvo_360_GLT_1983", "Buick_Skylark_1968", "Peugeot_BB1_2009", "Peugeot_iOn_2018", "Fiat_S76_1910", "Peugeot_208_2018", "Plymouth_Barracuda_Formula_S_1966", "Renault_Twizy_2016", "Subaru_R1_2005", "Subaru_R2_2003", "Volvo_343_RSport_1981", "Alfa_Romeo_Spider_Quadrifoglio_Verde_1986", "Buick_Century_Special_Coupe_1973", "Fiat_Qubo_2009", "Nissan_Datsun_240Z_1969", "Alfa_Romeo_Alfasud_TI_Quadrifoglio_Verde_1982", "Alfa_Romeo_Alfasud_Sprint_1976"];
+      let tagName = "Reclassified";
+
+      this.cars_final.map(car => {
+        if (rids.includes(car.rid)) {
+          if (!car.tags.includes(tagName)) {
+            car.tags.push(tagName);
+          }
+        }
+      })
+    }
+  },
 }
 </script>
 

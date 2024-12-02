@@ -11,7 +11,7 @@
         :key="item.name"
         :class="{
           BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ),
-          BaseTopMenu_New: item.new && showNew
+          BaseTopMenu_New: item.showNew
         }"
         :disabled="disableButtons"
         class="D_Button BaseTopMenu_Button"
@@ -123,11 +123,10 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
-        { label: "Timeline", name: "Timeline" },
+        { label: "Timeline", name: "Timeline", newCodes: ["newTab_Timeline"], showNew: false },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", new: true },
+        { label: "Stuff", name: "Stuff", newCodes: ["changes_v24_1", "photos_v24_1"], showNew: false },
       ],
-      showNew: true,
       menuDialog: false,
       aboutDialog: false,
       optionsAdvancedDialog: false,
@@ -154,6 +153,7 @@ export default {
       this.menuDialog = false;
       this.aboutDialog = false;
       this.optionsAdvancedDialog = false;
+      this.checkNewMenu();
     },
   },
   beforeMount() {
@@ -177,7 +177,6 @@ export default {
   },
   mounted() {
     let vm = this;
-    this.checkNewMenu();
 
     this.left_width = 55;
     this.right_width = 55;
@@ -400,14 +399,24 @@ export default {
       this.menuDialog = true;
     },
     checkNewMenu() {
-      if (window.localStorage.getItem("changes_v24_1")) {
-        this.showNew = false;
-      };
+      this.menus.map(menu => {
+        if (menu.newCodes) {
+          menu.newCodes.map(code => {
+            if (!window.localStorage.getItem(code)) {
+              menu.showNew = true;
+            }
+          })
+        }
+      });
     },
     tabClick(item) {
-      if (item.name === "Stuff") {
-        this.showNew = false;
-        // window.localStorage.setItem('changes_v24_1', "t");
+      if (item.newCodes) {
+        item.showNew = false;
+        item.newCodes.map(code => {
+          if (code.includes("Tab")) {
+            window.localStorage.setItem(code, "t");
+          }
+        })
       }
     },
     checkZoom() {

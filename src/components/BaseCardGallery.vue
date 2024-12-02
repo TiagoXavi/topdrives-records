@@ -137,6 +137,7 @@ export default {
 .BaseCardGallery_Layout {
   display: contents;
   text-align: left;
+  --card-stat-div: 0.7%;
 }
 .BaseCardGallery_FixBack {
   background-color: hsl(var(--back-h), var(--back-s), var(--back-l));

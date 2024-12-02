@@ -467,7 +467,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
+        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "MX", "CH"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -677,6 +677,9 @@ export default {
     }
   },
   watch: {},
+  beforeCreate() {
+    window.localStorage.setItem("changes_v24_1", "t");
+  },
   beforeMount() {
     // check new cars
     let found = this.all_cars.find(x => x.rid === "Lamborghini_Athon_1980");
@@ -1179,7 +1182,7 @@ export default {
             oldCar.tyres === car.tyres &&
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
-            Math.abs(oldCar.rq - car.rq) < 3 &&
+            Math.abs(oldCar.rq - car.rq) < 6 &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&
@@ -1377,7 +1380,7 @@ export default {
   gap: 6px;
   color: white;
   position: absolute;
-  top: 110px;
+  top: 111px;
   left: 355px;
   align-items: center;
 }

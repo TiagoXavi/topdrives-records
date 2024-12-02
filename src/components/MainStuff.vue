@@ -6,7 +6,7 @@
         <button
           v-for="item in tools"
           :class="{
-            MainStuff_New: item.new && showNew
+            MainStuff_New: item.showNew
           }"
           class="D_Button MainStuff_Button"
           @click="tabClick(item); $router.push({ name: item.name });">
@@ -45,7 +45,6 @@ export default {
   data() {
     return {
       user: null,
-      showNew: true,
       tools: [],
       tdrTools: [],
     }
@@ -56,8 +55,8 @@ export default {
 
     this.tools = [
       { name: "MainShowcase", label: this.$t("m_videoShowcase") },
-      { name: "Gallery", label: this.$t("m_vChanges", { version: '24.1' }), new: true },
-      { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.0' }) },
+      { name: "Gallery", label: this.$t("m_vChanges", { version: '24.1' }), newCodes: ["changes_v24_1"], showNew: false },
+      { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.1' }), newCodes: ["photos_v24_1"], showNew: false },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },
       { name: "MainTestPoints", label: this.$t("m_testPoints") },
@@ -91,14 +90,22 @@ export default {
   computed: {},
   methods: {
     checkNewMenu() {
-      if (window.localStorage.getItem("changes_v24_1")) {
-        this.showNew = false;
-      };
+      this.tools.map(menu => {
+        if (menu.newCodes) {
+          menu.newCodes.map(code => {
+            if (!window.localStorage.getItem(code)) {
+              menu.showNew = true;
+            }
+          })
+        }
+      });
     },
     tabClick(item) {
-      if (item.name === "Gallery") {
-        this.showNew = false;
-        window.localStorage.setItem('changes_v24_1', "t");
+      if (item.newCodes) {
+        item.showNew = false;
+        item.newCodes.map(code => {
+          window.localStorage.setItem(code, "t");
+        })
       }
     },
   },

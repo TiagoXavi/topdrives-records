@@ -313,6 +313,11 @@ export default {
   --tag-s: 44%;
   --tag-l: 41%;
 }
+.BaseGameTag_Reclassified {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 80%;
+}
 .BaseGameTag_Ride_of_the_Valkyries {
   --tag-h: 58;
   --tag-s: 44%;

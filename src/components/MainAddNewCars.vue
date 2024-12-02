@@ -426,7 +426,7 @@ export default {
       searchFilters: {},
       typesList: {
         brand: ["Lamborghini"],
-        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "MY", "BR", "AT", "DK", "HR", "NZ", "ZA", "AE", "AR", "MX", "CH"],
+        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "MX", "CH"],
         country: ["IT"],
         clearance: ["Low", "Mid", "High"],
         drive: ["FWD", "RWD", "4WD"],
