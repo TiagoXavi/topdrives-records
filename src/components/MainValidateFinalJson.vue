@@ -22,7 +22,18 @@ export default {
   },
   data() {
     return {
-      cars_final
+      cars_final,
+      updateClass: true,
+      newClassCount: {
+        S: 0,
+        A: 0,
+        B: 0,
+        C: 0,
+        D: 0,
+        E: 0,
+        F: 0,
+        Total: 0
+      }
     }
   },
   watch: {},
@@ -105,6 +116,15 @@ export default {
           debugger;
         }
       })
+      if (this.updateClass) {
+        let classByRq = Vue.resolveClass(x.rq, null, "letter");
+        if (x.class !== classByRq) {
+          x.class = classByRq;
+          this.newClassCount[classByRq]++;
+          this.newClassCount.Total++;
+        }
+      }
+
 
       if (!x.brake && brakeData && brakeData[x.rid]) {
         let brakeClass;
@@ -217,6 +237,10 @@ export default {
       );
       carsFinalOrdered.push(carKeysOrdered);
     })
+
+    if (this.updateClass) {
+      console.log(JSON.parse(JSON.stringify(this.newClassCount)));
+    }
     
 
 

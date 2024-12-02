@@ -272,7 +272,10 @@ export default {
           }
         })
         if (bestOption) {
-          x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+          x.campaign = `${bestOption.city} ${bestOption.imatch+1}`;
+          if (!this.isChamp(bestOption.city)) {
+            x.campaignNum = bestOption.irace+1;
+          }
         } else {
           x.campaign = `Not in campaign`;
         }

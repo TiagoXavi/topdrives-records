@@ -118,7 +118,7 @@
         <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
-      <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign">{{ item.campaign }}</div>
+      <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign" >{{ item.campaign }}<div v-if="item.campaignNum" class="Row_Campaign_Balls" :class="`Row_Campaign_Balls${item.campaignNum}`"><div v-for="n in 5"></div></div></div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).info || {}).acel || {}).t) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
       <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
@@ -453,7 +453,7 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: this.$t('t_'+x.id), textEng: this.$t('t_'+x.id, "en"), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign })
+          result.push({ text: this.$t('t_'+x.id), textEng: this.$t('t_'+x.id, "en"), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign, campaignNum: x.campaignNum })
         })
       } else if (this.type === "times") {
         car = this.car;
@@ -1179,6 +1179,35 @@ export default {
     opacity: 1;
     transform: translateX(0px);
   }
+}
+.Row_Campaign_Balls {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+.Row_Campaign_Balls > div {
+  background-color: #555;
+  width: 6px;
+  height: 2px;
+}
+.Row_Campaign_Balls1 > div:nth-child(1) {
+  background-color: rgb(var(--d-text-yellow));
+}
+.Row_Campaign_Balls2 > div:nth-child(2) {
+  background-color: rgb(var(--d-text-yellow));
+}
+.Row_Campaign_Balls3 > div:nth-child(3) {
+  background-color: rgb(var(--d-text-yellow));
+}
+.Row_Campaign_Balls4 > div:nth-child(4) {
+  background-color: rgb(var(--d-text-yellow));
+}
+.Row_Campaign_Balls5 > div:nth-child(5) {
+  background-color: rgb(var(--d-text-yellow));
 }
 .Row_Tracks .Track_Wet,
 .Main_AllTracksBox .Track_Wet {

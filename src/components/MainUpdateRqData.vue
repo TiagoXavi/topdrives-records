@@ -10,7 +10,7 @@
 
 <script>
 import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_24.json'
+import cars_new_rq from '../database/cars_new_rq_24_1.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -37,8 +37,8 @@ export default {
     let temp2;
     let xName;
     let yModel;
-    let oldStr = "23.2";
-    let newStr = "24.0";
+    let oldStr = "24.0";
+    let newStr = "24.1";
 
 
 
@@ -393,8 +393,8 @@ export default {
         yModelName = yModelName.replace("vauxhall/opel ", "");
         yModelName = yModelName.replace("fiat ", "");
         yModelName = yModelName.replace("abarth ", "");
-        yModelName = yModelName.replace("apollo apollo ", "");
-        yModelName = yModelName.replace("apollo ", "");
+        // yModelName = yModelName.replace("apollo apollo ", "");
+        // yModelName = yModelName.replace("apollo ", "");
         yModelName = yModelName.replace("™", "");
         yModelName = yModelName.replace("mclaren slr mclaren ", "slr mclaren ");
         yModelName = yModelName.replace("mclaren slr mclaren", "slr mclaren");

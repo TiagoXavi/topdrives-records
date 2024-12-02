@@ -55,8 +55,8 @@ export default {
     this.user = this.$store.state.user;
 
     this.tools = [
-      { name: "MainShowcase", label: this.$t("m_videoShowcase"), new: true },
-      { name: "Gallery", label: this.$t("m_vChanges", { version: '24.0' }) },
+      { name: "MainShowcase", label: this.$t("m_videoShowcase") },
+      { name: "Gallery", label: this.$t("m_vChanges", { version: '24.1' }), new: true },
       { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.0' }) },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },
@@ -91,14 +91,14 @@ export default {
   computed: {},
   methods: {
     checkNewMenu() {
-      if (window.localStorage.getItem("newTab_Showcase")) {
+      if (window.localStorage.getItem("changes_v24_1")) {
         this.showNew = false;
       };
     },
     tabClick(item) {
-      if (item.name === "MainShowcase") {
+      if (item.name === "Gallery") {
         this.showNew = false;
-        window.localStorage.setItem('newTab_Showcase', "t");
+        window.localStorage.setItem('changes_v24_1', "t");
       }
     },
   },

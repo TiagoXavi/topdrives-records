@@ -39,7 +39,6 @@
                 <i class="ticon-star D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
                 <span>{{ $t("m_bestOf") }}</span>
               </button>
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
             </template>
           </BaseCorner>
           <div class="Main_RowCornerBox">
@@ -209,7 +208,6 @@
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
             <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <BaseText
                 v-if="user && user.username === 'TiagoXavi'" 
                 v-model="pasteInputModel"
@@ -852,9 +850,6 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
-            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
@@ -1192,9 +1187,6 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
-            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top club -->
@@ -3037,7 +3029,6 @@ import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
 import BaseReviewList from './BaseReviewList.vue'
 import BasePrizeBoard from './BasePrizeBoard.vue'
-import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -3077,8 +3068,7 @@ export default {
     BaseReviewList,
     BaseIconSvg,
     BaseMemoryDialog,
-    BasePrizeBoard,
-    BaseBlackFridayButton
+    BasePrizeBoard
   },
   props: {
     phantomCar: {
@@ -3165,7 +3155,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v24",
+      gameVersion: "Game v24.1",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -3423,18 +3413,18 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["carPark_a00","gForce_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","tCircuit_a00","tRoad_a00","fast_a00","fastr_a00","canyonTour_a00","laguna_a00"]
+              tracks: ["carPark_a00","gForce_a00","gForcer_a00","hairpin_a00","indoorKart_a00","kart_a00","slalom_a00","slalomr_a00","tCircuit_a00","tCircuitr_a00","tRoad_a00","fast_a00","fastr_a00","canyonTour_a00","laguna_a00"]
             },
             {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["gForcer_a00","slalomr_a00","tCircuitr_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","mtHairpin_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00","townSlalom_a00","townTour_a00","nwLoop_a00"]
+              tracks: ["forest_a00","townSlalom_a00","townSprint_a00","mnGforce_a00","mnHairpin_a00","mnCityNarrow_a00","mnCity_a00","mnCityLong_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00","nwGforce_a00","nwCircuit_a00","nwSlalom_a00","nwCathedral_a00","nwLoop_a00","nwTour_a00","northloop1_a00","northloop2_a00","northloop4_a00"]
             },
             {
               type: "01",
               active: false,
-              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tCircuitr_a01","tRoad_a01","fast_a01","mnGforce_a01","mnHairpin_a01","canyonTour_a01","dockKart_a01","forest_a01","dealsGap1_a01","northloop3_a01"]
+              tracks: ["carPark_a01","gForce_a01","hairpin_a01","kart_a01","slalom_a01","tCircuit_a01","tCircuitr_a01","tRoad_a01","fast_a01","laguna_a01","townSprint_a01","forest_a01","mnGforce_a01","mnHairpin_a01","canyonTour_a01","nwCathedral_a01"]
             },
             {
               type: "10",
@@ -3474,18 +3464,18 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00","oceanShortDrag_a00","tokyoDrag_a00"]
+              tracks: ["mile4_a00","mile2_a00","mile1_a00","drag100_a00","drag120_a00","drag150_a00","drag170_a00","hClimb_a00","testBowl_a00"]
             },
             {
               type: "00",
               active: false,
               customSufix: "2",
-              tracks: ["waterDrag_a00","runwayDrag_a00","mile4r_a00","mile1r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00"]
+              tracks: ["waterDrag_a00","nwDrag_a00","mile4r_a00","mile1r_a00","drag100b_a00","drag150b_a00","drag30130_a00","drag50150_a00","drag75125_a00","testBowlr_a00"]
             },
             {
               type: "01",
               active: false,
-              tracks: ["drag100_a01","drag100b_a01","drag150_a01","mile4_a01","mile2_a01","mile1_a01","testBowlr_a01"]
+              tracks: ["drag100_a01","drag100b_a01","drag150_a01","mile4_a01","mile2_a01","mile1_a01","nwDrag_a01","testBowlr_a01"]
             },
             {
               type: "10",
@@ -4608,7 +4598,10 @@ export default {
           }
         })
         if (bestOption) {
-          x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+          x.campaign = `${bestOption.city} ${bestOption.imatch+1}`;
+          if (!this.isChamp(bestOption.city)) {
+            x.campaignNum = bestOption.irace+1;
+          }
         } else {
           x.campaign = `Not in campaign`;
         }
@@ -4643,7 +4636,7 @@ export default {
       // // test campaign obj
       // let campaignTracksOutOfDefault = [];
       // this.campaign.map((city, icity) => {
-      //   if (city.name.startsWith("YB") || city.name.startsWith("SN")) {
+      //   if (city.name.startsWith("YB") || city.name.startsWith("SN") || city.name === "Challenge Leagues" || city.name === "Daily Challenge") {
       //     return;
       //   }
       //   city.matches.map((match, imatch) => {
@@ -4671,7 +4664,7 @@ export default {
       //       let found = false;
 
       //       this.campaign.map((city, icity) => {
-      //         if (city.name.startsWith("YB") || city.name.startsWith("SN")) {
+      //         if (city.name.startsWith("YB") || city.name.startsWith("SN") || city.name === "Challenge Leagues" || city.name === "Daily Challenge") {
       //           return;
       //         }
       //         city.matches.map((match, imatch) => {
@@ -6487,7 +6480,10 @@ export default {
             }
           })
           if (bestOption) {
-            x.campaign = `${bestOption.city} ${bestOption.imatch+1}`
+            x.campaign = `${bestOption.city} ${bestOption.imatch+1}`;
+            if (!this.isChamp(bestOption.city)) {
+              x.campaignNum = bestOption.irace+1;
+            }
           } else {
             x.campaign = `Not in campaign`;
           }
@@ -9250,123 +9246,79 @@ export default {
     
     lookForChangedCars(data) {
       let changed21 = [
-        "Ford_Supervan_4_2022",
-        "Audi_S1_EKS_RX_quattro_8X_2018",
-        "Peugeot_208_WRX_2018",
-        "Lamborghini_Sesto_Elemento_2010",
-        "Lamborghini_Centenario_2016",
-        "Lamborghini_Urus_2018",
-        "Lamborghini_Veneno_Roadster_2013",
-        "Lamborghini_Aventador_SVJ_2018",
-        "Lamborghini_Huracan_Performante_2018",
-        "Lamborghini_Aventador_SV_2015",
-        "Lamborghini_Aventador_S_2018",
-        "Lamborghini_Huracan_Performante_Spyder_2018",
-        "Lamborghini_Aventador_SV_Roadster_2015",
-        "Lamborghini_Aventador_S_Roadster_2018",
-        "Ariel_Atom_500_V8_2011",
-        "Lamborghini_Aventador_Coupe_2011",
-        "Lamborghini_Aventador_J_2012",
-        "Lamborghini_Huracan_Coupe_2014",
-        "Lamborghini_Aventador_Roadster_2012",
-        "Lamborghini_Gallardo_LP570-4_Super_Trofeo_Stradale_(2nd_gen)_2011",
-        "Lamborghini_Gallardo_LP570-4_Superleggera_(2nd_gen)_2012",
-        "Chevrolet_Corvette_IMSA_GTO_C4_1988",
-        "Renault_Espace_F1_1994",
-        "Drako_GTE_2020",
-        "Lamborghini_Gallardo_LP_570-4_Edizione_Tecnica_2012",
-        "Alfa_Romeo_Tipo_33_TT12_1974",
-        "Lamborghini_Huracan_Spyder_2015",
-        "Lamborghini_Murcielago_LP670-4_SuperVeloce_2009",
-        "Lamborghini_Reventon_2007",
-        "Radical_SR8_2005",
-        "Porsche_Cayenne_Turbo_2017",
-        "Lamborghini_Gallardo_LP560-4_(2nd_gen)_2008",
-        "Lamborghini_Gallardo_Superleggera_(1st_gen)_2007",
-        "Lamborghini_Murcielago_LP650-4_Roadster_2009",
-        "Lamborghini_Gallardo_LP570-4_Spyder_Performante_(2nd_gen)_2010",
-        "Lamborghini_Diablo_6.0_SE_2001",
-        "Lamborghini_Gallardo_(1st_gen)_2003",
-        "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009",
-        "Lamborghini_Huracan_RWD_2015",
-        "Lamborghini_Gallardo_Spyder_(1st_gen)_2006",
-        "Porsche_911_GT2_2007",
-        "Cadillac_CT4V_Blackwing_2021",
-        "Lamborghini_Huracan_RWD_Spyder_2018",
-        "Alfa_Romeo_Giulia_GTAm_2021",
-        "Porsche_911_Speedster_4.0_(991.2)_2019",
-        "Audi_S7_C8_2019",
-        "Audi_SQ7_TDI_2018",
-        "Lamborghini_Diablo_VT_1993",
-        "BMW_M1_Procar_Group_4_1979",
-        "Lamborghini_Gallardo_LP_550-2_Valentino_Balboni_2009",
-        "Lamborghini_Gallardo_LP550-2_(2nd_gen)_2010",
-        "BMW_M440i_xDrive_Coupe_2020",
-        "Lamborghini_Diablo_VT_Roadster_1995",
-        "BMW_M340i_xDrive_Touring_2019",
-        "Alfa_Romeo_Issima_1996",
-        "Lotus_Emira_2022",
-        "Jaguar_F-Pace_3.0_D_2016",
-        "Lamborghini_Gallardo_LP550-2_Spyder_(2nd_gen)_2012",
-        "Lamborghini_Diablo_SV_1996",
-        "Chrysler_Nassau_2007",
-        "Cadillac_CTS_Coupe_2014",
-        "Ford_Bronco_Raptor_2022",
-        "Mercedes-Benz_AMG_E_55_2003",
-        "Hyundai_Elantra_N_2022",
-        "Mazda_6_MPS_2005",
-        "Mazda_Atenza_2006",
-        "Lotus_Elise_111R_2004",
-        "Porsche_Cayenne_Diesel_30_958_2010",
-        "Alfa_Romeo_147_GTA_Cup_2003",
-        "Chrysler_Imperial_Concept_2006",
-        "Audi_A6_allroad_quattro_2018",
-        "Mercedes-Benz_AMG_C_55_2007",
-        "Nissan_Xterra_Off-Road_(N50)_2010",
-        "Cadillac_Escalade_ESV_2016",
-        "Alfa_Romeo_GTV_Cup_1999",
-        "BMW_330d_Touring_2014",
-        "Cadillac_CTS_Sport_Wagon_2014",
-        "Chrysler_300M_Concept_1991",
-        "Cadillac_Escalade_2011",
-        "Infiniti_QX30_2017",
-        "BMW_520d_Touring_2012",
-        "Lamborghini_Miura_Roadster_1968",
-        "Cadillac_Escalade_EXT_2011",
-        "Porsche_Panamera_Diesel_30_970_2011",
-        "Lamborghini_LM002_1986",
-        "Dodge_Charger_RT_1969",
-        "Nissan_200SX_1993",
-        "Nissan_Juke_Nismo_2016",
-        "Bentley_Azure_1995",
-        "Chrysler_Pacifica_Hybrid_2018",
-        "Mazda_BT-50_2018",
-        "Holden_Barina_SRi_XC_2004",
-        "Mercury_Marauder_2003",
-        "Mazda_Atenza_Sport_Wagon_2003",
-        "Fiat_Uno_Turbo_1985",
-        "Mazda_2_2018",
-        "Chrysler_LeBaron_GTC_1988",
-        "Lancia_Beta_Montecarlo_1975",
-        "Chrysler_Sebring_Convertible_1996",
-        "Fiat_Panda_4x4_1983",
-        "Vauxhall_Nova_GTE_1987",
-        "Citroen_Karin_1980",
-        "Jaguar_XK120_1948",
-        "Porsche_912_1966",
-        "De_Tomaso_Innocenti_Mini_De_Tomaso_1977",
-        "Chevrolet_Lumina_APV_1989",
-        "Vauxhall_Adam_1.2_2016",
-        "Alfa_Romeo_GTA_1300_Junior_1968",
-        "Chrysler_Town_and_Country_1996",
-        "Dodge_Monaco_1974",
-        "Oldsmobile_Silhouette_1990",
-        "AMC_Pacer_1975",
-        "Chrysler_Cordoba_360_1975",
-        "Cadillac_El_Camino_1954",
-        "Chrysler_Town_and_Country_1990",
-        "Chrysler_Town_and_Country_1991",
-        "Lincoln_Town_Car_1981"
+        "Saturn_Sky_2007",
+        "Ford_Fiesta_RS1800_1992",
+        "Ford_Capri_3.0_S_1978",
+        "Buick_Verano_2012",
+        "Renault_Sport_Megane_2.0_dCi_175_2008",
+        "Mazda_Atenza_Mazdaspeed_2008",
+        "Mitsubishi_L200_2006",
+        "Cadillac_Escalade_1999",
+        "Ford_Transit_SSV_2011",
+        "Mercury_Marauder_Convertible_Concept_2002",
+        "Alfa_Romeo_155_TiZ_1993",
+        "BMW_116d_2015",
+        "Chrysler_Town_and_Country_2008",
+        "Dodge_Caravan_RT_2015",
+        "Fiat_Stilo_2.4_20v_Schumacher_GP_2002",
+        "Ford_Thunderbird_Turbo_Coupe_1987",
+        "Peugeot_2008_2018",
+        "Peugeot_5008_2018",
+        "Chrysler_LHS_1994",
+        "Lincoln_Mark_VII_LSC_SE_1990",
+        "Mazda_RX-7_1985",
+        "Peugeot_3008_2018",
+        "Peugeot_308_2018",
+        "Plymouth_Roadrunner_383_1968",
+        "Renault_Megane_2008",
+        "Vauxhall_Opel_Vectra_GSi_1988",
+        "Chevrolet_Tahoe_1995",
+        "Chrysler_300H_1962",
+        "Chrysler_Laser_XT_1984",
+        "Chrysler_Newport_1968",
+        "Chrysler_PT_Cruiser_2004",
+        "Renault_Koleos_2018",
+        "Renault_Sport_Twingo_GT_2016",
+        "Renault_Vel_Satis_2002",
+        "Aston_Martin_Lagonda_1976",
+        "Chevrolet_Impala_SS_1964",
+        "BMW_730i_1986",
+        "Cadillac_Fleetwood_Eldorado_1970",
+        "Mitsubishi_Grandis_2006",
+        "Peugeot_Hoggar_2010",
+        "Renault_Scenic_2016",
+        "Volvo_360_GLT_1983",
+        "Buick_Skylark_1968",
+        "Peugeot_iOn_2018",
+        "Pontiac_Aztek_2001",
+        "Renault_Clio_2005",
+        "Peugeot_208_2018",
+        "Renault_Zoe_2016",
+        "Suzuki_Splash_2012",
+        "Alfa_Romeo_Alfetta_GTV_1976",
+        "Maserati_3500_GT_1957",
+        "Renault_Laguna_1994",
+        "Suzuki_Splash_2008",
+        "Chrysler_Drifter_1977",
+        "Chrysler_Drifter_Van_CL_1977",
+        "Chrysler_Town_and_Country_2001",
+        "GMC_Caballero_Diablo_1984",
+        "Pontiac_Tempest_Le_Mans_GTO_1966",
+        "Renault_Clio_2016",
+        "Renault_Fuego_Turbo_1984",
+        "Renault_Megane_2002",
+        "Renault_Scenic_2003",
+        "Alfa_Romeo_Spider_(S4)_1990",
+        "Alfa_Romeo_Spider_Quadrifoglio_Verde_1986",
+        "Alfa_Romeo_Alfasud_TI_Quadrifoglio_Verde_1982",
+        "Renault_Clio_1998",
+        "Alfa_Romeo_Alfasud_Sprint_1976",
+        "Renault_16_1965",
+        "Renault_5_1984",
+        "Renault_12_1969",
+        "Renault_6_1968",
+        "Fiat_Abarth_500_Abarth_1964",
+        "Renault_4cv_1955"
       ];
 
       data.rounds.map((round, iround) => {

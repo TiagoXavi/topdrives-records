@@ -2778,108 +2778,195 @@
     ]
   },
   {
-    "name": "UK Midlands",
+    "name": "World Tour International",
     "matches": [
-      {
-        "races": [
-          {
-            "name": "nwLoop_a00"
-          },
-          {
-            "name": "oceanShortDrag_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoDrag_a00"
-          },
-          {
-            "name": "mtHairpin_a00"
-          }
-        ]
-      },
       {
         "races": [
           {
             "name": "laguna_a00"
           },
           {
-            "name": "runwayDrag_a00"
-          }
-        ]
-      },
-      {
-        "races": [
+            "name": "nwDrag_a00"
+          },
           {
-            "name": "mnCity_a00"
-          }
-        ]
-      },
-      {
-        "races": [
+            "name": "mile1_a00"
+          },
           {
             "name": "townSlalom_a00"
           },
           {
-            "name": "carPark_a00"
+            "name": "fastr_a00"
           }
         ]
       },
       {
         "races": [
+          {
+            "name": "kart_a00"
+          },
           {
             "name": "tCircuit_a00"
           },
           {
-            "name": "tRoad_a00"
+            "name": "mile4_a00"
+          },
+          {
+            "name": "tCircuit_a00"
+          },
+          {
+            "name": "nwCircuit_a00"
+          }
+        ]
+      },
+      {
+        "races": [
+          {
+            "name": "mile2_a00"
+          },
+          {
+            "name": "nwSlalom_a00"
+          },
+          {
+            "name": "tCircuit_a00"
+          },
+          {
+            "name": "townSprint_a00"
+          },
+          {
+            "name": "kart_a00"
+          }
+        ]
+      },
+      {
+        "races": [
+          {
+            "name": "mile4_a00"
+          },
+          {
+            "name": "kart_a00"
+          },
+          {
+            "name": "mile1_a00"
+          },
+          {
+            "name": "nwGforce_a00"
+          },
+          {
+            "name": "tCircuit_a00"
+          }
+        ]
+      },
+      {
+        "races": [
+          {
+            "name": "northloop1_a00"
+          },
+          {
+            "name": "nwLoop_a00"
+          },
+          {
+            "name": "forest_a00"
+          },
+          {
+            "name": "kart_a00"
+          },
+          {
+            "name": "tCircuitr_a00"
+          }
+        ]
+      },
+      {
+        "races": [
+          {
+            "name": "nwCathedral_a00"
+          },
+          {
+            "name": "fastr_a00"
           },
           {
             "name": "mile4_a00"
+          },
+          {
+            "name": "northloop2_a00"
+          },
+          {
+            "name": "mile2_a00"
           }
         ]
       },
       {
         "races": [
+          {
+            "name": "kart_a01"
+          },
+          {
+            "name": "townSlalom_a00"
+          },
+          {
+            "name": "mile4_a01"
+          },
+          {
+            "name": "nwDrag_a00"
+          },
           {
             "name": "forest_a01"
-          },
-          {
-            "name": "dealsGap1_a01"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "testBowlr_a00"
+            "name": "fast_a01"
           },
           {
-            "name": "dockKart_a01"
+            "name": "nwCathedral_a01"
           },
           {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "northloop3_a01"
+            "name": "mile2_a01"
           },
           {
             "name": "canyonTour_a01"
+          },
+          {
+            "name": "laguna_a01"
           }
         ]
       },
       {
         "races": [
           {
-            "name": "townTour_a00"
+            "name": "nwDrag_a01"
+          },
+          {
+            "name": "canyonTour_a01"
+          },
+          {
+            "name": "tCircuit_a01"
+          },
+          {
+            "name": "northloop4_a00"
+          },
+          {
+            "name": "kart_a01"
+          }
+        ]
+      },
+      {
+        "races": [
+          {
+            "name": "mile4_a01"
+          },
+          {
+            "name": "townSprint_a01"
+          },
+          {
+            "name": "slalom_a01"
+          },
+          {
+            "name": "kart_a00"
+          },
+          {
+            "name": "nwTour_a00"
           }
         ]
       }

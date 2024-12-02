@@ -1,0 +1,4940 @@
+[
+  {
+    "Model": "Citroën 2CV6 (1979)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën 2CV6 (1979)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault 4 (1961)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Fulvia Coupe (1965)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën Traction Avant (1934)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën M35 (1969)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "BMW Isetta 250 (1955)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Flavia 2000 Coupe (1971)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "AC Greyhound 2.0 (1959)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "GMC Handi-Van (1967)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 402 Andreau (1936)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 106 Electrique (1995)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Rodeo (1970)",
+    "24.0": 11,
+    "24.1": 10,
+    "Difference": -1
+  },
+  {
+    "Model": "Porsche 356 (1948)",
+    "24.0": 12,
+    "24.1": 10,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën Ami Buggy (2022)",
+    "24.0": 12,
+    "24.1": 10,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën AX Électrique (1995)",
+    "24.0": 12,
+    "24.1": 10,
+    "Difference": -2
+  },
+  {
+    "Model": "GMC Suburban Carryall (1937)",
+    "24.0": 12,
+    "24.1": 10,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo 6C 2500 Villa d'Este (1949)",
+    "24.0": 13,
+    "24.1": 10,
+    "Difference": -3
+  },
+  {
+    "Model": "Fiat 8V (1952)",
+    "24.0": 10,
+    "24.1": 11,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën Ami Super (1973)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Porsche 356 (1955)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Fleetline (1948)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Beetle (1970)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Beetle Cabriolet (1970)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Type 2 (1979)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Transporter (1996)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat 1500 Biposto (1952)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Oldsmobile Dynamic 76 (1946)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda 1000 MB (1964)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën Citela (1992)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo P220 Amazon Estate (1965)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Dodge A100 Pickup (1964)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Thunderbolt (1941)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 404 Diesel Record Car (1965)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 604 Presidential Limousine (1982)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot H2O (2002)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Aprilia (1946)",
+    "24.0": 12,
+    "24.1": 11,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën Xsara Picasso (1997)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Fiesta (1976)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault 5 (1972)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel Astra 1.2 (1984)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Austin Sprite (1958)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat 500 (1957)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat Panda (1980)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 204 Coupe (1965)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen Karmann Ghia (1974)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo Sprint GTV (1965)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo GT 1600 Junior (1972)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat 127 (1971)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Lotus Elite (1957)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel PA Velox (1959)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 203 (1948)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "AC Aceca-Bristol (1957)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo Giulia GT 1300 Junior (1966)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën GS Birotor (1973)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "GMC Suburban (1962)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "GMC Rally STX 350 (1986)",
+    "24.0": 13,
+    "24.1": 11,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault 6 (1968)",
+    "24.0": 14,
+    "24.1": 11,
+    "Difference": -3
+  },
+  {
+    "Model": "Renault 12 (1969)",
+    "24.0": 14,
+    "24.1": 11,
+    "Difference": -3
+  },
+  {
+    "Model": "Lancia Y10 (1985)",
+    "24.0": 14,
+    "24.1": 11,
+    "Difference": -3
+  },
+  {
+    "Model": "Jaguar SS 100 (1936)",
+    "24.0": 14,
+    "24.1": 11,
+    "Difference": -3
+  },
+  {
+    "Model": "Nissan EXA (N12) (1982)",
+    "24.0": 14,
+    "24.1": 11,
+    "Difference": -3
+  },
+  {
+    "Model": "Ford Thunderbird (1966)",
+    "24.0": 15,
+    "24.1": 11,
+    "Difference": -4
+  },
+  {
+    "Model": "Suzuki Kei Works (2002)",
+    "24.0": 10,
+    "24.1": 11,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Laputa S Turbo (2001)",
+    "24.0": 11,
+    "24.1": 12,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 505 GTD Turbo (1987)",
+    "24.0": 11,
+    "24.1": 12,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Cortina (1974)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Pontiac Firebird (1985)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Transporter (2004)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 404 (1962)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "AMC Gremlin (1970)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Hudson Italia (1953)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Cadillac Coupe DeVille (1949)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 607 Paladine Concept (2000)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot Bobslid Concept (2000)",
+    "24.0": 13,
+    "24.1": 12,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda City Cabriolet (1981)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Honda Accord 1.8 (1976)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault 14 (1976)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault 5 (1984)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Subaru Rex (1981)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel Astra 1.6 (1979)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel Astra 1.4i (1991)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Porsche 356 B Convertible 1600 (1965)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Austin Maxi (1969)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Austin Allegro (1979)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Austin 1100 (1963)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën GZ (1973)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat 128 (1969)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "TVR Grantura (1958)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 305 (1978)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Prince Skyline Sports Coupe (1963)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Subaru Pleo Nesta (1999)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Audi 100 Avant (C2) (1977)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Lincoln Continental (1956)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën Berlingo (2004)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Skyhawk Limited Station Wagon (1984)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Audi 75 LS (F103) (1971)",
+    "24.0": 14,
+    "24.1": 12,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault 17 Coupe (1976)",
+    "24.0": 15,
+    "24.1": 12,
+    "Difference": -3
+  },
+  {
+    "Model": "Smart Crossblade (2002)",
+    "24.0": 15,
+    "24.1": 12,
+    "Difference": -3
+  },
+  {
+    "Model": "Alfa Romeo GTA 1300 Junior (1968)",
+    "24.0": 15,
+    "24.1": 12,
+    "Difference": -3
+  },
+  {
+    "Model": "Chrysler Falcon (1955)",
+    "24.0": 15,
+    "24.1": 12,
+    "Difference": -3
+  },
+  {
+    "Model": "Suzuki Carry (DA) (1990)",
+    "24.0": 15,
+    "24.1": 12,
+    "Difference": -3
+  },
+  {
+    "Model": "Nissan Patrol (4W60) (1951)",
+    "24.0": 16,
+    "24.1": 12,
+    "Difference": -4
+  },
+  {
+    "Model": "Lancia Flaminia GT (1964)",
+    "24.0": 16,
+    "24.1": 12,
+    "Difference": -4
+  },
+  {
+    "Model": "Alfa Romeo Giulietta Sprint Veloce (1959)",
+    "24.0": 12,
+    "24.1": 13,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat 500L Custom (2014)",
+    "24.0": 12,
+    "24.1": 13,
+    "Difference": 1
+  },
+  {
+    "Model": "Honda EV Plus (1997)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Town and Country (1990)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Town and Country (1991)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 145 (1971)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler LeBaron Town & Country Convertible (1984)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Datsun Sunny (B10) (1966)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Suzuki Swift (SF) (1988)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Lincoln Mark VI (1982)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Lincoln Town Car (1981)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Cadillac El Camino (1954)",
+    "24.0": 14,
+    "24.1": 13,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C-Zero (2016)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault Espace (1984)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault Espace (1991)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Smart Forfour (2016)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel Astra 1.4i (1998)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen Polo (1994)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen Jetta (1980)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Volvo Amazon (1958)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Geo Metro (1995)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo 2600 Sprint (1962)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Mustang I (1962)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Hyundai Pony 1200 Pickup (1976)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Škoda Favorit 1.3 E GLX (1993)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat 127 Sport (1979)",
+    "24.0": 15,
+    "24.1": 13,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Prince Gloria Super 6 (1964)",
+    "24.0": 16,
+    "24.1": 13,
+    "Difference": -3
+  },
+  {
+    "Model": "Lancia Aurelia B20 GT (1951)",
+    "24.0": 16,
+    "24.1": 13,
+    "Difference": -3
+  },
+  {
+    "Model": "Morgan Plus 4 (1985)",
+    "24.0": 16,
+    "24.1": 13,
+    "Difference": -3
+  },
+  {
+    "Model": "Smart Fortwo (2004)",
+    "24.0": 17,
+    "24.1": 13,
+    "Difference": -4
+  },
+  {
+    "Model": "Nissan Datsun Bluebird 2000SSS-EX (910) (1980)",
+    "24.0": 13,
+    "24.1": 14,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën Axel 12 TRS (1984)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda Prelude (1978)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault 16 (1965)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault 18 (1978)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Mégane Scenic (1996)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Subaru Rex (1972)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Cavalier 1600L (1975)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Town and Country (1996)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Corvette (1953)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Cadillac Cimarron (1982)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Golf (1974)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "BMW 316 (1975)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Datsun Sunny (B210) (1973)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Oldsmobile Firenza SX (1982)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Valiant Wayfarer (1966)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Centura (KB) (1975)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai Pony Hatchback (1986)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Buick Skyhawk (1975)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Buick Skyhawk T-Type (1983)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet El Camino (1973)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "GMC Safari (1985)",
+    "24.0": 15,
+    "24.1": 14,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Clio (1990)",
+    "24.0": 16,
+    "24.1": 14,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen Passat (1988)",
+    "24.0": 16,
+    "24.1": 14,
+    "Difference": -2
+  },
+  {
+    "Model": "TVR Vixen S2 (1970)",
+    "24.0": 16,
+    "24.1": 14,
+    "Difference": -2
+  },
+  {
+    "Model": "TVR 1600M (1972)",
+    "24.0": 16,
+    "24.1": 14,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo Junior Z (1969)",
+    "24.0": 16,
+    "24.1": 14,
+    "Difference": -2
+  },
+  {
+    "Model": "Austin 3000 (1959)",
+    "24.0": 17,
+    "24.1": 14,
+    "Difference": -3
+  },
+  {
+    "Model": "Alfa Romeo 1750 GTV (1967)",
+    "24.0": 17,
+    "24.1": 14,
+    "Difference": -3
+  },
+  {
+    "Model": "Lancia 2000 HF Coupe (1971)",
+    "24.0": 17,
+    "24.1": 14,
+    "Difference": -3
+  },
+  {
+    "Model": "Morgan Plus 4 Super Sports (1961)",
+    "24.0": 17,
+    "24.1": 14,
+    "Difference": -3
+  },
+  {
+    "Model": "Smart Fortwo EV (2013)",
+    "24.0": 19,
+    "24.1": 14,
+    "Difference": -5
+  },
+  {
+    "Model": "Lancia Flaminia Sport Zagato (1958)",
+    "24.0": 19,
+    "24.1": 14,
+    "Difference": -5
+  },
+  {
+    "Model": "Subaru 360 (1961)",
+    "24.0": 13,
+    "24.1": 15,
+    "Difference": 2
+  },
+  {
+    "Model": "BMW 507 (1956)",
+    "24.0": 14,
+    "24.1": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "AMC Pacer (1975)",
+    "24.0": 14,
+    "24.1": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Secret Hideout (2001)",
+    "24.0": 14,
+    "24.1": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Volvo 262C Solaire (1981)",
+    "24.0": 14,
+    "24.1": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Bel Air (1958)",
+    "24.0": 14,
+    "24.1": 15,
+    "Difference": 1
+  },
+  {
+    "Model": "Honda Jazz (2001)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Chevette (1976)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Polo (1976)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Polo (1984)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Sharan (2008)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Transporter (2016)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Tempo (1984)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Audi A2 TDI (2000)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 145 Express (1967)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Buick Lucerne Concept (1988)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot VERA Plus (1982)",
+    "24.0": 16,
+    "24.1": 15,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Campagnola (1951)",
+    "24.0": 17,
+    "24.1": 15,
+    "Difference": -2
+  },
+  {
+    "Model": "Mitsubishi L200 (1993)",
+    "24.0": 17,
+    "24.1": 15,
+    "Difference": -2
+  },
+  {
+    "Model": "Smart Fortwo Cabrio (2016)",
+    "24.0": 18,
+    "24.1": 15,
+    "Difference": -3
+  },
+  {
+    "Model": "Alfa Romeo Alfasud Sprint (1976)",
+    "24.0": 22,
+    "24.1": 15,
+    "Difference": -7
+  },
+  {
+    "Model": "Nissan Skyline 2000 GT-EX (C210) (1977)",
+    "24.0": 13,
+    "24.1": 16,
+    "Difference": 3
+  },
+  {
+    "Model": "Nissan Skyline 2000 GT-EL (C210) (1977)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Escort (1978)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Lincoln Continental Convertible (1961)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Lincoln Mark II (1957)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Hyundai i800 2.5 CRDi (2019)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick LeSabre (1959)",
+    "24.0": 14,
+    "24.1": 16,
+    "Difference": 2
+  },
+  {
+    "Model": "Cadillac Eldorado (1979)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Adam 1.2 (2016)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Bel Air (1957)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Monaco (1974)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Alfa Romeo 2600 SZ (1965)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Ram Van Street Van (1978)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Sunny (B12) (1985)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Lincoln Mark IV (1975)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C-Cactus (2007)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick GL8 (2000)",
+    "24.0": 15,
+    "24.1": 16,
+    "Difference": 1
+  },
+  {
+    "Model": "Honda S800 (1967)",
+    "24.0": 17,
+    "24.1": 16,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Twingo (1993)",
+    "24.0": 17,
+    "24.1": 16,
+    "Difference": -1
+  },
+  {
+    "Model": "Austin Ambassador (1982)",
+    "24.0": 17,
+    "24.1": 16,
+    "Difference": -1
+  },
+  {
+    "Model": "Jaguar XK140 (1954)",
+    "24.0": 17,
+    "24.1": 16,
+    "Difference": -1
+  },
+  {
+    "Model": "AMC Concord 304 (1978)",
+    "24.0": 17,
+    "24.1": 16,
+    "Difference": -1
+  },
+  {
+    "Model": "TVR Tasmin 200 Convertible (1981)",
+    "24.0": 18,
+    "24.1": 16,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo Alfasud TI Quadrifoglio Verde (1982)",
+    "24.0": 21,
+    "24.1": 16,
+    "Difference": -5
+  },
+  {
+    "Model": "Cadillac Eldorado Biarritz (1959)",
+    "24.0": 14,
+    "24.1": 17,
+    "Difference": 3
+  },
+  {
+    "Model": "Cadillac Eldorado Brougham (1959)",
+    "24.0": 14,
+    "24.1": 17,
+    "Difference": 3
+  },
+  {
+    "Model": "Buick Wildcat III (1955)",
+    "24.0": 14,
+    "24.1": 17,
+    "Difference": 3
+  },
+  {
+    "Model": "Citroën GSA 1.3 (1979)",
+    "24.0": 15,
+    "24.1": 17,
+    "Difference": 2
+  },
+  {
+    "Model": "Chrysler Imperial (1964)",
+    "24.0": 15,
+    "24.1": 17,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan Datsun 810 SSS (1976)",
+    "24.0": 15,
+    "24.1": 17,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Matiz (2005)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Cavalier 1.6 (1988)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Transit 2.2 TDCi (2013)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Pao (1989)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Corcel GT (1.3) (1969)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Toronado (1986)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Cadillac Cyclone (1959)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Signia (1998)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Monte Carlo (1977)",
+    "24.0": 16,
+    "24.1": 17,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Alto (2004)",
+    "24.0": 18,
+    "24.1": 17,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel GT (1968)",
+    "24.0": 18,
+    "24.1": 17,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan EXA Sportbak (N13) (1989)",
+    "24.0": 18,
+    "24.1": 17,
+    "Difference": -1
+  },
+  {
+    "Model": "Geo Prizm (E100) (1993)",
+    "24.0": 18,
+    "24.1": 17,
+    "Difference": -1
+  },
+  {
+    "Model": "Bristol Zagato 406S (1959)",
+    "24.0": 18,
+    "24.1": 17,
+    "Difference": -1
+  },
+  {
+    "Model": "Jaguar XK120 (1948)",
+    "24.0": 19,
+    "24.1": 17,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Century Special Coupe (1973)",
+    "24.0": 20,
+    "24.1": 17,
+    "Difference": -3
+  },
+  {
+    "Model": "Nissan 240Z (1969)",
+    "24.0": 20,
+    "24.1": 17,
+    "Difference": -3
+  },
+  {
+    "Model": "Fiat Qubo (2009)",
+    "24.0": 20,
+    "24.1": 17,
+    "Difference": -3
+  },
+  {
+    "Model": "Alfa Romeo Spider Quadrifoglio Verde (1986)",
+    "24.0": 21,
+    "24.1": 17,
+    "Difference": -4
+  },
+  {
+    "Model": "Oldsmobile Toronado (1966)",
+    "24.0": 14,
+    "24.1": 18,
+    "Difference": 4
+  },
+  {
+    "Model": "Chrysler Valiant Charger 770 (CL) (1976)",
+    "24.0": 14,
+    "24.1": 18,
+    "Difference": 4
+  },
+  {
+    "Model": "Ford Escort XR3i (1982)",
+    "24.0": 15,
+    "24.1": 18,
+    "Difference": 3
+  },
+  {
+    "Model": "Lincoln Mark III (1969)",
+    "24.0": 15,
+    "24.1": 18,
+    "Difference": 3
+  },
+  {
+    "Model": "Peugeot 1007 RC Concept (2004)",
+    "24.0": 15,
+    "24.1": 18,
+    "Difference": 3
+  },
+  {
+    "Model": "Chrysler TC by Maserati (1990)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Renault 12 Gordini (1973)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Lotus Mk1 Cortina (1967)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan Skyline 2000 GT-X (C110) (1972)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Suzuki Cappuccino (EA11R) (1991)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Centurion (1971)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Electra (1961)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Chevelle Malibu SS Hardtop Coupe (1964)",
+    "24.0": 16,
+    "24.1": 18,
+    "Difference": 2
+  },
+  {
+    "Model": "Cadillac Seville (1980)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën ZX Volcane TD (1991)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Micra (2004)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Wagon R (1993)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat 500L (2012)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Lancia Ypsilon (2017)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Jaguar Mark 1 (1955)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Country Squire (1988)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Subaru Impreza (1992)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Swift 1.3 GS (SA) (1985)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "De Tomaso Innocenti Mini De Tomaso (1977)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C3 XTR (2005)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Century T-Type (1983)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Impala (1977)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge 1500 GT 90 (1973)",
+    "24.0": 17,
+    "24.1": 18,
+    "Difference": 1
+  },
+  {
+    "Model": "Alfa Romeo 2000 GTV (1971)",
+    "24.0": 19,
+    "24.1": 18,
+    "Difference": -1
+  },
+  {
+    "Model": "Bristol Arnolt-Bristol (1953)",
+    "24.0": 19,
+    "24.1": 18,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C3 Pluriel (2010)",
+    "24.0": 19,
+    "24.1": 18,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Strada (1999)",
+    "24.0": 19,
+    "24.1": 18,
+    "Difference": -1
+  },
+  {
+    "Model": "GMC Caballero Diablo (1984)",
+    "24.0": 11,
+    "24.1": 19,
+    "Difference": 8
+  },
+  {
+    "Model": "Pontiac Tempest (1966)",
+    "24.0": 12,
+    "24.1": 19,
+    "Difference": 7
+  },
+  {
+    "Model": "Chrysler Drifter Van (CL) (1977)",
+    "24.0": 13,
+    "24.1": 19,
+    "Difference": 6
+  },
+  {
+    "Model": "Holden Monaro GTS Sedan (HX) (1976)",
+    "24.0": 15,
+    "24.1": 19,
+    "Difference": 4
+  },
+  {
+    "Model": "Renault 17 Gordini (1979)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "Renault Fuego Turbo (1984)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "BMW 2800 CS (1968)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "Lotus Seven (1957)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "Chrysler Imperial (1972)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "Holden Limited Edition Coupe (HX) (1976)",
+    "24.0": 16,
+    "24.1": 19,
+    "Difference": 3
+  },
+  {
+    "Model": "Chevrolet Monte Carlo SS (1983)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Fiesta XR2 (1981)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Mercedes-Benz 600 (1964)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Renault Mégane (2002)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Suzuki SC100 (1977)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Chrysler Drifter (1977)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Cadillac DeVille (1977)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat 126p (1972)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Bentley Mulsanne S (1987)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Mustang II King Cobra (1978)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Dodge Aspen R/T (1978)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan March Turbo (K10) (1985)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan President Sovereign (H252) (1980)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan Skyline GT Turbo (R30) (1981)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat Autobianchi A112 Abarth (1982)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Centurion (1956)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Invicta (1959)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Electra (1971)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Corvette Impala XP-101 (1956)",
+    "24.0": 17,
+    "24.1": 19,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford B-Max (2016)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Astra 1.6i (2004)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Figaro (1991)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Pulsar (1982)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault Clio (2016)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault Espace (2002)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault 8 Gordini (1964)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "MG Midget (1961)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "MG MGB (1962)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Cinquecento Sporting (1994)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Plymouth Reliant (1981)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Volkswagen Golf (1983)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 301 (2018)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Aries (1986)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler New Yorker (1969)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Subaru Vivio Bistro (1995)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Ninety-Eight (1971)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Starfire (1975)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Holden Torana GTR XU-1 (LC) (1970)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Cosmo 1800 Coupe (1976)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C8 (2007)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Škoda 110 R Coupe (1970)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën ë-Berlingo Electric (2022)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Volvo 144 (1971)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Apollo 350 V8 (1973)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Corvair Monza (1967)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 407 Macarena (2006)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Panda Sport (2020)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Scudo 2.0 Multijet III (2022)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat E-Scudo (2023)",
+    "24.0": 18,
+    "24.1": 19,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault 21 Savanna (1986)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "Dodge Intrepid ES 3.3L V6 (1993)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "DMC DeLorean (1982)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Abarth 850 TC Corsa (1965)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Model U (2003)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai Stargazer 1.5 MPI (2022)",
+    "24.0": 21,
+    "24.1": 20,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 2008 Concept (2012)",
+    "24.0": 22,
+    "24.1": 20,
+    "Difference": -2
+  },
+  {
+    "Model": "Jaguar XK150 (1957)",
+    "24.0": 23,
+    "24.1": 20,
+    "Difference": -3
+  },
+  {
+    "Model": "Mercedes-Benz 280 SL (1967)",
+    "24.0": 24,
+    "24.1": 20,
+    "Difference": -4
+  },
+  {
+    "Model": "Buick Questor (1983)",
+    "24.0": 24,
+    "24.1": 20,
+    "Difference": -4
+  },
+  {
+    "Model": "Alfa Romeo Alfetta GTV (1974)",
+    "24.0": 28,
+    "24.1": 20,
+    "Difference": -8
+  },
+  {
+    "Model": "Ford Focus Coupe-Cabriolet (2007)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel Tigra TwinTop (2004)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault Zoe (2016)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Celerio (2016)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Volkswagen up! (2013)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Fifth Avenue (1985)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Falcon XT 500 (1968)",
+    "24.0": 20,
+    "24.1": 21,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Almera (1998)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Captur (2016)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda RX-3 (1971)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan EXA Turbo (N12) (1983)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Geo Storm (1990)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Audi 80 1.8 S (B3) (1986)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Element (2017)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Lumina (1995)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Malibu (1998)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 207 SW Outdoor (2009)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Strada (2002)",
+    "24.0": 22,
+    "24.1": 21,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Oltre (2005)",
+    "24.0": 23,
+    "24.1": 21,
+    "Difference": -2
+  },
+  {
+    "Model": "Suzuki Splash (2012)",
+    "24.0": 24,
+    "24.1": 21,
+    "Difference": -3
+  },
+  {
+    "Model": "Renault Twizy (2016)",
+    "24.0": 16,
+    "24.1": 22,
+    "Difference": 6
+  },
+  {
+    "Model": "Fiat S76 (1910)",
+    "24.0": 17,
+    "24.1": 22,
+    "Difference": 5
+  },
+  {
+    "Model": "Plymouth Barracuda Formula S (1966)",
+    "24.0": 17,
+    "24.1": 22,
+    "Difference": 5
+  },
+  {
+    "Model": "Peugeot 208 (2012)",
+    "24.0": 18,
+    "24.1": 22,
+    "Difference": 4
+  },
+  {
+    "Model": "Subaru R1 (2005)",
+    "24.0": 19,
+    "24.1": 22,
+    "Difference": 3
+  },
+  {
+    "Model": "Subaru R2 (2003)",
+    "24.0": 19,
+    "24.1": 22,
+    "Difference": 3
+  },
+  {
+    "Model": "Volvo 343 R-Sport (1981)",
+    "24.0": 19,
+    "24.1": 22,
+    "Difference": 3
+  },
+  {
+    "Model": "Buick Riviera Coupe (1965)",
+    "24.0": 20,
+    "24.1": 22,
+    "Difference": 2
+  },
+  {
+    "Model": "Mazda Carol (1962)",
+    "24.0": 20,
+    "24.1": 22,
+    "Difference": 2
+  },
+  {
+    "Model": "GMC Safari (1996)",
+    "24.0": 20,
+    "24.1": 22,
+    "Difference": 2
+  },
+  {
+    "Model": "Bristol 410 (1968)",
+    "24.0": 20,
+    "24.1": 22,
+    "Difference": 2
+  },
+  {
+    "Model": "Mitsubishi FTO-EV (1999)",
+    "24.0": 20,
+    "24.1": 22,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Fiesta XR2 (1988)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Leaf (2016)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Punto (2017)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Imperial (1990)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet El Camino (1963)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Volkswagen Golf GTI (1991)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford LTD (1983)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Delmont 88 (1967)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Fairlane 500 (1964)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Škoda Fabia Scout 1.2 TSI (2012)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Silver Arrow (1963)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Honda Prelude 2.0l (1982)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda Jazz (2016)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Focus (2004)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Primera (1999)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Cavalier SRi (1981)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Beta Montecarlo (1975)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Sebring (1995)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 504 Coupe (1969)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Golf (1997)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "TVR 280i (1984)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Navara (D22) (2000)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Mustang M81 (1981)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Demio Sport (2002)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Demio A-Spec (2003)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Kabura (2006)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 360 GLT Saloon (1985)",
+    "24.0": 23,
+    "24.1": 22,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai Scoupe 1.5i Turbo (1993)",
+    "24.0": 24,
+    "24.1": 22,
+    "Difference": -2
+  },
+  {
+    "Model": "Suzuki Ertiga (NC) (2019)",
+    "24.0": 21,
+    "24.1": 22,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot BB1 (2009)",
+    "24.0": 17,
+    "24.1": 23,
+    "Difference": 6
+  },
+  {
+    "Model": "Peugeot iOn (2018)",
+    "24.0": 18,
+    "24.1": 23,
+    "Difference": 5
+  },
+  {
+    "Model": "Buick Skylark (1968)",
+    "24.0": 19,
+    "24.1": 23,
+    "Difference": 4
+  },
+  {
+    "Model": "Renault Clio (2005)",
+    "24.0": 20,
+    "24.1": 23,
+    "Difference": 3
+  },
+  {
+    "Model": "Maserati Sebring (1962)",
+    "24.0": 20,
+    "24.1": 23,
+    "Difference": 3
+  },
+  {
+    "Model": "Vauxhall/Opel Nova GTE (1987)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Mercedes-Benz V 250d (2015)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Mitsubishi i-MiEV (2007)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Mitsubishi Mirage (2013)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Porsche 914 (1969)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Holden Torana GTR XU-1 (LJ) (1972)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Holden Monaro GTS 350 (HQ) (1971)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Escort XR3i (1987)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Riviera (1963)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick Riviera (1971)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Impala Sport Coupe (1971)",
+    "24.0": 21,
+    "24.1": 23,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Cruze LT (2012)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Mitsubishi Colt (2009)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan S-Cargo (1989)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Sebring Convertible (1996)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat Tipo 2.0 Sedicivalvole (1991)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Violet 1600 SSS-E (1975)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Audi Coupé GT 5E (B2) (1983)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Fiat 500 Coupe (2011)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Kingswood (1969)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "GMC Sprint SP (1974)",
+    "24.0": 22,
+    "24.1": 23,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C5 Saloon (2004)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda FR-V 2.2 i-CTDi (2004)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Micra (2016)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Juke (2013)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Laguna (2001)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Smart Brabus Roadster (2005)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Fiesta (2007)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "MG MGC GT (1967)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Panda (2017)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Beta HPE (1978)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C3-XR (2014)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C3 Aircross (2018)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Polo (2018)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Touran (2015)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Sharan (2015)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Alfa Romeo Alfa 6 (1983)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Diplomat A V8 Coupe (1965)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 405 (1987)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan 280ZX Turbo (1981)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Juke (2010)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "TVR Tasmin 280i 2+2 Coupe (1981)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Ginetta G28 (1987)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Morgan Plus 8 (1968)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Demio 1.5 (2003)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C5 Aircross PureTech 130 (2022)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 244 GLT (1980)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Buick Encore (2020)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 5008 2.0 HDi (2010)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 604 Ti (1982)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Lancia Dedra (1996)",
+    "24.0": 25,
+    "24.1": 23,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Datsun Sports 2000 (1968)",
+    "24.0": 25,
+    "24.1": 23,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Silvia Varietta (S15) (2000)",
+    "24.0": 25,
+    "24.1": 23,
+    "Difference": -2
+  },
+  {
+    "Model": "Pontiac Aztek (2001)",
+    "24.0": 26,
+    "24.1": 23,
+    "Difference": -3
+  },
+  {
+    "Model": "Plymouth XNR (1960)",
+    "24.0": 26,
+    "24.1": 23,
+    "Difference": -3
+  },
+  {
+    "Model": "Ginetta G30 (1988)",
+    "24.0": 24,
+    "24.1": 23,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot Hoggar (2010)",
+    "24.0": 14,
+    "24.1": 24,
+    "Difference": 10
+  },
+  {
+    "Model": "Volvo 360 GLT (1983)",
+    "24.0": 19,
+    "24.1": 24,
+    "Difference": 5
+  },
+  {
+    "Model": "Honda Vamos 4WD Turbo (2016)",
+    "24.0": 20,
+    "24.1": 24,
+    "Difference": 4
+  },
+  {
+    "Model": "Mercedes-Benz 300 SL (1963)",
+    "24.0": 20,
+    "24.1": 24,
+    "Difference": 4
+  },
+  {
+    "Model": "Aston Martin DB4 (1958)",
+    "24.0": 20,
+    "24.1": 24,
+    "Difference": 4
+  },
+  {
+    "Model": "Nissan Pixo (2009)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Aston Martin DBS (1967)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Chrysler 300C (1957)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Suzuki Alto Works (2016)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Oldsmobile Jetstar 1 (1964)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Oldsmobile Starfire GT (1978)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Chevrolet Sprint Turbo (1989)",
+    "24.0": 21,
+    "24.1": 24,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Mustang 289 (1966)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Mercedes-Benz S 280 (1995)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat X1/9 (1972)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Volkswagen Golf GTI (1982)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Fiesta XR2i (1989)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Fiesta Zetec S (2007)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Citroën BX GT (1985)",
+    "24.0": 22,
+    "24.1": 24,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Ranger (2016)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Escort Mexico (1972)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Fairlane Torino GT (1968)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Daytona Turbo Z (1986)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Nissan Silvia J's (S13) (1988)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Mercury Cougar XR-7 (1968)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Mercury Comet Cyclone (1965)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda SASSOU (2005)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Škoda Fabia vRS (2003)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën Saxo VTR (1997)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick GL8 III (2020)",
+    "24.0": 23,
+    "24.1": 24,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Reatta Convertible (1990)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C4 Cactus 2.0 HDi 16v (2016)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Renault Scenic (2016)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Smart Fortwo Coupe T (2016)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Rover 400 (1995)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Camaro berlinetta (1985)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C5 HPi (2001)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Golf (2003)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Corrado (1988)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen New Beetle (1999)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Touran (2003)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Corsa 1.4Si (1993)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 440 GLT (1992)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Capri RS2600 (1971)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Audi Cabriolet 2.8 (1991)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Morgan 4/4 1.6-litre (2009)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Morgan 4/4 80th Anniversary Edition (2016)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Luce V6 3000 Royal Classic (1988)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Mitsubishi Mirage Kammtop (1985)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Fabia Hatchback 2.0 (2000)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Scala 1.6 TDI (2019)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Capri 2.8 Injection (1981)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C-Elysée (2015)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C-Elysée (2018)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën C-Quatre VTS (2014)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 242 GT (1980)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 760 2.8 V6 Saloon (1983)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 460 GLT (1993)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 480 ES (1994)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 960 2.5 Estate (1995)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Cadillac Coupe DeVille (1992)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 306 Cabriolet (1999)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Strada (2007)",
+    "24.0": 25,
+    "24.1": 24,
+    "Difference": -1
+  },
+  {
+    "Model": "Mercedes-Benz 190 E 2.0 (1985)",
+    "24.0": 26,
+    "24.1": 24,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Terrano (2013)",
+    "24.0": 26,
+    "24.1": 24,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Mustang Mach 1 (1969)",
+    "24.0": 26,
+    "24.1": 24,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 504 Cabriolet Phase II V6 (1976)",
+    "24.0": 26,
+    "24.1": 24,
+    "Difference": -2
+  },
+  {
+    "Model": "Mitsubishi Grandis (2006)",
+    "24.0": 27,
+    "24.1": 24,
+    "Difference": -3
+  },
+  {
+    "Model": "Citroën Tubik (2011)",
+    "24.0": 19,
+    "24.1": 25,
+    "Difference": 6
+  },
+  {
+    "Model": "Volkswagen Country Buggy (1968)",
+    "24.0": 20,
+    "24.1": 25,
+    "Difference": 5
+  },
+  {
+    "Model": "Citroën SM 2.7 Injection (1972)",
+    "24.0": 21,
+    "24.1": 25,
+    "Difference": 4
+  },
+  {
+    "Model": "Fiat Panda 4x4 (1983)",
+    "24.0": 21,
+    "24.1": 25,
+    "Difference": 4
+  },
+  {
+    "Model": "Ford Mustang Cobra (1979)",
+    "24.0": 22,
+    "24.1": 25,
+    "Difference": 3
+  },
+  {
+    "Model": "Mazda HR-X (1991)",
+    "24.0": 22,
+    "24.1": 25,
+    "Difference": 3
+  },
+  {
+    "Model": "Citroën SM (1975)",
+    "24.0": 22,
+    "24.1": 25,
+    "Difference": 3
+  },
+  {
+    "Model": "Buick XP-300 (1951)",
+    "24.0": 22,
+    "24.1": 25,
+    "Difference": 3
+  },
+  {
+    "Model": "Citroën Visa GTi (1985)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Impala (1959)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Pontiac Trans Am (1978)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Volkswagen Golf GTI (1985)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "BMW 730i (1986)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan 280Z (1975)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan Sunny Turbo Leprix (B11) (1983)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Bristol 603S (1976)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Mercury Cougar XR-7 (1993)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Škoda Atero (2016)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Alfa Romeo Sprint Quadrifoglio Verde (1983)",
+    "24.0": 23,
+    "24.1": 25,
+    "Difference": 2
+  },
+  {
+    "Model": "Volkswagen Polo GT G40 (1987)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Alto Turbo RS 4WD (HA36) (2015)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Geo Tracker 4-Door (1996)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Oldsmobile Cutlass 442 (1964)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Ford Escort XR3i (1992)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën e-C4 X (2021)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "GMC Savana (2017)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Ram ProMaster 1500 (2022)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 205 CTi 1.6 (1986)",
+    "24.0": 24,
+    "24.1": 25,
+    "Difference": 1
+  },
+  {
+    "Model": "Cadillac Eldorado (1991)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Aveo (2011)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda Civic CRX Si (1983)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Subaru Leone (1971)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Suzuki Baleno (2016)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Cosmo (1981)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 605 (1989)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Senator (1987)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Saturn LW (2000)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Morgan Plus 4 (2014)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Mercury Cougar (2001)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai i30 Tourer 1.0 T-GDI (2020)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Fabia Estate 1.4 TDI (2015)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 604 GTi (1984)",
+    "24.0": 26,
+    "24.1": 25,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Frontera (1989)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Mazda 2 (2018)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Mazda CX-5 (2018)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen T-Roc (2017)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Land Rover Discovery 2 (1998)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Lancia Fulvia Sport 1600 (1971)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Mitsubishi Starion GSR-III (1984)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën BX GTi 4x4 (1993)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën BX Break De Chasse Dyana (1986)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën C5 Airscape (2007)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 408 1.2 PureTech 130 (2022)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot Urban Crossover (2012)",
+    "24.0": 27,
+    "24.1": 25,
+    "Difference": -2
+  },
+  {
+    "Model": "Chevrolet Impala SS (1964)",
+    "24.0": 20,
+    "24.1": 26,
+    "Difference": 6
+  },
+  {
+    "Model": "Aston Martin Lagonda (1976)",
+    "24.0": 20,
+    "24.1": 26,
+    "Difference": 6
+  },
+  {
+    "Model": "Aston Martin DB5 (1963)",
+    "24.0": 21,
+    "24.1": 26,
+    "Difference": 5
+  },
+  {
+    "Model": "Aston Martin DB6 (1965)",
+    "24.0": 21,
+    "24.1": 26,
+    "Difference": 5
+  },
+  {
+    "Model": "AMC M422 Mighty Mite (1959)",
+    "24.0": 21,
+    "24.1": 26,
+    "Difference": 5
+  },
+  {
+    "Model": "Ford F-100 302ci (1973)",
+    "24.0": 22,
+    "24.1": 26,
+    "Difference": 4
+  },
+  {
+    "Model": "Oldsmobile Starfire Firenza (1978)",
+    "24.0": 22,
+    "24.1": 26,
+    "Difference": 4
+  },
+  {
+    "Model": "Mercury Cougar Eliminator (1969)",
+    "24.0": 23,
+    "24.1": 26,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Sierra XR4i (1983)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Plymouth Fury (1958)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Alfa Romeo Disco Volante (C52) (1952)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Jaguar Mark 2 Touring Car (1960)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Dodge Regal Lancer Super D-500 (1958)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Suzuki Swift GTi (SF) (1989)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Mazda Demio Racing (2015)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat E-Doblo (2022)",
+    "24.0": 24,
+    "24.1": 26,
+    "Difference": 2
+  },
+  {
+    "Model": "Peugeot 205 Rallye (1989)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Alfa Romeo Giulia GTA Stradale (1965)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Miata M Coupe (1996)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën e-C4 (2021)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Riviera Gran Sport (1965)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Cielo (1999)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Bel Air (2002)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot Asphalte (1996)",
+    "24.0": 25,
+    "24.1": 26,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Park Avenue (2000)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda Odyssey 3.5 V6 (2005)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Honda Civic Hybrid (2013)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Fiesta 1.0 (2016)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford S-Max (2016)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Porsche 911 (1965)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "GMC Granite (2010)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Scirocco GTI (1986)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "BMW 2002 Tii (1972)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "TVR 3000S (1973)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Crown Victoria (1992)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Infiniti M30 Convertible (F31) (1991)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Eagle Vision (1993)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Oldsmobile Cutlass Supreme International (1993)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Telstar TX5 Turbo (1986)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Mitsubishi Starion Turbo (1982)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Fabia Hatchback 1.2 TSI (2010)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Fabia Monte Carlo 1.4 TDI (2015)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Octavia Hatchback 1.9 TDI PD (2003)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Škoda Rapid Saloon 1.2 TSI (2015)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 480 GT (1994)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 940 Estate (1994)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Captiva (2019)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Cruze LS (2009)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Mondeo Estate (2004)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Mini One (2016)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Rover 623 (1993)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat 500X (2017)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Alfa Romeo 155 (1992)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Dodge Avenger (1995)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Maserati 5000 GT (1959)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Nissan Juke (2020)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford SportKa (2003)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Morgan Plus 4 70th Anniversary Edition (2020)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Hyundai Ioniq Hybrid (2018)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Škoda Fabia 1.0 TSI (2021)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Citroën C5 Tourer 2.2 HDi (2005)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Volvo S80 D5 (2001)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Bolero (1990)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Encore (2013)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Regal (1996)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 306 XSi (1996)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat Strada (2020)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Fiat Strada (2009)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Lancia Thesis 2.4 JTD 20V (2003)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Audi A6 1.8T (C5) (2002)",
+    "24.0": 28,
+    "24.1": 26,
+    "Difference": -2
+  },
+  {
+    "Model": "Vauxhall/Opel Insignia 2.0 CDTi (2016)",
+    "24.0": 29,
+    "24.1": 26,
+    "Difference": -3
+  },
+  {
+    "Model": "Fiat Dino Spider (1966)",
+    "24.0": 29,
+    "24.1": 26,
+    "Difference": -3
+  },
+  {
+    "Model": "Rover 800 (1986)",
+    "24.0": 27,
+    "24.1": 26,
+    "Difference": -1
+  },
+  {
+    "Model": "Chevrolet Tahoe (1995)",
+    "24.0": 18,
+    "24.1": 27,
+    "Difference": 9
+  },
+  {
+    "Model": "Chrysler 300H (1962)",
+    "24.0": 22,
+    "24.1": 27,
+    "Difference": 5
+  },
+  {
+    "Model": "Subaru Sumo (1986)",
+    "24.0": 22,
+    "24.1": 27,
+    "Difference": 5
+  },
+  {
+    "Model": "Chevrolet 454 SS (1990)",
+    "24.0": 24,
+    "24.1": 27,
+    "Difference": 3
+  },
+  {
+    "Model": "Dodge D-100 (1964)",
+    "24.0": 24,
+    "24.1": 27,
+    "Difference": 3
+  },
+  {
+    "Model": "Chevrolet Bel Air (1961)",
+    "24.0": 24,
+    "24.1": 27,
+    "Difference": 3
+  },
+  {
+    "Model": "Peugeot P4 (1982)",
+    "24.0": 24,
+    "24.1": 27,
+    "Difference": 3
+  },
+  {
+    "Model": "Citroën AX GTi (1993)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Vauxhall/Opel Manta GTE (1988)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Chrysler PT Cruiser (2004)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Maserati Mexico (1966)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Vauxhall/Opel Kadett GT/E (1975)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford Laser SR2 (2002)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Buick GS 400 (1968)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Peugeot 505 Turbo Injection (1989)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Peugeot 106 Rallye (S1) (1993)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Bentley Brooklands (1992)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Holden Drover (1985)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda HR-X2 (1993)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Mitsubishi Colt GTi-16V (1988)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Riviera GS (1968)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Nova SS 327 Coupe (1966)",
+    "24.0": 26,
+    "24.1": 27,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C3 PureTech 110 (2016)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Escort RS2000 (1974)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda Cosmo (1967)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Newport (1968)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Dodge Journey (2018)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Laser XT (1984)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Volkswagen Corrado 16v G60 (1988)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Saturn LS100 (2000)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "TVR 3000M (1972)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Holden Monaro CV6 (V2) (2001)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Hyundai Tucson N Line 1.6T MHEV (2021)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Bufori MKII 2+2 Merdeka Edition (2007)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Mazda MX-6 A Spec (1992)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Mitsubishi Vision Ralliart (2022)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Citroën XM 2.0i Turbo (1999)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 440 Turbo (1988)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo P1800E (1970)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Buick Roadmaster Sedan (1991)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 407 2.0 HDi (2005)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 408 1.2 THP (2014)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Fiat Tipo Station Wagon (2018)",
+    "24.0": 28,
+    "24.1": 27,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Pulsar (2015)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault Wind (2010)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Renault Twingo GT (2016)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Focus 1.0 (2016)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Volkswagen Passat (1993)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Hyundai i10 1.0 T-GDI N Line (2020)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Ford Fiesta 1.0 (2022)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Volvo 940 Saloon (1995)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Buick Regal LS (2001)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 505 V6 (1988)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "Peugeot 508 SW 2.0 HDi (2012)",
+    "24.0": 29,
+    "24.1": 27,
+    "Difference": -2
+  },
+  {
+    "Model": "MG Metro Turbo (1982)",
+    "24.0": 25,
+    "24.1": 27,
+    "Difference": 2
+  },
+  {
+    "Model": "Citroën Mehari 4x4 (1980)",
+    "24.0": 22,
+    "24.1": 28,
+    "Difference": 6
+  },
+  {
+    "Model": "Chevrolet Camaro Z/28 (1977)",
+    "24.0": 24,
+    "24.1": 28,
+    "Difference": 4
+  },
+  {
+    "Model": "Peugeot 3008 (2018)",
+    "24.0": 25,
+    "24.1": 28,
+    "Difference": 3
+  },
+  {
+    "Model": "Maserati Kyalami (1978)",
+    "24.0": 25,
+    "24.1": 28,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Falcon 'Bathurst' Cobra (1978)",
+    "24.0": 25,
+    "24.1": 28,
+    "Difference": 3
+  },
+  {
+    "Model": "Mercury Comet Cyclone GT Pace Car (1966)",
+    "24.0": 25,
+    "24.1": 28,
+    "Difference": 3
+  },
+  {
+    "Model": "Mazda RX-7 (1985)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Peugeot 308 (2018)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat Croma Turbo i.e. (1985)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Hyundai Veloster 1.6 GDi (2012)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Mazda 2 Evil Track (2010)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Mitsubishi Mirage 1400 GT Turbo (1983)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Škoda Slavia (2020)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Nomad (2004)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Peugeot 505 Turbo Injection PTS Kit (1985)",
+    "24.0": 26,
+    "24.1": 28,
+    "Difference": 2
+  },
+  {
+    "Model": "Subaru Leone (1979)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 205 GTi 1.6 (1984)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "BMW M535i (1980)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Holden Piazza Turbo (1986)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda Atenza Sport Wagon (2003)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C-Airdream (2002)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Chevrolet Nova SS 350 Coupe (1969)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler Portal (2017)",
+    "24.0": 27,
+    "24.1": 28,
+    "Difference": 1
+  },
+  {
+    "Model": "BMW Z1 (1989)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Vauxhall/Opel Vectra GSi (1988)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Nissan Note (2013)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 480 Turbo (1988)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Plymouth Roadrunner 383 (1968)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Pontiac Grand Prix 2+2 (1986)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Pontiac Sunfire (1995)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Conquest TSi (1988)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Geo Storm GSi (1992)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Capri RS3100 (1973)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Mustang Mach 2 (1967)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Lincoln Mark VII LSC SE (1990)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Kuga 1.5 (2019)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Ford Kuga Hybrid (2019)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Volvo 460 Turbo (1990)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Ram ProMaster City Cargo (2022)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Peugeot 205 XS (1988)",
+    "24.0": 29,
+    "24.1": 28,
+    "Difference": -1
+  },
+  {
+    "Model": "Chrysler Town and Country (2008)",
+    "24.0": 22,
+    "24.1": 29,
+    "Difference": 7
+  },
+  {
+    "Model": "Dodge Colt Vista AWD (1989)",
+    "24.0": 23,
+    "24.1": 29,
+    "Difference": 6
+  },
+  {
+    "Model": "Subaru Legacy (1990)",
+    "24.0": 24,
+    "24.1": 29,
+    "Difference": 5
+  },
+  {
+    "Model": "Plymouth Barracuda Fastback (1968)",
+    "24.0": 24,
+    "24.1": 29,
+    "Difference": 5
+  },
+  {
+    "Model": "Peugeot 404 Rally (1967)",
+    "24.0": 25,
+    "24.1": 29,
+    "Difference": 4
+  },
+  {
+    "Model": "Citroën CX GTi Turbo (1985)",
+    "24.0": 26,
+    "24.1": 29,
+    "Difference": 3
+  },
+  {
+    "Model": "Maserati Indy (1969)",
+    "24.0": 26,
+    "24.1": 29,
+    "Difference": 3
+  },
+  {
+    "Model": "Fiat Stilo 2.4 20v Schumacher GP (2002)",
+    "24.0": 26,
+    "24.1": 29,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Thunderbird Turbo Coupe (1987)",
+    "24.0": 26,
+    "24.1": 29,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Escort RS Turbo (1984)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Nissan Skyline Hardtop 2000 GT-R (C10) (1971)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Subaru Brat (1978)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Jaguar C-Type (1951)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Fiat Uno Turbo (1985)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet S-10 Xtreme (1999)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Bristol Britannia (1982)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Alfa Romeo 33 1.7 Cloverleaf Veloce (1987)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Ford SVT F-150 Lightning (1993)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Mercury Cyclone Cobra Jet (1969)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Citroën BX Sport (1985)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Chevrolet Monte Carlo Z34 (1995)",
+    "24.0": 27,
+    "24.1": 29,
+    "Difference": 2
+  },
+  {
+    "Model": "Renault Twingo (2007)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Lancia Beta Coupe Volumex (1982)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Mazda RX-7 (1978)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler 300M Special Edition (2002)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Dodge Dakota R/T (1998)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 405 Mi16 (1988)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 2008 (2018)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot 5008 (2018)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "BMW 116d (2015)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "BMW 635CSi (1980)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Lancia Stratos Zero (1970)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Vauxhall/Opel HP Firenza (1973)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "De Tomaso Deauville (1971)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Chrysler 300 Hurst (1970)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Mitsubishi Galant GTi-16V (1989)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën AX Sport (1990)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Citroën C-Airplay (2005)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Cadillac EldoRODo (2000)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Buick Skylark (1965)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Peugeot e-2008 GT (2021)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Renault Kangoo Trekka 1.9DCi (2002)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Lamborghini 350 GTS (1965)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Mercury MC2 (1997)",
+    "24.0": 28,
+    "24.1": 29,
+    "Difference": 1
+  },
+  {
+    "Model": "Suzuki Cara (1993)",
+    "24.0": 23,
+    "24.1": 32,
+    "Difference": 9
+  },
+  {
+    "Model": "Chevrolet Impala SS 427 (1967)",
+    "24.0": 25,
+    "24.1": 32,
+    "Difference": 7
+  },
+  {
+    "Model": "Ford Transit SSV (2011)",
+    "24.0": 27,
+    "24.1": 32,
+    "Difference": 5
+  },
+  {
+    "Model": "Mercury Marauder Convertible (2002)",
+    "24.0": 27,
+    "24.1": 32,
+    "Difference": 5
+  },
+  {
+    "Model": "Mitsubishi Pajero Field Guard (1993)",
+    "24.0": 27,
+    "24.1": 32,
+    "Difference": 5
+  },
+  {
+    "Model": "Dodge Challenger T/A (1970)",
+    "24.0": 28,
+    "24.1": 32,
+    "Difference": 4
+  },
+  {
+    "Model": "Cadillac Escalade (1999)",
+    "24.0": 28,
+    "24.1": 32,
+    "Difference": 4
+  },
+  {
+    "Model": "Peugeot 106 Rallye (S2) (1997)",
+    "24.0": 29,
+    "24.1": 32,
+    "Difference": 3
+  },
+  {
+    "Model": "Volkswagen up! GTI (2018)",
+    "24.0": 29,
+    "24.1": 32,
+    "Difference": 3
+  },
+  {
+    "Model": "Ford Mustang Boss 302 (1970)",
+    "24.0": 29,
+    "24.1": 32,
+    "Difference": 3
+  },
+  {
+    "Model": "Mazda Lantis Type R (1993)",
+    "24.0": 29,
+    "24.1": 32,
+    "Difference": 3
+  },
+  {
+    "Model": "Mitsubishi Galant 2000 Turbo ECI (1984)",
+    "24.0": 29,
+    "24.1": 32,
+    "Difference": 3
+  },
+  {
+    "Model": "Subaru Rex Combi 4WD Turbo (1984)",
+    "24.0": 27,
+    "24.1": 33,
+    "Difference": 6
+  },
+  {
+    "Model": "Mazda Atenza Mazdaspeed (2008)",
+    "24.0": 27,
+    "24.1": 33,
+    "Difference": 6
+  },
+  {
+    "Model": "Dodge Coronet Super Bee (1968)",
+    "24.0": 28,
+    "24.1": 33,
+    "Difference": 5
+  },
+  {
+    "Model": "Mercury Marauder (2003)",
+    "24.0": 29,
+    "24.1": 33,
+    "Difference": 4
+  },
+  {
+    "Model": "Mitsubishi Galant AMG (1989)",
+    "24.0": 29,
+    "24.1": 33,
+    "Difference": 4
+  },
+  {
+    "Model": "Mitsubishi L200 (2006)",
+    "24.0": 29,
+    "24.1": 33,
+    "Difference": 4
+  },
+  {
+    "Model": "Buick Verano (2012)",
+    "24.0": 28,
+    "24.1": 34,
+    "Difference": 6
+  },
+  {
+    "Model": "Honda S-MX 4WD (1996)",
+    "24.0": 28,
+    "24.1": 34,
+    "Difference": 6
+  },
+  {
+    "Model": "Holden Monaro GTS 350 (HT) (1969)",
+    "24.0": 28,
+    "24.1": 34,
+    "Difference": 6
+  },
+  {
+    "Model": "Renault Mégane 2.0 dCi 175 (2008)",
+    "24.0": 29,
+    "24.1": 34,
+    "Difference": 5
+  },
+  {
+    "Model": "Ford Capri 3.0 S (1978)",
+    "24.0": 29,
+    "24.1": 35,
+    "Difference": 6
+  },
+  {
+    "Model": "Suzuki Mighty Boy (SS40) (1987)",
+    "24.0": 29,
+    "24.1": 38,
+    "Difference": 9
+  },
+  {
+    "Model": "Ford Fiesta RS1800 (1992)",
+    "24.0": 29,
+    "24.1": 38,
+    "Difference": 9
+  },
+  {
+    "Model": "Autozam AZ-1 (1992)",
+    "24.0": 29,
+    "24.1": 39,
+    "Difference": 10
+  },
+  {
+    "Model": "Nissan Leaf Nismo (ZE1) (2017)",
+    "24.0": 29,
+    "24.1": 39,
+    "Difference": 10
+  },
+  {
+    "Model": "Saturn Sky (2007)",
+    "24.0": 29,
+    "24.1": 43,
+    "Difference": 14
+  }
+]

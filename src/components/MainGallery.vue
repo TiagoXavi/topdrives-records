@@ -298,6 +298,7 @@
               v-if="diff_searchResult[ix].class"
               :style="`--class-color: ${diff_searchResult[ix].color};`"
               class="MainGallery_Class">
+              <div class="MainGallery_ClassBack"></div>
               {{ diff_searchResult[ix].class }}
             </div>
 
@@ -381,8 +382,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL24-fixed.json'
-import plOld from '../database/cars_final_PL23.json'
+import data_cars from '../database/cars_final_PL24_1-fixed.json'
+import plOld from '../database/cars_final_PL24.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -685,8 +686,6 @@ export default {
     } else {
       this.init();
     }
-
-    this.clearFilter();
     
 
   },
@@ -708,14 +707,21 @@ export default {
       })
 
       this.searchResult = this.all_cars;
+      var t0 = performance.now();
       this.resolveDiffs();
+      var t1 = performance.now();
+      console.log(`resolveDiffs ${t1 - t0} milliseconds.`);
 
       [...Array(Math.ceil(this.chunkNumber)).keys()].map((x,ix) => {
         this.chunkLoaded[ix] = false;
       })
 
+      this.clearFilter();
 
+      var t0 = performance.now();
       this.applyFilter();
+      var t1 = performance.now();
+      console.log(`applyFilter ${t1 - t0} milliseconds.`);
     },
     getLastest() {
       let vm = this;
@@ -1299,16 +1305,31 @@ export default {
 .MainGallery_Img {
 }
 .MainGallery_Class {
-  background-color: var(--class-color);
+  /* background-color: var(--class-color); */
   color: black;
   display: inline-flex;
-  padding: 6px 12px;
-  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  /* padding: 6px 12px; */
+  width: 33px;
+  height: 36.8px;
+  /* border-radius: 50%; */
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
   position: absolute;
   top: 108px;
-  font-size: 20px;
-  left: 18px;
+  font-size: 22.5px;
+  left: 22px;
+}
+.MainGallery_ClassBack {
+  background-color: var(--class-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: skewY(9deg);
+  z-index: -1;
 }
 .MainGallery_Color {
   background-color: #232121;

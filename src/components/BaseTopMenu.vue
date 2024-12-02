@@ -123,9 +123,9 @@ export default {
         { label: "Clubs", name: "Clubs" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
-        { label: "Timeline", name: "Timeline", new: true },
+        { label: "Timeline", name: "Timeline" },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff" },
+        { label: "Stuff", name: "Stuff", new: true },
       ],
       showNew: true,
       menuDialog: false,
@@ -400,13 +400,14 @@ export default {
       this.menuDialog = true;
     },
     checkNewMenu() {
-      if (window.localStorage.getItem("newTab_Timeline")) {
+      if (window.localStorage.getItem("changes_v24_1")) {
         this.showNew = false;
       };
     },
     tabClick(item) {
-      if (item.name === "Timeline") {
-        window.localStorage.setItem('newTab_Timeline', "t");
+      if (item.name === "Stuff") {
+        this.showNew = false;
+        // window.localStorage.setItem('changes_v24_1', "t");
       }
     },
     checkZoom() {
