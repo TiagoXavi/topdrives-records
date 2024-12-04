@@ -169,9 +169,9 @@ export default {
   --tag-l: 53%;
 }
 .BaseGameTag_Gunter\'s_Collection {
-  --tag-h: 290;
-  --tag-s: 124%;
-  --tag-l: 44%;
+  --tag-h: 333;
+  --tag-s: 54%;
+  --tag-l: 30%;
 }
 .BaseGameTag_French_Renaissance {
   --tag-h: 235;

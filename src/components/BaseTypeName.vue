@@ -24,6 +24,10 @@
         <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
         <span class="TypeText_Dirt">{{ $t('s_dirt') }}</span>
       </template>
+      <template v-else-if="trackId === 'forest'">
+        <span class="TypeText_Dry">{{ $t('s_aspht') }}</span>
+        <span class="TypeText_Gravel">{{ $t('s_gravel') }}</span>
+      </template>
       <template v-else>
         <span v-if="type !== '01' && (showDry || type !== '00')" class="TypeText_Dry">{{ $t('s_aspht') }}</span>
         <span class="TypeText_Dirt" v-if="type == '40'">{{ $t('s_dirt') }}</span>
@@ -52,6 +56,10 @@ export default {
       type: Boolean,
       default: true
     },
+    trackId: {
+      type: String,
+      default: ""
+    }
   },
   data() {
     return {}

@@ -401,6 +401,7 @@ export default {
     checkNewMenu() {
       this.menus.map(menu => {
         if (menu.newCodes) {
+          menu.showNew = false;
           menu.newCodes.map(code => {
             if (!window.localStorage.getItem(code)) {
               menu.showNew = true;
