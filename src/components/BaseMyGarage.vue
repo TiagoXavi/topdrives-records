@@ -127,8 +127,10 @@
 </template>
 
 <script>
-// import BaseDetalheHeader from '@/components/shared/BaseDetalheHeader/BaseDetalheHeader.vue';
-import myGarage from '@/database/hutch_myGarage.json';
+try {
+  var myGarage = require('@/database/hutch_myGarage.json')
+} catch (error) {}
+
 import all_cars from '../database/cars_final.json';
 import BaseCardGallery from './BaseCardGallery.vue';
 import BaseDialog from './BaseDialog.vue';
