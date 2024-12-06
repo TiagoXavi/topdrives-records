@@ -63,6 +63,9 @@ export default {
       { name: "MainDownTimes", label: this.$t("m_downTimes") },
       { name: "MainAccelCurveMaker", label: this.$t("m_accelCurveMaker") },
     ];
+    if (process.env.NODE_ENV !== 'production') {
+      this.tools.push( { name: "BaseMyGarage", label: this.$t("m_myGarage"), newCodes: ["myGarage_1"], showNew: false } )
+    }
     this.tdrTools = [
       { name: "MainTranslate", label: this.$t("m_translationTool") },
     ]

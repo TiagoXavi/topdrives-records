@@ -3969,13 +3969,18 @@ body .Main_UserTw3:before {
   }
 }
 .Car_TuneTip {
-  background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.6);
+  /* background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.6);
   right: calc(var(--card-right-width) + 0px);
   bottom: 16px;
   font-size: 14px;
   font-weight: bold;
   padding: 2px 4px;
-  border-radius: 3px;
+  border-radius: 3px; */
+  bottom: 2%;
+  font-size: 0.7em;
+  left: calc(var(--card-left-width) + 1%);
+  font-weight: 300;
+  display: block;
 }
 .Car_HeaderBlockRQ {
   background-color: hsla(30, 10%, 15%, 1);
@@ -4163,6 +4168,12 @@ body .Main_UserTw3:before {
   width: 100%;
   height: 100%;
   cursor: grab;
+}
+.Car_ImgTag {
+  position: static !important;
+  display: inline !important;
+  width: 100%;
+  /* object-fit: cover; */
 }
 
 @media (pointer:coarse) {

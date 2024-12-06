@@ -252,6 +252,9 @@ export default {
   m_removeCar: "Remove car",
   m_needHelp: "Need help?",
   m_instructions: "Instructions",
+  m_myGarage: "My garage",
+  m_topDrivesWrapped: "Top Drives Wrapped",
+  m_wrapped: "Wrapped",
 
 
   

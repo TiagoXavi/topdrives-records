@@ -19,6 +19,7 @@ const MainCommunity = () => import("./components/MainCommunity.vue");
 const MainStuff = () => import("./components/MainStuff.vue");
 const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
 const MainShowcase = () => import("./components/MainShowcase.vue");
+const BaseMyGarage = () => import("./components/BaseMyGarage.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -155,6 +156,16 @@ const routes = [
     path: '/accelMaker',
     name: 'MainAccelCurveMaker',
     component: MainAccelCurveMaker,
+  },
+  {
+    path: '/me',
+    name: 'BaseMyGarage',
+    component: BaseMyGarage,
+  },
+  {
+    path: '/user/:username',
+    name: 'BaseMyGarageUser',
+    component: BaseMyGarage,
   },
   {
     path: '/testPoints',

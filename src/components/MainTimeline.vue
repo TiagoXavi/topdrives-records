@@ -136,114 +136,135 @@
               <span>{{ $t("m_previousPage") }}</span>
             </button>
           </div>
-          <div
-            v-for="(item, ix) in timeline"
-            :class="`
-              ${ix % 2 === 0 ? 'MainTimeline_ItemEven ' : '' }
-              ${ix % 2 === 1 ? 'MainTimeline_ItemOdd ' : '' }
-              MainTimeline_Type${ (item.type || '').replaceAll(' ', '') } 
-              MainTimeline_Class${ (item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].class : '' } 
-            `"
-            :style="`
-              --class-color: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].color : ''} ;
-              --class-color-rgb: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
-            `"
-            class="MainTimeline_ItemRoot">
-            <div class="MainTimeline_ItemBacklight"></div>
-            <button class="MainTimeline_Item D_Button" @click="openDetailDialog(item, ix)">
-              
-              <div class="MainTimeline_ItemTop">
-                <div class="MainTimeline_ItemTopLeft">
-                  <div class="MainTimeline_ItemTopLeft_Day">{{ item.dayStart.slice(-2) }}</div>
-                  <div class="MainTimeline_ItemTopLeft_Month">{{ new Date(`${item.dayStart}T00:00:00`).toLocaleString(undefined,{month:'short'}) }}</div>
-                </div>
-                <div class="MainTimeline_ItemCover">
-                  <div
-                    v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'"
-                    class="MainTimeline_Card_Header2Left">
-                    <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
-                    <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
-                  </div>
-                  <img
-                    v-else-if="item.type === 'Veteran Challenge'"
-                    src="@/assets/tdr_veteran.png"
-                    class="MainTimeline_Card_VeteranImg"
-                    loading="lazy"
-                    alt="">
-                  <img
-                    v-else-if="item.type === 'Offers'"
-                    src="@/assets/tdr_offer.png"
-                    class="MainTimeline_Card_VeteranImg"
-                    loading="lazy"
-                    alt="">
-                  <img
-                    v-else-if="item.links && item.links.find(x => x.cover)"
-                    :src="item.links.find(x => x.cover).url"
-                    class="MainTimeline_Card_VeteranImg"
-                    loading="lazy"
-                    alt=""
-                    @load="afterLoadImg($event)">
-                  <img
-                    v-else-if="item.type === 'Game News' || item.type === 'Community News'"
-                    src="@/assets/tdr_newspaper.png"
-                    class="MainTimeline_Card_VeteranImg"
-                    loading="lazy"
-                    alt="">
-                  <!-- <div v-if="(item.p_rid || []).length === 1" class="Main_2" style="display: contents;">
-                    <div class="Main_Body" style="display: contents;">
+
+          <!-- 364 requests, 190 mb -->
+
+
+          <RecycleScroller
+            :items="timeline"
+            :item-size="110"
+            :emitUpdate="true"
+            keyField="sort"
+            listClass="MainTimeline_Scroller_Wrapper"
+            itemClass="MainTimeline_Scroller_Item"
+            class="MainTimeline_Scroller_Box"
+            @scrollEnd="">
+            <template v-slot="{ item, index, active }">
+              <div
+                :class="`
+                  ${index % 2 === 0 ? 'MainTimeline_ItemEven ' : '' }
+                  ${index % 2 === 1 ? 'MainTimeline_ItemOdd ' : '' }
+                  MainTimeline_Type${ (item.type || '').replaceAll(' ', '') } 
+                  MainTimeline_Class${ (item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].class : '' } 
+                `"
+                :style="`
+                  --class-color: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].color : ''} ;
+                  --class-color-rgb: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
+                `"
+                class="MainTimeline_ItemRoot">
+                <div class="MainTimeline_ItemBacklight"></div>
+                <button class="MainTimeline_Item D_Button" @click="openDetailDialog(item, index)">
+
+                  <div class="MainTimeline_ItemTop">
+                    <div class="MainTimeline_ItemTopLeft">
+                      <div class="MainTimeline_ItemTopLeft_Day">{{ item.dayStart.slice(-2) }}</div>
+                      <div class="MainTimeline_ItemTopLeft_Month">{{ new Date(`${item.dayStart}T00:00:00`).toLocaleString(undefined,{month:'short'}) }}</div>
                     </div>
-                  </div> -->
-                  <div v-else class="MainTimeline_DefaultCover">
-                    <i class="ticon-info-circle MainTimeline_ItemCoverIcon" aria-hidden="true"/>
-                  </div>
-                </div>
-                <div class="MainTimeline_ItemTopRight">
-                  <template v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'">
-                    <div class="MainTimeline_Line1Car">
-                      <b class="MainTimeline_Line1RQ">RQ{{ resolvedRids[item.p_rid[0]].rq }}&nbsp;</b>
-                      <span class="MainTimeline_Line1Brand">{{ resolvedRids[item.p_rid[0]].brand }}</span>
-                    </div>
-                    <div class="MainTimeline_Line2Car">{{ resolvedRids[item.p_rid[0]].onlyName }}</div>
-                    <div class="MainTimeline_ItemTypeText">{{ item.type }}</div>
-                  </template>
-                  <template v-else>
-                    <div class="MainTimeline_ItemTopTitle">{{ item.name }}</div>
-                    <div v-if="item.type === 'Veteran Challenge'" class="MainTimeline_ItemVeteranCriteria">
-                      <BaseFilterDescription
-                        :filter="item.filter"
-                        :asFilterLabel="true"
-                        :hideIfEmpty="true"
-                        :emitDescResolved="false"
-                        class="MainTimeline_ItemVeteranFilterDescription"/>
-                    </div>
-                    <div v-if="item.type !== 'News' && item.type !== 'Veteran Challenge' && item.type !== 'Other'" class="MainTimeline_ItemTypeText">{{ item.type }}</div>
-                    <div v-else-if="(item.p_rid || []).length === 0 && item.type === 'News'" class="MainTimeline_ItemTopSubTitle">{{ item.description }}</div>
-                    <div v-if="(item.p_rid || []).length > 1 || item.type === 'Veteran Challenge'" class="MainTimeline_ItemTopMiniCars">
-                      <template v-for="(car, icar) in item.p_rid">
-                        <div
-                          v-if="icar <= 4"
-                          :style="`--class-color: ${resolvedRids[car].color} ;`"
-                          class="MainTimeline_MiniCard">
-                          <img :src="resolvedRids[car].photo" loading="lazy" class="MainTimeline_MiniCard_Header2Img" alt="">
-                          <div class="MainTimeline_MiniCard_Header2Right2">{{ resolvedRids[car].rq }}</div>
+                    <div class="MainTimeline_ItemCover">
+                      <div
+                        v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'"
+                        class="MainTimeline_Card_Header2Left">
+                        <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
+                        <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
+                      </div>
+                      <img
+                        v-else-if="item.type === 'Veteran Challenge'"
+                        src="@/assets/tdr_veteran.png"
+                        class="MainTimeline_Card_VeteranImg"
+                        loading="lazy"
+                        alt="">
+                      <img
+                        v-else-if="item.type === 'Offers'"
+                        src="@/assets/tdr_offer.png"
+                        class="MainTimeline_Card_VeteranImg"
+                        loading="lazy"
+                        alt="">
+                      <img
+                        v-else-if="item.links && item.links.find(x => x.cover)"
+                        :src="item.links.find(x => x.cover).url"
+                        class="MainTimeline_Card_VeteranImg"
+                        loading="lazy"
+                        alt=""
+                        @load="afterLoadImg($event)">
+                      <img
+                        v-else-if="item.type === 'Game News' || item.type === 'Community News'"
+                        src="@/assets/tdr_newspaper.png"
+                        class="MainTimeline_Card_VeteranImg"
+                        loading="lazy"
+                        alt="">
+                      <!-- <div v-if="(item.p_rid || []).length === 1" class="Main_2" style="display: contents;">
+                        <div class="Main_Body" style="display: contents;">
                         </div>
-                        <div v-if="icar === 5" class="MainTimeline_MiniCardPlus">+{{ item.p_rid.length - 5 }}</div>
+                      </div> -->
+                      <div v-else class="MainTimeline_DefaultCover">
+                        <i class="ticon-info-circle MainTimeline_ItemCoverIcon" aria-hidden="true"/>
+                      </div>
+                    </div>
+                    <div class="MainTimeline_ItemTopRight">
+                      <template v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'">
+                        <div class="MainTimeline_Line1Car">
+                          <b class="MainTimeline_Line1RQ">RQ{{ resolvedRids[item.p_rid[0]].rq }}&nbsp;</b>
+                          <span class="MainTimeline_Line1Brand">{{ resolvedRids[item.p_rid[0]].brand }}</span>
+                        </div>
+                        <div class="MainTimeline_Line2Car">{{ resolvedRids[item.p_rid[0]].onlyName }}</div>
+                        <div class="MainTimeline_ItemTypeText">{{ item.type }}</div>
+                      </template>
+                      <template v-else>
+                        <div class="MainTimeline_ItemTopTitle">{{ item.name }}</div>
+                        <div v-if="item.type === 'Veteran Challenge'" class="MainTimeline_ItemVeteranCriteria">
+                          <BaseFilterDescription
+                            :filter="item.filter"
+                            :asFilterLabel="true"
+                            :hideIfEmpty="true"
+                            :emitDescResolved="false"
+                            class="MainTimeline_ItemVeteranFilterDescription"/>
+                        </div>
+                        <div v-if="item.type !== 'News' && item.type !== 'Veteran Challenge' && item.type !== 'Other'" class="MainTimeline_ItemTypeText">{{ item.type }}</div>
+                        <div v-else-if="(item.p_rid || []).length === 0 && item.type === 'News'" class="MainTimeline_ItemTopSubTitle">{{ item.description }}</div>
+                        <div v-if="(item.p_rid || []).length > 1 || item.type === 'Veteran Challenge'" class="MainTimeline_ItemTopMiniCars">
+                          <template v-for="(car, icar) in item.p_rid">
+                            <div
+                              v-if="icar <= 4"
+                              :style="`--class-color: ${resolvedRids[car].color} ;`"
+                              class="MainTimeline_MiniCard">
+                              <img :src="resolvedRids[car].photo" loading="lazy" class="MainTimeline_MiniCard_Header2Img" alt="">
+                              <div class="MainTimeline_MiniCard_Header2Right2">{{ resolvedRids[car].rq }}</div>
+                            </div>
+                            <div v-if="icar === 5" class="MainTimeline_MiniCardPlus">+{{ item.p_rid.length - 5 }}</div>
+                          </template>
+                        </div>
                       </template>
                     </div>
-                  </template>
+                  </div>
+
+                </button>
+                <div v-if="timeline[index+1] && item.dayStart.slice(0,4) !== timeline[index+1].dayStart.slice(0,4)" class="MainTimeline_YearBelow">
+                  <i class="ticon-arrow_up_3 MainTimeline_YearArrow" aria-hidden="true"/>
+                  <div class="MainTimeline_YearText">{{ item.dayStart.slice(0,4) }}</div>
+                </div>
+                <div v-else-if="timeline[index-1] && item.dayStart.slice(0,4) !== timeline[index-1].dayStart.slice(0,4)" class="MainTimeline_YearBelow MainTimeline_YearInvert">
+                  <i class="ticon-arrow_up_3 MainTimeline_YearArrow" aria-hidden="true"/>
+                  <div class="MainTimeline_YearText">{{ item.dayStart.slice(0,4) }}</div>
                 </div>
               </div>
+            </template>
+          </RecycleScroller>
 
-            </button>
-            <div v-if="timeline[ix+1] && item.dayStart.slice(0,4) !== timeline[ix+1].dayStart.slice(0,4)" class="MainTimeline_YearBelow">
-              <i class="ticon-arrow_up_3 MainTimeline_YearArrow" aria-hidden="true"/>
-              <div class="MainTimeline_YearText">{{ item.dayStart.slice(0,4) }}</div>
-            </div>
-            <div v-else-if="timeline[ix-1] && item.dayStart.slice(0,4) !== timeline[ix-1].dayStart.slice(0,4)" class="MainTimeline_YearBelow MainTimeline_YearInvert">
-              <i class="ticon-arrow_up_3 MainTimeline_YearArrow" aria-hidden="true"/>
-              <div class="MainTimeline_YearText">{{ item.dayStart.slice(0,4) }}</div>
-            </div>
-          </div>
+
+
+          
+
+
           <div v-if="showNextPage" class="D_Center MainTimeline_NextPageLayout">
             <button
               :class="{ D_Button_Loading: loading }"
@@ -2328,6 +2349,9 @@ export default {
 .MainTimeline_BackLine + .MainTimeline_ItemRoot {
   margin-top: 56px;
 }
+.MainTimeline_Scroller_Box {
+  padding-top: 56px;
+}
 .MainTimeline_ItemEven {
   /* margin-left: 40%; */
   text-align: left;
@@ -2449,6 +2473,15 @@ export default {
   top: -62px;
   left: unset;
   right: -45px;
+}
+.MainTimeline_Scroller_Item[style*='translateY(0px)'] .MainTimeline_ItemBacklight {
+  top: -5px;
+  height: 120px;
+}
+.MainTimeline_Scroller_Item:last-child .MainTimeline_ItemBacklight {
+  top: unset;
+  bottom: 0;
+  height: 120px;
 }
 .MainTimeline_ClassB,
 .MainTimeline_ClassA {
@@ -3124,6 +3157,13 @@ export default {
   display: flex;
   justify-content: center;
   padding: 60px 0;
+}
+.MainTimeline_Scroller_Box {
+  width: 100%;
+}
+.MainTimeline_Scroller_Item {
+  display: flex;
+  flex-direction: column;
 }
 
 

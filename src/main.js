@@ -9,6 +9,8 @@ import 'focus-visible';
 import Hotjar from 'vue-hotjar';
 import VueI18n from 'vue-i18n';
 import i18nMessages from './i18n';
+import VueVirtualScroller from 'vue-virtual-scroller'
+import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
 
 Vue.config.productionTip = false
@@ -26,6 +28,7 @@ const i18n = new VueI18n({
   silentFallbackWarn: true
 });
 Vue.use({i18n});
+Vue.use(VueVirtualScroller)
 
 
 if (process.env.NODE_ENV === 'production') {

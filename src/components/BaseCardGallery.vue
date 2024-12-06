@@ -4,8 +4,13 @@
     <div
       class="Car_Header BaseCardGallery_Header"
       :class="{ Row_DialogCardCard2: !options, Car_Loading: downloadLoading }"
-      :style="`--class-color: ${carClassColor}; ${carPhoto}`">
+      :style="`--class-color: ${carClassColor};`">
       <!-- <div class="Car_HeaderBlockBrand" /> -->
+      <img
+        :src="carPhoto"
+        class="Car_ImgTag"
+        loading="lazy"
+        alt="" >
       <div class="Car_HeaderBlockYear" style="backdrop-filter: none;">{{ car.year || "-"  }}</div>
       <div class="Car_HeaderBlockCountry">{{ car.country || "-"  }}</div>
       <div class="Car_HeaderBlockTires">
@@ -124,6 +129,7 @@ export default {
       } catch (error) {
         return ''
       }
+      return parsed;
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
       return parsed ? 'background-image: url('+parsed+');' : ''

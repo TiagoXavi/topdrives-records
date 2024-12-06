@@ -189,6 +189,7 @@ export default new Vuex.Store({
     FILTER_PACKS_LIMITS: (state, obj) => null,
     PACKS_FILTER_IMPORT: (state, obj) => null,
     PACKS_INTERNALFILTER_IMPORT: (state, obj) => null,
+    MYGARAGE_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
     CLEAR_PRIZEBOARD: (state, obj) => null,
     BEFOREUNLOAD_TOUCH: (state, obj) => null,

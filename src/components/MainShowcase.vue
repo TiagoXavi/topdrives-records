@@ -589,22 +589,6 @@ export default {
         this.cars.splice(icar, 1);
       }
     },
-    askDeleteItem(icar) {
-      let vm = this;
-
-      let action = function() {
-        vm.saveTimelineItem(item, true);
-      }
-
-      this.confirmDelete = {
-        dialog: true,
-        msg: `Delete item '${item.name}'?`,
-        actionLabel: `Delete`,
-        action: action,
-        loading: false,
-        classe: `D_ButtonRed`
-      }
-    },
     generateTempString(cars) {
       let newObj = cars.map(x => {
         return {
