@@ -71,7 +71,7 @@
       <div :class="{
         Car_HeaderNameBig: car.name.length > 30,
         Car_HeaderNameBigBig: car.name.length > 36
-        }" class="Car_HeaderName">{{ car.name }}</div>
+        }" class="Car_HeaderName"><b>{{ car.brand }}</b> {{ car.onlyName }}</div>
       <div
         class="Car_CompactOverlay"
         @touchstart="touchstart($event)"

@@ -3825,6 +3825,10 @@ body .Main_UserTw3:before {
   height: var(--card-top-height);
   font-size: 1.1em;
   line-height: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.23em;
 }
 .Car_HeaderNameBig {
   font-size: 0.92em;
@@ -3969,15 +3973,17 @@ body .Main_UserTw3:before {
   }
 }
 .Car_TuneTip {
-  /* background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.6);
+  background-color: rgb(55, 54, 49, 0.6);
   right: calc(var(--card-right-width) + 0px);
   bottom: 16px;
   font-size: 14px;
   font-weight: bold;
   padding: 2px 4px;
-  border-radius: 3px; */
+  border-radius: 3px;
+}
+.Car_TuneTipGallery {
   bottom: 2%;
-  font-size: 0.7em;
+  font-size: 0.8em;
   left: calc(var(--card-left-width) + 1%);
   font-weight: 300;
   display: block;
