@@ -343,7 +343,7 @@ body {
   --card-stat-back-l: 10%;
   --card-stat-back-a: 0.2;
   --card-right-width: 20.5%;
-  --card-left-width: 11%;
+  --card-left-width: 10.5%;
   --card-top-height: 12%;
   --card-left-height: 28%;
   --card-stat-div: 0%;
@@ -3870,7 +3870,8 @@ body .Main_UserTw3:before {
   font-size: 1.3em;
   font-weight: bold;
   line-height: 1.1;
-  padding-right: 4px;
+  /* padding-right: 4px; */
+  padding-right: 6.5%;
   color: #fff;
   opacity: 0.95;
   letter-spacing: 0.3px;
@@ -3879,7 +3880,8 @@ body .Main_UserTw3:before {
   text-align: right;
   font-size: 0.55em;
   line-height: 1;
-  padding-right: 4px;
+  /* padding-right: 4px; */
+  padding-right: 6.5%;
   font-weight: 300;
   color: #fff;
   opacity: 0.6;
@@ -3913,7 +3915,7 @@ body .Main_UserTw3:before {
 .Car_HeaderClassValue {
   position: relative;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 /* .Car_HeaderBlockTopSpeed,
 .Car_HeaderBlock060,
@@ -4324,5 +4326,35 @@ body .Main_UserTw3:before {
   }
 }
 
+.MainShowcase_TitleBox {
+  position: relative;
+}
+.MainShowcase_Title {
+  font-size: 30px;
+}
+.MainShowcase_TitleBox path {
+  fill: currentColor;
+  opacity: 0.3;
+}
+.MainShowcase_TitleBox .BaseIconSvg_Layout {
+  position: absolute;
+  top: 50%;
+  right: -45px;
+  transform: translateY(-50%) scaleX(1);
+  width: 60px;
+  height: 90px;
+}
+.MainShowcase_TitleBox .BaseIconSvg_Layout:last-child {
+  right: unset;
+  transform: translateY(-50%) scaleX(-1);
+  left: -45px;
+}
+.MainShowcase_TitleBox:before {
+  content: unset !important;
+}
+.MainShowcase_SaveBar {
+  min-height: 160px;
+  margin-bottom: 20px;
+}
 
 </style>

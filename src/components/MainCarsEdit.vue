@@ -384,6 +384,7 @@ export default {
           "Italian Renaissance",
           "Japan Pro Tour",
           "Learn the Savannah Way",
+          "Lina's Collection",
           "Loch to Loch",
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",

@@ -276,7 +276,7 @@ export default {
     };
 
     // DISABLED CLUBS FUNCTION
-    // this.loadClubs();
+    this.loadClubs();
   },
   mounted() {
     window.addEventListener('paste', this.handlePaste);
@@ -1012,14 +1012,14 @@ export default {
       pose.classList.add("Main_BodyPrint");
 
 
-      _width = (pose.clientWidth) * 1;
-      _height = (pose.clientHeight) * 1;
+      _width = (pose.clientWidth) * 2;
+      _height = (pose.clientHeight) * 2;
 
 
       let options = {
         backgroundColor: "#333",
         canvas: currentCanvas,
-        scale: 1,
+        scale: 2,
         width: _width,
         height: _height,
         windowWidth: _width,

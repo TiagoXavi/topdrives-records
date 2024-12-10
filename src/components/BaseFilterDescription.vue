@@ -15,7 +15,7 @@
             @click="chipClick($event, n-1)" />
         </template>
       </div>
-      <div v-else class="Cg_ReqsTitle">{{ asFilterLabel ? $tc("m_filter", 1) : $t("m_requirements") }}</div>
+      <div v-else-if="showTitle" class="Cg_ReqsTitle">{{ asFilterLabel ? $tc("m_filter", 1) : $t("m_requirements") }}</div>
       <div class="Cg_Reqs">
         <div class="BaseFilterDescription_Layout">
           <div v-for="item in descResolved" class="BaseFilterDescription_Item">
@@ -105,6 +105,10 @@ export default {
     emitDescResolved: {
       type: Boolean,
       default: false
+    },
+    showTitle: {
+      type: Boolean,
+      default: true
     },
     isKing: {
       type: Boolean,

@@ -1429,8 +1429,10 @@ export default {
   justify-content: center;
 }
 .Row_DialogCardCard {
-  width: 300px !important;
-  height: 186px !important;
+  --width: 300px;
+  --height: 186px;
+  width: var(--width) !important;
+  height: var(--height) !important;
   --card-font-size: 15px;
   position: relative;
   top: 0;

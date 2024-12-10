@@ -661,10 +661,6 @@ export default {
 .MainShowcase_OptionButton {
   padding: 0 7px;
 }
-.MainShowcase_SaveBar {
-  min-height: 160px;
-  margin-bottom: 20px;
-}
 .MainShowcase_PlayControls {
   position: relative;
   min-height: 20px;
@@ -673,32 +669,6 @@ export default {
   position: absolute;
   top: -9px;
   right: 15px;
-}
-.MainShowcase_TitleBox {
-  position: relative;
-}
-.MainShowcase_Title {
-  font-size: 30px;
-}
-.MainShowcase_TitleBox path {
-  fill: currentColor;
-  opacity: 0.3;
-}
-.MainShowcase_TitleBox .BaseIconSvg_Layout {
-  position: absolute;
-  top: 50%;
-  right: -45px;
-  transform: translateY(-50%) scaleX(1);
-  width: 60px;
-  height: 90px;
-}
-.MainShowcase_TitleBox .BaseIconSvg_Layout:last-child {
-  right: unset;
-  transform: translateY(-50%) scaleX(-1);
-  left: -45px;
-}
-.MainShowcase_TitleBox:before {
-  content: unset !important;
 }
 .MainShowcase_SearchCarButtonBox {
   display: flex;

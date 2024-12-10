@@ -5,5 +5,9 @@ module.exports = defineConfig({
     sourceMap: true
   },
   transpileDependencies: true,
-  publicPath: "/"
+  publicPath: "/",
+  devServer: {
+    hot: false,
+    liveReload: false
+  }
 })

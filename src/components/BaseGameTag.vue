@@ -243,6 +243,11 @@ export default {
   --tag-s: 40%;
   --tag-l: 40%;
 }
+.BaseGameTag_Lina\'s_Collection {
+  --tag-h: 237;
+  --tag-s: 65%;
+  --tag-l: 51%;
+}
 .BaseGameTag_Loch_to_Loch {
   --tag-h: 190;
   --tag-s: 40%;

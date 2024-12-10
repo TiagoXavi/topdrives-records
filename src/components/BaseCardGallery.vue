@@ -171,9 +171,14 @@ export default {
   margin-left: 55px;
 }
 .Row_DialogCardCard2 {
-  width: 300px !important;
-  height: 184px !important;
+  --width: 300px;
+  --height: 184px;
+  width: var(--width) !important;
+  height: var(--height) !important;
   --card-font-size: 15px;
+  line-height: 1;
+  background-color: unset;
+  background-image: unset;
 }
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;
@@ -182,44 +187,45 @@ export default {
   display: block;
 }
 .BaseCardGallery_Header .Car_HeaderName {
-  top: 4px;
+  top: 2%;
   font-size: 1em;
-  left: 35px;
-}
-.BaseCardGallery_Header .Car_HeaderName {
-  width: calc(100% - var(--card-right-width) - 38px);
+  left: calc(var(--card-left-width) + 1%);
+  width: calc(100% - var(--card-right-width) - var(--card-left-width) - 2%);
 }
 .BaseCardGallery_Header .Car_HeaderNameBig {
-  top: 5px;
+  top: 2.5%;
   font-size: 0.85em;
 }
 .BaseCardGallery_Header .Car_HeaderNameBigBig {
-  top: 7px;
+  top: 3.5%;
   font-size: 0.7em;
 }
 .BaseCardGallery_Header .Car_HeaderBlockYear {
-  top: 4px;
+  top: 2%;
   background-color: transparent;
   right: 10.5%;
 }
 .BaseCardGallery_Header .Car_HeaderBlockCountry {
-  top: 0px;
+  top: 1%;
   background-color: transparent;
 }
 .BaseCardGallery_Header .Car_HeaderBlockTopSpeed, 
 .BaseCardGallery_Header .Car_HeaderBlock060,
 .BaseCardGallery_Header .Car_HeaderBlockHandling,
 .BaseCardGallery_Header .Car_HeaderBlockDrive {
-  --card-top-height: 15%;
+  /* --card-top-height: 15%; */
+  /* padding-top: calc(var(--height)* 0.035); */
+  margin-top: calc( (var(--card-stat-height) * 0.5) - (var(--card-font-size) * 1) - 6px );
+  box-sizing: border-box;
 }
 .BaseCardGallery_Header {
-  --card-stat-height: calc( (104% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+  /* --card-stat-height: calc( (104% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 ); */
 }
 .BaseCardGallery_Header .Car_HeaderClassValue {
-  margin-top: 5px;
+  margin-top: calc(var(--height)* 0.035);
 }
 .BaseCardGallery_Header .Car_HeaderBlockRQ {
-  bottom: -3px;
+  bottom: -1.5%;
   background-color: transparent;
 }
 </style>
