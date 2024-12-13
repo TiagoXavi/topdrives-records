@@ -213,7 +213,7 @@
           </button>
         </div>
 
-        <div v-if="userGarage && userGarage.loaded && editEnabled" class="D_Center2" style="padding-bottom: 30px;">
+        <div v-if="userGarage && userGarage.loaded && editEnabled" class="D_Center2 BaseMyGarage_ManageFooter" style="padding-bottom: 30px;">
           <button
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="changeScreen('upload')">
@@ -430,7 +430,7 @@ export default {
           fixed: true,
           filter: { classesModel: ["S"], newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
-          title: "2024 S Timeline",
+          title: "2024 Leggy Timeline",
           specialTitle: true
         },
         {
@@ -1562,6 +1562,7 @@ export default {
   width: 1000px;
 }
 .Main_BodyPrint .BaseMyGarage_Share,
+.Main_BodyPrint .BaseMyGarage_ManageFooter,
 .Main_BodyPrint .BaseMyGarage_AddGroupBox {
   display: none;
 }

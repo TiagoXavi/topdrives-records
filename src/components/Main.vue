@@ -7924,7 +7924,7 @@ export default {
         let bIndex = b.name.indexOf(":");
 
         if (a.romanValue && b.romanValue && a.prefix === b.prefix) {
-          let num = this.generateRandom(colors.length-1, a.prefix);
+          let num = this.generateRandom(colors.length-1, a.prefix || "");
           let color;
           let styl;
           if (chooseColors[a.prefix]) color = chooseColors[a.prefix];
