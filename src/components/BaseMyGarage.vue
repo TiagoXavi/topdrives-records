@@ -1,130 +1,288 @@
 <template>
-  <div class="BaseMyGarage_Layout">
-    <!-- <div class="BaseMyGarage_" style="white-space: pre;">{{ userGarage }}</div> -->
+  <div class="BaseMyGarage_Root">
+    <div
+      v-if="screen === 'normal'"
+      :class="{ MainTimeline_InitAnimation: animation }"
+      class="BaseMyGarage_Layout">
+      <!-- <div class="BaseMyGarage_" style="white-space: pre;">{{ userGarage }}</div> -->
 
-    <!-- <div class="BaseMyGarage_CarList">
-      <div v-for="card in userGarage.playerDeck" class="BaseMyGarage_CardBox">
-        <BaseCardGallery
-          :car="resolvedGuids[card.cardId]"
-          :options="false"
-          :tuneText="card.selectedTune"
-          class="BaseMyGarage_GalleryCard" />
-      </div>
-    </div> -->
-
-    <div class="MainShowcase_SaveBar D_Center2">
-      <button
-        v-if="!userId"
-        class="D_Button Main_LoginToEdit"
-        @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
-      <button
-        v-else-if="readyToSave"
-        :class="{ D_Button_Loading: loading }"
-        :disabled="loading"
-        class="D_Button Main_SaveAllButton"
-        @click="save()">
-        <span>{{ $t("m_save") }}</span>
-      </button>
-      <div v-else-if="userGarage" :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
-        <BaseIconSvg type="laurel" />
-        <div class="MainShowcase_Title">{{ userGarage.socialName || userId }}</div>
-        <BaseIconSvg type="laurel" />
-      </div>
-    </div>
-
-
-    <div v-if="false" class="BaseMyGarage_H">
-      <RecycleScroller
-        :items="userGarage.playerDeck"
-        :item-size="300"
-        :item-secondary-size="186"
-        :emitUpdate="true"
-        :gridItems="2"
-        direction="horizontal"
-        listClass="BaseMyGarage_CardsWrapper"
-        itemClass="BaseMyGarage_ScrollerItem"
-        class="BaseMyGarage_CardsBox Main_DarkScroll"
-        @scrollEnd="">
-        <template v-slot="{ item, index, active }">
-          <div class="BaseMyGarage_CardBox">
-            <BaseCardGallery
-              :car="resolvedGuids[item.cardId]"
-              :options="false"
-              :tuneText="item.selectedTune || item.selectedTuneZ"
-              class="BaseMyGarage_GalleryCard" />
-          </div>
-        </template>
-      </RecycleScroller>
-    </div>
-
-
-    <div class="BaseMyGarage_HLBox">
-      <div v-for="hl in userHighlights" class="BaseMyGarage_HLItem">
-
-        <div class="BaseMyGarage_FilterBox">
-          <div
-            v-if="Object.keys(hl.filter).length === 0"
-            class="BaseMyGarage_EmptyFilter">
-          </div>
-          <div v-else-if="hl.filter.newerThan" class="BaseFilterDescription_Layout">
-            <div class="BaseFilterDescription_Item">
-              <div class="BaseFilterDescription_Value">Cars earned in 2024</div>
-            </div>
-          </div>
-          <BaseFilterDescription
-            v-else
-            :filter="hl.filter"
-            :asFilterLabel="true"
-            :hideIfEmpty="false"
-            :showTitle="false"
-            :emitDescResolved="false"
-            class="" />
+      <!-- <div class="BaseMyGarage_CarList">
+        <div v-for="card in userGarage.playerDeck" class="BaseMyGarage_CardBox">
+          <BaseCardGallery
+            :car="resolvedRids[card.rid]"
+            :options="false"
+            :tuneText="card.tun"
+            class="BaseMyGarage_GalleryCard" />
         </div>
-        
-        <div v-if="hl.r" class="BaseMyGarage_RarityStatsBox">
-          <template v-for="(value, key, index) in hl.r">
-            <div class="BaseMyGarage_RarityStatsItem">
-              <div class="BaseMyGarage_RarityStatsValue">
-                <div class="BaseMyGarage_RarityStatsValueT">{{ value }}</div>
-              </div>
-              <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
-            </div>
-          </template>
+      </div> -->
+
+      <div v-if="loading || lastestLoading" class="BaseMyGarage_LoadingBox BaseMyGarage_HLBox">
+        <!-- LOADING -->
+        <div class="BaseMyGarage_LoadingUsername"></div>
+        <div class="BaseMyGarage_LoadingTitle"></div>
+        <div class="BaseMyGarage_RarityStatsBox">
+          <div v-for="n in 11" class="BaseMyGarage_RarityStatsItem"></div>
         </div>
-        
-        <div v-if="hl.t" class="BaseMyGarage_RarityStatsBox">
-          <template v-for="(value, key, index) in hl.t">
-            <div class="BaseMyGarage_RarityStatsItem">
-              <div class="BaseMyGarage_RarityStatsCard">
+      </div>
+
+      <template v-else>
+        <!-- MAIN -->
+        <div class="MainShowcase_SaveBar D_Center2">
+          <button
+            v-if="!userId"
+            class="D_Button Main_LoginToEdit"
+            @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+          <div v-else-if="(userGarage && userGarage.loaded) || !editEnabled" :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
+            <BaseIconSvg type="laurel" />
+            <div class="MainShowcase_Title">{{ userGarage.socialName || userId }}</div>
+            <div v-if="userGarage.eloScore" class="BaseMyGarage_UserBottom">
+              <div class="BaseMyGarage_UserBottomItem"><i class="ticon-trophy" style="font-size: 0.9em;" aria-hidden="true"/>{{ userGarage.eloScore }}</div>
+              <div> • </div>
+              <div class="BaseMyGarage_UserBottomItem">{{ userGarage.region }}</div>
+            </div>
+            <BaseIconSvg type="laurel" />
+          </div>
+          <button
+            v-else-if="editEnabled"
+            class="D_Button Main_SaveAllButton"
+            @click="changeScreen('upload')">
+            <span>{{ $t("m_uploadMyGarage") }}</span>
+          </button>
+        </div>
+
+
+        <!-- <div v-if="false" class="BaseMyGarage_H">
+          <RecycleScroller
+            :items="userGarage.playerDeck"
+            :item-size="300"
+            :item-secondary-size="186"
+            :emitUpdate="true"
+            :gridItems="2"
+            direction="horizontal"
+            listClass="BaseMyGarage_CardsWrapper"
+            itemClass="BaseMyGarage_ScrollerItem"
+            class="BaseMyGarage_CardsBox Main_DarkScroll"
+            @scrollEnd="">
+            <template v-slot="{ item, index, active }">
+              <div class="BaseMyGarage_CardBox">
                 <BaseCardGallery
-                  v-if="value.car.cardId"
-                  :car="resolvedGuids[value.car.cardId]"
+                  :car="resolvedRids[item.rid]"
                   :options="false"
-                  :tuneText="value.car.selectedTune || value.car.selectedTuneZ"
+                  :tuneText="item.tun || item.tunZ"
                   class="BaseMyGarage_GalleryCard" />
-                <div v-else class="BaseMyGarage_CarPlaceHolder Row_DialogCardCard2">
-                  <i class="ticon-line" aria-hidden="true"/>
+              </div>
+            </template>
+          </RecycleScroller>
+        </div> -->
+
+
+        <div class="BaseMyGarage_HLBox">
+          <template v-for="(hl, ihl) in userHighlights">
+            <div
+              v-if="(!pngLoading || pngIndex === ihl) && (userGarage.loaded || ihl === 0)"
+              class="BaseMyGarage_HLItem">
+
+              <template v-if="hl.divider">
+                <!--  -->
+                <div class="D_Center2">
+                  <i class="ticon-line BaseMyGarage_HLItemDivider" aria-hidden="true"/>
                 </div>
-              </div>
-              <div class="BaseMyGarage_RarityStatsValue">
-                <div class="BaseMyGarage_RarityStatsValueT">{{ value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
-                <div v-if="value.sub" class="BaseMyGarage_RarityStatsSub">{{ value.sub }}</div>
-              </div>
-              <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
-              
-              <!-- <template v-if="value.car.cardId">
-                <span>{{ resolvedGuids[value.car.cardId].name }} </span>
-                <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
-                <span v-else>({{ value.v }})</span>
-              </template> -->
+              </template>
+
+              <template v-else>
+                <div class="BaseMyGarage_FilterLayout">
+                  <div class="BaseMyGarage_FilterBox">
+                    <div v-if="hl.title" :class="{ BaseMyGarage_FilterBoxSpecial: hl.specialTitle}" class="BaseFilterDescription_Layout">
+                      <div v-if="hl.specialTitle" class="BaseMyGarage_DividerBackLight" style="--light: var(--d-text-yellow);"></div>
+                      <div class="BaseFilterDescription_Item">
+                        <div class="BaseFilterDescription_Value">{{ hl.title }}</div>
+                      </div>
+                    </div>
+                    <div
+                      v-else-if="Object.keys(hl.filter).length === 0"
+                      class="BaseMyGarage_EmptyFilter">
+                    </div>
+                    <BaseFilterDescription
+                      v-else
+                      :filter="hl.filter"
+                      :asFilterLabel="true"
+                      :hideIfEmpty="false"
+                      :showTitle="false"
+                      :emitDescResolved="false"
+                      class="" />
+                  </div>
+                  <button
+                    v-if="!pngLoading && userGarage.loaded"
+                    class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                    @click="sharePrint(ihl)">
+                    <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
+                  </button>
+                </div>
+                
+                <div v-if="hl.r" class="BaseMyGarage_RarityStatsBox">
+                  <template v-for="(value, key, index) in hl.r">
+                    <div class="BaseMyGarage_RarityStatsItem">
+                      <div class="BaseMyGarage_RarityStatsValue">
+                        <div class="BaseMyGarage_RarityStatsValueT">{{ value }}</div>
+                      </div>
+                      <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
+                    </div>
+                  </template>
+                </div>
+                
+                <div v-if="hl.t" class="BaseMyGarage_RarityStatsBox BaseMyGarage_RarityStatsBoxCars">
+                  <template v-for="(value, key, index) in hl.t">
+                    <div class="BaseMyGarage_RarityStatsItem">
+                      <div class="BaseMyGarage_RarityStatsCard">
+                        <BaseCardGallery
+                          v-if="value.car.rid"
+                          :car="resolvedRids[value.car.rid]"
+                          :options="false"
+                          :tuneText="value.car.tun || value.car.tunZ"
+                          class="BaseMyGarage_GalleryCard" />
+                        <div v-else class="BaseMyGarage_CarPlaceHolder Row_DialogCardCard2">
+                          <i class="ticon-line" aria-hidden="true"/>
+                        </div>
+                      </div>
+                      <div class="BaseMyGarage_RarityStatsValue">
+                        <div class="BaseMyGarage_RarityStatsValueT">{{ typeof value.v === 'string' ? value.v : value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
+                        <div v-if="value.sub" class="BaseMyGarage_RarityStatsSub">{{ value.sub }}</div>
+                      </div>
+                      <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
+                      
+                      <!-- <template v-if="value.car.cardId">
+                        <span>{{ resolvedRids[value.car.cardId].name }} </span>
+                        <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
+                        <span v-else>({{ value.v }})</span>
+                      </template> -->
+
+                    </div>
+                  </template>
+                </div>
+                
+                <div v-if="hl.tl" class="BaseMyGarage_TimelineBox">
+                  <div v-for="month in hl.tl" class="BaseMyGarage_TimelineItem">
+                    <div class="BaseMyGarage_MonthLeft">{{ new Date(2024, month.monthIndex, 1).toLocaleString('default', { month: 'short' }) }}</div>
+                    <div v-if="!pngLoading && true" class="BaseMyGarage_MonthRight">
+                      <div class="BaseMyGarage_MonthTop">
+                        <BaseCardGallery
+                          v-for="car in month.prizes"
+                          :car="resolvedRids[car.rid]"
+                          :options="false"
+                          class="BaseMyGarage_GalleryCard" />
+                      </div>
+                      <div class="BaseMyGarage_MonthMid">
+                        <BaseCardGallery
+                          v-for="car in month.nonPrizes"
+                          :car="resolvedRids[car.rid]"
+                          :options="false"
+                          class="BaseMyGarage_GalleryCard" />
+                      </div>
+                    </div>
+                    <div v-else class="BaseMyGarage_MonthRight">
+                      <div class="BaseMyGarage_MonthTop">
+                        <div v-for="car in month.prizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
+                          <div class="MainFindCar_BankPhoto">
+                            <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                          </div>
+                          <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
+                        </div>
+                      </div>
+                      <div class="BaseMyGarage_MonthMid">
+                        <div v-for="car in month.nonPrizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
+                          <div class="MainFindCar_BankPhoto">
+                            <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                          </div>
+                          <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </template>
 
             </div>
           </template>
         </div>
 
+        <div v-if="userGarage && userGarage.loaded" class="D_Center BaseMyGarage_AddGroupBox">
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newGroup()">
+            <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+            <span class="">{{ $t('m_newGroup') }}</span>
+          </button>
+        </div>
+
+        <div v-if="userGarage && userGarage.loaded && editEnabled" class="D_Center2" style="padding-bottom: 30px;">
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="changeScreen('upload')">
+            <span>{{ $t("m_uploadMyGarage") }}</span>
+          </button>
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+            @click="askDelete()">
+            <span>{{ $t("m_delete") }}</span>
+          </button>
+        </div>
+      </template>
+
+
+      
+    </div>
+    <div
+      v-else-if="screen === 'upload'"
+      :class="{ MainTimeline_InitAnimation: animation }"
+      class="BaseMyGarage_UploadLayout">
+      <div class="BaseMyGarage_UploadMid Space_TopPlus">
+        <!-- How it works -->
+        <!-- Choose way: PC+Emulator, Any computer+iOS -->
+        <div class="BaseMyGarage_TextBox">
+          <div class="BaseText_Label">Response body of /api/game/v3/sync/</div>
+          <textarea
+            v-model="responseText"
+            rows="8"
+            class="Main_TextArea data-hj-allow"
+            placeholder="Paste here..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            @paste="interceptPaste($event)"
+          />
+        </div>
+        <div class="BaseMyGarage_Submit D_Center2 Space_TopPlus">
+          <button
+            :class="{ D_Button_Loading: loading }"
+            :disabled="!responseText"
+            class="D_Button Main_SaveAllButton"
+            @click="validateText()">
+            <span>{{ $t("m_uploadMyGarage") }}</span>
+          </button>
+        </div>
+      </div>
+      <div class="D_Center2 Space_TopPlus">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="changeScreen('normal')">
+          <span>{{ $t("m_cancel") }}</span>
+        </button>
       </div>
     </div>
 
+    <BaseFilterDialog
+      v-model="myGarageFilterDialog"
+      :filterOnly="true"
+      :all_cars="all_cars"
+      :config="{
+        customTags: false
+      }"
+      importFilterName="MYGARAGE_INTERNALFILTER_IMPORT"
+      ref="myGarageFilter"
+      ridsMutationName="FILTER_PACKS_LIMITS"
+      @clearFilterUpdate="newGroupFinish($event)"
+    />
 
 
     <BaseDialog
@@ -144,9 +302,10 @@
             <span>{{ $t("m_cancel") }}</span>
           </button>
           <button
-            :class="`${ loading ? 'D_Button_Loading ' : '' }`+
+            v-if="confirmDelete.action"
+            :class="`${ confirmDelete.loading ? 'D_Button_Loading ' : '' }`+
                     `${ confirmDelete.classe }`"
-            :disabled="loading"
+            :disabled="confirmDelete.loading"
             class="D_Button Main_OptionsButton"
             @click="confirmDelete.action">
             <span>{{ confirmDelete.actionLabel }}</span>
@@ -155,28 +314,6 @@
       </div>
     </BaseDialog>
 
-
-    <BaseFilterDialog
-      v-model="myGarageFilterDialog"
-      :filterOnly="true"
-      :all_cars="all_cars"
-      :config="{
-        classes: false,
-        rq: false,
-        topSpeed: false,
-        acel: false,
-        hand: false,
-        weight: false,
-        prizes: false,
-        customTags: false,
-        brake: false,
-        tcs: false,
-        abs: false
-      }"
-      importFilterName="MYGARAGE_INTERNALFILTER_IMPORT"
-      ref="myGarageFilter"
-      ridsMutationName="FILTER_PACKS_LIMITS"
-    />
   </div>
 </template>
 
@@ -221,9 +358,17 @@ class groupStats {
     this.highLoseRate = new hlCar(0, "%");
     this.oldest = new hlCar(0, " days");
     this.oldestNoUse = new hlCar(0, " days");
+    this.lessUseDay = new hlCar(null);
     this.mostUseDay = new hlCar(0, "/day");
     this.mostWinDay = new hlCar(0, "/day");
     this.mostLoseDay = new hlCar(0, "/day");
+  }
+}
+class timeline {
+  constructor(monthIndex) {
+    this.monthIndex = monthIndex;
+    this.prizes = [];
+    this.nonPrizes = [];
   }
 }
 
@@ -246,14 +391,18 @@ export default {
     return {
       loading: false,
       lastestLoading: false,
+      screen: "normal",
+      animation: false,
       user: null,
+      responseText: "",
       all_cars,
       all_cars_obj: {},
       highlightsUsers: {},
       carsReady: false,
       userGarage: {},
       myGarageFilterDialog: false,
-      resolvedGuids: {},
+      resolvedRids: {},
+      guidToRid: {},
       unsubscribe: null,
       saved: false,
       confirmDelete: {
@@ -264,19 +413,37 @@ export default {
         loading: false,
         classe: ""
       },
+      editGroupIndex: -1,
       saved: false,
       blankFilterStr: "",
+      pngLoading: false,
+      pngIndex: -1,
       userHighlights: [
+        {
+          fixed: true,
+          filter: { newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
+          t: new groupStats(),
+          title: "My cars of 2024",
+          specialTitle: true
+        },
+        {
+          fixed: true,
+          filter: { classesModel: ["S"], newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
+          tl: Array.from({length: 12}, (_, i) => new timeline(i)),
+          title: "2024 S Timeline",
+          specialTitle: true
+        },
+        {
+          divider: true,
+          share: true
+        },
         {
           fixed: true,
           filter: {},
           t: new groupStats(),
-          r: new rarityStats()
-        },
-        {
-          fixed: true,
-          filter: { newerThan: "2024-01-01T00:00:00.000Z" },
-          t: new groupStats()
+          r: new rarityStats(),
+          title: "Garage",
+          specialTitle: true
         },
         {
           filter: { classesModel: ["S"] },
@@ -290,30 +457,26 @@ export default {
           filter: { classesModel: ["B"] },
           t: new groupStats()
         },
-        // {
-        //   fixed: true,
-        //   filter: { classesModel: ["C"] },
-        //   t: new groupStats(),
-        //   r: new rarityStats()
-        // },
-        // {
-        //   fixed: true,
-        //   filter: { classesModel: ["D"] },
-        //   t: new groupStats(),
-        //   r: new rarityStats()
-        // },
-        // {
-        //   fixed: true,
-        //   filter: { classesModel: ["E"] },
-        //   t: new groupStats(),
-        //   r: new rarityStats()
-        // },
-        // {
-        //   fixed: true,
-        //   filter: { classesModel: ["F"] },
-        //   t: new groupStats(),
-        //   r: new rarityStats()
-        // },
+        {
+          filter: { classesModel: ["C"] },
+          t: new groupStats()
+        },
+        {
+          filter: { classesModel: ["D"] },
+          t: new groupStats()
+        },
+        {
+          filter: { classesModel: ["E"] },
+          t: new groupStats()
+        },
+        {
+          filter: { classesModel: ["F"] },
+          t: new groupStats()
+        },
+        {
+          filter: { classesModel: ["A", "B", "C", "D", "E", "F"], prizesModel: ["Prize Cars"] },
+          t: new groupStats()
+        },
         // { filter: { tyresModel: ["Performance"] }, t: new groupStats() },
         { filter: { tyresModel: ["Standard"] }, t: new groupStats() },
         { filter: { tyresModel: ["All-surface"] }, t: new groupStats() },
@@ -321,10 +484,10 @@ export default {
         // { filter: { tyresModel: ["Slick"] }, t: new groupStats() },
         // { filter: { drivesModel: ["FWD"] }, t: new groupStats() },
         // { filter: { drivesModel: ["RWD"] }, t: new groupStats() },
-        { filter: { drivesModel: ["4WD"] }, t: new groupStats() },
+        // { filter: { drivesModel: ["4WD"] }, t: new groupStats() },
         // { filter: { clearancesModel: ["Low"] }, t: new groupStats() },
         { filter: { clearancesModel: ["Mid"] }, t: new groupStats() },
-        { filter: { clearancesModel: ["High"] }, t: new groupStats() },
+        // { filter: { clearancesModel: ["High"] }, t: new groupStats() },
         { filter: { countrysModel: ["US"] }, t: new groupStats() },
         { filter: { countrysModel: ["DE"] }, t: new groupStats() },
         { filter: { countrysModel: ["JP"] }, t: new groupStats() },
@@ -350,13 +513,12 @@ export default {
   },
   watch: {},
   beforeCreate() {
+    window.localStorage.setItem("myGarage_1", "t");
     console.log(`${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
   },
   beforeMount() {
     this.user = this.$store.state.user;
     this.getLastest();
-
-    
   },
   mounted() {
     let vm = this;
@@ -377,12 +539,14 @@ export default {
 
     this.generateBlankFilter();
 
-    { // TEMP
-    var t0 = performance.now();
-    this.processSyncObj(myGarage);
-    var t1 = performance.now();
-    console.log(`${Math.round(t1 - t0)} ms • ${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
+    if (false) { // TEMP
+      var t0 = performance.now();
+      this.processSyncObj(myGarage);
+      var t1 = performance.now();
+      console.log(`${Math.round(t1 - t0)} ms • ${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
     }
+
+    this.$store.commit("START_LOGROCKET", {});
     
   },
   beforeDestroy() {
@@ -402,7 +566,10 @@ export default {
       return true;
     },
     editEnabled() {
-      return this.user && this.user.username && (this.$route.name === "BaseMyGarage" || this.$route.params.username === this.user.username || this.user.username === "TiagoXavi");
+      return this.user && this.user.username && (this.$route.name === "BaseMyGarage" || this.$route.params.username === this.user.username);
+    },
+    pngLabel() {
+      return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
     },
   },
   methods: {
@@ -436,7 +603,9 @@ export default {
         }
 
 
-        this.load();
+        if (!this.loading && !this.userGarage.date) {
+          this.load();
+        }
 
 
       })
@@ -452,24 +621,21 @@ export default {
       }, 10);
     },
     load() {
-      return;
       if (!this.userId) return;
       this.loading = true;
 
-      axios.get(Vue.preUrlCharlie + `/garage/${this.userId}`)
+      axios.post(Vue.preUrlCharlie + "/getGarage", {
+        username: this.userId,
+        year: 2024
+      })
       .then(res => {
         this.loading = false;
         this.saved = false;
-        if (res.data && res.data.cars) {
+        if (res.data && res.data.value) {
 
-          // this.cars = res.data.cars;
-          // this.cars.map(car => {
-          //   if (car.rid) {
-          //   }
-          //   if (car.videoUrl) {
-          //     car.videoUrl = car.videoUrl.replace("http://", "https://");
-          //   }
-          // })
+          this.userGarage = res.data.value;
+
+          this.processPlayerDeckStep2();
 
         } else {
           // 404
@@ -489,7 +655,7 @@ export default {
     save() {
       this.loading = true;
 
-      axios.post(Vue.preUrl + "/updateGarage", params)
+      axios.post(Vue.preUrl + "/setGarage", this.userGarage)
       .then(res => {
         this.loading = false;
         this.$store.commit("DEFINE_SNACK", {
@@ -498,8 +664,11 @@ export default {
           text: this.$t('m_saveSuccess')
         });
         this.saved = true;
-
-        // 
+        this.responseText = "";
+        
+        // finish
+        this.processPlayerDeckStep2();
+        this.changeScreen('normal');
 
       })
       .catch(error => {
@@ -513,14 +682,14 @@ export default {
         });
       })
     },
-    addToResolvedGuids(guid) {
-      if (!this.resolvedGuids[guid]) {
-        let preCar = this.all_cars_obj[guid];
+    addToResolvedRids(rid) {
+      if (!this.resolvedRids[rid]) {
+        let preCar = this.all_cars_obj[rid];
         if (preCar) {
           preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
           preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
           preCar.photo = this.cgResolvePhotoUrl(preCar);
-          this.resolvedGuids[guid] = preCar;
+          this.resolvedRids[rid] = preCar;
         }
       }
     },
@@ -532,32 +701,20 @@ export default {
         return ''
       }
     },
-    askDelete() {
-      let vm = this;
-
-      let action = function() {
-        //
-      }
-
-      this.confirmDelete = {
-        dialog: true,
-        msg: `Delete item '${item.name}'?`,
-        actionLabel: `Delete`,
-        action: action,
-        loading: false,
-        classe: `D_ButtonRed`
-      }
-    },
     processSyncObj(obj) {
       let isError;
       { // validation
         if (typeof obj !== "object") isError = "Not object";
         if (!obj.serverTime) isError = "No basic property";
         if (!obj.user) isError = "No user property";
-        if (!obj.playerDeck || obj.playerDeck.length < 1) isError = "No playerDeck";
         if (!obj.wishlists || obj.wishlists.length !== 1) isError = "No wishlists";
         if (!obj.dailyGift) isError = "No dailyGift";
+        if (!obj.playerDeck || obj.playerDeck.length < 1) isError = "No playerDeck";
         if (isError) {
+          if (isError === "No playerDeck") {
+            this.noPlayerDeck();
+            return;
+          }
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             error: true,
@@ -583,45 +740,59 @@ export default {
         wishlists: obj.wishlists[0]
       };
 
+      if (!this.carsReady) this.transformAllCarsToObj();
       this.userGarage.playerDeck = this.processPlayerDeck(obj.playerDeck);
+
+      // console.log(this.userGarage);
+      return true;
     },
     processPlayerDeck(deck) {
       let result = [];
-      if (!this.carsReady) this.transformAllCarsToObj();
 
       deck.map((hCar, icar) => {
-        let tuneZ = this.resolveTuneZ(hCar)
+        this.addToResolvedRids(this.guidToRid[hCar.cardId]);
+        let tuneZ = this.resolveTuneZ(hCar);
+
         let item = {
-          id: icar,
-          cardId: hCar.cardId,
-          selectedTuneZ: tuneZ,
-          selectedTune: this.resolveTune(hCar, tuneZ),
-          locked: hCar.locked,
-          date: hCar.holdExpiresAt,
-          fuseCompletesAt: hCar.fuseCompletesAt,
-          cardWins: hCar.cardWins,
-          cardLosses: hCar.cardLosses,
-          cardDraws: hCar.cardDraws,
-          legacyTier: hCar.legacyTier
+          // tun: this.resolveTune(hCar, tuneZ),
+          // locked: hCar.locked,
+          // fuseCompletesAt: hCar.fuseCompletesAt,
+          // legT: hCar.legacyTier,
+          rid: this.guidToRid[hCar.cardId],
+          tunZ: tuneZ,
+          date: hCar.holdExpiresAt.slice(0,10),
+          cW: hCar.cardWins,
+          cL: hCar.cardLosses,
+          cD: hCar.cardDraws
         }
         result.push(item);
-
-
-
-        // temp?
-        this.addToResolvedGuids(hCar.cardId);
-        if (icar < 500 || true) {
-          this.updateHighLights(item);
-        }
       })
-
-      this.finishProcessPlayerDeck();
 
       return result;
     },
+    processPlayerDeckStep2() {
+      if (!this.carsReady) this.transformAllCarsToObj();
+
+      this.userGarage.playerDeck.map((hCar, icar) => {
+
+        hCar.id = icar;
+        hCar.tun = this.resolveTune(hCar, hCar.tuneZ);
+
+        this.addToResolvedRids(hCar.rid);
+
+
+        if (icar < 500 || true) {
+          this.updateHighLights(hCar);
+        }
+      })
+
+      this.userGarage.loaded = true;
+
+      this.finishProcessPlayerDeck();
+    },
     updateHighLights(hCar) {
       this.userHighlights.map(hlItem => {
-        this.updateHLItem(hlItem, hCar);
+        if (!hlItem.divider) this.updateHLItem(hlItem, hCar);
       })
     },
     updateHLItem(hlItem, hCar) {
@@ -634,70 +805,91 @@ export default {
       // console.log("passei");
 
       let matchSpecial = true;
-      if (hlItem.filter && hlItem.filter.newerThan) {
+      let forceMatch = false;
+      let match = false;
+      if (hlItem.filter && hlItem.filter.newerThan) { // newerThan
         if (new Date(hlItem.filter.newerThan) > new Date(hCar.date)) {
+          matchSpecial = false;
+        }
+      }
+      if (hlItem.filter && hlItem.filter.olderThan) { // olderThan
+        if (new Date(hlItem.filter.olderThan) < new Date(hCar.date)) {
           matchSpecial = false;
         }
       }
       if (!matchSpecial) return;
 
+      if (hlItem.filter.forcePrize && this.resolvedRids[hCar.rid].prize) {
+        forceMatch = true;
+      } else {
+        match = this.matchFilter(this.resolvedRids[hCar.rid], hlItem.filter);
+      }
 
-      let match = this.matchFilter(this.resolvedGuids[hCar.cardId], hlItem.filter);
-      if (match) {
+
+      if (match || forceMatch) {
         if (hlItem.r) { // rarity things
           hlItem.r["carCount"]++;
-          if (this.resolvedGuids[hCar.cardId].prize) {
+          if (this.resolvedRids[hCar.rid].prize) {
             hlItem.r["prizes"]++;
           } else {
             hlItem.r["nonPrizes"]++;
           }
-          if (hCar.selectedTuneZ === "996") hlItem.r["count332"]++;
-          if (hCar.selectedTuneZ === "969") hlItem.r["count323"]++;
-          if (hCar.selectedTuneZ === "699") hlItem.r["count233"]++;
-          if (hCar.selectedTuneZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) {
+          if (hCar.tunZ === "996") hlItem.r["count332"]++;
+          if (hCar.tunZ === "969") hlItem.r["count323"]++;
+          if (hCar.tunZ === "699") hlItem.r["count233"]++;
+          if (hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) {
             hlItem.r["fullyUpgraded"]++;
           }
         }
-        
-        // return;
-        let usedTimes = hCar.cardWins+hCar.cardLosses+hCar.cardDraws;
-        let ageInMinutes = (new Date() - new Date(hCar.date)) / 1000 / 60;
-        
 
-        Object.keys(hlItem.t).map(key => {
-          if (key === "mostWins") {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardWins, true, usedTimes);
-          };
-          if (key === "mostLoses") {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardLosses, true, usedTimes);
-          };
-          if (key === "mostUsed") {
-            this.compareHlItemBest(hlItem.t, key, hCar, usedTimes, true, usedTimes);
-          };
-          if (key === "highWinRate" && hCar.cardWins > 20) {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardWins/usedTimes*100, true, usedTimes);
-          };
-          if (key === "highLoseRate" && hCar.cardLosses > 20) {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardLosses/usedTimes*100, true, usedTimes);
-          };
+        if (hlItem.t) {
+          let usedTimes = hCar.cW+hCar.cL+hCar.cD;
+          let ageInMinutes = (new Date() - new Date(hCar.date)) / 1000 / 60;
+  
+          Object.keys(hlItem.t).map(key => {
+            if (key === "mostWins") {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW, true, usedTimes);
+            };
+            if (key === "mostLoses") {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL, true, usedTimes);
+            };
+            if (key === "mostUsed") {
+              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes, true, usedTimes);
+            };
+            if (key === "highWinRate" && hCar.cW > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/usedTimes*100, true, usedTimes);
+            };
+            if (key === "highLoseRate" && hCar.cL > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/usedTimes*100, true, usedTimes);
+            };
+  
+            if (key === "oldest") {
+              this.compareHlItemBest(hlItem.t, key, hCar, ageInMinutes, true, usedTimes);
+            };
+            if (key === "oldestNoUse" && usedTimes === 0) {
+              this.compareHlItemBest(hlItem.t, key, hCar, ageInMinutes, true, usedTimes);
+            };
+            if (key === "lessUseDay" && usedTimes > 0) {
+              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/(ageInMinutes / 60 / 24), false, usedTimes);
+            };
+            if (key === "mostUseDay") {
+              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/(ageInMinutes / 60 / 24), true, usedTimes);
+            };
+            if (key === "mostWinDay") {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/(ageInMinutes / 60 / 24), true, usedTimes);
+            };
+            if (key === "mostLoseDay") {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/(ageInMinutes / 60 / 24), true, usedTimes);
+            };
+            
+          })
+        }
 
-          if (key === "oldest") {
-            this.compareHlItemBest(hlItem.t, key, hCar, ageInMinutes, true, usedTimes);
-          };
-          if (key === "oldestNoUse" && usedTimes === 0) {
-            this.compareHlItemBest(hlItem.t, key, hCar, ageInMinutes, true, usedTimes);
-          };
-          if (key === "mostUseDay") {
-            this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/(ageInMinutes / 60 / 24), true, usedTimes);
-          };
-          if (key === "mostWinDay") {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardWins/(ageInMinutes / 60 / 24), true, usedTimes);
-          };
-          if (key === "mostLoseDay") {
-            this.compareHlItemBest(hlItem.t, key, hCar, hCar.cardLosses/(ageInMinutes / 60 / 24), true, usedTimes);
-          };
-          
-        })
+        if (hlItem.tl) {
+          let monthIndex = Number(hCar.date.substr(5,2)) - 1;
+          let prizeKey = this.resolvedRids[hCar.rid].prize ? "prizes" : "nonPrizes";
+          hlItem.tl[monthIndex][prizeKey].push(hCar);
+        }
 
       }
     },
@@ -727,9 +919,10 @@ export default {
       }
     },
     transformAllCarsToObj() {
-      let key = "guid";
+      let key = "rid";
       all_cars.map(car => {
         this.all_cars_obj[car[key]] = car;
+        this.guidToRid[car.guid] = car.rid;
       });
       this.carsReady = true;
     },
@@ -751,7 +944,7 @@ export default {
         tuneZ === "969" ||
         tuneZ === "699"
       ) {
-        res = Number(tuneZ / 3)
+        res = `${tuneZ[0] / 3}${tuneZ[1] / 3}${tuneZ[2] / 3}`
       }
 
       // let arr = tuneZ.split("");
@@ -773,28 +966,45 @@ export default {
     },
     finishProcessPlayerDeck() {
       this.userHighlights.map(hlItem => {
-        if (hlItem.t) {
-          hlItem.t["oldest"].v = hlItem.t["oldest"].v / 60 / 24; // convert minutes to days
-          hlItem.t["oldestNoUse"].v = hlItem.t["oldestNoUse"].v / 60 / 24; // convert minutes to days
-
-          {
-            let C = hlItem.t["highWinRate"].car;
-            hlItem.t["highWinRate"].sub = `${C.cardWins} wins, ${C.cardWins + C.cardLosses + C.cardDraws} uses`;
-          }
-          {
-            let C = hlItem.t["highLoseRate"].car;
-            hlItem.t["highLoseRate"].sub = `${C.cardLosses} loses, ${C.cardWins + C.cardLosses + C.cardDraws} uses`;
-          }
-        }
+        this.finishProcessPlayerDeckItem(hlItem);
       })
+    },
+    finishProcessPlayerDeckItem(hlItem) {
+      if (hlItem.t) {
+        hlItem.t["oldest"].v = hlItem.t["oldest"].v / 60 / 24; // convert minutes to days
+        hlItem.t["oldestNoUse"].v = hlItem.t["oldestNoUse"].v / 60 / 24; // convert minutes to days
+
+        {
+          let C = hlItem.t["highWinRate"].car;
+          hlItem.t["highWinRate"].sub = `${C.cW} wins, ${C.cW + C.cL + C.cD} uses`;
+        }
+        {
+          let C = hlItem.t["highLoseRate"].car;
+          hlItem.t["highLoseRate"].sub = `${C.cL} loses, ${C.cW + C.cL + C.cD} uses`;
+        }
+        {
+          let C = hlItem.t["lessUseDay"].car;
+          hlItem.t["lessUseDay"].v = `${C.cW + C.cL + C.cD}/${Math.round((new Date() - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
+        }
+      }
+      if (hlItem.tl) {
+        hlItem.tl.sort((a,b) => {
+          return new Date(a.date) - new Date(b.date);
+        })
+      }
     },
     matchFilter(car, context) {
 
       // between
       if ( context.yearModel && !this.filterCheckBetween(car.year, context.yearModel) ) return false;
-      if (context.seatsModel && JSON.stringify(this.defaultFilters("seatsModel")) !== JSON.stringify(context.seatsModel)) {
-        if ( !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
-      }
+      if ( context.rqModel && !this.filterCheckBetween(car.rq, context.rqModel) ) return false;
+      if ( context.topSpeedModel && !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return false;
+      if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
+      if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return false;
+      if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
+      if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
+      if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
+      if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
 
       // includes
       if ( context.classesModel && !this.filterCheckIncludes(car.class, context.classesModel) ) return false;
@@ -802,12 +1012,19 @@ export default {
       if ( context.drivesModel && !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
       if ( context.clearancesModel && !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
       if ( context.countrysModel && !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
+      if ( context.year2Model && !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
+      if ( context.seats2Model && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
 
       if ( context.fuelModel && !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
       if ( context.engineModel && !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
+      if ( context.brakeModel && !this.filterCheckIncludes(car.brake, context.brakeModel) ) return false;
+      if ( context.tcsModel && !this.filterCheckIncludes(car.tcs, context.tcsModel) ) return false;
+      if ( context.absModel && !this.filterCheckIncludes(car.abs, context.absModel) ) return false;
 
       if ( context.bodyTypesModel && !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
       if ( context.tagsModel && !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
+      if ( context.tags2Model && !this.filterCheckIncludesArray(car.tags, (context.tags2Model || []), car.rid) ) return false;
+      if ( context.tags3Model && !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
       if ( context.brandsModel && !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
       if ( context.prizesModel && context.prizesModel.length > 0 ) {
@@ -853,16 +1070,212 @@ export default {
     generateBlankFilter() {
       this.$refs.myGarageFilter.clearFilter();
       this.blankFilterStr = JSON.stringify(this.$refs.myGarageFilter.searchFilters);
-    }
+    },
     // matchFilterAttr(car) {
     //   if (!this.$refs.attrFilter.checkMatchFilter(car)) return false;
     //   if (!car.prize) return true;
     // },
+    newGroup() {
+      this.$refs.myGarageFilter.clearFilter();
+      this.myGarageFilterDialog = true;
+      this.editGroupIndex = -1;
+    },
+    newGroupFinish(filter) {
+      this.myGarageFilterDialog = false;
+      if (this.editGroupIndex > -1) {
+        this.userHighlights.splice(this.editGroupIndex, 1, {
+          filter: filter,
+          t: new groupStats()
+        })
+      } else {
+        this.userHighlights.push({
+          filter: filter,
+          t: new groupStats()
+        })
+      }
+      this.editGroupIndex = this.userHighlights.length - 1;
+
+      this.resolveHLByIndex(this.editGroupIndex);
+      this.editGroupIndex = -1;
+
+    },
+    resolveHLByIndex(index) {
+      this.userGarage.playerDeck.map(hCar => {
+        this.updateHLItem(this.userHighlights[index], hCar);
+      })
+      this.finishProcessPlayerDeckItem(this.userHighlights[index]);
+    },
+    sharePrint(index) {
+      this.tempWindowWidth = this.windowWidth;
+      this.windowWidth = 1000;
+      this.pngLoading = true;
+      this.pngIndex = index;
+      window.scrollTo({ top: 0 });
+      let vm = this;
+      let _width;
+      let _height;
+      let c_container = document.querySelector('#App_PrintContainer');
+      let currentCanvas = document.querySelector('#printCanvas');
+
+      let boxName = ".BaseMyGarage_Layout";
+      let pose = document.querySelector(boxName);
+      pose.classList.add("Main_BodyPrint");
+
+      setTimeout(() => {
+
+        _width = (pose.clientWidth) * 1.3;
+        _height = (pose.clientHeight) * 1.3;
+
+
+        let options = {
+          backgroundColor: "#333",
+          canvas: currentCanvas,
+          scale: 1.3,
+          width: _width,
+          height: _height,
+          windowWidth: _width,
+          windowHeight: _height,
+        }
+
+        currentCanvas.setAttribute("width", `${_width}`);
+        currentCanvas.setAttribute("height", `${_height}`);
+
+        this.runSharePrint(pose, options, c_container, currentCanvas, boxName);
+      }, 10);
+
+    },
+    runSharePrint(pose, options, c_container, currentCanvas, boxName) {
+      let vm = this;
+
+      import('html2canvas').then(html2canvas => {
+
+        html2canvas.default(pose, options).then(function(canvas) {
+
+          import('reimg').then(reimg => {
+            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
+
+            document.querySelector(boxName).classList.remove("Main_BodyPrint");
+            vm.windowWidth = vm.tempWindowWidth;
+            vm.pngLoading = false;
+            let index = vm.pngIndex;
+            vm.pngIndex = -1;
+            
+            setTimeout(() => {
+              let el = document.querySelector(`.BaseMyGarage_HLItem:nth-child(${index+1})`);
+              window.scrollTo({ top: el.offsetTop - (window.innerHeight * 0.35) });
+            }, 10);
+
+          }).catch(e => {console.log("load reimg failed", e)});
+
+        });
+
+      }).catch(e => {console.log("load html2canvas failed", e)})
+
+
+    },
+    changeScreen(screen) {
+      this.animation = true;
+      this.screen = '_';
+      this.$nextTick().then(() => {
+        this.screen = screen;
+      })
+    },
+    validateText(forceText) {
+      let obj;
+      let isParsed = false;
+      try {
+        obj = JSON.parse(forceText || this.responseText);
+        isParsed = true;
+      } catch (error) {
+        console.log(error);
+      }
+
+      if (!isParsed) {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: "Parse error",
+          type: "error"
+        });
+        return;
+      }
+
+      this.userGarage = {};
+
+      let success = this.processSyncObj(obj);
+      if (success) {
+        this.save()
+      }
+    },
+    interceptPaste(e) {
+      if (e) {
+        e.preventDefault();
+        let text = e.clipboardData.getData('text');
+        
+        this.validateText(text)
+      }
+    },
+    askDelete() {
+      let vm = this;
+
+      let action = function() {
+        vm.deleteTimeline();
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Delete garage?`,
+        actionLabel: `Delete`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+    },
+    deleteTimeline() {
+      this.confirmDelete.loading = true;
+
+      axios.post(Vue.preUrl + "/deleteGarage", {
+        date: this.userGarage.date
+      })
+      .then(res => {
+        this.confirmDelete.loading = false;
+        this.confirmDelete.dialog = false;
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: this.$t('m_saveSuccess')
+        });
+      })
+      .catch(error => {
+        this.confirmDelete.loading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+    },
+    noPlayerDeck() {
+      this.confirmDelete = {
+        dialog: true,
+        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again. You need to make a change in any car on another device to force the game to re-download your garage.`,
+        actionLabel: `Cancel`,
+        action: null,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
+    },
   },
 }
 </script>
 
 <style>
+.BaseMyGarage_Layout {
+  margin-top: 20px;
+}
 .BaseMyGarage_CardBox {
   width: 300px;
   height: 186px;
@@ -902,14 +1315,28 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
-.BaseMyGarage_HLItem {
-
+.BaseMyGarage_HLItem:last-child {
+  padding-bottom: 70px;
 }
 .BaseMyGarage_HLItem:not(:first-child) {
-  margin-top: 30px;
+  margin-top: 70px;
+}
+.BaseMyGarage_FilterLayout {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 7px;
 }
 .BaseMyGarage_FilterBox {
-  margin-bottom: 7px;
+  flex-grow: 1;
+}
+.BaseMyGarage_FilterBox:not(:last-child) {
+  padding-left: 49px;
+}
+.D_Button.BaseMyGarage_Camera {
+  padding: 11px 11px;
+  background-color: rgba(255, 255, 255, 0.03);
+  align-self: center;
 }
 .BaseMyGarage_RarityStatsBox {
   /* display: grid;
@@ -993,4 +1420,211 @@ export default {
 .BaseMyGarage_RarityStatsCard {
   padding: 8px 0px;
 }
+.BaseMyGarage_AddGroupBox {
+  padding-top: 140px;
+  padding-bottom: 160px;
+}
+.BaseMyGarage_AddGroupButton {
+  --back-color: 65, 53, 22;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 1);
+  color: rgb(var(--d-text-yellow));
+  font-size: 22px;
+  border-radius: 6px;
+  padding: 18px 37px;
+  min-height: calc(var(--height)* 0.8);
+  gap: 3px;
+}
+.BaseMyGarage_TimelineItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+}
+.BaseMyGarage_MonthLeft {
+  padding: 6px 16px;
+  background-color: #374a21;
+  border-radius: 6px;
+  position: relative;
+  color: rgb(var(--d-text-green));
+}
+.BaseMyGarage_MonthTop,
+.BaseMyGarage_MonthMid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  display: contents;
+}
+.BaseMyGarage_MonthTop {
+  
+}
+.BaseMyGarage_MonthTop .Row_DialogCardCard2 {
+  box-shadow: 0px 0px 0px 2px var(--class-color);
+}
+.BaseMyGarage_MonthTop .MainFindCar_BankPhoto {
+  /* box-shadow: 0px 0px 0px 2px var(--color); */
+  border: 2px solid var(--color);
+  box-sizing: border-box;
+}
+.BaseMyGarage_MonthRight .MainFindCar_BankPhoto {
+  border-radius: 3px;
+  height: 45px;
+  width: 94px;
+}
+.BaseMyGarage_MonthRight .MainFindCar_RQ {
+  border-bottom-left-radius: 3px;
+}
+.BaseMyGarage_MonthRight {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* .Main_BodyPrint .BaseMyGarage_MonthRight { */
+/* .BaseMyGarage_MonthRight {
+  column-fill: balance;
+  column-width: 94px;
+  width: 100%;
+  column-gap: 5px;
+  text-align: center;
+} */
+
+.BaseMyGarage_TimelineItem .Row_DialogCardCard2 {
+  --width: 180px !important;
+  --height: 111px !important;
+  --card-font-size: 9px;
+  border-radius: 5px;
+  margin: 0;
+}
+.BaseMyGarage_Share {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+.BaseMyGarage_HLItemDivider {
+  font-size: 70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  opacity: 0.1;
+}
+.BaseMyGarage_FilterBoxSpecial {
+  margin-bottom: -7px;
+  height: 70px;
+  --diff: 0px;
+  overflow: hidden;
+  --opacity: 0.18;
+  position: relative;
+}
+.BaseMyGarage_FilterBoxSpecial .BaseFilterDescription_Item {
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 60px;
+  line-height: 1;
+  position: relative;
+  padding: 0;
+  /* font-weight: bold; */
+  margin-top: var(--diff);
+  font-family: 'Roboto Condensed';
+}
+.BaseMyGarage_DividerBackLight {
+  background: radial-gradient(rgba(var(--light), var(--opacity)) 0%, rgba(var(--light), 0) 60%);
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 150%;
+  bottom: -95%;
+  right: 0;
+  background-repeat: no-repeat;
+}
+.BaseMyGarage_UserBottom {
+  display: flex;
+  gap: 6px;
+  text-transform: uppercase;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0.4;
+}
+.MainTimeline_InitAnimation {
+  animation: screen_anim 0.2s linear forwards;
+  animation-timing-function: cubic-bezier(0, 0.46, 0.49, 0.99);
+}
+.BaseMyGarage_TextBox {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.Main_BodyPrint.BaseMyGarage_Layout {
+  width: 1000px;
+}
+.Main_BodyPrint .BaseMyGarage_Share,
+.Main_BodyPrint .BaseMyGarage_AddGroupBox {
+  display: none;
+}
+.Main_BodyPrint .BaseMyGarage_HLBox {
+  padding-bottom: 80px;
+}
+
+.BaseMyGarage_LoadingBox {
+  padding-bottom: 70px;
+}
+.BaseMyGarage_LoadingUsername,
+.BaseMyGarage_LoadingTitle,
+.BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem {
+  animation: pulse 1s infinite ease-in-out;
+  border-radius: 5px;
+}
+.BaseMyGarage_LoadingUsername {
+  width: 200px;
+  margin: 50px auto;
+  height: 100px;
+}
+.BaseMyGarage_LoadingTitle {
+  height: 70px;
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto 20px auto;
+}
+.BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem {
+  height: 204px;
+}
+
+
+/* @media only screen and (min-width: 860px) {
+  .BaseMyGarage_RarityStatsBoxCars {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+        "a a a a b b b b c c c c"
+        "d d d e e e f f f g g g"
+        "h h h h i i i i j j j j";
+  }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(1) { grid-area: a; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(2) { grid-area: b; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(3) { grid-area: c; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(4) { grid-area: d; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(5) { grid-area: e; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(6) { grid-area: f; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(7) { grid-area: g; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(8) { grid-area: h; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(9) { grid-area: i; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(10) { grid-area: j; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(11) { grid-area: k; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(12) { grid-area: l; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(13) { grid-area: m; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(14) { grid-area: n; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(15) { grid-area: o; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(16) { grid-area: p; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(17) { grid-area: q; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(18) { grid-area: r; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(19) { grid-area: s; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(20) { grid-area: t; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(21) { grid-area: u; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(22) { grid-area: v; }
+  .BaseMyGarage_RarityStatsBoxCars > :nth-child(23) { grid-area: w; }
+} */
 </style>

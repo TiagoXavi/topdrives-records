@@ -209,43 +209,10 @@ export default {
   margin: 0 auto;
   margin-top: 17px;
 }
-.MainFindCar_BankPhoto {
-  display: flex;
-  height: 42px;
-  min-width: 53px;
-  border-radius: 0 3px 3px 0;
-  overflow: hidden;
-  background-color: #00000038;
-  margin-right: 0;
-  width: 85px;
-}
-.MainFindCar_BankPhotoImg {
-  transform: scale(1.2) translateX(7px) translateY(-6px);
-  height: 140%;
-}
-.MainFindCar_CarCard {
-  position: relative;
-}
 .MainFindCar_Car {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-.MainFindCar_RQ {
-  display: flex;
-  color: #000;
-  background-color: var(--color);
-  height: 20px;
-  justify-content: center;
-  width: 19px;
-  font-weight: 700;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  line-height: 21px;
-  border-top-right-radius: 4px;
-  padding-right: 1px;
-  font-size: 15px;
 }
 .MainFindCar_Desc {
   flex-grow: 1;

@@ -163,7 +163,7 @@ const routes = [
     component: BaseMyGarage,
   },
   {
-    path: '/user/:username',
+    path: '/garage/:username',
     name: 'BaseMyGarageUser',
     component: BaseMyGarage,
   },
@@ -236,6 +236,7 @@ if (process.env.NODE_ENV !== 'production') {
   const MainExtractTD = () => import("./components/MainExtractTD.vue");
   const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
   const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
+  const MainCRCContest = () => import("./components/MainCRCContest.vue");
 
   routes.push(
     {
@@ -282,6 +283,11 @@ if (process.env.NODE_ENV !== 'production') {
       path: '/MainCarsEdit', // internal
       name: 'MainCarsEdit',
       component: MainCarsEdit,
+    },
+    {
+      path: '/MainCRCContest', // internal
+      name: 'MainCRCContest',
+      component: MainCRCContest,
     },
   );
 }

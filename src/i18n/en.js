@@ -270,9 +270,12 @@ export default {
   m_highLoseRate: "Highest lose rate",
   m_oldestNoUse: "Oldest no use",
   m_mostUseDay: "Most use/day",
+  m_lessUseDay: "Less use/day",
   m_oldest: "Oldest",
   m_mostWinDay: "Most win/day",
   m_mostLoseDay: "Most lose/day",
+  m_newGroup: "New group",
+  m_uploadMyGarage: "Upload my garage",
 
 
   

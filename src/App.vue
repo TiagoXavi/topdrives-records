@@ -642,8 +642,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   color: #fffc;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
-.D_Button:active:not(.D_ButtonNoActive) {
+/* .D_Button:active:not(.D_ButtonNoActive) {
   transition-duration: 0.0s;
+  background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
+  transform: translateY(2px);
+} */
+.D_Button:active {
+  /* transition-duration: 0.0s; */
   background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
   transform: translateY(2px);
 }
@@ -3045,6 +3050,40 @@ body .Main_UserTw3:before {
 .Cg_ViewsCount:first-child {
   margin-left: 0px;
 }
+.MainFindCar_CarCard {
+  position: relative;
+}
+.MainFindCar_BankPhoto {
+  display: flex;
+  height: 42px;
+  min-width: 53px;
+  border-radius: 0 3px 3px 0;
+  overflow: hidden;
+  background-color: #00000038;
+  margin-right: 0;
+  width: 85px;
+}
+.MainFindCar_BankPhotoImg {
+  transform: scale(1.2) translateX(7px) translateY(-6px);
+  height: 140%;
+}
+.MainFindCar_RQ {
+  display: flex;
+  color: #000;
+  background-color: var(--color);
+  height: 20px;
+  justify-content: center;
+  width: 19px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 21px;
+  border-top-right-radius: 4px;
+  padding-right: 1px;
+  font-size: 15px;
+}
+
 
 
 
@@ -4331,6 +4370,7 @@ body .Main_UserTw3:before {
 }
 .MainShowcase_Title {
   font-size: 30px;
+  text-align: center;
 }
 .MainShowcase_TitleBox path {
   fill: currentColor;
@@ -4355,6 +4395,20 @@ body .Main_UserTw3:before {
 .MainShowcase_SaveBar {
   min-height: 160px;
   margin-bottom: 20px;
+}
+.MainTimeline_InitAnimation {
+  animation: screen_anim 0.2s linear forwards;
+  animation-timing-function: cubic-bezier(0, 0.46, 0.49, 0.99);
+}
+@keyframes screen_anim {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 </style>

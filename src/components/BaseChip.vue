@@ -165,10 +165,17 @@ export default {
   font-size: 1em;
   outline: none;
   color: var(--d-text-b);
+  --back-opac: 0.1;
+  --back-opac-foc: 0.3;
 }
-.BaseChip:hover,
-.BaseChip.focus-visible {
+.BaseChip:not(.D_ButtonActive):hover,
+.BaseChip:not(.D_ButtonActive).focus-visible {
   box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow));
+}
+.BaseChip.D_ButtonActive:hover,
+.BaseChip.D_ButtonActive.focus-visible {
+  /* box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow)); */
+  box-shadow: inset 0px -43px 25px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green)), 0px 0px 0px 2px rgb(var(--d-text-yellow));
 }
 /* .BaseChip_Active {
   color: var(--active-color);
@@ -181,9 +188,9 @@ export default {
 .BaseChip_Active.focus-visible {
   box-shadow: inset 0px 0px 0px 3px var(--active-color);
 } */
-.BaseChip:active:not(.D_ButtonActive) {
-  transition-duration: 0.0s;
-  background-color: rgba(var(--back-color), calc(var(--back-opac) * 2));
+.BaseChip:active {
+  /* transition-duration: 0.0s; */
+  /* background-color: rgba(var(--back-color), calc(var(--back-opac) * 2)); */
   transform: translateY(2px);
 }
 .BaseChip_MinWidth {

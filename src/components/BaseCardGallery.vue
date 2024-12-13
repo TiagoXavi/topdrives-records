@@ -179,6 +179,7 @@ export default {
   line-height: 1;
   background-color: unset;
   background-image: unset;
+  position: relative;
 }
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;
@@ -215,7 +216,7 @@ export default {
 .BaseCardGallery_Header .Car_HeaderBlockDrive {
   /* --card-top-height: 15%; */
   /* padding-top: calc(var(--height)* 0.035); */
-  margin-top: calc( (var(--card-stat-height) * 0.5) - (var(--card-font-size) * 1) - 6px );
+  margin-top: calc( (var(--card-stat-height) * 0.5) - (var(--card-font-size) * 1.3) - 6px );
   box-sizing: border-box;
 }
 .BaseCardGallery_Header {

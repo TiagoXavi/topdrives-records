@@ -2317,20 +2317,6 @@ export default {
   gap: 20px;
   align-items: center;
 }
-.MainTimeline_InitAnimation {
-  animation: screen_anim 0.2s linear forwards;
-  animation-timing-function: cubic-bezier(0, 0.46, 0.49, 0.99);
-}
-@keyframes screen_anim {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
 .MainTimeline_W800 {
   max-width: 800px;
   margin-left: auto;

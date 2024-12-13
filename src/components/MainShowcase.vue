@@ -496,7 +496,7 @@ export default {
 
     },
     prepareAddCarDialog(index) {
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
       this.carAddIndex = index;
       this.searchCarDialog = true;
     },

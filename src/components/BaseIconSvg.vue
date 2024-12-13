@@ -227,7 +227,7 @@ export default {
 .BaseIconSvg_Layout {
   display: flex;
 }
-.BaseIconSvg_Margin > svg {
+.BaseIconSvg_Margin > svg:not(.BaseIconSvg_Laurel) {
   margin-left: 3px;
 }
 .BaseIconSvg_Roll {
