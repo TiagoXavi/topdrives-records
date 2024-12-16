@@ -184,6 +184,9 @@ export default {
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;
 }
+.BaseCardGallery_Layout {
+  --factor: 6px;
+}
 .BaseCardGallery_Header > * {
   display: block;
 }
@@ -216,7 +219,7 @@ export default {
 .BaseCardGallery_Header .Car_HeaderBlockDrive {
   /* --card-top-height: 15%; */
   /* padding-top: calc(var(--height)* 0.035); */
-  margin-top: calc( (var(--card-stat-height) * 0.5) - (var(--card-font-size) * 1.3) - 6px );
+  margin-top: calc( (var(--card-stat-height) * 0.5) - (var(--card-font-size) * 1.3) - var(--factor) );
   box-sizing: border-box;
 }
 .BaseCardGallery_Header {

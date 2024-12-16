@@ -34,7 +34,7 @@
             @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
           <div v-else-if="(userGarage && userGarage.loaded) || !editEnabled" :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
             <BaseIconSvg type="laurel" />
-            <div class="MainShowcase_Title">{{ userGarage.socialName || userId }}</div>
+            <div class="MainShowcase_Title">{{ userId }}</div>
             <div v-if="userGarage.eloScore" class="BaseMyGarage_UserBottom">
               <div class="BaseMyGarage_UserBottomItem"><i class="ticon-trophy" style="font-size: 0.9em;" aria-hidden="true"/>{{ userGarage.eloScore }}</div>
               <div> • </div>
@@ -111,12 +111,20 @@
                       :emitDescResolved="false"
                       class="" />
                   </div>
-                  <button
-                    v-if="!pngLoading && userGarage.loaded"
-                    class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
-                    @click="sharePrint(ihl)">
-                    <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
-                  </button>
+                  <div class="BaseMyGarage_SideButtons">
+                    <button
+                      v-if="ihl === 0 && !pngLoading && userGarage.loaded && editEnabled"
+                      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                      @click="openConfig()">
+                      <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
+                    </button>
+                    <button
+                      v-if="!pngLoading && userGarage.loaded"
+                      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                      @click="sharePrint(ihl)">
+                      <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
+                    </button>
+                  </div>
                 </div>
                 
                 <div v-if="hl.r" class="BaseMyGarage_RarityStatsBox">
@@ -132,7 +140,9 @@
                 
                 <div v-if="hl.t" class="BaseMyGarage_RarityStatsBox BaseMyGarage_RarityStatsBoxCars">
                   <template v-for="(value, key, index) in hl.t">
-                    <div class="BaseMyGarage_RarityStatsItem">
+                    <button
+                      class="BaseMyGarage_RarityStatsItem BaseMyGarage_RarityStatsButton"
+                      @click="tileClick(hl, key)">
                       <div class="BaseMyGarage_RarityStatsCard">
                         <BaseCardGallery
                           v-if="value.car.rid"
@@ -156,7 +166,7 @@
                         <span v-else>({{ value.v }})</span>
                       </template> -->
 
-                    </div>
+                    </button>
                   </template>
                 </div>
                 
@@ -210,19 +220,6 @@
           <button class="D_Button BaseMyGarage_AddGroupButton" @click="newGroup()">
             <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
             <span class="">{{ $t('m_newGroup') }}</span>
-          </button>
-        </div>
-
-        <div v-if="userGarage && userGarage.loaded && editEnabled" class="D_Center2 BaseMyGarage_ManageFooter" style="padding-bottom: 30px;">
-          <button
-            class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="changeScreen('upload')">
-            <span>{{ $t("m_uploadMyGarage") }}</span>
-          </button>
-          <button
-            class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-            @click="askDelete()">
-            <span>{{ $t("m_delete") }}</span>
           </button>
         </div>
       </template>
@@ -314,6 +311,93 @@
       </div>
     </BaseDialog>
 
+    <BaseDialog
+      :active="configDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="configDialog = false;">
+      <div class="BaseMyGarage_ConfigDialogBox">
+        <div class="Main_DialogTitle" style="margin-bottom: 30px;">{{ $t('m_myGarage') }}</div>
+        <div class="BaseMyGarage_ConfigDialogTop">
+          <div v-for="item in privacyList" class="BaseMyGarage_PrivacyItem">
+            <BaseSwitch
+              :value="privacyModel === item"
+              :label="$t(`m_${item}`)"
+              :horizontal="true"
+              :disabled="privacyLoading"
+              :loading="privacyLoading"
+              @click="privacySet(item)" />
+            <div class="BaseMyGarage_DialogSubmitTypeSub">{{ $t(`p_${item}GarageDesc`) }}</div>
+          </div>
+        </div>
+        <div class="BaseMyGarage_ConfigDialogFooter D_Center2 Space_TopGiga">
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="changeScreen('upload')">
+            <span>{{ $t("m_updateGarage") }}</span>
+          </button>
+          <button
+            class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+            @click="askDelete()">
+            <span>{{ $t("m_delete") }}</span>
+          </button>
+        </div>
+      </div>
+    </BaseDialog>
+
+    <BaseDialog
+      :active="orderedDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="orderedDialog = false;">
+      <div v-if="orderedKey" class="BaseMyGarage_OrderedLayout">
+        <div class="BaseMyGarage_OrderedHeader">
+          <div class="Main_DialogTitle">{{ $tc(`m_${orderedKey}`,1) }}</div>
+        </div>
+        <RecycleScroller
+          :items="orderedList"
+          :item-size="111"
+          :emitUpdate="true"
+          key-field="id"
+          listClass="BaseMyGarage_CardsWrapper"
+          itemClass="BaseMyGarage_ScrollerItem"
+          class="Main_DarkScroll"
+          @scrollEnd="">
+          <template v-slot="{ item, index, active }">
+            <div class="BaseMyGarage_ListLayout">
+              <div class="BaseMyGarage_VerticalCardBox">
+                <BaseCardGallery
+                  :car="resolvedRids[item.car.rid]"
+                  :options="false"
+                  :tuneText="item.car.tun || item.car.tunZ"
+                  class="BaseMyGarage_GalleryCard" />
+              </div>
+              <div class="BaseMyGarage_OrderedRight">
+                <div class="BaseMyGarage_RarityStatsValue">
+                  <div class="BaseMyGarage_RarityStatsValueT">{{ typeof item.v === 'string' ? item.v : item.v % 1 != 0 ? item.v >= 100 ? Math.round(item.v) : Math.round(item.v * 10)/10 : item.v }}{{ orderedSuffix }}</div>
+                  <div v-if="item.sub" class="BaseMyGarage_RarityStatsSub">{{ item.sub }}</div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </RecycleScroller>
+        <!-- <div v-for="item in orderedList" class="BaseMyGarage_OrderedItem">
+          <div class="BaseMyGarage_RarityStatsCard">
+            <BaseCardGallery
+              :car="resolvedRids[item.car.rid]"
+              :options="false"
+              :tuneText="item.car.tun || item.car.tunZ"
+              class="BaseMyGarage_GalleryCard" />
+          </div>
+          <div class="BaseMyGarage_OrderedRight"></div>
+        </div> -->
+      </div>
+    </BaseDialog>
+
   </div>
 </template>
 
@@ -328,6 +412,7 @@ import BaseDialog from './BaseDialog.vue';
 import BaseFilterDialog from './BaseFilterDialog.vue';
 import BaseFilterDescription from './BaseFilterDescription.vue';
 import BaseIconSvg from './BaseIconSvg.vue';
+import BaseSwitch from './BaseSwitch.vue';
 
 class hlCar {
   constructor(initialValue = 0, suffix = "") {
@@ -379,7 +464,8 @@ export default {
     BaseDialog,
     BaseFilterDialog,
     BaseFilterDescription,
-    BaseIconSvg
+    BaseIconSvg,
+    BaseSwitch
   },
   props: {
     test: {
@@ -413,11 +499,19 @@ export default {
         loading: false,
         classe: ""
       },
+      privacyModel: "public",
+      privacyList: ["public", "private"],
+      privacyLoading: false,
+      configDialog: false,
       editGroupIndex: -1,
       saved: false,
       blankFilterStr: "",
       pngLoading: false,
       pngIndex: -1,
+      orderedDialog: false,
+      orderedList: [],
+      orderedKey: "",
+      orderedSuffix: "",
       userHighlights: [
         {
           fixed: true,
@@ -624,21 +718,30 @@ export default {
       if (!this.userId) return;
       this.loading = true;
 
-      axios.post(Vue.preUrlCharlie + "/getGarage", {
+      axios.post(Vue.preUrl + "/getGarage", {
         username: this.userId,
         year: 2024
       })
       .then(res => {
         this.loading = false;
         this.saved = false;
-        if (res.data && res.data.value) {
-
-          this.userGarage = res.data.value;
-
-          this.processPlayerDeckStep2();
-
-        } else {
-          // 404
+        if (res.status === 204) {
+          // private garage
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "Private garage",
+            type: "error"
+          });
+        }
+        if (res.data) {
+          if (res.data.privacy) {
+            this.privacyModel = res.data.privacy;
+          }
+          if (res.data.value) {
+            this.userGarage = res.data.value;
+            this.processPlayerDeckStep2();
+          }
         }
       })
       .catch(error => {
@@ -727,7 +830,6 @@ export default {
 
       this.userGarage = {
         date: obj.serverTime,
-        socialName: obj.user.socialName,
         region: obj.user.region,
         registrationDate: obj.user.registrationDate,
         raceQuota: obj.user.raceQuota,
@@ -751,15 +853,15 @@ export default {
 
       deck.map((hCar, icar) => {
         this.addToResolvedRids(this.guidToRid[hCar.cardId]);
-        let tuneZ = this.resolveTuneZ(hCar);
+        let tunZ = this.resolveTuneZ(hCar);
 
         let item = {
-          // tun: this.resolveTune(hCar, tuneZ),
+          // tun: this.resolveTune(hCar, tunZ),
           // locked: hCar.locked,
           // fuseCompletesAt: hCar.fuseCompletesAt,
           // legT: hCar.legacyTier,
           rid: this.guidToRid[hCar.cardId],
-          tunZ: tuneZ,
+          tunZ: tunZ,
           date: hCar.holdExpiresAt.slice(0,10),
           cW: hCar.cardWins,
           cL: hCar.cardLosses,
@@ -776,7 +878,7 @@ export default {
       this.userGarage.playerDeck.map((hCar, icar) => {
 
         hCar.id = icar;
-        hCar.tun = this.resolveTune(hCar, hCar.tuneZ);
+        hCar.tun = this.resolveTune(hCar, hCar.tunZ);
 
         this.addToResolvedRids(hCar.rid);
 
@@ -795,7 +897,7 @@ export default {
         if (!hlItem.divider) this.updateHLItem(hlItem, hCar);
       })
     },
-    updateHLItem(hlItem, hCar) {
+    updateHLItem(hlItem, hCar, isList = false) {
       // 39 diferentes filtros
       // 4000 carros
       // 160.000 vezes vai passar nessa funcao, 195 se 5 carros
@@ -894,6 +996,15 @@ export default {
       }
     },
     compareHlItemBest(statItem, hlKey, hCar, carValue, bigger = true, usedTimes) {
+      if (Array.isArray(statItem[hlKey])) {
+        // list
+        statItem[hlKey].push({
+          car: hCar,
+          v: carValue,
+          used: usedTimes
+        })
+        return;
+      }
       let shouldReplace = false;
       if (bigger) {
         if (carValue > statItem[hlKey].v) {
@@ -928,32 +1039,31 @@ export default {
     },
     resolveTuneZ(hCar) {
       // 969 style
-      646
       return `${((hCar.engineMajor-1)*3 + hCar.engineMinor)}`+
       `${((hCar.weightMajor-1)*3 + hCar.weightMinor)}`+
       `${((hCar.chassisMajor-1)*3 + hCar.chassisMinor)}`;
     },
-    resolveTune(hCar, tuneZ) {
+    resolveTune(hCar, tunZ) {
       // 323 style
       let res = null;
 
       if (
-        tuneZ === "000" ||
-        tuneZ === "333" ||
-        tuneZ === "996" ||
-        tuneZ === "969" ||
-        tuneZ === "699"
+        tunZ === "000" ||
+        tunZ === "333" ||
+        tunZ === "996" ||
+        tunZ === "969" ||
+        tunZ === "699"
       ) {
-        res = `${tuneZ[0] / 3}${tuneZ[1] / 3}${tuneZ[2] / 3}`
+        res = `${tunZ[0] / 3}${tunZ[1] / 3}${tunZ[2] / 3}`
       }
 
-      // let arr = tuneZ.split("");
+      // let arr = tunZ.split("");
       // if (
       //   Number(arr[0]) % 3 === 0 &&
       //   Number(arr[1]) % 3 === 0 &&
       //   Number(arr[2]) % 3 === 0
       // ) {
-      //   res = Number(tuneZ / 3)
+      //   res = Number(tunZ / 3)
       // }
       
       // if (hCar.engineMinor % 3 === 0 && hCar.engineMinor % 3 === 0 && hCar.engineMinor % 3 === 0) {
@@ -990,6 +1100,30 @@ export default {
       if (hlItem.tl) {
         hlItem.tl.sort((a,b) => {
           return new Date(a.date) - new Date(b.date);
+        })
+      }
+    },
+    finishProcessPlayerDeckItemArray(hlItem) {
+      let C;
+      if (hlItem.t) {
+        Object.keys(hlItem.t).map(key => {
+          hlItem.t[key].map(item => {
+            if (key === "oldest") item.v = item.v / 60 / 24;
+            if (key === "oldestNoUse") item.v = item.v / 60 / 24;
+
+            if (key === "highWinRate") {
+              C = item.car;
+              item.sub = `${C.cW} wins, ${C.cW + C.cL + C.cD} uses`;
+            }
+            if (key === "highLoseRate") {
+              C = item.car;
+              item.sub = `${C.cL} loses, ${C.cW + C.cL + C.cD} uses`;
+            }
+            if (key === "lessUseDay") {
+              C = item.car;
+              item.v = `${C.cW + C.cL + C.cD}/${Math.round((new Date() - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
+            }
+          })
         })
       }
     },
@@ -1175,6 +1309,7 @@ export default {
     },
     changeScreen(screen) {
       this.animation = true;
+      this.configDialog = false;
       this.screen = '_';
       this.$nextTick().then(() => {
         this.screen = screen;
@@ -1268,6 +1403,67 @@ export default {
         classe: `D_ButtonRed`
       }
     },
+    openConfig() {
+      this.configDialog = true;
+    },
+    privacySet(item) {
+      if (this.privacyModel === item) return;
+
+      this.privacyLoading = true;
+
+      axios.post(Vue.preUrl + "/garagePrivacy", {
+        type: item,
+        date: this.userGarage.date
+      })
+      .then(res => {
+        this.privacyModel = res.data;
+        this.privacyLoading = false;
+      })
+      .catch(error => {
+        this.privacyLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+    },
+    tileClick(hlItem, key) {
+      // key = "oldestNoUse"
+      // hlItem.filter
+      // itemOfArray = { car: hCar, v: carValue, user: usedTimes }
+      this.orderedKey = key;
+      this.orderedSuffix = hlItem.t[key].sf;
+      this.orderedSub = hlItem.t[key].sf;
+      let newHlItem = {
+        filter: hlItem.filter,
+        t: {
+          [key]: []
+        }
+      }
+      this.userGarage.playerDeck.map((hCar, icar) => {
+        this.updateHLItem(newHlItem, hCar);
+      });
+      newHlItem.t[key].sort((a,b) => {
+        if (key === "lessUseDay") {
+          if (a.v === b.v) return a.used - b.used;
+          else return a.v - b.v;
+        } else {
+          if (a.v === b.v) return b.used - a.used;
+          else return b.v - a.v;
+        }
+      })
+      newHlItem.t[key].splice(100, this.userGarage.playerDeck.length);
+      
+      newHlItem.t[key].map(x => {
+        x.id = x.car.id;
+      })
+      this.finishProcessPlayerDeckItemArray(newHlItem);
+      this.orderedList = newHlItem.t[key];
+      this.orderedDialog = true;
+    }
   },
 }
 </script>
@@ -1279,6 +1475,7 @@ export default {
 .BaseMyGarage_CardBox {
   width: 300px;
   height: 186px;
+  position: relative;
 }
 .BaseMyGarage_CardBox .BaseCardGallery_Header {
   /* transform: scale(0.5);
@@ -1294,8 +1491,16 @@ export default {
 .BaseMyGarage_CardsBox {
   height: calc((186px * 2) + 20px);
 }
+.BaseMyGarage_ListLayout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.BaseMyGarage_ListLayout .BaseMyGarage_RarityStatsValue {
+  text-align: left;
+}
 .BaseMyGarage_GalleryCard {
-  
+  --factor: 3.5px;
 }
 .BaseMyGarage_H {
   width: var(--wBody);
@@ -1329,6 +1534,10 @@ export default {
 }
 .BaseMyGarage_FilterBox {
   flex-grow: 1;
+  display: flex;
+  align-items: normal;
+  flex-direction: column;
+  justify-content: end;
 }
 .BaseMyGarage_FilterBox:not(:last-child) {
   padding-left: 49px;
@@ -1403,7 +1612,8 @@ export default {
 .BaseMyGarage_FilterBox .BaseFilterDescription_Value {
   font-size: inherit;
 }
-.BaseMyGarage_RarityStatsItem .Row_DialogCardCard2 {
+.BaseMyGarage_RarityStatsItem .Row_DialogCardCard2,
+.BaseMyGarage_ListLayout .Row_DialogCardCard2 {
   --width: 180px !important;
   --height: 111px !important;
   --card-font-size: 9px;
@@ -1555,6 +1765,60 @@ export default {
 .BaseMyGarage_TextBox {
   max-width: 600px;
   margin: 0 auto;
+}
+.BaseMyGarage_SideButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.BaseMyGarage_DialogSubmitTypeSub {
+  font-size: 0.7em;
+  opacity: 0.7;
+  white-space: pre-wrap;
+}
+.BaseMyGarage_DialogSubmitChipType {
+  flex-grow: 1;
+  min-height: 46px;
+}
+.BaseMyGarage_DialogSubmitChipType .BaseChip_Text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.BaseMyGarage_ConfigDialogTop .BaseSwitch_Label {
+  font-size: 18px;
+}
+.BaseMyGarage_ConfigDialogTop {
+  display: flex;
+  justify-content: center;
+}
+.BaseMyGarage_PrivacyItem {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-basis: 0;
+}
+.BaseMyGarage_RarityStatsButton {
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition-duration: 0.1s;
+  transition-delay: 0s;
+  cursor: pointer;
+  border: none;
+  color: var(--d-text);
+  font-size: 18px;
+}
+.BaseMyGarage_RarityStatsButton.focus-visible,
+.BaseMyGarage_RarityStatsButton:hover {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 

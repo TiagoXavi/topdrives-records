@@ -1,5 +1,8 @@
 <template>
-  <div class="BaseSwitch_Layout" :class="{ BaseSwitch_Horizontal: horizontal }">
+  <div class="BaseSwitch_Layout" :class="{
+      BaseSwitch_Horizontal: horizontal,
+      BaseSwitch_Loading: loading
+    }">
     <label class="BaseSwitch_Box">
       <input
         v-if="showFix"
@@ -43,6 +46,10 @@ export default {
       type: Boolean,
       default: false
     },
+    loading: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -70,6 +77,7 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 2px;
+  --loading-color: rgba(0, 0, 0, 0.3);
 }
 .BaseSwitch_Horizontal {
   flex-direction: row;
@@ -126,5 +134,23 @@ export default {
 .BaseSwitch_Input:checked + .BaseSwitch_Slider:before {
   transform: translateX(calc(var(--width) - var(--height)));
   background-color: #294f00;
+}
+.BaseSwitch_Loading .BaseSwitch_Slider {
+  position: relative;
+  overflow: hidden;
+}
+.BaseSwitch_Loading .BaseSwitch_Slider::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 7px,
+    var(--loading-color) 0,
+    var(--loading-color) 14px
+  );
+  animation: Processamento_Loop 0.6s linear infinite;
 }
 </style>

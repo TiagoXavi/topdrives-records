@@ -276,6 +276,7 @@ export default {
   m_mostLoseDay: "Most lose/day",
   m_newGroup: "New group",
   m_uploadMyGarage: "Upload my garage",
+  m_updateGarage: "Update garage",
 
 
   
@@ -319,6 +320,8 @@ export default {
   p_cgNotThisTime3: "Why? We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of TDR giving all the solutions. Helping each other is the core of every community. Discord, Facebook, Reddit, Youtube... There are many. Are you not in any community? There is a tab with a lot of them, find one you like:",
   p_cgNotThisTime4: "Just to be clear, this isn't a paywall. Not even patrons or moderators are able to see the rounds.",
   p_cgNotThisTime5: "I hope you understand. Have a fun!",
+  p_privateGarageDesc: "Only you can view",
+  p_publicGarageDesc: "People with link can view",
   
   g_joinDiscord: "Join the TDR Discord server to talk about improvement of your template or why your template has been declined.",
   g_rule0: "Your template should have a context for cars that make sense. Like same tag, same country, same tires, same brand, same rarity... Or any context like Hutch does as requirements for events/challenges.",
