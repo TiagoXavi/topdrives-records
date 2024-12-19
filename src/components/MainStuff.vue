@@ -62,8 +62,7 @@ export default {
       { name: "MainTestPoints", label: this.$t("m_testPoints") },
       { name: "MainDownTimes", label: this.$t("m_downTimes") },
       { name: "MainAccelCurveMaker", label: this.$t("m_accelCurveMaker") },
-      // { name: "BaseMyGarage", label: this.$t("m_myGarage"), newCodes: ["myGarage_1"], showNew: false },
-      { name: "BaseMyGarage", label: this.$t("m_myGarage") },
+      { name: "BaseMyGarage", label: this.$t("m_myGarage"), newCodes: ["myGarage_1"], showNew: false },
     ];
     this.tdrTools = [
       { name: "MainTranslate", label: this.$t("m_translationTool") },

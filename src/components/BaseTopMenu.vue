@@ -125,7 +125,7 @@ export default {
         { label: "Packs", name: "Packs" },
         { label: "Timeline", name: "Timeline" },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", newCodes: [], showNew: false },
+        { label: "Stuff", name: "Stuff", newCodes: ["myGarage_1"], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
