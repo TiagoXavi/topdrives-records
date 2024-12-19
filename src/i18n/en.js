@@ -275,6 +275,7 @@ export default {
   m_mostWinDay: "Most win/day",
   m_mostLoseDay: "Most lose/day",
   m_newGroup: "New group",
+  m_newTimeline: "New timeline",
   m_uploadMyGarage: "Upload my garage",
   m_updateGarage: "Update garage",
 

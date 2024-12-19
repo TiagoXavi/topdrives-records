@@ -3083,6 +3083,10 @@ body .Main_UserTw3:before {
   padding-right: 1px;
   font-size: 15px;
 }
+a:not(.D_Button),
+a:visited:not(.D_Button) {
+  color: rgb(var(--d-text-yellow));
+}
 
 
 

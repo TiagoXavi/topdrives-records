@@ -77,149 +77,184 @@
 
 
         <div class="BaseMyGarage_HLBox">
-          <template v-for="(hl, ihl) in userHighlights">
+
+          <DynamicScroller
+            :items="userHighlightsFiltered"
+            :min-item-size="600"
+            :buffer="800"
+            :emit-update="true"
+            key-field="id"
+            listClass="BaseMyGarage_HlWrapper"
+            itemClass="BaseMyGarage_HLItem"
+            class="Main_DarkScroll"
+            page-mode
+            @update="onUpdate">
+            <template v-slot="{ item, index, active }">
+              <DynamicScrollerItem
+                :item="item"
+                :active="active"
+                :size-dependencies="[
+                  pngLoading
+                ]"
+                :data-index="index">
+                <template v-if="item.divider">
+                  <div class="D_Center2">
+                    <i class="ticon-line BaseMyGarage_HLItemDivider" aria-hidden="true"/>
+                  </div>
+                </template>
+
+                <template v-else>
+                  <div class="BaseMyGarage_FilterLayout">
+                    <div class="BaseMyGarage_FilterBox">
+                      <div v-if="item.title" :class="{ BaseMyGarage_FilterBoxSpecial: item.specialTitle}" class="BaseFilterDescription_Layout">
+                        <div v-if="item.specialTitle" class="BaseMyGarage_DividerBackLight" style="--light: var(--d-text-yellow);"></div>
+                        <div class="BaseFilterDescription_Item">
+                          <div class="BaseFilterDescription_Value">{{ item.title }}</div>
+                        </div>
+                      </div>
+                      <div
+                        v-else-if="Object.keys(item.filter).length === 0"
+                        class="BaseMyGarage_EmptyFilter">
+                      </div>
+                      <BaseFilterDescription
+                        v-else
+                        :filter="item.filter"
+                        :asFilterLabel="true"
+                        :hideIfEmpty="false"
+                        :showTitle="false"
+                        :emitDescResolved="false"
+                        class="" />
+                    </div>
+                    <div class="BaseMyGarage_SideButtons">
+                      <button
+                        v-if="item.id === 0 && !pngLoading && userGarage.loaded && editEnabled"
+                        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                        @click="openConfig()">
+                        <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
+                      </button>
+                      <button
+                        v-if="!pngLoading && userGarage.loaded"
+                        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                        @click="sharePrint(item)">
+                        <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
+                      </button>
+                      <button
+                        v-if="item.canDelete"
+                        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+                        @click="deleteHl(item)">
+                        <i class="ticon-trash Main_MenuIcon" aria-hidden="true"/>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div v-if="item.r" class="BaseMyGarage_RarityStatsBox">
+                    <template v-for="(value, key, index) in item.r">
+                      <div class="BaseMyGarage_RarityStatsItem">
+                        <div class="BaseMyGarage_RarityStatsValue">
+                          <div class="BaseMyGarage_RarityStatsValueT">{{ value }}</div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
+                      </div>
+                    </template>
+                  </div>
+
+                  <div v-if="item.t" class="BaseMyGarage_RarityStatsBox BaseMyGarage_RarityStatsBoxCars">
+                    <template v-for="(value, key, index) in item.t">
+                      <button
+                        class="BaseMyGarage_RarityStatsItem BaseMyGarage_RarityStatsButton"
+                        @click="tileClick(item, key)">
+                        <div class="BaseMyGarage_RarityStatsCard">
+                          <BaseCardGallery
+                            v-if="value.car.rid"
+                            :car="resolvedRids[value.car.rid]"
+                            :options="false"
+                            :tuneText="value.car.tun || value.car.tunZ"
+                            class="BaseMyGarage_GalleryCard" />
+                          <div v-else class="BaseMyGarage_CarPlaceHolder Row_DialogCardCard2">
+                            <i class="ticon-line" aria-hidden="true"/>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsValue">
+                          <div class="BaseMyGarage_RarityStatsValueT">{{ typeof value.v === 'string' ? value.v : value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
+                          <div v-if="value.sub" class="BaseMyGarage_RarityStatsSub">{{ value.sub }}</div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
+
+                        <!-- <template v-if="value.car.cardId">
+                          <span>{{ resolvedRids[value.car.cardId].name }} </span>
+                          <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
+                          <span v-else>({{ value.v }})</span>
+                        </template> -->
+
+                      </button>
+                    </template>
+                  </div>
+
+                  <div v-if="item.tl" class="BaseMyGarage_TimelineBox">
+                    <div v-for="month in item.tl" class="BaseMyGarage_TimelineItem">
+                      <div class="BaseMyGarage_MonthLeft">{{ new Date(2024, month.monthIndex, 1).toLocaleString('default', { month: 'short' }) }}</div>
+                      <div v-if="!pngLoading && true" class="BaseMyGarage_MonthRight">
+                        <div class="BaseMyGarage_MonthTop">
+                          <BaseCardGallery
+                            v-for="car in month.prizes"
+                            :car="resolvedRids[car.rid]"
+                            :options="false"
+                            class="BaseMyGarage_GalleryCard" />
+                        </div>
+                        <div class="BaseMyGarage_MonthMid">
+                          <BaseCardGallery
+                            v-for="car in month.nonPrizes"
+                            :car="resolvedRids[car.rid]"
+                            :options="false"
+                            class="BaseMyGarage_GalleryCard" />
+                        </div>
+                      </div>
+                      <div v-else class="BaseMyGarage_MonthRight">
+                        <div class="BaseMyGarage_MonthTop">
+                          <div v-for="car in month.prizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
+                            <div class="MainFindCar_BankPhoto">
+                              <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                            </div>
+                            <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_MonthMid">
+                          <div v-for="car in month.nonPrizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
+                            <div class="MainFindCar_BankPhoto">
+                              <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                            </div>
+                            <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </template>
+              </DynamicScrollerItem>
+            </template>
+          </DynamicScroller>
+
+
+          <!-- <template v-for="(hl, ihl) in userHighlights">
             <div
               v-if="(!pngLoading || pngIndex === ihl) && (userGarage.loaded || ihl === 0)"
               class="BaseMyGarage_HLItem">
 
-              <template v-if="hl.divider">
-                <!--  -->
-                <div class="D_Center2">
-                  <i class="ticon-line BaseMyGarage_HLItemDivider" aria-hidden="true"/>
-                </div>
-              </template>
-
-              <template v-else>
-                <div class="BaseMyGarage_FilterLayout">
-                  <div class="BaseMyGarage_FilterBox">
-                    <div v-if="hl.title" :class="{ BaseMyGarage_FilterBoxSpecial: hl.specialTitle}" class="BaseFilterDescription_Layout">
-                      <div v-if="hl.specialTitle" class="BaseMyGarage_DividerBackLight" style="--light: var(--d-text-yellow);"></div>
-                      <div class="BaseFilterDescription_Item">
-                        <div class="BaseFilterDescription_Value">{{ hl.title }}</div>
-                      </div>
-                    </div>
-                    <div
-                      v-else-if="Object.keys(hl.filter).length === 0"
-                      class="BaseMyGarage_EmptyFilter">
-                    </div>
-                    <BaseFilterDescription
-                      v-else
-                      :filter="hl.filter"
-                      :asFilterLabel="true"
-                      :hideIfEmpty="false"
-                      :showTitle="false"
-                      :emitDescResolved="false"
-                      class="" />
-                  </div>
-                  <div class="BaseMyGarage_SideButtons">
-                    <button
-                      v-if="ihl === 0 && !pngLoading && userGarage.loaded && editEnabled"
-                      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
-                      @click="openConfig()">
-                      <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
-                    </button>
-                    <button
-                      v-if="!pngLoading && userGarage.loaded"
-                      class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
-                      @click="sharePrint(ihl)">
-                      <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
-                    </button>
-                  </div>
-                </div>
-                
-                <div v-if="hl.r" class="BaseMyGarage_RarityStatsBox">
-                  <template v-for="(value, key, index) in hl.r">
-                    <div class="BaseMyGarage_RarityStatsItem">
-                      <div class="BaseMyGarage_RarityStatsValue">
-                        <div class="BaseMyGarage_RarityStatsValueT">{{ value }}</div>
-                      </div>
-                      <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
-                    </div>
-                  </template>
-                </div>
-                
-                <div v-if="hl.t" class="BaseMyGarage_RarityStatsBox BaseMyGarage_RarityStatsBoxCars">
-                  <template v-for="(value, key, index) in hl.t">
-                    <button
-                      class="BaseMyGarage_RarityStatsItem BaseMyGarage_RarityStatsButton"
-                      @click="tileClick(hl, key)">
-                      <div class="BaseMyGarage_RarityStatsCard">
-                        <BaseCardGallery
-                          v-if="value.car.rid"
-                          :car="resolvedRids[value.car.rid]"
-                          :options="false"
-                          :tuneText="value.car.tun || value.car.tunZ"
-                          class="BaseMyGarage_GalleryCard" />
-                        <div v-else class="BaseMyGarage_CarPlaceHolder Row_DialogCardCard2">
-                          <i class="ticon-line" aria-hidden="true"/>
-                        </div>
-                      </div>
-                      <div class="BaseMyGarage_RarityStatsValue">
-                        <div class="BaseMyGarage_RarityStatsValueT">{{ typeof value.v === 'string' ? value.v : value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
-                        <div v-if="value.sub" class="BaseMyGarage_RarityStatsSub">{{ value.sub }}</div>
-                      </div>
-                      <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
-                      
-                      <!-- <template v-if="value.car.cardId">
-                        <span>{{ resolvedRids[value.car.cardId].name }} </span>
-                        <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
-                        <span v-else>({{ value.v }})</span>
-                      </template> -->
-
-                    </button>
-                  </template>
-                </div>
-                
-                <div v-if="hl.tl" class="BaseMyGarage_TimelineBox">
-                  <div v-for="month in hl.tl" class="BaseMyGarage_TimelineItem">
-                    <div class="BaseMyGarage_MonthLeft">{{ new Date(2024, month.monthIndex, 1).toLocaleString('default', { month: 'short' }) }}</div>
-                    <div v-if="!pngLoading && true" class="BaseMyGarage_MonthRight">
-                      <div class="BaseMyGarage_MonthTop">
-                        <BaseCardGallery
-                          v-for="car in month.prizes"
-                          :car="resolvedRids[car.rid]"
-                          :options="false"
-                          class="BaseMyGarage_GalleryCard" />
-                      </div>
-                      <div class="BaseMyGarage_MonthMid">
-                        <BaseCardGallery
-                          v-for="car in month.nonPrizes"
-                          :car="resolvedRids[car.rid]"
-                          :options="false"
-                          class="BaseMyGarage_GalleryCard" />
-                      </div>
-                    </div>
-                    <div v-else class="BaseMyGarage_MonthRight">
-                      <div class="BaseMyGarage_MonthTop">
-                        <div v-for="car in month.prizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
-                          <div class="MainFindCar_BankPhoto">
-                            <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
-                          </div>
-                          <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
-                        </div>
-                      </div>
-                      <div class="BaseMyGarage_MonthMid">
-                        <div v-for="car in month.nonPrizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
-                          <div class="MainFindCar_BankPhoto">
-                            <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
-                          </div>
-                          <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </template>
+              
 
             </div>
-          </template>
+          </template> -->
         </div>
 
-        <div v-if="userGarage && userGarage.loaded" class="D_Center BaseMyGarage_AddGroupBox">
-          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newGroup()">
+        <div v-if="userGarage && userGarage.loaded" class="D_Center2 BaseMyGarage_AddGroupBox">
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newGroup('group')">
             <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
             <span class="">{{ $t('m_newGroup') }}</span>
+          </button>
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newTimeline()">
+            <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+            <span class="">{{ $t('m_newTimeline') }}</span>
           </button>
         </div>
       </template>
@@ -233,7 +268,7 @@
       class="BaseMyGarage_UploadLayout">
       <div class="BaseMyGarage_UploadMid Space_TopPlus">
         <!-- How it works -->
-        <!-- Choose way: PC+Emulator, Any computer+iOS -->
+        <BaseMyGarageTutorial class="BaseMyGarage_Tutorial"/>
         <div class="BaseMyGarage_TextBox">
           <div class="BaseText_Label">Response body of /api/game/v3/sync/</div>
           <textarea
@@ -348,6 +383,26 @@
     </BaseDialog>
 
     <BaseDialog
+      :active="yearDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="yearDialog = false;">
+      <div class="BaseMyGarage_ConfigDialogBox">
+        <div class="Main_DialogTitle" style="margin-bottom: 30px;">{{ $tc('c_year', 1) }}</div>
+        <div class="D_Center2 Space_TopGiga" style="flex-wrap: wrap;">
+          <button
+            v-for="year in yearList"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="confirmYear(year)">
+            <span>{{ year }}</span>
+          </button>
+        </div>
+      </div>
+    </BaseDialog>
+
+    <BaseDialog
       :active="orderedDialog"
       :transparent="false"
       :lazy="true"
@@ -361,12 +416,11 @@
         <RecycleScroller
           :items="orderedList"
           :item-size="111"
-          :emitUpdate="true"
           key-field="id"
           listClass="BaseMyGarage_CardsWrapper"
           itemClass="BaseMyGarage_ScrollerItem"
           class="Main_DarkScroll"
-          @scrollEnd="">
+          page-mode>
           <template v-slot="{ item, index, active }">
             <div class="BaseMyGarage_ListLayout">
               <div class="BaseMyGarage_VerticalCardBox">
@@ -377,6 +431,7 @@
                   class="BaseMyGarage_GalleryCard" />
               </div>
               <div class="BaseMyGarage_OrderedRight">
+                <div class="BaseMyGarage_OrderedCount">#{{ index+1 }}</div>
                 <div class="BaseMyGarage_RarityStatsValue">
                   <div class="BaseMyGarage_RarityStatsValueT">{{ typeof item.v === 'string' ? item.v : item.v % 1 != 0 ? item.v >= 100 ? Math.round(item.v) : Math.round(item.v * 10)/10 : item.v }}{{ orderedSuffix }}</div>
                   <div v-if="item.sub" class="BaseMyGarage_RarityStatsSub">{{ item.sub }}</div>
@@ -413,6 +468,7 @@ import BaseFilterDialog from './BaseFilterDialog.vue';
 import BaseFilterDescription from './BaseFilterDescription.vue';
 import BaseIconSvg from './BaseIconSvg.vue';
 import BaseSwitch from './BaseSwitch.vue';
+import BaseMyGarageTutorial from './BaseMyGarageTutorial.vue';
 
 class hlCar {
   constructor(initialValue = 0, suffix = "") {
@@ -465,7 +521,8 @@ export default {
     BaseFilterDialog,
     BaseFilterDescription,
     BaseIconSvg,
-    BaseSwitch
+    BaseSwitch,
+    BaseMyGarageTutorial
   },
   props: {
     test: {
@@ -507,13 +564,19 @@ export default {
       saved: false,
       blankFilterStr: "",
       pngLoading: false,
-      pngIndex: -1,
+      printingItem: null,
       orderedDialog: false,
       orderedList: [],
       orderedKey: "",
       orderedSuffix: "",
+      updateParts: { viewStartIdx: 0, viewEndIdx: 0, visibleStartIdx: 0, visibleEndIdx: 0 },
+      newGroupType: "group",
+      yearList: [],
+      yearModel: "",
+      yearDialog: false,
       userHighlights: [
         {
+          id: 0,
           fixed: true,
           filter: { newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
           t: new groupStats(),
@@ -521,6 +584,7 @@ export default {
           specialTitle: true
         },
         {
+          id: 1,
           fixed: true,
           filter: { classesModel: ["S"], newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
@@ -528,10 +592,12 @@ export default {
           specialTitle: true
         },
         {
+          id: 2,
           divider: true,
           share: true
         },
         {
+          id: 3,
           fixed: true,
           filter: {},
           t: new groupStats(),
@@ -540,69 +606,117 @@ export default {
           specialTitle: true
         },
         {
+          id: 4,
           filter: { classesModel: ["S"] },
           t: new groupStats()
         },
         {
+          id: 5,
           filter: { classesModel: ["A"] },
           t: new groupStats()
         },
         {
+          id: 6,
           filter: { classesModel: ["B"] },
           t: new groupStats()
         },
         {
+          id: 7,
           filter: { classesModel: ["C"] },
           t: new groupStats()
         },
         {
+          id: 8,
           filter: { classesModel: ["D"] },
           t: new groupStats()
         },
         {
+          id: 9,
           filter: { classesModel: ["E"] },
           t: new groupStats()
         },
         {
+          id: 10,
           filter: { classesModel: ["F"] },
           t: new groupStats()
         },
         {
+          id: 11,
           filter: { classesModel: ["A", "B", "C", "D", "E", "F"], prizesModel: ["Prize Cars"] },
           t: new groupStats()
         },
-        // { filter: { tyresModel: ["Performance"] }, t: new groupStats() },
-        { filter: { tyresModel: ["Standard"] }, t: new groupStats() },
-        { filter: { tyresModel: ["All-surface"] }, t: new groupStats() },
-        { filter: { tyresModel: ["Off-road"] }, t: new groupStats() },
-        // { filter: { tyresModel: ["Slick"] }, t: new groupStats() },
-        // { filter: { drivesModel: ["FWD"] }, t: new groupStats() },
-        // { filter: { drivesModel: ["RWD"] }, t: new groupStats() },
-        // { filter: { drivesModel: ["4WD"] }, t: new groupStats() },
-        // { filter: { clearancesModel: ["Low"] }, t: new groupStats() },
-        { filter: { clearancesModel: ["Mid"] }, t: new groupStats() },
-        // { filter: { clearancesModel: ["High"] }, t: new groupStats() },
-        { filter: { countrysModel: ["US"] }, t: new groupStats() },
-        { filter: { countrysModel: ["DE"] }, t: new groupStats() },
-        { filter: { countrysModel: ["JP"] }, t: new groupStats() },
-        { filter: { countrysModel: ["GB"] }, t: new groupStats() },
-        { filter: { countrysModel: ["IT"] }, t: new groupStats() },
-        { filter: { countrysModel: ["FR"] }, t: new groupStats() },
-        { filter: { countrysModel: ["AU"] }, t: new groupStats() },
-        { filter: { countrysModel: ["SE"] }, t: new groupStats() },
-        { filter: { countrysModel: ["KR"] }, t: new groupStats() },
-        { filter: { countrysModel: ["CZ"] }, t: new groupStats() },
-        { filter: { tagsModel: ["European Grand Tour"] }, t: new groupStats() },
-        { filter: { tagsModel: ["American Overdrive"] }, t: new groupStats() },
-        { filter: { tagsModel: ["European New Wave"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Asia-Pacific Grand Prix"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Pacific Coast Highway"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Learn the Savannah Way"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Loch to Loch"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Amalfi Coast Cruising"] }, t: new groupStats() },
-        { filter: { tagsModel: ["Enter the Black Forest"] }, t: new groupStats() },
-        { filter: { tagsModel: ["World Expo"] }, t: new groupStats() },
+        { id: 12, filter: { tyresModel: ["Standard"] }, t: new groupStats() },
+        { id: 13, filter: { tyresModel: ["All-surface"] }, t: new groupStats() },
+        { id: 14, filter: { tyresModel: ["Off-road"] }, t: new groupStats() },
+        { id: 15, filter: { clearancesModel: ["Mid"] }, t: new groupStats() },
+        { id: 16, filter: { countrysModel: ["US"] }, t: new groupStats() },
+        { id: 17, filter: { countrysModel: ["DE"] }, t: new groupStats() },
+        { id: 18, filter: { countrysModel: ["JP"] }, t: new groupStats() },
+        { id: 19, filter: { countrysModel: ["GB"] }, t: new groupStats() },
+        { id: 20, filter: { countrysModel: ["IT"] }, t: new groupStats() },
+        { id: 21, filter: { countrysModel: ["FR"] }, t: new groupStats() },
+        { id: 22, filter: { countrysModel: ["AU"] }, t: new groupStats() },
+        { id: 23, filter: { countrysModel: ["SE"] }, t: new groupStats() },
+        { id: 24, filter: { countrysModel: ["KR"] }, t: new groupStats() },
+        { id: 25, filter: { countrysModel: ["CZ"] }, t: new groupStats() },
+        { id: 26, filter: { tagsModel: ["European Grand Tour"] }, t: new groupStats() },
+        { id: 27, filter: { tagsModel: ["American Overdrive"] }, t: new groupStats() },
+        { id: 28, filter: { tagsModel: ["European New Wave"] }, t: new groupStats() },
+        { id: 29, filter: { tagsModel: ["Asia-Pacific Grand Prix"] }, t: new groupStats() },
+        { id: 30, filter: { tagsModel: ["Pacific Coast Highway"] }, t: new groupStats() },
+        { id: 31, filter: { tagsModel: ["Learn the Savannah Way"] }, t: new groupStats() },
+        { id: 32, filter: { tagsModel: ["Loch to Loch"] }, t: new groupStats() },
+        { id: 33, filter: { tagsModel: ["Amalfi Coast Cruising"] }, t: new groupStats() },
+        { id: 34, filter: { tagsModel: ["Enter the Black Forest"] }, t: new groupStats() },
+        { id: 35, filter: { tagsModel: ["World Expo"] }, t: new groupStats() },
       ],
+      tutorialModel: [],
+      tutorial: {
+        screen: [
+          ["header"],
+          ["button1", "button2"]
+        ],
+        header: {
+          type: "text",
+          text: "Choose a method"
+        },
+        button1: {
+          type: "button",
+          text: "PC + Android Emulator",
+          icon: "brand-android",
+          target: "pcAndroid"
+        },
+        button2: {
+          type: "button",
+          text: "PC + iOS",
+          icon: "brand-apple",
+          target: "pciOS"
+        },
+        childs: {
+          pcAndroid: {
+            screen: [
+              ["header"],
+              ["button1", "button2"]
+            ],
+            header: {
+              type: "text",
+              text: "Choose a method"
+            },
+            button1: {
+              type: "button",
+              text: "PC + Android Emulator",
+              icon: "brand-android",
+              target: "pcAndroid"
+            },
+            button2: {
+              type: "button",
+              text: "PC + iOS",
+              icon: "brand-apple",
+              target: "pciOS"
+            }
+          }
+        }
+      }
     }
   },
   watch: {},
@@ -665,6 +779,10 @@ export default {
     pngLabel() {
       return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
     },
+    userHighlightsFiltered() {
+      if (this.printingItem) return [this.printingItem];
+      return this.userHighlights.filter((hl, ihl) => (this.userGarage.loaded || ihl === 0));
+    }
   },
   methods: {
     getLastest() {
@@ -947,6 +1065,7 @@ export default {
         if (hlItem.t) {
           let usedTimes = hCar.cW+hCar.cL+hCar.cD;
           let ageInMinutes = (new Date() - new Date(hCar.date)) / 1000 / 60;
+          let ageInDays = ageInMinutes / 60 / 24;
   
           Object.keys(hlItem.t).map(key => {
             if (key === "mostWins") {
@@ -972,16 +1091,16 @@ export default {
               this.compareHlItemBest(hlItem.t, key, hCar, ageInMinutes, true, usedTimes);
             };
             if (key === "lessUseDay" && usedTimes > 0) {
-              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/(ageInMinutes / 60 / 24), false, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/ageInDays, false, usedTimes);
             };
-            if (key === "mostUseDay") {
-              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/(ageInMinutes / 60 / 24), true, usedTimes);
+            if (key === "mostUseDay" && ageInDays > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/ageInDays, true, usedTimes);
             };
-            if (key === "mostWinDay") {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/(ageInMinutes / 60 / 24), true, usedTimes);
+            if (key === "mostWinDay" && ageInDays > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/ageInDays, true, usedTimes);
             };
-            if (key === "mostLoseDay") {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/(ageInMinutes / 60 / 24), true, usedTimes);
+            if (key === "mostLoseDay" && ageInDays > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/ageInDays, true, usedTimes);
             };
             
           })
@@ -1209,22 +1328,49 @@ export default {
     //   if (!this.$refs.attrFilter.checkMatchFilter(car)) return false;
     //   if (!car.prize) return true;
     // },
-    newGroup() {
+    deleteHl(hlItem) {
+      this.userHighlights.splice(this.userHighlights.indexOf(hlItem), 1)
+    },
+    newTimeline() {
+      if (this.yearList.length === 0) {
+        let initial = 2016;
+        let end = Number(new Date().toISOString().substr(0,4));
+        if (end > 2050) end = 2050;
+        do {
+          this.yearList.push(initial);
+          initial++;
+        } while (initial <= end);
+      }
+      this.yearDialog = true;
+    },
+    confirmYear(year) {
+      this.yearModel = year;
+      this.yearDialog = false;
+      this.newGroup('timeline');
+    },
+    newGroup(type) {
+      this.newGroupType = type;
       this.$refs.myGarageFilter.clearFilter();
       this.myGarageFilterDialog = true;
       this.editGroupIndex = -1;
     },
     newGroupFinish(filter) {
       this.myGarageFilterDialog = false;
-      if (this.editGroupIndex > -1) {
-        this.userHighlights.splice(this.editGroupIndex, 1, {
-          filter: filter,
-          t: new groupStats()
-        })
-      } else {
+      if (this.newGroupType === "group") {
         this.userHighlights.push({
+          id: this.userHighlights[this.userHighlights.length-1].id+1,
           filter: filter,
-          t: new groupStats()
+          t: new groupStats(),
+          canDelete: true
+        })
+      }
+      if (this.newGroupType === "timeline") {
+        this.userHighlights.push({
+          id: this.userHighlights[this.userHighlights.length-1].id+1,
+          filter: { ...filter, newerThan: `${this.yearModel}-01-01T00:00:00.000Z`, olderThan: `${this.yearModel}-12-31T23:59:59.000Z` },
+          title: "Timeline",
+          tl: Array.from({length: 12}, (_, i) => new timeline(i)),
+          canDelete: true
         })
       }
       this.editGroupIndex = this.userHighlights.length - 1;
@@ -1239,11 +1385,11 @@ export default {
       })
       this.finishProcessPlayerDeckItem(this.userHighlights[index]);
     },
-    sharePrint(index) {
+    sharePrint(hlItem) {
       this.tempWindowWidth = this.windowWidth;
       this.windowWidth = 1000;
       this.pngLoading = true;
-      this.pngIndex = index;
+      this.printingItem = hlItem;
       window.scrollTo({ top: 0 });
       let vm = this;
       let _width;
@@ -1275,7 +1421,7 @@ export default {
         currentCanvas.setAttribute("height", `${_height}`);
 
         this.runSharePrint(pose, options, c_container, currentCanvas, boxName);
-      }, 10);
+      }, 100);
 
     },
     runSharePrint(pose, options, c_container, currentCanvas, boxName) {
@@ -1291,13 +1437,14 @@ export default {
             document.querySelector(boxName).classList.remove("Main_BodyPrint");
             vm.windowWidth = vm.tempWindowWidth;
             vm.pngLoading = false;
-            let index = vm.pngIndex;
-            vm.pngIndex = -1;
-            
-            setTimeout(() => {
-              let el = document.querySelector(`.BaseMyGarage_HLItem:nth-child(${index+1})`);
-              window.scrollTo({ top: el.offsetTop - (window.innerHeight * 0.35) });
-            }, 10);
+            vm.printingItem = null;
+
+            // let index = vm.pngIndex;
+            // vm.pngIndex = -1;
+            // setTimeout(() => {
+            //   let el = document.querySelector(`.BaseMyGarage_HLItem:nth-child(${index+1})`);
+            //   window.scrollTo({ top: el.offsetTop - (window.innerHeight * 0.35) });
+            // }, 10);
 
           }).catch(e => {console.log("load reimg failed", e)});
 
@@ -1455,7 +1602,7 @@ export default {
           else return b.v - a.v;
         }
       })
-      newHlItem.t[key].splice(100, this.userGarage.playerDeck.length);
+      newHlItem.t[key].splice(1000, this.userGarage.playerDeck.length);
       
       newHlItem.t[key].map(x => {
         x.id = x.car.id;
@@ -1463,6 +1610,12 @@ export default {
       this.finishProcessPlayerDeckItemArray(newHlItem);
       this.orderedList = newHlItem.t[key];
       this.orderedDialog = true;
+    },
+    onUpdate(viewStartIndex, viewEndIndex, visibleStartIndex, visibleEndIndex) {
+      this.updateParts.viewStartIdx = viewStartIndex
+      this.updateParts.viewEndIdx = viewEndIndex
+      this.updateParts.visibleStartIdx = visibleStartIndex
+      this.updateParts.visibleEndIdx = visibleEndIndex
     }
   },
 }
@@ -1520,12 +1673,6 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
-.BaseMyGarage_HLItem:last-child {
-  padding-bottom: 70px;
-}
-.BaseMyGarage_HLItem:not(:first-child) {
-  margin-top: 70px;
-}
 .BaseMyGarage_FilterLayout {
   display: flex;
   justify-content: space-between;
@@ -1548,16 +1695,16 @@ export default {
   align-self: center;
 }
 .BaseMyGarage_RarityStatsBox {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  width: 100%;
-  gap: 7px;
-  justify-content: center; */
   display: flex;
   flex-wrap: wrap;
   margin: 7px 0;
   justify-content: center;
   gap: 7px;
+}
+.BaseMyGarage_RarityStatsBox,
+.BaseMyGarage_TimelineBox,
+.BaseMyGarage_HLItemDivider {
+  padding-bottom: 70px;
 }
 .BaseMyGarage_RarityStatsItem {
   min-width: 180px;
@@ -1758,10 +1905,6 @@ export default {
   font-size: 12px;
   opacity: 0.4;
 }
-.MainTimeline_InitAnimation {
-  animation: screen_anim 0.2s linear forwards;
-  animation-timing-function: cubic-bezier(0, 0.46, 0.49, 0.99);
-}
 .BaseMyGarage_TextBox {
   max-width: 600px;
   margin: 0 auto;
@@ -1856,6 +1999,14 @@ export default {
 }
 .BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem {
   height: 204px;
+}
+.BaseMyGarage_Tutorial {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.BaseMyGarage_OrderedCount {
+  opacity: 0.2;
+  line-height: 1;
 }
 
 

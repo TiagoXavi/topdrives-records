@@ -6,7 +6,7 @@
   font-display: block;
 }
 
-i {
+[class^="brand-"], [class*=" brand-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'brand' !important;
   speak: never;
@@ -36,6 +36,14 @@ i {
   content: "\e926";
   color: #5865f2;
 }
+.brand-android:before {
+  content: "\e91c";
+  color: #3ddc84;
+}
+.brand-apple:before {
+  content: "\e91d";
+  color: #999;
+}
 .brand-facebook:before {
   content: "\e901";
   color: #1877f2;
@@ -55,6 +63,9 @@ i {
 .brand-instagram:before {
   content: "\e905";
   color: #e4405f;
+}
+.brand-ios:before {
+  content: "\e91e";
 }
 .brand-line:before {
   content: "\e906";

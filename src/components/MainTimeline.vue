@@ -143,12 +143,11 @@
           <RecycleScroller
             :items="timeline"
             :item-size="110"
-            :emitUpdate="true"
             keyField="sort"
             listClass="MainTimeline_Scroller_Wrapper"
             itemClass="MainTimeline_Scroller_Item"
             class="MainTimeline_Scroller_Box"
-            @scrollEnd="">
+            page-mode>
             <template v-slot="{ item, index, active }">
               <div
                 :class="`

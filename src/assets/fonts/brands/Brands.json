@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Brands",
     "lastOpened": 0,
-    "created": 1711506751104
+    "created": 1734534880751
   },
   "iconSets": [
     {
@@ -333,7 +333,11 @@
         },
         {
           "id": 38,
-          "order": 0
+          "order": 37,
+          "prevSize": 32,
+          "code": 59676,
+          "name": "android",
+          "tempChar": ""
         },
         {
           "id": 39,
@@ -389,7 +393,11 @@
         },
         {
           "id": 52,
-          "order": 0
+          "order": 38,
+          "prevSize": 32,
+          "code": 59677,
+          "name": "apple",
+          "tempChar": ""
         },
         {
           "id": 53,
@@ -1197,7 +1205,7 @@
           "prevSize": 32,
           "code": 59649,
           "name": "facebook",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 253,
@@ -1437,7 +1445,7 @@
           "prevSize": 32,
           "code": 59650,
           "name": "google",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 312,
@@ -1465,7 +1473,7 @@
           "prevSize": 32,
           "code": 59651,
           "name": "googlehangouts",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 318,
@@ -1717,7 +1725,7 @@
           "prevSize": 32,
           "code": 59652,
           "name": "icq",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 380,
@@ -1757,7 +1765,7 @@
           "prevSize": 32,
           "code": 59653,
           "name": "instagram",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 389,
@@ -1797,7 +1805,11 @@
         },
         {
           "id": 398,
-          "order": 0
+          "order": 39,
+          "prevSize": 32,
+          "code": 59678,
+          "name": "ios",
+          "tempChar": ""
         },
         {
           "id": 399,
@@ -2029,7 +2041,7 @@
           "prevSize": 32,
           "code": 59654,
           "name": "line",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 456,
@@ -2041,7 +2053,7 @@
           "prevSize": 32,
           "code": 59655,
           "name": "linkedin",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 458,
@@ -2149,7 +2161,7 @@
           "prevSize": 32,
           "code": 59656,
           "name": "mastodon",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 484,
@@ -2213,7 +2225,7 @@
           "prevSize": 32,
           "code": 59666,
           "name": "messenger",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 499,
@@ -2273,7 +2285,7 @@
           "prevSize": 32,
           "code": 59657,
           "name": "microsoftteams",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 513,
@@ -2637,7 +2649,7 @@
           "prevSize": 32,
           "code": 59658,
           "name": "pinterest",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 603,
@@ -2817,7 +2829,7 @@
           "prevSize": 32,
           "code": 59659,
           "name": "quora",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 647,
@@ -3069,7 +3081,7 @@
           "prevSize": 32,
           "code": 59661,
           "name": "signal",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 708,
@@ -3081,7 +3093,7 @@
           "prevSize": 32,
           "code": 59662,
           "name": "sinaweibo",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 710,
@@ -3105,7 +3117,7 @@
           "prevSize": 32,
           "code": 59663,
           "name": "skype",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 715,
@@ -3113,7 +3125,7 @@
           "prevSize": 32,
           "code": 59664,
           "name": "slack",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 716,
@@ -3141,7 +3153,7 @@
           "prevSize": 32,
           "code": 59665,
           "name": "snapchat",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 722,
@@ -3501,7 +3513,7 @@
           "prevSize": 32,
           "code": 59667,
           "name": "tiktok",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 810,
@@ -3577,7 +3589,7 @@
           "prevSize": 32,
           "code": 59668,
           "name": "tumblr",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 828,
@@ -3593,7 +3605,7 @@
           "prevSize": 32,
           "code": 59669,
           "name": "twitch",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 831,
@@ -3601,7 +3613,7 @@
           "prevSize": 32,
           "code": 59670,
           "name": "x",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 832,
@@ -3709,7 +3721,7 @@
           "prevSize": 32,
           "code": 59671,
           "name": "viber",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 858,
@@ -3745,7 +3757,7 @@
           "prevSize": 32,
           "code": 59672,
           "name": "vk",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 866,
@@ -3809,7 +3821,7 @@
           "prevSize": 32,
           "code": 59673,
           "name": "wechat",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 881,
@@ -3817,7 +3829,7 @@
           "prevSize": 32,
           "code": 59674,
           "name": "whatsapp",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 882,
@@ -3977,7 +3989,7 @@
           "prevSize": 32,
           "code": 59675,
           "name": "youtube",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 921,
@@ -19469,7 +19481,6 @@
       ]
     }
   ],
-  "uid": -1,
   "preferences": {
     "showGlyphs": true,
     "showCodes": true,
@@ -19506,5 +19517,6 @@
     },
     "historySize": 50,
     "gridSize": 16
-  }
+  },
+  "uid": -1
 }
