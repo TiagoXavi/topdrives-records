@@ -125,15 +125,15 @@
                         :emitDescResolved="false"
                         class="" />
                     </div>
-                    <div class="BaseMyGarage_SideButtons">
+                    <div v-if="!pngLoading" class="BaseMyGarage_SideButtons">
                       <button
-                        v-if="item.id === 0 && !pngLoading && userGarage.loaded && editEnabled"
+                        v-if="item.id === 0 && userGarage.loaded && editEnabled"
                         class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
-                        @click="openConfig()">
+                        @click="calcLink(); openConfig();">
                         <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
                       </button>
                       <button
-                        v-if="!pngLoading && userGarage.loaded"
+                        v-if="userGarage.loaded"
                         class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
                         @click="sharePrint(item)">
                         <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
@@ -326,7 +326,7 @@
       min-width="240px"
       @close="confirmDelete.dialog = false;">
       <div style="Main_DialogConfirm">
-        <div class="Main_DialogMessage">{{ confirmDelete.msg }}</div>
+        <div class="Main_DialogMessage" style="white-space: pre-wrap;">{{ confirmDelete.msg }}</div>
         <div class="Main_DialogBottom">
           <button
             class="D_Button Main_OptionsButton"
@@ -379,6 +379,23 @@
             <span>{{ $t("m_delete") }}</span>
           </button>
         </div>
+        <div class="BaseMyGarage_ShareLink Space_TopGiga">
+          <div class="Main_DialogTitle">{{ $t("m_sharableLink") }}</div>
+          <div class="Main_ShareLinkBox">
+            <textarea
+              :value="privacyModel === 'public' ? shareUrl : 'Private'"
+              id="shareLinkGarage"
+              rows="3"
+              class="Main_ShareLinkInput data-hj-allow"
+              readonly="readonly" />
+            <button
+              :class="{ D_Button_Correct: copyUrlSucess }"
+              :disabled="copyUrlSucess"
+              style="font-size: 16px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="copyUrl()">{{ $t("m_copy") }}</button>
+          </div>
+        </div>
       </div>
     </BaseDialog>
 
@@ -416,6 +433,7 @@
         <RecycleScroller
           :items="orderedList"
           :item-size="111"
+          :buffer="800"
           key-field="id"
           listClass="BaseMyGarage_CardsWrapper"
           itemClass="BaseMyGarage_ScrollerItem"
@@ -574,6 +592,8 @@ export default {
       yearList: [],
       yearModel: "",
       yearDialog: false,
+      shareUrl: "",
+      copyUrlSucess: false,
       userHighlights: [
         {
           id: 0,
@@ -1368,7 +1388,7 @@ export default {
         this.userHighlights.push({
           id: this.userHighlights[this.userHighlights.length-1].id+1,
           filter: { ...filter, newerThan: `${this.yearModel}-01-01T00:00:00.000Z`, olderThan: `${this.yearModel}-12-31T23:59:59.000Z` },
-          title: "Timeline",
+          title: `${this.yearModel} Timeline`,
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
           canDelete: true
         })
@@ -1543,7 +1563,7 @@ export default {
     noPlayerDeck() {
       this.confirmDelete = {
         dialog: true,
-        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again. You need to make a change in any car on another device to force the game to re-download your garage.`,
+        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again.\n\nTo fix you need to open the game in another device, make any change in your garage like upgrading a car, add a car from holding pool. Then, go back to the first device, open the game again.\n\nIf done right the game will re-download the entire garage again, that is what you need.`,
         actionLabel: `Cancel`,
         action: null,
         loading: false,
@@ -1616,6 +1636,17 @@ export default {
       this.updateParts.viewEndIdx = viewEndIndex
       this.updateParts.visibleStartIdx = visibleStartIndex
       this.updateParts.visibleEndIdx = visibleEndIndex
+    },
+    calcLink() {
+      this.shareUrl = `${window.location.origin}/garage/${this.userId}`;
+    },
+    copyUrl() {
+      var copyText = document.getElementById("shareLinkGarage");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      navigator.clipboard.writeText(copyText.value);
+      this.copyUrlSucess = true;
+      setTimeout(() => { this.copyUrlSucess = false}, 1500);
     }
   },
 }

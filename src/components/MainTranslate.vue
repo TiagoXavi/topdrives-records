@@ -11,6 +11,16 @@
           <li class="MainTranslate_Rule">If some item work better in english, just leave it empty.</li>
           <li class="MainTranslate_Rule">Safe to reload this page, your browser will memorize your work.</li>
         </ol>
+        <div class="MainTranslate_FooterMessage" style="margin-bottom: 5px;">Review a done language:</div>
+        <div class="MainTranslate_FooterButtons" style="margin-bottom: 40px;">
+          <button
+            v-for="(item, ix) in langs"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="loadSystemLanguage(item)">
+            <BaseFlag :flag="item.toUpperCase()" class="MainTranslate_FooterFlag" />
+            <span>{{ item.toUpperCase() }}</span>
+          </button>
+        </div>
         <div class="MainTranslate_Bottom">
           <div class="MainTranslate_Left">Language name</div>
           <div class="MainTranslate_Right">
@@ -21,6 +31,9 @@
               label="" />
           </div>
         </div>
+      </div>
+      <div>
+        
       </div>
       <div class="MainTranslate_Body">
         <div
@@ -90,16 +103,6 @@
             @click="copy()">Copy to clipboard</button>
         </div>
         <div class="MainTranslate_FooterMessage">After creating translation file, send it to me on TDR Discord</div>
-        <div class="MainTranslate_FooterMessage" style="margin-bottom: 5px;">Review a done language:</div>
-        <div class="MainTranslate_FooterButtons">
-          <button
-            v-for="(item, ix) in langs"
-            class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="loadSystemLanguage(item)">
-            <BaseFlag :flag="item.toUpperCase()" class="MainTranslate_FooterFlag" />
-            <span>{{ item.toUpperCase() }}</span>
-          </button>
-        </div>
         <BaseDialog
           :active="confirmDelete.dialog"
           :transparent="false"
@@ -407,7 +410,6 @@ export default {
   max-width: 600px;
   margin: 0 auto;
   font-size: 15px;
-  margin-bottom: 40px;
 }
 .MainTranslate_Box {
 
