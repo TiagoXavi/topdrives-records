@@ -237,10 +237,11 @@ export default {
             if (trackCode.startsWith("mile2_a") && !trackCode.startsWith("mile2_a0")) factor = 640;
             if (trackCode.startsWith("mile4_a") && !trackCode.startsWith("mile4_a0")) factor = 640;
             if (trackCode.startsWith("mile4r_a") && !trackCode.startsWith("mile4r_a0")) factor = 640;
-            if (trackCode.startsWith("townSlalom_a") && !trackCode.startsWith("townSlalom_a0")) factor = 1000;
             if (trackCode.startsWith("nwDrag_a") && !trackCode.startsWith("nwDrag_a0")) factor = 640;
-            if (trackCode.startsWith("nwSlalom_a") && !trackCode.startsWith("nwSlalom_a0")) factor = 1000;
+            if (trackCode.startsWith("gForce_a") && !trackCode.startsWith("gForce_a0")) factor = 1000;
             if (trackCode.startsWith("slalom_a") && !trackCode.startsWith("slalom_a0")) factor = 1000;
+            if (trackCode.startsWith("townSlalom_a") && !trackCode.startsWith("townSlalom_a0")) factor = 1000;
+            if (trackCode.startsWith("nwSlalom_a") && !trackCode.startsWith("nwSlalom_a0")) factor = 1000;
             if (trackCode.startsWith("mtSlalom_a") && !trackCode.startsWith("mtSlalom_a0")) factor = 1000;
 
 

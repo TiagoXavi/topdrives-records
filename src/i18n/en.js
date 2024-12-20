@@ -278,6 +278,7 @@ export default {
   m_newTimeline: "New timeline",
   m_uploadMyGarage: "Upload my garage",
   m_updateGarage: "Update garage",
+  m_higherRQ: "Higher RQ",
 
 
   

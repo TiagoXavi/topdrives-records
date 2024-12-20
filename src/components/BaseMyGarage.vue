@@ -175,7 +175,7 @@
                           </div>
                         </div>
                         <div class="BaseMyGarage_RarityStatsValue">
-                          <div class="BaseMyGarage_RarityStatsValueT">{{ typeof value.v === 'string' ? value.v : value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
+                          <div class="BaseMyGarage_RarityStatsValueT">{{ value.pf }}{{ typeof value.v === 'string' ? value.v : value.v % 1 != 0 ? value.v >= 100 ? Math.round(value.v) : Math.round(value.v * 10)/10 : value.v }}{{ value.sf }}</div>
                           <div v-if="value.sub" class="BaseMyGarage_RarityStatsSub">{{ value.sub }}</div>
                         </div>
                         <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
@@ -194,32 +194,22 @@
                     <div v-for="month in item.tl" class="BaseMyGarage_TimelineItem">
                       <div class="BaseMyGarage_MonthLeft">{{ new Date(2024, month.monthIndex, 1).toLocaleString('default', { month: 'short' }) }}</div>
                       <div v-if="!pngLoading && true" class="BaseMyGarage_MonthRight">
-                        <div class="BaseMyGarage_MonthTop">
-                          <BaseCardGallery
-                            v-for="car in month.prizes"
-                            :car="resolvedRids[car.rid]"
-                            :options="false"
-                            class="BaseMyGarage_GalleryCard" />
-                        </div>
                         <div class="BaseMyGarage_MonthMid">
                           <BaseCardGallery
-                            v-for="car in month.nonPrizes"
+                            v-for="car in month.cars"
                             :car="resolvedRids[car.rid]"
                             :options="false"
+                            :class="{ BaseMyGarage_MonthTop: resolvedRids[car.rid].prize }"
                             class="BaseMyGarage_GalleryCard" />
                         </div>
                       </div>
                       <div v-else class="BaseMyGarage_MonthRight">
-                        <div class="BaseMyGarage_MonthTop">
-                          <div v-for="car in month.prizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
-                            <div class="MainFindCar_BankPhoto">
-                              <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
-                            </div>
-                            <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
-                          </div>
-                        </div>
                         <div class="BaseMyGarage_MonthMid">
-                          <div v-for="car in month.nonPrizes" class="MainFindCar_CarCard" :style="`--color: ${resolvedRids[car.rid].color}`">
+                          <div
+                            v-for="car in month.cars"
+                            class="MainFindCar_CarCard"
+                            :class="{ BaseMyGarage_MonthTop: resolvedRids[car.rid].prize }"
+                            :style="`--color: ${resolvedRids[car.rid].color}`">
                             <div class="MainFindCar_BankPhoto">
                               <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
                             </div>
@@ -451,7 +441,7 @@
               <div class="BaseMyGarage_OrderedRight">
                 <div class="BaseMyGarage_OrderedCount">#{{ index+1 }}</div>
                 <div class="BaseMyGarage_RarityStatsValue">
-                  <div class="BaseMyGarage_RarityStatsValueT">{{ typeof item.v === 'string' ? item.v : item.v % 1 != 0 ? item.v >= 100 ? Math.round(item.v) : Math.round(item.v * 10)/10 : item.v }}{{ orderedSuffix }}</div>
+                  <div class="BaseMyGarage_RarityStatsValueT">{{ orderedPrefix }}{{ typeof item.v === 'string' ? item.v : item.v % 1 != 0 ? item.v >= 100 ? Math.round(item.v) : Math.round(item.v * 10)/10 : item.v }}{{ orderedSuffix }}</div>
                   <div v-if="item.sub" class="BaseMyGarage_RarityStatsSub">{{ item.sub }}</div>
                 </div>
               </div>
@@ -489,11 +479,12 @@ import BaseSwitch from './BaseSwitch.vue';
 import BaseMyGarageTutorial from './BaseMyGarageTutorial.vue';
 
 class hlCar {
-  constructor(initialValue = 0, suffix = "") {
+  constructor(initialValue = 0, suffix = "", prefix = "") {
     this.car = {};
     this.v = initialValue;
     this.used = 0;
     this.sf = suffix;
+    this.pf = prefix;
   }
 }
 class rarityStats {
@@ -521,13 +512,13 @@ class groupStats {
     this.mostUseDay = new hlCar(0, "/day");
     this.mostWinDay = new hlCar(0, "/day");
     this.mostLoseDay = new hlCar(0, "/day");
+    this.higherRQ = new hlCar(0, "", "RQ");
   }
 }
 class timeline {
   constructor(monthIndex) {
     this.monthIndex = monthIndex;
-    this.prizes = [];
-    this.nonPrizes = [];
+    this.cars = [];
   }
 }
 
@@ -587,6 +578,7 @@ export default {
       orderedList: [],
       orderedKey: "",
       orderedSuffix: "",
+      orderedPrefix: "",
       updateParts: { viewStartIdx: 0, viewEndIdx: 0, visibleStartIdx: 0, visibleEndIdx: 0 },
       newGroupType: "group",
       yearList: [],
@@ -1122,14 +1114,16 @@ export default {
             if (key === "mostLoseDay" && ageInDays > 20) {
               this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/ageInDays, true, usedTimes);
             };
+            if (key === "higherRQ") {
+              this.compareHlItemBest(hlItem.t, key, hCar, this.resolvedRids[hCar.rid].rq, true, usedTimes);
+            };
             
           })
         }
 
         if (hlItem.tl) {
           let monthIndex = Number(hCar.date.substr(5,2)) - 1;
-          let prizeKey = this.resolvedRids[hCar.rid].prize ? "prizes" : "nonPrizes";
-          hlItem.tl[monthIndex][prizeKey].push(hCar);
+          hlItem.tl[monthIndex].cars.push(hCar);
         }
 
       }
@@ -1237,8 +1231,10 @@ export default {
         }
       }
       if (hlItem.tl) {
-        hlItem.tl.sort((a,b) => {
-          return new Date(a.date) - new Date(b.date);
+        hlItem.tl.map(month => {
+          month.cars.sort((a,b) => {
+            return new Date(a.date) - new Date(b.date);
+          })
         })
       }
     },
@@ -1603,6 +1599,7 @@ export default {
       // itemOfArray = { car: hCar, v: carValue, user: usedTimes }
       this.orderedKey = key;
       this.orderedSuffix = hlItem.t[key].sf;
+      this.orderedPrefix = hlItem.t[key].pf;
       this.orderedSub = hlItem.t[key].sf;
       let newHlItem = {
         filter: hlItem.filter,
