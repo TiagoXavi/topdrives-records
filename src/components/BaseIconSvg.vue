@@ -121,9 +121,9 @@
         c-0.7,0-1.3,0.2-1.7,0.6c-0.5,0.4-0.8,0.9-0.9,1.5c-0.1,0.6,0,1.1,0.4,1.4c0.3,0.3,1.1,0.7,2.3,1.2c1.3,0.5,2.4,1,3.1,1.5
         c0.7,0.5,1.3,1.1,1.6,1.9c0.3,0.8,0.4,1.8,0.2,2.9c-0.3,1.7-1,3.1-2.2,4.2c-1.2,1.1-2.8,1.8-4.7,2l-0.4,2.4h12.6l4-24.6H19.5z"/>
     </svg>
-    <svg v-else-if="type === 'clearance'" class="BaseIconSvg_Clearance" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 27 21" viewBox="0 0 27 21">
+    <svg v-else-if="type === 'clearance' || type === 'clearanceW'" class="BaseIconSvg_Clearance" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 27 21" viewBox="0 0 27 21">
       <path d="m12.5 3.2-8 13.7c-.5.8.1 1.8 1 1.8h15.9c.9 0 1.5-1 1-1.8L14.5 3.2c-.4-.8-1.6-.8-2 0z" style="fill:none;stroke:#fff;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10"/>
-      <path d="M19.1 15.5h-1.9c-.6-1.5-2-2.5-3.7-2.5-1.7 0-3.1 1-3.7 2.5H8l-.7 1.2h12.5l-.7-1.2z" style="fill:#ff7152"/>
+      <path d="M19.1 15.5h-1.9c-.6-1.5-2-2.5-3.7-2.5-1.7 0-3.1 1-3.7 2.5H8l-.7 1.2h12.5l-.7-1.2z" style="fill:#ff7152" :style="type === 'clearanceW' ? 'fill: #67c3e7;' : ''"/>
     </svg>
     <svg v-else-if="type === 'discord'" class="BaseIconSvg_Discord" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 55" fill="none">
       <g clip-path="url(#clip0)">

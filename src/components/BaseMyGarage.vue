@@ -585,6 +585,7 @@ export default {
       yearModel: "",
       yearDialog: false,
       shareUrl: "",
+      today: new Date(),
       copyUrlSucess: false,
       userHighlights: [
         {
@@ -992,7 +993,7 @@ export default {
           // legT: hCar.legacyTier,
           rid: this.guidToRid[hCar.cardId],
           tunZ: tunZ,
-          date: hCar.holdExpiresAt.slice(0,10),
+          date: hCar.holdExpiresAt,
           cW: hCar.cardWins,
           cL: hCar.cardLosses,
           cD: hCar.cardDraws
@@ -1076,7 +1077,7 @@ export default {
 
         if (hlItem.t) {
           let usedTimes = hCar.cW+hCar.cL+hCar.cD;
-          let ageInMinutes = (new Date() - new Date(hCar.date)) / 1000 / 60;
+          let ageInMinutes = (this.today - new Date(hCar.date)) / 1000 / 60;
           let ageInDays = ageInMinutes / 60 / 24;
   
           Object.keys(hlItem.t).map(key => {
@@ -1227,7 +1228,7 @@ export default {
         }
         {
           let C = hlItem.t["lessUseDay"].car;
-          hlItem.t["lessUseDay"].v = `${C.cW + C.cL + C.cD}/${Math.round((new Date() - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
+          hlItem.t["lessUseDay"].v = `${C.cW + C.cL + C.cD}/${Math.round((this.today - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
         }
       }
       if (hlItem.tl) {
@@ -1256,7 +1257,7 @@ export default {
             }
             if (key === "lessUseDay") {
               C = item.car;
-              item.v = `${C.cW + C.cL + C.cD}/${Math.round((new Date() - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
+              item.v = `${C.cW + C.cL + C.cD}/${Math.round((this.today - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
             }
           })
         })
@@ -1350,7 +1351,7 @@ export default {
     newTimeline() {
       if (this.yearList.length === 0) {
         let initial = 2016;
-        let end = Number(new Date().toISOString().substr(0,4));
+        let end = Number(this.today.toISOString().substr(0,4));
         if (end > 2050) end = 2050;
         do {
           this.yearList.push(initial);
@@ -1448,7 +1449,7 @@ export default {
         html2canvas.default(pose, options).then(function(canvas) {
 
           import('reimg').then(reimg => {
-            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
+            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${this.today.toISOString().slice(0,-5)}.png`)
 
             document.querySelector(boxName).classList.remove("Main_BodyPrint");
             vm.windowWidth = vm.tempWindowWidth;
@@ -1615,7 +1616,9 @@ export default {
           if (a.v === b.v) return a.used - b.used;
           else return a.v - b.v;
         } else {
-          if (a.v === b.v) return b.used - a.used;
+          if (a.v === b.v) {
+            return b.used - a.used;
+          }
           else return b.v - a.v;
         }
       })
@@ -1843,8 +1846,8 @@ export default {
   justify-content: center;
   display: contents;
 }
-.BaseMyGarage_MonthTop {
-  
+.BaseMyGarage_MonthTop.MainFindCar_CarCard {
+  display: block;
 }
 .BaseMyGarage_MonthTop .Row_DialogCardCard2 {
   box-shadow: 0px 0px 0px 2px var(--class-color);

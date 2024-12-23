@@ -2700,6 +2700,13 @@ body .Main_UserTw3:before {
   display: flex;
   border-radius: 3px;
 }
+.Main_RoundIcons {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  opacity: 0.9;
+}
 .Cg_Header {
   position: static;
   left: 0;

@@ -2542,7 +2542,7 @@
       :active="cgRoundSelectorDialog"
       :transparent="true"
       :lazy="true"
-      max-width="460px"
+      max-width="520px"
       min-width="240px"
       class="Cg_SelectorDialog"
       @close="cgRoundSelectorDialog = false;">
@@ -2553,7 +2553,7 @@
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="(item, index) in cg.rounds">
             <button
-              style="padding-left: 15px;"
+              style="padding-left: 15px; padding-right: 15px;"
               class="Main_SearchItem"
               @click="loadCgRound(cg.date, index)">
               <div class="Main_SearchItemRight">{{ $tc("m_round", 1) }} {{ index+1+cgCurrentRoundSum }}</div>
@@ -2569,6 +2569,9 @@
                   :class="`Main_UserT${highlightsUsers[item.creator]}`"
                   class="Main_SearchResultUser Cg_Creator">{{ item.creator }}</span>
               </span>
+              <div v-if="item.icons" class="Main_RoundIcons">
+                <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
+              </div>
             </button>
           </template>
         </div>
@@ -6164,6 +6167,7 @@ export default {
           this.loadCgRound(date, round);
         }
         this.lookForChangedCars(res.data);
+        this.cgResolveIcons();
       })
       .catch(error => {
         console.log(error);
@@ -7163,6 +7167,65 @@ export default {
       this.cgRoundFilterString = JSON.stringify(f);
       this.cgRqEditString = this.cgRound.rqLimit;
       this.cgRqNeedToSave = false;
+    },
+    cgResolveIcons() {
+      let iconsSort = [
+        "asphalt",
+        "clearance",
+        "rain",
+        "clearanceW",
+        "dirt",
+        "gravel",
+        "ice",
+        "sand",
+        "snow",
+        "grass"
+      ]
+      let bump = [
+        'csSmall',
+        'dockCity',
+        'csMed',
+        'oceanCity',
+        'speedbump12km',
+        'speedbump1km',
+        'miStreets2'
+      ]
+      
+      this.cg.rounds.map((round, iround) => {
+        // Round 1
+        let icons = [];
+        round.races.map((race, irace) => {
+          // Race 1,2,3,4,5
+          let track = race.track || "";
+          if (!track) {
+            if (round.toApprove && round.toApprove.length > 0) {
+              track = round.toApprove[0].races[irace].track || "";
+            }
+          }
+          let surf = track.slice(-2);
+          if (surf) {
+            let key;
+            if ( surf[0] === "0" && bump.includes((track).slice(0, -4)) ) {
+              if (surf[1] === "0") key = "clearance";
+              else key = "clearanceW";
+            }
+            else if (surf === "01" || track === "lumberTwisty_a41") key = "rain";
+            else if (surf === "00" || track === "lumberTwisty_a40") key = "asphalt";
+            else if (surf[0] === "1" || surf[0] === "4") key = "dirt";
+            else if (surf[0] === "2" || surf[0] === "b") key = "gravel";
+            else if (surf[0] === "3" || surf[0] === "g") key = "ice";
+            else if (surf[0] === "5" || surf[0] === "e" || surf[0] === "c") key = "sand";
+            else if (surf[0] === "6" || surf[0] === "d" || surf[0] === "h") key = "snow";
+            else if (surf[0] === "7" || surf[0] === "f") key = "grass";
+            icons.push(key);
+          }
+        });
+        icons.sort((a,b) => {
+          return iconsSort.indexOf(a) - iconsSort.indexOf(b);
+        })
+
+        Vue.set(round, 'icons', icons);
+      })
     },
     cgOpenRequirementDialog() {
       this.cgRequirementsDialogLoad = true;
