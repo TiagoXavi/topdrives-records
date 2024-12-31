@@ -227,6 +227,7 @@ export default {
       let tracksClear = [];
 
       this.tracksRepo.find(circuit => {
+        if (track.slice(0,-4) !== circuit.id) return false;
         circuit.types.find(type => {
           if (track === `${circuit.id}_a${type}`) {
             tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1], code: `${circuit.id}_a${type}` } );

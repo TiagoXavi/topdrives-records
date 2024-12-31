@@ -906,14 +906,6 @@
                     <template v-else-if="event.compilation && event.compilation.length > 0">
                       <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
                     </template>
-                    <template v-if="eventShowAnalyse">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: eventLoadingAny }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="eventAnalyse()">{{ $t("m_analyze") }}</button>
-                      </div>
-                    </template>
                     <div v-if="user" class="Main_PrintBy">
                       <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
                       <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
@@ -4247,20 +4239,6 @@ export default {
       let isValid = Array.isArray(arr) && Array.isArray(arr[0]) && arr[0].length > 0;
       if (isValid) return true;
     },
-    eventShowAnalyse() {
-      if (this.mode !== 'events') return false;
-      if (!this.user || !this.user.mod) return false;
-      if (this.eventNeedSave) return false;
-      if (!this.event || !this.event.date) return false;
-      if (this.eventForceAnalyze) return true;
-      // let show = true;
-      // this.cgRound.races.map(race => {
-      //   if (!race.rid || race.time === undefined || race.time === null) show = false;
-      //   if (!race.track) show = false;
-      //   if (race.cars && race.cars.length > 4) show = false
-      // })
-      // return show;
-    },
     eventFilterConfig() {
       if (this.whatTier && this.whatTier <= 3) {
         return {
@@ -4430,6 +4408,7 @@ export default {
 
       tracks.map(x => {
         this.tracksRepo.find(circuit => {
+          if (x.slice(0,-4) !== circuit.id) return false;
           return circuit.types.find(type => {
             if (x === `${circuit.id}_a${type}`) {
               if (group && circuit.group) {
@@ -8175,7 +8154,6 @@ export default {
 
       this.eventResolveTrackset();
       this.eventUpdateLocalStorage();
-      // this.eventResolveCompilation();
     },
     eventResolveTrackset() {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
@@ -8238,47 +8216,22 @@ export default {
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
 
       Array.from(Array(5)).map((_, itrack) => {
+
         let compilation = [];
         Array.from(Array(this[key].trackset.length)).map((_, itrackset) => {
           if (tracksetUsed && JSON.stringify(tracksetUsed[0]) !== JSON.stringify(this[key].trackset[itrackset])) {
             return;
           }
 
-          // if (Object.keys(this.trackTimes).length === 5) {
-          //   let foundAll = true;
-          //   this[key].trackset[itrackset].map(x => {
-          //     if (!this.trackTimes[x]) foundAll = false;
-          //   })
-          //   if (!foundAll) return;
-          // }
-
           let track = this[key].trackset[itrackset][itrack];
-          if (itrackset === 0) {
-            compilation = this.trackTimes[track];
-            if (!compilation) return;
-            compilation.map(car => {
-              car.presentCount = [track];
-            })
-          }
-          else {
-            if (this.trackTimes[track]) {
-              this.trackTimes[track].map(car => {
-                let found = compilation.find(x => x.rid === car.rid && x.tune === car.tune);
-                if (found) {
-                  found.saverScore1 = Math.floor((found.saverScore1 + car.saverScore1) / 1.9)
-                  found.saverScore2 = Math.floor((found.saverScore2 + car.saverScore2) / 1.9)
-                  found.saverScore3 = Math.floor((found.saverScore3 + car.saverScore3) / 1.9)
-                  found.presentCount.push(track);
-                } else {
-                  // allow score if not present on all tracks (part1)
-                  car.presentCount = [track];
-                  compilation.push(car);
-                }
-  
-              })
-            }
-          }
-        })
+          compilation = this.trackTimes[track];
+          compilation.map(car => {
+            car.track = track;
+          })
+          if (!compilation) return;
+        });
+
+
         compilation.sort((a,b) => {
           return b[this.eventScoreType] - a[this.eventScoreType];
         })
@@ -8288,8 +8241,8 @@ export default {
         uniqueTracks = [...new Set(uniqueTracks)];
         let minCount = uniqueTracks.length;
 
-        // compilation = compilation.filter(car => car.presentCount.length >= minCount - 1 && car.rq < 80);
         compilation = compilation.filter(car => car.rq < 80);
+        
         let firstRid = [];
         compilation = compilation.filter(car => {
           // keep just the best tune
@@ -8300,9 +8253,11 @@ export default {
         compilation = compilation.filter((x, ix) => ix < 30);
         compilation.map(car => {
           this.frontCompleteCar(car);
-          if (car.presentCount.length === 1) {
-            car.track = car.presentCount[0];
-          }
+          // if (car.presentCount.length === 1) {
+          //   car.track = car.presentCount[0];
+          // } else {
+          //   debugger;
+          // }
         })
 
         if (this.isEvents) {
@@ -8310,10 +8265,13 @@ export default {
         } else {
           Vue.set(this.clubCompilation, itrack, compilation);
         }
+        
 
         // console.log(compilation);
         
       });
+      
+
     },
     eventListKings() {
       let key = this.isEvents ? 'eventPointsReference' : 'clubPointsReference';
@@ -8789,38 +8747,38 @@ export default {
       if (filterNumber) key = key + (filterNumber+1);
       return this[key];
     },
-    eventAnalyse(disableAfter = true) {
-      // RQ savers, unreleased
-      this.eventAnalyseLoading = true;
+    // eventAnalyse(disableAfter = true) {
+    //   // RQ savers, unreleased
+    //   this.eventAnalyseLoading = true;
 
-      axios.post(Vue.preUrl + "/analyseEvent", {
-        date: this.event.date,
-        rqLimit: this.event.rqLimit,
-        trackset: this.event.trackset,
-        filter: this.event.filter
-      })
-      .then(res => {
-        Vue.set(this, 'trackTimes', res.data)
-        // if (disableAfter) this.eventForceAnalyze = false;
-        this.eventResolveCompilation();
-      })
-      .catch(error => {
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-        if ((error.response || {}).status === 401) {
-          this.$store.commit('OPEN_LOGIN');
-        }
-      })
-      .then(() => {
-        this.eventAnalyseLoading = false;
-      });
+    //   axios.post(Vue.preUrl + "/analyseEvent", {
+    //     date: this.event.date,
+    //     rqLimit: this.event.rqLimit,
+    //     trackset: this.event.trackset,
+    //     filter: this.event.filter
+    //   })
+    //   .then(res => {
+    //     Vue.set(this, 'trackTimes', res.data)
+    //     // if (disableAfter) this.eventForceAnalyze = false;
+    //     this.eventResolveCompilation();
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     this.$store.commit("DEFINE_SNACK", {
+    //       active: true,
+    //       error: true,
+    //       text: error,
+    //       type: "error"
+    //     });
+    //     if ((error.response || {}).status === 401) {
+    //       this.$store.commit('OPEN_LOGIN');
+    //     }
+    //   })
+    //   .then(() => {
+    //     this.eventAnalyseLoading = false;
+    //   });
 
-    },
+    // },
     eventFindRqSavers() {
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
 

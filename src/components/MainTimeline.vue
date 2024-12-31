@@ -1840,6 +1840,7 @@ export default {
 
       tracks.map(x => {
         this.tracksRepo.find(circuit => {
+          if (x.slice(0,-4) !== circuit.id) return false;
           return circuit.types.find(type => {
             if (x === `${circuit.id}_a${type}`) {
               if (group && circuit.group) {

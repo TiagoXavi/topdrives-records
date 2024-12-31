@@ -1182,29 +1182,12 @@ export default {
       let res = null;
 
       if (
-        tunZ === "000" ||
-        tunZ === "333" ||
-        tunZ === "996" ||
-        tunZ === "969" ||
-        tunZ === "699"
+        tunZ[0] % 3 === 0 &&
+        tunZ[1] % 3 === 0 &&
+        tunZ[2] % 3 === 0
       ) {
         res = `${tunZ[0] / 3}${tunZ[1] / 3}${tunZ[2] / 3}`
       }
-
-      // let arr = tunZ.split("");
-      // if (
-      //   Number(arr[0]) % 3 === 0 &&
-      //   Number(arr[1]) % 3 === 0 &&
-      //   Number(arr[2]) % 3 === 0
-      // ) {
-      //   res = Number(tunZ / 3)
-      // }
-      
-      // if (hCar.engineMinor % 3 === 0 && hCar.engineMinor % 3 === 0 && hCar.engineMinor % 3 === 0) {
-      //   res = `${(hCar.engineMajor * hCar.engineMinor) / 3}`+
-      //     `${(hCar.weightMajor * hCar.weightMinor) / 3}`+
-      //     `${(hCar.chassisMajor * hCar.chassisMinor) / 3}`;
-      // }
 
       return res;
     },

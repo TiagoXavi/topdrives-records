@@ -11,16 +11,16 @@
       <div
         v-for="(info, fx) in infosResolved"
         class="Row_Item Row_Cell Row_ConfigCell"
-        :class="`Row_Tune${car.selectedTune} `+`${cg ? 'Row_DisableSticky ' : ''}`+`${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`"
+        :class="`Row_Tune${tun} `+`${cg ? 'Row_DisableSticky ' : ''}`+`${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`"
         @mouseleave="mouseLeaveTune($event)">
         <template v-if="info.type === 'Tune'">
           <div class="Row_Config">
-            <template v-if="(!car.selectedTune || mouseInsideTuneBox || cgYou) && !forceHideCompactSelect">
+            <template v-if="(!tun || mouseInsideTuneBox || cgYou) && !forceHideCompactSelect">
               <div class="Row_TuneChooseBox">
                 <button
                   v-for="item in tunes"
                   :class="{
-                    Row_DialogButtonTuneActive: car.selectedTune === item,
+                    Row_DialogButtonTuneActive: tun === item,
                     Row_DialogButtonTuneWin: tuneWins[item] > 0,
                     Row_DialogButtonTuneLose: tuneWins[item] < 0
                   }"
@@ -35,7 +35,7 @@
               </div>
             </template>
             <template v-else> 
-              <div class="Row_Tune">{{ car.selectedTune }}</div>
+              <div class="Row_Tune">{{ tun }}</div>
               <div class="Row_ConfigBox">
                 <button class="D_Button Row_ConfigButton" @click="showTuneDialog($event)">
                   <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
@@ -50,7 +50,7 @@
       </div>
     </template>
     <div
-      v-if="car.selectedTune || type === 'tracks' || (cg && car.rid && car.selectedTune)"
+      v-if="tun || type === 'tracks' || (cg && car.rid && tun)"
       v-for="(item, ix) in timesResolved"
       :id="`${type === 'tracks' ? 'Row_Track'+ix : ''}`"
       :data="`${item.id}_a${item.surface}${item.cond}`"
@@ -114,18 +114,18 @@
           Row_PointsDraw: points[item.code].v === 0
         }"
         class="Row_Content">{{ points[item.code].v }}</div>
-      <template v-if="car.selectedTune || cg">
+      <template v-if="tun || cg">
         <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
       <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign" >{{ item.campaign }}<div v-if="item.campaignNum" class="Row_Campaign_Balls" :class="`Row_Campaign_Balls${item.campaignNum}`"><div v-for="n in 5"></div></div></div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).info || {}).acel || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a01'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[car.selectedTune] || {}).times || {})['drag100_a10'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[car.selectedTune] || {}).times || {})['drag150_a00'] || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).info || {}).acel || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a01'] || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a10'] || {}).t) }}</div>
+      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t) }}</div>
       <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
         item.id === 'csSmall' ||
         item.id === 'dockCity' ||
@@ -203,7 +203,7 @@
                 aria-hidden="true"/>
             </button>
             <button
-              v-if="user && user.canDelete && (car.selectedTune && !car.selectedTune.includes('Other')) && car.selectedTune !== '000'"
+              v-if="user && user.canDelete && (tun && !tun.includes('Other')) && tun !== '000'"
               class="D_Button Row_ModEditButton"
               @click="modDelete($event, item, ix)">
               <i
@@ -221,7 +221,7 @@
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
-    <div v-if="car.isEmpty && type === 'times' && !car.selectedTune" class="Row_EmptyInvite">
+    <div v-if="car.isEmpty && type === 'times' && !tun" class="Row_EmptyInvite">
       <div>{{ $t("m_noRecords") }}</div>
     </div>
 
@@ -356,6 +356,10 @@ export default {
       type: Boolean,
       default: false
     },
+    forceTune: {
+      type: String,
+      default: null
+    },
     cgTime: {
       type: Number,
       default: null
@@ -438,6 +442,12 @@ export default {
     this.unsubscribeMutation();
   },
   computed: {
+    tun() {
+      if (this.forceTune) return this.forceTune;
+      if (this.customData && this.customData.selectedTune) return this.customData.selectedTune;
+      if (this.car && this.car.selectedTune) return this.car.selectedTune;
+      return null;
+    },
     timesResolved() {
       let result = [];
       let text;
@@ -458,10 +468,10 @@ export default {
       } else if (this.type === "times") {
         car = this.car;
         if (
-            car.selectedTune &&
+            this.tun &&
             car.data &&
-            car.data[car.selectedTune] &&
-            car.data[car.selectedTune].times
+            car.data[this.tun] &&
+            car.data[this.tun].times
         ) {
           timesObjPresent = true;
         }
@@ -472,11 +482,11 @@ export default {
           //     car.times[x.id]
           // ) {
           if (timesObjPresent) {
-            text = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
-            downList = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
-            upList = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
-            author = (car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
-            date = ((car.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
+            text = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
+            downList = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
+            upList = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
+            author = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
+            date = ((car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
           }
           if (text === undefined || text === null) text = "";
           result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date })
@@ -487,11 +497,11 @@ export default {
       let isCustomData = false;
       if (
         this.type === "times" &&
-        this.car.selectedTune &&
+        this.tun &&
         this.customData &&
         this.customData.data &&
-        this.customData.data[this.car.selectedTune] &&
-        this.customData.data[this.car.selectedTune].times
+        this.customData.data[this.tun] &&
+        this.customData.data[this.tun].times
       ) {
         isCustomData = true;
       }
@@ -502,8 +512,8 @@ export default {
         })
         let vm = this;
 
-        Object.keys( this.car.data[this.car.selectedTune].times ).forEach(function (key) {
-          if (!presentTracks.includes(key) && (vm.car.data[vm.car.selectedTune].times[key] || {}).t !== 0) {
+        Object.keys( this.car.data[this.tun].times ).forEach(function (key) {
+          if (!presentTracks.includes(key) && (vm.car.data[vm.tun].times[key] || {}).t !== 0) {
             vm.nonUsedTracks.push(key)
           }
 
@@ -512,12 +522,12 @@ export default {
       } else if (isCustomData) {
         // custom data with allowedTune
         this.list.map((x, ix) => {
-          text = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
+          text = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
           if (text === undefined || text === null) text = "";
-          downList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
-          upList = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
-          author = (this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
-          date = ((this.customData.data[car.selectedTune].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
+          downList = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
+          upList = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
+          author = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
+          date = ((this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
 
           if (text === '' && this.cgTime) {
             text = this.cgTime;
@@ -743,13 +753,13 @@ export default {
       
       let url = `${window.location.origin}?share=`;
       url += `~K${item.id}_a${item.trackType}`;
-      url += `~C${this.car.rid}~T${this.car.selectedTune}`;
+      url += `~C${this.car.rid}~T${this.tun}`;
       
       let formData = new FormData();
       formData.set('image', file);
       formData.set('config', JSON.stringify({
         author: this.user.username,
-        car: `${this.car.name} (${this.car.selectedTune})`,
+        car: `${this.car.name} (${this.tun})`,
         track: `${this.$i18n._vm.messages.en['t_'+item.id]}/${this.$t('t_'+item.id)} - ${Vue.options.filters.resolveCond(item.trackType)}`,
         currentTime: Vue.options.filters.toTimeString(item.text, item.id),
         timeAuthor: item.author,
@@ -819,8 +829,8 @@ export default {
         this.$emit('showTuneDialog');
       } else {
         if (e.ctrlKey || e.metaKey) {
-          if (this.car.selectedTune) {
-            this.tempTune = this.car.selectedTune;
+          if (this.tun) {
+            this.tempTune = this.tun;
             this.changeTune(undefined);
           } else if (this.tempTune) {
             this.changeTune(this.tempTune);
@@ -837,7 +847,7 @@ export default {
     changeTune(tune, insideBox = true) {
       this.outsideClick();
       if (insideBox) this.mouseInsideTuneBox = true;
-      if (tune === this.car.selectedTune) {
+      if (tune === this.tun) {
         tune = undefined
       }
 
