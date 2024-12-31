@@ -243,6 +243,7 @@ export default {
             if (trackCode.startsWith("townSlalom_a") && !trackCode.startsWith("townSlalom_a0")) factor = 1000;
             if (trackCode.startsWith("nwSlalom_a") && !trackCode.startsWith("nwSlalom_a0")) factor = 1000;
             if (trackCode.startsWith("mtSlalom_a") && !trackCode.startsWith("mtSlalom_a0")) factor = 1000;
+            if (trackCode.startsWith("lumberTwisty_a") && !trackCode.startsWith("lumberTwisty_a4")) factor = 1000;
 
 
 

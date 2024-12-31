@@ -8232,25 +8232,26 @@ export default {
         });
 
 
-        compilation.sort((a,b) => {
-          return b[this.eventScoreType] - a[this.eventScoreType];
-        })
+        // compilation.sort((a,b) => {
+        //   return b[this.eventScoreType] - a[this.eventScoreType];
+        // })
 
         let uniqueTracks = [];
         this[key].trackset.map(trackset => uniqueTracks.push(trackset[itrack]));
         uniqueTracks = [...new Set(uniqueTracks)];
         let minCount = uniqueTracks.length;
 
-        compilation = compilation.filter(car => car.rq < 80);
+        // compilation = compilation.filter(car => car.rq < 80);
         
-        let firstRid = [];
-        compilation = compilation.filter(car => {
-          // keep just the best tune
-          if (firstRid.includes(car.rid)) return false;
-          firstRid.push(car.rid);
-          return true;
-        });
-        compilation = compilation.filter((x, ix) => ix < 30);
+        // let firstRid = [];
+        // compilation = compilation.filter(car => {
+        //   // keep just the best tune
+        //   if (firstRid.includes(car.rid)) return false;
+        //   firstRid.push(car.rid);
+        //   return true;
+        // });
+        // compilation = compilation.filter((x, ix) => ix < 30);
+
         compilation.map(car => {
           this.frontCompleteCar(car);
           // if (car.presentCount.length === 1) {
