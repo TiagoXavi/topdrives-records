@@ -7933,11 +7933,11 @@ export default {
             romanString = part;
             return true;
           }
-          if (roman.includes(part.slice(1 ,-1))) {
+          if (roman.includes(part.slice(1 ,-1)) && part[0] === "(") {
             romanString = part.slice(1 ,-1);
             return true;
           }
-          if (Number(part.slice(1 ,-1)) > 0 ) {
+          if (Number(part.slice(1 ,-1)) > 0 && part[0] === "(") {
             numberOrdinal = Number(part.slice(1 ,-1));
             return true;
           }

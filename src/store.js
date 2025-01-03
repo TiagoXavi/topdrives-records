@@ -90,6 +90,7 @@ export default new Vuex.Store({
       "Desperados",
       "Famous Tracks",
       "Gaz's Collection",
+      "Gunter's Collection",
       "Heavy Metal",
       "Electric Excellence",
       "In the Shadows",
