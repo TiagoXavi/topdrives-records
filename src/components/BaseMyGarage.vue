@@ -551,6 +551,7 @@ export default {
       all_cars_obj: {},
       highlightsUsers: {},
       carsReady: false,
+      garageYear: 2025,
       userGarage: {},
       myGarageFilterDialog: false,
       resolvedRids: {},
@@ -851,11 +852,20 @@ export default {
 
       axios.post(Vue.preUrl + "/getGarage", {
         username: this.userId,
-        year: 2024
+        year: this.garageYear
       })
       .then(res => {
         this.loading = false;
         this.saved = false;
+        if (res.status === 200 && !res.data) {
+          // not found
+          // TEMP
+          if (this.garageYear === 2025) {
+            this.garageYear = 2024;
+            this.load();
+            return;
+          }
+        }
         if (res.status === 204) {
           // private garage
           this.$store.commit("DEFINE_SNACK", {
