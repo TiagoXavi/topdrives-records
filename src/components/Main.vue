@@ -781,10 +781,10 @@
             <template v-for="item in cgList">
               <button
                 v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
-                style="padding-left: 15px;"
+                style="padding-left: 15px; padding-right: 15px; min-height: 38px;"
                 class="Main_SearchItem"
                 @click="loadChallengeFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+                <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 42 ? '0.8em' : ''};`" />
               </button>
             </template>
             <div class="Main_CgListDividerLayout">
@@ -2516,11 +2516,11 @@
           <template v-for="item in cgList">
             <BaseButtonTouch
               v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
-              style="padding-left: 15px;"
+              style="padding-left: 15px; padding-right: 15px; min-height: 38px;"
               class="Main_SearchItem"
               @click="loadChallengeFull(item.date, undefined, $event)"
               @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" />
+              <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 42 ? '0.8em' : ''};`" />
             </BaseButtonTouch>
           </template>
           <div class="Main_CgListDividerLayout">
@@ -7929,10 +7929,10 @@ export default {
         let numberOrdinal = null;
         x.indexOfRoman = split.findIndex( part => {
           part = part.replace(":", "");
-          if (roman.includes(part)) {
-            romanString = part;
-            return true;
-          }
+          // if (roman.includes(part)) {
+          //   romanString = part;
+          //   return true;
+          // }
           if (roman.includes(part.slice(1 ,-1)) && part[0] === "(") {
             romanString = part.slice(1 ,-1);
             return true;
