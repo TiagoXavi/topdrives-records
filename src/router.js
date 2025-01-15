@@ -237,6 +237,7 @@ if (process.env.NODE_ENV !== 'production') {
   const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
   const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
   const MainCRCContest = () => import("./components/MainCRCContest.vue");
+  const MainParser = () => import("./components/MainParser.vue");
 
   routes.push(
     {
@@ -288,6 +289,11 @@ if (process.env.NODE_ENV !== 'production') {
       path: '/MainCRCContest', // internal
       name: 'MainCRCContest',
       component: MainCRCContest,
+    },
+    {
+      path: '/MainParser', // internal
+      name: 'MainParser',
+      component: MainParser,
     },
   );
 }

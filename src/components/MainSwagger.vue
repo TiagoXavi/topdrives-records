@@ -349,6 +349,13 @@ export default {
         vm.loading = false;
       });
 
+
+      // TEMP
+      axios.get(Vue.preUrlCharlie + "/getUser")
+      .then(res => {
+        //
+      })
+
     },
     getConfig() {
       let vm = this;

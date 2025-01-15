@@ -230,6 +230,9 @@ export default {
 .BaseIconSvg_Margin > svg:not(.BaseIconSvg_Laurel) {
   margin-left: 3px;
 }
+.BaseIconSvg_Discord {
+  width: 100%;
+}
 .BaseIconSvg_Roll {
   width: 27px;
   opacity: 0.7;
@@ -238,35 +241,32 @@ export default {
   width: 27px;
   opacity: 0.7;
 }
-.BaseIconSvg_Discord {
-  width: 100%;
-}
 .BaseIconSvg_Rain {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Sun {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Asphalt {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Dirt {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Grass {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Gravel {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Ice {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Sand {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_Snow {
-  width: 29px;
+  width: 27px;
 }
 .BaseIconSvg_GravelPath {
   fill:none;stroke:#E5C985;stroke-width:1.6;stroke-miterlimit:10;

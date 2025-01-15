@@ -122,7 +122,7 @@ export default {
       this.prizeboard[cardIndex] = type;
       this.prizeSelectorCard = null;
       this.updatePrizeBoardStorage();
-      // this.$store.commit("START_LOGROCKET", {});
+      this.$store.commit("START_LOGROCKET", {});
     },
     loadPrizeBoardFromStorage() {
       if (!this.id) return;

@@ -201,7 +201,6 @@ export default {
       "onlyName",
       "brand",
       "year",
-      "tdid",
       "abs",
       "tcs",
       "clearance",

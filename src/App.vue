@@ -2285,6 +2285,12 @@ body .Main_UserTw3:before {
   margin-top: -1px;
   padding: 5px 6px;
 }
+.Main_EventListDividir {
+  text-align: center;
+  font-size: 40px;
+  line-height: 3;
+  opacity: 0.2;
+}
 
 
 
@@ -2525,7 +2531,7 @@ body .Main_UserTw3:before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2px 0 25px 0;
+  margin-top: 2px;
 }
 .Cg_YouBankManualAdd {
   margin-bottom: 2px;
@@ -2753,6 +2759,12 @@ body .Main_UserTw3:before {
 }
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_Track,
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_ThemTime {
+  /* display: none; */
+}
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_Divider,
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .CgYouCar,
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_YouTime,
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_YouBank {
   display: none;
 }
 .Cg_NotThisTime_Icon {

@@ -56,7 +56,8 @@
           <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
           <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
           <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
-          <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" @change="cgReCalcRound()" />
+          <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" />
+          <BaseConfigCheckBox v-model="showPrizeBoard" name="showPrizeBoard" :label="`${$t('m_events')}: ${$t('m_showPrizeBoard')}`" />
           <div v-if="isMobile" class="Main_SaveGalleryBox" style="margin-top: 15px;">
             <div class="Main_OptionsLabel">{{ $t("m_zoom") }}</div>
             <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
@@ -135,6 +136,7 @@ export default {
       local_showOldTags: false,
       local_homePointsToggle: false,
       local_showPointsCgForce: true,
+      local_showPrizeBoard: true,
       local_zoomLevel: "100%",
       local_zoomLevelHorizontal: "80%",
       isMobile: false,
@@ -169,6 +171,7 @@ export default {
     this.localStorageRead("showOldTags");
     this.localStorageRead("homePointsToggle");
     this.localStorageRead("showPointsCgForce");
+    this.localStorageRead("showPrizeBoard");
 
   },
   beforeDestroy() {
@@ -310,6 +313,15 @@ export default {
       set: function (newValue) {
         this.local_showPointsCgForce = newValue;
         this.$store.commit("CHANGE_POINTS_CG_FORCE", newValue);
+      }
+    },
+    showPrizeBoard: {
+      get: function () {
+        return this.local_showPrizeBoard;
+      },
+      set: function (newValue) {
+        this.local_showPrizeBoard = newValue;
+        this.$store.commit("CHANGE_PRIZE_BOARD", newValue);
       }
     },
     zoomLevel: {

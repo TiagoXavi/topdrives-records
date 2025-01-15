@@ -279,6 +279,7 @@ export default {
   m_uploadMyGarage: "Upload my garage",
   m_updateGarage: "Update garage",
   m_higherRQ: "Higher RQ",
+  m_showPrizeBoard: "Show prize board",
 
 
   
@@ -294,7 +295,7 @@ export default {
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",
   p_chartsDescription: "It puts all database of a track into a chart. For a demonstration:",
   p_templateWarning: "Make sure that your template is useful to the community or it will not be approved.",
-  p_about1: "This project was made by TiagoXavi and is not related to the Hutch Games Ltd.",
+  p_about1: "This project was made by TiagoXavi and is not related to the Hutch Games Ltd. All Top Drives assets are property of Hutch Games Ltd.",
   p_about2: "Any problem or suggestion, please join the Discord server or send an email (mighty.boy@topdrivesrecords.com).",
   p_about3: "TDR is free for everyone and ad-free. You can support the project to keep it online and receiving new features!",
   p_resetPassHelper: "Type your email to receive a link to reset your password",

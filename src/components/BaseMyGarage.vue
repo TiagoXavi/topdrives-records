@@ -768,7 +768,7 @@ export default {
       console.log(`${Math.round(t1 - t0)} ms • ${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
     }
 
-    this.$store.commit("START_LOGROCKET", {});
+    // this.$store.commit("START_LOGROCKET", {});
     
   },
   beforeDestroy() {
@@ -946,27 +946,20 @@ export default {
       }
     },
     processSyncObj(obj) {
-      let isError;
-      { // validation
-        if (typeof obj !== "object") isError = "Not object";
-        if (!obj.serverTime) isError = "No basic property";
-        if (!obj.user) isError = "No user property";
-        if (!obj.wishlists || obj.wishlists.length !== 1) isError = "No wishlists";
-        if (!obj.dailyGift) isError = "No dailyGift";
-        if (!obj.playerDeck || obj.playerDeck.length < 1) isError = "No playerDeck";
-        if (isError) {
-          if (isError === "No playerDeck") {
-            this.noPlayerDeck();
-            return;
-          }
-          this.$store.commit("DEFINE_SNACK", {
-            active: true,
-            error: true,
-            text: `Not a valid input: ${isError}`,
-            type: "error"
-          });
+      let isError = this.errorSwitch(obj);
+      
+      if (isError) {
+        if (isError === "No playerDeck") {
+          this.noPlayerDeck();
           return;
         }
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: `Not a valid input: ${isError}`,
+          type: "error"
+        });
+        return;
       }
 
       this.userGarage = {
@@ -988,6 +981,15 @@ export default {
 
       // console.log(this.userGarage);
       return true;
+    },
+    errorSwitch(obj) {
+      if (typeof obj !== "object") return "Not object";
+      if (!obj.serverTime) return "No basic property";
+      if (!obj.user) return "No user property";
+      if (!obj.wishlists || obj.wishlists.length !== 1) return "No wishlists";
+      if (!obj.dailyGift) return "No dailyGift";
+      if (!obj.playerDeck || obj.playerDeck.length < 1) return "No playerDeck";
+      return false;
     },
     processPlayerDeck(deck) {
       let result = [];
@@ -1483,11 +1485,10 @@ export default {
       }
 
       if (!isParsed) {
-        console.log(error);
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           error: true,
-          text: "Parse error",
+          text: "Not valid input",
           type: "error"
         });
         return;

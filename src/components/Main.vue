@@ -291,7 +291,7 @@
                           @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="!!user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
+                    <template v-else-if="user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
@@ -299,7 +299,7 @@
                           @click="cgSaveAll()">{{ $t("m_submitReview") }}</button>
                       </div>
                     </template>
-                    <template v-else-if="!!user && cgNeedSave && !isRoundEmptyForUser">
+                    <template v-else-if="user && cgNeedSave && !isRoundEmptyForUser">
                       <div class="Main_SaveAllBox">
                         <button
                           :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
@@ -399,141 +399,186 @@
         </div>
       </div>
 
-      <div v-else class="Cg_Mid">
-        <!-- CG MID -->
-        <div v-if="isRoundEmptyForUser && cgRound.date" class="Cg_RoundEmptyBox">
-          <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
-          <div v-else-if="!cgRound.reservedTo && !cgIsApproving" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
+      <div v-else-if="(cgLoading && (!cgRound || !cgRound.date)) || (downloadLoading && !user)" class="Cg_Mid">
+        <div class="Cg_MidLoading">
+          <BaseContentLoader
+            :contents="true"
+            :itemWidth="windowWidth < 1200 ? '111px' : '216px'"
+            :itemHeight="144"
+            style="padding: 10px 10px 10px 20px; width: 100%;"
+            type="block"
+            count="5" />
         </div>
-        <div v-if="cgIsApproving && cgRound.date" class="Cg_RoundSubmitsControl">
-          <div class="Cg_SelectorLeft">
-            <button
-              :disabled="cgApprovingIndex === 0 || cgLoadingAny || cgNeedSave"
-              class="D_Button Row_DialogButtonTune"
-              @click="cgChangeSubmit(-1)">
-              <i class="ticon-arrow_left_3" aria-hidden="true"/>
-            </button>
-          </div>
-          <div class="Cg_RoundSubmitsControlCenter">
-            <div v-if="!cgRound.downList || (!user || !user.username || !cgRound.downList.includes(user.username))" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundVoteForUser") }}</div>
-            <div v-else class="Cg_BottomModTools" style="margin-top: -10px; margin-bottom: 6px;">
+      </div>
+
+      <div v-else-if="cgRound.date" class="Cg_Mid">
+        <!-- <div>{{ "isRoundEmptyForUser" }} {{ isRoundEmptyForUser }}</div>
+        <div>{{ "cgRound.date" }} {{ cgRound.date }}</div>
+        <div>{{ "cgRound.reservedTo" }} {{ cgRound.reservedTo }}</div>
+        <div>{{ "cgIsApproving" }} {{ cgIsApproving }}</div> -->
+
+        <!-- CG MID -->
+
+        <template v-if="cgIsApproving" >
+          <!-- CG SUBMITS NAVIGATION -->
+          <div class="Cg_RoundSubmitsControl">
+            <div v-if="cgApprovingLength > 1" class="Cg_SelectorLeft">
               <button
-                v-for="(n, ix) in 2"
-                :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="cgUserNewSubmit(ix === 1)">
-                <i class="ticon-refresh_3 D_ButtonIcon" aria-hidden="true"/>
-                <span>{{ ix === 0 ? $t("m_new") : $t("m_newByCopy") }}</span>
+                :disabled="cgApprovingIndex === 0 || cgLoadingAny || cgNeedSave"
+                class="D_Button Row_DialogButtonTune"
+                @click="cgChangeSubmit(-1)">
+                <i class="ticon-arrow_left_3" aria-hidden="true"/>
               </button>
             </div>
-            <div v-if="cgRound && cgRound.creator" style="margin-bottom: 10px;">
-              <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-              <span
-                :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
-                class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+            <div class="Cg_RoundSubmitsControlCenter">
+              <div v-if="!cgRound.downList || (!user || !user.username || !cgRound.downList.includes(user.username))" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundVoteForUser") }}</div>
+              <div v-else class="Cg_BottomModTools" style="margin-top: -10px; margin-bottom: 6px;">
+                <button
+                  v-for="(n, ix) in 2"
+                  :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                  class="D_Button D_ButtonDark D_ButtonDark2"
+                  @click="cgUserNewSubmit(ix === 1)">
+                  <i class="ticon-refresh_3 D_ButtonIcon" aria-hidden="true"/>
+                  <span>{{ ix === 0 ? $t("m_new") : $t("m_newByCopy") }}</span>
+                </button>
+              </div>
+              <div v-if="cgRound && cgRound.creator" style="margin-bottom: 10px;">
+                <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                <span
+                  :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
+                  class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+              </div>
+              <template v-if="user && user.mod">
+                <div class="Cg_IsApprovingBox">
+                  <button
+                    v-if="(cgRound.downList || []).includes(user.username)"
+                    :class="{ D_Button_Loading: cgSaveLoading }"
+                    style="right: unset; left: 0;"
+                    class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+                    @click="cgReviewRound(false)">
+                    <span>{{ $t("m_delete") }}</span>
+                  </button>
+                  <button
+                    v-else
+                    :class="{ D_Button_Loading: cgSaveLoading }"
+                    style="right: unset; left: 0;"
+                    class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                    @click="cgReviewRound(true)">
+                    <span>{{ $t("m_approve") }}</span>
+                  </button>
+                </div>
+              </template>
             </div>
-            <template v-if="user && user.mod">
-              <div class="Cg_IsApprovingBox">
+            <div v-if="cgApprovingLength > 1" class="Cg_SelectorRight">
+              <button
+                :disabled="cgApprovingIndex === cgApprovingLength - 1 || cgLoadingAny || cgNeedSave"
+                class="D_Button Row_DialogButtonTune"
+                @click="cgChangeSubmit(1)">
+                <i class="ticon-arrow_right_3" aria-hidden="true"/>
+              </button>
+            </div>
+          </div>
+          <!-- CG VOTE -->
+          <div v-if="user && user.username" class="Cg_BottomModTools">
+            <!-- Down -->
+            <button
+              :class="{
+                Row_VotedAgainst: cgRound.upList && cgRound.upList.includes(user.username),
+                D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+              }"
+              :title="(cgRound.downList || []).join(', ')"
+              class="D_Button Row_VoteButton Row_VoteButtonDown"
+              @click="cgVote('down')">
+              <i
+                :class="`ticon-thumbs_down${ cgRound.downList && cgRound.downList.includes(user.username) ? '_fill' : '' }`"
+                class="Row_VoteIcon"
+                aria-hidden="true"/>
+              <span class="Row_DownCount">{{ (cgRound.downList || []).length }}</span>
+            </button>
+            <!-- Up -->
+            <button
+              :class="{
+                Row_VotedAgainst: cgRound.downList && cgRound.downList.includes(user.username),
+                D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
+              }"
+              :title="(cgRound.upList || []).join(', ')"
+              class="D_Button Row_VoteButton Row_VoteButtonUp"
+              @click="cgVote('up')">
+              <i
+                :class="`ticon-thumbs_up${ cgRound.upList && cgRound.upList.includes(user.username) ? '_fill' : '' }`"
+                class="Row_VoteIcon"
+                aria-hidden="true"/>
+              <span class="Row_UpCount">{{ (cgRound.upList || []).length }}</span>
+            </button>
+          </div>
+        </template>
+
+        <template v-else-if="!isRoundComplete || (user && !user.mod && isRoundComplete && isRoundReadyForSaveUser)">
+
+          <!-- CG mod is doing already -->
+          <template v-if="cgRound.reservedTo && cgRound.reservedTo !== (user || {}).username">
+            <div v-if="!cgSentForReview" class="Cg_RoundEmptyBox">
+              <div class="Cg_RoundEmptyBody">{{ $t("p_modDoingRound", { mod: cgRound.reservedTo }) }}</div>
+            </div>
+          </template>
+
+          <template v-else>
+            <!-- CG not logged int -->
+            <div v-if="!isRoundEmptyForUser && !user && !isRoundComplete && !cgLoading" class="Cg_RoundEmptyBox">
+              <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
+              <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRound2") }}</div>
+              <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundLogin") }}</div>
+              <BaseDiscordButton style="margin-top: 20px;" />
+            </div>
+
+            <!-- CG user logged in -->
+            <div v-if="isRoundEmptyForUser && cgRound.date && !cgIsApproving && !cgRound.reservedTo" class="Cg_RoundEmptyBox">
+              <div v-if="cgSentForReview" style="margin-bottom: 10px;" class="Cg_RoundEmptyBody Cg_RoundEmptyThanks">{{ $t("p_userSentCgForAnalyse") }}</div>
+              <div v-else style="margin-bottom: 10px;" class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundForUser") }}</div>
+            </div>
+
+            <!-- CG user mod -->
+            <template v-if="isRoundEmptyForModders && !isRoundComplete && !cgRound.reservedTo">
+              <div class="Cg_RoundEmptyBox Cg_RoundEmptyBoxMods">
+                <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
+                <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
                 <button
                   :class="{ D_Button_Loading: cgSaveLoading }"
-                  style="right: unset; left: 0;"
-                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-                  @click="cgReviewRound(true)">
-                  <span>{{ $t("m_approve") }}</span>
+                  style="margin-top: 20px;"
+                  class="D_Button D_ButtonDark D_ButtonDark2"
+                  @click="cgReserveRound()">
+                  <span class="">{{ $t("m_lockRound") }}</span>
                 </button>
               </div>
             </template>
-          </div>
-          <div class="Cg_SelectorRight">
-            <button
-              :disabled="cgApprovingIndex === cgApprovingLength - 1 || cgLoadingAny || cgNeedSave"
-              class="D_Button Row_DialogButtonTune"
-              @click="cgChangeSubmit(1)">
-              <i class="ticon-arrow_right_3" aria-hidden="true"/>
-            </button>
-          </div>
-        </div>
-        <template v-if="!isRoundEmptyForUser && (!user || !user.mod) && cgRound.date && cgRound.races && cgRound.races[0] && cgRound.races[0].track === null">
-          <div class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
-            <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRound2") }}</div>
-            <div class="Cg_RoundEmptyBody">{{ $t("p_emptyRoundLogin") }}</div>
-            <BaseDiscordButton style="margin-top: 20px;" />
-          </div>
+          </template>
+
         </template>
-        <template v-else-if="isRoundEmptyForModders && cgRound.date && ((cgRound.races && cgRound.races[0] && cgRound.races[0].track === null) || cgNewSubmitByMod) && !cgRound.reservedTo">
-          <div class="Cg_RoundEmptyBox Cg_RoundEmptyBoxMods">
-            <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
-            <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
+        
+        <!-- CG unlock button -->
+        <div
+          style="margin-bottom: 10px;"
+          class="Cg_RoundEmptyBox">
+          <template v-if="cgRound.reservedTo && (isRoundModAllowedEdit || (user && user.username === 'TiagoXavi'))">
             <button
               :class="{ D_Button_Loading: cgSaveLoading }"
-              style="margin-top: 20px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgReserveRound()">
-              <span class="">{{ $t("m_lockRound") }}</span>
+              <span class="">{{ $t("m_unlockRound") }}</span>
             </button>
-          </div>
-        </template>
-        <template v-else-if="user && cgRound.reservedTo && cgRound.reservedTo !== user.username">
-          <div v-if="!cgSentForReview" class="Cg_RoundEmptyBox">
-            <div class="Cg_RoundEmptyBody">{{ $t("p_modDoingRound", { mod: cgRound.reservedTo }) }}</div>
-          </div>
-        </template>
-        
-        <!-- CG VOTE -->
-        <div v-if="cgRound.date && cgIsApproving && user && user.username" class="Cg_BottomModTools">
-          <!-- Down -->
-          <button
-            :class="{
-              Row_VotedAgainst: cgRound.upList && cgRound.upList.includes(user.username),
-              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
-            }"
-            :title="(cgRound.downList || []).join(', ')"
-            class="D_Button Row_VoteButton Row_VoteButtonDown"
-            @click="cgVote('down')">
-            <i
-              :class="`ticon-thumbs_down${ cgRound.downList && cgRound.downList.includes(user.username) ? '_fill' : '' }`"
-              class="Row_VoteIcon"
-              aria-hidden="true"/>
-            <span class="Row_DownCount">{{ (cgRound.downList || []).length }}</span>
-          </button>
-          <!-- Up -->
-          <button
-            :class="{
-              Row_VotedAgainst: cgRound.downList && cgRound.downList.includes(user.username),
-              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
-            }"
-            :title="(cgRound.upList || []).join(', ')"
-            class="D_Button Row_VoteButton Row_VoteButtonUp"
-            @click="cgVote('up')">
-            <i
-              :class="`ticon-thumbs_up${ cgRound.upList && cgRound.upList.includes(user.username) ? '_fill' : '' }`"
-              class="Row_VoteIcon"
-              aria-hidden="true"/>
-            <span class="Row_UpCount">{{ (cgRound.upList || []).length }}</span>
-          </button>
+          </template>
         </div>
-
-        <template v-if="
-          (cgRound.date && isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate && cgIsEmptyRoundForDownloadAssets) ||
-          cgNewSubmitByMod ||
-          (!user && cgRound.races && cgRound.races[0] && cgRound.races[0].track === null) ||
-          (cgRound.reservedTo && cgRound.reservedTo !== user.username)" />
         
-        <template v-else-if="cgRound.date">
-          <div
-            style="margin-bottom: 10px;"
-            class="Cg_RoundEmptyBox">
-            <template v-if="user && cgRound.date && cgRound.reservedTo && (cgRound.reservedTo === user.username || user.username === 'TiagoXavi')">
-              <button
-                :class="{ D_Button_Loading: cgSaveLoading }"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                @click="cgReserveRound()">
-                <span class="">{{ $t("m_unlockRound") }}</span>
-              </button>
-            </template>
-          </div>
-          <div v-if="showCarsFix" class="Cg_Box">
+        <!-- <template v-if="
+          (isRoundEmptyForModders && !cgIsApproving && !cgNewSubmitByModTemplate && cgBlockDownloadAssets) ||
+          cgNewSubmitByMod ||
+          (!user && ((cgRound.races && cgRound.races[0] && cgRound.races[0].track === null) || (!isRoundComplete && !cgLoading))) ||
+          (cgRound.reservedTo && cgRound.reservedTo !== user.username)" /> -->
+
+        
+        <!-- CG CORE -->
+        <template v-if="!cgNewSubmitByMod && (isRoundComplete || user) && (!cgRound.reservedTo || (user && cgRound.reservedTo === user.username))">
+          <div v-if="showCarsFix" class="Cg_Box" style="margin-bottom: 25px;">
             <div
               v-for="(race, irace) in cgRound.races"
               class="Cg_Race"
@@ -549,15 +594,15 @@
                   :cg="true"
                   :cgOppo="true"
                   :options="!cgIsApproving"
-                  :hideClose="!user || !user.mod"
-                  :showResetTune="(user && user.mod) || isRoundEmptyForUser"
+                  :hideClose="!user || !user.mod || !isRoundModAllowedEdit"
+                  :showResetTune="(user && user.mod && isRoundModAllowedEdit) || isRoundEmptyForUser"
                   @cog="cgShowTuneDialog(race.car, race, true)"
                   @longTouch="cgShowTuneDialog(race.car, race, true)"
                   @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
                   @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
-                    :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
+                    :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser) || (isRoundEmptyForModders && !isRoundComplete && !cgRound.reservedTo)"
                     class="D_Button Car_AddButton add"
                     @click="cgOpenAddOppoCar(irace);">
                     <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
@@ -593,12 +638,11 @@
                   :list="race.resolvedTracks"
                   :loggedin="!!user"
                   :user="user"
-                  :options="user && user.mod"
                   :cg="true"
                   class="Cg_TrackBox"
                   type="tracks" />
                 <button
-                  v-if="!!user && (user.mod || isRoundEmptyForUser) && !cgIsApproving"
+                  v-if="!!user && (isRoundModAllowedEdit || isRoundEmptyForUser) && !cgIsApproving"
                   :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser)"
                   :class="{ Cg_SelectTrackButtonEdit: race.track }"
                   class="D_Button Car_AddButton Cg_SelectTrackButton"
@@ -618,7 +662,7 @@
                   :cgOppo="true"
                   :cgTime="race.time"
                   :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
-                  :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser) || cgIsApproving"
+                  :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser) || cgIsApproving || (user.mod && !isRoundModAllowedEdit)"
                   :placeholder="$t('m_timeToBeat')"
                   :forceCustomAuthor="isRoundEmptyForUser"
                   type="times"
@@ -750,6 +794,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgResetSaveHand()">{{ $t("m_resetSavedHand") }}</button>
             <button
+              v-if="isRoundComplete"
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace('cg')">{{ $t("m_useTrackList") }}</button>
@@ -766,26 +811,25 @@
           </div>
 
         </template>
-        <div v-else-if="cgLoading" class="Cg_MidLoading">
-          <BaseContentLoader
-            :contents="true"
-            :itemWidth="windowWidth < 1200 ? '111px' : '216px'"
-            :itemHeight="144"
-            style="padding: 10px 10px 10px 20px; width: 100%;"
-            type="block"
-            count="5" />
-        </div>
-        <div v-else-if="cgList.length > 0" class="Cg_ListSelect">
+        
+
+
+
+      </div>
+
+      <div v-else-if="cgList.length > 0" class="Cg_Mid">
+        <!-- CG LIST ROOT -->
+        <div class="Cg_ListSelect">
           <div class="Cg_ListSelectBox">
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
-              <button
+              <BaseEventName
                 v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
-                style="padding-left: 15px; padding-right: 15px; min-height: 38px;"
-                class="Main_SearchItem"
-                @click="loadChallengeFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 42 ? '0.8em' : ''};`" />
-              </button>
+                :item="item"
+                :maxLength="42"
+                style="min-height: 38px;"
+                @click="loadChallengeFull(item.date, $event)"
+                @longTouch="loadChallengeFull(item.date, { shiftKey: true, ctrlKey: true })" />
             </template>
             <div class="Main_CgListDividerLayout">
               <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" />
@@ -793,51 +837,14 @@
             </div>
           </div>
         </div>
-        <div v-else class="Cg_Offline">
+      </div>
+      <div v-else class="Cg_Mid">
+        <!-- CG no CgRound.date && no list -->
+        <div class="Cg_Offline">
           <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
         </div>
-
-        
-        <!-- <div v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
-          <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
-            <div class="Main_AdminFields Main_AdminLayout">
-              <div class="BaseText_Label">Challenge complete json</div>
-              <textarea
-                v-model="cgCompleteJson"
-                rows="3"
-                class="Main_TextArea data-hj-allow"
-                placeholder="Challenge complete json" />
-              <div style="text-align: center;">
-                <button
-                  :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-                  @click="cgSubmitCompleteJson()">{{ $t("m_send") }}</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div v-if="user && user.username === 'TiagoXavi' && user && cgRound.date && cgRound.races[0].track !== null && !cgIsApproving" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
-          <div class="Main_AdminFields Main_AdminLayout Main_AdminTracksetUuidLayout">
-            <div class="Main_AdminFields Main_AdminLayout">
-              <div class="BaseText_Label">Round result json</div>
-              <textarea
-                v-model="cgRoundResultJson"
-                rows="3"
-                class="Main_TextArea data-hj-allow"
-                placeholder="Round result json" />
-              <div style="text-align: center;">
-                <button
-                  :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-                  @click="cgSubmitRoundResultJson()">{{ $t("m_send") }}</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-
       </div>
+
     </div>
     <div
       v-else-if="mode === 'events'"
@@ -853,7 +860,7 @@
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
-            <div v-if="event.date" class="Cg_SelectorLayout">
+            <div v-if="eventCurrentId" class="Cg_SelectorLayout">
               <div class="Cg_SelectorCenter">
                 <div class="Cg_SelectorEvent">
                   <button
@@ -870,7 +877,7 @@
                     :class="`Main_UserT${highlightsUsers[event.user]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
                   <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (statistics[`events_${event.date}`] || {}).c || 0 }} views</span>
+                    <span class="Main_ViewsCount">{{ (statistics[`events_${eventCurrentId}`] || {}).c || 0 }} views</span>
                   </span>
                 </div>
                 <div class="Cg_CenterBottom">
@@ -903,6 +910,13 @@
                           @click="eventSaveAll()">{{ $t("m_save") }}</button>
                       </div>
                     </template>
+                    <template v-else-if="eventCurrentId === '_preview_'">
+                      <button
+                        :class="{ D_Button_Loading: eventLoadingAny }"
+                        style="--back-color: 200,0,0;"
+                        class="D_Button Main_SaveAllButton"
+                        @click="saveNewEvent(event)">{{ $t("m_createNewEvent") }}</button>
+                    </template>
                     <template v-else-if="event.compilation && event.compilation.length > 0">
                       <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
                     </template>
@@ -923,7 +937,7 @@
             :filter3="event.filter3"
             :loading="eventLoadingAny"
             :user="event.canViewEvent ? user : {}"
-            :ready="event.date"
+            :ready="eventCurrentId"
             :useWhatFilter="eventUseWhatFilter"
             class="Cg_Right"
             @changeClick="openEventRequirementsDialog()"
@@ -939,7 +953,7 @@
         </div>
       </div>
       <div class="Cg_Mid"> <!-- EVENT -->
-        <template v-if="event.date">
+        <template v-if="eventCurrentId">
 
           <template v-if="event.noAccess">
             <div v-for="m in 4" class="Cg_Box">
@@ -1092,7 +1106,7 @@
             </template>
           </div> -->
 
-          <BasePrizeBoard v-if="event.canViewEvent" :id="event.date" @hasLocal="eventHasPrizeBoard = $event;" />
+          <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
 
           <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
@@ -1138,6 +1152,15 @@
             </template>
           </div>
 
+          <div v-if="user && user.mod && eventCurrentId === '_preview_'" class="Cg_BottomModTools D_Center2" style="margin-top: 30px;">
+            <BaseText
+              v-model="event.name"
+              :instantModel="true"
+              class="BaseText_Big"
+              type="normal"
+              :label="$t('m_eventName')" />
+          </div>
+
         </template>
         <div v-else-if="eventLoading" class="Cg_MidLoading">
           <BaseContentLoader
@@ -1152,13 +1175,11 @@
           <div class="Cg_ListSelectBox">
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_events") }}</div>
             <template v-for="item in eventList">
-              <button
-                style="padding-left: 15px; padding-right: 15px;"
-                class="Main_SearchItem"
-                @click="loadEventFull(item.date)">
-                <div v-html="item.nameStyled" class="Main_SearchItemRight Main_SearchItemRightEvents" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
-                <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
-              </button>
+              <BaseEventName
+                :item="item"
+                contentClass="BaseEventName_Events"
+                @click="loadEventFull(item.date, $event)"
+                @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })" />
             </template>
           </div>
         </div>
@@ -1460,10 +1481,6 @@
               </div>
             </div> -->
 
-            <div v-if="clubPicksList.length > 0" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <BaseCheckBox v-model="clubEnablePicks" :label="$t('m_enablePicks')"/>
-            </div>
-
             <div v-if="!clubDayNeedSave && !clubReqNeedSave && !clubTrackNeedSave" class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: clubLoadingAny }"
@@ -1474,6 +1491,7 @@
                 :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="clubClearPicks()">{{ $t("m_clearPicks") }}</button>
+                <BaseSwitch v-if="clubPicksList.length > 0" v-model="clubEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
             </div>
 
             <div v-if="clubHasOriginalOrder && user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
@@ -1567,7 +1585,6 @@
               :list="[kingTrack]"
               :loggedin="!!user"
               :user="user"
-              :options="true"
               :cg="true"
               :normalSize="true"
               class="Cg_TrackBox"
@@ -1868,7 +1885,7 @@
                 <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
               </button>
               <button
-                :disabled="((needSave && !isRoundEmptyForUser) && (!tuneDialogisOppo || !user || !user.mod)) || (tuneDialogisOppo && (!user || (user && !user.mod && !isRoundEmptyForUser)))"
+                :disabled="((needSave && !isRoundEmptyForUser) && (!tuneDialogisOppo || !user || !user.mod)) || (tuneDialogisOppo && (!user || (user && !user.mod && !isRoundEmptyForUser) || (user.mod && !isRoundModAllowedEdit)))"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
                 @click="deleteCar(tuneDialogCarIndex)">
                 <i class="ticon-trash Row_ConfigIconTrash" aria-hidden="true"/>
@@ -2514,14 +2531,13 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
-            <BaseButtonTouch
+            <BaseEventName
               v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
-              style="padding-left: 15px; padding-right: 15px; min-height: 38px;"
-              class="Main_SearchItem"
-              @click="loadChallengeFull(item.date, undefined, $event)"
-              @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight" :style="`font-size: ${item.name.length > 42 ? '0.8em' : ''};`" />
-            </BaseButtonTouch>
+              :item="item"
+              :maxLength="42"
+              style="min-height: 38px;"
+              @click="loadChallengeFull(item.date, $event)"
+              @longTouch="loadChallengeFull(item.date, { shiftKey: true, ctrlKey: true })" />
           </template>
           <div class="Main_CgListDividerLayout">
             <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
@@ -2552,8 +2568,11 @@
               <div v-if="item.lastAnalyze" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
               </div>
-              <div v-if="item.toApprove && item.toApprove.length > 0" class="Main_RoundDone">
+              <div v-else-if="item.toApprove && item.toApprove.length > 0" class="Main_RoundDone">
                 <i class="ticon-star Main_RoundDoneIcon" style="color: unset;" aria-hidden="true"/>
+              </div>
+              <div v-else-if="item.preDoneMod" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" style="color: red;" aria-hidden="true"/>
               </div>
               <span v-if="item.creator && item.lastAnalyze" class="Main_RoundDoneCreator">
                 <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
@@ -2661,15 +2680,23 @@
           </div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
+          <template v-if="eventParsedList && eventParsedList.length > 0">
+            <template v-for="item in eventParsedList">
+              <BaseEventName
+                :item="item"
+                contentClass="BaseEventName_Events"
+                @click="eventPreviewParsed(item)" />
+            </template>
+            <div class="Main_EventListDividir">
+              <i class="ticon-line" aria-hidden="true"/>
+            </div>
+          </template>
           <template v-for="item in eventList">
-            <BaseButtonTouch
-              style="padding-left: 15px; padding-right: 15px;"
-              class="Main_SearchItem"
+            <BaseEventName
+              :item="item"
+              contentClass="BaseEventName_Events"
               @click="loadEventFull(item.date, $event)"
-              @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })">
-              <div v-html="item.nameStyled" class="Main_SearchItemRight Main_SearchItemRightEvents" :style="`font-size: ${item.name.length > 30 ? '0.8em' : ''}`" />
-              <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
-            </BaseButtonTouch>
+              @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })" />
           </template>
         </div>
       </div>
@@ -2689,7 +2716,8 @@
             iid="Cg_NewEventName"
             type="normal"
             :label="$t('m_eventName')"
-            placeholder="" />
+            placeholder=""
+            @paste="eventNamePaste($event)" />
         </div>
         <div v-if="user && user.mod && whatTier && whatTier <= 3" class="Main_SaveGalleryBoxCheck">
           <div class="Main_SaveGalleryCheckLeft">
@@ -2976,15 +3004,12 @@
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="(item, key) in clubArrayClubDays">
-            <BaseButtonTouch
-              style="padding-left: 15px;"
-              class="Main_SearchItem"
+            <BaseEventName
+              :item="item"
               :class="{ Clubs_DaySelectorActive: item.date === clubDaySelected }"
+              :customName="`${item.date}${item.date === clubServerDateISO ? ` (${$t('m_current')})` : ''}`"
               @click="clubsLoadDay(item.date, $event)"
-              @longTouch="clubsLoadDay(item.date, { shiftKey: true, ctrlKey: true })">
-              <!-- <div v-html="item.nameStyled" class="Main_SearchItemRight" /> -->
-              <div class="Main_SearchItemRight">{{ item.date }}{{ item.date === clubServerDateISO ? ` (${$t('m_current')})` : '' }}</div>
-            </BaseButtonTouch>
+              @longTouch="clubsLoadDay(item.date, { shiftKey: true, ctrlKey: true })" />
           </template>
         </div>
       </div>
@@ -3024,6 +3049,7 @@ import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
 import BaseReviewList from './BaseReviewList.vue'
 import BasePrizeBoard from './BasePrizeBoard.vue'
+import BaseEventName from './BaseEventName.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -3063,7 +3089,8 @@ export default {
     BaseReviewList,
     BaseIconSvg,
     BaseMemoryDialog,
-    BasePrizeBoard
+    BasePrizeBoard,
+    BaseEventName
   },
   props: {
     phantomCar: {
@@ -3277,6 +3304,7 @@ export default {
       eventUseWhatFilter: 0,
       eventBestPerTrack: {},
       eventHasPrizeBoard: false,
+      eventParsedList: [],
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -4112,9 +4140,7 @@ export default {
       if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
       if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
       if (this.cg.rounds[this.cgCurrentRound].creator) return false;
-      if (!this.cg.rounds[this.cgCurrentRound].lastAnalyze) {
-        return true
-      }
+      if (!this.cg.rounds[this.cgCurrentRound].lastAnalyze) return true;
       if (this.cgNewSubmitByMod) return true;
     },
     isRoundReadyForSaveUser() {
@@ -4128,7 +4154,29 @@ export default {
       // console.log( this.cgRound.races.map(race => race.time) )
       return ready;
     },
-    cgIsEmptyRoundForDownloadAssets() {
+    isRoundComplete() {
+      if (this.mode !== 'challenges') return false;
+      if (!this.cgRound) return false;
+      if (!this.cgRound.date) return false;
+      if (!Array.isArray(this.cgRound.races)) return false;
+      let isComplete = true;
+      this.cgRound.races.find(race => {
+        if (!race.rid || !race.track || !race.tune || (!race.time && race.time !== 0) ) {
+          isComplete = false;
+          return true;
+        }
+      })
+      return isComplete;
+    },
+    isRoundModAllowedEdit() {
+      if (this.mode !== 'challenges') return false;
+      if (!this.user) return false;
+      if (!this.user.mod) return false;
+      if (!this.cgRound.date) return false;
+      if (this.cgRound.reservedTo === this.user.username) return true;
+      if (this.cgRound.lastAnalyze) return true;
+    },
+    cgBlockDownloadAssets() {
       if (this.mode !== 'challenges') return false;
       if (!this.cgRound || !this.cgRound.races) return true;
       let isEmpty = true;
@@ -4164,7 +4212,8 @@ export default {
     },
     eventNeedSave() {
       if (this.mode !== 'events') return false;
-      if (!this.event.date) return false;
+      if (!this.eventCurrentId) return false;
+      if (this.eventCurrentId === "_preview_") return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (this.event.noAccess) return false;
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
@@ -5520,7 +5569,7 @@ export default {
         result += `~G${this.cg.date}~R${this.cgCurrentRound+1}`
       } else if (this.mode === 'events') {
         result += `event=`;
-        result += `~G${this.event.date}`
+        result += `~G${this.eventCurrentId}`
       } else if (this.mode === 'clubs') {
         result += `clubs`;
       }
@@ -6080,7 +6129,7 @@ export default {
       .then(res => {
         this.cgList = res.data.value;
 
-        if (this.user && this.user.mod) {
+        if ((this.user && this.user.mod) || process.env.NODE_ENV !== 'production') {
           this.cgList.push({
             "date": "proving_grounds_test",
             "name": "Proving Grounds: test"
@@ -6147,6 +6196,7 @@ export default {
         }
         this.lookForChangedCars(res.data);
         this.cgResolveIcons();
+        this.checkPreDoneRounds(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -6250,16 +6300,29 @@ export default {
           }
           race.time = tryoppotime;
         }
-
-        
-        
-        
+      })
+    },
+    checkPreDoneRounds(data) {
+      if (!this.user || !this.user.mod) return;
+      data.rounds.map((round, iround) => {
+        let isPreDone = true; 
+        round.races.find((race, irace) => {
+          if (race.lastAnalyze) return;
+          if (race.lastAnalyze || !race.rid || !race.track || !race.tune || (!race.time && race.time !== 0) ) {
+            isPreDone = false;
+            return true;
+          }
+        })
+        if (isPreDone) {
+          Vue.set(round, 'preDoneMod', true);
+          Vue.set(round, 'creator', this.user.username);
+        }
       })
     },
     loadCgRoundAsset(id, round) {
       let roundId = `${id}_${round}`;
       if (this.cgLoadedAssets.includes(roundId)) return;
-      if (this.cgIsEmptyRoundForDownloadAssets && !this.cg.notThisTime) return;
+      if (this.cgBlockDownloadAssets && !this.cg.notThisTime) return;
       this.cgLoading = true;
 
       axios.get(Vue.preUrlCharlie + `/asset/${roundId}`)
@@ -6270,8 +6333,11 @@ export default {
           let realCgRound = this.cg.rounds[this.cgCurrentRound];
           if (Array.isArray(realCgRound.toApprove) && realCgRound.toApprove.length > 0) {
             votes.map(item => {
-              let index = Number(item.sort.substr(6));
-              if (realCgRound.toApprove[index]) {
+              let index = item.sort.substr(6);
+              if (!index.includes("_")) return;
+              index = index.split("_")[0];
+              let username = item.sort.substr(6 + index.length + 1);
+              if (realCgRound.toApprove[index] && realCgRound.toApprove[index].creator === username) {
                 realCgRound.toApprove[index].downList = item.value.down;
                 realCgRound.toApprove[index].upList = item.value.up;
               }
@@ -6311,7 +6377,7 @@ export default {
     pingAssetStatistic(id, round) {
       let roundId = `${id}_${round}`;
       if (this.cgLoadedAssets.includes(roundId)) return;
-      if (this.cgIsEmptyRoundForDownloadAssets) return;
+      if (this.cgBlockDownloadAssets) return;
 
       axios.post(Vue.preUrlCharlie + `/pingStatistics`, {
         type: "cg",
@@ -6405,9 +6471,6 @@ export default {
         }
         this.cgApprovingLength = realCgRound.toApprove.length;
         this.cgRound = realCgRound.toApprove[this.cgApprovingIndex];
-      } else if (Object.keys(realCgRound.toApprove).length > 0) {
-        this.cgApprovingLength = 1;
-        this.cgRound = realCgRound.toApprove;
       }
     },
     cgChangeSubmit(factor) {
@@ -7550,7 +7613,7 @@ export default {
       axios.post(Vue.preUrl + "/cgVote", {
         date: this.cg.date,
         round: this.cgCurrentRound,
-        submit: this.cgApprovingIndex,
+        submit: `${this.cgApprovingIndex}_${this.cgRound.creator}`,
         isUp,
         isDelete
       })
@@ -7598,6 +7661,8 @@ export default {
         })
       } else {
         this.cgRound = this.cg.rounds[this.cgCurrentRound];
+        this.cgResolveRoundCars();
+        this.checkRaceTimesNull();
       }
 
       if (this.user && this.user.mod) {
@@ -7613,22 +7678,25 @@ export default {
       let list = oppos.map(x => x.cardId);
       list = [...new Set(list)];
       let newCg = JSON.parse(JSON.stringify(this.cg));
-      let myCarsFiltered = [];
+      let AllCarsFiltered = [];
 
       this.all_cars.map(x => {
         if (list.includes(x.guid)) {
-          myCarsFiltered.push(JSON.parse(JSON.stringify(x)));
+          AllCarsFiltered.push(JSON.parse(JSON.stringify(x)));
         }
       })
 
       let count = 0;
       newCg.rounds.map((round, iround) => {
+        if (!json.ladder.challengeSetIds[iround]) return;
+        round.uuidTrackSet = json.ladder.challengeSetIds[iround];
+        round.hCriteria = json.ladder.zoneFlexibleCriteria[iround];
         round.races.map((race, irace) => {
-          if (!race.track) {
+          if (true) {
             let op = oppos[count];
             let zoneSize = json.ladder.zoneSize;
             let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
-            let car = myCarsFiltered.find(x => x.guid === op.cardId);
+            let car = AllCarsFiltered.find(x => x.guid === op.cardId);
             if (car) {
               let allowedTunes = ["332", "323", "233", "000"];
               if (car.class === 'S' || car.class === 'A') {
@@ -7645,9 +7713,9 @@ export default {
 
               race.rid = car.rid;
               race.tune = tune;
-              race.time = null;
+              // race.time = null;
               race.track = null;
-              race.cars = [];
+              // race.cars = [];
             }
           }
           count++;
@@ -8032,8 +8100,8 @@ export default {
 
 
         this.eventStyleList();
-        if (resolveInitial && this.eventCurrentId && this.eventList.find(x => x.date === this.eventCurrentId)) {
-          this.loadEventFull(this.eventCurrentId);
+        if (resolveInitial && this.eventFromStorage && this.eventList.find(x => x.date === this.eventFromStorage)) {
+          this.loadEventFull(this.eventFromStorage);
         } else {
           this.eventLoading = false;
         }
@@ -8093,17 +8161,23 @@ export default {
         this.eventLoading = false;
       });
     },
-    loadEventScreen(id) {
+    loadEventScreen(id, eventParsedToPreview) {
       this.eventSelectorDialog = false;
-      let event = this.eventList.find(x => x.date === id);
-      if (!event) {
-        return;
+      let event;
+      this.eventCurrentId = "";
+      if (eventParsedToPreview) {
+        event = eventParsedToPreview;
+      } else {
+        event = this.eventList.find(x => x.date === id);
+        if (!event) {
+          return;
+        }
       }
 
       this.event = event;
-      this.eventCurrentId = event.date;
+      this.eventCurrentId = eventParsedToPreview ? "_preview_" : event.date;
       this.eventCurrentName = event.name;
-      this.eventCurrentIsHidden = (this.eventList.find(x => x.date === event.date) || {}).hidden;
+      this.eventCurrentIsHidden = eventParsedToPreview ? eventParsedToPreview.hidden : (this.eventList.find(x => x.date === event.date) || {}).hidden;
       this.eventCheckFilterCodePre = null;
       this.eventCheckFilterCode = null;
       this.eventUseWhatFilter = 0;
@@ -8171,13 +8245,13 @@ export default {
       this.eventResolveTrackset();
     },
     eventUpdateLocalStorage() {
-      window.localStorage.setItem('lastEvent', JSON.stringify({ date: this.event.date }));
+      window.localStorage.setItem('lastEvent', JSON.stringify({ date: this.eventCurrentId }));
     },
     eventGetLocalStorage() {
       let lastEvent = window.localStorage.getItem("lastEvent");
       if (lastEvent) {
         lastEvent = JSON.parse(lastEvent);
-        this.eventCurrentId = lastEvent.date;
+        this.eventFromStorage = lastEvent.date;
       }
     },
     eventStyleList() {
@@ -8407,13 +8481,22 @@ export default {
       this.eventSeletorDialog = true;
       this.eventNewDialog = false;
     },
-    saveNewEvent() {
+    saveNewEvent(parsed) {
       this.eventNewLoading = true;
 
-      axios.post(Vue.preUrl + "/newEvent", {
+      let params = {
         name: this.eventNewName,
         hidden: this.eventNewIsHidden
-      })
+      }
+
+      if (parsed) {
+        params = parsed;
+        if (this.event.filter) params.filter = this.eventFilterToSave;
+        if (this.event.filter2) params.filter2 = this.eventFilterToSave2;
+        if (this.event.filter3) params.filter3 = this.eventFilterToSave3;
+      };
+
+      axios.post(Vue.preUrl + "/newEvent", params)
       .then(res => {
         setTimeout(() => {
           this.eventCloseNewEvent();
@@ -8440,7 +8523,7 @@ export default {
     },
     eventSaveAll() {
       this.saveLoading = true;
-      let params = { date: this.event.date };
+      let params = { date: this.eventCurrentId };
       if (this.eventFilterString !== JSON.stringify(this.event.filter)) params.filter = this.eventFilterToSave;
       if (this.eventFilterString2 !== JSON.stringify(this.event.filter2)) params.filter2 = this.eventFilterToSave2;
       if (this.eventFilterString3 !== JSON.stringify(this.event.filter3)) params.filter3 = this.eventFilterToSave3;
@@ -8537,7 +8620,7 @@ export default {
       this.eventSaveRoundHand();
     },
     eventSaveRoundHand() {
-      let saveName = `hand_${this.event.date}`
+      let saveName = `hand_${this.eventCurrentId}`
       let handRids = [];
       // this.cgRound.races.map(race => {
       //   if (isNaN(race.carIndex)) {
@@ -8549,7 +8632,7 @@ export default {
       window.localStorage.setItem(saveName, JSON.stringify(handRids));
     },
     eventResetSaveHand() {
-      let saveName = `hand_${this.event.date}`
+      let saveName = `hand_${this.eventCurrentId}`
       localStorage.removeItem(saveName);
       // this.loadCgRound(this.cgCurrentId, this.cgCurrentRound);
       this.eventShowResetSavedHand = false;
@@ -8853,8 +8936,8 @@ export default {
       })
 
       if (type === 'events') {
-        let eventPicks = this.eventReducePicks();
-        eventPicks.map(car => {
+        let picks = this.eventReducePicks();
+        picks.map(car => {
           result += `~C${car.rid}~T${car.tune}`
         })
         this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.event.filter });
@@ -8902,7 +8985,7 @@ export default {
         vm.confirmDelete.loading = true;
 
         axios.post(Vue.preUrl + "/setEventVisible", {
-          date: vm.event.date,
+          date: vm.eventCurrentId,
           name: vm.event.name,
           hidden: false
         })
@@ -8927,7 +9010,7 @@ export default {
 
       this.confirmDelete = {
         dialog: true,
-        msg: `Set '${vm.event.date}' visible?`,
+        msg: `Set '${vm.eventCurrentId}' visible?`,
         actionLabel: `Set visible`,
         action: action,
         loading: false,
@@ -9069,6 +9152,93 @@ export default {
       this.eventCompString = JSON.stringify(this.event.comp);
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
       this.eventIcons = JSON.stringify(this.event.icons);
+    },
+    eventNamePaste(e) {
+      if (e && this.user.username === 'TiagoXavi') {
+        let text = e.clipboardData.getData('text');
+
+        let obj;
+        let isParsed = false;
+        try {
+          obj = JSON.parse(text);
+          isParsed = true;
+        } catch (error) {
+          console.log(error);
+        }
+
+        if (
+          isParsed &&
+          typeof obj === "object" &&
+          obj.events &&
+          Array.isArray(obj.events)
+        ) {
+          e.preventDefault();
+
+          this.eventNewLoading = true;
+
+          axios.post(Vue.preUrl + "/eventsParseList", obj)
+          .then(res => {
+            this.eventNewDialog = false;
+            this.eventNewLoading = false;
+            this.eventParsedList = res.data;
+            let now = new Date().toISOString();
+
+            // resolve events by dateTime
+            this.eventParsedList.sort((a,b) => {
+              let aEnded = a.endDateTime.localeCompare(now) < 0;
+              let bEnded = b.endDateTime.localeCompare(now) < 0;
+              if (aEnded && !bEnded) return -1;
+              if (bEnded && !aEnded) return 1;
+
+              let aNotStarted = a.startDateTime.localeCompare(now) > 0;
+              let bNotStarted = b.startDateTime.localeCompare(now) > 0;
+              if (aNotStarted && !bNotStarted) return 1;
+              if (bNotStarted && !aNotStarted) return -1;
+              
+              
+              if (b.endDateTime !== a.endDateTime) {
+                return a.endDateTime.localeCompare(b.endDateTime);
+              }
+              return a.name.localeCompare(b.name);
+            })
+
+            console.log(this.eventParsedList.map(x => {
+
+              let found = obj.events.find(e => {
+                return e.name === x.name.toUpperCase() &&
+                  e.startDateTime === x.startDateTime &&
+                  e.filteringQueryStrings.toString() === x.filteringQueryStrings.toString()
+              })
+              found = found || {}
+
+              return [
+                x.name,
+                found.challengeSetIds
+              ]
+            }))
+
+
+          })
+          .catch(error => {
+            this.eventNewError = true;
+            this.eventNewLoading = false;
+            setTimeout(() => { this.eventNewError = false}, 1500);
+
+            console.log(error);
+            this.$store.commit("DEFINE_SNACK", {
+              active: true,
+              error: true,
+              text: error,
+              type: "error"
+            });
+          })
+
+        }
+      }
+    },
+    eventPreviewParsed(event) {
+      console.log(event, event.filteringQueryStrings);
+      this.loadEventScreen("", event);
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
@@ -10228,14 +10398,21 @@ export default {
       tracks.map(track => {
         result += `~K${track}`
       })
+
+      let picks = this.eventReducePicks();
+      picks.map(car => {
+        result += `~C${car.rid}~T${car.tune}`
+      })
       
       this.$store.commit("CLASSIC_FILTER_IMPORT", { filter: this.clubReqsGroupModel.filter });
 
-      this.changeMode('compare');
+      this.changeMode('compare', true, false);
+      setTimeout(() => {
+        this.decodeTemplateString(result, true);
+      }, 150);
       setTimeout(() => {
         this.searchFilterDialog = true;
-      }, 100);
-      this.decodeTemplateString(result, true);
+      }, 250);
     },
     clubClearPicks() {
       this.clubPicksList = [];
