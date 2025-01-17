@@ -828,8 +828,8 @@
                 :item="item"
                 :maxLength="42"
                 style="min-height: 38px;"
-                @click="loadChallengeFull(item.date, $event)"
-                @longTouch="loadChallengeFull(item.date, { shiftKey: true, ctrlKey: true })" />
+                @click="loadChallengeFull(item.date, undefined, $event)"
+                @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })" />
             </template>
             <div class="Main_CgListDividerLayout">
               <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" />
@@ -2536,8 +2536,8 @@
               :item="item"
               :maxLength="42"
               style="min-height: 38px;"
-              @click="loadChallengeFull(item.date, $event)"
-              @longTouch="loadChallengeFull(item.date, { shiftKey: true, ctrlKey: true })" />
+              @click="loadChallengeFull(item.date, undefined, $event)"
+              @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })" />
           </template>
           <div class="Main_CgListDividerLayout">
             <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
@@ -4871,7 +4871,7 @@ export default {
           if (isFromJson) console.log(`found`);
           race.cars.push( { rid: newCar.rid } );
           race.carIndex = race.cars.length-1;
-          Vue.set(race.cars[race.carIndex], "photo", this.cgResolvePhotoUrl(newCar));
+          Vue.set(race.cars[race.carIndex], "photo", Vue.carPhoto(newCar));
           Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
           Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
           if (isFromJson) console.log(race.cars[race.carIndex]);
@@ -6305,10 +6305,10 @@ export default {
     checkPreDoneRounds(data) {
       if (!this.user || !this.user.mod) return;
       data.rounds.map((round, iround) => {
+        if (round.lastAnalyze) return;
         let isPreDone = true; 
         round.races.find((race, irace) => {
-          if (race.lastAnalyze) return;
-          if (race.lastAnalyze || !race.rid || !race.track || !race.tune || (!race.time && race.time !== 0) ) {
+          if (!race.rid || !race.track || !race.tune || (!race.time && race.time !== 0) ) {
             isPreDone = false;
             return true;
           }
@@ -6443,7 +6443,7 @@ export default {
           if (ridToPhotoId[car.rid]) obj.photoId = ridToPhotoId[car.rid];
           else obj.rid = car.rid;
 
-          Vue.set(car, "photo", this.cgResolvePhotoUrl(obj));
+          Vue.set(car, "photo", Vue.carPhoto(obj));
           Vue.set(car, "car", JSON.parse(JSON.stringify(minCars.find(x => x.rid === car.rid))));
           Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
           Vue.set(car.car, "selectedTune", car.tune);
@@ -6734,14 +6734,6 @@ export default {
       if (car['323'] > 0) return '323';
       if (car['233'] > 0) return '233';
       if (car['332'] > 0) return '332';
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg');
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg');
-      } catch (error) {
-        return ''
-      }
     },
     cgBankCarClick(race, index, e, irace, bankCar) {
       if (e.shiftKey) {
@@ -7679,6 +7671,7 @@ export default {
       list = [...new Set(list)];
       let newCg = JSON.parse(JSON.stringify(this.cg));
       let AllCarsFiltered = [];
+      let zoneSize = json.ladder.zoneSize;
 
       this.all_cars.map(x => {
         if (list.includes(x.guid)) {
@@ -7687,40 +7680,70 @@ export default {
       })
 
       let count = 0;
-      newCg.rounds.map((round, iround) => {
-        if (!json.ladder.challengeSetIds[iround]) return;
-        round.uuidTrackSet = json.ladder.challengeSetIds[iround];
-        round.hCriteria = json.ladder.zoneFlexibleCriteria[iround];
-        round.races.map((race, irace) => {
-          if (true) {
-            let op = oppos[count];
-            let zoneSize = json.ladder.zoneSize;
-            let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
-            let car = AllCarsFiltered.find(x => x.guid === op.cardId);
-            if (car) {
-              let allowedTunes = ["332", "323", "233", "000"];
-              if (car.class === 'S' || car.class === 'A') {
-                allowedTunes.push("111")
-              }
-              if (!allowedTunes.includes(tune)) {
-                if (tune.length > 3) {
-                  tune = `Other`;
-                } else {
-                  tune = `Other${tune}`;
-                }
-              }
-              round.rqLimit = json.ladder.zoneEligibility[Math.floor(iround / zoneSize)].targetRQ;
+      let errorCount = 0;
+      let shouldStop = false;
+      let errorMsgArray = [];
+      let roundErrorCount = 0;
+      function computeError(msg) {
+        errorCount++;
+        roundErrorCount++;
+        if (roundErrorCount > 1) shouldStop = true;
+        errorMsgArray.push(msg);
+      }
 
-              race.rid = car.rid;
-              race.tune = tune;
-              // race.time = null;
-              race.track = null;
-              // race.cars = [];
+      newCg.rounds.map((round, iround) => {
+        let _iRound = iround
+        if (this.cg.startNumer) {
+          _iRound = this.cg.startNumer+_iRound;
+        }
+
+        if (!json.ladder.challengeSetIds[_iRound]) return;
+
+        round.uuidTrackSet = json.ladder.challengeSetIds[_iRound];
+        round.hCriteria = json.ladder.zoneFlexibleCriteria[_iRound];
+        round.rqLimit = json.ladder.zoneEligibility[Math.floor(_iRound / zoneSize)].targetRQ;
+        roundErrorCount = 0;
+
+        round.races.map((race, irace) => {
+          let op = oppos[count];
+          
+          let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
+          let car = AllCarsFiltered.find(x => x.guid === op.cardId);
+          if (car) {
+            let allowedTunes = ["332", "323", "233", "000"];
+            if (car.class === 'S' || car.class === 'A') {
+              allowedTunes.push("111")
             }
+            if (!allowedTunes.includes(tune)) {
+              if (tune.length > 3) {
+                tune = `Other`;
+              } else {
+                tune = `Other${tune}`;
+              }
+            }
+            if (race.rid && race.rid !== car.rid) computeError(`RID round${_iRound+1} race${irace+1} old:      ${race.rid}     n:     ${car.rid}`);
+
+            
+            race.rid = car.rid;
+            race.tune = tune;
+            // race.time = null;
+            race.track = null;
+            // race.cars = [];
           }
           count++;
         })
       })
+
+      if (errorCount > 3 || shouldStop) {
+        console.log(errorMsgArray);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: "Too much errors: " + errorCount,
+          type: "error"
+        });
+        return;
+      }
 
       this.cg = newCg;
       this.cgList.find(x => {
@@ -7830,7 +7853,7 @@ export default {
         }
         car.selectedTune = tune;
         console.log(`car.selectedTune ${car.selectedTune}`);
-        // car.photo = this.cgResolvePhotoUrl(car);
+        // car.photo = Vue.carPhoto(car);
         // car.color = Vue.resolveClass(car.rq, car.class, "color");
         race[key].car = car;
         let isTestBowl = race[key].distance >= 2546 && race[key].distance <= 2548.7;
@@ -8611,7 +8634,7 @@ export default {
       } else {
         event.cars.push( { rid: newCar.rid } );
         event.carIndex = event.cars.length-1;
-        Vue.set(event.cars[event.carIndex], "photo", this.cgResolvePhotoUrl(newCar));
+        Vue.set(event.cars[event.carIndex], "photo", Vue.carPhoto(newCar));
         Vue.set(event.cars[event.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
         Vue.set(event.cars[event.carIndex], "color", Vue.resolveClass(event.cars[event.carIndex].car.rq, event.cars[event.carIndex].car.class, "color"));
       }
@@ -9637,7 +9660,7 @@ export default {
       return str.startsWith("SN") || str.startsWith("YB");
     },
     frontCompleteCar(car) {
-      Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
+      Vue.set(car, "photo", Vue.carPhoto(car));
       Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
       Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
     },

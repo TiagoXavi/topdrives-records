@@ -444,6 +444,7 @@ export default {
           "Style Icon",
           "Eco Friendly",
           "Wild Ride",
+          "Iconic Variant",
           "Innovative",
           "Team Favourite",
           "Ultra Expensive",

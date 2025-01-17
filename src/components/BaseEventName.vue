@@ -62,6 +62,7 @@ export default {
     },
     tag() {
       if (!this.item.tag) return "";
+      if (this.item.date && this.item.date !== "__preview__") return "";
       let result = "";
       result += "BaseEventTag_" + this.item.tag.trim().toLowerCase().replace(/  +/g, ' ').replace(/ +/g, '_').replace(/-+/g, '_').normalize('NFD').replace(/\p{Diacritic}/gu, "")
       if (this.item.startDateTime) {

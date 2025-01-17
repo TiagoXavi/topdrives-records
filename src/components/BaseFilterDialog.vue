@@ -915,6 +915,7 @@ export default {
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
+          "Year of the Snake",
           "Year of the Tiger",
         ],
         tags_expansion: [
@@ -944,6 +945,7 @@ export default {
           "Eco Friendly",
           "Hot Hatch",
           "Hypercar",
+          "Iconic Variant",
           "Innovative",
           "Motorsport",
           "Muscle Car",
@@ -1506,8 +1508,7 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
-            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            Vue.set(x, "ridPhoto", Vue.carPhoto(x));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');
@@ -1741,8 +1742,7 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
-            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            Vue.set(x, "ridPhoto", Vue.carPhoto(x));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');

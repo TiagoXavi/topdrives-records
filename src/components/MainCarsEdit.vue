@@ -426,6 +426,7 @@ export default {
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
+          "Year of the Snake",
           "Year of the Tiger",
           "Beige",
           "Black",
@@ -583,28 +584,9 @@ export default {
   },
   computed: {},
   methods: {
-    // carPicture(file) {
-    //   try {
-    //     return require('@/imgs_final/' + file + '.jpg');
-    //   } catch (error) {
-    //     console.log(file);
-    //     return require('@/assets/blank.jpg');
-    //   }
-    // },
     click(car) {
       console.log(JSON.parse(JSON.stringify(car)));
     },
-    // carPhoto(car) {
-    //   let parsed;
-    //   try {
-    //     parsed = require('@/imgs_final/' + car.rid + '.jpg');
-    //   } catch (error) {
-    //     return ''
-    //   }
-    //   parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
-    //   parsed = parsed.replaceAll("'","\\'");
-    //   return parsed ? 'background-image: url('+parsed+');' : ''
-    // },
     searchInputFunc(e) {
       // debugger;
       // console.log(e);
@@ -679,8 +661,7 @@ export default {
         try {
           Vue.set(x, "ridPhoto", '');
           setTimeout(() => {
-            if (x.photoId) Vue.set(x, "ridPhoto", require('@/incoming_pics/' + x.photoId + '.jpg'));
-            else Vue.set(x, "ridPhoto", require('@/imgs_final/' + x.rid + '.jpg'));
+            Vue.set(x, "ridPhoto", Vue.carPhoto(x));
           }, 1);
         } catch (error) {
           Vue.set(x, "ridPhoto", '');

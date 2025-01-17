@@ -373,19 +373,11 @@ export default {
           tune = `Other`;
         }
         car.selectedTune = tune;
-        car.photo = this.cgResolvePhotoUrl(car);
+        car.photo = Vue.carPhoto(car);
         car.color = Vue.resolveClass(car.rq, car.class, "color");
         race[key].car = car;
 
       });
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
-      }
     },
     resolveEvents() {
 

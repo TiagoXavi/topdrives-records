@@ -216,6 +216,22 @@ export default {
         Vue.isMobile = function () {
             return 'ontouchstart' in window || navigator.msMaxTouchPoints;
         },
+        Vue.carPhoto = function (car) {
+            try {
+                if (typeof car === "object") {
+                    if (car.photoId) {
+                        return require('@/incoming_pics/' + car.photoId + '.jpg');
+                    }
+                    return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg');
+                    // return require('@/imgs_final/' + decodeURI(car.rid$ || car.rid) + '.jpg');
+                }
+                if (typeof car === "string") {
+                    return require('@/imgs_final/' + decodeURI(car) + '.jpg');
+                }
+            } catch (error) {
+                return ": "                
+            }
+        },
         Vue.userPoints = function (userTime, oppoTime, trackCode) {
             if (isNaN(userTime) || isNaN(oppoTime)) return;
             if (!trackCode) return;
@@ -367,6 +383,7 @@ export default {
         Vue.filter('resolveCond', Vue.resolveCond);
         Vue.filter('getOldCar', Vue.getOldCar);
         Vue.filter('isMobile', Vue.isMobile);
+        Vue.filter('carPhoto', Vue.carPhoto);
         Vue.filter('userPoints', Vue.userPoints);
     }
 };

@@ -136,8 +136,7 @@ export default {
             decoded.cars.map((car, icar) => {
               if (icar > 6) return;
 
-              if (car.photoId) cars.push(require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg'));
-              else cars.push(require('@/imgs_final/' + decodeURI(car.rid) + '.jpg'));
+              cars.push(Vue.carPhoto(car));
             });
             
           } catch (error) {

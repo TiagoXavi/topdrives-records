@@ -121,10 +121,8 @@ export default {
       try {
         if (this.oldpic) {
           parsed = require('@/oldpics/' + this.car.rid + '.jpg');
-        } else if (this.car.photoId) {
-          parsed = require('@/incoming_pics/' + this.car.photoId + '.jpg');
         } else {
-          parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
+          parsed = Vue.carPhoto(this.car);
         }
       } catch (error) {
         return ''

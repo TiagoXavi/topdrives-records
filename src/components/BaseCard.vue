@@ -204,25 +204,13 @@ export default {
       return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
     },
     carPhoto() {
-      let parsed;
-      try {
-        if (this.car.photoId) parsed = require('@/incoming_pics/' + this.car.photoId + '.jpg');
-        else parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
-      } catch (error) {
-        return ''
-      }
+      let parsed = Vue.carPhoto(this.car);
       parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
       parsed = parsed.replaceAll("'","\\'");
       return parsed ? 'background-image: url('+parsed+');' : ''
     },
     carPhotoSrc() {
-      let parsed;
-      try {
-        if (this.car.photoId) parsed = require('@/incoming_pics/' + this.car.photoId + '.jpg');
-        else parsed = require('@/imgs_final/' + this.car.rid + '.jpg');
-      } catch (error) {
-        return ''
-      }
+      let parsed = Vue.carPhoto(this.car);
       return parsed ? parsed : ''
     }
   },

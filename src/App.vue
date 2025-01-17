@@ -108,6 +108,11 @@ export default {
     }
   },
   beforeMount() {
+    
+    String.prototype._ = function() {
+      return this.replace(/_\$\w/g, "");
+    }
+
     let vm = this;
     this.isMobile = Vue.options.filters.isMobile();
 
@@ -3781,7 +3786,7 @@ a:visited:not(.D_Button) {
   background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.06) 0, rgba(0, 0, 0, 0.06) 30px );
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
+  border-radius: 7px;
   overflow: hidden;
   /* box-shadow: inset 0px -24px 28px -20px #000f; */
   font-size: var(--card-font-size);

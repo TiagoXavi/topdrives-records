@@ -137,12 +137,7 @@ export default {
       let result = [];
       this.config.cars.map((x, ix) => {
         if (ix < 7) {
-          try {
-            if (x.photoId) result.push(require('@/incoming_pics/' + decodeURI(x.photoId) + '.jpg'))
-            else result.push(require('@/imgs_final/' + decodeURI(x.rid) + '.jpg'))
-          } catch (error) {
-            return ''
-          }
+          result.push(Vue.carPhoto(x));
         } else {
           this.moreThanNineCars = true;
         }

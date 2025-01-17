@@ -218,6 +218,11 @@ export default {
   --tag-s: 55%;
   --tag-l: 38%;
 }
+.BaseGameTag_Iconic_Variant {
+  --tag-h: 288;
+  --tag-s: 80%;
+  --tag-l: 80%;
+}
 .BaseGameTag_Innovative {
   --tag-h: 38;
   --tag-s: 70%;
@@ -460,6 +465,11 @@ export default {
   --tag-h: 49;
   --tag-s: 69%;
   --tag-l: 63%;
+}
+.BaseGameTag_Year_of_the_Snake {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
 }
 .BaseGameTag_Year_of_the_Tiger {
   --tag-h: 5;

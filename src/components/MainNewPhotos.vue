@@ -126,7 +126,7 @@ export default {
           rid: rid,
           car,
           color: Vue.resolveClass(car.rq, car.class, "color"),
-          photo: this.cgResolvePhotoUrl(car)
+          photo: Vue.carPhoto(car)
         })
 
         // cap.matches.map((match, iMatch) => {
@@ -149,14 +149,6 @@ export default {
         return b.car.rq - a.car.rq;
       })
 
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
-      }
     },
   },
 }

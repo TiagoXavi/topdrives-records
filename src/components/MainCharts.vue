@@ -404,13 +404,7 @@ export default {
           inSeries.data = [];
         }
 
-        let photo;
-        try {
-          if (x.photoId) photo = require('@/incoming_pics/' + decodeURI(x.photoId) + '.jpg')
-          else photo = require('@/imgs_final/' + decodeURI(x.rid) + '.jpg');  
-        } catch (error) {
-          
-        }
+        let photo = Vue.carPhoto(x);
       
         inSeries.data.push({
             y: x.rq,

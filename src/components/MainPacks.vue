@@ -932,7 +932,7 @@ export default {
       let found = this.carDetailsList.find(x => x.rid === newCar.rid);
       if (found) return;
       newCar.color = Vue.resolveClass(newCar.rq, newCar.class, "color");
-      newCar.photo = this.cgResolvePhotoUrl(newCar);
+      newCar.photo = Vue.carPhoto(newCar);
       this.carDetailsList.push(newCar);
     },
     removeCar(car) {
@@ -942,16 +942,8 @@ export default {
       let newCar = JSON.parse(JSON.stringify(car));
       newCar.color = Vue.resolveClass(newCar.rq, newCar.class, "color");
       newCar.count = 1;
-      newCar.photo = this.cgResolvePhotoUrl(newCar);
+      newCar.photo = Vue.carPhoto(newCar);
       return newCar;
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
-      }
     },
     run() {
       // this.$store.commit("START_LOGROCKET", {});

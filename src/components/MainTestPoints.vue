@@ -338,7 +338,7 @@ export default {
       //   this.downTimes = res.data;
       //   Object.keys(this.downTimes).map(rid => {
       //     this.all_cars_obj[rid].color = Vue.resolveClass(this.all_cars_obj[rid].rq, this.all_cars_obj[rid].class, "color");
-      //     this.all_cars_obj[rid].photo = this.cgResolvePhotoUrl(rid);
+      //     this.all_cars_obj[rid].photo = Vue.carPhoto(rid);
       //     this.downTimes[rid].map(downtime => {
       //       downtime.car.selectedTune = downtime.selectedTune;
 

@@ -1516,17 +1516,9 @@ export default {
           newCar = JSON.parse(JSON.stringify(newCar));
           newCar.color = Vue.resolveClass(newCar.rq, newCar.class, "color");
           newCar.colorRgb = Vue.resolveClass(newCar.rq, newCar.class, "color", true);
-          newCar.photo = this.cgResolvePhotoUrl(newCar);
+          newCar.photo = Vue.carPhoto(newCar);
           this.resolvedRids[rid] = newCar;
         }
-      }
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
       }
     },
     openDetailDialog(item, index) {
@@ -1681,7 +1673,7 @@ export default {
         preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
         preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
         preCar.count = 1;
-        preCar.photo = this.cgResolvePhotoUrl(preCar);
+        preCar.photo = Vue.carPhoto(preCar);
         this.resolvedRids[newCar.rid] = preCar;
       }
       if (this.addCarSelectorIndex > -1) return;

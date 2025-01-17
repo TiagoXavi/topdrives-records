@@ -290,14 +290,6 @@ export default {
         console.log(error);
       })
     },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
-      }
-    },
     validateTracks(tracks, group = false) {
       let tracksClear = [];
       let groupName;
@@ -486,7 +478,7 @@ export default {
       })
     },
     frontCompleteCar(car) {
-      Vue.set(car, "photo", this.cgResolvePhotoUrl(car));
+      Vue.set(car, "photo", Vue.carPhoto(car));
       Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
       Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
     },

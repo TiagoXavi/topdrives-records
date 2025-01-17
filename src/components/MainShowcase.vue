@@ -515,17 +515,9 @@ export default {
           preCar = JSON.parse(JSON.stringify(preCar));
           preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
           preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
-          preCar.photo = this.cgResolvePhotoUrl(preCar);
+          preCar.photo = Vue.carPhoto(preCar);
           this.resolvedRids[rid] = preCar;
         }
-      }
-    },
-    cgResolvePhotoUrl(car) {
-      try {
-        if (car.photoId) return require('@/incoming_pics/' + decodeURI(car.photoId) + '.jpg')
-        else return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg')
-      } catch (error) {
-        return ''
       }
     },
     onCloseSearchCarDialog() {
