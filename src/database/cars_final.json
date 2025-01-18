@@ -839,7 +839,7 @@
             "Green"
         ],
         "guid": "a78f764a-7f83-4b46-8755-066f78c62314",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -874,7 +874,7 @@
             "Green"
         ],
         "guid": "66cbf594-6e9f-41d3-9cd0-08f80abefd8e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1051,7 +1051,7 @@
         ],
         "photoOrig": "Peugeot_405T16Dakar_88_CARD",
         "guid": "1f62079a-d625-4cae-a1e4-4514cb0acf7e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1121,7 +1121,7 @@
         ],
         "photoOrig": "Peugeot_908HY_08_CARD",
         "guid": "b3b3b383-fe4a-46a5-be3d-dd81663a8408",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1156,7 +1156,7 @@
         ],
         "photoOrig": "Peugeot_908HYbrid4_11_CARD",
         "guid": "26d01271-193e-415b-b806-1a9d7e0f1c2f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1510,7 +1510,7 @@
             "Green"
         ],
         "guid": "4f8805e9-e97a-4ed2-b835-e4a88ff10b4f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1580,7 +1580,7 @@
         ],
         "photoOrig": "McLaren_Senna_GTR_19_CARD",
         "guid": "be1b2243-e60a-4f0c-8e25-8f939b8c48c3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -1755,7 +1755,7 @@
         ],
         "photoOrig": "Peugeot_9X8Hypercar_22_CARD",
         "guid": "c7177e2c-9bcb-460d-a7df-e3d57a4677c3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -2103,7 +2103,7 @@
         ],
         "photoOrig": "Peugeot_905Spider_91_CARD",
         "guid": "212c9e70-5bfb-495d-aa3f-c66364432c49",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -2139,7 +2139,7 @@
         ],
         "photoOrig": "Peugeot_L500R_17_CARD",
         "guid": "b9d74679-1ff0-4848-bae6-2042db2a2335",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -2758,7 +2758,7 @@
             "Silver/Grey"
         ],
         "guid": "fc6ace32-c92d-45bf-949e-2c9aa4df6b57",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -2827,7 +2827,7 @@
             "Silver/Grey"
         ],
         "guid": "149267dd-e063-431f-839c-cf557787b5b4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -2860,7 +2860,7 @@
             "Silver/Grey"
         ],
         "guid": "7a6c0725-358b-46ad-86c4-3240e3d5b639",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3068,7 +3068,7 @@
             "Silver/Grey"
         ],
         "guid": "ef49e5d2-9c17-4a23-ab46-e74ed53b9932",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3102,7 +3102,7 @@
             "Red"
         ],
         "guid": "0d71f7a5-50e5-4103-becb-f8532fc145c7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3136,7 +3136,7 @@
             "Orange"
         ],
         "guid": "c6a6cb1a-0950-4021-8101-99d7716a9bb1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3170,7 +3170,7 @@
             "Green"
         ],
         "guid": "d5a7bc79-4f46-4c08-9264-6fcded2a304f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3204,7 +3204,7 @@
             "Blue"
         ],
         "guid": "7a1e2046-1009-46c9-8038-ea7b858bf1f3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -3546,7 +3546,7 @@
         ],
         "photoOrig": "Audi_RS_Q8_2022_CARD",
         "guid": "d3ae645e-689a-4830-84fb-57efda287b9a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4033,7 +4033,7 @@
         ],
         "photoOrig": "KTM_XBow_GT2_20_CARD",
         "guid": "2f98848a-e85a-4470-81dd-937c023a35ea",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4067,7 +4067,7 @@
             "Silver/Grey"
         ],
         "guid": "b416a790-ccfc-4dab-a7a9-bd324aec2350",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4169,7 +4169,7 @@
             "White"
         ],
         "guid": "f11d8c8f-8e42-4fbc-b394-92f3f57ba770",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4237,7 +4237,7 @@
             "Turquoise"
         ],
         "guid": "cf2f7fff-3081-4ae1-a5b6-1f0877ce6493",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4271,7 +4271,7 @@
             "Silver/Grey"
         ],
         "guid": "073ed6a0-8ef9-47d2-bbfe-de79fcf26cb8",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4409,7 +4409,7 @@
         ],
         "photoOrig": "Peugeot_205T16ParisDakar_86_CARD",
         "guid": "e84ab0fd-5118-4b31-aeb9-8bc181ae37a8",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -4648,7 +4648,7 @@
         ],
         "photoOrig": "Apollo_Arrow_16_CARD",
         "guid": "fa50241e-afcd-4fa8-8d0c-20602bdece0b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5065,7 +5065,7 @@
             "Silver/Grey"
         ],
         "guid": "c91f2363-8e13-4a91-b464-39cffeb21fa9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5098,7 +5098,7 @@
             "Silver/Grey"
         ],
         "guid": "fdb30f3b-ef82-4a23-813d-f9de028ba345",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5234,7 +5234,7 @@
         ],
         "photoOrig": "McLaren_765LT_22_CARD",
         "guid": "877e2d6b-cdcc-4f9a-805d-9347c621d2f6",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5269,7 +5269,7 @@
         ],
         "photoOrig": "McLaren_F1_GTR_Longtail_97_CARD",
         "guid": "993a850c-aa9f-47d1-abfa-7a2ac1085739",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -5891,7 +5891,7 @@
             "Blue"
         ],
         "guid": "3686d74b-7725-49f0-85c9-476e2a42299c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -6027,7 +6027,7 @@
         ],
         "photoOrig": "McLaren_Elva_20_CARD",
         "guid": "87a696e9-40f6-46d3-9d63-499a4695fe28",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7090,7 +7090,7 @@
             "Red"
         ],
         "guid": "86e56c24-3023-48e8-8aa1-44f5ed3bbd91",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7123,7 +7123,7 @@
             "Silver/Grey"
         ],
         "guid": "35867687-51f1-405e-a7d6-27dcf7fd0d1d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7189,7 +7189,7 @@
             "Green"
         ],
         "guid": "91a9f472-b55b-4986-b084-50359c2a9add",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7223,7 +7223,7 @@
             "Red"
         ],
         "guid": "4f5e68a4-54d8-4fd0-8eae-16c4236cd7bd",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7397,7 +7397,7 @@
         ],
         "photoOrig": "Peugeot_307_WRC_04_CARD",
         "guid": "a2cb6016-d16a-43a2-b922-848ac2ecc86a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -7467,7 +7467,7 @@
         ],
         "photoOrig": "Peugeot_Inception_23_CARD",
         "guid": "7590860c-9540-4f14-96e4-e52850ccc04d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -8114,7 +8114,7 @@
             "Blue"
         ],
         "guid": "899fe84f-b0ef-499f-a11f-c30a695acdbf",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -8692,7 +8692,7 @@
         ],
         "photoOrig": "Renault_A442_76_CARD",
         "guid": "b553dd8f-540e-46ac-a87b-8811dd77c6e7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -8727,7 +8727,7 @@
         ],
         "photoOrig": "Renault_Espace_F1_94_CARD",
         "guid": "dfdd05e7-153f-41b1-ab0d-d65ca3e52489",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -9481,7 +9481,7 @@
         ],
         "photoOrig": "McLaren_Speedtail_20_CARD",
         "guid": "c129e362-e286-4115-9bcd-6de748968924",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11163,7 +11163,7 @@
             "Blue"
         ],
         "guid": "26b952ac-5066-4c0f-b84c-1882962cd3eb",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11197,7 +11197,7 @@
             "Green"
         ],
         "guid": "98b41a6e-6c0d-4d96-a9c6-674a1bcf0189",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11230,7 +11230,7 @@
             "Silver/Grey"
         ],
         "guid": "9d62980d-a05c-4978-920c-1f3b4ea15103",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11643,7 +11643,7 @@
         ],
         "photoOrig": "AlfaRomeo_33_Stradale_23_CARD",
         "guid": "00ef2a03-c60f-48ca-ab2e-edc6b72ba980",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11747,7 +11747,7 @@
         ],
         "photoOrig": "Audi_R8_GT_Spyder_2011_CARD",
         "guid": "f16b1a55-7cce-468f-b952-fbd06f301daf",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11781,7 +11781,7 @@
         ],
         "photoOrig": "Audi_RS_6_Avant_GT_2024_CARD",
         "guid": "72d29462-f7f0-4bd9-891f-d766470217f4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -11815,7 +11815,7 @@
         ],
         "photoOrig": "Audi_SQ7_TFSI_2023_CARD",
         "guid": "f53d9dff-0b94-4c9a-b382-7285f957ca01",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -12192,7 +12192,7 @@
             "Silver/Grey"
         ],
         "guid": "df8af2a6-2a43-4d96-9cf3-daf2eb61ac18",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -13142,7 +13142,7 @@
             "Orange"
         ],
         "guid": "0ed70772-c579-4671-b90d-f0901cca6ef9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -13417,7 +13417,7 @@
         ],
         "photoOrig": "Peugeot_Proxima_86_CARD",
         "guid": "1400d953-c56a-433d-a5bf-0bc060da0963",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -13995,7 +13995,7 @@
         ],
         "photoOrig": "KTM_XBow_GTXR_23_CARD",
         "guid": "1c87cdf0-a50f-47e9-8b0e-8713edc95155",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14373,7 +14373,7 @@
         ],
         "photoOrig": "Audi_RS_3_Sportback_performance_edition_(8Y)_2023_CARD",
         "guid": "129514b9-6df3-4f40-b3d0-1312f3d506f4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14407,7 +14407,7 @@
         ],
         "photoOrig": "Audi_RS7_Sportback_performance_2024_CARD",
         "guid": "8109922d-a859-4756-b24a-f621b9a9f34f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -14441,7 +14441,7 @@
         ],
         "photoOrig": "Audi_TT_RS_Iconic_Edition_2023_CARD",
         "guid": "348f419a-47d2-4c60-885d-2f7dbaac79c5",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -15352,7 +15352,7 @@
         ],
         "photoOrig": "Audi_RS_3_SaloonSedan_(8Y)_2023_CARD",
         "guid": "d64db13d-b84c-4f88-8d71-6b130ae2072b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -15694,7 +15694,7 @@
             "Orange"
         ],
         "guid": "d4ebc753-0da7-43e0-b285-010e4d031e72",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -15727,7 +15727,7 @@
             "Yellow"
         ],
         "guid": "2f849497-1743-41d5-8ff5-e3fbb0274044",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -15833,7 +15833,7 @@
         ],
         "photoOrig": "McLaren_12C_Spider_13_CARD",
         "guid": "ec57ddb4-7fb8-432b-97e9-90f8d75365ad",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16584,7 +16584,7 @@
         ],
         "photoOrig": "Audi_A8_L_60_TFSI_e_quattro_2024_CARD",
         "guid": "599f5076-1d0a-44da-8da2-1e4af7e0fd36",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16618,7 +16618,7 @@
         ],
         "photoOrig": "Audi_RS_4_Avant_Competition_Plus_(B9)_2023_CARD",
         "guid": "226fea9c-4713-4900-82c9-61e0b3cea67c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16652,7 +16652,7 @@
         ],
         "photoOrig": "Audi_RS5_competition_(B9)_2023_CARD",
         "guid": "e9038388-29c8-4be4-b88b-75c24072a27a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16686,7 +16686,7 @@
         ],
         "photoOrig": "Audi_RS5_Sportback_competition_(B9)_2023_CARD",
         "guid": "754b34a7-dbf4-43c3-8be1-41588a90ff45",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16753,7 +16753,7 @@
         ],
         "photoOrig": "Audi_RS_e-tron_GT_2023_CARD",
         "guid": "6842eebc-1955-4c23-be97-798fc35223a0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -16787,7 +16787,7 @@
         ],
         "photoOrig": "Audi_S8_(D5)_2022_CARD",
         "guid": "e261e252-97d3-429d-a172-39b8ecfda717",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -17365,7 +17365,7 @@
             "Yellow"
         ],
         "guid": "ca3c42a6-66c5-448b-b457-ac1f48e345d7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -17398,7 +17398,7 @@
             "Yellow"
         ],
         "guid": "a961b3f8-c4d7-4bca-b5d0-b0ae8595f45a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -17847,7 +17847,7 @@
         ],
         "photoOrig": "Audi_RS5_(B9)_2020_CARD",
         "guid": "a7f73c01-2362-4e4c-b871-f2215e9d30fc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -17881,7 +17881,7 @@
         ],
         "photoOrig": "Audi_RS6_Avant_(C8)_2020_CARD",
         "guid": "e5b93445-d908-4a9d-b2ce-adfb51ec7603",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -17915,7 +17915,7 @@
         ],
         "photoOrig": "Audi_S8_(D4)_2016_CARD",
         "guid": "7171161a-65f2-4933-a553-61e14e10d9c7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -18465,7 +18465,7 @@
         ],
         "photoOrig": "McLaren_570GT_16_CARD",
         "guid": "d9ad2552-d48e-4c2b-a011-c7f9a4d15ecf",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -18904,7 +18904,7 @@
         ],
         "photoOrig": "Audi_RS_3_Nardo_Edition_(8V)_2020_CARD",
         "guid": "0ed082c8-f1ed-4838-95fa-0ab140662bc4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -19005,7 +19005,7 @@
         ],
         "photoOrig": "Audi_TT_RS_Roadster_(FV)_2016_CARD",
         "guid": "e51750dc-870e-4850-bb52-a17b71780b8d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -19519,7 +19519,7 @@
             "Silver/Grey"
         ],
         "guid": "64b82375-cf15-4bca-94fa-61889471347e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -19588,7 +19588,7 @@
             "Blue"
         ],
         "guid": "6c8f8269-a32e-45e3-95a6-a9d2f642c522",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "S",
@@ -20195,7 +20195,7 @@
         ],
         "photoOrig": "AlfaRomeo_Giulia_Quadrifoglio_Carabinieri_16_CARD",
         "guid": "1db82314-3236-4cc3-9539-de9ae0a2580f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -20935,7 +20935,7 @@
             "Orange"
         ],
         "guid": "40d8fcbb-75bf-4689-ad39-e50298a8835e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -21036,7 +21036,7 @@
             "White"
         ],
         "guid": "4047efe5-bc45-4a81-894e-3b3653130856",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -21210,7 +21210,7 @@
         ],
         "photoOrig": "McLaren_540C_15_CARD",
         "guid": "ac86db51-1b26-40ab-b16a-542e7f00f210",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -22190,7 +22190,7 @@
         ],
         "photoOrig": "Audi_R8_V10_Performance_RWD_2022_CARD",
         "guid": "df0c0fa3-61df-495f-a38d-747830fa5524",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -22224,7 +22224,7 @@
         ],
         "photoOrig": "Audi_S3_SaloonSedan_(8Y)_2023_CARD",
         "guid": "24d7bfc5-dbef-477b-8ee9-e78c43b46cb9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -22258,7 +22258,7 @@
         ],
         "photoOrig": "Audi_S5_Sportback_(F5)_2018_CARD",
         "guid": "291b5a12-2b2c-4691-b39a-37d7ee57c6f4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -22292,7 +22292,7 @@
         ],
         "photoOrig": "Audi_S6_(C7)_2016_CARD",
         "guid": "74a812b0-fe4b-4007-993b-c36dad2db7f1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -23659,7 +23659,7 @@
         ],
         "photoOrig": "Audi_A7_Sportback_55_TFSI_e_2024_CARD",
         "guid": "6548c324-be75-4616-a710-9bfafedb42b5",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -23760,7 +23760,7 @@
         ],
         "photoOrig": "Audi_SQ6_e-tron_24_CARD",
         "guid": "0b3db9bf-fbec-410a-a915-1d1fd8b60b57",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -23794,7 +23794,7 @@
         ],
         "photoOrig": "Audi_SQ8_e-tron_2024_CARD",
         "guid": "e79f1eea-d016-47d2-af58-acfb9af0569c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -24197,7 +24197,7 @@
             "Silver/Grey"
         ],
         "guid": "8964a2c7-6b08-40c7-bea3-b5b7ae63f0ac",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -24330,7 +24330,7 @@
             "Yellow"
         ],
         "guid": "9359a1fe-3b6e-45e8-b383-5e47e513d616",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -24668,7 +24668,7 @@
             "Silver/Grey"
         ],
         "guid": "ec81b44e-624f-4bfd-8974-0dfc38da0925",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -25170,7 +25170,7 @@
         ],
         "photoOrig": "Audi_R8_RWD_Spyder_2021_CARD",
         "guid": "3cea92c6-9793-4dc2-b600-f84997b00c35",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -25665,7 +25665,7 @@
             "Silver/Grey"
         ],
         "guid": "97b65f17-0c11-4386-9399-6a0e70b3c9dc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -27591,7 +27591,7 @@
             "White"
         ],
         "guid": "335ed423-6cf8-4896-97ed-4a554c8c1f73",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -27897,7 +27897,7 @@
             "Yellow"
         ],
         "guid": "02f79a93-77dd-4fbd-b87f-659b8e8efab6",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -28170,7 +28170,7 @@
         ],
         "photoOrig": "Audi_A4_quattro_32_FSI_(B8)_2010_CARD",
         "guid": "15604e81-42de-496a-b9ad-a8310cfb2311",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -28204,7 +28204,7 @@
         ],
         "photoOrig": "Audi_e-tron_GT_quattro_2023_CARD",
         "guid": "a7c130b4-e0bd-4229-bebd-03dc5645a1f9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -28238,7 +28238,7 @@
         ],
         "photoOrig": "Audi_RS4_Avant_(B8)_2014_CARD",
         "guid": "5c681454-7fd2-4007-93ba-cf43c89e05b1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -28339,7 +28339,7 @@
         ],
         "photoOrig": "Audi_S6_Avant_(C7)_2016_CARD",
         "guid": "41ede837-874c-47a3-97e3-a25dc43b9619",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29021,7 +29021,7 @@
         ],
         "photoOrig": "Peugeot_406CoupeSilhouette_01_CARD",
         "guid": "e939d54b-f1b0-41f3-a160-1d55175e1d69",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29090,7 +29090,7 @@
         ],
         "photoOrig": "Peugeot_Quartz_15_CARD",
         "guid": "c71250ff-410d-49ad-a52f-bc90038b50b7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29358,7 +29358,7 @@
         ],
         "photoOrig": "Renault_21_Superproduction_87_CARD",
         "guid": "ddbd0a5b-8031-4141-806a-5cb0bb2abf8e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29634,7 +29634,7 @@
         ],
         "photoOrig": "Audi_Q8_55_TFSI_24_CARD",
         "guid": "a3414447-8419-4146-bc7f-39530fd4d801",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29702,7 +29702,7 @@
         ],
         "photoOrig": "Audi_RS3_Sportback_(8P)_2011_CARD",
         "guid": "dfdb2502-3df0-4e65-922a-e94c555b3858",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29769,7 +29769,7 @@
         ],
         "photoOrig": "Audi_S4_Avant_(B8)_2014_CARD",
         "guid": "986903f0-5a90-40a5-b433-aa033b464903",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -29970,7 +29970,7 @@
             "Red"
         ],
         "guid": "8e87d200-b9c0-49b3-8af3-ab5f7382dfc9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -30172,7 +30172,7 @@
             "White"
         ],
         "guid": "2d621b76-13c3-423f-80d1-fcb86512f1da",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -31130,7 +31130,7 @@
         ],
         "photoOrig": "Audi_Q4_55_Sportback_e-tron_quattro_2024_CARD",
         "guid": "67d7ee76-69ee-4e58-a009-269f85834204",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -31537,7 +31537,7 @@
             "Heavy Metal"
         ],
         "guid": "fe9f24fb-660e-49f4-bc39-f1b6a5fd4e71",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -31976,7 +31976,7 @@
         ],
         "photoOrig": "Peugeot_308TCR_18_CARD",
         "guid": "8117fa9a-f050-4e4f-890d-24290f3187ac",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -32588,7 +32588,7 @@
         ],
         "photoOrig": "AlfaRomeo_Stelvio_20_Turbo_Petrol_280_Q4_23_CARD",
         "guid": "28c7b02e-0c7d-4012-9875-d0eb526207dc",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -32655,7 +32655,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_quattro_32_FSI_(B8)_2010_CARD",
         "guid": "9748173b-2c75-4ef9-9ea5-c6595f8ec5f1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -32960,7 +32960,7 @@
             "Black"
         ],
         "guid": "d91ae7e5-1ed3-42fb-bc2e-8168fcfb5857",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -33499,8 +33499,8 @@
         "rid": "Peugeot_508_Peugeot_Sport_Engineered_2021",
         "prize": false,
         "bodyTypes": [
-            "Saloon",
-            "Hatchback"
+            "Hatchback",
+            "Saloon"
         ],
         "fuel": "Hybrid",
         "seats": "5",
@@ -33512,7 +33512,7 @@
         ],
         "photoOrig": "Peugeot_508PeugeotSportEngineeredPSE_21_CARD",
         "guid": "83a93c7d-0bac-411b-8a30-03418bdc950e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -33547,7 +33547,7 @@
         ],
         "photoOrig": "Peugeot_508SportEngineeredConcept_19_CARD",
         "guid": "c2b367b5-846e-4640-b85f-98998c984c9f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -34044,7 +34044,7 @@
             "Desperados"
         ],
         "guid": "efa20b59-fec5-4b8c-8637-4c54e4703b38",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -34078,7 +34078,7 @@
         ],
         "photoOrig": "Audi_A6_allroad_(4K)(C8)_2021_CARD",
         "guid": "b990d81c-746e-4971-9cf0-419bfd78a100",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -34146,7 +34146,7 @@
         ],
         "photoOrig": "Audi_Q8_55_Sportback_e-tron_2024_CARD",
         "guid": "efa968cb-47da-4d8a-b90c-6a2b10e1291e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -35088,7 +35088,7 @@
             "Yellow"
         ],
         "guid": "bcc48e76-e897-465a-bf69-7a10c9952703",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -35933,7 +35933,7 @@
         ],
         "photoOrig": "AlfaRomeo_75_Turbo_Evoluzione_IMSA_88_CARD",
         "guid": "8b740e77-e5ae-414b-a5a9-e523896abfd2",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -36001,7 +36001,7 @@
         ],
         "photoOrig": "Audi_A8_Coupe_1997_CARD",
         "guid": "ac080d4d-ceb3-4014-a8c6-3acc1d5040d7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -36438,7 +36438,7 @@
             "Blue"
         ],
         "guid": "6c5db3bf-36ae-4120-9f44-a78545c48d2e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -36916,7 +36916,7 @@
         ],
         "photoOrig": "Peugeot_508SWPeugeotSportEngineeredPSE_21_CARD",
         "guid": "3a76d948-d7aa-42fd-87a4-94981ef7af86",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -37251,7 +37251,7 @@
         ],
         "photoOrig": "AlfaRomeo_Tonale_Plugin_Hybrid_Q4_23_CARD",
         "guid": "e51bd2bb-3c9d-46ca-b876-0c8fad5e443d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -37285,7 +37285,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_quattro_32_FSI_(B7)_2005_CARD",
         "guid": "8be3f707-a047-4b99-b8d8-d35b19685331",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -37319,7 +37319,7 @@
         ],
         "photoOrig": "Audi_Q5_Sportback_45_TFSI_2024_CARD",
         "guid": "745661bb-9e94-4279-b0ea-106168a77702",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -38388,7 +38388,7 @@
         ],
         "photoOrig": "Peugeot_3008_16Hybrid4300_22_CARD",
         "guid": "afec03d5-2f46-4211-b344-588ab7785276",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -38423,7 +38423,7 @@
         ],
         "photoOrig": "Peugeot_4002Concept_03_CARD",
         "guid": "6542d636-4635-4fc7-bebd-0b6dce279e15",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "A",
@@ -38830,7 +38830,7 @@
         ],
         "photoOrig": "AlfaRomeo_8C_Competizione_Concept_03_CARD",
         "guid": "e186f2dd-7ad6-4326-87c3-fade728ff59c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -38965,7 +38965,7 @@
         ],
         "photoOrig": "Audi_A5_Cabriolet_quattro_32_FSI_(B8)_2010_CARD",
         "guid": "82c0ea36-3b08-4d0a-822c-bed269eccea1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -39607,7 +39607,7 @@
         ],
         "photoOrig": "Peugeot_207_SpiderConcept_06_CARD",
         "guid": "574ae600-e187-41ca-916b-1f704c11f27d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -39642,7 +39642,7 @@
         ],
         "photoOrig": "Peugeot_308RacingCup_15_CARD",
         "guid": "ec88cb2b-ba32-44ef-816d-36e5f3f7aa9f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -39677,7 +39677,7 @@
         ],
         "photoOrig": "Peugeot_Flux_07_CARD",
         "guid": "5ceb64b4-68a8-471b-bca8-e59ce5ddd453",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -39712,7 +39712,7 @@
         ],
         "photoOrig": "Peugeot_RCHYmotion4_08_CARD",
         "guid": "a1412c3c-9106-436e-8797-07f24238eceb",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -41473,7 +41473,7 @@
         ],
         "photoOrig": "Peugeot_Exalt_14_CARD",
         "guid": "cc6f8165-5504-4001-8391-26c732c35586",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -41881,7 +41881,7 @@
             "Year of the Dragon"
         ],
         "guid": "e12cf02d-91d8-47de-90ea-d2caf9de52d7",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -42045,7 +42045,7 @@
             "White"
         ],
         "guid": "31212025-0172-4f7d-96c4-ba8a8173b4f6",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -42079,7 +42079,7 @@
         ],
         "photoOrig": "Audi_A6_allroad_quattro_30_TFSI_(C7)_2012_CARD",
         "guid": "6c013678-7797-4851-a7e1-187843420af9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -42112,7 +42112,7 @@
             "Blue"
         ],
         "guid": "d7a74b13-3216-4371-835c-287532fa01d4",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "A",
@@ -42179,7 +42179,7 @@
         ],
         "photoOrig": "Audi_S4_Avant_(B7)_2008_CARD",
         "guid": "0b602727-00eb-4de8-9dc7-c460b98632f3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "A",
@@ -42278,7 +42278,7 @@
             "Silver/Grey"
         ],
         "guid": "93d84a5e-b196-452d-8b37-7831309c4dae",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "A",
@@ -44304,7 +44304,7 @@
             "Roads Most Travelled"
         ],
         "guid": "229a309c-5612-4175-8e3e-2a49d133bd0f",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "A",
@@ -44438,7 +44438,7 @@
             "Silver/Grey"
         ],
         "guid": "6b800437-3bbe-4430-8ed4-2dd72c43b6ec",
-        "brake": "A"
+        "brake": "C"
     },
     {
         "class": "A",
@@ -44745,7 +44745,7 @@
             "Blue"
         ],
         "guid": "47a65a1a-07d6-4916-b2eb-8641462e5bc9",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "A",
@@ -44880,7 +44880,7 @@
         ],
         "photoOrig": "AlfaRomeo_8C_Spider_Concept_05_CARD",
         "guid": "bfd672b4-fc90-4aee-8993-88f228e6e3b9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -44915,7 +44915,7 @@
         ],
         "photoOrig": "AlfaRomeo_Stelvio_22_Turbo_Diesel_210_Q4_23_CARD",
         "guid": "41563007-2a8f-42bc-b6f0-5afc715afa0e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -44983,7 +44983,7 @@
         ],
         "photoOrig": "Audi_A4_quattro_30_(B6)_2004_CARD",
         "guid": "0e36646e-40e4-4909-8dab-eb20f8fed2fd",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -45018,7 +45018,7 @@
         ],
         "photoOrig": "Audi_A6_quattro_27T_(C5)_2002_CARD",
         "guid": "204a394d-1a5f-4776-ab91-52f71a67a4dc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -45053,7 +45053,7 @@
         ],
         "photoOrig": "Audi_Q7_V12_TDI_2010_CARD",
         "guid": "626713cb-f7e1-4ab5-8c36-9c615ac6db55",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -45415,7 +45415,7 @@
             "Red"
         ],
         "guid": "5f31063a-2832-4791-a0ad-e0348f1dead9",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "B",
@@ -45517,7 +45517,7 @@
             "Silver/Grey"
         ],
         "guid": "742060f9-dc94-49d7-a6d2-5921b72f417d",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "B",
@@ -45722,7 +45722,7 @@
             "Red"
         ],
         "guid": "6ed8159d-5178-48ff-8e1b-5c7dc69a1d66",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -46707,7 +46707,7 @@
         ],
         "photoOrig": "Audi_A8_quattro_42_(D2)_2002_CARD",
         "guid": "3379eaa8-9809-484c-8c04-900b507054c8",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -47113,7 +47113,7 @@
             "Black"
         ],
         "guid": "562c8003-a5e1-4aec-8612-0d241289e235",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "B",
@@ -47935,7 +47935,7 @@
         ],
         "photoOrig": "Peugeot_207_RCup_06_CARD",
         "guid": "9450d7a6-5a1f-4567-92e1-27ae91a9517c",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -48037,7 +48037,7 @@
         ],
         "photoOrig": "Renault_Megane_RS_Trophy_18_CARD",
         "guid": "8993a1ed-3910-4668-8302-52398b8f55db",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -48406,7 +48406,7 @@
         ],
         "photoOrig": "Audi_A6_allroad_quattro_42_(C6)_2010_CARD",
         "guid": "9f3e52ff-22da-425f-a41c-b7bd7155b4cf",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -49531,7 +49531,7 @@
         ],
         "photoOrig": "Peugeot_2008_DKR_14_CARD",
         "guid": "411b6400-9d18-4194-85a8-e43f48ff07aa",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -49979,7 +49979,7 @@
         ],
         "photoOrig": "AlfaRomeo_164_Proteo_91_CARD",
         "guid": "db6e22c2-0376-4a4d-b0d2-72ad9780adf3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -50013,7 +50013,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_quattro_30_(B6)_2004_CARD",
         "guid": "3b4b5db7-ea88-41ff-b861-120004a01708",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -50047,7 +50047,7 @@
         ],
         "photoOrig": "Audi_A6_Avant_quattro_27T_(C5)_2002_CARD",
         "guid": "b8cb16c9-903b-4ea8-8f78-bd54330ab95b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -50081,7 +50081,7 @@
         ],
         "photoOrig": "Audi_Q3_(8U)_2012_CARD",
         "guid": "0eb7c48f-8da1-4a4b-b455-1ea0067b2f7a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -50115,7 +50115,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_20_TFSI_(FV)_2016_CARD",
         "guid": "6582bc4b-d338-47d5-bd46-9c3d2fac23d3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -51841,7 +51841,7 @@
         ],
         "photoOrig": "Audi_TT_S_Roadster_(8J)_2012_CARD",
         "guid": "03d711d4-032e-4370-8313-cf374e79cd67",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -52996,7 +52996,7 @@
         ],
         "photoOrig": "Peugeot_HX1_11_CARD",
         "guid": "44556bfe-c11a-45ef-81bb-afe7bf19a1a7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -53031,7 +53031,7 @@
         ],
         "photoOrig": "Peugeot_RCZR_Bimota_15_CARD",
         "guid": "4dcc3742-e3b6-421b-91e7-bc5611c03f13",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -53535,7 +53535,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_28_quattro_(B5)_2000_CARD",
         "guid": "19abf9f0-0e8d-45e0-bd02-566970eee2e4",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -54554,7 +54554,7 @@
         ],
         "photoOrig": "Peugeot_208_Rally4_20_CARD",
         "guid": "f959d655-2de8-4f87-af21-7f87bade1040",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -55256,7 +55256,7 @@
         ],
         "photoOrig": "Audi_A3_18_T_quattro_(8L)_2002_CARD",
         "guid": "824e5d80-75ca-42d2-b846-fb7e389b4761",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -56672,7 +56672,7 @@
         ],
         "photoOrig": "AlfaRomeo_Giulia_22_JTDM_17_CARD",
         "guid": "11f44030-211e-48b9-b9d5-a068e0ab8ad2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -56873,7 +56873,7 @@
         ],
         "photoOrig": "Audi_A4_18T_quattro_(B5)_2000_CARD",
         "guid": "cfe8fa0b-4466-4ebc-80f2-58a33783d190",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -57006,7 +57006,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_20_TSFI_(8J)_2010_CARD",
         "guid": "c7b247d5-b332-4de2-ae2c-2f99d846ace0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -57041,7 +57041,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_Sport_(8N)_2005_CARD",
         "guid": "874e3e8e-94c5-49bd-ab38-8213bbb8ffd0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -57312,7 +57312,7 @@
             "Black"
         ],
         "guid": "0fa46515-4888-45d1-b53e-7fd654750cc9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -57823,7 +57823,7 @@
             "White"
         ],
         "guid": "5f14a4a8-0e6d-427d-a6e6-95982745450c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -58362,7 +58362,7 @@
         ],
         "photoOrig": "Peugeot_Instinct_17_CARD",
         "guid": "5cb7b8d8-648f-4d1b-83fb-ba0240f7d6e2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -58765,7 +58765,7 @@
         ],
         "photoOrig": "Audi_S6_Avant_Plus_(C4)_1996_CARD",
         "guid": "f607b620-37b5-4a40-a715-392a7cf32424",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -59477,7 +59477,7 @@
         ],
         "photoOrig": "Peugeot_305RallyeV6Prototype_81_CARD",
         "guid": "1c749a36-1683-4b5b-a589-b699a9b57549",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -59512,7 +59512,7 @@
         ],
         "photoOrig": "Peugeot_308RConcept_13_CARD",
         "guid": "4753cf36-af60-4563-8eff-a8447b072051",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -59816,7 +59816,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_32_(8J)_2008_CARD",
         "guid": "1079c437-c1a2-42af-9c10-c909d9e468eb",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -60521,7 +60521,7 @@
             "Red"
         ],
         "guid": "7ad5111b-d504-4000-9777-156e7d442a20",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -61393,7 +61393,7 @@
         ],
         "photoOrig": "Audi_100_S4_Plus_(C4)_1993_CARD",
         "guid": "9c6f7401-870e-485f-b59e-50ddd4d9605f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -61427,7 +61427,7 @@
         ],
         "photoOrig": "Audi_A7_quattro_28_FSI_(C7)_2014_CARD",
         "guid": "7ee3d7c8-bc6b-450d-a656-bbce6a09e349",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -63127,7 +63127,7 @@
         ],
         "photoOrig": "Audi_A3_Saloon_(8V)_2016_CARD",
         "guid": "97ff966c-6d20-44a3-b772-3187c18fe9a7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -63357,7 +63357,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_Roadster_20_TSFI_(8J)_2012_CARD",
         "guid": "d512d846-7275-497e-8401-1edb5fdef6c0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -63864,7 +63864,7 @@
             "Silver/Grey"
         ],
         "guid": "381fe703-17ae-4bd8-a426-825554442ab8",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -64539,7 +64539,7 @@
         ],
         "photoOrig": "Renault_Renault_Sport_Clio_Williams_Maxi_KitCar_95_CARD",
         "guid": "8b00b24e-0812-4efe-bdf0-ae9ca7a0da05",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -64808,7 +64808,7 @@
         ],
         "photoOrig": "Audi_A3_(8V)_2016_CARD",
         "guid": "1944ef93-44c5-4e08-8397-637641131fa3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -64842,7 +64842,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_20_TFSI_(B8)_2012_CARD",
         "guid": "5b18dee8-64fa-43d0-9681-2ad58866ae1a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -64909,7 +64909,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_Roadster_32_(8J)_2008_CARD",
         "guid": "c91e6238-dbfd-4673-bc24-10935963a958",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -66473,7 +66473,7 @@
         ],
         "photoOrig": "AlfaRomeo_Kamal_03_CARD",
         "guid": "b0b6b1f3-a34e-4d8d-a750-7ba0dc580d82",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -66611,7 +66611,7 @@
         ],
         "photoOrig": "Audi_A6_20_TFSI_(C7)_2016_CARD",
         "guid": "fcbd7820-e84f-4496-ab01-ed444c1c68b1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -66915,7 +66915,7 @@
             "Heavy Metal"
         ],
         "guid": "06798efa-80bf-4cd0-b12a-30c1b7c65d84",
-        "brake": "C"
+        "brake": "B"
     },
     {
         "class": "B",
@@ -67701,7 +67701,7 @@
         ],
         "photoOrig": "Peugeot_208_GTibyPeugeotSport_15_CARD",
         "guid": "e4337640-2059-41ce-8a0c-3b14daff8afc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -67736,7 +67736,7 @@
         ],
         "photoOrig": "Peugeot_5byPeugeotConcept_10_CARD",
         "guid": "9b49c97e-7862-4ec1-addc-1de3e6119fb3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -68141,7 +68141,7 @@
         ],
         "photoOrig": "Audi_A5_20_TFSI_(B8)_2015_CARD",
         "guid": "7cfb527e-e810-433a-87e1-c19ecde66af4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -68683,7 +68683,7 @@
             "Summer Games 24"
         ],
         "guid": "0e491d64-f65c-4532-9070-d7a2c0a06176",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -69402,7 +69402,7 @@
             "Roads Most Travelled"
         ],
         "guid": "a4cce2fb-04bd-4576-bc87-948fa03e2848",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "B",
@@ -70322,7 +70322,7 @@
         ],
         "photoOrig": "Peugeot_SxC_11_CARD",
         "guid": "352b234e-73f8-421e-9570-e6141724676e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "B",
@@ -70967,7 +70967,7 @@
         ],
         "photoOrig": "Audi_A6_Avant_20_TFSI_(C7)_2016_CARD",
         "guid": "635dbb5a-1efb-4598-a77f-5d24c2d9c71e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -71001,7 +71001,7 @@
         ],
         "photoOrig": "Audi_Q4_45_e-tron_2024_CARD",
         "guid": "00614655-d86a-43b2-abe2-95bdf81c5603",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -71066,7 +71066,7 @@
             "Silver/Grey"
         ],
         "guid": "e8a5a0b3-654b-4230-9c37-dbe8eeb2266e",
-        "brake": "B"
+        "brake": "A"
     },
     {
         "class": "C",
@@ -72051,7 +72051,7 @@
             "Concept"
         ],
         "guid": "c96ce31a-eca8-4c6d-8498-45820420a5ed",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -72395,7 +72395,7 @@
             "Yellow"
         ],
         "guid": "d39f7500-bf9f-4596-89a6-8f65f094dd06",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "C",
@@ -73916,7 +73916,7 @@
         ],
         "photoOrig": "AlfaRomeo_Navajo_76_CARD",
         "guid": "83f1bce1-0196-4504-85d2-62120cc5858e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -74017,7 +74017,7 @@
         ],
         "photoOrig": "Audi_A4_(B6)_2004_CARD",
         "guid": "81287c30-a7a3-46c7-ae4f-928abc4cfdde",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -76109,7 +76109,7 @@
         ],
         "photoOrig": "Audi_A3_Sportback_(8P)_2010_CARD",
         "guid": "663e2bc4-5ea5-4630-bfac-820e33d1a621",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -76243,7 +76243,7 @@
         ],
         "photoOrig": "Audi_TT_20_TFSI_(FV)_2016_CARD",
         "guid": "490eb99a-d0c3-4571-896c-04cc8568021b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -77972,7 +77972,7 @@
         ],
         "photoOrig": "Peugeot_20Cup_05_CARD",
         "guid": "b961e5a2-fc46-432c-b178-1bb4a495acc7",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -78177,7 +78177,7 @@
         ],
         "photoOrig": "Renault_Clio_RS_197_07_CARD",
         "guid": "a51b0aec-e4bd-49e5-b01d-054ec05b2a00",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -78709,7 +78709,7 @@
         ],
         "photoOrig": "Audi_A6_Avant_28_quattro_(C4)_1997_CARD",
         "guid": "a92c5d5e-33f2-4f60-9c40-e40c3e1bac39",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -78778,7 +78778,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_Roadster_(8N)_2004_CARD",
         "guid": "70b70d4e-2c03-4f38-9400-0a2315b4ac62",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -79321,7 +79321,7 @@
         ],
         "photoOrig": "Abarth_695_Biposto_Record_15_CARD",
         "guid": "47693e3c-dff1-4d92-b378-06ce20b6436b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -80710,7 +80710,7 @@
         ],
         "photoOrig": "Peugeot_4007_24_16V_CARD",
         "guid": "251b11ab-b6df-4c60-9f68-18291600bc3e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -80779,7 +80779,7 @@
         ],
         "photoOrig": "Peugeot_508RXH_12_CARD",
         "guid": "eb845bd3-f815-470f-b20c-8118274220e6",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -81620,7 +81620,7 @@
         ],
         "photoOrig": "Audi_80_28_quattro_(B4)_1993_CARD",
         "guid": "cd931ead-4d19-4ff2-a9ca-106d91b8e684",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -81654,7 +81654,7 @@
         ],
         "photoOrig": "Audi_A3_40_Sportback_TFSI_e_2023_CARD",
         "guid": "6ae3b4b2-92f0-49f5-98c0-7131499777b2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -81688,7 +81688,7 @@
         ],
         "photoOrig": "Audi_A8_L_W12_quattro_Security_(D3)_2006_CARD",
         "guid": "bf9f54ab-3d77-4530-9ca3-01c5a2dd6ad1",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -81722,7 +81722,7 @@
         ],
         "photoOrig": "Audi_S6_Avant_(C4)_1996_CARD",
         "guid": "3d29612b-be61-4721-83f8-1c9082a8b67e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -82096,7 +82096,7 @@
             "Heavy Metal"
         ],
         "guid": "b3f58c67-9c97-435a-bbe9-ffc42185d2cf",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "C",
@@ -82233,7 +82233,7 @@
             "Trading Paint"
         ],
         "guid": "a6f8f911-1d46-4770-a051-2e966981a8ad",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -82371,7 +82371,7 @@
         ],
         "photoOrig": "Abarth_1600_Coupe_69_CARD",
         "guid": "f9d57343-a7f1-4ddd-92ba-86a1f272166f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "C",
@@ -83702,7 +83702,7 @@
         ],
         "photoOrig": "Peugeot_308_16Hybrid225_22_CARD",
         "guid": "4b2c8c63-bfa1-4002-9b9f-34121b3d8085",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -83737,7 +83737,7 @@
         ],
         "photoOrig": "Peugeot_Fractal_15_CARD",
         "guid": "19ecdbf5-a5f9-4fe3-8b1b-51c8ae0198c9",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -84409,7 +84409,7 @@
         ],
         "photoOrig": "AlfaRomeo_156_Crosswagon_Q4_04_CARD",
         "guid": "02a068b4-7b5b-4b2a-b329-d34a71111eb1",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84444,7 +84444,7 @@
         ],
         "photoOrig": "AlfaRomeo_Bella_99_CARD",
         "guid": "fe048ac5-0ce3-4965-b4e3-4d489abaef90",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84545,7 +84545,7 @@
         ],
         "photoOrig": "Audi_A4_20_TFSI_(B7)_2008_CARD",
         "guid": "049b2e4e-f657-4f8d-bc22-c6ed95091c9c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -84579,7 +84579,7 @@
         ],
         "photoOrig": "Audi_A5_Cabriolet_20_TFSI_(B8)_2015_CARD",
         "guid": "eeda59b9-dc40-427b-b809-cd351352fff4",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -86130,7 +86130,7 @@
         ],
         "photoOrig": "Peugeot_RCZ_Hybrid4Concept_09_CARD",
         "guid": "9b47ebfb-920e-4341-961e-8fa190a88f7d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -86933,7 +86933,7 @@
         ],
         "photoOrig": "AlfaRomeo_Spider_32_03_CARD",
         "guid": "94b79095-6883-4a76-a989-e7ad8bd7353f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -87070,7 +87070,7 @@
         ],
         "photoOrig": "Audi_A3_Saloon_(8Y)_2023_CARD",
         "guid": "2f08e42e-171e-468b-8a1f-22387fd9f916",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -87104,7 +87104,7 @@
         ],
         "photoOrig": "Audi_A3_Sportback_(8Y)_2023_CARD",
         "guid": "8eb47cb7-3575-488f-a9ad-9d4184161579",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -87139,7 +87139,7 @@
         ],
         "photoOrig": "Audi_A3_Sportback_e-tron_(8V)_2018_CARD",
         "guid": "ab887c03-1654-4579-ba99-ee7e434e5460",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88663,7 +88663,7 @@
             "Blue"
         ],
         "guid": "14bb26f8-690a-4143-aaf6-bed7d2f95b79",
-        "brake": "C"
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88731,7 +88731,7 @@
         ],
         "photoOrig": "Peugeot_308_SW16Hybrid225_23_CARD",
         "guid": "bbdf45f4-5de4-40ff-a74c-01596a02e076",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88766,7 +88766,7 @@
         ],
         "photoOrig": "Peugeot_508_Fastback16225Hybrid_23_CARD",
         "guid": "ee9ef103-dc82-4589-81f1-45e7bfeb1a92",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -88800,7 +88800,7 @@
         ],
         "photoOrig": "Peugeot_RCZ16_THP204_11_CARD",
         "guid": "ea95332c-a4c1-452d-ba20-d901df9a009d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -89242,7 +89242,7 @@
         ],
         "photoOrig": "AlfaRomeo_Brera_24_JTDM_06_CARD",
         "guid": "2bd047c0-f2af-4e26-8652-552f95fafed3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -89510,7 +89510,7 @@
         ],
         "photoOrig": "Audi_A3_Cabriolet_(8P)_2012_CARD",
         "guid": "71cc7f6a-f0f8-43e1-b264-bb31ea5529ff",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -89545,7 +89545,7 @@
         ],
         "photoOrig": "Audi_TT_quattro_20_TDI_(8J)_2010_CARD",
         "guid": "4d31297f-568e-4832-aa03-914233d90e0d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -90126,7 +90126,7 @@
         ],
         "photoOrig": "Abarth_600e_Scorpionissima_24_CARD",
         "guid": "7f26d64f-8e56-4167-8038-2e63ad7e1296",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -90636,7 +90636,7 @@
             "Silver/Grey"
         ],
         "guid": "ac65b438-ff67-4081-9e1d-71fa069affdf",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -91110,7 +91110,7 @@
         ],
         "photoOrig": "Peugeot_207_GTi_07_CARD",
         "guid": "e48015d0-7839-4761-b775-f7791b67d022",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -93317,7 +93317,7 @@
         ],
         "photoOrig": "Peugeot_508SW_16225Hybrid_23_CARD",
         "guid": "11162051-b19c-4dec-ac70-5bd69206554d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -93860,7 +93860,7 @@
         ],
         "photoOrig": "AlfaRomeo_159_Police_Car_08_CARD",
         "guid": "2cb3ff72-7900-495f-a718-d77527adc4a9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -93929,7 +93929,7 @@
         ],
         "photoOrig": "AlfaRomeo_Spider_24_JTDM_07_CARD",
         "guid": "5443cf41-2f98-4771-aca2-289ec541957d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -93999,7 +93999,7 @@
         ],
         "photoOrig": "Audi_A3_all_street_35_TFSI_24_CARD",
         "guid": "37e477ce-e4a7-463a-bddf-b00d9adb56af",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -94136,7 +94136,7 @@
             "Summer Games 24"
         ],
         "guid": "16018539-93d1-460e-8b2b-98b8d4f3595c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -94511,7 +94511,7 @@
             "Red"
         ],
         "guid": "2e512836-2112-4695-9e0d-cde8f386a374",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "C",
@@ -94917,7 +94917,7 @@
             "New Beginnings"
         ],
         "guid": "6225c7de-24fb-4580-8284-90330e1a4244",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "C",
@@ -96206,7 +96206,7 @@
             "Silver/Grey"
         ],
         "guid": "9ae49104-7d2f-44d5-8ae6-709d8dca908a",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "C",
@@ -97051,7 +97051,7 @@
         ],
         "photoOrig": "Peugeot_3008_GTPureTech180_21_CARD",
         "guid": "b68c0cdc-eb72-4e7e-aae1-5f7a65462685",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -97086,7 +97086,7 @@
         ],
         "photoOrig": "Peugeot_308RCZConcept_07_CARD",
         "guid": "ad070117-b0b5-4863-847d-ee5e09e42659",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "C",
@@ -97120,7 +97120,7 @@
         ],
         "photoOrig": "Peugeot_4008_18HDi150_14_CARD",
         "guid": "b9b95695-4d75-4614-b686-47ab2ae1f401",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -97154,7 +97154,7 @@
         ],
         "photoOrig": "Peugeot_408_16Hybrid225_22_CARD",
         "guid": "23ce65c0-4e1d-42db-a52c-ad4b313aba24",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "C",
@@ -97864,7 +97864,7 @@
             "White"
         ],
         "guid": "3f1df0d1-1bc0-4052-9278-6877598170bc",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -97931,7 +97931,7 @@
         ],
         "photoOrig": "Audi_Q3_45_Sportback_TFSI_e_2022_CARD",
         "guid": "92a8113e-1ee9-4b73-9b62-b23b2a72c5cd",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -97966,7 +97966,7 @@
         ],
         "photoOrig": "Audi_Q3_45_TFSI_e_2022_CARD",
         "guid": "8376f790-92d2-4a41-b0dd-711b7b813b54",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -98506,7 +98506,7 @@
         ],
         "photoOrig": "Abarth_695_Tributo_131_Rally_22_CARD",
         "guid": "08f1d116-cd78-428f-837d-55d2a1163e31",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -99015,7 +99015,7 @@
             "Beige"
         ],
         "guid": "c73dcb86-a534-42e2-b5f4-d416063574f3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99215,7 +99215,7 @@
             "Reclassified"
         ],
         "guid": "efbe5a5f-551a-4d67-bc67-7fbc29a71cc8",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99283,7 +99283,7 @@
             "Silver/Grey"
         ],
         "guid": "d0100b30-a631-47ce-86dd-8ac9a7ba250b",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -99419,7 +99419,7 @@
             "Reclassified"
         ],
         "guid": "6c22fac5-560e-483b-a7f1-9a97b437e28d",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -99487,7 +99487,7 @@
         ],
         "photoOrig": "Peugeot_2008_GT_PureTech_155_21_CARD",
         "guid": "6a850df4-0063-4331-ba2e-e0b31b10d3fa",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99521,7 +99521,7 @@
         ],
         "photoOrig": "Peugeot_208_GTPremium_21_CARD",
         "guid": "ceba12c3-bcaf-4833-acd1-79c3a8da28b2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99558,7 +99558,7 @@
         ],
         "photoOrig": "Peugeot_208_HYbridFEConcept_13_CARD",
         "guid": "e2050405-c0c8-41f1-bc0f-22e942c38870",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99592,7 +99592,7 @@
         ],
         "photoOrig": "Peugeot_406V6Saloon_03_CARD",
         "guid": "304140a5-0de8-4c76-983c-dac40ffa761f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99627,7 +99627,7 @@
         ],
         "photoOrig": "Peugeot_Rifter4x4_18_CARD",
         "guid": "b077464f-5f72-4e4a-9188-e964526c2716",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -99833,7 +99833,7 @@
         ],
         "photoOrig": "Renault_Clio_Williams_16V_92_CARD",
         "guid": "1f0db3a1-f718-41d8-ae19-788430bc97d5",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -100162,7 +100162,7 @@
         ],
         "photoOrig": "Audi_A6_26_quattro_(C4)_1997_CARD",
         "guid": "43e079f9-9a7d-4b01-b5ff-f56c361e144c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -100196,7 +100196,7 @@
         ],
         "photoOrig": "Audi_Q3_Sportback_(F3)_2020_CARD",
         "guid": "5bda9bb1-7926-4111-8801-c1aa9f4b2c2d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -101405,7 +101405,7 @@
             "Orange"
         ],
         "guid": "331858a7-ca11-44b0-8a31-897e5ab346d3",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -101776,7 +101776,7 @@
         ],
         "photoOrig": "Peugeot_106_GTi_97_CARD",
         "guid": "6047e903-90c4-4a35-b018-547ac0aa486f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -101810,7 +101810,7 @@
         ],
         "photoOrig": "Peugeot_207_Sport_XS_06_CARD",
         "guid": "4de7adce-0068-4a45-bc58-639f4d701b1b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -101845,7 +101845,7 @@
         ],
         "photoOrig": "Peugeot_407Prologue_05_CARD",
         "guid": "d245be51-38a9-42dd-880a-f8018a65cf5b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -102180,7 +102180,7 @@
             "Reclassified"
         ],
         "guid": "90a7157f-f473-4102-8032-d539748a1843",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -102525,7 +102525,7 @@
         ],
         "photoOrig": "AlfaRomeo_164_20_12V_V6_Turbo_92_CARD",
         "guid": "469ffd5e-d209-4829-bd2b-62fdcdd0e80f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -103498,7 +103498,7 @@
             "Silver/Grey"
         ],
         "guid": "276c091a-b79a-46e9-8448-c7093ffd7976",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -103936,7 +103936,7 @@
             "Summer Games 24"
         ],
         "guid": "e2b79601-8d49-4ca4-9da4-5172c0b22a79",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -103970,7 +103970,7 @@
             "Photo Finish"
         ],
         "guid": "94797735-d037-428e-8c42-dac8d9599e52",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -104211,7 +104211,7 @@
         ],
         "photoOrig": "Peugeot_206_SWConcept_01_CARD",
         "guid": "469acee6-7980-41a6-8c86-33800f10d1cc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -104245,7 +104245,7 @@
         ],
         "photoOrig": "Peugeot_3008_16Hybrid225_21_CARD",
         "guid": "70b37a8f-220e-44ad-aec0-d7d1369e0d4f",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -104621,7 +104621,7 @@
         ],
         "photoOrig": "Audi_A4_Avant_18T_(B5)_1998_CARD",
         "guid": "6a966eba-7f08-446b-8149-9a155e62f192",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -105126,7 +105126,7 @@
             "In the Shadows 24"
         ],
         "guid": "84b05336-de7e-4500-b926-15541f4b509e",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "D",
@@ -105262,7 +105262,7 @@
         ],
         "photoOrig": "Abarth_Punto_Scopione_11_CARD",
         "guid": "4ebe2110-6660-42de-82cf-49dc3d0997ea",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -105469,7 +105469,7 @@
             "White"
         ],
         "guid": "62cb876e-d1cc-4ec9-9200-2353ca3e2e5a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -106419,7 +106419,7 @@
         ],
         "photoOrig": "Peugeot_Landtrek_21_CARD",
         "guid": "3867d3c1-baaf-4060-b1bd-a3f5d72ae609",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -106553,7 +106553,7 @@
             "Green"
         ],
         "guid": "1d689e16-3038-45dd-b0dc-3e413850822b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -106986,7 +106986,7 @@
         ],
         "photoOrig": "AlfaRomeo_Tonale_Hybrid_VG160_23_CARD",
         "guid": "29e46aaf-3ae7-4cb2-b476-aebaaabb9888",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -108002,7 +108002,7 @@
             "Beige"
         ],
         "guid": "72fc0884-0a8f-4b26-a4fc-3e5fa757e0f4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -108036,7 +108036,7 @@
             "White"
         ],
         "guid": "f2258b45-77f2-481c-9c8a-c0b39fe6953a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -108605,7 +108605,7 @@
         ],
         "photoOrig": "Peugeot_406Toscana_96_CARD",
         "guid": "4c51bd0e-1f83-4f05-b0d4-e4c6e8befa29",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -109286,7 +109286,7 @@
         ],
         "photoOrig": "Audi_Q5_40_e-tron_2023_CARD",
         "guid": "17a2d349-4bc0-4583-80dc-7c92dae40443",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -110030,7 +110030,7 @@
             "Gaz's Collection"
         ],
         "guid": "676a538e-847c-418c-a8a1-42e01cf3620e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -110610,7 +110610,7 @@
             "Heavy Metal"
         ],
         "guid": "964e6bd4-fafd-4957-9ffa-7a943705fac0",
-        "brake": "B"
+        "brake": "C"
     },
     {
         "class": "D",
@@ -110978,7 +110978,7 @@
         ],
         "photoOrig": "Peugeot_207_SWRC_07_CARD",
         "guid": "b2ac260b-8705-4873-ba19-b85934591e25",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -111012,7 +111012,7 @@
         ],
         "photoOrig": "Peugeot_307GTFeline_04_CARD",
         "guid": "690ca1ca-1c2f-41e7-8200-1492b3cec387",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -111046,7 +111046,7 @@
         ],
         "photoOrig": "Peugeot_309GTi16_91_CARD",
         "guid": "fed77b19-afce-4ead-94cc-a51d35e93ee5",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -111115,7 +111115,7 @@
         ],
         "photoOrig": "Peugeot_5008_16_Puretech_180_22_CARD",
         "guid": "6788decd-341b-48cf-825e-3bdf6f61126d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -111150,7 +111150,7 @@
         ],
         "photoOrig": "Peugeot_508_16_THP_13_CARD",
         "guid": "8b81412f-edda-4473-9815-fb7fccde0b70",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -111659,7 +111659,7 @@
         ],
         "photoOrig": "Audi_A6_28_(C4)_1996_CARD",
         "guid": "a3559923-3ba9-48a4-b70c-6dc967c45866",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -112305,7 +112305,7 @@
         ],
         "photoOrig": "Abarth_500e_Scorpionissima_Convertible_23_CARD",
         "guid": "d6c2859b-769b-45c0-a186-562150f9c758",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -112340,7 +112340,7 @@
         ],
         "photoOrig": "Fiat_600e_23_CARD",
         "guid": "4aae9ac3-ec21-4d35-a2b5-5daabfdf2d67",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -112918,7 +112918,7 @@
         ],
         "photoOrig": "Lancia_Ypsilon_24_CARD",
         "guid": "57605c32-ed54-4d1d-93d8-7e068d656792",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -113628,7 +113628,7 @@
             "Summer Games 24"
         ],
         "guid": "39661b46-6270-441a-a912-c578e7da4a92",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -113832,7 +113832,7 @@
         ],
         "photoOrig": "Peugeot_508L_19_CARD",
         "guid": "765e938f-db51-4284-b8e5-3ffdbc99ef38",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -114004,7 +114004,7 @@
         ],
         "photoOrig": "Renault_Clio_18_91_CARD",
         "guid": "32982ae7-a1fb-4695-97e3-62430af37817",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -114140,7 +114140,7 @@
             "Yellow"
         ],
         "guid": "bb9d2329-6429-4e78-b62d-024661b71de5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -114243,7 +114243,7 @@
             "Reclassified"
         ],
         "guid": "8747c8b5-f5d0-4a2f-a83b-ac7450ff6063",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -115338,7 +115338,7 @@
         ],
         "photoOrig": "Fiat_500_Abarth_Scorpion_14_CARD",
         "guid": "a89f06ca-2268-4e33-8a9c-84caf522d9a0",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -115372,7 +115372,7 @@
         ],
         "photoOrig": "Fiat_500e_Convertible_22_CARD",
         "guid": "ec25a7eb-14f0-4880-b3cb-bace064a7414",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -115407,7 +115407,7 @@
         ],
         "photoOrig": "Abarth_500e_Scorpionissima_23_CARD",
         "guid": "9935cdf3-922b-4cd4-a480-11e2dc7bb1de",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -115441,7 +115441,7 @@
         ],
         "photoOrig": "Fiat_500X_Sport_19_CARD",
         "guid": "7dac9d94-50d5-4258-ae5b-c16c564c19a9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -115610,7 +115610,7 @@
         ],
         "photoOrig": "Fiat_Tipo_Cross_Hybrid_23_CARD",
         "guid": "79db6c1e-817e-44b3-8537-0781874c42d2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -115750,7 +115750,7 @@
             "Reclassified"
         ],
         "guid": "d59ce211-26b1-49f1-9e19-981c821fd80d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -116267,7 +116267,7 @@
             "Reclassified"
         ],
         "guid": "d9b88666-6015-4b5b-996d-8e8879221c44",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -116302,7 +116302,7 @@
             "Year of the Snake"
         ],
         "guid": "5028093b-b784-4444-8b45-1b6a021616c5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -116605,7 +116605,7 @@
         ],
         "photoOrig": "Peugeot_308GT_08_CARD",
         "guid": "fbdbd451-0234-4b2f-9143-fe94fad0d76a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "D",
@@ -116674,7 +116674,7 @@
         ],
         "photoOrig": "Peugeot_407_SW30V6_06_CARD",
         "guid": "8ce621db-9f28-412a-b707-0d166816311a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -116709,7 +116709,7 @@
         ],
         "photoOrig": "Peugeot_508FastbackPureTech130_23_CARD",
         "guid": "c3331285-e50e-4f84-9654-9f38517bfe8d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -116981,7 +116981,7 @@
             "Reclassified"
         ],
         "guid": "b998f678-bd78-419e-98f2-693ee5bac3b4",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -117014,7 +117014,7 @@
             "Lina's Collection"
         ],
         "guid": "4a391054-9ee8-4931-a65d-f44e8420fd87",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -117318,7 +117318,7 @@
         ],
         "photoOrig": "Audi_100_Avant_28_(C4)_1994_CARD",
         "guid": "87a8b342-2af7-415d-a4e0-ae55d3b90144",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -118066,7 +118066,7 @@
         ],
         "photoOrig": "Fiat_Tipo_Saloon_17_CARD",
         "guid": "2eb49ff4-d6bb-4090-9905-ac85bad5ffe0",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -118657,7 +118657,7 @@
             "Blue"
         ],
         "guid": "3f04829a-bd77-42cb-b04f-e3c41ec73f13",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -118861,7 +118861,7 @@
         ],
         "photoOrig": "Lancia_Dialogos_98_CARD",
         "guid": "aa7031f6-7a69-4c05-b917-371e56474881",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -119639,7 +119639,7 @@
             "Photo Finish"
         ],
         "guid": "a105cc6a-14a3-4dff-8ca4-7f0f9b42a1e6",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -119672,7 +119672,7 @@
             "Touma's Collection"
         ],
         "guid": "586b36ee-b0e9-4e84-a73a-5213d62085de",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -119740,7 +119740,7 @@
             "Lina's Collection"
         ],
         "guid": "596e57dc-039f-43ec-9df6-a273b0501807",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -119865,8 +119865,8 @@
         "rid": "Volvo_C70_D5_2006",
         "prize": false,
         "bodyTypes": [
-            "Convertible",
-            "Coupe"
+            "Coupe",
+            "Convertible"
         ],
         "fuel": "Diesel",
         "seats": "4",
@@ -119911,7 +119911,7 @@
         ],
         "photoOrig": "AlfaRomeo_Sportut_97_CARD",
         "guid": "a0596fa7-17c0-4474-a346-69aef35738ad",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -120798,7 +120798,7 @@
         ],
         "photoOrig": "Fiat_500e_Gelateria_Edition_23_CARD",
         "guid": "814e7fd6-7d28-4dcc-83c6-40542da2f7fc",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -120832,7 +120832,7 @@
         ],
         "photoOrig": "Fiat_500X_Dolcevita_21_CARD",
         "guid": "b8edc6ce-3e84-4129-9637-b9de5729b088",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -120866,7 +120866,7 @@
         ],
         "photoOrig": "Fiat_500X_Hybrid_23_CARD",
         "guid": "c158167e-6c66-4a2c-9e42-fe13c7d20599",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -121410,7 +121410,7 @@
             "Silver/Grey"
         ],
         "guid": "34b31f3f-5529-42f1-94ee-9e44235185d0",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -121445,7 +121445,7 @@
             "Trading Paint"
         ],
         "guid": "57f2e069-ce82-43e1-b9ee-705d845f6787",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -121681,7 +121681,7 @@
             "In the Shadows 24"
         ],
         "guid": "9de5c13b-3e66-4eaf-af3e-c932b544820c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -122256,7 +122256,7 @@
             "Black"
         ],
         "guid": "ee443211-c045-4de3-b722-4c0c34497689",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -122290,7 +122290,7 @@
             "Gunter's Collection"
         ],
         "guid": "e48a9b8e-d4ee-40b1-904d-5c965a095f48",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -122393,7 +122393,7 @@
         ],
         "photoOrig": "Peugeot_206_Escapade_06_CARD",
         "guid": "a3b505c9-5f62-4acc-9528-d7dc2ab16783",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -122427,7 +122427,7 @@
         ],
         "photoOrig": "Peugeot_206_GrandTourisme_99_CARD",
         "guid": "ae7d2fc5-21f1-4c82-ae0b-ecaf37e2e936",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -122461,7 +122461,7 @@
         ],
         "photoOrig": "Peugeot_308_SWPureTech110_22_CARD",
         "guid": "834dd502-0e78-4f87-a948-8d458ec0b94e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -122669,7 +122669,7 @@
         ],
         "photoOrig": "Renault_Scenic_RX4_00_CARD",
         "guid": "e56150bc-a813-4eaa-bfc2-67ef9520289f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "D",
@@ -122908,7 +122908,7 @@
             "Photo Finish"
         ],
         "guid": "26ffec30-afde-493e-9b2d-d21e1797379d",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -122942,7 +122942,7 @@
             "Cutting Edge"
         ],
         "guid": "87f7497e-a265-404e-884b-4ad83e252b9d",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -122976,7 +122976,7 @@
             "Touma's Collection"
         ],
         "guid": "1a6e9578-5a92-4460-904d-7903868d0eac",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "D",
@@ -123748,7 +123748,7 @@
             "Desperados"
         ],
         "guid": "3e330499-e126-44d9-b4c5-064ccf6eaede",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -124288,7 +124288,7 @@
             "Gold"
         ],
         "guid": "ce2db033-185a-47e1-a53c-5215445dcd71",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -124801,7 +124801,7 @@
         ],
         "photoOrig": "Peugeot_306S16_95_CARD",
         "guid": "b00f7558-d9cb-42bb-9aaf-42178df1e525",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -124836,7 +124836,7 @@
         ],
         "photoOrig": "Peugeot_404Rally_67_CARD",
         "guid": "27a249ed-523c-4bdd-b20d-09c5c457ed6b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -124937,7 +124937,7 @@
         ],
         "photoOrig": "Peugeot_e-2008GT_21_CARD",
         "guid": "5795b6a5-f52d-477e-a9b8-8ba784e8302f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125007,7 +125007,7 @@
         ],
         "photoOrig": "Renault_Kangoo_Trekka_02_CARD",
         "guid": "092a0403-20d5-4d2b-a1da-95b11306107b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125074,7 +125074,7 @@
             "Red"
         ],
         "guid": "40b47e11-bb74-45f0-99be-91996f240069",
-        "brake": "C"
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125107,7 +125107,7 @@
             "Red"
         ],
         "guid": "d72f99d7-a6b3-4d89-af6f-51bbaf46b6ae",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125540,7 +125540,7 @@
             "Marilyn's Collection"
         ],
         "guid": "dc345453-af01-4e59-9651-9c9e0f7d7481",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -125610,7 +125610,7 @@
             "Cutting Edge"
         ],
         "guid": "3e531c3d-0ac4-4eec-9f1f-409769c369c7",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -126149,7 +126149,7 @@
             "Nightmare Fuel"
         ],
         "guid": "08734d21-3269-4d25-bcc0-33bdae1e8069",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -126452,7 +126452,7 @@
         ],
         "photoOrig": "Peugeot_205XS_88_CARD",
         "guid": "c150256c-232a-4902-8230-6cb067b4da70",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -126553,7 +126553,7 @@
         ],
         "photoOrig": "Peugeot_407Elixir_03_CARD",
         "guid": "003a8fe9-b952-4ef3-afc9-b27aff995f0a",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -126588,7 +126588,7 @@
         ],
         "photoOrig": "Peugeot_505TurboInjectionPTSKit_85_CARD",
         "guid": "af79b39b-fb94-4bca-a78a-aa14791e017b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -126990,7 +126990,7 @@
             "Brown"
         ],
         "guid": "f3e7bce3-2a01-48a5-9ae6-afbfcd52cc33",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -127639,7 +127639,7 @@
         ],
         "photoOrig": "Fiat_Tipo_Station_Wagon_18_CARD",
         "guid": "db861d5e-90a6-40b5-bede-0d883e0006be",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -127807,7 +127807,7 @@
             "Photo Finish"
         ],
         "guid": "f0a8d385-f0bf-4d2d-a37e-bb9f82b5eb48",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -128277,7 +128277,7 @@
             "Concept"
         ],
         "guid": "a497fd82-2ac8-48d6-9dde-05e2cc5320ce",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128543,7 +128543,7 @@
         ],
         "photoOrig": "Peugeot_407_20HDi_05_CARD",
         "guid": "aca65f13-1a35-4d9a-8abc-6a4960a9a54d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128577,7 +128577,7 @@
         ],
         "photoOrig": "Peugeot_408_12THP_14_CARD",
         "guid": "0876c187-43b3-4e75-9e4c-5c6b857ac425",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128612,7 +128612,7 @@
         ],
         "photoOrig": "Peugeot_505TurboInjection_89_CARD",
         "guid": "b1241d6f-ba91-4e17-aa50-7c1cdffa184b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128646,7 +128646,7 @@
         ],
         "photoOrig": "Peugeot_505V6_88_CARD",
         "guid": "4a23f675-9470-4628-9b01-ed6a43d8feb7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128680,7 +128680,7 @@
         ],
         "photoOrig": "Peugeot_508_SW20HDi_12_CARD",
         "guid": "7270b884-a421-4bb6-b757-f7baf1cae864",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128714,7 +128714,7 @@
         ],
         "photoOrig": "Peugeot_P4_82_CARD",
         "guid": "23042a22-b7cb-41dd-8b10-3ba38a69b59c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -128949,7 +128949,7 @@
             "Trading Paint"
         ],
         "guid": "0f76f258-dc45-4c27-ba8d-8ea5e92be269",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -129220,7 +129220,7 @@
             "White"
         ],
         "guid": "cea72fa0-452e-4de8-b6ca-3edf5124c494",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -129386,7 +129386,7 @@
             "Trading Paint"
         ],
         "guid": "8c3a0057-55ca-4ed7-92b2-1027ee887b34",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -129524,7 +129524,7 @@
         ],
         "photoOrig": "Audi_A6_18T_(C5)_2002_CARD",
         "guid": "32880b68-48ee-4ffc-ae7b-1c1d9e84ad10",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -129660,7 +129660,7 @@
             "Orange"
         ],
         "guid": "38fb8542-9fe3-4ab3-a869-6dd04fa2f762",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -130039,7 +130039,7 @@
             "Desperados"
         ],
         "guid": "8da19ead-ef64-4b9e-aa21-1fa7173fdc65",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -130275,7 +130275,7 @@
         ],
         "photoOrig": "Fiat_E-Doblo_22_CARD",
         "guid": "63477589-c168-4235-9c10-959f09f9b066",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -130309,7 +130309,7 @@
         ],
         "photoOrig": "Fiat_Strada_20_CARD",
         "guid": "0389933b-6ab0-498a-b208-da12e16456e3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -130343,7 +130343,7 @@
         ],
         "photoOrig": "Fiat_Strada_09_CARD",
         "guid": "0ec180f8-3b1e-4e85-9eac-0a08b349cfdb",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -130678,7 +130678,7 @@
             "Gold"
         ],
         "guid": "06aeed10-78cc-486b-8325-887451107e45",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -130954,7 +130954,7 @@
         ],
         "photoOrig": "Lancia_Thesis_24_JTD_20V_03_CARD",
         "guid": "58081e89-3d7d-4d11-9de2-fcc40ba30e53",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -131392,7 +131392,7 @@
             "Red"
         ],
         "guid": "37932236-49d8-42be-a57e-0f46fd0e689f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -131558,7 +131558,7 @@
         ],
         "photoOrig": "Peugeot_306XSi_96_CARD",
         "guid": "06ac406a-7c3c-46c7-84dd-e5edcf583591",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -131593,7 +131593,7 @@
         ],
         "photoOrig": "Peugeot_Asphalte_96_CARD",
         "guid": "7d64ff78-e9d3-47b1-b05e-83b0e635ffab",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -131627,7 +131627,7 @@
         ],
         "photoOrig": "Peugeot_e308_23_CARD",
         "guid": "c4f3a4d9-e5d0-4ea1-87d5-687a59a541b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -132232,7 +132232,7 @@
         ],
         "photoOrig": "AlfaRomeo_Sprint_Quadrifoglio_Verde_83_CARD",
         "guid": "4ae01c59-43f7-44d5-8284-1d48422d45ad",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -132782,7 +132782,7 @@
             "Cutting Edge"
         ],
         "guid": "fbc7163a-f94e-4403-8c34-0ef68e07138f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -133557,7 +133557,7 @@
         ],
         "photoOrig": "Peugeot_205_CTi_16_86_CARD",
         "guid": "b3d03dc9-4c0b-427b-8341-0985938c04fe",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -133591,7 +133591,7 @@
         ],
         "photoOrig": "Peugeot_408_12PureTech130_22_CARD",
         "guid": "cde34ede-9754-42e6-9f9a-6a0f4feb3148",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -133626,7 +133626,7 @@
         ],
         "photoOrig": "Peugeot_604GTi_84_CARD",
         "guid": "ef18877c-746a-4170-a416-c3c0daa620af",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -133695,7 +133695,7 @@
         ],
         "photoOrig": "Peugeot_UrbanCrossover_12_CARD",
         "guid": "eb7fb634-0420-46d7-b501-4cfa6c816d00",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -133763,7 +133763,7 @@
             "Heavy Metal"
         ],
         "guid": "f887fdf7-d99d-4bc1-9292-2c893b46feb7",
-        "brake": "A"
+        "brake": "B"
     },
     {
         "class": "E",
@@ -133966,7 +133966,7 @@
             "White"
         ],
         "guid": "16e240bd-2bb1-4de8-9934-eea1d039459e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -134101,7 +134101,7 @@
             "Desperados"
         ],
         "guid": "6d1aaa66-e437-4ba4-a98b-004357720ba6",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -134305,7 +134305,7 @@
         ],
         "photoOrig": "Audi_A1_Citycarver_(GB)_2021_CARD",
         "guid": "78e0312b-c2f5-4d8d-8b7d-d2357718f4bf",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -135042,7 +135042,7 @@
         ],
         "photoOrig": "Fiat_Strada_07_CARD",
         "guid": "417b5832-3a92-46f7-b04c-6510524ffd7e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -135452,7 +135452,7 @@
             "Lina's Collection"
         ],
         "guid": "2c8d0928-d8ba-45d2-a2a8-77fc35413188",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -135553,7 +135553,7 @@
             "Blue"
         ],
         "guid": "ef9df767-7381-4819-81cf-180226d2299e",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -136098,7 +136098,7 @@
         ],
         "photoOrig": "Peugeot_205_Roland_Garros_89_CARD",
         "guid": "bca6a33a-11ac-490c-927c-abfa0f997374",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -136132,7 +136132,7 @@
         ],
         "photoOrig": "Peugeot_305GTX_85_CARD",
         "guid": "a9764074-1e3e-437a-a846-51a83ea90679",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -136155,8 +136155,8 @@
         "rid": "Peugeot_306_Cabriolet_1999",
         "prize": false,
         "bodyTypes": [
-            "Hatchback",
-            "Convertible"
+            "Convertible",
+            "Hatchback"
         ],
         "fuel": "Petrol",
         "seats": "4",
@@ -136167,7 +136167,7 @@
         ],
         "photoOrig": "Peugeot_306Cabriolet_99_CARD",
         "guid": "7bbf39d0-272e-4265-8599-dc9ae8859760",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -136201,7 +136201,7 @@
         ],
         "photoOrig": "Peugeot_504CabrioletPhaseIIV6_76_CARD",
         "guid": "57cfc18f-6cc6-4831-bd3f-13b7cd159b87",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -136573,7 +136573,7 @@
             "Silver/Grey"
         ],
         "guid": "0a6cdc6a-4595-4f73-a79d-2e5ebdd5c177",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -137080,7 +137080,7 @@
         ],
         "photoOrig": "Audi_A6_Avant_25_TDI_(C4)_1996_CARD",
         "guid": "0e2cb83e-511a-4897-a31f-55305ae339fd",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -137318,7 +137318,7 @@
             "Photo Finish"
         ],
         "guid": "abd50021-ca18-4ab8-814b-c0589bb47032",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -137822,7 +137822,7 @@
         ],
         "photoOrig": "Fiat_600_Hybrid_24_CARD",
         "guid": "653009ff-c6c9-496f-9ffe-86bf8193038f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -138357,7 +138357,7 @@
             "Red"
         ],
         "guid": "2cd751a6-d1d1-47bc-b290-b7995ab4f103",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -138699,7 +138699,7 @@
             "Lina's Collection"
         ],
         "guid": "4959973c-6818-4c15-8b17-1b6bc6dec66f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -138969,7 +138969,7 @@
             "Touma's Collection"
         ],
         "guid": "822d89db-564e-4e85-9c30-96ad66b08bbb",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -139136,7 +139136,7 @@
         ],
         "photoOrig": "Peugeot_5008_20_HDi_10_CARD",
         "guid": "d39e2aae-54dc-410f-80b9-422d4abd4fb5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -139171,7 +139171,7 @@
         ],
         "photoOrig": "Peugeot_604_Ti_82_CARD",
         "guid": "3526c93e-e80a-42d9-ad4d-5c692da7a41f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -139207,7 +139207,7 @@
         ],
         "photoOrig": "Peugeot_BB1_09_CARD",
         "guid": "926f9611-a6b7-4fa5-948c-0ccb46fe2149",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -139242,7 +139242,7 @@
             "Reclassified"
         ],
         "guid": "41cfac44-1514-49be-b9e4-a37f9b34d182",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -139583,7 +139583,7 @@
             "Silver/Grey"
         ],
         "guid": "35bec7ec-8f0c-49be-a1aa-1813a085b3f9",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -141051,7 +141051,7 @@
             "Cutting Edge"
         ],
         "guid": "30196c0a-10fe-4da9-84ee-e54716e55e1f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -141120,7 +141120,7 @@
             "Photo Finish"
         ],
         "guid": "d3fc8c8d-d5b4-4d62-87e8-d13eff4c4d1d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -141289,7 +141289,7 @@
             "White"
         ],
         "guid": "a4cb6456-f347-4075-a258-bf7371b04f6a",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -141358,7 +141358,7 @@
             "Year of the Dragon"
         ],
         "guid": "9b5db305-8503-4eed-894f-5515dcdeb631",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -141599,7 +141599,7 @@
             "Reclassified"
         ],
         "guid": "ba568c78-765e-4b60-a862-82c0eda42b12",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -141666,7 +141666,7 @@
             "Reclassified"
         ],
         "guid": "4ed2087e-f089-40ea-8ae1-5a56513748ef",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -141700,7 +141700,7 @@
             "Reclassified"
         ],
         "guid": "672178f9-b0b8-4b09-93c1-a1f3cf1809c9",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -142045,7 +142045,7 @@
         ],
         "photoOrig": "Audi_100_GL_5E_Saloon_(C2)_1977_CARD",
         "guid": "8cf8a810-e32e-45ae-a529-02239efc6883",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -142453,7 +142453,7 @@
             "Motorsport"
         ],
         "guid": "e4a506ec-0235-4223-9e6a-cea88f154d40",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -142487,7 +142487,7 @@
             "Cutting Edge"
         ],
         "guid": "4f910d5d-b93d-45ed-aa89-4975a88f6ff5",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -142521,7 +142521,7 @@
         ],
         "photoOrig": "Fiat_Strada_02_CARD",
         "guid": "d66afc85-b357-419d-9b90-c4ceb2086774",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -142802,7 +142802,7 @@
             "Nightmare Fuel"
         ],
         "guid": "6c5f49c7-0373-4723-b4d6-fb430110bd1d",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -142872,7 +142872,7 @@
         ],
         "photoOrig": "Lancia_Fulvia_Safari_Edition_75_CARD",
         "guid": "8ef2193e-3737-4959-ada8-2b9743ea9dcc",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "E",
@@ -142907,7 +142907,7 @@
             "Gunter's Collection"
         ],
         "guid": "1de63f17-4ec1-4dcd-ab4a-c32d638d56f0",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -143278,7 +143278,7 @@
         ],
         "photoOrig": "Peugeot_207_SWOutdoor_09_CARD",
         "guid": "52aa61f2-1089-4e9e-8970-b4776b84ad56",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -143313,7 +143313,7 @@
         ],
         "photoOrig": "Peugeot_306HDiConcept_99_CARD",
         "guid": "3014d48e-be11-469b-919c-50924315c152",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -143415,7 +143415,7 @@
             "White"
         ],
         "guid": "252e888c-cb2f-45bf-baa7-d5e55c077a01",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -143449,7 +143449,7 @@
             "Gold"
         ],
         "guid": "5e4d20da-5e71-4d68-beb6-7cc1363dc9b5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -143796,7 +143796,7 @@
             "Roads Most Travelled"
         ],
         "guid": "70ae25a0-b855-437e-8285-ab53eaceb0b8",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -144269,7 +144269,7 @@
             "White"
         ],
         "guid": "fe17c8ee-c0eb-4c7d-bdf6-ead73d01ecbe",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -144337,7 +144337,7 @@
             "Silver/Grey"
         ],
         "guid": "60a1716d-d3bc-4dc3-87b4-c4b05be39da7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -144441,7 +144441,7 @@
             "Summer Games 24"
         ],
         "guid": "aa065f98-e16f-419f-92cd-bc3a52022c71",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -144475,7 +144475,7 @@
         ],
         "photoOrig": "Fiat_Multipla_19_JTD_06_CARD",
         "guid": "afdf5d0a-58c8-43e1-a046-2b636000b53c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -144884,7 +144884,7 @@
         ],
         "photoOrig": "Lancia_Aurelia_B24_Spider_54_CARD",
         "guid": "0493e54a-0938-4f6a-bc83-5238dc49c775",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -144919,7 +144919,7 @@
             "Green"
         ],
         "guid": "a997235d-d355-403d-b665-38f24c96f4ef",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -145052,7 +145052,7 @@
             "Touma's Collection"
         ],
         "guid": "986b6371-8933-493b-a8ae-b5d383194161",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "E",
@@ -145120,7 +145120,7 @@
         ],
         "photoOrig": "Peugeot_2008_Concept_12_CARD",
         "guid": "a4d3af7d-be77-4e38-af67-c3e130e42798",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -145154,7 +145154,7 @@
         ],
         "photoOrig": "Peugeot_205_STDT_94_CARD",
         "guid": "dedf1f90-dd3f-4b10-8fba-68b6f8e0f24e",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -145188,7 +145188,7 @@
         ],
         "photoOrig": "Peugeot_3008_16HDi_10_CARD",
         "guid": "1e1eb7bd-4032-4ba4-8eca-b0b81ac6bb9f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -145222,7 +145222,7 @@
         ],
         "photoOrig": "Peugeot_306Estate20HDi_00_CARD",
         "guid": "8571981d-5f6f-4510-a04e-eaff7cf80a69",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -145496,7 +145496,7 @@
             "Yellow"
         ],
         "guid": "924ff3ad-5b33-4152-aede-d16d1c94f4a2",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "E",
@@ -146722,7 +146722,7 @@
             "New Beginnings"
         ],
         "guid": "ae87d4cf-9eba-4efc-8e7a-7b7737eaa6f5",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -146893,7 +146893,7 @@
             "Coast to Coast"
         ],
         "guid": "ef4283ad-f82a-4fa8-8ec9-b63f2a01710a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -146927,7 +146927,7 @@
         ],
         "photoOrig": "Fiat_500_Hybrid_20_CARD",
         "guid": "283e1a40-ed44-4070-8d3c-a37e80f8a2a7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -146961,7 +146961,7 @@
         ],
         "photoOrig": "Fiat_500C_Hybrid_20_CARD",
         "guid": "07309123-d1a7-4d35-af32-a65a0e1579da",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -147061,7 +147061,7 @@
         ],
         "photoOrig": "Fiat_E-Scudo_23_CARD",
         "guid": "5cc8e85a-e269-4591-bbdd-ce050a82b1be",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -147095,7 +147095,7 @@
         ],
         "photoOrig": "Fiat_Panda_Sport_20_CARD",
         "guid": "ff88dee0-4836-4bff-ab1c-f951a0c2c243",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -147195,7 +147195,7 @@
         ],
         "photoOrig": "Fiat_Scudo_20_Multijet_III_22_CARD",
         "guid": "277a3f73-3d43-472e-80bd-b71f74fc9bef",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -147574,7 +147574,7 @@
             "Cutting Edge"
         ],
         "guid": "477f899e-d712-458b-86c7-2b4f4b1ad43f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -147776,7 +147776,7 @@
             "Blue"
         ],
         "guid": "edbaa692-b93b-4a6d-800f-c388f1576fcc",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -148213,7 +148213,7 @@
         ],
         "photoOrig": "Peugeot_407Macarena_06_CARD",
         "guid": "c0644016-8fdc-4d38-989e-930f1f83bc7b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -148247,7 +148247,7 @@
         ],
         "photoOrig": "Peugeot_504CabrioletPhaseI_72_CARD",
         "guid": "6b4e9ddb-612b-4028-957b-36f12cac316d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -148282,7 +148282,7 @@
         ],
         "photoOrig": "Peugeot_505GTi_85_CARD",
         "guid": "38b8fc43-8c01-40c7-8285-910c3a5df63f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -148754,7 +148754,7 @@
             "Orange"
         ],
         "guid": "82b16102-5ae6-4b78-993a-b2303b964c92",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -148821,7 +148821,7 @@
             "White"
         ],
         "guid": "cab13160-f316-48d6-a0af-6bdb6f321006",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -148855,7 +148855,7 @@
             "Year of the Snake"
         ],
         "guid": "8c3b1dfa-5460-464c-a0aa-6ea524cc6de5",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -149627,7 +149627,7 @@
             "Year of the Snake"
         ],
         "guid": "7af23d75-4e74-4b16-a4d8-43a8329f1932",
-        "brake": "B"
+        "brake": "C"
     },
     {
         "class": "F",
@@ -149729,7 +149729,7 @@
         ],
         "photoOrig": "Fiat_Doblo_Cargo_16_Multijet_II_18_CARD",
         "guid": "423f4143-7635-4e49-b375-b44f5282653c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -149798,7 +149798,7 @@
         ],
         "photoOrig": "Fiat_Strada_99_CARD",
         "guid": "55b21f7e-bc17-429d-8181-4fbfded85677",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -149932,7 +149932,7 @@
             "Yellow"
         ],
         "guid": "0d631bec-fe23-4621-ade1-330bd2d55a3c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150305,7 +150305,7 @@
         ],
         "photoOrig": "Peugeot_1007_RC_Concept_04_CARD",
         "guid": "de10eacf-3478-41e4-8afe-43eaeadae94d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150342,7 +150342,7 @@
         ],
         "photoOrig": "Peugeot_307Cameleo_01_CARD",
         "guid": "356ce332-d90b-4ede-ab9f-676853e1ca03",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150409,7 +150409,7 @@
             "Red"
         ],
         "guid": "a06d87cf-f21d-4233-937d-9cf5cf2fad76",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150510,7 +150510,7 @@
             "Pink"
         ],
         "guid": "36480374-7a59-40a1-92d8-4d244fe663c9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150576,7 +150576,7 @@
             "Desperados"
         ],
         "guid": "14b141a3-3db3-4c9d-9aa6-4d32332985ce",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -150913,7 +150913,7 @@
             "Silver/Grey"
         ],
         "guid": "24fe0f21-c8c3-4c38-ae05-55cebab7cddc",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -151119,7 +151119,7 @@
             "Marilyn's Collection"
         ],
         "guid": "4f690923-ca12-4249-894c-db9baee4c5e7",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -151285,7 +151285,7 @@
             "Yellow"
         ],
         "guid": "36ddbe49-5b8b-4bc7-ac63-c3b72143c63c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -151523,7 +151523,7 @@
             "Silver/Grey"
         ],
         "guid": "f2064fa7-4891-467a-9a24-aedcea1be1d8",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -151658,7 +151658,7 @@
             "Lina's Collection"
         ],
         "guid": "40ea41cb-fc50-4921-afe1-621ada20517e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -151692,7 +151692,7 @@
             "Year of the Snake"
         ],
         "guid": "5ec8d73b-538d-4504-8579-979c7c97fa31",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -151727,7 +151727,7 @@
             "Touma's Collection"
         ],
         "guid": "2538a8b9-3bb2-45af-a274-2c8c25cbf8b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -151929,7 +151929,7 @@
             "Year of the Dragon"
         ],
         "guid": "f3bbfd07-e7d9-4d0d-a903-0fefd2cc1a60",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -152680,7 +152680,7 @@
             "Summer Games 24"
         ],
         "guid": "ed7faf09-ac5b-4454-aaf5-5d31aa8e4f64",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -152714,7 +152714,7 @@
         ],
         "photoOrig": "Fiat_Ducato_180_Multijet_Power_14_CARD",
         "guid": "e55fb6e7-5ac2-4ab6-8392-5c695915bf72",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -153395,7 +153395,7 @@
             "Red"
         ],
         "guid": "7293f2f8-b7b4-4b74-b598-c0f7bc5185d4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -153497,7 +153497,7 @@
             "Yellow"
         ],
         "guid": "000ffbd5-d598-470b-b8c4-a0920bd2663c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -153601,7 +153601,7 @@
             "New Beginnings"
         ],
         "guid": "820ee9c0-b7bc-4101-932f-c2508dc5f891",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -153636,7 +153636,7 @@
         ],
         "photoOrig": "Audi_100_Saloon_LS_(C1)_1970_CARD",
         "guid": "8d5a28a6-3156-4df5-a8c6-dec09588c437",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -153705,7 +153705,7 @@
         ],
         "photoOrig": "Audi_80_(B1)_1974_CARD",
         "guid": "bdff3b59-fd04-409e-8fd3-d2df521ba44c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -153976,7 +153976,7 @@
             "Year of the Dragon"
         ],
         "guid": "3396f387-1787-4604-9528-1c1b7f44355e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -154112,7 +154112,7 @@
             "Desperados"
         ],
         "guid": "5425d68e-c0ce-43ab-91f0-d9c038ecd686",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -154146,7 +154146,7 @@
         ],
         "photoOrig": "Fiat_Panda_Italia90_90_CARD",
         "guid": "054e9d72-fb67-4186-a8bf-5a600825ae61",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -154385,7 +154385,7 @@
             "Red"
         ],
         "guid": "7441bea1-77a8-44e6-a414-e24fc209669c",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -154455,7 +154455,7 @@
         ],
         "photoOrig": "Peugeot_VERAPlus_82_CARD",
         "guid": "802cd835-0182-4b96-8d7b-14d08e0d28b8",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -154557,7 +154557,7 @@
             "Cutting Edge"
         ],
         "guid": "95a72e88-72ef-45f7-a421-de27a9fd26fa",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -155407,7 +155407,7 @@
             "White"
         ],
         "guid": "c84e804b-0741-4316-8ed8-714a3c32ee96",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -155774,7 +155774,7 @@
         ],
         "photoOrig": "Peugeot_806RolandGarros_95_CARD",
         "guid": "bb716e05-034f-4a9f-b4b1-9d7857df64ad",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -155946,7 +155946,7 @@
             "White"
         ],
         "guid": "8d2b38e7-18f1-4f13-b943-78b4999073b9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -155981,7 +155981,7 @@
             "Summer Games 24"
         ],
         "guid": "14a4f67a-5a48-4d30-9620-6b88898152e8",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156013,7 +156013,7 @@
             "Silver/Grey"
         ],
         "guid": "460621c1-5fa3-4d2e-a3dd-40cd460bbe99",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156152,7 +156152,7 @@
             "Summer Games 24"
         ],
         "guid": "1340ad5e-5f81-4b0b-83c7-8a926e1e27b2",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156289,7 +156289,7 @@
         ],
         "photoOrig": "AlfaRomeo_Giulietta_Sprint_Veloce_59_CARD",
         "guid": "4a0594fb-7042-4bf2-aa9c-864345b43c66",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -156531,7 +156531,7 @@
             "White"
         ],
         "guid": "f3daf775-a9ce-4311-b08b-f8eaf8d21fa9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -156566,7 +156566,7 @@
         ],
         "photoOrig": "Fiat_127_Sport_79_CARD",
         "guid": "a3c8b3dc-4fce-427d-be41-54eb36e80994",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156601,7 +156601,7 @@
         ],
         "photoOrig": "Fiat_500L_Custom_14_CARD",
         "guid": "9b3bc164-2022-4608-973e-94bbc6697b8d",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -156635,7 +156635,7 @@
             "Year of the Snake"
         ],
         "guid": "b1e93a92-22e8-46a2-861b-6102e49fa1f8",
-        "brake": null
+        "brake": "A"
     },
     {
         "class": "F",
@@ -156739,7 +156739,7 @@
             "Cutting Edge"
         ],
         "guid": "44e8b39a-297e-48b8-8d05-8098ef43334b",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -156772,7 +156772,7 @@
             "Red"
         ],
         "guid": "50cf814f-28b4-4e21-82ff-d60b4c16e3ca",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156806,7 +156806,7 @@
             "Photo Finish"
         ],
         "guid": "9ada8fbe-866e-4928-874c-1b153733cee3",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156875,7 +156875,7 @@
             "Gunter's Collection"
         ],
         "guid": "009dfd5e-01c9-403e-8e54-2c0ea44288d9",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -156975,7 +156975,7 @@
             "Touma's Collection"
         ],
         "guid": "70aa9014-a57d-4ae9-88a7-3d0484ae2ae2",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157183,7 +157183,7 @@
             "Niklas' Collection"
         ],
         "guid": "1617cbd0-a343-438d-b8eb-90c61ade5c25",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -157216,7 +157216,7 @@
             "Year of the Dragon"
         ],
         "guid": "2e46b862-cb8c-4a4c-831b-75b1a64f9f77",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157352,7 +157352,7 @@
             "Summer Games 24"
         ],
         "guid": "1b5f3901-c508-4eb1-aba3-cbe9d775931f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157419,7 +157419,7 @@
             "White"
         ],
         "guid": "08289cad-3817-45d7-9040-be8e0d959885",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157589,7 +157589,7 @@
         ],
         "photoOrig": "Audi_75_LS_(F103)_1971_CARD",
         "guid": "e25406f4-49a9-43d1-a3a2-3ce2bb952ba4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157623,7 +157623,7 @@
             "Red"
         ],
         "guid": "4dd9cfd1-2146-4556-9d73-27a52a804c8c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157657,7 +157657,7 @@
             "The Unicorns"
         ],
         "guid": "af72cd35-1eeb-4977-b2ab-ea6a9362da07",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157690,7 +157690,7 @@
             "Silver/Grey"
         ],
         "guid": "ef6bfa67-c686-435b-b5a8-ade7a426ea3d",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157928,7 +157928,7 @@
             "In the Shadows 24"
         ],
         "guid": "28509e89-6db3-4218-a91f-ccccfbffc708",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157963,7 +157963,7 @@
             "Motorsport"
         ],
         "guid": "7fe0052c-7e55-40f8-a463-6ad077af0a08",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -157997,7 +157997,7 @@
         ],
         "photoOrig": "Fiat_E-Ducato_21_CARD",
         "guid": "3fd3185e-0b9b-40d5-8601-46af95939cce",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158033,7 +158033,7 @@
             "Gaz's Collection"
         ],
         "guid": "455d88a6-e8ca-4d09-a099-35289509a095",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158101,7 +158101,7 @@
             "Touma's Collection"
         ],
         "guid": "751ea981-e74e-459c-be8c-69969b111fdf",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158239,7 +158239,7 @@
             "Year of the Snake"
         ],
         "guid": "0717f291-921a-41a3-a61c-4985e5326da4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158272,7 +158272,7 @@
             "Touma's Collection"
         ],
         "guid": "00e8bb5f-495b-405a-b532-9c69874b42ce",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158307,7 +158307,7 @@
             "Brown"
         ],
         "guid": "db0966fb-0a16-44de-b2fe-230f924ef36a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158372,7 +158372,7 @@
             "White"
         ],
         "guid": "9172d515-098b-4102-9d8d-7bb43356701e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158407,7 +158407,7 @@
         ],
         "photoOrig": "Peugeot_505GTDTurbo_87_CARD",
         "guid": "0d32ca89-cb7f-49f6-97e5-74929c37d534",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158442,7 +158442,7 @@
         ],
         "photoOrig": "Peugeot_607PaladineConcept_00_CARD",
         "guid": "f963477d-43b0-4c9b-82b7-9f51f4badde9",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158477,7 +158477,7 @@
         ],
         "photoOrig": "Peugeot_BobslidConcept_00_CARD",
         "guid": "2cc6e074-bf87-4ff8-b58d-16dca8fec4c7",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158647,7 +158647,7 @@
             "Silver/Grey"
         ],
         "guid": "73b66bf4-40f6-4fd1-82fe-c929b9bd53c8",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158681,7 +158681,7 @@
             "Summer Games 24"
         ],
         "guid": "6d65f6d1-e468-4770-bf22-39d88c429276",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -158715,7 +158715,7 @@
             "White"
         ],
         "guid": "548de25f-de80-4a26-af45-619c3825d1ca",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158750,7 +158750,7 @@
             "Touma's Collection"
         ],
         "guid": "0deff971-cbeb-464c-94e7-ad6f947df3f8",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -158782,7 +158782,7 @@
             "White"
         ],
         "guid": "90cc7d54-b9cc-456a-a4b9-64716ef62834",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159117,7 +159117,7 @@
             "Chariots of the Gods"
         ],
         "guid": "6acbed1c-a5c6-4368-a734-8d71f0b7ad33",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159152,7 +159152,7 @@
             "Black"
         ],
         "guid": "518d5404-1dcf-4e5e-8251-0706e192436b",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159186,7 +159186,7 @@
             "In the Shadows 24"
         ],
         "guid": "7f97cdfe-ded9-4675-b598-80f6366fa2f7",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159256,7 +159256,7 @@
             "Gunter's Collection"
         ],
         "guid": "67988de2-ddf8-4716-90c7-46aeeafd4d66",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159290,7 +159290,7 @@
             "Red"
         ],
         "guid": "34ec8bef-62fc-4d00-835b-8cc2b1dbb174",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159428,7 +159428,7 @@
             "Summer Games 24"
         ],
         "guid": "508cbee4-3a87-4c3c-b7e6-fddb3b615a5f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159461,7 +159461,7 @@
             "Lina's Collection"
         ],
         "guid": "44d79a21-5f89-4e21-ab07-e3269068f74a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159495,7 +159495,7 @@
             "Silver/Grey"
         ],
         "guid": "738b6019-9a89-4a8c-8b45-07575acd4e18",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159631,7 +159631,7 @@
             "Summer Games 24"
         ],
         "guid": "892d4a60-add3-4621-8b4a-e1bede1ad580",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159666,7 +159666,7 @@
             "Gaz's Collection"
         ],
         "guid": "1d2b49b3-7947-461a-a6de-d38cb44a368e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159734,7 +159734,7 @@
             "Gunter's Collection"
         ],
         "guid": "fea3b66c-7055-4712-9538-35bf6aa67da0",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159767,7 +159767,7 @@
             "Silver/Grey"
         ],
         "guid": "453a63f0-5fc4-40e5-8c2e-b84088aa7fb5",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159836,7 +159836,7 @@
         ],
         "photoOrig": "Lancia_Aprilia_46_CARD",
         "guid": "36538bde-3465-476c-ae1b-c0f6e3fd26da",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -159870,7 +159870,7 @@
             "Summer Games 24"
         ],
         "guid": "fc559ded-a725-4c61-9833-cc6c66329b44",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -159969,7 +159969,7 @@
             "Summer Games 24"
         ],
         "guid": "e16f4742-74f6-41be-a185-d79ff3caa734",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160001,7 +160001,7 @@
             "Green"
         ],
         "guid": "aa5438d9-0172-4f35-a60f-8fc3f62a910b",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160034,7 +160034,7 @@
             "Year of the Snake"
         ],
         "guid": "616330db-fb2e-452d-b6df-1659b9b7618a",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160070,7 +160070,7 @@
         ],
         "photoOrig": "Peugeot_404DieselRecordCar_65_CARD",
         "guid": "968d90a8-b3f9-4d82-b92a-9957f10785f3",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160105,7 +160105,7 @@
         ],
         "photoOrig": "Peugeot_604PresidentialLimousine_82_CARD",
         "guid": "8de3a1ea-d59e-4f3c-b4a8-11c25ca52252",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160140,7 +160140,7 @@
         ],
         "photoOrig": "Peugeot_H2O_02_CARD",
         "guid": "d5069b23-d292-4992-b39d-38417c752050",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -160174,7 +160174,7 @@
             "Cutting Edge"
         ],
         "guid": "a6d18020-dc52-4777-ae89-71be7847fe9c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160207,7 +160207,7 @@
             "Lina's Collection"
         ],
         "guid": "d58e3664-ebb6-488c-94bd-af920ac6deef",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160240,7 +160240,7 @@
             "White"
         ],
         "guid": "99144106-b05e-49a3-a27f-9968880bbcb4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160273,7 +160273,7 @@
             "The Unicorns"
         ],
         "guid": "a5fc511a-0eb8-434a-9136-4f1e36f2b5e6",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160307,7 +160307,7 @@
             "Summer Games 24"
         ],
         "guid": "5ae5ad8c-e949-4635-bcf2-1b1ea5386985",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160339,7 +160339,7 @@
             "Silver/Grey"
         ],
         "guid": "660a10e3-3bfc-4237-9691-1a76c55038d7",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160408,7 +160408,7 @@
             "Gaz's Collection"
         ],
         "guid": "85b0559f-0d57-4f48-b425-255e66f78e8f",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160445,7 +160445,7 @@
             "Niklas' Collection"
         ],
         "guid": "4cba5285-72c3-4254-8553-6e5f90c9e8e4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160480,7 +160480,7 @@
             "Niklas' Collection"
         ],
         "guid": "e5de8419-6cec-4131-ad48-a2032e2770f3",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160515,7 +160515,7 @@
             "Niklas' Collection"
         ],
         "guid": "5c15e11a-d083-4259-8c02-b40dce7fec0e",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160549,7 +160549,7 @@
             "Summer Games 24"
         ],
         "guid": "48ccdfa7-ba01-4881-ba8b-ace8717f3d8f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -160583,7 +160583,7 @@
             "Cutting Edge"
         ],
         "guid": "b5fa32e5-4c86-470d-8dd3-d27258ffd718",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160617,7 +160617,7 @@
             "Year of the Snake"
         ],
         "guid": "85a6e740-0c86-4954-9c3e-65bc9150729c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160753,7 +160753,7 @@
             "Summer Games 24"
         ],
         "guid": "4a71feed-db9e-420d-96f1-6d174a1f32cd",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160891,7 +160891,7 @@
             "Niklas' Collection"
         ],
         "guid": "d7617204-69e3-47c8-a33d-16c14bd513fb",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -160993,7 +160993,7 @@
             "In the Shadows 24"
         ],
         "guid": "40c22d49-b033-4e08-931b-1cdf974b8a42",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161027,7 +161027,7 @@
             "Red"
         ],
         "guid": "28809ede-f03c-4701-a418-81b2a7140670",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161062,7 +161062,7 @@
             "Lina's Collection"
         ],
         "guid": "1ae31ccd-51ca-4dc3-9b81-4f23afe5abb3",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -161096,7 +161096,7 @@
             "Brown"
         ],
         "guid": "25db2bc3-dcbe-41a6-8466-38a52d1485d6",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -161131,7 +161131,7 @@
             "New Beginnings"
         ],
         "guid": "f9b3a2dc-410b-41f4-8b0c-330cf7cb1f12",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -161164,7 +161164,7 @@
             "Yellow"
         ],
         "guid": "f5a7b86a-be80-4b55-beb9-861553b95c10",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161199,7 +161199,7 @@
             "Lina's Collection"
         ],
         "guid": "7c101dd2-23c8-4c3d-84a7-15eff94f9758",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161233,7 +161233,7 @@
             "Lina's Collection"
         ],
         "guid": "65497a1e-95e9-4946-b166-64c8589438d4",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161267,7 +161267,7 @@
             "Year of the Snake"
         ],
         "guid": "295ce284-5e70-4ed4-bc85-3de021ae1057",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161301,7 +161301,7 @@
             "Silver/Grey"
         ],
         "guid": "e419f374-5b70-4d42-97a7-a79cfd38ad21",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161369,7 +161369,7 @@
         ],
         "photoOrig": "Fiat_Topolino_23_CARD",
         "guid": "00c58c19-0efa-4158-b45b-77a16ca9647f",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -161436,7 +161436,7 @@
             "Lina's Collection"
         ],
         "guid": "51a67355-ca9d-436f-8406-f0df0d0948fa",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161504,7 +161504,7 @@
             "Marilyn's Collection"
         ],
         "guid": "aa6579d3-fb89-4f13-80a5-c1779fd0d143",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161538,7 +161538,7 @@
             "Lina's Collection"
         ],
         "guid": "eb5b5746-2ef5-44cd-90d5-0c9d6ef0b978",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161705,7 +161705,7 @@
             "In the Shadows 24"
         ],
         "guid": "e84edd63-b397-4de9-a5fd-467d17edbbb8",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161875,7 +161875,7 @@
         ],
         "photoOrig": "Peugeot_106_Electrique_95_CARD",
         "guid": "f0d79511-47e1-444f-868d-d1b7de9ad2dd",
-        "brake": null
+        "brake": "B"
     },
     {
         "class": "F",
@@ -161909,7 +161909,7 @@
         ],
         "photoOrig": "Peugeot_402Andreau_36_CARD",
         "guid": "e4e37324-67c9-4a20-8f49-50a91827efad",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -161977,7 +161977,7 @@
             "Silver/Grey"
         ],
         "guid": "8bd45eb6-3258-4d2f-9b2a-753524f6df8c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162012,7 +162012,7 @@
             "Summer Games 24"
         ],
         "guid": "0bda5c95-96fe-4904-abfa-0c1a2520cc91",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162047,7 +162047,7 @@
         ],
         "photoOrig": "Renault_4cv_46_CARD",
         "guid": "000ede44-70ac-4417-a74a-0bbb3a698b69",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162081,7 +162081,7 @@
         ],
         "photoOrig": "Renault_Rodeo_4WD_70_CARD",
         "guid": "5de3fb65-5c2b-4738-98c9-d4e7bef2b77b",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162115,7 +162115,7 @@
             "Summer Games 24"
         ],
         "guid": "09d252e4-0027-403a-98ac-8d9c221553ba",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162149,7 +162149,7 @@
             "Lina's Collection"
         ],
         "guid": "a5d7fda3-ad84-4665-9cb2-e5548518a567",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162183,7 +162183,7 @@
             "Lina's Collection"
         ],
         "guid": "d91a3551-0098-4b63-805a-35ede20ade3c",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162253,7 +162253,7 @@
             "Green"
         ],
         "guid": "d3c71635-95ab-4910-8388-b4a237adb2ae",
-        "brake": null
+        "brake": "C"
     },
     {
         "class": "F",
@@ -162286,6 +162286,6 @@
             "Blue"
         ],
         "guid": "79ab810e-28e5-4bb1-983a-ca8535479d16",
-        "brake": null
+        "brake": "C"
     }
 ]
