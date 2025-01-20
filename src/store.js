@@ -194,6 +194,7 @@ export default new Vuex.Store({
     PACKS_INTERNALFILTER_IMPORT: (state, obj) => null,
     MYGARAGE_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
+    OPEN_BRAKES: (state, obj) => null,
     CLEAR_PRIZEBOARD: (state, obj) => null,
     BEFOREUNLOAD_TOUCH: (state, obj) => null,
     CLEAR_EDITABLE: () => {

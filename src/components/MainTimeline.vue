@@ -692,7 +692,9 @@
                 </div>
                 <div class="Row_DialogCardStat">
                   <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                  <div class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}</div>
+                  <div
+                    :class="{ Row_DialogCardStatRed: car.brake === 'C', Row_DialogCardStatCorrect: car.brake === 'A' }"
+                    class="Row_DialogCardStatValue">{{ car.brake || "?" }}<BaseBrakeDialog /></div>
                 </div>
               </div>
             </template>
@@ -916,7 +918,9 @@
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}</div>
+                <div
+                  :class="{ Row_DialogCardStatRed: tuneDialogCar.brake === 'C', Row_DialogCardStatCorrect: tuneDialogCar.brake === 'A' }"
+                  class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}<BaseBrakeDialog /></div>
               </div>
             </div>
           </div>
@@ -1171,6 +1175,7 @@ import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseDatePicker from './BaseDatePicker.vue'
 import BaseEventTrackbox from './BaseEventTrackbox.vue'
 import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
+import BaseBrakeDialog from './BaseBrakeDialog.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import tracksRepo from '../database/tracks_repo.json'
 
@@ -1186,7 +1191,8 @@ export default {
     BaseDatePicker,
     BaseEventTrackbox,
     BaseSearchTrackDialog,
-    BaseGameTag
+    BaseGameTag,
+    BaseBrakeDialog
   },
   props: {
     test: {

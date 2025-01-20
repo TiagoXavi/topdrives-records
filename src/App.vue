@@ -39,6 +39,38 @@
         <MainLogin :wrap="true" @success="loginDialog = false;" @close="loginDialog = false;" />
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="brakeDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="250px"
+      min-width="240px"
+      zindex="102"
+      @close="brakeDialog = false;">
+      <div style="App_DialogCustom">
+        <div class="App_BrakeItem">
+          <div class="App_BrakeLeft"><span class="Row_DialogCardStatCorrect">A</span> class: </div>
+          <div class="App_BrakeRight">
+            <div>★★★</div>
+            <div>100-0 in ~4.0s</div>
+          </div>
+        </div>
+        <div class="App_BrakeItem">
+          <div class="App_BrakeLeft">B class: </div>
+          <div class="App_BrakeRight">
+            <div>★★☆</div>
+            <div>100-0 in ~4.9s</div>
+          </div>
+        </div>
+        <div class="App_BrakeItem">
+          <div class="App_BrakeLeft"><span class="Row_DialogCardStatRed">C</span> class: </div>
+          <div class="App_BrakeRight">
+            <div>★☆☆</div>
+            <div>100-0 in ~5.7s</div>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
 
     <portal-target name="app_dialogs" multiple>
     </portal-target>
@@ -83,6 +115,7 @@ export default {
       logRocketInitialized: false,
       isMobile: false,
       loginDialog: false,
+      brakeDialog: false,
     }
   },
   watch: {
@@ -179,6 +212,9 @@ export default {
       }
       if (mutation.type == "OPEN_LOGIN") {
         vm.loginDialog = true;
+      }
+      if (mutation.type == "OPEN_BRAKES") {
+        vm.brakeDialog = true;
       }
 
       if (mutation.type == "START_LOGROCKET") {
@@ -3109,6 +3145,22 @@ body .Main_UserTw3:before {
 }
 a:not(.D_Button),
 a:visited:not(.D_Button) {
+  color: rgb(var(--d-text-yellow));
+}
+.App_BrakeItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+}
+.App_BrakeItem + .App_BrakeItem {
+  margin-top: 15px;
+}
+.App_BrakeLeft {
+  
+}
+.App_BrakeRight > :first-child {
+  font-size: 2em;
   color: rgb(var(--d-text-yellow));
 }
 

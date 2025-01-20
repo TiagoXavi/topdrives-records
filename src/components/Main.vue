@@ -2034,7 +2034,9 @@
               </div>
               <div class="Row_DialogCardStat">
                 <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}</div>
+                <div
+                  :class="{ Row_DialogCardStatRed: tuneDialogCar.brake === 'C', Row_DialogCardStatCorrect: tuneDialogCar.brake === 'A' }"
+                  class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}<BaseBrakeDialog /></div>
               </div>
             </div>
           </div>
@@ -3050,6 +3052,7 @@ import BaseIconSvg from './BaseIconSvg.vue'
 import BaseReviewList from './BaseReviewList.vue'
 import BasePrizeBoard from './BasePrizeBoard.vue'
 import BaseEventName from './BaseEventName.vue'
+import BaseBrakeDialog from './BaseBrakeDialog.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
@@ -3090,7 +3093,8 @@ export default {
     BaseIconSvg,
     BaseMemoryDialog,
     BasePrizeBoard,
-    BaseEventName
+    BaseEventName,
+    BaseBrakeDialog
   },
   props: {
     phantomCar: {

@@ -71,7 +71,9 @@
             </div>
             <div class="Row_DialogCardStat">
               <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-              <div class="Row_DialogCardStatValue">{{ car.brake || "?" }}</div>
+              <div
+              :class="{ Row_DialogCardStatRed: car.brake === 'C', Row_DialogCardStatCorrect: car.brake === 'A' }"
+              class="Row_DialogCardStatValue">{{ car.brake || "?" }}<BaseBrakeDialog /></div>
             </div>
           </div>
         </div>
@@ -85,6 +87,7 @@
 import BaseDialog from './BaseDialog.vue';
 import BaseCard from './BaseCard.vue';
 import BaseGameTag from './BaseGameTag.vue';
+import BaseBrakeDialog from './BaseBrakeDialog.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
 
@@ -93,7 +96,8 @@ export default {
   components: {
     BaseDialog,
     BaseCard,
-    BaseGameTag
+    BaseGameTag,
+    BaseBrakeDialog
   },
   props: {
     active: {
