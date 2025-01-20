@@ -3891,7 +3891,7 @@ a:visited:not(.D_Button) {
   width: calc( 100% - var(--card-right-width) - 3px);
   height: var(--card-top-height);
   font-size: 1.1em;
-  line-height: 1;
+  line-height: 0.9;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;

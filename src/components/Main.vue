@@ -7690,11 +7690,14 @@ export default {
         if (roundErrorCount > 1) shouldStop = true;
         errorMsgArray.push(msg);
       }
+      if (this.cgCurrentRoundSum) {
+        count = this.cgCurrentRoundSum * 5;
+      }
 
       newCg.rounds.map((round, iround) => {
         let _iRound = iround
-        if (this.cg.startNumer) {
-          _iRound = this.cg.startNumer+_iRound;
+        if (this.cgCurrentRoundSum) {
+          _iRound = this.cgCurrentRoundSum+_iRound;
         }
 
         if (!json.ladder.challengeSetIds[_iRound]) return;
@@ -7721,7 +7724,9 @@ export default {
                 tune = `Other${tune}`;
               }
             }
-            if (race.rid && race.rid !== car.rid) computeError(`RID round${_iRound+1} race${irace+1} old:      ${race.rid}     n:     ${car.rid}`);
+            if (round.lastAnalyze) {
+              if (race.rid && race.rid !== car.rid) computeError(`RID round${_iRound+1} race${irace+1} old:      ${race.rid}     n:     ${car.rid}`);
+            }
 
             
             race.rid = car.rid;
@@ -8038,6 +8043,7 @@ export default {
           // contain roman
           x.romanValue = roman.indexOf(romanString)+1;
           if (numberOrdinal) x.romanValue = numberOrdinal;
+          Vue.set(x, "index", 1);
 
           let arr = x.name.split(" ");
           let i = arr.findIndex(x => x.includes(":"));
@@ -8297,6 +8303,20 @@ export default {
       })
 
       this.eventList.sort((a,b) => {
+        // if (a.index === b.index && a.endDateTime && b.endDateTime) {
+        //   let aEnded = a.endDateTime.localeCompare(now) < 0;
+        //   let bEnded = b.endDateTime.localeCompare(now) < 0;
+        //   if (aEnded && !bEnded) return -1;
+        //   if (bEnded && !aEnded) return 1;
+
+        //   let aNotStarted = a.startDateTime.localeCompare(now) > 0;
+        //   let bNotStarted = b.startDateTime.localeCompare(now) > 0;
+        //   if (aNotStarted && !bNotStarted) return 1;
+        //   if (bNotStarted && !aNotStarted) return -1;
+        //   if (b.endDateTime !== a.endDateTime) {
+        //     return a.endDateTime.localeCompare(b.endDateTime);
+        //   }
+        // }
         return a.index - b.index;
       })
     },

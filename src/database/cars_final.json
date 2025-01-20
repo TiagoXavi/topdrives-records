@@ -155,7 +155,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 2373,
-        "name": "Pininfarina Battista Anniversario",
+        "name": "Automobili Pininfarina Battista Anniversario",
         "rid": "Pininfarina_Battista_Anniversario_2022",
         "prize": true,
         "bodyTypes": [
@@ -297,7 +297,7 @@
         "tyres": "Performance",
         "mra": 109.09,
         "weight": 2373,
-        "name": "Pininfarina Battista",
+        "name": "Automobili Pininfarina Battista",
         "rid": "Pininfarina_Battista_2022",
         "prize": true,
         "bodyTypes": [
@@ -332,7 +332,7 @@
         "tyres": "Slick",
         "mra": 110.53,
         "weight": 1500,
-        "name": "Rimac E-Runner Concept_One",
+        "name": "Tajima Rimac E-Runner Concept_One",
         "rid": "Rimac_E-Runner_Concept_One_2016",
         "prize": true,
         "bodyTypes": [
@@ -893,7 +893,7 @@
         "tyres": "Slick",
         "mra": 56,
         "weight": 900,
-        "name": "Alfa Romeo Coloni S1 156",
+        "name": "Alfa Romeo Coloni S1 156 ",
         "rid": "Alfa_Romeo_Coloni_S1_156_2001",
         "prize": true,
         "bodyTypes": [
@@ -1105,7 +1105,7 @@
         "tyres": "Slick",
         "mra": null,
         "weight": 975,
-        "name": "Peugeot 908 HY",
+        "name": "Peugeot 908 HY ",
         "rid": "Peugeot_908_HY_2008",
         "prize": true,
         "bodyTypes": [
@@ -1140,7 +1140,7 @@
         "tyres": "Slick",
         "mra": null,
         "weight": 900,
-        "name": "Peugeot 908 HYbrid4",
+        "name": "Peugeot 908 HYbrid4 ",
         "rid": "Peugeot_908_HYbrid4_2011",
         "prize": true,
         "bodyTypes": [
@@ -2036,7 +2036,7 @@
     {
         "class": "S",
         "rq": 98,
-        "onlyName": "Zonda Revolucion",
+        "onlyName": "Zonda Revolución",
         "brand": "Pagani",
         "year": 2013,
         "abs": true,
@@ -2050,7 +2050,7 @@
         "tyres": "Slick",
         "mra": 89.29,
         "weight": 1070,
-        "name": "Pagani Zonda Revolucion",
+        "name": "Pagani Zonda Revolución",
         "rid": "Pagani_Zonda_Revolucion_2013",
         "prize": true,
         "bodyTypes": [
@@ -2328,7 +2328,7 @@
         "tyres": "Slick",
         "mra": 103.8,
         "weight": 750,
-        "name": "Porsche RS Spyder",
+        "name": "Porsche RS Spyder ",
         "rid": "Porsche_RS_Spyder_Evo_2008",
         "prize": true,
         "bodyTypes": [
@@ -3007,7 +3007,7 @@
     {
         "class": "S",
         "rq": 97,
-        "onlyName": "RTR",
+        "onlyName": "RtR",
         "brand": "RUF",
         "year": 2013,
         "abs": true,
@@ -3021,7 +3021,7 @@
         "tyres": "Performance",
         "mra": 101.56,
         "weight": 1490,
-        "name": "RUF RTR",
+        "name": "Ruf RtR",
         "rid": "RUF_RTR_2016",
         "prize": true,
         "bodyTypes": [
@@ -3346,7 +3346,7 @@
     {
         "class": "S",
         "rq": 96,
-        "onlyName": "P1 GTR",
+        "onlyName": "P1™ GTR",
         "brand": "McLaren",
         "year": 2015,
         "abs": true,
@@ -3360,7 +3360,7 @@
         "tyres": "Performance",
         "mra": 113.04,
         "weight": 1440,
-        "name": "McLaren P1 GTR",
+        "name": "McLaren P1™ GTR",
         "rid": "McLaren_P1_GTR_2015",
         "prize": true,
         "bodyTypes": [
@@ -3739,7 +3739,7 @@
         "tyres": "All-surface",
         "mra": 76.92,
         "weight": 1035,
-        "name": "Citroen Xantia 4x4 Turbo",
+        "name": "Citroën Xantia 4x4 Turbo",
         "rid": "Citroen_Xantia_4x4_Turbo_1999",
         "prize": true,
         "bodyTypes": [
@@ -3844,7 +3844,7 @@
         "tyres": "Performance",
         "mra": 93.02,
         "weight": 1250,
-        "name": "Gumpert Intensa Emozione",
+        "name": "Apollo Intensa Emozione",
         "rid": "Gumpert_Intensa_Emozione_2019",
         "prize": true,
         "bodyTypes": [
@@ -4174,7 +4174,7 @@
     {
         "class": "S",
         "rq": 95,
-        "onlyName": "Huracan Performante",
+        "onlyName": "Huracán Performante",
         "brand": "Lamborghini",
         "year": 2018,
         "abs": true,
@@ -4188,7 +4188,7 @@
         "tyres": "Performance",
         "mra": 89.45,
         "weight": 1492,
-        "name": "Lamborghini Huracan Performante",
+        "name": "Lamborghini Huracán Performante",
         "rid": "Lamborghini_Huracan_Performante_2018",
         "prize": true,
         "bodyTypes": [
@@ -4414,7 +4414,7 @@
     {
         "class": "S",
         "rq": 95,
-        "onlyName": "935 'Moby Dick'",
+        "onlyName": "935 ‘Moby Dick’",
         "brand": "Porsche",
         "year": 1978,
         "abs": false,
@@ -4428,7 +4428,7 @@
         "tyres": "Slick",
         "mra": 98.08,
         "weight": 1025,
-        "name": "Porsche 935 'Moby Dick'",
+        "name": "Porsche 935 ‘Moby Dick’",
         "rid": "Porsche_935_'Moby_Dick'_1978",
         "prize": true,
         "bodyTypes": [
@@ -4497,7 +4497,7 @@
         "tyres": "Performance",
         "mra": 92.74,
         "weight": 1500,
-        "name": "RUF Rt 12 S",
+        "name": "Ruf Rt 12 S",
         "rid": "RUF_Rt_12_S_2009",
         "bodyTypes": [
             "Coupe"
@@ -4531,7 +4531,7 @@
         "tyres": "Performance",
         "mra": 102.44,
         "weight": 1225,
-        "name": "SCG SCG003S",
+        "name": "Scuderia Cameron Glickenhaus SCG003S",
         "rid": "Scuderia_Cameron_Glickenhaus_SCG003S_2018",
         "prize": true,
         "bodyTypes": [
@@ -5103,7 +5103,7 @@
     {
         "class": "S",
         "rq": 94,
-        "onlyName": "Huracan Performante Spyder",
+        "onlyName": "Huracán Performante Spyder",
         "brand": "Lamborghini",
         "year": 2018,
         "abs": true,
@@ -5117,7 +5117,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1617,
-        "name": "Lamborghini Huracan Performante Spyder",
+        "name": "Lamborghini Huracán Performante Spyder",
         "rid": "Lamborghini_Huracan_Performante_Spyder_2018",
         "bodyTypes": [
             "Roadster"
@@ -5274,7 +5274,7 @@
     {
         "class": "S",
         "rq": 94,
-        "onlyName": "P1",
+        "onlyName": "P1™",
         "brand": "McLaren",
         "year": 2014,
         "abs": true,
@@ -5288,7 +5288,7 @@
         "tyres": "Performance",
         "mra": 109.47,
         "weight": 1490,
-        "name": "McLaren P1",
+        "name": "McLaren P1™",
         "rid": "McLaren_P1_2014",
         "prize": true,
         "bodyTypes": [
@@ -5702,7 +5702,7 @@
         "tyres": "Off-road",
         "mra": 90.24,
         "weight": 1190,
-        "name": "Citroen C3 WRC",
+        "name": "Citroën C3 WRC",
         "rid": "Citroen_C3_WRC_2017",
         "prize": false,
         "bodyTypes": [
@@ -6379,7 +6379,7 @@
     {
         "class": "S",
         "rq": 93,
-        "onlyName": "Cayenne Turbo Coupe 4.0 (9Y3)",
+        "onlyName": "Cayenne Turbo Coupé 4.0 (9Y3)",
         "brand": "Porsche",
         "year": 2019,
         "abs": true,
@@ -6393,7 +6393,7 @@
         "tyres": "All-surface",
         "mra": 67.27,
         "weight": 2200,
-        "name": "Porsche Cayenne Turbo Coupe 4.0 (9Y3)",
+        "name": "Porsche Cayenne Turbo Coupé 4.0 (9Y3)",
         "rid": "Porsche_Cayenne_Turbo_Coupe_4.0_(9Y3)_2019",
         "bodyTypes": [
             "SUV"
@@ -6493,7 +6493,7 @@
         "tyres": "Slick",
         "mra": 103.33,
         "weight": 1145,
-        "name": "Renault R.S. 01",
+        "name": "Renault Sport R.S. 01",
         "rid": "Renault_Sport_R.S._01_2015",
         "prize": true,
         "bodyTypes": [
@@ -6527,7 +6527,7 @@
         "tyres": "Off-road",
         "mra": 95.13,
         "weight": 1230,
-        "name": "Skoda Fabia Rally2 EVO Edition 120",
+        "name": "Škoda Fabia Rally2 EVO Edition 120",
         "rid": "Skoda_Fabia_Rally2_EVO_Edition_120_2021",
         "prize": true,
         "bodyTypes": [
@@ -6682,7 +6682,7 @@
     {
         "class": "S",
         "rq": 92,
-        "onlyName": "M8 Competition Coupe",
+        "onlyName": "M8 Competition Coupé",
         "brand": "BMW",
         "year": 2019,
         "abs": true,
@@ -6696,7 +6696,7 @@
         "tyres": "Performance",
         "mra": 86.11,
         "weight": 1885,
-        "name": "BMW M8 Competition Coupe",
+        "name": "BMW M8 Competition Coupé",
         "rid": "BMW_M8_Competition_Coupe_2019",
         "bodyTypes": [
             "Coupe"
@@ -6992,7 +6992,7 @@
     {
         "class": "S",
         "rq": 92,
-        "onlyName": "Aventador Coupe",
+        "onlyName": "Aventador Coupé",
         "brand": "Lamborghini",
         "year": 2011,
         "abs": true,
@@ -7006,7 +7006,7 @@
         "tyres": "Performance",
         "mra": 80,
         "weight": 1690,
-        "name": "Lamborghini Aventador Coupe",
+        "name": "Lamborghini Aventador Coupé",
         "rid": "Lamborghini_Aventador_Coupe_2011",
         "bodyTypes": [
             "Coupe"
@@ -7128,7 +7128,7 @@
     {
         "class": "S",
         "rq": 92,
-        "onlyName": "Huracan Coupe",
+        "onlyName": "Huracán Coupé",
         "brand": "Lamborghini",
         "year": 2014,
         "abs": true,
@@ -7142,7 +7142,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1532,
-        "name": "Lamborghini Huracan Coupe",
+        "name": "Lamborghini Huracán Coupé",
         "rid": "Lamborghini_Huracan_Coupe_2014",
         "bodyTypes": [
             "Coupe"
@@ -7451,7 +7451,7 @@
         "tyres": "Performance",
         "mra": 91.8,
         "weight": 1900,
-        "name": "Peugeot Inception",
+        "name": "Peugeot Inception ",
         "rid": "Peugeot_Inception_2023",
         "prize": false,
         "bodyTypes": [
@@ -7587,7 +7587,7 @@
         "tyres": "Performance",
         "mra": 90.62,
         "weight": 1700,
-        "name": "RUF Turbo Florio",
+        "name": "Ruf Turbo Florio",
         "rid": "RUF_Turbo_Florio_2015",
         "bodyTypes": [
             "Convertible"
@@ -8030,7 +8030,7 @@
         "tyres": "Performance",
         "mra": 96.04,
         "weight": 1175,
-        "name": "Gumpert Apollo N",
+        "name": "Apollo N",
         "rid": "Gumpert_Apollo_N_2016",
         "bodyTypes": [
             "Coupe"
@@ -8099,7 +8099,7 @@
         "tyres": "Performance",
         "mra": 89.7,
         "weight": 1800,
-        "name": "Lamborghini Asterion",
+        "name": "Lamborghini Asterion ",
         "rid": "Lamborghini_Asterion_2014",
         "prize": false,
         "bodyTypes": [
@@ -8358,7 +8358,7 @@
     {
         "class": "S",
         "rq": 91,
-        "onlyName": "AMG SLS GT3",
+        "onlyName": "SLS GT3",
         "brand": "Mercedes-Benz",
         "year": 2014,
         "abs": true,
@@ -8372,7 +8372,7 @@
         "tyres": "Slick",
         "mra": 110,
         "weight": 1361,
-        "name": "Mercedes-Benz AMG SLS GT3",
+        "name": "Mercedes-AMG SLS GT3",
         "rid": "Mercedes-Benz_AMG_SLS_GT3_2014",
         "prize": true,
         "bodyTypes": [
@@ -8986,7 +8986,7 @@
         "tyres": "Off-road",
         "mra": 94.43,
         "weight": 1230,
-        "name": "Citroen C4 WRC",
+        "name": "Citroën C4 WRC",
         "rid": "Citroen_C4_WRC_2007",
         "prize": true,
         "bodyTypes": [
@@ -9020,7 +9020,7 @@
         "tyres": "Off-road",
         "mra": 103,
         "weight": 1350,
-        "name": "Citroen C4 WRC HYmotion4",
+        "name": "Citroën C4 WRC HYmotion4",
         "rid": "Citroen_C4_WRC_HYmotion4_2008",
         "prize": false,
         "bodyTypes": [
@@ -9055,7 +9055,7 @@
         "tyres": "Off-road",
         "mra": 90.29,
         "weight": 1200,
-        "name": "Citroen DS3 WRC",
+        "name": "Citroën DS3 WRC",
         "rid": "Citroen_DS3_WRC_2011",
         "prize": true,
         "bodyTypes": [
@@ -9089,7 +9089,7 @@
         "tyres": "Off-road",
         "mra": 97.26,
         "weight": 1230,
-        "name": "Citroen Xsara WRC",
+        "name": "Citroën Xsara WRC",
         "rid": "Citroen_Xsara_WRC_2003",
         "prize": false,
         "bodyTypes": [
@@ -9486,7 +9486,7 @@
     {
         "class": "S",
         "rq": 90,
-        "onlyName": "AMG GT 4-Door Coupe",
+        "onlyName": "GT 4-Door Coupé",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -9500,7 +9500,7 @@
         "tyres": "Performance",
         "mra": 78.95,
         "weight": 2120,
-        "name": "Mercedes-Benz AMG GT 4-Door Coupe",
+        "name": "Mercedes-AMG GT 4-Door Coupé",
         "rid": "Mercedes-Benz_AMG_GT_4-Door_Coupe_2018",
         "bodyTypes": [
             "Coupe",
@@ -9879,7 +9879,7 @@
         "tyres": "Off-road",
         "mra": 96.55,
         "weight": 1230,
-        "name": "Skoda Fabia R5",
+        "name": "Škoda Fabia R5",
         "rid": "Skoda_Fabia_R5_2019",
         "prize": false,
         "bodyTypes": [
@@ -10310,7 +10310,7 @@
     {
         "class": "S",
         "rq": 89,
-        "onlyName": "Huracan Spyder",
+        "onlyName": "Huracán Spyder",
         "brand": "Lamborghini",
         "year": 2015,
         "abs": true,
@@ -10324,7 +10324,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1652,
-        "name": "Lamborghini Huracan Spyder",
+        "name": "Lamborghini Huracán Spyder",
         "rid": "Lamborghini_Huracan_Spyder_2015",
         "bodyTypes": [
             "Roadster"
@@ -10343,7 +10343,7 @@
     {
         "class": "S",
         "rq": 89,
-        "onlyName": "Murcielago LP 670-4 SuperVeloce",
+        "onlyName": "Murciélago LP 670-4 SuperVeloce",
         "brand": "Lamborghini",
         "year": 2009,
         "abs": true,
@@ -10357,7 +10357,7 @@
         "tyres": "Performance",
         "mra": 74.07,
         "weight": 1755,
-        "name": "Lamborghini Murcielago LP 670-4 SuperVeloce",
+        "name": "Lamborghini Murciélago LP 670-4 SuperVeloce",
         "rid": "Lamborghini_Murcielago_LP670-4_SuperVeloce_2009",
         "bodyTypes": [
             "Coupe"
@@ -10378,7 +10378,7 @@
     {
         "class": "S",
         "rq": 89,
-        "onlyName": "Reventon",
+        "onlyName": "Reventón",
         "brand": "Lamborghini",
         "year": 2007,
         "abs": true,
@@ -10392,7 +10392,7 @@
         "tyres": "Performance",
         "mra": 78.05,
         "weight": 1755,
-        "name": "Lamborghini Reventon",
+        "name": "Lamborghini Reventón",
         "rid": "Lamborghini_Reventon_2007",
         "bodyTypes": [
             "Coupe"
@@ -10803,7 +10803,7 @@
         "tyres": "Performance",
         "mra": 105.26,
         "weight": 1540,
-        "name": "RUF R Turbo",
+        "name": "Ruf R Turbo",
         "rid": "RUF_R_Turbo_2001",
         "bodyTypes": [
             "Coupe"
@@ -10837,7 +10837,7 @@
         "tyres": "Off-road",
         "mra": 91.76,
         "weight": 1230,
-        "name": "Skoda Octavia WRC",
+        "name": "Škoda Octavia WRC",
         "rid": "Skoda_Octavia_WRC_1999",
         "prize": false,
         "bodyTypes": [
@@ -11489,7 +11489,7 @@
         "tyres": "Performance",
         "mra": 102.39,
         "weight": 1400,
-        "name": "RUF CTR3 Clubsport",
+        "name": "Ruf CTR3 Clubsport",
         "rid": "RUF_CTR3_Clubsport_2012",
         "prize": true,
         "bodyTypes": [
@@ -11800,7 +11800,7 @@
         "tyres": "All-surface",
         "mra": 75,
         "weight": 2200,
-        "name": "Audi SQ7 TFSI",
+        "name": "Audi SQ7 TFSI ",
         "rid": "Audi_SQ7_TFSI_2023",
         "prize": false,
         "bodyTypes": [
@@ -12265,7 +12265,7 @@
     {
         "class": "S",
         "rq": 87,
-        "onlyName": "Murcielago LP 640",
+        "onlyName": "Murciélago LP 640",
         "brand": "Lamborghini",
         "year": 2006,
         "abs": true,
@@ -12279,7 +12279,7 @@
         "tyres": "Performance",
         "mra": 75.41,
         "weight": 1755,
-        "name": "Lamborghini Murcielago LP 640",
+        "name": "Lamborghini Murciélago LP 640",
         "rid": "Lamborghini_Murcielago_LP640_2006",
         "bodyTypes": [
             "Coupe"
@@ -12299,7 +12299,7 @@
     {
         "class": "S",
         "rq": 87,
-        "onlyName": "Murcielago LP 650-4 Roadster",
+        "onlyName": "Murciélago LP 650-4 Roadster",
         "brand": "Lamborghini",
         "year": 2009,
         "abs": true,
@@ -12313,7 +12313,7 @@
         "tyres": "Performance",
         "mra": 74.42,
         "weight": 1778,
-        "name": "Lamborghini Murcielago LP 650-4 Roadster",
+        "name": "Lamborghini Murciélago LP 650-4 Roadster",
         "rid": "Lamborghini_Murcielago_LP650-4_Roadster_2009",
         "bodyTypes": [
             "Roadster"
@@ -13536,7 +13536,7 @@
         "tyres": "Performance",
         "mra": 91.89,
         "weight": 1358,
-        "name": "RUF CTR 2",
+        "name": "Ruf CTR 2",
         "rid": "RUF_CTR2_1995",
         "bodyTypes": [
             "Coupe"
@@ -13568,7 +13568,7 @@
         "tyres": "Performance",
         "mra": 101.4,
         "weight": 1450,
-        "name": "RUF Turbo R",
+        "name": "Ruf Turbo R",
         "rid": "RUF_Turbo_R_Limited_2016",
         "bodyTypes": [
             "Coupe"
@@ -13621,7 +13621,7 @@
     {
         "class": "S",
         "rq": 86,
-        "onlyName": "Opel Kadett Rallye E 4S",
+        "onlyName": "Kadett Rallye E 4S",
         "brand": "Vauxhall",
         "year": 1985,
         "abs": false,
@@ -13635,7 +13635,7 @@
         "tyres": "Off-road",
         "mra": 80.32,
         "weight": 960,
-        "name": "Vauxhall Opel Kadett Rallye E 4S",
+        "name": "Opel Kadett Rallye E 4S",
         "rid": "Vauxhall_Opel_Kadett_Rallye_E-4S_1985",
         "bodyTypes": [
             "Hatchback"
@@ -14000,7 +14000,7 @@
     {
         "class": "S",
         "rq": 85,
-        "onlyName": "Murcielago LP 640 Roadster",
+        "onlyName": "Murciélago LP 640 Roadster",
         "brand": "Lamborghini",
         "year": 2007,
         "abs": true,
@@ -14014,7 +14014,7 @@
         "tyres": "Performance",
         "mra": 69.28,
         "weight": 1778,
-        "name": "Lamborghini Murcielago LP 640 Roadster",
+        "name": "Lamborghini Murciélago LP 640 Roadster",
         "rid": "Lamborghini_Murcielago_LP640_Roadster_2007",
         "bodyTypes": [
             "Roadster"
@@ -14221,7 +14221,7 @@
         "tyres": "Performance",
         "mra": 96.67,
         "weight": 1400,
-        "name": "RUF CTR3",
+        "name": "Ruf CTR3",
         "rid": "RUF_CTR3_2007",
         "bodyTypes": [
             "Coupe"
@@ -14254,7 +14254,7 @@
         "tyres": "Performance",
         "mra": 98.25,
         "weight": 1540,
-        "name": "RUF Rt 35",
+        "name": "Ruf Rt 35",
         "rid": "RUF_Rt_35_2012",
         "bodyTypes": [
             "Coupe"
@@ -14426,7 +14426,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1475,
-        "name": "Audi TT RS Iconic Edition",
+        "name": "Audi TT RS Iconic Edition ",
         "rid": "Audi_TT_RS_Iconic_Edition_2023",
         "prize": true,
         "bodyTypes": [
@@ -15732,7 +15732,7 @@
     {
         "class": "S",
         "rq": 83,
-        "onlyName": "Murcielago",
+        "onlyName": "Murciélago",
         "brand": "Lamborghini",
         "year": 2001,
         "abs": true,
@@ -15746,7 +15746,7 @@
         "tyres": "Performance",
         "mra": 78.26,
         "weight": 1841,
-        "name": "Lamborghini Murcielago",
+        "name": "Lamborghini Murciélago",
         "rid": "Lamborghini_Murcielago_2001",
         "bodyTypes": [
             "Coupe"
@@ -15838,7 +15838,7 @@
     {
         "class": "S",
         "rq": 83,
-        "onlyName": "AMG GLE 63 S",
+        "onlyName": "GLE 63 S",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -15852,7 +15852,7 @@
         "tyres": "All-surface",
         "mra": 81.08,
         "weight": 2345,
-        "name": "Mercedes-Benz AMG GLE 63 S",
+        "name": "Mercedes-AMG GLE 63 S",
         "rid": "Mercedes-Benz_AMG_GLE_63_S_2015",
         "bodyTypes": [
             "SUV"
@@ -16385,7 +16385,7 @@
     {
         "class": "S",
         "rq": 83,
-        "onlyName": "Megane Trophy",
+        "onlyName": "Mégane Trophy",
         "brand": "Renault",
         "year": 2009,
         "abs": true,
@@ -16399,7 +16399,7 @@
         "tyres": "Slick",
         "mra": 96.97,
         "weight": 955,
-        "name": "Renault Megane Trophy",
+        "name": "Renault Sport Mégane Trophy",
         "rid": "Renault_Sport_Megane_Trophy_2009",
         "bodyTypes": [
             "Hatchback"
@@ -16569,7 +16569,7 @@
         "tyres": "Standard",
         "mra": 75.81,
         "weight": 2340,
-        "name": "Audi A8 L 60 TFSI e quattro",
+        "name": "Audi A8 L 60 TFSI e quattro ",
         "rid": "Audi_A8_L_60_TFSI_e_quattro_2024",
         "prize": false,
         "bodyTypes": [
@@ -17214,7 +17214,7 @@
         "tyres": "Performance",
         "mra": 107.88,
         "weight": 1400,
-        "name": "Citroen GT",
+        "name": "Citroën GT",
         "rid": "Citroen_GT_2008",
         "prize": true,
         "bodyTypes": [
@@ -17509,7 +17509,7 @@
     {
         "class": "S",
         "rq": 82,
-        "onlyName": "AMG GT R",
+        "onlyName": "GT R",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -17523,7 +17523,7 @@
         "tyres": "Performance",
         "mra": 105.11,
         "weight": 1630,
-        "name": "Mercedes-Benz AMG GT R",
+        "name": "Mercedes-AMG GT R",
         "rid": "Mercedes-Benz_AMG_GT_R_2018",
         "bodyTypes": [
             "Coupe"
@@ -18329,7 +18329,7 @@
     {
         "class": "S",
         "rq": 81,
-        "onlyName": "Murcielago Roadster",
+        "onlyName": "Murciélago Roadster",
         "brand": "Lamborghini",
         "year": 2004,
         "abs": true,
@@ -18343,7 +18343,7 @@
         "tyres": "Performance",
         "mra": 76.75,
         "weight": 1780,
-        "name": "Lamborghini Murcielago Roadster",
+        "name": "Lamborghini Murciélago Roadster",
         "rid": "Lamborghini_Murcielago_Roadster_2004",
         "bodyTypes": [
             "Roadster"
@@ -18378,7 +18378,7 @@
         "tyres": "All-surface",
         "mra": 68.25,
         "weight": 2160,
-        "name": "Land Rover Velar SVAutobiography Dynamic Edition",
+        "name": "Range Rover Velar SVAutobiography Dynamic Edition",
         "rid": "Land_Rover_Range_Rover_Velar_SVAutobiography_Dynamic_Edition_2019",
         "bodyTypes": [
             "SUV"
@@ -19231,7 +19231,7 @@
         "tyres": "Standard",
         "mra": 94.12,
         "weight": 1100,
-        "name": "Citroen 19_19",
+        "name": "Citroën 19_19",
         "rid": "Citroen_19_19_2019",
         "prize": true,
         "bodyTypes": [
@@ -19435,7 +19435,7 @@
         "tyres": "Performance",
         "mra": 82.98,
         "weight": 1730,
-        "name": "Jaguar F-Type R AWD Coupe",
+        "name": "Jaguar F-Type R AWD Coupe ",
         "rid": "Jaguar_F-Type_R_Coupe_AWD_2016",
         "bodyTypes": [
             "Coupe"
@@ -19607,7 +19607,7 @@
         "tyres": "All-surface",
         "mra": 71.67,
         "weight": 2335,
-        "name": "Land Rover Sport SVR",
+        "name": "Range Rover Sport SVR",
         "rid": "Land_Rover_Range_Rover_Sport_SVR_2018",
         "bodyTypes": [
             "SUV"
@@ -19696,7 +19696,7 @@
     {
         "class": "S",
         "rq": 80,
-        "onlyName": "AMG GT4",
+        "onlyName": "GT4",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -19710,7 +19710,7 @@
         "tyres": "Slick",
         "mra": 99.75,
         "weight": 1390,
-        "name": "Mercedes-Benz AMG GT4",
+        "name": "Mercedes-AMG GT4",
         "rid": "Mercedes-Benz_AMG_GT4_2018",
         "prize": true,
         "bodyTypes": [
@@ -20079,7 +20079,7 @@
         "tyres": "All-surface",
         "mra": 93.74,
         "weight": 2355,
-        "name": "RUF Dakara",
+        "name": "Ruf Dakara",
         "rid": "RUF_Dakara_2009",
         "bodyTypes": [
             "SUV"
@@ -20330,7 +20330,7 @@
     {
         "class": "A",
         "rq": 79,
-        "onlyName": "TT RS Plus Coupe",
+        "onlyName": "TT RS Plus Coupé",
         "brand": "Audi",
         "year": 2010,
         "abs": true,
@@ -20344,7 +20344,7 @@
         "tyres": "Performance",
         "mra": 67.86,
         "weight": 1475,
-        "name": "Audi TT RS Plus Coupe",
+        "name": "Audi TT RS Plus Coupé",
         "rid": "Audi_TT_RS_plus_Coupe_2012",
         "bodyTypes": [
             "Coupe"
@@ -20749,7 +20749,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1150,
-        "name": "Citroen BX 4TC Group B",
+        "name": "Citroën BX 4TC Group B",
         "rid": "Citroen_BX_4TC_Group_B_1986",
         "prize": true,
         "bodyTypes": [
@@ -20819,7 +20819,7 @@
         "tyres": "Standard",
         "mra": 57.11,
         "weight": 2020,
-        "name": "Hyundai Ioniq 6 77 kWh 4WD",
+        "name": "Hyundai Ioniq 6 77 kWh 4WD ",
         "rid": "Hyundai_Ioniq_6_77_kWh_4WD_2022",
         "prize": false,
         "bodyTypes": [
@@ -22175,7 +22175,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1595,
-        "name": "Audi R8 V10 Performance RWD",
+        "name": "Audi R8 V10 Performance RWD ",
         "rid": "Audi_R8_V10_Performance_RWD_2022",
         "prize": true,
         "bodyTypes": [
@@ -22684,7 +22684,7 @@
         "tyres": "Standard",
         "mra": 60.71,
         "weight": 1500,
-        "name": "Citroen DS Numéro 9",
+        "name": "Citroën DS Numéro 9",
         "rid": "DS_DS_Numero_9_2012",
         "bodyTypes": [
             "Estate"
@@ -22853,7 +22853,7 @@
         "tyres": "Standard",
         "mra": 60.38,
         "weight": 2045,
-        "name": "Hyundai Ioniq 5 77 kWh 4WD",
+        "name": "Hyundai Ioniq 5 77 kWh 4WD ",
         "rid": "Hyundai_Ioniq_5_77_kWh_4WD_2021",
         "prize": false,
         "bodyTypes": [
@@ -23643,7 +23643,7 @@
         "tyres": "Standard",
         "mra": 68.35,
         "weight": 2064,
-        "name": "Audi A7 Sportback 55 TFSI e",
+        "name": "Audi A7 Sportback 55 TFSI e ",
         "rid": "Audi_A7_Sportback_55_TFSI_e_2024",
         "prize": false,
         "bodyTypes": [
@@ -23779,7 +23779,7 @@
         "tyres": "All-surface",
         "mra": 67.19,
         "weight": 2725,
-        "name": "Audi SQ8 e-tron",
+        "name": "Audi SQ8 e-tron ",
         "rid": "Audi_SQ8_etron_2024",
         "prize": false,
         "bodyTypes": [
@@ -24083,7 +24083,7 @@
         "tyres": "Standard",
         "mra": 83.84,
         "weight": 1500,
-        "name": "Citroen C Xperience",
+        "name": "Citroën C Xperience",
         "rid": "Citroen_CXperience_2016",
         "bodyTypes": [
             "Estate"
@@ -24335,7 +24335,7 @@
     {
         "class": "A",
         "rq": 77,
-        "onlyName": "Mercedes-Benz SLR McLaren 722",
+        "onlyName": "SLR McLaren 722",
         "brand": "McLaren",
         "year": 2006,
         "abs": true,
@@ -24349,7 +24349,7 @@
         "tyres": "Performance",
         "mra": 83.14,
         "weight": 1724,
-        "name": "McLaren Mercedes-Benz SLR McLaren 722",
+        "name": "Mercedes-Benz SLR McLaren 722",
         "rid": "McLaren_Mercedes-Benz_SLR_McLaren_722_2006",
         "bodyTypes": [
             "Coupe"
@@ -24370,7 +24370,7 @@
     {
         "class": "A",
         "rq": 77,
-        "onlyName": "AMG ML 63",
+        "onlyName": "ML 63",
         "brand": "Mercedes-Benz",
         "year": 2012,
         "abs": true,
@@ -24384,7 +24384,7 @@
         "tyres": "All-surface",
         "mra": 85.98,
         "weight": 2345,
-        "name": "Mercedes-Benz AMG ML 63",
+        "name": "Mercedes-AMG ML 63",
         "rid": "Mercedes-Benz_AMG_ML_63_2012",
         "bodyTypes": [
             "SUV"
@@ -24403,7 +24403,7 @@
     {
         "class": "A",
         "rq": 77,
-        "onlyName": "AMG S 63 Cabriolet",
+        "onlyName": "S 63 Cabriolet",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -24417,7 +24417,7 @@
         "tyres": "Performance",
         "mra": 78.39,
         "weight": 2185,
-        "name": "Mercedes-Benz AMG S 63 Cabriolet",
+        "name": "Mercedes-AMG S 63 Cabriolet",
         "rid": "Benz_AMG_S_63_Cabriolet_2018",
         "bodyTypes": [
             "Convertible"
@@ -24620,7 +24620,7 @@
         "tyres": "Performance",
         "mra": 102.86,
         "weight": 1190,
-        "name": "RUF SCR 4.2",
+        "name": "Ruf SCR 4.2",
         "rid": "RUF_SCR_4.2_2016",
         "bodyTypes": [
             "Coupe"
@@ -24654,7 +24654,7 @@
         "tyres": "Standard",
         "mra": 78.57,
         "weight": 1550,
-        "name": "Skoda Superb Hatchback 2.0 TSI 4x4",
+        "name": "Škoda Superb Hatchback 2.0 TSI 4x4",
         "rid": "Skoda_Superb_Hatchback_20_TSI_4x4_2016",
         "prize": false,
         "bodyTypes": [
@@ -25718,7 +25718,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1450,
-        "name": "Citroen ZX Rallye Raid",
+        "name": "Citroën ZX Rallye Raid",
         "rid": "Citroen_ZX_Rallye_Raid_1990",
         "prize": true,
         "bodyTypes": [
@@ -26215,7 +26215,7 @@
     {
         "class": "A",
         "rq": 76,
-        "onlyName": "AMG A 45",
+        "onlyName": "A 45",
         "brand": "Mercedes-Benz",
         "year": 2012,
         "abs": true,
@@ -26229,7 +26229,7 @@
         "tyres": "Performance",
         "mra": 68.55,
         "weight": 1555,
-        "name": "Mercedes-Benz AMG A 45",
+        "name": "Mercedes-AMG A 45",
         "rid": "Mercedes-Benz_AMG_A_45_2016",
         "bodyTypes": [
             "Hatchback"
@@ -26248,7 +26248,7 @@
     {
         "class": "A",
         "rq": 76,
-        "onlyName": "AMG GT S",
+        "onlyName": "GT S",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -26262,7 +26262,7 @@
         "tyres": "Performance",
         "mra": 100,
         "weight": 1645,
-        "name": "Mercedes-Benz AMG GT S",
+        "name": "Mercedes-AMG GT S",
         "rid": "Mercedes-Benz_AMG_GT_S_2016",
         "bodyTypes": [
             "Coupe"
@@ -26281,7 +26281,7 @@
     {
         "class": "A",
         "rq": 76,
-        "onlyName": "E400 4Matic Coupe",
+        "onlyName": "E400 4Matic Coupé",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -26295,7 +26295,7 @@
         "tyres": "Standard",
         "mra": 71.67,
         "weight": 1905,
-        "name": "Mercedes-Benz E400 4Matic Coupe",
+        "name": "Mercedes-Benz E400 4Matic Coupé",
         "rid": "Mercedes-Benz_E400_4Matic_CoupВ_2018",
         "bodyTypes": [
             "Coupe"
@@ -27165,7 +27165,7 @@
         "tyres": "Slick",
         "mra": null,
         "weight": 1100,
-        "name": "Citroen C-Elysée Touring Car",
+        "name": "Citroën C-Elysée Touring Car",
         "rid": "Citroen_CElyee_Touring_Car_2016",
         "prize": true,
         "bodyTypes": [
@@ -27701,7 +27701,7 @@
     {
         "class": "A",
         "rq": 75,
-        "onlyName": "Mercedes-Benz SLR McLaren",
+        "onlyName": "SLR McLaren",
         "brand": "McLaren",
         "year": 2003,
         "abs": true,
@@ -27715,7 +27715,7 @@
         "tyres": "Performance",
         "mra": 88.95,
         "weight": 1628,
-        "name": "McLaren Mercedes-Benz SLR McLaren",
+        "name": "Mercedes-Benz SLR McLaren",
         "rid": "McLaren_Mercedes-Benz_SLR_McLaren_2003",
         "bodyTypes": [
             "Coupe"
@@ -27883,7 +27883,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 3076,
-        "name": "RAM 1500 TRX Gold Shot",
+        "name": "Ram 1500 TRX Gold Shot",
         "rid": "Ram_1500_TRX_Gold_Shot_2022",
         "prize": true,
         "bodyTypes": [
@@ -28085,7 +28085,7 @@
         "tyres": "Performance",
         "mra": 69.23,
         "weight": 2010,
-        "name": "Volvo Concept Coupe",
+        "name": "Volvo Concept Coupé",
         "rid": "Volvo_Concept_Coupe_2020",
         "bodyTypes": [
             "Coupe"
@@ -28593,7 +28593,7 @@
         "tyres": "Slick",
         "mra": 99.34,
         "weight": 1100,
-        "name": "Citroen C-Elysée Touring Car",
+        "name": "Citroën C-Elysée Touring Car",
         "rid": "Citroen_CElysee_Touring_Car_2013",
         "prize": true,
         "bodyTypes": [
@@ -28819,7 +28819,7 @@
     {
         "class": "A",
         "rq": 74,
-        "onlyName": "AMG GLS 63",
+        "onlyName": "GLS 63",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -28833,7 +28833,7 @@
         "tyres": "All-surface",
         "mra": 70.31,
         "weight": 2610,
-        "name": "Mercedes-Benz AMG GLS 63",
+        "name": "Mercedes-AMG GLS 63",
         "rid": "MercedesAMG_GLS_63_2018",
         "bodyTypes": [
             "SUV"
@@ -28932,7 +28932,7 @@
         "tyres": "Performance",
         "mra": 72.7,
         "weight": 1200,
-        "name": "Mitsubishi HSR-II",
+        "name": "Mitsubishi HSR-II ",
         "rid": "Mitsubishi_HSRII_1989",
         "prize": false,
         "bodyTypes": [
@@ -29074,7 +29074,7 @@
         "tyres": "Performance",
         "mra": 68.85,
         "weight": 1900,
-        "name": "Peugeot Quartz",
+        "name": "Peugeot Quartz ",
         "rid": "Peugeot_Quartz_2015",
         "prize": false,
         "bodyTypes": [
@@ -29308,7 +29308,7 @@
         "tyres": "Off-road",
         "mra": 67.52,
         "weight": 3114,
-        "name": "RAM 1500 TRX",
+        "name": "Ram 1500 TRX",
         "rid": "Dodge_Ram_1500_TRX_2021",
         "prize": true,
         "bodyTypes": [
@@ -29377,7 +29377,7 @@
         "tyres": "Performance",
         "mra": 106.06,
         "weight": 1150,
-        "name": "RUF CTR \"Yellowbird\"",
+        "name": "Ruf CTR \"Yellowbird\"",
         "rid": "RUF_CTR_Yellowbird_1987",
         "prize": true,
         "bodyTypes": [
@@ -29774,7 +29774,7 @@
     {
         "class": "A",
         "rq": 73,
-        "onlyName": "TT S Coupe",
+        "onlyName": "TT S Coupé",
         "brand": "Audi",
         "year": 2015,
         "abs": true,
@@ -29788,7 +29788,7 @@
         "tyres": "Performance",
         "mra": 70.97,
         "weight": 1385,
-        "name": "Audi TT S Coupe",
+        "name": "Audi TT S Coupé",
         "rid": "Audi_TTS_Coupe_2015",
         "bodyTypes": [
             "Coupe"
@@ -30435,7 +30435,7 @@
         "tyres": "All-surface",
         "mra": 75.1,
         "weight": 2335,
-        "name": "Land Rover Sport SVR",
+        "name": "Range Rover Sport SVR",
         "rid": "Land_Rover_Range_Rover_Sport_SVR_2016",
         "prize": true,
         "bodyTypes": [
@@ -30557,7 +30557,7 @@
     {
         "class": "A",
         "rq": 73,
-        "onlyName": "Mercedes-Benz SLR McLaren Roadster",
+        "onlyName": "SLR McLaren Roadster",
         "brand": "McLaren",
         "year": 2007,
         "abs": true,
@@ -30571,7 +30571,7 @@
         "tyres": "Performance",
         "mra": 85.71,
         "weight": 1825,
-        "name": "McLaren Mercedes-Benz SLR McLaren Roadster",
+        "name": "Mercedes-Benz SLR McLaren Roadster",
         "rid": "McLaren_Mercedes-Benz_SLR_McLaren_Roadster_2007",
         "bodyTypes": [
             "Roadster"
@@ -30590,7 +30590,7 @@
     {
         "class": "A",
         "rq": 73,
-        "onlyName": "AMG GT",
+        "onlyName": "GT",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -30604,7 +30604,7 @@
         "tyres": "Performance",
         "mra": 95.12,
         "weight": 1615,
-        "name": "Mercedes-Benz AMG GT",
+        "name": "Mercedes-AMG GT",
         "rid": "Mercedes-Benz_AMG_GT_2016",
         "bodyTypes": [
             "Coupe"
@@ -30795,7 +30795,7 @@
     {
         "class": "A",
         "rq": 73,
-        "onlyName": "Cayenne Coupe 3.0 (9Y3)",
+        "onlyName": "Cayenne Coupé 3.0 (9Y3)",
         "brand": "Porsche",
         "year": 2019,
         "abs": true,
@@ -30809,7 +30809,7 @@
         "tyres": "All-surface",
         "mra": 69.51,
         "weight": 2030,
-        "name": "Porsche Cayenne Coupe 3.0 (9Y3)",
+        "name": "Porsche Cayenne Coupé 3.0 (9Y3)",
         "rid": "Porsche_Cayenne_Coupe_3.0_(9Y3)_2019",
         "bodyTypes": [
             "SUV"
@@ -31644,7 +31644,7 @@
     {
         "class": "A",
         "rq": 72,
-        "onlyName": "Vision 6 Coupe",
+        "onlyName": "Vision 6 Coupé",
         "brand": "Mercedes-Benz",
         "year": 2016,
         "abs": true,
@@ -31658,7 +31658,7 @@
         "tyres": "Performance",
         "mra": 89.41,
         "weight": 2000,
-        "name": "Maybach Vision 6 Coupe",
+        "name": "Maybach Vision 6 Coupé",
         "rid": "Maybach_Vision_6_CoupВ_2016",
         "bodyTypes": [
             "Coupe"
@@ -31678,7 +31678,7 @@
     {
         "class": "A",
         "rq": 72,
-        "onlyName": "AMG CLK DTM",
+        "onlyName": "CLK DTM",
         "brand": "Mercedes-Benz",
         "year": 2007,
         "abs": true,
@@ -31692,7 +31692,7 @@
         "tyres": "Performance",
         "mra": 99.59,
         "weight": 1840,
-        "name": "Mercedes-Benz AMG CLK DTM",
+        "name": "Mercedes-AMG CLK DTM",
         "rid": "Mercedes-Benz_AMG_CLK_DTM_2007",
         "bodyTypes": [
             "Convertible"
@@ -31711,7 +31711,7 @@
     {
         "class": "A",
         "rq": 72,
-        "onlyName": "AMG G 63",
+        "onlyName": "G 63",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -31725,7 +31725,7 @@
         "tyres": "All-surface",
         "mra": 63.93,
         "weight": 2485,
-        "name": "Mercedes-Benz AMG G 63",
+        "name": "Mercedes-AMG G 63",
         "rid": "MercedesAMG_G_63_2018",
         "bodyTypes": [
             "SUV"
@@ -31744,7 +31744,7 @@
     {
         "class": "A",
         "rq": 72,
-        "onlyName": "AMG GT Roadster",
+        "onlyName": "GT Roadster",
         "brand": "Mercedes-Benz",
         "year": 2018,
         "abs": true,
@@ -31758,7 +31758,7 @@
         "tyres": "Performance",
         "mra": 96.37,
         "weight": 1670,
-        "name": "Mercedes-Benz AMG GT Roadster",
+        "name": "Mercedes-AMG GT Roadster",
         "rid": "MercedesAMG_GT_Roadster_2018",
         "bodyTypes": [
             "Roadster"
@@ -31890,7 +31890,7 @@
         "tyres": "Off-road",
         "mra": 62.77,
         "weight": 1800,
-        "name": "Mitsubishi Pajero Evolution MPR13",
+        "name": "Mitsubishi Pajero Evolution MPR13 ",
         "rid": "Mitsubishi_Pajero_Evolution_MPR13_2007",
         "prize": true,
         "bodyTypes": [
@@ -32228,7 +32228,7 @@
         "tyres": "Slick",
         "mra": 91.84,
         "weight": 975,
-        "name": "Renault Laguna Super Touring",
+        "name": "Renault Sport Laguna Super Touring",
         "rid": "Renault_Sport_Laguna_BTCC_1999",
         "prize": true,
         "bodyTypes": [
@@ -32264,7 +32264,7 @@
         "tyres": "Performance",
         "mra": 83.97,
         "weight": 1375,
-        "name": "RUF 3800S",
+        "name": "Ruf 3800S",
         "rid": "RUF_3800S_2013",
         "bodyTypes": [
             "Roadster"
@@ -32297,7 +32297,7 @@
         "tyres": "Off-road",
         "mra": 55.86,
         "weight": 1350,
-        "name": "Skoda Afriq",
+        "name": "Škoda Afriq",
         "rid": "Skoda_Afriq_2022",
         "prize": true,
         "bodyTypes": [
@@ -34130,7 +34130,7 @@
         "tyres": "Standard",
         "mra": 62.35,
         "weight": 2510,
-        "name": "Audi Q8 55 Sportback e-tron",
+        "name": "Audi Q8 55 Sportback e-tron ",
         "rid": "Audi_Q8_55_Sportback_etron_2024",
         "prize": false,
         "bodyTypes": [
@@ -34685,7 +34685,7 @@
     {
         "class": "A",
         "rq": 70,
-        "onlyName": "Abarth 124 Spider Rally",
+        "onlyName": "124 Spider Rally",
         "brand": "Fiat",
         "year": 2016,
         "abs": true,
@@ -34699,7 +34699,7 @@
         "tyres": "Performance",
         "mra": 80,
         "weight": 1050,
-        "name": "Fiat Abarth 124 Spider Rally",
+        "name": "Abarth 124 Spider Rally",
         "rid": "Fiat_Abarth_124_Spider_Rally_2016",
         "bodyTypes": [
             "Coupe"
@@ -34720,7 +34720,7 @@
     {
         "class": "A",
         "rq": 70,
-        "onlyName": "Abarth Grande Punto S2000",
+        "onlyName": "Grande Punto S2000",
         "brand": "Fiat",
         "year": 2006,
         "abs": false,
@@ -34734,7 +34734,7 @@
         "tyres": "Slick",
         "mra": 87.23,
         "weight": 1150,
-        "name": "Fiat Abarth Grande Punto S2000",
+        "name": "Abarth Grande Punto S2000",
         "rid": "Fiat_Abarth_Grande_Punto_S2000_2006",
         "prize": true,
         "bodyTypes": [
@@ -35228,7 +35228,7 @@
     {
         "class": "A",
         "rq": 70,
-        "onlyName": "AMG C 63",
+        "onlyName": "C 63 AMG",
         "brand": "Mercedes-Benz",
         "year": 2012,
         "abs": true,
@@ -35242,7 +35242,7 @@
         "tyres": "Performance",
         "mra": 89.48,
         "weight": 1730,
-        "name": "Mercedes-Benz AMG C 63",
+        "name": "Mercedes-Benz C 63 AMG",
         "rid": "Mercedes-Benz_AMG_C_63_2012",
         "bodyTypes": [
             "Saloon"
@@ -35261,7 +35261,7 @@
     {
         "class": "A",
         "rq": 70,
-        "onlyName": "AMG E 63 S",
+        "onlyName": "E 63 S",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -35275,7 +35275,7 @@
         "tyres": "Performance",
         "mra": 74.49,
         "weight": 1870,
-        "name": "Mercedes-Benz AMG E 63 S",
+        "name": "Mercedes-AMG E 63 S",
         "rid": "Mercedes-Benz_AMG_E_63_S_2015",
         "bodyTypes": [
             "Saloon"
@@ -35411,7 +35411,7 @@
         "tyres": "Off-road",
         "mra": 90,
         "weight": 2721,
-        "name": "RAM Rebel TRX",
+        "name": "Ram Rebel TRX",
         "rid": "RAM_RAM_Rebel_TRX_Concept_2016",
         "prize": true,
         "bodyTypes": [
@@ -35447,7 +35447,7 @@
         "tyres": "Performance",
         "mra": 71.84,
         "weight": 1420,
-        "name": "RUF BTR2",
+        "name": "Ruf BTR2",
         "rid": "RUF_BTR2_1993",
         "bodyTypes": [
             "Coupe"
@@ -35479,7 +35479,7 @@
         "tyres": "Performance",
         "mra": 81.25,
         "weight": 1495,
-        "name": "RUF R Kompressor",
+        "name": "Ruf R Kompressor",
         "rid": "RUF_R_Kompressor_2006",
         "bodyTypes": [
             "Coupe"
@@ -35512,7 +35512,7 @@
         "tyres": "Performance",
         "mra": 70.37,
         "weight": 1450,
-        "name": "RUF RK Coupe",
+        "name": "Ruf RK Coupe",
         "rid": "RUF_RK_Coupe_2006",
         "bodyTypes": [
             "Coupe"
@@ -36375,7 +36375,7 @@
     {
         "class": "A",
         "rq": 69,
-        "onlyName": "Corvette Stingray Concept",
+        "onlyName": "Corvette Stingray",
         "brand": "Chevrolet",
         "year": 2009,
         "abs": true,
@@ -36389,7 +36389,7 @@
         "tyres": "Performance",
         "mra": 70.91,
         "weight": 1400,
-        "name": "Chevrolet Corvette Stingray Concept",
+        "name": "Chevrolet Corvette Stingray",
         "rid": "Chevrolet_Corvette_Stingray_Concept_2009",
         "prize": false,
         "bodyTypes": [
@@ -36491,7 +36491,7 @@
         "tyres": "Standard",
         "mra": 51.55,
         "weight": 2100,
-        "name": "Citroen Metropolis",
+        "name": "Citroën Metropolis",
         "rid": "Citroen_Metropolis_2010",
         "bodyTypes": [
             "Saloon"
@@ -36833,7 +36833,7 @@
         "tyres": "Off-road",
         "mra": 69.15,
         "weight": 1825,
-        "name": "Mitsubishi Pajero Evolution MPR11",
+        "name": "Mitsubishi Pajero Evolution MPR11 ",
         "rid": "Mitsubishi_Pajero_Evolution_MPR11_2005",
         "prize": true,
         "bodyTypes": [
@@ -37304,7 +37304,7 @@
         "tyres": "All-surface",
         "mra": 58.7,
         "weight": 1835,
-        "name": "Audi Q5 Sportback 45 TFSI",
+        "name": "Audi Q5 Sportback 45 TFSI ",
         "rid": "Audi_Q5_Sportback_45_TFSI_2024",
         "prize": false,
         "bodyTypes": [
@@ -38407,7 +38407,7 @@
         "tyres": "Performance",
         "mra": 95.12,
         "weight": 1500,
-        "name": "Peugeot 4002 Concept",
+        "name": "Peugeot 4002 Concept ",
         "rid": "Peugeot_4002_Concept_2003",
         "prize": false,
         "bodyTypes": [
@@ -39422,7 +39422,7 @@
         "tyres": "All-surface",
         "mra": 64.83,
         "weight": 2257,
-        "name": "Ford Mustang Mach-E",
+        "name": "Ford Mustang Mach-E   ",
         "rid": "Ford_Mustang_MachE_2020",
         "prize": false,
         "bodyTypes": [
@@ -39661,7 +39661,7 @@
         "tyres": "Performance",
         "mra": 68.12,
         "weight": 850,
-        "name": "Peugeot Flux",
+        "name": "Peugeot Flux ",
         "rid": "Peugeot_Flux_2007",
         "prize": false,
         "bodyTypes": [
@@ -39900,7 +39900,7 @@
         "tyres": "All-surface",
         "mra": 60.31,
         "weight": 1752,
-        "name": "Skoda Kodiaq vRS 2.0 TSI",
+        "name": "Škoda Kodiaq vRS 2.0 TSI",
         "rid": "Skoda_Kodiaq_vRS_20_TSI_2021",
         "prize": false,
         "bodyTypes": [
@@ -39933,7 +39933,7 @@
         "tyres": "Standard",
         "mra": 63.92,
         "weight": 1627,
-        "name": "Skoda Superb Hatchback 3.6 V6",
+        "name": "Škoda Superb Hatchback 3.6 V6",
         "rid": "Skoda_Superb_Hatchback_36_V6_2013",
         "prize": false,
         "bodyTypes": [
@@ -40225,7 +40225,7 @@
     {
         "class": "A",
         "rq": 66,
-        "onlyName": "S5 Coupe",
+        "onlyName": "S5 Coupé",
         "brand": "Audi",
         "year": 2008,
         "abs": true,
@@ -40239,7 +40239,7 @@
         "tyres": "Performance",
         "mra": 73.21,
         "weight": 1630,
-        "name": "Audi S5 Coupe",
+        "name": "Audi S5 Coupé",
         "rid": "Audi_S5_Coupe_2008",
         "bodyTypes": [
             "Coupe"
@@ -41560,7 +41560,7 @@
         "tyres": "All-surface",
         "mra": 73.97,
         "weight": 1611,
-        "name": "Skoda Superb Scout 2.0 TSI",
+        "name": "Škoda Superb Scout 2.0 TSI",
         "rid": "Skoda_Superb_Scout_20_TSI_2021",
         "prize": false,
         "bodyTypes": [
@@ -42098,7 +42098,7 @@
         "tyres": "All-surface",
         "mra": 52.97,
         "weight": 2235,
-        "name": "Audi Q8 50 TDI",
+        "name": "Audi Q8 50 TDI ",
         "rid": "Audi_Q8_50_TDI_2018",
         "bodyTypes": [
             "SUV"
@@ -42263,7 +42263,7 @@
         "tyres": "Performance",
         "mra": 125.63,
         "weight": 750,
-        "name": "Audi Type C Streamliner",
+        "name": "Audi (Auto Union) Type C Streamliner",
         "rid": "Audi_Type_C_Streamliner_1937",
         "prize": true,
         "bodyTypes": [
@@ -42970,7 +42970,7 @@
         "tyres": "Off-road",
         "mra": 88.54,
         "weight": 960,
-        "name": "Citroen Xsara Kit Car",
+        "name": "Citroën Xsara Kit Car",
         "rid": "Citroen_Xsara_Kit_Car_1999",
         "prize": false,
         "bodyTypes": [
@@ -43483,7 +43483,7 @@
         "tyres": "All-surface",
         "mra": 56.25,
         "weight": 1645,
-        "name": "Land Rover Evoque Autobiography Dynamic",
+        "name": "Range Rover Evoque Autobiography Dynamic",
         "rid": "Land_Rover_Range_Rover_Evoque_Autobiography_Dynamic_2015",
         "bodyTypes": [
             "SUV"
@@ -44356,7 +44356,7 @@
         "tyres": "All-surface",
         "mra": 59.85,
         "weight": 3070,
-        "name": "RAM 1500 Revolution",
+        "name": "Ram 1500 Revolution",
         "rid": "Ram_1500_Revolution_2023",
         "prize": false,
         "bodyTypes": [
@@ -44390,7 +44390,7 @@
         "tyres": "Performance",
         "mra": 93.02,
         "weight": 1470,
-        "name": "RUF RCT",
+        "name": "Ruf RCT",
         "rid": "RUF_RCT_1991",
         "bodyTypes": [
             "Coupe"
@@ -44409,7 +44409,7 @@
     {
         "class": "A",
         "rq": 65,
-        "onlyName": "Octavia vRS Bonneville Special",
+        "onlyName": "Octavia vRS Bonneville special",
         "brand": "Skoda",
         "year": 2011,
         "abs": false,
@@ -44423,7 +44423,7 @@
         "tyres": "Performance",
         "mra": 117,
         "weight": 1170,
-        "name": "Skoda Octavia vRS Bonneville Special",
+        "name": "Škoda Octavia vRS Bonneville special",
         "rid": "Skoda_Octavia_vRS_Bonneville_Special_2011",
         "prize": true,
         "bodyTypes": [
@@ -44580,7 +44580,7 @@
     {
         "class": "A",
         "rq": 65,
-        "onlyName": "Opel Corsa Super 1600",
+        "onlyName": "Corsa Super 1600",
         "brand": "Vauxhall",
         "year": 2001,
         "abs": false,
@@ -44594,7 +44594,7 @@
         "tyres": "Off-road",
         "mra": 65.71,
         "weight": 1030,
-        "name": "Vauxhall Opel Corsa Super 1600",
+        "name": "Opel Corsa Super 1600",
         "rid": "Vauxhall_Opel_Corsa_Super_1600_2001",
         "bodyTypes": [
             "Hatchback"
@@ -44864,7 +44864,7 @@
         "tyres": "Performance",
         "mra": 83.33,
         "weight": 1600,
-        "name": "Alfa Romeo 8C Spider Concept",
+        "name": "Alfa Romeo 8C Spider Concept ",
         "rid": "Alfa_Romeo_8c_Spider_Concept_2005",
         "prize": false,
         "bodyTypes": [
@@ -45898,7 +45898,7 @@
     {
         "class": "B",
         "rq": 64,
-        "onlyName": "AMG C 63",
+        "onlyName": "C 63",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -45912,7 +45912,7 @@
         "tyres": "Performance",
         "mra": 80.39,
         "weight": 1785,
-        "name": "Mercedes-Benz AMG C 63",
+        "name": "Mercedes-AMG C 63",
         "rid": "Mercedes-Benz_AMG_C_63_2015",
         "bodyTypes": [
             "Estate"
@@ -45979,7 +45979,7 @@
         "tyres": "Performance",
         "mra": 61.46,
         "weight": 1480,
-        "name": "Mitsubishi Lancer Evolution VII GT-A",
+        "name": "Mitsubishi Lancer Evolution VII GT-A ",
         "rid": "Mitsubishi_Lancer_Evolution_VII_GTA_2002",
         "prize": false,
         "bodyTypes": [
@@ -46258,7 +46258,7 @@
         "tyres": "Off-road",
         "mra": 56.42,
         "weight": 2332,
-        "name": "RAM 1500 Backcountry X",
+        "name": "Ram 1500 Backcountry X",
         "rid": "Ram_1500_Backcountry_X_2022",
         "prize": false,
         "bodyTypes": [
@@ -46279,7 +46279,7 @@
     {
         "class": "B",
         "rq": 64,
-        "onlyName": "Alpine A310 V6 Group 4/B",
+        "onlyName": "A310 V6 Group 4/B",
         "brand": "Renault",
         "year": 1983,
         "abs": false,
@@ -46293,7 +46293,7 @@
         "tyres": "Performance",
         "mra": 64.71,
         "weight": 950,
-        "name": "Renault Alpine A310 V6 Group 4/B",
+        "name": "Alpine A310 V6 Group 4/B",
         "rid": "Renault_Alpine_A310_V6_Group_4B_1983",
         "prize": true,
         "bodyTypes": [
@@ -46747,7 +46747,7 @@
     {
         "class": "B",
         "rq": 63,
-        "onlyName": "420i xDrive Coupe",
+        "onlyName": "420i xDrive Coupé",
         "brand": "BMW",
         "year": 2020,
         "abs": true,
@@ -46761,7 +46761,7 @@
         "tyres": "Standard",
         "mra": 61.26,
         "weight": 1665,
-        "name": "BMW 420i xDrive Coupe",
+        "name": "BMW 420i xDrive Coupé",
         "rid": "BMW_420i_xDrive_Coupe_2020",
         "bodyTypes": [
             "Coupe"
@@ -47064,7 +47064,7 @@
         "tyres": "Slick",
         "mra": 81.82,
         "weight": 940,
-        "name": "Citroen C3 Max",
+        "name": "Citroën C3 Max",
         "rid": "Citroen_C3_Max_2015",
         "prize": false,
         "bodyTypes": [
@@ -47238,7 +47238,7 @@
         "tyres": "Performance",
         "mra": 73.91,
         "weight": 1445,
-        "name": "Hyundai Elantra N",
+        "name": "Hyundai Elantra N ",
         "rid": "Hyundai_Elantra_N_2022",
         "prize": false,
         "bodyTypes": [
@@ -47563,7 +47563,7 @@
     {
         "class": "B",
         "rq": 63,
-        "onlyName": "57S Maybach",
+        "onlyName": "57S",
         "brand": "Mercedes-Benz",
         "year": 2012,
         "abs": true,
@@ -47577,7 +47577,7 @@
         "tyres": "Standard",
         "mra": 92.52,
         "weight": 2735,
-        "name": "Mercedes-Benz 57S Maybach",
+        "name": "Maybach 57S",
         "rid": "Mercedes-Benz_57S_Maybach_2012",
         "bodyTypes": [
             "Saloon"
@@ -47597,7 +47597,7 @@
     {
         "class": "B",
         "rq": 63,
-        "onlyName": "AMG S 65",
+        "onlyName": "S 65",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -47611,7 +47611,7 @@
         "tyres": "Performance",
         "mra": 90.7,
         "weight": 2254,
-        "name": "Mercedes-Benz AMG S 65",
+        "name": "Mercedes-AMG S 65",
         "rid": "Mercedes-Benz_AMG_S_65_Coupe_2016",
         "bodyTypes": [
             "Saloon"
@@ -48022,7 +48022,7 @@
         "tyres": "Performance",
         "mra": 76.06,
         "weight": 1494,
-        "name": "Renault Mégane RS Trophy",
+        "name": "Renault Sport Mégane RS Trophy",
         "rid": "Renault_Megane_RS_Trophy_2018",
         "prize": false,
         "bodyTypes": [
@@ -48056,7 +48056,7 @@
         "tyres": "All-surface",
         "mra": 55.46,
         "weight": 1853,
-        "name": "Skoda Kodiaq vRS 2.0 BiTDI",
+        "name": "Škoda Kodiaq vRS 2.0 BiTDI",
         "rid": "Skoda_Kodiaq_vRS_20_BiTDI_2020",
         "prize": false,
         "bodyTypes": [
@@ -48258,7 +48258,7 @@
         "tyres": "All-surface",
         "mra": 50.5,
         "weight": 1569,
-        "name": "Volvo V40 T5 Cross Country",
+        "name": "Volvo V40 T5 Cross Country ",
         "rid": "Volvo_V40_T5_Cross_Country_2016",
         "prize": false,
         "bodyTypes": [
@@ -48292,7 +48292,7 @@
         "tyres": "All-surface",
         "mra": 69.15,
         "weight": 1880,
-        "name": "Volvo XC60 T6 AWD",
+        "name": "Volvo XC60 T6 AWD ",
         "rid": "Volvo_XC60_T6_AWD_2014",
         "prize": false,
         "bodyTypes": [
@@ -48725,7 +48725,7 @@
         "tyres": "Performance",
         "mra": 67.69,
         "weight": 1869,
-        "name": "Ford Falcon XR8 Sprint",
+        "name": "Ford Falcon XR8 Sprint ",
         "rid": "Ford_Falcon_XR8_Sprint_2016",
         "prize": false,
         "bodyTypes": [
@@ -49238,7 +49238,7 @@
         "tyres": "Performance",
         "mra": 68.35,
         "weight": 1250,
-        "name": "Mitsubishi Lancer GSR Evolution II",
+        "name": "Mitsubishi Lancer GSR Evolution II ",
         "rid": "Mitsubishi_Lancer_GSR_Evolution_II_1994",
         "prize": false,
         "bodyTypes": [
@@ -49616,7 +49616,7 @@
         "tyres": "Performance",
         "mra": 55.32,
         "weight": 1200,
-        "name": "Renault Clio R.S.16",
+        "name": "Renault Sport Clio R.S.16",
         "rid": "Renault_Sport_Clio_R.S.16_2016",
         "bodyTypes": [
             "Hatchback"
@@ -49654,7 +49654,7 @@
         "tyres": "Performance",
         "mra": 69.7,
         "weight": 1320,
-        "name": "RUF RGT",
+        "name": "Ruf RGT",
         "rid": "RUF_RGT_2000",
         "bodyTypes": [
             "Coupe"
@@ -49846,7 +49846,7 @@
     {
         "class": "B",
         "rq": 62,
-        "onlyName": "Opel GTC Concept",
+        "onlyName": "GTC Concept",
         "brand": "Vauxhall",
         "year": 2007,
         "abs": true,
@@ -49860,7 +49860,7 @@
         "tyres": "Performance",
         "mra": 45.86,
         "weight": 1600,
-        "name": "Vauxhall Opel GTC Concept",
+        "name": "Opel GTC Concept",
         "rid": "Vauxhall_Opel_GTC_Concept_2007",
         "bodyTypes": [
             "Coupe"
@@ -49962,7 +49962,7 @@
         "tyres": "Performance",
         "mra": 58.16,
         "weight": 1467,
-        "name": "Alfa Romeo 164 Proteo",
+        "name": "Alfa Romeo 164 Proteo ",
         "rid": "Alfa_Romeo_164_Proteo_1991",
         "prize": false,
         "bodyTypes": [
@@ -50189,7 +50189,7 @@
     {
         "class": "B",
         "rq": 61,
-        "onlyName": "1 Series M coupe",
+        "onlyName": "1 Series M Coupe",
         "brand": "BMW",
         "year": 2011,
         "abs": true,
@@ -50203,7 +50203,7 @@
         "tyres": "Performance",
         "mra": 89.55,
         "weight": 1495,
-        "name": "BMW 1 Series M coupe",
+        "name": "BMW 1 Series M Coupe",
         "rid": "BMW_1-series_M_coupe_2011",
         "bodyTypes": [
             "Coupe"
@@ -51379,7 +51379,7 @@
     {
         "class": "B",
         "rq": 61,
-        "onlyName": "Megane 275 Trophy-R",
+        "onlyName": "Mégane 275 Trophy-R",
         "brand": "Renault",
         "year": 2016,
         "abs": true,
@@ -51393,7 +51393,7 @@
         "tyres": "Performance",
         "mra": 65.47,
         "weight": 1297,
-        "name": "Renault Megane 275 Trophy-R",
+        "name": "Renault Sport Mégane 275 Trophy-R",
         "rid": "Renault_Sport_Megane_275_Trophy-R_2016",
         "bodyTypes": [
             "Hatchback"
@@ -51428,7 +51428,7 @@
         "tyres": "Performance",
         "mra": 81.29,
         "weight": 1350,
-        "name": "RUF BTR",
+        "name": "Ruf BTR",
         "rid": "RUF_BTR_1983",
         "bodyTypes": [
             "Coupe"
@@ -51461,7 +51461,7 @@
         "tyres": "All-surface",
         "mra": 46.88,
         "weight": 1513,
-        "name": "Skoda Karoq 2.0 TSI 4x4",
+        "name": "Škoda Karoq 2.0 TSI 4x4",
         "rid": "Skoda_Karoq_20_TSI_4x4_2020",
         "prize": false,
         "bodyTypes": [
@@ -52201,7 +52201,7 @@
         "tyres": "Performance",
         "mra": 88.06,
         "weight": 1400,
-        "name": "Citroen C-Métisse",
+        "name": "Citroën C-Métisse",
         "rid": "Citroen_CMetisse_2006",
         "prize": false,
         "bodyTypes": [
@@ -52576,7 +52576,7 @@
         "tyres": "All-surface",
         "mra": 69.89,
         "weight": 2330,
-        "name": "Land Rover 5.0 V8",
+        "name": "Range Rover 5.0 V8",
         "rid": "Land_Rover_Range_Rover_5.0_V8_2016",
         "bodyTypes": [
             "SUV"
@@ -53149,7 +53149,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2139,
-        "name": "Skoda Enyaq Coupe iV 80x",
+        "name": "Škoda Enyaq Coupe iV 80x",
         "rid": "Skoda_Enyaq_Coupe_iV_80x_2022",
         "prize": false,
         "bodyTypes": [
@@ -53183,7 +53183,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2118,
-        "name": "Skoda Enyaq iV 80x",
+        "name": "Škoda Enyaq iV 80x",
         "rid": "Skoda_Enyaq_iV_80x_2021",
         "prize": false,
         "bodyTypes": [
@@ -53922,7 +53922,7 @@
         "tyres": "Off-road",
         "mra": 74.03,
         "weight": 1230,
-        "name": "Citroen DS3 R3T",
+        "name": "Citroën DS3 R3T",
         "rid": "Citroen_DS3_R3T_2010",
         "prize": false,
         "bodyTypes": [
@@ -54456,7 +54456,7 @@
     {
         "class": "B",
         "rq": 59,
-        "onlyName": "AMG SLC 43",
+        "onlyName": "SLC 43",
         "brand": "Mercedes-Benz",
         "year": 2016,
         "abs": true,
@@ -54470,7 +54470,7 @@
         "tyres": "Performance",
         "mra": 74.81,
         "weight": 1595,
-        "name": "Mercedes-Benz AMG SLC 43",
+        "name": "Mercedes-AMG SLC 43",
         "rid": "Mercedes-Benz_AMG_SLC_43_2016",
         "bodyTypes": [
             "Roadster"
@@ -54537,7 +54537,7 @@
         "tyres": "Off-road",
         "mra": 66.28,
         "weight": 1080,
-        "name": "Peugeot 208 Rally 4",
+        "name": "Peugeot 208 Rally 4 ",
         "rid": "Peugeot_208_Rally_4_2020",
         "prize": false,
         "bodyTypes": [
@@ -54774,7 +54774,7 @@
         "tyres": "Standard",
         "mra": 82.51,
         "weight": 850,
-        "name": "RUF R56.11",
+        "name": "Ruf R56.11",
         "rid": "RUF_R56.11_2011",
         "bodyTypes": [
             "Coupe"
@@ -54806,7 +54806,7 @@
         "tyres": "Off-road",
         "mra": 63.27,
         "weight": 850,
-        "name": "Skoda Felicia Kit Car",
+        "name": "Škoda Felicia Kit Car",
         "rid": "Skoda_Felicia_Kit_Car_1995",
         "prize": false,
         "bodyTypes": [
@@ -54840,7 +54840,7 @@
         "tyres": "All-surface",
         "mra": 59.82,
         "weight": 1505,
-        "name": "Skoda Octavia Scout 2.0 TSI",
+        "name": "Škoda Octavia Scout 2.0 TSI",
         "rid": "Skoda_Octavia_Scout_20_TSI_2021",
         "prize": false,
         "bodyTypes": [
@@ -55174,7 +55174,7 @@
         "tyres": "Standard",
         "mra": 55.27,
         "weight": 2024,
-        "name": "Volvo V60 Plug-in Hybrid",
+        "name": "Volvo V60 Plug-in Hybrid ",
         "rid": "Volvo_V60_Plugin_Hybrid_2011",
         "prize": false,
         "bodyTypes": [
@@ -55261,7 +55261,7 @@
     {
         "class": "B",
         "rq": 58,
-        "onlyName": "S2 Coupe",
+        "onlyName": "S2 Coupé",
         "brand": "Audi",
         "year": 1993,
         "abs": true,
@@ -55275,7 +55275,7 @@
         "tyres": "Performance",
         "mra": 55.45,
         "weight": 1420,
-        "name": "Audi S2 Coupe",
+        "name": "Audi S2 Coupé",
         "rid": "Audi_S2_Coupe_1993",
         "bodyTypes": [
             "Coupe"
@@ -55881,7 +55881,7 @@
         "tyres": "Performance",
         "mra": 68.49,
         "weight": 1835,
-        "name": "Hyundai Genesis 5.0",
+        "name": "Hyundai Genesis 5.0 ",
         "rid": "Hyundai_Genesis_50_2015",
         "prize": false,
         "bodyTypes": [
@@ -55950,7 +55950,7 @@
         "tyres": "Standard",
         "mra": 55.3,
         "weight": 1395,
-        "name": "Hyundai Kona 1.6 Turbo",
+        "name": "Hyundai Kona 1.6 Turbo ",
         "rid": "Hyundai_Kona_16_Turbo_2021",
         "prize": false,
         "bodyTypes": [
@@ -56249,7 +56249,7 @@
         "tyres": "Performance",
         "mra": 58.33,
         "weight": 1465,
-        "name": "Mazda Atenza",
+        "name": "Mazdaspeed Atenza",
         "rid": "Mazda_Atenza_2006",
         "prize": false,
         "bodyTypes": [
@@ -56268,7 +56268,7 @@
     {
         "class": "B",
         "rq": 58,
-        "onlyName": "Datsun 240Z Rally Car",
+        "onlyName": "240Z Rally Car",
         "brand": "Nissan",
         "year": 1973,
         "abs": false,
@@ -56282,7 +56282,7 @@
         "tyres": "Off-road",
         "mra": 69.06,
         "weight": 995,
-        "name": "Nissan Datsun 240Z Rally Car",
+        "name": "Datsun 240Z Rally Car",
         "rid": "Nissan_Datsun_240Z_Rally_Car_1973",
         "bodyTypes": [
             "Coupe"
@@ -56303,7 +56303,7 @@
     {
         "class": "B",
         "rq": 58,
-        "onlyName": "Megane R26.R",
+        "onlyName": "Mégane R26.R",
         "brand": "Renault",
         "year": 2008,
         "abs": true,
@@ -56317,7 +56317,7 @@
         "tyres": "Performance",
         "mra": 62.37,
         "weight": 1220,
-        "name": "Renault Megane R26.R",
+        "name": "Renault Sport Mégane R26.R",
         "rid": "Renault_Sport_Megane_R26.R_2008",
         "bodyTypes": [
             "Hatchback"
@@ -56353,7 +56353,7 @@
         "tyres": "Performance",
         "mra": 68.49,
         "weight": 1300,
-        "name": "RUF 3400S",
+        "name": "Ruf 3400S",
         "rid": "RUF_3400S_1999",
         "bodyTypes": [
             "Roadster"
@@ -57398,7 +57398,7 @@
         "tyres": "Off-road",
         "mra": 57.05,
         "weight": 850,
-        "name": "Citroen Visa 1000 pistes",
+        "name": "Citroën Visa 1000 pistes",
         "rid": "Citroen_Vista_1000_pistes_1985",
         "prize": false,
         "bodyTypes": [
@@ -57553,7 +57553,7 @@
     {
         "class": "B",
         "rq": 57,
-        "onlyName": "Abarth 500 R3T",
+        "onlyName": "500 R3T",
         "brand": "Fiat",
         "year": 2009,
         "abs": false,
@@ -57567,7 +57567,7 @@
         "tyres": "Off-road",
         "mra": 86.84,
         "weight": 1080,
-        "name": "Fiat Abarth 500 R3T",
+        "name": "Abarth 500 R3T",
         "rid": "Fiat_Abarth_500_R3T_2009",
         "bodyTypes": [
             "Hatchback"
@@ -58345,7 +58345,7 @@
         "tyres": "Performance",
         "mra": 64.56,
         "weight": 1500,
-        "name": "Peugeot Instinct",
+        "name": "Peugeot Instinct ",
         "rid": "Peugeot_Instinct_2017",
         "prize": false,
         "bodyTypes": [
@@ -58414,7 +58414,7 @@
         "tyres": "Off-road",
         "mra": 43.39,
         "weight": 2607,
-        "name": "RAM 1500 Rebel",
+        "name": "Ram 1500 Rebel",
         "rid": "Ram_1500_Rebel_2019",
         "prize": true,
         "bodyTypes": [
@@ -58449,7 +58449,7 @@
         "tyres": "Off-road",
         "mra": 57.09,
         "weight": 2630,
-        "name": "RAM 1500 Warlock",
+        "name": "Ram 1500 Warlock",
         "rid": "Ram_1500_Warlock_2023",
         "prize": false,
         "bodyTypes": [
@@ -58482,7 +58482,7 @@
         "tyres": "All-surface",
         "mra": 66.35,
         "weight": 1720,
-        "name": "RAM Rampage R/T",
+        "name": "Ram Rampage R/T",
         "rid": "Ram_Rampage_RT_2024",
         "prize": false,
         "bodyTypes": [
@@ -58954,7 +58954,7 @@
         "tyres": "Off-road",
         "mra": 42.14,
         "weight": 1000,
-        "name": "Citroen C2 Citroën Sport",
+        "name": "Citroën C2 Citroën Sport",
         "rid": "Citroen_C2_Citroen_Sport_2003",
         "prize": false,
         "bodyTypes": [
@@ -59161,7 +59161,7 @@
         "tyres": "All-surface",
         "mra": 64.08,
         "weight": 1681,
-        "name": "Hyundai Santa Fe Sport 2.0T",
+        "name": "Hyundai Santa Fe Sport 2.0T ",
         "rid": "Hyundai_Santa_Fe_Sport_20T_2016",
         "prize": false,
         "bodyTypes": [
@@ -59631,7 +59631,7 @@
         "tyres": "Off-road",
         "mra": 59.15,
         "weight": 730,
-        "name": "Skoda 130 LR",
+        "name": "Škoda 130 LR",
         "rid": "Skoda_130_LR_1985",
         "prize": false,
         "bodyTypes": [
@@ -59666,7 +59666,7 @@
         "tyres": "All-surface",
         "mra": 49.37,
         "weight": 1676,
-        "name": "Skoda Kodiaq 2.0 TSI 4x4",
+        "name": "Škoda Kodiaq 2.0 TSI 4x4",
         "rid": "Skoda_Kodiaq_20_TSI_4x4_2020",
         "prize": false,
         "bodyTypes": [
@@ -59854,7 +59854,7 @@
     {
         "class": "B",
         "rq": 55,
-        "onlyName": "435i Gran Coupe",
+        "onlyName": "435i Gran Coupé",
         "brand": "BMW",
         "year": 2014,
         "abs": true,
@@ -59868,7 +59868,7 @@
         "tyres": "Performance",
         "mra": 72.18,
         "weight": 1650,
-        "name": "BMW 435i Gran Coupe",
+        "name": "BMW 435i Gran Coupé",
         "rid": "BMW_435i_Gran_Coupe_2014",
         "bodyTypes": [
             "Saloon"
@@ -60187,7 +60187,7 @@
     {
         "class": "B",
         "rq": 55,
-        "onlyName": "DS 7 Crossback E-Tense 4x4 PHEV",
+        "onlyName": "7 Crossback E-Tense 4x4 PHEV",
         "brand": "DS",
         "year": 2018,
         "abs": true,
@@ -60201,7 +60201,7 @@
         "tyres": "Standard",
         "mra": 46.61,
         "weight": 1725,
-        "name": "DS DS 7 Crossback E-Tense 4x4 PHEV",
+        "name": "DS 7 Crossback E-Tense 4x4 PHEV",
         "rid": "DS_DS_7_Crossback_E-Tense_4x4_PHEV_2018",
         "bodyTypes": [
             "SUV"
@@ -60370,7 +60370,7 @@
         "tyres": "Standard",
         "mra": 55.6,
         "weight": 1392,
-        "name": "Hyundai Kona 1.6 Turbo",
+        "name": "Hyundai Kona 1.6 Turbo ",
         "rid": "Hyundai_Kona_16_Turbo_2019",
         "prize": false,
         "bodyTypes": [
@@ -60540,7 +60540,7 @@
         "tyres": "All-surface",
         "mra": 45.04,
         "weight": 2398,
-        "name": "Land Rover Sport",
+        "name": "Range Rover Sport",
         "rid": "Land_Rover_Range_Rover_Sport_2018",
         "bodyTypes": [
             "SUV"
@@ -60807,7 +60807,7 @@
         "tyres": "All-surface",
         "mra": 22.2,
         "weight": 2155,
-        "name": "Mitsubishi Outlander PHEV",
+        "name": "Mitsubishi Outlander PHEV  ",
         "rid": "Mitsubishi_Outlander_PHEV_2021",
         "prize": false,
         "bodyTypes": [
@@ -62134,7 +62134,7 @@
         "tyres": "Performance",
         "mra": 66.41,
         "weight": 1409,
-        "name": "Hyundai Veloster N",
+        "name": "Hyundai Veloster N ",
         "rid": "Hyundai_Veloster_N_2019",
         "prize": false,
         "bodyTypes": [
@@ -62270,7 +62270,7 @@
         "tyres": "All-surface",
         "mra": 55.21,
         "weight": 1841,
-        "name": "Land Rover Velar",
+        "name": "Range Rover Velar",
         "rid": "Land_Rover_Range_Rover_Velar_2018",
         "bodyTypes": [
             "SUV"
@@ -62392,7 +62392,7 @@
     {
         "class": "B",
         "rq": 54,
-        "onlyName": "62 Landaulet Maybach",
+        "onlyName": "62 Landaulet",
         "brand": "Mercedes-Benz",
         "year": 2010,
         "abs": true,
@@ -62406,7 +62406,7 @@
         "tyres": "Standard",
         "mra": 87.45,
         "weight": 2855,
-        "name": "Mercedes-Benz 62 Landaulet Maybach",
+        "name": "Maybach 62 Landaulet",
         "rid": "Mercedes-Benz_62_Landaulet_Maybach_2010",
         "bodyTypes": [
             "Convertible"
@@ -62897,7 +62897,7 @@
     {
         "class": "B",
         "rq": 54,
-        "onlyName": "Opel Adam R2",
+        "onlyName": "Adam R2",
         "brand": "Vauxhall",
         "year": 2016,
         "abs": true,
@@ -62911,7 +62911,7 @@
         "tyres": "Off-road",
         "mra": 49.11,
         "weight": 1030,
-        "name": "Vauxhall Opel Adam R2",
+        "name": "Opel Adam R2",
         "rid": "Vauxhall_Opel_Adam_R2_2016",
         "bodyTypes": [
             "Hatchback"
@@ -63814,7 +63814,7 @@
         "tyres": "Standard",
         "mra": 62.98,
         "weight": 1800,
-        "name": "Citroen DS Wild Rubis",
+        "name": "Citroën DS Wild Rubis",
         "rid": "DS_Wild_Rubis_2013",
         "bodyTypes": [
             "SUV"
@@ -64123,7 +64123,7 @@
         "tyres": "All-surface",
         "mra": 51.9,
         "weight": 1670,
-        "name": "Land Rover Evoque Si4",
+        "name": "Range Rover Evoque Si4",
         "rid": "Land_Rover_Range_Rover_Evoque_2018a",
         "bodyTypes": [
             "SUV"
@@ -64321,7 +64321,7 @@
         "tyres": "Off-road",
         "mra": 49.18,
         "weight": 1500,
-        "name": "Mitsubishi Delica D:5 Rally",
+        "name": "Mitsubishi Delica D:5 Rally ",
         "rid": "Mitsubishi_Delica_D5_Rally_2007",
         "prize": true,
         "bodyTypes": [
@@ -64523,7 +64523,7 @@
         "tyres": "Off-road",
         "mra": 76.4,
         "weight": 930,
-        "name": "Renault Clio Williams Maxi Kit Car",
+        "name": "Renault Sport Clio Williams Maxi Kit Car",
         "rid": "Renault_Clio_Williams_Maxi_Kit_Car_1995",
         "prize": false,
         "bodyTypes": [
@@ -65166,7 +65166,7 @@
         "tyres": "Performance",
         "mra": 62.65,
         "weight": 2050,
-        "name": "Bufori Geneva",
+        "name": "Bufori Geneva ",
         "rid": "Bufori_Geneva_2010",
         "prize": false,
         "bodyTypes": [
@@ -65680,7 +65680,7 @@
         "tyres": "All-surface",
         "mra": 45.35,
         "weight": 2539,
-        "name": "Land Rover P400e PHEV",
+        "name": "Range Rover P400e PHEV",
         "rid": "Land_Rover_Range_Rover_P400e_PHEV_2018",
         "bodyTypes": [
             "SUV"
@@ -65905,7 +65905,7 @@
     {
         "class": "B",
         "rq": 52,
-        "onlyName": "AMG G 63",
+        "onlyName": "G 63",
         "brand": "Mercedes-Benz",
         "year": 2015,
         "abs": true,
@@ -65919,7 +65919,7 @@
         "tyres": "All-surface",
         "mra": 74.6,
         "weight": 2550,
-        "name": "Mercedes-Benz AMG G 63",
+        "name": "Mercedes-AMG G 63",
         "rid": "Mercedes-Benz_AMG_G_63_2015",
         "bodyTypes": [
             "SUV"
@@ -66221,7 +66221,7 @@
         "tyres": "Off-road",
         "mra": 58.14,
         "weight": 720,
-        "name": "Skoda 130 RS",
+        "name": "Škoda 130 RS",
         "rid": "Skoda_130_RS_1975",
         "prize": false,
         "bodyTypes": [
@@ -66256,7 +66256,7 @@
         "tyres": "All-surface",
         "mra": 58.73,
         "weight": 1484,
-        "name": "Skoda Octavia Scout 2.0 TDI",
+        "name": "Škoda Octavia Scout 2.0 TDI",
         "rid": "Skoda_Octavia_Scout_29_TDI_2014",
         "prize": false,
         "bodyTypes": [
@@ -66289,7 +66289,7 @@
         "tyres": "Performance",
         "mra": 60.86,
         "weight": 1547,
-        "name": "Skoda Octavia vRS Estate 2.0 TDI 4x4",
+        "name": "Škoda Octavia vRS Estate 2.0 TDI 4x4",
         "rid": "Skoda_Octavia_vRS_Estate_20_TDI_4x4_2020",
         "prize": false,
         "bodyTypes": [
@@ -66343,7 +66343,7 @@
     {
         "class": "B",
         "rq": 52,
-        "onlyName": "Opel OPC Extreme",
+        "onlyName": "OPC Extreme",
         "brand": "Vauxhall",
         "year": 2014,
         "abs": true,
@@ -66357,7 +66357,7 @@
         "tyres": "Performance",
         "mra": 55.91,
         "weight": 1450,
-        "name": "Vauxhall Opel OPC Extreme",
+        "name": "Opel OPC Extreme",
         "rid": "Vauxhall_Opel_OPC_Extreme_2014",
         "bodyTypes": [
             "Hatchback"
@@ -66969,7 +66969,7 @@
         "tyres": "Performance",
         "mra": 71.95,
         "weight": 1370,
-        "name": "Citroen DS4 Racing",
+        "name": "Citroën DS4 Racing",
         "rid": "Citroen_DS4_Racing_2012",
         "prize": false,
         "bodyTypes": [
@@ -67534,7 +67534,7 @@
     {
         "class": "B",
         "rq": 51,
-        "onlyName": "AMG G 63 6x6",
+        "onlyName": "G 63 6x6",
         "brand": "Mercedes-Benz",
         "year": 2013,
         "abs": true,
@@ -67548,7 +67548,7 @@
         "tyres": "Off-road",
         "mra": 54.29,
         "weight": 3775,
-        "name": "Mercedes-Benz AMG G 63 6x6",
+        "name": "Mercedes-AMG G 63 6x6",
         "rid": "Mercedes-Benz_AMG_G_63_6x6_2013",
         "bodyTypes": [
             "Pickup"
@@ -67755,7 +67755,7 @@
         "tyres": "Off-road",
         "mra": 45.85,
         "weight": 2680,
-        "name": "RAM 1500 Rebel OTG",
+        "name": "Ram 1500 Rebel OTG",
         "rid": "Ram_1500_Rebel_OTG_2019",
         "prize": false,
         "bodyTypes": [
@@ -67776,7 +67776,7 @@
     {
         "class": "B",
         "rq": 51,
-        "onlyName": "Megane IV R.S.",
+        "onlyName": "Mégane IV R.S.",
         "brand": "Renault",
         "year": 2018,
         "abs": true,
@@ -67790,7 +67790,7 @@
         "tyres": "Performance",
         "mra": 68.85,
         "weight": 1407,
-        "name": "Renault Megane IV R.S.",
+        "name": "Renault Sport Mégane IV R.S.",
         "rid": "Renault_Sport_Megane_IV_R.S._2018",
         "bodyTypes": [
             "Hatchback"
@@ -67823,7 +67823,7 @@
         "tyres": "Performance",
         "mra": 79.06,
         "weight": 1350,
-        "name": "RUF Turbo 3.3",
+        "name": "Ruf Turbo 3.3",
         "rid": "RUF_Turbo_3.3_1977",
         "bodyTypes": [
             "Coupe"
@@ -68667,7 +68667,7 @@
         "tyres": "All-surface",
         "mra": null,
         "weight": 850,
-        "name": "Citroen C-Buggy",
+        "name": "Citroën C-Buggy",
         "rid": "Citroen_CBuggy_2006",
         "prize": false,
         "bodyTypes": [
@@ -68702,7 +68702,7 @@
         "tyres": "Performance",
         "mra": 91.67,
         "weight": 1000,
-        "name": "Citroen Saxo Super 1600",
+        "name": "Citroën Saxo Super 1600",
         "rid": "Citroen_Saxo_Super_1600_1997",
         "prize": false,
         "bodyTypes": [
@@ -68927,7 +68927,7 @@
     {
         "class": "B",
         "rq": 50,
-        "onlyName": "Abarth 695 Biposto R",
+        "onlyName": "695 Biposto R",
         "brand": "Fiat",
         "year": 2015,
         "abs": false,
@@ -68941,7 +68941,7 @@
         "tyres": "Off-road",
         "mra": 55.44,
         "weight": 997,
-        "name": "Fiat Abarth 695 Biposto R",
+        "name": "Abarth 695 Biposto R",
         "rid": "Fiat_Abarth_695_Biposto_R_2015",
         "bodyTypes": [
             "Hatchback"
@@ -69491,7 +69491,7 @@
         "tyres": "All-surface",
         "mra": 63.79,
         "weight": 1990,
-        "name": "Hyundai Palisade 3.8 V6",
+        "name": "Hyundai Palisade 3.8 V6 ",
         "rid": "Hyundai_Palisade_38_V6_2020",
         "prize": false,
         "bodyTypes": [
@@ -69613,7 +69613,7 @@
     {
         "class": "B",
         "rq": 50,
-        "onlyName": "Countach LP 400",
+        "onlyName": "Countach LP400",
         "brand": "Lamborghini",
         "year": 1974,
         "abs": false,
@@ -69627,7 +69627,7 @@
         "tyres": "Performance",
         "mra": 74.67,
         "weight": 1560,
-        "name": "Lamborghini Countach LP 400",
+        "name": "Lamborghini Countach LP400",
         "rid": "Lamborghini_Countach_LP400_1974",
         "bodyTypes": [
             "Coupe"
@@ -69765,7 +69765,7 @@
         "tyres": "All-surface",
         "mra": 50.75,
         "weight": 2572,
-        "name": "Land Rover Sport",
+        "name": "Range Rover Sport",
         "rid": "Land_Rover_Range_Rover_Sport_2005",
         "bodyTypes": [
             "SUV"
@@ -70097,7 +70097,7 @@
         "tyres": "Off-road",
         "mra": 44.65,
         "weight": 1800,
-        "name": "Mitsubishi L200 Triton Sport R",
+        "name": "Mitsubishi L200 Triton Sport R ",
         "rid": "Mitsubishi_L200_Triton_Sport_R_2022",
         "prize": false,
         "bodyTypes": [
@@ -70306,7 +70306,7 @@
         "tyres": "Performance",
         "mra": 59.79,
         "weight": 1880,
-        "name": "Peugeot SxC",
+        "name": "Peugeot SxC ",
         "rid": "Peugeot_SxC_2011",
         "prize": false,
         "bodyTypes": [
@@ -70374,7 +70374,7 @@
         "tyres": "All-surface",
         "mra": 30.69,
         "weight": 2314,
-        "name": "RAM 1500 Classic Warlock",
+        "name": "Ram 1500 Classic Warlock",
         "rid": "Dodge_Ram_1500_Classic_Warlock_2021",
         "prize": false,
         "bodyTypes": [
@@ -70408,7 +70408,7 @@
         "tyres": "All-surface",
         "mra": 41.04,
         "weight": 1539,
-        "name": "Skoda Karoq 2.0 TDI 4x4",
+        "name": "Škoda Karoq 2.0 TDI 4x4",
         "rid": "Skoda_Karoq_20_TDI_4x4_2021",
         "prize": false,
         "bodyTypes": [
@@ -70442,7 +70442,7 @@
         "tyres": "All-surface",
         "mra": 57.14,
         "weight": 1714,
-        "name": "Skoda Kodiaq 2.0 TDI 4x4",
+        "name": "Škoda Kodiaq 2.0 TDI 4x4",
         "rid": "Skoda_Kodiaq_20_TDI_4x4_2019",
         "prize": false,
         "bodyTypes": [
@@ -70476,7 +70476,7 @@
         "tyres": "All-surface",
         "mra": 44.43,
         "weight": 1430,
-        "name": "Skoda Yeti 1.8 TSI 4x4",
+        "name": "Škoda Yeti 1.8 TSI 4x4",
         "rid": "Skoda_Yeti_18_TSI_4x4_2013",
         "prize": false,
         "bodyTypes": [
@@ -70511,7 +70511,7 @@
         "tyres": "All-surface",
         "mra": 46.25,
         "weight": 1465,
-        "name": "Skoda Yeti 2.0 TDI 4x4",
+        "name": "Škoda Yeti 2.0 TDI 4x4",
         "rid": "Skoda_Yeti_20_TDI_4x4_2014",
         "prize": false,
         "bodyTypes": [
@@ -71480,7 +71480,7 @@
     {
         "class": "C",
         "rq": 49,
-        "onlyName": "Bigua",
+        "onlyName": "Biguà",
         "brand": "De Tomaso",
         "year": 1996,
         "abs": false,
@@ -71494,7 +71494,7 @@
         "tyres": "Performance",
         "mra": 73.68,
         "weight": 1400,
-        "name": "De Tomaso Bigua",
+        "name": "De Tomaso Biguà",
         "rid": "De_Tomaso_Bigua_1996",
         "bodyTypes": [
             "Roadster"
@@ -72070,7 +72070,7 @@
         "tyres": "Standard",
         "mra": 75,
         "weight": 1910,
-        "name": "Hyundai Ioniq 6 77 kWh",
+        "name": "Hyundai Ioniq 6 77 kWh ",
         "rid": "Hyundai_Ioniq_6_77_kWh_2022",
         "prize": false,
         "bodyTypes": [
@@ -72140,7 +72140,7 @@
         "tyres": "Standard",
         "mra": 58.91,
         "weight": 1653,
-        "name": "Hyundai Tucson 1.6 T-GDI Hybrid",
+        "name": "Hyundai Tucson 1.6 T-GDI Hybrid ",
         "rid": "Hyundai_Tucson_16_TGDI_Hybrid_2021",
         "prize": false,
         "bodyTypes": [
@@ -72174,7 +72174,7 @@
         "tyres": "Standard",
         "mra": 70.3,
         "weight": 1305,
-        "name": "Hyundai Veloster Rally Edition",
+        "name": "Hyundai Veloster Rally Edition ",
         "rid": "Hyundai_Veloster_Rally_Edition_2016",
         "prize": true,
         "bodyTypes": [
@@ -72619,7 +72619,7 @@
         "tyres": "Standard",
         "mra": 57.8,
         "weight": 1609,
-        "name": "Mazda 6 3.7 V6",
+        "name": "Mazda 6 3.7 V6 ",
         "rid": "Mazda_6_37_V6_2010",
         "prize": false,
         "bodyTypes": [
@@ -72925,7 +72925,7 @@
         "tyres": "Performance",
         "mra": 56.3,
         "weight": 1590,
-        "name": "Mitsubishi Lancer Sportback Ralliart",
+        "name": "Mitsubishi Lancer Sportback Ralliart ",
         "rid": "Mitsubishi_Lancer_Sportback_Ralliart_2010",
         "prize": false,
         "bodyTypes": [
@@ -72993,7 +72993,7 @@
         "tyres": "Performance",
         "mra": 79.32,
         "weight": 1525,
-        "name": "Mitsubishi Tarmac Spyder",
+        "name": "Mitsubishi Tarmac Spyder ",
         "rid": "Mitsubishi_Tarmac_Spyder_2003",
         "prize": false,
         "bodyTypes": [
@@ -73330,7 +73330,7 @@
         "tyres": "Performance",
         "mra": 69.71,
         "weight": 1204,
-        "name": "Renault Clio 220 Trophy",
+        "name": "Renault Sport Clio 220 Trophy",
         "rid": "Renault_Sport_Clio_220_Trophy_2016",
         "bodyTypes": [
             "Hatchback"
@@ -73366,7 +73366,7 @@
         "tyres": "Slick",
         "mra": 68.18,
         "weight": 1065,
-        "name": "Renault Clio Cup Car",
+        "name": "Renault Sport Clio Cup Car",
         "rid": "Renault_Sport_Clio_Cup_Car_2014",
         "bodyTypes": [
             "Hatchback"
@@ -73387,7 +73387,7 @@
     {
         "class": "C",
         "rq": 49,
-        "onlyName": "Megane",
+        "onlyName": "Mégane",
         "brand": "Renault",
         "year": 2002,
         "abs": true,
@@ -73401,7 +73401,7 @@
         "tyres": "Performance",
         "mra": 60,
         "weight": 1375,
-        "name": "Renault Megane",
+        "name": "Renault Sport Mégane",
         "rid": "Renault_Sport_Megane_2002",
         "bodyTypes": [
             "Hatchback"
@@ -73468,7 +73468,7 @@
         "tyres": "All-surface",
         "mra": 47.15,
         "weight": 1485,
-        "name": "Skoda Octavia Scout 1.8 TSI",
+        "name": "Škoda Octavia Scout 1.8 TSI",
         "rid": "Skoda_Octavia_Scout_18_TSI_2011",
         "prize": false,
         "bodyTypes": [
@@ -74470,7 +74470,7 @@
         "tyres": "Performance",
         "mra": 58.08,
         "weight": 1170,
-        "name": "Citroen DS 3 Racing",
+        "name": "Citroën DS 3 Racing",
         "rid": "DS_DS_3_Racing_2011",
         "bodyTypes": [
             "Hatchback"
@@ -74603,7 +74603,7 @@
         "tyres": "Performance",
         "mra": 79.41,
         "weight": 1855,
-        "name": "Ford FPV Force 8",
+        "name": "Ford FPV Force 8 ",
         "rid": "Ford_FPV_Force_8_2006",
         "prize": false,
         "bodyTypes": [
@@ -75756,7 +75756,7 @@
         "tyres": "Performance",
         "mra": 66.59,
         "weight": 1240,
-        "name": "Renault Clio 200",
+        "name": "Renault Sport Clio 200",
         "rid": "Renault_Sport_Clio_200_2009",
         "bodyTypes": [
             "Hatchback"
@@ -75844,7 +75844,7 @@
     {
         "class": "C",
         "rq": 48,
-        "onlyName": "Opel GT",
+        "onlyName": "GT",
         "brand": "Vauxhall",
         "year": 2007,
         "abs": true,
@@ -75858,7 +75858,7 @@
         "tyres": "Performance",
         "mra": 66.86,
         "weight": 1337,
-        "name": "Vauxhall Opel GT",
+        "name": "Opel GT",
         "rid": "Vauxhall_Opel_GT_2007",
         "bodyTypes": [
             "Roadster"
@@ -75925,7 +75925,7 @@
         "tyres": "Standard",
         "mra": 62,
         "weight": 1657,
-        "name": "Volvo S80 T6",
+        "name": "Volvo S80 T6 ",
         "rid": "Volvo_S80_T6_2002",
         "prize": false,
         "bodyTypes": [
@@ -76871,7 +76871,7 @@
         "tyres": "Performance",
         "mra": 55.86,
         "weight": 1231,
-        "name": "Citroen DS3 Cabrio Racing",
+        "name": "Citroën DS3 Cabrio Racing",
         "rid": "Citroen_DS3_Cabrio_Racing_2014",
         "prize": false,
         "bodyTypes": [
@@ -76905,7 +76905,7 @@
         "tyres": "Performance",
         "mra": 83.33,
         "weight": 1500,
-        "name": "Citroen DS5 LS R",
+        "name": "Citroën DS5 LS R",
         "rid": "Citroen_DS5_LS_R_2014",
         "prize": false,
         "bodyTypes": [
@@ -77413,7 +77413,7 @@
         "tyres": "All-surface",
         "mra": 48.92,
         "weight": 1683,
-        "name": "Hyundai Tucson 1.6 T-GDI",
+        "name": "Hyundai Tucson 1.6 T-GDI ",
         "rid": "Hyundai_Tucson_16_TGDI_2017",
         "prize": false,
         "bodyTypes": [
@@ -77888,7 +77888,7 @@
         "tyres": "Standard",
         "mra": 59.65,
         "weight": 1010,
-        "name": "Mitsubishi Mirage Asti RS",
+        "name": "Mitsubishi Mirage Asti RS ",
         "rid": "Mitsubishi_Mirage_Asti_RS_1995",
         "prize": false,
         "bodyTypes": [
@@ -78093,7 +78093,7 @@
         "tyres": "Off-road",
         "mra": 47.92,
         "weight": 3401,
-        "name": "RAM 2500 Rebel",
+        "name": "Ram 2500 Rebel",
         "rid": "Ram_2500_Rebel_2023",
         "prize": false,
         "bodyTypes": [
@@ -78126,7 +78126,7 @@
         "tyres": "Performance",
         "mra": 65.71,
         "weight": 1090,
-        "name": "Renault Clio 182 Trophy",
+        "name": "Renault Sport Clio 182 Trophy",
         "rid": "Renault_Sport_Clio_182_Trophy_2005",
         "bodyTypes": [
             "Hatchback"
@@ -78162,7 +78162,7 @@
         "tyres": "Performance",
         "mra": 53.37,
         "weight": 1240,
-        "name": "Renault Clio RS 197",
+        "name": "Renault Sport Clio RS 197",
         "rid": "Renault_Clio_RS_197_2007",
         "prize": false,
         "bodyTypes": [
@@ -78196,7 +78196,7 @@
         "tyres": "Performance",
         "mra": 64.35,
         "weight": 2189,
-        "name": "Skoda Enyaq Coupe vRS iV",
+        "name": "Škoda Enyaq Coupe vRS iV",
         "rid": "Skoda_Enyaq_Coupe_vRS_iV_2022",
         "prize": false,
         "bodyTypes": [
@@ -78231,7 +78231,7 @@
         "tyres": "Performance",
         "mra": 71.11,
         "weight": 1392,
-        "name": "Skoda Octavia vRS 245 Estate",
+        "name": "Škoda Octavia vRS 245 Estate",
         "rid": "Skoda_Octavia_vRS_245_Estate_2017",
         "prize": false,
         "bodyTypes": [
@@ -78264,7 +78264,7 @@
         "tyres": "Performance",
         "mra": 71.91,
         "weight": 1453,
-        "name": "Skoda Octavia vRS Hatchback 2.0 TSI",
+        "name": "Škoda Octavia vRS Hatchback 2.0 TSI",
         "rid": "Skoda_Octavia_vRS_Hatchback_20_TSI_2020",
         "prize": false,
         "bodyTypes": [
@@ -79236,7 +79236,7 @@
         "tyres": "Off-road",
         "mra": 42.29,
         "weight": 1150,
-        "name": "Citroen Cactus Aventure",
+        "name": "Citroën Cactus Aventure",
         "rid": "Citroen_Cactus_Aventure_2014",
         "prize": false,
         "bodyTypes": [
@@ -79271,7 +79271,7 @@
         "tyres": "Off-road",
         "mra": 34.18,
         "weight": 750,
-        "name": "Citroen Visa Trophee",
+        "name": "Citroën Visa Trophee",
         "rid": "Citroen_Vista_Trophee_1982",
         "prize": false,
         "bodyTypes": [
@@ -79306,7 +79306,7 @@
         "tyres": "Performance",
         "mra": 61.03,
         "weight": 997,
-        "name": "Fiat 695 Biposto Record",
+        "name": "Abarth 695 Biposto Record",
         "rid": "Fiat_695_Biposto_Record_2015",
         "prize": true,
         "bodyTypes": [
@@ -79340,7 +79340,7 @@
         "tyres": "Performance",
         "mra": 75.68,
         "weight": 1825,
-        "name": "Ford FPV F6 Tornado",
+        "name": "Ford FPV F6 Tornado ",
         "rid": "Ford_FPV_F6_Tornado_2005",
         "prize": false,
         "bodyTypes": [
@@ -79717,7 +79717,7 @@
         "tyres": "Performance",
         "mra": 74.39,
         "weight": 1400,
-        "name": "Hyundai i30 N",
+        "name": "Hyundai i30 N ",
         "rid": "Hyundai_i30_N_2018",
         "prize": false,
         "bodyTypes": [
@@ -80022,7 +80022,7 @@
         "tyres": "All-surface",
         "mra": 74.43,
         "weight": 1936,
-        "name": "Land Rover Evoque Convertible",
+        "name": "Range Rover Evoque Convertible",
         "rid": "Land_Rover_Range_Rover_Evoque_2016",
         "bodyTypes": [
             "SUV",
@@ -80055,7 +80055,7 @@
         "tyres": "Performance",
         "mra": 59.73,
         "weight": 1483,
-        "name": "Mazda Axela MS",
+        "name": "Mazdaspeed Axela MS",
         "rid": "Mazda_Axela_MS_2008",
         "prize": false,
         "bodyTypes": [
@@ -80394,7 +80394,7 @@
         "tyres": "Performance",
         "mra": 56.03,
         "weight": 1430,
-        "name": "Mitsubishi Eclipse GSR-4",
+        "name": "Mitsubishi Eclipse GSR-4 ",
         "rid": "Mitsubishi_Eclipse_GSR4_1991",
         "prize": false,
         "bodyTypes": [
@@ -80528,7 +80528,7 @@
         "tyres": "Off-road",
         "mra": 70.48,
         "weight": 2100,
-        "name": "Mitsubishi Raider Baja",
+        "name": "Mitsubishi Raider Baja ",
         "rid": "Mitsubishi_Raider_Baja_2006",
         "prize": false,
         "bodyTypes": [
@@ -80562,7 +80562,7 @@
         "tyres": "Off-road",
         "mra": 43.87,
         "weight": 1600,
-        "name": "Mitsubishi Triton Ralliart AXCR",
+        "name": "Mitsubishi Triton Ralliart AXCR ",
         "rid": "Mitsubishi_Triton_Ralliart_AXCR_2022",
         "prize": true,
         "bodyTypes": [
@@ -80886,7 +80886,7 @@
     {
         "class": "C",
         "rq": 46,
-        "onlyName": "220 Coupe Turbo",
+        "onlyName": "220 Coupé Turbo",
         "brand": "Rover",
         "year": 1992,
         "abs": true,
@@ -80900,7 +80900,7 @@
         "tyres": "Performance",
         "mra": 55.39,
         "weight": 1185,
-        "name": "Rover 220 Coupe Turbo",
+        "name": "Rover 220 Coupé Turbo",
         "rid": "Rover_220_Coupe_Turbo_1992",
         "prize": true,
         "bodyTypes": [
@@ -80934,7 +80934,7 @@
         "tyres": "Performance",
         "mra": 61.93,
         "weight": 1120,
-        "name": "RUF SCR",
+        "name": "Ruf SCR",
         "rid": "RUF_SCR_1978",
         "bodyTypes": [
             "Coupe"
@@ -81034,7 +81034,7 @@
         "tyres": "Slick",
         "mra": 63.18,
         "weight": 805,
-        "name": "Skoda 200 RS",
+        "name": "Škoda 200 RS",
         "rid": "Skoda_200_RS_1974",
         "prize": false,
         "bodyTypes": [
@@ -81304,7 +81304,7 @@
         "tyres": "Standard",
         "mra": 53.5,
         "weight": 1750,
-        "name": "Volvo V70 Plug-in Hybrid",
+        "name": "Volvo V70 Plug-in Hybrid ",
         "rid": "Volvo_V70_Plugin_Hybrid_2009",
         "prize": false,
         "bodyTypes": [
@@ -82182,7 +82182,7 @@
         "tyres": "Performance",
         "mra": 50.52,
         "weight": 1030,
-        "name": "Citroen C2-R2 Max",
+        "name": "Citroën C2-R2 Max",
         "rid": "Citroen_C2-R2_Max_2008",
         "bodyTypes": [
             "Hatchback"
@@ -82217,7 +82217,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1000,
-        "name": "Citroen Oli",
+        "name": "Citroën Oli",
         "rid": "Citroen_Oli_2022",
         "prize": false,
         "bodyTypes": [
@@ -82355,7 +82355,7 @@
         "tyres": "Standard",
         "mra": 71.25,
         "weight": 674,
-        "name": "Fiat 1600 Coupé",
+        "name": "Abarth 1600 Coupé",
         "rid": "Fiat_1600_Coupe_1969",
         "prize": true,
         "bodyTypes": [
@@ -82376,7 +82376,7 @@
     {
         "class": "C",
         "rq": 45,
-        "onlyName": "Abarth 695 Biposto",
+        "onlyName": "695 Biposto",
         "brand": "Fiat",
         "year": 2017,
         "abs": true,
@@ -82390,7 +82390,7 @@
         "tyres": "Performance",
         "mra": 57.43,
         "weight": 997,
-        "name": "Fiat Abarth 695 Biposto",
+        "name": "Abarth 695 Biposto",
         "rid": "Fiat_Abarth_695_Biposto_2017",
         "prize": true,
         "bodyTypes": [
@@ -82424,7 +82424,7 @@
         "tyres": "Standard",
         "mra": 35.07,
         "weight": 1626,
-        "name": "Ford Evos",
+        "name": "Ford Evos ",
         "rid": "Ford_Evos_2020",
         "prize": false,
         "bodyTypes": [
@@ -82869,7 +82869,7 @@
         "tyres": "All-surface",
         "mra": 66.91,
         "weight": 1842,
-        "name": "Hyundai Santa Fe 1.6 T-GDI Hybrid",
+        "name": "Hyundai Santa Fe 1.6 T-GDI Hybrid ",
         "rid": "Hyundai_Santa_Fe_16_TGDI_Hybrid_2021",
         "prize": false,
         "bodyTypes": [
@@ -82903,7 +82903,7 @@
         "tyres": "Standard",
         "mra": 63.57,
         "weight": 1921,
-        "name": "Hyundai Tucson 1.6 T-GDI PHEV",
+        "name": "Hyundai Tucson 1.6 T-GDI PHEV ",
         "rid": "Hyundai_Tucson_16_TGDI_PHEV_2021",
         "prize": false,
         "bodyTypes": [
@@ -83687,7 +83687,7 @@
         "tyres": "Standard",
         "mra": 63.96,
         "weight": 1375,
-        "name": "Peugeot 308 1.6 Hybrid 225",
+        "name": "Peugeot 308 1.6 Hybrid 225 ",
         "rid": "Peugeot_308_16_Hybrid_225_2022",
         "prize": false,
         "bodyTypes": [
@@ -83888,7 +83888,7 @@
         "tyres": "Off-road",
         "mra": 54.14,
         "weight": 3133,
-        "name": "RAM 2500 Power Wagon",
+        "name": "Ram 2500 Power Wagon",
         "rid": "Dodge_Ram_2500_Power_Wagon_2019",
         "prize": false,
         "bodyTypes": [
@@ -83922,7 +83922,7 @@
         "tyres": "Performance",
         "mra": 67.02,
         "weight": 1400,
-        "name": "Renault Clio V6",
+        "name": "Renault Sport Clio V6",
         "rid": "Renault_Sport_Clio_V6_2003",
         "bodyTypes": [
             "Hatchback"
@@ -84059,7 +84059,7 @@
         "tyres": "Performance",
         "mra": 73.03,
         "weight": 1345,
-        "name": "Skoda Octavia vRS Hatchback 2.0 TSI",
+        "name": "Škoda Octavia vRS Hatchback 2.0 TSI",
         "rid": "Skoda_Octavia_vRS_Hatchback_20_TSI_2013",
         "prize": false,
         "bodyTypes": [
@@ -84261,7 +84261,7 @@
         "tyres": "Performance",
         "mra": 60.82,
         "weight": 1661,
-        "name": "Volvo S60 T6",
+        "name": "Volvo S60 T6 ",
         "rid": "Volvo_S60_T6_2013",
         "prize": false,
         "bodyTypes": [
@@ -84428,7 +84428,7 @@
         "tyres": "Performance",
         "mra": 65,
         "weight": 1510,
-        "name": "Alfa Romeo Bella",
+        "name": "Alfa Romeo Bella ",
         "rid": "Alfa_Romeo_Bella_1999",
         "prize": false,
         "bodyTypes": [
@@ -85259,7 +85259,7 @@
     {
         "class": "C",
         "rq": 44,
-        "onlyName": "Abarth 124 GT",
+        "onlyName": "124 GT",
         "brand": "Fiat",
         "year": 2018,
         "abs": true,
@@ -85273,7 +85273,7 @@
         "tyres": "Performance",
         "mra": 67.71,
         "weight": 1060,
-        "name": "Fiat Abarth 124 GT",
+        "name": "Abarth 124 GT",
         "rid": "Fiat_Abarth_124_GT_2018",
         "bodyTypes": [
             "Coupe"
@@ -85292,7 +85292,7 @@
     {
         "class": "C",
         "rq": 44,
-        "onlyName": "Abarth 124 Spider",
+        "onlyName": "124 Spider",
         "brand": "Fiat",
         "year": 2017,
         "abs": true,
@@ -85306,7 +85306,7 @@
         "tyres": "Performance",
         "mra": 67.71,
         "weight": 1060,
-        "name": "Fiat Abarth 124 Spider",
+        "name": "Abarth 124 Spider",
         "rid": "Fiat_Abarth_124_Spider_2017",
         "bodyTypes": [
             "Roadster"
@@ -86282,7 +86282,7 @@
         "tyres": "Off-road",
         "mra": 50.8,
         "weight": 2464,
-        "name": "Skoda Mountiaq",
+        "name": "Škoda Mountiaq",
         "rid": "Skoda_Mountiaq_2019",
         "prize": false,
         "bodyTypes": [
@@ -87665,7 +87665,7 @@
         "tyres": "All-surface",
         "mra": 34.59,
         "weight": 1425,
-        "name": "Citroen C4 Aircross 4x4",
+        "name": "Citroën C4 Aircross 4x4",
         "rid": "Citroen_C4_Aircross_4x4_2017",
         "prize": false,
         "bodyTypes": [
@@ -88073,7 +88073,7 @@
         "tyres": "Performance",
         "mra": 62.26,
         "weight": 1380,
-        "name": "Hyundai Elantra Sport",
+        "name": "Hyundai Elantra Sport ",
         "rid": "Hyundai_Elantra_Sport_2018",
         "prize": false,
         "bodyTypes": [
@@ -88248,7 +88248,7 @@
         "tyres": "All-surface",
         "mra": 56.89,
         "weight": 1685,
-        "name": "Land Rover Evoque SD4",
+        "name": "Range Rover Evoque SD4",
         "rid": "Land_Rover_Range_Rover_Evoque_2018b",
         "bodyTypes": [
             "SUV"
@@ -88282,7 +88282,7 @@
         "tyres": "Standard",
         "mra": 56.74,
         "weight": 1600,
-        "name": "Lincoln Zephyr",
+        "name": "Lincoln Zephyr ",
         "rid": "Lincoln_Zephyr_Concept_2004",
         "prize": false,
         "bodyTypes": [
@@ -88385,7 +88385,7 @@
         "tyres": "Performance",
         "mra": 57.94,
         "weight": 1025,
-        "name": "Mazda MX-5 2.0",
+        "name": "Mazda MX-5 2.0 ",
         "rid": "Mazda_MX5_20_2022",
         "prize": false,
         "bodyTypes": [
@@ -88819,7 +88819,7 @@
         "tyres": "Performance",
         "mra": 67.62,
         "weight": 1059,
-        "name": "Renault Clio 172 Cup",
+        "name": "Renault Sport Clio 172 Cup",
         "rid": "Renault_Sport_Clio_172_Cup_1999",
         "bodyTypes": [
             "Hatchback"
@@ -89971,7 +89971,7 @@
         "tyres": "Performance",
         "mra": 79.61,
         "weight": 1280,
-        "name": "Citroen BX 4TC",
+        "name": "Citroën BX 4TC",
         "rid": "Citroen_BX_4TC_1982",
         "prize": true,
         "bodyTypes": [
@@ -90005,7 +90005,7 @@
         "tyres": "Standard",
         "mra": 56.77,
         "weight": 1800,
-        "name": "Citroen Hypnos",
+        "name": "Citroën Hypnos",
         "rid": "Citroen_Hypnos_2008",
         "prize": false,
         "bodyTypes": [
@@ -90041,7 +90041,7 @@
         "tyres": "Off-road",
         "mra": 81.29,
         "weight": 850,
-        "name": "Citroen Visa Chrono",
+        "name": "Citroën Visa Chrono",
         "rid": "Citroen_Visa_Chrono_1982",
         "prize": false,
         "bodyTypes": [
@@ -90111,7 +90111,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1575,
-        "name": "Fiat 600e Scorpionissima",
+        "name": "Abarth 600e Scorpionissima",
         "rid": "Fiat_Abarth_600e_Scorpionissima_2024",
         "prize": true,
         "bodyTypes": [
@@ -90450,7 +90450,7 @@
         "tyres": "Standard",
         "mra": 39.06,
         "weight": 1830,
-        "name": "Hyundai Ioniq 5 58 kWh",
+        "name": "Hyundai Ioniq 5 58 kWh ",
         "rid": "Hyundai_Ioniq_5_58_kWh_2021",
         "prize": false,
         "bodyTypes": [
@@ -90621,7 +90621,7 @@
         "tyres": "Performance",
         "mra": 67.05,
         "weight": 1350,
-        "name": "Lamborghini Athon",
+        "name": "Lamborghini Athon ",
         "rid": "Lamborghini_Athon_1980",
         "prize": false,
         "bodyTypes": [
@@ -90655,7 +90655,7 @@
         "tyres": "All-surface",
         "mra": 49.81,
         "weight": 2440,
-        "name": "Land Rover 4.4 V8",
+        "name": "Range Rover 4.4 V8",
         "rid": "Land_Rover_Range_Rover_4.4_V8_2002",
         "bodyTypes": [
             "SUV"
@@ -90927,7 +90927,7 @@
         "tyres": "Performance",
         "mra": 61.01,
         "weight": 1300,
-        "name": "Mitsubishi HSR-IV",
+        "name": "Mitsubishi HSR-IV ",
         "rid": "Mitsubishi_HSRIV_1993",
         "prize": false,
         "bodyTypes": [
@@ -91364,7 +91364,7 @@
         "tyres": "Standard",
         "mra": 46.86,
         "weight": 1425,
-        "name": "Skoda Octavia Estate 2.0 TDI CR 4x4",
+        "name": "Škoda Octavia Estate 2.0 TDI CR 4x4",
         "rid": "Skoda_Octavia_Estate_20_TDI_CR_4x4_2009",
         "prize": false,
         "bodyTypes": [
@@ -91398,7 +91398,7 @@
         "tyres": "Performance",
         "mra": 75.27,
         "weight": 1620,
-        "name": "Skoda Octavia iV vRS Hatchback",
+        "name": "Škoda Octavia iV vRS Hatchback ",
         "rid": "Skoda_Octavia_iV_vRS_Hatchback_2020",
         "prize": false,
         "bodyTypes": [
@@ -91432,7 +91432,7 @@
         "tyres": "Performance",
         "mra": 59.84,
         "weight": 1497,
-        "name": "Skoda Octavia vRS Estate 2.0 TDI CR 4x4",
+        "name": "Škoda Octavia vRS Estate 2.0 TDI CR 4x4",
         "rid": "Skoda_Octavia_vRS_Estate_20_TDI_CR_4x4_2017",
         "prize": false,
         "bodyTypes": [
@@ -92178,7 +92178,7 @@
         "tyres": "Standard",
         "mra": 68.07,
         "weight": 1431,
-        "name": "Citroen DS4 1.6 THP 200",
+        "name": "Citroën DS4 1.6 THP 200",
         "rid": "Citroen_DS4_16_THP_200_2015",
         "prize": false,
         "bodyTypes": [
@@ -92726,7 +92726,7 @@
         "tyres": "All-surface",
         "mra": 49.23,
         "weight": 1942,
-        "name": "Hyundai Palisade 2.2 CRDi",
+        "name": "Hyundai Palisade 2.2 CRDi ",
         "rid": "Hyundai_Palisade_22_CRDi_2020",
         "prize": false,
         "bodyTypes": [
@@ -93267,7 +93267,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1300,
-        "name": "Mitsubishi Pajero Dakar",
+        "name": "Mitsubishi Pajero Dakar ",
         "rid": "Mitsubishi_Pajero_Dakar_1983",
         "prize": true,
         "bodyTypes": [
@@ -93302,7 +93302,7 @@
         "tyres": "Standard",
         "mra": 73.08,
         "weight": 1771,
-        "name": "Peugeot 508 SW 1.6 225 Hybrid",
+        "name": "Peugeot 508 SW 1.6 225 Hybrid ",
         "rid": "Peugeot_508_SW_16_225_Hybrid_2023",
         "prize": false,
         "bodyTypes": [
@@ -93406,7 +93406,7 @@
         "tyres": "All-surface",
         "mra": 41.76,
         "weight": 3628,
-        "name": "RAM 3500 Limited",
+        "name": "Ram 3500 Limited",
         "rid": "Ram_3500_Limited_2023",
         "prize": false,
         "bodyTypes": [
@@ -93440,7 +93440,7 @@
         "tyres": "Performance",
         "mra": 51.83,
         "weight": 930,
-        "name": "Renault Spider",
+        "name": "Renault Sport Spider",
         "rid": "Renault_Sport_Spider_1996",
         "bodyTypes": [
             "Roadster"
@@ -93474,7 +93474,7 @@
         "tyres": "Performance",
         "mra": 68.07,
         "weight": 1632,
-        "name": "Skoda Octavia iV vRS Estate",
+        "name": "Škoda Octavia iV vRS Estate",
         "rid": "Skoda_Octavia_iV_vRS_Estate_2020",
         "prize": false,
         "bodyTypes": [
@@ -93507,7 +93507,7 @@
         "tyres": "Standard",
         "mra": 76.29,
         "weight": 1675,
-        "name": "Skoda Superb iV 1.4 TSI PHEV",
+        "name": "Škoda Superb iV 1.4 TSI PHEV ",
         "rid": "Skoda_Superb_iV_14_TSI_PHEV_2020",
         "prize": false,
         "bodyTypes": [
@@ -94461,7 +94461,7 @@
         "tyres": "All-surface",
         "mra": 68.47,
         "weight": 1747,
-        "name": "Citroen C-Crosser 2.2 L HDi",
+        "name": "Citroën C-Crosser 2.2 L HDi",
         "rid": "Citroen_C-Crosser_2.2_L_HDi_2007",
         "bodyTypes": [
             "SUV"
@@ -94496,7 +94496,7 @@
         "tyres": "Off-road",
         "mra": 44.78,
         "weight": 1240,
-        "name": "Citroen CX 2400 GTi Rally",
+        "name": "Citroën CX 2400 GTi Rally",
         "rid": "Citroen_CX_2400_GTi_Rally_1977",
         "prize": true,
         "bodyTypes": [
@@ -94530,7 +94530,7 @@
         "tyres": "Standard",
         "mra": 66.94,
         "weight": 1587,
-        "name": "Citroen DS5 1.6 THP 200",
+        "name": "Citroën DS5 1.6 THP 200",
         "rid": "Citroen_DS5_16_THP_200_2014",
         "prize": false,
         "bodyTypes": [
@@ -95448,7 +95448,7 @@
         "tyres": "All-surface",
         "mra": 40.72,
         "weight": 2203,
-        "name": "Holden Trailblazer LTZ",
+        "name": "Holden Trailblazer LTZ ",
         "rid": "Holden_Trailblazer_LTZ_2016",
         "prize": false,
         "bodyTypes": [
@@ -95616,7 +95616,7 @@
         "tyres": "Standard",
         "mra": 63.19,
         "weight": 1680,
-        "name": "Hyundai Grandeur 3.3",
+        "name": "Hyundai Grandeur 3.3 ",
         "rid": "Hyundai_Grandeur_33_2011",
         "prize": false,
         "bodyTypes": [
@@ -95650,7 +95650,7 @@
         "tyres": "Standard",
         "mra": 64.69,
         "weight": 1730,
-        "name": "Hyundai Grandeur 3.8",
+        "name": "Hyundai Grandeur 3.8 ",
         "rid": "Hyundai_Grandeur_38_2005",
         "prize": false,
         "bodyTypes": [
@@ -96090,7 +96090,7 @@
         "tyres": "All-surface",
         "mra": 47.74,
         "weight": 2220,
-        "name": "Land Rover 4.6 HSE",
+        "name": "Range Rover 4.6 HSE",
         "rid": "Land_Rover_Range_Rover_4.6_HSE_1994",
         "bodyTypes": [
             "SUV"
@@ -96597,7 +96597,7 @@
         "tyres": "All-surface",
         "mra": 36.74,
         "weight": 1390,
-        "name": "Mitsubishi Pajero Pinin",
+        "name": "Mitsubishi Pajero Pinin ",
         "rid": "Mitsubishi_Pajero_Pinin_2003",
         "prize": false,
         "bodyTypes": [
@@ -97275,7 +97275,7 @@
         "tyres": "Standard",
         "mra": 53.74,
         "weight": 1191,
-        "name": "Skoda Kamiq 1.5 TSI",
+        "name": "Škoda Kamiq 1.5 TSI",
         "rid": "Skoda_Kamiq_15_TSI_2019",
         "prize": false,
         "bodyTypes": [
@@ -97309,7 +97309,7 @@
         "tyres": "Standard",
         "mra": 55.24,
         "weight": 1252,
-        "name": "Skoda Octavia Estate 1.5 TSI",
+        "name": "Škoda Octavia Estate 1.5 TSI",
         "rid": "Skoda_Octavia_Estate_15_TSI_2019",
         "prize": false,
         "bodyTypes": [
@@ -97342,7 +97342,7 @@
         "tyres": "Standard",
         "mra": 58.73,
         "weight": 1263,
-        "name": "Skoda Octavia Hatchback 1.5 TSI",
+        "name": "Škoda Octavia Hatchback 1.5 TSI",
         "rid": "Skoda_Octavia_Hatchback_15_TSI_2021",
         "prize": false,
         "bodyTypes": [
@@ -97375,7 +97375,7 @@
         "tyres": "Standard",
         "mra": 54.48,
         "weight": 1567,
-        "name": "Skoda Octavia iV Hatchback 1.4 TSI PHEV",
+        "name": "Škoda Octavia iV Hatchback 1.4 TSI PHEV",
         "rid": "Skoda_Octavia_iV_Hatchback_14_TSI_PHEV_2021",
         "prize": false,
         "bodyTypes": [
@@ -97408,7 +97408,7 @@
         "tyres": "Standard",
         "mra": 63.87,
         "weight": 1502,
-        "name": "Skoda Superb Estate 2.0 TFSI",
+        "name": "Škoda Superb Estate 2.0 TFSI",
         "rid": "Skoda_Superb_Estate_20_TFSI_2011",
         "prize": false,
         "bodyTypes": [
@@ -97679,7 +97679,7 @@
         "tyres": "All-surface",
         "mra": 41.54,
         "weight": 2045,
-        "name": "Volvo C40 Recharge",
+        "name": "Volvo C40 Recharge   ",
         "rid": "Volvo_C40_Recharge_2023",
         "prize": false,
         "bodyTypes": [
@@ -97747,7 +97747,7 @@
         "tyres": "All-surface",
         "mra": 41.54,
         "weight": 2030,
-        "name": "Volvo XC40 Recharge",
+        "name": "Volvo XC40 Recharge ",
         "rid": "Volvo_XC40_Recharge_2023",
         "prize": false,
         "bodyTypes": [
@@ -98491,7 +98491,7 @@
         "tyres": "Performance",
         "mra": 62.14,
         "weight": 1065,
-        "name": "Fiat 695 Tributo 131 Rally",
+        "name": "Abarth 695 Tributo 131 Rally",
         "rid": "Fiat_695_Tributo_131_Rally_2022",
         "prize": false,
         "bodyTypes": [
@@ -98511,7 +98511,7 @@
     {
         "class": "D",
         "rq": 39,
-        "onlyName": "Abarth 1000 TC Berlina Corsa",
+        "onlyName": "1000 TC Berlina Corsa",
         "brand": "Fiat",
         "year": 1967,
         "abs": false,
@@ -98525,7 +98525,7 @@
         "tyres": "Slick",
         "mra": 49.93,
         "weight": 583,
-        "name": "Fiat Abarth 1000 TC Berlina Corsa",
+        "name": "Abarth 1000 TC Berlina Corsa",
         "rid": "Fiat_Abarth_1000TC_Berlina_Corsa_1967",
         "bodyTypes": [
             "Coupe"
@@ -98930,7 +98930,7 @@
         "tyres": "Standard",
         "mra": 54.26,
         "weight": 1740,
-        "name": "Hyundai Kona Electric",
+        "name": "Hyundai Kona Electric ",
         "rid": "Hyundai_Kona_Electric_2019",
         "prize": false,
         "bodyTypes": [
@@ -99186,7 +99186,7 @@
     {
         "class": "D",
         "rq": 39,
-        "onlyName": "Autozam AZ-1",
+        "onlyName": "AZ-1",
         "brand": "Mazda",
         "year": 1992,
         "abs": false,
@@ -99200,7 +99200,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 720,
-        "name": "Mazda Autozam AZ-1",
+        "name": "Autozam AZ-1",
         "rid": "Mazda_Autozam_AZ-1_1992",
         "bodyTypes": [
             "Coupe"
@@ -99234,7 +99234,7 @@
         "tyres": "Performance",
         "mra": 57.76,
         "weight": 1110,
-        "name": "Mazda MX-5 Miata",
+        "name": "Mazdaspeed MX-5 Miata",
         "rid": "Mazda_MX5_Miata_2004",
         "prize": false,
         "bodyTypes": [
@@ -99540,7 +99540,7 @@
         "tyres": "Standard",
         "mra": 74.51,
         "weight": 780,
-        "name": "Peugeot 208 HYbrid FE Concept",
+        "name": "Peugeot 208 HYbrid FE Concept ",
         "rid": "Peugeot_208_HYbrid_FE_Concept_2013",
         "prize": false,
         "bodyTypes": [
@@ -99698,7 +99698,7 @@
     {
         "class": "D",
         "rq": 39,
-        "onlyName": "Alpine A110",
+        "onlyName": "A110",
         "brand": "Renault",
         "year": 1971,
         "abs": false,
@@ -99712,7 +99712,7 @@
         "tyres": "Performance",
         "mra": 70.09,
         "weight": 625,
-        "name": "Renault Alpine A110",
+        "name": "Alpine A110",
         "rid": "Renault_Alpine_A110_1971",
         "bodyTypes": [
             "Coupe"
@@ -99732,7 +99732,7 @@
     {
         "class": "D",
         "rq": 39,
-        "onlyName": "Alpine GTA V6 Turbo Le Mans",
+        "onlyName": "GTA V6 Turbo Le Mans",
         "brand": "Renault",
         "year": 1990,
         "abs": false,
@@ -99746,7 +99746,7 @@
         "tyres": "Performance",
         "mra": 81.93,
         "weight": 1210,
-        "name": "Renault Alpine GTA V6 Turbo Le Mans",
+        "name": "Alpine GTA V6 Turbo Le Mans",
         "rid": "Renault_Alpine_GTA_V6_Turbo_Le_Mans_1990",
         "bodyTypes": [
             "Coupe"
@@ -99782,7 +99782,7 @@
         "tyres": "Performance",
         "mra": 62.86,
         "weight": 1410,
-        "name": "Renault Clio V6",
+        "name": "Renault Sport Clio V6",
         "rid": "Renault_Sport_Clio_V6_2001",
         "bodyTypes": [
             "Hatchback"
@@ -99818,7 +99818,7 @@
         "tyres": "Performance",
         "mra": 59.68,
         "weight": 990,
-        "name": "Renault Clio Williams 16V",
+        "name": "Renault Sport Clio Williams 16V",
         "rid": "Renault_Clio_Williams_16V_1994",
         "prize": false,
         "bodyTypes": [
@@ -99918,7 +99918,7 @@
         "tyres": "Performance",
         "mra": 67.96,
         "weight": 1360,
-        "name": "Skoda Octavia vRS Hatchback 2.0T FSI",
+        "name": "Škoda Octavia vRS Hatchback 2.0T FSI",
         "rid": "Skoda_Octavia_vRS_Hatchback_20T_FSI_2009",
         "prize": false,
         "bodyTypes": [
@@ -100517,7 +100517,7 @@
         "tyres": "Standard",
         "mra": 55.73,
         "weight": 1468,
-        "name": "Citroen Xantia Activa V6",
+        "name": "Citroën Xantia Activa V6",
         "rid": "Citroen_Xantia_Activa_V6_1997",
         "bodyTypes": [
             "Saloon"
@@ -100571,7 +100571,7 @@
     {
         "class": "D",
         "rq": 38,
-        "onlyName": "Abarth 695 Esseesse",
+        "onlyName": "695 Esseesse",
         "brand": "Fiat",
         "year": 2021,
         "abs": true,
@@ -100585,7 +100585,7 @@
         "tyres": "Performance",
         "mra": 48.99,
         "weight": 1120,
-        "name": "Fiat Abarth 695 Esseesse",
+        "name": "Abarth 695 Esseesse",
         "rid": "Fiat_Abarth_695_Esseesse_2021",
         "bodyTypes": [
             "Hatchback"
@@ -100604,7 +100604,7 @@
     {
         "class": "D",
         "rq": 38,
-        "onlyName": "Abarth Simca 1300 Bialbero",
+        "onlyName": "Simca 1300 Bialbero",
         "brand": "Fiat",
         "year": 1962,
         "abs": false,
@@ -100618,7 +100618,7 @@
         "tyres": "Performance",
         "mra": 53.57,
         "weight": 630,
-        "name": "Fiat Abarth Simca 1300 Bialbero",
+        "name": "Abarth Simca 1300 Bialbero",
         "rid": "Fiat_Abarth_Simca_1300_Bialbero_1962",
         "bodyTypes": [
             "Coupe"
@@ -101090,7 +101090,7 @@
         "tyres": "Performance",
         "mra": 60.33,
         "weight": 1313,
-        "name": "Hyundai Veloster Turbo",
+        "name": "Hyundai Veloster Turbo ",
         "rid": "Hyundai_Veloster_Turbo_2013",
         "prize": false,
         "bodyTypes": [
@@ -101424,7 +101424,7 @@
         "tyres": "Performance",
         "mra": 55.2,
         "weight": 1290,
-        "name": "Mazda Protege",
+        "name": "Mazdaspeed Protege",
         "rid": "Mazda_Protege_2003",
         "prize": false,
         "bodyTypes": [
@@ -101558,7 +101558,7 @@
         "tyres": "Standard",
         "mra": 50.38,
         "weight": 1310,
-        "name": "Mitsubishi Lancer Ralliart Wagon",
+        "name": "Mitsubishi Lancer Ralliart Wagon ",
         "rid": "Mitsubishi_Lancer_Ralliart_Wagon_2003",
         "prize": false,
         "bodyTypes": [
@@ -101995,7 +101995,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2087,
-        "name": "Skoda Enyaq Coupe iV 80",
+        "name": "Škoda Enyaq Coupe iV 80",
         "rid": "Skoda_Enyaq_Coupe_iV_80_2022",
         "prize": false,
         "bodyTypes": [
@@ -102029,7 +102029,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2087,
-        "name": "Skoda Enyaq iV 80",
+        "name": "Škoda Enyaq iV 80",
         "rid": "Skoda_Enyaq_iV_80_2021",
         "prize": false,
         "bodyTypes": [
@@ -102064,7 +102064,7 @@
         "tyres": "Standard",
         "mra": 58.73,
         "weight": 1325,
-        "name": "Skoda Octavia Hatchback 1.8T FSI",
+        "name": "Škoda Octavia Hatchback 1.8T FSI",
         "rid": "Skoda_Octavia_Hatchback_18T_FSI_2009",
         "prize": false,
         "bodyTypes": [
@@ -102097,7 +102097,7 @@
         "tyres": "Standard",
         "mra": 50.06,
         "weight": 1257,
-        "name": "Skoda Octavia Hatchback 2.0 TDI",
+        "name": "Škoda Octavia Hatchback 2.0 TDI",
         "rid": "Skoda_Octavia_Hatchback_20_TDI_2014",
         "prize": false,
         "bodyTypes": [
@@ -102131,7 +102131,7 @@
         "tyres": "Standard",
         "mra": 63.79,
         "weight": 1603,
-        "name": "Skoda Superb Saloon 2.8 V6",
+        "name": "Škoda Superb Saloon 2.8 V6",
         "rid": "Skoda_Superb_Saloon_28_V6_2002",
         "prize": false,
         "bodyTypes": [
@@ -102219,7 +102219,7 @@
     {
         "class": "D",
         "rq": 38,
-        "onlyName": "Opel GT",
+        "onlyName": "GT",
         "brand": "Vauxhall",
         "year": 2016,
         "abs": true,
@@ -102233,7 +102233,7 @@
         "tyres": "Performance",
         "mra": 49.03,
         "weight": 998,
-        "name": "Vauxhall Opel GT",
+        "name": "Opel GT",
         "rid": "Vauxhall_Opel_GT_Concept_2016",
         "bodyTypes": [
             "Coupe"
@@ -102252,7 +102252,7 @@
     {
         "class": "D",
         "rq": 38,
-        "onlyName": "Opel Manta 400 Rally",
+        "onlyName": "Manta 400 Rally",
         "brand": "Vauxhall",
         "year": 1982,
         "abs": false,
@@ -102266,7 +102266,7 @@
         "tyres": "Performance",
         "mra": 39.86,
         "weight": 980,
-        "name": "Vauxhall Opel Manta 400 Rally",
+        "name": "Opel Manta 400 Rally",
         "rid": "Vauxhall_Opel_Manta_400_Rally_1982",
         "bodyTypes": [
             "Coupe"
@@ -102509,7 +102509,7 @@
         "tyres": "Performance",
         "mra": 62.96,
         "weight": 1440,
-        "name": "Alfa Romeo 164 2.0 12V V6 Turbo",
+        "name": "Alfa Romeo 164 2.0 12V V6 Turbo ",
         "rid": "Alfa_Romeo_164_20_12V_V6_Turbo_1992",
         "prize": false,
         "bodyTypes": [
@@ -103113,7 +103113,7 @@
         "tyres": "Standard",
         "mra": 67.77,
         "weight": 1689,
-        "name": "Citroen DS5 2.0 HDi",
+        "name": "Citroën DS5 2.0 HDi",
         "rid": "Citroen_DS5_20_HDi_2012",
         "prize": false,
         "bodyTypes": [
@@ -103147,7 +103147,7 @@
         "tyres": "Performance",
         "mra": 39.61,
         "weight": 1020,
-        "name": "Citroen Visa Lotus",
+        "name": "Citroën Visa Lotus",
         "rid": "Citroen_Visa_Lotus_1982",
         "prize": false,
         "bodyTypes": [
@@ -103302,7 +103302,7 @@
     {
         "class": "D",
         "rq": 37,
-        "onlyName": "Abarth Punto Evo Esseesse",
+        "onlyName": "Punto Evo Esseesse",
         "brand": "Fiat",
         "year": 2010,
         "abs": true,
@@ -103316,7 +103316,7 @@
         "tyres": "Performance",
         "mra": 66.99,
         "weight": 1249,
-        "name": "Fiat Abarth Punto Evo Esseesse",
+        "name": "Abarth Punto Evo Esseesse",
         "rid": "Fiat_Abarth_Punto_Evo_Esseesse_2010",
         "bodyTypes": [
             "Hatchback"
@@ -103583,7 +103583,7 @@
         "tyres": "Standard",
         "mra": 60,
         "weight": 1290,
-        "name": "Hyundai Elantra 2.0 MPI",
+        "name": "Hyundai Elantra 2.0 MPI ",
         "rid": "Hyundai_Elantra_20_MPI_2021",
         "prize": false,
         "bodyTypes": [
@@ -104331,7 +104331,7 @@
         "tyres": "Performance",
         "mra": 62.5,
         "weight": 1243,
-        "name": "Skoda Fabia vRS Hatchback",
+        "name": "Škoda Fabia vRS Hatchback",
         "rid": "Skoda_Fabia_vRS_Hatchback_2011",
         "prize": false,
         "bodyTypes": [
@@ -104366,7 +104366,7 @@
         "tyres": "Standard",
         "mra": 52.42,
         "weight": 1190,
-        "name": "Skoda Scala 1.5 TSI",
+        "name": "Škoda Scala 1.5 TSI",
         "rid": "Skoda_Scala_15_TSI_2019",
         "prize": false,
         "bodyTypes": [
@@ -105008,7 +105008,7 @@
         "tyres": "Standard",
         "mra": 55.98,
         "weight": 1480,
-        "name": "Citroen C5 V6",
+        "name": "Citroën C5 V6",
         "rid": "Citroen_C5_V6_2003",
         "bodyTypes": [
             "Saloon"
@@ -105041,7 +105041,7 @@
         "tyres": "Standard",
         "mra": 62.5,
         "weight": 1722,
-        "name": "Citroen C5 X Plug-in Hybrid",
+        "name": "Citroën C5 X Plug-in Hybrid",
         "rid": "Citroen_C5_X_Plugin_Hybrid_2022",
         "prize": false,
         "bodyTypes": [
@@ -105075,7 +105075,7 @@
         "tyres": "Performance",
         "mra": 72.46,
         "weight": 1460,
-        "name": "Citroen SM Michelin 'Breadvan'",
+        "name": "Citroën SM Michelin 'Breadvan'",
         "rid": "Citroen_SM_Michelin_Breadvan_1972",
         "prize": false,
         "bodyTypes": [
@@ -105110,7 +105110,7 @@
         "tyres": "Off-road",
         "mra": 61.36,
         "weight": 1380,
-        "name": "Citroen SM Rallye du Maroc",
+        "name": "Citroën SM Rallye du Maroc",
         "rid": "Citroen_SM_Rallye_du_Maroc_1971",
         "prize": false,
         "bodyTypes": [
@@ -105164,7 +105164,7 @@
     {
         "class": "D",
         "rq": 36,
-        "onlyName": "Abarth 695 Tributo Ferrari",
+        "onlyName": "695 Tributo Ferrari",
         "brand": "Fiat",
         "year": 2009,
         "abs": true,
@@ -105178,7 +105178,7 @@
         "tyres": "Performance",
         "mra": 64.92,
         "weight": 1070,
-        "name": "Fiat Abarth 695 Tributo Ferrari",
+        "name": "Abarth 695 Tributo Ferrari",
         "rid": "Fiat_Abarth_695_Tributo_Ferrari_2009",
         "bodyTypes": [
             "Hatchback"
@@ -105247,7 +105247,7 @@
         "tyres": "Performance",
         "mra": 69.9,
         "weight": 1185,
-        "name": "Fiat Punto Evo Scorpione",
+        "name": "Abarth Punto Evo Scorpione",
         "rid": "Fiat_Punto_Evo_Scorpione_2011",
         "prize": false,
         "bodyTypes": [
@@ -105797,7 +105797,7 @@
         "tyres": "Standard",
         "mra": 58.33,
         "weight": 1728,
-        "name": "Hyundai Sonata PHEV",
+        "name": "Hyundai Sonata PHEV ",
         "rid": "Hyundai_Sonata_PHEV_2016",
         "prize": false,
         "bodyTypes": [
@@ -106202,7 +106202,7 @@
         "tyres": "Performance",
         "mra": 45.98,
         "weight": 1770,
-        "name": "Mitsubishi Endeavor Ralliart",
+        "name": "Mitsubishi Endeavor Ralliart ",
         "rid": "Mitsubishi_Endeavor_Ralliart_2004",
         "prize": false,
         "bodyTypes": [
@@ -106471,7 +106471,7 @@
         "tyres": "Standard",
         "mra": 58.41,
         "weight": 1377,
-        "name": "Skoda Octavia Estate 2.0 TDI",
+        "name": "Škoda Octavia Estate 2.0 TDI  ",
         "rid": "Skoda_Octavia_Estate_20_TDI_2020",
         "prize": false,
         "bodyTypes": [
@@ -106792,7 +106792,7 @@
     {
         "class": "D",
         "rq": 35,
-        "onlyName": "Frua Coupe",
+        "onlyName": "Frua Coupé",
         "brand": "AC",
         "year": 1969,
         "abs": false,
@@ -106806,7 +106806,7 @@
         "tyres": "Performance",
         "mra": 66.28,
         "weight": 1483,
-        "name": "AC Frua Coupe",
+        "name": "AC Frua Coupé",
         "rid": "AC_Frua_CoupВ_1969",
         "bodyTypes": [
             "Coupe"
@@ -107547,7 +107547,7 @@
         "tyres": "Performance",
         "mra": 63.49,
         "weight": 1337,
-        "name": "Citroen C4 2.0 16v VTS",
+        "name": "Citroën C4 2.0 16v VTS",
         "rid": "Citroen_C4_2.0_16v_VTS_2004",
         "bodyTypes": [
             "Hatchback"
@@ -107582,7 +107582,7 @@
         "tyres": "Standard",
         "mra": 59.42,
         "weight": 1763,
-        "name": "Citroen C5 Tourer 3.0 L V6 HDi",
+        "name": "Citroën C5 Tourer 3.0 L V6 HDi",
         "rid": "Citroen_C5_Tourer_3.0_L_2016",
         "bodyTypes": [
             "Estate"
@@ -107614,7 +107614,7 @@
         "tyres": "Standard",
         "mra": 55.42,
         "weight": 1496,
-        "name": "Citroen DS4 2.0 HDi",
+        "name": "Citroën DS4 2.0 HDi",
         "rid": "Citroen_DS4_20_HDi_2011",
         "prize": false,
         "bodyTypes": [
@@ -107647,7 +107647,7 @@
         "tyres": "All-surface",
         "mra": 33.97,
         "weight": 1648,
-        "name": "Citroen SpaceTourer 4x4 E",
+        "name": "Citroën SpaceTourer 4x4 E",
         "rid": "Citroen_SpaceTourer_3x3_E_2017",
         "prize": false,
         "bodyTypes": [
@@ -108088,7 +108088,7 @@
         "tyres": "Standard",
         "mra": 58.59,
         "weight": 1500,
-        "name": "Lincoln L2K",
+        "name": "Lincoln L2K ",
         "rid": "Lincoln_L2K_Concept_1995",
         "prize": false,
         "bodyTypes": [
@@ -108727,7 +108727,7 @@
         "tyres": "Performance",
         "mra": 62.83,
         "weight": 1313,
-        "name": "Skoda Fabia vRS Estate",
+        "name": "Škoda Fabia vRS Estate",
         "rid": "Skoda_Fabia_vRS_Estate_2013",
         "prize": false,
         "bodyTypes": [
@@ -108761,7 +108761,7 @@
         "tyres": "Performance",
         "mra": 68.47,
         "weight": 1375,
-        "name": "Skoda Octavia vRS",
+        "name": "Škoda Octavia vRS",
         "rid": "Skoda_Octavia_vRS_2001",
         "prize": false,
         "bodyTypes": [
@@ -108916,7 +108916,7 @@
     {
         "class": "D",
         "rq": 35,
-        "onlyName": "Opel Monza GSE",
+        "onlyName": "Monza GSE",
         "brand": "Vauxhall",
         "year": 1983,
         "abs": false,
@@ -108930,7 +108930,7 @@
         "tyres": "Standard",
         "mra": 41.54,
         "weight": 1397,
-        "name": "Vauxhall Opel Monza GSE",
+        "name": "Opel Monza GSE",
         "rid": "Vauxhall_Opel_Monza_GSE_1983",
         "bodyTypes": [
             "Coupe"
@@ -109271,7 +109271,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 2325,
-        "name": "Audi Q5 40 e-tron",
+        "name": "Audi Q5 40 e-tron ",
         "rid": "Audi_Q5_40_etron_2023",
         "prize": false,
         "bodyTypes": [
@@ -109642,7 +109642,7 @@
         "tyres": "Standard",
         "mra": 85.9,
         "weight": 1948,
-        "name": "Citroen C6 3.0 L V6 HDi",
+        "name": "Citroën C6 3.0 L V6 HDi",
         "rid": "Citroen_C6_3.0_L_V6_HDi_2005",
         "bodyTypes": [
             "Saloon"
@@ -109675,7 +109675,7 @@
         "tyres": "Standard",
         "mra": 63.31,
         "weight": 1500,
-        "name": "Citroen DS5 LS",
+        "name": "Citroën DS5 LS",
         "rid": "Citroen_DS5_LS_2015",
         "prize": false,
         "bodyTypes": [
@@ -109709,7 +109709,7 @@
         "tyres": "Performance",
         "mra": 65.72,
         "weight": 1190,
-        "name": "Citroen Xsara VTS",
+        "name": "Citroën Xsara VTS",
         "rid": "Citroen_Xsara_VTS_1997",
         "bodyTypes": [
             "Hatchback"
@@ -109833,7 +109833,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Abarth 595 Pista",
+        "onlyName": "595 Pista",
         "brand": "Fiat",
         "year": 2017,
         "abs": true,
@@ -109847,7 +109847,7 @@
         "tyres": "Performance",
         "mra": 47,
         "weight": 1120,
-        "name": "Fiat Abarth 595 Pista",
+        "name": "Abarth 595 Pista",
         "rid": "Fiat_Abarth_595_Pista_2017",
         "bodyTypes": [
             "Hatchback"
@@ -109867,7 +109867,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Abarth 595 Turismo",
+        "onlyName": "595 Turismo",
         "brand": "Fiat",
         "year": 2012,
         "abs": true,
@@ -109881,7 +109881,7 @@
         "tyres": "Performance",
         "mra": 63.5,
         "weight": 1110,
-        "name": "Fiat Abarth 595 Turismo",
+        "name": "Abarth 595 Turismo",
         "rid": "Fiat_Abarth_595_Turismo_2012",
         "bodyTypes": [
             "Hatchback"
@@ -109900,7 +109900,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Abarth 695 Tributo Maserati",
+        "onlyName": "695 Tributo Maserati",
         "brand": "Fiat",
         "year": 2012,
         "abs": true,
@@ -109914,7 +109914,7 @@
         "tyres": "Performance",
         "mra": 67.8,
         "weight": 1145,
-        "name": "Fiat Abarth 695 Tributo Maserati",
+        "name": "Abarth 695 Tributo Maserati",
         "rid": "Fiat_Abarth_695_Tributo_Maserati_2012",
         "bodyTypes": [
             "Convertible"
@@ -110863,7 +110863,7 @@
         "tyres": "Performance",
         "mra": 50.76,
         "weight": 1120,
-        "name": "Mitsubishi HSR-VI",
+        "name": "Mitsubishi HSR-VI ",
         "rid": "Mitsubishi_HSRVI_1997",
         "prize": false,
         "bodyTypes": [
@@ -111223,7 +111223,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Megane 2.0 dCi 175",
+        "onlyName": "Mégane 2.0 dCi 175",
         "brand": "Renault",
         "year": 2008,
         "abs": true,
@@ -111237,7 +111237,7 @@
         "tyres": "Performance",
         "mra": 51.51,
         "weight": 1450,
-        "name": "Renault Megane 2.0 dCi 175",
+        "name": "Renault Sport Mégane 2.0 dCi 175",
         "rid": "Renault_Sport_Megane_2.0_dCi_175_2008",
         "bodyTypes": [
             "Hatchback"
@@ -111394,7 +111394,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Opel Ascona 400",
+        "onlyName": "Ascona 400",
         "brand": "Vauxhall",
         "year": 1979,
         "abs": false,
@@ -111408,7 +111408,7 @@
         "tyres": "Performance",
         "mra": 47.45,
         "weight": 1082,
-        "name": "Vauxhall Opel Ascona 400",
+        "name": "Opel Ascona 400",
         "rid": "Vauxhall_Opel_Ascona_400_1979",
         "bodyTypes": [
             "Coupe"
@@ -111426,7 +111426,7 @@
     {
         "class": "D",
         "rq": 34,
-        "onlyName": "Opel Manta 400",
+        "onlyName": "Manta 400",
         "brand": "Vauxhall",
         "year": 1979,
         "abs": false,
@@ -111440,7 +111440,7 @@
         "tyres": "Performance",
         "mra": 45.86,
         "weight": 1095,
-        "name": "Vauxhall Opel Manta 400",
+        "name": "Opel Manta 400",
         "rid": "Vauxhall_Opel_Manta_400_1979",
         "bodyTypes": [
             "Coupe"
@@ -111985,7 +111985,7 @@
         "tyres": "Standard",
         "mra": 55.7,
         "weight": 1400,
-        "name": "Citroen Activa 2",
+        "name": "Citroën Activa 2",
         "rid": "Citroen_Activa_2_1990",
         "prize": false,
         "bodyTypes": [
@@ -112020,7 +112020,7 @@
         "tyres": "Performance",
         "mra": 60.94,
         "weight": 1073,
-        "name": "Citroen BX GTi 16V",
+        "name": "Citroën BX GTi 16V",
         "rid": "Citroen_BX_16v_1987",
         "bodyTypes": [
             "Hatchback"
@@ -112054,7 +112054,7 @@
         "tyres": "Standard",
         "mra": 55.18,
         "weight": 1310,
-        "name": "Citroen C4 Picasso THP 165",
+        "name": "Citroën C4 Picasso THP 165",
         "rid": "Citroen_C4_Picasso_THP_165_2016",
         "bodyTypes": [
             "MPV"
@@ -112087,7 +112087,7 @@
         "tyres": "Standard",
         "mra": 69.42,
         "weight": 1491,
-        "name": "Citroen C5 X PureTech 180",
+        "name": "Citroën C5 X PureTech 180",
         "rid": "Citroen_C5_X_PureTech_180_2022",
         "prize": false,
         "bodyTypes": [
@@ -112120,7 +112120,7 @@
         "tyres": "Standard",
         "mra": 83.67,
         "weight": 1550,
-        "name": "Citroen XM V6 24V",
+        "name": "Citroën XM V6 24V",
         "rid": "Citroen_XM_V6_24V_1989",
         "bodyTypes": [
             "Saloon"
@@ -112290,7 +112290,7 @@
         "tyres": "Performance",
         "mra": 12.7,
         "weight": 1360,
-        "name": "Fiat 500e Scorpionissima Convertible",
+        "name": "Abarth 500e Scorpionissima Convertible",
         "rid": "Fiat_500e_Scorpionissima_Convertible_2023",
         "prize": false,
         "bodyTypes": [
@@ -112345,7 +112345,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "Abarth 500 Esseesse",
+        "onlyName": "500 Esseesse",
         "brand": "Fiat",
         "year": 2008,
         "abs": true,
@@ -112359,7 +112359,7 @@
         "tyres": "Performance",
         "mra": 44.3,
         "weight": 1065,
-        "name": "Fiat Abarth 500 Esseesse",
+        "name": "Abarth 500 Esseesse",
         "rid": "Fiat_Abarth_500_Esseesse_2008",
         "bodyTypes": [
             "Hatchback"
@@ -112378,7 +112378,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "Abarth 500C Esseesse",
+        "onlyName": "500C Esseesse",
         "brand": "Fiat",
         "year": 2010,
         "abs": true,
@@ -112392,7 +112392,7 @@
         "tyres": "Performance",
         "mra": 46.42,
         "weight": 1075,
-        "name": "Fiat Abarth 500C Esseesse",
+        "name": "Abarth 500C Esseesse",
         "rid": "Fiat_Abarth_500C_Esseesse_2010",
         "bodyTypes": [
             "Convertible",
@@ -113272,7 +113272,7 @@
         "tyres": "Performance",
         "mra": 59.68,
         "weight": 1090,
-        "name": "Mazda Roadster",
+        "name": "Mazdaspeed Roadster",
         "rid": "Mazda_Roadster_2001",
         "prize": false,
         "bodyTypes": [
@@ -113509,7 +113509,7 @@
         "tyres": "Performance",
         "mra": 56.2,
         "weight": 1220,
-        "name": "Mitsubishi Galant AMG",
+        "name": "Mitsubishi Galant AMG ",
         "rid": "Mitsubishi_Galant_AMG_1989",
         "prize": false,
         "bodyTypes": [
@@ -113681,7 +113681,7 @@
         "tyres": "Performance",
         "mra": 44.52,
         "weight": 839,
-        "name": "Morgan Plus 8",
+        "name": "Morgan Plus 8 ",
         "rid": "Morgan_Plus_8_1983",
         "prize": false,
         "bodyTypes": [
@@ -113837,7 +113837,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "HEMI 'Cuda",
+        "onlyName": "HEMI ‘Cuda",
         "brand": "Plymouth",
         "year": 1970,
         "abs": false,
@@ -113851,7 +113851,7 @@
         "tyres": "Performance",
         "mra": 84.29,
         "weight": 1720,
-        "name": "Plymouth HEMI 'Cuda",
+        "name": "Plymouth HEMI ‘Cuda",
         "rid": "Plymouth_HEMI_'Cuda_1970",
         "bodyTypes": [
             "Coupe"
@@ -113989,7 +113989,7 @@
         "tyres": "Performance",
         "mra": 55.15,
         "weight": 960,
-        "name": "Renault Clio 1.8 16v",
+        "name": "Renault Sport Clio 1.8 16v",
         "rid": "Renault_Clio_18_16v_1991",
         "prize": false,
         "bodyTypes": [
@@ -114076,7 +114076,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "Megane",
+        "onlyName": "Mégane",
         "brand": "Renault",
         "year": 1995,
         "abs": true,
@@ -114090,7 +114090,7 @@
         "tyres": "Performance",
         "mra": 54.55,
         "weight": 1154,
-        "name": "Renault Megane",
+        "name": "Renault Mégane",
         "rid": "Renault_Megane_1995",
         "bodyTypes": [
             "Coupe"
@@ -114159,7 +114159,7 @@
         "tyres": "Standard",
         "mra": 36.85,
         "weight": 1668,
-        "name": "Skoda Sunroq",
+        "name": "Škoda Sunroq",
         "rid": "Skoda_Sunroq_2018",
         "prize": false,
         "bodyTypes": [
@@ -114194,7 +114194,7 @@
         "tyres": "Standard",
         "mra": 62.41,
         "weight": 1520,
-        "name": "Skoda Superb Estate 2.0 TDI",
+        "name": "Škoda Superb Estate 2.0 TDI",
         "rid": "Skoda_Superb_Estate_20_TDI_2018",
         "prize": false,
         "bodyTypes": [
@@ -114318,7 +114318,7 @@
     {
         "class": "D",
         "rq": 33,
-        "onlyName": "Opel Insignia Country Tourer",
+        "onlyName": "Insignia Country Tourer",
         "brand": "Vauxhall",
         "year": 2013,
         "abs": true,
@@ -114332,7 +114332,7 @@
         "tyres": "Standard",
         "mra": 44.87,
         "weight": 1843,
-        "name": "Vauxhall Opel Insignia Country Tourer",
+        "name": "Opel Insignia Country Tourer",
         "rid": "Vauxhall_Opel_Insignia_Country_Tourer_2013",
         "bodyTypes": [
             "Estate"
@@ -114737,7 +114737,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 860,
-        "name": "Bufori Madison",
+        "name": "Bufori Madison ",
         "rid": "Bufori_Madison_1986",
         "prize": false,
         "bodyTypes": [
@@ -115391,7 +115391,7 @@
         "tyres": "Performance",
         "mra": 12.89,
         "weight": 1410,
-        "name": "Fiat 500e Scorpionissima",
+        "name": "Abarth 500e Scorpionissima",
         "rid": "Fiat_500e_Scorpionissima_2023",
         "prize": false,
         "bodyTypes": [
@@ -115446,7 +115446,7 @@
     {
         "class": "D",
         "rq": 32,
-        "onlyName": "Abarth Grande Punto",
+        "onlyName": "Grande Punto",
         "brand": "Fiat",
         "year": 2010,
         "abs": true,
@@ -115460,7 +115460,7 @@
         "tyres": "Performance",
         "mra": 53.94,
         "weight": 1260,
-        "name": "Fiat Abarth Grande Punto",
+        "name": "Abarth Grande Punto",
         "rid": "Fiat_Abarth_Grande_Punto_2010",
         "bodyTypes": [
             "Hatchback"
@@ -116249,7 +116249,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1750,
-        "name": "Mitsubishi Pajero Field Guard",
+        "name": "Mitsubishi Pajero Field Guard ",
         "rid": "Mitsubishi_Pajero_Field_Guard_1993",
         "prize": false,
         "bodyTypes": [
@@ -116321,7 +116321,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1650,
-        "name": "Mitsubishi RVR",
+        "name": "Mitsubishi RVR ",
         "rid": "Mitsubishi_RVR_1989",
         "prize": false,
         "bodyTypes": [
@@ -116897,7 +116897,7 @@
         "tyres": "Performance",
         "mra": 63.89,
         "weight": 690,
-        "name": "Skoda 966 Supersport",
+        "name": "Škoda 966 Supersport",
         "rid": "Skoda_966_Supersport_1953",
         "prize": true,
         "bodyTypes": [
@@ -117460,7 +117460,7 @@
     {
         "class": "D",
         "rq": 31,
-        "onlyName": "Allante",
+        "onlyName": "Allanté",
         "brand": "Cadillac",
         "year": 1989,
         "abs": true,
@@ -117474,7 +117474,7 @@
         "tyres": "Standard",
         "mra": 46.91,
         "weight": 1610,
-        "name": "Cadillac Allante",
+        "name": "Cadillac Allanté",
         "rid": "Cadillac_Allante_1989",
         "bodyTypes": [
             "Roadster"
@@ -117747,7 +117747,7 @@
         "tyres": "Standard",
         "mra": 55.92,
         "weight": 1400,
-        "name": "Citroen Activa 1",
+        "name": "Citroën Activa 1",
         "rid": "Citroen_Activa_1_1988",
         "prize": false,
         "bodyTypes": [
@@ -117782,7 +117782,7 @@
         "tyres": "Standard",
         "mra": 65.12,
         "weight": 1770,
-        "name": "Citroen C5 Aircross Plug-in Hybrid",
+        "name": "Citroën C5 Aircross Plug-in Hybrid",
         "rid": "Citroen_C5_Aircross_Plugin_Hybrid_2022",
         "prize": false,
         "bodyTypes": [
@@ -117903,7 +117903,7 @@
     {
         "class": "D",
         "rq": 31,
-        "onlyName": "Dodge Ram 1st Gen",
+        "onlyName": "Ram 1st Gen",
         "brand": "Dodge",
         "year": 1981,
         "abs": false,
@@ -118004,7 +118004,7 @@
     {
         "class": "D",
         "rq": 31,
-        "onlyName": "Punto HGT",
+        "onlyName": "Punto HGT Abarth",
         "brand": "Fiat",
         "year": 1999,
         "abs": true,
@@ -118018,7 +118018,7 @@
         "tyres": "Performance",
         "mra": 70.49,
         "weight": 1040,
-        "name": "Fiat Punto HGT",
+        "name": "Fiat Punto HGT Abarth",
         "rid": "Fiat_Punto_HGT_1999",
         "bodyTypes": [
             "Hatchback"
@@ -119558,7 +119558,7 @@
         "tyres": "Standard",
         "mra": 48.21,
         "weight": 1390,
-        "name": "Skoda Octavia Estate 1.8 T",
+        "name": "Škoda Octavia Estate 1.8 T",
         "rid": "Skoda_Octavia_Estate_18_T_1998",
         "prize": false,
         "bodyTypes": [
@@ -119591,7 +119591,7 @@
         "tyres": "Standard",
         "mra": 50.06,
         "weight": 1146,
-        "name": "Skoda Rapid Spaceback 1.4 TSI",
+        "name": "Škoda Rapid Spaceback 1.4 TSI",
         "rid": "Skoda_Rapid_Spaceback_14_TSI_2015",
         "prize": false,
         "bodyTypes": [
@@ -119895,7 +119895,7 @@
         "tyres": "Standard",
         "mra": 56.99,
         "weight": 1395,
-        "name": "Alfa Romeo Sportut",
+        "name": "Alfa Romeo Sportut ",
         "rid": "Alfa_Romeo_Sportut_1997",
         "prize": false,
         "bodyTypes": [
@@ -120444,7 +120444,7 @@
         "tyres": "Performance",
         "mra": 67.65,
         "weight": 1083,
-        "name": "Citroen C2 VTS",
+        "name": "Citroën C2 VTS",
         "rid": "Citroen_C2_VTS_2003",
         "bodyTypes": [
             "Hatchback"
@@ -120477,7 +120477,7 @@
         "tyres": "Standard",
         "mra": 45.22,
         "weight": 1247,
-        "name": "Citroen C4 PureTech 130",
+        "name": "Citroën C4 PureTech 130",
         "rid": "Citroen_C4_PureTech_130_2021",
         "prize": false,
         "bodyTypes": [
@@ -120510,7 +120510,7 @@
         "tyres": "Standard",
         "mra": 62.32,
         "weight": 1530,
-        "name": "Citroen C5 Aircross",
+        "name": "Citroën C5 Aircross",
         "rid": "Citroen_C5_Aircross_2018",
         "bodyTypes": [
             "SUV"
@@ -120544,7 +120544,7 @@
         "tyres": "Standard",
         "mra": 42.79,
         "weight": 1650,
-        "name": "Citroen C5 Crosstourer",
+        "name": "Citroën C5 Crosstourer",
         "rid": "Citroen_C5_Crosstourer_2014",
         "bodyTypes": [
             "Estate"
@@ -120578,7 +120578,7 @@
         "tyres": "Standard",
         "mra": 57.13,
         "weight": 1430,
-        "name": "Citroen Grand C4 Picasso BlueHDi 150",
+        "name": "Citroën Grand C4 Picasso BlueHDi 150",
         "rid": "Citroen_Grand_C4_Picasso_2015",
         "bodyTypes": [
             "MPV"
@@ -120611,7 +120611,7 @@
         "tyres": "Performance",
         "mra": 72.23,
         "weight": 935,
-        "name": "Citroen Saxo VTS 16V",
+        "name": "Citroën Saxo VTS 16V",
         "rid": "Citroen_Saxo_VTS_16V_1996",
         "bodyTypes": [
             "Hatchback"
@@ -120647,7 +120647,7 @@
         "tyres": "Standard",
         "mra": 49.38,
         "weight": 1698,
-        "name": "Citroen SpaceTourer Hyphen",
+        "name": "Citroën SpaceTourer Hyphen",
         "rid": "Citroen_SpaceTourer_Hyphen_2016",
         "prize": false,
         "bodyTypes": [
@@ -120681,7 +120681,7 @@
         "tyres": "Standard",
         "mra": 74.81,
         "weight": 1350,
-        "name": "Citroen Xantia VSX",
+        "name": "Citroën Xantia VSX",
         "rid": "Citroen_Xantia_VSX_1993",
         "bodyTypes": [
             "Saloon"
@@ -120735,7 +120735,7 @@
     {
         "class": "D",
         "rq": 30,
-        "onlyName": "Li'l Red Express Truck",
+        "onlyName": "Ram Li'l Red Express Truck",
         "brand": "Dodge",
         "year": 1978,
         "abs": false,
@@ -120749,7 +120749,7 @@
         "tyres": "All-surface",
         "mra": 52.37,
         "weight": 1730,
-        "name": "Dodge Li'l Red Express Truck",
+        "name": "Dodge Ram Li'l Red Express Truck",
         "rid": "Ram_Dodge_Li'l_Red_Express_Truck_1978",
         "bodyTypes": [
             "Pickup"
@@ -121464,7 +121464,7 @@
         "tyres": "Off-road",
         "mra": 29.82,
         "weight": 1724,
-        "name": "Land Rover Suffix A",
+        "name": "Range Rover Suffix A",
         "rid": "Land_Rover_Range_Rover_Mk_1_1970",
         "bodyTypes": [
             "SUV"
@@ -121733,7 +121733,7 @@
         "tyres": "Performance",
         "mra": 52.41,
         "weight": 1190,
-        "name": "Mazda Familia",
+        "name": "Mazdaspeed Familia",
         "rid": "Mazda_Familia_2001",
         "prize": false,
         "bodyTypes": [
@@ -121971,7 +121971,7 @@
         "tyres": "Performance",
         "mra": 60.23,
         "weight": 1540,
-        "name": "Mitsubishi Eclipse Spyder GTS",
+        "name": "Mitsubishi Eclipse Spyder GTS ",
         "rid": "Mitsubishi_Eclipse_Spyder_GTS_2003",
         "prize": false,
         "bodyTypes": [
@@ -122688,7 +122688,7 @@
         "tyres": "Performance",
         "mra": 70.53,
         "weight": 1049,
-        "name": "Renault Twingo 133 Cup",
+        "name": "Renault Sport Twingo 133 Cup",
         "rid": "Renault_Sport_Twingo_133_Cup_2012",
         "bodyTypes": [
             "Hatchback"
@@ -122757,7 +122757,7 @@
         "tyres": "Performance",
         "mra": 59.65,
         "weight": 1410,
-        "name": "Skoda Octavia vRS Estate 2.0 TDI CR",
+        "name": "Škoda Octavia vRS Estate 2.0 TDI CR",
         "rid": "Skoda_Octavia_vRS_Estate_20_TDI_CR_2009",
         "prize": false,
         "bodyTypes": [
@@ -123530,7 +123530,7 @@
         "tyres": "Performance",
         "mra": 47.76,
         "weight": 715,
-        "name": "Citroen AX Sport",
+        "name": "Citroën AX Sport",
         "rid": "Citroen_AX_Sport_1990",
         "prize": false,
         "bodyTypes": [
@@ -123563,7 +123563,7 @@
         "tyres": "Performance",
         "mra": 54.56,
         "weight": 1010,
-        "name": "Citroen BX Sport",
+        "name": "Citroën BX Sport",
         "rid": "Citroen_BX_Sport_1985",
         "prize": false,
         "bodyTypes": [
@@ -123596,7 +123596,7 @@
         "tyres": "Standard",
         "mra": 32,
         "weight": 950,
-        "name": "Citroen C-Airplay",
+        "name": "Citroën C-Airplay",
         "rid": "Citroen_CAirplay_2005",
         "prize": false,
         "bodyTypes": [
@@ -123631,7 +123631,7 @@
         "tyres": "Performance",
         "mra": 80.69,
         "weight": 1370,
-        "name": "Citroen CX GTi Turbo",
+        "name": "Citroën CX GTi Turbo",
         "rid": "Citroen_CX_GTi_Turbo_1974",
         "bodyTypes": [
             "Saloon"
@@ -123665,7 +123665,7 @@
         "tyres": "Standard",
         "mra": 40.66,
         "weight": 1115,
-        "name": "Citroen Xsara 1.8i 16V",
+        "name": "Citroën Xsara 1.8i 16V ",
         "rid": "Citroen_Xsara_18i_16V_1999",
         "prize": false,
         "bodyTypes": [
@@ -124204,7 +124204,7 @@
         "tyres": "Standard",
         "mra": 39.05,
         "weight": 1889,
-        "name": "Hyundai Nexo",
+        "name": "Hyundai Nexo ",
         "rid": "Hyundai_Nexo_2019",
         "prize": false,
         "bodyTypes": [
@@ -124651,7 +124651,7 @@
         "tyres": "Performance",
         "mra": 51.27,
         "weight": 1160,
-        "name": "Mitsubishi Galant GTi-16V",
+        "name": "Mitsubishi Galant GTi-16V ",
         "rid": "Mitsubishi_Galant_GTi16V_1989",
         "prize": false,
         "bodyTypes": [
@@ -125059,7 +125059,7 @@
         "tyres": "Performance",
         "mra": 58.21,
         "weight": 583,
-        "name": "Skoda 1100 OHC",
+        "name": "Škoda 1100 OHC",
         "rid": "Skoda_1100_OHC_1957",
         "prize": true,
         "bodyTypes": [
@@ -125559,7 +125559,7 @@
         "tyres": "Performance",
         "mra": 82.52,
         "weight": 1500,
-        "name": "Citroen C-Airdream",
+        "name": "Citroën C-Airdream",
         "rid": "Citroen_CAirdream_2002",
         "prize": false,
         "bodyTypes": [
@@ -125593,7 +125593,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 630,
-        "name": "Citroen Mehari 4x4",
+        "name": "Citroën Mehari 4x4",
         "rid": "Citroen_Mehari_4x4_1980",
         "bodyTypes": [
             "SUV",
@@ -126000,7 +126000,7 @@
         "tyres": "Performance",
         "mra": 43.97,
         "weight": 1260,
-        "name": "Hyundai Veloster 1.6 GDi",
+        "name": "Hyundai Veloster 1.6 GDi ",
         "rid": "Hyundai_Veloster_16_GDi_2012",
         "prize": false,
         "bodyTypes": [
@@ -126168,7 +126168,7 @@
         "tyres": "Performance",
         "mra": 59.33,
         "weight": 1410,
-        "name": "Mazda Atenza Sport Wagon",
+        "name": "Mazdaspeed Atenza Sport Wagon",
         "rid": "Mazda_Atenza_Sport_Wagon_2003",
         "prize": false,
         "bodyTypes": [
@@ -126269,7 +126269,7 @@
         "tyres": "Performance",
         "mra": 60.4,
         "weight": 1583,
-        "name": "Mercury Comet Cyclone GT Pace Car",
+        "name": "Mercury Comet Cyclone GT Pace Car ",
         "rid": "Mercury_Comet_Cyclone_GT_Pace_Car_1966",
         "prize": false,
         "bodyTypes": [
@@ -126536,7 +126536,7 @@
         "tyres": "Performance",
         "mra": 62.24,
         "weight": 1750,
-        "name": "Peugeot 407 Elixir",
+        "name": "Peugeot 407 Elixir ",
         "rid": "Peugeot_407_Elixir_2003",
         "prize": false,
         "bodyTypes": [
@@ -126708,7 +126708,7 @@
         "tyres": "Standard",
         "mra": 35.6,
         "weight": 1592,
-        "name": "RAM ProMaster City Cargo",
+        "name": "Ram ProMaster City Cargo",
         "rid": "Ram_ProMaster_City_Cargo_2022",
         "prize": false,
         "bodyTypes": [
@@ -126727,7 +126727,7 @@
     {
         "class": "E",
         "rq": 28,
-        "onlyName": "Megane",
+        "onlyName": "Mégane",
         "brand": "Renault",
         "year": 2008,
         "abs": true,
@@ -126741,7 +126741,7 @@
         "tyres": "Standard",
         "mra": 68.15,
         "weight": 1205,
-        "name": "Renault Megane",
+        "name": "Renault Mégane",
         "rid": "Renault_Megane_2008",
         "bodyTypes": [
             "Hatchback"
@@ -126775,7 +126775,7 @@
         "tyres": "Performance",
         "mra": 48.33,
         "weight": 1210,
-        "name": "Skoda Slavia",
+        "name": "Škoda Slavia",
         "rid": "Skoda_Slavia_2020",
         "prize": false,
         "bodyTypes": [
@@ -126829,7 +126829,7 @@
     {
         "class": "E",
         "rq": 28,
-        "onlyName": "Opel Vectra GSi",
+        "onlyName": "Vectra GSi",
         "brand": "Vauxhall",
         "year": 1988,
         "abs": true,
@@ -126843,7 +126843,7 @@
         "tyres": "Performance",
         "mra": 69.47,
         "weight": 1310,
-        "name": "Vauxhall Opel Vectra GSi",
+        "name": "Opel Vectra GSi",
         "rid": "Vauxhall_Opel_Vectra_GSi_1988",
         "bodyTypes": [
             "Saloon"
@@ -127458,7 +127458,7 @@
         "tyres": "Performance",
         "mra": 51.24,
         "weight": 795,
-        "name": "Citroen AX GTi",
+        "name": "Citroën AX GTi",
         "rid": "Citroen_AX_GTi_1993",
         "bodyTypes": [
             "Hatchback"
@@ -127492,7 +127492,7 @@
         "tyres": "Standard",
         "mra": 46.36,
         "weight": 1070,
-        "name": "Citroen C3 PureTech 110",
+        "name": "Citroën C3 PureTech 110",
         "rid": "Citroen_C3_PureTech_110_2016",
         "bodyTypes": [
             "Hatchback"
@@ -127524,7 +127524,7 @@
         "tyres": "Standard",
         "mra": 53.22,
         "weight": 1415,
-        "name": "Citroen XM 2.0i Turbo",
+        "name": "Citroën XM 2.0i Turbo",
         "rid": "Citroen_XM_29i_Turbo_1999",
         "prize": false,
         "bodyTypes": [
@@ -127961,7 +127961,7 @@
         "tyres": "Standard",
         "mra": 63.19,
         "weight": 1491,
-        "name": "Hyundai Tucson N Line 1.6T MHEV",
+        "name": "Hyundai Tucson N Line 1.6T MHEV ",
         "rid": "Hyundai_Tucson_N_Line_16T_MHEV_2021",
         "prize": false,
         "bodyTypes": [
@@ -128094,7 +128094,7 @@
         "tyres": "Performance",
         "mra": 64.29,
         "weight": 1195,
-        "name": "Mazda MX-6 A Spec",
+        "name": "Mazdaspeed MX-6 A Spec",
         "rid": "Mazda_MX6_A_Spec_1992",
         "prize": false,
         "bodyTypes": [
@@ -128262,7 +128262,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 1916,
-        "name": "Mitsubishi Vision Ralliart",
+        "name": "Mitsubishi Vision Ralliart ",
         "rid": "Mitsubishi_Vision_Ralliart_2022",
         "prize": true,
         "bodyTypes": [
@@ -128699,7 +128699,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 1750,
-        "name": "Peugeot P4",
+        "name": "Peugeot P4 ",
         "rid": "Peugeot_P4_1982",
         "prize": false,
         "bodyTypes": [
@@ -128800,7 +128800,7 @@
         "tyres": "Standard",
         "mra": 62.18,
         "weight": 980,
-        "name": "Renault Twingo GT",
+        "name": "Renault Sport Twingo GT",
         "rid": "Renault_Sport_Twingo_GT_2016",
         "bodyTypes": [
             "Hatchback"
@@ -128987,7 +128987,7 @@
     {
         "class": "E",
         "rq": 27,
-        "onlyName": "Opel Kadett GT/E",
+        "onlyName": "Kadett GT/E",
         "brand": "Vauxhall",
         "year": 1975,
         "abs": false,
@@ -129001,7 +129001,7 @@
         "tyres": "Performance",
         "mra": 44.35,
         "weight": 920,
-        "name": "Vauxhall Opel Kadett GT/E",
+        "name": "Opel Kadett GT/E",
         "rid": "Vauxhall_Opel_Kadett_GTE_1975",
         "bodyTypes": [
             "Coupe"
@@ -129021,7 +129021,7 @@
     {
         "class": "E",
         "rq": 27,
-        "onlyName": "Opel Manta GTE",
+        "onlyName": "Manta GTE",
         "brand": "Vauxhall",
         "year": 1988,
         "abs": false,
@@ -129035,7 +129035,7 @@
         "tyres": "Performance",
         "mra": 62.5,
         "weight": 1065,
-        "name": "Vauxhall Opel Manta GTE",
+        "name": "Opel Manta GTE",
         "rid": "Vauxhall_Opel_Manta_GTE_1988",
         "bodyTypes": [
             "Coupe"
@@ -129204,7 +129204,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1347,
-        "name": "Volvo C30 DRIVe Electric",
+        "name": "Volvo C30 DRIVe Electric ",
         "rid": "Volvo_C30_DRIVe_Electric_2011",
         "prize": false,
         "bodyTypes": [
@@ -129989,7 +129989,7 @@
         "tyres": "Standard",
         "mra": 54.55,
         "weight": 1610,
-        "name": "Citroen C5 Tourer 2.2 HDi",
+        "name": "Citroën C5 Tourer 2.2 HDi",
         "rid": "Citroen_C5_Tourer_22_HDi_2005",
         "prize": false,
         "bodyTypes": [
@@ -130023,7 +130023,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1120,
-        "name": "Citroen Cactus M",
+        "name": "Citroën Cactus M",
         "rid": "Citroen_Cactus_M_2015",
         "prize": false,
         "bodyTypes": [
@@ -130058,7 +130058,7 @@
         "tyres": "Standard",
         "mra": 20.58,
         "weight": 1616,
-        "name": "Citroen e-C4",
+        "name": "Citroën e-C4 ",
         "rid": "Citroen_eC4_2021",
         "prize": false,
         "bodyTypes": [
@@ -130767,7 +130767,7 @@
         "tyres": "Standard",
         "mra": 43.86,
         "weight": 1527,
-        "name": "Hyundai Ioniq Electric",
+        "name": "Hyundai Ioniq Electric ",
         "rid": "Hyundai_Ioniq_Electric_2019",
         "prize": false,
         "bodyTypes": [
@@ -130802,7 +130802,7 @@
         "tyres": "Standard",
         "mra": 46.44,
         "weight": 1477,
-        "name": "Hyundai Ioniq Hybrid",
+        "name": "Hyundai Ioniq Hybrid ",
         "rid": "Hyundai_Ioniq_Hybrid_2018",
         "prize": false,
         "bodyTypes": [
@@ -131543,7 +131543,7 @@
         "tyres": "Standard",
         "mra": 55.37,
         "weight": 1140,
-        "name": "Peugeot 306 XSi",
+        "name": "Peugeot 306 XSi ",
         "rid": "Peugeot_306_XSi_1996",
         "prize": false,
         "bodyTypes": [
@@ -131577,7 +131577,7 @@
         "tyres": "Slick",
         "mra": 67.57,
         "weight": 580,
-        "name": "Peugeot Asphalte",
+        "name": "Peugeot Asphalte ",
         "rid": "Peugeot_Asphalte_1996",
         "prize": false,
         "bodyTypes": [
@@ -131782,7 +131782,7 @@
         "tyres": "Standard",
         "mra": 51.06,
         "weight": 1099,
-        "name": "Skoda Fabia 1.0 TSI",
+        "name": "Škoda Fabia 1.0 TSI",
         "rid": "Skoda_Fabia_10_TSI_2021",
         "prize": false,
         "bodyTypes": [
@@ -131815,7 +131815,7 @@
         "tyres": "Standard",
         "mra": 44.79,
         "weight": 1055,
-        "name": "Skoda Fabia Hatchback 1.2 TSI",
+        "name": "Škoda Fabia Hatchback 1.2 TSI",
         "rid": "Skoda_Fabia_Hatchback_12_TSI_2010",
         "prize": false,
         "bodyTypes": [
@@ -131849,7 +131849,7 @@
         "tyres": "Standard",
         "mra": 43.99,
         "weight": 1109,
-        "name": "Skoda Fabia Monte Carlo 1.4 TDI",
+        "name": "Škoda Fabia Monte Carlo 1.4 TDI",
         "rid": "Skoda_Fabia_Monte_Carlo_14_TDI_2015",
         "prize": false,
         "bodyTypes": [
@@ -131882,7 +131882,7 @@
         "tyres": "Standard",
         "mra": 47.76,
         "weight": 1425,
-        "name": "Skoda Octavia Hatchback 1.9 TDI PD",
+        "name": "Škoda Octavia Hatchback 1.9 TDI PD",
         "rid": "Skoda_Octavia_Hatchback_19_TDI_PD_2003",
         "prize": false,
         "bodyTypes": [
@@ -131915,7 +131915,7 @@
         "tyres": "Standard",
         "mra": 46.57,
         "weight": 1110,
-        "name": "Skoda Rapid Saloon 1.2 TSI",
+        "name": "Škoda Rapid Saloon 1.2 TSI",
         "rid": "Skoda_Rapid_Saloon_12_TSI_2015",
         "prize": false,
         "bodyTypes": [
@@ -132217,7 +132217,7 @@
         "tyres": "Performance",
         "mra": 45.63,
         "weight": 915,
-        "name": "Alfa Romeo Sprint Quadrifoglio Verde",
+        "name": "Alfa Romeo Sprint Quadrifoglio Verde ",
         "rid": "Alfa_Romeo_Sprint_Quadrifoglio_Verde_1983",
         "prize": false,
         "bodyTypes": [
@@ -132489,7 +132489,7 @@
         "tyres": "Standard",
         "mra": 56.4,
         "weight": 1165,
-        "name": "Citroen BX Break De Chasse Dyana",
+        "name": "Citroën BX Break De Chasse Dyana",
         "rid": "Citroen_BX_Break_De_Chasse_Dyana_1986",
         "prize": false,
         "bodyTypes": [
@@ -132524,7 +132524,7 @@
         "tyres": "Performance",
         "mra": 43.93,
         "weight": 1130,
-        "name": "Citroen BX GTi 4x4",
+        "name": "Citroën BX GTi 4x4",
         "rid": "Citroen_BX_GTi_4x4_1993",
         "prize": false,
         "bodyTypes": [
@@ -132557,7 +132557,7 @@
         "tyres": "Standard",
         "mra": 51.72,
         "weight": 1850,
-        "name": "Citroen C5 Airscape",
+        "name": "Citroën C5 Airscape",
         "rid": "Citroen_C5_Airscape_2007",
         "prize": false,
         "bodyTypes": [
@@ -132592,7 +132592,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1659,
-        "name": "Citroen e-C4 X",
+        "name": "Citroën e-C4 X",
         "rid": "Citroen_eC4_X_2021",
         "prize": false,
         "bodyTypes": [
@@ -132626,7 +132626,7 @@
         "tyres": "Performance",
         "mra": 52.91,
         "weight": 1460,
-        "name": "Citroen SM",
+        "name": "Citroën SM",
         "rid": "Citroen_SM_1975",
         "prize": false,
         "bodyTypes": [
@@ -132661,7 +132661,7 @@
         "tyres": "Performance",
         "mra": 83.33,
         "weight": 1500,
-        "name": "Citroen SM 2.7 Injection",
+        "name": "Citroën SM 2.7 Injection",
         "rid": "Citroen_SM_2.7_Injection_1972",
         "bodyTypes": [
             "Coupe"
@@ -132696,7 +132696,7 @@
         "tyres": "Standard",
         "mra": 36.72,
         "weight": 2750,
-        "name": "Citroen Tubik",
+        "name": "Citroën Tubik",
         "rid": "Citroen_Tubil_2011",
         "prize": false,
         "bodyTypes": [
@@ -132732,7 +132732,7 @@
         "tyres": "Performance",
         "mra": 51.53,
         "weight": 890,
-        "name": "Citroen Visa GTi",
+        "name": "Citroën Visa GTi",
         "rid": "Citroen_Visa_GTi_1978",
         "bodyTypes": [
             "Hatchback"
@@ -133679,7 +133679,7 @@
         "tyres": "Standard",
         "mra": 56.32,
         "weight": 1150,
-        "name": "Peugeot Urban Crossover",
+        "name": "Peugeot Urban Crossover ",
         "rid": "Peugeot_Urban_Crossover_2012",
         "prize": false,
         "bodyTypes": [
@@ -133748,7 +133748,7 @@
         "tyres": "Standard",
         "mra": 30,
         "weight": 2066,
-        "name": "RAM ProMaster 1500",
+        "name": "Ram ProMaster 1500",
         "rid": "Ram_ProMaster_1500_2022",
         "prize": false,
         "bodyTypes": [
@@ -133816,7 +133816,7 @@
         "tyres": "Performance",
         "mra": 51.39,
         "weight": 1356,
-        "name": "Skoda Atero",
+        "name": "Škoda Atero",
         "rid": "Skoda_Atero_2016",
         "prize": false,
         "bodyTypes": [
@@ -133850,7 +133850,7 @@
         "tyres": "Standard",
         "mra": 44.24,
         "weight": 1133,
-        "name": "Skoda Fabia Estate 1.4 TDI",
+        "name": "Škoda Fabia Estate 1.4 TDI ",
         "rid": "Skoda_Fabia_Estate_14_TDI_2015",
         "prize": false,
         "bodyTypes": [
@@ -133884,7 +133884,7 @@
         "tyres": "Standard",
         "mra": 36.87,
         "weight": 1046,
-        "name": "Skoda Fabia Hatchback 1.0 TSI",
+        "name": "Škoda Fabia Hatchback 1.0 TSI",
         "rid": "Skoda_Fabia_Hatchback_10_TSI_2018",
         "prize": false,
         "bodyTypes": [
@@ -134727,7 +134727,7 @@
         "tyres": "Performance",
         "mra": 42.07,
         "weight": 1000,
-        "name": "Citroen BX GT",
+        "name": "Citroën BX GT",
         "rid": "Citroen_BX_GT_1985",
         "prize": false,
         "bodyTypes": [
@@ -134760,7 +134760,7 @@
         "tyres": "Standard",
         "mra": 38.11,
         "weight": 1090,
-        "name": "Citroen C-Elysée",
+        "name": "Citroën C-Elysée",
         "rid": "Citroen_CElysee_2018",
         "prize": false,
         "bodyTypes": [
@@ -134793,7 +134793,7 @@
         "tyres": "Standard",
         "mra": 46.49,
         "weight": 1090,
-        "name": "Citroen C-Elysée",
+        "name": "Citroën C-Elysée",
         "rid": "Citroen_CElysee_2015",
         "prize": false,
         "bodyTypes": [
@@ -134826,7 +134826,7 @@
         "tyres": "Standard",
         "mra": 43.54,
         "weight": 1275,
-        "name": "Citroen C-Quatre VTS",
+        "name": "Citroën C-Quatre VTS",
         "rid": "Citroen_CQuatre_VTS_2014",
         "prize": false,
         "bodyTypes": [
@@ -134860,7 +134860,7 @@
         "tyres": "Standard",
         "mra": 47.22,
         "weight": 1070,
-        "name": "Citroen C4 Cactus 2.0 HDi 16v",
+        "name": "Citroën C4 Cactus 2.0 HDi 16v",
         "rid": "Citroen_C4_Cactus_2.0_HDi_16v_2014",
         "bodyTypes": [
             "Hatchback"
@@ -134895,7 +134895,7 @@
         "tyres": "Standard",
         "mra": 50.88,
         "weight": 1595,
-        "name": "Citroen C5 HPi",
+        "name": "Citroën C5 HPi",
         "rid": "Citroen_C5_HPi_2001",
         "bodyTypes": [
             "Saloon"
@@ -134928,7 +134928,7 @@
         "tyres": "Performance",
         "mra": 51.62,
         "weight": 920,
-        "name": "Citroen Saxo VTR",
+        "name": "Citroën Saxo VTR",
         "rid": "Citroen_Saxo_VTR_1997",
         "prize": false,
         "bodyTypes": [
@@ -135096,7 +135096,7 @@
         "tyres": "Performance",
         "mra": 57.56,
         "weight": 1190,
-        "name": "Ford Capri 2.8 Injection",
+        "name": "Ford Capri 2.8 Injection ",
         "rid": "Ford_Capri_28_Injection_1981",
         "prize": false,
         "bodyTypes": [
@@ -135814,7 +135814,7 @@
         "tyres": "Standard",
         "mra": 56,
         "weight": 1128,
-        "name": "Mitsubishi Mirage Kammtop",
+        "name": "Mitsubishi Mirage Kammtop ",
         "rid": "Mitsubishi_Mirage_Kammtop_1985",
         "prize": false,
         "bodyTypes": [
@@ -136422,7 +136422,7 @@
         "tyres": "Standard",
         "mra": 50.05,
         "weight": 1200,
-        "name": "Skoda Fabia Hatchback 2.0",
+        "name": "Škoda Fabia Hatchback 2.0",
         "rid": "Skoda_Fabia_Hatchback_20_2000",
         "prize": false,
         "bodyTypes": [
@@ -136456,7 +136456,7 @@
         "tyres": "Performance",
         "mra": 54.5,
         "weight": 1315,
-        "name": "Skoda Fabia vRS",
+        "name": "Škoda Fabia vRS",
         "rid": "Skoda_Fabia_vRS_2003",
         "prize": false,
         "bodyTypes": [
@@ -136491,7 +136491,7 @@
         "tyres": "Standard",
         "mra": 49.27,
         "weight": 1272,
-        "name": "Skoda Scala 1.6 TDI",
+        "name": "Škoda Scala 1.6 TDI",
         "rid": "Skoda_Scala_16_TDI_2019",
         "prize": false,
         "bodyTypes": [
@@ -137085,7 +137085,7 @@
     {
         "class": "E",
         "rq": 23,
-        "onlyName": "Coupe GT 5E (B2)",
+        "onlyName": "Coupé GT 5E (B2)",
         "brand": "Audi",
         "year": 1983,
         "abs": false,
@@ -137099,7 +137099,7 @@
         "tyres": "Performance",
         "mra": 52.09,
         "weight": 1050,
-        "name": "Audi Coupe GT 5E (B2)",
+        "name": "Audi Coupé GT 5E (B2)",
         "rid": "Audi_CoupВ_GT_5E_B2_1983",
         "bodyTypes": [
             "Coupe"
@@ -137575,7 +137575,7 @@
         "tyres": "Standard",
         "mra": 50.9,
         "weight": 1387,
-        "name": "Citroen C3 Aircross",
+        "name": "Citroën C3 Aircross",
         "rid": "Citroen_C3_Aircross_2018",
         "bodyTypes": [
             "SUV"
@@ -137608,7 +137608,7 @@
         "tyres": "Standard",
         "mra": 51.15,
         "weight": 1350,
-        "name": "Citroen C3-XR",
+        "name": "Citroën C3-XR",
         "rid": "Citroen_C3-XR_2014",
         "bodyTypes": [
             "SUV"
@@ -137640,7 +137640,7 @@
         "tyres": "Standard",
         "mra": 42.68,
         "weight": 1408,
-        "name": "Citroen C5 Aircross PureTech 130",
+        "name": "Citroën C5 Aircross PureTech 130",
         "rid": "Citroen_C5_Aircross_PureTech_130_2022",
         "prize": false,
         "bodyTypes": [
@@ -137674,7 +137674,7 @@
         "tyres": "Standard",
         "mra": 55.86,
         "weight": 1424,
-        "name": "Citroen C5 Saloon",
+        "name": "Citroën C5 Saloon",
         "rid": "Citroen_C5_Saloon_1.6_L_2004",
         "bodyTypes": [
             "Saloon"
@@ -137707,7 +137707,7 @@
         "tyres": "Standard",
         "mra": 64.63,
         "weight": 1365,
-        "name": "Citroen DS 4",
+        "name": "Citroën DS 4",
         "rid": "DS_4_2011",
         "bodyTypes": [
             "Hatchback"
@@ -138752,7 +138752,7 @@
         "tyres": "Performance",
         "mra": 50.07,
         "weight": 851,
-        "name": "Morgan Plus 8",
+        "name": "Morgan Plus 8 ",
         "rid": "Morgan_Plus_8_1968",
         "prize": false,
         "bodyTypes": [
@@ -139261,7 +139261,7 @@
         "tyres": "Standard",
         "mra": 40.77,
         "weight": 1350,
-        "name": "Plymouth XNR",
+        "name": "Plymouth XNR ",
         "rid": "Plymouth_XNR_1960",
         "prize": false,
         "bodyTypes": [
@@ -139655,7 +139655,7 @@
     {
         "class": "E",
         "rq": 23,
-        "onlyName": "Firenza 2000 SL Coupe",
+        "onlyName": "Firenza 2000 SL Coupé",
         "brand": "Vauxhall",
         "year": 1971,
         "abs": false,
@@ -139669,7 +139669,7 @@
         "tyres": "Standard",
         "mra": 32.64,
         "weight": 990,
-        "name": "Vauxhall Firenza 2000 SL Coupe",
+        "name": "Vauxhall Firenza 2000 SL Coupé",
         "rid": "Vauxhall_Firenza_2000_SL_Coupe_1971",
         "bodyTypes": [
             "Coupe"
@@ -139725,7 +139725,7 @@
     {
         "class": "E",
         "rq": 23,
-        "onlyName": "Opel Diplomat A V8 Coupe",
+        "onlyName": "Diplomat A V8 Coupe",
         "brand": "Vauxhall",
         "year": 1965,
         "abs": false,
@@ -139739,7 +139739,7 @@
         "tyres": "Standard",
         "mra": 47.26,
         "weight": 1690,
-        "name": "Vauxhall Opel Diplomat A V8 Coupe",
+        "name": "Opel Diplomat A V8 Coupe",
         "rid": "Vauxhall_Opel_Diplomat_A_V8_Coupe_1965",
         "bodyTypes": [
             "Coupe"
@@ -140421,7 +140421,7 @@
         "tyres": "Standard",
         "mra": 36.42,
         "weight": 1190,
-        "name": "Citroen C3L",
+        "name": "Citroën C3L",
         "rid": "Citroen_C3L_2020",
         "prize": false,
         "bodyTypes": [
@@ -140454,7 +140454,7 @@
         "tyres": "Standard",
         "mra": 65.12,
         "weight": 1495,
-        "name": "Citroen DS 5",
+        "name": "Citroën DS 5",
         "rid": "DS_5_2012",
         "bodyTypes": [
             "Hatchback"
@@ -141070,7 +141070,7 @@
         "tyres": "Standard",
         "mra": 43.99,
         "weight": 1080,
-        "name": "Mazda Demio A-Spec",
+        "name": "Mazdaspeed Demio A-Spec",
         "rid": "Mazda_Demio_ASpec_2003",
         "prize": false,
         "bodyTypes": [
@@ -141546,7 +141546,7 @@
         "tyres": "Performance",
         "mra": 44.68,
         "weight": 1451,
-        "name": "Plymouth Barracuda Formula S",
+        "name": "Plymouth Barracuda Formula S ",
         "rid": "Plymouth_Barracuda_Formula_S_1966",
         "prize": false,
         "bodyTypes": [
@@ -141618,7 +141618,7 @@
         "tyres": "Standard",
         "mra": 40.31,
         "weight": 1136,
-        "name": "Skoda Fabia Scout 1.2 TSI",
+        "name": "Škoda Fabia Scout 1.2 TSI",
         "rid": "Skoda_Fabia_Scout_12_TSI_2012",
         "prize": false,
         "bodyTypes": [
@@ -141806,7 +141806,7 @@
     {
         "class": "E",
         "rq": 22,
-        "onlyName": "Opel Admiral V8",
+        "onlyName": "Admiral V8",
         "brand": "Vauxhall",
         "year": 1965,
         "abs": false,
@@ -141820,7 +141820,7 @@
         "tyres": "Standard",
         "mra": 45.41,
         "weight": 1445,
-        "name": "Vauxhall Opel Admiral V8",
+        "name": "Opel Admiral V8",
         "rid": "Vauxhall_Opel_Admiral_V8_1965",
         "bodyTypes": [
             "Saloon"
@@ -142267,7 +142267,7 @@
         "tyres": "Standard",
         "mra": 26.88,
         "weight": 840,
-        "name": "Citroen C1 VTi 68",
+        "name": "Citroën C1 VTi 68",
         "rid": "Citroen_C1_VTi_68_2015",
         "bodyTypes": [
             "Hatchback"
@@ -142302,7 +142302,7 @@
         "tyres": "Standard",
         "mra": 51.13,
         "weight": 1240,
-        "name": "Citroen C3 Picasso BlueHDi 100",
+        "name": "Citroën C3 Picasso BlueHDi 100",
         "rid": "Citroen_C3_Picasso_2016",
         "bodyTypes": [
             "MPV"
@@ -142335,7 +142335,7 @@
         "tyres": "Standard",
         "mra": 31.84,
         "weight": 1235,
-        "name": "Citroen C3-XR",
+        "name": "Citroën C3-XR",
         "rid": "Citroen_C3XR_2019",
         "prize": false,
         "bodyTypes": [
@@ -142369,7 +142369,7 @@
         "tyres": "Standard",
         "mra": 45.89,
         "weight": 1350,
-        "name": "Citroen DS23 Pallas Injection",
+        "name": "Citroën DS23 Pallas Injection",
         "rid": "Citroen_DS23_Pallas_Injection_1974",
         "prize": false,
         "bodyTypes": [
@@ -142423,7 +142423,7 @@
     {
         "class": "E",
         "rq": 21,
-        "onlyName": "Abarth 1000 Monoposto record car",
+        "onlyName": "1000 Monoposto record car",
         "brand": "Fiat",
         "year": 1960,
         "abs": false,
@@ -142437,7 +142437,7 @@
         "tyres": "Performance",
         "mra": null,
         "weight": 510,
-        "name": "Fiat Abarth 1000 Monoposto record car",
+        "name": "Abarth 1000 Monoposto record car",
         "rid": "Fiat_Abarth_1000_Monoposto_record_car_1960",
         "prize": true,
         "bodyTypes": [
@@ -143297,7 +143297,7 @@
         "tyres": "Standard",
         "mra": 36.77,
         "weight": 1280,
-        "name": "Peugeot 306 HDi Concept",
+        "name": "Peugeot 306 HDi Concept ",
         "rid": "Peugeot_306_HDi_Concept_1999",
         "prize": false,
         "bodyTypes": [
@@ -143434,7 +143434,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1260,
-        "name": "Skoda Element",
+        "name": "Škoda Element",
         "rid": "Skoda_Element_2017",
         "prize": false,
         "bodyTypes": [
@@ -143709,7 +143709,7 @@
         "tyres": "Standard",
         "mra": 44.05,
         "weight": 1120,
-        "name": "Volvo 480 Cabrio",
+        "name": "Volvo 480 Cabrio ",
         "rid": "Volvo_480_Cabrio_1990",
         "prize": false,
         "bodyTypes": [
@@ -144219,7 +144219,7 @@
         "tyres": "Standard",
         "mra": 36.86,
         "weight": 865,
-        "name": "Citroen Cactus Airflow 2L",
+        "name": "Citroën Cactus Airflow 2L",
         "rid": "Citroen_Cactus_Airflow_2L_2014",
         "prize": false,
         "bodyTypes": [
@@ -144254,7 +144254,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1230,
-        "name": "Citroen E-Elysée",
+        "name": "Citroën E-Elysée",
         "rid": "Citroen_EElysee_2016",
         "prize": false,
         "bodyTypes": [
@@ -144288,7 +144288,7 @@
         "tyres": "Performance",
         "mra": 43.17,
         "weight": 1660,
-        "name": "Citroen Karin",
+        "name": "Citroën Karin",
         "rid": "Citroen_Karin_1980",
         "prize": false,
         "bodyTypes": [
@@ -145104,7 +145104,7 @@
         "tyres": "Standard",
         "mra": 46.94,
         "weight": 1050,
-        "name": "Peugeot 2008 Concept",
+        "name": "Peugeot 2008 Concept ",
         "rid": "Peugeot_2008_Concept_2012",
         "prize": false,
         "bodyTypes": [
@@ -145447,7 +145447,7 @@
         "tyres": "Standard",
         "mra": 37.95,
         "weight": 865,
-        "name": "Skoda Citigo 1.0 MPI SE L",
+        "name": "Škoda Citigo 1.0 MPI SE L",
         "rid": "Skoda_Citigo_10_MPI_SE_L_2013",
         "prize": false,
         "bodyTypes": [
@@ -145481,7 +145481,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1160,
-        "name": "Skoda Citigo-e iV",
+        "name": "Škoda Citigo-e iV",
         "rid": "Skoda_Citigoe_iV_2020",
         "prize": false,
         "bodyTypes": [
@@ -145515,7 +145515,7 @@
         "tyres": "Standard",
         "mra": 56.34,
         "weight": 1270,
-        "name": "Skoda Fabia Estate 1.9 TDI PD",
+        "name": "Škoda Fabia Estate 1.9 TDI PD",
         "rid": "Skoda_Fabia_Estate_19_TDI_PD_2001",
         "prize": false,
         "bodyTypes": [
@@ -145846,7 +145846,7 @@
     {
         "class": "F",
         "rq": 19,
-        "onlyName": "Coupe GT 5S (B2)",
+        "onlyName": "Coupé GT 5S (B2)",
         "brand": "Audi",
         "year": 1980,
         "abs": false,
@@ -145860,7 +145860,7 @@
         "tyres": "Performance",
         "mra": 54.41,
         "weight": 1020,
-        "name": "Audi Coupe GT 5S (B2)",
+        "name": "Audi Coupé GT 5S (B2)",
         "rid": "Audi_Coupe_GT_5S_B2_1980",
         "bodyTypes": [
             "Coupe"
@@ -146285,7 +146285,7 @@
     {
         "class": "F",
         "rq": 19,
-        "onlyName": "Corvette Impala XP-101 Concept",
+        "onlyName": "Corvette Impala XP-101",
         "brand": "Chevrolet",
         "year": 1956,
         "abs": false,
@@ -146299,7 +146299,7 @@
         "tyres": "Standard",
         "mra": 63.45,
         "weight": 1380,
-        "name": "Chevrolet Corvette Impala XP-101 Concept",
+        "name": "Chevrolet Corvette Impala XP-101",
         "rid": "Chevrolet_Corvette_Impala_XP101_Concept_1956",
         "prize": false,
         "bodyTypes": [
@@ -146605,7 +146605,7 @@
         "tyres": "Standard",
         "mra": 39.57,
         "weight": 1062,
-        "name": "Citroen BX 17 D Turbo Break",
+        "name": "Citroën BX 17 D Turbo Break",
         "rid": "Citroen_BX_17_D_Turbo_Break_1982",
         "bodyTypes": [
             "Estate"
@@ -146639,7 +146639,7 @@
         "tyres": "Standard",
         "mra": 30.06,
         "weight": 980,
-        "name": "Citroen C2 Cross",
+        "name": "Citroën C2 Cross",
         "rid": "Citroen_C2_Cross_2012",
         "prize": false,
         "bodyTypes": [
@@ -146673,7 +146673,7 @@
         "tyres": "Standard",
         "mra": 58.51,
         "weight": 1743,
-        "name": "Citroen C8",
+        "name": "Citroën C8",
         "rid": "Citroen_C8_2007",
         "prize": false,
         "bodyTypes": [
@@ -146706,7 +146706,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1739,
-        "name": "Citroen ë-Berlingo Electric",
+        "name": "Citroën ë-Berlingo Electric",
         "rid": "Citroen_eBerlingo_Electric_2022",
         "prize": false,
         "bodyTypes": [
@@ -148197,7 +148197,7 @@
         "tyres": "Standard",
         "mra": 49.42,
         "weight": 1740,
-        "name": "Peugeot 407 Macarena",
+        "name": "Peugeot 407 Macarena ",
         "rid": "Peugeot_407_Macarena_2006",
         "prize": false,
         "bodyTypes": [
@@ -148627,7 +148627,7 @@
     {
         "class": "F",
         "rq": 19,
-        "onlyName": "Megane",
+        "onlyName": "Mégane",
         "brand": "Renault",
         "year": 2002,
         "abs": true,
@@ -148641,7 +148641,7 @@
         "tyres": "Standard",
         "mra": 41.56,
         "weight": 1240,
-        "name": "Renault Megane",
+        "name": "Renault Mégane",
         "rid": "Renault_Megane_2002",
         "bodyTypes": [
             "Hatchback"
@@ -148740,7 +148740,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 880,
-        "name": "Skoda 110 R Coupe",
+        "name": "Škoda 110 R Coupe",
         "rid": "Skoda_110_R_Coupe_1970",
         "prize": false,
         "bodyTypes": [
@@ -148773,7 +148773,7 @@
         "tyres": "Standard",
         "mra": 38.39,
         "weight": 1159,
-        "name": "Skoda Funstar",
+        "name": "Škoda Funstar",
         "rid": "Skoda_Funstar_2015",
         "prize": false,
         "bodyTypes": [
@@ -149481,7 +149481,7 @@
         "tyres": "Standard",
         "mra": 43.65,
         "weight": 1410,
-        "name": "Citroen Berlingo",
+        "name": "Citroën Berlingo",
         "rid": "Citroen_Berlingo_2020",
         "prize": false,
         "bodyTypes": [
@@ -149514,7 +149514,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1136,
-        "name": "Citroen C3 Pluriel",
+        "name": "Citroën C3 Pluriel",
         "rid": "Citroen_C3_Pluriel_2010",
         "prize": false,
         "bodyTypes": [
@@ -149547,7 +149547,7 @@
         "tyres": "Standard",
         "mra": 40.97,
         "weight": 1072,
-        "name": "Citroen C3 XTR",
+        "name": "Citroën C3 XTR",
         "rid": "Citroen_C3_XTR_2005",
         "prize": false,
         "bodyTypes": [
@@ -149580,7 +149580,7 @@
         "tyres": "Performance",
         "mra": 55.59,
         "weight": 1102,
-        "name": "Citroen ZX Volcane TD",
+        "name": "Citroën ZX Volcane TD",
         "rid": "Citroen_ZX_Volcane_TD_1991",
         "bodyTypes": [
             "Hatchback"
@@ -149951,7 +149951,7 @@
         "tyres": "Standard",
         "mra": 39.68,
         "weight": 1060,
-        "name": "Hyundai Casper 1.0 T-GDI",
+        "name": "Hyundai Casper 1.0 T-GDI ",
         "rid": "Hyundai_Casper_10_TGDI_2021",
         "prize": false,
         "bodyTypes": [
@@ -150289,7 +150289,7 @@
         "tyres": "Performance",
         "mra": 51.32,
         "weight": 1167,
-        "name": "Peugeot 1007 RC Concept",
+        "name": "Peugeot 1007 RC Concept ",
         "rid": "Peugeot_1007_RC_Concept_2004",
         "prize": false,
         "bodyTypes": [
@@ -150324,7 +150324,7 @@
         "tyres": "Standard",
         "mra": 44.4,
         "weight": 1365,
-        "name": "Peugeot 307 Cameleo",
+        "name": "Peugeot 307 Cameleo ",
         "rid": "Peugeot_307_Cameleo_2001",
         "prize": false,
         "bodyTypes": [
@@ -151205,7 +151205,7 @@
         "tyres": "Standard",
         "mra": 28.64,
         "weight": 920,
-        "name": "Citroen GSA 1.3",
+        "name": "Citroën GSA 1.3",
         "rid": "Citroen_GSA_1979",
         "bodyTypes": [
             "Hatchback"
@@ -151528,7 +151528,7 @@
     {
         "class": "F",
         "rq": 17,
-        "onlyName": "Datsun 240Z",
+        "onlyName": "240Z",
         "brand": "Nissan",
         "year": 1969,
         "abs": false,
@@ -151542,7 +151542,7 @@
         "tyres": "Performance",
         "mra": 58.96,
         "weight": 1085,
-        "name": "Nissan Datsun 240Z",
+        "name": "Datsun 240Z",
         "rid": "Nissan_Datsun_240Z_1969",
         "bodyTypes": [
             "Coupe"
@@ -151848,7 +151848,7 @@
         "tyres": "Standard",
         "mra": 41.72,
         "weight": 1005,
-        "name": "Skoda Felicia Estate GLXi 1.6",
+        "name": "Škoda Felicia Estate GLXi 1.6",
         "rid": "Skoda_Felicia_Estate_GLXi_16_1996",
         "prize": false,
         "bodyTypes": [
@@ -151967,7 +151967,7 @@
     {
         "class": "F",
         "rq": 17,
-        "onlyName": "Opel GT",
+        "onlyName": "GT",
         "brand": "Vauxhall",
         "year": 1968,
         "abs": false,
@@ -151981,7 +151981,7 @@
         "tyres": "Performance",
         "mra": 51.58,
         "weight": 970,
-        "name": "Vauxhall Opel GT",
+        "name": "Opel GT",
         "rid": "Vauxhall_Opel_GT_1968",
         "bodyTypes": [
             "Coupe"
@@ -152493,7 +152493,7 @@
         "tyres": "Standard",
         "mra": 26.61,
         "weight": 1109,
-        "name": "Citroen C-Cactus",
+        "name": "Citroën C-Cactus",
         "rid": "Citroen_CCactus_2007",
         "prize": false,
         "bodyTypes": [
@@ -152528,7 +152528,7 @@
         "tyres": "Standard",
         "mra": 36.8,
         "weight": 1005,
-        "name": "Citroen C3",
+        "name": "Citroën C3",
         "rid": "Citroen_C3_2002",
         "prize": false,
         "bodyTypes": [
@@ -152561,7 +152561,7 @@
         "tyres": "Standard",
         "mra": 51.11,
         "weight": 1280,
-        "name": "Citroen CX",
+        "name": "Citroën CX",
         "rid": "Citroen_CX_1974",
         "prize": false,
         "bodyTypes": [
@@ -152835,7 +152835,7 @@
         "tyres": "Standard",
         "mra": 43.87,
         "weight": 2238,
-        "name": "Hyundai i800 2.5 CRDi",
+        "name": "Hyundai i800 2.5 CRDi ",
         "rid": "Hyundai_i800_25_CRDi_2019",
         "prize": false,
         "bodyTypes": [
@@ -153312,7 +153312,7 @@
         "tyres": "Standard",
         "mra": 41.17,
         "weight": 954,
-        "name": "Skoda Citijet",
+        "name": "Škoda Citijet",
         "rid": "Skoda_Citijet_2014",
         "prize": false,
         "bodyTypes": [
@@ -153346,7 +153346,7 @@
         "tyres": "Standard",
         "mra": 17.99,
         "weight": 1110,
-        "name": "Skoda Felicia Fun",
+        "name": "Škoda Felicia Fun",
         "rid": "Skoda_Felicia_Fun_1997",
         "prize": false,
         "bodyTypes": [
@@ -154832,7 +154832,7 @@
     {
         "class": "F",
         "rq": 14,
-        "onlyName": "Healey 3000",
+        "onlyName": "3000",
         "brand": "Austin",
         "year": 1959,
         "abs": false,
@@ -154846,7 +154846,7 @@
         "tyres": "Standard",
         "mra": 58.03,
         "weight": 1143,
-        "name": "Austin Healey 3000",
+        "name": "Austin-Healey 3000",
         "rid": "Austin_Healey_3000_1959",
         "prize": true,
         "bodyTypes": [
@@ -155358,7 +155358,7 @@
         "tyres": "Standard",
         "mra": 30.27,
         "weight": 875,
-        "name": "Citroen Axel 12 TRS",
+        "name": "Citroën Axel 12 TRS",
         "rid": "Citroen_Axel_12_TRS_1984",
         "bodyTypes": [
             "Hatchback"
@@ -155392,7 +155392,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1405,
-        "name": "Citroen E-Méhari",
+        "name": "Citroën E-Méhari",
         "rid": "Citroen_EMehari_2018",
         "prize": false,
         "bodyTypes": [
@@ -156515,7 +156515,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1120,
-        "name": "Citroen C-Zero",
+        "name": "Citroën C-Zero",
         "rid": "Citroen_C-Zero_2016",
         "bodyTypes": [
             "Hatchback"
@@ -157099,7 +157099,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 940,
-        "name": "Skoda Favorit 1.3 E GLX",
+        "name": "Škoda Favorit 1.3 E GLX",
         "rid": "Skoda_Favorit_13_E_GLX_1993",
         "prize": false,
         "bodyTypes": [
@@ -157846,7 +157846,7 @@
         "tyres": "Standard",
         "mra": 32,
         "weight": 1125,
-        "name": "Citroen Berlingo",
+        "name": "Citroën Berlingo",
         "rid": "Citroen_Berlingo_2004",
         "prize": false,
         "bodyTypes": [
@@ -157880,7 +157880,7 @@
         "tyres": "Standard",
         "mra": 53.85,
         "weight": 1140,
-        "name": "Citroen GZ",
+        "name": "Citroën GZ",
         "rid": "Citroen_GZ_1973",
         "bodyTypes": [
             "Saloon"
@@ -157933,7 +157933,7 @@
     {
         "class": "F",
         "rq": 12,
-        "onlyName": "Abarth 750 record car",
+        "onlyName": "750 record car",
         "brand": "Fiat",
         "year": 1956,
         "abs": false,
@@ -157947,7 +157947,7 @@
         "tyres": "Performance",
         "mra": 60.94,
         "weight": 385,
-        "name": "Fiat Abarth 750 record car",
+        "name": "Abarth 750 record car",
         "rid": "Fiat_Abarth_750_record_car_1956",
         "prize": true,
         "bodyTypes": [
@@ -158461,7 +158461,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 900,
-        "name": "Peugeot Bobslid Concept",
+        "name": "Peugeot Bobslid Concept ",
         "rid": "Peugeot_Bobslid_Concept_2000",
         "prize": false,
         "bodyTypes": [
@@ -159087,7 +159087,7 @@
     {
         "class": "F",
         "rq": 11,
-        "onlyName": "Healey Sprite",
+        "onlyName": "Sprite",
         "brand": "Austin",
         "year": 1958,
         "abs": false,
@@ -159101,7 +159101,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 664,
-        "name": "Austin Healey Sprite",
+        "name": "Austin-Healey Sprite",
         "rid": "Austin_Healey_Sprite_1958",
         "prize": true,
         "bodyTypes": [
@@ -159240,7 +159240,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 815,
-        "name": "Citroen Ami Super",
+        "name": "Citroën Ami Super",
         "rid": "Citroen_Ami_Super_1973",
         "bodyTypes": [
             "Hatchback"
@@ -159275,7 +159275,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 790,
-        "name": "Citroen Citela",
+        "name": "Citroën Citela",
         "rid": "Citroen_Citela_1992",
         "prize": false,
         "bodyTypes": [
@@ -159309,7 +159309,7 @@
         "tyres": "Standard",
         "mra": 43.78,
         "weight": 1275,
-        "name": "Citroen DS Convertible",
+        "name": "Citroën DS Convertible",
         "rid": "DS_DS_Convertible_1958",
         "bodyTypes": [
             "Convertible"
@@ -159344,7 +159344,7 @@
         "tyres": "Standard",
         "mra": 79.96,
         "weight": 874,
-        "name": "Citroen GS Birotor",
+        "name": "Citroën GS Birotor",
         "rid": "Citroen_GS_Birotor_1973",
         "prize": false,
         "bodyTypes": [
@@ -159378,7 +159378,7 @@
         "tyres": "Standard",
         "mra": 54.22,
         "weight": 1240,
-        "name": "Citroen Xsara Picasso",
+        "name": "Citroën Xsara Picasso",
         "rid": "Citroen_Xsara_Picasso_1997",
         "bodyTypes": [
             "MPV"
@@ -159567,7 +159567,7 @@
     {
         "class": "F",
         "rq": 11,
-        "onlyName": "Abarth 1500 Biposto",
+        "onlyName": "1500 Biposto",
         "brand": "Fiat",
         "year": 1952,
         "abs": false,
@@ -159581,7 +159581,7 @@
         "tyres": "Performance",
         "mra": 48.49,
         "weight": 870,
-        "name": "Fiat Abarth 1500 Biposto",
+        "name": "Abarth 1500 Biposto",
         "rid": "Fiat_Abarth_1500_Biposto_1952",
         "bodyTypes": [
             "Coupe"
@@ -160053,7 +160053,7 @@
         "tyres": "Standard",
         "mra": 28.94,
         "weight": 1135,
-        "name": "Peugeot 404 Diesel Record Car",
+        "name": "Peugeot 404 Diesel Record Car ",
         "rid": "Peugeot_404_Diesel_Record_Car_1965",
         "prize": false,
         "bodyTypes": [
@@ -160124,7 +160124,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1570,
-        "name": "Peugeot H2O",
+        "name": "Peugeot H2O ",
         "rid": "Peugeot_H2O_2002",
         "prize": true,
         "bodyTypes": [
@@ -160292,7 +160292,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 755,
-        "name": "Skoda 1000 MB",
+        "name": "Škoda 1000 MB",
         "rid": "Skoda_1000_MB_1964",
         "prize": false,
         "bodyTypes": [
@@ -160976,7 +160976,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 735,
-        "name": "Citroen 2CV Sahara 4x4",
+        "name": "Citroën 2CV Sahara 4x4",
         "rid": "Citroen_2CV_Sahara_4x4_1958",
         "prize": false,
         "bodyTypes": [
@@ -161012,7 +161012,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 595,
-        "name": "Citroen 2CV6",
+        "name": "Citroën 2CV6",
         "rid": "Citroen_2CV_6_1979",
         "bodyTypes": [
             "Hatchback"
@@ -161046,7 +161046,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 471,
-        "name": "Citroen Ami",
+        "name": "Citroën Ami ",
         "rid": "Citroen_Ami_2021",
         "prize": false,
         "bodyTypes": [
@@ -161081,7 +161081,7 @@
         "tyres": "Off-road",
         "mra": null,
         "weight": 485,
-        "name": "Citroen Ami Buggy",
+        "name": "Citroën Ami Buggy",
         "rid": "Citroen_Ami_Buggy_2022",
         "prize": false,
         "bodyTypes": [
@@ -161115,7 +161115,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 995,
-        "name": "Citroen AX Électrique",
+        "name": "Citroën AX Électrique",
         "rid": "Citroen_AX_Electrique_1995",
         "prize": false,
         "bodyTypes": [
@@ -161150,7 +161150,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 600,
-        "name": "Citroen Dyane",
+        "name": "Citroën Dyane",
         "rid": "Citroen_Dyane_1967",
         "prize": false,
         "bodyTypes": [
@@ -161183,7 +161183,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 725,
-        "name": "Citroen M35",
+        "name": "Citroën M35",
         "rid": "Citroen_M35_1969",
         "bodyTypes": [
             "Coupe"
@@ -161218,7 +161218,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1400,
-        "name": "Citroen Traction Avant",
+        "name": "Citroën Traction Avant",
         "rid": "Citroen_Traction_Avant_1934",
         "bodyTypes": [
             "Saloon"
@@ -161306,7 +161306,7 @@
     {
         "class": "F",
         "rq": 10,
-        "onlyName": "Abarth 750 Zagato",
+        "onlyName": "750 Zagato",
         "brand": "Fiat",
         "year": 1956,
         "abs": false,
@@ -161320,7 +161320,7 @@
         "tyres": "Performance",
         "mra": 26.3,
         "weight": 535,
-        "name": "Fiat Abarth 750 Zagato",
+        "name": "Abarth 750 Zagato",
         "rid": "Fiat_Abarth_750_Zagato_1956",
         "bodyTypes": [
             "Coupe"
@@ -161354,7 +161354,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 485,
-        "name": "Fiat Topolino",
+        "name": "Fiat Topolino ",
         "rid": "Fiat_Topolino_2023",
         "prize": false,
         "bodyTypes": [
@@ -162066,7 +162066,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 655,
-        "name": "Renault Rodeo",
+        "name": "Renault Rodeo ",
         "rid": "Renault_Rodeo_1970",
         "prize": false,
         "bodyTypes": [
@@ -162100,7 +162100,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 1000,
-        "name": "Skoda 422",
+        "name": "Škoda 422",
         "rid": "Skoda_422_1929",
         "prize": false,
         "bodyTypes": [
@@ -162134,7 +162134,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 920,
-        "name": "Skoda Octavia Super",
+        "name": "Škoda Octavia Super",
         "rid": "Skoda_Octavia_1959",
         "prize": false,
         "bodyTypes": [
@@ -162154,7 +162154,7 @@
     {
         "class": "F",
         "rq": 10,
-        "onlyName": "Popular 1101 OHV",
+        "onlyName": "Popular 1100 OHV",
         "brand": "Skoda",
         "year": 1940,
         "abs": false,
@@ -162168,7 +162168,7 @@
         "tyres": "Standard",
         "mra": null,
         "weight": 920,
-        "name": "Skoda Popular 1101 OHV",
+        "name": "Škoda Popular 1100 OHV",
         "rid": "Skoda_Popular_1101_1940",
         "prize": false,
         "bodyTypes": [
