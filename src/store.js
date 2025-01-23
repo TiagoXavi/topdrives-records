@@ -96,6 +96,7 @@ export default new Vuex.Store({
       "In the Shadows",
       "In the Shadows 24",
       "Interstellar",
+      "Lina's Collection",
       "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
       "Marilyn's Collection",

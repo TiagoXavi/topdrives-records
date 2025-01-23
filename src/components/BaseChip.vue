@@ -7,7 +7,7 @@
     @touchstart="touchstart($event)"
     @touchend="touchend($event)"
     @touchmove="touchmove($event)">
-    <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
+    <span class="BaseChip_Text"><slot>{{ label ? label : (dicio && dicio[value] ? dicio[value] : value) }}</slot></span>
     <span v-if="!isNaN(counter) && counter !== 0" class="BaseChip_Sub">{{ counter }}</span>
   </button>
 </template>
@@ -34,6 +34,12 @@ export default {
     inputValue: {
       type: [String, Number, Boolean, Object, Array],
       default: false
+    },
+    dicio: {
+      type: Object,
+      default() {
+        return null
+      }
     },
     activeClass: {
       type: String,

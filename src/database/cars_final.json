@@ -2228,6 +2228,7 @@
         "weight": 1380,
         "name": "Porsche 935 JPS (991.2)",
         "rid": "Porsche_935_(991.2)_2019_$J",
+        "prize": true,
         "bodyTypes": [
             "Coupe"
         ],
@@ -2262,6 +2263,7 @@
         "weight": 1380,
         "name": "Porsche 935 Momo (991.2)",
         "rid": "Porsche_935_(991.2)_2019_$M",
+        "prize": true,
         "bodyTypes": [
             "Coupe"
         ],
@@ -2296,6 +2298,7 @@
         "weight": 1380,
         "name": "Porsche 935 Vaillant (991.2)",
         "rid": "Porsche_935_(991.2)_2019_$V",
+        "prize": true,
         "bodyTypes": [
             "Coupe"
         ],

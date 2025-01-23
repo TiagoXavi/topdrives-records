@@ -139,7 +139,7 @@
     "matches": [
       ["Lancia_Aprilia_Sport_Zagato_1938", "Volkswagen_T-Roc_2017"],
       ["Suzuki_Hustler_Hybrid_X_Turbo_2019", "Citroen_C3-XR_2014"],
-      ["Peugeot_208_2018", "Nissan_Juke_2010"],
+      ["Peugeot_1007_2005", "Nissan_Juke_2010"],
       ["Lancia_Delta_2012", "Volkswagen_Polo_GTI_2018"],
       ["Volkswagen_Golf_2017", "Fiat_Fullback_Cross_2017"],
       ["Vauxhall_Opel_Insignia_Country_Tourer_2013", "Volkswagen_Atlas_2018"],
@@ -154,7 +154,7 @@
     "matches": [
       ["Peugeot_1007_2005", "Peugeot_205_GTi_1.6_1984"],
       ["Volkswagen_Transporter_2004", "Chrysler_Sebring_1995"],
-      ["Subaru_R1_2005", "Mitsubishi_i-MiEV_2007"],
+      ["Subaru_Impreza_1992", "Mitsubishi_i-MiEV_2007"],
       ["Volkswagen_Polo_GTI_2006", "Acura_TSX_2004"],
       ["Chrysler_PT_Cruiser_GT_Convertible_2005", "Chrysler_Crossfire_Roadster_2004"],
       ["Citroen_C5_V6_2003", "Citroen_C-Crosser_2.2_L_HDi_2007"],

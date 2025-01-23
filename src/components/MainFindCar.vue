@@ -152,10 +152,10 @@ export default {
           })
         })
       })
-      this.list.sort((a, b) => {
-        return `${a.car.rq}_${a.car.rid}`.localeCompare(`${b.car.rq}_${b.car.rid}`);
-        return b.car.rq - a.car.rq;
-      })
+      // this.list.sort((a, b) => {
+      //   return `${a.car.rq}_${a.car.rid}`.localeCompare(`${b.car.rq}_${b.car.rid}`);
+      //   return b.car.rq - a.car.rq;
+      // })
 
     },
   },

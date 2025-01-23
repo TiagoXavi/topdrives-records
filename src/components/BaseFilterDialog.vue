@@ -406,6 +406,7 @@
               <BaseChip
                 v-model="searchFilters.brandsModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
+                :dicio="{ Citroen: 'Citroën', Skoda: 'Škoda' }"
                 :counter="counters[`brands_${item}`]"
                 :value="item" />
             </template>
@@ -988,7 +989,7 @@ export default {
           "Acura",
           "Alfa Romeo",
           "AMC",
-          "Apollo", // logic "Gumpert"
+          "Apollo",
           "Arash",
           "Ariel",
           "Aston Martin",
@@ -1063,7 +1064,7 @@ export default {
           "RUF",
           "Saleen",
           "Saturn",
-          "SCG", // logic "Scuderia Cameron Glickenhaus"
+          "SCG",
           "Skoda",
           "Smart",
           "Spyker",
