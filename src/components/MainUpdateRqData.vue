@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final.json' // internal
-import cars_new_rq from '../database/cars_new_rq_24_1.json'
+import cars_final from '../database/cars_final_PL24_2-preview.json' // internal TEMP
+import cars_new_rq from '../database/cars_new_rq_24_2.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -34,11 +34,11 @@ export default {
   beforeMount() {},
   mounted() {
     let temp;
-    let temp2;
-    let xName;
-    let yModel;
-    let oldStr = "24.0";
-    let newStr = "24.1";
+    let oldStr = "24.1";
+    let newStr = "24.2";
+    let modelStr = "Name";
+    let brandMondelTogether = true;
+    let yearInParentesis = true;
 
 
 
@@ -388,11 +388,11 @@ export default {
         //   debugger;
         // }
         // if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
-        let yModelName = y.Model.trim().slice(0,-7).toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-        let yModelYear = y.Model.trim().slice(-5,-1);
+        let yModelName = y[modelStr].trim().slice(0,-7).toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        let yModelYear = y[modelStr].trim().slice(-5,-1);
         yModelName = yModelName.replace("vauxhall/opel ", "");
-        yModelName = yModelName.replace("fiat ", "");
-        yModelName = yModelName.replace("abarth ", "");
+        // yModelName = yModelName.replace("fiat ", "");
+        // yModelName = yModelName.replace("abarth ", "");
         // yModelName = yModelName.replace("apollo apollo ", "");
         // yModelName = yModelName.replace("apollo ", "");
         yModelName = yModelName.replace("™", "");
@@ -401,27 +401,28 @@ export default {
         yModelName = yModelName.replace("‘", "'");
         yModelName = yModelName.replace("’", "'");
         yModelName = yModelName.replace("scuderia cameron glickenhaus ", "scg ");
-        yModelName = yModelName.replace("datsun ", "");
-        yModelName = yModelName.replace("amg ", "");
+        // yModelName = yModelName.replace("datsun ", "");
+        // yModelName = yModelName.replace("amg ", "");
         yModelName = yModelName.replace("citroën ", "citroen ");
         yModelName = yModelName.replace("škoda ", "skoda ");
         yModelName = yModelName.replace("automobili pininfarina ", "pininfarina ");
 
         temp = this.cars_final.filter(x => {
-          let xModelName = x.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-          xModelName = xModelName.replace("vauxhall opel ", "");
-          xModelName = xModelName.replace("vauxhall ", "");
-          xModelName = xModelName.replace("fiat ", "");
-          xModelName = xModelName.replace("abarth ", "");
-          xModelName = xModelName.replace("austin healey ", "austin ");
-          xModelName = xModelName.replace("amg ", "");
-          xModelName = xModelName.replace("datsun ", "");
-          xModelName = xModelName.replace("gumpert ", "");
+          let xModelName = `${x.brand} ${x.onlyName}`.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+          // xModelName = xModelName.replace("vauxhall opel ", "");
+          // xModelName = xModelName.replace("vauxhall ", "");
+          // xModelName = xModelName.replace("fiat ", "");
+          // xModelName = xModelName.replace("abarth ", "");
+          // xModelName = xModelName.replace("austin healey ", "austin ");
+          // xModelName = xModelName.replace("amg ", "");
+          // xModelName = xModelName.replace("datsun ", "");
+          // xModelName = xModelName.replace("gumpert ", "");
 
           if (xModelName.includes(yModelName) && yModelYear == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
             return true
           }
-          if (yModelName === "peugeot 405 t16 dakar" && x.rid === "Peugeot_208_WRX_2018") {
+          if (yModelName === "renault twingo gt" && x.rid === "Renault_Sport_Twingo_GT_2016") {
+            console.log(xModelName, xModelName, yModelYear, x.year)
             debugger;
           }
         });
@@ -445,7 +446,7 @@ export default {
           if (temp[0].rq === y[oldStr] || temp[0].rq === y[newStr]) {
             // OK
             temp[0].rq = y[newStr];
-            // temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
+            temp[0].class = Vue.resolveClass(temp[0].rq, null, "letter")
           } else {
             console.log(`${oldStr} diferente`, temp[0]);
             debugger;
@@ -467,9 +468,15 @@ export default {
 
 
 
-    this.cars_final.sort((a, b) => b.rq - a.rq)
+    this.cars_final.sort((a, b) => {
+      if (a.rq === b.rq) {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.rq - a.rq;
+      }
+    })
+    console.log(this.cars_final);
     debugger;
-    navigator.clipboard.writeText(JSON.stringify(this.cars_final));
   },
   computed: {},
   methods: {

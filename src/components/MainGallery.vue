@@ -284,14 +284,35 @@
 
             <div
               v-if="diff_searchResult[ix].drive"
+              :class="{
+                MainGallery_ColorUp: diff_searchResult[ix].drive === 'FWD' || (diff_searchResult[ix].drive === 'RWD' && diff_searchResult[ix]._drive === '4WD'),
+                MainGallery_ColorDown: diff_searchResult[ix].drive === '4WD' || (diff_searchResult[ix].drive === 'RWD' && diff_searchResult[ix]._drive === 'FWD')
+              }"
               class="MainGallery_drive MainGallery_Color">
               {{ diff_searchResult[ix].drive }}
             </div>
 
             <div
               v-if="diff_searchResult[ix].tyres"
+              :class="{
+                MainGallery_ColorUp: diff_searchResult[ix].tyres === 'Slick' || diff_searchResult[ix]._tyres === 'All-surface' || (diff_searchResult[ix].tyres === 'Performance' && diff_searchResult[ix]._tyres !== 'Slick'),
+                MainGallery_ColorDown: diff_searchResult[ix].tyres === 'All-surface' || diff_searchResult[ix]._tyres === 'Slick' || (diff_searchResult[ix].tyres === 'Standard' && diff_searchResult[ix]._tyres !== 'All-surface')
+              }"
               class="MainGallery_tyres MainGallery_Color">
               {{ diff_searchResult[ix].tyres }}
+            </div>
+
+            <div
+              v-if="diff_searchResult[ix].brake"
+              :class="{
+                MainGallery_ColorUp: (diff_searchResult[ix].brake === 'C') || (diff_searchResult[ix].brake === 'B' && diff_searchResult[ix]._brake === 'A'),
+                MainGallery_ColorDown: (diff_searchResult[ix].brake === 'A') || (diff_searchResult[ix].brake === 'B' && diff_searchResult[ix]._brake === 'C')
+              }"
+              class="MainGallery_Brake MainGallery_Compare">
+              <div class="MainGallery_CompareLabel">Brake</div>
+              <div class="MainGallery_Old">{{ diff_searchResult[ix].brake }}</div>
+              <i class="ticon-arrow_right_3 MainGallery_Between" aria-hidden="true"/>
+              <div class="MainGallery_Old">{{ diff_searchResult[ix]._brake }}</div>
             </div>
 
             <div
@@ -382,8 +403,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL24_1-fixed.json'
-import plOld from '../database/cars_final_PL24.json'
+import data_cars from '../database/cars_final_PL24_2-preview.json'
+import plOld from '../database/cars_final_PL24_1.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -918,6 +939,10 @@ export default {
               dif.clearance = x.clearance
               dif._clearance = y.clearance
             }
+            if (x.brake !== y.brake) {
+              dif.brake = x.brake
+              dif._brake = y.brake
+            }
             if (x.topSpeed !== y.topSpeed) {
               dif.topSpeed = x.topSpeed
               dif._topSpeed = y.topSpeed
@@ -1106,7 +1131,8 @@ export default {
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
             (oldCar.mra === null || oldCar.mra === car.mra) &&
-            oldCar.weight === car.weight
+            oldCar.weight === car.weight &&
+            oldCar.brake === car.brake
           ) {
           return false;
         }
@@ -1126,7 +1152,8 @@ export default {
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
             (oldCar.mra === null || oldCar.mra === car.mra) &&
-            oldCar.weight === car.weight
+            oldCar.weight === car.weight &&
+            oldCar.brake === car.brake
           ) {
           return false;
         }
@@ -1173,7 +1200,8 @@ export default {
             oldCar.acel === car.acel &&
             oldCar.hand === car.hand &&
             (oldCar.mra === null || oldCar.mra === car.mra) &&
-            oldCar.weight === car.weight
+            oldCar.weight === car.weight &&
+            oldCar.brake === car.brake
           ) {
           return false;
         }
@@ -1413,6 +1441,15 @@ export default {
 .MainGallery_Clearance {
   top: -20px;
   right: 30px;
+}
+.MainGallery_Brake {
+  bottom: 40px;
+  left: 294px;
+}
+.MainGallery_Brake .MainGallery_CompareLabel {
+  right: unset;
+  left: 0;
+  top: calc(100% + 2px);
 }
 .MainGallery_Mra {
   top: 190px;
