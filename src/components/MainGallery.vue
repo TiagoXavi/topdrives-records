@@ -403,7 +403,7 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL24_2-preview.json'
+import data_cars from '../database/cars_final_PL24_2-fixed.json'
 import plOld from '../database/cars_final_PL24_1.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
@@ -702,7 +702,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v24_1", "t");
+    window.localStorage.setItem("changes_v24_2", "t");
   },
   beforeMount() {
     // check new cars
@@ -1443,7 +1443,7 @@ export default {
   right: 30px;
 }
 .MainGallery_Brake {
-  bottom: 40px;
+  top: 190px;
   left: 294px;
 }
 .MainGallery_Brake .MainGallery_CompareLabel {

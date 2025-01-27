@@ -41,7 +41,7 @@ export default {
   mounted() {
     // insert database MRA to cars_final MRA
     // {
-    //   let newMras = { "Fiat_1600_Coupe_1969": 69.9, "Lamborghini_Huracan_Spyder_2015": 92.96, "Peugeot_2008_DKR_2014": 80, "Mitsubishi_MiEV_Evolution_II_2013": 92.65, "Cadillac_ATSVR_2015": 99.01, "Lamborghini_Diablo_GTR_1999": 85.37, "Audi_TT_RS_Iconic_Edition_2023": 70, "Ram_1500_TRX_Gold_Shot_2022": 64.41, "Porsche_911_GT2_2007": 89.74, "Peugeot_20Cup_2005": 54.57, "Renault_21_Superproduction_1988": 97.5, "Pininfarina_Battista_Anniversario_2022": 109.09 }
+    //   let newMras = { "Audi_TT_RS_Iconic_Edition_2023": 70, "Cadillac_ATSVR_2015": 99.01, "Fiat_1600_Coupe_1969": 69.9, "Lamborghini_Diablo_GTR_1999": 85.37, "Lamborghini_Huracan_Spyder_2015": 92.96, "Mazda_RT24P_2017": 103.8, "Mitsubishi_MiEV_Evolution_II_2013": 92.65, "Peugeot_2008_DKR_2014": 80, "Peugeot_20Cup_2005": 54.57, "Pininfarina_Battista_Anniversario_2022": 109.09, "Porsche_911_GT2_2007": 89.74, "Ram_1500_TRX_Gold_Shot_2022": 64.41, "Renault_21_Superproduction_1988": 97.5, "Renault_Espace_F1_1994": 105.88 }
     //   this.cars_final.map(car => {
     //     if (newMras[car.rid]) {
     //       car.mra = newMras[car.rid];

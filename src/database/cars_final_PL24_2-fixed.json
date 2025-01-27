@@ -8712,7 +8712,7 @@
         "hand": 88,
         "drive": "RWD",
         "tyres": "Slick",
-        "mra": null,
+        "mra": 105.88,
         "weight": 1300,
         "name": "Renault Espace F1",
         "rid": "Renault_Espace_F1_1994",

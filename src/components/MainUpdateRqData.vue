@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final_PL24_2-preview.json' // internal TEMP
+import cars_final from '../database/cars_final.json' // internal TEMP
 import cars_new_rq from '../database/cars_new_rq_24_2.json'
 
 export default {

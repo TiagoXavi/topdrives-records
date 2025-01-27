@@ -115,28 +115,4 @@ export default {
   box-shadow: inset 0px 0px 0px 2px currentColor;
   --type-back-opac: 0.0;
 }
-.TypeText_Dry {
-  color: rgb(var(--color-dry))
-}
-.TypeText_Wet {
-  color: rgb(var(--color-wet))
-}
-.TypeText_Dirt {
-  color: rgb(var(--color-dirt))
-}
-.TypeText_Gravel {
-  color: rgb(var(--color-gravel))
-}
-.TypeText_Ice {
-  color: rgb(var(--color-ice))
-}
-.TypeText_Sand {
-  color: rgb(var(--color-sand))
-}
-.TypeText_Snow {
-  color: rgb(var(--color-snow))
-}
-.TypeText_Grass {
-  color: rgb(var(--color-grass))
-}
 </style>
