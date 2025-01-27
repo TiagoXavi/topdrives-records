@@ -6310,6 +6310,7 @@ export default {
       if (!this.user || !this.user.mod) return;
       data.rounds.map((round, iround) => {
         if (round.lastAnalyze) return;
+        if (round.creator) return;
         let isPreDone = true; 
         round.races.find((race, irace) => {
           if (!race.rid || !race.track || !race.tune || (!race.time && race.time !== 0) ) {
@@ -6319,7 +6320,6 @@ export default {
         })
         if (isPreDone) {
           Vue.set(round, 'preDoneMod', true);
-          Vue.set(round, 'creator', this.user.username);
         }
       })
     },
@@ -7484,7 +7484,8 @@ export default {
         date: this.cgCurrentId,
         round: this.cgCurrentRound,
         filter: this.cgRound.filter,
-        cgRound: clearRound
+        cgRound: clearRound,
+        preDone: this.cgRound.preDoneMod
       })
       .then(res => {
         this.loadChallengeFull(this.cgCurrentId);
