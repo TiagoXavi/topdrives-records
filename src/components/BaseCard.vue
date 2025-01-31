@@ -65,7 +65,7 @@
         <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
       </div>
       <div class="Car_HeaderBlockDrive">
-        <div class="Car_HeaderStatValue">{{ car.drive || "-" }}</div>
+        <div class="Car_HeaderStatValue">{{ this.resolveCar.drive  || "-" }}</div>
         <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
       </div>
       <div :class="{

@@ -798,6 +798,10 @@
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace('cg')">{{ $t("m_useTrackList") }}</button>
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="cgExportSolutionsToPacks()">{{ $t("m_solutionsInPacks") }}</button>
           </div>
           <div v-if="forceShowAnalyse" class="Cg_BottomModTools">
             <button
@@ -7705,10 +7709,10 @@ export default {
           _iRound = this.cgCurrentRoundSum+_iRound;
         }
 
-        if (!json.ladder.challengeSetIds[_iRound]) return;
+        if (!json.ladder.challengeSetIds[Math.floor(_iRound / zoneSize)]) return;
 
-        round.uuidTrackSet = json.ladder.challengeSetIds[_iRound];
-        round.hCriteria = json.ladder.zoneFlexibleCriteria[_iRound];
+        round.uuidTrackSet = json.ladder.challengeSetIds[Math.floor(_iRound / zoneSize)];
+        round.hCriteria = json.ladder.zoneFlexibleCriteria[Math.floor(_iRound / zoneSize)];
         round.rqLimit = json.ladder.zoneEligibility[Math.floor(_iRound / zoneSize)].targetRQ;
         roundErrorCount = 0;
 
@@ -8086,6 +8090,24 @@ export default {
         return a.index - b.index;
       })
       
+    },
+    cgExportSolutionsToPacks() {
+      let rids = [];
+      let cars = [];
+      this.cgRound.races.map(race => {
+        race.cars.map(car => {
+          if (car.points > 0) {
+            cars.push(car);
+          }
+        })
+      })
+      cars = cars.filter(car => {
+        if (rids.includes(car.rid)) return false;
+        rids.push(car.rid);
+        return true;
+      })
+
+      this.$router.push({ name: "Packs", params: { cars } })
     },
     generateRandom(maxInt, stringParam) {
       let sum = 0;

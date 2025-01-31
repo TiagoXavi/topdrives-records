@@ -751,6 +751,20 @@ export default {
       // this.packFilter = this.$route.params.filter;
       this.packModel = this.packTypes.find(x => x.name === "Carbon Fiber");
     }
+    if (this.$route.params && this.$route.params.cars) {
+      this.packModel = this.packTypes.find(x => x.name === "Carbon Fiber");
+      this.goalModel = "specificCar";
+      this.$route.params.cars.map(car => {
+        this.carDetailsList.push({
+          ...car.car,
+          color: car.color,
+          photo: car.photo
+        });
+      })
+      this.carDetailsList.sort((a,b) => {
+        return a.rq - b.rq
+      })
+    }
 
   },
   beforeDestroy() {

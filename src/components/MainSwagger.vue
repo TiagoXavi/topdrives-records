@@ -94,10 +94,10 @@
       <div class="MainSwagger_Title">Backup cars</div>
       <div class="MainSwagger_Fields">
         <textarea
-          v-model="rids"
+          v-model="clearChangesArray"
           rows="6"
           class="Main_TextArea data-hj-allow"
-          placeholder="array of rids" />
+          placeholder="clearChangesArray" />
         <BaseText
           v-model="pastVersion"
           type="normal"
@@ -112,9 +112,6 @@
           class="D_Button D_ButtonDark TTT_Button"
           @click="backupCars()">Send</button>
       </div>
-      <div class="MainSwagger_">"Rimac_Nevera_2021"</div>
-      <div class="MainSwagger_">"Rimac_Nevera_2021", "Audi_R18_2016"</div>
-      <div class="MainSwagger_">Dont put comma at end</div>
       <div class="MainSwagger_">Errors will cause infinite loading</div>
       <div class="MainSwagger_Response">
         {{ backupCarsRes }}
@@ -300,7 +297,7 @@ export default {
       tier: null,
       setTierRes: null,
       setModRes: null,
-      rids: null,
+      clearChangesArray: null,
       pastVersion: "20",
       backupCarsRes: null,
       scanSessionRes: null,
@@ -447,11 +444,11 @@ export default {
       let vm = this;
       vm.loading = true;
 
-      let rids = JSON.parse(`[${this.rids}]`)
+      let clearChangesArray = JSON.parse(clearChangesArray)
       debugger;
 
       axios.post(Vue.preUrl + "/backupCars", {
-        rids: rids,
+        clearChangesArray: clearChangesArray,
         pastVersion: this.pastVersion,
       })
       .then(res => {

@@ -426,7 +426,9 @@ export default {
   data() {
     return {
       all_cars: data_cars,
+      all_cars_obj: {},
       plOld: plOld,
+      plOld_obj: {},
       diff_cars: [],
       searchInput: '',
       searchActive: false,
@@ -446,6 +448,8 @@ export default {
       chunkLoaded: {},
       showAllChunk: false,
       lastestLoading: false,
+      clearChangesArray: [],
+      clearFilters: {},
       searchFilters: {
         yearStart: 1910,
         yearEnd: 2024,
@@ -705,16 +709,15 @@ export default {
     window.localStorage.setItem("changes_v24_2", "t");
   },
   beforeMount() {
-    // check new cars
-    let found = this.all_cars.find(x => x.rid === "Lamborghini_Athon_1980");
-    
-    if (!found) {
-      this.getLastest();
-    } else {
-      this.init();
-    }
-    
-
+    // // check new cars
+    // let found = this.all_cars.find(x => x.rid === "Lamborghini_Athon_1980");
+    // if (!found) {
+    //   this.getLastest();
+    // } else {
+    //   this.init();
+    // }
+    this.transformAllCarsToObj();
+    this.init();
   },
   mounted() {
     let vm = this;
@@ -734,10 +737,7 @@ export default {
       })
 
       this.searchResult = this.all_cars;
-      var t0 = performance.now();
-      this.resolveDiffs();
-      var t1 = performance.now();
-      console.log(`resolveDiffs ${t1 - t0} milliseconds.`);
+      // this.resolveDiffs();
 
       [...Array(Math.ceil(this.chunkNumber)).keys()].map((x,ix) => {
         this.chunkLoaded[ix] = false;
@@ -745,10 +745,7 @@ export default {
 
       this.clearFilter();
 
-      var t0 = performance.now();
       this.applyFilter();
-      var t1 = performance.now();
-      console.log(`applyFilter ${t1 - t0} milliseconds.`);
     },
     getLastest() {
       let vm = this;
@@ -806,10 +803,7 @@ export default {
       // this.searchLoading = true;
     },
     changeFilter(showAll = false) {
-      // console.log("changeFilter");
-      // this.searchLoading = false;
       let result = [];
-      // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = -1;
       let prePush;
@@ -822,48 +816,45 @@ export default {
         return [];
       }
 
+      // var t0 = performance.now();
       // search and/or filter
       this.all_cars.map((x, ix) => {
-        // if (result.length < 333 || showAll) {
-        if (true || showAll) {
+        let shouldPush = false;
+        if (searchStr && searchStr !== "") {
+          strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
+        } else {
+          strIndex = -2;
+        }
 
-          let shouldPush = false;
-          if (searchStr && searchStr !== "") {
-            strIndex = x.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(searchStr);
-          } else {
-            strIndex = -2;
-          }
-
-          if (this.filterCount > 0) {
-            if (strIndex > -1 || strIndex === -2) {
-              if (this.checkMatchFilter(x)) {
-                shouldPush = true;
-              }
-            }
-          } else {
-            if (strIndex > -1) {
+        if (this.filterCount > 0) {
+          if (strIndex > -1 || strIndex === -2) {
+            if (this.checkMatchFilter(x)) {
               shouldPush = true;
             }
           }
+        } else {
+          if (strIndex > -1) {
+            shouldPush = true;
+          }
+        }
 
-          if (shouldPush) {
-            prePush = JSON.parse(JSON.stringify(x));
-            if (strIndex > -1) {
-              prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
-              prePush.locatedIndex = strIndex;
-              if (x.name[strIndex - 1] === ' ') {
-                prePush.locatedPlus = true;
-              }
-            } else {
-              prePush.locatedName = x.name;
+        if (shouldPush) {
+          prePush = JSON.parse(JSON.stringify(x));
+          if (strIndex > -1) {
+            prePush.locatedName = x.name.substr(0, strIndex)+'<b>'+x.name.substr(strIndex, searchStr.length)+'</b>'+x.name.substr(strIndex + searchStr.length);
+            prePush.locatedIndex = strIndex;
+            if (x.name[strIndex - 1] === ' ') {
+              prePush.locatedPlus = true;
             }
-
-            result.push(prePush);
+          } else {
+            prePush.locatedName = x.name;
           }
 
-
+          result.push(prePush);
         }
       })
+      // var t1 = performance.now();
+      // console.log(`changeFilter ${t1 - t0} milliseconds.`);
 
       // class and photo
       result.map(x => {
@@ -890,7 +881,11 @@ export default {
 
       this.searchMax = 20;
 
-      console.log("list", result);
+      if (this.searchFilters.onlyNewPerformanceModel.includes(true) && process.env.NODE_ENV !== 'production') {
+        console.log("%c clearChangesArray", "color: #bada55;", this.clearChangesArray )
+      } else {
+        console.log("list", result);
+      }
       // debugger;
 
       this.searchResult = result;
@@ -900,88 +895,87 @@ export default {
       this.showAllFilter = showAll;
       this.resolveDiffs();
 
+      
+      
+
     },
     resolveDiffs() {
+      // var t0 = performance.now();
+
       let difResult = [];
       this.searchResult.map((y, ix) => {
         // if (ix > 200) return;
         let dif = {};
 
-        let plOldcar = this.plOld.find(x => {
-          if (x.rid === y.rid) {
+        let x = this.plOld_obj[y.rid];
 
-            if (x.rq !== y.rq) {
-              dif.rq = x.rq
-              dif._rq = y.rq
-            }
-            if (x.class !== y.class) {
-              dif.class = x.class
-              dif._class = y.class
-              dif.color = Vue.resolveClass(x.rq, x.class, "color")
-            }
-            if (x.year !== y.year) {
-              dif.year = x.year
-              dif._year = y.year
-            }
-            if (x.abs !== y.abs) {
-              dif.abs = x.abs
-              dif._abs = y.abs
-            }
-            if (x.tcs !== y.tcs) {
-              dif.tcs = x.tcs
-              dif._tcs = y.tcs
-            }
-            if (x.prize !== y.prize) {
-              dif.prize = x.prize
-              dif._prize = y.prize
-            }
-            if (x.clearance !== y.clearance) {
-              dif.clearance = x.clearance
-              dif._clearance = y.clearance
-            }
-            if (x.brake !== y.brake) {
-              dif.brake = x.brake
-              dif._brake = y.brake
-            }
-            if (x.topSpeed !== y.topSpeed) {
-              dif.topSpeed = x.topSpeed
-              dif._topSpeed = y.topSpeed
-            }
-            if (x.acel !== y.acel) {
-              dif.acel = x.acel
-              dif._acel = y.acel
-            }
-            if (x.hand !== y.hand) {
-              dif.hand = x.hand
-              dif._hand = y.hand
-            }
-            if (x.drive !== y.drive) {
-              dif.drive = x.drive
-              dif._drive = y.drive
-            }
-            if (x.tyres !== y.tyres) {
-              dif.tyres = x.tyres
-              dif._tyres = y.tyres
-            }
-            if (x.mra !== y.mra) {
-              dif.mra = x.mra
-              dif._mra = y.mra
-            }
-            if (x.weight !== y.weight) {
-              dif.weight = x.weight
-              dif._weight = y.weight
-            }
-
-            return true;
-
-          }
-        })
-        if (!plOldcar) {
+        if (!x) {
           dif.new = true;
+        } else {
+          if (x.rq !== y.rq) {
+            dif.rq = x.rq
+            dif._rq = y.rq
+          }
+          if (x.class !== y.class) {
+            dif.class = x.class
+            dif._class = y.class
+            dif.color = Vue.resolveClass(x.rq, x.class, "color")
+          }
+          if (x.year !== y.year) {
+            dif.year = x.year
+            dif._year = y.year
+          }
+          if (x.abs !== y.abs) {
+            dif.abs = x.abs
+            dif._abs = y.abs
+          }
+          if (x.tcs !== y.tcs) {
+            dif.tcs = x.tcs
+            dif._tcs = y.tcs
+          }
+          if (x.prize !== y.prize) {
+            dif.prize = x.prize
+            dif._prize = y.prize
+          }
+          if (x.clearance !== y.clearance) {
+            dif.clearance = x.clearance
+            dif._clearance = y.clearance
+          }
+          if (x.brake !== y.brake) {
+            dif.brake = x.brake
+            dif._brake = y.brake
+          }
+          if (x.topSpeed !== y.topSpeed) {
+            dif.topSpeed = x.topSpeed
+            dif._topSpeed = y.topSpeed
+          }
+          if (x.acel !== y.acel) {
+            dif.acel = x.acel
+            dif._acel = y.acel
+          }
+          if (x.hand !== y.hand) {
+            dif.hand = x.hand
+            dif._hand = y.hand
+          }
+          if (x.drive !== y.drive) {
+            dif.drive = x.drive
+            dif._drive = y.drive
+          }
+          if (x.tyres !== y.tyres) {
+            dif.tyres = x.tyres
+            dif._tyres = y.tyres
+          }
+          if (x.mra !== y.mra) {
+            dif.mra = x.mra
+            dif._mra = y.mra
+          }
+          if (x.weight !== y.weight) {
+            dif.weight = x.weight
+            dif._weight = y.weight
+          }
         }
 
         difResult.push(dif);
-
       })
       this.diff_searchResult = difResult;
       Object.keys(this.chunkLoaded).map(key => {
@@ -989,6 +983,9 @@ export default {
       })
       this.showAllChunk = false;
       this.loadChunk(0);
+
+      // var t1 = performance.now();
+      // console.log(`resolveDiffs ${t1 - t0} milliseconds.`);
     },
     searchBlur() {
       setTimeout(() => {
@@ -1066,11 +1063,14 @@ export default {
       }
       let count = 0;
 
+      this.clearFilters = {};
+
       let vm = this;
       Object.keys( this.searchFilters ).forEach(function (key) {
         if (key.includes("Model")) {
           if (defaults[key] && JSON.stringify(vm.searchFilters[key]) !== JSON.stringify(defaults[key])) {
             count++;
+            vm.clearFilters[key] = vm.searchFilters[key];
           }
         }
       });
@@ -1079,39 +1079,35 @@ export default {
     },
     checkMatchFilter(car) {
       // between
-      if ( !this.filterCheckBetween(car.year, this.searchFilters.yearModel) ) return false;
-      if ( !this.filterCheckBetween(car.rq, this.searchFilters.rqModel) ) return false;
-      if ( !this.filterCheckBetween(car.topSpeed, this.searchFilters.topSpeedModel) ) return false;
-      if ( JSON.stringify(this.searchFilters.acelModel) !== JSON.stringify(this.defaultFilters("acelModel")) ) {
-        if ( !this.filterCheckBetween(car.acel, this.searchFilters.acelModel) ) return false;
-      }
-      if ( !this.filterCheckBetween(car.hand, this.searchFilters.handModel) ) return false;
-      if ( JSON.stringify(this.searchFilters.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
-        if ( !this.filterCheckBetween(car.mra, this.searchFilters.mraModel) ) return false;
-      }
-      if ( !this.filterCheckBetween(car.weight, this.searchFilters.weightModel) ) return false;
-      if ( !this.filterCheckBetween(car.seats, this.searchFilters.seatsModel) ) return false;
+      if ( this.clearFilters.yearModel && !this.filterCheckBetween(car.year, this.searchFilters.yearModel) ) return false;
+      if ( this.clearFilters.rqModel && !this.filterCheckBetween(car.rq, this.searchFilters.rqModel) ) return false;
+      if ( this.clearFilters.topSpeedModel && !this.filterCheckBetween(car.topSpeed, this.searchFilters.topSpeedModel) ) return false;
+      if ( this.clearFilters.acelModel && !this.filterCheckBetween(car.acel, this.searchFilters.acelModel) ) return false;
+      if ( this.clearFilters.handModel && !this.filterCheckBetween(car.hand, this.searchFilters.handModel) ) return false;
+      if ( this.clearFilters.mraModel && !this.filterCheckBetween(car.mra, this.searchFilters.mraModel) ) return false;
+      if ( this.clearFilters.weightModel && !this.filterCheckBetween(car.weight, this.searchFilters.weightModel) ) return false;
+      if ( this.clearFilters.seatsModel && !this.filterCheckBetween(car.seats, this.searchFilters.seatsModel) ) return false;
 
       // includes
-      if ( !this.filterCheckIncludes(car.class, this.searchFilters.classesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.tyres, this.searchFilters.tyresModel) ) return false;
-      if ( !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
+      if ( this.clearFilters.classesModel && !this.filterCheckIncludes(car.class, this.searchFilters.classesModel) ) return false;
+      if ( this.clearFilters.tyresModel && !this.filterCheckIncludes(car.tyres, this.searchFilters.tyresModel) ) return false;
+      if ( this.clearFilters.drivesModel && !this.filterCheckIncludes(car.drive, this.searchFilters.drivesModel) ) return false;
+      if ( this.clearFilters.clearancesModel && !this.filterCheckIncludes(car.clearance, this.searchFilters.clearancesModel) ) return false;
+      if ( this.clearFilters.countrysModel && !this.filterCheckIncludes(car.country, this.searchFilters.countrysModel) ) return false;
 
-      if ( !this.filterCheckIncludes(car.fuel, this.searchFilters.fuelModel) ) return false;
-      if ( !this.filterCheckIncludes(car.engine, this.searchFilters.engineModel) ) return false;
+      if ( this.clearFilters.fuelModel && !this.filterCheckIncludes(car.fuel, this.searchFilters.fuelModel) ) return false;
+      if ( this.clearFilters.engineModel && !this.filterCheckIncludes(car.engine, this.searchFilters.engineModel) ) return false;
 
-      if ( !this.filterCheckIncludesArray(car.bodyTypes, this.searchFilters.bodyTypesModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
-      if ( !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
+      if ( this.clearFilters.bodyTypesModel && !this.filterCheckIncludesArray(car.bodyTypes, this.searchFilters.bodyTypesModel) ) return false;
+      if ( this.clearFilters.tagsModel && !this.filterCheckIncludesArray(car.tags, this.searchFilters.tagsModel) ) return false;
+      if ( this.clearFilters.brandsModel && !this.filterCheckIncludes(car.brand, this.searchFilters.brandsModel) ) return false;
 
       if ( this.searchFilters.prizesModel.length > 0 ) {
         if ( car.prize && !this.searchFilters.prizesModel.includes("Prize Cars") ) return false;
         if ( !car.prize && !this.searchFilters.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
-      let oldCar = this.plOld.find(old => old.rid === car.rid);
+      let oldCar = this.plOld_obj[car.rid];
 
       if ( this.searchFilters.onlyAnyChangeModel.includes(true) ) {
         if ( !oldCar ) {
@@ -1156,6 +1152,9 @@ export default {
             oldCar.brake === car.brake
           ) {
           return false;
+        }
+        if (process.env.NODE_ENV !== 'production') {
+          this.checkPerformanceChangeClear(oldCar, car);
         }
       }
 
@@ -1229,6 +1228,9 @@ export default {
       });
     },
     applyFilter() {
+      if (process.env.NODE_ENV !== 'production') {
+        this.resetChangesOnlyArrays();
+      }
       this.changeFilter();
       this.isFiltering = false;
       // let container = document.querySelector(".Main_SearchMid");
@@ -1266,7 +1268,7 @@ export default {
       }
       let total = this.searchResult.length;
       // debugger;
-      console.log(total);
+      // console.log(total);
 
       if (total < 200) {
         this.showAllChunk = true;
@@ -1294,7 +1296,53 @@ export default {
       console.log(str);
       console.log(str.replaceAll("(","").replaceAll(")","").replaceAll(".","").replaceAll("-",""));
       navigator.clipboard.writeText(str);
-    }
+    },
+    transformAllCarsToObj() {
+      let key = "rid";
+      this.all_cars.map(car => {
+        this.all_cars_obj[car[key]] = car;
+      });
+      this.plOld.map(car => {
+        this.plOld_obj[car[key]] = car;
+      });
+    },
+    resetChangesOnlyArrays() {
+      this.clearChangesArray = [];
+    },
+    checkClearanceOnly(oldCar, car) {
+      if (checkKeys(oldCar, car, ["clearance"])) {
+        this.changed_clearance_only.push(car.rid);
+      }
+    },
+    checkKeys(oldCar, car, hasChangedKeys) {
+      let notChangedKeys = ["tyres", "drive", "clearance", "abs", "tcs", "topSpeed", "acel", "hand", "mra", "weight", "brake"];
+      notChangedKeys = notChangedKeys.filter(x => hasChangedKeys.includes(x));
+
+      // check if all notChangedKeys are same
+      let result = true;
+      result = notChangedKeys.every(key => oldCar[key] === car[key]);
+      if (!result) return false;
+
+      // check if at least one hasChangedKeys is diff
+      result = hasChangedKeys.some(key => oldCar[key] !== car[key]);
+      return result;
+    },
+    checkPerformanceChangeClear(oldCar, car) {
+      let changedAny = false;
+      let carToPush = { rid: car.rid };
+      let keys = ["tyres", "drive", "clearance", "abs", "tcs", "topSpeed", "acel", "hand", "mra", "weight", "brake"];
+
+      keys.map(key => {
+        if (oldCar[key] !== car[key]) {
+          changedAny = true;
+          carToPush[key] = true;
+        }
+      })
+
+      if (changedAny) {
+        this.clearChangesArray.push(carToPush);
+      }
+    },
   },
 }
 </script>

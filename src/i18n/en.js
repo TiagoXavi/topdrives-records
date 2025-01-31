@@ -260,9 +260,6 @@ export default {
   m_prizes: "Prizes",
   m_nonPrizes: "Non-Prizes",
   m_nonPrizesMissing: "Prizes missing",
-  m_count332: "332",
-  m_count323: "323",
-  m_count233: "233",
   m_mostWins: "Most wins",
   m_mostLoses: "Most loses",
   m_mostUsed: "Most uses",
@@ -280,6 +277,7 @@ export default {
   m_updateGarage: "Update garage",
   m_higherRQ: "Higher RQ",
   m_showPrizeBoard: "Show prize board",
+  m_solutionsInPacks: "Solutions in Packs",
 
 
   
