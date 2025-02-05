@@ -444,7 +444,7 @@ export default {
       let vm = this;
       vm.loading = true;
 
-      let clearChangesArray = JSON.parse(clearChangesArray)
+      let clearChangesArray = JSON.parse(this.clearChangesArray);
       debugger;
 
       axios.post(Vue.preUrl + "/backupCars", {

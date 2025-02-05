@@ -592,17 +592,17 @@ export default {
         {
           id: 0,
           fixed: true,
-          filter: { newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
+          filter: { newerThan: "2025-01-01T00:00:00.000Z", olderThan: "2025-12-31T23:59:59.000Z" },
           t: new groupStats(),
-          title: "My cars of 2024",
+          title: "My cars of 2025",
           specialTitle: true
         },
         {
           id: 1,
           fixed: true,
-          filter: { classesModel: ["S"], newerThan: "2024-01-01T00:00:00.000Z", olderThan: "2024-12-31T23:59:59.000Z" },
+          filter: { classesModel: ["S"], newerThan: "2025-01-01T00:00:00.000Z", olderThan: "2025-12-31T23:59:59.000Z" },
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
-          title: "2024 Leggy Timeline",
+          title: "2025 Leggy Timeline",
           specialTitle: true
         },
         {
@@ -997,7 +997,7 @@ export default {
           // legT: hCar.legacyTier,
           rid: this.guidToRid[hCar.cardId],
           tunZ: tunZ,
-          date: hCar.holdExpiresAt,
+          date: hCar.dateStateChanged,
           cW: hCar.cardWins,
           cL: hCar.cardLosses,
           cD: hCar.cardDraws

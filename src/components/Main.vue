@@ -8283,7 +8283,9 @@ export default {
 
 
       this.eventResolveTrackset();
-      this.eventUpdateLocalStorage();
+      if (!eventParsedToPreview) {
+        this.eventUpdateLocalStorage();
+      }
     },
     eventResolveTrackset() {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
@@ -8302,6 +8304,7 @@ export default {
     },
     eventUpdateLocalStorage() {
       window.localStorage.setItem('lastEvent', JSON.stringify({ date: this.eventCurrentId }));
+      this.eventFromStorage = this.eventCurrentId;
     },
     eventGetLocalStorage() {
       let lastEvent = window.localStorage.getItem("lastEvent");
