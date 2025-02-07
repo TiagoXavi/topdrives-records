@@ -5,7 +5,7 @@
     :grow="true"
     :transparent="true"
     maxWidth="880px"
-    @close="$emit('close'); showSecret = false;">
+    @close="$emit('close');">
     <div class="Main_SearchBody BaseFilterDialog_Box">
       <div class="Main_SearchHeader">
         <div v-if="!isFiltering && !filterOnly" class="Main_SearchFieldBox">
@@ -1090,7 +1090,8 @@ export default {
       ],
       roadTrip: ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"],
       custom_tags,
-      showSecret: false
+      showSecret: false,
+      secretInitialized: false
     }
   },
   watch: {
@@ -1104,6 +1105,7 @@ export default {
           window.addEventListener('keyup', this.handleKeyUp);
         }
       } else {
+        this.showSecret = false;
         window.removeEventListener('keyup', this.handleKeyUp);
       }
     }
@@ -2074,7 +2076,7 @@ export default {
         (this.searchFilters.year2Model && this.searchFilters.year2Model.length) ||
         (this.searchFilters.seats2Model && this.searchFilters.seats2Model.length)
       ) {
-        // this.initSecretYear(true);
+        if (!this.secretInitialized) this.initSecretYear(true);
         this.showSecret = true;
       }
       if (this.searchFilters.tags2Model.length > 0 || this.searchFilters.tags3Model.length > 0) {
@@ -2115,6 +2117,7 @@ export default {
           initial++;
         } while (initial <= end);
       }
+      this.secretInitialized = true;
     },
     toggleRoadTrip() {
       let included = [];
