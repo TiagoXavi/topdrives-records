@@ -822,6 +822,8 @@ export default {
         yearStart: 1910,
         yearEnd: 2024,
         yearModel: [],
+        year2Model: [],
+        seats2Model: [],
         rqStart: 10,
         rqEnd: 119,
         rqModel: [],
@@ -1342,7 +1344,6 @@ export default {
         }
 
         this.$emit("filterUpdate", this.searchFilters);
-        this.secretYear = false;
       } else if (this.type === 'compare' || this.type === 'library' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
@@ -1871,8 +1872,8 @@ export default {
       this.searchFilters.brandsModel = [];
       this.searchFilters.typesModel = [];
       this.searchFilters.approveModel = false;
-      if (this.searchFilters.year2Model) this.searchFilters.year2Model = [];
-      if (this.searchFilters.seats2Model) this.searchFilters.seats2Model = [];
+      this.searchFilters.year2Model = [];
+      this.searchFilters.seats2Model = [];
     },
     resolveFilterCount(customFilter) {
       let defaults = {
@@ -1905,8 +1906,8 @@ export default {
         typesModel: [],
         approveModel: false
       }
-      if (this.secretYear) defaults.year2Model = [];
-      if (this.secretYear) defaults.seats2Model = [];
+      defaults.year2Model = [];
+      defaults.seats2Model = [];
       let count = 0;
 
       let clearFilter = {};
@@ -1981,8 +1982,8 @@ export default {
       if ( !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
       if ( !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
       if ( !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
-      if ( context.year2Model && !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
-      if ( context.seats2Model && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
+      if ( !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
+      if ( !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
 
       if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
       if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
