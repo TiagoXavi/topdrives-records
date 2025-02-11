@@ -34,6 +34,11 @@
       <!-- <button
         class="D_Button Main_SaveAllButton"
         @click="prepareChart(1)">
+        <span>Arrow 103</span>
+      </button> -->
+      <!-- <button
+        class="D_Button Main_SaveAllButton"
+        @click="prepareChart(1)">
         <span>Divo 103</span>
       </button>
       <button
@@ -161,9 +166,9 @@ export default {
         },
       ],
       speedTicks1: [ // Divo 103
-        { v: 62, time: 2.5 },
-        { v: 186, time: 14 },
-        { v: 236, time: 24 },
+        { v: 62, time: 2.9 },
+        { v: 100, time: 5.1 },
+        { v: 224, time: 18.5 },
       ],
       // 0      0
       // 62     2.5
@@ -556,8 +561,13 @@ export default {
         }
   
         if (true) { // predict v60 and v100
-          this.v100 = this.aproxY(fivePLCurveFit, fittedParams, 101);
-          spline_data.push({ x: this.v100, y: 100 })
+          let found100 = spline_data.find(x => x.y === 100);
+          if (found100) {
+            this.v100 = found100.x;
+          } else {
+            this.v100 = this.aproxY(fivePLCurveFit, fittedParams, 101);
+            spline_data.push({ x: this.v100, y: 100 })
+          }
   
           let found60 = spline_data.find(x => x.y === 60);
           // debugger;
