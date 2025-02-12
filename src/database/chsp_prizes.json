@@ -3,7 +3,7 @@
     "name": "YB USA",
     "matches": [
       ["Volkswagen_Beetle_Cabriolet_2012", "Volkswagen_Beetle_2011"],
-      ["Mercedes-Benz_SLK_200_2016", "Mercedes-Benz_E_220_2015"],
+      ["Mercedes-Benz_SLK_200_2016", "Mercedes-Benz_190_E_Evo_II_1990"],
       ["BMW_728i_1977", "BMW_320d_Touring_2010"],
       ["Mini_Cooper_SD_2011", "Mini_Cooper_S_2016"],
       ["Volkswagen_Jetta_GTI_1988", "Volkswagen_Tiguan_2011"],
@@ -11,7 +11,7 @@
       ["BMW_2002_turbo_1973", "Audi_quattro_1980"],
       ["Mercedes-Benz_190_E_2.3-16_1984", "Mercedes-Benz_AMG_C_43_1999"],
       ["Porsche_928_1977", "Porsche_968_1992"],
-      ["BMW_i3_2013", "BMW_520d_Touring_2017"]
+      ["BMW_X1_2010", "BMW_520d_Touring_2017"]
     ]
   },
   {
@@ -84,17 +84,17 @@
       ["Chevrolet_Corvette_LT-1_1970", "Chevrolet_El_Camino_SS_454_1969"],
       ["Buick_LeSabre_2000", "Buick_Regal_Turbo_2011"],
       ["Ram_Dodge_1st_Gen_1981", "Ram_Dodge_Ramcharger_1981"],
-      ["Cadillac_Escalade_2002", "Cadillac_SRX_2006"],
-      ["Chevrolet_Monte_Carlo_SS_454_1970", "Chevrolet_Monte_Carlo_SS_2006"],
+      ["Cadillac_Escalade_1999", "Cadillac_SRX_2006"],
+      ["Chevrolet_Chevelle_SS_454_1970", "Chevrolet_Monte_Carlo_SS_2006"],
       ["Ram_Dodge_Li'l_Red_Express_Truck_1978", "Dodge_Durango_GT_2018"]
     ]
   },
   {
     "name": "YB Road to YB",
     "matches": [
-      ["Plymouth_HEMI_'Cuda_1970", "Ford_Mustang_GT_Convertible_2005", "Ford_Mustang_GT_2005"],
-      ["DS_DS_6_2015", "Peugeot_508_2018", "DS_Wild_Rubis_2013"],
-      ["Nissan_Terrano_R3M-R_(R50)_1999", "Nissan_Qashqai_2008", "Nissan_Pathfinder_2010"],
+      ["Chevrolet_Impala_SS_1996", "Chevrolet_Camaro_IROC_Z28_1990", "Ford_Mustang_GT_2005"],
+      ["DS_DS_6_2015", "Peugeot_607_1999", "DS_Wild_Rubis_2013"],
+      ["Nissan_Terrano_R3M-R_(R50)_1999", "Nissan_Qashqai_2008", "Nissan_Pathfinder_2013"],
       ["BMW_Z4_sDrive18i_2013", "BMW_Z4_sDrive28i_2016", "BMW_Z8_2000"],
       ["Jaguar_E-Type_1961", "Jaguar_XKSS_1957", "TVR_Griffith_4.3_1992"],
       ["Alfa_Romeo_145_Cloverleaf_1994", "Alfa_Romeo_147_GTA_2002", "Alfa_Romeo_MiTo_GTA_2009"],
@@ -142,7 +142,7 @@
       ["Peugeot_1007_2005", "Nissan_Juke_2010"],
       ["Lancia_Delta_2012", "Volkswagen_Polo_GTI_2018"],
       ["Volkswagen_Golf_2017", "Fiat_Fullback_Cross_2017"],
-      ["Vauxhall_Opel_Insignia_Country_Tourer_2013", "Volkswagen_Atlas_2018"],
+      ["Vauxhall_Opel_Insignia_Country_Tourer_2013", "Vauxhall_Signum_2003"],
       ["Jaguar_XJ12_1972", "Jaguar_E-PACE_2018"],
       ["Mini_Cooper_SD_2011", "Mini_JCW_Convertible_2016"],
       ["De_Tomaso_Longchamp_1973", "De_Tomaso_Pantera_L_1973"],
@@ -159,7 +159,7 @@
       ["Chrysler_PT_Cruiser_GT_Convertible_2005", "Chrysler_Crossfire_Roadster_2004"],
       ["Citroen_C5_V6_2003", "Citroen_C-Crosser_2.2_L_HDi_2007"],
       ["Suzuki_Jimny_2007", "INFINITI_I35_(A33)_2002"],
-      ["Chrysler_Prowler_2001", "Peugeot_206_RC_2003"],
+      ["Chrysler_Thunderbolt_1993", "Peugeot_206_RC_2003"],
       ["Nissan_300ZX_(Z32)_1990", "Nissan_Leopard_XR_(Y33)_1997"],
       ["Volkswagen_Passat_2006", "Dodge_Super_8_HEMI_2001"]
     ]
@@ -199,7 +199,7 @@
     "matches": [
       ["AMC_AMX_390_1968", "Chevrolet_Camaro_IROC_Z28_1990", "Chevrolet_Camaro_SS_Convertible_2012"],
       ["Mazda_BT-50_2018", "Subaru_Outback_2008", "Subaru_Baja_Turbo_2003"],
-      ["Land_Rover_Range_Rover_Mk_1_1970", "Subaru_Alcyone_SVX_1991", "BMW_X5_2008"],
+      ["Land_Rover_Range_Rover_Mk_1_1970", "Audi_quattro_1980", "BMW_X5_2008"],
       ["Maserati_Merak_SS_1976", "Honda_Integra_Type_R_1995", "BMW_335i_2008"],
       ["Ford_Maya_1984", "Chrysler_Aviat_1994", "Vauxhall_Opel_GTC_Concept_2007"],
       ["Vauxhall_Astra_GTE_1988", "Ford_Fiesta_ST_2016", "Mini_John_Cooper_Works_2016"],
