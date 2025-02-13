@@ -40,16 +40,16 @@ export default {
   beforeMount() {},
   mounted() {
     // insert database MRA to cars_final MRA
-    // {
-    //   let newMras = { "Audi_TT_RS_Iconic_Edition_2023": 70, "Cadillac_ATSVR_2015": 99.01, "Fiat_1600_Coupe_1969": 69.9, "Lamborghini_Diablo_GTR_1999": 85.37, "Lamborghini_Huracan_Spyder_2015": 92.96, "Mazda_RT24P_2017": 103.8, "Mitsubishi_MiEV_Evolution_II_2013": 92.65, "Peugeot_2008_DKR_2014": 80, "Peugeot_20Cup_2005": 54.57, "Pininfarina_Battista_Anniversario_2022": 109.09, "Porsche_911_GT2_2007": 89.74, "Ram_1500_TRX_Gold_Shot_2022": 64.41, "Renault_21_Superproduction_1988": 97.5, "Renault_Espace_F1_1994": 105.88 }
-    //   this.cars_final.map(car => {
-    //     if (newMras[car.rid]) {
-    //       car.mra = newMras[car.rid];
-    //     }
-    //   })
-    // }
-    // console.log(this.cars_final);
-    // debugger;
+    {
+      let newMras = { "AC_Cobra_378_GT_2012": 66.1, "Alfa_Romeo_Giulia_GTAm_2021": 80, "Alfa_Romeo_Navajo_1976": 75.32, "BMW_328i_1995": 65.14, "BMW_750i_xDrive_2019": 66, "Cadillac_CT5V_Blackwing_2022": 97.83, "Chevrolet_Corvette_IMSA_GTO_C4_1988": 105, "Dodge_SRT_Viper_GT3R_2014": 91.18, "GMC_Acadia_Denali_2018": 47, "Gumpert_Apollo_Enraged_2012": 89, "Lamborghini_Aventador_J_2012": 77, "Lamborghini_Aventador_Roadster_2012": 80, "Lamborghini_Aventador_SV_Roadster_2015": 88, "Lamborghini_Aventador_S_2018": 86, "Lamborghini_Aventador_S_Roadster_2018": 86, "Lamborghini_Centenario_2016": 86, "Lamborghini_Centenario_Roadster_2016": 88, "Lamborghini_Diablo_SV_1996": 75, "Lamborghini_Gallardo_LP550-2_Spyder_(2nd_gen)_2012": 87, "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009": 83, "Lamborghini_Gallardo_LP570-4_Superleggera_(2nd_gen)_2012": 88, "Lamborghini_Gallardo_LP570-4_Super_Trofeo_Stradale_(2nd_gen)_2011": 86, "Lamborghini_Huracan_Coupe_2014": 89, "Lamborghini_Huracan_Performante_Spyder_2018": 91, "Lamborghini_Miura_P_400_SVR_1976": 75, "Lamborghini_Sian_Roadster_2020": 84, "Lamborghini_Urus_Concept_2012": 76, "Mazda_323_4WD_Turbo_Group_A_1987": 84.21, "McLaren_F1_GT_1997": 100, "Peugeot_208_2018": 47.68, "Peugeot_308_TCR_2018": 78.18, "Porsche_Taycan_2020": 79.69 }
+      this.cars_final.map(car => {
+        if (newMras[car.rid]) {
+          car.mra = newMras[car.rid];
+        }
+      })
+    }
+    console.log(this.cars_final);
+    debugger;
 
     let brakeData = {}
     // brakeData = {}
