@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final.json' // internal TEMP
-import cars_new_rq from '../database/cars_new_rq_24_2.json'
+import cars_final from '../database/cars_final_PL24_3-fixed.json' // internal TEMP
+import cars_new_rq from '../database/cars_new_rq_24_3.json'
 
 export default {
   name: 'MainUpdateRqData',
@@ -34,11 +34,18 @@ export default {
   beforeMount() {},
   mounted() {
     let temp;
-    let oldStr = "24.1";
-    let newStr = "24.2";
-    let modelStr = "Name";
+    let oldStr = "24.2";
+    let newStr = "24.3";
+    let modelStr = "Car Name";
     let brandMondelTogether = true;
-    let yearInParentesis = true;
+    let yearInParentesis = false;
+
+    // let oldStr = "24.1";
+    // let newStr = "24.2";
+    // let modelStr = "Name";
+    // let brandMondelTogether = true;
+    // let yearInParentesis = true;
+
 
 
 
@@ -388,8 +395,20 @@ export default {
         //   debugger;
         // }
         // if (y.Make === "Vauxhall/Opel") y.Make = "Vauxhall";
-        let yModelName = y[modelStr].trim().slice(0,-7).toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
-        let yModelYear = y[modelStr].trim().slice(-5,-1);
+        let yModelName;
+        let yModelYear;
+
+        if (yearInParentesis && brandMondelTogether) {
+          yModelName = y[modelStr].trim().slice(0,-7).toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+          yModelYear = y[modelStr].trim().slice(-5,-1);
+        }
+        if (!yearInParentesis) {
+          yModelYear = `${y.Year}`;
+        }
+        if (!yearInParentesis && brandMondelTogether) {
+          yModelName = y[modelStr].trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
+        }
+
         yModelName = yModelName.replace("vauxhall/opel ", "");
         // yModelName = yModelName.replace("fiat ", "");
         // yModelName = yModelName.replace("abarth ", "");
@@ -421,11 +440,15 @@ export default {
           if (xModelName.includes(yModelName) && yModelYear == x.year && (y[oldStr] === x.rq || y[newStr] === x.rq)) {
             return true
           }
-          if (yModelName === "renault twingo gt" && x.rid === "Renault_Sport_Twingo_GT_2016") {
-            console.log(xModelName, xModelName, yModelYear, x.year)
-            debugger;
-          }
+          // if (yModelName === "pininfarina battista" && x.rid === "Renault_Sport_Twingo_GT_2016") {
+          //   console.log(xModelName, xModelName, yModelYear, x.year)
+          //   debugger;
+          // }
         });
+
+        // if (yModelName === "pininfarina battista") {
+        //   debugger;
+        // }
 
         if (temp && temp.length > 1) {
           let achouExato = -1;
