@@ -104,7 +104,6 @@ export default {
   beforeMount() {
     if (this.active) {
       this.set(true);
-      
     }
   },
   mounted() {},

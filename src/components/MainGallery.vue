@@ -234,7 +234,7 @@
     <div v-else class="MainGallery_Box">
       <div class="MainGallery_BoxTitle">
         <span v-if="this.searchFilters.onlyAnyChangeModel[0]">Any change</span>
-        <span v-if="this.searchFilters.onlyRelevantChangesModel[0]">Revelant Changes</span>
+        <span v-if="this.searchFilters.onlyRelevantChangesModel[0]">Relevant Changes</span>
         <span v-if="this.searchFilters.onlyNewRarityModel[0]">Rarity Changes</span>
         <span v-if="this.searchFilters.onlyNewPerformanceModel[0]">Performance Changes</span>
         <span v-if="this.searchFilters.onlyNewTyresModel[0]">Tyre Changes</span>

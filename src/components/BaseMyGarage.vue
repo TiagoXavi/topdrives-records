@@ -238,11 +238,11 @@
         </div>
 
         <div v-if="userGarage && userGarage.loaded" class="D_Center2 BaseMyGarage_AddGroupBox">
-          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newGroup('group')">
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="yearSelector('group')">
             <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
             <span class="">{{ $t('m_newGroup') }}</span>
           </button>
-          <button class="D_Button BaseMyGarage_AddGroupButton" @click="newTimeline()">
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="yearSelector('timeline')">
             <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
             <span class="">{{ $t('m_newTimeline') }}</span>
           </button>
@@ -404,6 +404,12 @@
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="confirmYear(year)">
             <span>{{ year }}</span>
+          </button>
+          <button
+            v-if="newGroupType === 'group'"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="confirmYear('all')">
+            <span>All</span>
           </button>
         </div>
       </div>
@@ -1335,7 +1341,8 @@ export default {
     deleteHl(hlItem) {
       this.userHighlights.splice(this.userHighlights.indexOf(hlItem), 1)
     },
-    newTimeline() {
+    yearSelector(type) {
+      this.newGroupType = type;
       if (this.yearList.length === 0) {
         let initial = 2016;
         let end = Number(this.today.toISOString().substr(0,4));
@@ -1350,7 +1357,7 @@ export default {
     confirmYear(year) {
       this.yearModel = year;
       this.yearDialog = false;
-      this.newGroup('timeline');
+      this.newGroup(this.newGroupType);
     },
     newGroup(type) {
       this.newGroupType = type;
@@ -1361,10 +1368,15 @@ export default {
     newGroupFinish(filter) {
       this.myGarageFilterDialog = false;
       if (this.newGroupType === "group") {
+        if (this.yearModel !== "all") {
+          filter = { ...filter, newerThan: `${this.yearModel}-01-01T00:00:00.000Z`, olderThan: `${this.yearModel}-12-31T23:59:59.000Z` };
+        }
         this.userHighlights.push({
           id: this.userHighlights[this.userHighlights.length-1].id+1,
           filter: filter,
           t: new groupStats(),
+          title: this.yearModel !== "all" ? `My cars of ${this.yearModel}` : undefined,
+          specialTitle: this.yearModel !== "all",
           canDelete: true
         })
       }

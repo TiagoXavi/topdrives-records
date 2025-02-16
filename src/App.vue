@@ -71,6 +71,10 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseTooltip
+      :active="$store.state.tooltip.active"
+      :tooltip="$store.state.tooltip"
+    />
 
     <portal-target name="app_dialogs" multiple>
     </portal-target>
@@ -86,6 +90,7 @@
 import BaseTopMenu from "@/components/BaseTopMenu.vue"
 import BaseDialog from "@/components/BaseDialog.vue"
 import MainLogin from "@/components/MainLogin.vue"
+import BaseTooltip from "@/components/BaseTooltip.vue"
 import LogRocket from 'logrocket';
 
 export default {
@@ -93,7 +98,8 @@ export default {
   components: {
     BaseTopMenu,
     BaseDialog,
-    MainLogin
+    MainLogin,
+    BaseTooltip
   },
   props: {},
   data() {

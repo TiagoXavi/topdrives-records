@@ -137,7 +137,7 @@ export default new Vuex.Store({
     showLongCgs: true,
     zoomLevel: "100%",
     zoomLevelHorizontal: "80%",
-    zoomLevels: ["60%", "80%", "100%", "120%", "140%"],
+    zoomLevels: ["60%", "80%", "100%", "120%", "140%"]
   },
   mutations: {
     SET_GENERIC: (state, obj) => state[obj.key] = obj.value,

@@ -11,6 +11,7 @@ import VueI18n from 'vue-i18n';
 import i18nMessages from './i18n';
 import VueVirtualScroller from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+import tip from './filters/tip.js';
 
 
 Vue.config.productionTip = false
@@ -18,6 +19,7 @@ Vue.config.productionTip = false
 window._merge = require('lodash/merge');
 window.axios = require('axios');
 window.Vue = Vue;
+Vue.directive('tip', tip);
 Vue.use(filters);
 Vue.use(PortalVue);
 Vue.use(VueI18n);
