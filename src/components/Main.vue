@@ -3185,7 +3185,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v24.2",
+      gameVersion: "Game v24.3",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -9393,6 +9393,16 @@ export default {
           text: "Ignore 50 points"
         });
       }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyK") {
+        this.$store.commit("CHANGE_UPCOMING_TAGS", !this.$store.state.showUpcomingTags);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: this.$store.state.showUpcomingTags,
+          error: !this.$store.state.showUpcomingTags,
+          time: 800,
+          text: "Show upcoming tags"
+        });
+      }
     },
     handleKeyUp(e) {
       if (!e.altKey) {
@@ -9461,6 +9471,9 @@ export default {
           return;
         }
       };
+      if (!this.carDetailsList[this.carHoverIndex].selectedTune) {
+        return;
+      }
       let vm = this;
       let result = [];
       
@@ -9510,133 +9523,22 @@ export default {
     },
     
     lookForChangedCars(data) {
-      let changed21 = [
-        "Renault_Alpine_A310_V6_Group_4B_1983",
-        "Renault_Clio_Williams_Maxi_Kit_Car_1995",
-        "AC_Cobra_378_GT_2012",
-        "Dodge_Hornet_GT_2022",
-        "Chevrolet_SS_2003",
-        "GMC_Acadia_Denali_2018",
-        "BMW_M235i_xDrive_Gran_Coupe_2019",
-        "Dodge_Powerbox_2001",
-        "Ford_F100_Eluminator_Concept_2021",
-        "Mercedes-Benz_CLS_500_2005",
-        "Alfa_Romeo_Alfetta_GT_Rally_Version_1975",
-        "Fiat_Abarth_695_Biposto_R_2015",
-        "Audi_S5_Cabriolet_(B8)_2013",
-        "Hummer_HX_Concept_2008",
-        "Acura_RSX_Type_S_2003",
-        "Acura_ZDX_2010",
-        "Aston_Martin_DB3S_1953",
-        "Chrysler_Phaeton_1997",
-        "Mercedes-Benz_AMG_SLK_32_2004",
-        "Porsche_Taycan_2020",
-        "Fiat_124_Abarth_Rally_1972",
-        "Holden_HSV_Avalanche_VZ_2005",
-        "Holden_HSV_Avalanche_XUV_VZ_2005",
-        "Lancia_Fulvia_Coupe_16_HF_Group_4_1967",
-        "Peugeot_Instinct_2017",
-        "Acura_TL_Type_S_2007",
-        "Honda_Ridgeline_2016",
-        "Renault_Sport_Clio_Cup_Car_2014",
-        "Alfa_Romeo_Giulia_Veloce_2017",
-        "BMW_530d_2004",
-        "GMC_Yukon_2010",
-        "Lamborghini_Countach_LP400_1974",
-        "Lotus_Europa_S_2006",
-        "Alfa_Romeo_156_GTA_2002",
-        "Alfa_Romeo_Tipo_33_Stradale_1967",
-        "Audi_A1_40_TFSI_GB_2018",
-        "Audi_A4_2.0_TFSI_(B8)_2008",
-        "Audi_quattro_20V_1990",
-        "Ford_Escort_Rally_Spec_1970",
-        "GMC_Acadia_2017",
-        "Mercedes-Benz_GLA_220d_2015",
-        "Renault_Sport_Megane_2002",
-        "Fiat_Abarth_600e_Scorpionissima_2024",
-        "Alfa_Romeo_156_GTA_Sportwagon_2002",
-        "BMW_325i_Convertible_2009",
-        "Dodge_TRex_6x6_1997",
-        "Nissan_350Z_2002",
-        "Pontiac_Trans_Am_20th_Anniversary_1989",
-        "Alfa_Romeo_Navajo_1976",
-        "Audi_A3_Saloon_18_TFSI_8V_2013",
-        "Cadillac_CTS_2008",
-        "Ford_Ranger_Raptor_2019",
-        "Saturn_Sky_Red_Line_2007",
-        "Mercury_Messenger_2003",
-        "Fiat_Abarth_695_Biposto_2017",
-        "Alfa_Romeo_159_32_V6_Q4_2005",
-        "Peugeot_308_RCZ_Concept_2007",
-        "Vauxhall_Vectra_VXR_2006",
-        "Aston_Martin_DB7_1993",
-        "BMW_328i_1995",
-        "De_Tomaso_Mangusta_1999",
-        "Ford_Escape_2001",
-        "Renault_Fluence_2013",
-        "Renault_Sport_Clio_V6_2003",
-        "Renault_Talisman_2015",
-        "De_Tomaso_Bigua_1996",
-        "Mercedes-Benz_300_SLR_1955",
-        "Renault_Safrane_Biturbo_1992",
-        "Vauxhall_Signum_2003",
-        "Cadillac_Escalade_2002",
-        "Acura_3.2TL_1999",
-        "Alfa_Romeo_Sprint_6C_1982",
-        "AMC_Javelin_AMX_1971",
-        "Cadillac_DTS_2006",
-        "GMC_Sierra_Classic_1999",
-        "Vauxhall_Antara_2.2CDTi_2016",
-        "AC_Brooklands_Ace_1993",
-        "BMW_330d_1998",
-        "Renault_Koleos_2008",
-        "Renault_Laguna_Coupe_2010",
-        "Renault_Sport_Clio_V6_2001",
-        "Chrysler_LHX_1996",
-        "Mazda_3_2018",
-        "Mazda_Axela_Sport_23_2008",
-        "Vauxhall_Cascada_2016",
-        "Mazda_RX8_Hydrogen_RE_2004",
-        "Peugeot_308_GT_2008",
-        "Plymouth_Barracuda_383_1970",
-        "Acura_TSX_Sport_Wagon_2011",
-        "Lotus_Elan_1962",
-        "Vauxhall_Mokka_4x4_2016",
-        "Volkswagen_Golf_2017",
-        "Fiat_Ritmo_130TC_Abarth_1985",
-        "Fiat_Stilo_Abarth_2001",
-        "Renault_5_GT_Turbo_1985",
-        "Renault_Avantime_3.0_V6_2002",
-        "Volkswagen_Golf_GTD_2009",
-        "Chevrolet_Lumina_Z34_1991",
-        "Fiat_Strada_Abarth_130TC_1982",
-        "Mazda_6_2016",
-        "Peugeot_407_Prologue_2005",
-        "Buick_Cascada_2016",
-        "Lamborghini_350_GTS_1965",
-        "Acura_Integra_LS_1987",
-        "Honda_Civic_2016",
-        "Mazda_CX3_Racing_2015",
-        "Renault_Megane_1995",
-        "Renault_Sport_Twingo_133_Cup_2012",
-        "Vauxhall_Vectra_2.5_V6_1995",
-        "AMC_AMX_390_1968",
-        "Cadillac_Allante_1989",
-        "Lamborghini_400GT_1966",
-        "Nissan_Fairlady_Z432R_1969",
-        "Renault_Kadjar_2016",
-        "Chrysler_Cirrus_LXi_1997",
-        "Chevrolet_Orlando_LTZ_2010",
-        "Mitsubishi_Colt_CZC_2006"
-      ];
+      if (!this.user || !this.user.mod) return;
 
-      data.rounds.map((round, iround) => {
-        round.races.map((race, irace) => {
-          if (changed21.includes(race.rid)) {
-            console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
-          }
+      let vm = this;
+
+      import('../database/custom_tags.json').then(custom_tags => {
+        console.log(custom_tags);
+        let changedRids = custom_tags["24.3 changed cars"];
+        data.rounds.map((round, iround) => {
+          round.races.map((race, irace) => {
+            if (changedRids.includes(race.rid)) {
+              console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.rid}`)
+            }
+          })
         })
-      })
+
+      }).catch(e => {console.log("load custom_tags failed", e)});
     },
     openMemoryDialog() {
       // this.$store.commit("START_LOGROCKET", {});

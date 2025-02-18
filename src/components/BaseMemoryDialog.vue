@@ -115,7 +115,7 @@
               <template v-for="(item, ix) in searchFilters.tags_challenge">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
-                  v-if="!$store.state.oldTags.includes(item)"
+                  v-if="!$store.state.oldTags.includes(item) && !$store.state.upcomingTags.includes(item)"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />
@@ -127,6 +127,18 @@
                   <BaseChip
                     v-model="searchFilters.tagsModel"
                     v-if="$store.state.oldTags.includes(item)"
+                    :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                    :value="item" />
+                </template>
+              </template>
+            </div>
+            <div v-if="$store.state.showUpcomingTags" class="Main_FilterChipsFlex">
+              <template>
+                <template v-for="(item, ix) in searchFilters.tags_challenge">
+                  <BaseChip
+                    v-model="searchFilters.tagsModel"
+                    v-if="$store.state.upcomingTags.includes(item)"
                     :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                     class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                     :value="item" />

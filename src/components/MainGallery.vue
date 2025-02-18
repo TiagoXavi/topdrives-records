@@ -202,7 +202,10 @@
               <template v-for="(item, ix) in searchFilters.tags">
                 <BaseChip
                   v-model="searchFilters.tagsModel"
-                  v-if="!$store.state.oldTags.includes(item) || $store.state.showOldTags"
+                  v-if="
+                    (!$store.state.oldTags.includes(item) || $store.state.showOldTags) &&
+                    (!$store.state.upcomingTags.includes(item) || $store.state.showUpcomingTags)
+                  "
                   :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :value="item" />

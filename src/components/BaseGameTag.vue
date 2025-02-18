@@ -1,6 +1,9 @@
 <template>
   <div
-    v-if="!$store.state.oldTags.includes(tag) || $store.state.showOldTags"
+    v-if="
+      (!$store.state.oldTags.includes(tag) || $store.state.showOldTags) &&
+      (!$store.state.upcomingTags.includes(tag) || $store.state.showUpcomingTags)
+    "
     class="BaseGameTag_Layout"
     :class="`BaseGameTag_${tag.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`">{{ tag }}</div>
 </template>
@@ -467,9 +470,9 @@ export default {
   --tag-l: 63%;
 }
 .BaseGameTag_Year_of_the_Snake {
-  --tag-h: 0;
-  --tag-s: 0%;
-  --tag-l: 100%;
+  --tag-h: 47;
+  --tag-s: 100%;
+  --tag-l: 50%;
 }
 .BaseGameTag_Year_of_the_Tiger {
   --tag-h: 5;
@@ -546,6 +549,20 @@ export default {
   --tag-s: 70%;
   --tag-l: 60%;
 }
-
+.BaseGameTag_Ximena\'s_Collection {
+  --tag-h: 126;
+  --tag-s: 55%;
+  --tag-l: 68%;
+}
+.BaseGameTag_Hugo\'s_Collection {
+  --tag-h: 222;
+  --tag-s: 70%;
+  --tag-l: 70%;
+}
+.BaseGameTag_Sara\'s_Collection {
+  --tag-h: 56;
+  --tag-s: 70%;
+  --tag-l: 50%;
+}
 
 </style>

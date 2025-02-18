@@ -64,6 +64,20 @@ export default new Vuex.Store({
       positionX: null,
       positionY: null
     },
+    confirmDialog: {
+      active: false,
+      title: "Deseja realmente?",
+      actionLabel: "Confirmar",
+      actionColor: "danger",
+      maxWidth: "250px",
+      minWidth: "240px",
+      error: false,
+      disabled: false,
+      action: null,
+      advanced: null,
+      loading: false,
+      maxWidth: "420px"
+    },
     snack: {
       text: "",
       active: false
@@ -127,9 +141,14 @@ export default new Vuex.Store({
       "Year of the Tiger",
       "Year of the Rabbit",
     ],
+    upcomingTags: [
+      "Hugo's Collection",
+      "Sara's Collection"
+    ],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,
+    showUpcomingTags: false,
     homePointsToggle: false,
     showPointsCgForce: true,
     showPrizeBoard: true,
@@ -143,13 +162,12 @@ export default new Vuex.Store({
     SET_GENERIC: (state, obj) => state[obj.key] = obj.value,
     SET_GENERIC2: (state, obj) => state[obj.key][obj.key2] = obj.value,
     SET_GENERIC3: (state, obj) => state[obj.key][obj.key2][obj.key3] = obj.value,
-    DEFINE_DIALOG: (state, dialog) => state.mainDialog = dialog,
     STATUS_DIALOG: (state, status) => state.mainDialog.active = status,
-    CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
 
     CHANGE_DATA_FROM_PAST: (state, status) => state.showDataFromPast = status,
     CHANGE_CUSTOM_TUNES: (state, status) => state.showCustomTunes = status,
     CHANGE_OLD_TAGS: (state, status) => state.showOldTags = status,
+    CHANGE_UPCOMING_TAGS: (state, status) => state.showUpcomingTags = status,
     CHANGE_HOME_POINTS_TOGGLE: (state, status) => state.homePointsToggle = status,
     CHANGE_POINTS_CG_FORCE: (state, status) => state.showPointsCgForce = status,
     CHANGE_PRIZE_BOARD: (state, status) => state.showPrizeBoard = status,
@@ -235,7 +253,14 @@ export default new Vuex.Store({
         activator: null,
         absolute: false
       };
-    }
+    },
+    DEFINE_DIALOG: (state, config) => {
+      state.confirmDialog = {
+        ...state.confirmDialog,
+        ...config,
+        advanced: config.advanced || null
+      };
+    },
   },
   actions: {
 

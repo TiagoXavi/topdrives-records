@@ -71,6 +71,39 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="$store.state.confirmDialog.active"
+      :transparent="false"
+      :lazy="true"
+      :maxWidth="$store.state.confirmDialog.maxWidth"
+      :minWidth="$store.state.confirmDialog.minWidth"
+      zindex="102"
+      @close="$store.state.confirmDialog.active = false;">
+      <div style="App_DialogConfirm">
+        <div class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
+        <template v-if="$store.state.confirmDialog.advanced">
+          <div v-if="$store.state.confirmDialog.advanced.type === 'text'" class="App_DialogConfirm_Body">
+            <BaseText
+              v-model="$store.state.confirmDialog.advanced.text"
+              :type="$store.state.confirmDialog.advanced.typeText"
+              :placeholder="$store.state.confirmDialog.advanced.placeholder"
+              :class="$store.state.confirmDialog.advanced.class"
+              class="App_DialogConfirmText"
+            />
+          </div>
+        </template>
+        <button
+          :class="{
+            D_Button_Loading: $store.state.confirmDialog.loading,
+            Main_SaveAllButton: $store.state.confirmDialog.actionColor === 'green',
+            D_Button_Error: $store.state.confirmDialog.actionColor === 'red'
+          }"
+          :disabled="$store.state.confirmDialog.disabled"
+          style="margin-top: 20px;"
+          class="D_Button Main_SaveAllButton"
+          @click="$store.state.confirmDialog.action">{{ $store.state.confirmDialog.actionLabel }}</button>
+      </div>
+    </BaseDialog>
     <BaseTooltip
       :active="$store.state.tooltip.active"
       :tooltip="$store.state.tooltip"
@@ -91,6 +124,7 @@ import BaseTopMenu from "@/components/BaseTopMenu.vue"
 import BaseDialog from "@/components/BaseDialog.vue"
 import MainLogin from "@/components/MainLogin.vue"
 import BaseTooltip from "@/components/BaseTooltip.vue"
+import BaseText from "@/components/BaseText.vue"
 import LogRocket from 'logrocket';
 
 export default {
@@ -99,7 +133,8 @@ export default {
     BaseTopMenu,
     BaseDialog,
     MainLogin,
-    BaseTooltip
+    BaseTooltip,
+    BaseText
   },
   props: {},
   data() {

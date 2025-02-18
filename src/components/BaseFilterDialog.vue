@@ -320,7 +320,7 @@
               <template v-for="(item, ix) in searchFilters.tags_challenge">
                 <BaseChip
                   v-model="tagsModel"
-                  v-if="!$store.state.oldTags.includes(item)"
+                  v-if="!$store.state.oldTags.includes(item) && !$store.state.upcomingTags.includes(item)"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                   :counter="counters[`tags_${item}`]"
@@ -333,6 +333,19 @@
                   <BaseChip
                     v-model="tagsModel"
                     v-if="$store.state.oldTags.includes(item)"
+                    :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                    :counter="counters[`tags_${item}`]"
+                    :value="item" />
+                </template>
+              </template>
+            </div>
+            <div v-if="$store.state.showUpcomingTags" class="Main_FilterChipsFlex">
+              <template>
+                <template v-for="(item, ix) in searchFilters.tags_challenge">
+                  <BaseChip
+                    v-model="tagsModel"
+                    v-if="$store.state.upcomingTags.includes(item)"
                     :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
                     class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
                     :counter="counters[`tags_${item}`]"
@@ -889,6 +902,7 @@ export default {
           "Gaz's Collection",
           "Gunter's Collection",
           "Heavy Metal",
+          "Hugo's Collection",
           "Immortalised in Carbon",
           "In the Shadows",
           "In the Shadows 24",
@@ -906,6 +920,7 @@ export default {
           "Ride of the Valkyries",
           "Riders on the Storm",
           "Roads Most Travelled",
+          "Sara's Collection",
           "Silver Screen",
           "Summer Games",
           "Summer Games 24",
@@ -915,6 +930,7 @@ export default {
           "Touma's Collection",
           "Trading Paint",
           "Two Tone",
+          "Ximena's Collection",
           "Year of the Dragon",
           "Year of the Ox",
           "Year of the Rabbit",
