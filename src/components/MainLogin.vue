@@ -57,6 +57,10 @@ export default {
     wrap: {
       type: Boolean,
       default: false
+    },
+    export: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -99,6 +103,13 @@ export default {
       setTimeout(() => { this.input_error = false}, 1500);
     },
     send() {
+      if (this.export) {
+        this.$emit('export', {
+          "email": this.email.toLowerCase(),
+          "password": this.password
+        })
+        return;
+      }
       let vm = this;
       this.loading = true;
 

@@ -3422,7 +3422,8 @@ a:visited:not(.D_Button) {
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
   box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(4px);
+  background-color: #0000004a;
 }
 @media (pointer:coarse) {
   .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,

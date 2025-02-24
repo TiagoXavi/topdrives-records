@@ -399,7 +399,7 @@
         </div>
       </div>
 
-      <div v-else-if="(cgLoading && (!cgRound || !cgRound.date)) || (downloadLoading && !user)" class="Cg_Mid">
+      <div v-else-if="(cgLoading && (!cgRound || !cgRound.date)) || (downloadLoading && !user && cgLoading)" class="Cg_Mid">
         <div class="Cg_MidLoading">
           <BaseContentLoader
             :contents="true"
@@ -3033,7 +3033,6 @@ import BaseDialog from './BaseDialog.vue'
 import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseMemoryDialog from './BaseMemoryDialog.vue'
-import MainLogin from './MainLogin.vue'
 import BaseTypeName from './BaseTypeName.vue'
 import BaseAvatar from './BaseAvatar.vue'
 import BaseChip from './BaseChip.vue'
@@ -3076,7 +3075,6 @@ export default {
     BaseCheckBox,
     BaseContentLoader,
     BaseTrackType,
-    MainLogin,
     BaseText,
     BaseCard,
     BaseTypeName,
@@ -9471,7 +9469,7 @@ export default {
           return;
         }
       };
-      if (!this.carDetailsList[this.carHoverIndex].selectedTune) {
+      if (!this.carDetailsList[this.carHoverIndex] || !this.carDetailsList[this.carHoverIndex].selectedTune) {
         return;
       }
       let vm = this;
@@ -9525,10 +9523,7 @@ export default {
     lookForChangedCars(data) {
       if (!this.user || !this.user.mod) return;
 
-      let vm = this;
-
       import('../database/custom_tags.json').then(custom_tags => {
-        console.log(custom_tags);
         let changedRids = custom_tags["24.3 changed cars"];
         data.rounds.map((round, iround) => {
           round.races.map((race, irace) => {
