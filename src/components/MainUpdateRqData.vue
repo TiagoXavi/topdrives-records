@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import cars_final from '../database/cars_final_PL24_3-fixed.json' // internal TEMP
-import cars_new_rq from '../database/cars_new_rq_24_3.json'
+import cars_final from '../database/cars_final_PL25-fixed.json' // internal TEMP
+import cars_new_rq from '../database/cars_new_rq_25.json'
 
 export default {
-  name: 'MainUpdateRqData',
+  name: 'MainUpdateRqData', // /newrq
   components: {
     // BaseDetalheHeader
   },
@@ -34,8 +34,8 @@ export default {
   beforeMount() {},
   mounted() {
     let temp;
-    let oldStr = "24.2";
-    let newStr = "24.3";
+    let oldStr = "24.3";
+    let newStr = "25.0";
     let modelStr = "Car Name";
     let brandMondelTogether = true;
     let yearInParentesis = false;

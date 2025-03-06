@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL24_3-fixed.json'
-import plOld from '../database/cars_final_PL24_2.json'
+import data_cars from '../database/cars_final_PL25-fixed.json'
+import plOld from '../database/cars_final_PL24_3.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -709,7 +709,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v24_3", "t");
+    window.localStorage.setItem("changes_v25", "t");
   },
   beforeMount() {
     // // check new cars
@@ -1194,7 +1194,7 @@ export default {
             oldCar.tyres === car.tyres &&
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
-            Math.abs(oldCar.rq - car.rq) < 7 &&
+            Math.abs(oldCar.rq - car.rq) < 3 &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&
