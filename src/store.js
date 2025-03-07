@@ -140,9 +140,9 @@ export default new Vuex.Store({
       "Year of the Rat",
       "Year of the Tiger",
       "Year of the Rabbit",
+      "Year of the Snake"
     ],
     upcomingTags: [
-      "Hugo's Collection",
       "Sara's Collection"
     ],
     showDataFromPast: false,
