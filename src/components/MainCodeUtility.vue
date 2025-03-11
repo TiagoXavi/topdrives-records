@@ -274,6 +274,7 @@ export default {
     Number.prototype.toTestBowl = function () {
       // 79.57351 > 178
       // 71.78595 > 160 correct
+      // 79.57351 > 178 correct
       return parseInt(this * 2.2369)
     };
 

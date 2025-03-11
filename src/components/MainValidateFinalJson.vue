@@ -10,7 +10,7 @@ import cars_final from '../database/cars_final.json' // internal
 import BaseFilterDialog from './BaseFilterDialog.vue'
 
 export default {
-  name: 'MainValidateFinalJson',
+  name: 'MainValidateFinalJson', // /validatejson
   components: {
     BaseFilterDialog
   },
@@ -41,7 +41,7 @@ export default {
   mounted() {
     // insert database MRA to cars_final MRA
     {
-      let newMras = { "AC_Cobra_378_GT_2012": 66.1, "Alfa_Romeo_Giulia_GTAm_2021": 80, "Alfa_Romeo_Navajo_1976": 75.32, "BMW_328i_1995": 65.14, "BMW_750i_xDrive_2019": 66, "Cadillac_CT5V_Blackwing_2022": 97.83, "Chevrolet_Corvette_IMSA_GTO_C4_1988": 105, "Dodge_SRT_Viper_GT3R_2014": 91.18, "GMC_Acadia_Denali_2018": 47, "Gumpert_Apollo_Enraged_2012": 89, "Lamborghini_Aventador_J_2012": 77, "Lamborghini_Aventador_Roadster_2012": 80, "Lamborghini_Aventador_SV_Roadster_2015": 88, "Lamborghini_Aventador_S_2018": 86, "Lamborghini_Aventador_S_Roadster_2018": 86, "Lamborghini_Centenario_2016": 86, "Lamborghini_Centenario_Roadster_2016": 88, "Lamborghini_Diablo_SV_1996": 75, "Lamborghini_Gallardo_LP550-2_Spyder_(2nd_gen)_2012": 87, "Lamborghini_Gallardo_LP560-4_Spyder_(2nd_gen)_2009": 83, "Lamborghini_Gallardo_LP570-4_Superleggera_(2nd_gen)_2012": 88, "Lamborghini_Gallardo_LP570-4_Super_Trofeo_Stradale_(2nd_gen)_2011": 86, "Lamborghini_Huracan_Coupe_2014": 89, "Lamborghini_Huracan_Performante_Spyder_2018": 91, "Lamborghini_Miura_P_400_SVR_1976": 75, "Lamborghini_Sian_Roadster_2020": 84, "Lamborghini_Urus_Concept_2012": 76, "Mazda_323_4WD_Turbo_Group_A_1987": 84.21, "McLaren_F1_GT_1997": 100, "Peugeot_208_2018": 47.68, "Peugeot_308_TCR_2018": 78.18, "Porsche_Taycan_2020": 79.69 }
+      let newMras = { "Lamborghini_Countach_LPI_8004_2021": 88, "Lancia_Delta_1600_HF_4WD_Group_A_1987": 100, "Land_Rover_Defender_110_D350_2024": 54.95, "Land_Rover_Defender_130_V8_P500_2024": 61.36, "Land_Rover_Defender_90_D250_2024": 47.2, "Land_Rover_Defender_90_Hard_Top_D200_2024": 58.23, "Land_Rover_Defender_90_V8_P525_2024": 61.25, "Land_Rover_Defender_OCTA_Edition_One_110_P635__2024": 76, "Mercury_Marauder_Convertible_Concept_2002": 64.88, "Peugeot_307_WRC_2004": 103 }
       this.cars_final.map(car => {
         if (newMras[car.rid]) {
           car.mra = newMras[car.rid];
