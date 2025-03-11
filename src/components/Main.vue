@@ -2793,10 +2793,10 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #5</div>
-          <div class="Main_AnnouncementSubTitle">European Grand Tour</div>
+          <div class="Main_AnnouncementTitle">Contest #6</div>
+          <div class="Main_AnnouncementSubTitle">Asia-Pacific Revival</div>
           <div class="Main_AnnouncementBody">Prizes: free TDR premium, medals</div>
-          <div class="Main_AnnouncementMaybe">30th july - 18th august</div>
+          <div class="Main_AnnouncementMaybe">11th March - 30th March</div>
 
           <BaseDiscordButton style="margin-top: 20px;" />
         </div>
@@ -3183,7 +3183,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v24.3",
+      gameVersion: "Game v25.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -9506,15 +9506,14 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      if (window.localStorage.getItem("contest5")) return;
+      if (window.localStorage.getItem("contest6")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('contest5', "t");
+      window.localStorage.setItem('contest6', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);

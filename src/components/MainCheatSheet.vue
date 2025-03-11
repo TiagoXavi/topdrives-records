@@ -523,6 +523,10 @@ export default {
           term: "EGT",
           name: "European Grand Tour"
         },
+        {
+          term: "APR",
+          name: "Asia-Pacific Revival"
+        },
       ],
       tracksPenalty: [
         {

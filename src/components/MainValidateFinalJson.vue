@@ -40,16 +40,16 @@ export default {
   beforeMount() {},
   mounted() {
     // insert database MRA to cars_final MRA
-    {
-      let newMras = { "Lamborghini_Countach_LPI_8004_2021": 88, "Lancia_Delta_1600_HF_4WD_Group_A_1987": 100, "Land_Rover_Defender_110_D350_2024": 54.95, "Land_Rover_Defender_130_V8_P500_2024": 61.36, "Land_Rover_Defender_90_D250_2024": 47.2, "Land_Rover_Defender_90_Hard_Top_D200_2024": 58.23, "Land_Rover_Defender_90_V8_P525_2024": 61.25, "Land_Rover_Defender_OCTA_Edition_One_110_P635__2024": 76, "Mercury_Marauder_Convertible_Concept_2002": 64.88, "Peugeot_307_WRC_2004": 103 }
-      this.cars_final.map(car => {
-        if (newMras[car.rid]) {
-          car.mra = newMras[car.rid];
-        }
-      })
-    }
-    console.log(this.cars_final);
-    debugger;
+    // {
+    //   let newMras = { "Lamborghini_Countach_LPI_8004_2021": 88, "Lancia_Delta_1600_HF_4WD_Group_A_1987": 100, "Land_Rover_Defender_110_D350_2024": 54.95, "Land_Rover_Defender_130_V8_P500_2024": 61.36, "Land_Rover_Defender_90_D250_2024": 47.2, "Land_Rover_Defender_90_Hard_Top_D200_2024": 58.23, "Land_Rover_Defender_90_V8_P525_2024": 61.25, "Land_Rover_Defender_OCTA_Edition_One_110_P635__2024": 76, "Mercury_Marauder_Convertible_Concept_2002": 64.88, "Peugeot_307_WRC_2004": 103 }
+    //   this.cars_final.map(car => {
+    //     if (newMras[car.rid]) {
+    //       car.mra = newMras[car.rid];
+    //     }
+    //   })
+    // }
+    // console.log(this.cars_final);
+    // debugger;
 
     let brakeData = {}
     // brakeData = {}

@@ -564,5 +564,10 @@ export default {
   --tag-s: 70%;
   --tag-l: 50%;
 }
+.BaseGameTag_Asia-Pacific_Revival {
+  --tag-h: 221;
+  --tag-s: 70%;
+  --tag-l: 37%;
+}
 
 </style>
