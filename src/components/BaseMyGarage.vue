@@ -471,10 +471,6 @@
 </template>
 
 <script>
-try {
-  var myGarage = require('@/database/hutch_myGarage.json')
-} catch (error) {}
-
 import all_cars from '../database/cars_final.json';
 import BaseCardGallery from './BaseCardGallery.vue';
 import BaseDialog from './BaseDialog.vue';
@@ -767,13 +763,6 @@ export default {
     })
 
     this.generateBlankFilter();
-
-    if (false) { // TEMP
-      var t0 = performance.now();
-      this.processSyncObj(myGarage);
-      var t1 = performance.now();
-      console.log(`${Math.round(t1 - t0)} ms • ${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
-    }
 
     // this.$store.commit("START_LOGROCKET", {});
     

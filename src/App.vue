@@ -326,7 +326,6 @@ export default {
       console.log(e);
     },
     getUser() {
-      let vm = this;
       // user
       axios.get(Vue.preUrl + "/getUser")
       .then(res => {
