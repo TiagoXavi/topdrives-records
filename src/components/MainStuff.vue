@@ -67,9 +67,9 @@ export default {
     this.tdrTools = [
       { name: "MainTranslate", label: this.$t("m_translationTool") },
     ]
-    if (this.user && this.user.mod) {
-      this.tdrTools.push( { name: "MainAddNewCars", label: this.$t("m_newCar") } )
-    }
+    // if (this.user && this.user.mod) {
+    //   this.tdrTools.push( { name: "MainAddNewCars", label: this.$t("m_newCar") } )
+    // }
 
     
   },

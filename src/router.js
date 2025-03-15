@@ -10,7 +10,7 @@ const MainDownTimes = () => import("./components/MainDownTimes.vue");
 const MainTranslate = () => import("./components/MainTranslate.vue");
 const MainNewPhotos = () => import("./components/MainNewPhotos.vue");
 const MainTestPoints = () => import("./components/MainTestPoints.vue");
-const MainAddNewCars = () => import("./components/MainAddNewCars.vue");
+// const MainAddNewCars = () => import("./components/MainAddNewCars.vue");
 const MainCheatSheet = () => import("./components/MainCheatSheet.vue");
 const MainCodeUtility = () => import("./components/MainCodeUtility.vue");
 const MainPacks = () => import("./components/MainPacks.vue");
@@ -137,11 +137,11 @@ const routes = [
     name: 'MainNewPhotos',
     component: MainNewPhotos,
   },
-  {
-    path: '/addNewCars',
-    name: 'MainAddNewCars',
-    component: MainAddNewCars,
-  },
+  // {
+  //   path: '/addNewCars',
+  //   name: 'MainAddNewCars',
+  //   component: MainAddNewCars,
+  // },
   {
     path: '/c',
     name: 'MainCheatSheet',
@@ -229,15 +229,8 @@ if (process.env.NODE_ENV !== 'production') {
 
   const MainRT = () => import("./components/MainRT.vue");
   const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
-  const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
-  const MainImportRude = () => import("./components/MainImportRude.vue");
-  const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
   const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
-  const MainExtractTD = () => import("./components/MainExtractTD.vue");
-  const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
   const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
-  const MainCRCContest = () => import("./components/MainCRCContest.vue");
-  const MainParser = () => import("./components/MainParser.vue");
 
   routes.push(
     {
@@ -249,6 +242,35 @@ if (process.env.NODE_ENV !== 'production') {
       path: '/newrq', // internal
       name: 'Update RQ',
       component: MainUpdateRqData,
+    },
+    {
+      path: '/validatejson', // internal
+      name: 'Validate',
+      component: MainValidateFinalJson,
+    },
+    {
+      path: '/MainCarsEdit', // internal
+      name: 'MainCarsEdit',
+      component: MainCarsEdit,
+    },
+  );
+}
+
+
+if (process.env.NODE_ENV !== 'production' && false) {
+  const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
+  const MainParser = () => import("./components/MainParser.vue");
+  const MainExtractTD = () => import("./components/MainExtractTD.vue");
+  const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
+  const MainCRCContest = () => import("./components/MainCRCContest.vue");
+  const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
+  const MainImportRude = () => import("./components/MainImportRude.vue");
+
+  routes.push(
+    {
+      path: '/MainCRCContest', // internal
+      name: 'MainCRCContest',
+      component: MainCRCContest,
     },
     {
       path: '/BaseMergeDatabase', // internal
@@ -266,36 +288,22 @@ if (process.env.NODE_ENV !== 'production') {
       component: MainAmplitudeNewCars,
     },
     {
-      path: '/validatejson', // internal
-      name: 'Validate',
-      component: MainValidateFinalJson,
-    },
-    {
-      path: '/extract', // internal
-      name: 'Extract',
-      component: MainExtractTD,
-    },
-    {
       path: '/MainTestMatchMake', // internal
       name: 'MainTestMatchMake',
       component: MainTestMatchMake,
-    },
-    {
-      path: '/MainCarsEdit', // internal
-      name: 'MainCarsEdit',
-      component: MainCarsEdit,
-    },
-    {
-      path: '/MainCRCContest', // internal
-      name: 'MainCRCContest',
-      component: MainCRCContest,
     },
     {
       path: '/MainParser', // internal
       name: 'MainParser',
       component: MainParser,
     },
+    {
+      path: '/extract', // internal
+      name: 'Extract',
+      component: MainExtractTD,
+    },
   );
+
 }
 
 
