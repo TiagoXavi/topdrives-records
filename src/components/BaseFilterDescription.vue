@@ -152,7 +152,7 @@ export default {
       if (Object.keys( f ).length === 0) return [];
       let result = [];
 
-      if (f.yearModel && JSON.stringify(f.yearModel) !== '[1910,2024]') result.push({ label: this.$tc("c_year", 2), value: f.yearModel.join("-") });
+      if (f.yearModel && JSON.stringify(f.yearModel) !== '[1910,2025]') result.push({ label: this.$tc("c_year", 2), value: f.yearModel.join("-") });
       if (f.rqModel && JSON.stringify(f.rqModel) !== '[10,119]') result.push({ label: "RQ", value: f.rqModel.join("-") });
       if (f.seatsModel && JSON.stringify(f.seatsModel) !== '[1,9]') result.push({ label: this.$t("c_seats"), value: f.seatsModel.join("-") });
 
