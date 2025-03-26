@@ -151,7 +151,7 @@ export default new Vuex.Store({
     showUpcomingTags: false,
     homePointsToggle: false,
     showPointsCgForce: true,
-    showPrizeBoard: true,
+    showPrizeBoard: false,
     showPermanentCgs: true,
     showLongCgs: true,
     zoomLevel: "100%",

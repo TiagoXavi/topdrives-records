@@ -6,7 +6,6 @@ import store from "./store";
 import router from "./router";
 import PortalVue from 'portal-vue';
 import 'focus-visible';
-import Hotjar from 'vue-hotjar';
 import VueI18n from 'vue-i18n';
 import i18nMessages from './i18n';
 import VueVirtualScroller from 'vue-virtual-scroller'
@@ -36,9 +35,6 @@ Vue.use(VueVirtualScroller)
 if (process.env.NODE_ENV === 'production') {
   Vue.preUrl = "https://api.topdrivesrecords.com";
   Vue.preUrlCharlie = "https://charlie.topdrivesrecords.com";
-  Vue.use (Hotjar, {
-    id: '3138550'
-  })
 } else {
   Vue.preUrl = "http:///192.168.3.120:3000";
   Vue.preUrlCharlie = "http:///192.168.3.120:3001";

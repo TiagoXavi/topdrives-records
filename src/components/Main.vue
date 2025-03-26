@@ -6244,8 +6244,11 @@ export default {
           this.cgRound.filter.yearModel[0] = 1910;
         }
         if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[1] === 2022) {
-          this.cgRound.filter.yearModel[1] = 2024;
+          this.cgRound.filter.yearModel[1] = 2025;
         }
+        // if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[1] === 2024) {
+        //   this.cgRound.filter.yearModel[1] = 2025;
+        // }
         if (this.cgRound.filter.rqModel && (this.cgRound.filter.rqModel[1] === 114 || this.cgRound.filter.rqModel[1] === 100)) {
           this.cgRound.filter.rqModel[1] = 119;
         }

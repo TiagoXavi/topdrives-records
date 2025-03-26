@@ -833,7 +833,7 @@ export default {
       internalConfig: {},
       searchFilters: {
         yearStart: 1910,
-        yearEnd: 2024,
+        yearEnd: 2025,
         yearModel: [],
         year2Model: [],
         seats2Model: [],
@@ -1849,7 +1849,7 @@ export default {
       }
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1910, 2024];
+      if (type === "yearModel") return [1910, 2025];
       if (type === "rqModel") return [10, 119];
       if (type === "topSpeedModel") return [25, 330];
       if (type === "acelModel") return [1.5, 40];
