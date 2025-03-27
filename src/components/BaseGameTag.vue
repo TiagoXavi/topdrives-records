@@ -569,5 +569,15 @@ export default {
   --tag-s: 70%;
   --tag-l: 37%;
 }
+.BaseGameTag_None {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Oddities {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 
 </style>

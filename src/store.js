@@ -135,6 +135,7 @@ export default new Vuex.Store({
       "Touma's Collection",
       "Trading Paint",
       "Two Tone",
+      "Ximena's Collection",
       "Year of the Dragon",
       "Year of the Ox",
       "Year of the Rat",
@@ -142,9 +143,7 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [
-      "Sara's Collection"
-    ],
+    upcomingTags: [],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,

@@ -970,6 +970,8 @@ export default {
           "Innovative",
           "Motorsport",
           "Muscle Car",
+          "None",
+          "Oddities",
           "Road",
           "Sleeper",
           "Street Racer",
