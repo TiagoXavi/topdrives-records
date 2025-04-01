@@ -13,10 +13,12 @@ import nl from "./nl.js";
 import br from "./br.js";
 import cn from "./cn.js";
 import se from "./se.js";
+import cz from "./cz.js";
 
 export default {
   br,
   cn,
+  cz,
   de,
   en: {
     ...en,
