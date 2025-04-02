@@ -364,9 +364,9 @@ export default {
                 highlightsUsers[user] = Number(key.slice(-1));
               })
             })
-            highlightsUsers["Jayzoku"] = "w1";
-            highlightsUsers["CapSora"] = "w2";
-            highlightsUsers["Eyeon"] = "w3";
+            highlightsUsers["Lewdmilla"] = "w1";
+            highlightsUsers["RexKwonDo"] = "w2";
+            highlightsUsers["Bramdal"] = "w3";
 
             return highlightsUsers;
         },
