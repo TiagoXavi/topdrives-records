@@ -325,6 +325,28 @@ export default {
             return { v: result, i: isImprecise };
             
         },
+        Vue.timer = function (timeSeconds) {
+            if (typeof timeSeconds !== "number") return "";
+
+            let result = "";
+
+            let secs = timeSeconds % 60;
+            let mins = Math.floor(timeSeconds / 60); // minutes
+            // var timeDays = Math.floor(timeMs / 86400000); // days
+            // var timeHrs = Math.floor((timeMs % 86400000) / 3600000); // hours
+
+            // console.log(timeMs, timeDays, timeHrs, mins, timeSeconds);
+
+            // if (timeDays) result += `${timeDays}d `;
+            // if (timeHrs) result += `${timeHrs}h `;
+            // if (mins && !timeDays) result += `${mins}m `;
+            // if (timeSeconds && !timeDays && !timeHrs) result += `${timeSeconds}s `;
+
+            if (mins) result += `${mins}m `;
+            if (secs) result += `${secs}s `;
+
+            return result;
+        },
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
         },
@@ -387,5 +409,6 @@ export default {
         Vue.filter('isMobile', Vue.isMobile);
         Vue.filter('carPhoto', Vue.carPhoto);
         Vue.filter('userPoints', Vue.userPoints);
+        Vue.filter('timer', Vue.timer);
     }
 };

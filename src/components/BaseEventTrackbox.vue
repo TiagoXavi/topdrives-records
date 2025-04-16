@@ -21,19 +21,19 @@
         </div>
         <div v-if="itrackMonoArray === 0 && user && eventForceAnalyze" class="BaseEventTrackbox_EditBox">
           <button
-            class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+            class="D_Button Cg_SelectTrackButton"
             :class="{ D_ButtonRed: deleteTime && deleteTimeIndex === itrackset }"
             @click="deleteClick(itrackset)">
             <i class="ticon-close_3 BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
           </button>
           <div class="BaseEventTrackbox_UpDownBox">
             <button
-              class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+              class="D_Button Cg_SelectTrackButton"
               @click="$emit('up', {itrackset});">
               <i class="ticon-keyboard_arrow_up BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
             </button>
             <button
-              class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+              class="D_Button Cg_SelectTrackButton"
               @click="$emit('down', {itrackset});">
               <i class="ticon-keyboard_arrow_down BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
             </button>
@@ -46,7 +46,7 @@
           :user="user"
           :options="user && user.mod"
           :cg="true"
-          :showCampaignTip="(!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']) && !disableCampaignTip"
+          :showCampaignTip="(!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']) && !disableCampaignTip && !compact"
           :showingBestPerTrack="showBestPerTrack && Object.keys(eventBestPerTrack).length > 0"
           class="Cg_TrackBox"
           type="tracks" />
@@ -54,22 +54,22 @@
           v-if="user && user.mod && !readonly"
           :disabled="eventLoadingAny"
           :class="{ Cg_SelectTrackButtonEdit: trackMonoArray && trackMonoArray.length === 1 }"
-          class="D_Button EventTrack_AddButton Cg_SelectTrackButton"
+          class="D_Button Cg_SelectTrackButton"
           @click="$emit('openDialogTrackSearch', {itrackset, itrackMonoArray});">
           <i v-if="trackMonoArray && trackMonoArray.length === 1" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
           <span v-else>{{ $t("m_selectTrack") }}</span>
         </button>
         <button
-          v-if="isMobile && user && user.mod && !readonly && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4"
+          v-if="isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4"
           :disabled="eventLoadingAny"
-          class="D_Button EventTrack_AddButton Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_SelectTrackButtonMoveRight"
+          class="D_Button Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_SelectTrackButtonMoveRight"
           @click="$emit('eventMoveTrackRight', {itrackset, itrackMonoArray});">
           <i class="ticon-arrow_right_3 Cg_SelectTrackButtonIcon" aria-hidden="true"/>
         </button>
         <button
-          v-if="!isMobile && user && user.mod && !readonly && trackMonoArray && trackMonoArray.length === 1"
+          v-if="!isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1"
           :disabled="eventLoadingAny"
-          class="D_Button EventTrack_AddButton Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_DragButtonIcon"
+          class="D_Button Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_DragButtonIcon"
           @mousedown="dragMouseDown($event, itrackset, itrackMonoArray);">
           <i class="ticon-expand Cg_SelectTrackButtonIcon" style="transform: rotate(45deg);" aria-hidden="true"/>
         </button>
@@ -142,6 +142,10 @@ export default {
       default: false
     },
     disableCampaignTip: {
+      type: Boolean,
+      default: false
+    },
+    compact: {
       type: Boolean,
       default: false
     },
@@ -466,6 +470,12 @@ export default {
   border-bottom-left-radius: 4px;
   left: unset;
   right: 0;
+}
+.Cg_TrackBox + .Cg_DragButtonIcon {
+  left: 0 !important;
+}
+.Cg_TrackBox + .Cg_SelectTrackButtonMoveRight {
+  left: 0 !important;
 }
 
 

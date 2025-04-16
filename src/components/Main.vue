@@ -985,6 +985,7 @@
             :eventForceAnalyze="eventForceAnalyze"
             :eventBestPerTrack="eventBestPerTrack"
             :showBestPerTrack="showPoints"
+            :compact="(compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200)"
             @newindex="eventTrackNewIndex($event)"
             @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
             @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
@@ -1121,6 +1122,16 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportCriteriaToPacks()">{{ $t("m_eventPack") }}</button>
+            <button
+              v-if="event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset)"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventResetTracksetLocal()">{{ $t("m_resetTrackset") }}</button>
+            <button
+              v-if="user && user.mod && !eventBlockAddTrackset"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="eventSaveAll(true)">{{ $t("m_resetTracksetDefault") }}</button>
             <button
               v-if="user && user.mod && !eventBlockAddTrackset"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -1382,6 +1393,7 @@
               :useWhatFilter="clubUseWhatFilter"
               :eventBestPerTrack="clubBestPerTrack"
               :showBestPerTrack="showPoints"
+              :compact="(compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200)"
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
@@ -4225,11 +4237,21 @@ export default {
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
       if (this.eventFilterToSave2 && JSON.stringify(this.eventFilterToSave2) !== this.eventFilterString2) return true;
       if (this.eventFilterToSave3 && JSON.stringify(this.eventFilterToSave3) !== this.eventFilterString3) return true;
-      if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) return true;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) return true;
       if (this.eventIcons !== JSON.stringify(this.event.icons)) return true;
+      // if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) return true;
+      if (this.eventNeedSaveTrackset) return true;
       return false;
+    },
+    eventNeedSaveTrackset() {
+      if (this.eventTracksetString === JSON.stringify(this.event.trackset)) return false;
+      let localTracks = JSON.parse(this.eventTracksetString);
+      let areEqual = false;
+      areEqual = localTracks.every((trackset, itrackset) => {
+        return trackset.every(a => this.event.trackset[itrackset].some(b => a === b));
+      })
+      return !areEqual;
     },
     clubTrackNeedSave() {
       if (this.mode !== 'clubs') return false;
@@ -8281,6 +8303,7 @@ export default {
       this.eventCompString = JSON.stringify(this.event.comp);
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
       this.eventIcons = JSON.stringify(this.event.icons);
+      this.eventLoadTracksetLocal();
 
 
       this.eventResolveTrackset();
@@ -8288,7 +8311,7 @@ export default {
         this.eventUpdateLocalStorage();
       }
     },
-    eventResolveTrackset() {
+    eventResolveTrackset(isEdit) {
       let resolvedTrackset = JSON.parse(JSON.stringify(this.event.trackset));
 
       resolvedTrackset = resolvedTrackset.map(trackset => {
@@ -8298,6 +8321,41 @@ export default {
         })
       })
       Vue.set(this.event, "resolvedTrackset", resolvedTrackset);
+      if (isEdit) {
+        this.eventSaveTracksetLocal();
+      }
+    },
+    eventSaveTracksetLocal() {
+      window.localStorage.setItem(`tracksOrder_${this.eventCurrentName}_${this.event.realDate}`, JSON.stringify(this.event.trackset));
+    },
+    eventLoadTracksetLocal() {
+      let localTracks = window.localStorage.getItem(`tracksOrder_${this.eventCurrentName}_${this.event.realDate}`);
+      if (!localTracks) return;
+      let areEqual = false;
+      try {
+        localTracks = JSON.parse(localTracks);
+        // validate trackset
+        areEqual = this.eventCheckTracksetBeforeLocal(localTracks);
+      } catch (error) {
+        console.log(error);
+      }
+      if (areEqual) {
+        Vue.set(this.event, "tracksetBkp", this.event.trackset);
+        this.event.trackset = localTracks;
+      }
+    },
+    eventCheckTracksetBeforeLocal(localTracks) {
+      let areEqual = false;
+      localTracks.map((trackset, itrackset) => {
+        areEqual = trackset.every(a => this.event.trackset[itrackset].some(b => a === b));
+      })
+      return areEqual;
+    },
+    eventResetTracksetLocal() {
+      localStorage.removeItem(`tracksOrder_${this.eventCurrentName}_${this.event.realDate}`);
+      this.event.trackset = this.event.tracksetBkp;
+      delete this.event.tracksetBkp;
+      this.eventResolveTrackset();
     },
     eventAddTrackset() {
       this.event.trackset.push([null,null,null,null,null])
@@ -8315,6 +8373,8 @@ export default {
       }
     },
     eventStyleList() {
+      let now = new Date().toISOString();
+
       this.eventList.sort((a,b) => {
         return a.name.localeCompare(b.name, "en", {numeric: true});
       })
@@ -8330,26 +8390,32 @@ export default {
           Vue.set(x, "index", 1);
           styl = `<span class="Event_Hidden">${x.name}</span>`
         }
-        Vue.set(x, "nameStyled", styl);
-      })
-
-      this.eventList.sort((a,b) => {
-        // if (a.index === b.index && a.endDateTime && b.endDateTime) {
-        //   let aEnded = a.endDateTime.localeCompare(now) < 0;
-        //   let bEnded = b.endDateTime.localeCompare(now) < 0;
-        //   if (aEnded && !bEnded) return -1;
-        //   if (bEnded && !aEnded) return 1;
-
-        //   let aNotStarted = a.startDateTime.localeCompare(now) > 0;
-        //   let bNotStarted = b.startDateTime.localeCompare(now) > 0;
-        //   if (aNotStarted && !bNotStarted) return 1;
-        //   if (bNotStarted && !aNotStarted) return -1;
-        //   if (b.endDateTime !== a.endDateTime) {
-        //     return a.endDateTime.localeCompare(b.endDateTime);
+        // if (x.endDateTime) {
+        //   if (x.endDateTime.localeCompare(now) < 0) {
+        //     Vue.set(x, "index", -1);
+        //     styl = `<span class="Event_Ended">${x.name}</span>`
         //   }
         // }
-        return a.index - b.index;
+        Vue.set(x, "nameStyled", styl);
       })
+      // this.eventList.sort((a,b) => {
+      //   if (a.index === b.index && a.endDateTime && b.endDateTime) {
+      //     let aEnded = a.endDateTime.localeCompare(now) < 0;
+      //     let bEnded = b.endDateTime.localeCompare(now) < 0;
+      //     if (aEnded && !bEnded) return -1;
+      //     if (bEnded && !aEnded) return 1;
+
+      //     let aNotStarted = a.startDateTime.localeCompare(now) > 0;
+      //     let bNotStarted = b.startDateTime.localeCompare(now) > 0;
+      //     if (aNotStarted && !bNotStarted) return 1;
+      //     if (bNotStarted && !aNotStarted) return -1;
+      //     if (b.endDateTime !== a.endDateTime) {
+      //       return a.endDateTime.localeCompare(b.endDateTime);
+      //     }
+      //     return a.name.localeCompare(b.name, "en", {numeric: true});
+      //   }
+      //   return a.index - b.index;
+      // })
     },
     eventResolveCompilation(tracksetUsed) {
       if (!this.trackTimes) return;
@@ -8522,7 +8588,7 @@ export default {
     eventOpenRqEdit(e) {
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
         this.eventForceAnalyze = !this.eventForceAnalyze;
-        this.eventBlockAddTrackset = false;
+        this.eventBlockAddTrackset = !this.eventBlockAddTrackset;
         return;
       }
       this.eventRqEditDialog = true;
@@ -8595,13 +8661,13 @@ export default {
         }
       })
     },
-    eventSaveAll() {
+    eventSaveAll(forceSaveTrackset) {
       this.saveLoading = true;
       let params = { date: this.eventCurrentId };
       if (this.eventFilterString !== JSON.stringify(this.event.filter)) params.filter = this.eventFilterToSave;
       if (this.eventFilterString2 !== JSON.stringify(this.event.filter2)) params.filter2 = this.eventFilterToSave2;
       if (this.eventFilterString3 !== JSON.stringify(this.event.filter3)) params.filter3 = this.eventFilterToSave3;
-      if (this.eventTracksetString !== JSON.stringify(this.event.trackset)) params.trackset = this.event.trackset;
+      if (forceSaveTrackset || this.eventNeedSaveTrackset) params.trackset = this.event.trackset;
       if (this.eventCompString !== JSON.stringify(this.event.comp)) params.comp = this.event.comp;
       if (this.eventRqEditString !== JSON.stringify(this.event.rqLimit)) params.rqLimit = this.event.rqLimit;
       if (this.eventIcons !== JSON.stringify(this.event.icons)) params.icons = this.event.icons;
@@ -8725,8 +8791,14 @@ export default {
       obj.current;
       obj.new;
       let trackset;
-      if (this.isEvents) trackset = this.event.trackset[obj.itrackset];
-      else trackset = this.clubTracksGroupModel.trackset[obj.itrackset];
+      if (this.isEvents) {
+        trackset = this.event.trackset[obj.itrackset];
+        if (!this.event.tracksetBkp) {
+          Vue.set(this.event, "tracksetBkp", JSON.parse(JSON.stringify(this.event.trackset)));
+        }
+      } else {
+        trackset = this.clubTracksGroupModel.trackset[obj.itrackset];
+      }
 
       while (obj.current < 0)
       {
@@ -8742,8 +8814,8 @@ export default {
       }
       trackset.splice(obj.new, 0, trackset.splice(obj.current, 1)[0]);
 
-      if (this.isEvents) this.eventResolveTrackset();
-      else this.clubsResolveTrackGroup();
+      if (this.isEvents) this.eventResolveTrackset(true);
+      else this.clubsResolveTrackGroup(true);
     },
     eventMove(direction = "up", itrackset) {
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';

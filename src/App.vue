@@ -3050,6 +3050,9 @@ body .Main_UserTw3:before {
 .Event_Hidden {
   color: #9ac712;
 }
+.Event_Ended {
+  color: #dd3636;
+}
 .Main_StyledItemMargin {
   margin-top: 10px;
 }
