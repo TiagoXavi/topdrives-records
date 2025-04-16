@@ -477,6 +477,12 @@ export default {
 .Cg_TrackBox + .Cg_SelectTrackButtonMoveRight {
   left: 0 !important;
 }
+.EventTrack:first-child .Cg_TrackBox + .Cg_DragButtonIcon {
+  left: 29px !important;
+}
+.EventTrack:first-child .Cg_TrackBox + .Cg_SelectTrackButtonMoveRight {
+  left: 29px !important;
+}
 
 
 

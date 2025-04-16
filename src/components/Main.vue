@@ -8398,24 +8398,24 @@ export default {
         // }
         Vue.set(x, "nameStyled", styl);
       })
-      // this.eventList.sort((a,b) => {
-      //   if (a.index === b.index && a.endDateTime && b.endDateTime) {
-      //     let aEnded = a.endDateTime.localeCompare(now) < 0;
-      //     let bEnded = b.endDateTime.localeCompare(now) < 0;
-      //     if (aEnded && !bEnded) return -1;
-      //     if (bEnded && !aEnded) return 1;
+      this.eventList.sort((a,b) => {
+        // if (a.index === b.index && a.endDateTime && b.endDateTime) {
+        //   let aEnded = a.endDateTime.localeCompare(now) < 0;
+        //   let bEnded = b.endDateTime.localeCompare(now) < 0;
+        //   if (aEnded && !bEnded) return -1;
+        //   if (bEnded && !aEnded) return 1;
 
-      //     let aNotStarted = a.startDateTime.localeCompare(now) > 0;
-      //     let bNotStarted = b.startDateTime.localeCompare(now) > 0;
-      //     if (aNotStarted && !bNotStarted) return 1;
-      //     if (bNotStarted && !aNotStarted) return -1;
-      //     if (b.endDateTime !== a.endDateTime) {
-      //       return a.endDateTime.localeCompare(b.endDateTime);
-      //     }
-      //     return a.name.localeCompare(b.name, "en", {numeric: true});
-      //   }
-      //   return a.index - b.index;
-      // })
+        //   let aNotStarted = a.startDateTime.localeCompare(now) > 0;
+        //   let bNotStarted = b.startDateTime.localeCompare(now) > 0;
+        //   if (aNotStarted && !bNotStarted) return 1;
+        //   if (bNotStarted && !aNotStarted) return -1;
+        //   if (b.endDateTime !== a.endDateTime) {
+        //     return a.endDateTime.localeCompare(b.endDateTime);
+        //   }
+        //   return a.name.localeCompare(b.name, "en", {numeric: true});
+        // }
+        return a.index - b.index;
+      })
     },
     eventResolveCompilation(tracksetUsed) {
       if (!this.trackTimes) return;
