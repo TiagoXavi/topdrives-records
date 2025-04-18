@@ -279,7 +279,6 @@ export default {
   m_showPrizeBoard: "Show prize board",
   m_solutionsInPacks: "Solutions in Packs",
   m_resetTrackset: "Reset tracks order",
-  m_resetTracksetDefault: "Save trackset as default",
 
 
   

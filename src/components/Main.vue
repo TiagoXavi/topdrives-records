@@ -861,6 +861,14 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
+            <template slot="more">
+              <button
+                v-if="user && user.mod && !eventNeedSave && event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset) && event.canViewEvent"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                style="white-space: pre; font-size: 0.8em;"
+                @click="eventConfirmSaveTrackset()">Save trackset{{"\n"}}as default</button>
+            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
@@ -1113,7 +1121,7 @@
 
           <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
 
-          <div v-if="!eventNeedSave && event.canViewEvent" class="Cg_BottomModTools" style="margin-top: 30px;">
+          <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1127,11 +1135,6 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventResetTracksetLocal()">{{ $t("m_resetTrackset") }}</button>
-            <button
-              v-if="user && user.mod && !eventBlockAddTrackset"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-              @click="eventSaveAll(true)">{{ $t("m_resetTracksetDefault") }}</button>
             <button
               v-if="user && user.mod && !eventBlockAddTrackset"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -8140,7 +8143,7 @@ export default {
       let result = sum % maxInt;
       return result;
     },
-    loadEvents(resolveInitial = true) {
+    loadEvents(resolveInitial = true, after) {
       this.eventLoading = true;
 
       axios.get(Vue.preUrlCharlie + "/searchEvents")
@@ -8179,7 +8182,9 @@ export default {
 
 
         this.eventStyleList();
-        if (resolveInitial && this.eventFromStorage && this.eventList.find(x => x.date === this.eventFromStorage)) {
+        if (after) {
+          after(res);
+        } else if (resolveInitial && this.eventFromStorage && this.eventList.find(x => x.date === this.eventFromStorage)) {
           this.loadEventFull(this.eventFromStorage);
         } else {
           this.eventLoading = false;
@@ -8621,7 +8626,7 @@ export default {
       this.eventSeletorDialog = true;
       this.eventNewDialog = false;
     },
-    saveNewEvent(parsed) {
+    saveNewEvent(parsedToSave) {
       this.eventNewLoading = true;
 
       let params = {
@@ -8629,20 +8634,27 @@ export default {
         hidden: this.eventNewIsHidden
       }
 
-      if (parsed) {
-        params = parsed;
-        if (this.event.filter) params.filter = this.eventFilterToSave;
-        if (this.event.filter2) params.filter2 = this.eventFilterToSave2;
-        if (this.event.filter3) params.filter3 = this.eventFilterToSave3;
+      if (parsedToSave) {
+        params = parsedToSave;
+        if (this.eventFilterToSave) params.filter = this.eventFilterToSave;
+        if (this.eventFilterToSave2) params.filter2 = this.eventFilterToSave2;
+        if (this.eventFilterToSave3) params.filter3 = this.eventFilterToSave3;
       };
 
       axios.post(Vue.preUrl + "/newEvent", params)
       .then(res => {
-        setTimeout(() => {
-          this.eventCloseNewEvent();
-          this.loadEvents(false);
-          this.eventNewLoading = false;
-        }, 1000);
+        this.eventCloseNewEvent();
+        this.eventNewLoading = false;
+        if (parsedToSave) {
+          this.eventParsedList = this.eventParsedList.filter(x => x.name !== params.name);
+        }
+        this.loadEvents(false, res => {
+          let id = params.name.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "").replaceAll(" ", "_").replace(/[^a-zA-Z0-9\-\_ ]/g, "");
+          this.loadEventFull(id);
+        });
+        // setTimeout(() => {
+
+        // }, 1000);
       })
       .catch(error => {
         this.eventNewError = true;
@@ -8661,7 +8673,7 @@ export default {
         }
       })
     },
-    eventSaveAll(forceSaveTrackset) {
+    eventSaveAll(forceSaveTrackset, after) {
       this.saveLoading = true;
       let params = { date: this.eventCurrentId };
       if (this.eventFilterString !== JSON.stringify(this.event.filter)) params.filter = this.eventFilterToSave;
@@ -8677,6 +8689,10 @@ export default {
         this.eventForceAnalyze = false;
         this.eventResetStringsToSave(true);
         this.saveLoading = false;
+        if (params.trackset) {
+          Vue.set(this.event, "tracksetBkp", JSON.parse(JSON.stringify(this.event.trackset)));
+        }
+        if (after) after(res);
       })
       .catch(error => {
         this.saveLoading = false;
@@ -8692,7 +8708,25 @@ export default {
         }
       })
     },
-    eventAddCar(igroup, icar) {
+    eventConfirmSaveTrackset() {
+      let vm = this;
+
+      let action = function() {
+        vm.confirmDelete.loading = true;
+        vm.eventSaveAll(true, res => {
+          vm.confirmDelete.loading = false;
+          vm.confirmDelete.dialog = false;
+        });
+      }
+
+      this.confirmDelete = {
+        dialog: true,
+        msg: `Save this trackset order for everyone?`,
+        actionLabel: `Save`,
+        action: action,
+        loading: false,
+        classe: `D_ButtonRed`
+      }
 
     },
     eventEditComp(igroup) {
