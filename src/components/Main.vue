@@ -861,14 +861,6 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <button
-                v-if="user && user.mod && !eventNeedSave && event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset) && event.canViewEvent"
-                :class="{ D_Button_Loading: eventLoadingAny }"
-                class="D_Button D_ButtonDark D_ButtonDark2"
-                style="white-space: pre; font-size: 0.8em;"
-                @click="eventConfirmSaveTrackset()">Save trackset{{"\n"}}as default</button>
-            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
@@ -939,6 +931,14 @@
                   </div>
 
                 </div>
+                <div style="display: flex; justify-content: center;">
+                  <button
+                    v-if="user && user.mod && !eventNeedSave && event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset) && event.canViewEvent"
+                    :class="{ D_Button_Loading: eventLoadingAny }"
+                    class="D_Button D_ButtonDark D_ButtonDark2"
+                    style="white-space: pre; font-size: 0.8em; min-height: 27px;"
+                    @click="eventConfirmSaveTrackset()">Save trackset as default</button>
+                </div>
               </div>
             </div>
           </div>
@@ -966,6 +966,10 @@
       </div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="eventCurrentId">
+          <!-- <div>{{ event.filter }}</div>
+          <div>{{ event.filter2 }}</div>
+          <div>{{ eventFilterToSave }}</div>
+          <div>{{ eventFilterToSave2 }}</div> -->
 
           <template v-if="event.noAccess">
             <div v-for="m in 4" class="Cg_Box">
@@ -9003,12 +9007,22 @@ export default {
       Vue.set(this.event[`filter${n+1 > 1 ? n+1 : ''}`], "name", event.newName);
       
       let currentClearedFilter = this.eventRetrieveCurrentClearedFilter(n);
+
       Vue.set(currentClearedFilter, "name", event.newName);
     },
     eventRetrieveCurrentClearedFilter(filterNumber) {
       // TODO: Só funciona se tiver filtro a ser salvo
       let key = this.isEvents ? 'eventFilterToSave' : 'clubCurrentFilterToSave';
       if (filterNumber) key = key + (filterNumber+1);
+
+      if (this[key] === null || this[key] === undefined) {
+        // unchanged filter
+        let keyF = this.isEvents ? 'event' : 'clubReqsGroupModel';
+        let filterName = "filter";
+        if (filterNumber) filterName = filterName + (filterNumber+1);
+        Vue.set(this, key, JSON.parse(JSON.stringify(this[keyF][filterName])));
+      }
+
       return this[key];
     },
     // eventAnalyse(disableAfter = true) {

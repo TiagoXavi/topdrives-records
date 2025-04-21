@@ -2687,7 +2687,7 @@ body .Main_UserTw3:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .Cg_RqRq {
   transform: scaleX(1.7) skewX(-14deg);
