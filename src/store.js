@@ -145,7 +145,6 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [
-      "Filberto's Collection",
       "Harriet's Collection",
       "Legrand's Collection"
     ],
