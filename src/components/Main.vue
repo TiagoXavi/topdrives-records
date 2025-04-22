@@ -3202,7 +3202,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v25.1",
+      gameVersion: "Game v26.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,

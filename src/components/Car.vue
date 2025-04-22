@@ -55,15 +55,16 @@
 import Row from './Row.vue'
 import BaseCard from './BaseCard.vue';
 
-var pos1 = 0;
-var pos2 = 0;
-var mouseX = 0;
-var mouseY = 0;
+var initX = 0;
+var initY = 0;
+var posX = 0;
+var posY = 0;
 var elmnt = null;
 var dragNum = 0;
 var lastDragNum = 0;
 var width = 0;
 var height = 0;
+var skip = false;
 
 
 export default {
@@ -175,23 +176,21 @@ export default {
       e = e || window.event;
       e.preventDefault();
       // get the mouse cursor position at startup:
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      initX = e.clientX;
+      initY = e.clientY;
       document.onmouseup = this.closeDragElement;
       // call a function whenever the cursor moves:
       document.onmousemove = this.elementDrag;
     },
     elementDrag(e) {
-      // calculate the new cursor position:
-      pos1 = mouseX - e.clientX;
-      pos2 = mouseY - e.clientY;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      // set the element's new position:
-      let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
-      let newTop = getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2;
-      elmnt.style.setProperty("--drag-left", newLeft );
-      elmnt.style.setProperty("--drag-top", newTop );
+      posX = e.clientX - initX;
+      posY = e.clientY - initY;
+
+      skip = !skip;
+      if (skip) return;
+
+      elmnt.style.setProperty("--drag-left", posX );
+      elmnt.style.setProperty("--drag-top", posY );
       elmnt.classList.add("Car_Dragging");
       elmnt.parentElement.classList.add("Car_DraggingParent");
       
@@ -199,8 +198,8 @@ export default {
       if (this.compact) width = Number(getComputedStyle(document.querySelector(".Main_Compact")).getPropertyValue("--cell-width").trim().slice(0,-2))
       if (this.invertedView) height = Number(getComputedStyle(document.querySelector(".Main_2")).getPropertyValue("--cell-height").trim().slice(0,-2))
 
-      dragNum = Math.round(newLeft / width);
-      if (this.invertedView) dragNum = Math.round(newTop / height);
+      dragNum = Math.round(posX / width);
+      if (this.invertedView) dragNum = Math.round(posY / height);
       let times = Math.abs(dragNum);
       let cla = dragNum > 0 ? "Car_PushLeft" : "Car_PushRight";
       let div;
@@ -230,8 +229,8 @@ export default {
           }
         });
       }
-      // elmnt.style[0] = (elmnt.offsetLeft - pos1);
-      // elmnt.style[1] = (elmnt.offsetTop - pos2);
+      // elmnt.style[0] = (elmnt.offsetLeft - posX);
+      // elmnt.style[1] = (elmnt.offsetTop - posY);
     },
     closeDragElement() {
       // stop moving when mouse button is released:
@@ -264,6 +263,8 @@ export default {
       elmnt.style.setProperty("--drag-top", 0 );
       dragNum = 0;
 
+      initX = 0;
+      initY = 0;
       document.onmouseup = null;
       document.onmousemove = null;
     },

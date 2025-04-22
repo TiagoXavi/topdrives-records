@@ -89,14 +89,16 @@
 
 <script>
 
-var pos1 = 0;
-var pos2 = 0;
-var mouseX = 0;
-var mouseY = 0;
+var initX = 0;
+var initY = 0;
+var posX = 0;
+var posY = 0;
 var elmnt = null;
 var dragNum = 0;
 var lastDragNum = 0;
 var runAnimationRoot = true;
+var width = 0;
+var skip = false;
 
 
 import Row from './Row.vue'
@@ -189,32 +191,28 @@ export default {
       e = e || window.event;
       e.preventDefault();
       // get the mouse cursor position at startup:
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      initX = e.clientX;
+      initY = e.clientY;
       document.onmouseup = this.closeDragElement;
       // call a function whenever the cursor moves:
       document.onmousemove = this.elementDrag;
     },
     elementDrag(e) {
-      // calculate the new cursor position:
-      pos1 = mouseX - e.clientX;
-      pos2 = mouseY - e.clientY;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      // set the element's new position:
-      getComputedStyle(elmnt).getPropertyValue("--drag-left")
-      getComputedStyle(elmnt).getPropertyValue("--drag-top")
-      let newLeft = getComputedStyle(elmnt).getPropertyValue("--drag-left") - pos1;
-      let newTop = getComputedStyle(elmnt).getPropertyValue("--drag-top") - pos2;
-      elmnt.style.setProperty("--drag-left", newLeft );
-      elmnt.style.setProperty("--drag-top", newTop );
+      posX = e.clientX - initX;
+      posY = e.clientY - initY;
+
+      skip = !skip;
+      if (skip) return;
+
+      elmnt.style.setProperty("--drag-left", posX );
+      elmnt.style.setProperty("--drag-top", posY );
       elmnt.classList.add("EventTrack_Dragging");
       elmnt.parentElement.parentElement.classList.add("EventTrack_DraggingParent");
       elmnt.parentElement.parentElement.classList.add("EventTrack_HideButtons");
 
-      let width = Number(getComputedStyle(elmnt).getPropertyValue("--cg-width").trim().slice(0,-2))
+      width = Number(getComputedStyle(elmnt).getPropertyValue("--cg-width").trim().slice(0,-2))
 
-      dragNum = Math.round(newLeft / width);
+      dragNum = Math.round(posX / width);
       let times = Math.abs(dragNum);
       let cla = dragNum > 0 ? "EventTrack_PushLeft" : "EventTrack_PushRight";
       let div;
@@ -241,8 +239,7 @@ export default {
     },
     closeDragElement() {
       // stop moving when mouse button is released:
-      elmnt.style.setProperty("--drag-left", 0 );
-      elmnt.style.setProperty("--drag-top", 0 );
+      
       elmnt.classList.remove("EventTrack_Dragging");
       elmnt.parentElement.parentElement.classList.remove("EventTrack_DraggingParent");
       setTimeout(() => {
@@ -256,8 +253,17 @@ export default {
       })
 
       if (dragNum !== 0) {
+        let indexDiff = (this.itrackMonoArray + dragNum) - this.itrackMonoArray;
+        console.log(indexDiff)
+        let pos = {
+          dragLeft: Number(elmnt.style.getPropertyValue("--drag-left")),
+          dragTop: Number(elmnt.style.getPropertyValue("--drag-top"))
+        }
+        pos.dragLeft = pos.dragLeft + (width * indexDiff * -1)
         this.$emit("newindex", { current: this.itrackMonoArray, new: this.itrackMonoArray + dragNum, itrackset: this.itrackset });
       }
+      elmnt.style.setProperty("--drag-left", 0 );
+      elmnt.style.setProperty("--drag-top", 0 );
       dragNum = 0;
 
       document.onmouseup = null;

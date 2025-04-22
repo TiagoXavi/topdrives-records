@@ -230,4 +230,18 @@ export default {
   bottom: -1.5%;
   background-color: transparent;
 }
+
+.BaseCardGallery150 {
+  width: 150px;
+}
+.BaseCardGallery150 .Row_DialogCardCard2 {
+  --width: 150px;
+  --height: 92px;
+  --card-font-size: 7px;
+  --factor: 3px;
+  margin: 0;
+}
+.BaseCardGallery150 .Car_TuneTipGallery {
+  font-size: 16px;
+}
 </style>

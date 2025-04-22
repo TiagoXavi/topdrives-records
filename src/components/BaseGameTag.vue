@@ -579,5 +579,19 @@ export default {
   --tag-s: 0%;
   --tag-l: 100%;
 }
-
+.BaseGameTag_Filberto\'s_Collection {
+  --tag-h: 0;
+  --tag-s: 70%;
+  --tag-l: 76%;
+}
+.BaseGameTag_Harriet\'s_Collection {
+  --tag-h: 156;
+  --tag-s: 70%;
+  --tag-l: 85%;
+}
+.BaseGameTag_Legrand\'s_Collection {
+  --tag-h: 12;
+  --tag-s: 70%;
+  --tag-l: 59%;
+}
 </style>
