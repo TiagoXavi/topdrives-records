@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://discord.gg/gWZ8v9Xf43"
+    :href="link"
     class="D_Button Main_OptionsButton"
     target="_blank"
     rel="noopener noreferrer">
@@ -17,7 +17,12 @@ export default {
   components: {
     BaseIconSvg
   },
-  props: {},
+  props: {
+    link: {
+      type: String,
+      default: "https://discord.gg/gWZ8v9Xf43"
+    }
+  },
   data() {
     return {}
   },
