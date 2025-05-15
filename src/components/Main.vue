@@ -1163,7 +1163,7 @@
             <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
           </div>
 
-          <div v-if="user && user.mod && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
+          <div v-if="user && user.mod && event.canViewEvent && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
             <template v-for="(icon, ix) in clubsIconsList">
               <BaseChip
                 v-model="event.icons"

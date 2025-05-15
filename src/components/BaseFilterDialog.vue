@@ -1212,7 +1212,7 @@ export default {
         }
         let rqMax = mutation.payload.rqMax || 130;
         let rqMin = mutation.payload.rqMin || 10;
-        let total = mutation.payload.total || 5000;
+        let total = mutation.payload.total || 15000;
         let listOfRids = [];
 
         vm.all_cars.map((x, ix) => {

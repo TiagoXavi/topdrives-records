@@ -124,7 +124,7 @@ export default {
       this.finCar();
     },
     finCar() {
-      this.$store.commit("FILTER_FINDCAR_RIDS", { total: 5000 });
+      this.$store.commit("FILTER_FINDCAR_RIDS", { total: 15000 });
     },
     finCarFinish(listOfRids) {
       listOfRids = listOfRids.map(x => x.rid);

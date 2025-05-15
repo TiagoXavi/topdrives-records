@@ -1438,7 +1438,7 @@ export default {
         html2canvas.default(pose, options).then(function(canvas) {
 
           import('reimg').then(reimg => {
-            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${this.today.toISOString().slice(0,-5)}.png`)
+            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${vm.today.toISOString().slice(0,-5)}.png`)
 
             document.querySelector(boxName).classList.remove("Main_BodyPrint");
             vm.windowWidth = vm.tempWindowWidth;

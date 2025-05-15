@@ -2521,7 +2521,7 @@ body .Main_UserTw3:before {
 }
 .Cg_Track {
   position: relative;
-  padding-top: 3px;
+  /* padding-top: 3px; */
 }
 .Cg_SelectTrackButtonEdit {
   position: absolute;

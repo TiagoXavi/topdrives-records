@@ -64,13 +64,13 @@
     "matches": [
       ["Alfa_Romeo_145_Cloverleaf_1994", "Alfa_Romeo_147_GTA_2002"],
       ["Fiat_Panda_4x4_2019", "Lancia_Delta_HF_4WD_1986"],
-      ["Maserati_Ghibli_SS_Spyder_1969", "Fiat_Abarth_124_Spider_2017"],
-      ["Maserati_Khamsin_1974", "Maserati_Racing_1991"],
+      ["Maserati_Spyder_1991", "Fiat_Abarth_124_Spider_2017"],
+      ["Maserati_Karif_1988", "Maserati_Racing_1991"],
       ["Alfa_Romeo_166_1998", "Alfa_Romeo_164_Super_1993"],
       ["Fiat_Dino_Coupe_1966", "Maserati_Royale_1986"],
       ["Fiat_Panda_Cross_4x4_Mark_3_2014", "Fiat_Fullback_Cross_2017"],
       ["Lamborghini_Urraco_P250_1973", "Alfa_Romeo_Carabo_1968"],
-      ["Maserati_Ghibli_SS_Spyder_1969", "Maserati_Quattroporte_Diesel_2018"],
+      ["Maserati_Mistral_1963", "Maserati_Quattroporte_Diesel_2018"],
       ["Fiat_Abarth_695_Tributo_Maserati_2012", "Alfa_Romeo_Giulia_TZ_1963"]
     ]
   },
@@ -85,7 +85,7 @@
       ["Buick_LeSabre_2000", "Buick_Regal_Turbo_2011"],
       ["Ram_Dodge_1st_Gen_1981", "Ram_Dodge_Ramcharger_1981"],
       ["Cadillac_Escalade_1999", "Cadillac_SRX_2006"],
-      ["Chevrolet_Chevelle_SS_454_1970", "Chevrolet_Monte_Carlo_SS_2006"],
+      ["Ford_Evos_2011", "Chevrolet_Monte_Carlo_SS_2006"],
       ["Ram_Dodge_Li'l_Red_Express_Truck_1978", "Dodge_Durango_GT_2018"]
     ]
   },
