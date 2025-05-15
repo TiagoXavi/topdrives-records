@@ -9636,6 +9636,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
+      return;
       if (window.localStorage.getItem("contest7")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {

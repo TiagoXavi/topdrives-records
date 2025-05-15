@@ -391,6 +391,9 @@ export default {
             highlightsUsers["RexKwonDo"] = "w2";
             highlightsUsers["Bramdal"] = "w3";
 
+            highlightsUsers["MilleniumJade"] = "w1";
+            highlightsUsers["JoeHamilton"] = "w2";
+
             return highlightsUsers;
         },
 
