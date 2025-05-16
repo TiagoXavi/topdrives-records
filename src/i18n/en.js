@@ -279,6 +279,7 @@ export default {
   m_showPrizeBoard: "Show prize board",
   m_solutionsInPacks: "Solutions in Packs",
   m_resetTrackset: "Reset tracks order",
+  m_previewSolutions: "Preview solutions",
 
 
   
@@ -291,6 +292,7 @@ export default {
   p_lockRoundPhrase: "Lock this round to you to start doing it",
   p_modDoingRound: "{mod} is doing this round",
   p_patronsOnly: "This feature is available for patrons only (Tier {tier}).",
+  p_patronsPreviewCg: "Patrons at least tier 3 can preview solutions",
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",
   p_chartsDescription: "It puts all database of a track into a chart. For a demonstration:",
   p_templateWarning: "Make sure that your template is useful to the community or it will not be approved.",
@@ -306,7 +308,7 @@ export default {
   p_beforeLeave: "Are you sure you want to leave?",
   p_eventsKingDescription: "You can only see 1 car per rarity. Here is how the complete list works:",
   p_eventsKingLogin: "Login to see the best car for each rarity",
-  p_eventHiddenForPatreons: "This event is a preview available for patreons at least tier 3",
+  p_eventHiddenForPatreons: "This event is a preview available for patrons at least tier 3",
   p_linkDiscordExplanationCommu: "To submit your private community, you need:",
   p_linkDiscordExplanationP1: "To link your account, you need:",
   p_linkDiscordExplanationP2: "• A Discord account • Be on TDR Discord server • Get your Discord User ID (use the command /user on TDR Discord server)",

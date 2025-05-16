@@ -69,6 +69,9 @@
 .ticon-time_to_leave:before {
   content: "\e62c";
 }
+.ticon-equalizer:before {
+  content: "\e01d";
+}
 .ticon-favorite:before {
   content: "\e87d";
 }
@@ -80,6 +83,9 @@
 }
 .ticon-file_upload:before {
   content: "\e2c6";
+}
+.ticon-flash_on:before {
+  content: "\e3e7";
 }
 .ticon-indeterminate_check_box:before {
   content: "\e911";
@@ -95,6 +101,9 @@
 }
 .ticon-keyboard_arrow_up:before {
   content: "\e316";
+}
+.ticon-new_releases:before {
+  content: "\e031";
 }
 .ticon-radio_button_unchecked:before {
   content: "\e836";
@@ -152,6 +161,12 @@
 }
 .ticon-question-circle-o:before {
   content: "\f29c";
+}
+.ticon-hand:before {
+  content: "\e982";
+}
+.ticon-crown:before {
+  content: "\e983";
 }
 .ticon-paste:before {
   content: "\e971";

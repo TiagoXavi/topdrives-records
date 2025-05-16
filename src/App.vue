@@ -2639,6 +2639,9 @@ body .Main_UserTw3:before {
   align-items: center;
   margin-top: 2px;
 }
+.Cg_YouBankBoxPreview {
+  margin-top: 20px;
+}
 .Cg_YouBankManualAdd {
   margin-bottom: 2px;
 }

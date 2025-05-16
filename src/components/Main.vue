@@ -672,74 +672,77 @@
               <div v-else class="Cg_ThemTime">
                 <div class="Row_Cell Row_DisabledCell" />
               </div>
-              <template v-if="race.track && race.car && (cgRound.lastAnalyze || (!!user && user.mod)) && !cgIsApproving">
-                <div
-                  :class="{
-                    Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
-                    Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
-                    Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
-                  }"
-                  class="Cg_Divider"
-                  @click="cgOpenPointsEdit(race)"
-                  @mousedown="showPoints = true;"
-                  @mouseup="showPoints = false;"
-                  @mouseleave="showPoints = false;">
-                  <div class="Cg_DividerBackLight"></div>
-                  <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
-                  <template v-else-if="showPointsCg">
-                    <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
-                  </template>
-                  <template v-else>
-                    <div v-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
-                    <div v-else-if="(race.cars[race.carIndex] || {}).points > 0" class="Cg_Points">{{ $t("m_win") }}</div>
-                    <div v-else-if="(race.cars[race.carIndex] || {}).points < 0" class="Cg_Points">{{ $t("m_lose") }}</div>
-                    <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
-                  </template>
-                </div>
-                <div class="CgYouCar">
-                  <BaseCard
-                    v-if="(race.cars[race.carIndex] || {}).car"
-                    :car="(race.cars[race.carIndex] || {}).car"
-                    :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
-                    :fix-back="true"
-                    :downloadLoading="cgLoadingAny"
-                    :cg="true"
-                    @delete="race.carIndex = undefined; calcRaceResult(race);" />
-                  <div v-else class="Cg_CarPlaceHolder">
-                    <button
-                      :disabled="cgLoadingAny"
-                      class="D_Button Car_AddButton add"
-                      @click="cgOpenAddYouCar(irace)">
-                      <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
-                    </button>
+              <template v-if="race.track && race.car && (cgRound.lastAnalyze || (!!user && user.mod) || cgRound.isPreview) && (!cgIsApproving || cgRound.isPreview)">
+                <template v-if="!cgRound.isPreview">
+                  <div
+                    :class="{
+                      Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
+                      Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
+                      Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
+                    }"
+                    class="Cg_Divider"
+                    @click="cgOpenPointsEdit(race)"
+                    @mousedown="showPoints = true;"
+                    @mouseup="showPoints = false;"
+                    @mouseleave="showPoints = false;">
+                    <div class="Cg_DividerBackLight"></div>
+                    <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
+                    <template v-else-if="showPointsCg">
+                      <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
+                    </template>
+                    <template v-else>
+                      <div v-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
+                      <div v-else-if="(race.cars[race.carIndex] || {}).points > 0" class="Cg_Points">{{ $t("m_win") }}</div>
+                      <div v-else-if="(race.cars[race.carIndex] || {}).points < 0" class="Cg_Points">{{ $t("m_lose") }}</div>
+                      <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
+                    </template>
                   </div>
-                </div>
-                <div
-                  v-if="(race.cars[race.carIndex] || {}).car && race.track"
-                  class="Cg_YouTime">
-                  <Row
-                    :car="(race.cars[race.carIndex] || {}).car"
-                    :list="race.resolvedTracks"
-                    :loggedin="!!user"
-                    :user="user"
-                    :voteLoading="voteLoading"
-                    :cg="true"
-                    :cgYou="true"
-                    :oppoTime="race.time"
-                    :forceHideCompactSelect="windowWidth < 1200"
-                    :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
-                    type="times"
-                    @changeTime="cgChangeTimeYou(race, $event)"
-                    @changeTune="cgChangeTuneYou(race, $event)"
-                    @deleteTime="cgDeleteTime(race, $event)"
-                    @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race)" />
-                </div>
-                <div v-else class="Cg_YouTime">
-                  <div class="Row_Cell Row_DisabledCell" />
-                </div>
+                  <div class="CgYouCar">
+                    <BaseCard
+                      v-if="(race.cars[race.carIndex] || {}).car"
+                      :car="(race.cars[race.carIndex] || {}).car"
+                      :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                      :fix-back="true"
+                      :downloadLoading="cgLoadingAny"
+                      :cg="true"
+                      @delete="race.carIndex = undefined; calcRaceResult(race);" />
+                    <div v-else class="Cg_CarPlaceHolder">
+                      <button
+                        :disabled="cgLoadingAny"
+                        class="D_Button Car_AddButton add"
+                        @click="cgOpenAddYouCar(irace)">
+                        <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    v-if="(race.cars[race.carIndex] || {}).car && race.track"
+                    class="Cg_YouTime">
+                    <Row
+                      :car="(race.cars[race.carIndex] || {}).car"
+                      :list="race.resolvedTracks"
+                      :loggedin="!!user"
+                      :user="user"
+                      :voteLoading="voteLoading"
+                      :cg="true"
+                      :cgYou="true"
+                      :oppoTime="race.time"
+                      :forceHideCompactSelect="windowWidth < 1200"
+                      :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                      type="times"
+                      @changeTime="cgChangeTimeYou(race, $event)"
+                      @changeTune="cgChangeTuneYou(race, $event)"
+                      @deleteTime="cgDeleteTime(race, $event)"
+                      @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race)" />
+                  </div>
+                  <div v-else class="Cg_YouTime">
+                    <div class="Row_Cell Row_DisabledCell" />
+                  </div>
+                </template>
                 <div class="Cg_YouBank">
-                  <div class="Cg_YouBankBox">
+                  <div :class="{ Cg_YouBankBoxPreview: cgRound.isPreview }" class="Cg_YouBankBox">
                     <button
+                      v-if="!cgRound.isPreview"
                       :disabled="cgLoadingAny"
                       class="D_Button Main_AddTrackDirect Cg_YouBankManualAdd Main_AddTrackDirectLarger"
                       @click="race.carIndex = undefined; calcRaceResult(race); cgOpenAddYouCar(irace)">
@@ -757,7 +760,7 @@
                           Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
                         }"
                         class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
-                        @click="cgBankCarClick(race, index, $event, irace, bankCar);">
+                        @click="!cgRound.isPreview && cgBankCarClick(race, index, $event, irace, bankCar);">
                         <div class="Cg_BankPhoto">
                           <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
                         </div>
@@ -787,6 +790,27 @@
               </template>
             </div>
           </div>
+
+          <div v-if="isRoundReadyForPreview" class="Cg_BottomModTools">
+            <button
+              v-if="whatTier && whatTier <= 3"
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+              @click="cgPreviewSolutions()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_previewSolutions") }}</button>
+            <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsPreviewCg") }}</div>
+          </div>
+
+          <!-- <div class="Main_">showAnalyse {{showAnalyse}}</div>
+          <div class="Main_">isRoundReadyForPreview {{isRoundReadyForPreview}}</div>
+          <div class="Main_">cgRound.isPreview {{cgRound.isPreview}}</div>
+          <div class="Main_">isRoundComplete {{isRoundComplete}}</div>
+          <div class="Main_">isRoundEmptyForUser {{isRoundEmptyForUser}}</div>
+          <div class="Main_">isRoundEmptyForModders {{isRoundEmptyForModders}}</div>
+          <div class="Main_">cgNewSubmitByMod {{cgNewSubmitByMod}}</div>
+          <div class="Main_">cgRound.reservedTo {{cgRound.reservedTo}}</div>
+          <div class="Main_">cgNeedSave {{cgNeedSave}}</div>
+          <div class="Main_">isRoundReadyForSaveUser {{isRoundReadyForSaveUser}}</div> -->
+          
           <div v-if="cgRound.date && !isRoundEmptyForUser && !isRoundEmptyForModders && !cgNewSubmitByMod && !cgRound.reservedTo" class="Cg_BottomModTools">
             <button
               v-if="cgShowResetSavedHand"
@@ -4181,7 +4205,7 @@ export default {
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined || race.time === null) ready = false;
         if (!race.track) ready = false;
-        if (race.cars && race.cars.length > 4) ready = false;
+        if (race.cars && race.cars.length > 4 && !this.cgRound.isPreview) ready = false;
       })
       // console.log( this.cgRound.races.map(race => race.time) )
       return ready;
@@ -4199,6 +4223,23 @@ export default {
         }
       })
       return isComplete;
+    },
+    isRoundReadyForPreview() {
+      if (this.mode !== 'challenges') return false;
+      if (!this.user) return false;
+      if (!this.cgRound.date) return false;
+      if (this.cgRound.lastAnalyze) return false;
+      if (this.cgRound.isPreview) return false;
+      if (this.cgNewSubmitByMod) return false;
+      if (this.showAnalyse && !this.cgIsApproving) return false;
+      let isReady = true;
+      this.cgRound.races.find(race => {
+        if (!race.rid || !race.track || !race.tune) {
+          isReady = false;
+          return true;
+        }
+      })
+      return isReady;
     },
     isRoundModAllowedEdit() {
       if (this.mode !== 'challenges') return false;
@@ -7105,6 +7146,130 @@ export default {
       }
       
     },
+    cgPreviewSolutions() {
+      let tracks = [];
+      let oppos = [];
+      let times = [];
+      let filterCollection = [];
+
+      this.cgRound.races.map(x => {
+        let time;
+        let cgCar = this.cgCacheCars.find(y => y.rid === x.rid);
+
+        if (
+          x.car.selectedTune &&
+          cgCar &&
+          cgCar.data && 
+          cgCar.data[x.tune] &&
+          cgCar.data[x.tune].times &&
+          cgCar.data[x.tune].times[x.track] &&
+          cgCar.data[x.tune].times[x.track].t !== undefined
+        ) {
+          time = cgCar.data[x.tune].times[x.track].t;
+        } else {
+          time = x.time;
+        }
+
+        tracks.push(x.track);
+        times.push(time);
+        filterCollection.push(this.cgRound.filter);
+        
+        let tun = x.tune;
+        if (tun.includes("Other")) tun = "222";
+        let tunZ = `${tun.split().map(x=>Number(x)*3).join()}`;
+
+        oppos.push({
+          rid: x.rid,
+          tunZ: tunZ,
+          tun: tun,
+          track: x.track,
+          cat: "?????", //Performance_2WD_Low_5_400
+          tKey: "?????", //drag
+          predictedTime: null //11.69
+        })
+
+      })
+
+      this.cgAnalyseLoading = true;
+
+
+      axios.post(Vue.preUrl + "/analyseCustom", {
+        filterCollection: filterCollection,
+        tracks: tracks,
+        oppos: oppos,
+        times: [],
+        isTdr: true
+      })
+      .then(res => {
+
+        // console.log(res.data.resultPerFilter[0]);
+        // console.log(this.cgRound.races);
+
+
+        // Resolve cars
+        let listRids = [];
+        let minCars = {};
+
+        this.cgRound.races.map((race, irace) => {
+          Object.keys(res.data.resultPerFilter[0][irace]).map(rid => {
+            listRids.push(rid);
+          })
+        })
+        listRids = [...new Set(listRids)];
+
+        this.all_cars.map(car => {
+          if (listRids.includes(car.rid)) {
+            minCars[car.rid] = car;
+          }
+        })
+
+
+
+        this.cgRound.races.map((race, irace) => {
+          if (!race.cars) race.cars = [];
+
+          Object.keys(res.data.resultPerFilter[0][irace]).map(rid => {
+            Object.keys(res.data.resultPerFilter[0][irace][rid]).map(tune => {
+              if (tune === "rq") return;
+
+              if (
+                tune !== "111" &&
+                res.data.resultPerFilter[0][irace][rid]["111"] &&
+                res.data.resultPerFilter[0][irace][rid]["111"].points > 0
+              ) {
+                return;
+              }
+
+              race.cars.push({
+                points: res.data.resultPerFilter[0][irace][rid][tune].points,
+                rid: rid,
+                tune: tune,
+                photo: Vue.carPhoto({ rid }),
+                car: minCars[rid],
+                color: Vue.resolveClass(minCars[rid].rq, minCars[rid].class, "color")
+              })
+            })
+          })
+        })
+        this.cgResolveRoundCars(false);
+        this.cgRound.isPreview = true;
+        
+        
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.cgAnalyseLoading = false;
+      });
+
+    },
     cgSaveBank(customArray) {
       if (!window.location.origin.includes('topdrives')) {
         console.log("trySave", customArray);
@@ -9146,7 +9311,9 @@ export default {
       if (type === 'cg') {
         this.cgRound.races.map(race => {
           if ((race.tune && !race.tune.includes('Other')) && race.tune !== "000") {
-            result += `~C${race.rid}~T${race.tune}`
+            result += `~C${race.rid}~T${race.tune}`;
+          } else {
+            result += `~C${race.rid}`;
           }
           if (typeof race.carIndex === 'number') {
             result += `~C${(race.cars[race.carIndex] || {}).rid}~T${(race.cars[race.carIndex] || {}).tune}`
