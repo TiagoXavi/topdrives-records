@@ -2873,7 +2873,7 @@ body .Main_UserTw3:before {
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_Divider,
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .CgYouCar,
 .Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_YouTime,
-.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_YouBank {
+.Cg_RoundEmptyBoxMods ~ .Cg_Box .Cg_YouBankManualAdd {
   display: none;
 }
 .Cg_NotThisTime_Icon {
