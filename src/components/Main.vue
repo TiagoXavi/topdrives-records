@@ -800,7 +800,7 @@
             <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsPreviewCg") }}</div>
           </div>
 
-          <div class="Main_">showAnalyse {{showAnalyse}}</div>
+          <!-- <div class="Main_">showAnalyse {{showAnalyse}}</div>
           <div class="Main_">isRoundReadyForPreview {{isRoundReadyForPreview}}</div>
           <div class="Main_">cgRound.isPreview {{cgRound.isPreview}}</div>
           <div class="Main_">isRoundComplete {{isRoundComplete}}</div>
@@ -809,7 +809,7 @@
           <div class="Main_">cgNewSubmitByMod {{cgNewSubmitByMod}}</div>
           <div class="Main_">cgRound.reservedTo {{cgRound.reservedTo}}</div>
           <div class="Main_">cgNeedSave {{cgNeedSave}}</div>
-          <div class="Main_">isRoundReadyForSaveUser {{isRoundReadyForSaveUser}}</div>
+          <div class="Main_">isRoundReadyForSaveUser {{isRoundReadyForSaveUser}}</div> -->
           
           <div v-if="cgRound.date && !isRoundEmptyForUser && !isRoundEmptyForModders && !cgNewSubmitByMod && !cgRound.reservedTo" class="Cg_BottomModTools">
             <button
