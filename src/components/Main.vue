@@ -275,7 +275,7 @@
                       <i class="ticon-pencil" aria-hidden="true"/>
                     </BaseButtonTouch>
                     <div
-                      v-if="cgRound.showPoints"
+                      v-if="cgRound.showPoints && cgRound.lastAnalyze"
                       :class="{ Cg_PointsSum_Red: cgRound.sumPoints < 250, Cg_PointsSum_Green: cgRound.sumPoints >= 250 }"
                       class="Cg_PointsSum">
                       <span class="Cg_RqRq">pts</span>
@@ -800,7 +800,7 @@
             <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsPreviewCg") }}</div>
           </div>
 
-          <!-- <div class="Main_">showAnalyse {{showAnalyse}}</div>
+          <div class="Main_">showAnalyse {{showAnalyse}}</div>
           <div class="Main_">isRoundReadyForPreview {{isRoundReadyForPreview}}</div>
           <div class="Main_">cgRound.isPreview {{cgRound.isPreview}}</div>
           <div class="Main_">isRoundComplete {{isRoundComplete}}</div>
@@ -809,7 +809,7 @@
           <div class="Main_">cgNewSubmitByMod {{cgNewSubmitByMod}}</div>
           <div class="Main_">cgRound.reservedTo {{cgRound.reservedTo}}</div>
           <div class="Main_">cgNeedSave {{cgNeedSave}}</div>
-          <div class="Main_">isRoundReadyForSaveUser {{isRoundReadyForSaveUser}}</div> -->
+          <div class="Main_">isRoundReadyForSaveUser {{isRoundReadyForSaveUser}}</div>
           
           <div v-if="cgRound.date && !isRoundEmptyForUser && !isRoundEmptyForModders && !cgNewSubmitByMod && !cgRound.reservedTo" class="Cg_BottomModTools">
             <button
@@ -7197,7 +7197,7 @@ export default {
         filterCollection: filterCollection,
         tracks: tracks,
         oppos: oppos,
-        times: [],
+        times: times,
         isTdr: true
       })
       .then(res => {
@@ -7275,6 +7275,7 @@ export default {
         console.log("trySave", customArray);
         return;
       };
+      if (this.cgRound.isPreview) return;
       if (this.cgBankToSave.length === 0 && !customArray) return;
       this.cgBankToSaveLoading = true;
 

@@ -329,8 +329,6 @@ export default {
             if (typeof timeSeconds !== "number") return "";
 
             let result = "";
-
-            let secs = timeSeconds % 60;
             let mins = Math.floor(timeSeconds / 60); // minutes
             // var timeDays = Math.floor(timeMs / 86400000); // days
             // var timeHrs = Math.floor((timeMs % 86400000) / 3600000); // hours
@@ -343,9 +341,34 @@ export default {
             // if (timeSeconds && !timeDays && !timeHrs) result += `${timeSeconds}s `;
 
             if (mins) result += `${mins}m `;
-            if (secs) result += `${secs}s `;
+            if (mins < 5) {
+                let secs = timeSeconds % 60;
+                result += `${secs}s `;
+            }
 
             return result;
+        },
+        Vue.timeDiffString = function (date, laterDate) {
+            let result = "";
+
+            var diffMs = (laterDate - date); // milliseconds between now & Date2
+            var diffDays = Math.floor(diffMs / 86400000); // days
+            var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+            var diffMins = Math.floor(((diffMs % 86400000) % 3600000) / 60000); // minutes
+            var diffSeconds = Math.floor((((diffMs % 86400000) % 3600000) % 60000) / 1000); // seconds
+
+            if (diffDays) result += `${diffDays}d `;
+            if (diffHrs) result += `${diffHrs}h `;
+            if (diffMins && !diffDays) result += `${diffMins}m `;
+            if (diffSeconds && diffMins < 5 && !diffDays && !diffHrs) result += `${diffSeconds}s `;
+
+            return {
+                diffDays,
+                diffMs,
+                diffHrs,
+                diffMins,
+                result
+            };
         },
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
@@ -414,5 +437,6 @@ export default {
         Vue.filter('carPhoto', Vue.carPhoto);
         Vue.filter('userPoints', Vue.userPoints);
         Vue.filter('timer', Vue.timer);
+        Vue.filter('timeDiffString', Vue.timeDiffString);
     }
 };
