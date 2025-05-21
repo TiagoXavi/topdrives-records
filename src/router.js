@@ -257,14 +257,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
-if (process.env.NODE_ENV !== 'production' && false) {
+if (process.env.NODE_ENV !== 'production') {
   const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
   const MainParser = () => import("./components/MainParser.vue");
   const MainExtractTD = () => import("./components/MainExtractTD.vue");
   const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
   const MainCRCContest = () => import("./components/MainCRCContest.vue");
   const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
-  const MainImportRude = () => import("./components/MainImportRude.vue");
 
   routes.push(
     {
@@ -276,11 +275,6 @@ if (process.env.NODE_ENV !== 'production' && false) {
       path: '/BaseMergeDatabase', // internal
       name: 'BaseMergeDatabase',
       component: BaseMergeDatabase,
-    },
-    {
-      path: '/importrude', // internal
-      name: 'ImportRude',
-      component: MainImportRude,
     },
     {
       path: '/amp', // internal
