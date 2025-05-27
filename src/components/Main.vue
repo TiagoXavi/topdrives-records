@@ -3109,8 +3109,6 @@ import BaseBrakeDialog from './BaseBrakeDialog.vue'
 import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
-// import html2canvas from 'html2canvas';
-// import reimg from 'reimg';
 
 export default {
   name: 'Main',
@@ -5618,22 +5616,27 @@ export default {
 
         html2canvas.default(pose, options).then(function(canvas) {
 
-          import('reimg').then(reimg => {
-            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
-            c_container.classList.remove("App_PrintContainerShow");
-            document.querySelector(".App_Layout").classList.remove("App_isPrinting");
-  
-            document.querySelector(boxName).classList.remove("Main_BodyPrint");
-            vm.windowWidth = vm.tempWindowWidth;
-            vm.pngLoading = false;
-
-          }).catch(e => {console.log("load reimg failed", e)});
+          if (window.ReImg) {
+            vm.afterRunSharePrint(c_container, currentCanvas, boxName);
+          } else {
+            window.importReimg();
+            window.importReimgPromise.then(res => {
+              vm.afterRunSharePrint(c_container, currentCanvas, boxName);
+            })
+          }
 
         });
 
       }).catch(e => {console.log("load html2canvas failed", e)})
+    },
+    afterRunSharePrint(c_container, currentCanvas, boxName) {
+      window.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
 
-      
+      c_container.classList.remove("App_PrintContainerShow");
+      document.querySelector(".App_Layout").classList.remove("App_isPrinting");
+      document.querySelector(boxName).classList.remove("Main_BodyPrint");
+      this.windowWidth = this.tempWindowWidth;
+      this.pngLoading = false;
     },
     generateUrl(isForTemplate = false) {
       let result = `${window.location.origin}?`;
@@ -6212,7 +6215,7 @@ export default {
       .then(res => {
         this.cgList = res.data.value;
 
-        if ((this.user && this.user.mod) || process.env.NODE_ENV !== 'production') {
+        if ((this.user && this.user.mod) || import.meta.env.NODE_ENV !== 'production') {
           this.cgList.push({
             "date": "proving_grounds_test",
             "name": "Proving Grounds: test"
@@ -9821,8 +9824,8 @@ export default {
     lookForChangedCars(data) {
       if (!this.user || !this.user.mod) return;
 
-      import('../database/custom_tags.json').then(custom_tags => {
-        let changedRids = custom_tags["24.3 changed cars"];
+      import('@/database/custom_tags.json').then(custom_tags => {
+        let changedRids = custom_tags.default["24.3 changed cars"];
         data.rounds.map((round, iround) => {
           round.races.map((race, irace) => {
             if (changedRids.includes(race.rid)) {

@@ -120,7 +120,7 @@ export default {
       let parsed;
       try {
         if (this.oldpic) {
-          parsed = require('@/oldpics/' + this.car.rid + '.jpg');
+          parsed = 'src/oldpics/' + this.car.rid + '.jpg';
         } else {
           parsed = Vue.carPhoto(this.car);
         }

@@ -148,7 +148,11 @@
     </div> -->
     <div class="MainCollageMaker_Layout">
       <div class="MainCollageMaker_Grid">
-        <div v-for="(item, ix) in images" class="MainCollageMaker_Div" @click="askDelete(ix)">
+        <div
+          v-for="(item, ix) in images"
+          class="MainCollageMaker_Div"
+          @click="askDelete(ix)"
+          @contextmenu="collageRightClick(ix)">
           <img
             :src="item"
             loading="lazy"
@@ -1035,70 +1039,62 @@ export default {
       import('html2canvas').then(html2canvas => {
 
         html2canvas.default(pose, options).then(function(canvas) {
-
-          import('reimg').then(reimg => {
-            let canva = reimg.ReImg.fromCanvas(currentCanvas);
-
-            if (keyCode === "KeyP") {
-              // print
-              reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
-
-              document.querySelector(boxName).classList.remove("Main_BodyPrint");
-              vm.windowWidth = vm.tempWindowWidth;
-              vm.pngLoading = false;
-            } else {
-              // copy to clipboard
-              var image = new Image();
-              image.src = canva.toBase64();
-              image.onload = function() {
-                var c = document.createElement("canvas");
-                var ctx = c.getContext("2d");
-                c.width = image.naturalWidth;
-                c.height = image.naturalHeight;
-                ctx.drawImage(image, 0, 0);
-                c.toBlob(function(blob) {
-
-                  try {
-                    navigator.clipboard.write([
-                      new ClipboardItem({
-                        'image/png': blob
-                      })
-                    ]);
-                    vm.$store.commit("DEFINE_SNACK", {
-                      active: true,
-                      correct: true,
-                      text: "Copied",
-                      time: 1000
-                    });
-                  } catch (error) {
-                    console.error(error);
-                  }
-
-
-                }, "image/png", 1);
-
-                // try {
-                //   navigator.clipboard.write([
-                //     new ClipboardItem({
-                //       'image/png': image
-                //     })
-                //   ]);
-                // } catch (error) {
-                //   console.error(error);
-                // }
-              }
-            }
-
-
-
-
-          }).catch(e => {console.log("load reimg failed", e)});
+            
+          if (window.ReImg) {
+            vm.afterRunSharePrint(c_container, currentCanvas, boxName, keyCode);
+          } else {
+            window.importReimg();
+            window.importReimgPromise.then(res => {
+              vm.afterRunSharePrint(c_container, currentCanvas, boxName, keyCode);
+            })
+          }
 
         });
 
       }).catch(e => {console.log("load html2canvas failed", e)})
 
 
+    },
+    afterRunSharePrint(c_container, currentCanvas, boxName, keyCode) {
+      let vm = this;
+      let canva = window.ReImg.fromCanvas(currentCanvas);
+
+      if (keyCode === "KeyP") {
+        // print
+        canva.downloadPng(`TDR_${new Date().toISOString().slice(0,-5)}.png`)
+
+        document.querySelector(boxName).classList.remove("Main_BodyPrint");
+        vm.windowWidth = vm.tempWindowWidth;
+        vm.pngLoading = false;
+      } else {
+        // copy to clipboard
+        var image = new Image();
+        image.src = canva.toBase64();
+        image.onload = function() {
+          var c = document.createElement("canvas");
+          var ctx = c.getContext("2d");
+          c.width = image.naturalWidth;
+          c.height = image.naturalHeight;
+          ctx.drawImage(image, 0, 0);
+          c.toBlob(function(blob) {
+            try {
+              navigator.clipboard.write([
+                new ClipboardItem({
+                  'image/png': blob
+                })
+              ]);
+              vm.$store.commit("DEFINE_SNACK", {
+                active: true,
+                correct: true,
+                text: "Copied",
+                time: 1000
+              });
+            } catch (error) {
+              console.error(error);
+            }
+          }, "image/png", 1);
+        }
+      }
     },
     askDelete(ix) {
       if (this.currentIndex === ix) {
@@ -1111,6 +1107,11 @@ export default {
           this.currentIndex = -1;
         }, 1000);
       }
+    },
+    collageRightClick(ix) {
+      if (ix === 0) return;
+
+      this.images.splice(ix-1, 0, this.images.splice(ix, 1)[0]);
     }
   },
 };

@@ -221,14 +221,14 @@ export default {
         Vue.carPhoto = function (car) {
             try {
                 if (typeof car === "object") {
-                    if (car.photoId) {
-                        return require('@/incoming_pics/' + car.photoId + '.jpg');
-                    }
-                    return require('@/imgs_final/' + decodeURI(car.rid) + '.jpg');
-                    // return require('@/imgs_final/' + decodeURI(car.rid$ || car.rid) + '.jpg');
+                    // if (car.photoId) {
+                    //     return '/incoming_pics/' + car.photoId + '.jpg';
+                    // }
+                    return '/imgs_final/' + decodeURI(car.rid) + '.jpg';
+                    // return '/imgs_final/' + decodeURI(car.rid$ || car.rid) + '.jpg';
                 }
                 if (typeof car === "string") {
-                    return require('@/imgs_final/' + decodeURI(car) + '.jpg');
+                    return '/imgs_final/' + decodeURI(car) + '.jpg';
                 }
             } catch (error) {
                 return ": "                

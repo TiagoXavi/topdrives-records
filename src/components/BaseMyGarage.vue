@@ -1437,28 +1437,28 @@ export default {
 
         html2canvas.default(pose, options).then(function(canvas) {
 
-          import('reimg').then(reimg => {
-            reimg.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${vm.today.toISOString().slice(0,-5)}.png`)
-
-            document.querySelector(boxName).classList.remove("Main_BodyPrint");
-            vm.windowWidth = vm.tempWindowWidth;
-            vm.pngLoading = false;
-            vm.printingItem = null;
-
-            // let index = vm.pngIndex;
-            // vm.pngIndex = -1;
-            // setTimeout(() => {
-            //   let el = document.querySelector(`.BaseMyGarage_HLItem:nth-child(${index+1})`);
-            //   window.scrollTo({ top: el.offsetTop - (window.innerHeight * 0.35) });
-            // }, 10);
-
-          }).catch(e => {console.log("load reimg failed", e)});
+          if (window.ReImg) {
+            vm.afterRunSharePrint(c_container, currentCanvas, boxName);
+          } else {
+            window.importReimg();
+            window.importReimgPromise.then(res => {
+              vm.afterRunSharePrint(c_container, currentCanvas, boxName);
+            })
+          }
 
         });
 
       }).catch(e => {console.log("load html2canvas failed", e)})
 
 
+    },
+    afterRunSharePrint(c_container, currentCanvas, boxName) {
+      window.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${this.today.toISOString().slice(0,-5)}.png`)
+
+      document.querySelector(boxName).classList.remove("Main_BodyPrint");
+      this.windowWidth = this.tempWindowWidth;
+      this.pngLoading = false;
+      this.printingItem = null;
     },
     changeScreen(screen) {
       this.animation = true;

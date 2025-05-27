@@ -30,17 +30,17 @@
         <div>3. Open Nox, download Top Drives (don't open it yet), log-in on Facebook if your Top Drives account needs it.</div>
         <div>4. Open HTTP Toolkit. Go to Intercept, the option below should be available. Click on it to intercept Nox.</div>
         <div class="BaseMyGarageTutorial_TopicImage">
-          <img src="@/assets/tutorial/http_android.png" alt="">
+          <img src="/assets/tutorial/http_android.png" alt="">
         </div>
         <div>5. Accept the VPN request. You should see 2 checks like in this:</div>
         <div class="BaseMyGarageTutorial_TopicImage">
-          <img src="@/assets/tutorial/http_android_2.png" alt="" style="max-width: 256px;">
+          <img src="/assets/tutorial/http_android_2.png" alt="" style="max-width: 256px;">
         </div>
         <div>6. Open Top Drives, log to your account until you reach home screen of the game.</div>
         <div>7. On HTTP Toolkit, go to View and filter requests by /api/game/v3/sync/</div>
         <div>8. Click on the request. At the right window look for the Response Body. Copy all the content.</div>
         <div class="BaseMyGarageTutorial_TopicImage">
-          <img src="@/assets/tutorial/http_request.png" alt="" style="max-width: 100%;">
+          <img src="/assets/tutorial/http_request.png" alt="" style="max-width: 100%;">
         </div>
         <div>9. Paste the content below. Done.</div>
       </div>
@@ -59,7 +59,7 @@
         <div>4. On HTTP Toolkit, go to View and filter requests by /api/game/v3/sync/</div>
         <div>5. Click on the request. At the right window look for the Response Body. Copy all the content.</div>
         <div class="BaseMyGarageTutorial_TopicImage">
-          <img src="@/assets/tutorial/http_request.png" alt="" style="max-width: 100%;">
+          <img src="/assets/tutorial/http_request.png" alt="" style="max-width: 100%;">
         </div>
         <div>6. Paste the content below. Done.</div>
       </div>

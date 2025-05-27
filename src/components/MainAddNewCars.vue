@@ -652,7 +652,7 @@ export default {
           this.incomingCars.map(car => {
             car.percent = this.howMuchPercentDone(car);
             car.classColor = Vue.resolveClass(car.rq, car.class, "color");
-            car.photoCalc = require('@/incoming_pics/' + car.photoId + '.jpg')
+            car.photoCalc = '/incoming_pics/' + car.photoId + '.jpg';
           })
         } catch (error) {
           console.log(error);
@@ -696,8 +696,9 @@ export default {
         vm.photoSearchModel = null;
         vm.refreshPhotos();
 
+        // TODO: Doesn't work anymore
         const illustrations = require.context(
-          '@/incoming_pics',
+          '/incoming_pics',
           true,
           /^.*\.jpg$/
         )
@@ -781,7 +782,7 @@ export default {
     },
     refreshPhotos() {
       const illustrations = require.context(
-        '@/incoming_pics',
+        '/incoming_pics',
         true,
         /^.*\.jpg$/
       )

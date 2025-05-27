@@ -677,7 +677,7 @@ export default {
 
       this.clubEvent[key].map(x => {
         if (typeof x === 'string' && x.includes("Badge")) {
-          this.imgsObj[x] = require('@/assets/clubs/' + x + '.png')
+          this.imgsObj[x] = '/assets/clubs/' + x + '.png';
         }
       })
     })

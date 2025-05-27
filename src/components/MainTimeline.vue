@@ -178,13 +178,13 @@
                       </div>
                       <img
                         v-else-if="item.type === 'Veteran Challenge'"
-                        src="@/assets/tdr_veteran.png"
+                        src="/assets/tdr_veteran.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
                         alt="">
                       <img
                         v-else-if="item.type === 'Offers'"
-                        src="@/assets/tdr_offer.png"
+                        src="/assets/tdr_offer.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
                         alt="">
@@ -197,7 +197,7 @@
                         @load="afterLoadImg($event)">
                       <img
                         v-else-if="item.type === 'Game News' || item.type === 'Community News'"
-                        src="@/assets/tdr_newspaper.png"
+                        src="/assets/tdr_newspaper.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
                         alt="">

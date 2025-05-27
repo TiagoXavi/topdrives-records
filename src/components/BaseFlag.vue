@@ -31,7 +31,7 @@ export default {
       if (flag === "inactive") flag = "global";
 
       try {
-        parsed = require('@/assets/flags/' + flag.toUpperCase() + '.svg');
+        parsed = '/assets/flags/' + flag.toUpperCase() + '.svg';
       } catch (error) {
         return ''
       }

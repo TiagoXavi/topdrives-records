@@ -10,7 +10,7 @@
     <meta name="msapplication-navbutton-color" content="#2e2700">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#2e2700">
-    <link rel="icon" href="<%= BASE_URL %>fav.svg">
+    <link rel="icon" href="/fav.svg">
     <title>Top Drives Records</title>
     <meta name="description" content="Comparison hub for Top Drives game">
     <!-- Google tag (gtag.js) -->
@@ -22,6 +22,12 @@
         });
       }
     </script>
+    <script type="module">
+      window.ReImg = null;
+      window.importReimg = () => {
+        window.importReimgPromise = import("https://cdn.jsdelivr.net/npm/reimg@1.0.0/reimg.min.js");
+      }
+    </script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -31,6 +37,7 @@
     </script>
   </head>
   <body>
+    <script type="module" src="/src/main.js"></script>
     <noscript>
       <strong>Comparison hub for Top Drives game</strong>
     </noscript>

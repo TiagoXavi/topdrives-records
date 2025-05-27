@@ -30,22 +30,6 @@ const MainAskNewPassword = () => import("./components/MainAskNewPassword.vue");
 
 Vue.use(VueRouter);
 
-// const routes = [
-//   {
-//     path: "/",
-//     name: "Home",
-//     component: Home
-//   },
-//   {
-//     path: "/about",
-//     name: "About",
-//     // route level code-splitting
-//     // this generates a separate chunk (about.[hash].js) for this route
-//     // which is lazy-loaded when the route is visited.
-//     component: () =>
-//       import(/* webpackChunkName: "about" */ "../views/About.vue")
-//   }
-// ];
 const routes = [
   {
     path: '/',
@@ -92,16 +76,6 @@ const routes = [
     name: 'Stuff',
     component: MainStuff,
   },
-  // {
-  //   path: '/convert',
-  //   name: 'Convert',
-  //   component: MainConvertCsv,
-  // },
-  // {
-  //   path: '/merge',
-  //   name: 'Merge',
-  //   component: MainConvertInsertCountry,
-  // },
   {
     path: '/gallery',
     name: 'Gallery',
@@ -225,12 +199,14 @@ const routes = [
 
 
 
-if (process.env.NODE_ENV !== 'production') {
+if (import.meta.env.NODE_ENV !== 'production') {
 
   const MainRT = () => import("./components/MainRT.vue");
   const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
   const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
   const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
+  const MainParser = () => import("./components/MainParser.vue");
+  const MainCRCContest = () => import("./components/MainCRCContest.vue");
 
   routes.push(
     {
@@ -253,56 +229,22 @@ if (process.env.NODE_ENV !== 'production') {
       name: 'MainCarsEdit',
       component: MainCarsEdit,
     },
-  );
-}
-
-
-if (process.env.NODE_ENV !== 'production') {
-  const MainTestMatchMake = () => import("./components/MainTestMatchMake.vue");
-  const MainParser = () => import("./components/MainParser.vue");
-  const MainExtractTD = () => import("./components/MainExtractTD.vue");
-  const MainAmplitudeNewCars = () => import("./components/MainAmplitudeNewCars.vue");
-  const MainCRCContest = () => import("./components/MainCRCContest.vue");
-  const BaseMergeDatabase = () => import("./components/BaseMergeDatabase.vue");
-
-  routes.push(
     {
       path: '/MainCRCContest', // internal
       name: 'MainCRCContest',
       component: MainCRCContest,
     },
     {
-      path: '/BaseMergeDatabase', // internal
-      name: 'BaseMergeDatabase',
-      component: BaseMergeDatabase,
-    },
-    {
-      path: '/amp', // internal
-      name: 'Amp',
-      component: MainAmplitudeNewCars,
-    },
-    {
-      path: '/MainTestMatchMake', // internal
-      name: 'MainTestMatchMake',
-      component: MainTestMatchMake,
-    },
-    {
       path: '/MainParser', // internal
       name: 'MainParser',
       component: MainParser,
     },
-    {
-      path: '/extract', // internal
-      name: 'Extract',
-      component: MainExtractTD,
-    },
   );
-
 }
 
 
 
-window.envType = process.env.NODE_ENV;
+window.envType = import.meta.env.NODE_ENV;
 
 const router = new VueRouter({
     routes,

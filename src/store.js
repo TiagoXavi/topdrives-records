@@ -125,6 +125,7 @@ export default new Vuex.Store({
       "Ride of the Valkyries",
       "Riders on the Storm",
       "Roads Most Travelled",
+      "Sara's Collection",
       "Silver Screen",
       "Sub-Zero",
       "Summer Games",
@@ -145,7 +146,6 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [
-      "Harriet's Collection",
       "Legrand's Collection"
     ],
     showDataFromPast: false,

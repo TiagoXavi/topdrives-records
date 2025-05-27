@@ -13,10 +13,13 @@ import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 import tip from './filters/tip.js';
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-window._merge = require('lodash/merge');
-window.axios = require('axios');
+import _merge from 'lodash/merge';
+import axios from 'axios';
+
+window._merge = _merge;
+window.axios = axios;
 window.Vue = Vue;
 Vue.directive('tip', tip);
 Vue.use(filters);
@@ -32,12 +35,12 @@ Vue.use({i18n});
 Vue.use(VueVirtualScroller)
 
 
-if (process.env.NODE_ENV === 'production') {
+if (import.meta.env.NODE_ENV === 'production') {
   Vue.preUrl = "https://api.topdrivesrecords.com";
   Vue.preUrlCharlie = "https://charlie.topdrivesrecords.com";
 } else {
-  Vue.preUrl = "http:///192.168.3.120:3000";
-  Vue.preUrlCharlie = "http:///192.168.3.120:3001";
+  Vue.preUrl = "http:///localhost:3000";
+  Vue.preUrlCharlie = "http:///localhost:3001";
 }
 
 new Vue({

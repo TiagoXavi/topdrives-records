@@ -123,10 +123,7 @@ import Highcharts from './Highcharts.vue'
 import Row from './Row.vue'
 import BaseText from './BaseText.vue'
 import numeric from 'numeric';
-// import { PolynomialRegression } from 'ml-regression-polynomial';
-// import MLR from 'ml-regression';
-// import regression from 'regression';
-// import Alglib from '../utils/Alglib-v1.1.0.js';
+window.numeric = numeric;
 
 export default {
   name: 'MainAccelCurveMaker',
@@ -470,30 +467,6 @@ export default {
 
       }
 
-      if (false) { // ML but not sigmoidal
-        const _ML = require('ml-regression');
-        console.log(Object.keys(_ML));
-        const _Solver = require('ml-regression').KRR;
-        debugger;
-  
-        // Given x and y dataset
-        let x_values = data.map((elt) => elt[0]);
-        let y_values = data.map((elt) => elt[1]);
-        // console.log(_Solver);
-  
-        // Fitting the symmetrical sigmoidal 4PL model to the dataset
-        const regression = new _Solver(data2D);
-        // const regression = new _Solver(y_values, x_values);
-  
-        // Predicting a y value for a given x value
-        const xValueToPredict = 100;
-        const predictedYValue = regression.predict(xValueToPredict);
-  
-        console.log(predictedYValue, "Expected: ~4.87");
-        debugger;
-
-      }
-
 
       if (true) { // sigmoidal 4PL
 
@@ -522,6 +495,7 @@ export default {
           }
         }
   
+        
         var result = numeric.uncmin(function(params) {
           var residuals = [];
   

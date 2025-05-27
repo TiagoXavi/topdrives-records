@@ -455,7 +455,8 @@
       <!-- library -->
       <div v-else-if="galleryList.length > 0 && type === 'library'" class="Main_SearchMid Main_SearchMidT BaseFilterDialog_Mid">
         <BaseGalleryItem
-          v-for="item in galleryList"
+          v-for="(item, index) in galleryList"
+          :key="index"
           :config="item"
           :showDelete="user && (item.user === user.username || user.mod)"
           :showApprove="item.approve && user && user.mod"

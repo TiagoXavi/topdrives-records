@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 8081",
-    "serve_dist": "serve -s dist -l 8081",
-    "build": "vue-cli-service build",
-    "build_dev": "vue-cli-service build --mode development",
-    "lint": "vue-cli-service lint"
+    "dev": "vite --port 8081",
+    "preview": "vite preview --port 8081",
+    "build": "vite build",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "core-js": "^3.8.3",
     "focus-visible": "^5.2.0",
     "highcharts": "^10.3.2",
     "html2canvas": "^1.4.1",
@@ -21,35 +19,16 @@
     "portal-vue": "^2.1.7",
     "reimg": "^1.0.0",
     "uuid": "^11.0.4",
-    "vue": "^2.6.14",
+    "vue": "^2.7.16",
     "vue-i18n": "^8.14.1",
     "vue-router": "^3.5.4",
     "vue-virtual-scroller": "^1.1.2",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "ws": "^8.18.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
+    "@vitejs/plugin-vue2": "^2.3.3",
+    "vite": "^6.3.5"
   },
   "browserslist": [
     "> 1%",
