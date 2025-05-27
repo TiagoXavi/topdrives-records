@@ -35,7 +35,7 @@ Vue.use({i18n});
 Vue.use(VueVirtualScroller)
 
 
-if (import.meta.env.PROD === 'production') {
+if (import.meta.env.PROD) {
   Vue.preUrl = "https://api.topdrivesrecords.com";
   Vue.preUrlCharlie = "https://charlie.topdrivesrecords.com";
 } else {
