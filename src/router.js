@@ -199,7 +199,7 @@ const routes = [
 
 
 
-if (import.meta.env.NODE_ENV !== 'production') {
+if (import.meta.env.DEV) {
 
   const MainRT = () => import("./components/MainRT.vue");
   const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
@@ -243,8 +243,6 @@ if (import.meta.env.NODE_ENV !== 'production') {
 }
 
 
-
-window.envType = import.meta.env.NODE_ENV;
 
 const router = new VueRouter({
     routes,

@@ -697,7 +697,7 @@ export default {
   watch: {},
   beforeMount() {
 
-    if (window.envType === 'development') {
+    if (import.meta.env.DEV) {
       console.log("develop validation of pack odds");
       this.packTypes.map(x => {
         x.cards.map(y => {

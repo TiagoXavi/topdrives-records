@@ -886,7 +886,7 @@ export default {
 
       this.searchMax = 20;
 
-      if (this.searchFilters.onlyNewPerformanceModel.includes(true) && import.meta.env.NODE_ENV !== 'production') {
+      if (this.searchFilters.onlyNewPerformanceModel.includes(true) && import.meta.env.DEV) {
         console.log("%c clearChangesArray", "color: #bada55;", this.clearChangesArray )
       } else {
         console.log("list", result);
@@ -1158,7 +1158,7 @@ export default {
           ) {
           return false;
         }
-        if (import.meta.env.NODE_ENV !== 'production') {
+        if (import.meta.env.DEV) {
           this.checkPerformanceChangeClear(oldCar, car);
         }
       }
@@ -1233,7 +1233,7 @@ export default {
       });
     },
     applyFilter() {
-      if (import.meta.env.NODE_ENV !== 'production') {
+      if (import.meta.env.DEV) {
         this.resetChangesOnlyArrays();
       }
       this.changeFilter();

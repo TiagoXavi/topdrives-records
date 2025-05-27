@@ -6215,7 +6215,7 @@ export default {
       .then(res => {
         this.cgList = res.data.value;
 
-        if ((this.user && this.user.mod) || import.meta.env.NODE_ENV !== 'production') {
+        if ((this.user && this.user.mod) || import.meta.env.DEV) {
           this.cgList.push({
             "date": "proving_grounds_test",
             "name": "Proving Grounds: test"
