@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     hmr: false
   },
+  css: {
+    devSourcemap: true
+  },
   build: {
     rollupOptions: {
       output: {

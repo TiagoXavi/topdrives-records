@@ -470,6 +470,9 @@ body {
   color: var(--d-text);
   overflow-x: scroll;
   overflow-y: scroll;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjus: none;
+  text-size-adjust: none;
 }
 button {
   font-family: 'Roboto', sans-serif;

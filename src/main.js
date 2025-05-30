@@ -39,8 +39,8 @@ if (import.meta.env.PROD) {
   Vue.preUrl = "https://api.topdrivesrecords.com";
   Vue.preUrlCharlie = "https://charlie.topdrivesrecords.com";
 } else {
-  Vue.preUrl = "http:///localhost:3000";
-  Vue.preUrlCharlie = "http:///localhost:3001";
+  Vue.preUrl = window.location.origin.replace(window.location.port, "3000");
+  Vue.preUrlCharlie = window.location.origin.replace(window.location.port, "3001");
 }
 
 new Vue({
