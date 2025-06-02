@@ -142,8 +142,13 @@ const routes = [
     component: BaseMyGarage,
   },
   {
-    path: '/testPoints',
+    path: '/testPoints', // funciona
     name: 'MainTestPoints',
+    component: MainTestPoints,
+  },
+  {
+    path: '/testPoints/temp', // não funciona
+    name: 'MainTestPoints2',
     component: MainTestPoints,
   },
   {

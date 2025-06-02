@@ -6,6 +6,7 @@
     "dev": "vite --port 8081 --host",
     "preview": "vite preview --port 8081",
     "build": "vite build",
+    "bp": "vite build && vite preview --port 8081",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {

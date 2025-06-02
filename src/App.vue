@@ -92,16 +92,23 @@
             />
           </div>
         </template>
-        <button
-          :class="{
-            D_Button_Loading: $store.state.confirmDialog.loading,
-            Main_SaveAllButton: $store.state.confirmDialog.actionColor === 'green',
-            D_Button_Error: $store.state.confirmDialog.actionColor === 'red'
-          }"
-          :disabled="$store.state.confirmDialog.disabled"
-          style="margin-top: 20px;"
-          class="D_Button Main_SaveAllButton"
-          @click="$store.state.confirmDialog.action">{{ $store.state.confirmDialog.actionLabel }}</button>
+        <div class="App_DialogConfirmFooter">
+          <button
+            :class="{
+              D_Button_Loading: $store.state.confirmDialog.loading
+            }"
+            class="D_Button D_ButtonDark3"
+            @click="$store.state.confirmDialog.active = false;">{{ $store.state.confirmDialog.cancelLabel }}</button>
+          <button
+            :class="{
+              D_Button_Loading: $store.state.confirmDialog.loading,
+              Main_SaveAllButton: $store.state.confirmDialog.actionColor === 'green',
+              D_Button_Error: $store.state.confirmDialog.actionColor === 'red'
+            }"
+            :disabled="$store.state.confirmDialog.disabled"
+            class="D_Button"
+            @click="$store.state.confirmDialog.action">{{ $store.state.confirmDialog.actionLabel }}</button>
+        </div>
       </div>
     </BaseDialog>
     <BaseTooltip
@@ -696,6 +703,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .D_ButtonDark {
   background-color: rgba(0,0,0,0.2);
+  font-size: 1em;
+  border-radius: 6px;
+  padding: 0 7px;
+  color: var(--d-text-b);
+}
+.D_ButtonDark3 {
+  background-color: rgba(255,255,255,0.1);
   font-size: 1em;
   border-radius: 6px;
   padding: 0 7px;
@@ -4480,6 +4494,12 @@ a:visited:not(.D_Button) {
 }
 .Row_DialogCardLeft {
   position: relative;
+}
+.App_DialogConfirmFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 20px;
 }
 
 

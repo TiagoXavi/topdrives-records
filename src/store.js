@@ -66,8 +66,9 @@ export default new Vuex.Store({
     },
     confirmDialog: {
       active: false,
-      title: "Deseja realmente?",
-      actionLabel: "Confirmar",
+      title: "Are you sure?",
+      actionLabel: "Confirm",
+      cancelLabel: "Cancel",
       actionColor: "danger",
       maxWidth: "250px",
       minWidth: "240px",
@@ -75,8 +76,7 @@ export default new Vuex.Store({
       disabled: false,
       action: null,
       advanced: null,
-      loading: false,
-      maxWidth: "420px"
+      loading: false
     },
     snack: {
       text: "",
