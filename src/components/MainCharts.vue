@@ -257,17 +257,12 @@ export default {
       let vm = this;
       let arrDados = this.chartResult;
       let series = [];
-      let xAxisArray = [];
       let objListRid = {}
       listOfRids.map(x => {
         objListRid[x.rid] = true;
       });
 
-      let allTimes = [];
-      let diffColection = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
       let byProximity = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
-      let diffColectionAvg = { S:0, A:0, B:0, C:0, D:0, E:0, F:0 };
-      let acceplateDiff = { S:0, A:0, B:0, C:0, D:0, E:0, F:0 };
       let bannedTimes = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
       let timesPerClass = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
 
@@ -294,50 +289,6 @@ export default {
         }
       })
 
-
-      // Object.keys(timesPerClass).map(key => {
-      //   let diffs = [];
-      //   let index = 0;
-      //   timesPerClass[key].sort((a, b) => {
-      //     if (index < 9) diffColection[key].push(Math.abs(a - b));
-      //     index++;
-      //     return 0;
-      //   });
-
-      // })
-      
-      // Object.keys(timesPerClass).map(key => {
-      //   timesPerClass[key].sort((a, b) => {
-      //     diffColection[key].push(Math.abs(a - b));
-      //     return 0;
-      //   });
-      // })
-      // diffColection[key].sort((b, a) => {
-      //   if (b < a * 5) {
-      //     acceplateDiff = b*5;
-      //   }
-      //   return 0;
-      // })
-      // Object.keys(timesPerClass).map(key => {
-      //   if (diffColection[key].length > 0) {
-      //     let length = diffColection[key].length/2;
-      //     diffColection[key] = diffColection[key].filter((x,ix) => ix < length);
-      //     diffColectionAvg[key] = diffColection[key].reduce((prev, curr) => prev + curr) / diffColection[key].length;
-      //   }
-      //   acceplateDiff[key] = diffColectionAvg[key]*200;
-      //   timesPerClass[key].sort((b, a) => {
-      //     if (a === timesPerClass[key][0]) {
-      //       // first
-      //       if (b - a > acceplateDiff[key]) {
-      //         bannedTimes[key].push(a);
-      //       }
-      //     } else if (b - a > acceplateDiff[key]) {
-      //       bannedTimes[key].push(b);
-      //     }
-      //     return 0;
-      //   })
-      // })
-
       arrDados = arrDados.filter(x => {
         x.car = vm.all_cars_obj[x.rid];
         if (
@@ -357,40 +308,7 @@ export default {
         return true;
       });
 
-
-      // console.log(this.filterOutliers(media));
-      // let mediaSorted = media.slice().sort((a, b) => a - b);
-
-
-
-
-
-      // arrDados.map(x => {
-      //   let alreadyItem = xAxisArray.find(y => y === Date.parse(x.date+"T00:00"));
-      //   if (!alreadyItem) {
-      //     xAxisArray.push(Date.parse(x.date+"T00:00"));
-      //   }
-      // })
-      // xAxisArray.sort();
-      // xAxisArray = xAxisArray.map(x => (new Date(x)).toLocaleDateString("pt-br").substr(0,5));
-
       arrDados.map((x, ix) => {
-        // series: [
-        //   {
-        //     name: "A",
-        //     data: [{
-        //         x: 1,
-        //         y: 1,
-        //         name: "Point2",
-        //         color: "#00FF00"
-        //     }, {
-        //         x: 1,
-        //         y: 10,
-        //         name: "Point1",
-        //         color: "#FF00FF"
-        //     }]
-        //   }
-        // ]
         if (this.chartHideOutOfFilter && !objListRid[x.rid]) {
           return;
         }

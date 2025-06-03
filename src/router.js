@@ -20,6 +20,7 @@ const MainStuff = () => import("./components/MainStuff.vue");
 const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue");
 const MainShowcase = () => import("./components/MainShowcase.vue");
 const BaseMyGarage = () => import("./components/BaseMyGarage.vue");
+const MainCsvChart = () => import("./components/MainCsvChart.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -100,6 +101,11 @@ const routes = [
     path: '/charts',
     name: 'MainCharts',
     component: MainCharts,
+  },
+  {
+    path: '/MainCsvChart',
+    name: 'MainCsvChart',
+    component: MainCsvChart,
   },
   {
     path: '/findCar',

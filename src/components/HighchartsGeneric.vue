@@ -1,10 +1,10 @@
 <template>
-  <div class="Highcharts_Layout">
-    <div v-if="noData" class="Highcharts_Empty">
-      <div v-if="config.title" class="Highcharts_TitleEmpty">{{ config.title.text }}</div>
+  <div class="HighchartsGeneric_Layout">
+    <div v-if="noData" class="HighchartsGeneric_Empty">
+      <div v-if="config.title" class="HighchartsGeneric_TitleEmpty">{{ config.title.text }}</div>
       {{ $t("m_noData") }}
     </div>
-    <div :id="id" class="Highcharts_Div" />
+    <div :id="id" class="HighchartsGeneric_Div" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import Stock from "highcharts/modules/stock";
 let uid = 0;
 
 export default {
-  name: 'Highcharts',
+  name: 'HighchartsGeneric',
   components: {
     // BaseDetalheHeader
   },
@@ -39,7 +39,7 @@ export default {
   data() {
     uid += 1;
     return {
-      id: `hcid-${uid}`,
+      id: `hcgid-${uid}`,
       chart: null,
       returnedFunction: null,
       noData: false
@@ -110,11 +110,11 @@ export default {
             fontSize: "14px"
           },
           useHTML: true,
-          formatter: function () {
-            if (this.point.className === 'Highcharts_HidePoint') return false;
+          formatter: _this.config.disableTooltipFormater ? undefined : function () {
+            if (this.point.className === 'HighchartsGeneric_HidePoint') return false;
             if (!this.point.custom || !this.point.custom.photo) return false;
 
-            var body = `<img src="${this.point.custom.photo}" class="Highcharts_CarPhoto">`+
+            var body = `<img src="${this.point.custom.photo}" class="HighchartsGeneric_CarPhoto">`+
             `<div><span style="color: ${this.point.custom.color}">RQ${this.point.y}</span>&nbsp;<span>${this.point.name}</span></div>`+
             `<span><b>${ _this.$t('m_time') }: </b>${Vue.options.filters.toTimeString(this.point.x, _this.trackCode)}</span><br/>`+
             `<span><b>${ _this.$tc('c_tyre', 2) }: </b>${this.point.custom.car.tyres}</span><br/>`+
@@ -238,14 +238,14 @@ export default {
 </script>
 
 <style>
-.Highcharts_Layout {
+.HighchartsGeneric_Layout {
   display: contents;
 }
-.Highcharts_Div {
+.HighchartsGeneric_Div {
   height: 100%;
   width: 100%;
 }
-.Highcharts_Empty {
+.HighchartsGeneric_Empty {
   height: 400px;
   display: flex;
   align-items: center;
@@ -254,22 +254,22 @@ export default {
   font-size: 30px;
   flex-grow: 1;
 }
-.Highcharts_TitleEmpty {
+.HighchartsGeneric_TitleEmpty {
   font-size: 20px;
   margin-bottom: 50px;
 }
-.Highcharts_Empty ~ .Highcharts_Div {
+.HighchartsGeneric_Empty ~ .HighchartsGeneric_Div {
   display: none;
 }
-.Highcharts_CarPhoto {
+.HighchartsGeneric_CarPhoto {
   height: 60px;
   border-radius: 6px;
 }
-.Highcharts_HidePoint {
+.HighchartsGeneric_HidePoint {
   opacity: 0.06;
   pointer-events: none;
 }
-.Highcharts_Suspect {
+.HighchartsGeneric_Suspect {
   stroke-width: 4px !important;
   stroke: fuchsia;
 }
