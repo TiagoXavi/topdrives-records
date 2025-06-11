@@ -8611,7 +8611,7 @@ export default {
         }
         return a.index - b.index;
       })
-      console.log(this.eventList);
+      // console.log(this.eventList);
     },
     eventResolveCompilation(tracksetUsed) {
       if (!this.trackTimes) return;

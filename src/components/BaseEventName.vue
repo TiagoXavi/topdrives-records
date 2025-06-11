@@ -67,11 +67,11 @@ export default {
       let result = "";
       result += "BaseEventTag_" + this.item.tag.trim().toLowerCase().replace(/  +/g, ' ').replace(/ +/g, '_').replace(/-+/g, '_').normalize('NFD').replace(/\p{Diacritic}/gu, "")
 
-      // if (this.item.startDateTime) {
-      //   if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0) {
-      //     result += " BaseEventTag_Preview"
-      //   }
-      // }
+      if (this.item.startDateTime) {
+        if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0) {
+          result += " BaseEventTag_Preview"
+        }
+      }
 
       if (this.item.endDateTime) {
         let diff = new Date() - new Date(this.item.endDateTime);
@@ -149,7 +149,7 @@ export default {
   color: #9ac712;
 }
 .BaseEventTag_EndedEu {
-  color: #dba4a4;
+  color: #66c9c1;
 }
 .BaseEventTag_Ended {
   color: #e54444;
