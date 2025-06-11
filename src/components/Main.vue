@@ -860,7 +860,7 @@
                 @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })" />
             </template>
             <div class="Main_CgListDividerLayout">
-              <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" />
+              <!-- <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" /> -->
               <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" />
             </div>
           </div>
@@ -8584,23 +8584,34 @@ export default {
         Vue.set(x, "nameStyled", styl);
       })
       this.eventList.sort((a,b) => {
-        // if (a.index === b.index && a.endDateTime && b.endDateTime) {
-        //   let aEnded = a.endDateTime.localeCompare(now) < 0;
-        //   let bEnded = b.endDateTime.localeCompare(now) < 0;
-        //   if (aEnded && !bEnded) return -1;
-        //   if (bEnded && !aEnded) return 1;
+        if (a.index === b.index && a.endDateTime && b.endDateTime) {
 
-        //   let aNotStarted = a.startDateTime.localeCompare(now) > 0;
-        //   let bNotStarted = b.startDateTime.localeCompare(now) > 0;
-        //   if (aNotStarted && !bNotStarted) return 1;
-        //   if (bNotStarted && !aNotStarted) return -1;
-        //   if (b.endDateTime !== a.endDateTime) {
-        //     return a.endDateTime.localeCompare(b.endDateTime);
-        //   }
-        //   return a.name.localeCompare(b.name, "en", {numeric: true});
-        // }
+          // 1-Finished (red)
+          // 2-Normal events
+          // 3-Preview events
+          // 4-Current Daily 
+          // 5-Other Dailys
+
+          if (!a.endDateTime) return -1;
+          if (!b.endDateTime) return 1;
+
+          let aEnded = a.endDateTime.localeCompare(now) < 0;
+          let bEnded = b.endDateTime.localeCompare(now) < 0;
+          if (aEnded && !bEnded) return -1;
+          if (bEnded && !aEnded) return 1;
+
+          // let aNotStarted = a.startDateTime.localeCompare(now) > 0;
+          // let bNotStarted = b.startDateTime.localeCompare(now) > 0;
+          // if (aNotStarted && !bNotStarted) return 1;
+          // if (bNotStarted && !aNotStarted) return -1;
+          if (b.endDateTime !== a.endDateTime) {
+            return a.endDateTime.localeCompare(b.endDateTime);
+          }
+          return a.name.localeCompare(b.name, "en", {numeric: true});
+        }
         return a.index - b.index;
       })
+      console.log(this.eventList);
     },
     eventResolveCompilation(tracksetUsed) {
       if (!this.trackTimes) return;

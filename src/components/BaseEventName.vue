@@ -62,17 +62,24 @@ export default {
     },
     tag() {
       if (!this.item.tag) return "";
-      if (this.item.date && this.item.date !== "__preview__") return "";
+      // if (this.item.date && this.item.date !== "__preview__") return "";
+      
       let result = "";
       result += "BaseEventTag_" + this.item.tag.trim().toLowerCase().replace(/  +/g, ' ').replace(/ +/g, '_').replace(/-+/g, '_').normalize('NFD').replace(/\p{Diacritic}/gu, "")
-      if (this.item.startDateTime) {
-        if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0) {
-          result += " BaseEventTag_Preview"
-        }
-      }
+
+      // if (this.item.startDateTime) {
+      //   if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0) {
+      //     result += " BaseEventTag_Preview"
+      //   }
+      // }
+
       if (this.item.endDateTime) {
-        if (this.item.endDateTime.localeCompare(new Date().toISOString()) < 0) {
+        let diff = new Date() - new Date(this.item.endDateTime);
+        
+        if (diff > 14 * 60 * 60 * 1000) { // 14 hours
           result += " BaseEventTag_Ended"
+        } else if (diff > 0) {
+          result += " BaseEventTag_EndedEu"
         }
       }
       return result;
@@ -141,7 +148,10 @@ export default {
 .BaseEventTag_Preview {
   color: #9ac712;
 }
+.BaseEventTag_EndedEu {
+  color: #dba4a4;
+}
 .BaseEventTag_Ended {
-  color: #dd3636;
+  color: #e54444;
 }
 </style>

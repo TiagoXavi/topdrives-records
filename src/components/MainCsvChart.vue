@@ -267,6 +267,7 @@ export default {
         "d91a3551-0098-4b63-805a-35ede20ade3c",
         "25db2bc3-dcbe-41a6-8466-38a52d1485d6",
         "00c58c19-0efa-4158-b45b-77a16ca9647f",
+        "238d59c6-71fc-469a-8add-487754de7e74"
       ]
 
       for (var i=1;i<lines.length;i++) {
@@ -484,6 +485,7 @@ export default {
           type: "spline",
           height: 600
         },
+        colors: [ "#2caffe", "#544fc5", "#00e272", "#fe6a35", "#6b8abc", "#d568fb", "#2ee0ca", "#fa4b42", "#feb56a", "#91e8e1" ],
         legend: {
           enabled: true,
         },

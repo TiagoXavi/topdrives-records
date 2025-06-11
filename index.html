@@ -29,11 +29,13 @@
       }
     </script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-1Z7V8EJGHF');
+      if (!window.location.host.includes("localhost")) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'G-1Z7V8EJGHF');
+      };
     </script>
   </head>
   <body>
