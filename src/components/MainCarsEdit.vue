@@ -376,6 +376,7 @@ export default {
           "Gunter's Collection",
           "Heavy Metal",
           "French Renaissance",
+          "French Riviera",
           "German Renaissance",
           "Great Exhibition",
           "Hot Hatch",
@@ -452,6 +453,7 @@ export default {
           "AC",
           "Acura",
           "Alfa Romeo",
+          "Alpine",
           "AMC",
           "Apollo", // logic "Gumpert"
           "Arash",
@@ -502,6 +504,7 @@ export default {
           "Lincoln",
           "Lotus",
           "Maserati",
+          "Matra",
           "Mazda",
           "McLaren",
           "McMurtry",

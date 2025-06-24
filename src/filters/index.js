@@ -183,6 +183,7 @@ export default {
             if (version === "24") arr = await import('../database/cars_final_PL24.json');
             if (version === "2b") arr = await import('../database/cars_final_PL24_1.json');
             if (version === "2c") arr = await import('../database/cars_final_PL24_2.json');
+            if (version === "26") arr = await import('../database/cars_final_PL26.json');
 
             arr = arr.default;
             
@@ -251,6 +252,7 @@ export default {
             // especials
             if (trackCode === "testBowl_a01") factor = 400;
             if (trackCode === "dealsGap_a01") factor = 1100;
+            if (trackCode === "miBeachDrag_a51") factor = 1000;
             if (trackCode.startsWith("hClimb_a0")) factor = 600;
             if (trackCode.startsWith("mnHairpin_a4")) factor = 1200;
             if (trackCode.startsWith("mile1_a") && !trackCode.startsWith("mile1_a0")) factor = 640;

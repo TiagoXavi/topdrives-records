@@ -3240,7 +3240,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v26.0",
+      gameVersion: "Game v27.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -9881,7 +9881,7 @@ export default {
       if (!this.user || !this.user.mod) return;
 
       import('@/database/custom_tags.json').then(custom_tags => {
-        let changedRids = custom_tags.default["24.3 changed cars"];
+        let changedRids = custom_tags.default["27.0 changed cars"];
         data.rounds.map((round, iround) => {
           round.races.map((race, irace) => {
             if (changedRids.includes(race.rid)) {

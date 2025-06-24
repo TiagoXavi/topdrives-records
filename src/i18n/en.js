@@ -552,5 +552,14 @@ export default {
   t_miFigure: "Miami Figure Of Eight",
   t_miSlalom: "Miami Slalom",
   t_miGforce: "Miami G-Force",
-  t_miBeachDrag: "Miami Beach Drag"
+  t_miBeachDrag: "Miami Beach Drag",
+  t_itArch: "Italy Arch Alley",
+  t_itFall: "Italy Fall Down",
+  t_itFoun: "Italy Fountain Chicane",
+  t_itDrive: "Italy Long Drive Home",
+  t_itBack: "Italy Straight Back",
+  t_itBump: "Italy Speed Bump",
+  t_itCircuit: "Italy Circuit",
+  t_itSlalom: "Italy Slalom",
+  t_itGforce: "Italy G Force",
 }

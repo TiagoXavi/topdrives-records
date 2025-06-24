@@ -594,4 +594,9 @@ export default {
   --tag-s: 70%;
   --tag-l: 59%;
 }
+.BaseGameTag_French_Riviera {
+  --tag-h: 312;
+  --tag-s: 70%;
+  --tag-l: 26%;
+}
 </style>

@@ -943,6 +943,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "French Riviera",
           "Asia-Pacific Revival",
           "European Grand Tour",
           "American Overdrive",
@@ -1014,6 +1015,7 @@ export default {
           "AC",
           "Acura",
           "Alfa Romeo",
+          "Alpine",
           "AMC",
           "Apollo",
           "Arash",
@@ -1064,6 +1066,7 @@ export default {
           "Lincoln",
           "Lotus",
           "Maserati",
+          "Matra",
           "Mazda",
           "McLaren",
           "McMurtry",

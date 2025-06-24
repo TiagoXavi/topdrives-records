@@ -406,14 +406,14 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL25-fixed.json'
-import plOld from '../database/cars_final_PL24_3.json'
+import data_cars from '../database/cars_final_PL27-fixed.json'
+import plOld from '../database/cars_final_PL26.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
 
 export default {
-  name: 'MainGallery',
+  name: 'MainGallery', // /gallery
   components: {
     BaseCardGallery,
     BaseDualSlider,
@@ -535,6 +535,7 @@ export default {
           "Gunter's Collection",
           "Heavy Metal",
           "French Renaissance",
+          "French Riviera",
           "German Renaissance",
           "Great Exhibition",
           "Hot Hatch",
@@ -612,6 +613,7 @@ export default {
           "AC",
           "Acura",
           "Alfa Romeo",
+          "Alpine",
           "AMC",
           "Apollo", // logic "Gumpert"
           "Arash",
@@ -662,6 +664,7 @@ export default {
           "Lincoln",
           "Lotus",
           "Maserati",
+          "Matra",
           "Mazda",
           "McLaren",
           "McMurtry",
@@ -711,7 +714,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v25", "t");
+    window.localStorage.setItem("changes_v27", "t");
   },
   beforeMount() {
     // // check new cars
@@ -1189,7 +1192,7 @@ export default {
 
       if ( this.searchFilters.onlyRelevantChangesModel.includes(true) ) {
         if ( !oldCar ) {
-          return true;
+          return false; // show new cars too?
         }
         if (
             oldCar.class === car.class &&

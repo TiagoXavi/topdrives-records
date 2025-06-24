@@ -287,6 +287,46 @@
     "types": ["00"]
   },
   {
+    "id": "indoorKart",
+    "types": ["00"]
+  },
+  {
+    "id": "itArch",
+    "types": ["00"]
+  },
+  {
+    "id": "itFall",
+    "types": ["00"]
+  },
+  {
+    "id": "itFoun",
+    "types": ["00"]
+  },
+  {
+    "id": "itDrive",
+    "types": ["00"]
+  },
+  {
+    "id": "itBack",
+    "types": ["00"]
+  },
+  {
+    "id": "itBump",
+    "types": ["00"]
+  },
+  {
+    "id": "itCircuit",
+    "types": ["00"]
+  },
+  {
+    "id": "itSlalom",
+    "types": ["00"]
+  },
+  {
+    "id": "itGforce",
+    "types": ["00"]
+  },
+  {
     "id": "kart",
     "types": ["00","01"]
   },
@@ -352,7 +392,7 @@
   },
   {
     "id": "miBeachDrag",
-    "types": ["50"]
+    "types": ["50", "51"]
   },
   {
     "id": "mnGforce",

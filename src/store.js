@@ -103,6 +103,7 @@ export default new Vuex.Store({
       "Cutting Edge",
       "Desperados",
       "Famous Tracks",
+      "Filberto's Collection",
       "Gaz's Collection",
       "Gunter's Collection",
       "Heavy Metal",
@@ -145,9 +146,7 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [
-      "Legrand's Collection"
-    ],
+    upcomingTags: [],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,
