@@ -280,6 +280,7 @@ export default {
   m_solutionsInPacks: "Solutions in Packs",
   m_resetTrackset: "Reset tracks order",
   m_previewSolutions: "Preview solutions",
+  m_handRanking: "Hand ranking",
 
 
   
@@ -293,6 +294,7 @@ export default {
   p_modDoingRound: "{mod} is doing this round",
   p_patronsOnly: "This feature is available for patrons only (Tier {tier}).",
   p_patronsPreviewCg: "Patrons at least tier 3 can preview solutions",
+  p_patronsHandRanking: "Patrons at least tier 2 can view hand ranking",
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",
   p_chartsDescription: "It puts all database of a track into a chart. For a demonstration:",
   p_templateWarning: "Make sure that your template is useful to the community or it will not be approved.",

@@ -1147,6 +1147,15 @@
             </template>
           </div> -->
 
+          <div v-if="false && !eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <button
+              v-if="whatTier && whatTier <= 2"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+              @click="eventGetHandRanking()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
+            <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsHandRanking") }}</div>
+          </div>
+
           <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
 
           <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
@@ -2589,7 +2598,7 @@
               @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })" />
           </template>
           <div class="Main_CgListDividerLayout">
-            <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
+            <!-- <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" /> -->
             <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
           </div>
         </div>
@@ -9622,6 +9631,42 @@ export default {
     eventPreviewParsed(event) {
       console.log(event, event.filteringQueryStrings);
       this.loadEventScreen("", event);
+    },
+    eventGetHandRanking() {
+      let filter;
+      let filterAtr = 'filter';
+      if (this.isEvents) {
+        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+        filter = this.event[filterAtr];
+      } else {
+        if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
+        filter = this.clubReqsGroupModel[filterAtr];
+      }
+
+      this.eventAnalyseLoading = true;
+
+      axios.post(Vue.preUrl + "/handRaking", {
+        trackset: this.event.trackset,
+        filterCollection: [filter],
+        rqLimit: this.event.rqLimit,
+        isTdr: true
+      })
+      .then(res => {
+        console.log("eventGetHandRanking", res.data)
+      })
+      .catch(error => {
+        this.eventAnalyseLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.eventAnalyseLoading = false;
+      });
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
