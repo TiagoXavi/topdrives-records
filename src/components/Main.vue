@@ -1147,7 +1147,7 @@
             </template>
           </div> -->
 
-          <div v-if="false && !eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
+          <div v-if="user && user.username === 'TiagoXavi' && !eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
               v-if="whatTier && whatTier <= 2"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -2845,17 +2845,17 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #7</div>
-          <div class="Main_AnnouncementSubTitle">Asia-Pacific Revival Part 2</div>
+          <div class="Main_AnnouncementTitle">Contest #8</div>
+          <div class="Main_AnnouncementSubTitle">French Riviera</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
-              <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div>
+              <!-- <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div> -->
               <div class="Main_AnnouncementItem">• 1 month of TDR premium</div>
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
           </div>
-          <div class="Main_AnnouncementMaybe">22th April - 11th May</div>
+          <div class="Main_AnnouncementMaybe">24th June ~ 13th July</div>
 
           <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1104184336158302259" style="margin-top: 20px;" />
         </div>
@@ -9863,15 +9863,15 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      if (window.localStorage.getItem("contest7")) return;
+      // return;
+      if (window.localStorage.getItem("contest8")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('contest7', "t");
+      window.localStorage.setItem('contest8', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);
