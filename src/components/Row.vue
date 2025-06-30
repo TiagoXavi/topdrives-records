@@ -142,7 +142,7 @@
         item.id === 'desertRallyDirt'
         )"
         class="Row_xRA">{{ car.clearance.toLowerCase() }}</div>
-      <div v-if="type === 'tracks' && (item.trackType !== '00' || item.id === 'forest')" class="Row_Conditions" :class="{ Row_Conditions_Forest: item.id.includes('forestRiver') }">
+      <div v-if="type === 'tracks' && (item.trackType !== '00')" class="Row_Conditions" :class="{ Row_Conditions_Forest: item.id.includes('forestRiver') }">
         <BaseTypeName :type="item.trackType" :trackId="item.id" />
       </div>
       <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">

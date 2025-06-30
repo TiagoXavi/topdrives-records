@@ -7,7 +7,7 @@
               `${isTrackSet && circuit[itype].active ? 'BaseTrackType_Active ' : '' }`"
       class="D_Button D_ButtonDark D_ButtonDark2 BaseTrackType_Button"
       @click="resolveToTrackObj(type, itype, $event)">
-      <span class="TypeText_Dry" v-if="type == '00' && (isTrackSet || circuit.id !== 'forest')">{{ $t('s_dry') }}{{ isTrackSet && circuit[itype].customSufix ? ` ${circuit[itype].customSufix}` : '' }}</span>
+      <span class="TypeText_Dry" v-if="type == '00'">{{ $t('s_dry') }}{{ isTrackSet && circuit[itype].customSufix ? ` ${circuit[itype].customSufix}` : '' }}</span>
       <span class="TypeText_Dirt" v-else-if="type[0] == '1'">{{ $t('s_dirt') }}</span>
       <span class="TypeText_Gravel" v-else-if="type[0] == '2'">{{ $t('s_gravel') }}</span>
       <span class="TypeText_Ice" v-else-if="type[0] == '3'">{{ $t('s_ice') }}</span>
@@ -36,10 +36,6 @@
           <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
           <span class="TypeText_Dirt">{{ ` ${$t('s_dirt')}` }}</span>
         </template>
-        <template v-else-if="!isTrackSet && circuit.id === 'forest'">
-          <span class="TypeText_Dry">{{ $t('s_aspht') }}</span>
-          <span class="TypeText_Gravel">{{ `${type[1] == '1' ? ' ' : '\n'}${$t('s_gravel')}` }}</span>
-        </template>
         <template v-else>
           <span v-if="type !== '01'" class="TypeText_Dry">{{ $t('s_aspht') }}</span>
           <span class="TypeText_Dirt" v-if="type == '40'">{{ `\n${$t('s_dirt')}` }}</span>
@@ -50,7 +46,7 @@
           <span class="TypeText_Sand" v-else-if="type == 'c1'">{{ ` ${$t('s_sand')}` }}</span>
         </template>
       </template>
-      <span class="TypeText_Wet" v-if="type[1] == '1'"><br v-if="type !== '01' || (!isTrackSet && circuit.id === 'forest')">{{ $t('s_wet') }}</span>
+      <span class="TypeText_Wet" v-if="type[1] == '1'"><br v-if="type !== '01'">{{ $t('s_wet') }}</span>
       </button>
   </div>
 </template>

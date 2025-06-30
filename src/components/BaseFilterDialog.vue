@@ -659,12 +659,12 @@ export default {
         return {}
       }
     },
-    all_cars: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
+    // all_cars: {
+    //   type: Array,
+    //   default() {
+    //     return []
+    //   }
+    // },
     raceFilter: {
       type: Object,
       default() {
@@ -1219,7 +1219,7 @@ export default {
         let total = mutation.payload.total || 15000;
         let listOfRids = [];
 
-        vm.all_cars.map((x, ix) => {
+        Vue.all_carsArr.map((x, ix) => {
           if (x.rq > rqMax || x.rq < rqMin) return;
           if (vm.checkMatchFilter(x) && listOfRids.length < total) {
             listOfRids.push({ rid: x.rid, rq: x.rq });
@@ -1433,7 +1433,7 @@ export default {
       }
 
       // search and/or filter
-      this.all_cars.map((x, ix) => {
+      Vue.all_carsArr.map((x, ix) => {
 
         if (foundExact) return;
         // if (sortString.includes("mra") && !x.mra) return;
@@ -1760,7 +1760,7 @@ export default {
       let prePush;
 
       this.lastestList.map(y => {
-        this.all_cars.map(x => {
+        Vue.all_carsArr.map(x => {
           if (x.rid === y.rid) {
             prePush = JSON.parse(JSON.stringify(x));
             prePush.locatedName = x.name;

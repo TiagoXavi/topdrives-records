@@ -4586,4 +4586,31 @@ a:visited:not(.D_Button) {
   }
 }
 
+.Main_Teams_ScrollerItem {
+  display: flex;
+}
+.Main_Teams_Index {
+  /* color: rgb(var(--d-text-yellow)); */
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  word-break: break-word;
+}
+.Main_Teams_ListLayout {
+  display: flex;
+}
+.Main_Teams_VerticalCardBox {
+
+}
+.Main_Teams_GalleryCard {
+
+}
+.Main_Teams_IndexRQ,
+.Main_Teams_IndexPts {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
 </style>

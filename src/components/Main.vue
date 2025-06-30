@@ -587,7 +587,7 @@
                 <BaseCard
                   v-if="race.car"
                   :car="race.car"
-                  :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
+                  :customData="Vue.all_cacheObj[race.car.rid]"
                   :fix-back="true"
                   :downloadLoading="cgLoadingAny"
                   :needSave="needSave"
@@ -661,7 +661,7 @@
                   :cg="true"
                   :cgOppo="true"
                   :cgTime="race.time"
-                  :customData="cgCacheCars.find(x => x.rid === race.car.rid)"
+                  :customData="Vue.all_cacheObj[race.car.rid]"
                   :forceDisabled="!user || (!user.mod && !isRoundEmptyForUser) || cgIsApproving || (user.mod && !isRoundModAllowedEdit)"
                   :placeholder="$t('m_timeToBeat')"
                   :forceCustomAuthor="isRoundEmptyForUser"
@@ -701,7 +701,7 @@
                     <BaseCard
                       v-if="(race.cars[race.carIndex] || {}).car"
                       :car="(race.cars[race.carIndex] || {}).car"
-                      :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                      :customData="Vue.all_cacheObj[(race.cars[race.carIndex] || {}).rid]"
                       :fix-back="true"
                       :downloadLoading="cgLoadingAny"
                       :cg="true"
@@ -728,7 +728,7 @@
                       :cgYou="true"
                       :oppoTime="race.time"
                       :forceHideCompactSelect="windowWidth < 1200"
-                      :customData="cgCacheCars.find(x => x.rid === (race.cars[race.carIndex] || {}).rid)"
+                      :customData="Vue.all_cacheObj[(race.cars[race.carIndex] || {}).rid]"
                       type="times"
                       @changeTime="cgChangeTimeYou(race, $event)"
                       @changeTune="cgChangeTuneYou(race, $event)"
@@ -1148,17 +1148,18 @@
           </div> -->
 
           <div v-if="user && user.username === 'TiagoXavi' && !eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <button
-              v-if="whatTier && whatTier <= 2"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-              @click="eventGetHandRanking()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
+            <template v-if="whatTier && whatTier <= 2"></template>
             <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsHandRanking") }}</div>
           </div>
 
           <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
 
           <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <button
+              v-if="user && user.username === 'TiagoXavi' && whatTier && whatTier <= 2"
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+              @click="eventGetHandRanking()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1705,7 +1706,6 @@
       v-model="searchFilterDialog"
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
-      :all_cars="all_cars"
       :sortEnabled="true"
       :enableCounters="true"
       ref="mainFilterDialog"
@@ -1746,7 +1746,6 @@
       v-if="kingFilterDialogLoad"
       v-model="kingFilterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       :config="{
         tunes: true
       }"
@@ -1759,7 +1758,6 @@
       v-model="cgRequirementsDialog"
       :filterOnly="true"
       :raceFilter="cgRound.filter"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1781,7 +1779,6 @@
       :cgAddingOppoCar="cgAddingOppoCar"
       :cgAddingYouCar="cgAddingYouCar"
       :raceFilter="cgRound.filter"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1805,7 +1802,6 @@
       :raceFilter="event.filter"
       :raceFilter2="event.filter2"
       :raceFilter3="event.filter3"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1835,7 +1831,6 @@
       :raceFilter="clubReqsGroupModel.filter"
       :raceFilter2="clubReqsGroupModel.filter2"
       :raceFilter3="clubReqsGroupModel.filter3"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1862,7 +1857,6 @@
       v-model="eventKingDialog"
       :filterOnly="true"
       :raceFilter="eventFilterForKing"
-      :all_cars="all_cars"
       :config="eventFilterConfig"
       :cgAddingYouCar="false"
       type="event"
@@ -1886,11 +1880,10 @@
       </template>
     </BaseFilterDialog>
 
-    <BaseFilterDialog
+    <!-- <BaseFilterDialog
       v-if="eventAddCarDialogLoad"
       v-model="eventAddCarDialog"
       :raceFilter="event.filter"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1903,7 +1896,7 @@
       type="event"
       @addCar="addCarEvent($event)"
       @listRids="cgAnalyseRoundFinish($event);"
-    />
+    /> -->
 
     <BaseSearchTrackDialog
       :active="customTrackDialog"
@@ -3079,6 +3072,48 @@
         </div>
       </div>
     </BaseDialog>
+
+    <BaseDialog
+      :active="eventBestTeamsDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="820px"
+      min-width="240px"
+      @close="eventBestTeamsDialog = false;">
+      <div v-if="eventBestTeamsDialog && eventBestTeamsBigArray.length" class="Main_TeamsLayout">
+        <div class="Main_TeamsHeader">
+          <div class="Main_DialogTitle">{{ event.name }} - {{ $t("m_handRanking") }}</div>
+        </div>
+        <RecycleScroller
+          :items="eventBestTeamsBigArray"
+          :item-size="111"
+          :buffer="800"
+          key-field="3"
+          listClass="Main_Teams_CardsWrapper"
+          itemClass="Main_Teams_ScrollerItem"
+          class="Main_DarkScroll"
+          page-mode>
+          <template v-slot="{ item, index, active }">
+            <div class="Main_Teams_Index">
+              <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
+              <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
+              <div class="Main_Teams_IndexPts">{{ item[2] }}</div>
+            </div>
+            <div class="Main_Teams_ListLayout">
+              <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox">
+                <BaseCardGallery
+                  :car="Vue.all_carsObj[rid]"
+                  :options="false"
+                  :showPrize="true"
+                  :tuneText="item[5][index]"
+                  class="Main_Teams_GalleryCard BaseCardGallery150"
+                />
+              </div>
+            </div>
+          </template>
+        </RecycleScroller>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -3115,7 +3150,8 @@ import BaseReviewList from './BaseReviewList.vue'
 import BasePrizeBoard from './BasePrizeBoard.vue'
 import BaseEventName from './BaseEventName.vue'
 import BaseBrakeDialog from './BaseBrakeDialog.vue'
-import data_cars from '../database/cars_final.json'
+import BaseCardGallery from './BaseCardGallery.vue'
+// import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
 
@@ -3153,7 +3189,8 @@ export default {
     BaseMemoryDialog,
     BasePrizeBoard,
     BaseEventName,
-    BaseBrakeDialog
+    BaseBrakeDialog,
+    BaseCardGallery
   },
   props: {
     phantomCar: {
@@ -3190,6 +3227,7 @@ export default {
       memorySearchDialog: false,
       memorySearchDialogLoad: false,
       userloaded: false,
+      Vue: Vue,
 
       showReviews: false,
       isReviewing: false,
@@ -3250,7 +3288,6 @@ export default {
       cgRoundsNumber: 1,
       cgCurrentId: null,
       cgCurrentName: null,
-      cgCacheCars: [],
       cgList: [],
       cgRaceSelected: 0,
       cgAddingYouCar: false,
@@ -3331,8 +3368,8 @@ export default {
       eventCheckFilterCodePre: null,
       eventCheckFilterCode: null,
       eventKingTracks: [],
-      eventAddCarDialog: false,
-      eventAddCarDialogLoad: false,
+      // eventAddCarDialog: false,
+      // eventAddCarDialogLoad: false,
       eventFilterToSave: null,
       eventFilterToSave2: null,
       eventFilterToSave3: null,
@@ -3368,6 +3405,9 @@ export default {
       eventBestPerTrack: {},
       eventHasPrizeBoard: false,
       eventParsedList: [],
+      eventBestTeamsDialog: false,
+      eventBestTeamsBigArray: [],
+      eventBestTeamsLastCache: null,
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -3486,7 +3526,7 @@ export default {
       smartCampaign: [],
       campaignDialog: false,
       carDetailsList: [],
-      all_cars: data_cars,
+      // all_cars: data_cars,
       toLoadTrackSet: null,
       currentTracks: [],
       currentTracksSetsNames: [],
@@ -4941,10 +4981,10 @@ export default {
       let race = this.cgRound.races[this.cgRaceSelected];
       this.cgFilterDialog = false;
 
-      let found = this.cgCacheCars.find(x => x.rid === newCar.rid);
+      let found = Vue.all_cacheObj[newCar.rid];
       if (!found) {
         if (isFromJson) console.log(`!found`);
-        this.cgCacheCars.push({ rid: newCar.rid });
+        Vue.all_cacheObj[newCar.rid] = { rid: newCar.rid };
       }
 
       if (this.cgAddingOppoCar) {
@@ -5203,32 +5243,32 @@ export default {
 
         this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
-        let incomingCars = res.data.find(x => x.id === 'newCars').value;
-        if (incomingCars && incomingCars.length > 0) {
-          let rids = this.all_cars.map(x => x.rid);
+        // let incomingCars = res.data.find(x => x.id === 'newCars').value;
+        // if (incomingCars && incomingCars.length > 0) {
+        //   let rids = Vue.all_carsArr.map(x => x.rid);
 
-          incomingCars.map(car => {
-            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
-              if (!rids.includes(car.rid)) {
-                this.all_cars.push(car);
-              }
-            }
-          })
+        //   incomingCars.map(car => {
+        //     if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
+        //       if (!rids.includes(car.rid)) {
+        //         this.all_cars.push(car);
+        //       }
+        //     }
+        //   })
 
-          // this.all_cars = this.all_cars.filter((value, index, self) =>
-          //   index === self.findIndex((t) => (
-          //     t.rid === value.rid
-          //   ))
-          // )
-          this.all_cars.sort((a,b) => {
-            return b.rq - a.rq;
-          })
+        //   // this.all_cars = this.all_cars.filter((value, index, self) =>
+        //   //   index === self.findIndex((t) => (
+        //   //     t.rid === value.rid
+        //   //   ))
+        //   // )
+        //   this.all_cars.sort((a,b) => {
+        //     return b.rq - a.rq;
+        //   })
 
-          this.recheckCarDetailsList();
-        }
+        //   this.recheckCarDetailsList();
+        // }
 
         let mraData = res.data.find(x => x.id === 'mra').value;
-        this.all_cars.map(x => {
+        Vue.all_carsArr.map(x => {
           Vue.set(x, "mra", mraData[x.rid] || x.mra);
         })
         this.carDetailsList.map(x => {
@@ -5259,16 +5299,22 @@ export default {
       if (cars && cars.length > 0) {
         
         cars.map(y => {
-          let found = this.all_cars.find(x => {
-            if (x.rid === y.rid) {
-              result.push(JSON.parse(JSON.stringify(x)));
-              if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
-              result[result.length-1].softId = this.nextId;
-              this.nextId++;
-              return true;
-            }
-          })
-          if (!found) {
+          // let found = Vue.all_carsArr.find(x => {
+          //   if (x.rid === y.rid) {
+          //     result.push(JSON.parse(JSON.stringify(x)));
+          //     if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
+          //     result[result.length-1].softId = this.nextId;
+          //     this.nextId++;
+          //     return true;
+          //   }
+          // })
+          let found = Vue.all_carsObj[y.rid];
+          if (found) {
+            result.push(JSON.parse(JSON.stringify(found)));
+            if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
+            result[result.length-1].softId = this.nextId;
+            this.nextId++;
+          } else {
             result.push({
               rid: y.rid,
               selectedTune: y.selectedTune,
@@ -5309,7 +5355,7 @@ export default {
     recheckCarDetailsList() {
       this.carDetailsList.map((car, index) => {
         if (car.clearance === null) {
-          let found = this.all_cars.find(x => x.rid === car.rid);
+          let found = Vue.all_carsObj[car.rid];
           Vue.set(this.carDetailsList, index, {
             ...car,
             ...(JSON.parse(JSON.stringify(found)))
@@ -5327,17 +5373,27 @@ export default {
       this.saveLoading = true;
 
 
-      let obj = "carDetailsList";
-      if (this.mode === 'challenges') obj = "cgCacheCars";
       let simplifiedCars = [];
-      this[obj].map(x => {
-        if (x.dataToSave) {
-          simplifiedCars.push({
-            rid: x.rid,
-            data: x.dataToSave
-          });
-        }
-      });
+      if (this.mode === 'challenges') {
+        Object.keys(Vue.all_cacheObj).map(rid => {
+          if (Vue.all_cacheObj[rid].dataToSave) {
+            simplifiedCars.push({
+              rid: rid,
+              data: Vue.all_cacheObj[rid].dataToSave
+            });
+          }
+        })
+      } else {
+        this.carDetailsList.map(x => {
+          if (x.dataToSave) {
+            simplifiedCars.push({
+              rid: x.rid,
+              data: x.dataToSave
+            });
+          }
+        });
+
+      };
 
       if (simplifiedCars.length === 0) {
         if (saveBankAfter) {
@@ -5433,11 +5489,11 @@ export default {
           simplifiedCars.push({ rid: x.rid })
         });
       } else if (this.mode === 'challenges') {
-        this.cgCacheCars.map(x => {
-          if (x.rid && !x.data) {
-            simplifiedCars.push({ rid: x.rid })
+        Object.keys(Vue.all_cacheObj).map(rid => {
+          if (Vue.all_cacheObj[rid].rid && !Vue.all_cacheObj[rid].data) {
+            simplifiedCars.push({ rid: rid })
           }
-        });
+        })
       }
 
       if (simplifiedCars.length === 0) {
@@ -5526,24 +5582,24 @@ export default {
       });
     },
     applyNewData(newData, isCgInitial = false) {
-      let obj = "carDetailsList";
-
       if (this.mode === 'challenges') {
-        obj = "cgCacheCars";
-      }
-      if (this.mode === 'events') {
-        obj = "eventCacheCars";
+        newData.map(y => {
+          if (y.data) Vue.set(Vue.all_cacheObj[y.rid], "data", y.data);
+          if (y.users) Vue.set(Vue.all_cacheObj[y.rid], "users", y.users);
+          if (y.reviews) Vue.set(Vue.all_cacheObj[y.rid], "reviews", y.reviews);
+        })
+      } else {
+        this.carDetailsList.map(x => {
+          newData.map(y => {
+            if (x.rid === y.rid) {
+              if (y.data) Vue.set(x, "data", y.data);
+              if (y.users) Vue.set(x, "users", y.users);
+              if (y.reviews) Vue.set(x, "reviews", y.reviews);
+            }
+          })
+        });
       }
 
-      this[obj].map(x => {
-        newData.map(y => {
-          if (x.rid === y.rid) {
-            if (y.data) Vue.set(x, "data", y.data);
-            if (y.users) Vue.set(x, "users", y.users);
-            if (y.reviews) Vue.set(x, "reviews", y.reviews);
-          }
-        })
-      });
 
       if (this.mode === 'challenges' && this.cgRound.date) {
         this.downloadLoading = false;
@@ -5814,7 +5870,7 @@ export default {
       let selectedTune = car.selectedTune;
 
       if (this.mode === 'challenges')  {
-        car = this.cgCacheCars.find(x => x.rid === car.rid);
+        car = Vue.all_cacheObj[car.rid];
       }
 
       if (!car.data) Vue.set(car, "data", {});
@@ -6210,12 +6266,15 @@ export default {
       }
     },
     clearDataToSave() {
-      let obj = "carDetailsList";
-      if (this.mode === 'challenges') obj = "cgCacheCars";
-
-      this[obj].map(x => {
-        delete x.dataToSave;
-      });
+      if (this.mode === 'challenges') {
+        Object.keys(Vue.all_cacheObj).map(rid => {
+          delete Vue.all_cacheObj[rid].dataToSave;
+        })
+      } else {
+        this.carDetailsList.map(x => {
+          delete x.dataToSave;
+        });
+      };
     },
     loadChallenges(resolveInitial = true) {
       this.cgLoading = true;
@@ -6380,7 +6439,7 @@ export default {
           return;
         }
 
-        let oppo = this.cgCacheCars.find(x => x.rid === race.car.rid)
+        let oppo = Vue.all_cacheObj[race.car.rid];
         let tryoppotime;
         try {
           tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
@@ -6506,44 +6565,47 @@ export default {
         }, 500);
         return;
       }
-      let listRids = [];
-      let minCars = [];
-      let ridToPhotoId = {};
+      // let listRids = [];
+      // let minCars = [];
+      // let ridToPhotoId = {};
 
       this.cgRound.races.map(race => {
-        listRids.push(race.rid);
-        let found = this.cgCacheCars.find(x => x.rid === race.rid);
+        let found = Vue.all_cacheObj[race.rid];
         if (!found) {
-          this.cgCacheCars.push({ rid: race.rid });
-        }
-        race.cars.map(car => {
-          listRids.push(car.rid)
-        })
-      })
-      listRids = [...new Set(listRids)];
-      this.all_cars.map(x => {
-        if (listRids.includes(x.rid)) {
-          minCars.push(x)
-        }
-        if (x.photoId) {
-          ridToPhotoId[x.rid] = x.photoId
+          Vue.all_cacheObj[race.rid] = { rid: race.rid };
         }
       })
 
+      // this.cgRound.races.map(race => {
+      //   listRids.push(race.rid);
+      //   let found = Vue.all_cacheObj[race.rid];
+      //   if (!found) {
+      //     Vue.all_cacheObj[race.rid] = { rid: race.rid };
+      //   }
+      //   race.cars.map(car => {
+      //     listRids.push(car.rid)
+      //   })
+      // })
+      // listRids = [...new Set(listRids)];
+      // Vue.all_carsArr.map(x => {
+      //   if (listRids.includes(x.rid)) {
+      //     minCars.push(x)
+      //   }
+      //   if (x.photoId) {
+      //     ridToPhotoId[x.rid] = x.photoId
+      //   }
+      // })
+
       this.cgRound.races.map(race => {
-        let foundOppo = minCars.find(x => x.rid === race.rid);
+        let foundOppo = Vue.all_carsObj[race.rid];
         if (foundOppo) foundOppo = JSON.parse(JSON.stringify(foundOppo));
         Vue.set(race, "car", foundOppo);
         if (race.tune) Vue.set(race.car, "selectedTune", race.tune);
 
         race.cars.map((car, icar) => {
-          let obj = {}
-          if (ridToPhotoId[car.rid]) obj.photoId = ridToPhotoId[car.rid];
-          else obj.rid = car.rid;
-
-          Vue.set(car, "photo", Vue.carPhoto(obj));
-          Vue.set(car, "car", JSON.parse(JSON.stringify(minCars.find(x => x.rid === car.rid))));
-          Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
+          Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
+          Vue.set(car, "car", JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
+          Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
           Vue.set(car.car, "selectedTune", car.tune);
         })
 
@@ -6672,12 +6734,12 @@ export default {
       }
 
       this.tuneDialogCar = race.cars[race.carIndex].car; 
-      this.tuneDialogCar.data = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid).data;
+      this.tuneDialogCar.data = Vue.all_cacheObj[race.cars[race.carIndex].rid].data;
       this.calcRaceResult(race);
     },
     cgShowTuneDialog(car, race, isOppo = false) {
       this.tuneDialogCar = car;
-      this.tuneDialogCar.data = this.cgCacheCars.find(x => x.rid === car.rid).data;
+      this.tuneDialogCar.data = Vue.all_cacheObj[car.rid].data;
       this.tuneDialogCarIndex = -1;
       this.tuneDialogisOppo = isOppo;
       this.tuneDialogActive = true;
@@ -6699,7 +6761,7 @@ export default {
         return;
       }
 
-      let oppo = this.cgCacheCars.find(x => x.rid === race.car.rid)
+      let oppo = Vue.all_cacheObj[race.car.rid];
       let tryoppotime;
       try {
         tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
@@ -6736,9 +6798,9 @@ export default {
       
       
       
-      let you = this.cgCacheCars.find(x => x.rid === youRid)
+      let you = Vue.all_cacheObj[youRid];
       if (!you) {
-        this.cgCacheCars.push({ rid: youRid });
+        Vue.all_cacheObj[youRid] = { rid: youRid };
         this.downloadCar(youRid);
         return;
       }
@@ -6872,7 +6934,7 @@ export default {
     cgChangeTimeOppo(race, event, irace) {
       let car = race.car;
       let tune = car.selectedTune;
-      let carData = this.cgCacheCars.find(x => x.rid === car.rid);
+      let carData = Vue.all_cacheObj[car.rid];
       let NEW = event.item;
       let number = event.number;
       let allowedTunes = ["332", "323", "233"];
@@ -6880,7 +6942,7 @@ export default {
         allowedTunes.push("111")
       }
       if (allowedTunes.includes(tune)) {
-        // put on cgCacheCars
+        // put on Vue.all_cacheObj
         this.resolveChangeTime(carData, NEW, number, tune);
       }
 
@@ -6911,7 +6973,7 @@ export default {
     cgChangeTimeYou(race, event) {
       let car = race.cars[race.carIndex].car;
       let tune = car.selectedTune;
-      let carData = this.cgCacheCars.find(x => x.rid === car.rid);
+      let carData = Vue.all_cacheObj[car.rid];
       let NEW = event.item;
       let number = event.number;
 
@@ -6924,7 +6986,7 @@ export default {
       if (isOppo) car = race.car;
       else car = race.cars[race.carIndex].car;
       let tune = car.selectedTune;
-      let carData = this.cgCacheCars.find(x => x.rid === car.rid);
+      let carData = Vue.all_cacheObj[car.rid];
       let track = race.track;
       let trackname = vm.$t(`t_${race.track.slice(0, -4)}`);
 
@@ -7166,7 +7228,7 @@ export default {
 
       this.cgRound.races.map(x => {
         let time;
-        let cgCar = this.cgCacheCars.find(y => y.rid === x.rid);
+        let cgCar = Vue.all_cacheObj[x.rid];
 
         if (
           x.car.selectedTune &&
@@ -7219,21 +7281,21 @@ export default {
 
 
         // Resolve cars
-        let listRids = [];
-        let minCars = {};
+        // let listRids = [];
+        // let minCars = {};
 
-        this.cgRound.races.map((race, irace) => {
-          Object.keys(res.data.resultPerFilter[0][irace]).map(rid => {
-            listRids.push(rid);
-          })
-        })
-        listRids = [...new Set(listRids)];
+        // this.cgRound.races.map((race, irace) => {
+        //   Object.keys(res.data.resultPerFilter[0][irace]).map(rid => {
+        //     listRids.push(rid);
+        //   })
+        // })
+        // listRids = [...new Set(listRids)];
 
-        this.all_cars.map(car => {
-          if (listRids.includes(car.rid)) {
-            minCars[car.rid] = car;
-          }
-        })
+        // this.all_cars.map(car => {
+        //   if (listRids.includes(car.rid)) {
+        //     minCars[car.rid] = car;
+        //   }
+        // })
 
 
 
@@ -7256,9 +7318,9 @@ export default {
                 points: res.data.resultPerFilter[0][irace][rid][tune].points,
                 rid: rid,
                 tune: tune,
-                photo: Vue.carPhoto({ rid }),
-                car: minCars[rid],
-                color: Vue.resolveClass(minCars[rid].rq, minCars[rid].class, "color")
+                photo: Vue.all_carsObj[rid].photo,
+                car: Vue.all_carsObj[rid],
+                color: Vue.all_carsObj[rid].color
               })
             })
           })
@@ -7331,9 +7393,9 @@ export default {
       if (race.carIndex === -1) {
         Vue.set(race, "carIndex", 0);
       }
-      let found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+      let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
       if (!found) {
-        this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+        Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
       }
     },
     cgRemoveDuplicateSolution() {
@@ -7353,9 +7415,9 @@ export default {
           Vue.set(race, "carIndex", index);
           
           let found;
-          found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+          found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
           if (!found) {
-            this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+            Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
           }
         })
         return
@@ -7388,7 +7450,7 @@ export default {
               if (car.points > 0 && !alreadyUsedRidsAsSolution.includes(car.rid)) {
                 race.alt = {
                   rid: car.rid,
-                  rq: this.all_cars.find(y => y.rid === car.rid).rq,
+                  rq: Vue.all_carsObj[car.rid].rq,
                   raceIndex: ix,
                   altCarIndex
                 }
@@ -7405,9 +7467,9 @@ export default {
             let race = this.cgRound.races[option.raceIndex]
             Vue.set(race, "carIndex", option.altCarIndex);
 
-            let found = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+            let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
             if (!found) {
-              this.cgCacheCars.push({ rid: race.cars[race.carIndex].rid });
+              Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
             }
 
             return true;
@@ -7616,7 +7678,7 @@ export default {
         if (!this.user.mod) return;
       };
 
-      let car = this.cgCacheCars.find(x => x.rid === race.cars[race.carIndex].rid);
+      let car = Vue.all_cacheObj[race.cars[race.carIndex].rid];
       let trytime
       if (!car) return;
       try {
@@ -7679,7 +7741,7 @@ export default {
 
       let clearRound = this.cgRound.races.map(x => {
         let time;
-        let cgCar = this.cgCacheCars.find(y => y.rid === x.rid);
+        let cgCar = Vue.all_cacheObj[x.rid];
 
         if (
           x.car.selectedTune &&
@@ -7891,17 +7953,17 @@ export default {
     cgSubmitCompleteJson() {
       let json = JSON.parse(this.cgCompleteJson);
       let oppos = json.ladder.opponents;
-      let list = oppos.map(x => x.cardId);
-      list = [...new Set(list)];
+      // let list = oppos.map(x => x.cardId);
+      // list = [...new Set(list)];
       let newCg = JSON.parse(JSON.stringify(this.cg));
-      let AllCarsFiltered = [];
+      // let AllCarsFiltered = [];
       let zoneSize = json.ladder.zoneSize;
 
-      this.all_cars.map(x => {
-        if (list.includes(x.guid)) {
-          AllCarsFiltered.push(JSON.parse(JSON.stringify(x)));
-        }
-      })
+      // this.all_cars.map(x => {
+      //   if (list.includes(x.guid)) {
+      //     AllCarsFiltered.push(JSON.parse(JSON.stringify(x)));
+      //   }
+      // })
 
       let count = 0;
       let errorCount = 0;
@@ -7935,7 +7997,7 @@ export default {
           let op = oppos[count];
           
           let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
-          let car = AllCarsFiltered.find(x => x.guid === op.cardId);
+          let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
           if (car) {
             let allowedTunes = ["332", "323", "233", "000"];
             if (car.class === 'S' || car.class === 'A') {
@@ -8067,7 +8129,7 @@ export default {
 
         let ss = race[key].id;
         let cardId = ss.slice(0,36);
-        let car = this.all_cars.find(x => x.guid === cardId);
+        let car = Vue.all_carsObj[Vue.ridByGuid[cardId]];
         if (!car) return;
         car = JSON.parse(JSON.stringify(car));
         console.log(`${key}, irace: ${irace+1}, ${car.rid}`);
@@ -8166,7 +8228,7 @@ export default {
               this.cgRoundResultJsonErrorTxt += `${key} race${irace+1} diff\n`
             }
           } else {
-            let carCache = this.cgCacheCars.find(x => x.rid === race[key].car.rid);
+            let carCache = Vue.all_cacheObj[race[key].car.rid];
 
             let allowedTunes = ["332", "323", "233"];
             let carFinal = race[key].car;
@@ -8964,35 +9026,35 @@ export default {
         return
       }
     },
-    eventOpenAddYouCar() {
-      this.eventAddCarDialogLoad = true;
-      this.$nextTick().then(() => {
-        this.eventAddCarDialog = true;
-      })
-    },
-    addCarEvent(newCar) {
-      let event = this.event;
-      this.eventAddCarDialog = false;
+    // eventOpenAddYouCar() {
+    //   this.eventAddCarDialogLoad = true;
+    //   this.$nextTick().then(() => {
+    //     this.eventAddCarDialog = true;
+    //   })
+    // },
+    // addCarEvent(newCar) {
+    //   let event = this.event;
+    //   this.eventAddCarDialog = false;
 
-      let found = this.eventCacheCars.find(x => x.rid === newCar.rid);
-      if (!found) {
-        this.eventCacheCars.push({ rid: newCar.rid });
-      }
+    //   let found = this.eventCacheCars.find(x => x.rid === newCar.rid);
+    //   if (!found) {
+    //     this.eventCacheCars.push({ rid: newCar.rid });
+    //   }
 
-      let found2 = event.cars.findIndex(x => x.rid === (event.cars[event.carIndex] || {}).rid && x.tune === undefined);
-      if (found2 > -1) {
-        event.carIndex = found2;
-      } else {
-        event.cars.push( { rid: newCar.rid } );
-        event.carIndex = event.cars.length-1;
-        Vue.set(event.cars[event.carIndex], "photo", Vue.carPhoto(newCar));
-        Vue.set(event.cars[event.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
-        Vue.set(event.cars[event.carIndex], "color", Vue.resolveClass(event.cars[event.carIndex].car.rq, event.cars[event.carIndex].car.class, "color"));
-      }
+    //   let found2 = event.cars.findIndex(x => x.rid === (event.cars[event.carIndex] || {}).rid && x.tune === undefined);
+    //   if (found2 > -1) {
+    //     event.carIndex = found2;
+    //   } else {
+    //     event.cars.push( { rid: newCar.rid } );
+    //     event.carIndex = event.cars.length-1;
+    //     Vue.set(event.cars[event.carIndex], "photo", Vue.carPhoto(newCar));
+    //     Vue.set(event.cars[event.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
+    //     Vue.set(event.cars[event.carIndex], "color", Vue.resolveClass(event.cars[event.carIndex].car.rq, event.cars[event.carIndex].car.class, "color"));
+    //   }
 
-      this.downloadCar(newCar.rid);
-      this.eventSaveRoundHand();
-    },
+    //   this.downloadCar(newCar.rid);
+    //   this.eventSaveRoundHand();
+    // },
     eventSaveRoundHand() {
       let saveName = `hand_${this.eventCurrentId}`
       let handRids = [];
@@ -9635,13 +9697,21 @@ export default {
     eventGetHandRanking() {
       let filter;
       let filterAtr = 'filter';
+      let cacheCode = ``;
       if (this.isEvents) {
         if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
         filter = this.event[filterAtr];
+        cacheCode = `${this.event.date}_${filterAtr}`;
       } else {
         if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
         filter = this.clubReqsGroupModel[filterAtr];
+        cacheCode = `${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}_${filterAtr}`;
       }
+
+      if (cacheCode === this.eventBestTeamsLastCache) {
+        this.eventBestTeamsDialog = true;
+        return;
+      };
 
       this.eventAnalyseLoading = true;
 
@@ -9652,7 +9722,10 @@ export default {
         isTdr: true
       })
       .then(res => {
-        console.log("eventGetHandRanking", res.data)
+        console.log("eventGetHandRanking", res.data.stats);
+        this.eventBestTeamsBigArray = res.data.arr;
+        this.eventBestTeamsDialog = true;
+        this.eventBestTeamsLastCache = cacheCode;
       })
       .catch(error => {
         this.eventAnalyseLoading = false;
@@ -9957,15 +10030,10 @@ export default {
 
         let result = [];
         res.data.map(car => {
-          this.all_cars.find(x => {
-            if (x.rid === car.rid) {
-              result.push(JSON.parse(JSON.stringify(x)));
-              result[result.length-1].selectedTune = car.tune;
-              result[result.length-1].softId = this.nextId;
-              this.nextId++;
-              return true;
-            }
-          })
+          result.push(JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
+          result[result.length-1].selectedTune = car.tune;
+          result[result.length-1].softId = this.nextId;
+          this.nextId++;
         })
         Vue.set(this, "carDetailsList", result);
         this.applyNewData(res.data, this.mode === 'challenges');
@@ -10008,9 +10076,9 @@ export default {
       return str.startsWith("SN") || str.startsWith("YB");
     },
     frontCompleteCar(car) {
-      Vue.set(car, "photo", Vue.carPhoto(car));
-      Vue.set(car, "car", JSON.parse(JSON.stringify(this.all_cars.find(x => x.rid === car.rid))));
-      Vue.set(car, "color", Vue.resolveClass(car.car.rq, car.car.class, "color"));
+      Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
+      Vue.set(car, "car", JSON.parse(JSON.stringify( Vue.all_carsObj[car.rid] )));
+      Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
     },
     chooseCustomTune(car) {
       this.customTuneDialogCar = car;
@@ -10047,12 +10115,13 @@ export default {
         this.mraEditing = false;
         this.tuneDialogCar.mra = newMRA;
 
-        this.all_cars.find(x => {
-          if (x.rid === rid) {
-            Vue.set(x, "mra", newMRA);
-            return true
-          }
-        })
+        // Vue.all_carsObj[rid].photo
+        Vue.set(Vue.all_carsObj[car.rid], "mra", newMRA);
+        // this.all_cars.find(x => {
+        //   if (x.rid === rid) {
+        //     return true
+        //   }
+        // })
         this.carDetailsList.find(x => {
           if (x.rid === rid) {
             Vue.set(x, "mra", newMRA);

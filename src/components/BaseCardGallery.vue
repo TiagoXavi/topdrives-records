@@ -37,7 +37,10 @@
       </div>
       <div class="Car_HeaderBlockClass">
         <div class="Car_HeaderClassBack" />
-        <div class="Car_HeaderClassValue">{{ this.car.rq | resolveClass(this.car.class, "letter") }}</div>
+        <div class="Car_HeaderClassValue">{{ car.rq | resolveClass(car.class, "letter") }}</div>
+      </div>
+      <div v-if="showPrize && car.prize" class="Car_HeaderBlockPrize" title="Prize car">
+        <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
       </div>
       <div class="Car_HeaderBlockTopSpeed">
         <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
@@ -99,6 +102,10 @@ export default {
       }
     },
     oldpic: {
+      type: Boolean,
+      default: false
+    },
+    showPrize: {
       type: Boolean,
       default: false
     },
@@ -243,5 +250,10 @@ export default {
 }
 .BaseCardGallery150 .Car_TuneTipGallery {
   font-size: 16px;
+}
+.BaseCardGallery150 .Car_HeaderBlockPrize {
+  font-size: 9px;
+  width: 14px;
+  height: 14px;
 }
 </style>

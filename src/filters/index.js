@@ -3,7 +3,8 @@ import {
     toTimeNumber,
     clearNumber,
 } from './formatters.js';
-import tracks_factor from '../database/tracks_factor.json'
+import tracks_factor from '../database/tracks_factor.json';
+import all_cars from '../database/cars_final.json';
 
 var classes = ["F","E","D","C","B","A","S"];
 var classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
@@ -11,11 +12,79 @@ var classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255, 
 
 var countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
 var letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
-
 var ignore50points = false;
+
+function resolveClass(rq, classe, type, rgb = false) {
+    let resultClass;
+
+    if (classe) {
+        resultClass = classes.indexOf(classe);
+    } else {
+        if (rq < 20) resultClass = 0;
+        else if (rq < 30) resultClass = 1;
+        else if (rq < 40) resultClass = 2;
+        else if (rq < 50) resultClass = 3;
+        else if (rq < 65) resultClass = 4;
+        else if (rq < 80) resultClass = 5;
+        else resultClass = 6;
+    }
+    if (type === "letter") return classes[resultClass];
+    if (type === "color" && !rgb) return classesColors[resultClass];
+    if (type === "color" && rgb) return classesColorsRgb[resultClass];
+}
+function carPhoto(car) {
+    try {
+        if (typeof car === "object") {
+            // if (car.photoId) {
+            //     return '/incoming_pics/' + car.photoId + '.jpg';
+            // }
+            return '/imgs_final/' + decodeURI(car.rid) + '.jpg';
+            // return '/imgs_final/' + decodeURI(car.rid$ || car.rid) + '.jpg';
+        }
+        if (typeof car === "string") {
+            return '/imgs_final/' + decodeURI(car) + '.jpg';
+        }
+    } catch (error) {
+        return ": "                
+    }
+}
+
+
+
+
+
+
+
+var resolvedRids = {};
+var guidToRid = {};
+var cacheCars = {};
+
+let limit = all_cars.length; // 5700 items
+for (let Z = 0; Z < limit; Z++) {
+    resolvedRids[all_cars[Z].rid] = all_cars[Z];
+    resolvedRids[all_cars[Z].rid].color = resolveClass(all_cars[Z].rq, all_cars[Z].class, "color");
+    resolvedRids[all_cars[Z].rid].colorRgb = resolveClass(all_cars[Z].rq, all_cars[Z].class, "color", true);
+    resolvedRids[all_cars[Z].rid].photo = carPhoto(all_cars[Z]);
+    guidToRid[all_cars[Z].guid] = all_cars[Z].rid;
+}
+
+// lento
+// all_cars.map(car => {
+// 
+// });
 
 export default {
     install(Vue) {
+        Vue.carByRid = function (rid) {
+            return resolvedRids[rid];
+        },
+        Vue.cacheByRid = function (rid) {
+            return cacheCars[rid];
+        },
+        Vue.ridByGuid = guidToRid;
+        Vue.all_carsArr = all_cars;
+        Vue.all_cacheObj = cacheCars;
+        Vue.all_carsObj = resolvedRids;
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
 
@@ -36,29 +105,12 @@ export default {
 
                 if (callNow) func.apply(context, args);
             };
-        },
-        Vue.resolveClass = function (rq, classe, type, rgb = false) {
-            let resultClass;
-
-            if (classe) {
-                resultClass = classes.indexOf(classe);
-            } else {
-                if (rq < 20) resultClass = 0;
-                else if (rq < 30) resultClass = 1;
-                else if (rq < 40) resultClass = 2;
-                else if (rq < 50) resultClass = 3;
-                else if (rq < 65) resultClass = 4;
-                else if (rq < 80) resultClass = 5;
-                else resultClass = 6;
-            }
-            if (type === "letter") return classes[resultClass];
-            if (type === "color" && !rgb) return classesColors[resultClass];
-            if (type === "color" && rgb) return classesColorsRgb[resultClass];
-        },
+        };
+        Vue.resolveClass = resolveClass;
         Vue.resolveCountry = function (country) {
             country = countrys.findIndex(x => x === country);
             return letter[country];
-        },
+        };
         Vue.resolveStat = function (car, type, customData = null) {
             if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
@@ -85,19 +137,19 @@ export default {
                 }
             }
             
-        },
+        };
         Vue.boldTunes = function (tune) {
             if (typeof tune !== 'string' && tune.length !== 3) return tune;
 
             return tune.replaceAll('2', '<s>2</s>')
-        },
+        };
         Vue.convertTires = function (tyre) {
             if (tyre === "Performance") return "PER";
             else if (tyre === "Standard") return "STD";
             else if (tyre === "All-surface") return "ALL";
             else if (tyre === "Off-road") return "OFF";
             else if (tyre === "Slick") return "SLK";
-        },
+        };
         Vue.mra = function (time, acel, multiplier = 100, cases = 2) {
             acel = Number(acel);
             // if (time && acel) {
@@ -108,7 +160,7 @@ export default {
             } else {
                 return ''
             }
-        },
+        };
         Vue.brake = function (timeWithBrake, time) {
             
             if ( time && typeof time === 'number' && timeWithBrake && timeWithBrake > time ) {
@@ -116,7 +168,7 @@ export default {
             } else {
                 return ''
             }
-        },
+        };
         Vue.kShort = function (number) {
             
             if ( number && typeof number === 'number' ) {
@@ -136,7 +188,7 @@ export default {
             } else {
                 return ''
             }
-        },
+        };
         Vue.resolveCond = function (type) {
             let result = '';
             if (typeof type === 'string' && type.length === 2) {
@@ -164,7 +216,7 @@ export default {
                 if (type[1] == '1') result += " Wet";
                 return result;
             }
-        },
+        };
         Vue.getOldCar = async function (rid, version) {
             let car;
             
@@ -194,7 +246,7 @@ export default {
             } else {
                 return {}
             }
-        },
+        };
         Vue.decodeTdr = function (template) {
             let carsFromQuery = [];
             let tracksFromQuery = [];
@@ -215,26 +267,11 @@ export default {
                 tracks: tracksFromQuery,
                 cars: carsFromQuery
             }
-        },
+        };
         Vue.isMobile = function () {
             return 'ontouchstart' in window || navigator.msMaxTouchPoints;
-        },
-        Vue.carPhoto = function (car) {
-            try {
-                if (typeof car === "object") {
-                    // if (car.photoId) {
-                    //     return '/incoming_pics/' + car.photoId + '.jpg';
-                    // }
-                    return '/imgs_final/' + decodeURI(car.rid) + '.jpg';
-                    // return '/imgs_final/' + decodeURI(car.rid$ || car.rid) + '.jpg';
-                }
-                if (typeof car === "string") {
-                    return '/imgs_final/' + decodeURI(car) + '.jpg';
-                }
-            } catch (error) {
-                return ": "                
-            }
-        },
+        };
+        Vue.carPhoto = carPhoto;
         Vue.userPoints = function (userTime, oppoTime, trackCode) {
             if (isNaN(userTime) || isNaN(oppoTime)) return;
             if (!trackCode) return;
@@ -326,7 +363,7 @@ export default {
 
             return { v: result, i: isImprecise };
             
-        },
+        };
         Vue.timer = function (timeSeconds) {
             if (typeof timeSeconds !== "number") return "";
 
@@ -349,7 +386,7 @@ export default {
             }
 
             return result;
-        },
+        };
         Vue.timeDiffString = function (date, laterDate) {
             let result = "";
 
@@ -371,10 +408,10 @@ export default {
                 diffMins,
                 result
             };
-        },
+        };
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
-        },
+        };
         Vue.resolveHighlightsUsers = function (resData) {
             let highlightsUsers = {
               "bcp_": 'mod',
@@ -420,7 +457,7 @@ export default {
             highlightsUsers["JoeHamilton"] = "w2";
 
             return highlightsUsers;
-        },
+        };
 
 
         Vue.filter('toTimeString', toTimeString);
