@@ -5,6 +5,7 @@ import {
 } from './formatters.js';
 import tracks_factor from '../database/tracks_factor.json';
 import all_cars from '../database/cars_final.json';
+import tracksRepo from '../database/tracks_repo.json';
 
 var classes = ["F","E","D","C","B","A","S"];
 var classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
@@ -49,12 +50,6 @@ function carPhoto(car) {
     }
 }
 
-
-
-
-
-
-
 var resolvedRids = {};
 var guidToRid = {};
 var cacheCars = {};
@@ -68,10 +63,53 @@ for (let Z = 0; Z < limit; Z++) {
     guidToRid[all_cars[Z].guid] = all_cars[Z].rid;
 }
 
-// lento
-// all_cars.map(car => {
-// 
-// });
+
+function resolveTracksetGroup(tracksetGroup) {
+  let resolvedTrackset = JSON.parse(JSON.stringify(tracksetGroup));
+
+  resolvedTrackset = resolvedTrackset.map(trackset => {
+    return trackset.map(track => {
+      if (track === null) return null;
+      return resolveTrack({ track }, false, false);
+    })
+  })
+  return resolvedTrackset;
+}
+
+function resolveTrack(race, calcResult = true, isRace = true) {
+  if (race.track) {
+    return validateTracks([race.track]);
+  }
+}
+
+function validateTracks(tracks, group = false) {
+  let tracksClear = [];
+
+  tracks.map(x => {
+    tracksRepo.find(circuit => {
+      if (x.slice(0,-4) !== circuit.id) return false;
+      return circuit.types.find(type => {
+        if (x === `${circuit.id}_a${type}`) {
+          if (group && circuit.group) {
+            groupName = circuit.group;
+            groupType = type;
+          } else {
+            tracksClear.push( { name: circuit.name, id: circuit.id, surface: type[0], cond: type[1], code: `${circuit.id}_a${type}` } );
+          }
+          return true;
+        }
+      })
+    })
+  })
+  return tracksClear;
+}
+
+
+
+
+
+
+
 
 export default {
     install(Vue) {
@@ -85,6 +123,7 @@ export default {
         Vue.all_carsArr = all_cars;
         Vue.all_cacheObj = cacheCars;
         Vue.all_carsObj = resolvedRids;
+        Vue.resolveTracksetGroup = resolveTracksetGroup;
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
 

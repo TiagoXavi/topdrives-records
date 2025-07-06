@@ -1,12 +1,14 @@
 <template>
-  <div class="BaseEventTrackbox_Contents">
+  <div
+    :class="{ BaseEventTrackbox_Mini: mini }"
+    class="BaseEventTrackbox_Contents">
     <div
       v-for="(trackset, itrackset) in event.resolvedTrackset"
       :class="{ BaseEventTrackbox_LineInactive: check && check[0] != itrackset }"
       class="Cg_Box BaseEventTrackbox_BoxRelative">
       <div
         v-for="(trackMonoArray, itrackMonoArray) in trackset"
-        :id="`EventTrack_${itrackset}_${itrackMonoArray}`"
+        :id="`EventTrack_${index}_${itrackset}_${itrackMonoArray}`"
         :style="{
           '--drag-left-slo': 1,
           '--drag-top-slo': 7
@@ -151,12 +153,17 @@ export default {
       type: Boolean,
       default: false
     },
+    mini: {
+      type: Boolean,
+      default: false
+    },
     eventBestPerTrack: {
       type: Object,
       default() {
         return {}
       }
-    }
+    },
+    index: {}
   },
   data() {
     return {
@@ -187,7 +194,7 @@ export default {
       this.itrackset = itrackset;
       this.itrackMonoArray = itrackMonoArray;
 
-      elmnt = document.querySelector(`#EventTrack_${itrackset}_${itrackMonoArray}`);
+      elmnt = document.querySelector(`#EventTrack_${this.index}_${itrackset}_${itrackMonoArray}`);
       e = e || window.event;
       e.preventDefault();
       // get the mouse cursor position at startup:
@@ -226,8 +233,8 @@ export default {
         })
 
         Array.from(Array(times)).map((_, i) => {
-          if (dragNum > 0) div = document.querySelector(`#EventTrack_${this.itrackset}_${ dragNum + this.itrackMonoArray - i }`)
-          else div = document.querySelector(`#EventTrack_${this.itrackset}_${ dragNum + this.itrackMonoArray + i }`)
+          if (dragNum > 0) div = document.querySelector(`#EventTrack_${this.index}_${this.itrackset}_${ dragNum + this.itrackMonoArray - i }`)
+          else div = document.querySelector(`#EventTrack_${this.index}_${this.itrackset}_${ dragNum + this.itrackMonoArray + i }`)
 
           if (div) {
             div.classList.add(cla);
@@ -488,6 +495,19 @@ export default {
 }
 .EventTrack:first-child .Cg_TrackBox + .Cg_SelectTrackButtonMoveRight {
   left: 29px !important;
+}
+
+
+.BaseEventTrackbox_Mini .Cg_Box {
+  --cg-width: 115px;
+}
+.BaseEventTrackbox_Mini .Row_Tracks.Row_Cg .Row_Content {
+  white-space: normal;
+  font-size: 0.7em;
+  line-height: 0.8;
+}
+.BaseEventTrackbox_Mini .Cg_SelectTrackButton {
+  font-size: 14px;
 }
 
 

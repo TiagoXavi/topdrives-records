@@ -1,1 +1,1 @@
-npm run build_dev && npm run serve_dist
+npm run dev

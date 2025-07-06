@@ -451,6 +451,8 @@
                   :showBestPerTrack="false"
                   :hideCheckBox="true"
                   :disableCampaignTip="true"
+                  :mini="true"
+                  :index="iEvent"
                   @newindex="evIx = iEvent; eventTrackNewIndex($event)"
                   @openDialogTrackSearch="evIx = iEvent; eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
                   @eventMoveTrackRight="evIx = iEvent; eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
@@ -771,6 +773,8 @@
                   :showBestPerTrack="false"
                   :hideCheckBox="true"
                   :disableCampaignTip="true"
+                  :mini="true"
+                  :readonly="true"
                 />
               </div>
             </div>
@@ -2748,17 +2752,6 @@ export default {
   display: grid;
   grid-template-columns: 2fr 3fr;
   gap: 15px;
-}
-.MainTimeline_TracksetList .Cg_Box {
-  --cg-width: 115px;
-}
-.MainTimeline_TracksetList .Row_Tracks.Row_Cg .Row_Content {
-  white-space: normal;
-  font-size: 0.7em;
-  line-height: 0.8;
-}
-.MainTimeline_TracksetList .Cg_SelectTrackButton {
-  font-size: 14px;
 }
 .MainTimeline_Create_EventItem .MainTimeline_FilterDescription {
   width: 100%;

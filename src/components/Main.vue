@@ -10116,7 +10116,7 @@ export default {
         this.tuneDialogCar.mra = newMRA;
 
         // Vue.all_carsObj[rid].photo
-        Vue.set(Vue.all_carsObj[car.rid], "mra", newMRA);
+        Vue.set(Vue.all_carsObj[rid], "mra", newMRA);
         // this.all_cars.find(x => {
         //   if (x.rid === rid) {
         //     return true

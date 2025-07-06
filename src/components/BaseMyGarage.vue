@@ -974,7 +974,7 @@ export default {
       if (typeof obj !== "object") return "Not object";
       if (!obj.serverTime) return "No basic property";
       if (!obj.user) return "No user property";
-      if (!obj.wishlists || obj.wishlists.length !== 1) return "No wishlists";
+      if (!obj.wishlists) return "No wishlists";
       if (!obj.dailyGift) return "No dailyGift";
       if (!obj.playerDeck || obj.playerDeck.length < 1) return "No playerDeck";
       return false;
