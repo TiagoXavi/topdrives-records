@@ -153,4 +153,21 @@ export default {
   );
   animation: Processamento_Loop 0.6s linear infinite;
 }
+.BaseSwitch_Loading2 .BaseSwitch_Slider:before {
+  animation: baseSwitch2 1s ease-in-out infinite;
+}
+@keyframes baseSwitch2 {
+  0% {
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+  50% {
+    transform: translateX(calc(var(--width) - var(--height) - 3px));
+  }
+  100% {
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+}
+.BaseSwitch_Mini .BaseSwitch_Label {
+  margin-top: -7px;
+}
 </style>

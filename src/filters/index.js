@@ -126,8 +126,9 @@ export default {
         Vue.resolveTracksetGroup = resolveTracksetGroup;
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
-
+            
             return function executedFunction() {
+                // console.log("ping");
                 var context = this;
                 var args = arguments;
 
@@ -418,7 +419,7 @@ export default {
             // if (mins && !timeDays) result += `${mins}m `;
             // if (timeSeconds && !timeDays && !timeHrs) result += `${timeSeconds}s `;
 
-            if (mins) result += `${mins}m `;
+            if (mins > 0) result += `${mins}m `;
             if (mins < 5) {
                 let secs = timeSeconds % 60;
                 result += `${secs}s `;
@@ -460,7 +461,7 @@ export default {
               "HansKasai": 'mod',
               "fiero": 'mod',
               "L1ZVRD": 'mod',
-              "intrx": 'mod',
+            //   "intrx": 'mod',
               "rei348": 'mod',
               "Enginn": 'mod',
               "vel_8": 'mod',
@@ -469,7 +470,7 @@ export default {
               "boliveira82": 'mod',
               "ELtotheLIS": 'mod',
               "CapSora": 'mod',
-              "Mattsy": 'mod',
+            //   "Mattsy": 'mod',
               "Skapis": 'mod',
               "Draugr": 'mod',
               "TopDrives": 'mod',
@@ -488,12 +489,9 @@ export default {
                 highlightsUsers[user] = Number(key.slice(-1));
               })
             })
-            highlightsUsers["Lewdmilla"] = "w1";
-            highlightsUsers["RexKwonDo"] = "w2";
-            highlightsUsers["Bramdal"] = "w3";
-
             highlightsUsers["MilleniumJade"] = "w1";
-            highlightsUsers["JoeHamilton"] = "w2";
+            highlightsUsers["johnnybro1"] = "w2";
+            highlightsUsers["Sleeperzz"] = "w3";
 
             return highlightsUsers;
         };
