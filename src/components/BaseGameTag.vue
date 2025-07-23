@@ -251,7 +251,8 @@ export default {
   --tag-s: 40%;
   --tag-l: 40%;
 }
-.BaseGameTag_Lina\'s_Collection {
+.BaseGameTag_Lina\'s_Collection,
+.BaseGameTag_Lina\'s_Collection_2 {
   --tag-h: 237;
   --tag-s: 65%;
   --tag-l: 51%;
@@ -291,7 +292,8 @@ export default {
   --tag-s: 66%;
   --tag-l: 63%;
 }
-.BaseGameTag_Niklas\'_Collection {
+.BaseGameTag_Niklas\'_Collection, 
+.BaseGameTag_Niklas\'_Collection_2 {
   --tag-h: 241;
   --tag-s: 70%;
   --tag-l: 59%;

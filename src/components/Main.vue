@@ -5483,6 +5483,7 @@ export default {
     downloadDataCars(forceClassic = false) {
       this.downloadLoading = true;
       let simplifiedCars = [];
+      let origMode = this.mode;
 
       if (this.mode === 'compare' || forceClassic) {
         this.carDetailsList.map(x => {
@@ -5512,7 +5513,7 @@ export default {
 
       axios.post(url, simplifiedCars)
       .then(res => {        
-        this.applyNewData(res.data, this.mode === 'challenges');
+        this.applyNewData(res.data, this.mode === 'challenges', origMode);
       })
       .catch(error => {
         console.log(error);
@@ -5530,6 +5531,7 @@ export default {
     },
     downloadCar(rid, isJson = false) {
       this.downloadLoading = true;
+      let origMode = this.mode;
 
       let url = Vue.preUrl + "/car/" + rid;
       url = this.finalizeUrl(url);
@@ -5559,13 +5561,13 @@ export default {
             });
             Vue.set(car, "isEmpty", true);
             if (res && res.data) {
-              this.applyNewData([res.data]);
+              this.applyNewData([res.data], false, origMode);
             }
           } else {
-            this.applyNewData([res.data]);
+            this.applyNewData([res.data], false, origMode);
           }
         } else {
-          this.applyNewData([res.data]);
+          this.applyNewData([res.data], false, origMode);
         }
       })
       .catch(error => {
@@ -5581,8 +5583,8 @@ export default {
         this.downloadLoading = false;
       });
     },
-    applyNewData(newData, isCgInitial = false) {
-      if (this.mode === 'challenges') {
+    applyNewData(newData, isCgInitial = false, origMode) {
+      if (origMode === 'challenges') {
         newData.map(y => {
           if (y.data) Vue.set(Vue.all_cacheObj[y.rid], "data", y.data);
           if (y.users) Vue.set(Vue.all_cacheObj[y.rid], "users", y.users);
@@ -9717,9 +9719,11 @@ export default {
 
       axios.post(Vue.preUrl + "/handRaking", {
         trackset: this.event.trackset,
-        filterCollection: [filter],
+        filterTdr: filter,
         rqLimit: this.event.rqLimit,
-        isTdr: true
+        isTdr: true,
+        filteringQueryStrings: this.event.filteringQueryStrings,
+        flexibleCriteriaRequired: this.event.flexibleCriteriaRequired
       })
       .then(res => {
         console.log("eventGetHandRanking", res.data.stats);
@@ -10017,6 +10021,7 @@ export default {
     kingAnalyseFinish() {
       this.kingLoading = true;
       if (this.kingFixed) this.downloadLoading = true;
+      let origMode = this.mode;
 
       axios.post(Vue.preUrl + "/king", {
         track: this.kingTrack.code,
@@ -10036,7 +10041,7 @@ export default {
           this.nextId++;
         })
         Vue.set(this, "carDetailsList", result);
-        this.applyNewData(res.data, this.mode === 'challenges');
+        this.applyNewData(res.data, this.mode === 'challenges', origMode);
         this.updateOptions();
         this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
