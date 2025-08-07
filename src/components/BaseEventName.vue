@@ -10,7 +10,8 @@
       v-html="item.nameStyled"
       :class="contentClass"
       class="BaseEventName_Right"
-      :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`" />
+      :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`"
+    />
     <div
       v-else
       :class="contentClass"
@@ -68,7 +69,7 @@ export default {
       result += "BaseEventTag_" + this.item.tag.trim().toLowerCase().replace(/  +/g, ' ').replace(/ +/g, '_').replace(/-+/g, '_').normalize('NFD').replace(/\p{Diacritic}/gu, "")
 
       if (this.item.startDateTime) {
-        if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0) {
+        if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0 && (!this.item.tag || this.item.tag !== "Daily Event")) {
           result += " BaseEventTag_Preview"
         }
       }
@@ -145,13 +146,13 @@ export default {
 .BaseEventTag_tri_series_final {
 
 }
-.BaseEventTag_Preview {
+.BaseEventTag_Preview:not(.BaseEventTag_daily_event) {
   color: #9ac712;
 }
-.BaseEventTag_EndedEu {
+.BaseEventTag_EndedEu:not(.BaseEventTag_daily_event) {
   color: #66c9c1;
 }
-.BaseEventTag_Ended {
+.BaseEventTag_Ended:not(.BaseEventTag_daily_event) {
   color: #e54444;
 }
 </style>

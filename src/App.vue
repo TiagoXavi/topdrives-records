@@ -453,7 +453,7 @@ body {
   --t0-l0: 54%;
   --t0-l: 64%;
   --t1-hs: 46, 100%;
-  --t1-l0: 35%;
+  --t1-l0: 45%;
   --t1-l: 55%;
   --t2-hs: 258, 77%;
   --t2-l0: 55%;
@@ -951,6 +951,46 @@ button.D_Button.D_Button_Error {
   background-color: transparent;
   color: #e07878;
 }
+.D_Button.D_ButtonTier1,
+.BaseChip.D_ButtonTier1 {
+  --back-color: 91, 66, 17;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(81, 56, 7,1);
+  color: #ffbd40;
+}
+.D_Button.D_ButtonTier2,
+.BaseChip.D_ButtonTier2 {
+  --back-color: 54, 44, 79;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(44, 34, 69,1);
+  color: #b89bff;
+}
+.D_Button.D_ButtonTier3,
+.BaseChip.D_ButtonTier3 {
+  --back-color: 79, 29, 29;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(95, 18, 18,1);
+  color: #ffa5a7;
+}
+.D_Button.D_ButtonTier4,
+.BaseChip.D_ButtonTier4 {
+  --back-color: 30, 72, 84;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(25, 60, 89,1);
+  color: #6fdeff;
+}
+.D_Button.D_ButtonTier5,
+.BaseChip.D_ButtonTier5 {
+  --back-color: 32, 81, 30;
+  --back-opac: 1;
+  --back-opac-foc: 1;
+  background-color: rgba(22, 71, 20,1);
+  color: #92ed8f;
+}
 
 
 .D_Link {
@@ -972,6 +1012,9 @@ button.D_Button.D_Button_Error {
   color: inherit;
   text-decoration: revert;
   padding: 0px;
+}
+.D_LinkButton {
+  cursor: pointer;
 }
 .add {
   color: #fff2;
@@ -3850,6 +3893,9 @@ a:visited:not(.D_Button) {
   .Event_BankClass {
     margin-left: 5px;
   }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
+    --cg-width: 115px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .Cg_Box {
@@ -4501,8 +4547,51 @@ a:visited:not(.D_Button) {
   gap: 5px;
   margin-top: 20px;
 }
-
-
+.Main_TeamsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.Main_TeamsEngineLabel {
+  font-size: 14px;
+  opacity: 0.5;
+}
+.Main_TeamsControlsLayout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.Main_TeamsNeck {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.Main_TeamsFooter {
+  flex-direction: column;
+  gap: 15px;
+}
+.Main_TeamsRQSliderBox {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+.Main_TeamsCanEnterEventMid {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.Main_TeamsTrackset {
+  margin-bottom: 20px;
+  transition-duration: 0.3s;
+}
+.Main_TeamsTracksetWithBottom {
+  margin-bottom: 0px;
+}
+.Main_TeamsForceCarsExpand {
+  
+}
 
 @keyframes pulse {
   0% {

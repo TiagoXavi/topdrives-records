@@ -2,8 +2,8 @@
   <div class="BaseCardGallery_Layout" ref="container">
     <div v-if="fixBack" class="BaseCardGallery_FixBack" />
     <div
-      class="Car_Header BaseCardGallery_Header"
-      :class="{ Row_DialogCardCard2: !options, Car_Loading: downloadLoading }"
+      class="Car_Header BaseCardGallery_Header Row_DialogCardCard2"
+      :class="{ Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor};`">
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <img
@@ -256,4 +256,29 @@ export default {
   width: 14px;
   height: 14px;
 }
+
+
+.BaseCardGallery115 {
+  width: 115px;
+}
+.BaseCardGallery115 .Row_DialogCardCard2 {
+  --width: 115px;
+  --height: 71px;
+  --card-font-size: 6px;
+  --factor: 2px;
+  margin: 0;
+}
+.BaseCardGallery115 .Car_TuneTipGallery {
+  font-size: 16px;
+}
+.BaseCardGallery115 .Car_HeaderBlockPrize {
+  font-size: 9px;
+  width: 14px;
+  height: 14px;
+}
+
+/* .BaseCardGallery115 .Car_ImgTag {
+  object-fit: cover;
+  height: 100%;
+} */
 </style>

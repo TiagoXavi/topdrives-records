@@ -1,55 +1,52 @@
 <template>
   <div class="BaseDualSlider_Layout">
     <div :style="`
-        --posL: ${(input0 - min) * 100 / ((max - min) * 1.0 ) + 0 }%;
-        --posR: ${(input1 - max) * -100 / ((max - min) * 1.0 ) + 0 }%;
-        --cWidth: ${(input1 - input0) * 100 / ((max - min))};
-        --cWidthR: ${(input1 - min) * 100 / ((max - min))};
-        --cWidthL: ${(input0 - max) * -100 / ((max - min))};
-        --percL: ${(input1 - input0) * -100 / (input1 - min) + 50};
-        --percR: ${(input0 - input1) * 100 / (input0 - max) - 50};
-        --fillL: ${(input1 - min) * 100 / ((max - min))}%;
-        --fillR: ${(input0 - max) * -100 / ((max - min))}%;
+        --posL: ${(internal0 - min) * 100 / ((max - min) * 1.0 ) + 0 }%;
+        --posR: ${(internal1 - max) * -100 / ((max - min) * 1.0 ) + 0 }%;
+        --fillL: ${(internal1 - min) * 100 / ((max - min))}%;
+        --fillR: ${(internal0 - max) * -100 / ((max - min))}%;
       `"
       :class="{
-        BaseDualSlider_VeryTight: (input1 - input0) * 100 / ((max - min)) < 10,
-        BaseDualSlider_Tight: (input1 - input0) * 100 / ((max - min)) < 50,
-        BaseDualSlider_MoreLeft: (input0 - min) * 100 / ((max - min)) > (input1 - max) * -100 / ((max - min))
+        BaseDualSlider_VeryTight: (internal1 - internal0) * 100 / ((max - min)) < 10,
+        BaseDualSlider_Tight: (internal1 - internal0) * 100 / ((max - min)) < 50,
+        BaseDualSlider_MoreLeft: (internal0 - min) * 100 / ((max - min)) > (internal1 - max) * -100 / ((max - min))
       }"
       class="BaseDualSlider_InputBox">
-      <div class="BaseDualSlider_Track BaseDualSlider_TrackUnder"></div>
+      <!-- <div class="BaseDualSlider_Track BaseDualSlider_TrackUnder"></div> -->
       <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill BaseDualSlider_TrackUnder">
         <div
           v-if="label"
           class="BaseDualSlider_FillLabel">{{ label }}</div>
       </div>
       <input
-        v-model="input0"
+        v-model="internal0"
         class="BaseDualSlider_Input BaseDualSlider_Min"
         type="range"
         :class="{ BaseDualSlider_InputAbove: elementAbove === 0 }"
         :style="`width: calc( var(--fillL) + 30px;`"
         :min="min"
-        :max="input1"
+        :max="internal1"
         :step="step"
-        @mousedown="checkMouseDown($event)" />
+        @mousedown="checkMouseDown($event)"
+        @change="changed" />
       <input
-        v-model="input1"
+        v-model="internal1"
         class="BaseDualSlider_Input BaseDualSlider_Max"
         type="range"
         :class="{ BaseDualSlider_InputAbove: elementAbove === 1 }"
         :style="`width: calc( var(--fillR) + 30px;`"
-        :min="input0"
+        :min="internal0"
         :max="max"
-        :step="step" />
+        :step="step"
+        @change="changed" />
       <div class="BaseDualSlider_Track BaseDualSlider_TrackUpper"></div>
       <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill BaseDualSlider_TrackUpper">
         <div
           v-if="label"
           class="BaseDualSlider_FillLabel">{{ label }}</div>
       </div>
-      <div class="BaseDualSlider_LabelL">{{ value[0] }}</div>
-      <div class="BaseDualSlider_LabelR">{{ value[1] }}</div>
+      <div class="BaseDualSlider_LabelL">{{ internal0 }}</div>
+      <div class="BaseDualSlider_LabelR">{{ internal1 }}</div>
     </div>
   </div>
 </template>
@@ -90,48 +87,54 @@ export default {
   },
   data() {
     return {
-      elementAbove: 1
+      elementAbove: 1,
+      internal0: 0,
+      internal1: 0
     }
   },
   watch: {
-    // input0(newValue) {
-    //   this.$emit("change", [this.input0, this.input1])
-    // },
-    // input1(newValue) {
-    //   this.$emit("change", [this.input0, this.input1])
-    // },
+    value(novoValor) {
+      if (this.value[0] !== this.internal0) this.internal0 = this.value[0];
+      if (this.value[1] !== this.internal1) this.internal1 = this.value[1];
+    }
   },
-  beforeMount() {}, 
+  beforeMount() {
+    this.internal0 = this.value[0];
+    this.internal1 = this.value[1];
+  },
   mounted() {},
   computed: {
-    input0: {
-      get: function() {
-        return this.value[0];
-      },
-      set: function(novoValor) {
-        // console.log(novoValor);
-        this.elementAbove = 0;
-        this.$emit("change", [Number(novoValor), this.input1])
-      }
-    },
-    input1: {
-      get: function() {
-        return this.value[1];
-      },
-      set: function(novoValor) {
-        this.elementAbove = 1;
-        this.$emit("change", [this.input0, Number(novoValor)])
-      }
-    },
+    // input0: {
+    //   get: function() {
+    //     return this.value[0];
+    //   },
+    //   set: function(novoValor) {
+    //     this.elementAbove = 0;
+    //     this.$emit("change", [Number(novoValor), this.input1])
+    //   }
+    // },
+    // input1: {
+    //   get: function() {
+    //     return this.value[1];
+    //   },
+    //   set: function(novoValor) {
+    //     this.elementAbove = 1;
+    //     this.$emit("change", [this.input0, Number(novoValor)])
+    //   }
+    // },
   },
   methods: {
-    update(index, e) {
-      console.log(index, e.target.value);
+    update() {
+      console.log([this.internal0, this.internal1]);
+      this.$emit("change", [this.internal0, this.internal1])
     },
     checkMouseDown(e) {
       if (e.ctrlKey || e.metaKey) {
         this.$emit("ctrlClick");
       }
+    },
+    changed(e, b) {
+      this.$emit("change", [Number(this.internal0), Number(this.internal1)]);
     }
   },
 }
@@ -154,6 +157,7 @@ export default {
   pointer-events: none;
   transition-duration: 0.2s;
   transition-property: box-shadow;
+  border-radius: 15px;
 }
 .BaseDualSlider_Track {
   position: absolute;
@@ -161,7 +165,7 @@ export default {
   width: calc(100% + 16px);
   margin-left: -10px;
   left: 2px;
-  --fill: #fff1;
+  --fill: #fff2;
   background-color: var(--fill);
   border-radius: 15px;
   pointer-events: none;

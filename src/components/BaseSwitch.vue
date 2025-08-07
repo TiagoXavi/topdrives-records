@@ -1,7 +1,8 @@
 <template>
   <div class="BaseSwitch_Layout" :class="{
       BaseSwitch_Horizontal: horizontal,
-      BaseSwitch_Loading: loading
+      BaseSwitch_Loading: loading,
+      BaseSwitch_Disabled: disabled
     }">
     <label class="BaseSwitch_Box">
       <input
@@ -121,6 +122,7 @@ export default {
 }
 .BaseSwitch_Label {
   font-size: 14px;
+  text-align: center;
 }
 
 .BaseSwitch_Input:checked + .BaseSwitch_Slider {
@@ -169,5 +171,27 @@ export default {
 }
 .BaseSwitch_Mini .BaseSwitch_Label {
   margin-top: -7px;
+}
+.BaseSwitch_Disabled {
+  opacity: 0.5;
+}
+.BaseSwitch_Disabled .BaseSwitch_Slider {
+  cursor: unset;
+}
+.BaseSwitch_Disabled .BaseSwitch_Slider:before {
+  position: absolute;
+  content: "\e3a6";
+  font-family: 'JurisT' !important;
+  color: #666;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+}
+.BaseSwitch_Disabled .BaseSwitch_Input:checked + .BaseSwitch_Slider:before {
+  color: #5fb500;
+  transform: translateX(calc(var(--width) - var(--height))) rotate(45deg);
 }
 </style>

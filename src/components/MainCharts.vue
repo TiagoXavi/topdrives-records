@@ -64,8 +64,9 @@
         v-if="user && user.tier <= 2"
         :class="{ D_Button_Loading: chartLoading }"
         :disabled="chartLoading || !chartTrack"
-        class="D_Button Main_SaveAllButton Main_ChartAnalyzeButton"
+        class="D_Button D_ButtonDark D_ButtonTier2 Main_ChartAnalyzeButton"
         @click="chartAnalyse()">
+        <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
         <span>{{ $t("m_loadChart") }}</span>
         <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
       </button>

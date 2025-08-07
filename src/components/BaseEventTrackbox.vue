@@ -1,10 +1,11 @@
 <template>
   <div
-    :class="{ BaseEventTrackbox_Mini: mini }"
+    :class="{ BaseEventTrackbox_Mini: mini, BaseEventTrackbox_MiniHeight: miniHeight }"
     class="BaseEventTrackbox_Contents">
     <div
       v-for="(trackset, itrackset) in event.resolvedTrackset"
       :class="{ BaseEventTrackbox_LineInactive: check && check[0] != itrackset }"
+      :style="size ? `--cg-width: ${size}px;` : ''"
       class="Cg_Box BaseEventTrackbox_BoxRelative">
       <div
         v-for="(trackMonoArray, itrackMonoArray) in trackset"
@@ -156,6 +157,14 @@ export default {
     mini: {
       type: Boolean,
       default: false
+    },
+    miniHeight: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: Number,
+      default: 0
     },
     eventBestPerTrack: {
       type: Object,
@@ -508,6 +517,15 @@ export default {
 }
 .BaseEventTrackbox_Mini .Cg_SelectTrackButton {
   font-size: 14px;
+}
+.BaseEventTrackbox_MiniHeight {
+  --cell-height: 25px;
+}
+.BaseEventTrackbox_MiniHeight .Row_Conditions {
+  display: none;
+}
+.BaseEventTrackbox_MiniHeight .BaseIconSvg_Layout svg {
+  width: 20px;
 }
 
 

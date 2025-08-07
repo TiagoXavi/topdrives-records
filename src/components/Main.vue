@@ -32,11 +32,10 @@
             </template>
             <template slot="more">
               <button
-                v-if="whatTier && whatTier <= 4"
                 style="font-size: 18px;     padding: 9px 9px;"
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu Main_BestOfOutside"
                 @click="openKingOfDialog()">
-                <i class="ticon-star D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+                <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
                 <span>{{ $t("m_bestOf") }}</span>
               </button>
             </template>
@@ -795,7 +794,7 @@
             <button
               v-if="whatTier && whatTier <= 3"
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+              class="D_Button D_ButtonDark D_ButtonTier3"
               @click="cgPreviewSolutions()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_previewSolutions") }}</button>
             <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsPreviewCg") }}</div>
           </div>
@@ -1147,19 +1146,14 @@
             </template>
           </div> -->
 
-          <div v-if="user && user.username === 'TiagoXavi' && !eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <template v-if="whatTier && whatTier <= 2"></template>
-            <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsHandRanking") }}</div>
-          </div>
-
           <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
 
           <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
-              v-if="user && user.username === 'TiagoXavi' && whatTier && whatTier <= 2"
               :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
-              @click="eventGetHandRanking()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
+              :disabled="!event.filteringQueryStrings"
+              class="D_Button D_ButtonDark D_ButtonTier2"
+              @click="openHandRankingDialog()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1541,6 +1535,10 @@
             <div v-if="!clubDayNeedSave && !clubReqNeedSave && !clubTrackNeedSave" class="Cg_BottomModTools" style="margin-top: 30px;">
               <button
                 :class="{ D_Button_Loading: clubLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonTier2"
+                @click="openHandRankingDialog()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
+              <button
+                :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="clubExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
               <button
@@ -1551,11 +1549,15 @@
                 <BaseSwitch v-if="clubPicksList.length > 0" v-model="clubEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
             </div>
 
-            <div v-if="clubHasOriginalOrder && user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <div v-if="user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
+              <BaseSwitch v-model="clubForceAnalyze" :label="$t('m_admin')" :horizontal="true" />
+            </div>
+
+            <div v-if="clubForceAnalyze && clubHasOriginalOrder && user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
               <BaseSwitch :value="clubIsShowingOriginal" :label="$t('m_showOriginalOrder')" :horizontal="true" @click="clubViewToggle()" />
             </div>
 
-            <div v-if="user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <div v-if="clubForceAnalyze && user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
               <template v-for="(icon, ix) in clubsIconsList">
                 <BaseChip
                   v-model="clubTracksGroupModel.icons"
@@ -1566,13 +1568,9 @@
               </template>
             </div>
 
-            <div v-if="user && user.mod" class="Cg_BottomModTools" style="margin-top: 30px;">
-              <BaseSwitch v-model="clubForceAnalyze" :label="$t('m_admin')" :horizontal="true" />
-            </div>
 
 
-
-            <div v-if="user && user.username === 'TiagoXavi'" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
+            <div v-if="clubForceAnalyze && user && user.username === 'TiagoXavi'" class="Cg_BottomModTools Main_AdminLayoutBox" style="margin-top: 30px;">
               <button
                 v-if="clubShowSaveOriginalOrder && !clubBlockOriginalButton"
                 :class="{ D_Button_Loading: clubLoadingAny }"
@@ -1667,7 +1665,7 @@
           @changeClick="openKingFilterDialog()" />
 
         <div v-if="!whatTier || whatTier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder' href='https://www.topdrivesrecords.com?share=~KcsMed_a01~CSkoda_Enyaq_Coupe_iV_80x_2022~T323~CHonda_Legend_3.7_SH-AWD_2004~T323~CSkoda_Enyaq_iV_80x_2021~T323~CHonda_Legend_3.7_SH-AWD_2004~T233~CBMW_420i_xDrive_Coupe_2020~T323~CMazda_CX50_25_Turbo_AWD_2022~T323~CMazda_CX90_33_Turbo_S_AWD_2024~T323~CBMW_420i_xDrive_Coupe_2020~T332~CChrysler_300_Glacier_Edition_2013~T323~CVolvo_EX30_Single_Motor_2023~T233~CVolvo_EX30_Single_Motor_2023~T323~CBMW_520d_xDrive_Touring_2020~T323~CLincoln_MKS_Concept_2006~T323~CJaguar_X-Type_2001~T323~CAcura_ZDX_2010~T323~CBMW_520d_xDrive_2017~T323~CVolvo_V50_T5_AWD_2005~T323~CSubaru_Levorg_(VN)_2021~T323~CVolvo_V60_Plugin_Hybrid_2011~T323~CSuzuki_Kizashi_4x4_2010~T323~CBMW_i4_eDrive40_2021~T323~CBMW_i4_eDrive40_2021~T233~CMitsubishi_Lancer_Evolution_VII_GTA_2002~T323~CMitsubishi_Lancer_Evolution_VII_GTA_2002~T233~CMazda_CX60_33_D_MHEV_AWD_2022~T323~CVolvo_S40_T5_AWD_2005~T323~CMazda_Atenza_2006~T323~CMazda_Atenza_2006~T233~CMazda_323_GT_Turbo_4WD_1985~T323~CBMW_120d_xDrive_2019~T323'>{{ $t('m_here') }}</a></span>
+          <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder D_LinkButton' @click="testBestOf()">{{ $t('m_here') }}</a></span>
         </div>
         <!-- <div
           v-if="!kingFixed"
@@ -1697,8 +1695,131 @@
           v-if="whatTier && whatTier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
           :disabled="kingLoading || !kingTrack"
-          class="D_Button Main_SaveAllButton Main_KingAnalyzeButton"
-          @click="kingAnalyse()">{{ $t("m_findBest") }}</button>
+          class="D_Button D_ButtonDark D_ButtonTier4 Main_KingAnalyzeButton"
+          @click="kingAnalyse()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_findBest") }}</button>
+      </div>
+    </BaseDialog>
+
+    
+
+    <BaseDialog
+      :active="eventBestTeamsDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="820px"
+      min-width="240px"
+      @close="eventBestTeamsDialog = false;">
+      <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
+        <div class="Main_TeamsHeader">
+          <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
+          <div class="Main_TeamsEngineLabel">Engine v1</div>
+        </div>
+        <div class="Main_TeamsNeck D_Center2">
+          <!-- controls -->
+          <div class="Main_TeamsControlsLayout">
+            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')} (soon)`" :horizontal="false" :disabled="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.repeatCars" :label="$t('m_duplicates')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_sequential')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="false" />
+            <BaseSwitch
+              :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
+              :label="$t('m_neverAwardedCars')"
+              :horizontal="false"
+              :disabled="!eventBestTeamsConfig.prizeCars || true"
+              @change="eventBestTeamsConfig.neverAwardedCars = $event"
+            />
+            <BaseSwitch v-model="eventBestTeamsConfig.predictedTimes" :label="$t('m_predictedTimes')" :horizontal="false" />
+          </div>
+
+          <!-- tracks replica? -->
+          <div v-if="eventBestTeamsTarget.resolvedTrackset" class="Main_TeamsTrackset" :class="{ Main_TeamsTracksetWithBottom: eventBestTeamsConfig.forceCarsBool }">
+            <BaseEventTrackbox
+              :event="{ resolvedTrackset: eventBestTeamsTarget.resolvedTrackset }"
+              :eventLoadingAny="false"
+              :user="{ mod: false }"
+              :check="null"
+              :eventForceAnalyze="false"
+              :eventBestPerTrack="{}"
+              :showBestPerTrack="false"
+              :hideCheckBox="true"
+              :disableCampaignTip="true"
+              :mini="true"
+              :miniHeight="true"
+              :size="windowWidth < 1200 ? 115 : 154"
+              :readonly="true"
+            />
+          </div>
+
+          <BaseExpandDiv :active="eventBestTeamsConfig.forceCarsBool" class="Main_TeamsForceCarsExpand">
+            
+            <!-- Force cars -->
+            <div class="Main_TeamsCanEnterEventMid">
+              <BaseCarsTeam
+                :cars="eventBestTeamsConfig.forceCars"
+                :filterToImport="eventBestTeamsTarget.filter"
+                :mini="windowWidth < 1200"
+              />
+            </div>
+          </BaseExpandDiv>
+
+          <div v-if="eventBestTeamsTarget.clubReqsGroupModel" class="Main_TeamsRQSliderBox">
+            <BaseMonoSlider
+              v-model="eventBestTeamsTarget.rqLimit"
+              :min="60"
+              :max="500"
+              :step="5"
+              label="RQ Limit"
+              class="Main_TeamsRQSlider"
+            />
+          </div>
+          
+          <div class="Main_TeamsFooter D_Center2">
+            <div v-if="!whatTier || whatTier > 2" class="Main_SaveGalleryGuide">
+              <span>{{ $t("p_patronsOnly", { tier: 2 }) }}<br>{{ $t("p_bestHandDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/PU6QnGUSGJA'>Youtube</a></span>
+            </div>
+            <button
+              :class="{ D_Button_Loading: eventBestTeamsLoading }"
+              :disabled="!whatTier || whatTier > 2 || !eventBestTeamsTarget.filteringQueryStrings || eventBestTeamSameAsBefore"
+              class="D_Button D_ButtonDark D_ButtonTier2"
+              @click="getHandRanking($event)">
+              <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
+              <span>{{ $t("m_loadRanking") }}</span>
+              <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
+        <div v-if="eventBestTeamsBigArray.length" class="Main_Teams_Body Space_TopPlus">
+          <RecycleScroller
+            :items="eventBestTeamsBigArray"
+            :item-size="111"
+            :buffer="800"
+            key-field="3"
+            listClass="Main_Teams_CardsWrapper"
+            itemClass="Main_Teams_ScrollerItem"
+            class="Main_DarkScroll"
+            page-mode>
+            <template v-slot="{ item, index, active }">
+              <div class="Main_Teams_Index">
+                <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
+                <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
+                <div class="Main_Teams_IndexPts">{{ item[2] }}</div>
+              </div>
+              <div class="Main_Teams_ListLayout">
+                <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox">
+                  <BaseCardGallery
+                    :car="Vue.all_carsObj[rid]"
+                    :key="`${rid}_${index}`"
+                    :options="false"
+                    :showPrize="true"
+                    :tuneText="item[5][index]"
+                    class="Main_Teams_GalleryCard BaseCardGallery150"
+                  />
+                </div>
+              </div>
+            </template>
+          </RecycleScroller>
+        </div>
       </div>
     </BaseDialog>
 
@@ -3072,48 +3193,6 @@
         </div>
       </div>
     </BaseDialog>
-
-    <BaseDialog
-      :active="eventBestTeamsDialog"
-      :transparent="false"
-      :lazy="true"
-      max-width="820px"
-      min-width="240px"
-      @close="eventBestTeamsDialog = false;">
-      <div v-if="eventBestTeamsDialog && eventBestTeamsBigArray.length" class="Main_TeamsLayout">
-        <div class="Main_TeamsHeader">
-          <div class="Main_DialogTitle">{{ event.name }} - {{ $t("m_handRanking") }}</div>
-        </div>
-        <RecycleScroller
-          :items="eventBestTeamsBigArray"
-          :item-size="111"
-          :buffer="800"
-          key-field="3"
-          listClass="Main_Teams_CardsWrapper"
-          itemClass="Main_Teams_ScrollerItem"
-          class="Main_DarkScroll"
-          page-mode>
-          <template v-slot="{ item, index, active }">
-            <div class="Main_Teams_Index">
-              <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
-              <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
-              <div class="Main_Teams_IndexPts">{{ item[2] }}</div>
-            </div>
-            <div class="Main_Teams_ListLayout">
-              <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox">
-                <BaseCardGallery
-                  :car="Vue.all_carsObj[rid]"
-                  :options="false"
-                  :showPrize="true"
-                  :tuneText="item[5][index]"
-                  class="Main_Teams_GalleryCard BaseCardGallery150"
-                />
-              </div>
-            </div>
-          </template>
-        </RecycleScroller>
-      </div>
-    </BaseDialog>
   </div>
 </template>
 
@@ -3154,6 +3233,9 @@ import BaseCardGallery from './BaseCardGallery.vue'
 // import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
+import BaseCarsTeam from './BaseCarsTeam.vue'
+import BaseExpandDiv from './BaseExpandDiv.vue'
+import BaseMonoSlider from './BaseMonoSlider.vue'
 
 export default {
   name: 'Main',
@@ -3190,7 +3272,10 @@ export default {
     BasePrizeBoard,
     BaseEventName,
     BaseBrakeDialog,
-    BaseCardGallery
+    BaseCardGallery,
+    BaseCarsTeam,
+    BaseExpandDiv,
+    BaseMonoSlider
   },
   props: {
     phantomCar: {
@@ -3235,7 +3320,6 @@ export default {
       isFilteringT: false,
       nextId: 0,
       countTimesPerTrack: {},
-      debounceFilterT: null,
       debounceCgSaveBank: null,
       // searchLoading: false,
       searchLoadingT: false,
@@ -3405,9 +3489,21 @@ export default {
       eventBestPerTrack: {},
       eventHasPrizeBoard: false,
       eventParsedList: [],
+      eventBestTeamsLoading: false,
       eventBestTeamsDialog: false,
       eventBestTeamsBigArray: [],
       eventBestTeamsLastCache: null,
+      eventBestTeamsConfig: {
+        myGarage: false,
+        forceCarsBool: false,
+        repeatCars: true,
+        uniqueHands: false,
+        prizeCars: true,
+        neverAwardedCars: true,
+        predictedTimes: true,
+        forceCars: [{}, {}, {}, {}, {}],
+      },
+      eventBestTeamsTarget: {},
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -3425,8 +3521,6 @@ export default {
       clubCompilation: [],
       clubCurrentTracksetString: null,
       clubCurrentCompString: null,
-      clubCurrentTrackGroupuuid: null,
-      clubCurrentTracksetuuids: null,
       clubCurrentTracksetIcons: null,
       clubCurrentName: null,
       clubRequirementsDialog: false,
@@ -3450,8 +3544,6 @@ export default {
       clubDaySelectedObj: {},
       clubDayCurrentTracksetStrig: null,
       clubDayCurrentReqStrig: null,
-      clubDayCurrentTrackUuidStrig: null,
-      clubDayCurrentReqUuidStrig: null,
       clubCheckFilterCodePre: null,
       clubCheckFilterCode: null,
       clubForceAnalyze: false,
@@ -3481,8 +3573,6 @@ export default {
       clubCurrentFilterToSave2: null,
       clubCurrentFilterToSave3: null,
       clubCurrentFilterForKing: {},
-      clubCurrentCriteriaUuidString: null,
-      clubCurrentCriteriaGroupUuidString: null,
       clubCurrentCriteriaNameString: null,
       clubCurrentKingDialog: false,
       clubCurrentKingFilterCodePre: null,
@@ -3907,7 +3997,6 @@ export default {
   mounted() {
     let vm = this;
     
-    this.debounceFilterT = Vue.debounce(this.changeFilterT, 500);
     this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 2000);
 
     this.getLastest();
@@ -4323,6 +4412,9 @@ export default {
     isEvents() {
       return this.mode === 'events';
     },
+    isClubs() {
+      return this.mode === 'clubs';
+    },
     eventComp() {
       if (this.isEvents) return this.event.comp;
       else return this.clubTracksGroupModel.comp;
@@ -4350,6 +4442,7 @@ export default {
       if (this.eventTracksetString === JSON.stringify(this.event.trackset)) return false;
       let localTracks = JSON.parse(this.eventTracksetString);
       let areEqual = false;
+      if (localTracks.length !== this.event.trackset.length) return true;
       areEqual = localTracks.every((trackset, itrackset) => {
         return trackset.every(a => this.event.trackset[itrackset].some(b => a === b));
       })
@@ -4361,8 +4454,6 @@ export default {
       if (this.clubFirstLoading) return false;
       if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.trackset)) return true;
       if (this.clubCurrentCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) return true;
-      if (this.clubCurrentTrackGroupuuid !== JSON.stringify(this.clubTracksGroupModel.trackGroupuuid)) return true;
-      if (this.clubCurrentTracksetuuids !== JSON.stringify(this.clubTracksGroupModel.tracksetuuids)) return true;
       if (this.clubCurrentTracksetIcons !== JSON.stringify(this.clubTracksGroupModel.icons)) return true;
       if (this.clubCurrentName !== JSON.stringify(this.clubTracksGroupModel.name)) return true;
       return false;
@@ -4375,8 +4466,6 @@ export default {
       if (this.clubCurrentFilterToSave && JSON.stringify(this.clubCurrentFilterToSave) !== this.clubCurrentFilterString) return true;
       if (this.clubCurrentFilterToSave2 && JSON.stringify(this.clubCurrentFilterToSave2) !== this.clubCurrentFilterString2) return true;
       if (this.clubCurrentFilterToSave3 && JSON.stringify(this.clubCurrentFilterToSave3) !== this.clubCurrentFilterString3) return true;
-      if (this.clubCurrentCriteriaUuidString !== JSON.stringify(this.clubReqsGroupModel.criteriauuid)) return true;
-      if (this.clubCurrentCriteriaGroupUuidString !== JSON.stringify(this.clubReqsGroupModel.criteriaGroupUuid)) return true;
       if (this.clubCurrentCriteriaNameString !== JSON.stringify(this.clubReqsGroupModel.name)) return true;
       return false;
     },
@@ -4386,8 +4475,6 @@ export default {
       if (this.clubFirstLoading) return false;
       if (this.clubDayCurrentTracksetStrig !== JSON.stringify(this.clubDaySelectedObj.tracksetGroups)) return true;
       if (this.clubDayCurrentReqStrig !== JSON.stringify(this.clubDaySelectedObj.criterias)) return true;
-      if (this.clubDayCurrentTrackUuidStrig !== JSON.stringify(this.clubDaySelectedObj.tracksUuid)) return true;
-      if (this.clubDayCurrentReqUuidStrig !== JSON.stringify(this.clubDaySelectedObj.reqsUuid)) return true;
       return false;
     },
     clubArrayClubDays() {
@@ -4482,6 +4569,11 @@ export default {
         this.$store.commit("CHANGE_LONG_CGS", newValue);
       }
     },
+    eventBestTeamSameAsBefore() {
+      if (!this.eventBestTeamsLastCache) return false;
+      if (JSON.stringify( {...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig} ) === this.eventBestTeamsLastCache) return true;
+      return false;
+    }
   },
   methods: {
     pushTrackSet(trackset) {
@@ -5054,6 +5146,7 @@ export default {
       this.kingDialog = false;
       this.kingFixed = false;
       this.showPoints = false;
+      this.resetBestTeamsConfig();
 
       setTimeout(() => {
         this.mode = mode;
@@ -8403,6 +8496,14 @@ export default {
       .then(res => {
         this.eventList = res.data.value;
 
+        if (Vue.preUrl && !Vue.preUrl.includes("topdrivesrecords") && this.user && this.user.username === 'TiagoXavi') {
+          this.eventParsedList.push({ "rqLimit": 444, "trackset": [ [ "drag30130_a00", "mtSlalom_a00", "gForcer_a00", "mnGforce_a00", "mnCity_a01" ], [ "tCircuit_a00", "gForce_a00", "fast_a01", "mtSlalom_a01", "hairpin_a01" ], [ "mtHairpin_a00", "mtSlalom_a00", "mtTwisty_a01", "tRoad_a01", "kart_a01" ], [ "forest_a00", "kart_a00", "mtSlalom_a00", "mtHairpin_a01", "carPark_a01" ] ], "filter2": { "name": "1x", "prizesModel": [ "Prize Cars", "Non-Prize Cars" ] }, "user": "TiagoXavi", "comp": [ { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Standard" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Standard" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "name": "Fantastic Ford", "startDateTime": "2025-07-25T20:00:00.000Z", "flexibleCriteriaRequired": [ 4 ], "icons": [ "asphalt", "rain" ], "date": "fantastic_ford", "image": "EventFord", "realDate": "2025-07-22T20:27:12.983Z", "filter": { "brandsModel": [ "Ford" ], "name": "4x" }, "bucketSize": 100, "filteringQueryStrings": [ "[\"((\\\"manufacturerguid\\\"=\\\"3b3d7baa-939d-44f3-b77b-75fc081d0c8b\\\"))\"]" ], "tag": "Standard", "eid": "t", "endDateTime": "2025-07-27T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 1800000 })
+          this.eventParsedList.push({ "rqLimit": 400, "trackset": [ [ "drag50150_a00", "tokyoDrag_a01", "fast_a01", "tokyoLoop_a01", "slalom_a01" ], [ "fast_a00", "kart_a01", "csSmall_a00", "tokyoGforce_a01", "csMed_a01" ], [ "drag150b_a00", "tokyoDrag_a01", "tokyoOverpass_a00", "tokyoBridge_a01", "tokyoLoop_a01" ], [ "tokyoDrag_a01", "mile4_a01", "tokyoOverpass_a00", "tCircuitr_a00", "tokyoBridge_a01" ] ], "user": "TiagoXavi", "comp": [ { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Standard" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "name": "IRGP Endurance Cup", "startDateTime": "2025-07-24T20:00:00.000Z", "flexibleCriteriaRequired": [ 5, 5, 5 ], "icons": [ "rain", "asphalt" ], "date": "irgp_endurance_cup", "image": "EventOverloaded", "realDate": "2025-07-24T18:03:25.843Z", "filter": { "tagsModel": [ "German Renaissance", "Italian Renaissance" ], "tyresModel": [ "Performance", "Standard" ], "prizesModel": [ "Non-Prize Cars" ] }, "bucketSize": 128, "filteringQueryStrings": [ "[\"((\\\"tags\\\"=\\\"200000\\\"|\\\"tags\\\"=\\\"400000\\\"))\"]", "[\"((\\\"tyretype\\\"=\\\"HiPerformance\\\"|\\\"tyretype\\\"=\\\"Tourism\\\"))\"]", "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]" ], "tag": "Special LiveOps", "eid": "t", "endDateTime": "2025-07-27T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 900000 })
+          this.eventParsedList.push({ "eid": "t", "date": "lucky_number_seven", "bucketSize": 100, "comp": [ { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Speedster" ], "tyres": [ "Performance" ] } ], "endDateTime": "2025-07-19T20:00:00.000Z", "filter": { "year2Model": [ 2017, 2007, 1997, 1987, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979 ] }, "filteringQueryStrings": [ "[\"((\\\"year\\\"=\\\"2017\\\"))\"]", "[\"((\\\"year\\\"=\\\"2007\\\"))\"]", "[\"((\\\"year\\\"=\\\"1997\\\"))\"]", "[\"((\\\"year\\\"=\\\"1987\\\"))\"]", "[\"((\\\"year\\\"=\\\"1970-1979\\\"))\"]" ], "flexibleCriteriaRequired": [ 1, 1, 1, 1, 1 ], "hidden": true, "icons": [ "asphalt", "rain" ], "image": "Event70s", "name": "Lucky Number Seven", "realDate": "2025-07-14T20:16:31.182Z", "rqLimit": 365, "startDateTime": "2025-07-17T20:00:00.000Z", "tag": "Standard", "ticketRegenerationTime": 1800000, "trackset": [ [ "mile2_a00", "mile4_a00", "mnCity_a00", "mnCityNarrow_a00", "mnHairpin_a01" ], [ "testBowl_a00", "mile2_a00", "mile4_a00", "tRoad_a00", "drag100b_a01" ], [ "testBowl_a00", "drag100_a00", "kart_a00", "slalom_a00", "drag100b_a01" ], [ "mile1_a00", "oceanLongDrag_a00", "mile4_a00", "fast_a00", "fast_a01" ] ], "user": "TiagoXavi" })
+          this.eventParsedList.push({ "eid": "t", "date": "lancer_evolution_ii_group_a_quals", "bucketSize": 300, "comp": [ { "clearance": [ ], "drives": [ "2WD" ], "meta": [ "Twister" ], "tyres": [ "Standard", "Off-road" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Speedster" ], "tyres": [ "Standard", "All-surface" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Off-road" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Off-road" ] } ], "endDateTime": "2025-06-29T20:00:00.000Z", "filter": { "tagsModel": [ "Asia-Pacific Grand Prix" ], "tyresModel": [ "Standard", "All-surface", "Off-road" ] }, "filteringQueryStrings": [ "[\"((\\\"tags\\\"=\\\"1000000000000\\\"))\"]", "[\"((\\\"tyretype\\\"=\\\"Tourism\\\"|\\\"tyretype\\\"=\\\"All-Surface\\\"|\\\"tyretype\\\"=\\\"Offroad\\\"))\"]" ], "flexibleCriteriaRequired": [ 5, 5 ], "hidden": false, "icons": [ "rain", "dirt", "asphalt" ], "image": "EventTriSeries", "name": "Lancer Evolution II Group A Quals", "realDate": "2025-06-26T17:28:29.560Z", "rqLimit": 350, "startDateTime": "2025-06-26T20:00:00.000Z", "tag": "Tri-Series", "ticketRegenerationTime": 1800000, "trackset": [ [ "mtSlalom_a00", "mtHairpin_a01", "mtTwisty_a01", "rallySmall_a40", "forestRiver_a41" ], [ "gForce_a00", "canyonTour_a01", "tRoad_a01", "butte_a40", "slalom_a50" ], [ "hairpin_a00", "hairpin_a01", "tRoad_a01", "hairpin_a60", "tRoad_a60" ], [ "mtTwisty_a00", "dealsGapBack_a41", "dealsGap_a01", "forestRiver_a41", "mtHairpin_a10" ] ], "user": "TiagoXavi" })
+        }
+
+
         // filter
         let isTier = this.whatTier && this.whatTier <= 3;
         this.eventList = this.eventList.filter(x => {
@@ -8512,7 +8613,7 @@ export default {
       }
 
       this.event = event;
-      this.eventCurrentId = eventParsedToPreview ? "_preview_" : event.date;
+      this.eventCurrentId = eventParsedToPreview && !event.date ? "_preview_" : event.date;
       this.eventCurrentName = event.name;
       this.eventCurrentIsHidden = eventParsedToPreview ? eventParsedToPreview.hidden : (this.eventList.find(x => x.date === event.date) || {}).hidden;
       this.eventCheckFilterCodePre = null;
@@ -8562,6 +8663,7 @@ export default {
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
       this.eventIcons = JSON.stringify(this.event.icons);
       this.eventLoadTracksetLocal();
+      this.resetBestTeamsConfig();
 
 
       this.eventResolveTrackset();
@@ -9113,7 +9215,7 @@ export default {
       trackset.splice(obj.new, 0, trackset.splice(obj.current, 1)[0]);
 
       if (this.isEvents) this.eventResolveTrackset(true);
-      else this.clubsResolveTrackGroup(true);
+      else this.clubsResolveTrackGroup(); // TODO: local edit clubs trackset
     },
     eventMove(direction = "up", itrackset) {
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
@@ -9696,55 +9798,6 @@ export default {
       console.log(event, event.filteringQueryStrings);
       this.loadEventScreen("", event);
     },
-    eventGetHandRanking() {
-      let filter;
-      let filterAtr = 'filter';
-      let cacheCode = ``;
-      if (this.isEvents) {
-        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
-        filter = this.event[filterAtr];
-        cacheCode = `${this.event.date}_${filterAtr}`;
-      } else {
-        if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
-        filter = this.clubReqsGroupModel[filterAtr];
-        cacheCode = `${this.clubTracksGroupModel.date}_${this.clubReqsGroupModel.date}_${filterAtr}`;
-      }
-
-      if (cacheCode === this.eventBestTeamsLastCache) {
-        this.eventBestTeamsDialog = true;
-        return;
-      };
-
-      this.eventAnalyseLoading = true;
-
-      axios.post(Vue.preUrl + "/handRaking", {
-        trackset: this.event.trackset,
-        filterTdr: filter,
-        rqLimit: this.event.rqLimit,
-        isTdr: true,
-        filteringQueryStrings: this.event.filteringQueryStrings,
-        flexibleCriteriaRequired: this.event.flexibleCriteriaRequired
-      })
-      .then(res => {
-        console.log("eventGetHandRanking", res.data.stats);
-        this.eventBestTeamsBigArray = res.data.arr;
-        this.eventBestTeamsDialog = true;
-        this.eventBestTeamsLastCache = cacheCode;
-      })
-      .catch(error => {
-        this.eventAnalyseLoading = false;
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-      })
-      .then(() => {
-        this.eventAnalyseLoading = false;
-      });
-    },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
 
@@ -10043,11 +10096,11 @@ export default {
         Vue.set(this, "carDetailsList", result);
         this.applyNewData(res.data, this.mode === 'challenges', origMode);
         this.updateOptions();
-        this.updateCarLocalStorage();
+        // this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
         if (this.kingForceVerticalView) {
-          this.display("vertical");
-          this.colorsChange("full");
+          this.display("vertical", false);
+          this.colorsChange("full", false);
         }
 
         if (result.length === 0) {
@@ -10302,16 +10355,11 @@ export default {
       this.clubDaySelectedObj.criterias.sort((a, b) => {
         return a.localeCompare(b);
       })
-      if (!this.clubDaySelectedObj.tracksUuid) {
-        Vue.set(this.clubDaySelectedObj, "tracksUuid", "");
-      }
-      if (!this.clubDaySelectedObj.reqsUuid) {
-        Vue.set(this.clubDaySelectedObj, "reqsUuid", "");
-      }
 
 
       this.clubFillTrackGroupsActive();
       this.clubsDayResetStringsToSave();
+      this.resetBestTeamsConfig();
 
       // trackset
       if (this.clubTracksGroupsActive.length > 0) {
@@ -10331,8 +10379,6 @@ export default {
     clubsTrackResetStringsToSave() {
       this.clubCurrentTracksetString = JSON.stringify(this.clubTracksGroupModel.trackset);
       this.clubCurrentCompString = JSON.stringify(this.clubTracksGroupModel.comp);
-      this.clubCurrentTrackGroupuuid = JSON.stringify(this.clubTracksGroupModel.trackGroupuuid);
-      this.clubCurrentTracksetuuids = JSON.stringify(this.clubTracksGroupModel.tracksetuuids);
       this.clubCurrentTracksetIcons = JSON.stringify(this.clubTracksGroupModel.icons);
       this.clubCurrentName = JSON.stringify(this.clubTracksGroupModel.name);
       this.clubBlockOriginalButton = false;
@@ -10353,15 +10399,11 @@ export default {
         this.clubCurrentFilterString2 = JSON.stringify(this.clubReqsGroupModel.filter2);
         this.clubCurrentFilterString3 = JSON.stringify(this.clubReqsGroupModel.filter3);
       }
-      this.clubCurrentCriteriaUuidString = JSON.stringify(this.clubReqsGroupModel.criteriauuid);
-      this.clubCurrentCriteriaGroupUuidString = JSON.stringify(this.clubReqsGroupModel.criteriaGroupUuid);
       this.clubCurrentCriteriaNameString = JSON.stringify(this.clubReqsGroupModel.name);
     },
     clubsDayResetStringsToSave() {
       this.clubDayCurrentTracksetStrig = JSON.stringify(this.clubDaySelectedObj.tracksetGroups);
       this.clubDayCurrentReqStrig = JSON.stringify(this.clubDaySelectedObj.criterias);
-      this.clubDayCurrentTrackUuidStrig = JSON.stringify(this.clubDaySelectedObj.tracksUuid);
-      this.clubDayCurrentReqUuidStrig = JSON.stringify(this.clubDaySelectedObj.reqsUuid);
     },
     clubsChangeTrackGroup(index) {
       if (index === null) {
@@ -10372,9 +10414,6 @@ export default {
       this.clubTracksGroupModel = this.clubTracksGroupsActive[index];
       if (this.clubTracksGroupModel.trackset.length === 0) {
         this.clubTracksGroupModel.trackset.push([null,null,null,null,null])
-      }
-      if (this.clubTracksGroupModel.tracksetuuids.length === 0) {
-        this.clubTracksGroupModel.tracksetuuids = [null,null,null,null];
       }
       if (!this.clubTracksGroupModel.icons) {
         Vue.set(this.clubTracksGroupModel, "icons", []);
@@ -10387,6 +10426,7 @@ export default {
       this.clubsResolveTrackGroup();
       this.clubsTrackResetStringsToSave();
       this.clubLoadPicks();
+      this.resetBestTeamsConfig()
     },
     clubsResolveTrackGroup(original = null) {
       if (original === null && this.clubIsShowingOriginal && this.clubHasOriginalOrder) {
@@ -10431,6 +10471,7 @@ export default {
       this.clubsResolveReqGroup();
       this.clubsReqResetStringsToSave();
       this.clubLoadPicks();
+      this.resetBestTeamsConfig()
     },    
     clubAddTrackset() {
       this.clubTracksGroupModel.trackset.push([null,null,null,null,null]);
@@ -10668,8 +10709,6 @@ export default {
       // if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.filter)) params.filter = this.eventFilterToSave;
       if (this.clubCurrentTracksetString !== JSON.stringify(this.clubTracksGroupModel.trackset)) params.trackset = this.clubTracksGroupModel.trackset;
       if (this.clubCurrentCompString !== JSON.stringify(this.clubTracksGroupModel.comp)) params.comp = this.clubTracksGroupModel.comp;
-      if (this.clubCurrentTrackGroupuuid !== JSON.stringify(this.clubTracksGroupModel.trackGroupuuid)) params.trackGroupuuid = this.clubTracksGroupModel.trackGroupuuid;
-      if (this.clubCurrentTracksetuuids !== JSON.stringify(this.clubTracksGroupModel.tracksetuuids)) params.tracksetuuids = this.clubTracksGroupModel.tracksetuuids;
       if (this.clubCurrentTracksetIcons !== JSON.stringify(this.clubTracksGroupModel.icons)) params.icons = this.clubTracksGroupModel.icons;
       if (this.clubCurrentName !== JSON.stringify(this.clubTracksGroupModel.name)) params.name = this.clubTracksGroupModel.name;
       if (saveTrackOriginal || this.clubBlockOriginalButton) params.tracksetOriginal = this.clubTracksGroupModel.tracksetOriginal;
@@ -10701,8 +10740,6 @@ export default {
       if (this.clubCurrentFilterString !== JSON.stringify(this.clubReqsGroupModel.filter)) params.filter = this.clubCurrentFilterToSave;
       if (this.clubCurrentFilterString2 !== JSON.stringify(this.clubReqsGroupModel.filter2)) params.filter2 = this.clubCurrentFilterToSave2;
       if (this.clubCurrentFilterString3 !== JSON.stringify(this.clubReqsGroupModel.filter3)) params.filter3 = this.clubCurrentFilterToSave3;
-      if (this.clubCurrentCriteriaUuidString !== JSON.stringify(this.clubReqsGroupModel.criteriauuid)) params.criteriauuid = this.clubReqsGroupModel.criteriauuid;
-      if (this.clubCurrentCriteriaGroupUuidString !== JSON.stringify(this.clubReqsGroupModel.criteriaGroupUuid)) params.criteriaGroupUuid = this.clubReqsGroupModel.criteriaGroupUuid;
       if (this.clubCurrentCriteriaNameString !== JSON.stringify(this.clubReqsGroupModel.name)) params.name = this.clubReqsGroupModel.name;
 
       axios.post(Vue.preUrl + "/updateClubsReqs", params)
@@ -10730,8 +10767,6 @@ export default {
       let params = { date: this.clubDaySelected };
       if (this.clubDayCurrentTracksetStrig !== JSON.stringify(this.clubDaySelectedObj.tracksetGroups)) params.tracksetGroups = this.clubDaySelectedObj.tracksetGroups;
       if (this.clubDayCurrentReqStrig !== JSON.stringify(this.clubDaySelectedObj.criterias)) params.criterias = this.clubDaySelectedObj.criterias;
-      if (this.clubDayCurrentTrackUuidStrig !== JSON.stringify(this.clubDaySelectedObj.tracksUuid)) params.tracksUuid = this.clubDaySelectedObj.tracksUuid;
-      if (this.clubDayCurrentReqUuidStrig !== JSON.stringify(this.clubDaySelectedObj.reqsUuid)) params.reqsUuid = this.clubDaySelectedObj.reqsUuid;
 
       axios.post(Vue.preUrl + "/updateClubsDayConfigs", params)
       .then(res => {
@@ -10942,9 +10977,6 @@ export default {
         this.clubsResolveTrackGroup(true);
       }
     },
-    clubChangeUuidArr(newValue, index) {
-      Vue.set(this.clubTracksGroupModel.tracksetuuids, index, newValue);
-    },
     clubSubmitCompleteJson() {
       let obj;
       let isParsed = false;
@@ -11045,7 +11077,151 @@ export default {
         }
 
       }
+    },
+    openHandRankingDialog() {
+      let filter;
+      let filterAtr = 'filter';
+
+      if (this.isEvents) {
+        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+        filter = this.event[filterAtr];
+        this.eventBestTeamsTarget = {
+          trackset: this.event.trackset,
+          rqLimit: this.event.rqLimit,
+          filter: filter, // local use
+          filteringQueryStrings: this.event.filteringQueryStrings,
+          flexibleCriteriaRequired: this.event.flexibleCriteriaRequired,
+          name: this.event.name,
+          resolvedTrackset: this.event.resolvedTrackset
+        }
+      }
+
+      if (this.isClubs) {
+        if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
+        filter = this.clubReqsGroupModel[filterAtr];
+        this.eventBestTeamsTarget = {
+          trackset: this.clubTracksGroupModel.trackset,
+          rqLimit: 250,
+          filter: filter, // local use
+          filteringQueryStrings: [],
+          flexibleCriteriaRequired: [],
+          clubReqsGroupModel: this.clubReqsGroupModel,
+          name: `${this.clubTracksGroupModel.name}/${this.clubReqsGroupModel.name}`,
+          resolvedTrackset: this.clubTracksGroupModel.resolvedTrackset
+        }
+      }
+      this.eventBestTeamsDialog = true;
+    },
+    getHandRanking(e) {
+      this.eventBestTeamsLoading = true;
+
+      let config = {
+        trackset: this.eventBestTeamsTarget.trackset,
+        rqLimit: this.eventBestTeamsTarget.rqLimit,
+        filteringQueryStrings: this.eventBestTeamsTarget.filteringQueryStrings,
+        flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired,
+        sendStats: this.user.username === "TiagoXavi" && this.$store.state.showUpcomingTags,
+        myGarage: this.eventBestTeamsConfig.myGarage,
+        repeatCars: this.eventBestTeamsConfig.repeatCars,
+        uniqueHands: this.eventBestTeamsConfig.uniqueHands,
+        prizeCars: this.eventBestTeamsConfig.prizeCars,
+        neverAwardedCars: this.eventBestTeamsConfig.neverAwardedCars,
+        predictedTimes: this.eventBestTeamsConfig.predictedTimes,
+        shiftKey: e && e.shiftKey
+      }
+      
+      if (this.eventBestTeamsConfig.forceCarsBool && this.eventBestTeamsConfig.forceCars.some(car => car.rid)) {
+        config.forceCars = this.eventBestTeamsConfig.forceCars.map(car => car.rid);
+      }
+      if (this.eventBestTeamsTarget.clubReqsGroupModel) {
+        config.clubReqsGroupModel = this.eventBestTeamsTarget.clubReqsGroupModel;
+        config.rqLimit = this.eventBestTeamsTarget.rqLimit;
+      }
+
+      this.$store.commit("START_LOGROCKET", {});
+
+      axios.post(Vue.preUrl + "/handRaking", config)
+      .then(res => {
+        console.log("getHandRanking", res.data.stats);
+        this.eventBestTeamsBigArray = res.data.arr;
+        this.eventBestTeamsDialog = true;
+        this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
+      })
+      .catch(error => {
+        this.eventBestTeamsLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.eventBestTeamsLoading = false;
+      });
+    },
+    resetBestTeamsConfig() {
+      this.eventBestTeamsConfig.forceCarsBool = false;
+      this.eventBestTeamsConfig.forceCars = [{}, {}, {}, {}, {}];
+      this.eventBestTeamsBigArray = [];
+      this.eventBestTeamsLastCache = null;
+    },
+    testBestOf() {
+      
+
+      this.kingLoading = true;
+
+      axios.get(Vue.preUrl + "/kingTest")
+      .then(res => {
+        this.clearAllTracks();
+        this.clearAllCars();
+        this.pushTrackSet(["tCircuit_a00"]);
+
+        let result = [];
+        res.data.map(car => {
+          result.push(JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
+          result[result.length-1].selectedTune = car.tune;
+          result[result.length-1].softId = this.nextId;
+          this.nextId++;
+        })
+        Vue.set(this, "carDetailsList", result);
+        this.applyNewData(res.data, this.mode === 'challenges', this.mode);
+        this.updateOptions();
+        // this.updateCarLocalStorage();
+        this.kingDialog = false;
+        if (this.kingForceVerticalView) {
+          this.display("vertical", false);
+          this.colorsChange("full", false);
+        }
+
+        if (result.length === 0) {
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "No times found",
+            type: "error"
+          });
+        }
+
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.kingLoading = false;
+        this.downloadLoading = false;
+      });
+
+
     }
+    
   }
 }
 </script>
