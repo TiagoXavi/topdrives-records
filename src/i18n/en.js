@@ -288,7 +288,7 @@ export default {
   m_predictedTimes: "Predicted times",
   m_global: "Global",
   m_forceCars: "Force cars",
-  m_sequential: "Sequential",
+  m_farmingHands: "Farming hands",
 
 
 

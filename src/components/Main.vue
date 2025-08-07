@@ -1712,7 +1712,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.1</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -1720,7 +1720,7 @@
             <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')} (soon)`" :horizontal="false" :disabled="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="false" />
             <BaseSwitch v-model="eventBestTeamsConfig.repeatCars" :label="$t('m_duplicates')" :horizontal="false" />
-            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_sequential')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_farmingHands')" :horizontal="false" />
             <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="false" />
             <BaseSwitch
               :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
@@ -5151,7 +5151,6 @@ export default {
       this.kingDialog = false;
       this.kingFixed = false;
       this.showPoints = false;
-      this.resetBestTeamsConfig();
 
       setTimeout(() => {
         this.mode = mode;
@@ -5195,11 +5194,13 @@ export default {
         if (this.eventList.length === 0) {
           this.loadEvents();
         }
+        this.resetBestTeamsConfig();
       }
       if (this.mode === "clubs") {
         if (this.clubTracksGroups.length === 0) {
           this.loadClubs();
         }
+        this.resetBestTeamsConfig();
       }
     },
     newIndex(obj, isDialog = false, isTrack = false) {
@@ -11171,6 +11172,7 @@ export default {
       this.eventBestTeamsConfig.forceCars = [{}, {}, {}, {}, {}];
       this.eventBestTeamsBigArray = [];
       this.eventBestTeamsLastCache = null;
+      console.log("resetBestTeamsConfig");
     },
     testBestOf() {
       

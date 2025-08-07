@@ -2043,7 +2043,12 @@ export default {
     filterCheckBetween(value, array) {
       if (value === null) return false;
       if (array === undefined) return true;
-      return value >= array[0] && value <= array[1]
+      if (array.length && array.length === 2) {
+        return value >= array[0] && value <= array[1]
+      }
+      if (array.length && array.length === 4) {
+        return (value >= array[0] && value <= array[1]) || (value >= array[2] && value <= array[3])
+      }
     },
     filterCheckIncludes(value, array) {
       if (array === undefined) return true;
