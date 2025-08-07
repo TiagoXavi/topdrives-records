@@ -1820,6 +1820,11 @@
             </template>
           </RecycleScroller>
         </div>
+        <div v-else-if="eventBestTeamsLastCache" class="Main_Teams_NoResponse">
+          <div class="Cg_Offline">
+            <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
+          </div>
+        </div>
       </div>
     </BaseDialog>
 
