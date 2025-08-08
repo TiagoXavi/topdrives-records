@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`${isDialogBox ? 'BaseCard_LayoutDialog' : ''} BaseCard_Class${resolveCar.class}`"
+    :class="`${isDialogBox ? 'BaseCard_LayoutDialog' : ''} BaseCard_Class${resolveCar.class} ${asGallery ? 'BaseCard_LayoutAsDialog' : ''}`"
     :style="`--class-color: ${carClassColor}; --class-color-rgb: ${carClassColorRgb};`"
     class="BaseCard_Layout">
     <div v-if="fixBack" class="BaseCard_FixBack" />
@@ -9,7 +9,7 @@
       class="Car_Header"
       :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading, Car_WithVideo: videoSrc }"
       :style="`${carPhoto};`">
-      <video v-if="videoSrc" autoplay="" muted="" loop="" :src="videoSrc" />
+      <video v-if="videoSrc" autoplay="" muted="" loop="" :src="videoSrc" webkit-playsinline playsinline />
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <div class="Car_HeaderBlockYear">{{ car.year || "-"  }}</div>
@@ -52,21 +52,23 @@
       <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
         <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
       </div>
-      <div class="Car_HeaderBlockTopSpeed">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
-        <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
-      </div>
-      <div class="Car_HeaderBlock060">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
-        <div class="Car_HeaderStatLabel">0-60MPH</div>
-      </div>
-      <div class="Car_HeaderBlockHandling">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
-        <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
-      </div>
-      <div class="Car_HeaderBlockDrive">
-        <div class="Car_HeaderStatValue">{{ this.resolveCar.drive  || "-" }}</div>
-        <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
+      <div class="Car_HeaderBackDropRight">
+        <div class="Car_HeaderRightBlockUnique">
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
+          <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
+        </div>
+        <div class="Car_HeaderRightBlockUnique">
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
+          <div class="Car_HeaderStatLabel">0-60MPH</div>
+        </div>
+        <div class="Car_HeaderRightBlockUnique">
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
+          <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
+        </div>
+        <div class="Car_HeaderRightBlockUnique">
+          <div class="Car_HeaderStatValue Car_HeaderStatLabelDrive">{{ this.resolveCar.drive  || "-" }}</div>
+          <div class="Car_HeaderStatLabel">{{ $tc("c_drive", 1).toUpperCase() }}</div>
+        </div>
       </div>
       <div :class="{
         Car_HeaderNameBig: car.name.length > 28,
@@ -161,6 +163,10 @@ export default {
     videoSrc: {
       type: String,
       default: null
+    },
+    asGallery: {
+      type: Boolean,
+      default: false
     },
   },
   data() {

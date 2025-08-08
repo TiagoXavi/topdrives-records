@@ -437,6 +437,7 @@ body {
   --card-stat-div: 0%;
   --card-font-size: 12px;
   --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
+  --card-gap: 0.5%;
 
   --t0: #d7d7d7;
   --tmod: #bfcd36;
@@ -3459,10 +3460,10 @@ a:visited:not(.D_Button) {
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
   --card-left-width: 19%;
   --card-right-width: 31%;
-  --card-top-height: 11.5%;
-  --card-stat-height: 31.9px;
+  /* --card-top-height: 11.5%; */
+  /* --card-stat-height: 31.9px; */
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip):not(.Car_HeaderBackDropRight):not(.Car_HeaderBlockTop) {
   display: none;
 }
 .Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
@@ -3486,10 +3487,31 @@ a:visited:not(.D_Button) {
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
-  box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09);
-  backdrop-filter: blur(4px);
-  background-color: #0000004a;
+  /* box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09); */
+  /* backdrop-filter: blur(4px); */
+  /* background-color: #0000004a; */
+  /* background: linear-gradient(90deg, #0003, #e5ded080); */
 }
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBackDropRight {
+  backdrop-filter: blur(11px);
+}
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
+  backdrop-filter: blur(15px);
+}
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique {
+  /* background: linear-gradient(90deg, #0003, #87785a80); */
+  /* background-color: #00000042; */
+  background: linear-gradient(90deg, #0004, #5b5b5b80);
+}
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderRightBlockUnique {
+  background-color: #00000042;
+}
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTires {
+  padding-right: 1px;
+}
+
+
+
 @media (pointer:coarse) {
   .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
   .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
@@ -3499,9 +3521,13 @@ a:visited:not(.D_Button) {
     background-color: hsla(40, 6%, 30%, 0.8);
   }
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatValue,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatValue {
+  padding-right: 1px;
+  font-size: 1.3em;
+}
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatLabel {
   padding-right: 1px;
+  font-size: 0.5em;
 }
 .Main_Compact {
   --cell-width: 120px;
@@ -4096,7 +4122,7 @@ a:visited:not(.D_Button) {
   bottom: 2%;
   font-size: 0.7em;
   right: calc(var(--card-right-width) + 1%);
-  font-weight: 300;
+  font-weight: 400;
   width: 50%;
   justify-content: flex-end;
   display: block;
@@ -4121,25 +4147,25 @@ a:visited:not(.D_Button) {
 }
 .Car_HeaderStatValue {
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1;
   /* padding-right: 4px; */
   padding-right: 6.5%;
   color: #fff;
   opacity: 0.95;
-  letter-spacing: 0.3px;
+  /* letter-spacing: 0.3px; */
 }
 .Car_HeaderStatLabel {
   text-align: right;
-  font-size: 0.55em;
+  font-size: 0.6em;
   line-height: 1;
   /* padding-right: 4px; */
   padding-right: 6.5%;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
-  opacity: 0.6;
-  letter-spacing: 0.3px;
+  opacity: 0.7;
+  /* letter-spacing: 0.3px; */
   white-space: nowrap;
 }
 .Car_HeaderRQValue {
@@ -4149,6 +4175,8 @@ a:visited:not(.D_Button) {
 }
 .Car_HeaderRQValue3 {
   font-size: 1.3em;
+  display: flex;
+  justify-content: center;
 }
 .Car_HeaderRQLabel {
   line-height: 1;
@@ -4182,12 +4210,35 @@ a:visited:not(.D_Button) {
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
 .Car_HeaderBlockDrive, */
-.Car_CardRightForVideo,
 .Car_HeaderBlockTop,
 .Car_HeaderBlockBrand,
-.Car_HeaderBlockYear {
+.Car_HeaderBlockYear,
+.Car_CardRightForVideo {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
+}
+.Car_HeaderBackDropRight {
+  top: calc(var(--card-top-height) + var(--card-gap));
+  right: 0;
+  width: var(--card-right-width);
+  height: calc(100% - var(--card-gap) - var(--card-top-height));
+  /* display: none; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: var(--card-gap);
+}
+.Car_HeaderRightBlockUnique {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+.Car_HeaderStatLabelDrive {
+  font-weight: 400;
+}
+.Car_HeaderStatLabelDrive::first-letter {
+  font-weight: bold;
 }
 .Car_CardRightForVideo {
   /* top: var(--card-top-height);
@@ -4241,7 +4292,7 @@ a:visited:not(.D_Button) {
   bottom: 2%;
   font-size: 0.8em;
   left: calc(var(--card-left-width) + 1%);
-  font-weight: 300;
+  font-weight: 400;
   display: block;
 }
 .Car_HeaderBlockRQ {
@@ -4677,15 +4728,17 @@ a:visited:not(.D_Button) {
 
 .Main_Teams_ScrollerItem {
   display: flex;
+  justify-content: center;
 }
 .Main_Teams_Index {
   /* color: rgb(var(--d-text-yellow)); */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   word-break: break-word;
+  white-space: nowrap;
 }
 .Main_Teams_ListLayout {
   display: flex;
@@ -4701,5 +4754,36 @@ a:visited:not(.D_Button) {
   font-size: 12px;
   opacity: 0.5;
 }
-
+.Main_Teams_VerticalCardBox {
+  --card-g-width: 150px;
+  --card-g-height: 92px;
+  --card-g-font: 7px;
+}
+.Main_Compact .Main_Teams_VerticalCardBox {
+  --card-g-width: 115px;
+  --card-g-height: 144px;
+  --card-g-font: 12px;
+}
+.BaseCard_LayoutAsDialog .Car_Header {
+  width: var(--card-g-width);
+  height: var(--card-g-height);
+  font-size: var(--card-g-font);
+}
+.Main_Compact .Main_Teams_ScrollerItem {
+  flex-direction: column;
+  align-items: center;
+}
+.Main_Compact .Main_Teams_Index {
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  width: 595px;
+  justify-content: flex-start;
+}
+.Main_Compact .Main_Teams_IndexValue {
+  font-size: 14px;
+}
+.Main_Teams_VerticalCardBox .Car_CompactOverlay {
+  display: none;
+}
 </style>

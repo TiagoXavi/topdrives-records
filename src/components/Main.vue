@@ -1792,7 +1792,7 @@
         <div v-if="eventBestTeamsBigArray.length" class="Main_Teams_Body Space_TopPlus">
           <RecycleScroller
             :items="eventBestTeamsBigArray"
-            :item-size="111"
+            :item-size="windowWidth < 1200 ? 170 : 111"
             :buffer="800"
             key-field="3"
             listClass="Main_Teams_CardsWrapper"
@@ -1807,13 +1807,22 @@
               </div>
               <div class="Main_Teams_ListLayout">
                 <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox">
-                  <BaseCardGallery
+                  <!-- <BaseCardGallery
                     :car="Vue.all_carsObj[rid]"
                     :key="`${rid}_${index}`"
                     :options="false"
                     :showPrize="true"
                     :tuneText="item[5][index]"
                     class="Main_Teams_GalleryCard BaseCardGallery150"
+                  /> -->
+                  <BaseCard
+                    :car="Vue.all_carsObj[rid]"
+                    :fix-back="false"
+                    :tuneText="item[5][index]"
+                    :options="false"
+                    :hideClose="true"
+                    :showResetTune="false"
+                    :asGallery="true"
                   />
                 </div>
               </div>
