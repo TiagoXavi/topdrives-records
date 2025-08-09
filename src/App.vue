@@ -3463,7 +3463,7 @@ a:visited:not(.D_Button) {
   /* --card-top-height: 11.5%; */
   /* --card-stat-height: 31.9px; */
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip):not(.Car_HeaderBackDropRight):not(.Car_HeaderBlockTop) {
+.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip):not(.Car_HeaderBackDropRight):not(.Car_HeaderBlockTop):not(.Car_TuneTipGallery) {
   display: none;
 }
 .Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
@@ -3498,6 +3498,12 @@ a:visited:not(.D_Button) {
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
   backdrop-filter: blur(15px);
 }
+@media (pointer:coarse) {
+  .Car_HeaderBackDropRight {
+    backdrop-filter: unset !important;
+    background-color: hsla(40, 6%, 30%, 0.7);
+  }
+}
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique {
   /* background: linear-gradient(90deg, #0003, #87785a80); */
   /* background-color: #00000042; */
@@ -3506,8 +3512,18 @@ a:visited:not(.D_Button) {
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderRightBlockUnique {
   background-color: #00000042;
 }
+.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique,
+.BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderRightBlockUnique {
+  box-shadow: 0px -1px 0px 0px #ffffff1c;
+}
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTires {
   padding-right: 1px;
+}
+.Main_Compact .Car_TuneTipGallery {
+  font-size: 1.4em;
+  bottom: 9%;
+  left: unset;
+  right: calc(var(--card-right-width) + 1%);
 }
 
 
@@ -4290,10 +4306,11 @@ a:visited:not(.D_Button) {
 }
 .Car_TuneTipGallery {
   bottom: 2%;
-  font-size: 0.8em;
+  font-size: 2.2em;
   left: calc(var(--card-left-width) + 1%);
   font-weight: 400;
   display: block;
+  line-height: 1;
 }
 .Car_HeaderBlockRQ {
   background-color: hsla(30, 10%, 15%, 1);
@@ -4729,22 +4746,27 @@ a:visited:not(.D_Button) {
 .Main_Teams_ScrollerItem {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .Main_Teams_Index {
   /* color: rgb(var(--d-text-yellow)); */
   /* flex-grow: 1; */
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
   word-break: break-word;
   white-space: nowrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  width: 770px;
+  justify-content: flex-start;
+}
+.Main_Compact .Main_Teams_Index {
+  width: 595px;
 }
 .Main_Teams_ListLayout {
   display: flex;
-}
-.Main_Teams_VerticalCardBox {
-
+  gap: 5px;
 }
 .Main_Teams_GalleryCard {
 
@@ -4754,12 +4776,12 @@ a:visited:not(.D_Button) {
   font-size: 12px;
   opacity: 0.5;
 }
-.Main_Teams_VerticalCardBox {
+.BaseCard_AsGalleryBox {
   --card-g-width: 150px;
   --card-g-height: 92px;
   --card-g-font: 7px;
 }
-.Main_Compact .Main_Teams_VerticalCardBox {
+.Main_Compact .BaseCard_AsGalleryBox {
   --card-g-width: 115px;
   --card-g-height: 144px;
   --card-g-font: 12px;
@@ -4768,22 +4790,13 @@ a:visited:not(.D_Button) {
   width: var(--card-g-width);
   height: var(--card-g-height);
   font-size: var(--card-g-font);
-}
-.Main_Compact .Main_Teams_ScrollerItem {
-  flex-direction: column;
-  align-items: center;
-}
-.Main_Compact .Main_Teams_Index {
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
-  width: 595px;
-  justify-content: flex-start;
+  margin: 0;
 }
 .Main_Compact .Main_Teams_IndexValue {
   font-size: 14px;
 }
-.Main_Teams_VerticalCardBox .Car_CompactOverlay {
-  display: none;
+.Main_Teams_Body {
+  width: calc(100% + 40px);
+  margin-left: -20px;
 }
 </style>

@@ -4,8 +4,17 @@
       <div
         v-for="(car, icar) in cars"
         class="BaseCarsTeam_TeamsCanEnterEventCar">
-        <div v-if="car && car.rid" class="BaseCarsTeam_TeamsCarEnterCarSelected">
-          <BaseCardGallery
+        <div v-if="car && car.rid" class="BaseCarsTeam_TeamsCarEnterCarSelected BaseCard_AsGalleryBox">
+          <BaseCard
+            :car="Vue.all_carsObj[car.rid]"
+            :fix-back="false"
+            :options="true"
+            :hideClose="true"
+            :showResetTune="false"
+            :asGallery="true"
+            @delete="carPickerClearIndex(icar)"
+          />
+          <!-- <BaseCardGallery
             :car="Vue.all_carsObj[car.rid]"
             :options="true"
             :class="mini ? 'BaseCardGallery115' : 'BaseCardGallery150'"
@@ -14,7 +23,7 @@
             class="D_Button BaseCarsTeam_TeamsCarEnterCarDelete"
             @click="carPickerClearIndex(icar)">
             <i aria-hidden="true" class="ticon-close_3" />
-          </button>
+          </button> -->
         </div>
         <div v-else class="BaseCarsTeam_TeamsCarEnterCarEmpty">
           <button
@@ -132,7 +141,6 @@ export default {
 .BaseCarsTeam_Box {
   display: flex;
   gap: 5px;
-  flex-wrap: wrap;
   justify-content: center;
 }
 .BaseCarsTeam_TeamsCarEnterCarSelected {
@@ -162,7 +170,7 @@ export default {
   height: 93px;
 }
 .BaseCarsTeam_TeamsAddCarButton115 {
-  width: 111px;
-  height: 71px;
+  width: 115px;
+  height: 144px;
 }
 </style>

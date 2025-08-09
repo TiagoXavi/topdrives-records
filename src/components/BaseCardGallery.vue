@@ -248,9 +248,6 @@ export default {
   --factor: 3px;
   margin: 0;
 }
-.BaseCardGallery150 .Car_TuneTipGallery {
-  font-size: 16px;
-}
 .BaseCardGallery150 .Car_HeaderBlockPrize {
   font-size: 9px;
   width: 14px;
@@ -267,9 +264,6 @@ export default {
   --card-font-size: 6px;
   --factor: 2px;
   margin: 0;
-}
-.BaseCardGallery115 .Car_TuneTipGallery {
-  font-size: 16px;
 }
 .BaseCardGallery115 .Car_HeaderBlockPrize {
   font-size: 9px;

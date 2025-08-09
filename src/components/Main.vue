@@ -3,7 +3,7 @@
     :class="{
       Main_Normal: !inverted,
       Main_2: inverted && mode === 'compare',
-      Main_Compact: (compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200),
+      Main_Compact: (compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events' || mode === 'clubs') && windowWidth < 1200),
       Main_ColorsFull: fullColors,
       Main_ColorsMedal: !fullColors,
       Main_ShowPoints: showPoints
@@ -1746,7 +1746,7 @@
               :disableCampaignTip="true"
               :mini="true"
               :miniHeight="true"
-              :size="windowWidth < 1200 ? 115 : 154"
+              :size="windowWidth < 1200 ? 119 : 154"
               :readonly="true"
             />
           </div>
@@ -1792,7 +1792,7 @@
         <div v-if="eventBestTeamsBigArray.length" class="Main_Teams_Body Space_TopPlus">
           <RecycleScroller
             :items="eventBestTeamsBigArray"
-            :item-size="windowWidth < 1200 ? 170 : 111"
+            :item-size="windowWidth < 1200 ? 170 : 122"
             :buffer="800"
             key-field="3"
             listClass="Main_Teams_CardsWrapper"
@@ -1806,7 +1806,7 @@
                 <div class="Main_Teams_IndexPts">{{ item[2] }}</div>
               </div>
               <div class="Main_Teams_ListLayout">
-                <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox">
+                <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
                   <!-- <BaseCardGallery
                     :car="Vue.all_carsObj[rid]"
                     :key="`${rid}_${index}`"
@@ -1822,6 +1822,7 @@
                     :options="false"
                     :hideClose="true"
                     :showResetTune="false"
+                    :showCompactOverlay="false"
                     :asGallery="true"
                   />
                 </div>

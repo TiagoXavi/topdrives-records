@@ -41,6 +41,7 @@
         </button>
       </div>
       <div class="Car_HeaderToolsBack" />
+      <div v-if="tuneText" class="Car_TuneTipGallery">{{ tuneText }}</div>
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: resolveCar && resolveCar.rq > 99 }">{{ resolveCar.rq }}</div>
         <div class="Car_HeaderRQLabel">RQ</div>
@@ -75,6 +76,7 @@
         Car_HeaderNameBigBig: car.name.length > 34
         }" class="Car_HeaderName">{{ car.name }}</div>
       <div
+        v-if="showCompactOverlay"
         class="Car_CompactOverlay"
         @touchstart="touchstart($event)"
         @touchend="touchend()"
@@ -167,6 +169,12 @@ export default {
     asGallery: {
       type: Boolean,
       default: false
+    },
+    tuneText: {
+      requred: false
+    },
+    showCompactOverlay: {
+      requred: true
     },
   },
   data() {
