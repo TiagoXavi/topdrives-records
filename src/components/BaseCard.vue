@@ -174,7 +174,8 @@ export default {
       requred: false
     },
     showCompactOverlay: {
-      requred: true
+      type: Boolean,
+      default: true
     },
   },
   data() {

@@ -153,12 +153,25 @@
                 :class="`
                   ${index % 2 === 0 ? 'MainTimeline_ItemEven ' : '' }
                   ${index % 2 === 1 ? 'MainTimeline_ItemOdd ' : '' }
+                  ${item.links && item.links.find(x => x.cover) ? 'MainTimeline_HasCover ' : '' }
+                  ${
+                    (item.p_rid || []).length === 1 ||
+                    (
+                      (item.p_rid || []).length > 0 &&
+                      item.type !== 'Veteran Challenge' &&
+                      item.type !== 'Offers' &&
+                      item.type !== 'Game News' &&
+                      item.type !== 'Community News' &&
+                      (!item.links || !item.links.some(x => x.cover))
+                    )
+                    ? 'MainTimeline_CarAsCover ' : ''
+                  }
                   MainTimeline_Type${ (item.type || '').replaceAll(' ', '') } 
-                  MainTimeline_Class${ (item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].class : '' } 
+                  MainTimeline_Class${ (item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].class : '' } 
                 `"
                 :style="`
-                  --class-color: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].color : ''} ;
-                  --class-color-rgb: ${(item.p_rid || []).length === 1 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
+                  --class-color: ${(item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].color : ''} ;
+                  --class-color-rgb: ${(item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
                 `"
                 class="MainTimeline_ItemRoot">
                 <div class="MainTimeline_ItemBacklight"></div>
@@ -171,7 +184,7 @@
                     </div>
                     <div class="MainTimeline_ItemCover">
                       <div
-                        v-if="(item.p_rid || []).length === 1 && item.type !== 'Veteran Challenge'"
+                        v-if="(item.p_rid || []).length === 1"
                         class="MainTimeline_Card_Header2Left">
                         <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
                         <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
@@ -189,7 +202,7 @@
                         loading="lazy"
                         alt="">
                       <img
-                        v-else-if="item.links && item.links.find(x => x.cover)"
+                        v-else-if="item.links && item.links.some(x => x.cover)"
                         :src="item.links.find(x => x.cover).url"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
@@ -201,10 +214,12 @@
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
                         alt="">
-                      <!-- <div v-if="(item.p_rid || []).length === 1" class="Main_2" style="display: contents;">
-                        <div class="Main_Body" style="display: contents;">
-                        </div>
-                      </div> -->
+                      <div
+                        v-else-if="(item.p_rid || []).length > 0"
+                        class="MainTimeline_Card_Header2Left">
+                        <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
+                        <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
+                      </div>
                       <div v-else class="MainTimeline_DefaultCover">
                         <i class="ticon-info-circle MainTimeline_ItemCoverIcon" aria-hidden="true"/>
                       </div>
@@ -2381,8 +2396,10 @@ export default {
 }
 .MainTimeline_ItemTopLeft {
   text-align: center;
-  color: var(--class-color);
   width: var(--date-width);
+}
+.MainTimeline_CarAsCover .MainTimeline_ItemTopLeft {
+  color: var(--class-color);
 }
 .MainTimeline_ItemTopLeft_Day {
   font-size: 20px;
@@ -2547,10 +2564,17 @@ export default {
   overflow: hidden;
 }
 .MainTimeline_ItemTypeText {
-  color: var(--class-color);
   opacity: 0.6;
   font-size: 0.8em;
 }
+.MainTimeline_CarAsCover .MainTimeline_ItemTypeText {
+  color: var(--class-color);
+}
+/* .MainTimeline_HasCover .MainTimeline_ItemTypeText {
+  color: var(--class-color);
+  opacity: 0.6;
+  font-size: 0.8em;
+} */
 .MainTimeline_MiniCard {
   width: 47px;
   height: 30px;
