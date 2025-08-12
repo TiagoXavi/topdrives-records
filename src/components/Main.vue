@@ -1739,6 +1739,7 @@
               :list="eventBestTeamsConfig.blackList"
               :filterToImport="eventBestTeamsTarget.filter"
               class="Main_TeamsCarsList"
+              size="small"
             />
 
           </BaseExpandDiv>

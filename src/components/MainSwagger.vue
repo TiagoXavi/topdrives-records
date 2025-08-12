@@ -261,6 +261,19 @@
         {{ gitRes }}
       </div>
     </div>
+    <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Save db</div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="saveDb()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ saveDbRes }}
+      </div>
+    </div>
     <button
       style="margin-top: 100px; margin-bottom: 50px;"
       class="D_Button D_ButtonDark"
@@ -305,6 +318,7 @@ export default {
       contestRarityRes: null,
       userConfirmRes: null,
       gitRes: null,
+      saveDbRes: null,
       configObj: null,
       setConfigRes: null,
       clubsObj: null,
@@ -546,6 +560,21 @@ export default {
       axios.get(Vue.preUrl + "/updategit")
       .then(res => {
         this.gitRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    saveDb() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.get(Vue.preUrl + "/saveDb")
+      .then(res => {
+        this.saveDbRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

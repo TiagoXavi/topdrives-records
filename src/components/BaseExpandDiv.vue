@@ -127,7 +127,7 @@ export default {
 }
 .BaseExpandDiv_RealActive {
   display: block;
-  z-index: var(--dialog-index);
+  /* z-index: var(--dialog-index); */
   /* opacity: 1; */
   /* transform: scaleY(1); */
 }
@@ -141,7 +141,7 @@ export default {
   height: var(--toHeight);
 }
 .BaseExpandDiv_Active {
-  z-index: var(--dialog-index);
+  /* z-index: var(--dialog-index); */
   pointer-events: initial;
 }
 .BaseExpandDiv_Absolute {

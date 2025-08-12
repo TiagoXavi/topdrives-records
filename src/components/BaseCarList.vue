@@ -1,6 +1,12 @@
 <template>
   <div class="BaseCarList_SpecificCar">
-    <div class="BaseCarList_CarsList" :class="{ BaseCarList_CarsListEmpty: list.length === 0 }">
+    <div
+      :class="{
+        BaseCarList_CarsListEmpty: list.length === 0,
+        BaseCarList_CarsListMedium: size === 'med'
+      }"
+      class="BaseCarList_CarsList"
+      >
 
       <template v-for="(rid, index) in list">
         <button
@@ -76,6 +82,10 @@ export default {
     forceNonPrize: {
       type: Boolean,
       default: false
+    },
+    size: {
+      type: String,
+      default: "med"
     }
   },
   data() {
@@ -108,7 +118,6 @@ export default {
 <style>
 .BaseCarList_CarsList {
   max-width: 600px;
-  min-height: 120px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
@@ -122,6 +131,9 @@ export default {
 .BaseCarList_CarsListEmpty {
   justify-content: center;
   align-items: center;
+}
+.BaseCarList_CarsListMedium {
+  min-height: 120px;
 }
 .BaseCarList_CarCard {
   position: relative;
