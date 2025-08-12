@@ -3782,168 +3782,7 @@ a:visited:not(.D_Button) {
 
 
 
-@media only screen and (max-width: 767px) {
-  .Main_Normal .Main_Body:not(.Main_BodyPrint) {
-    /* --d-back: #504242; */
-    --left-width: 120px;
-  }
-  .Main_BodyPrint {
-    /* --left-width: 200px; */
-  }
-  .Main_CornerMid .BaseAvatar_Layout {
-    display: none;
-  }
-  .Main_UserBottom .BaseAvatar_Layout {
-    --size: 21px !important;
-  }
-  .Main_UserName {
-    font-size: 0.7em;
-  }
-  .Main_FilterClassChips {
-    gap: 5px;
-  }
-  .Main_FilterDual {
-    grid-template-columns: 1fr;
-  }
-  .Main_FilterThree {
-    grid-template-columns: 1fr;
-  }
-  .Main_OptionsDual {
-    /* grid-template-columns: 1fr;
-    gap: 20px; */
-  }
-  .Main_FilterClearTop {
-    justify-content: center;
-    margin-top: -10px;
-    margin-bottom: -5px;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .Main_CampaignMatch {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    grid-auto-flow: row;
-  }
-  .Main_AddTrackBox {
-    gap: 5px;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) {
-    --left-width: 85px;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right {
-    display: none;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .Car_Header2 {
-    padding-right: 0;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Left {
-    margin-right: 0px;
-    width: 100%;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Img {
-    transform: scale(1.2) translateX(7px) translateY(-6px);
-    height: 140%;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right2 {
-    display: flex;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_Logo {
-    display: none;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .D_ButtonMenu {
-    padding: 11px 8px;
-  }
-  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_BestOfOutside {
-    display: none;
-  }
-  .Cg_Layout .Cg_Corner {
-    width: auto;
-    padding: 0 15px;
-  }
-  .Cg_Layout .Cg_SelectorLeft {
-    margin-right: 10px;
-  }
-  .Cg_Layout .Main_CornerMid {
-    margin: 0px;
-  }
-  .Cg_Layout .Cg_SelectorCenter {
-    text-align: left;
-  }
-  .Cg_Layout .Cg_CenterBottom,
-  .Cg_Layout .Clubs_DayBox,
-  .Cg_Layout .Clubs_DayNotCurrent {
-    justify-content: flex-start;
-  }
-  .Cg_Layout .Cg_RqText {
-    margin-left: 9px;
-  }
-  .Cg_Layout .D_Button.Main_ArrowDownSelect {
-    padding: 0 2px 0 2px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
-    height: 150px;
-    width: 200px;
-  }
-  .Main_Normal .Main_AddTrackDirectLarger {
-    width: 80px;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  /* .Cg_Box {
-    justify-content: flex-start;
-  } */
-  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankCarName {
-    display: none;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
-    --cg-width: 115px;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass,
-  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankClass {
-    display: none;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {
-    color: var(--cor);
-  }
-  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankTune {
-    display: none;
-  }
-  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult {
-    display: block;
-    margin-right: 0;
-    transform: translateX(-7px);
-  }
-  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
-    font-size: 0.7em;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider {
-    --size: 30px;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsRed,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGreen,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGrey {
-    --size: 40px;
-  }
-  .Event_CompilationBox .Event_BankTime {
-    text-align: left;
-    padding-left: 7px;
-    --size: 40px;
-  }
-  .Event_BankClass {
-    margin-left: 5px;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
-    --cg-width: 115px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .Cg_Box {
-    justify-content: flex-start;
-  }
-}
+
 
 
 
@@ -4626,12 +4465,26 @@ a:visited:not(.D_Button) {
   opacity: 0.5;
 }
 .Main_TeamsControlsLayout {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  /* display: flex; */
+  display: grid;
+  gap: 10px;
   justify-content: center;
   margin-bottom: 20px;
+  /* width: 100%; */
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 80px;
 }
+.Main_TeamsControlsLayout > * {
+  break-inside: avoid;
+}
+/* .Main_TeamsControlsLayout .BaseSwitch_Layout {
+  justify-content: center;
+} */
 .Main_TeamsNeck {
   display: flex;
   flex-direction: column;
@@ -4658,8 +4511,15 @@ a:visited:not(.D_Button) {
   margin-bottom: 0px;
 }
 .Main_TeamsForceCarsExpand {
-  
+  width: 100%;
 }
+.Main_TeamsCarsList {
+  margin-bottom: 15px;
+}
+
+
+
+
 
 @keyframes pulse {
   0% {
@@ -4786,6 +4646,14 @@ a:visited:not(.D_Button) {
   --card-g-height: 144px;
   --card-g-font: 12px;
 }
+.Main_Compact .BaseCard_AsGalleryBox .Car_HeaderToolsHoverContainer, 
+.Main_Compact .BaseCard_AsGalleryBox .Car_HeaderTools,
+.Main_Compact .BaseCard_AsGalleryBox .Car_HeaderToolsBack {
+  display: block !important;
+}
+.Main_Compact .BaseCard_AsGalleryBox .Car_CompactOverlay {
+  display: none;
+}
 .BaseCard_LayoutAsDialog .Car_Header {
   width: var(--card-g-width);
   height: var(--card-g-height);
@@ -4798,5 +4666,183 @@ a:visited:not(.D_Button) {
 .Main_Teams_Body {
   width: calc(100% + 40px);
   margin-left: -20px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+  .Main_Normal .Main_Body:not(.Main_BodyPrint) {
+    /* --d-back: #504242; */
+    --left-width: 120px;
+  }
+  .Main_BodyPrint {
+    /* --left-width: 200px; */
+  }
+  .Main_CornerMid .BaseAvatar_Layout {
+    display: none;
+  }
+  .Main_UserBottom .BaseAvatar_Layout {
+    --size: 21px !important;
+  }
+  .Main_UserName {
+    font-size: 0.7em;
+  }
+  .Main_FilterClassChips {
+    gap: 5px;
+  }
+  .Main_FilterDual {
+    grid-template-columns: 1fr;
+  }
+  .Main_FilterThree {
+    grid-template-columns: 1fr;
+  }
+  .Main_OptionsDual {
+    /* grid-template-columns: 1fr;
+    gap: 20px; */
+  }
+  .Main_FilterClearTop {
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: -5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .Main_CampaignMatch {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-auto-flow: row;
+  }
+  .Main_AddTrackBox {
+    gap: 5px;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) {
+    --left-width: 85px;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right {
+    display: none;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Car_Header2 {
+    padding-right: 0;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Left {
+    margin-right: 0px;
+    width: 100%;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Img {
+    transform: scale(1.2) translateX(7px) translateY(-6px);
+    height: 140%;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .BaseCard_Header2Right2 {
+    display: flex;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_Logo {
+    display: none;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .D_ButtonMenu {
+    padding: 11px 8px;
+  }
+  .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_BestOfOutside {
+    display: none;
+  }
+  .Cg_Layout .Cg_Corner {
+    width: auto;
+    padding: 0 15px;
+  }
+  .Cg_Layout .Cg_SelectorLeft {
+    margin-right: 10px;
+  }
+  .Cg_Layout .Main_CornerMid {
+    margin: 0px;
+  }
+  .Cg_Layout .Cg_SelectorCenter {
+    text-align: left;
+  }
+  .Cg_Layout .Cg_CenterBottom,
+  .Cg_Layout .Clubs_DayBox,
+  .Cg_Layout .Clubs_DayNotCurrent {
+    justify-content: flex-start;
+  }
+  .Cg_Layout .Cg_RqText {
+    margin-left: 9px;
+  }
+  .Cg_Layout .D_Button.Main_ArrowDownSelect {
+    padding: 0 2px 0 2px;
+  }
+  .Main_TeamsControlsLayout {
+    max-height: 120px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .Main_MidEmptyItemAdd .Main_MidEmptyButtonSearch {
+    height: 150px;
+    width: 200px;
+  }
+  .Main_Normal .Main_AddTrackDirectLarger {
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  /* .Cg_Box {
+    justify-content: flex-start;
+  } */
+  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankCarName {
+    display: none;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
+    --cg-width: 115px;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass,
+  .Main_Layout > *:not(.Main_BodyPrint) .Event_BankClass {
+    display: none;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {
+    color: var(--cor);
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankTune {
+    display: none;
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult {
+    display: block;
+    margin-right: 0;
+    transform: translateX(-7px);
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
+    font-size: 0.7em;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider {
+    --size: 30px;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsRed,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGreen,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGrey {
+    --size: 40px;
+  }
+  .Event_CompilationBox .Event_BankTime {
+    text-align: left;
+    padding-left: 7px;
+    --size: 40px;
+  }
+  .Event_BankClass {
+    margin-left: 5px;
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
+    --cg-width: 115px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Cg_Box {
+    justify-content: flex-start;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .Main_TeamsControlsLayout {
+    max-height: 150px;
+  }
 }
 </style>

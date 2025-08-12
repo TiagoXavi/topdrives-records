@@ -96,32 +96,19 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel === 'specificCar'" class="MainPacks_SpecificCar Space_TopPlus">
-      
-      <div class="MainPacks_CarsList" :class="{ MainPacks_CarsListEmpty: carDetailsList.length === 0 }">
-        
-        <template v-for="car in carDetailsList">
-          <button
-            class="D_Button D_ButtonDark D_ButtonDark2 MainPacks_CarButton"
-            @click="removeCar(car)">
-            <div class="MainPacks_CarCard" :style="`--color: ${car.color}`">
-              <div class="MainPacks_BankPhoto">
-                <img :src="car.photo" class="MainPacks_BankPhotoImg" loading="lazy" alt="">
-              </div>
-              <div class="MainPacks_RQ">{{ car.rq }}</div>
-            </div>
-          </button>
-        </template>
-        <div class="MainPacks_AddCarBox">
-          <button
-            class="D_Button D_ButtonDark MainPacks_SearchCarButton"
-            @click="searchFilterDialog = true;">
-            <i class="ticon-plus_2 MainPacks_AddIcon" aria-hidden="true"/>
-            <div v-if="carDetailsList.length === 0" class="MainPacks_AddLabel" style="margin-left: 5px;">{{ $t("m_searchCar") }}</div>
-          </button>
-        </div>
-      </div>
-    </div>
+
+    <template v-if="goalModel && goalModel === 'specificCar'">
+
+      <BaseCarList
+        :list="carDetailsList"
+        :forceNonPrize="true"
+        :highlightsUsers="highlightsUsers"
+        :lastestList="lastestList"
+        :filterToImport="carsFilter"
+        style="margin-top: 17px;"
+      />
+
+    </template>
 
     <div v-if="goalModel && goalModel === 'specificCar' && carDetailsList.length > 1" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
       <BaseSwitch v-model="simulateUntilGetOne" :label="$t('m_simulateUntilGetOne')" :horizontal="true" :disabled="running" />
@@ -247,18 +234,6 @@
       @listRids="filterFinishPacks($event);"
     />
 
-    <!-- Select car -->
-    <BaseFilterDialog
-      v-model="searchFilterDialog"
-      :lastestList="lastestList"
-      :highlightsUsers="highlightsUsers"
-      :all_cars="all_cars"
-      :sortEnabled="true"
-      :enableCounters="true"
-      :forceNonPrize="true"
-      importFilterName="PACKS_FILTER_IMPORT"
-      @addCar="addCar($event)"
-    />
 
     
     <!-- set attr cars I want -->
@@ -314,6 +289,7 @@ import BaseText from './BaseText.vue'
 import BaseDialog from './BaseDialog.vue'
 import BaseCarDetailDialog from './BaseCarDetailDialog.vue'
 import BasePackSvg from './BasePackSvg.vue'
+import BaseCarList from './BaseCarList.vue'
 import all_cars from '../database/cars_final.json'
 
 export default {
@@ -327,7 +303,8 @@ export default {
     BaseText,
     BaseDialog,
     BaseCarDetailDialog,
-    BasePackSvg
+    BasePackSvg,
+    BaseCarList
   },
   props: {
     test: {
@@ -337,6 +314,7 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
       lastestLoading: false,
       packModel: null,
       packTypes: [
@@ -603,7 +581,6 @@ export default {
       packFilterDialog: false,
       packFilter: {},
       packFilterDescResolved: [],
-      searchFilterDialog: false,
       lastestList: [],
       highlightsUsers: {},
       carDetailsList: [],
@@ -692,6 +669,7 @@ export default {
       tuneDialogCar: {},
       tuneDialogActive: false,
       otherPacksDialog: false,
+      carsFilter: {}
     }
   },
   watch: {},
@@ -755,14 +733,10 @@ export default {
       this.packModel = this.packTypes.find(x => x.name === "Carbon Fiber");
       this.goalModel = "specificCar";
       this.$route.params.cars.map(car => {
-        this.carDetailsList.push({
-          ...car.car,
-          color: car.color,
-          photo: car.photo
-        });
+        this.carDetailsList.push(car.rid);
       })
       this.carDetailsList.sort((a,b) => {
-        return a.rq - b.rq
+        return  Vue.all_carsObj[a].rq - Vue.all_carsObj[b].rq;
       })
     }
 
@@ -932,25 +906,13 @@ export default {
     },
     updateFilterPacks(filter) {
       this.packFilter = filter;
-
-      let filterCopy = JSON.parse(JSON.stringify(filter));
-      filterCopy.prizesModel = ["Non-Prize Cars"];
-      this.$store.commit("PACKS_FILTER_IMPORT", { filter: filterCopy });
+      this.carsFilter = JSON.parse(JSON.stringify(filter));
+      this.carsFilter.prizesModel = ["Non-Prize Cars"];
 
       this.packFilterDialog = false;
     },
     filterFinishPacks(listOfRids) {
 
-    },
-    addCar(newCar) {
-      let found = this.carDetailsList.find(x => x.rid === newCar.rid);
-      if (found) return;
-      newCar.color = Vue.resolveClass(newCar.rq, newCar.class, "color");
-      newCar.photo = Vue.carPhoto(newCar);
-      this.carDetailsList.push(newCar);
-    },
-    removeCar(car) {
-      this.carDetailsList = this.carDetailsList.filter(x => x.rid !== car.rid);
     },
     insertCarPhoto(car) {
       let newCar = JSON.parse(JSON.stringify(car));
@@ -990,7 +952,7 @@ export default {
 
       if (this.goalModel === 'specificCar') {
         this.finalLimit = this.limit;
-        this.simulateRunStats.goalRids = this.carDetailsList.map(car => car.rid);
+        this.simulateRunStats.goalRids = this.carDetailsList.slice();
         this.simulateRunStats.goalRidsOriginal = JSON.parse(JSON.stringify(this.simulateRunStats.goalRids));
         if (this.carDetailsList.length === 1) {
           this.simulateUntilGetOne = true;
@@ -1033,7 +995,8 @@ export default {
       })
       classes = [...new Set(classes)];
 
-      this.carDetailsList = this.carDetailsList.filter(car => {
+      this.carDetailsList = this.carDetailsList.filter(rid => {
+        let car = Vue.all_carsObj[rid]
         if (car.prize) {
           impossiblesCount++;
           return false;
@@ -1277,7 +1240,8 @@ export default {
       let chanceResultPerLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
       let result = 0;
       let result2 = 0;
-      carList.map(car => {
+      carList.map(rid => {
+        let car = Vue.all_carsObj[rid];
         if (car.rq >= 80 && this.matchFilter(car)) countPerClass.S++;
         else if (car.rq >= 65 && this.matchFilter(car)) countPerClass.A++;
         else if (car.rq >= 50 && this.matchFilter(car)) countPerClass.B++;

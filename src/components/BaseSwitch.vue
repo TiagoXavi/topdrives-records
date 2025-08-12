@@ -89,6 +89,7 @@ export default {
   display: inline-block;
   --width: 42px;
   width: var(--width);
+  min-width: var(--width);
   --height: 24px;
   height: var(--height);
 }
@@ -123,6 +124,9 @@ export default {
 .BaseSwitch_Label {
   font-size: 14px;
   text-align: center;
+}
+.BaseSwitch_Horizontal .BaseSwitch_Label {
+  text-align: left;
 }
 
 .BaseSwitch_Input:checked + .BaseSwitch_Slider {

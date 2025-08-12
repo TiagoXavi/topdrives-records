@@ -9,9 +9,10 @@
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
             :options="true"
-            :hideClose="true"
+            :hideClose="false"
             :showResetTune="false"
             :asGallery="true"
+            :draggable="false"
             @delete="carPickerClearIndex(icar)"
           />
           <!-- <BaseCardGallery

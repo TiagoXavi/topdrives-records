@@ -30,7 +30,7 @@
         <button v-if="showResetTune" class="D_Button Car_HeaderButton" @click="$emit('refreshTune')">
           <i class="ticon-refresh_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
-        <button v-if="!cg" class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
+        <button v-if="draggable" class="D_Button Car_HeaderButton Car_HeaderDrag" @mousedown="$emit('dragdown', $event)">
           <i class="ticon-expand Car_HeaderIcon Car_DragIcon" aria-hidden="true"/>
         </button>
         <button v-if="cgOppo" class="D_Button Car_HeaderButton" @click="$emit('cog')">
@@ -140,9 +140,9 @@ export default {
       type: Boolean,
       default: false
     },
-    cg: {
+    draggable: {
       type: Boolean,
-      default: false
+      default: true
     },
     cgOppo: {
       type: Boolean,

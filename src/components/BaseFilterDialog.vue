@@ -1324,7 +1324,7 @@ export default {
   },
   methods: {
     openDialogSearch() {
-      if (this.type === 'cg' || this.type === 'event') {
+      if (this.type === 'cg' || this.type === 'event' || this.type === 'carPicker') {
         this.cgResetFilterForAdd();
       }
       if (this.firstTimeOpen && this.type === 'library') {
@@ -1373,7 +1373,7 @@ export default {
         }
 
         this.$emit("filterUpdate", this.searchFilters);
-      } else if (this.type === 'compare' || this.type === 'library' || this.cgAddingYouCar || this.cgAddingOppoCar) {
+      } else if (this.type === 'compare' || this.type === 'library' || this.type === 'carPicker' || this.cgAddingYouCar || this.cgAddingOppoCar) {
         this.changeFilter();
         this.isFiltering = false;
         document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
@@ -1428,7 +1428,7 @@ export default {
           vm.internalConfig[key] = false;
         })
       }
-      if (searchStr === "" && this.filterCount === 0 && !this.cgAddingYouCar && !this.cgAddingOppoCar) {
+      if (searchStr === "" && this.filterCount === 0 && this.lastestList.length) {
         this.searchLoading = false;
         this.closeFilterText();
         return [];
@@ -1452,7 +1452,7 @@ export default {
           strIndex = -2;
         }
 
-        if (this.filterCount > 0 || this.cgAddingOppoCar || this.cgAddingYouCar) {
+        if (this.filterCount > 0 || this.lastestList.length === 0) {
           if (strIndex > -1 || strIndex === -2) {
             if (this.checkMatchFilter(x)) {
               shouldPush = true;
@@ -1855,7 +1855,7 @@ export default {
     },
     calcCounters() {
       if (!this.enableCounters) return;
-      if (this.countersDefault) {
+      if (this.countersDefault && this.isFiltering) {
         this.changeFilter();
       }
     },
@@ -2073,6 +2073,8 @@ export default {
     closeFilterText() {
       this.searchInput = '';
       if (this.type === 'cg' && (this.cgAddingYouCar || this.cgAddingOppoCar)) {
+        this.changeFilter();
+      } else if (this.type === 'carPicker') {
         this.changeFilter();
       } else {
         this.searchResult = this.lastestContributionsResolved;

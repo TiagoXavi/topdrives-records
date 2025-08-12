@@ -590,7 +590,7 @@
                   :fix-back="true"
                   :downloadLoading="cgLoadingAny"
                   :needSave="needSave"
-                  :cg="true"
+                  :draggable="false"
                   :cgOppo="true"
                   :options="!cgIsApproving"
                   :hideClose="!user || !user.mod || !isRoundModAllowedEdit"
@@ -703,7 +703,7 @@
                       :customData="Vue.all_cacheObj[(race.cars[race.carIndex] || {}).rid]"
                       :fix-back="true"
                       :downloadLoading="cgLoadingAny"
-                      :cg="true"
+                      :draggable="false"
                       @delete="race.carIndex = undefined; calcRaceResult(race);" />
                     <div v-else class="Cg_CarPlaceHolder">
                       <button
@@ -1712,25 +1712,36 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.1</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.2</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
           <div class="Main_TeamsControlsLayout">
-            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')} (soon)`" :horizontal="false" :disabled="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="false" />
-            <BaseSwitch v-model="eventBestTeamsConfig.repeatCars" :label="$t('m_duplicates')" :horizontal="false" />
-            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_farmingHands')" :horizontal="false" />
-            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')} (soon)`" :horizontal="true" :disabled="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" :label="$t('m_blackList')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.repeatCars" :label="$t('m_duplicates')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_farmingHands')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="true" />
             <BaseSwitch
               :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
               :label="$t('m_neverAwardedCars')"
-              :horizontal="false"
+              :horizontal="true"
               :disabled="!eventBestTeamsConfig.prizeCars || true"
               @change="eventBestTeamsConfig.neverAwardedCars = $event"
             />
-            <BaseSwitch v-model="eventBestTeamsConfig.predictedTimes" :label="$t('m_predictedTimes')" :horizontal="false" />
+            <BaseSwitch v-model="eventBestTeamsConfig.predictedTimes" :label="$t('m_predictedTimes')" :horizontal="true" />
           </div>
+
+          <BaseExpandDiv :active="eventBestTeamsConfig.blackListBool" class="Main_TeamsForceCarsExpand">
+
+            <BaseCarList
+              :list="eventBestTeamsConfig.blackList"
+              :filterToImport="eventBestTeamsTarget.filter"
+              class="Main_TeamsCarsList"
+            />
+
+          </BaseExpandDiv>
 
           <!-- tracks replica? -->
           <div v-if="eventBestTeamsTarget.resolvedTrackset" class="Main_TeamsTrackset" :class="{ Main_TeamsTracksetWithBottom: eventBestTeamsConfig.forceCarsBool }">
@@ -3251,6 +3262,7 @@ import tracksRepo from '../database/tracks_repo.json'
 import BaseCarsTeam from './BaseCarsTeam.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseMonoSlider from './BaseMonoSlider.vue'
+import BaseCarList from './BaseCarList.vue'
 
 export default {
   name: 'Main',
@@ -3290,7 +3302,8 @@ export default {
     BaseCardGallery,
     BaseCarsTeam,
     BaseExpandDiv,
-    BaseMonoSlider
+    BaseMonoSlider,
+    BaseCarList
   },
   props: {
     phantomCar: {
@@ -3511,12 +3524,14 @@ export default {
       eventBestTeamsConfig: {
         myGarage: false,
         forceCarsBool: false,
+        blackListBool: false,
         repeatCars: true,
         uniqueHands: false,
         prizeCars: true,
         neverAwardedCars: true,
         predictedTimes: true,
         forceCars: [{}, {}, {}, {}, {}],
+        blackList: [],
       },
       eventBestTeamsTarget: {},
       club: {},
@@ -11149,6 +11164,9 @@ export default {
       if (this.eventBestTeamsConfig.forceCarsBool && this.eventBestTeamsConfig.forceCars.some(car => car.rid)) {
         config.forceCars = this.eventBestTeamsConfig.forceCars.map(car => car.rid);
       }
+      if (this.eventBestTeamsConfig.blackListBool && this.eventBestTeamsConfig.blackList.length > 0) {
+        config.blackList = this.eventBestTeamsConfig.blackList;
+      }
       if (this.eventBestTeamsTarget.clubReqsGroupModel) {
         config.clubReqsGroupModel = this.eventBestTeamsTarget.clubReqsGroupModel;
         config.rqLimit = this.eventBestTeamsTarget.rqLimit;
@@ -11180,6 +11198,8 @@ export default {
     resetBestTeamsConfig() {
       this.eventBestTeamsConfig.forceCarsBool = false;
       this.eventBestTeamsConfig.forceCars = [{}, {}, {}, {}, {}];
+      this.eventBestTeamsConfig.blackListBool = false;
+      this.eventBestTeamsConfig.blackList = [{}, {}, {}, {}, {}];
       this.eventBestTeamsBigArray = [];
       this.eventBestTeamsLastCache = null;
       console.log("resetBestTeamsConfig");

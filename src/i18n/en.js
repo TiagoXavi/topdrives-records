@@ -289,6 +289,8 @@ export default {
   m_global: "Global",
   m_forceCars: "Force cars",
   m_farmingHands: "Farming hands",
+  m_blackList: "Black list",
+  m_whiteList: "White list",
 
 
 

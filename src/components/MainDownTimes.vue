@@ -62,7 +62,7 @@
                 :fix-back="true"
                 :downloadLoading="false"
                 :needSave="false"
-                :cg="true"
+                :draggable="false"
                 :cgOppo="false"
                 :hideClose="true"
                 :showResetTune="true"
