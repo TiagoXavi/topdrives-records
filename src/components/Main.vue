@@ -1712,7 +1712,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.2</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.3</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -11199,7 +11199,7 @@ export default {
       this.eventBestTeamsConfig.forceCarsBool = false;
       this.eventBestTeamsConfig.forceCars = [{}, {}, {}, {}, {}];
       this.eventBestTeamsConfig.blackListBool = false;
-      this.eventBestTeamsConfig.blackList = [{}, {}, {}, {}, {}];
+      this.eventBestTeamsConfig.blackList = [];
       this.eventBestTeamsBigArray = [];
       this.eventBestTeamsLastCache = null;
       console.log("resetBestTeamsConfig");
