@@ -6545,6 +6545,7 @@ export default {
         this.cgRound = JSON.parse(JSON.stringify(this.cgNewSubmitByModTemplate));
       }
       this.cgNewSubmitByMod = false;
+      this.cgApprovingIndex = 0;
 
       this.cgResolveFilter();
       this.cgUpdateLocalStorage();

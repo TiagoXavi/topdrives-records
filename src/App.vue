@@ -3498,12 +3498,6 @@ a:visited:not(.D_Button) {
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
   backdrop-filter: blur(15px);
 }
-@media (pointer:coarse) {
-  .Car_HeaderBackDropRight {
-    backdrop-filter: unset !important;
-    background-color: hsla(40, 6%, 30%, 0.7);
-  }
-}
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique {
   /* background: linear-gradient(90deg, #0003, #87785a80); */
   /* background-color: #00000042; */
@@ -3528,15 +3522,6 @@ a:visited:not(.D_Button) {
 
 
 
-@media (pointer:coarse) {
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
-    backdrop-filter: unset;
-    background-color: hsla(40, 6%, 30%, 0.8);
-  }
-}
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatValue {
   padding-right: 1px;
   font-size: 1.3em;
@@ -3649,8 +3634,9 @@ a:visited:not(.D_Button) {
 .Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockHandling,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockDrive,
-.Main_BodyPrint .Car_HeaderBlockTop {
-  background-color: hsla(40, 6%, 30%, 0.8);
+.Main_BodyPrint .Car_HeaderBlockTop,
+.Main_BodyPrint .Car_HeaderBackDropRight {
+  background-color: hsla(40, 6%, 30%, 0.7);
 }
 .Main_BodyPrint .Car_HeaderBlockTop {
   height: calc(var(--card-top-height) + 1px);
@@ -4126,14 +4112,6 @@ a:visited:not(.D_Button) {
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBlockYear {
   backdrop-filter: blur(4px);
 }
-@media (pointer:coarse) {
-  .Car_HeaderBlockTop,
-  .Car_HeaderBlockBrand,
-  .Car_HeaderBlockYear {
-    backdrop-filter: unset;
-    background-color: hsla(40, 6%, 30%, 1);
-  }
-}
 .Car_TuneTip {
   background-color: rgb(55, 54, 49, 0.6);
   right: calc(var(--card-right-width) + 0px);
@@ -4345,12 +4323,6 @@ a:visited:not(.D_Button) {
   /* object-fit: cover; */
 }
 
-@media (pointer:coarse) {
-  .Car_HeaderToolsHoverContainer {
-    display: none;
-  }
-}
-
 
 
 
@@ -4466,18 +4438,20 @@ a:visited:not(.D_Button) {
 }
 .Main_TeamsControlsLayout {
   /* display: flex; */
-  display: grid;
+  /* display: grid; */
   gap: 10px;
   justify-content: center;
   margin-bottom: 20px;
   /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
-  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, max-content)); */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 80px;
+  width: 100%;
+  align-items: center;
 }
 .Main_TeamsControlsLayout > * {
   break-inside: avoid;
@@ -4845,4 +4819,54 @@ a:visited:not(.D_Button) {
     max-height: 150px;
   }
 }
+
+
+
+
+
+
+@supports not (backdrop-filter: blur(4px)) {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 0.8);
+  }
+  .Car_HeaderBackDropRight {
+    backdrop-filter: unset !important;
+    background-color: hsla(40, 6%, 30%, 0.7);
+  }
+  .Car_HeaderBlockTop,
+  .Car_HeaderBlockBrand,
+  .Car_HeaderBlockYear {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 1);
+  }
+}
+/* duplicate */
+@media (pointer:coarse) {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 0.8);
+  }
+  .Car_HeaderBackDropRight {
+    backdrop-filter: unset !important;
+    background-color: hsla(40, 6%, 30%, 0.7);
+  }
+  .Car_HeaderBlockTop,
+  .Car_HeaderBlockBrand,
+  .Car_HeaderBlockYear {
+    backdrop-filter: unset;
+    background-color: hsla(40, 6%, 30%, 1);
+  }
+  .Car_HeaderToolsHoverContainer {
+    display: none;
+  }
+}
+
+
 </style>
