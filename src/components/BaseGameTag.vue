@@ -388,6 +388,11 @@ export default {
   --tag-s: 100%;
   --tag-l: 41%;
 }
+.BaseGameTag_Summer_Games_25 {
+  --tag-h: 167;
+  --tag-s: 100%;
+  --tag-l: 40%;
+}
 .BaseGameTag_Supercar {
   --tag-h: 170;
   --tag-s: 50%;

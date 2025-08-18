@@ -930,6 +930,7 @@ export default {
           "Silver Screen",
           "Summer Games",
           "Summer Games 24",
+          "Summer Games 25",
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
@@ -2195,7 +2196,7 @@ export default {
       this.multi = true;
     },
     getTagsModelKey(page) {
-      console.log(page);
+      // console.log(page);
       if (page === 1) return "tagsModel"; 
       if (page === 2) return "tags2Model"; 
       if (page === 3) return "tags3Model"; 
