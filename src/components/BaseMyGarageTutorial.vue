@@ -86,7 +86,7 @@
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_1.png" alt="" style="max-width: 100%;">
         </div>
-        <div>3. Start VPN</div>
+        <div>3. Install VPN Extension, then Start VPN</div>
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_2.png" alt="" style="max-width: 100%;">
         </div>
@@ -110,7 +110,7 @@
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_7.png" alt="" style="max-width: 100%;">
         </div>
-        <div>9. General > Certificate Trust Settings</div>
+        <div>9. General > VPN & Device Management</div>
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_8.png" alt="" style="max-width: 100%;">
         </div>
