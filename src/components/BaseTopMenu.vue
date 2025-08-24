@@ -26,11 +26,13 @@
         @click="openMenuDialog()">
         <!-- <BaseUserCard v-if="user" :user="user"/> -->
         <div class="BaseTopMenu_RightBall">
+          <div v-if="user && user.hasGarage" class="BaseTopMenu_HasGarageBox">
+            <i class="ticon-car BaseTopMenu_HasGarageIcon" aria-hidden="true"/>
+          </div>
           <i class="ticon-3menu BaseTopMenu_RightBallIcon BaseTopMenu_RightBallMenu" aria-hidden="true"/>
           <span v-if="letter" class="BaseTopMenu_RightBallLetter" aria-hidden="true">{{ letter }}</span>
           <i v-else class="ticon-user_3 BaseTopMenu_RightBallIcon" aria-hidden="true"/>
         </div>
-
       </button>
       
       <BaseTopMenuUserDialog
@@ -592,6 +594,7 @@ export default {
   color: hsl(var(--back-h), var(--back-s), 10%);
   transition-property: all, box-shadow;
   transition-duration: 0.15s, 0.25s;
+  overflow: hidden;
 }
 .BaseTopMenu_Layout:hover .BaseTopMenu_RightBall {
   background-color: hsla(var(--cor-hs), var(--cor-l0), 1);
@@ -629,6 +632,15 @@ export default {
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
+}
+.BaseTopMenu_HasGarageBox {
+  position: absolute;
+  pointer-events: none;
+  display: inline-flex;
+  left: -10px;
+  color: hsla(var(--cor-hs), calc(var(--cor-l0) - 10%), 1);
+  border-radius: 50%;
+  font-size: 28px;
 }
 
 

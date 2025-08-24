@@ -992,6 +992,7 @@ export default {
           // locked: hCar.locked,
           // fuseCompletesAt: hCar.fuseCompletesAt,
           // legT: hCar.legacyTier,
+          cardRecordId: hCar.cardRecordId,
           rid: this.guidToRid[hCar.cardId],
           tunZ: tunZ,
           date: hCar.dateStateChanged,

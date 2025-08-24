@@ -1712,15 +1712,21 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.3</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.4</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
           <div class="Main_TeamsControlsLayout">
-            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')} (soon)`" :horizontal="true" :disabled="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" :label="$t('m_blackList')" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.repeatCars" :label="$t('m_duplicates')" :horizontal="true" />
+            <BaseSwitch
+              :value="eventBestTeamsConfig.repeatCars || eventBestTeamsConfig.myGarage"
+              :label="$t('m_duplicates')"
+              :horizontal="true"
+              :disabled="eventBestTeamsConfig.myGarage"
+              @change="eventBestTeamsConfig.repeatCars = $event"
+            />
             <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_farmingHands')" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="true" />
             <BaseSwitch
@@ -1730,7 +1736,13 @@
               :disabled="!eventBestTeamsConfig.prizeCars || true"
               @change="eventBestTeamsConfig.neverAwardedCars = $event"
             />
-            <BaseSwitch v-model="eventBestTeamsConfig.predictedTimes" :label="$t('m_predictedTimes')" :horizontal="true" />
+            <BaseSwitch
+              :value="eventBestTeamsConfig.predictedTimes || eventBestTeamsConfig.myGarage"
+              :label="$t('m_predictedTimes')"
+              :horizontal="true"
+              :disabled="eventBestTeamsConfig.myGarage"
+              @change="eventBestTeamsConfig.predictedTimes = $event"
+            />
           </div>
 
           <BaseExpandDiv :active="eventBestTeamsConfig.blackListBool" class="Main_TeamsForceCarsExpand">
@@ -1815,7 +1827,7 @@
               <div class="Main_Teams_Index">
                 <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
                 <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
-                <div class="Main_Teams_IndexPts">{{ item[2] }}</div>
+                <div class="Main_Teams_IndexPts">{{ item[2] }} / {{ item[7] }}</div>
               </div>
               <div class="Main_Teams_ListLayout">
                 <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
@@ -3391,7 +3403,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v27.0",
+      gameVersion: "Game v27.2",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -8536,6 +8548,8 @@ export default {
           this.eventParsedList.push({ "eid": "t", "date": "lancer_evolution_ii_group_a_quals", "bucketSize": 300, "comp": [ { "clearance": [ ], "drives": [ "2WD" ], "meta": [ "Twister" ], "tyres": [ "Standard", "Off-road" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Speedster" ], "tyres": [ "Standard", "All-surface" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Off-road" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Off-road" ] } ], "endDateTime": "2025-06-29T20:00:00.000Z", "filter": { "tagsModel": [ "Asia-Pacific Grand Prix" ], "tyresModel": [ "Standard", "All-surface", "Off-road" ] }, "filteringQueryStrings": [ "[\"((\\\"tags\\\"=\\\"1000000000000\\\"))\"]", "[\"((\\\"tyretype\\\"=\\\"Tourism\\\"|\\\"tyretype\\\"=\\\"All-Surface\\\"|\\\"tyretype\\\"=\\\"Offroad\\\"))\"]" ], "flexibleCriteriaRequired": [ 5, 5 ], "hidden": false, "icons": [ "rain", "dirt", "asphalt" ], "image": "EventTriSeries", "name": "Lancer Evolution II Group A Quals", "realDate": "2025-06-26T17:28:29.560Z", "rqLimit": 350, "startDateTime": "2025-06-26T20:00:00.000Z", "tag": "Tri-Series", "ticketRegenerationTime": 1800000, "trackset": [ [ "mtSlalom_a00", "mtHairpin_a01", "mtTwisty_a01", "rallySmall_a40", "forestRiver_a41" ], [ "gForce_a00", "canyonTour_a01", "tRoad_a01", "butte_a40", "slalom_a50" ], [ "hairpin_a00", "hairpin_a01", "tRoad_a01", "hairpin_a60", "tRoad_a60" ], [ "mtTwisty_a00", "dealsGapBack_a41", "dealsGap_a01", "forestRiver_a41", "mtHairpin_a10" ] ], "user": "TiagoXavi" })
           this.eventParsedList.push({ "eid": "t", "date": "eliminator_heat_1", "bucketSize": 1000, "comp": [ { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ "Mid" ], "drives": [ "2WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ "Mid" ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ "High" ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "All-surface", "Off-road" ] } ], "endDateTime": "2025-08-14T20:00:00.000Z", "filter": { "classesModel": [ "F", "E" ], "prizesModel": [ "Non-Prize Cars" ] }, "filteringQueryStrings": [ "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]", "[\"((\\\"tier\\\"=\\\"1\\\"|\\\"tier\\\"=\\\"2\\\"))\"]" ], "flexibleCriteriaRequired": [ 5, 5 ], "hidden": false, "icons": [ "asphalt", "rain", "clearanceW" ], "image": "ChallengeCategoryRacingRoyalty", "name": "Eliminator Heat 1", "realDate": "2025-08-12T16:49:45.067Z", "rqLimit": 150, "startDateTime": "2025-08-12T20:00:00.000Z", "tag": "Special LiveOps", "ticketRegenerationTime": 1800000, "trackset": [ [ "mile4_a00", "fast_a00", "csMed_a01", "carPark_a01", "slalom_a20" ], [ "oceanHighway_a00", "mnCityNarrow_a00", "oceanCity_a00", "mnHairpin_a01", "oceanSlalom_ac1" ], [ "tRoad_a00", "carPark_a00", "csSmall_a01", "csMed_a01", "tRoad_a11" ], [ "mile4_a00", "mile2_a00", "fast_a01", "gForce_a01", "moto_a11" ] ], "user": "TiagoXavi" })
           this.eventParsedList.push({ "eid": "t", "date": "eliminator_heat_2", "bucketSize": 800, "comp": [ { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ], "tyres": [ "Performance" ] }, { "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ], "tyres": [ "Performance", "Slick" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Standard" ] }, { "clearance": [ ], "drives": [ "4WD" ], "meta": [ "Twister" ], "tyres": [ "Off-road" ] } ], "endDateTime": "2025-08-16T20:00:00.000Z", "filter": { "prizesModel": [ "Non-Prize Cars" ], "tagsModel": [ "Amalfi Coast Cruising", "Enter the Black Forest", "Learn the Savannah Way", "Loch to Loch", "Pacific Coast Highway", "World Expo" ] }, "filteringQueryStrings": [ "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]", "[\"((\\\"tags\\\"=\\\"800000000000\\\"|\\\"tags\\\"=\\\"400000000000\\\"|\\\"tags\\\"=\\\"200000000000\\\"|\\\"tags\\\"=\\\"100000000000\\\"|\\\"tags\\\"=\\\"40000000000\\\"|\\\"tags\\\"=\\\"80000000000\\\"|))\"]" ], "flexibleCriteriaRequired": [ 5, 5 ], "hidden": false, "icons": [ "asphalt", "rain", "snow" ], "image": "ChallengeCategoryRacingRoyalty", "name": "Eliminator Heat 2", "realDate": "2025-08-14T20:35:11.876Z", "rqLimit": 230, "startDateTime": "2025-08-14T20:00:00.000Z", "tag": "Special LiveOps", "ticketRegenerationTime": 1800000, "trackset": [ [ "mile1_a00", "tRoad_a00", "hairpin_a01", "tRoad_a01", "hairpin_a60" ], [ "mile1_a00", "tRoad_a00", "hairpin_a01", "tRoad_a01", "tRoad_a60" ], [ "mile1_a00", "tRoad_a00", "hairpin_a01", "tRoad_a01", "tRoad_a60" ], [ "mtHill_a01", "mtHairpin_a00", "lumberForest_a40", "lumberRiver_a11", "lumberForest_ah1" ] ], "user": "ELtotheLIS" })
+          this.eventParsedList.push({ "rqLimit": 350, "trackset": [ [ "mile1r_a00", "tokyoDrag_a00", "mile4r_a00", "tokyoOffRamp_a01", "tokyoGforce_a01" ], [ "mile1_a00", "mnCity_a00", "mnGforce_a00", "mile4_a01", "slalom_a01" ], [ "mile2_a00", "mile4_a00", "fastr_a00", "tCircuit_a01", "tRoad_a01" ], [ "miCauseDrag_a00", "miCause_a00", "tRoad_a00", "miStreets1_a01", "miGforce_a01" ] ], "user": "TiagoXavi", "comp": [ { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ] }, { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Standard" ], "clearance": [], "drives": [], "meta": [ "Twister" ] } ], "name": "Wrath Of The Coupe", "startDateTime": "2025-08-19T20:00:00.000Z", "flexibleCriteriaRequired": [ 5, 5 ], "icons": [ "asphalt", "rain" ], "date": "wrath_of_the_coupe", "image": "EventTwoTone", "realDate": "2025-08-16T23:47:57.615Z", "filter": { "countrysModel": [ "FR", "IT" ], "bodyTypesModel": [ "Coupe" ] }, "bucketSize": 100, "filteringQueryStrings": [ "[\"((\\\"country\\\"=\\\"France\\\"|\\\"country\\\"=\\\"Italy\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Coupe\\\"))\"]" ], "tag": "Collection Series", "eid": "t", "endDateTime": "2025-08-21T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 1800000 })
+          this.eventParsedList.push({ "rqLimit": 500, "trackset": [ [ "tCircuit_a00", "hairpin_a00", "mnGforce_a00", "gForce_a00", "slalom_a00" ], [ "tCircuit_a00", "carPark_a00", "mnGforce_a00", "gForce_a00", "slalom_a00" ], [ "nwCathedral_a00", "tCircuit_a00", "nwSlalom_a00", "gForce_a00", "nwGforce_a00" ], [ "fast_a00", "nwLoop_a00", "nwSlalom_a00", "nwCircuit_a00", "nwGforce_a00" ] ], "filter2": { "name": "2x", "drivesModel": [ "4WD" ], "countrysModel": [ "JP" ], "tyresModel": [ "Performance" ], "prizesModel": [ "Non-Prize Cars" ] }, "user": "TiagoXavi", "filter3": { "name": "2x", "drivesModel": [ "4WD" ], "countrysModel": [ "FR" ], "tyresModel": [ "Performance" ], "prizesModel": [ "Non-Prize Cars" ] }, "comp": [ { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "name": "Eliminator Finals", "startDateTime": "2025-08-20T20:00:00.000Z", "flexibleCriteriaRequired": [ 5, 5, 2, 2, 5, 5 ], "icons": [ "asphalt" ], "date": "eliminator_finals", "image": "ChallengeCategoryRacingRoyalty", "realDate": "2025-08-20T20:06:33.182Z", "filter": { "countrysModel": [ "JP", "FR" ], "weightEnd": 7000, "clearancesModel": [], "fuel": [ "Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol" ], "tyresModel": [ "Performance" ], "customTagsModel": [], "yearModel": [ 1910, 2025 ], "tags_challenge": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger" ], "tags2Model": [], "typesModel": [], "tcsModel": [], "yearStart": 1910, "topSpeedModel": [ 25, 330 ], "handEnd": 110, "mraEnd": 160, "fuelModel": [], "prizesModel": [ "Non-Prize Cars" ], "tags": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger", "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals", "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride", "Rest of the World", "Sub-Zero", "Supercar", "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "brandsModel": [], "brake": [ "A", "B", "C" ], "tagsModel": [], "topSpeedEnd": 330, "drives": [ "FWD", "RWD", "4WD" ], "tags_expansion": [ "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals" ], "prizes": [ "Prize Cars", "Non-Prize Cars" ], "name": "★", "clearances": [ "Low", "Mid", "High" ], "tags3Model": [], "tunesModel": [], "acelEnd": 40, "rqStart": 10, "tags_color": [ "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "tags_permanentDied": [ "Rest of the World", "Sub-Zero", "Supercar" ], "year2Model": [], "classes": [ "F", "E", "D", "C", "B", "A", "S" ], "classesModel": [], "handStart": 30, "countrys": [ "US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "IN", "MX", "CH" ], "weightModel": [ 300, 7000 ], "brakeModel": [], "classesColors": [ "#878787", "#76F273", "#1CCCFF", "#FFF62B", "#FF3538", "#8C5CFF", "#FFAF17" ], "mraStart": 0, "seatsStart": 1, "engine": [ "Front", "Mid", "Mid-rear", "Mixed", "Rear" ], "handModel": [ 30, 110 ], "approveModel": false, "topSpeedStart": 25, "bodyTypesModel": [], "tyres": [ "Performance", "Standard", "All-surface", "Off-road", "Slick" ], "rqModel": [ 10, 119 ], "bodyTypes": [ "Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van" ], "tunes": [ "332", "323", "233", "111", "Custom", "Best" ], "engineModel": [], "brands": [ "AC", "Acura", "Alfa Romeo", "Alpine", "AMC", "Apollo", "Arash", "Ariel", "Aston Martin", "Audi", "Austin", "BAC", "Bentley", "Bizzarrini", "BMW", "Brabham", "Bristol", "Bufori", "Bugatti", "Buick", "Cadillac", "Caterham", "Chevrolet", "Chrysler", "Citroen", "De Tomaso", "DMC", "Dodge", "Donkervoort", "Drako", "DS", "Eagle", "Fiat", "Ford", "Geo", "Ginetta", "Giocattolo", "GMC", "Hennessey", "Holden", "Honda", "Hudson", "Hummer", "Hyundai", "Infiniti", "Jaguar", "Koenigsegg", "KTM", "Lamborghini", "Lancia", "Land Rover", "Lincoln", "Lotus", "Maserati", "Matra", "Mazda", "McLaren", "McMurtry", "Mercedes-Benz", "Mercury", "MG", "Mini", "Mitsubishi", "Mitsuoka", "Morgan", "Nissan", "Oldsmobile", "Pagani", "Peugeot", "Pininfarina", "Plymouth", "Pontiac", "Porsche", "Radical", "RAM", "Renault", "Rezvani", "Rimac", "Rover", "RUF", "Saleen", "Saturn", "SCG", "Skoda", "Smart", "Spyker", "Subaru", "Suzuki", "Talbot", "TVR", "Ultima", "Vauxhall", "Volkswagen", "Volvo", "W Motors", "Zenos", "Zenvo" ], "rqEnd": 119, "yearEnd": 2025, "drivesModel": [ "4WD" ], "seatsModel": [ 1, 9 ], "mraModel": [ 0, 160 ], "acelStart": 1.5, "acelModel": [ 1.5, 40 ], "absModel": [], "seatsEnd": 9, "seats2Model": [], "tags_permanent": [ "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride" ], "weightStart": 300 }, "bucketSize": 100, "filteringQueryStrings": [ "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]", "[\"((\\\"country\\\"=\\\"France\\\"|\\\"country\\\"=\\\"Japan\\\"))\"]", "[\"((\\\"country\\\"=\\\"France\\\"))\"]", "[\"((\\\"country\\\"=\\\"Japan\\\"))\"]", "[\"((\\\"tyretype\\\"=\\\"HiPerformance\\\"))\"]", "[\"((\\\"drivetype\\\"=\\\"FourWD\\\"))\"]" ], "tag": "Special LiveOps", "eid": "t", "endDateTime": "2025-08-22T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 1800000 })
         }
 
 
@@ -11148,6 +11162,33 @@ export default {
       this.eventBestTeamsDialog = true;
     },
     getHandRanking(e) {
+      if (this.eventBestTeamsConfig.myGarage && !this.user.hasGarage) {
+        let vm = this;
+
+        let action = function() {
+          vm.$router.push({ name: "BaseMyGarage" });
+          vm.$store.commit("DEFINE_DIALOG", {
+            active: false
+          });
+        }
+
+        vm.$store.commit("DEFINE_DIALOG", {
+          active: true,
+          title: vm.$t('p_youNeedGarage'),
+          actionLabel: vm.$t('m_uploadMyGarage'),
+          cancelLabel: vm.$t('m_cancel'),
+          actionColor: "green",
+          maxWidth: "250px",
+          minWidth: "240px",
+          error: false,
+          disabled: false,
+          action: action,
+          loading: false,
+          maxWidth: "420px"
+        });
+        return;
+      }
+
       this.eventBestTeamsLoading = true;
 
       let config = {
@@ -11157,11 +11198,11 @@ export default {
         flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired,
         sendStats: this.user.username === "TiagoXavi" && this.$store.state.showUpcomingTags,
         myGarage: this.eventBestTeamsConfig.myGarage,
-        repeatCars: this.eventBestTeamsConfig.repeatCars,
+        repeatCars: this.eventBestTeamsConfig.repeatCars || this.eventBestTeamsConfig.myGarage,
         uniqueHands: this.eventBestTeamsConfig.uniqueHands,
         prizeCars: this.eventBestTeamsConfig.prizeCars,
         neverAwardedCars: this.eventBestTeamsConfig.neverAwardedCars,
-        predictedTimes: this.eventBestTeamsConfig.predictedTimes,
+        predictedTimes: this.eventBestTeamsConfig.predictedTimes || this.eventBestTeamsConfig.myGarage,
         shiftKey: e && e.shiftKey
       }
       

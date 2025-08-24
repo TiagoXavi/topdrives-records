@@ -2735,7 +2735,7 @@ body .Main_UserTw3:before {
   height: 5px;
   position: absolute;
   bottom: 0;
-  z-index: 31;
+  z-index: 30;
 }
 .Cg_RqFill {
   background-color: #354958;

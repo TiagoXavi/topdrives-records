@@ -291,6 +291,7 @@ export default {
   m_farmingHands: "Farming hands",
   m_blackList: "Black list",
   m_whiteList: "White list",
+  m_garage: "Garage",
 
 
 
@@ -339,6 +340,7 @@ export default {
   p_cgNotThisTime5: "I hope you understand. Have a fun!",
   p_privateGarageDesc: "Only you can view",
   p_publicGarageDesc: "People with link can view",
+  p_youNeedGarage: "You need to upload your garage first",
   
   g_joinDiscord: "Join the TDR Discord server to talk about improvement of your template or why your template has been declined.",
   g_rule0: "Your template should have a context for cars that make sense. Like same tag, same country, same tires, same brand, same rarity... Or any context like Hutch does as requirements for events/challenges.",
