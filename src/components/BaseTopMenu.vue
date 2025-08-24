@@ -638,7 +638,7 @@ export default {
   pointer-events: none;
   display: inline-flex;
   left: -10px;
-  color: hsla(var(--cor-hs), calc(var(--cor-l0) - 10%), 1);
+  color: hsla(var(--cor-hs), calc(var(--cor-l0) + 10%), 1);
   border-radius: 50%;
   font-size: 28px;
 }

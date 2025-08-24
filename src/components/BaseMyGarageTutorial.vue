@@ -15,6 +15,12 @@
           <i class="brand-apple BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true" style="margin-bottom: 7px;"/>
           <span class="BaseMyGarageTutorial_ButtonLabel">PC + iOS</span>
         </button>
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
+          @click="changeScreen('iosAlone');">
+          <i class="brand-apple BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true" style="margin-bottom: 7px;"/>
+          <span class="BaseMyGarageTutorial_ButtonLabel">iOS</span>
+        </button>
       </div>
     </div>
     <div v-else-if="screen === 'android'" :class="{ MainTimeline_InitAnimation: animation }" class="BaseMyGarageTutorial_Screen1">
@@ -62,6 +68,109 @@
           <img src="/assets/tutorial/http_request.png" alt="" style="max-width: 100%;">
         </div>
         <div>6. Paste the content below. Done.</div>
+      </div>
+    </div>
+    <div v-else-if="screen === 'iosAlone'" :class="{ MainTimeline_InitAnimation: animation }" class="BaseMyGarageTutorial_Screen1">
+      <div class="BaseMyGarageTutorial_Title">
+        <button class="D_Button BaseMyGarageTutorial_BackButton" @click="changeScreen('home');">
+          <i class="ticon-arrow_left_2 BaseMyGarageTutorial_BackIcon" aria-hidden="true"/>
+        </button>
+        iOS
+      </div>
+      <div class="BaseMyGarageTutorial_Topics">
+        <div>1. Download, install and open <a href="https://apps.apple.com/app/proxyman-network-debug-tool/" target="_blank" rel="noopener noreferrer">Proxyman</a> for iOS.</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_0.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>2. Start Capturing</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_1.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>3. Start VPN</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_2.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>4. Init the steps to install the certificate</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_3.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>5. Tap to open the URL on Safari, don't work on other browser</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_4.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>6. Allow the download</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_5.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>7. Close the confirmation, go back to Proxyman</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_6.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>8. Open iOS Settings</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_7.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>9. General > Certificate Trust Settings</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_8.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>10. Select the downloaded profile</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_9.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>11. Install it</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_10.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>12. Now go to General > About</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_11.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>13. Certificate Trust Settings</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_12.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>14. Enable full trust</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_13.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>15. Go back to Proxyman, if everything done correctly, it should be like this</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_14.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>16. Go to More > SSL Proxying List > New Include Entry</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_15.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>17. Type www.topdrives.io and confirm</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_16.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>18. Should be like this</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_17.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>19. Close Top Drives app if it is open. Open again, log to your account until you reach home screen of the game. Proxyman should be intercepting all the requests now.</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_18.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>20. Go back to Proxyman. Go to Home, filter requests by "drives" to see only Top Drives requests</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_19.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>21. Find the request with /api/game/v3/sync/ - should be the GET with the highest size. Select and go to Response tab</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_20.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>22. View Body</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_21.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>23. Copy</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/proxyman_22.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>24. Paste below. Done.</div>
       </div>
     </div>
   </div>

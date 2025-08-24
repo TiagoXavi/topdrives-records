@@ -1007,6 +1007,7 @@ export default {
     },
     processPlayerDeckStep2() {
       if (!this.carsReady) this.transformAllCarsToObj();
+      this.resetState();
 
       this.userGarage.playerDeck.map((hCar, icar) => {
 
@@ -1637,6 +1638,17 @@ export default {
       navigator.clipboard.writeText(copyText.value);
       this.copyUrlSucess = true;
       setTimeout(() => { this.copyUrlSucess = false}, 1500);
+    },
+    resetState() {
+      this.userHighlights.map(hlItem => {
+        if (hlItem.divider) return;
+        if (hlItem.t) {
+          hlItem.t = new groupStats();
+        }
+        if (hlItem.tl) {
+          hlItem.tl = Array.from({length: 12}, (_, i) => new timeline(i));
+        }
+      })
     }
   },
 }
