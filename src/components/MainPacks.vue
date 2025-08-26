@@ -476,72 +476,6 @@ export default {
       ],
       otherPackTypes: [
         {
-          name: "Finals Titanium",
-          color: Vue.resolveClass(10, "A", "color", true),
-          packColor: {
-            background: "#212121",
-            bottomStrip: "#890a0a",
-            gBackground1: "#1e1e1e",
-            gBackground2: "#353535",
-            gStrip1: "#7244dd",
-            gStrip2: "#4c38b3",
-            name: "FINALS TITANIUM"
-          },
-          cards: [
-            { S: 20.00, A: 80.00 },
-            { A: 10.00, B: 90.00 },
-            { A: 10.00, C: 90.00 },
-            { A: 5.00, C: 95.00 },
-            { A: 5.00, C: 95.00 },
-          ],
-          priceCash: 0,
-          priceGold: 4679
-        },
-        {
-          name: "Finals Platinum",
-          color: Vue.resolveClass(10, "B", "color", true),
-          packColor: {
-            background: "#212121",
-            bottomStrip: "#890a0a",
-            gBackground1: "#1e1e1e",
-            gBackground2: "#353535",
-            gStrip1: "#bd1616",
-            gStrip2: "#510033",
-            name: "FINALS PLATINUM"
-          },
-          cards: [
-            { S: 5.00, A: 35.00, B: 60.00 },
-            { B: 100.00 },
-            { B: 10.00, C: 90.00 },
-            { B: 10.00, C: 90.00 },
-            { B: 5.00, D: 95.00 },
-          ],
-          priceCash: 0,
-          priceGold: 2499
-        },
-        {
-          name: "Finals Super Carbon",
-          color: Vue.resolveClass(10, "B", "color", true),
-          packColor: {
-            background: "#212121",
-            bottomStrip: "#890a0a",
-            gBackground1: "#1e1e1e",
-            gBackground2: "#353535",
-            gStrip1: "#bd1616",
-            gStrip2: "#510033",
-            name: "FINALS SUPER CARBON"
-          },
-          cards: [
-            { S: 3.00, A: 20.00, B: 77.00 },
-            { B: 10.00, C: 90.00 },
-            { B: 5.00, D: 95.00 },
-            { B: 5.00, D: 95.00 },
-            { B: 5.00, D: 95.00 },
-          ],
-          priceCash: 0,
-          priceGold: 1599
-        },
-        {
           name: "Racing Pack (Daily Objectives)",
           color: Vue.resolveClass(10, "D", "color", true),
           packColor: {
@@ -558,6 +492,135 @@ export default {
           ],
           priceCash: 0,
           priceGold: 0
+        },
+        {
+          name: "Black Diamond",
+          color: Vue.resolveClass(10, "S", "color", true),
+          packColor: {
+            background: "#212121",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#6f4f1d",
+            gStrip2: "#a99655",
+            name: "BLACK DIAMOND"
+          },
+          cards: [
+            { S: 100.00 },
+            { S: 50.00, A: 50.00 },
+            { S: 10.00, A: 90.00 },
+            { S: 5.00, B: 95.00 },
+            { S: 5.00, B: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 0
+        },
+        {
+          name: "Diamond",
+          color: Vue.resolveClass(10, "S", "color", true),
+          packColor: {
+            background: "#212121",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#6f4f1d",
+            gStrip2: "#a99655",
+            name: "DIAMOND"
+          },
+          cards: [
+            { S: 100.00 },
+            { S: 10.00, A: 90.00 },
+            { S: 5.00, B: 95.00 },
+            { S: 5.00, B: 95.00 },
+            { S: 5.00, B: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 0
+        },
+        {
+          name: "Sapphire",
+          color: Vue.resolveClass(10, "A", "color", true),
+          packColor: {
+            background: "#212121",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#7244dd",
+            gStrip2: "#4c38b3",
+            name: "SAPPHIRE"
+          },
+          cards: [
+            { S: 35.00, A: 65.00 },
+            { A: 100.00 },
+            { A: 10.00, B: 90.00 },
+            { A: 10.00, B: 90.00 },
+            { A: 5.00, C: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 4679
+        },
+        {
+          name: "Titanium",
+          color: Vue.resolveClass(10, "A", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#7244dd",
+            gStrip2: "#4c38b3",
+            name: "TITANIUM"
+          },
+          cards: [
+            { S: 20.00, A: 80.00 },
+            { A: 10.00, B: 90.00 },
+            { A: 10.00, C: 90.00 },
+            { A: 5.00, C: 95.00 },
+            { A: 5.00, C: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 4679
+        },
+        {
+          name: "Platinum",
+          color: Vue.resolveClass(10, "B", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#bd1616",
+            gStrip2: "#510033",
+            name: "PLATINUM"
+          },
+          cards: [
+            { S: 5.00, A: 35.00, B: 60.00 },
+            { B: 100.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 5.00, D: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 2499
+        },
+        {
+          name: "Super Carbon",
+          color: Vue.resolveClass(10, "B", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#bd1616",
+            gStrip2: "#510033",
+            name: "SUPER CARBON"
+          },
+          cards: [
+            { S: 3.00, A: 20.00, B: 77.00 },
+            { B: 10.00, C: 90.00 },
+            { B: 5.00, D: 95.00 },
+            { B: 5.00, D: 95.00 },
+            { B: 5.00, D: 95.00 },
+          ],
+          priceCash: 0,
+          priceGold: 1599
         },
       ],
       classes: {
