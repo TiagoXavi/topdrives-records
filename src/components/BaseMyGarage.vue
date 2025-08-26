@@ -197,6 +197,7 @@
                         <div class="BaseMyGarage_MonthMid">
                           <BaseCardGallery
                             v-for="car in month.cars"
+                            :ad="`${(car.date || '').slice(0, 13)}`"
                             :car="resolvedRids[car.rid]"
                             :options="false"
                             :class="{ BaseMyGarage_MonthTop: resolvedRids[car.rid].prize }"
@@ -961,8 +962,7 @@ export default {
         garageSlotsUsed: obj.user.garageSlotsUsed,
         activeDaysCounter: obj.user.activeDaysCounter,
         platform: obj.user.platform,
-        totalGiftsClaimed: obj.dailyGift.totalGiftsClaimed,
-        wishlists: obj.wishlists[0]
+        totalGiftsClaimed: obj.dailyGift.totalGiftsClaimed
       };
 
       if (!this.carsReady) this.transformAllCarsToObj();
@@ -975,7 +975,6 @@ export default {
       if (typeof obj !== "object") return "Not object";
       if (!obj.serverTime) return "No basic property";
       if (!obj.user) return "No user property";
-      if (!obj.wishlists) return "No wishlists";
       if (!obj.dailyGift) return "No dailyGift";
       if (!obj.playerDeck || obj.playerDeck.length < 1) return "No playerDeck";
       return false;
@@ -986,16 +985,18 @@ export default {
       deck.map((hCar, icar) => {
         this.addToResolvedRids(this.guidToRid[hCar.cardId]);
         let tunZ = this.resolveTuneZ(hCar);
+        let dateF = hCar.dateStateChanged;
+        if (dateF && dateF.length === 24) dateF = dateF.slice(0, 13);
 
         let item = {
           // tun: this.resolveTune(hCar, tunZ),
           // locked: hCar.locked,
           // fuseCompletesAt: hCar.fuseCompletesAt,
           // legT: hCar.legacyTier,
-          cardRecordId: hCar.cardRecordId,
+          cri: hCar.cardRecordId.slice(24),
           rid: this.guidToRid[hCar.cardId],
           tunZ: tunZ,
-          date: hCar.dateStateChanged,
+          date: dateF,
           cW: hCar.cardWins,
           cL: hCar.cardLosses,
           cD: hCar.cardDraws
@@ -1013,6 +1014,7 @@ export default {
 
         hCar.id = icar;
         hCar.tun = this.resolveTune(hCar, hCar.tunZ);
+        hCar.date = this.fixDate(hCar.date);
 
         this.addToResolvedRids(hCar.rid);
 
@@ -1649,6 +1651,11 @@ export default {
           hlItem.tl = Array.from({length: 12}, (_, i) => new timeline(i));
         }
       })
+    },
+    fixDate(date) {
+      if (!date) return date;
+      if (date.length === 13) return `${date}:00Z`
+      return date;
     }
   },
 }

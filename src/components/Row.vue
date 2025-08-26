@@ -1777,6 +1777,7 @@ export default {
 .RowTrack_DraggingParent > :not(.RowTrack_Dragging) {
   transition-duration: 0.3s;
   transition-property: transform;
+  pointer-events: none;
 }
 .RowTrack_DragIndicator {
   position: absolute;

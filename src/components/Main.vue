@@ -1712,7 +1712,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.4</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.5</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -4152,7 +4152,9 @@ export default {
 
       if (mutation.type == "HOVER_INDEX") {
         if (mutation.payload) {
-          vm.hoverIndex = mutation.payload;
+          if (!document.querySelector("[class*='_DraggingParent']")) {
+            vm.hoverIndex = mutation.payload;
+          }
         }
       }
 
@@ -11196,7 +11198,7 @@ export default {
         rqLimit: this.eventBestTeamsTarget.rqLimit,
         filteringQueryStrings: this.eventBestTeamsTarget.filteringQueryStrings,
         flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired,
-        sendStats: this.user.username === "TiagoXavi" && this.$store.state.showUpcomingTags,
+        sendStats: this.$store.state.showUpcomingTags,
         myGarage: this.eventBestTeamsConfig.myGarage,
         repeatCars: this.eventBestTeamsConfig.repeatCars || this.eventBestTeamsConfig.myGarage,
         uniqueHands: this.eventBestTeamsConfig.uniqueHands,
