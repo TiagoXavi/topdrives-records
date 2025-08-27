@@ -75,7 +75,7 @@ export default {
   m_resetRound: "Reset round",
   m_includeDownvote: "Includes times with downvote?",
   m_showDataFromPast: "Show data from old versions",
-  m_showOldTags: "Show depreciated tags",
+  m_showOldTags: "Show obsolete tags",
   m_challengeName: "Challenge's name",
   m_eventName: "Event's name",
   m_numberRounds: "Number of rounds",

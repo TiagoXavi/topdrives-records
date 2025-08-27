@@ -1712,7 +1712,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.5</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.6</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -1827,7 +1827,7 @@
               <div class="Main_Teams_Index">
                 <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
                 <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
-                <div class="Main_Teams_IndexPts">{{ item[2] }} / {{ item[7] }}</div>
+                <div class="Main_Teams_IndexPts">{{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
               </div>
               <div class="Main_Teams_ListLayout">
                 <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
