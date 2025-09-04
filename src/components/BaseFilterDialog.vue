@@ -2063,6 +2063,14 @@ export default {
         if (x === "Road") {
           return !valuesArray.includes("Motorsport") && !valuesArray.includes("Concept") && !valuesArray.includes("Track");
         }
+        if (x === "World Expo Road Trip") {
+          return valuesArray.includes("Amalfi Coast Cruising") ||
+          valuesArray.includes("Enter the Black Forest") ||
+          valuesArray.includes("Learn the Savannah Way") ||
+          valuesArray.includes("Loch to Loch") ||
+          valuesArray.includes("Pacific Coast Highway") ||
+          valuesArray.includes("World Expo");
+        }
         return valuesArray.includes(x);
       });
     },

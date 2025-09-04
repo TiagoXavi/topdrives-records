@@ -554,7 +554,7 @@ export default {
             { A: 5.00, C: 95.00 },
           ],
           priceCash: 0,
-          priceGold: 4679
+          priceGold: 0
         },
         {
           name: "Titanium",
