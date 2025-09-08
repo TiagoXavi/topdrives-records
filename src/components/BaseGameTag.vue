@@ -166,7 +166,8 @@ export default {
   --tag-s: 67%;
   --tag-l: 31%;
 }
-.BaseGameTag_Gaz\'s_Collection {
+.BaseGameTag_Gaz\'s_Collection,
+.BaseGameTag_Gaz\'s_Collection_2 {
   --tag-h: 40;
   --tag-s: 78%;
   --tag-l: 53%;
@@ -267,7 +268,8 @@ export default {
   --tag-s: 70%;
   --tag-l: 45%;
 }
-.BaseGameTag_Marilyn\'s_Collection {
+.BaseGameTag_Marilyn\'s_Collection,
+.BaseGameTag_Marilyn\'s_Collection_2 {
   --tag-h: 40;
   --tag-s: 78%;
   --tag-l: 53%;
@@ -605,5 +607,10 @@ export default {
   --tag-h: 312;
   --tag-s: 70%;
   --tag-l: 26%;
+}
+.BaseGameTag_German_Powerhaus {
+  --tag-h: 356;
+  --tag-s: 70%;
+  --tag-l: 55%;
 }
 </style>

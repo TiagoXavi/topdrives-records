@@ -2998,8 +2998,8 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #8</div>
-          <div class="Main_AnnouncementSubTitle">French Riviera</div>
+          <div class="Main_AnnouncementTitle">Contest #9</div>
+          <div class="Main_AnnouncementSubTitle">German Powerhaus</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
@@ -3008,7 +3008,7 @@
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
           </div>
-          <div class="Main_AnnouncementMaybe">24th June ~ 13th July</div>
+          <div class="Main_AnnouncementMaybe">8th September ~ 21th September</div>
 
           <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1104184336158302259" style="margin-top: 20px;" />
         </div>
@@ -3403,7 +3403,7 @@ export default {
       customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v27.2",
+      gameVersion: "Game v28.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -10044,15 +10044,15 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      if (window.localStorage.getItem("contest8")) return;
+      // return;
+      if (window.localStorage.getItem("contest9")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
         dt = Number(dt) + (60*60*1000) > new Date().getTime()
       }
       if (dt) return;
 
-      window.localStorage.setItem('contest8', "t");
+      window.localStorage.setItem('contest9', "t");
       setTimeout(() => {
         this.announcementDialog = true;
       }, 100);

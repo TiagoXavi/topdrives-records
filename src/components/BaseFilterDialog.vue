@@ -902,6 +902,7 @@ export default {
           "Famous Tracks",
           "Filberto's Collection",
           "Gaz's Collection",
+          "Gaz's Collection 2",
           "Gunter's Collection",
           "Harriet's Collection",
           "Heavy Metal",
@@ -915,6 +916,7 @@ export default {
           "Lina's Collection 2",
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",
+          "Marilyn's Collection 2",
           "New Beginnings",
           "Nightmare Fuel",
           "Niklas' Collection",
@@ -946,6 +948,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "German Powerhaus",
           "French Riviera",
           "Asia-Pacific Revival",
           "European Grand Tour",

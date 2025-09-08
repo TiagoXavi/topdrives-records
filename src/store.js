@@ -115,6 +115,7 @@ export default new Vuex.Store({
       "Interstellar",
       "Legrand's Collection",
       "Lina's Collection",
+      "Lina's Collection 2",
       "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
       "Marilyn's Collection",
@@ -148,7 +149,9 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [],
+    upcomingTags: [
+      "Marilyn's Collection 2"
+    ],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,
