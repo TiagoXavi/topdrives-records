@@ -42,17 +42,9 @@
       v-if="genericCarPickerDialogLoad"
       v-model="genericCarPickerDialog"
       :raceFilter="genericCarPickerFilter"
-      :cgAddingYouCar="true"
-      :config="{
-        topSpeed: false,
-        acel: false,
-        hand: false,
-        weight: false,
-        brake: false,
-        tcs: false,
-        abs: false
-      }"
-      type="cg"
+      :sortEnabled="true"
+      :enableCounters="true"
+      type="carPicker"
       @addCar="canEnterAfterPick($event)"
     />
   </div>
