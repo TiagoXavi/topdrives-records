@@ -3003,7 +3003,7 @@
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
-              <!-- <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div> -->
+              <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div>
               <div class="Main_AnnouncementItem">• 1 month of TDR premium</div>
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
