@@ -21,6 +21,7 @@ const MainAccelCurveMaker = () => import("./components/MainAccelCurveMaker.vue")
 const MainShowcase = () => import("./components/MainShowcase.vue");
 const BaseMyGarage = () => import("./components/BaseMyGarage.vue");
 const MainCsvChart = () => import("./components/MainCsvChart.vue");
+const MainMatchSimulator = () => import("./components/MainMatchSimulator.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -141,6 +142,11 @@ const routes = [
     path: '/me',
     name: 'BaseMyGarage',
     component: BaseMyGarage,
+  },
+  {
+    path: '/match',
+    name: 'MainMatchSimulator',
+    component: MainMatchSimulator,
   },
   {
     path: '/garage/:username',

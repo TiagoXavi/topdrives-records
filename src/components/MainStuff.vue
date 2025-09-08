@@ -55,14 +55,15 @@ export default {
 
     this.tools = [
       { name: "MainShowcase", label: this.$t("m_videoShowcase") },
-      { name: "Gallery", label: this.$t("m_vChanges", { version: '27.0' }), newCodes: ["changes_v27"], showNew: false },
+      { name: "Gallery", label: this.$t("m_vChanges", { version: '27.0' }), newCodes: [], showNew: false },
       { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.1' }), newCodes: [], showNew: false },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },
       { name: "MainTestPoints", label: this.$t("m_testPoints") },
       { name: "MainDownTimes", label: this.$t("m_downTimes") },
       { name: "MainAccelCurveMaker", label: this.$t("m_accelCurveMaker") },
-      { name: "BaseMyGarage", label: this.$t("m_myGarage"), newCodes: [], showNew: false },
+      { name: "BaseMyGarage", label: this.$t("m_myGarage") },
+      // { name: "MainMatchSimulator", label: this.$t("m_matchSimulator"), newCodes: ["matchSimulator"], showNew: false },
     ];
     this.tdrTools = [
       { name: "MainTranslate", label: this.$t("m_translationTool") },

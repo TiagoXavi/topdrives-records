@@ -128,7 +128,8 @@ export default {
         { label: "Packs", name: "Packs" },
         { label: "Timeline", name: "Timeline" },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", newCodes: ["changes_v27"], showNew: false },
+        { label: "Stuff", name: "Stuff", newCodes: [], showNew: false },
+        // { label: "Stuff", name: "Stuff", newCodes: ["matchSimulator"], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
@@ -495,7 +496,7 @@ export default {
   background: radial-gradient(hsla(var(--cor-hs), var(--cor-l0), var(--opacity)) 0%, hsla(var(--cor-hs), var(--cor-l0), 0) 60%);
   position: absolute;
   pointer-events: none;
-  width: 250px;
+  width: 220px;
   height: 150px;
   top: 0;
   right: 0;

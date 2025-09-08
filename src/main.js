@@ -11,6 +11,7 @@ import i18nMessages from './i18n';
 import VueVirtualScroller from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 import tip from './filters/tip.js';
+import { createPinia, PiniaVuePlugin } from 'pinia'
 
 
 Vue.config.productionTip = false;
@@ -33,6 +34,28 @@ const i18n = new VueI18n({
 });
 Vue.use({i18n});
 Vue.use(VueVirtualScroller)
+const pinia = createPinia()
+Vue.use(PiniaVuePlugin)
+
+
+
+window.documentTitle = function documentTitle(str, fullReplace=false) {
+  let def = "Top Drives Records";
+  let suf = fullReplace ? "" : "TDR";
+
+  if (!str && !import.meta.env.PROD) {
+    str = "DEV";
+  }
+
+  if (!str) {
+    document.title = def;
+    return;
+  }
+
+  document.title = `${str} — ${suf}`;
+  return;
+}
+
 
 
 if (import.meta.env.PROD) {
@@ -41,6 +64,7 @@ if (import.meta.env.PROD) {
 } else {
   Vue.preUrl = window.location.origin.replace(window.location.port, "3000");
   Vue.preUrlCharlie = window.location.origin.replace(window.location.port, "3001");
+  window.documentTitle();
 }
 
 new Vue({
@@ -48,6 +72,12 @@ new Vue({
   router,
   i18n,
   render: h => h(App),
+  pinia
 }).$mount('#app')
+
+
+
+
+
 
 

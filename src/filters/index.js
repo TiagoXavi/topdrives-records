@@ -6,6 +6,7 @@ import {
 import tracks_factor from '../database/tracks_factor.json';
 import all_cars from '../database/cars_final.json';
 import tracksRepo from '../database/tracks_repo.json';
+import Vue from 'vue';
 
 var classes = ["F","E","D","C","B","A","S"];
 var classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
@@ -53,6 +54,9 @@ function carPhoto(car) {
 var resolvedRids = {};
 var guidToRid = {};
 var cacheCars = {};
+var utils = Vue.observable({
+    windowWidth: 0
+});
 
 let limit = all_cars.length; // 5700 items
 for (let Z = 0; Z < limit; Z++) {
@@ -124,6 +128,7 @@ export default {
         Vue.all_cacheObj = cacheCars;
         Vue.all_carsObj = resolvedRids;
         Vue.resolveTracksetGroup = resolveTracksetGroup;
+        Vue.utils = utils;
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
             
@@ -408,9 +413,9 @@ export default {
             if (typeof timeSeconds !== "number") return "";
 
             let result = "";
-            let mins = Math.floor(timeSeconds / 60); // minutes
+            var hrs = Math.floor(timeSeconds / 3600); // hours
+            let mins = Math.floor((timeSeconds % 3600) / 60); // minutes
             // var timeDays = Math.floor(timeMs / 86400000); // days
-            // var timeHrs = Math.floor((timeMs % 86400000) / 3600000); // hours
 
             // console.log(timeMs, timeDays, timeHrs, mins, timeSeconds);
 
@@ -419,8 +424,9 @@ export default {
             // if (mins && !timeDays) result += `${mins}m `;
             // if (timeSeconds && !timeDays && !timeHrs) result += `${timeSeconds}s `;
 
+            if (hrs > 0) result += `${hrs}h `;
             if (mins > 0) result += `${mins}m `;
-            if (mins < 5) {
+            if (hrs === 0 && mins < 5) {
                 let secs = timeSeconds % 60;
                 result += `${secs}s `;
             }
@@ -516,3 +522,18 @@ export default {
         Vue.filter('timeDiffString', Vue.timeDiffString);
     }
 };
+
+
+
+
+
+function handleResize() {
+    utils.windowWidth = window.innerWidth;
+    let vw = document.documentElement.clientWidth;
+    document.documentElement.style.setProperty('--vw', `${vw}px`);
+    let vh = document.documentElement.clientHeight;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+handleResize();
+window.addEventListener('resize', handleResize);

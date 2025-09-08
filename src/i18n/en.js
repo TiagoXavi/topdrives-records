@@ -292,6 +292,7 @@ export default {
   m_blackList: "Black list",
   m_whiteList: "White list",
   m_garage: "Garage",
+  m_matchSimulator: "Match Simulator",
 
 
 
