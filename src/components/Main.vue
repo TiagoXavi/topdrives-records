@@ -1046,7 +1046,8 @@
                     :class="{
                       Event_BankReference: eventPointsReference[igroup].icar === icar,
                       Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
-                      Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune)
+                      Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune),
+                      Event_PredictTime: car.isTimePredicted
                     }"
                     :style="`--cor: ${ car.color }`"
                     :key="`${car.rid}${car.tune}${icar}`"
@@ -1454,7 +1455,8 @@
                       :class="{
                         Event_BankReference: clubPointsReference[igroup].icar === icar,
                         Event_BankSemiReference: clubPointsReference[igroup].icar === undefined && icar === 0,
-                        Event_BankPick: clubPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(clubPointsReference).find(key => clubPointsReference[key].rid === car.rid && clubPointsReference[key].tune === car.tune)
+                        Event_BankPick: clubPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(clubPointsReference).find(key => clubPointsReference[key].rid === car.rid && clubPointsReference[key].tune === car.tune),
+                        Event_PredictTime: car.isTimePredicted
                       }"
                       :style="`--cor: ${ car.color }`"
                       :key="`${car.rid}${car.tune}`"
@@ -1691,6 +1693,13 @@
           class="Main_KingTrackBox"
           name="kingForceVerticalView"
           :label="$t('m_kingForceVertical')" />
+        <BaseSwitch
+          v-model="eventMyGarage"
+          :label="`${$t('m_myGarage')}`"
+          :horizontal="true"
+          style="margin: 8px auto 0 auto;"
+          name="eventMyGarage"
+        />
         <button
           v-if="whatTier && whatTier <= 4 && !kingFixed"
           :class="{ D_Button_Loading: kingLoading }"
@@ -1717,23 +1726,25 @@
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
           <div class="Main_TeamsControlsLayout">
-            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" :label="$t('m_forceCars')" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" :label="$t('m_blackList')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" name="hand_MyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" name="hand_ForceCars" :label="$t('m_forceCars')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" name="hand_black" :label="$t('m_blackList')" :horizontal="true" />
             <BaseSwitch
               :value="eventBestTeamsConfig.repeatCars || eventBestTeamsConfig.myGarage"
               :label="$t('m_duplicates')"
               :horizontal="true"
               :disabled="eventBestTeamsConfig.myGarage"
+              name="hand_repeat"
               @change="eventBestTeamsConfig.repeatCars = $event"
             />
-            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" :label="$t('m_farmingHands')" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" :label="$t('m_prizeCars')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" name="hand_farming" :label="$t('m_farmingHands')" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" name="hand_prizes" :label="$t('m_prizeCars')" :horizontal="true" />
             <BaseSwitch
               :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
               :label="$t('m_neverAwardedCars')"
               :horizontal="true"
               :disabled="!eventBestTeamsConfig.prizeCars || true"
+              name="hand_neverAwarded"
               @change="eventBestTeamsConfig.neverAwardedCars = $event"
             />
             <BaseSwitch
@@ -1741,6 +1752,7 @@
               :label="$t('m_predictedTimes')"
               :horizontal="true"
               :disabled="eventBestTeamsConfig.myGarage"
+              name="hand_predicted"
               @change="eventBestTeamsConfig.predictedTimes = $event"
             />
           </div>
@@ -2026,11 +2038,13 @@
       @listRids="eventAnalyseKFilter();">
       <template v-if="whatTier && whatTier <= 3" slot="header">
         <div class="Main_FilterHeaderLeft">
-          <div v-if="eventPicksList.length > 0" class="Main_FilterHeaderLeftBox">
-            <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
-            <BaseConfigCheckBox v-model="eventForcePicks" name="eventForcePicks" :label="$t('m_eventForcePicks')" />
+          <div class="Main_FilterHeaderLeftBox">
+            <BaseSwitch v-model="eventMyGarage" name="eventMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
+            <template v-if="eventPicksList.length > 0">
+              <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
+              <BaseConfigCheckBox v-model="eventForcePicks" name="eventForcePicks" :label="$t('m_eventForcePicks')" />
+            </template>
           </div>
-          <div v-else/>
           <div class="Main_FilterHeaderLeftRight">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
@@ -3523,6 +3537,7 @@ export default {
       eventPicksList: [],
       eventShowOnlyPicks: false,
       eventForcePicks: false,
+      eventMyGarage: false,
       eventEnablePicks: true,
       eventScoreType: "saverScore3",
       eventScoreList: ["saverScore1", "saverScore2", "saverScore3"],
@@ -3634,6 +3649,7 @@ export default {
       kingFilterCount: 0,
       kingLoading: false,
       kingShowDownvoted: false,
+      kingMyGarage: false,
       kingFixed: false,
       kingAddindTrack: false,
       kingForceVerticalView: true,
@@ -5733,7 +5749,8 @@ export default {
         this.carDetailsList.map(x => {
           newData.map(y => {
             if (x.rid === y.rid) {
-              if (y.data) Vue.set(x, "data", y.data);
+              if (y.data && !x.data) Vue.set(x, "data", y.data);
+              if (y.data && x.data) Vue.set(x, "data", window._merge(x.data, y.data));
               if (y.users) Vue.set(x, "users", y.users);
               if (y.reviews) Vue.set(x, "reviews", y.reviews);
             }
@@ -8933,13 +8950,15 @@ export default {
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
           } else {
             car.points = Vue.options.filters.userPoints(bestTimePure, car.time, this.eventKingTracks[itrack]);
-            if ((this.eventKingTracks[itrack] || "").includes("testBowl")) {
+            if (car.time === 0) {
+              car.timeToPrint = "DNF";
+            } else if ((this.eventKingTracks[itrack] || "").includes("testBowl")) {
               car.timeToPrint = car.time;
             } else {
               if (car.time < bestTime) {
                 car.timeToPrint = `${(car.time - bestTime).toFixed(2)}`
               } else {
-                car.timeToPrint = `+${(car.time - bestTime).toFixed(2)}`
+                car.timeToPrint = `${car.isTimePredicted?"~":"+"}${(car.time - bestTime).toFixed(2)}`
               }
             }
           }
@@ -9362,12 +9381,21 @@ export default {
       this.eventAnalyseKFilter(forceFree);
     },
     eventAnalyseKFilter(forceFree) {
+      if (this.eventMyGarage && !this.user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+      
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
 
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
       this.eventKingTracks = this[key].trackset[this.eventCheckFilterCode[0]];
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
+
+      if (this.eventMyGarage) {
+        this.$store.commit("START_LOGROCKET", {});
+      }
 
       let params = {
         filter: this.eventFilterForKing,
@@ -9376,6 +9404,7 @@ export default {
         forceFree,
         onlyPicks: this.eventShowOnlyPicks,
         forcePicks: this.eventForcePicks,
+        myGarage: this.eventMyGarage,
         picks: []
       }
 
@@ -10123,14 +10152,24 @@ export default {
       this.kingAnalyseFinish();
     },
     kingAnalyseFinish() {
+      if (this.eventMyGarage && !this.user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+
       this.kingLoading = true;
       if (this.kingFixed) this.downloadLoading = true;
       let origMode = this.mode;
 
+      if (this.eventMyGarage) {
+        this.$store.commit("START_LOGROCKET", {});
+      }
+
       axios.post(Vue.preUrl + "/king", {
         track: this.kingTrack.code,
         includeDownvotes: this.kingShowDownvoted,
-        filter: this.kingClearFilter
+        filter: this.kingClearFilter,
+        myGarage: this.eventMyGarage
       })
       .then(res => {
         this.clearAllTracks();
@@ -10146,6 +10185,20 @@ export default {
         })
         Vue.set(this, "carDetailsList", result);
         this.applyNewData(res.data, this.mode === 'challenges', origMode);
+        if (this.eventMyGarage) {
+          this.carDetailsList.map((car, icar) => {
+            if (!res.data[icar].isTimePredicted) return;
+            let tune = car.selectedTune;
+            let track = this.kingTrack.code;
+
+            if (!car.data) Vue.set(car, "data", {});
+            if (!car.data[tune]) Vue.set(car.data, tune, {});
+            if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
+            if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
+            Vue.set(car.data[tune].times[track], "t", res.data[icar].time);
+            Vue.set(car.data[tune].times[track], "isTimePredicted", true);
+          })
+        }
         this.updateOptions();
         // this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
@@ -10177,9 +10230,6 @@ export default {
         this.kingLoading = false;
         this.downloadLoading = false;
       });
-    },
-    tierOf(username) {
-
     },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
@@ -11165,29 +11215,7 @@ export default {
     },
     getHandRanking(e) {
       if (this.eventBestTeamsConfig.myGarage && !this.user.hasGarage) {
-        let vm = this;
-
-        let action = function() {
-          vm.$router.push({ name: "BaseMyGarage" });
-          vm.$store.commit("DEFINE_DIALOG", {
-            active: false
-          });
-        }
-
-        vm.$store.commit("DEFINE_DIALOG", {
-          active: true,
-          title: vm.$t('p_youNeedGarage'),
-          actionLabel: vm.$t('m_uploadMyGarage'),
-          cancelLabel: vm.$t('m_cancel'),
-          actionColor: "green",
-          maxWidth: "250px",
-          minWidth: "240px",
-          error: false,
-          disabled: false,
-          action: action,
-          loading: false,
-          maxWidth: "420px"
-        });
+        this.noGarageUploaded();
         return;
       }
 
@@ -11304,6 +11332,31 @@ export default {
       });
 
 
+    },
+    noGarageUploaded() {
+      let vm = this;
+
+      let action = function() {
+        vm.$router.push({ name: "BaseMyGarage" });
+        vm.$store.commit("DEFINE_DIALOG", {
+          active: false
+        });
+      }
+
+      vm.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: vm.$t('p_youNeedGarage'),
+        actionLabel: vm.$t('m_uploadMyGarage'),
+        cancelLabel: vm.$t('m_cancel'),
+        actionColor: "green",
+        maxWidth: "250px",
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        action: action,
+        loading: false,
+        maxWidth: "420px"
+      });
     }
     
   }

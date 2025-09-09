@@ -11,7 +11,7 @@
         :disabled="disabled"
         type="checkbox"
         class="BaseSwitch_Input"
-        @input="$emit('change', $event.target.checked); runFix();"
+        @input="$emit('change', $event.target.checked); runFix(); updateAdvancedConfig();"
         @click="$emit('click', $event)">
       <span class="BaseSwitch_Slider round"></span>
     </label>
@@ -51,6 +51,10 @@ export default {
       type: Boolean,
       default: false
     },
+    name: {
+      type: String,
+      required: false
+    },
   },
   data() {
     return {
@@ -58,7 +62,15 @@ export default {
     }
   },
   watch: {},
-  beforeMount() {},
+  beforeMount() {
+    if (this.name) {
+      let value = window.localStorage.getItem(this.name);
+      if (value) {
+        value = JSON.parse(value);
+        this.$emit('change', value);
+      }
+    }
+  },
   mounted() {},
   computed: {},
   methods: {
@@ -67,6 +79,14 @@ export default {
       this.$nextTick().then(() => {
         this.showFix = true;
       });
+    },
+    updateAdvancedConfig() {
+      if (this.name) {
+        let vm = this;
+        setTimeout(() => {
+          window.localStorage.setItem(vm.name, vm.value);
+        }, 10);
+      }
     }
   },
 }

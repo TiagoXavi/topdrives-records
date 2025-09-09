@@ -1,7 +1,7 @@
 <template>
   <div class="Main_SaveGalleryBoxCheck">
     <div class="Main_SaveGalleryCheckLeft">
-      <BaseCheckBox :value="value" @change="$emit('change', $event); updateAdvancedConfig()" />
+      <BaseCheckBox :value="value" @change="$emit('change', $event); updateAdvancedConfig();" />
     </div>
     <div class="Main_SaveGalleryCheckRight">
       <div class="Main_OptionsLabel">{{ label }}</div>
@@ -39,7 +39,13 @@ export default {
     return {}
   },
   watch: {},
-  beforeMount() {},
+  beforeMount() {
+    let value = window.localStorage.getItem(this.name);
+    if (value) {
+      value = JSON.parse(value);
+      this.$emit('change', value);
+    }
+  },
   mounted() {},
   computed: {},
   methods: {

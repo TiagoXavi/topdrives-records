@@ -68,6 +68,7 @@
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `${showingBestPerTrack ? 'Row_ShowingBestPerTrack ' : '' }`+
+              `${item.isTimePredicted ? 'Row_isTimePredicted ' : '' }`+
               `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
       :style="{
         '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
@@ -456,8 +457,10 @@ export default {
       let upList;
       let car;
       let date;
+      let isTimePredicted;
       let timesObjPresent = false;
       let presentTracks = [];
+      let obj;
       this.nonUsedTracks = [];
       this.tuneWins = {};
 
@@ -487,9 +490,13 @@ export default {
             upList = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
             author = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
             date = ((car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
+            isTimePredicted = !!(car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).isTimePredicted;
           }
           if (text === undefined || text === null) text = "";
-          result.push({ text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date })
+          obj = { text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date };
+          if (isTimePredicted) obj.isTimePredicted = true;
+
+          result.push(obj);
         })
       }
 
@@ -685,6 +692,7 @@ export default {
       });
 
       if (this.isReferencePoints) return;
+      if (item.isTimePredicted) return;
 
       this.$nextTick().then(() => {
         if (this.type === "times" && this.loggedin && item.text !== '' ) {
@@ -1824,6 +1832,9 @@ export default {
 }
 .Main_Compact .Row_DetailDate {
   display: none;
+}
+.Row_isTimePredicted {
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 7px, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 14px);
 }
 
 

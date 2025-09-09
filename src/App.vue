@@ -2305,7 +2305,7 @@ body .Main_UserTw3:before {
 .Main_SaveGalleryBoxCheck {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 .Main_SaveGalleryDialog {
   display: flex;
@@ -3086,12 +3086,17 @@ body .Main_UserTw3:before {
   align-items: center;
   margin-right: 10px;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .Event_HasPickList > .Event_BankButton:not(.Event_BankReference):not(.Event_BankPick) {
   opacity: 0.4;
 }
 .Event_HasPickList > .Event_BankSemiReference:not(.Event_BankPick) {
   opacity: 0.4;
+}
+.Event_PredictTime .Event_BankTime {
+  opacity: 0.4;
+  font-size: 0.8em;
 }
 .Event_BankPhoto {
   margin-right: 7px;
