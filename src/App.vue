@@ -1912,6 +1912,14 @@ body .Main_UserTw3:before {
   font-size: 12px;
   opacity: 0.5;
 }
+.Main_FilterChipsShowExpand {
+  align-self: center;
+  padding-left: 13px;
+}
+.Main_FilterChipsShowExpandIcon {
+  font-size: 1.3em;
+  line-height: 1;
+}
 .Main_FilterClassChips {
   max-width: 430px;
   width: 100%;

@@ -56,7 +56,6 @@
           <div class="Main_DialogTitle">{{ $t("m_options") }}</div>
           <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
           <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
-          <BaseConfigCheckBox v-model="showOldTags" name="showOldTags" :label="$t('m_showOldTags')" />
           <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
           <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" />
           <BaseConfigCheckBox v-model="showPrizeBoard" name="showPrizeBoard" :label="`${$t('m_events')}: ${$t('m_showPrizeBoard')}`" />

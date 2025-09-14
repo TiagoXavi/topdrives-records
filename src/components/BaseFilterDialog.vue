@@ -327,19 +327,6 @@
                   :value="item" />
               </template>
             </div>
-            <div v-if="$store.state.showOldTags" class="Main_FilterChipsFlex">
-              <template>
-                <template v-for="(item, ix) in searchFilters.tags_challenge">
-                  <BaseChip
-                    v-model="tagsModel"
-                    v-if="$store.state.oldTags.includes(item)"
-                    :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
-                    class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                    :counter="counters[`tags_${item}`]"
-                    :value="item" />
-                </template>
-              </template>
-            </div>
             <div v-if="$store.state.showUpcomingTags" class="Main_FilterChipsFlex">
               <template>
                 <template v-for="(item, ix) in searchFilters.tags_challenge">
@@ -369,18 +356,30 @@
                 </template>
               </div>
             </div>
+            <button
+              v-if="!oldTagsExpanded"
+              class="D_Button D_ButtonDark D_ButtonDarkTransparent Main_FilterChipsShowExpand"
+              @click="oldTagsExpanded = true;">
+              <span>{{ $t("m_showOldTags") }}</span>
+              <i class="ticon-keyboard_arrow_down Main_FilterChipsShowExpandIcon" aria-hidden="true"/>
+            </button>
+            <BaseExpandDiv :active="oldTagsExpanded">
+              <div class="Main_FilterChipsFlex">
+                <template>
+                  <template v-for="(item, ix) in searchFilters.tags_challenge">
+                    <BaseChip
+                      v-model="tagsModel"
+                      v-if="$store.state.oldTags.includes(item)"
+                      :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
+                      class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                      :counter="counters[`tags_${item}`]"
+                      :value="item" />
+                  </template>
+                </template>
+              </div>
+            </BaseExpandDiv>
             <div class="Main_FilterChipsFlex">
               <template v-for="(item, ix) in searchFilters.tags_permanent">
-                <BaseChip
-                  v-model="tagsModel"
-                  :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
-                  class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
-                  :counter="counters[`tags_${item}`]"
-                  :value="item" />
-              </template>
-            </div>
-            <div v-if="$store.state.showOldTags" class="Main_FilterChipsFlex">
-              <template v-for="(item, ix) in searchFilters.tags_permanentDied">
                 <BaseChip
                   v-model="tagsModel"
                   :class="`BaseGameTag_${item.replaceAll(' ', '_').replaceAll(',', '').replaceAll('/', '')}`"
@@ -401,12 +400,13 @@
             </div>
           </template>
           <div v-if="config.tags !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.tagsModel || raceFilterResolved.tagsModel.length === 0)" class="Main_FilterChipsFlex">
-            <button v-if="!multi" class="BaseChip BaseChip_MinWidth BaseFilterDialog_TransparentChip" @click="enableMulti()">{{ $t("m_multiTags") }}</button>
+            <button v-if="!multi" class="D_Button D_ButtonDark D_ButtonDarkTransparent" @click="enableMulti()">{{ $t("m_multiTags") }}</button>
             <template v-else>
               <template v-for="numb in multiPages">
                 <BaseChip
                   v-model="multiPage"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseGameTag_Filter"
+                  required
                   :value="numb">
                   <span>{{ numb }}</span>
                   <div v-if="searchFilters[getTagsModelKey(numb)].length > 0" class="D_ButtonNote">{{ searchFilters[getTagsModelKey(numb)].length }}</div>
@@ -783,6 +783,7 @@ export default {
       showMoreSort: false,
       factor: false,
       statsView: false,
+      oldTagsExpanded: false,
       counters: {},
       countersDefault: null,
       countersBetween: {
@@ -925,14 +926,17 @@ export default {
           "Photo Finish",
           "Racing Royalty",
           "Reclassified",
+          "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
           "Roads Most Travelled",
           "Sara's Collection",
           "Silver Screen",
+          "Sub-Zero",
           "Summer Games",
           "Summer Games 24",
           "Summer Games 25",
+          "Supercar",
           "The Great Outdoors",
           "The Horror Show",
           "The Unicorns",
@@ -991,11 +995,6 @@ export default {
           "Track",
           "Ultra Expensive",
           "Wild Ride",
-        ],
-        tags_permanentDied: [
-          "Rest of the World",
-          "Sub-Zero",
-          "Supercar"
         ],
         tags_color: [
           "Beige",
@@ -1166,7 +1165,6 @@ export default {
     this.searchFilters.tags_challenge.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_expansion.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_permanent.map(x => this.searchFilters.tags.push(x));
-    this.searchFilters.tags_permanentDied.map(x => this.searchFilters.tags.push(x));
     this.searchFilters.tags_color.map(x => this.searchFilters.tags.push(x));
     
   },
