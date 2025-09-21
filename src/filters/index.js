@@ -6,6 +6,7 @@ import {
 import tracks_factor from '../database/tracks_factor.json';
 import all_cars from '../database/cars_final.json';
 import tracksRepo from '../database/tracks_repo.json';
+import tracksPerc from '../database/tracks_perc.json';
 import Vue from 'vue';
 
 var classes = ["F","E","D","C","B","A","S"];
@@ -108,7 +109,24 @@ function validateTracks(tracks, group = false) {
   return tracksClear;
 }
 
+function prettyPrintArray(json) {
+  if (typeof json === 'string') {
+    json = JSON.parse(json);
+  }
+  let output = JSON.stringify(json, function(k,v) {
+    if (k !== "" && v instanceof Array) {
+        // debugger;
+        return JSON.stringify(v);
+    }
+    return v;
+  }, 2).replace(/\\/g, '')
+    .replace(/\"\[/g, '[')
+    .replace(/\]\"/g,']')
+    .replace(/\"\{/g, '{')
+    .replace(/\}\"/g,'}');
 
+  return output;
+}
 
 
 
@@ -129,6 +147,8 @@ export default {
         Vue.all_carsObj = resolvedRids;
         Vue.resolveTracksetGroup = resolveTracksetGroup;
         Vue.utils = utils;
+        Vue.prettyPrintArray = prettyPrintArray;
+        Vue.tracks_perc = tracksPerc;
         Vue.debounce = function (func, wait, immediate) {
             var timeout;
             
@@ -455,6 +475,30 @@ export default {
                 result
             };
         };
+        Vue.trackToPerc = function (trackCode, index=0, skipAsphalt=true, isCode=false) {
+            if (!tracksPerc[trackCode]) return '';
+            let curr = 0;
+            for (let X = 0; X < tracksPerc[trackCode].length; X++) {
+                if (
+                    skipAsphalt &&
+                    (
+                        tracksPerc[trackCode][X][0] === "00" ||
+                        (tracksPerc[trackCode][X][0] === "01" && trackCode !== "figureEight_a01") ||
+                        tracksPerc[trackCode][X][1] === 1
+                    )
+                ) {
+                    continue;
+                }
+                if (index === curr) {
+                    if (!isCode) return `${tracksPerc[trackCode][X][1]}%`;
+                    if (isCode) return `${tracksPerc[trackCode][X][0]}`;
+                    break;
+                }
+                curr++;
+                continue;
+            }
+            return '';
+        };
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
         };
@@ -520,6 +564,7 @@ export default {
         Vue.filter('userPoints', Vue.userPoints);
         Vue.filter('timer', Vue.timer);
         Vue.filter('timeDiffString', Vue.timeDiffString);
+        Vue.filter('trackToPerc', Vue.trackToPerc);
     }
 };
 

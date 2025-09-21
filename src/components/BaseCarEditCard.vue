@@ -9,7 +9,7 @@
       <div class="Car_HeaderBlockTop" style="backdrop-filter: none; background-color: rgba(81,78,72,1);"/>
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue">{{ car.rq }}</div>
-        <div class="Car_HeaderRQLabel">RQ</div>
+        <div class="Car_HeaderRQLabel"><i class="tdicon-rq" aria-hidden="true"/></div>
       </div>
       <div :class="{
         Car_HeaderNameBig: car.name.length > 31,

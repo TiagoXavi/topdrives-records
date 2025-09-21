@@ -17,7 +17,17 @@
       :class="contentClass"
       class="BaseEventName_Right"
       :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`">{{ name }}</div>
-    <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
+    <i
+      v-for="icon in item.icons"
+      :class="`tdicon-${icon}`"
+      class="TdIconCond"
+      aria-hidden="true">
+      <span class="path1"/>
+      <span class="path2"/>
+      <span class="path3"/>
+      <span class="path4"/>
+    </i>
+    <!-- <BaseIconSvg v-for="icon in item.icons" :type="`n_${icon}`" :useMargin="false" /> -->
   </BaseButtonTouch>
 </template>
 

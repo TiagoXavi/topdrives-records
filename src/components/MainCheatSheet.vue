@@ -31,6 +31,7 @@
             <template v-for="(line, xline) in tyres[tyres.relativeToBest ? 'valuesRelative' : 'values']">
               <div class="MainCheatSheet_TyresLeftSurface MainCheatSheet_Cell MainCheatSheet_CellBold MainCheatSheet_CellSurface">
                 <BaseTypeName :type="line.type" class="MainCheatSheet_TyresSurfaceName" />
+                <BaseTrackType :trackType="line.type" :small="true" :isButton="false" />
               </div>
               <div
                 v-for="(friction, xfriction) in line[tyres.drivesModel]"
@@ -321,6 +322,7 @@ import BaseTypeName from "./BaseTypeName.vue";
 import BaseIconSvg from "./BaseIconSvg.vue";
 import BaseSwitch from "./BaseSwitch.vue";
 import BaseCheckBox from "./BaseCheckBox.vue";
+import BaseTrackType from "./BaseTrackType.vue";
 import Row from "./Row.vue";
 import Logo from "./Logo.vue";
 import BaseFilterDialog from "./BaseFilterDialog.vue";
@@ -340,7 +342,8 @@ export default {
     Row,
     BaseIconSvg,
     BaseSwitch,
-    BaseCheckBox
+    BaseCheckBox,
+    BaseTrackType
   },
   props: {
     test: {
@@ -531,7 +534,7 @@ export default {
       tracksPenalty: [
         {
           name: "Low GC Penalty",
-          tracks: [ "csSmall", "csMed", "dockCity", "oceanCity", "speedbump12km", "speedbump1km", "desertHill", "miStreets2" ]
+          tracks: [ "csSmall", "csMed", "dockCity", "oceanCity", "speedbump12km", "speedbump1km", "desertHill", "miStreets2", 'itBump', 'dsTnFreeway', 'dsTnLove', 'dsTnMile2bump' ]
         },
         {
           name: "Low/Mid GC Penalty",
@@ -817,6 +820,11 @@ export default {
 .MainCheatSheet_CellSurface {
   padding: 0px 8px 0px 4px;
   box-shadow: inset -2px -2px 0px 0px #ffffff10, inset 0px -2px 0px 0px #ffffff00, -2px 0px 0px 0px #ffffff00;
+  justify-content: space-between;
+}
+.MainCheatSheet_CellSurface .BaseTypeName_Layout {
+  display: block;
+  padding-right: 3px;
 }
 .MainCheatSheet_TyresTopName {
   display: flex;

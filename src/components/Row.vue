@@ -64,7 +64,8 @@
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
-              `${type === 'tracks' && item.text.length > 18 ? 'Row_TrackNameBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > 14 ? 'Row_TrackNameBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > 19 ? 'Row_TrackNameBigBig ' : '' }`+
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `${showingBestPerTrack ? 'Row_ShowingBestPerTrack ' : '' }`+
@@ -88,25 +89,54 @@
         @blur="blur($event, item, ix)"
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
-        class="Row_Content">{{ item.text | toTimeString(item.id) }}<span v-if="type === 'tracks' && (item.textEng.includes('(R)') || item.id.includes('forestRiver') )">
-          <BaseIconSvg v-if="item.textEng.includes('(R)')"/>
-          <BaseIconSvg v-else :type="item.cond === '1' ? 'rain' : 'sun'"/>
-        </span>
-        <span v-else-if="type === 'tracks' && (
-          item.id === 'csSmall' ||
-          item.id === 'dockCity' ||
-          item.id === 'csMed' ||
-          item.id === 'oceanCity' ||
-          item.id === 'speedbump12km' ||
-          item.id === 'speedbump1km' ||
-          item.id === 'desertHill' ||
-          item.id === 'moto' ||
-          item.id === 'desertRallyDirt' ||
-          item.id === 'miStreets2'
-        )">
-          <BaseIconSvg type="clearance"/>
-        </span>
-        </div>
+        class="Row_Content">{{ item.text | toTimeString(item.id) }}<span v-if="type === 'tracks'" class="TdIconCondBox">
+          <i
+            v-if="item.textEng.includes('(R)')"
+            class="tdicon-roll Row_TdIconPerk"
+            aria-hidden="true">
+            <span class="path1"/>
+            <span class="path2"/>
+            <span class="path3"/>
+            <span class="path4"/>
+          </i>
+          <i
+            v-if="(
+              item.id === 'csSmall' ||
+              item.id === 'dockCity' ||
+              item.id === 'csMed' ||
+              item.id === 'oceanCity' ||
+              item.id === 'speedbump12km' ||
+              item.id === 'speedbump1km' ||
+              item.id === 'desertHill' ||
+              item.id === 'moto' ||
+              item.id === 'desertRallyDirt' ||
+              item.id === 'miStreets2' ||
+              item.id === 'itBump' ||
+              item.id === 'dsTnFreeway' ||
+              item.id === 'dsTnLove' ||
+              item.id === 'dsTnMile2bump'
+            )"
+            class="tdicon-clearance Row_TdIconPerk"
+            aria-hidden="true">
+            <span class="path1"/>
+            <span class="path2"/>
+            <span class="path3"/>
+          </i>
+          <i
+            v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
+            :class="`tdicon-${item.trackType}`"
+            class="TdIconCond TdIconCondRel TdIconCondInside"
+            aria-hidden="true">
+            <span class="path1"/>
+            <span class="path2"/>
+            <span class="path3"/>
+            <span class="path4"/>
+            <div class="TdIconCondPercGroup">
+              <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true) }}</span>
+              <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true) }}</span>
+            </div>
+          </i>
+        </span></div>
       <div
         v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
         :class="{
@@ -135,7 +165,11 @@
         item.id === 'speedbump12km' ||
         item.id === 'speedbump1km' ||
         item.id === 'desertHill' ||
-        item.id === 'miStreets2'
+        item.id === 'miStreets2'||
+        item.id === 'itBump' ||
+        item.id === 'dsTnFreeway' ||
+        item.id === 'dsTnLove' ||
+        item.id === 'dsTnMile2bump'
         )"
         class="Row_xRA">low</div>
       <div v-else-if="item.text && type === 'times' && (car.clearance === 'Low' || car.clearance === 'Mid') && (
@@ -143,8 +177,27 @@
         item.id === 'desertRallyDirt'
         )"
         class="Row_xRA">{{ car.clearance.toLowerCase() }}</div>
-      <div v-if="type === 'tracks' && (item.trackType !== '00')" class="Row_Conditions" :class="{ Row_Conditions_Forest: item.id.includes('forestRiver') }">
-        <BaseTypeName :type="item.trackType" :trackId="item.id" />
+      <div v-if="type === 'tracks'" class="Row_Conditions">
+        <!-- <BaseTypeName :type="item.trackType" :trackId="item.id" /> -->
+        <!-- <BaseIconSvg v-if="item.textEng.includes('(R)')" type="n_roll" /> -->
+        <!-- <span v-if="type === 'tracks' && (item.textEng.includes('(R)') || item.id.includes('forestRiver') )" class="Row_IconSpan"> -->
+          <!-- <BaseIconSvg v-else :type="item.cond === '1' ? 'rain' : 'sun'"/> -->
+        <!-- </span> -->
+        <i
+          v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
+          :class="`tdicon-${item.trackType}`"
+          class="TdIconCond TdIconCondRel"
+          aria-hidden="true">
+          <span class="path1"/>
+          <span class="path2"/>
+          <span class="path3"/>
+          <span class="path4"/>
+          <div class="TdIconCondPercGroup">
+            <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true) }}</span>
+            <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true) }}</span>
+          </div>
+        </i>
+        <!-- <BaseTrackType v-if="item.trackType !== '00'" class="BaseTrackType_Small" :trackType="item.trackType" :isButton="false" /> -->
       </div>
       <div v-if="detailIndex === ix && loggedin" class="Row_DetailsOverlay">
         <div class="Row_LikesBox">
@@ -237,6 +290,7 @@
 
 <script>
 import BaseTypeName from '@/components/BaseTypeName.vue';
+import BaseTrackType from '@/components/BaseTrackType.vue';
 import BaseIconSvg from '@/components/BaseIconSvg.vue';
 
 var pos1 = 0;
@@ -251,7 +305,8 @@ export default {
   name: 'Row',
   components: {
     BaseTypeName,
-    BaseIconSvg
+    BaseIconSvg,
+    BaseTrackType
   },
   props: {
     list: {
@@ -466,7 +521,16 @@ export default {
 
       if (this.type === "tracks") {
         this.list.map(x => {
-          result.push({ text: this.$t('t_'+x.id), textEng: this.$t('t_'+x.id, "en"), cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, campaign: x.campaign, campaignNum: x.campaignNum })
+          result.push({
+            text: this.$t('t_'+x.id),
+            textEng: this.$t('t_'+x.id, "en"),
+            cond: x.cond,
+            surface: x.surface,
+            id: x.id,
+            trackType: `${x.surface}${x.cond}`,
+            campaign: x.campaign,
+            campaignNum: x.campaignNum
+          })
         })
       } else if (this.type === "times") {
         car = this.car;
@@ -1172,7 +1236,7 @@ export default {
   pointer-events: none;
   color: var(--d-text-b);
   animation: campaignTip 0.1s linear forwards;
-  font-size: 0.8em;
+  font-size: 14px;
 }
 .Main_2 .Row_Tracks:not(.Row_ForceNormalSize) .Row_Campaign {
   display: none;
@@ -1561,17 +1625,18 @@ export default {
 
 .Row_Conditions {
   font-size: 8px;
-  font-family: 'Press Start 2P', cursive;
+  /* font-family: 'Press Start 2P', cursive; */
   line-height: 1;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 1px 5px;
-  position: absolute;
-  right: 2px;
-  bottom: 0px;
-  flex-wrap: wrap;
-  padding-left: 2px;
+  /* gap: 1px 5px; */
+  /* position: absolute; */
+  /* right: 2px; */
+  /* bottom: 0px; */
+  /* flex-wrap: wrap; */
+  /* padding-left: 2px; */
+  padding-right: 2px;
 }
 .Row_Conditions_Forest {
   left: 5px;
@@ -1767,6 +1832,9 @@ export default {
   cursor: grab;
   transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
 }
+.Row_Tracks .Row_Cell {
+  --type-back-opac: 0.06 !important; /* some css with double :not lumber mill causing to overwrite this */
+}
 .Row_Tracks {
   position: relative;
 }
@@ -1816,13 +1884,19 @@ export default {
   transform: translateX(var(--cell-width));
 }
 .Row_TrackNameBig {
-  font-size: 15px;
+  font-size: 16px;
+}
+.Row_TrackNameBigBig {
+  font-size: 14px;
 }
 .Main_2 .Row_Content {
   font-size: 14px;
 }
 .Main_2 .Row_TrackNameBig {
   font-size: 12px;
+}
+.Main_2 .Row_TrackNameBigBig {
+  font-size: 10px;
 }
 .Row_ShowingBestPerTrack {
   overflow: hidden;
@@ -1844,6 +1918,15 @@ export default {
 .Main_2 .Car_Layout:hover .Car_Header2 {
   box-shadow: inset 0px -80px 0px 0px rgb(255, 255, 255, 0.04);
 }
+.Main_2 .Row_Conditions {
+  display: none;
+}
+/* .Main_2 .Row_TdIconPerk {
+  position: absolute;
+  bottom: -1px;
+  left: -3px;
+} */
+
 
 @media only screen and (max-width: 767px) {
   .Row_Tracks .Row_Content {

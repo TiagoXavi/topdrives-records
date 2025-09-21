@@ -164,6 +164,7 @@ export default {
   "s_aspht": null,
   "s_wet": "Nat",
   "s_dirt": "Aarde",
+  "s_mud": "Modder",
   "s_gravel": "Grind",
   "s_ice": "Ijs",
   "s_sand": "Zand",

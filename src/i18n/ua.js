@@ -157,6 +157,7 @@ export default {
   "s_snow": "Сніг",
   "s_grass": "Трава",
   "s_dirt": "Грунт",
+  "s_mud": "Бруд",
   "c_topSpeed": "Швидк.",
   "c_handling": "Управління",
   "c_hand": "@:c_handling | @:c_handling",

@@ -359,6 +359,7 @@ export default {
   s_aspht: "Aspht",  // max 5 chars
   s_wet: "Wet",  // max 5 chars
   s_dirt: "Dirt",  // max 5 chars
+  s_mud: "Mud",  // max 5 chars
   s_gravel: "Gravel",  // max 5 chars
   s_ice: "Ice",  // max 5 chars
   s_sand: "Sand",  // max 5 chars

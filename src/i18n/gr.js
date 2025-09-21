@@ -153,6 +153,7 @@ export default {
   "s_aspht": "Ασφλτ",
   "s_wet": "Υγρό",
   "s_dirt": "Χώμα",
+  "s_mud": "λάσπη",
   "s_gravel": "Χαλκι",
   "s_ice": "Πάγος",
   "s_sand": "Άμμος",

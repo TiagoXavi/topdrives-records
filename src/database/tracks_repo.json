@@ -476,7 +476,7 @@
   },
   {
     "id": "nwTour",
-    "types": ["00","01", "60", "41", "h1"],
+    "types": ["00","01","60"],
     "group": "newYork"
   },
   {
@@ -702,32 +702,32 @@
   },
   {
     "id": "offEasy",
-    "types": ["40"],
+    "types": ["m0"],
     "group": "off"
   },
   {
     "id": "offFord",
-    "types": ["10"],
+    "types": ["k0"],
     "group": "off"
   },
   {
     "id": "offHhill",
-    "types": ["10"],
+    "types": ["k0"],
     "group": "off"
   },
   {
     "id": "offHSwitch",
-    "types": ["40"],
+    "types": ["m0"],
     "group": "off"
   },
   {
     "id": "offPiste",
-    "types": ["10"],
+    "types": ["k0"],
     "group": "off"
   },
   {
     "id": "offRtoDirt",
-    "types": ["40"],
+    "types": ["m0"],
     "group": "off"
   },
   {

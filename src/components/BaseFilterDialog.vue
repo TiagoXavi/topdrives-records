@@ -359,7 +359,7 @@
             <button
               v-if="!oldTagsExpanded"
               class="D_Button D_ButtonDark D_ButtonDarkTransparent Main_FilterChipsShowExpand"
-              @click="oldTagsExpanded = true;">
+              @click="oldTagsExpanded = true; $store.commit('CHANGE_OLD_TAGS', true);">
               <span>{{ $t("m_showOldTags") }}</span>
               <i class="ticon-keyboard_arrow_down Main_FilterChipsShowExpandIcon" aria-hidden="true"/>
             </button>

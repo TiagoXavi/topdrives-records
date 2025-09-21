@@ -306,6 +306,7 @@ export default {
   "s_aspht": "Aspht",
   "s_wet": "Vått",
   "s_dirt": "Jord",
+  "s_mud": "Lera",
   "s_gravel": "Grus",
   "s_ice": "Is",
   "s_sand": "Sand",

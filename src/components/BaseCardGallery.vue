@@ -33,7 +33,7 @@
       <div v-if="tuneText" class="Car_TuneTipGallery">{{ tuneText }}</div>
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: car && car.rq > 99 }">{{ car.rq }}</div>
-        <div class="Car_HeaderRQLabel">RQ</div>
+        <div class="Car_HeaderRQLabel"><i class="tdicon-rq" aria-hidden="true"/></div>
       </div>
       <div class="Car_HeaderBlockClass">
         <div class="Car_HeaderClassBack" />
@@ -190,7 +190,7 @@ export default {
   line-height: 1;
 }
 .BaseCardGallery_Layout {
-  --factor: 6px;
+  --factor: 9px;
 }
 .BaseCardGallery_Header > * {
   display: block;

@@ -1,0 +1,213 @@
+@font-face {
+  font-family: 'tdicons';
+  src: url('./tdicons.woff2') format('woff2'), url('./tdicons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tdicons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tdicon-cash:before {
+  content: "\e900";
+  color: #37ebac;
+}
+.tdicon-clearanceW .path1:before,
+.tdicon-clearance .path1:before {
+  content: "\e901";
+  color: rgb(255, 221, 68);
+}
+.tdicon-clearanceW .path2:before,
+.tdicon-clearance .path2:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(11, 33, 55);
+}
+.tdicon-clearanceW .path2:before {
+  color: #0082c3;
+}
+.tdicon-clearanceW .path3:before,
+.tdicon-clearance .path3:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 221, 68);
+}
+.tdicon-roll .path1:before {
+  content: "\e90f";
+  color: rgb(11, 33, 55);
+}
+.tdicon-roll .path2:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(255, 221, 68);
+}
+.tdicon-roll .path3:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(255, 221, 68);
+}
+.tdicon-roll .path4:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(255, 221, 68);
+}
+.tdicon-xp:before {
+  content: "\e919";
+  color: #15dfff;
+}
+.tdicon-rq:before {
+  content: "\e913";
+  /* color: #05b2ec; */
+}
+.tdicon-gold:before {
+  content: "\e906";
+  color: #fbad14;
+}
+
+/* dry */
+.tdicon-00 .path1:before,
+.tdicon-dry .path1:before,
+.tdicon-01 .path1:before,
+.tdicon-asphalt .path1:before,
+.tdicon-rain .path1:before,
+.tdicon-40 .path00:before,
+.tdicon-41 .path00:before,
+.tdicon-b0 .path00:before,
+.tdicon-c0 .path00:before,
+.tdicon-c1 .path00:before,
+.tdicon-d0 .path00:before,
+.tdicon-i0 .path00:before,
+.tdicon-f0 .path00:before,
+.tdicon-m0 .path00:before,
+[dataid="figureEight"] .tdicon-01 .path00:before,
+.tdicon-wet .path1:before,
+.TdIconCondPerc[scode="00"] {
+  content: "\e905";
+  color: #cdcdcd;
+}
+
+/* wet */
+.tdicon-01 .path2:before,
+.tdicon-rain .path2:before,
+.tdicon-wet .path2:before,
+.tdicon-11 .path2:before,
+.tdicon-41 .path2:before,
+.tdicon-41 .path01:before,
+.tdicon-c1 .path01:before,
+.tdicon-mud .path2:before,
+.tdicon-51 .path2:before,
+.tdicon-c1 .path2:before,
+.tdicon-71 .path2:before,
+.tdicon-j0 .path4:before, /* 4 */
+.tdicon-h1 .path2:before,
+.tdicon-grasswet .path2:before,
+.TdIconCondPerc[scode="01"] {
+  content: "\e918";
+  margin-left: -1em;
+  color: #2ec0ff;
+}
+
+/* dirt */
+.tdicon-10 .path1:before,
+.tdicon-40 .path1:before,
+.tdicon-i0 .path1:before,
+.tdicon-f0 .path1:before,
+.tdicon-dirt .path1:before,
+.tdicon-11 .path1:before,
+.tdicon-41 .path1:before,
+.tdicon-j0 .path1:before,
+.tdicon-j0 .path3:before, /* 3 */
+.tdicon-k0 .path1:before,
+.tdicon-l0 .path1:before,
+.tdicon-e0 .path1:before, 
+.tdicon-h0 .path1:before,
+.tdicon-h1 .path1:before,
+.tdicon-m0 .path1:before,
+.tdicon-mud .path1:before,
+.TdIconCondPerc[scode="10"] {
+  content: "\e904";
+  color: #cd5542;
+}
+
+
+/* gravel */
+.tdicon-20 .path1:before,
+.tdicon-b0 .path1:before,
+.tdicon-gravel .path1:before,
+.TdIconCondPerc[scode="20"] {
+  content: "\e90a";
+  color: #ab7955;
+}
+
+/* ice */
+.tdicon-30 .path1:before,
+.tdicon-g0 .path1:before,
+.tdicon-ice .path1:before,
+.TdIconCondPerc[scode="30"] {
+  content: "\e90b";
+  color: #68bef2;
+}
+
+/* sand */
+.tdicon-50 .path1:before,
+.tdicon-e0 .path3:before, /* 3 */
+.tdicon-i0 .path3:before, /* 3 */
+.tdicon-c0 .path1:before,
+.tdicon-sand .path1:before,
+.tdicon-51 .path1:before,
+.tdicon-c1 .path1:before,
+.TdIconCondPerc[scode="50"] {
+  content: "\e914";
+  color: #cc9f42;
+}
+
+
+/* snow */
+.tdicon-60 .path1:before,
+.tdicon-d0 .path1:before,
+.tdicon-h0 .path3:before, /* 3 */
+.tdicon-h1 .path3:before, /* 3 */
+.tdicon-g0 .path3:before, /* 3 */
+.tdicon-snow .path1:before,
+.TdIconCondPerc[scode="60"] {
+  content: "\e915";
+  color: #63efde;
+}
+
+/* grass */
+.tdicon-70 .path1:before,
+.tdicon-f0 .path3:before,
+.tdicon-grass .path1:before,
+.tdicon-71 .path1:before,
+.tdicon-grasswet .path1:before,
+.TdIconCondPerc[scode="70"] {
+  content: "\e907";
+  color: #28b459;
+}
+
+
+/* water */
+.tdicon-80 .path1:before,
+.tdicon-k0 .path3:before, /* 3 */
+.tdicon-m0 .path3:before, /* 3 */
+[dataid="forestRiver"] .tdicon-40 .path3:before, /* 3 */
+[dataid="forestRiver"] .tdicon-41 .path3:before, /* 3 */
+[dataid="forestRiver"] .tdicon-b0 .path3:before, /* 3 */
+.tdicon-water .path1:before,
+.TdIconCondPerc[scode="80"] {
+  content: "\e916";
+  color: #316be7;
+}

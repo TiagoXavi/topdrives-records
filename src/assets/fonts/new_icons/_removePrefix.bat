@@ -1,0 +1,1 @@
+rename "newIconsPaged_*.svg" "//////////////*.svg"

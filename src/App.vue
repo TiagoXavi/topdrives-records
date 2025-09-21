@@ -118,10 +118,6 @@
 
     <portal-target name="app_dialogs" multiple>
     </portal-target>
-    
-    <!-- <div class="Main_SideBox">
-      <div class="Main_Credits">by TiagoXavi</div>
-    </div> -->
 
   </div>
 </template>
@@ -417,15 +413,15 @@ body {
   --d-text-red2: 255, 88, 88;
 
   /* tracks */
-  --color-dry: 204, 204, 204;
+  --color-dry: 222, 222, 222;
   --color-wet: 90, 163, 255;
-  --color-dirt: 239, 97, 75;
-  --color-gravel: 197, 177, 120;
-  --color-ice: 112, 215, 255;
+  --color-dirt: 243, 96, 73;
+  --color-gravel: 213, 143, 92;
+  --color-ice: 129, 207, 255;
   --color-mixed: 217, 171, 225;
   --color-sand: 233, 197, 69;
-  --color-snow: 186, 212, 235;
-  --color-grass: 93, 227, 93;
+  --color-snow: 99, 239, 222;
+  --color-grass: 39, 215, 101;
 
   /* car */
   --card-stat-back-l: 10%;
@@ -1732,12 +1728,6 @@ body .Main_UserTw3:before {
   right: 0;
   bottom: 0;
 }
-.Main_Credits {
-  font-size: 8px;
-  font-family: 'Press Start 2P', cursive;
-  text-align: center;
-  padding: 3px;
-}
 .Main_PrintBy {
   display: none;
   text-align: center;
@@ -2080,7 +2070,7 @@ body .Main_UserTw3:before {
 }
 .Main_CustomTrackRight {
   display: flex;
-  gap: 2px;
+  gap: 1px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -2089,71 +2079,90 @@ body .Main_UserTw3:before {
   display: flex;
   align-items: center;
 }
-.Main_CustomTrackItem .Type_00 {
-  --type-back-opac: 0.07;
-  background-color: rgba(255,255,255, var(--type-back-opac));
+.Main_CustomTrackItem .Type_00,
+[dataid="lumberTwisty"].Type_40,
+.EventTrack [data="lumberTwisty_a40"] {
+  --ccond: var(--color-dry);
+  --back-color: var(--color-dry);
+  --type-back-opac: 0.09;
+  background-color: rgba(121,121,121, var(--type-back-opac));
+}
+.BaseTrackType_Small .Type_00 {
+  --ccond: var(--color-dry);
+  --back-color: var(--color-dry);
+  color: rgb(var(--color-dry));
+  --type-back-opac: 0.09;
+  background-color: rgba(var(--color-dry), var(--type-back-opac));
 }
 .Type_01,
-.Type_c1,
-.Type_01 ~ .BaseCompItem_Drives {
+.Type_01 ~ .BaseCompItem_Drives,
+[dataid="lumberTwisty"].Type_41,
+.Row_Tracks [data="lumberTwisty_a41"],
+.Row_Tracks [data="dockAltCirc_ac1"] {
+  --ccond: var(--color-wet);
+  --back-color: var(--color-wet);
   color: rgb(var(--color-wet));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-wet), var(--type-back-opac));
 }
 .Type_10,
 .Type_11,
-.Type_40:not([data="lumberTwisty_a40"]),
-.Type_41:not([data="lumberTwisty_a41"]),
+.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]),
+.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]),
+.Type_i0,
+.Type_k0,
+.Type_m0,
 .Type_10 ~ .BaseCompItem_Drives {
+  --ccond: var(--color-dirt);
+  --back-color: var(--color-dirt);
   color: rgb(var(--color-dirt));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-dirt), var(--type-back-opac));
-}
-/* [data="lumberTwisty_a40"] {
-  --type-back-opac: 0.07;
-  background-color: rgba(255,255,255, var(--type-back-opac));
-} */
-.EventTrack [data="lumberTwisty_a40"] {
-  --type-back-opac: 0.1;
-  background-color: rgba(255,255,255, 0.03);
-}
-.Row_Tracks [data="lumberTwisty_a41"] {
-  color: rgb(var(--color-wet));
-  --type-back-opac: 0.1;
-  background-color: rgba(var(--color-wet), var(--type-back-opac));
 }
 .Type_20,
 .Type_b0 {
+  --ccond: var(--color-gravel);
+  --back-color: var(--color-gravel);
   color: rgb(var(--color-gravel));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-gravel), var(--type-back-opac));
 }
 .Type_30,
 .Type_g0 {
+  --ccond: var(--color-ice);
+  --back-color: var(--color-ice);
   color: rgb(var(--color-ice));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-ice), var(--type-back-opac));
 }
 .Type_50,
 .Type_e0,
-.Type_c0 {
+.Type_c0,
+.Type_c1,
+.Type_51 {
+  --ccond: var(--color-sand);
+  --back-color: var(--color-sand);
   color: rgb(var(--color-sand));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-sand), var(--type-back-opac));
 }
 .Type_60,
 .Type_d0,
 .Type_h0,
 .Type_h1 {
+  --ccond: var(--color-snow);
+  --back-color: var(--color-snow);
   color: rgb(var(--color-snow));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-snow), var(--type-back-opac));
 }
 .Type_70,
 .Type_f0,
 .Type_71 {
+  --ccond: var(--color-grass);
+  --back-color: var(--color-grass);
   color: rgb(var(--color-grass));
-  --type-back-opac: 0.1;
+  --type-back-opac: 0.09;
   background-color: rgba(var(--color-grass), var(--type-back-opac));
 }
 .TypeText_Dry {
@@ -2180,6 +2189,71 @@ body .Main_UserTw3:before {
 .TypeText_Grass {
   color: rgb(var(--color-grass))
 }
+.Row_Tracks .BaseIconSvg_Layout {
+  /* position: absolute;
+  right: -6px;
+  top: calc((var(--cell-height) - 27px) / 2); */
+}
+.Row_IconSpan {
+  /* width: 27px; */
+}
+.Row_TdIconPerk {
+  font-size: 24px;
+  line-height: 24px;
+  margin-left: 3px;
+  opacity: 0.8;
+}
+.TdIconCond {
+  font-size: 27px;
+  line-height: 26px;
+}
+.BaseChip .TdIconCond {
+  line-height: 27px;
+  display: flex;
+}
+.TdIconCondRel {
+  position: relative;
+}
+.TdIconCondPercGroup {
+  /* position: absolute; */
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Roboto', sans-serif;
+  /* color: var(--d-text-b); */
+  bottom: -7px;
+  width: 100%;
+  font-size: 9px;
+  height: 11px;
+  line-height: 1;
+  margin-top: -3px;
+  /* text-shadow: 0px 0px 2px #000; */
+}
+.TdIconCondPercGroup:not(:has(:not(:empty))) {
+  display: none;
+}
+.TdIconCondPerc {
+  text-align: center;
+  justify-content: center;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+.TdIconCondPerc:empty {
+  display: none;
+}
+.TdIconCondInside {
+  display: none;
+}
+
+/* @container (width > 30px && width < 60px) {
+  .TdIconCondPerc:nth-last-child(1) {
+    width: 50%;
+    left: 0;
+  }
+  .TdIconCondPerc:nth-last-child(2) {
+    width: 50%;
+    right: 0;
+  }
+} */
 
 .Main_RowCornerBox {
   position: absolute;
@@ -2762,11 +2836,18 @@ body .Main_UserTw3:before {
   margin-left: 30px;
 }
 .Cg_RqRq {
+  margin-right: 3px;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+}
+.Cg_Pts {
   transform: scaleX(1.7) skewX(-14deg);
   margin-right: 12px;
   font-weight: bold;
   font-size: 0.7em;
 }
+
 .Cg_CenterBottom {
   display: flex;
   align-items: center;
@@ -3350,9 +3431,6 @@ a:visited:not(.D_Button) {
 .Main_2 .Main_RowCornerBox {
   background-color: hsl(var(--back-h), var(--back-s), 21%);
 }
-.Main_2 .Main_Credits {
-  /* display: none; */
-}
 .Main_2 .Main_TrackList {
   display: flex;
   height: 100%;
@@ -3466,6 +3544,17 @@ a:visited:not(.D_Button) {
 .Main_2 .Row_ShowMoreTracks {
   margin-top: 0;
 }
+.Main_2 .TdIconCondInside {
+  display: flex;
+}
+.Main_2 .Row_TdIconPerk {
+  margin-left: 0px;
+}
+.Main_2 .TdIconCondBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
@@ -3572,9 +3661,6 @@ a:visited:not(.D_Button) {
 .Main_BodyPrint .Row_Tune {
   padding-left: 0px;
 }
-.Main_BodyPrint .Main_Credits {
-  display: none;
-}
 .Main_BodyPrint .Row_DisabledCell {
   background-color: #00000024;
 }
@@ -3582,6 +3668,7 @@ a:visited:not(.D_Button) {
   border: solid 2px #ffffff07;
   border-right-width: 0;
   border-bottom-width: 0;
+  box-shadow: unset;
 }
 .Main_Layout:not(.Main_2) .Main_BodyPrint .Row_Cell:nth-child(3n-1) {
   border-top-width: 2px;
@@ -4033,11 +4120,16 @@ a:visited:not(.D_Button) {
   justify-content: center;
 }
 .Car_HeaderRQLabel {
-  line-height: 1;
-  font-size: 0.6em;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3em;
+}
+.Car_HeaderRQLabel i {
+  line-height: 0.5;
+  margin-bottom: -0.2em;
+}
+.Car_HeaderRQLabel .tdicon-rq:before {
   color: var(--class-color);
-  line-height: 1.2;
-  transform: scaleX(1.7) skewX(-14deg);
 }
 .Car_HeaderClassBack {
   background-color: var(--class-color);

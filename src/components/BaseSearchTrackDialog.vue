@@ -8,7 +8,7 @@
     min-width="240px"
     @close="$emit('close')">
     <div class="Main_TracksDialog">
-      <div class="Main_AllTracksBox">
+      <div class="Main_AllTracksBox" @click="clickhandle">
         <div class="Track_SearchBox">
           <input
             v-model="searchTracks"
@@ -30,27 +30,46 @@
           <div class="Main_CustomTrackLeft">
             <div class="Main_CustomTrackName">
               <template>{{ circuit.nameCalc | toTimeString }}</template>
-              <span v-if="circuit.nameEng.includes('(R)')"><BaseIconSvg/></span>
-              <span v-if="
-                circuit.id === 'csSmall' ||
-                circuit.id === 'dockCity' ||
-                circuit.id === 'csMed' ||
-                circuit.id === 'oceanCity' ||
-                circuit.id === 'speedbump12km' ||
-                circuit.id === 'speedbump1km' ||
-                circuit.id === 'desertHill' ||
-                circuit.id === 'moto' ||
-                circuit.id === 'desertRallyDirt' ||
-                circuit.id === 'miStreets2'
-              "><BaseIconSvg type="clearance"/></span>
+              <i
+                v-if="circuit.nameEng.includes('(R)')"
+                class="tdicon-roll Row_TdIconPerk"
+                aria-hidden="true">
+                <span class="path1"/>
+                <span class="path2"/>
+                <span class="path3"/>
+                <span class="path4"/>
+              </i>
+              <i
+                v-if="(
+                  circuit.id === 'csSmall' ||
+                  circuit.id === 'dockCity' ||
+                  circuit.id === 'csMed' ||
+                  circuit.id === 'oceanCity' ||
+                  circuit.id === 'speedbump12km' ||
+                  circuit.id === 'speedbump1km' ||
+                  circuit.id === 'desertHill' ||
+                  circuit.id === 'moto' ||
+                  circuit.id === 'desertRallyDirt' ||
+                  circuit.id === 'miStreets2' ||
+                  circuit.id === 'itBump' ||
+                  circuit.id === 'dsTnFreeway' ||
+                  circuit.id === 'dsTnLove' ||
+                  circuit.id === 'dsTnMile2bump'
+                )"
+                class="tdicon-clearance Row_TdIconPerk"
+                aria-hidden="true">
+                <span class="path1"/>
+                <span class="path2"/>
+                <span class="path3"/>
+              </i>
             </div>
           </div>
           <div class="Main_CustomTrackRight">
             <template>
               <BaseTrackType
                 :circuit="circuit"
-                :mode="mode"
-                @toggleTrack="$emit('toggleTrack', $event); resolveTrack($event.track)" />
+                :dataid="circuit.id"
+                :mode="mode" />
             </template>
           </div>
         </div>
@@ -284,6 +303,20 @@ export default {
 
       this.$emit('resolved', tracksClear[0]);
 
+    },
+    clickhandle(e) {
+      if (
+        e.target &&
+        typeof e.target.className === "string" &&
+        e.target.className.startsWith("BaseTrackType_Button") &&
+        e.target.attributes.dataid
+      ) {
+        let type = e.target.attributes.getNamedItem("datatype").value;
+        let track = e.target.attributes.getNamedItem("dataid").value;
+
+        this.$emit('toggleTrack', { track: `${track}_a${type}`, e: e }); 
+        this.resolveTrack(`${track}_a${type}`);
+      }
     },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");

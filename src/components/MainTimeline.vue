@@ -331,6 +331,7 @@
                 <button
                   class="D_Button D_ButtonDark D_ButtonDark2 MainTimeline_CarButton"
                   :class="{ MainTimeline_CarButtonRed: lastRidClick === rid }"
+                  @contextmenu="carListMainRightClick(rid, 'main')"
                   @click="carListMainDeleteClick(rid, 'main')">
                   <div class="MainTimeline_CarCard" :style="`--color: ${resolvedRids[rid].color}`">
                     <div class="MainTimeline_BankPhoto">
@@ -1748,6 +1749,12 @@ export default {
       this.ti.filter = filter;
 
       this.mainFilterDialog = false;
+    },
+    carListMainRightClick(rid, type, iEvent) {
+      let index = this.ti.p_rid.indexOf(rid);
+      if (index === 0 || index === -1) return;
+
+      this.ti.p_rid.splice(index-1, 0, this.ti.p_rid.splice(index, 1)[0]);
     },
     carListMainDeleteClick(rid, type, iEvent) {
       if (this.lastRidClick === rid) {

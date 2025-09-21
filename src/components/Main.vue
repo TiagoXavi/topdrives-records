@@ -261,7 +261,7 @@
                   <div
                     :style="`color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
                     class="Cg_RqText">
-                    <span class="Cg_RqRq">RQ</span>
+                    <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
                     <span>{{ cgRound.rqFill }}</span>
                     <span>/</span>
                     <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
@@ -277,7 +277,7 @@
                       v-if="cgRound.showPoints && cgRound.lastAnalyze"
                       :class="{ Cg_PointsSum_Red: cgRound.sumPoints < 250, Cg_PointsSum_Green: cgRound.sumPoints >= 250 }"
                       class="Cg_PointsSum">
-                      <span class="Cg_RqRq">pts</span>
+                      <span class="Cg_Pts">pts</span>
                       <span class="Cg_PointsSumText">{{ cgRound.sumPoints }}</span>
                     </div>
                   </div>
@@ -909,7 +909,7 @@
                 </div>
                 <div class="Cg_CenterBottom">
                   <div class="Cg_RqText">
-                    <span class="Cg_RqRq">RQ</span>
+                    <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
                     <span>{{ event.rqLimit }}</span>
                     <BaseButtonTouch
                       v-if="user && user.mod && event.canViewEvent"
@@ -1174,7 +1174,7 @@
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportEventToTimeline()">{{ $t("m_exportToTimeline") }}</button>
             <button
-              v-if="user && user.mod && !eventBlockAddTrackset && user.username === 'TiagoXavi'"
+              v-if="user && user.mod && !eventBlockAddTrackset && Vue.preUrl && !Vue.preUrl.includes('topdrives') && user.username === 'TiagoXavi'"
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="refreshLocalTimesByFilter()">Refresh local times</button>
@@ -1203,7 +1203,15 @@
                 v-model="event.icons"
                 class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                 :value="icon">
-                <BaseIconSvg :type="icon" :useMargin="false" />
+                <i
+                  :class="`tdicon-${icon}`"
+                  class="TdIconCond"
+                  aria-hidden="true">
+                  <span class="path1"/>
+                  <span class="path2"/>
+                  <span class="path3"/>
+                  <span class="path4"/>
+                </i>
               </BaseChip>
             </template>
           </div>
@@ -1302,18 +1310,6 @@
                   </span>
                 </div>
                 <div class="Cg_CenterBottom" style="min-height: unset;">
-                  <!-- <div class="Cg_RqText">
-                    <span class="Cg_RqRq">RQ</span>
-                    <span>{{ club.rqLimit }}</span>
-                    <BaseButtonTouch
-                      v-if="user && user.mod"
-                      :disabled="clubLoading"
-                      class="D_Button Main_AddTrackDirect"
-                      @click="eventOpenRqEdit($event)"
-                      @longTouch="eventOpenRqEdit({ shiftKey: true, ctrlKey: true })">
-                      <i class="ticon-pencil" aria-hidden="true"/>
-                    </BaseButtonTouch>
-                  </div> -->
                   <!-- save button -->
                   <div class="Cg_SaveButtonBox">
                     <template v-if="!user">
@@ -1570,7 +1566,15 @@
                   v-model="clubTracksGroupModel.icons"
                   class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
                   :value="icon">
-                  <BaseIconSvg :type="icon" :useMargin="false" />
+                  <i
+                    :class="`tdicon-${icon}`"
+                    class="TdIconCond"
+                    aria-hidden="true">
+                    <span class="path1"/>
+                    <span class="path2"/>
+                    <span class="path3"/>
+                    <span class="path4"/>
+                  </i>
                 </BaseChip>
               </template>
             </div>
@@ -2584,12 +2588,11 @@
               <div class="Main_CustomTrackLeft">
                 <div class="Main_CustomTrackName">{{ $t(`m_${item.name.toLowerCase()}`) }}</div>
               </div>
-              <div class="Main_CustomTrackRight">
+              <div class="Main_CustomTrackRight" @click="clickTracksetHandle($event, item)">
                 <template>
                   <BaseTrackType
                     :circuit="item.list"
-                    :isTrackSet="true"
-                    @toggleTrackSet="toggleTrackSet($event)" />
+                    :isTrackSet="true" />
                 </template>
               </div>
             </div>
@@ -2811,7 +2814,16 @@
                   class="Main_SearchResultUser Cg_Creator">{{ item.creator }}</span>
               </span>
               <div v-if="item.icons" class="Main_RoundIcons">
-                <BaseIconSvg v-for="icon in item.icons" :type="icon" :useMargin="false" />
+                <i
+                  v-for="icon in item.icons"
+                  :class="`tdicon-${icon}`"
+                  class="TdIconCond"
+                  aria-hidden="true">
+                  <span class="path1"/>
+                  <span class="path2"/>
+                  <span class="path3"/>
+                  <span class="path4"/>
+                </i>
               </div>
             </button>
           </template>
@@ -3124,7 +3136,15 @@
                 <span>{{ item.name }}</span>
                 <template v-if="item.icons && item.icons.length > 0">
                   <span v-for="icon in item.icons">
-                    <BaseIconSvg :type="icon" />
+                    <i
+                      :class="`tdicon-${icon}`"
+                      class="TdIconCond"
+                      aria-hidden="true">
+                      <span class="path1"/>
+                      <span class="path2"/>
+                      <span class="path3"/>
+                      <span class="path4"/>
+                    </i>
                   </span>
                 </template>
                 
@@ -3592,7 +3612,6 @@ export default {
         'asphalt',
         'roll',
         'clearance',
-        'sun',
         'rain',
         'dirt',
         'grass',
@@ -4676,6 +4695,16 @@ export default {
         this.currentTracks.splice(index, 1);
       } else if (group) {
         this.validateTracks([track], group)
+      }
+    },
+    clickTracksetHandle(e, item) {
+      if (
+        e.target &&
+        typeof e.target.className === "string" &&
+        e.target.className.startsWith("BaseTrackType_Button")
+      ) {
+        let itype = e.target.attributes.getNamedItem("dataitype").value;
+        this.toggleTrackSet(item.list[itype].tracks);
       }
     },
     toggleTrackSet(trackset) {
@@ -7671,7 +7700,11 @@ export default {
         'oceanCity',
         'speedbump12km',
         'speedbump1km',
-        'miStreets2'
+        'miStreets2',
+        'itBump',
+        'dsTnFreeway',
+        'dsTnLove',
+        'dsTnMile2bump'
       ]
       
       this.cg.rounds.map((round, iround) => {
@@ -9974,6 +10007,14 @@ export default {
           text: "Show upcoming tags"
         });
       }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyL") {
+        let found = document.querySelector(".Main_BodyPrint");
+        if (found) {
+          found.classList.remove("Main_BodyPrint");
+        } else {
+          document.querySelector(".Main_Body").classList.add("Main_BodyPrint");
+        }
+      }
     },
     handleKeyUp(e) {
       if (!e.altKey) {
@@ -10079,7 +10120,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // return;
+      return;
       if (window.localStorage.getItem("contest9")) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
