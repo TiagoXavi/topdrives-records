@@ -540,8 +540,8 @@ export default {
               })
             })
             highlightsUsers["MilleniumJade"] = "w1";
-            highlightsUsers["johnnybro1"] = "w2";
-            highlightsUsers["Sleeperzz"] = "w3";
+            highlightsUsers["Sleeperzz"] = "w2";
+            highlightsUsers["Xotic"] = "w3";
 
             return highlightsUsers;
         };

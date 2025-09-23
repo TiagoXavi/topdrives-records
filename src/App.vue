@@ -3545,7 +3545,7 @@ a:visited:not(.D_Button) {
   margin-top: 0;
 }
 .Main_2 .TdIconCondInside {
-  display: flex;
+  display: block;
 }
 .Main_2 .Row_TdIconPerk {
   margin-left: 0px;

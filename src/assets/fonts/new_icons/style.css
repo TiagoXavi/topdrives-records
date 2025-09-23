@@ -52,17 +52,17 @@ i {
 .tdicon-roll .path2:before {
   content: "\e910";
   margin-left: -1em;
-  color: rgb(255, 221, 68);
+  color: #ff5439;
 }
 .tdicon-roll .path3:before {
   content: "\e911";
   margin-left: -1em;
-  color: rgb(255, 221, 68);
+  color: #ff5439;
 }
 .tdicon-roll .path4:before {
   content: "\e912";
   margin-left: -1em;
-  color: rgb(255, 221, 68);
+  color: #ff5439;
 }
 .tdicon-xp:before {
   content: "\e919";

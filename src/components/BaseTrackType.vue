@@ -186,7 +186,7 @@ export default {
 }
 .BaseTrackType_Icon .TdIconCondPerc {
   margin-left: 1px;
-  font-size: 12px;
+  font-size: 10px;
 }
 .Main_OptionsTrackset .BaseTrackType_Item {
   flex-direction: column;
