@@ -851,7 +851,7 @@
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
               <BaseEventName
-                v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
+                v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40) || item.index < 30"
                 :item="item"
                 :maxLength="42"
                 style="min-height: 38px;"
@@ -2765,7 +2765,7 @@
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
             <BaseEventName
-              v-if="(cgPermanentToggle && item.index > 2) || (cgLongToggle && item.index === 2) || item.index < 2"
+              v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40) || item.index < 30"
               :item="item"
               :maxLength="42"
               style="min-height: 38px;"
@@ -8476,90 +8476,97 @@ export default {
 
     },
     styleCgList() {
+      let chooseColors = {};
+      let colors = ["#c29cff", "#a9d0ff", "#8dcf8f", "#bfbb3d", "#57d7d7", "#ff8b8b"];
       this.cgList.sort((a,b) => {
         return a.name.localeCompare(b.name);
       })
       this.cgList.map(x => {
         let styl = x.name;
-        Vue.set(x, "index", 0);
+        Vue.set(x, "index", 10);
         if (x.name.substr(0, 5) === 'GTT: ') {
-          Vue.set(x, "index", 2);
+          Vue.set(x, "index", 50);
           styl = `<span class="Cg_EX">GTT: </span>${x.name.substr(5)}`
         }
         if (x.name.substr(0, 11) === 'Yellowbird ') {
-          Vue.set(x, "index", 3);
+          Vue.set(x, "index", 103);
           styl = `<span class="Cg_YB">Yellowbird </span>${x.name.substr(11)}`
         }
         if (x.name.substr(0, 14) === 'Skyline Nismo ') {
-          Vue.set(x, "index", 4);
+          Vue.set(x, "index", 104);
           styl = `<span class="Cg_SN">Skyline Nismo </span>${x.name.substr(14)}`
         }
         if (x.name.substr(0, 17) === 'Proving Grounds: ') {
-          Vue.set(x, "index", 5);
+          Vue.set(x, "index", 105);
           styl = `<span class="Cg_PG">Proving Grounds: </span>${x.name.substr(17)}`
         }
         Vue.set(x, "nameStyled", styl);
+        if (x.color){
+          let ico = colors.indexOf(x.color);
+          if (ico > -1) {
+            colors.splice(ico, 1);
+          }
+        }
       })
 
       let roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL"];
+
       this.cgList.map(x => {
         let split = x.name.split(" ");
         let romanString = null;
         let numberOrdinal = null;
-        x.indexOfRoman = split.findIndex( part => {
+
+        x.indexOfRoman = split.findIndex(part => {
           part = part.replace(":", "");
-          // if (roman.includes(part)) {
-          //   romanString = part;
-          //   return true;
-          // }
           if (roman.includes(part.slice(1 ,-1)) && part[0] === "(") {
             romanString = part.slice(1 ,-1);
             return true;
           }
-          if (Number(part.slice(1 ,-1)) > 0 && part[0] === "(") {
+          if (Number(part.slice(1 ,-1)) > -1 && part[0] === "(") {
             numberOrdinal = Number(part.slice(1 ,-1));
             return true;
           }
-        } );
+        });
+
         if ( x.indexOfRoman > -1 ) {
-          
           // contain roman
           x.romanValue = roman.indexOf(romanString)+1;
-          if (numberOrdinal) x.romanValue = numberOrdinal;
-          Vue.set(x, "index", 1);
+          if (numberOrdinal || numberOrdinal === 0) x.romanValue = numberOrdinal;
 
           let arr = x.name.split(" ");
           let i = arr.findIndex(x => x.includes(":"));
-          if (i === 0) {
-            x.prefix = arr[0].replace(":", "");
-          } else if (i > 0) {
-            x.prefix = arr.filter((x, ix) => ix < i).join(" ");
+          x.prefix = arr.filter((x, ix) => ix <= i).join(" ");
+          x.prefix = x.prefix.replaceAll(":", "");
+
+          Vue.set(x, "index", 20);
+          if (x.prefix.includes("Niklas")) Vue.set(x, "index", 21);
+        }
+        
+        let xIndex = x.name.indexOf(":");
+        if (typeof x.romanValue === 'number') {
+          let num = this.generateRandom(colors.length-1, x.prefix || "");
+          let color;
+          if (x.color) chooseColors[x.prefix] = x.color;
+          if (chooseColors[x.prefix]) color = chooseColors[x.prefix];
+          else {
+            color = colors[num];
+            chooseColors[x.prefix] = color;
+            colors.splice(num, 1)
           }
+          Vue.set(x, "nameStyled", `<span style="color: ${color}">${x.name.slice(0, xIndex+1)}</span>${x.name.slice(xIndex+1)}`);
         }
       })
 
-      let colors = ["#c29cff", "#a9d0ff", "#8dcf8f", "#bfbb3d", "#25b1b1"];
-      let chooseColors = {};
-
       this.cgList.sort((a,b) => {
-        let aIndex = a.name.indexOf(":");
-        let bIndex = b.name.indexOf(":");
 
-        if (a.romanValue && b.romanValue && a.prefix === b.prefix) {
-          let num = this.generateRandom(colors.length-1, a.prefix || "");
-          let color;
-          let styl;
-          if (chooseColors[a.prefix]) color = chooseColors[a.prefix];
-          else {
-            color = colors[num];
-            chooseColors[a.prefix] = color;
-            colors.splice(num, 1)
-          }
-
-          Vue.set(a, "nameStyled", `<span style="color: ${color}">${a.name.slice(0, aIndex+1)}</span>${a.name.slice(aIndex+1)}`);
-          Vue.set(b, "nameStyled", `<span style="color: ${color}">${b.name.slice(0, bIndex+1)}</span>${b.name.slice(bIndex+1)}`);
-          
+        if (a.prefix === b.prefix) {
           return a.romanValue - b.romanValue;
+        }
+        if (a.index === b.index) {
+          if (a.prefix && b.prefix) {
+            return a.prefix.localeCompare(b.prefix);
+          }
+          return a.name.localeCompare(b.name);
         }
         return a.index - b.index;
       })
@@ -8588,7 +8595,7 @@ export default {
       for (let i = 0; i < stringParam.length; i++){
         sum += stringParam.charCodeAt(i);
       }
-      let result = sum % maxInt;
+      let result = sum % (maxInt+1);
       return result;
     },
     loadEvents(resolveInitial = true, after) {
