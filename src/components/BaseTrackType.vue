@@ -151,7 +151,7 @@ export default {
   padding: 2px 5px;
   min-width: 30px;
   position: relative;
-  border-radius: 14px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   --height: 37px;

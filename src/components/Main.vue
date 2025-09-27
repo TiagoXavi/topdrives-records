@@ -8559,7 +8559,7 @@ export default {
 
       this.cgList.sort((a,b) => {
 
-        if (a.prefix === b.prefix) {
+        if (a.prefix && b.prefix && a.prefix === b.prefix) {
           return a.romanValue - b.romanValue;
         }
         if (a.index === b.index) {

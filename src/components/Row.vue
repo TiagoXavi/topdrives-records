@@ -64,8 +64,9 @@
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
-              `${type === 'tracks' && item.text.replace(' (R)','').length > 14 ? 'Row_TrackNameBig ' : '' }`+
-              `${type === 'tracks' && item.text.replace(' (R)','').length > 19 ? 'Row_TrackNameBigBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > 17 ? 'Row_TrackNameBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > 22 ? 'Row_TrackNameBigBig ' : '' }`+
+
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `${showingBestPerTrack ? 'Row_ShowingBestPerTrack ' : '' }`+

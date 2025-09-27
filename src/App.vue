@@ -2070,7 +2070,7 @@ body .Main_UserTw3:before {
 }
 .Main_CustomTrackRight {
   display: flex;
-  gap: 1px;
+  gap: 2px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
