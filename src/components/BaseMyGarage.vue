@@ -480,6 +480,7 @@ import BaseFilterDescription from './BaseFilterDescription.vue';
 import BaseIconSvg from './BaseIconSvg.vue';
 import BaseSwitch from './BaseSwitch.vue';
 import BaseMyGarageTutorial from './BaseMyGarageTutorial.vue';
+import rn_to_rid from '../database/rn_to_rid.json';
 
 class hlCar {
   constructor(initialValue = 0, suffix = "", prefix = "") {
@@ -910,6 +911,7 @@ export default {
         this.responseText = "";
         
         // finish
+        this.transformUserGarageToObj();
         this.processPlayerDeckStep2();
         this.changeScreen('normal');
 
@@ -982,27 +984,55 @@ export default {
     },
     processPlayerDeck(deck) {
       let result = [];
+      let listOfCri = [];
 
       deck.map((hCar, icar) => {
         this.addToResolvedRids(this.guidToRid[hCar.cardId]);
         let tunZ = this.resolveTuneZ(hCar);
         let dateF = hCar.dateStateChanged;
-        if (dateF && dateF.length === 24) dateF = dateF.slice(0, 13);
-
-        let item = {
-          // tun: this.resolveTune(hCar, tunZ),
-          // locked: hCar.locked,
-          // fuseCompletesAt: hCar.fuseCompletesAt,
-          // legT: hCar.legacyTier,
-          cri: hCar.cardRecordId.slice(24),
-          rid: this.guidToRid[hCar.cardId],
-          tunZ: tunZ,
-          date: dateF,
-          cW: hCar.cardWins,
-          cL: hCar.cardLosses,
-          cD: hCar.cardDraws
+        if (dateF && dateF.length === 24) dateF = dateF.slice(2, 13);
+        let rn = rn_to_rid.indexOf(this.guidToRid[hCar.cardId]);
+        let cri;
+        for (let X = 8; X < 16; X++) {
+          cri = hCar.cardRecordId.slice(0,X);
+          let indexOfFound = listOfCri.indexOf(cri);
+          if (indexOfFound !== -1) {
+            console.log(hCar.cardRecordId);
+            let hCarOther = deck[indexOfFound];
+            let newOtherCri = hCarOther.cardRecordId.slice(0,X+1);
+            listOfCri[indexOfFound] = newOtherCri;
+            // result.find(x => x.c === cri).c = newOtherCri;
+            result.find(x => x[0] === cri)[0] = newOtherCri;
+            continue;
+          } else {
+            break; // unique cri
+          }
         }
-        result.push(item);
+
+        // let item = {
+        //   c: cri,
+        //   rn: rn,
+        //   d: dateF
+        // }
+        // if (tunZ !== "000") item.t = tunZ;
+        // if (hCar.cardWins) item.cW = hCar.cardWins;
+        // if (hCar.cardLosses) item.cL = hCar.cardLosses;
+        // if (hCar.cardDraws) item.cD = hCar.cardDraws;
+
+        // ARRAY
+        let item2 = [
+          cri,
+          rn,
+          dateF,
+          tunZ !== "000" ? tunZ : 0,
+          hCar.cardWins,
+          hCar.cardLosses,
+          hCar.cardDraws
+        ]
+
+
+        listOfCri.push(cri);
+        result.push(item2);
       })
 
       return result;
@@ -1028,6 +1058,19 @@ export default {
       this.userGarage.loaded = true;
 
       this.finishProcessPlayerDeck();
+    },
+    transformUserGarageToObj() {
+      this.userGarage.playerDeck.map((item, ix) => {
+        this.userGarage.playerDeck[ix] = {
+          cardRecordId: item[0],
+          rid: rn_to_rid[item[1]],
+          date: `20${item[2]}:00Z`,
+          tunZ: item[3] === 0 ? "000" : item[3],
+          cW: item[4],
+          cL: item[5],
+          cD: item[6]
+        }
+      })
     },
     updateHighLights(hCar) {
       this.userHighlights.map(hlItem => {

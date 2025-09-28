@@ -851,7 +851,7 @@
             <div style="margin-left: 15px; margin-bottom: 15px;" class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
             <template v-for="item in cgList">
               <BaseEventName
-                v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40) || item.index < 30"
+                v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40 && item.index < 90) || item.index < 30"
                 :item="item"
                 :maxLength="42"
                 style="min-height: 38px;"
@@ -860,7 +860,7 @@
             </template>
             <div class="Main_CgListDividerLayout">
               <!-- <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" /> -->
-              <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" />
+              <BaseSwitch v-model="cgPermanentToggle" name="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" />
             </div>
           </div>
         </div>
@@ -2765,7 +2765,7 @@
         <div class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
             <BaseEventName
-              v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40) || item.index < 30"
+              v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40 && item.index < 90) || item.index < 30"
               :item="item"
               :maxLength="42"
               style="min-height: 38px;"
@@ -2773,8 +2773,8 @@
               @longTouch="loadChallengeFull(item.date, undefined, { shiftKey: true, ctrlKey: true })" />
           </template>
           <div class="Main_CgListDividerLayout">
-            <!-- <BaseSwitch v-model="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" /> -->
-            <BaseSwitch v-model="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
+            <!-- <BaseSwitch v-model="cgLongToggle" name="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" /> -->
+            <BaseSwitch v-model="cgPermanentToggle" name="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
           </div>
         </div>
       </div>
@@ -3503,8 +3503,8 @@ export default {
       cgCompleteJson: "",
       cgRoundResultJson: "",
       cgRoundResultJsonErrorTxt: "",
-      cgLocalShowPermanentCgs: true,
-      cgLocalShowLongCgs: true,
+      cgPermanentToggle: true,
+      cgLongToggle: true,
       cgJsonDownloadRids: [],
       forceShowAnalyse: false,
       event: {},
@@ -3977,17 +3977,17 @@ export default {
       }, 100);
     }
 
-    let cgLocalShowPermanentCgs = window.localStorage.getItem("cgLocalShowPermanentCgs");
-    if (cgLocalShowPermanentCgs) {
-      cgLocalShowPermanentCgs = JSON.parse(cgLocalShowPermanentCgs);
-      this.cgPermanentToggle = cgLocalShowPermanentCgs;
-    }
+    // let cgLocalShowPermanentCgs = window.localStorage.getItem("cgLocalShowPermanentCgs");
+    // if (cgLocalShowPermanentCgs) {
+    //   cgLocalShowPermanentCgs = JSON.parse(cgLocalShowPermanentCgs);
+    //   this.cgPermanentToggle = cgLocalShowPermanentCgs;
+    // }
 
-    let cgLocalShowLongCgs = window.localStorage.getItem("cgLocalShowLongCgs");
-    if (cgLocalShowLongCgs) {
-      cgLocalShowLongCgs = JSON.parse(cgLocalShowLongCgs);
-      this.cgLongToggle = cgLocalShowLongCgs;
-    }
+    // let cgLocalShowLongCgs = window.localStorage.getItem("cgLocalShowLongCgs");
+    // if (cgLocalShowLongCgs) {
+    //   cgLocalShowLongCgs = JSON.parse(cgLocalShowLongCgs);
+    //   this.cgLongToggle = cgLocalShowLongCgs;
+    // }
 
 
     
@@ -4634,26 +4634,26 @@ export default {
       }
       return result;
     },
-    cgPermanentToggle: {
-      get: function () {
-        return this.cgLocalShowPermanentCgs;
-      },
-      set: function (newValue) {
-        this.cgLocalShowPermanentCgs = newValue;
-        window.localStorage.setItem('cgLocalShowPermanentCgs', newValue);
-        this.$store.commit("CHANGE_PERMANENT_CGS", newValue);
-      }
-    },
-    cgLongToggle: {
-      get: function () {
-        return this.cgLocalShowLongCgs;
-      },
-      set: function (newValue) {
-        this.cgLocalShowLongCgs = newValue;
-        window.localStorage.setItem('cgLocalShowLongCgs', newValue);
-        this.$store.commit("CHANGE_LONG_CGS", newValue);
-      }
-    },
+    // cgPermanentToggle: {
+    //   get: function () {
+    //     return this.cgLocalShowPermanentCgs;
+    //   },
+    //   set: function (newValue) {
+    //     this.cgLocalShowPermanentCgs = newValue;
+    //     window.localStorage.setItem('cgLocalShowPermanentCgs', newValue);
+    //     this.$store.commit("CHANGE_PERMANENT_CGS", newValue);
+    //   }
+    // },
+    // cgLongToggle: {
+    //   get: function () {
+    //     return this.cgLocalShowLongCgs;
+    //   },
+    //   set: function (newValue) {
+    //     this.cgLocalShowLongCgs = newValue;
+    //     window.localStorage.setItem('cgLocalShowLongCgs', newValue);
+    //     this.$store.commit("CHANGE_LONG_CGS", newValue);
+    //   }
+    // },
     eventBestTeamSameAsBefore() {
       if (!this.eventBestTeamsLastCache) return false;
       if (JSON.stringify( {...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig} ) === this.eventBestTeamsLastCache) return true;
