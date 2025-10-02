@@ -1828,9 +1828,14 @@
               :disabled="!whatTier || whatTier > 2 || !eventBestTeamsTarget.filteringQueryStrings || eventBestTeamSameAsBefore"
               class="D_Button D_ButtonDark D_ButtonTier2"
               @click="getHandRanking($event)">
-              <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
-              <span>{{ $t("m_loadRanking") }}</span>
-              <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
+              <template v-if="eventBestLastLoadingMsg">
+                <span>{{ eventBestLastLoadingMsg }}</span>
+              </template>
+              <template v-else>
+                <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
+                <span>{{ $t("m_loadRanking") }}</span>
+                <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
+              </template>
             </button>
           </div>
         </div>
@@ -3587,6 +3592,7 @@ export default {
         blackList: [],
       },
       eventBestTeamsTarget: {},
+      eventBestLastLoadingMsg: null,
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -11267,7 +11273,7 @@ export default {
       }
       this.eventBestTeamsDialog = true;
     },
-    getHandRanking(e) {
+    async getHandRanking(e) {
       if (this.eventBestTeamsConfig.myGarage && !this.user.hasGarage) {
         this.noGarageUploaded();
         return;
@@ -11303,26 +11309,67 @@ export default {
 
       this.$store.commit("START_LOGROCKET", {});
 
-      axios.post(Vue.preUrl + "/handRaking", config)
-      .then(res => {
-        console.log("getHandRanking", res.data.stats);
-        this.eventBestTeamsBigArray = res.data.arr;
-        this.eventBestTeamsDialog = true;
-        this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
-      })
-      .catch(error => {
-        this.eventBestTeamsLoading = false;
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
+      try {
+        const response = await fetch(Vue.preUrl + "/handRaking", {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(config)
         });
-      })
-      .then(() => {
+
+        if (!response.ok) {
+          this.eventBestTeamsLoading = false;
+          this.eventBestLastLoadingMsg = null;
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        
+        while (true) { // Loop until the stream is done
+          const { done, value } = await reader.read();
+          if (done) {
+            // console.log('--- Stream finished ---');
+            break;
+          }
+
+          const chunkText = decoder.decode(value, { stream: true });
+          let parsed;
+          try {
+            // console.log(chunkText);
+            parsed = JSON.parse(chunkText)
+          } catch (error) {
+            console.error('Error parsing chunk:', error);
+          }
+          if (parsed.message) {
+            throw new Error(parsed.message);
+          } else if (parsed.temp) {
+            if (parsed.queue !== undefined) {
+              this.eventBestLastLoadingMsg = `Resolving...`;
+              if (parsed.queue > 0) this.eventBestLastLoadingMsg = `Queue: ${parsed.queue}`;
+            } else if (parsed.partial) {
+              this.eventBestLastLoadingMsg = parsed.partial;
+            }
+          } else if (parsed.arr) {
+            console.log("getHandRanking", parsed.stats);
+            this.eventBestTeamsBigArray = parsed.arr;
+            this.eventBestTeamsDialog = true;
+            this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
+          }
+        }
+
         this.eventBestTeamsLoading = false;
-      });
+        this.eventBestLastLoadingMsg = null;
+
+      } catch (error) {
+        console.error('Error fetching stream:', error);
+        this.eventBestTeamsLoading = false;
+        this.eventBestLastLoadingMsg = null;
+      }
+
     },
     resetBestTeamsConfig() {
       this.eventBestTeamsConfig.forceCarsBool = false;
