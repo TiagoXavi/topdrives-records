@@ -122,6 +122,7 @@ export default new Vuex.Store({
       "New Beginnings",
       "Nightmare Fuel",
       "Niklas' Collection",
+      "Niklas' Collection 2",
       "Old Guard",
       "Photo Finish",
       "Racing Royalty",

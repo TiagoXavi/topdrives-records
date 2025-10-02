@@ -11344,16 +11344,16 @@ export default {
           } catch (error) {
             console.error('Error parsing chunk:', error);
           }
-          if (parsed.message) {
+          if (parsed && parsed.message) {
             throw new Error(parsed.message);
-          } else if (parsed.temp) {
+          } else if (parsed && parsed.temp) {
             if (parsed.queue !== undefined) {
               this.eventBestLastLoadingMsg = `Resolving...`;
               if (parsed.queue > 0) this.eventBestLastLoadingMsg = `Queue: ${parsed.queue}`;
             } else if (parsed.partial) {
               this.eventBestLastLoadingMsg = parsed.partial;
             }
-          } else if (parsed.arr) {
+          } else if (parsed && parsed.arr) {
             console.log("getHandRanking", parsed.stats);
             this.eventBestTeamsBigArray = parsed.arr;
             this.eventBestTeamsDialog = true;
