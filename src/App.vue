@@ -4235,7 +4235,7 @@ a:visited:not(.D_Button) {
   line-height: 1;
 }
 .Car_HeaderBlockRQ {
-  background-color: hsla(30, 10%, 15%, 1);
+  /* background-color: hsla(30, 10%, 15%, 1); */
 }
 .Car_NumberStars :nth-child(3) {
   opacity: 0.2;

@@ -1730,7 +1730,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.9</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.10</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -8483,13 +8483,27 @@ export default {
     },
     styleCgList() {
       let chooseColors = {};
+      let listIndexes = {};
       let colors = ["#c29cff", "#a9d0ff", "#8dcf8f", "#bfbb3d", "#57d7d7", "#ff8b8b"];
+      this.cgList.map(x => {
+        if (x.name.includes(":")) {
+          x.prefix = x.name.split(":")[0];
+          if (!listIndexes[x.prefix] && x.index) listIndexes[x.prefix] = x.index;
+          if (!chooseColors[x.prefix] && x.color) chooseColors[x.prefix] = x.color;
+        }
+      })
       this.cgList.sort((a,b) => {
         return a.name.localeCompare(b.name);
       })
       this.cgList.map(x => {
         let styl = x.name;
-        Vue.set(x, "index", 10);
+        if (x.index === undefined) Vue.set(x, "index", 10);
+
+        if (x.prefix) {
+          if (listIndexes[x.prefix]) x.index = listIndexes[x.prefix];
+          if (chooseColors[x.prefix]) x.color = chooseColors[x.prefix];
+        }
+
         if (x.name.substr(0, 5) === 'GTT: ') {
           Vue.set(x, "index", 50);
           styl = `<span class="Cg_EX">GTT: </span>${x.name.substr(5)}`
@@ -8544,8 +8558,9 @@ export default {
           x.prefix = arr.filter((x, ix) => ix <= i).join(" ");
           x.prefix = x.prefix.replaceAll(":", "");
 
-          Vue.set(x, "index", 20);
-          if (x.prefix.includes("Niklas")) Vue.set(x, "index", 21);
+          if (x.index === 10) Vue.set(x, "index", 20);
+          // if (x.prefix.includes("Gaz")) Vue.set(x, "index", 21);
+          // if (x.prefix.includes("Summer Games")) Vue.set(x, "index", 22);
         }
         
         let xIndex = x.name.indexOf(":");
@@ -8576,6 +8591,8 @@ export default {
         }
         return a.index - b.index;
       })
+
+      // console.log(JSON.parse(JSON.stringify(this.cgList)));
       
     },
     cgExportSolutionsToPacks() {

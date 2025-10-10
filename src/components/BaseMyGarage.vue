@@ -299,7 +299,8 @@
       :filterOnly="true"
       :all_cars="all_cars"
       :config="{
-        customTags: false
+        customTags: false,
+        tunes: true
       }"
       importFilterName="MYGARAGE_INTERNALFILTER_IMPORT"
       ref="myGarageFilter"
@@ -768,6 +769,8 @@ export default {
 
     this.generateBlankFilter();
 
+    this.$refs.myGarageFilter.$data.searchFilters.tunes.splice(4, 0, "000");
+
     // this.$store.commit("START_LOGROCKET", {});
     
   },
@@ -1104,7 +1107,7 @@ export default {
       if (hlItem.filter.forcePrize && this.resolvedRids[hCar.rid].prize) {
         forceMatch = true;
       } else {
-        match = this.matchFilter(this.resolvedRids[hCar.rid], hlItem.filter);
+        match = this.matchFilter(this.resolvedRids[hCar.rid], hlItem.filter, hCar);
       }
 
 
@@ -1295,7 +1298,7 @@ export default {
         })
       }
     },
-    matchFilter(car, context) {
+    matchFilter(car, context, hCar) {
 
       // between
       if ( context.yearModel && !this.filterCheckBetween(car.year, context.yearModel) ) return false;
@@ -1329,11 +1332,13 @@ export default {
       if ( context.tags3Model && !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
       if ( context.brandsModel && !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
+
       if ( context.prizesModel && context.prizesModel.length > 0 ) {
         if ( car.prize && !context.prizesModel.includes("Prize Cars") ) return false;
         if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
+      if ( context.tunesModel && !context.tunesModel.includes(hCar.tun) ) return false;
 
 
       return true;
@@ -1666,6 +1671,13 @@ export default {
       })
       this.finishProcessPlayerDeckItemArray(newHlItem);
       this.orderedList = newHlItem.t[key];
+      this.orderedList.sort((a,b) => {
+        if (this.resolvedRids[a.car.rid].rq === this.resolvedRids[b.car.rid].rq) {
+          return this.resolvedRids[a.car.rid].name.localeCompare(this.resolvedRids[b.car.rid].name);
+        } else {
+          return this.resolvedRids[b.car.rid].rq - this.resolvedRids[a.car.rid].rq;
+        }
+      })
       this.orderedDialog = true;
     },
     onUpdate(viewStartIndex, viewEndIndex, visibleStartIndex, visibleEndIndex) {

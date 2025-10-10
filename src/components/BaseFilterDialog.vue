@@ -814,6 +814,7 @@ export default {
         "rq",
         "year",
         "name",
+        "seats",
         ["mra", "acel"],
         ["mra", "acel", "topSpeed"],
         ["mra", "topSpeed"],
