@@ -11269,6 +11269,7 @@ export default {
           filter: filter, // local use
           filteringQueryStrings: this.event.filteringQueryStrings,
           flexibleCriteriaRequired: this.event.flexibleCriteriaRequired,
+          flexConfig: this.event.flexConfig,
           name: this.event.name,
           resolvedTrackset: this.event.resolvedTrackset
         }
@@ -11283,6 +11284,7 @@ export default {
           filter: filter, // local use
           filteringQueryStrings: [],
           flexibleCriteriaRequired: [],
+          flexConfig: [],
           clubReqsGroupModel: this.clubReqsGroupModel,
           name: `${this.clubTracksGroupModel.name}/${this.clubReqsGroupModel.name}`,
           resolvedTrackset: this.clubTracksGroupModel.resolvedTrackset
@@ -11303,6 +11305,7 @@ export default {
         rqLimit: this.eventBestTeamsTarget.rqLimit,
         filteringQueryStrings: this.eventBestTeamsTarget.filteringQueryStrings,
         flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired,
+        flexConfig: this.eventBestTeamsTarget.flexConfig,
         sendStats: this.$store.state.showUpcomingTags,
         myGarage: this.eventBestTeamsConfig.myGarage,
         repeatCars: this.eventBestTeamsConfig.repeatCars || this.eventBestTeamsConfig.myGarage,
