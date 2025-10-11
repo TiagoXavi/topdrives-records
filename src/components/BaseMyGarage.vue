@@ -1655,13 +1655,13 @@ export default {
       });
       newHlItem.t[key].sort((a,b) => {
         if (key === "lessUseDay") {
-          if (a.v === b.v) return a.used - b.used;
-          else return a.v - b.v;
+          if (b.v !== a.v) return a.v - b.v;
+          if (b.used !== a.used) return a.used - b.used;
+          return this.carOrder(a,b);
         } else {
-          if (a.v === b.v) {
-            return b.used - a.used;
-          }
-          else return b.v - a.v;
+          if (b.v !== a.v) return b.v - a.v;
+          if (key === "higherRQ") return this.carOrder(a,b);
+          if (b.used !== a.used) return b.used - a.used;
         }
       })
       newHlItem.t[key].splice(1000, this.userGarage.playerDeck.length);
@@ -1671,14 +1671,14 @@ export default {
       })
       this.finishProcessPlayerDeckItemArray(newHlItem);
       this.orderedList = newHlItem.t[key];
-      this.orderedList.sort((a,b) => {
-        if (this.resolvedRids[a.car.rid].rq === this.resolvedRids[b.car.rid].rq) {
-          return this.resolvedRids[a.car.rid].name.localeCompare(this.resolvedRids[b.car.rid].name);
-        } else {
-          return this.resolvedRids[b.car.rid].rq - this.resolvedRids[a.car.rid].rq;
-        }
-      })
       this.orderedDialog = true;
+    },
+    carOrder(a,b) {
+      if (this.resolvedRids[a.car.rid].rq === this.resolvedRids[b.car.rid].rq) {
+        return this.resolvedRids[a.car.rid].name.localeCompare(this.resolvedRids[b.car.rid].name);
+      } else {
+        return this.resolvedRids[b.car.rid].rq - this.resolvedRids[a.car.rid].rq;
+      }
     },
     onUpdate(viewStartIndex, viewEndIndex, visibleStartIndex, visibleEndIndex) {
       this.updateParts.viewStartIdx = viewStartIndex
