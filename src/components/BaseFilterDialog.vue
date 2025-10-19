@@ -2334,7 +2334,7 @@ export default {
 .BaseFilterDialog_Box {
   height: 100%;
 }
-.BaseFilterDialog_Mid {
+.BaseFilterDialog_Mid.Main_SearchMid {
   height: 100%;
 }
 .Main_FilterGreenIcon {

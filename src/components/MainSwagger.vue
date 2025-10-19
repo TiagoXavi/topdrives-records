@@ -202,6 +202,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Unlogin all sessions</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="email"
+          type="normal"
+          label="E-mail"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="unloginAll()">Unlogin all</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ userConfirmRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Update car db memory</div>
       <div class="MainSwagger_Fields">
         <BaseText
@@ -317,6 +338,7 @@ export default {
       contestRes: null,
       contestRarityRes: null,
       userConfirmRes: null,
+      unloginAllRes: null,
       gitRes: null,
       saveDbRes: null,
       configObj: null,
@@ -530,6 +552,23 @@ export default {
       })
       .then(res => {
         this.userConfirmRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    unloginAll() {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/deleteSession", {
+        email: this.email
+      })
+      .then(res => {
+        this.unloginAllRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

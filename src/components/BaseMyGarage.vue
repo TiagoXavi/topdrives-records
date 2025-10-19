@@ -34,7 +34,7 @@
             @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
           <div v-else-if="(userGarage && userGarage.loaded) || !editEnabled" :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
             <BaseIconSvg type="laurel" />
-            <div class="MainShowcase_Title">{{ userId }}</div>
+            <div class="MainShowcase_Title">{{ loadedName }}</div>
             <div v-if="userGarage.eloScore" class="BaseMyGarage_UserBottom">
               <div class="BaseMyGarage_UserBottomItem"><i class="ticon-trophy" style="font-size: 0.9em;" aria-hidden="true"/>{{ userGarage.eloScore }}</div>
               <div> • </div>
@@ -558,6 +558,7 @@ export default {
       carsReady: false,
       garageYear: 2025,
       userGarage: {},
+      loadedName: null,
       myGarageFilterDialog: false,
       resolvedRids: {},
       guidToRid: {},
@@ -885,6 +886,9 @@ export default {
           if (res.data.value) {
             this.userGarage = res.data.value;
             this.processPlayerDeckStep2();
+          }
+          if (res.data.u) {
+            this.loadedName = res.data.u;
           }
         }
       })
