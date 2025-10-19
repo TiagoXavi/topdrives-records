@@ -1085,6 +1085,7 @@ export default {
       })
     },
     updateHLItem(hlItem, hCar, isList = false) {
+      if (!hCar.rid) return
       // 39 diferentes filtros
       // 4000 carros
       // 160.000 vezes vai passar nessa funcao, 195 se 5 carros

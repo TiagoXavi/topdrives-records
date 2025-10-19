@@ -177,7 +177,7 @@
         item.id === 'moto' ||
         item.id === 'desertRallyDirt'
         )"
-        class="Row_xRA">{{ car.clearance.toLowerCase() }}</div>
+        class="Row_xRA">{{ $t(`c_${car.clearance.toLowerCase()}`).toLowerCase() }}</div>
       <div v-if="type === 'tracks'" class="Row_Conditions">
         <!-- <BaseTypeName :type="item.trackType" :trackId="item.id" /> -->
         <!-- <BaseIconSvg v-if="item.textEng.includes('(R)')" type="n_roll" /> -->
