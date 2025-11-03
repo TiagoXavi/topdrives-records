@@ -1011,7 +1011,6 @@
             </div>
           </div>
           
-          <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
           <BaseEventTrackbox
             :event="event"
             :eventLoadingAny="eventLoadingAny"
@@ -1024,7 +1023,7 @@
             @newindex="eventTrackNewIndex($event)"
             @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
             @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
-            @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray, $event.e);"
+            @openKingFilter="eventOpenKingFilter($event.itrackset, $event.e);"
             @up="eventMove('up', $event.itrackset);"
             @down="eventMove('down', $event.itrackset);"
             @delete="eventDeleteTrackset($event.itrackset);"
@@ -1159,6 +1158,10 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
+            <!-- <button
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button> -->
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1173,11 +1176,6 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportEventToTimeline()">{{ $t("m_exportToTimeline") }}</button>
-            <button
-              v-if="user && user.mod && !eventBlockAddTrackset && Vue.preUrl && !Vue.preUrl.includes('topdrives') && user.username === 'TiagoXavi'"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="refreshLocalTimesByFilter()">Refresh local times</button>
             <button
               v-if="eventPicksList.length > 0"
               :class="{ D_Button_Loading: eventLoadingAny }"
@@ -1196,6 +1194,14 @@
             <BaseSwitch v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
             <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
           </div>
+
+          <div v-if="user && user.mod && Vue.preUrl && !Vue.preUrl.includes('topdrives') && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <button
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="refreshLocalTimesByFilter()">Refresh local times</button>
+          </div>
+
 
           <div v-if="user && user.mod && event.canViewEvent && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
             <template v-for="(icon, ix) in clubsIconsList">
@@ -1434,7 +1440,7 @@
               @newindex="eventTrackNewIndex($event)"
               @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
               @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
-              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.itrackMonoArray, $event.e);"
+              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.e);"
               @up="eventMove('up', $event.itrackset);"
               @down="eventMove('down', $event.itrackset);"
               @delete="eventDeleteTrackset($event.itrackset);"
@@ -1730,7 +1736,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.10</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.11</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -1748,6 +1754,7 @@
             />
             <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" name="hand_farming" :label="$t('m_farmingHands')" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" name="hand_prizes" :label="$t('m_prizeCars')" :horizontal="true" />
+            <!-- <BaseSwitch v-model="eventBestTeamsConfig.forceOppoBool" name="hand_ForceOppo" :label="$t('m_forceOppo')" :horizontal="true" /> -->
             <BaseSwitch
               :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
               :label="$t('m_neverAwardedCars')"
@@ -1777,8 +1784,7 @@
 
           </BaseExpandDiv>
 
-          <!-- tracks replica? -->
-          <div v-if="eventBestTeamsTarget.resolvedTrackset" class="Main_TeamsTrackset" :class="{ Main_TeamsTracksetWithBottom: eventBestTeamsConfig.forceCarsBool }">
+          <div v-if="eventBestTeamsTarget.resolvedTrackset" class="Main_TeamsTrackset" :class="{ Main_TeamsTracksetWithBottom: eventBestTeamsConfig.forceCarsBool || eventBestTeamsConfig.forceOppoBool }">
             <BaseEventTrackbox
               :event="{ resolvedTrackset: eventBestTeamsTarget.resolvedTrackset }"
               :eventLoadingAny="false"
@@ -1797,13 +1803,39 @@
           </div>
 
           <BaseExpandDiv :active="eventBestTeamsConfig.forceCarsBool" class="Main_TeamsForceCarsExpand">
-            
             <!-- Force cars -->
             <div class="Main_TeamsCanEnterEventMid">
               <BaseCarsTeam
                 :cars="eventBestTeamsConfig.forceCars"
                 :filterToImport="eventBestTeamsTarget.filter"
+                :width="150"
+                :aspect="'415 / 256'"
+                :fsize="7"
+                :miniWidth="111"
+                :miniAspect="'111 / 144'"
+                :miniFsize="12"
                 :mini="windowWidth < 1200"
+                :gap="5"
+                prefix="Your"
+              />
+            </div>
+          </BaseExpandDiv>
+
+          <BaseExpandDiv :active="eventBestTeamsConfig.forceOppoBool" class="Main_TeamsForceCarsExpand">
+            <!-- Force opponents -->
+            <div class="Main_TeamsCanEnterEventMid">
+              <BaseCarsTeam
+                :cars="eventBestTeamsConfig.forceOppoCars"
+                :filterToImport="eventBestTeamsTarget.filter"
+                :width="150"
+                :aspect="'415 / 256'"
+                :fsize="7"
+                :miniWidth="111"
+                :miniAspect="'111 / 144'"
+                :miniFsize="12"
+                :mini="windowWidth < 1200"
+                :gap="5"
+                prefix="Oppo"
               />
             </div>
           </BaseExpandDiv>
@@ -1814,7 +1846,7 @@
               :min="60"
               :max="500"
               :step="5"
-              label="RQ Limit"
+              :label="$t('m_rqLimit')"
               class="Main_TeamsRQSlider"
             />
           </div>
@@ -2085,14 +2117,6 @@
       @addCar="addCarEvent($event)"
       @listRids="cgAnalyseRoundFinish($event);"
     /> -->
-
-    <BaseSearchTrackDialog
-      :active="customTrackDialog"
-      :mode="mode"
-      @close="closeDialogTrackSearch()"
-      @toggleTrack="toggleTrack($event.track, $event.e)"
-      @pushCpSuggest="pushCpSuggest($event)"
-    />
 
     <BaseDialog
       :active="tuneDialogActive"
@@ -3286,7 +3310,6 @@ import BaseText from './BaseText.vue';
 import BaseCard from './BaseCard.vue';
 import Loading from './Loading.vue'
 import BaseDialog from './BaseDialog.vue'
-import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
 import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseMemoryDialog from './BaseMemoryDialog.vue'
 import BaseTypeName from './BaseTypeName.vue'
@@ -3321,6 +3344,9 @@ import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseMonoSlider from './BaseMonoSlider.vue'
 import BaseCarList from './BaseCarList.vue'
 
+import { mapState } from 'pinia';
+import { tdrStore } from '@/tdrStore.js';
+
 export default {
   name: 'Main',
   components: {
@@ -3343,7 +3369,6 @@ export default {
     BaseLogoSpining,
     BaseCompItem,
     BaseConfigCheckBox,
-    BaseSearchTrackDialog,
     BaseFilterDialog,
     BaseUserCard,
     BaseEventTrackbox,
@@ -3376,6 +3401,7 @@ export default {
   },
   data() {
     return {
+      T_S: tdrStore(),
       unsubscribe: null,
       inverted: false,
       compact: false,
@@ -3444,7 +3470,6 @@ export default {
         classe: ""
       },
       memory: [],
-      customTrackDialog: false,
       backToOptionsDialog: true,
       hoverIndex: -1,
       gameVersion: "Game v28.0",
@@ -3582,6 +3607,7 @@ export default {
       eventBestTeamsConfig: {
         myGarage: false,
         forceCarsBool: false,
+        forceOppoBool: false,
         blackListBool: false,
         repeatCars: true,
         uniqueHands: false,
@@ -3589,6 +3615,7 @@ export default {
         neverAwardedCars: true,
         predictedTimes: true,
         forceCars: [{}, {}, {}, {}, {}],
+        forceOppoCars: [{}, {}, {}, {}, {}],
         blackList: [],
       },
       eventBestTeamsTarget: {},
@@ -4240,7 +4267,7 @@ export default {
       },
     },
     optionsDialogComputed() {
-      if (this.customTrackDialog) return false;
+      if (this.T_S._g_track.dialog) return false;
       if (this.librarySearchDialog) return false;
       if (this.memorySearchDialog) return false;
       if (this.searchFilterDialog) return false;
@@ -4723,7 +4750,7 @@ export default {
         this.pushTrackSet(trackset);
       }
     },
-    toggleTrack(track, e = {}) {
+    toggleTrack( { track, e = {} } ) {
       if (this.mode === 'challenges') {
         Vue.set(this.cgRound.races[this.cgRaceSelected], "track", track);
         this.resolveTrack(this.cgRound.races[this.cgRaceSelected]);
@@ -4810,7 +4837,7 @@ export default {
       tracksIds = this.orderTracksIds(tracksIds);
       
       tracksIds.map(x => {
-        this.toggleTrack(x);
+        this.toggleTrack({ track: x });
       })
     },
     orderTracksIds(tracksIds) {
@@ -5126,19 +5153,19 @@ export default {
       this.tuneDialogActive = false;
     },
     openDialogTrackSearch(backToOptions = true, type) {
-      this.customTrackDialog = true;
+      this.T_S._g_track.dialog = true;
+      this.T_S._g_track.mode = this.mode;
+      this.T_S._g_track.close = this.closeDialogTrackSearch;
+      this.T_S._g_track.toggleTrack = this.toggleTrack;
+      this.T_S._g_track.pushCpSuggest = this.pushCpSuggest;
+
       this.optionsDialogActive = false;
       this.backToOptionsDialog = backToOptions;
       if (type === 'king') this.kingAddindTrack = true;
-      setTimeout(() => {
-        try {
-          document.querySelector("#SearchTrackInput").focus();  
-        } catch (error) {}
-      }, 10);
     },
     closeDialogTrackSearch() {
       this.kingAddindTrack = false;
-      this.customTrackDialog = false;
+      this.T_S._g_track.dialog = false;
       if (this.backToOptionsDialog) this.openMainDialog();
       this.updateOptions();
     },
@@ -5205,15 +5232,6 @@ export default {
       }
       this.cgSaveRoundHand();
     },
-    // toggleTrack(set) {
-    //   let index = this.activeTrackSet.indexOf(set);
-
-    //   if (index > -1) {
-    //     this.activeTrackSet.splice(index, 1);
-    //   } else {
-    //     this.activeTrackSet.push(set);
-    //   }
-    // },
     display(type, save = true) {
       if (type === "vertical") {
         this.inverted = true;
@@ -9408,13 +9426,13 @@ export default {
           }
           
           this.$nextTick().then(() => {
-            this.eventOpenKingFilter(Number(this.eventCheckFilterCode[0]), Number(this.eventCheckFilterCode[2]), {}, true);
+            this.eventOpenKingFilter(Number(this.eventCheckFilterCode), {}, true);
           })
         })
         
       }
     },
-    eventOpenKingFilter(itrackset, itrackMonoArray, e, direct = false) {
+    eventOpenKingFilter(itrackset, e, direct = false) {
       let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
       let filterAtr = 'filter';
       if (key === "event") {
@@ -9431,7 +9449,7 @@ export default {
       if (!Object.keys(this.eventFilterForKing).length || direct || refreshFilter) {
         this.eventFilterForKing = JSON.parse(JSON.stringify(this[key][filterAtr]));
       }
-      this.eventCheckFilterCodePre = `${itrackset}_${itrackMonoArray}`;
+      this.eventCheckFilterCodePre = itrackset;
       this.eventCheckFilterCode = null;
 
       if (this.whatTier && this.whatTier <= 3 && (!e || !e.ctrlKey) && !direct) {
@@ -9458,7 +9476,7 @@ export default {
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
 
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
-      this.eventKingTracks = this[key].trackset[this.eventCheckFilterCode[0]];
+      this.eventKingTracks = this[key].trackset[this.eventCheckFilterCode];
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
 
@@ -9575,11 +9593,11 @@ export default {
       let filter;
       let filterAtr = 'filter';
       if (this.isEvents) {
-        trackset = [this.event.trackset[this.eventCheckFilterCode[0]]];
+        trackset = [this.event.trackset[this.eventCheckFilterCode]];
         if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
         filter = this.event[filterAtr];
       } else {
-        trackset = [this.clubTracksGroupModel.trackset[this.eventCheckFilterCode[0]]];
+        trackset = [this.clubTracksGroupModel.trackset[this.eventCheckFilterCode]];
         if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
         filter = this.clubReqsGroupModel[filterAtr];
       }
@@ -9671,6 +9689,9 @@ export default {
           this.searchFilterDialog = true;
         }, 250);
       }
+    },
+    eventExportTracksToMatch() {
+      this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, picks: this.eventReducePicks() } });
     },
     eventExportCriteriaToPacks() {
       // this.$store.commit("START_LOGROCKET", {});
@@ -11319,6 +11340,9 @@ export default {
       if (this.eventBestTeamsConfig.forceCarsBool && this.eventBestTeamsConfig.forceCars.some(car => car.rid)) {
         config.forceCars = this.eventBestTeamsConfig.forceCars.map(car => car.rid);
       }
+      if (this.eventBestTeamsConfig.forceOppoBool && this.eventBestTeamsConfig.forceOppoCars.some(car => car.rid)) {
+        config.forceOppoCars = this.eventBestTeamsConfig.forceOppoCars.map(car => car.rid);
+      }
       if (this.eventBestTeamsConfig.blackListBool && this.eventBestTeamsConfig.blackList.length > 0) {
         config.blackList = this.eventBestTeamsConfig.blackList;
       }
@@ -11375,6 +11399,9 @@ export default {
             }
           } else if (parsed && parsed.arr) {
             console.log("getHandRanking", parsed.stats);
+            if (!import.meta.env.PROD) {
+              console.log(parsed);
+            }
             this.eventBestTeamsBigArray = parsed.arr;
             this.eventBestTeamsDialog = true;
             this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
@@ -11394,6 +11421,8 @@ export default {
     resetBestTeamsConfig() {
       this.eventBestTeamsConfig.forceCarsBool = false;
       this.eventBestTeamsConfig.forceCars = [{}, {}, {}, {}, {}];
+      this.eventBestTeamsConfig.forceOppoBool = false;
+      this.eventBestTeamsConfig.forceOppoCars = [{}, {}, {}, {}, {}];
       this.eventBestTeamsConfig.blackListBool = false;
       this.eventBestTeamsConfig.blackList = [];
       this.eventBestTeamsBigArray = [];

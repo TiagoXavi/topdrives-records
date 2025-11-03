@@ -27,6 +27,34 @@
     <div id="App_PrintContainer">
       <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
     </div>
+
+    <!-- Tem car picker que não fecha ao pegar um carro -->
+    <!-- Tem car picker que fecha ao pegar um carro -->
+    <!-- Tem picker só de filtro -->
+    <!-- Tem quem usa raceFilter123 -->
+    <!-- Tem quem usa initialFilterString123 -->
+    <!-- Tem quem usa ridsMutationName, que pode ser deprecatedo -->
+
+    <BaseFilterDialog
+      v-if="_g_carPicker.dialogLoad"
+      v-model="_g_carPicker.dialog"
+      :raceFilter="_g_carPicker.filter"
+      :sortEnabled="_g_carPicker.sortEnabled"
+      :enableCounters="_g_carPicker.enableCounters"
+      :type="_g_carPicker.type"
+      @addCar="_g_carPicker.addCar"
+    />
+
+    
+
+    <BaseSearchTrackDialog
+      :active="_g_track.dialog"
+      :mode="_g_track.mode"
+      @close="_g_track.close"
+      @toggleTrack="_g_track.toggleTrack"
+      @pushCpSuggest="_g_track.pushCpSuggest"
+    />
+
     <BaseDialog
       :active="loginDialog"
       :transparent="false"
@@ -77,7 +105,7 @@
       :lazy="true"
       :maxWidth="$store.state.confirmDialog.maxWidth"
       :minWidth="$store.state.confirmDialog.minWidth"
-      zindex="102"
+      zindex="302"
       @close="$store.state.confirmDialog.active = false;">
       <div style="App_DialogConfirm">
         <div class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
@@ -128,7 +156,12 @@ import BaseDialog from "@/components/BaseDialog.vue"
 import MainLogin from "@/components/MainLogin.vue"
 import BaseTooltip from "@/components/BaseTooltip.vue"
 import BaseText from "@/components/BaseText.vue"
+import BaseFilterDialog from "@/components/BaseFilterDialog.vue"
+import BaseSearchTrackDialog from '@/components/BaseSearchTrackDialog.vue'
+
 import LogRocket from 'logrocket';
+import { mapState } from 'pinia';
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'App',
@@ -137,11 +170,14 @@ export default {
     BaseDialog,
     MainLogin,
     BaseTooltip,
-    BaseText
+    BaseText,
+    BaseFilterDialog,
+    BaseSearchTrackDialog
   },
   props: {},
   data() {
     return {
+      T_S: tdrStore(),
       snackText: "asdf",
       snackActive: false,
       snackError: false,
@@ -275,7 +311,9 @@ export default {
 
     // window.addEventListener('scroll', this.scroll);
   },
-  computed: {},
+  computed: {
+    ...mapState(tdrStore, ['_g_carPicker', '_g_track'])
+  },
   methods: {
     letSnack(obj) {
       let vm = this;
@@ -397,12 +435,14 @@ body {
   --top-height: 150px;
   --left-width: 200px;
   --cell-width: 238px;
+  --compare-card-width: 238px;
   --cell-height: 35px;
   --dark-back: 40, 40, 40;
   --back-h: 360;
   --back-s: 0%;
   --back-l: 15%;
   --d-back: #333;
+  --d-back-dialog: #3a3a3abb;
   --d-text: #aaa;
   --d-text-b: #ccc;
   --d-text-green: 95, 181, 0;
@@ -411,6 +451,7 @@ body {
   --d-text-red-b: 251, 131, 131;
   --d-text-yellow: 255, 199, 23;
   --d-text-red2: 255, 88, 88;
+  --d-text-cyan: 86, 217, 217;
 
   /* tracks */
   --color-dry: 222, 222, 222;
@@ -2549,7 +2590,7 @@ body .Main_UserTw3:before {
   width: 100%;
 }
 .Cg_Corner {
-  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
   height: var(--top-height);
   width: var(--left-width);
   /* position: fixed; */
@@ -2567,7 +2608,7 @@ body .Main_UserTw3:before {
   position: relative;
 }
 .Cg_RowCornerBox {
-  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
   z-index: 1;
   white-space: nowrap;
   box-sizing: border-box;
@@ -2600,6 +2641,8 @@ body .Main_UserTw3:before {
   --cg-height: 150px;
   grid-template-columns: repeat(5, var(--cg-width));
   justify-content: center;
+  --top-height: 145px;
+  --compare-card-width: 226px;
 }
 .Cg_RoundSubmitsControl {
   display: flex;
@@ -2690,7 +2733,7 @@ body .Main_UserTw3:before {
 .Cg_Divider {
   text-align: center;
   padding-bottom: 5px;
-  margin-top: 15px;
+  margin-top: 10px;
   height: 35px;
   display: flex;
   align-items: center;
@@ -2720,6 +2763,7 @@ body .Main_UserTw3:before {
   --cor: #727272;
   --cor2: #000;
   --size: 70px;
+  --opacity: 0;
 }
 .Cg_Points {
   font-size: var(--size);
@@ -2876,7 +2920,7 @@ body .Main_UserTw3:before {
   opacity: 0.4;
 }
 .Cg_Right {
-  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
   height: var(--top-height);
   width: var(--left-width);
   padding: 3px;
@@ -2978,6 +3022,7 @@ body .Main_UserTw3:before {
   top: 0;
   width: 100%;
   z-index: 30;
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
 }
 .Cg_RoundEmptyBox {
   text-align: center;
@@ -3576,8 +3621,9 @@ a:visited:not(.D_Button) {
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderName {
   font-size: 0.8em;
-  width: calc(100% - 8px);
+  width: calc(100% - 4%);
   margin-top: 0px;
+  left: 2%;
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderNameBig {
   font-size: 0.7em;
@@ -3935,9 +3981,11 @@ a:visited:not(.D_Button) {
   z-index: 20;
   font-family: 'Roboto Condensed', sans-serif;
   /* background-color: #956363; */
-  color: #eee;
-  background-color: #919191;
-  background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.06) 0, rgba(0, 0, 0, 0.06) 30px );
+  /* background-color: #919191; */
+  /* color: #eee; */
+  color: #fff;
+  /* background-image: repeating-linear-gradient( 135deg, transparent, transparent 14px, rgba(255, 255, 255, 0.15) 0, rgba(255, 255, 255, 0.1) 30px ); */
+  background-image: radial-gradient(#595959, transparent);
   background-size: cover;
   background-position: center;
   border-radius: 7px;
@@ -3978,10 +4026,11 @@ a:visited:not(.D_Button) {
   right: 0;
   width: 10%;
   height: var(--card-top-height);
+  line-height: 0.9;
   font-size: 1.09em;
   font-weight: bold;
   text-align: center;
-  background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.4);
+  /* background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), 0.4); */
 }
 .Car_HeaderBlockRQ {
   width: var(--card-left-width);
@@ -4038,13 +4087,14 @@ a:visited:not(.D_Button) {
   height: var(--card-stat-height);
 }
 .Car_HeaderName {
+  /* left: 4px; */
+  /* width: calc( 100% - var(--card-right-width) - 3px); */
   top: 0;
-  /* left: var(--card-left-width); */
-  left: 4px;
-  /* width: calc( 100% - var(--card-left-width) - var(--card-right-width)); */
-  width: calc( 100% - var(--card-right-width) - 3px);
+  left: var(--card-left-width);
+  width: calc( 100% - var(--card-left-width) - var(--card-right-width) - 2%);
+  padding-left: 1%;
   height: var(--card-top-height);
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 0.9;
   flex-direction: row;
   justify-content: flex-start;
@@ -4052,7 +4102,7 @@ a:visited:not(.D_Button) {
   gap: 0.23em;
 }
 .Car_HeaderNameBig {
-  font-size: 0.92em;
+  font-size: 0.85em;
 }
 .Car_HeaderNameBigBig {
   font-size: 0.7em;
@@ -4093,7 +4143,7 @@ a:visited:not(.D_Button) {
   line-height: 1;
   /* padding-right: 4px; */
   padding-right: 6.5%;
-  color: #fff;
+  /* color: #fff; */
   opacity: 0.95;
   /* letter-spacing: 0.3px; */
 }
@@ -4104,7 +4154,7 @@ a:visited:not(.D_Button) {
   /* padding-right: 4px; */
   padding-right: 6.5%;
   font-weight: 400;
-  color: #fff;
+  /* color: #fff; */
   opacity: 0.7;
   /* letter-spacing: 0.3px; */
   white-space: nowrap;
@@ -4156,16 +4206,16 @@ a:visited:not(.D_Button) {
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
 .Car_HeaderBlockDrive, */
-.Car_HeaderBlockTop,
-.Car_HeaderBlockBrand,
-.Car_HeaderBlockYear,
+.Main_Compact .Car_HeaderBlockTop,
+/* .Car_HeaderBlockBrand, */
+/* .Car_HeaderBlockYear, */
 .Car_CardRightForVideo {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
 }
 .Car_HeaderBackDropRight {
   top: calc(var(--card-top-height) + var(--card-gap));
-  right: 0;
+  right: -1px;
   width: var(--card-right-width);
   height: calc(100% - var(--card-gap) - var(--card-top-height));
   /* display: none; */
@@ -4173,6 +4223,7 @@ a:visited:not(.D_Button) {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: var(--card-gap);
+  padding-right: 1px;
 }
 .Car_HeaderRightBlockUnique {
   display: flex;
@@ -4234,18 +4285,22 @@ a:visited:not(.D_Button) {
   display: block;
   line-height: 1;
 }
-.Car_HeaderBlockRQ {
-  /* background-color: hsla(30, 10%, 15%, 1); */
+.Main_Compact .Car_HeaderBlockRQ {
+  background-color: hsla(30, 10%, 24%, 1);
 }
-.Car_NumberStars :nth-child(3) {
+/* .Car_NumberStars :nth-child(3) {
   opacity: 0.2;
-}
+} */
+.Car_NumberStars .Car_Star,
 .Car_NumberStarsundefined .Car_Star,
-.Car_NumberStarsOther .Car_Star,
 .Car_NumberStars000 .Car_Star {
   opacity: 0.2;
 }
 .Car_HeaderBlockStars[class*='111'] .Car_Star:not(:nth-child(1)) {
+  opacity: 0.2;
+}
+.Car_HeaderBlockStars:not([class*='111']):not([class*='332']):not([class*='323']):not([class*='233']) .Car_Star:nth-child(3),
+.Car_HeaderBlockStars.Car_NumberStarsOther .Car_Star:nth-child(3) {
   opacity: 0.2;
 }
 .Car_AddHeader {
@@ -4424,9 +4479,15 @@ a:visited:not(.D_Button) {
 .Car_ImgTag {
   position: static !important;
   display: inline !important;
-  width: 100%;
+  /* width: 100%; */
   /* object-fit: cover; */
+  /* width: max(var(--compare-card-width), 100%); */
+  /* width: clamp(100%, var(--compare-card-width), 100%); */
+  height: 100%;
 }
+/* .Main_Compact .Car_ImgTag {
+  width: clamp(100%, var(--compare-card-width), var(--compare-card-width));
+} */
 
 
 
@@ -4595,6 +4656,10 @@ a:visited:not(.D_Button) {
 .Main_TeamsCarsList {
   margin-bottom: 15px;
 }
+.TC_Cell {
+  width: var(--cell-width);
+  height: var(--cell-height);
+}
 
 
 
@@ -4714,6 +4779,14 @@ a:visited:not(.D_Button) {
 .Main_Teams_IndexPts {
   font-size: 12px;
   opacity: 0.5;
+}
+.Main_Teams_VerticalCardBox {
+  --width: 150px;
+  --aspect: 415 / 256;
+  --fsize: 7px;
+  --mini-width: 111px;
+  --mini-aspect: 111 / 144;
+  --mini-fsize: 12px;
 }
 .BaseCard_AsGalleryBox {
   --card-g-width: 150px;
@@ -4894,12 +4967,13 @@ a:visited:not(.D_Button) {
   .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
     font-size: 0.7em;
   }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider {
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider,
+  .MainMatchSimulator_Layout .Cg_Divider {
     --size: 30px;
+    margin-top: 0px;
   }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsRed,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGreen,
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_PointsGrey {
+  .Main_Layout > *:not(.Main_BodyPrint) div[class*="Cg_Points"],
+  .MainMatchSimulator_Layout div[class*="Cg_Points"] {
     --size: 40px;
   }
   .Event_CompilationBox .Event_BankTime {
@@ -4942,9 +5016,10 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);
   }
-  .Car_HeaderBlockTop,
+  /* .Car_HeaderBlockTop,
   .Car_HeaderBlockBrand,
-  .Car_HeaderBlockYear {
+  .Car_HeaderBlockYear { */
+  .Main_Compact .Car_HeaderBlockTop {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 1);
   }
@@ -4962,9 +5037,10 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);
   }
-  .Car_HeaderBlockTop,
+  /* .Car_HeaderBlockTop,
   .Car_HeaderBlockBrand,
-  .Car_HeaderBlockYear {
+  .Car_HeaderBlockYear { */
+  .Main_Compact .Car_HeaderBlockTop {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 1);
   }

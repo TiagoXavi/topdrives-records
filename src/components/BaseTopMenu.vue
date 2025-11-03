@@ -41,11 +41,16 @@
         :menus="menus"
         @openAdvancedOptions="openAdvancedOptions()"
         @openAbout="openAbout()"
+        @openLanguage="openLanguage()"
         @close="closeMenuDialog()" />
       <BaseAboutDialog
         :user="user"
         :active="aboutDialog"
         @close="closeAbout()"/>
+      <BaseLanguageDialog
+        :active="languageDialog"
+        @close="closeLanguage()"
+      />
       <BaseDialog
         :active="optionsAdvancedDialog"
         :transparent="false"
@@ -94,6 +99,7 @@
 import Logo from './Logo.vue'
 import BaseTopMenuUserDialog from './BaseTopMenuUserDialog.vue'
 import BaseAboutDialog from './BaseAboutDialog.vue'
+import BaseLanguageDialog from './BaseLanguageDialog.vue'
 import BaseDialog from './BaseDialog.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
 import BaseUserCard from './BaseUserCard.vue'
@@ -104,6 +110,7 @@ export default {
   components: {
     BaseTopMenuUserDialog,
     BaseAboutDialog,
+    BaseLanguageDialog,
     Logo,
     BaseDialog,
     BaseConfigCheckBox,
@@ -123,15 +130,17 @@ export default {
         { label: "Challenges", name: "Challenges" },
         { label: "Events", name: "Events" },
         { label: "Clubs", name: "Clubs" },
+        // { label: "Garage", name: "BaseMyGarage" },
         { label: "Charts", name: "MainCharts" },
         { label: "Packs", name: "Packs" },
         { label: "Timeline", name: "Timeline" },
+        // { label: "Match", name: "MainMatchSimulator", newCodes: ["matchSimulator"], showNew: false },
         { label: "Community", name: "Community" },
         { label: "Stuff", name: "Stuff", newCodes: [], showNew: false },
-        // { label: "Stuff", name: "Stuff", newCodes: ["matchSimulator"], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
+      languageDialog: false,
       optionsAdvancedDialog: false,
       local_showDataFromPast: false,
       local_showCustomTunes: false,
@@ -402,6 +411,14 @@ export default {
     },
     closeAbout() {
       this.aboutDialog = false;
+      this.menuDialog = true;
+    },
+    openLanguage() {
+      this.languageDialog = true;
+      this.menuDialog = false;
+    },
+    closeLanguage() {
+      this.languageDialog = false;
       this.menuDialog = true;
     },
     openAdvancedOptions() {

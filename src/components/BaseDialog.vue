@@ -8,6 +8,7 @@
       BaseDialog_AnimIn: animIntro,
       BaseDialog_AnimOut: animOut,
       BaseDialog_Fixed: fixed,
+      BaseDialog_UseColor: useColor
     }"
     :style="`--dialog-index: ${zindex}`"
     class="BaseDialog_Layout">
@@ -87,6 +88,10 @@ export default {
       type: Boolean,
       default: false
     },
+    useColor: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -140,8 +145,8 @@ export default {
   pointer-events: none;
   z-index: -1;
   display: none;
-  transition-duration: 0.1s;
-  opacity: 0;
+  /* transition-duration: 0.1s; */
+  /* opacity: 0; */
   top: 0;
   left: 0;
 }
@@ -154,7 +159,7 @@ export default {
   opacity: 1;
 }
 .BaseDialog_AnimOut {
-  opacity: 0;
+  /* opacity: 0; */
 }
 .BaseDialog_Active {
   z-index: var(--dialog-index);
@@ -169,6 +174,8 @@ export default {
   width: 100%;
   height: 100%;
   transition-duration: 0.1s;
+  backdrop-filter: blur(1.7px);
+  opacity: 0;
 }
 /* .BaseDialog_RealActive .BaseDialog_Back {
   background-color: #000f;
@@ -183,6 +190,16 @@ export default {
   justify-content: center;
   height: 100%;
   pointer-events: none;
+  transition-duration: 0.1s;
+  opacity: 0;
+}
+.BaseDialog_RealActive .BaseDialog_Body,
+.BaseDialog_RealActive .BaseDialog_Back {
+  opacity: 1;
+}
+.BaseDialog_AnimOut .BaseDialog_Body,
+.BaseDialog_AnimOut .BaseDialog_Back {
+  opacity: 0;
 }
 .BaseDialog_Body_Fixed {
   align-items: flex-end;
@@ -211,8 +228,12 @@ export default {
   overflow-y: initial;
 }
 .BaseDialog_Opaque {
-  background-color: #333;
-  /* box-shadow: 0px 10px 10px 0px #0005; */
+  /* background-color: #333; */
+  background-color: var(--d-back-dialog);
+  backdrop-filter: blur(25px);
+}
+.BaseDialog_Opaque:has(.BaseDialog_Opaque) {
+  backdrop-filter: unset;
 }
 .BaseDialog_Fixed .BaseDialog_Box {
   background-color: #2a2a2a;
@@ -238,5 +259,22 @@ export default {
 }
 .BaseDialog_Contents {
   display: contents;
+}
+.BaseDialog_UseColor .BaseDialog_Opaque {
+  background-image: radial-gradient(at center left, var(--class-color) -285%, transparent 65%),
+    radial-gradient(at center right, #4f2d2399 -145%, transparent 75%);
+}
+.BaseDialog_UseColor .BaseCard_EffectBackGround {
+  display: none;
+}
+
+@supports not (backdrop-filter: blur(4px)) {
+  .BaseDialog_Opaque {
+    background-color: var(--d-back);
+    backdrop-filter: unset;
+  }
+  .BaseDialog_Back {
+    backdrop-filter: unset;
+  }
 }
 </style>

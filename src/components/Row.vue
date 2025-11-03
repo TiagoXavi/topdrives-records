@@ -53,7 +53,7 @@
       v-if="tun || type === 'tracks' || (cg && car.rid && tun)"
       v-for="(item, ix) in timesResolved"
       :id="`${type === 'tracks' ? 'Row_Track'+ix : ''}`"
-      :data="`${item.id}_a${item.surface}${item.cond}`"
+      :data="item.trackCode"
       :class="`${errorIndex === ix ? 'Row_ItemError ' : '' }`+
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
               `${type === 'times' ? 'Row_ColorByIndex ' : '' }`+
@@ -71,10 +71,10 @@
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
               `${showingBestPerTrack ? 'Row_ShowingBestPerTrack ' : '' }`+
               `${item.isTimePredicted ? 'Row_isTimePredicted ' : '' }`+
-              `Row_ColorByIndex${highlights[`${item.id}_a${item.surface}${item.cond}`]}`"
+              `Row_ColorByIndex${highlights[item.trackCode]}`"
       :style="{
-        '--color-index': highlights[`${item.id}_a${item.surface}${item.cond}`],
-        '--last-index': countPerTrack[`${item.id}_a${item.surface}${item.cond}`] - 1,
+        '--color-index': highlights[item.trackCode],
+        '--last-index': countPerTrack[item.trackCode] - 1,
         '--drag-left-slo': invertedView ? 1 : 7,
         '--drag-top-slo': invertedView ? 7 : 1,
       }"
@@ -91,53 +91,53 @@
         @click="click($event, item, ix)"
         @keydown="keydown($event, item, ix)"
         class="Row_Content">{{ item.text | toTimeString(item.id) }}<span v-if="type === 'tracks'" class="TdIconCondBox">
-          <i
-            v-if="item.textEng.includes('(R)')"
-            class="tdicon-roll Row_TdIconPerk"
-            aria-hidden="true">
-            <span class="path1"/>
-            <span class="path2"/>
-            <span class="path3"/>
-            <span class="path4"/>
-          </i>
-          <i
-            v-if="(
-              item.id === 'csSmall' ||
-              item.id === 'dockCity' ||
-              item.id === 'csMed' ||
-              item.id === 'oceanCity' ||
-              item.id === 'speedbump12km' ||
-              item.id === 'speedbump1km' ||
-              item.id === 'desertHill' ||
-              item.id === 'moto' ||
-              item.id === 'desertRallyDirt' ||
-              item.id === 'miStreets2' ||
-              item.id === 'itBump' ||
-              item.id === 'dsTnFreeway' ||
-              item.id === 'dsTnLove' ||
-              item.id === 'dsTnMile2bump'
-            )"
-            class="tdicon-clearance Row_TdIconPerk"
-            aria-hidden="true">
-            <span class="path1"/>
-            <span class="path2"/>
-            <span class="path3"/>
-          </i>
-          <i
-            v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
-            :class="`tdicon-${item.trackType}`"
-            class="TdIconCond TdIconCondRel TdIconCondInside"
-            aria-hidden="true">
-            <span class="path1"/>
-            <span class="path2"/>
-            <span class="path3"/>
-            <span class="path4"/>
-            <div class="TdIconCondPercGroup">
-              <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true) }}</span>
-              <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true) }}</span>
-            </div>
-          </i>
-        </span></div>
+        <i
+          v-if="item.textEng.includes('(R)')"
+          class="tdicon-roll Row_TdIconPerk"
+          aria-hidden="true">
+          <span class="path1"/>
+          <span class="path2"/>
+          <span class="path3"/>
+          <span class="path4"/>
+        </i>
+        <i
+          v-if="(
+            item.id === 'csSmall' ||
+            item.id === 'dockCity' ||
+            item.id === 'csMed' ||
+            item.id === 'oceanCity' ||
+            item.id === 'speedbump12km' ||
+            item.id === 'speedbump1km' ||
+            item.id === 'desertHill' ||
+            item.id === 'moto' ||
+            item.id === 'desertRallyDirt' ||
+            item.id === 'miStreets2' ||
+            item.id === 'itBump' ||
+            item.id === 'dsTnFreeway' ||
+            item.id === 'dsTnLove' ||
+            item.id === 'dsTnMile2bump'
+          )"
+          class="tdicon-clearance Row_TdIconPerk"
+          aria-hidden="true">
+          <span class="path1"/>
+          <span class="path2"/>
+          <span class="path3"/>
+        </i>
+        <!-- <i
+          v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
+          :class="`tdicon-${item.trackType}`"
+          class="TdIconCond TdIconCondRel TdIconCondInside"
+          aria-hidden="true">
+          <span class="path1"/>
+          <span class="path2"/>
+          <span class="path3"/>
+          <span class="path4"/>
+          <div class="TdIconCondPercGroup">
+            <span v-bind:scode="item.trackCode | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(0, true) }}</span>
+            <span v-bind:scode="item.trackCode | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(1, true) }}</span>
+          </div>
+        </i> -->
+      </span></div>
       <div
         v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
         :class="{
@@ -151,13 +151,16 @@
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
       <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign" >{{ item.campaign }}<div v-if="item.campaignNum" class="Row_Campaign_Balls" :class="`Row_Campaign_Balls${item.campaignNum}`"><div v-for="n in 5"></div></div></div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).info || {}).acel || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a01'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a10'] || {}).t) }}</div>
-      <div v-if="`${item.id}_a${item.surface}${item.cond}` === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t) }}</div>
+
+      <div v-if="type === 'times'" class="Row_xRA">{{ item | cellSub(car, tun) }}</div>
+
+      <!-- <div v-if="item.trackCode === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).info || {}).acel || {}).t) }}</div>
+      <div v-if="item.trackCode === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
+      <div v-if="item.trackCode === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
+      <div v-if="item.trackCode === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
+      <div v-if="item.trackCode === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a01'] || {}).t) }}</div>
+      <div v-if="item.trackCode === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a10'] || {}).t) }}</div>
+      <div v-if="item.trackCode === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t) }}</div>
       <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
         item.id === 'csSmall' ||
         item.id === 'dockCity' ||
@@ -177,7 +180,9 @@
         item.id === 'moto' ||
         item.id === 'desertRallyDirt'
         )"
-        class="Row_xRA">{{ $t(`c_${car.clearance.toLowerCase()}`).toLowerCase() }}</div>
+        class="Row_xRA">{{ $t(`c_${car.clearance.toLowerCase()}`).toLowerCase() }}</div> -->
+
+      
       <div v-if="type === 'tracks'" class="Row_Conditions">
         <!-- <BaseTypeName :type="item.trackType" :trackId="item.id" /> -->
         <!-- <BaseIconSvg v-if="item.textEng.includes('(R)')" type="n_roll" /> -->
@@ -194,8 +199,8 @@
           <span class="path3"/>
           <span class="path4"/>
           <div class="TdIconCondPercGroup">
-            <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(0, true) }}</span>
-            <span v-bind:scode="`${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ `${item.id}_a${item.surface}${item.cond}` | trackToPerc(1, true) }}</span>
+            <span v-bind:scode="item.trackCode | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(0, true) }}</span>
+            <span v-bind:scode="item.trackCode | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(1, true) }}</span>
           </div>
         </i>
         <!-- <BaseTrackType v-if="item.trackType !== '00'" class="BaseTrackType_Small" :trackType="item.trackType" :isButton="false" /> -->
@@ -272,7 +277,7 @@
       <div v-if="item.downList && item.downList.length > ( item.upList && item.upList.length > 0 ? item.upList.length : 0 )" class="Row_CheckDoubtful">
         <i class="ticon-warning Row_CheckDoubtfulIcon" aria-hidden="true"/>
       </div>
-      <div v-if="type === 'tracks'" class="RowTrack_DragIndicator"></div>
+      <!-- <div v-if="type === 'tracks'" class="RowTrack_DragIndicator"></div> -->
     </div>
     <div v-else class="Row_Item Row_Cell Row_DisabledCell" @mouseenter="mouseEnter($event)" @click.stop="outsideClick()"></div>
 
@@ -508,6 +513,7 @@ export default {
     timesResolved() {
       let result = [];
       let text;
+      let trackCode;
       let author;
       let downList;
       let upList;
@@ -546,19 +552,20 @@ export default {
 
         this.list.map((x, ix) => {
           text = "";
+          trackCode = `${x.id}_a${x.surface}${x.cond}`;
           // if (car.times &&
           //     car.times[x.id]
           // ) {
           if (timesObjPresent) {
-            text = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
-            downList = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
-            upList = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
-            author = (car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
-            date = ((car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
-            isTimePredicted = !!(car.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).isTimePredicted;
+            text = (car.data[this.tun].times[trackCode] || {}).t;
+            downList = (car.data[this.tun].times[trackCode] || {}).down;
+            upList = (car.data[this.tun].times[trackCode] || {}).up;
+            author = (car.data[this.tun].times[trackCode] || {}).u;
+            date = ((car.data[this.tun].times[trackCode] || {}).d || "").slice(0,10);
+            isTimePredicted = !!(car.data[this.tun].times[trackCode] || {}).isTimePredicted;
           }
           if (text === undefined || text === null) text = "";
-          obj = { text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date };
+          obj = { text: text, ...x, cond: x.cond, surface: x.surface, id: x.id, trackType: `${x.surface}${x.cond}`, showDetail: false, downList, upList, author, date, trackCode };
           if (isTimePredicted) obj.isTimePredicted = true;
 
           result.push(obj);
@@ -594,16 +601,17 @@ export default {
       } else if (isCustomData) {
         // custom data with allowedTune
         this.list.map((x, ix) => {
-          text = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).t;
+          trackCode = `${x.id}_a${x.surface}${x.cond}`;
+          text = (this.customData.data[this.tun].times[trackCode] || {}).t;
           if (text === undefined || text === null) text = "";
-          downList = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).down;
-          upList = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).up;
-          author = (this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).u;
-          date = ((this.customData.data[this.tun].times[`${x.id}_a${x.surface}${x.cond}`] || {}).d || "").slice(0,10);
+          downList = (this.customData.data[this.tun].times[trackCode] || {}).down;
+          upList = (this.customData.data[this.tun].times[trackCode] || {}).up;
+          author = (this.customData.data[this.tun].times[trackCode] || {}).u;
+          date = ((this.customData.data[this.tun].times[trackCode] || {}).d || "").slice(0,10);
 
           if (text === '' && this.cgTime) {
             text = this.cgTime;
-            // console.log(this.car.rid, `${x.id}_a${x.surface}${x.cond}`);
+            // console.log(this.car.rid, trackCode);
             // debugger;
           }
 
@@ -1511,7 +1519,7 @@ export default {
   width: 100%;
   justify-content: center;
 }
-.Row_DialogCardCard {
+.Car_Header.Row_DialogCardCard {
   --width: 300px;
   --height: 186px;
   width: var(--width) !important;
@@ -1520,9 +1528,14 @@ export default {
   position: relative;
   top: 0;
   margin: 0;
+  border-radius: 10px;
+  box-shadow: 0px 27px 17px -16px #00000050, 0px -25px 27px -26px #00000050;
 }
 .Row_DialogCardCard .Car_HeaderStatLabel {
   display: block;
+}
+.Row_DialogCardCard {
+  --card-top-height: 12.3%;
 }
 .Row_DialogCard {
   display: flex;
@@ -1856,7 +1869,7 @@ export default {
   transition-property: transform;
   pointer-events: none;
 }
-.RowTrack_DragIndicator {
+/* .RowTrack_DragIndicator {
   position: absolute;
   left: 0;
   height: 6px;
@@ -1865,7 +1878,7 @@ export default {
   bottom: -2px;
   z-index: 21;
   display: none;
-}
+} */
 .Row_Cg.Row_Tracks .Row_Content {
   /* justify-content: center; */
 }

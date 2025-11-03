@@ -34,6 +34,7 @@ const i18n = new VueI18n({
   silentFallbackWarn: true
 });
 Vue.use({i18n});
+window.i18n = i18n;
 Vue.use(VueVirtualScroller)
 const pinia = createPinia()
 Vue.use(PiniaVuePlugin)

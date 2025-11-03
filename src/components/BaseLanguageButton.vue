@@ -2,13 +2,10 @@
   <span>
     <button
       class="D_Button Main_OptionsButton Main_OptionsButton42"
-      @click="dialog = true;">
+      @click="$emit('openLanguage')">
       <BaseFlag :flag="$i18n.locale.toUpperCase()" class="BaseLanguageButton_Flag" />
       <span>{{ $i18n.locale.toUpperCase() }}</span>
     </button>
-    <BaseLanguageDialog
-      v-model="dialog"
-    />
   </span>
 </template>
 
@@ -25,7 +22,6 @@ export default {
   props: {},
   data() {
     return {
-      dialog: false
     }
   },
   watch: {},

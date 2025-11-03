@@ -14,7 +14,6 @@
         <div class="BaseGalleryItem_MidLeft">
           <div class="BaseGalleryItem_Name">
             <span>{{ config.name }}</span>
-            
           </div>
           
           <div class="BaseGalleryItem_TagsDuo">

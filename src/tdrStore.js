@@ -7,7 +7,25 @@ export const tdrStore = defineStore('main', {
   state: () => ({
     counter: 0,
     name: 'Tiago',
-    windowWidth: window.innerWidth,
+    _g_carPicker: {
+      dialog: false,
+      dialogLoad: false,
+      filter: {},
+      filterString: null,
+      sortEnabled: null,
+      enableCounters: null,
+      type: null,
+      index: null,
+      addCar: () => {}
+    },
+    _g_track: {
+      dialog: false,
+      mode: "",
+      close: () => {},
+      toggleTrack: () => {},
+      pushCpSuggest: () => {}
+    },
+
     _match: null, //MainMatchSimulator
   }),
 

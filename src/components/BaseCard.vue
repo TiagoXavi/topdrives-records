@@ -7,8 +7,14 @@
     <div v-if="isDialogBox" class="BaseCard_EffectBackGround"></div>
     <div
       class="Car_Header"
-      :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading, Car_WithVideo: videoSrc }"
-      :style="`${carPhoto};`">
+      :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading, Car_WithVideo: videoSrc }">
+      <img
+        :src="carPhotoSrc"
+        :key="car.rid"
+        class="Car_ImgTag"
+        loading="lazy"
+        alt=""
+      />
       <video v-if="videoSrc" autoplay="" muted="" loop="" :src="videoSrc" webkit-playsinline playsinline />
       <div class="Car_HeaderBlockTop" />
       <!-- <div class="Car_HeaderBlockBrand" /> -->
@@ -18,12 +24,12 @@
         <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(resolveCar.tyres || "?").toLowerCase()}`) || "-" }}</span>
         <span class="Car_HeaderBlockTiresLabel"> {{ $tc("c_tyre", 2) }}</span>
       </div>
-      <div :class="`Car_NumberStars${car.selectedTune}`" class="Car_HeaderBlockStars">
+      <div :class="`Car_NumberStars${fTune}`" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
       </div>
       <template v-if="cgOppo">
-        <div v-if="car.selectedTune && car.selectedTune.includes('Other') && car.selectedTune !== 'Other'" class="Car_TuneTip">{{ car.selectedTune.slice(5) }}</div>
-        <div v-else class="Car_TuneTip">{{ car.selectedTune }}</div>
+        <div v-if="fTune && fTune.includes('Other') && fTune !== 'Other'" class="Car_TuneTip">{{ fTune.slice(5) }}</div>
+        <div v-else class="Car_TuneTip">{{ fTune }}</div>
       </template>
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
@@ -55,15 +61,15 @@
       </div>
       <div class="Car_HeaderBackDropRight">
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData, fTune) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData, fTune) }}</div>
           <div class="Car_HeaderStatLabel">0-60MPH</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData, fTune) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
@@ -92,7 +98,13 @@
       @touchend="touchend()"
       @click="invertedClick($event)">
       <div class="BaseCard_Header2Left">
-        <img :src="carPhotoSrc" loading="lazy" class="BaseCard_Header2Img" alt="">
+        <img
+          :src="carPhotoSrc"
+          :key="car.rid"
+          loading="lazy"
+          class="BaseCard_Header2Img"
+          alt=""
+        >
       </div>
       <div class="BaseCard_Header2Right">
         <div class="BaseCard_Header2Top"><b>[{{ resolveCar.rq }}]</b> {{ car.brand }}</div>
@@ -177,6 +189,7 @@ export default {
       type: Boolean,
       default: true
     },
+    selectedTune: {}
   },
   data() {
     return {
@@ -218,31 +231,36 @@ export default {
       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(this.carClassColor);
       return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
     },
-    carPhoto() {
-      let parsed = Vue.carPhoto(this.car);
-      parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
-      parsed = parsed.replaceAll("'","\\'");
-      return parsed ? 'background-image: url('+parsed+');' : ''
-    },
+    // carPhoto() {
+    //   let parsed = Vue.carPhoto(this.car);
+    //   parsed = parsed.replaceAll("(","\\(").replaceAll(")","\\)");
+    //   parsed = parsed.replaceAll("'","\\'");
+    //   return parsed ? 'background-image: url('+parsed+');' : ''
+    // },
     carPhotoSrc() {
       let parsed = Vue.carPhoto(this.car);
       return parsed ? parsed : ''
+    },
+    fTune() {
+      return this.car.selectedTune || this.selectedTune || "";
     }
   },
   methods: {
     load() {
-      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
+      if (this.car && this.fTune && this.fTune.startsWith('v')) {
         this.resolveCarMethod();
       } else {
         this.resolveCar = this.car;
         this.carClassColor = Vue.resolveClass(this.car.rq, this.car.class, "color");
+        if (this.isDialogBox) this.$emit('color', this.carClassColor);
       }
     },
     async resolveCarMethod() {
-      if (this.car && this.car.selectedTune && this.car.selectedTune.startsWith('v')) {
-        Vue.getOldCar(this.car.rid, this.car.selectedTune.substr(1,2)).then(res => {
-          this.carClassColor = Vue.resolveClass(res.rq, res.class, "color");
+      if (this.car && this.fTune && this.fTune.startsWith('v')) {
+        Vue.getOldCar(this.car.rid, this.fTune.substr(1,2)).then(res => {
           this.resolveCar = res;
+          this.carClassColor = Vue.resolveClass(res.rq, res.class, "color");
+          if (this.isDialogBox) this.$emit('color', this.carClassColor);
         });
       } else {
         return this.car

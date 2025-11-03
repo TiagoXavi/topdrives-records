@@ -44,7 +44,7 @@
         <div class="BaseTopMenuUserDialog_FooterBox">
           
           <div class="BaseTopMenuUserDialog_FooterRight Main_OptionsFooterButtons">
-            <BaseLanguageButton />
+            <BaseLanguageButton @openLanguage="$emit('openLanguage')" />
             <button
               class="D_Button Main_OptionsButton Main_OptionsButton42"
               @click="$emit('openAbout')">

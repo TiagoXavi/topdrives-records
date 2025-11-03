@@ -186,38 +186,58 @@
                       <div
                         v-if="(item.p_rid || []).length === 1"
                         class="MainTimeline_Card_Header2Left">
-                        <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
+                        <img
+                          :src="resolvedRids[item.p_rid[0]].photo"
+                          :key="item.sort"
+                          loading="lazy"
+                          class="MainTimeline_Card_Header2Img"
+                          alt=""
+                        />
                         <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
                       </div>
                       <img
                         v-else-if="item.type === 'Veteran Challenge'"
+                        :key="item.sort"
                         src="/assets/tdr_veteran.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
-                        alt="">
+                        alt=""
+                      />
                       <img
                         v-else-if="item.type === 'Offers'"
+                        :key="item.sort"
                         src="/assets/tdr_offer.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
-                        alt="">
+                        alt=""
+                      />
                       <img
                         v-else-if="item.links && item.links.some(x => x.cover)"
                         :src="item.links.find(x => x.cover).url"
+                        :key="item.sort"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
                         alt=""
-                        @load="afterLoadImg($event)">
+                        @load="afterLoadImg($event)"
+                      />
                       <img
                         v-else-if="item.type === 'Game News' || item.type === 'Community News'"
+                        :key="item.sort"
                         src="/assets/tdr_newspaper.png"
                         class="MainTimeline_Card_VeteranImg"
                         loading="lazy"
-                        alt="">
+                        alt=""
+                      />
                       <div
                         v-else-if="(item.p_rid || []).length > 0"
                         class="MainTimeline_Card_Header2Left">
-                        <img :src="resolvedRids[item.p_rid[0]].photo" loading="lazy" class="MainTimeline_Card_Header2Img" alt="">
+                        <img
+                          :src="resolvedRids[item.p_rid[0]].photo"
+                          :key="item.sort"
+                          loading="lazy"
+                          class="MainTimeline_Card_Header2Img"
+                          alt=""
+                        />
                         <div class="MainTimeline_Card_Header2Right2">{{ resolvedRids[item.p_rid[0]].rq }}</div>
                       </div>
                       <div v-else class="MainTimeline_DefaultCover">
@@ -805,9 +825,10 @@
           <div class="MainTimeline_DialogGalleryInner">
             <button
               v-for="link in detailObj.links.filter(x => x.url && x.url.includes('tdrimages.s3'))"
+              :style="`background-image: url(${link.url});`"
               class="MainTimeline_DialogGalleryItem D_Button"
               @click="openPicture(link)">
-              <img :src="link.url" class="MainTimeline_GalleryPictureImg" alt="" @load="afterLoadImg($event, true)">
+              <!-- <img :src="link.url" class="MainTimeline_GalleryPictureImg" alt="" @load="afterLoadImg($event, true)"> -->
             </button>
           </div>
         </div>
@@ -1934,11 +1955,6 @@ export default {
     },
     openDialogTrackSearch(backToOptions = true, type) {
       this.customTrackDialog = true;
-      setTimeout(() => {
-        try {
-          document.querySelector("#SearchTrackInput").focus();  
-        } catch (error) {}
-      }, 10);
     },
     closeDialogTrackSearch() {
       this.customTrackDialog = false;
@@ -2950,12 +2966,15 @@ export default {
 .MainTimeline_DialogGalleryItem {
   width: var(--img-width);
   height: var(--img-height);
-  overflow: hidden;
+  background-size: cover;
+  background-color: unset !important;
+  /* overflow: hidden; */
   /* flex-grow: 1; */
 }
 .MainTimeline_DialogGalleryItem:only-child {
   width: 100%;
-  height: unset;
+  height: auto;
+  aspect-ratio: 1.77;
 }
 .MainTimeline_GalleryPictureImg {
   width: 100%;
@@ -2966,6 +2985,9 @@ export default {
 .MainTimeline_DialogGalleryItem:hover,
 .MainTimeline_DialogGalleryItem.focus-visible {
   box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow));
+}
+.MainTimeline_DialogGalleryItem.D_Button {
+
 }
 .MainTimeline_DialogLinkLayout {
   margin-top: 15px;

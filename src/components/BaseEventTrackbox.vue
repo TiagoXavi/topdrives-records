@@ -1,10 +1,17 @@
 <template>
   <div
-    :class="{ BaseEventTrackbox_Mini: mini, BaseEventTrackbox_MiniHeight: miniHeight }"
+    :class="{
+      BaseEventTrackbox_Mini: mini,
+      BaseEventTrackbox_MiniHeight: miniHeight,
+      BaseEventTrackbox_HasPoints: showMatchPoints
+    }"
     class="BaseEventTrackbox_Contents">
     <div
       v-for="(trackset, itrackset) in event.resolvedTrackset"
-      :class="{ BaseEventTrackbox_LineInactive: check && check[0] != itrackset }"
+      :class="{
+        BaseEventTrackbox_LineInactive: (check || check===0) && check != itrackset,
+        BaseEventTrackbox_LineActive: (check || check===0) && check == itrackset
+      }"
       :style="size ? `--cg-width: ${size}px;` : ''"
       class="Cg_Box BaseEventTrackbox_BoxRelative">
       <div
@@ -17,27 +24,34 @@
         class="Cg_Track EventTrack">
         <div v-if="itrackMonoArray === 0 && user && !eventForceAnalyze && !hideCheckBox" class="BaseEventTrackbox_ClassCheck">
           <BaseCheckBox
-            :value="check === `${itrackset}_${itrackMonoArray}`"
-            @change="$emit('openKingFilter', {itrackset, itrackMonoArray}); changeRunAnimation()"
-            @click="$emit('openKingFilter', {itrackset, itrackMonoArray, e: $event }); changeRunAnimation()"/>
-          <div v-if="itrackset === 0 && runAnimation" class="BaseEventTrackbox_CheckAnimation ticon-">check_box_outline_blank</div>
+            :value="check === itrackset"
+            @click="checkBoxClick(itrackset, $event)"/>
+          <div v-if="itrackset === 0 && runAnimation && animationProp" class="BaseEventTrackbox_CheckAnimation ticon-">check_box_outline_blank</div>
+          <div
+            v-if="showMatchPoints"
+            :class="{
+              Cg_PointsGreen: matchPoints[itrackset]?.total > 0,
+              Cg_PointsRed: matchPoints[itrackset]?.total < 0,
+              BaseEventTrackbox_PointBig: Math.abs(matchPoints[itrackset]?.total) > 99
+            }"
+            class="BaseEventTrackbox_CheckPoints">{{ matchPoints[itrackset]?.total }}</div>
         </div>
         <div v-if="itrackMonoArray === 0 && user && eventForceAnalyze" class="BaseEventTrackbox_EditBox">
-          <button
+          <!-- <button
             class="D_Button Cg_SelectTrackButton"
             :class="{ D_ButtonRed: deleteTime && deleteTimeIndex === itrackset }"
             @click="deleteClick(itrackset)">
             <i class="ticon-close_3 BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
-          </button>
+          </button> -->
           <div class="BaseEventTrackbox_UpDownBox">
             <button
               class="D_Button Cg_SelectTrackButton"
-              @click="$emit('up', {itrackset});">
+              @click="vertical('up', itrackset)">
               <i class="ticon-keyboard_arrow_up BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
             </button>
             <button
               class="D_Button Cg_SelectTrackButton"
-              @click="$emit('down', {itrackset});">
+              @click="vertical('down', itrackset)">
               <i class="ticon-keyboard_arrow_down BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
             </button>
           </div>
@@ -49,28 +63,28 @@
           :user="user"
           :options="user && user.mod"
           :cg="true"
-          :showCampaignTip="(!showBestPerTrack || !eventBestPerTrack[(trackMonoArray[0].code) || '']) && !disableCampaignTip && !compact"
-          :showingBestPerTrack="showBestPerTrack && Object.keys(eventBestPerTrack).length > 0"
+          :showCampaignTip="!showBestPerTrack && !disableCampaignTip && !compact"
+          :showingBestPerTrack="(showBestPerTrack && Object.keys(eventBestPerTrack).length > 0) || showMatchPoints"
           class="Cg_TrackBox"
           type="tracks" />
         <button
-          v-if="user && user.mod && !readonly"
+          v-if="user && user.mod && !readonly && !showBestPerTrack"
           :disabled="eventLoadingAny"
           :class="{ Cg_SelectTrackButtonEdit: trackMonoArray && trackMonoArray.length === 1 }"
           class="D_Button Cg_SelectTrackButton"
-          @click="$emit('openDialogTrackSearch', {itrackset, itrackMonoArray});">
+          @click="selectTrack(itrackset, itrackMonoArray)">
           <i v-if="trackMonoArray && trackMonoArray.length === 1" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
           <span v-else>{{ $t("m_selectTrack") }}</span>
         </button>
         <button
-          v-if="isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4"
+          v-if="isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1 && itrackMonoArray < 4 && !showBestPerTrack"
           :disabled="eventLoadingAny"
           class="D_Button Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_SelectTrackButtonMoveRight"
-          @click="$emit('eventMoveTrackRight', {itrackset, itrackMonoArray});">
+          @click="moveRight(itrackset, itrackMonoArray)">
           <i class="ticon-arrow_right_3 Cg_SelectTrackButtonIcon" aria-hidden="true"/>
         </button>
         <button
-          v-if="!isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1"
+          v-if="!isMobile && !readonly && trackMonoArray && trackMonoArray.length === 1 && !showBestPerTrack"
           :disabled="eventLoadingAny"
           class="D_Button Cg_SelectTrackButton Cg_SelectTrackButtonEdit Cg_DragButtonIcon"
           @mousedown="dragMouseDown($event, itrackset, itrackMonoArray);">
@@ -84,6 +98,39 @@
             <img :src="eventBestPerTrack[trackMonoArray[0].code].photo" class="BaseEventTrackbox_BestImg" alt="">
             <div class="BaseEventTrackbox_BestTune" :class="`BaseEventTrackbox_BestTune${eventBestPerTrack[trackMonoArray[0].code].tune}`">{{ eventBestPerTrack[trackMonoArray[0].code].tune }}</div>
           </div>
+        </div>
+        <div
+          v-if="showMatchPoints && matchPoints && trackMonoArray && trackMonoArray.length === 1"
+          class="BaseEventTrackbox_BestBox">
+          <template v-for="point in [matchPoints[itrackset]?.arr?.[itrackMonoArray]]">
+            <div
+              v-if="typeof point === 'number'"
+              :class="{
+                Cg_PointsGreen: point > 0,
+                Cg_PointsRed: point < 0,
+                BaseEventTrackbox_PointBig: Math.abs(point) > 99
+              }"
+              class="BaseEventTrackbox_Point">
+              {{ point }}
+            </div>
+            <div v-else class="BaseEventTrackbox_Point">?</div>
+          </template>
+        </div>
+        <div v-if="itrackMonoArray === 4 && (autoResolve || (user && eventForceAnalyze))" class="BaseEventTrackbox_EditBoxRight">
+          <button
+            v-if="itrackset === 0 && autoResolve"
+            :disabled="event.resolvedTrackset.length > 7"
+            class="D_Button Cg_SelectTrackButton"
+            @click="addTrackset();">
+            <i class="ticon-plus_2 BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
+          </button>
+          <button
+            v-else
+            class="D_Button Cg_SelectTrackButton"
+            :class="{ D_ButtonRed: deleteTime && deleteTimeIndex === itrackset }"
+            @click="deleteTrackset(itrackset);">
+            <i class="ticon-minus_2 BaseEventTrackbox_EditButtonIcon" aria-hidden="true"/>
+          </button>
         </div>
       </div>
     </div>
@@ -106,6 +153,8 @@ var skip = false;
 
 import Row from './Row.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
+import { mapState } from 'pinia';
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'BaseEventTrackbox',
@@ -162,6 +211,14 @@ export default {
       type: Boolean,
       default: false
     },
+    autoResolve: {
+      type: Boolean,
+      default: false
+    },
+    animationProp: {
+      type: Boolean,
+      default: true
+    },
     size: {
       type: Number,
       default: 0
@@ -172,16 +229,25 @@ export default {
         return {}
       }
     },
-    index: {}
+    index: {},
+    showMatchPoints: {
+      type: Boolean,
+      default: false
+    },
+    matchPoints: {},
   },
   data() {
     return {
+      T_S: tdrStore(),
       isMobile: false,
       itrackset: null,
       itrackMonoArray: null,
       deleteTime: false,
       deleteTimeIndex: 0,
-      runAnimation: true
+      deleteTm: null,
+      runAnimation: true,
+      eventTracksetSelected: null,
+      eventRaceSelected: null
     }
   },
   watch: {},
@@ -275,8 +341,13 @@ export default {
           dragLeft: Number(elmnt.style.getPropertyValue("--drag-left")),
           dragTop: Number(elmnt.style.getPropertyValue("--drag-top"))
         }
-        pos.dragLeft = pos.dragLeft + (width * indexDiff * -1)
-        this.$emit("newindex", { current: this.itrackMonoArray, new: this.itrackMonoArray + dragNum, itrackset: this.itrackset });
+        pos.dragLeft = pos.dragLeft + (width * indexDiff * -1);
+
+        if (!this.autoResolve) {
+          this.$emit("newindex", { current: this.itrackMonoArray, new: this.itrackMonoArray + dragNum, itrackset: this.itrackset });
+        } else {
+          this.resolveOrder({ current: this.itrackMonoArray, new: this.itrackMonoArray + dragNum, itrackset: this.itrackset });
+        }
       }
       elmnt.style.setProperty("--drag-left", 0 );
       elmnt.style.setProperty("--drag-top", 0 );
@@ -285,18 +356,112 @@ export default {
       document.onmouseup = null;
       document.onmousemove = null;
     },
-    deleteClick(itrackset) {
-      if (this.deleteTime) {
-        this.deleteTime = false;
-        this.$emit('delete', {itrackset});
-      } else {
-        this.deleteTime = true;
-        this.deleteTimeIndex = itrackset;
-        setTimeout(() => {
-          this.deleteTime = false;
-        }, 1000);
+    // deleteClick(itrackset) {
+    //   return;
+    //   if (this.deleteTime) {
+    //     this.deleteTime = false;
+    //     this.$emit('delete', {itrackset});
+    //   } else {
+    //     this.deleteTime = true;
+    //     this.deleteTimeIndex = itrackset;
+    //     setTimeout(() => {
+    //       this.deleteTime = false;
+    //     }, 1000);
+    //   }
+    // },
+    selectTrack(itrackset, itrackMonoArray) {
+      if (!this.autoResolve) {
+        return this.$emit('openDialogTrackSearch', {itrackset, itrackMonoArray});
       }
-    }
+
+      this.T_S._g_track.dialog = true;
+      this.T_S._g_track.mode = this.mode;
+      this.T_S._g_track.close = () => {
+        this.T_S._g_track.dialog = false;
+      };
+      this.T_S._g_track.toggleTrack = ({ track, e = {} }) => {
+        this.event.trackset[itrackset][itrackMonoArray].track = track;
+        // this.event.trackset[itrackset].splice(itrackMonoArray, 1, track);
+        console.log(this.event.trackset[itrackset])
+        // Vue.set(this.event.trackset[itrackset], itrackMonoArray, track);
+        Vue.set(this.event.resolvedTrackset[itrackset], itrackMonoArray, Vue.resolveTrack({ track }, false, false));
+        this.T_S._g_track.dialog = false;
+        this.$emit("changed");
+      };
+
+      // this.eventTracksetSelected = itrackset;
+      // this.eventRaceSelected = itrackMonoArray;
+
+    },
+    moveRight(itrackset, itrackMonoArray) {
+      if (!this.autoResolve) {
+        return this.$emit('eventMoveTrackRight', {itrackset, itrackMonoArray});
+      }
+      this.$emit("changed");
+    },
+    vertical(direction = "up", itrackset) {
+      if (!this.autoResolve) {
+        return this.$emit(direction, {itrackset});
+      }
+      this.$emit("changed");
+    },
+    checkBoxClick(itrackset, e) {
+      if (!this.autoResolve) {
+        this.$emit('openKingFilter', {itrackset, e }); 
+        this.changeRunAnimation();
+      }
+      if (this.event.check === itrackset) {
+        this.event.check = null;
+      } else {
+        this.event.check = itrackset;
+      }
+      this.$emit("changed", "trackCheckbox");
+    },
+    addTrackset() {
+      if (!this.autoResolve) return;
+      this.event.resolvedTrackset.push([null,null,null,null,null]);
+      this.event.trackset.push([{ track: null }, { track: null }, { track: null }, { track: null }, { track: null }]);
+      this.$emit("changed");
+    },
+    deleteTrackset(itrackset) {
+      // clearTimeout(this.deleteTm);
+      // if (!this.deleteTime) {
+      //   this.deleteTime = true;
+      //   this.deleteTimeIndex = itrackset;
+      //   this.deleteTm = setTimeout(() => {
+      //     this.deleteTime = false;
+      //   }, 1000);
+      //   return;
+      // }
+      // this.deleteTime = false;
+
+      if (!this.autoResolve) {
+        return this.$emit('delete', {itrackset});
+      };
+      this.event.resolvedTrackset = this.event.resolvedTrackset.filter((x, ix) => ix !== itrackset);
+      this.event.trackset = this.event.trackset.filter((x, ix) => ix !== itrackset);
+      this.$emit("changed");
+    },
+    resolveOrder(obj) {
+      let trackset = this.event.resolvedTrackset[obj.itrackset];
+      let trackset2 = this.event.trackset[obj.itrackset];
+
+      // this.event.trackset[itrackset][itrackMonoArray].track = track;
+      // Vue.set(this.event.resolvedTrackset[itrackset], itrackMonoArray, Vue.resolveTrack({ track }, false, false));
+
+      while (obj.current < 0) {
+        obj.current += trackset.length;
+      }
+      while (obj.new < 0) {
+        obj.new = 0;
+      }
+      if (obj.new > trackset.length) {
+        obj.new = trackset.length;
+      }
+      trackset.splice(obj.new, 0, trackset.splice(obj.current, 1)[0]);
+      trackset2.splice(obj.new, 0, trackset2.splice(obj.current, 1)[0]);
+      this.$emit("changed");
+    },
   },
 }
 </script>
@@ -348,16 +513,25 @@ export default {
 .BaseEventTrackbox_ClassCheck {
   position: absolute;
   left: -32px;
-  top: 7px;
+  top: 3px;
 }
 .BaseEventTrackbox_EditBox {
   position: absolute;
-  left: -76px;
-  top: 3px;
+  left: -39px;
+  top: 0px;
+  display: flex;
+}
+.BaseEventTrackbox_EditBoxRight {
+  position: absolute;
+  right: -36px;
+  top: 0px;
   display: flex;
 }
 .BaseEventTrackbox_LineInactive {
   opacity: 0.5;
+}
+.BaseEventTrackbox_LineActive {
+
 }
 .BaseEventTrackbox_UpDownBox {
   display: flex;
@@ -527,7 +701,52 @@ export default {
 .BaseEventTrackbox_MiniHeight .BaseIconSvg_Layout svg {
   width: 20px;
 }
-
+.BaseEventTrackbox_Point {
+  color: var(--cor);
+}
+.BaseEventTrackbox_HasPoints .BaseCheckBox_Input {
+  width: 33px;
+  height: 28px;
+  height: calc(var(--cell-height) - 2px);
+  border: unset;
+}
+.BaseEventTrackbox_HasPoints .BaseCheckBox_Input:checked {
+  background-color: rgba(var(--d-text-green), 0.3);
+  /* border: 2px solid rgb(var(--d-text-green)); */
+}
+.BaseEventTrackbox_HasPoints .BaseCheckBox_Input::before {
+  display: none;
+}
+.BaseEventTrackbox_CheckPoints {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cor);
+  pointer-events: none;
+}
+.BaseCheckBox_Layout:has(+ .BaseEventTrackbox_CheckPoints:not(.Cg_PointsGreen):not(.Cg_PointsRed)) {
+  --d-text-green: 170, 170, 170;
+}
+.BaseCheckBox_Layout:has(+ .Cg_PointsRed) {
+  --d-text-green: var(--d-text-red2);
+}
+.BaseCheckBox_Layout:has(+ .Cg_PointsGreen) {
+  /* --d-text-green: var(--d-text-green); */
+}
+.BaseEventTrackbox_HasPoints .BaseEventTrackbox_ClassCheck {
+  position: absolute;
+  left: -36px;
+  top: 1px;
+}
+.BaseEventTrackbox_HasPoints:has(.Row_TdIconPerk):has(.TdIconCond) .TdIconCondBox {
+  display: none;
+}
 
 
 

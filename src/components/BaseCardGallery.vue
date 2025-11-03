@@ -127,7 +127,7 @@ export default {
       let parsed;
       try {
         if (this.oldpic) {
-          parsed = 'src/oldpics/' + this.car.rid + '.jpg';
+          parsed = 'oldpics/' + this.car.rid + '.jpg';
         } else {
           parsed = Vue.carPhoto(this.car);
         }
@@ -185,6 +185,7 @@ export default {
   background-color: unset;
   background-image: unset;
   position: relative;
+  border-radius: 11px;
 }
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;

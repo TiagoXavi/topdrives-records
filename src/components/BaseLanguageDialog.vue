@@ -37,10 +37,6 @@ export default {
     BaseFlag,
     BaseChip
   },
-  model: {
-    prop: 'active',
-    event: 'close'
-  },
   props: {
     active: {
       type: Boolean,

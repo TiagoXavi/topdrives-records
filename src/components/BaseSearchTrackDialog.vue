@@ -127,6 +127,11 @@ export default {
     active: function() {
       if (this.active) {
         this.searchTracks = '';
+        setTimeout(() => {
+          try {
+            document.querySelector("#SearchTrackInput").focus();  
+          } catch (error) {}
+        }, 10);
       }
     },
   },

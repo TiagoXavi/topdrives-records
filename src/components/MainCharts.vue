@@ -188,11 +188,6 @@ export default {
   methods: {
     openDialogTrackSearch() {
       this.customTrackDialog = true;
-      setTimeout(() => {
-        try {
-          document.querySelector("#SearchTrackInput").focus();  
-        } catch (error) {}
-      }, 10);
     },
     closeDialogTrackSearch() {
       this.customTrackDialog = false;

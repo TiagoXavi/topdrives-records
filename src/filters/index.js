@@ -1,8 +1,3 @@
-import {
-    toTimeString,
-    toTimeNumber,
-    clearNumber,
-} from './formatters.js';
 import tracks_factor from '../database/tracks_factor.json';
 import all_cars from '../database/cars_final.json';
 import tracksRepo from '../database/tracks_repo.json';
@@ -36,7 +31,7 @@ function resolveClass(rq, classe, type, rgb = false) {
     if (type === "color" && rgb) return classesColorsRgb[resultClass];
 }
 function carPhoto(car) {
-    try {
+    // try {
         if (typeof car === "object") {
             // if (car.photoId) {
             //     return '/incoming_pics/' + car.photoId + '.jpg';
@@ -47,15 +42,19 @@ function carPhoto(car) {
         if (typeof car === "string") {
             return '/imgs_final/' + decodeURI(car) + '.jpg';
         }
-    } catch (error) {
-        return ": "                
-    }
+        return ": ";
+    // } catch (error) {
+    //     return ": "                
+    // }
 }
 
 var resolvedRids = {};
 var guidToRid = {};
-var cacheCars = {};
-var utils = Vue.observable({
+const cacheCars = Vue.observable({});
+const utils = Vue.observable({
+    cacheLoading: false,
+    downloadCount: 0,
+    altKey: false,
     windowWidth: 0
 });
 
@@ -133,50 +132,231 @@ function prettyPrintArray(json) {
 
 
 
+function debounce(func, wait, immediate) {
+    var timeout;
+
+    return function executedFunction() {
+        // console.log("ping");
+        var context = this;
+        var args = arguments;
+
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+
+        var callNow = immediate && !timeout;
+
+        clearTimeout(timeout);
+
+        timeout = setTimeout(later, wait);
+
+        if (callNow) func.apply(context, args);
+    };
+}
+
+
+function watchDebounced(array, callback, delay) {
+  const debouncedCallback = debounce(callback, delay);
+
+  const proxyHandler = {
+    set(target, property, value, receiver) {
+      const result = Reflect.set(target, property, value, receiver); // Execute the default behavior first
+      debouncedCallback(target);
+      return result;
+    },
+  };
+
+  return new Proxy(array, proxyHandler);
+}
+
+let lastRidsString;
+
+function downloadCars() {
+    if (!ridsToDownload.length) return;
+    let rids = [...new Set(ridsToDownload)];
+    ridsToDownload.splice(0, ridsToDownload.length);
+    if (JSON.stringify(rids) === lastRidsString) return; // avoid ddos
+    lastRidsString = JSON.stringify(rids);
+    utils.cacheLoading = true;
+
+    window.axios.post(Vue.preUrl + "/cars", rids.map(x => { return { rid: x } }))
+    .then(res => {
+        rids.map(rid => {
+            cacheCars[rid] = {};
+        })
+        res.data.map(car => {
+            if (car.data) cacheCars[car.rid].data = car.data;
+            if (car.users) cacheCars[car.rid].users = car.users;
+            if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
+        });
+        utils.downloadCount++;
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    .then(() => {
+        utils.cacheLoading = false;
+    });
+}
+
+
+const ridsToDownload = watchDebounced([], (obj) => {
+  console.log('Array has stopped changing. Final state:', obj);
+  downloadCars();
+}, 10);
+
+
+
+
+
 export default {
     install(Vue) {
+
+        Vue.toTimeString = function(input, id) {
+          if (input === null || input === undefined || input === "") return "";
+          let num = Number(input);
+          if (input == 0) return "DNF";
+          if (isNaN(input)) {
+            if (input.includes('(R)')) {
+              return input.slice(0, -4);
+            }
+            return input;
+          }
+          if ((id || "").includes("testBowl")) {
+            if (!isNaN(num)) {
+              return `${Math.floor(num)}`;
+            }
+          }
+
+          var sec_num = parseInt(input, 10); // don't forget the second param
+          var hours = Math.floor(sec_num / 3600);
+          var minutes = Math.floor((sec_num - hours * 3600) / 60);
+          var seconds = sec_num - hours * 3600 - minutes * 60;
+          var milesi = parseInt(Vue.options.filters.clearNumber((input - parseInt(input)) * 100));
+
+          if (hours < 10) {
+            hours = '0' + hours;
+          }
+          if (minutes < 10) {
+            minutes = '0' + minutes;
+          }
+          if (seconds < 10) {
+            seconds = '0' + seconds;
+          }
+          if (milesi < 10) {
+            milesi = '0' + milesi;
+          }
+          return minutes + ':' + seconds + ':' + milesi;
+        };
+        Vue.toTimeStringTrCode = function(input, trCode) {
+            if (!trCode) return "";
+            return Vue.toTimeString(input, trCode.slice(0,-4));
+        };
+
+        Vue.toTimeNumber = function(input, id = "") {
+          if (input === "DNF" || input === "dnf" || input === "0" || input === "99:99:99") return 0;
+          if (input === "") return "";
+
+          if (input.includes(".") && (input.match(/\./g) || []).length === 2) {
+            input = input.replaceAll(".", ":")
+          }
+          if (input.includes(".")) {
+            input = input.replaceAll(".", ":")
+          }
+          if (input.includes(",")) {
+            input = input.replaceAll(",", ":")
+          }
+
+          let result = 0;
+          let arr;
+          try {
+            if (input.includes("-")) throw new Error("hifen not allowed");
+            let num = Number(input);
+            if (id.includes("testBowl")) {
+              if (!isNaN(num)) {
+                // return direto
+                return Math.floor(num);
+              } else {
+                throw new Error("testbowl invalid number");
+              }
+            }
+            if (!input.includes(":")) {
+              if (input.length === 4 && !isNaN(num)) {
+                input = `${input[0]}${input[1]}:${input[2]}${input[3]}`
+              } else if (input.length === 6 && !isNaN(num)) {
+                input = `${input[0]}${input[1]}:${input[2]}${input[3]}:${input[4]}${input[5]}`
+              } else if (input.length === 5 && !isNaN(num)) {
+                input = `0${input[0]}:${input[1]}${input[2]}:${input[3]}${input[4]}`
+              } else if (input.length === 3 && !isNaN(num)) {
+                input = `0${input[0]}:${input[1]}${input[2]}`
+              } else {
+                throw new Error("no ':'");
+              }
+            }
+            arr = input.split(":");
+            arr.reverse();
+            if (arr.includes("")) throw new Error("includes empty string");
+            if (arr[0].length === 1) {
+              arr[0] = `${arr[0]}0`;
+            }
+            arr = arr.map(x => Number(x));
+            arr.map(x => {
+              if (isNaN(x)) throw new Error("includes NaN");
+            });
+            if (typeof arr[0] === 'number' && arr[0] <= 99) {
+              result = Vue.options.filters.clearNumber(result + arr[0]*0.01);
+            } else if (arr[0] !== undefined) {
+              throw new Error("0: not number or bigger than 99")
+            }
+            if (typeof arr[1] === 'number' && arr[1] <= 59) {
+              result = Vue.options.filters.clearNumber(result + arr[1]);
+            } else if (arr[1] !== undefined) {
+              throw new Error("1: not number or bigger than 59")
+            }
+            if (typeof arr[2] === 'number' && arr[2] <= 59) {
+              result = Vue.options.filters.clearNumber(result + arr[2]*60);
+            } else if (arr[2] !== undefined) {
+              throw new Error("2: not number or bigger than 59") 
+            }
+
+          } catch (error) {
+            console.log("toTimeNumber", error);
+            console.log("arr", arr);
+            return false;      
+          }
+          return result;
+        };
+        Vue.clearNumber = function(input) {
+          return Number((input).toFixed(2));
+        };
+
+
         Vue.carByRid = function (rid) {
             return resolvedRids[rid];
-        },
+        };
         Vue.cacheByRid = function (rid) {
             return cacheCars[rid];
-        },
+        };
         Vue.ridByGuid = guidToRid;
         Vue.all_carsArr = all_cars;
         Vue.all_cacheObj = cacheCars;
         Vue.all_carsObj = resolvedRids;
         Vue.resolveTracksetGroup = resolveTracksetGroup;
+        Vue.resolveTrack = resolveTrack;
         Vue.utils = utils;
         Vue.prettyPrintArray = prettyPrintArray;
         Vue.tracks_perc = tracksPerc;
-        Vue.debounce = function (func, wait, immediate) {
-            var timeout;
-            
-            return function executedFunction() {
-                // console.log("ping");
-                var context = this;
-                var args = arguments;
-
-                var later = function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-
-                var callNow = immediate && !timeout;
-
-                clearTimeout(timeout);
-
-                timeout = setTimeout(later, wait);
-
-                if (callNow) func.apply(context, args);
-            };
-        };
+        Vue.debounce = debounce;
         Vue.resolveClass = resolveClass;
         Vue.resolveCountry = function (country) {
             country = countrys.findIndex(x => x === country);
             return letter[country];
         };
-        Vue.resolveStat = function (car, type, customData = null) {
+        Vue.resolveStat = function (car, type, customData = null, selectedTune) {
+            if (selectedTune && car === Vue.all_carsObj[car.rid]) {
+                return cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t || "-";
+            }
             if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
                 return car[type] || "-";
@@ -187,19 +367,21 @@ export default {
             if (typeof car.selectedTune !== 'string') return "err";
 
             if (customData) {
-                try {
-                    if (!customData.data[car.selectedTune].info[type].t) return "-";
-                    return customData.data[car.selectedTune].info[type].t;
-                } catch (error) {
-                    return "-";
-                }
+                return customData?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
+                // try {
+                //     if (!customData.data[car.selectedTune].info[type].t) return "-";
+                //     return customData.data[car.selectedTune].info[type].t;
+                // } catch (error) {
+                //     return "-";
+                // }
             } else {
-                try {
-                    if (!car.data[car.selectedTune].info[type].t) return "-";
-                    return car.data[car.selectedTune].info[type].t;
-                } catch (error) {
-                    return "-";
-                }
+                return car?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
+                // try {
+                //     if (!car.data[car.selectedTune].info[type].t) return "-";
+                //     return car.data[car.selectedTune].info[type].t;
+                // } catch (error) {
+                //     return "-";
+                // }
             }
             
         };
@@ -233,6 +415,53 @@ export default {
             } else {
                 return ''
             }
+        };
+        Vue.cellSub = function (item, car, tun) {
+            if (!item.text || typeof item.text !== 'number') return;
+            if (!item.trackCode) return;
+
+            if (item.trackCode === "drag100_a00") return Vue.mra(item.text, car?.data?.[tun]?.info?.acel?.t);
+            if (item.trackCode === "drag150_a00") return Vue.mra(item.text, car?.data?.[tun]?.times?.drag100_a00?.t);
+            if (item.trackCode === "drag170_a00") return Vue.mra(item.text, car?.data?.[tun]?.times?.drag150_a00?.t, 25);
+
+            if (item.trackCode === "drag100b_a00") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag100_a00?.t);
+            if (item.trackCode === "drag100b_a01") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag100_a01?.t);
+            if (item.trackCode === "drag100b_a10") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag100_a10?.t);
+            if (item.trackCode === "drag150b_a00") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag150_a00?.t);
+
+            if (
+                car.clearance === 'Low' &&
+                (
+                    item.id === 'csSmall' ||
+                    item.id === 'dockCity' ||
+                    item.id === 'csMed' ||
+                    item.id === 'oceanCity' ||
+                    item.id === 'speedbump12km' ||
+                    item.id === 'speedbump1km' ||
+                    item.id === 'desertHill' ||
+                    item.id === 'miStreets2'||
+                    item.id === 'itBump' ||
+                    item.id === 'dsTnFreeway' ||
+                    item.id === 'dsTnLove' ||
+                    item.id === 'dsTnMile2bump'
+                )
+            ) {
+                return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
+            }
+
+            if (
+                (
+                    car.clearance === 'Low' ||
+                    car.clearance === 'Mid'
+                ) &&
+                (
+                    item.id === 'moto' ||
+                    item.id === 'desertRallyDirt'
+                )
+            ) {
+                return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
+            }
+
         };
         Vue.kShort = function (number) {
             
@@ -545,11 +774,32 @@ export default {
 
             return highlightsUsers;
         };
+        Vue.timeCell = function (rid, tune, track, key="times") {
+            // console.log("timeCell", rid);
+            if (!rid) return "!rid";
+            if (!cacheCars[rid]) {
+                ridsToDownload.push(rid);
+                return "!data";
+            }
+            if (!tune) return "!tune";
+            if (!track) return "!track";
+            
+
+            if (
+                !cacheCars[rid].data ||
+                !cacheCars[rid].data[tune] ||
+                !cacheCars[rid].data[tune][key] ||
+                !cacheCars[rid].data[tune][key][track]
+            ) return "!time";
+
+            return cacheCars[rid].data[tune][key][track];
+        };
 
 
-        Vue.filter('toTimeString', toTimeString);
-        Vue.filter('toTimeNumber', toTimeNumber);
-        Vue.filter('clearNumber', clearNumber);
+        Vue.filter('toTimeString', Vue.toTimeString);
+        Vue.filter('toTimeStringTrCode', Vue.toTimeStringTrCode);
+        Vue.filter('toTimeNumber', Vue.toTimeNumber);
+        Vue.filter('clearNumber', Vue.clearNumber);
         Vue.filter('resolveClass', Vue.resolveClass);
         Vue.filter('resolveStat', Vue.resolveStat);
         Vue.filter('boldTunes', Vue.boldTunes);
@@ -565,6 +815,8 @@ export default {
         Vue.filter('timer', Vue.timer);
         Vue.filter('timeDiffString', Vue.timeDiffString);
         Vue.filter('trackToPerc', Vue.trackToPerc);
+        Vue.filter('timeCell', Vue.timeCell);
+        Vue.filter('cellSub', Vue.cellSub);
     }
 };
 
@@ -579,6 +831,19 @@ function handleResize() {
     let vh = document.documentElement.clientHeight;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
+function handleKeyDown(e) {
+    if (e.altKey) {
+        utils.altKey = true;
+        e.preventDefault();
+    }
+}
+function handleKeyUp(e) {
+    if (!e.altKey) {
+        utils.altKey = false;
+    }
+}
 
 handleResize();
 window.addEventListener('resize', handleResize);
+window.addEventListener('keydown', handleKeyDown);
+window.addEventListener('keyup', handleKeyUp);

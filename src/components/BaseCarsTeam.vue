@@ -1,10 +1,33 @@
 <template>
-  <div class="BaseCarsTeam_Layout">
-    <div class="BaseCarsTeam_Box">
+  <div
+    class="BaseCarsTeam_Car"
+    :style="
+      `--width: ${width}px;` +
+      `--aspect: ${aspect};` +
+      `--fsize: ${fsize}px;` +
+      `--mini-width: ${miniWidth}px;` +
+      `--mini-aspect: ${miniAspect};` +
+      `--mini-fsize: ${miniFsize}px;` +
+      `--drag-left-slo: 1;` +
+      `--drag-top-slo: 7;` +
+      `--widthF: ${mini ? miniWidth : width}px;` +
+      `--aspectF: ${mini ? miniAspect : aspect};` +
+      `--fsizeF: ${mini ? miniFsize : fsize}px;`
+    "
+    style="--gap: 5px;">
+    <div
+      :class="`BaseCarsTeam_Layout${prefix}`"
+      class="BaseCarsTeam_Box"> <!-- BaseCarsTeam_DraggingParent ,  -->
       <div
         v-for="(car, icar) in cars"
-        class="BaseCarsTeam_TeamsCanEnterEventCar">
-        <div v-if="car && car.rid" class="BaseCarsTeam_TeamsCarEnterCarSelected BaseCard_AsGalleryBox">
+        v-if="showDragCards"
+        style="--drag-left: 0;--drag-top: 0;"
+        :id="`BaseCarsTeam_Car${prefix}${icar}`"
+        :class="`BaseCarsTeam_Car${prefix}`"
+        class="BaseCarsTeam_Car"> <!-- BaseCarsTeam_Dragging , BaseCarsTeam_PushLeft, BaseCarsTeam_PushRight  -->
+        <div
+          v-if="car && car.rid"
+          class="BaseCarsTeam_CarInner BaseCard_AsGalleryBox"> 
           <BaseCard
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
@@ -12,41 +35,44 @@
             :hideClose="false"
             :showResetTune="false"
             :asGallery="true"
-            :draggable="false"
+            :draggable="true"
+            :customData="car.customData"
+            :selectedTune="car.selectedTune"
+            :downloadLoading="loading"
+            @dragdown="dragMouseDown($event, icar)"
             @delete="carPickerClearIndex(icar)"
           />
           <!-- <BaseCardGallery
             :car="Vue.all_carsObj[car.rid]"
             :options="true"
             :class="mini ? 'BaseCardGallery115' : 'BaseCardGallery150'"
-            class="BaseCarsTeam_TeamsCarPickGalleryCard" />
+            class="BaseCarsTeam_PickGalleryCard" />
           <button
-            class="D_Button BaseCarsTeam_TeamsCarEnterCarDelete"
+            class="D_Button BaseCarsTeam_EnterCarDelete"
             @click="carPickerClearIndex(icar)">
             <i aria-hidden="true" class="ticon-close_3" />
           </button> -->
         </div>
-        <div v-else class="BaseCarsTeam_TeamsCarEnterCarEmpty">
+        <div v-else class="BaseCarsTeam_EnterCarEmpty BaseCarsTeam_CarInner BaseCard_AsGalleryBox">
           <button
-            :class="mini ? 'BaseCarsTeam_TeamsAddCarButton115' : 'BaseCarsTeam_TeamsAddCarButton150'"
-            class="D_Button D_ButtonDark"
+            class="D_Button D_ButtonDark BaseCarsTeam_TeamsAddCarButton add"
             @click="carPickerForNewEvent(icar)">
             <i aria-hidden="true" class="ticon-plus_2" />
           </button>
         </div>
+
       </div>
     </div>
-    
 
-    <BaseFilterDialog
-      v-if="genericCarPickerDialogLoad"
-      v-model="genericCarPickerDialog"
-      :raceFilter="genericCarPickerFilter"
+    <!-- <BaseFilterDialog
+      v-if="g_carPickerDialogLoad"
+      v-model="g_carPickerDialog"
+      :raceFilter="g_carPickerFilter"
       :sortEnabled="true"
       :enableCounters="true"
       type="carPicker"
       @addCar="canEnterAfterPick($event)"
-    />
+    /> -->
   </div>
 </template>
 
@@ -54,6 +80,22 @@
 import BaseCard from './BaseCard.vue';
 import BaseCardGallery from './BaseCardGallery.vue';
 import BaseFilterDialog from './BaseFilterDialog.vue';
+import { mapState } from 'pinia';
+import { tdrStore } from '@/tdrStore.js';
+
+var initX = 0;
+var initY = 0;
+var posX = 0;
+var posY = 0;
+var gap = 0;
+var elmnt = null;
+var elmntOther = null;
+var elIndex = 0;
+var dragNum = 0;
+var lastDragNum = 0;
+var width = 0;
+var height = 0;
+var skip = false;
 
 export default {
   name: 'BaseCarsTeam',
@@ -78,16 +120,55 @@ export default {
     mini: {
       type: Boolean,
       default: false
-    }
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    width: {
+      type: Number,
+      default: 226
+    },
+    aspect: {
+      type: String,
+      default: "415 / 256"
+    },
+    fsize: {
+      type: Number,
+      default: 12
+    },
+    miniWidth: {
+      type: Number,
+      default: 111
+    },
+    miniAspect: {
+      type: String,
+      default: "111 / 144"
+    },
+    prefix: {
+      type: String,
+      default: ""
+    },
+    miniFsize: {
+      type: Number,
+      default: 12
+    },
+    gap: {
+      type: Number,
+      default: 2
+    },
   },
   data() {
     return {
       Vue: Vue,
-      genericCarPickerDialog: false,
-      genericCarPickerDialogLoad: false,
-      genericCarPickerFilter: {},
-      genericCarPickerFilterString: null,
-      genericCarPickerIndex: null
+      T_S: tdrStore(),
+      index: 0,
+      showDragCards: true,
+      // g_carPickerDialog: false,
+      // g_carPickerDialogLoad: false,
+      // g_carPickerFilter: {},
+      // g_carPickerFilterString: null,
+      // g_carPickerIndex: null
     }
   },
   watch: {},
@@ -97,34 +178,218 @@ export default {
   methods: {
     carPickerClearIndex(icar) {
       Vue.set(this.cars, icar, {});
+      this.$emit("changed");
     },
     carPickerForNewEvent(index) {
-      // this.cgRaceSelected = irace;
-      // this.cgAddingOppoCar = true;
-      // this.cgAddingYouCar = false;
-
-      // this.cgFilterDialogLoad = true;
-      // this.$nextTick().then(() => {
-      //   this.cgFilterDialog = true;
-      // })
-
-      
-
-      this.genericCarPickerDialogLoad = true;
-      this.genericCarPickerIndex = index;
-      this.genericCarPickerFilter = JSON.parse(JSON.stringify(this.filterToImport));
+      this.T_S.$patch((state) => {
+        state._g_carPicker.dialogLoad = true;
+        state._g_carPicker.filter = JSON.parse(JSON.stringify(this.filterToImport));
+        state._g_carPicker.sortEnabled = true;
+        state._g_carPicker.enableCounters = true;
+        state._g_carPicker.type = "carPicker";
+        state._g_carPicker.index = index;
+        state._g_carPicker.addCar = this.canEnterAfterPick;
+      })
       this.$nextTick().then(() => {
-        this.genericCarPickerDialog = true;
+        this.T_S.$patch((state) => {
+          state._g_carPicker.dialog = true;
+        })
       })
     },
     canEnterAfterPick(car) {
       let newCar = JSON.parse(JSON.stringify(car));
       console.log(newCar);
 
-      Vue.set(this.cars, this.genericCarPickerIndex, newCar);
-      // this.cars[this.genericCarPickerIndex] = newCar;
-      this.genericCarPickerDialog = false;
+      Vue.set(this.cars, this.T_S._g_carPicker.index, newCar);
+      // this.cars[this.g_carPickerIndex] = newCar;
+      this.T_S._g_carPicker.dialog = false;
+      // this.g_carPickerDialog = false;
+      this.$emit("changed");
     },
+
+
+
+
+    dragMouseDown(e, index) {
+      elIndex = index;
+      elmnt = document.querySelector(`#BaseCarsTeam_Car${this.prefix}${elIndex}`);
+      gap = this.gap;
+      width = elmnt.offsetWidth + gap;
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      initX = e.clientX;
+      initY = e.clientY;
+      document.onmouseup = this.closeDragElement;
+      document.onmousemove = this.elementDrag;
+      if (e.targetTouches) {
+        initX = e.targetTouches[0].clientX;
+        initY = e.targetTouches[0].clientY;
+      }
+    },
+    elementDrag(e) {
+      posX = e.clientX - initX;
+      posY = e.clientY - initY;
+      if (e.targetTouches) {
+        posX = e.targetTouches[0].clientX - initX;
+        posY = e.targetTouches[0].clientY - initY;
+      }
+
+      skip = !skip;
+      if (skip) return;
+
+      let total = document.querySelectorAll(`.BaseCarsTeam_Car${this.prefix}`).length;
+      let pad = 20;
+
+      elmnt.style.setProperty("--drag-left", Math.max(elIndex*-1*width-pad, Math.min(posX, (total - elIndex - 1)*width+pad ))  );
+      elmnt.style.setProperty("--drag-top", posY );
+      elmnt.classList.add("BaseCarsTeam_Dragging");
+      elmnt.parentElement.classList.add("BaseCarsTeam_DraggingParent");
+
+      dragNum = Math.round(Number(posX) / width);
+      let times = Math.abs(dragNum);
+      let otherIndex = elIndex + dragNum;
+
+      // let cla = dragNum > 0 ? "BaseCarsTeam_PushLeft" : "BaseCarsTeam_PushRight";
+      // let div;
+
+      if (elIndex + dragNum > total - 1) {
+        dragNum = total - elIndex - 1
+      }
+      if (elIndex + dragNum < 0) {
+        dragNum = elIndex * -1
+      }
+
+      if (dragNum !== lastDragNum) {
+        lastDragNum = dragNum;
+
+        document.querySelectorAll(`.BaseCarsTeam_Car${this.prefix}`).forEach((x, ix) => {
+          if (ix === elIndex) return;
+          x.style.setProperty("--drag-left", 0 );
+          // x.classList.remove("BaseCarsTeam_PushLeft");
+          // x.classList.remove("BaseCarsTeam_PushRight");
+        })
+        if (otherIndex !== elIndex) {
+          elmntOther = document.querySelector(`#BaseCarsTeam_Car${this.prefix}${otherIndex}`);
+          elmntOther.style.setProperty("--drag-left", dragNum * width * -1 );
+        }
+
+        // Array.from(Array(times)).map((_, i) => {
+        //   if (dragNum > 0) div = document.querySelector("#BaseCarsTeam_Car"+this.prefix + (dragNum + elIndex - i) )
+        //   else div = document.querySelector("#BaseCarsTeam_Car"+this.prefix + (dragNum + elIndex + i) )
+
+        //   if (div) {
+        //     div.classList.add(cla);
+        //   }
+        // });
+      }
+      // elmnt.style[0] = (elmnt.offsetLeft - posX);
+      // elmnt.style[1] = (elmnt.offsetTop - posY);
+    },
+    closeDragElement() {
+
+      elmnt.classList.remove("BaseCarsTeam_Dragging");
+      elmnt.parentElement.classList.remove("BaseCarsTeam_DraggingParent");
+      lastDragNum = 0;
+
+      document.querySelectorAll(`.BaseCarsTeam_Car${this.prefix}`).forEach(x => {
+        x.classList.remove("BaseCarsTeam_PushLeft");
+        x.classList.remove("BaseCarsTeam_PushRight");
+      })
+
+      if (dragNum !== 0) {
+        let indexDiff = (elIndex + dragNum) - elIndex;
+        console.log(indexDiff)
+        let pos = {
+          dragLeft: Number(elmnt.style.getPropertyValue("--drag-left")),
+          dragTop: Number(elmnt.style.getPropertyValue("--drag-top"))
+        }
+        pos.dragLeft = pos.dragLeft + (width * indexDiff * -1);
+        this.dragCustomNewOrder({ current: elIndex, new: elIndex + dragNum, pos });
+      }
+      elmnt.style.setProperty("--drag-left", 0 );
+      elmnt.style.setProperty("--drag-top", 0 );
+      dragNum = 0;
+
+      initX = 0;
+      initY = 0;
+      document.onmouseup = null;
+      document.onmousemove = null;
+      elmnt.touchend = null;
+      elmnt.touchmove = null;
+    },
+    dragCustomNewOrder(obj) {
+      obj.current;
+      obj.new;
+      let array = this.cars;
+
+      obj.current = Math.min(obj.current, array.length);
+      obj.new = Math.max(obj.new, 0);
+      obj.new = Math.min(obj.new, array.length);
+
+      // array.splice(obj.new, 0, array.splice(obj.current, 1)[0]);
+      let one = array[obj.current];
+      let two = array[obj.new];
+
+      Vue.set(this.cars, obj.current, two);
+      Vue.set(this.cars, obj.new, one);
+
+      // [ array[obj.current], array[obj.new] ] = [ array[obj.new], array[obj.current] ];
+
+      this.$emit("changed");
+
+      this.showDragCards = false;
+      this.$nextTick().then(() => {
+        this.showDragCards = true;
+
+        if (obj.pos) {
+          this.$nextTick().then(() => {
+            let elmnt = document.querySelector(`#BaseCarsTeam_Car${this.prefix}`+obj.new);
+            let elmntOther = document.querySelector(`#BaseCarsTeam_Car${this.prefix}`+obj.current);
+            if (elmnt) {
+              elmnt.style.setProperty("--drag-left", obj.pos.dragLeft );
+              elmnt.style.setProperty("--drag-top", obj.pos.dragTop );
+              if (obj.posOther) {
+                elmntOther.style.setProperty("--drag-left", obj.posOther.dragLeft );
+                elmntOther.style.setProperty("--drag-top", obj.posOther.dragTop );
+              }
+              setTimeout(() => {
+                  elmnt.style.setProperty("--drag-left", 0 );
+                  elmnt.style.setProperty("--drag-top", 0 );
+                  if (obj.posOther) {
+                    elmntOther.style.setProperty("--drag-left", 0 );
+                    elmntOther.style.setProperty("--drag-top", 0 );
+                  }
+                  elmnt = null;
+                  elmntOther = null;
+              }, 1);
+              // this.$nextTick().then(() => {
+              //   elmnt.style.setProperty("--drag-left", 0 );
+              //   elmnt.style.setProperty("--drag-top", 0 );
+              // })
+            }
+          })
+        }
+      })
+    },
+
+
+    // moveCar(obj) {
+    //   let dragN = obj.direction === "left" ? -1 : 1;
+    //   let newIndex = obj.carIndex + dragN;
+    //   let indexDiff = (elIndex + dragN) - elIndex;
+    //   let pos = { dragLeft: 0, dragTop: 0 };
+
+    //   pos.dragLeft = pos.dragLeft + (width * indexDiff * -1);
+      
+    //   console.log(pos)
+
+    //   this.$emit("newindex", { current: obj.carIndex, new: newIndex, pos });
+    // }
+
+
+
+
   },
 }
 </script>
@@ -133,13 +398,40 @@ export default {
 
 .BaseCarsTeam_Box {
   display: flex;
-  gap: 5px;
+  gap: var(--gap);
   justify-content: center;
 }
-.BaseCarsTeam_TeamsCarEnterCarSelected {
+.BaseCarsTeam_Car {
+  transform: translate( calc(var(--drag-left) * 1px / var(--drag-left-slo)), calc(var(--drag-top) * 1px / var(--drag-top-slo)) );
   position: relative;
+  will-change: transform;
 }
-.BaseCarsTeam_TeamsCarEnterCarDelete {
+.BaseCarsTeam_Dragging {
+  background-color: #242424;
+  box-shadow: 0px 0px 0px 5px #505050;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transition-property: background-color, box-shadow, border-radius;
+  z-index: 200;
+  cursor: grabbing;
+}
+.BaseCarsTeam_DraggingParent .BaseCarsTeam_Car:not(.BaseCarsTeam_Dragging) {
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.BaseCarsTeam_Car:not(.BaseCarsTeam_Dragging) {
+  transition-duration: 0.3s;
+}
+.BaseCarsTeam_PushLeft {
+  transform: translateX(calc(var(--widthF) * -1));
+}
+.BaseCarsTeam_PushRight {
+  transform: translateX(var(--widthF));
+}
+
+
+
+.BaseCarsTeam_EnterCarDelete {
   position: absolute;
   bottom: 0;
   opacity: 0;
@@ -151,19 +443,58 @@ export default {
   --back-opac-foc: 0.3;
   background-color: rgba(var(--back-color), 0.3);
 }
-.BaseCarsTeam_TeamsCarEnterCarSelected:hover .BaseCarsTeam_TeamsCarEnterCarDelete,
-.BaseCarsTeam_TeamsCarEnterCarSelected:focus-within .BaseCarsTeam_TeamsCarEnterCarDelete {
+.BaseCarsTeam_Car:hover .BaseCarsTeam_EnterCarDelete,
+.BaseCarsTeam_Car:focus-within .BaseCarsTeam_EnterCarDelete {
   opacity: 1;
 }
-.BaseCarsTeam_TeamsCarEnterCarEmpty {
+.BaseCarsTeam_EnterCarEmpty {
   position: relative;
+  /* height: var(--card-g-height); */
 }
-.BaseCarsTeam_TeamsAddCarButton150 {
+.BaseCard_AsGalleryBox.BaseCarsTeam_CarInner {
+  --card-g-width: var(--widthF);
+  --card-g-height: 142px;
+  --card-g-height: round(calc(var(--widthF) * ((415 / 256) - 1)), 1px);
+  --card-g-font: var(--fsizeF);
+  /* --card-g-height: 200px; */
+}
+@supports not (width: round(4px, 1px)) {
+  .BaseCard_AsGalleryBox.BaseCarsTeam_CarInner {
+    --card-g-height: calc(var(--widthF) * (var(--aspectF) - 1));
+  }
+}
+/* .Main_Compact .BaseCard_AsGalleryBox.BaseCarsTeam_CarInner {
+  --card-g-width: var(--mini-width);
+  --card-g-height: round(calc(var(--width) * (var(--aspect) - 1)), 1px);
+  --card-g-font: var(--mini-fsize);
+} */
+/* .BaseCarsTeam_TeamsAddCarButton150 {
   width: 150px;
   height: 93px;
+} */
+.BaseCarsTeam_TeamsAddCarButton {
+  width: var(--widthF);
+  aspect-ratio: var(--aspectF);
+  height: auto;
 }
-.BaseCarsTeam_TeamsAddCarButton115 {
-  width: 115px;
-  height: 144px;
+@supports not (aspect-ratio: 415 / 256) {
+  .BaseCarsTeam_TeamsAddCarButton {
+    height: 142px;
+  }
+  .Main_Compact .BaseCarsTeam_TeamsAddCarButton {
+    height: 144px;
+  }
+}
+.BaseCarsTeam_Box .Car_Header {
+  background-size: contain;
+}
+/* .Main_Compact .BaseCarsTeam_TeamsAddCarButton {
+  width: var(--mini-width);
+  aspect-ratio: var(--mini-aspect);
+} */
+.Main_Compact .BaseCarsTeam_Box .Car_Header {
+  height: auto;
+  aspect-ratio: var(--aspectF);
+  background-size: cover;
 }
 </style>
