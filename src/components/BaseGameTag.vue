@@ -172,10 +172,11 @@ export default {
   --tag-s: 78%;
   --tag-l: 53%;
 }
-.BaseGameTag_Gunter\'s_Collection {
-  --tag-h: 333;
-  --tag-s: 54%;
-  --tag-l: 30%;
+.BaseGameTag_Gunter\'s_Collection,
+.BaseGameTag_Gunter\'s_Collection_2 {
+  --tag-h: 312;
+  --tag-s: 70%;
+  --tag-l: 26%;
 }
 .BaseGameTag_French_Renaissance {
   --tag-h: 235;
@@ -588,7 +589,8 @@ export default {
   --tag-s: 0%;
   --tag-l: 100%;
 }
-.BaseGameTag_Filberto\'s_Collection {
+.BaseGameTag_Filberto\'s_Collection,
+.BaseGameTag_Filberto\'s_Collection_2 {
   --tag-h: 0;
   --tag-s: 70%;
   --tag-l: 76%;
@@ -609,6 +611,11 @@ export default {
   --tag-l: 26%;
 }
 .BaseGameTag_German_Powerhaus {
+  --tag-h: 356;
+  --tag-s: 70%;
+  --tag-l: 55%;
+}
+.BaseGameTag_Autobahn_Icons {
   --tag-h: 356;
   --tag-s: 70%;
   --tag-l: 55%;

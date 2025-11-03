@@ -323,7 +323,7 @@
               :style="`--class-color: ${diff_searchResult[ix].color};`"
               class="MainGallery_Class">
               <div class="MainGallery_ClassBack"></div>
-              {{ diff_searchResult[ix].class }}
+              <span>{{ diff_searchResult[ix].class }}</span>
             </div>
 
             <div
@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL27-fixed.json'
-import plOld from '../database/cars_final_PL26.json'
+import data_cars from '../database/cars_final_PL29-fixed.json'
+import plOld from '../database/cars_final_PL28.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -515,6 +515,7 @@ export default {
           "As Seen on YT",
           "Asia-Pacific Grand Prix",
           "Asia-Pacific Revival",
+          "Autobahn Icons",
           "Call of the Wild",
           "Chariots of the Gods",
           "Christmas Collection",
@@ -531,9 +532,12 @@ export default {
           "European Revolution",
           "European New Wave",
           "Famous Tracks",
+          "Filberto's Collection",
+          "Filberto's Collection 2",
           "Gaz's Collection",
           "Gaz's Collection 2",
           "Gunter's Collection",
+          "Gunter's Collection 2",
           "Heavy Metal",
           "French Renaissance",
           "French Riviera",
@@ -719,7 +723,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v27", "t");
+    window.localStorage.setItem("changes_v29", "t");
   },
   beforeMount() {
     // // check new cars
@@ -1204,7 +1208,7 @@ export default {
             oldCar.tyres === car.tyres &&
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
-            Math.abs(oldCar.rq - car.rq) < 3 &&
+            Math.abs(oldCar.rq - car.rq) < 4 &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&
@@ -1404,7 +1408,10 @@ export default {
   width: 100%;
   height: 100%;
   transform: skewY(9deg);
-  z-index: -1;
+  z-index: 0;
+}
+.MainGallery_Class > span {
+  position: relative;
 }
 .MainGallery_Color {
   background-color: #232121;

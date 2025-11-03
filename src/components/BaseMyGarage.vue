@@ -679,7 +679,8 @@ export default {
         { id: 23, filter: { countrysModel: ["SE"] }, t: new groupStats() },
         { id: 24, filter: { countrysModel: ["KR"] }, t: new groupStats() },
         { id: 25, filter: { countrysModel: ["CZ"] }, t: new groupStats() },
-        { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() }, // change id
+        { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() }, // change id
+        { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
         { id: 37, filter: { tagsModel: ["French Riviera"] }, t: new groupStats() },
         { id: 36, filter: { tagsModel: ["Asia-Pacific Revival"] }, t: new groupStats() },
         { id: 26, filter: { tagsModel: ["European Grand Tour"] }, t: new groupStats() },

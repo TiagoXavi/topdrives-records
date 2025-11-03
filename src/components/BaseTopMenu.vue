@@ -136,7 +136,7 @@ export default {
         { label: "Timeline", name: "Timeline" },
         // { label: "Match", name: "MainMatchSimulator", newCodes: ["matchSimulator"], showNew: false },
         { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", newCodes: [], showNew: false },
+        { label: "Stuff", name: "Stuff", newCodes: ["changes_v29"], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
