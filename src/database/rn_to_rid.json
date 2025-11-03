@@ -5418,10 +5418,6 @@
     "W_Motors_Fenyr_SuperSport_2017_$I",
     "Dodge_Demon_Roadster_2007_$I",
     "Volkswagen_Golf_eR1_Concept__2020",
-    "Lamborghini_Huracan_Sterrato_BOSCO_2024",
-    "Lamborghini_Huracan_Sterrato_NEVE_2024",
-    "Lamborghini_Huracan_Sterrato_SABBIA_2024",
-    "Lamborghini_Huracan_Sterrato_TERRA_2024",
     "Volkswagen_Golf_Pikes_Peak__1987",
     "Volkswagen_Beetle_Rallycross_Supercar_2014",
     "Volkswagen_Scirocco_Rallycross__2013",
@@ -5690,5 +5686,9 @@
     "Volkswagen_Elektro_Golf_1_1976",
     "Volkswagen_LT_28_TDI_1996",
     "Volkswagen_ABT_eTransporter_2020",
-    "Volkswagen_eCrafter_2020"
+    "Volkswagen_eCrafter_2020",
+    "Lamborghini_Huracan_Sterrato_2022_$B",
+    "Lamborghini_Huracan_Sterrato_2022_$N",
+    "Lamborghini_Huracan_Sterrato_2022_$S",
+    "Lamborghini_Huracan_Sterrato_2022_$T"
 ]
