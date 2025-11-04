@@ -536,7 +536,8 @@ export default {
             id: x.id,
             trackType: `${x.surface}${x.cond}`,
             campaign: x.campaign,
-            campaignNum: x.campaignNum
+            campaignNum: x.campaignNum,
+            trackCode: `${x.id}_a${x.surface}${x.cond}`
           })
         })
       } else if (this.type === "times") {

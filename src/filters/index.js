@@ -354,7 +354,7 @@ export default {
             return letter[country];
         };
         Vue.resolveStat = function (car, type, customData = null, selectedTune) {
-            if (selectedTune && car === Vue.all_carsObj[car.rid]) {
+            if (selectedTune && car === Vue.all_carsObj[car.rid] && selectedTune !== "000") {
                 return cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t || "-";
             }
             if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
