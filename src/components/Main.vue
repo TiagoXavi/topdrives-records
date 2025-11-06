@@ -1158,10 +1158,10 @@
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
-            <!-- <button
+            <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button> -->
+              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button>
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1551,6 +1551,10 @@
                 class="D_Button D_ButtonDark D_ButtonDark2"
                 @click="clubExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
               <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button>
+              <button
                 v-if="clubPicksList.length > 0"
                 :class="{ D_Button_Loading: clubLoadingAny }"
                 class="D_Button D_ButtonDark D_ButtonDark2"
@@ -1736,7 +1740,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.11</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.12</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -1886,6 +1890,14 @@
                 <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
                 <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
                 <div class="Main_Teams_IndexPts">{{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
+                <div class="Main_Teams_ExportBox">
+                  <button
+                    class="Main_Teams_ExportMatch D_Button D_ButtonDark"
+                    @click="handRankingExportClick(index)">
+                    <span>{{ $t("m_exportToMatch") }}</span>
+                    <i class="ticon-internal" style="margin-left: 4px;" aria-hidden="true"/>
+                  </button>
+                </div>
               </div>
               <div class="Main_Teams_ListLayout">
                 <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
@@ -3402,6 +3414,7 @@ export default {
   data() {
     return {
       T_S: tdrStore(),
+      firstLoad: true,
       unsubscribe: null,
       inverted: false,
       compact: false,
@@ -3604,6 +3617,7 @@ export default {
       eventBestTeamsDialog: false,
       eventBestTeamsBigArray: [],
       eventBestTeamsLastCache: null,
+      eventBestTeamsLastId: null,
       eventBestTeamsConfig: {
         myGarage: false,
         forceCarsBool: false,
@@ -3921,6 +3935,9 @@ export default {
     //   })
 
     // },
+    carDetailsList: function() {
+      console.log(this.carDetailsList.length);
+    },
     "$route.name": function() {
       let r = this.$route.name;
       if (r === "Records" || r === "Compare" || r === "Challenges" || r === "Events" || r === "Clubs") {
@@ -4063,48 +4080,10 @@ export default {
     }
     
 
-    if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
-      // from query string
-      this.changeMode('compare');
-      this.decodeTemplateString(this.$route.query.share, true);
-    } else if (this.$route.query && this.$route.query.cg && this.$route.query.cg.includes("~")) {
-      // from query string
-      this.changeMode('challenges');
-
-      this.$route.query.cg.split("~").map(x => {
-        if (x[0] === "G") {
-          this.cgCurrentId = decodeURI(x.substr(1))
-        } else if (x[0] === "R") {
-          this.cgCurrentRound = Number(decodeURI(x.substr(1))) - 1
-        }
-      })
-      this.$router.replace({'query': null});
-
-    } else if (this.$route.query && this.$route.query.event && this.$route.query.event.includes("~")) {
-      // from query string
-      this.changeMode('events');
-
-      this.$route.query.event.split("~").map(x => {
-        if (x[0] === "G") {
-          this.eventCurrentId = decodeURI(x.substr(1))
-        }
-      })
-      this.$router.replace({'query': null});
-
-    } else if (this.$route.query && this.$route.query.clubs !== undefined) {
-      // from query string
-      this.changeMode('clubs');
-      
-      this.$router.replace({'query': null});
-
-    } else {
-      this.changedMode();
-    }
+    
 
     this.handleResize();
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('keydown', this.handleKeyDown);
-    window.addEventListener('keyup', this.handleKeyUp);
+    
 
 
 
@@ -4118,6 +4097,13 @@ export default {
     this.getLastest();
     this.getStatistics();
     this.user = this.$store.state.user;
+
+    this.loadQueryParams();
+  },
+  activated() {
+    let vm = this;
+
+
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 
@@ -4240,8 +4226,24 @@ export default {
         vm.user = null;
       }
 
+    })
 
-    });
+    if (this.firstLoad === false) {
+      if (this.$route.params && this.$route.params.cars) {
+        this.changeMode('compare');
+        this.loadParams();
+      }
+    }
+    this.firstLoad = false;
+
+    
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('keyup', this.handleKeyUp);
+  },
+  deactivated() {
+    // console.log('MyCachedComponent Deactivated!');
+    // Clean up or save state when component is deactivated
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
@@ -5308,13 +5310,13 @@ export default {
         if (this.eventList.length === 0) {
           this.loadEvents();
         }
-        this.resetBestTeamsConfig();
+        // this.resetBestTeamsConfig();
       }
       if (this.mode === "clubs") {
         if (this.clubTracksGroups.length === 0) {
           this.loadClubs();
         }
-        this.resetBestTeamsConfig();
+        // this.resetBestTeamsConfig();
       }
     },
     newIndex(obj, isDialog = false, isTrack = false) {
@@ -5984,6 +5986,7 @@ export default {
 
       let carsFromQuery = decoded.cars;
       let tracksFromQuery = decoded.tracks;
+      debugger;
 
       if (this.$route.query && this.$route.query.share) {
         this.$router.replace({'query': null});
@@ -8819,7 +8822,7 @@ export default {
       this.eventRqEditString = JSON.stringify(this.event.rqLimit);
       this.eventIcons = JSON.stringify(this.event.icons);
       this.eventLoadTracksetLocal();
-      this.resetBestTeamsConfig();
+      // this.resetBestTeamsConfig();
 
 
       this.eventResolveTrackset();
@@ -9481,9 +9484,9 @@ export default {
       this.eventKingDialog = false;
       this.eventAnalyseLoading = true;
 
-      if (this.eventMyGarage) {
-        this.$store.commit("START_LOGROCKET", {});
-      }
+      // if (this.eventMyGarage) {
+      //   this.$store.commit("START_LOGROCKET", {});
+      // }
 
       let params = {
         filter: this.eventFilterForKing,
@@ -10260,9 +10263,9 @@ export default {
       if (this.kingFixed) this.downloadLoading = true;
       let origMode = this.mode;
 
-      if (this.eventMyGarage) {
-        this.$store.commit("START_LOGROCKET", {});
-      }
+      // if (this.eventMyGarage) {
+      //   this.$store.commit("START_LOGROCKET", {});
+      // }
 
       axios.post(Vue.preUrl + "/king", {
         track: this.kingTrack.code,
@@ -10559,7 +10562,7 @@ export default {
 
       this.clubFillTrackGroupsActive();
       this.clubsDayResetStringsToSave();
-      this.resetBestTeamsConfig();
+      // this.resetBestTeamsConfig();
 
       // trackset
       if (this.clubTracksGroupsActive.length > 0) {
@@ -10626,7 +10629,7 @@ export default {
       this.clubsResolveTrackGroup();
       this.clubsTrackResetStringsToSave();
       this.clubLoadPicks();
-      this.resetBestTeamsConfig()
+      // this.resetBestTeamsConfig();
     },
     clubsResolveTrackGroup(original = null) {
       if (original === null && this.clubIsShowingOriginal && this.clubHasOriginalOrder) {
@@ -10671,7 +10674,7 @@ export default {
       this.clubsResolveReqGroup();
       this.clubsReqResetStringsToSave();
       this.clubLoadPicks();
-      this.resetBestTeamsConfig()
+      // this.resetBestTeamsConfig();
     },    
     clubAddTrackset() {
       this.clubTracksGroupModel.trackset.push([null,null,null,null,null]);
@@ -11312,6 +11315,13 @@ export default {
           resolvedTrackset: this.clubTracksGroupModel.resolvedTrackset
         }
       }
+
+      let id = `${this.mode}_${this.eventBestTeamsTarget.name}_${this.eventBestTeamsTarget.rqLimit}`;
+      if (id !== this.eventBestTeamsLastId) {
+        this.resetBestTeamsConfig();
+      }
+      this.eventBestTeamsLastId = id;
+
       this.eventBestTeamsDialog = true;
     },
     async getHandRanking(e) {
@@ -11352,7 +11362,7 @@ export default {
         config.rqLimit = this.eventBestTeamsTarget.rqLimit;
       }
 
-      this.$store.commit("START_LOGROCKET", {});
+      // this.$store.commit("START_LOGROCKET", {});
 
       try {
         const response = await fetch(Vue.preUrl + "/handRaking", {
@@ -11540,6 +11550,86 @@ export default {
       })
       .then(() => {
         this.eventAnalyseLoading = false;
+      });
+    },
+    handRankingExportClick(index) {
+      let cars = [];
+      let oppos = [];
+      let oppoIndex = index===0? 1 : 0;
+
+      if (this.eventBestTeamsBigArray[index][6]) {
+        this.eventBestTeamsBigArray[index][6].map((rid, irid) => {
+          cars.push({ rid: rid, selectedTune: this.eventBestTeamsBigArray[index][5][irid] })
+        })
+      }
+      if (this.eventBestTeamsBigArray[oppoIndex][6]) {
+        this.eventBestTeamsBigArray[oppoIndex][6].map((rid, irid) => {
+          oppos.push({ rid: rid, selectedTune: this.eventBestTeamsBigArray[oppoIndex][5][irid] })
+        })
+      }
+
+      this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, cars, oppos } });
+    },
+    loadQueryParams() {
+      if (this.$route.params && this.$route.params.cars) {
+        this.changeMode('compare');
+        this.loadParams();
+      } else if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
+        // from query string
+        this.changeMode('compare');
+        this.decodeTemplateString(this.$route.query.share, true);
+      } else if (this.$route.query && this.$route.query.cg && this.$route.query.cg.includes("~")) {
+        // from query string
+        this.changeMode('challenges');
+
+        this.$route.query.cg.split("~").map(x => {
+          if (x[0] === "G") {
+            this.cgCurrentId = decodeURI(x.substr(1))
+          } else if (x[0] === "R") {
+            this.cgCurrentRound = Number(decodeURI(x.substr(1))) - 1
+          }
+        })
+        this.$router.replace({'query': null});
+
+      } else if (this.$route.query && this.$route.query.event && this.$route.query.event.includes("~")) {
+        // from query string
+        this.changeMode('events');
+
+        this.$route.query.event.split("~").map(x => {
+          if (x[0] === "G") {
+            this.eventCurrentId = decodeURI(x.substr(1))
+          }
+        })
+        this.$router.replace({'query': null});
+
+      } else if (this.$route.query && this.$route.query.clubs !== undefined) {
+        // from query string
+        this.changeMode('clubs');
+
+        this.$router.replace({'query': null});
+
+      } else {
+        this.changedMode();
+      }
+    },
+    loadParams() {
+      let carsFromQuery = this.$route.params.cars;
+      let tracksFromQuery = this.$route.params.tracks;
+
+      if (true) {
+        if (tracksFromQuery.length > 0) {
+          this.clearAllTracks()
+          this.pushTrackSet(tracksFromQuery);
+        }
+        this.prepareCars(carsFromQuery);
+        this.updateOptions();
+        this.updateCarLocalStorage();
+
+      }
+
+      this.showCarsFix = false;
+      this.$nextTick().then(() => {
+        this.showCarsFix = true;
       });
     }
     

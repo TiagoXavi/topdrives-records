@@ -213,7 +213,6 @@
     <BaseFilterDialog
       v-model="packFilterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       :config="{
         classes: false,
         rq: false,
@@ -240,7 +239,6 @@
     <BaseFilterDialog
       v-model="filterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       ref="attrFilter"
       ridsMutationName="FILTER_ATTR_RIDS"
       @filterUpdate="updateFilter($event)"

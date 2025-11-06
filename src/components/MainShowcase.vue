@@ -165,7 +165,6 @@
       v-model="searchCarDialog"
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
-      :all_cars="all_cars"
       :sortEnabled="true"
       :enableCounters="false"
       :forceNonPrize="false"

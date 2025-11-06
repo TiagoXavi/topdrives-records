@@ -39,7 +39,7 @@
               v-if="index >= Math.min(T_S._match.pages.length-9, T_S._match.page-4) && index <= Math.max(8, T_S._match.page+4)"
               :class="{ Row_DialogButtonTuneActive: T_S._match.page === index }"
               class="D_Button Main_OptionsButton MainMatchSimulator_PageSave"
-              @longTouch="loadPage(index, { shiftKey: true, ctrlKey: true })"
+              @longTouch="loadPage(index, { shiftKey: true }, $event)"
               @click="loadPage(index, $event)">
               <span style="pointer-events: none; user-select: none;">{{ index+1 }}</span>
               <div v-if="T_S._match.pages[index] && T_S._match.pages[index].name" class="MainMatchSimulator_PageSub">{{ T_S._match.pages[index].name }}</div>
@@ -78,12 +78,6 @@
                 </button>
               </div> -->
               <div class="Cg_CenterBottom">
-                <button
-                  class="D_Button Main_OptionsButton"
-                  @click="newPage(true)">
-                  <i class="ticon-plus_2" style="font-size: 14px; margin-right: 5px;" aria-hidden="true"/>
-                  <span>{{ $t("m_copy") }}</span>
-                </button>
                 <div
                   :style="`color: ${ T_S._match.rqFill > T_S._match.rqLimit ? '#a90000' : '' }; margin-left: 10px;`"
                   class="Cg_RqText">
@@ -98,6 +92,12 @@
                     <i class="ticon-pencil" aria-hidden="true"/>
                   </BaseButtonTouch>
                 </div>
+                <button
+                  class="D_Button Main_OptionsButton"
+                  @click="newPage(true)">
+                  <i class="ticon-plus_2" style="font-size: 14px; margin-right: 5px;" aria-hidden="true"/>
+                  <span>{{ $t("m_copy") }}</span>
+                </button>
                 <!-- save button -->
                 <!-- <div class="Cg_SaveButtonBox">
                   <template v-if="!user">
@@ -163,7 +163,8 @@
         <div class="Cg_RqCount">
           <div
             :style="`width: ${ (T_S._match.rqFill * 100) / T_S._match.rqLimit }%; background-color: ${ T_S._match.rqFill > T_S._match.rqLimit ? '#a90000' : '' }`"
-            class="Cg_RqFill" />
+            class="Cg_RqFill"
+          />
         </div>
       </div>
     </div>
@@ -213,7 +214,7 @@
         :eventBestPerTrack="{}"
         :showBestPerTrack="false"
         :hideCheckBox="false"
-        :disableCampaignTip="false"
+        :disableCampaignTip="true"
         :mini="false"
         :miniHeight="false"
         :size="Vue.utils.windowWidth < 1200 ? 115 : 230"
@@ -304,6 +305,25 @@
       </div>
 
 
+      <div class="MainMatchSimulator_ModTools Cg_BottomModTools Space_TopGiga">
+        <!-- <button
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="newPage(true)">
+          <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+          <span>{{ $t("m_copy") }}</span>
+        </button> -->
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="exportToWorkspace()">{{ $t("m_useTrackList") }}</button>
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="loadPage(T_S._match.page, { shiftKey: true })">
+          <i class="ticon-trash D_ButtonIcon" aria-hidden="true"/>
+          <span>{{ $t("m_delete") }}</span>
+        </button>
+      </div>
+
+
 
 
       <!-- <div class="MainMatchSimulator_">
@@ -317,6 +337,22 @@
       <!-- Filtro, como base para adicionar carros, mas não limitar -->
 
     </div>
+
+
+    <BaseFilterDialog
+      v-model="dialogFilter"
+      :filterOnly="true"
+      :config="{
+        topSpeed: false,
+        acel: false,
+        hand: false,
+        weight: false,
+        brake: false,
+        tcs: false,
+        abs: false
+      }"
+      @clearFilterUpdate="updateFilterMain($event)"
+    />
 
 
     <BaseDialog
@@ -362,38 +398,6 @@
     />
 
 
-
-
-
-
-
-
-    <div style="margin-top: 500px;">{{ Vue.utils }}</div>
-    {{T_S._match.points}}
-    <div style="white-space: pre;">{{ _match.cars.map(x => { return { rid: x.rid, seletedTune: x.selectedTune } }) }}</div>
-
-    <div style="margin-top: 2000px;" class="BaseCard_AsGalleryBox">
-      <BaseCard
-        :car="Vue.all_carsObj['Ford_RS200_Group_B_Rally_Car_1985']"
-        :fix-back="false"
-        :options="true"
-        :hideClose="false"
-        :showResetTune="false"
-        :asGallery="true"
-        :draggable="true"
-      />
-    </div>
-    <div style="margin-top: 2000px;" class="BaseCard_AsGalleryBox">
-      <BaseCard
-        :car="Vue.all_carsObj['Jaguar_C-X75_2010']"
-        :fix-back="false"
-        :options="true"
-        :hideClose="false"
-        :showResetTune="false"
-        :asGallery="true"
-        :draggable="true"
-      />
-    </div>
   </div>
 </template>
 
@@ -408,6 +412,7 @@ import BaseDialog from "./BaseDialog.vue";
 import BaseMonoSlider from "./BaseMonoSlider.vue";
 import BaseMatchMemoryDialog from "./BaseMatchMemoryDialog.vue";
 import BaseCarDetailDialog from "./BaseCarDetailDialog.vue";
+import BaseFilterDialog from "./BaseFilterDialog.vue";
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
 // BaseCard
@@ -429,7 +434,8 @@ export default {
     BaseDialog,
     BaseMonoSlider,
     BaseMatchMemoryDialog,
-    BaseCarDetailDialog
+    BaseCarDetailDialog,
+    BaseFilterDialog
   },
   props: {
     test: {
@@ -481,6 +487,9 @@ export default {
     }
   },
   beforeMount() {},
+  beforeCreate() {
+    window.localStorage.setItem("matchSimulator", "t");
+  },
   mounted() {
     this.debounceChangedLong = Vue.debounce(this.changedLong, 1000);
     this.debounceChangedFast = Vue.debounce(this.changedFast, 1);
@@ -524,13 +533,14 @@ export default {
     changedFast() {
       this.updatePoints();
       this.updateCurrentPage();
+      this.updateRqFill();
     },
     changedLong() {
       this.saveLocalStorage();
     },
     saveLocalStorage() {
       if (!this._match.readStorage) return;
-      console.log("____saveLocalStorage");
+      // console.log("____saveLocalStorage");
       window.localStorage.setItem('_matchPages', JSON.stringify({
         pages: this._match.pages,
         page: this._match.page
@@ -549,13 +559,17 @@ export default {
       }
       this._match.readStorage = true;
     },
-    loadPage(page, e) {
+    loadPage(page, e, fake_e) {
       if (e && e.shiftKey && this._match.pages.length > 1) {
-        e.preventDefault();
+        if (e.preventDefault) e.preventDefault();
+        if (fake_e && fake_e.preventDefault) fake_e.preventDefault();
+
         let needToReload = false;
-        if (page === this._match.page && page === this._match.pages.length-1) {
-          this._match.page--;
+        if (page === this._match.page) {
           needToReload = true;
+          if (page === this._match.pages.length-1) {
+            this._match.page--;
+          }
         }
         this._match.pages.splice(page, 1);
         if (page < this._match.page) this._match.page--;
@@ -570,6 +584,10 @@ export default {
       if (!obj) {
         page = 0;
         obj = this._match.pages[page];
+      }
+
+      if (page !== 0) {
+        this.$store.commit("START_LOGROCKET", {});
       }
 
       this._match.page = page;
@@ -619,15 +637,29 @@ export default {
       obj.event.trackset = event.trackset.map(trckst => trckst.map(track => {
         return { track }
       }));
-      this.$route.params.picks.find((car, ix) => {
-        if (ix > 9) return true;
-        let key = (ix > 4) ? "oppos" : "cars";
-        let icar = ix % 5;
-        obj[key][icar] = {
-          rid: car.rid,
-          selectedTune: car.tune
-        };
-      })
+
+      if (this.$route.params.picks) {
+        this.$route.params.picks.find((car, ix) => {
+          if (ix > 9) return true;
+          let key = (ix > 4) ? "oppos" : "cars";
+          let icar = ix % 5;
+          obj[key][icar] = {
+            rid: car.rid,
+            selectedTune: car.tune
+          };
+        })
+      }
+
+      if (this.$route.params.cars) {
+        ["cars", "oppos"].map(key => {
+          this.$route.params[key].map((car, icar) => {
+            obj[key][icar] = {
+              rid: car.rid,
+              selectedTune: car.selectedTune
+            };
+          })
+        })
+      }
 
       this.loadPage();
     },
@@ -648,12 +680,15 @@ export default {
     },
     newPage(byCopy=false) {
       let newIndex = this._match.pages.length;
-      let found = this._match.pages.findIndex(x => !x);
-      if (found > -1) newIndex = found;
 
       if (byCopy) {
-        Vue.set(this._match.pages, newIndex, this.updateCurrentPage(true));
+        // Vue.set(this._match.pages, newIndex, this.updateCurrentPage(true));
+        this._match.pages.splice(this._match.page, 0, this.updateCurrentPage(true));
+        newIndex = this._match.page + 1;
+        this._match.pages[newIndex].name = this._match.pages[newIndex-1].name || `${newIndex}`;
       } else {
+        let found = this._match.pages.findIndex(x => !x);
+        if (found > -1) newIndex = found;
         Vue.set(this._match.pages, newIndex, this.blankPage());
       }
 
@@ -751,23 +786,54 @@ export default {
       this.tuneDialogList = this._match[key];
       this.tuneDialogActive = true;
     },
-    // cogMove(isRight) {
-    //   let current = this.tuneDialogCarIndex;
-    //   let neww = current + (isRight ? 1 : -1);
-    //   let one = this.tuneDialogList[current];
-    //   let two = this.tuneDialogList[neww];
+    updateFilterMain(filter) {
+      let obj = this._match.pages[this._match.page];
+      obj.filter = filter;
 
-    //   Vue.set(this.tuneDialogList, current, two);
-    //   Vue.set(this.tuneDialogList, neww, one);
-    //   this.tuneDialogCarIndex = neww;
-    //   this.tuneDialogCar = this.tuneDialogList[neww];
-    //   this.changedAny();
-    // },
-    // cogDelete() {
-    //   Vue.set(this.tuneDialogList, this.tuneDialogCarIndex, {});
-    //   this.changedAny();
-    //   this.tuneDialogActive = false;
-    // }
+      this.dialogFilter = false;
+      this.loadPage();
+    },
+    updateRqFill() {
+      this._match.rqFill = 0;
+      this._match.cars.map(car => {
+        if (car && car.rq) {
+          this._match.rqFill += car.rq;
+        }
+      })
+    },
+    exportToWorkspace() {
+      let cars = [];
+      let tracks = [];
+      let uniqueCarsString = [];
+
+      for (let X = 0; X < 5; X++) {
+        this._match.event.trackset.map(trckst => {
+          if (trckst[X].track) tracks.push(trckst[X].track);
+        })
+      }
+      tracks = [...new Set(tracks)];
+
+      for (let X = 0; X < 5; X++) {
+        ["oppos", "cars"].map(key => {
+          let car = this._match[key][X];
+          let toInput = "";
+          if (!car.rid) return;
+          toInput += `~C${car.rid}`;
+          if (car.selectedTune) toInput += `~T${car.selectedTune}`;
+          if (uniqueCarsString.includes(toInput)) return;
+          uniqueCarsString.push(toInput);
+
+          cars.push({
+            rid: car.rid,
+            selectedTune: car.selectedTune
+          });
+        })
+      }
+
+      let filter = JSON.parse(JSON.stringify(this._match.filter));
+
+      this.$router.push({ name: "Compare", params: { cars, tracks, filter } });
+    }
   },
 }
 </script>
@@ -775,6 +841,7 @@ export default {
 <style>
 .MainMatchSimulator_Mid {
   margin-top: 30px;
+  padding-bottom: 30px;
 }
 .MainMatchSimulator_Mid .BaseEventTrackbox_BoxRelative:first-child:last-child .BaseEventTrackbox_ClassCheck {
   opacity: 0.2;
@@ -868,10 +935,13 @@ export default {
   font-size: 11px;
   opacity: 0.3;
   text-align: center;
-  color: rgb(var(--d-text-green));
+  /* color: rgb(var(--d-text-green)); */
 }
 .MainMatchSimulator_Layout .Cg_Divider {
   /* margin-top: 0px; */
+}
+.MainMatchSimulator_Layout .Cg_CenterBottom {
+  margin-top: 10px;
 }
 
 
@@ -880,6 +950,13 @@ export default {
     position: absolute;
     left: -32px;
     top: 3px;
+  }
+  .MainMatchSimulator_Mid .BaseEventTrackbox_BestBox {
+    font-size: 14px;
+    width: 25px;
+  }
+  .MainMatchSimulator_Mid .Row_ShowingBestPerTrack .Row_Content {
+    transform: translateX(20px);
   }
 }
 @media only screen and (max-width: 850px) {
@@ -891,6 +968,16 @@ export default {
   .MainMatchSimulator_Layout .Main_OptionsButton {
     min-width: 36px;
     padding: 7px;
+  }
+  .MainMatchSimulator_Layout .Cg_SelectorLeft,
+  .MainMatchSimulator_Layout .Cg_SelectorRight {
+    display: none;
+  }
+  .MainMatchSimulator_Layout .Cg_RowCornerBox {
+    align-items: flex-start;
+  }
+  .MainMatchSimulator_Layout .Cg_CenterBottom {
+    justify-content: flex-start;
   }
 }
 

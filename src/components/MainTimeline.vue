@@ -1027,7 +1027,6 @@
     <BaseFilterDialog
       v-model="filterBySpecDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1044,7 +1043,6 @@
     <BaseFilterDialog
       v-model="filterByRequirementsDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       :config="{
         topSpeed: false,
         acel: false,
@@ -1062,7 +1060,6 @@
       v-model="searchCarDialog"
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
-      :all_cars="all_cars"
       :sortEnabled="true"
       :enableCounters="false"
       :forceNonPrize="false"
@@ -1151,7 +1148,6 @@
       <BaseFilterDialog
         v-model="mainFilterDialog"
         :filterOnly="true"
-        :all_cars="all_cars"
         :config="{
           topSpeed: false,
           acel: false,
@@ -1172,7 +1168,6 @@
         :raceFilter="eventFilter.filter"
         :raceFilter2="eventFilter.filter2"
         :raceFilter3="eventFilter.filter3"
-        :all_cars="all_cars"
         :config="{
           topSpeed: false,
           acel: false,

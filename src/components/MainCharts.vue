@@ -89,7 +89,6 @@
     <BaseFilterDialog
       v-model="filterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       @filterUpdate="updateChartFilter($event)"
       @listRids="chartAnalyseFinish($event);"
     />

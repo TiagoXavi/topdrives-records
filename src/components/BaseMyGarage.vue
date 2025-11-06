@@ -297,7 +297,6 @@
     <BaseFilterDialog
       v-model="myGarageFilterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       :config="{
         customTags: false,
         tunes: true

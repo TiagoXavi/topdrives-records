@@ -163,12 +163,7 @@ export default {
       Vue: Vue,
       T_S: tdrStore(),
       index: 0,
-      showDragCards: true,
-      // g_carPickerDialog: false,
-      // g_carPickerDialogLoad: false,
-      // g_carPickerFilter: {},
-      // g_carPickerFilterString: null,
-      // g_carPickerIndex: null
+      showDragCards: true
     }
   },
   watch: {},
@@ -185,6 +180,7 @@ export default {
         state._g_carPicker.dialogLoad = true;
         state._g_carPicker.filter = JSON.parse(JSON.stringify(this.filterToImport));
         state._g_carPicker.sortEnabled = true;
+        state._g_carPicker.keepMemory = true;
         state._g_carPicker.enableCounters = true;
         state._g_carPicker.type = "carPicker";
         state._g_carPicker.index = index;
@@ -198,7 +194,7 @@ export default {
     },
     canEnterAfterPick(car) {
       let newCar = JSON.parse(JSON.stringify(car));
-      console.log(newCar);
+      // console.log(newCar);
 
       Vue.set(this.cars, this.T_S._g_carPicker.index, newCar);
       // this.cars[this.g_carPickerIndex] = newCar;
@@ -250,9 +246,6 @@ export default {
       let times = Math.abs(dragNum);
       let otherIndex = elIndex + dragNum;
 
-      // let cla = dragNum > 0 ? "BaseCarsTeam_PushLeft" : "BaseCarsTeam_PushRight";
-      // let div;
-
       if (elIndex + dragNum > total - 1) {
         dragNum = total - elIndex - 1
       }
@@ -266,25 +259,12 @@ export default {
         document.querySelectorAll(`.BaseCarsTeam_Car${this.prefix}`).forEach((x, ix) => {
           if (ix === elIndex) return;
           x.style.setProperty("--drag-left", 0 );
-          // x.classList.remove("BaseCarsTeam_PushLeft");
-          // x.classList.remove("BaseCarsTeam_PushRight");
         })
         if (otherIndex !== elIndex) {
           elmntOther = document.querySelector(`#BaseCarsTeam_Car${this.prefix}${otherIndex}`);
           elmntOther.style.setProperty("--drag-left", dragNum * width * -1 );
         }
-
-        // Array.from(Array(times)).map((_, i) => {
-        //   if (dragNum > 0) div = document.querySelector("#BaseCarsTeam_Car"+this.prefix + (dragNum + elIndex - i) )
-        //   else div = document.querySelector("#BaseCarsTeam_Car"+this.prefix + (dragNum + elIndex + i) )
-
-        //   if (div) {
-        //     div.classList.add(cla);
-        //   }
-        // });
       }
-      // elmnt.style[0] = (elmnt.offsetLeft - posX);
-      // elmnt.style[1] = (elmnt.offsetTop - posY);
     },
     closeDragElement() {
 
@@ -299,7 +279,7 @@ export default {
 
       if (dragNum !== 0) {
         let indexDiff = (elIndex + dragNum) - elIndex;
-        console.log(indexDiff)
+        // console.log(indexDiff)
         let pos = {
           dragLeft: Number(elmnt.style.getPropertyValue("--drag-left")),
           dragTop: Number(elmnt.style.getPropertyValue("--drag-top"))
@@ -372,24 +352,6 @@ export default {
         }
       })
     },
-
-
-    // moveCar(obj) {
-    //   let dragN = obj.direction === "left" ? -1 : 1;
-    //   let newIndex = obj.carIndex + dragN;
-    //   let indexDiff = (elIndex + dragN) - elIndex;
-    //   let pos = { dragLeft: 0, dragTop: 0 };
-
-    //   pos.dragLeft = pos.dragLeft + (width * indexDiff * -1);
-      
-    //   console.log(pos)
-
-    //   this.$emit("newindex", { current: obj.carIndex, new: newIndex, pos });
-    // }
-
-
-
-
   },
 }
 </script>

@@ -35,7 +35,7 @@ export default {
         if (navigator.vibrate) {
           navigator.vibrate(30);
         }
-        this.$emit('longTouch');
+        this.$emit('longTouch', e);
       }, 600);
     },
     touchend(e) {

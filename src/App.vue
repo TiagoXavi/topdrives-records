@@ -6,7 +6,14 @@
     }"
     class="App_Layout">
     <BaseTopMenu :user="user" />
-    <router-view></router-view>
+    <!-- <router-view v-slot="{ Component }">
+      <keep-alive include="Main">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view> -->
+    <keep-alive include="Main">
+      <router-view :key="$route.fullPath"></router-view>
+    </keep-alive>
     <div
       :class="{
         App_SnackActive: snackActive,
@@ -42,6 +49,7 @@
       :sortEnabled="_g_carPicker.sortEnabled"
       :enableCounters="_g_carPicker.enableCounters"
       :type="_g_carPicker.type"
+      :keepMemory="_g_carPicker.keepMemory"
       @addCar="_g_carPicker.addCar"
     />
 
@@ -2864,7 +2872,7 @@ body .Main_UserTw3:before {
   z-index: 30;
 }
 .Cg_RqFill {
-  background-color: #354958;
+  background-color: #474747;
   position: absolute;
   height: 100%;
   left: 0;
@@ -4206,9 +4214,11 @@ a:visited:not(.D_Button) {
 .Car_HeaderBlock060,
 .Car_HeaderBlockHandling,
 .Car_HeaderBlockDrive, */
-.Main_Compact .Car_HeaderBlockTop,
-/* .Car_HeaderBlockBrand, */
 /* .Car_HeaderBlockYear, */
+/* .Car_HeaderBlockBrand, */
+.Main_Compact .Car_HeaderBlockTop {
+  background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
+}
 .Car_CardRightForVideo {
   background-color: hsla(var(--back-h), var(--back-s), var(--card-stat-back-l), var(--card-stat-back-a));
   backdrop-filter: blur(15px);
@@ -4788,6 +4798,15 @@ a:visited:not(.D_Button) {
   --mini-aspect: 111 / 144;
   --mini-fsize: 12px;
 }
+.Main_Teams_ExportBox {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.Main_Teams_ExportMatch {
+  font-size: 12px;
+  --height: 26px;
+}
 .BaseCard_AsGalleryBox {
   --card-g-width: 150px;
   --card-g-height: 92px;
@@ -5033,7 +5052,8 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 0.8);
   }
-  .Car_HeaderBackDropRight {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBackDropRight,
+  .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);
   }

@@ -71,7 +71,7 @@ export default {
   },
   watch: {
     "Vue.utils.downloadCount": function () {
-      console.log("new times");
+      // console.log("new times");
       this.count++;
       this.$emit("times");
     }

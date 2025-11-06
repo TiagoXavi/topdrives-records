@@ -42,7 +42,6 @@
     <BaseFilterDialog
       v-model="filterDialog"
       :filterOnly="true"
-      :all_cars="all_cars"
       ridsMutationName="FILTER_NEWPHOTOS_RIDS"
       @filterUpdate="updateChartFilter($event)"
       @listRids="finCarFinish($event);"

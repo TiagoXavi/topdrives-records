@@ -202,7 +202,7 @@ function downloadCars() {
 
 
 const ridsToDownload = watchDebounced([], (obj) => {
-  console.log('Array has stopped changing. Final state:', obj);
+  // console.log('Array has stopped changing. Final state:', obj);
   downloadCars();
 }, 10);
 

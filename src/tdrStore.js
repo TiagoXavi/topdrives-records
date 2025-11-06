@@ -10,6 +10,7 @@ export const tdrStore = defineStore('main', {
     _g_carPicker: {
       dialog: false,
       dialogLoad: false,
+      keepMemory: false,
       filter: {},
       filterString: null,
       sortEnabled: null,

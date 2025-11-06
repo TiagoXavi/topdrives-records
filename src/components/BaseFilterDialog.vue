@@ -556,7 +556,7 @@
         <template v-for="(item, index) in searchResult">
           <button
             v-if="index < searchMax || showAllFilter"
-            :style="{ '--color': item.classColor }"
+            :style="{ '--color': Vue.all_carsObj[item.rid].color }"
             :class="{
               Main_SearchItemAdded: item.added,
               Main_SearchItemMarked: markedList.includes(item.rid)
@@ -564,17 +564,18 @@
             class="Main_SearchItem"
             @click="item.added ? '' : addCar(index, $event)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
-              <img :src="item.ridPhoto" loading="lazy" class="MainGallery_Img" alt="">
+              <img :src="Vue.all_carsObj[item.rid].photo" loading="lazy" class="MainGallery_Img" alt="">
+              <!-- <img :src="item.ridPhoto" loading="lazy" class="MainGallery_Img" alt=""> -->
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
-            <div class="Main_SearchItemLeft">{{ item.class }}{{ item.rq }}</div>
+            <div class="Main_SearchItemLeft">{{ Vue.all_carsObj[item.rid].class }}{{ item.rq }}</div>
             <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && sortModel !== 'name' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
               <template v-if="sortModel === 'acel' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(1) }}</template>
               <template v-else-if="sortModel === 'mra' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(2) }}</template>
               <template v-else>{{ item[sortModel] }}</template>
             </div>
             <div v-if="!showStats || showingLastest" class="Main_SearchItemRight">
-              <span v-html="item.locatedName" /><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/>&nbsp;<span v-if="sortModel !== 'year' || showingLastest" class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span>&nbsp;<span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra && sortModel !== 'mra'" class="Main_SearchItemYear">{{ item.mra }}</span>
+              <span v-html="item.locatedName || item.name" /><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/>&nbsp;<span v-if="sortModel !== 'year' || showingLastest" class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span>&nbsp;<span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra && sortModel !== 'mra'" class="Main_SearchItemYear">{{ item.mra }}</span>
             </div>
             <template v-else>
               <div
@@ -588,7 +589,7 @@
           <button
             v-if="searchResult && searchResult.length > searchMax"
             class="D_Button D_ButtonDark D_ButtonDark2 Main_SearchMore"
-            @click="searchMax = searchMax + 41">{{ $t("m_showMore") }}</button>
+            @click="searchMax = searchMax + 61">{{ $t("m_showMore") }}</button>
         </div>
       </div>
       <div v-else-if="alreadySearched" class="Main_SearchEmpty BaseFilterDialog_Mid">
@@ -717,6 +718,10 @@ export default {
       type: Boolean,
       default: false
     },
+    keepMemory: {
+      type: Boolean,
+      default: false
+    },
     forceNonPrize: {
       type: Boolean,
       default: false
@@ -748,11 +753,11 @@ export default {
     refName: {
       type: String,
       default: "FILTER_REF"
-    },
-
+    }
   },
   data() {
     return {
+      Vue: Vue,
       id: 0,
       loading: false,
       loadingShowMore: false,
@@ -1129,7 +1134,8 @@ export default {
       roadTrip: ["Amalfi Coast Cruising","Enter the Black Forest","Learn the Savannah Way","Loch to Loch","Pacific Coast Highway","World Expo"],
       custom_tags,
       showSecret: false,
-      secretInitialized: false
+      secretInitialized: false,
+      memoryFilter: null
     }
   },
   watch: {
@@ -1331,7 +1337,14 @@ export default {
   methods: {
     openDialogSearch() {
       if (this.type === 'cg' || this.type === 'event' || this.type === 'carPicker') {
-        this.cgResetFilterForAdd();
+        if (this.keepMemory && this.memoryFilter === JSON.stringify(this.raceFilter)) {
+          // nothing
+          this.focus();
+          return;
+        } else {
+          if (this.keepMemory) this.memoryFilter = JSON.stringify(this.raceFilter);
+          this.cgResetFilterForAdd();
+        }
       }
       if (this.firstTimeOpen && this.type === 'library') {
         this.changeFilterT();
@@ -1340,6 +1353,9 @@ export default {
 
       this.isFiltering = false;
       this.searchInput = '';
+      this.focus();
+    },
+    focus() {
       if (!this.filterOnly) {
         setTimeout(() => {
           try {
@@ -1350,7 +1366,6 @@ export default {
       setTimeout(() => {
         document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
       }, 10);
-
     },
     closeDialogSearch() {
       this.cgIsFiltering = false;
@@ -1380,8 +1395,8 @@ export default {
 
         this.$emit("filterUpdate", this.searchFilters);
       } else if (this.type === 'compare' || this.type === 'library' || this.type === 'carPicker' || this.cgAddingYouCar || this.cgAddingOppoCar) {
-        this.changeFilter();
         this.isFiltering = false;
+        this.changeFilter();
         document.querySelectorAll(".Main_SearchMid").forEach(x => {x.scrollTo({ top: 0 })});
       } else {
         // configuring requirements
@@ -1402,9 +1417,9 @@ export default {
       }
     },
     changeFilterViaText() {
-      this.changeFilter(true);
+      this.changeFilter();
     },
-    changeFilter(viaText) {
+    changeFilter(isInitial) {
       if (this.type === 'library') {
         this.changeFilterT();
         return;
@@ -1437,6 +1452,16 @@ export default {
       if (searchStr === "" && this.filterCount === 0 && this.lastestList.length) {
         this.searchLoading = false;
         this.closeFilterText();
+        return [];
+      }
+      if (searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
+        this.searchMax = 20;
+        this.searchResult = Vue.all_carsArr;
+        this.searchResultLength = Vue.all_carsArr.length;
+        this.searchLoading = false;
+        this.showingLastest = false;
+        this.alreadySearched = false;
+        this.showAllFilter = false;
         return [];
       }
 
@@ -1544,16 +1569,16 @@ export default {
         x.acel_ = bestAccel.indexOf(x.acel);
         x.mra_ = bestMra.indexOf(x.mra);
 
-        Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
-        Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
-        try {
-          Vue.set(x, "ridPhoto", '');
-          setTimeout(() => {
-            Vue.set(x, "ridPhoto", Vue.carPhoto(x));
-          }, 1);
-        } catch (error) {
-          Vue.set(x, "ridPhoto", '');
-        }    
+        // Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
+        // Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
+        // try {
+        //   Vue.set(x, "ridPhoto", '');
+        //   setTimeout(() => {
+        //     Vue.set(x, "ridPhoto", Vue.carPhoto(x));
+        //   }, 1);
+        // } catch (error) {
+        //   Vue.set(x, "ridPhoto", '');
+        // }    
       })
 
       let kSort = this.sortModel;
@@ -1777,18 +1802,18 @@ export default {
           }
         })
       })
-      result.map(x => {
-        Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
-        Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
-        try {
-          Vue.set(x, "ridPhoto", '');
-          setTimeout(() => {
-            Vue.set(x, "ridPhoto", Vue.carPhoto(x));
-          }, 1);
-        } catch (error) {
-          Vue.set(x, "ridPhoto", '');
-        }    
-      })
+      // result.map(x => {
+      //   Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
+      //   Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
+      //   try {
+      //     Vue.set(x, "ridPhoto", '');
+      //     setTimeout(() => {
+      //       Vue.set(x, "ridPhoto", Vue.carPhoto(x));
+      //     }, 1);
+      //   } catch (error) {
+      //     Vue.set(x, "ridPhoto", '');
+      //   }    
+      // })
 
       this.showingLastest = true;
       this.searchMax = 100;
@@ -2117,6 +2142,7 @@ export default {
 
     },
     cgResetFilterForAdd() {
+      this.searchInput = '';
       this.searchFilters = JSON.parse(JSON.stringify(this.searchFilters));
       this.clearFilter();
       this.searchFilters = {
