@@ -16,18 +16,6 @@
       <div class="Cg_HeaderLeft">
         <div class="Cg_Corner">
           <div class="Main_CornerMid">
-            <!-- <button
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="newPage()">
-              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t("m_new") }}</span>
-            </button> -->
-            <!-- <button
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="newPage(true)">
-              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t("m_copy") }}</span>
-            </button> -->
           </div>
         </div>
         <div class="Cg_RowCornerBox">
@@ -60,23 +48,6 @@
               </button>
             </div>
             <div class="Cg_SelectorCenter">
-              <!-- <div class="Cg_SelectorRound">
-                <button
-                  :disabled="Vue.utils.cacheLoading"
-                  class="D_Button Main_ArrowDownSelect"
-                  @click="pageSelectorDialog = true;">
-                  <span>{{ T_S._match.name || $t('m_match') }} ({{ T_S._match.page+1 }})</span>
-                  <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                </button>
-              </div> -->
-              <!-- <div class="Cg_CenterBottom">
-                <button
-                  class="D_Button Main_OptionsButton"
-                  @click="newPage(true)">
-                  <i class="ticon-plus_2" style="font-size: unset; margin-right: 5px;" aria-hidden="true"/>
-                  <span>{{ $t("m_copy") }}</span>
-                </button>
-              </div> -->
               <div class="Cg_CenterBottom">
                 <div
                   :style="`color: ${ T_S._match.rqFill > T_S._match.rqLimit ? '#a90000' : '' }; margin-left: 10px;`"
@@ -98,45 +69,6 @@
                   <i class="ticon-plus_2" style="font-size: 14px; margin-right: 5px;" aria-hidden="true"/>
                   <span>{{ $t("m_copy") }}</span>
                 </button>
-                <!-- save button -->
-                <!-- <div class="Cg_SaveButtonBox">
-                  <template v-if="!user">
-                    <div class="Main_SaveAllBox">
-                      <button
-                        class="D_Button Main_LoginToEdit"
-                        @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
-                    </div>
-                  </template>
-                  <template v-else-if="user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
-                    <div class="Main_SaveAllBox">
-                      <button
-                        :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                        class="D_Button Main_SaveAllButton"
-                        @click="cgSaveAll()">{{ $t("m_submitReview") }}</button>
-                    </div>
-                  </template>
-                  <template v-else-if="user && cgNeedSave && !isRoundEmptyForUser">
-                    <div class="Main_SaveAllBox">
-                      <button
-                        :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                        class="D_Button Main_SaveAllButton"
-                        @click="cgSaveAll()">{{ $t("m_save") }}</button>
-                    </div>
-                  </template>
-                  <template v-if="showAnalyse && !cgIsApproving">
-                    <div class="Main_SaveAllBox">
-                      <button
-                        :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                        class="D_Button Main_SaveAllButton"
-                        @click="cgAnalyseRound()">{{ $t("m_analyze") }}</button>
-                    </div>
-                  </template>
-                  <div v-if="user" class="Main_PrintBy">
-                    <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                    <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
-                  </div>
-                </div> -->
-
               </div>
             </div>
             <div class="Cg_SelectorRight">
@@ -154,9 +86,13 @@
 
         <BaseFilterDescription
           :filter="T_S._match.filter"
+          :filter2="T_S._match.filter2"
+          :filter3="T_S._match.filter3"
           :loading="false"
           :ready="true"
           :user="{ mod: true }"
+          :useWhatFilter="useWhatFilter"
+          @useFilter="useWhatFilter = $event;"
           class="Cg_Right"
           @changeClick="openDialogFilter()" />
 
@@ -181,7 +117,7 @@
       <div class="MainMatchSimulator_Oppos">
         <BaseCarsTeam
           :cars="_match.oppos"
-          :filterToImport="_match.filter"
+          :filterToImport="_match[`filter${useWhatFilter ? useWhatFilter+1 : ''}`]"
           :width="228"
           :aspect="'415 / 256'"
           :fsize="12"
@@ -243,7 +179,7 @@
       <div class="MainMatchSimulator_Yours">
         <BaseCarsTeam
           :cars="_match.cars"
-          :filterToImport="_match.filter"
+          :filterToImport="_match[`filter${useWhatFilter ? useWhatFilter+1 : ''}`]"
           :width="228"
           :aspect="'415 / 256'"
           :fsize="12"
@@ -339,7 +275,7 @@
     </div>
 
 
-    <BaseFilterDialog
+    <!-- <BaseFilterDialog
       v-model="dialogFilter"
       :filterOnly="true"
       :config="{
@@ -352,7 +288,7 @@
         abs: false
       }"
       @clearFilterUpdate="updateFilterMain($event)"
-    />
+    /> -->
 
 
     <BaseDialog
@@ -455,7 +391,8 @@ export default {
       tuneDialogActive: false,
       tuneDialogCarIndex: 0,
       tuneDialogCar: {},
-      tuneDialogList: []
+      tuneDialogList: [],
+      useWhatFilter: 0
     }
   },
   watch: {},
@@ -472,6 +409,8 @@ export default {
           cars: [{}, {}, {}, {}, {}],
           points: [],
           filter: {},
+          filter2: false,
+          filter3: false,
           event: {
             check: null,
             trackset: [
@@ -590,11 +529,14 @@ export default {
         this.$store.commit("START_LOGROCKET", {});
       }
 
+      this.useWhatFilter = 0;
       this._match.page = page;
       this._match.rqLimit = obj.rqLimit;
       this._match.rqFill = 0;
       this._match.name = obj.name;
       this._match.filter = JSON.parse(JSON.stringify(obj.filter));
+      this._match.filter2 = JSON.parse(JSON.stringify(obj.filter2 || false));
+      this._match.filter3 = JSON.parse(JSON.stringify(obj.filter3 || false));
       this._match.event.trackset = JSON.parse(JSON.stringify(obj.event.trackset));
       this._match.event.resolvedTrackset = [];
       this._match.event.check = null;
@@ -634,6 +576,8 @@ export default {
       obj.rqLimit = event.rqLimit;
       obj.name = (event.name||"").slice(0,4).split(" ")[0];
       obj.filter = JSON.parse(JSON.stringify(event.filter));
+      obj.filter2 = JSON.parse(JSON.stringify(event.filter2 || false));
+      obj.filter3 = JSON.parse(JSON.stringify(event.filter3 || false));
       obj.event.trackset = event.trackset.map(trckst => trckst.map(track => {
         return { track }
       }));
@@ -670,6 +614,8 @@ export default {
         rqLimit: 500,
         name: null,
         filter: {},
+        filter2: false,
+        filter3: false,
         event: {
           check: null,
           trackset: [
@@ -715,6 +661,8 @@ export default {
       obj.rqLimit = this._match.rqLimit;
       obj.name = this._match.name;
       obj.filter = JSON.parse(JSON.stringify(this._match.filter));
+      obj.filter2 = JSON.parse(JSON.stringify(this._match.filter2));
+      obj.filter3 = JSON.parse(JSON.stringify(this._match.filter3));
       obj.event.trackset = JSON.parse(JSON.stringify(this._match.event.trackset));
 
       if (returnObj) {
@@ -774,9 +722,83 @@ export default {
 
       this._match.points = result;
     },
+    // openDialogFilter() {
+    //   this.dialogFilter = true;
+    // },
+
+
     openDialogFilter() {
-      this.dialogFilter = true;
+      this.T_S.$patch((state) => {
+        state._g_carPicker.dialogLoad = true;
+        state._g_carPicker.keepMemory = false;
+        state._g_carPicker.filterOnly = true;
+        state._g_carPicker.requirementFilter = true;
+        state._g_carPicker.filter = JSON.parse(JSON.stringify(this._match.filter));
+        state._g_carPicker.filter2 = JSON.parse(JSON.stringify(this._match.filter2));
+        state._g_carPicker.filter3 = JSON.parse(JSON.stringify(this._match.filter3));
+        state._g_carPicker.useWhatFilter = this.useWhatFilter;
+        state._g_carPicker.sortEnabled = false;
+        state._g_carPicker.enableCounters = false;
+        state._g_carPicker.type = "event";
+        state._g_carPicker.index = 0;
+        state._g_carPicker.addCar = () => {};
+        state._g_carPicker.dual = this.dual;
+        state._g_carPicker.clearFilterUpdate = this.updateFilterMain;
+        state._g_carPicker.useFilter = this.changeUseWhatFilter;
+        state._g_carPicker.config = {
+          topSpeed: false,
+          acel: false,
+          hand: false,
+          weight: false,
+          brake: false,
+          tcs: false,
+          abs: false
+        };
+      })
+      this.$nextTick().then(() => {
+        this.T_S._g_carPicker.dialog = true;
+      })
     },
+    dual() {
+      if (!this.T_S._g_carPicker.filter2) {
+        Vue.set(this.T_S._match, "filter2", {});
+        Vue.set(this.T_S._g_carPicker, "filter2", {});
+        return;
+      }
+      if (!this.T_S._g_carPicker.filter3) {
+        Vue.set(this.T_S._match, "filter3", {});
+        Vue.set(this.T_S._g_carPicker, "filter3", {});
+        return;
+      }
+    },
+    changeUseWhatFilter(index) {
+      this.useWhatFilter = index;
+      this.T_S._g_carPicker.useWhatFilter = index;
+    },
+    updateFilterMain(filter) {
+      let obj = this._match.pages[this._match.page];
+      let filterAtr = 'filter';
+      if (this.useWhatFilter) filterAtr = filterAtr + (this.useWhatFilter+1);
+      obj[filterAtr] = filter;
+
+      this.T_S._g_carPicker.dialog = false;
+      let memUseWhatFilter = this.useWhatFilter;
+      this.loadPage();
+      this.useWhatFilter = memUseWhatFilter;
+    },
+    // canEnterAfterPick(car) {
+    //   let newCar = JSON.parse(JSON.stringify(car));
+    //   // console.log(newCar);
+
+    //   Vue.set(this.cars, this.T_S._g_carPicker.index, newCar);
+    //   // this.cars[this.g_carPickerIndex] = newCar;
+    //   this.T_S._g_carPicker.dialog = false;
+    //   // this.g_carPickerDialog = false;
+    //   this.$emit("changed");
+    // },
+
+
+
     openRqEditDialog() {
       this.rqEditDialog = true;
     },
@@ -785,13 +807,6 @@ export default {
       this.tuneDialogCar = obj.car;
       this.tuneDialogList = this._match[key];
       this.tuneDialogActive = true;
-    },
-    updateFilterMain(filter) {
-      let obj = this._match.pages[this._match.page];
-      obj.filter = filter;
-
-      this.dialogFilter = false;
-      this.loadPage();
     },
     updateRqFill() {
       this._match.rqFill = 0;
@@ -830,9 +845,12 @@ export default {
         })
       }
 
-      let filter = JSON.parse(JSON.stringify(this._match.filter));
+      let filterAtr = 'filter';
+      if (this.useWhatFilter) filterAtr = filterAtr + (this.useWhatFilter+1);
+      let filter = JSON.parse(JSON.stringify(this._match[filterAtr]));
 
-      this.$router.push({ name: "Compare", params: { cars, tracks, filter } });
+      this.T_S.mainParams = { cars, tracks, filter };
+      this.$router.push({ path: "/compare" });
     }
   },
 }

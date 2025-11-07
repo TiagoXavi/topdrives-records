@@ -18,9 +18,10 @@
       </button>
     </div>
     <template v-else> 
-      <div class="Row_Tune">{{ car.selectedTune }}</div>
+      <div v-if="car.selectedTune" class="Row_Tune">{{ car.selectedTune }}</div>
       <div class="Row_ConfigBox">
         <button class="D_Button Row_ConfigButton" @click="$emit('cog')">
+          <span v-if="!car.selectedTune" class="Row_ConfigSelect">{{ $t('m_select') }}</span>
           <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
         </button>
       </div>
@@ -77,6 +78,8 @@ export default {
 .BaseCarsTuneSelector_Disabled {
   height: 100%;
   width: 100%;
+  background-position-x: -23px;
+  background-size: 120% 100%;
 }
 .BaseCarsTuneSelector_ChooseBox {
   display: flex;

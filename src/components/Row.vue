@@ -123,7 +123,8 @@
           <span class="path2"/>
           <span class="path3"/>
         </i>
-        <!-- <i
+        <!-- compact view -->
+        <i
           v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
           :class="`tdicon-${item.trackType}`"
           class="TdIconCond TdIconCondRel TdIconCondInside"
@@ -136,7 +137,7 @@
             <span v-bind:scode="item.trackCode | trackToPerc(0, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(0, true) }}</span>
             <span v-bind:scode="item.trackCode | trackToPerc(1, true, true)" class="TdIconCondPerc">{{ item.trackCode | trackToPerc(1, true) }}</span>
           </div>
-        </i> -->
+        </i>
       </span></div>
       <div
         v-else-if="points && points[item.code] !== undefined  && points[item.code] !== null"
@@ -1485,6 +1486,11 @@ export default {
   --back-color: 200, 0, 0;
   --back-opac: 0.4;
 }
+.Row_ConfigSelect {
+  font-size: 16px;
+  padding-right: 5px;
+  color: var(--d-text);
+}
 .Row_DialogHeader {
   display: flex;
   justify-content: center;
@@ -1512,7 +1518,7 @@ export default {
   font-size: 1.1em;
   flex-grow: 1;
   text-align: center;
-  padding-left: 36px;
+  padding-left: 32px;
 }
 .Row_Config {
   display: flex;

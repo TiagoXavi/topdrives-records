@@ -8,14 +8,14 @@
     <div class="BaseTopMenu_Middle">
       <button
         v-for="item in menus"
-        :key="item.name"
+        :key="item.path"
         :class="{
-          BaseTopMenu_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ),
+          BaseTopMenu_Active: $route.path === item.path,
           BaseTopMenu_New: item.showNew
         }"
         :disabled="disableButtons"
         class="D_Button BaseTopMenu_Button"
-        @click="$router.push({ name: item.name }); tabClick(item);">{{ item.label }}</button>
+        @click="tabClick(item)">{{ item.label }}</button>
     </div>
     <div
       :style="`${ user && user.tier ? '--cor-hs: var(--t'+user.tier+'-hs); --cor-l: var(--t'+user.tier+'-l); --cor-l0: var(--t'+user.tier+'-l0);' : ''}`"
@@ -126,17 +126,17 @@ export default {
     return {
       unsubscribe: null,
       menus: [
-        { label: "Compare", name: "Compare" },
-        { label: "Challenges", name: "Challenges" },
-        { label: "Events", name: "Events" },
-        { label: "Clubs", name: "Clubs" },
-        { label: "Garage", name: "BaseMyGarage" },
-        { label: "Charts", name: "MainCharts" },
-        { label: "Packs", name: "Packs" },
-        { label: "Timeline", name: "Timeline" },
-        { label: "Match", name: "MainMatchSimulator", newCodes: ["matchSimulator"], showNew: false },
-        { label: "Community", name: "Community" },
-        { label: "Stuff", name: "Stuff", newCodes: [], showNew: false },
+        { label: "Compare", path: "/compare" },
+        { label: "Challenges", path: "/challenges" },
+        { label: "Events", path: "/events" },
+        { label: "Clubs", path: "/clubs" },
+        { label: "Garage", path: "/me" },
+        { label: "Charts", path: "/charts" },
+        { label: "Packs", path: "/packs" },
+        { label: "Timeline", path: "/timeline" },
+        { label: "Match", path: "/match", newCodes: ["matchSimulator"], showNew: false },
+        { label: "Community", path: "/community" },
+        { label: "Stuff", path: "/stuff", newCodes: [], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
@@ -442,6 +442,12 @@ export default {
       });
     },
     tabClick(item) {
+      if (item.path) {
+        this.$router.push({ path: item.path });
+      } else {
+        this.$router.push({ name: item.name });
+      }
+
       if (item.newCodes) {
         item.showNew = false;
         item.newCodes.map(code => {
@@ -513,7 +519,7 @@ export default {
   position: absolute;
   pointer-events: none;
   width: 220px;
-  height: 150px;
+  height: 135px;
   top: 0;
   right: 0;
   background-position: 104px -60px;
@@ -675,7 +681,7 @@ export default {
     display: none;
   }
   .BaseTopMenu_LeftBackLight {
-    bottom: -62px;
+    bottom: -52px;
     left: -171px;
     width: 310px;
     height: 210px;

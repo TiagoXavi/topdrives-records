@@ -240,6 +240,9 @@ export default {
       console.log(color);
     },
     changeTuneCar(selectedTune) {
+      if (selectedTune === this.car.selectedTune) {
+        selectedTune = undefined
+      }
       Vue.set(this.car, "selectedTune", selectedTune);
       this.$emit("changed");
       // this.$emit("tune", selectedTune);

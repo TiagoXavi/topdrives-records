@@ -3938,9 +3938,9 @@ export default {
     carDetailsList: function() {
       console.log(this.carDetailsList.length);
     },
-    "$route.name": function() {
-      let r = this.$route.name;
-      if (r === "Records" || r === "Compare" || r === "Challenges" || r === "Events" || r === "Clubs") {
+    "$route.path": function() {
+      let r = this.$route.path;
+      if (r === "/" || r === "/compare" || r === "/challenges" || r === "/events" || r === "/clubs") {
         this.optionsDialogActive = false;
         this.kingDialog = false;
         this.kingFixed = false;
@@ -4014,7 +4014,7 @@ export default {
 
     let mode = window.localStorage.getItem("mode");
     if (mode && mode !== 'cg') {
-      if (this.$route.name === 'Records') {
+      if (this.$route.path === '/') {
         this.mode = mode;
       }
     }
@@ -4184,8 +4184,6 @@ export default {
         let car;
         if (vm.mode === 'compare') {
           car = vm.carDetailsList.find(x => x.softId === mutation.payload.car.softId);
-        } else if (vm.mode === 'compare') {
-
         }
 
         vm.changeTuneCar(car, mutation.payload.tune, true)
@@ -4229,7 +4227,7 @@ export default {
     })
 
     if (this.firstLoad === false) {
-      if (this.$route.params && this.$route.params.cars) {
+      if (this.T_S.mainParams) {
         this.changeMode('compare');
         this.loadParams();
       }
@@ -4244,28 +4242,28 @@ export default {
   deactivated() {
     // console.log('MyCachedComponent Deactivated!');
     // Clean up or save state when component is deactivated
-  },
-  beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
     window.removeEventListener('keydown', this.handleKeydown);
     window.removeEventListener('keyup', this.handleKeyUp);
-    this.unsubscribe();
+    if (this.unsubscribe) this.unsubscribe();
+  },
+  beforeDestroy() {
   },
   computed: {
     mode: {
       get: function () {
-        if (this.$route.name === "Records" || this.$route.name === "Compare") return "compare";
-        if (this.$route.name === "Challenges") return "challenges";
-        if (this.$route.name === "Events") return "events";
-        if (this.$route.name === "Clubs") return "clubs";
+        if (this.$route.path === "/" || this.$route.path === "/compare") return "compare";
+        if (this.$route.path === "/challenges") return "challenges";
+        if (this.$route.path === "/events") return "events";
+        if (this.$route.path === "/clubs") return "clubs";
       },
       set: function (newValue) {
         if (this.$route.path.includes(newValue)) return;
         
-        if (newValue === "compare") this.$router.push({ name: "Compare" });
-        if (newValue === "challenges") this.$router.push({ name: "Challenges" });
-        if (newValue === "events") this.$router.push({ name: "Events" });
-        if (newValue === "clubs") this.$router.push({ name: "Clubs" });
+        if (newValue === "compare") this.$router.push({ path: "/compare" });
+        if (newValue === "challenges") this.$router.push({ path: "/challenges" });
+        if (newValue === "events") this.$router.push({ path: "/events" });
+        if (newValue === "clubs") this.$router.push({ path: "/clubs" });
       },
     },
     optionsDialogComputed() {
@@ -5986,7 +5984,6 @@ export default {
 
       let carsFromQuery = decoded.cars;
       let tracksFromQuery = decoded.tracks;
-      debugger;
 
       if (this.$route.query && this.$route.query.share) {
         this.$router.replace({'query': null});
@@ -9695,7 +9692,20 @@ export default {
       }
     },
     eventExportTracksToMatch() {
-      this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, picks: this.eventReducePicks() } });
+      if (this.mode === "events") {
+        this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, picks: this.eventReducePicks() } });
+      }
+      if (this.mode === "clubs") {
+        let ev = {
+          trackset: this.clubTracksGroupModel.trackset,
+          rqLimit: 500,
+          filter: this.clubReqsGroupModel.filter,
+          filter2: this.clubReqsGroupModel.filter2,
+          filter3: this.clubReqsGroupModel.filter3,
+          name: this.clubTracksGroupModel.name
+        }
+        this.$router.push({ name: "MainMatchSimulator", params: { event: ev, picks: this.eventReducePicks() } });
+      }
     },
     eventExportCriteriaToPacks() {
       // this.$store.commit("START_LOGROCKET", {});
@@ -11571,7 +11581,7 @@ export default {
       this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, cars, oppos } });
     },
     loadQueryParams() {
-      if (this.$route.params && this.$route.params.cars) {
+      if (this.T_S.mainParams) {
         this.changeMode('compare');
         this.loadParams();
       } else if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
@@ -11613,8 +11623,10 @@ export default {
       }
     },
     loadParams() {
-      let carsFromQuery = this.$route.params.cars;
-      let tracksFromQuery = this.$route.params.tracks;
+      let carsFromQuery = this.T_S.mainParams.cars;
+      let tracksFromQuery = this.T_S.mainParams.tracks;
+
+      this.T_S.mainParams = null;
 
       if (true) {
         if (tracksFromQuery.length > 0) {

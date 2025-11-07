@@ -12,7 +12,7 @@
       </keep-alive>
     </router-view> -->
     <keep-alive include="Main">
-      <router-view :key="$route.fullPath"></router-view>
+      <router-view :key="$route.name"></router-view>
     </keep-alive>
     <div
       :class="{
@@ -45,12 +45,22 @@
     <BaseFilterDialog
       v-if="_g_carPicker.dialogLoad"
       v-model="_g_carPicker.dialog"
+      :keepMemory="_g_carPicker.keepMemory"
+      :filterOnly="_g_carPicker.filterOnly"
+      :requirementFilter="_g_carPicker.requirementFilter"
       :raceFilter="_g_carPicker.filter"
+      :raceFilter2="_g_carPicker.filter2"
+      :raceFilter3="_g_carPicker.filter3"
+      :useWhatFilter="_g_carPicker.useWhatFilter"
       :sortEnabled="_g_carPicker.sortEnabled"
       :enableCounters="_g_carPicker.enableCounters"
       :type="_g_carPicker.type"
-      :keepMemory="_g_carPicker.keepMemory"
       @addCar="_g_carPicker.addCar"
+      @clearFilterUpdate="_g_carPicker.clearFilterUpdate"
+      @useFilter="_g_carPicker.useFilter"
+      @dual="_g_carPicker.dual"
+      :config="_g_carPicker.config"
+      :isApp="true"
     />
 
     
@@ -4966,6 +4976,7 @@ a:visited:not(.D_Button) {
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
     --cg-width: 115px;
+    --cg-height: 145px;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass,
@@ -5002,9 +5013,6 @@ a:visited:not(.D_Button) {
   }
   .Event_BankClass {
     margin-left: 5px;
-  }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_Box {
-    --cg-width: 115px;
   }
 }
 @media only screen and (max-width: 600px) {

@@ -9,9 +9,10 @@
         <div class="BaseTopMenuUserDialog_TopMenu">
           <button 
             v-for="item in menus"
-            :class="{ BaseTopMenuUserDialog_Active: $route.name === item.name || (item.name === 'Compare' && $route.name === 'Records' ) }"
+            :key="item.path"
+            :class="{ BaseTopMenuUserDialog_Active: $route.path === item.path }"
             class="D_Button BaseTopMenuUserDialog_Button"
-            @click="$router.push({ name: item.name }); $emit('close');">{{ item.label }}</button>
+            @click="tabClick(item);">{{ item.label }}</button>
         </div>
         <div class="Main_OptionsUserTop">
           <div v-if="user" class="Main_OptionsItem" style="display: flex;justify-content: center;">
@@ -106,7 +107,16 @@ export default {
   beforeMount() {},
   mounted() {},
   computed: {},
-  methods: {},
+  methods: {
+    tabClick(item) {
+      if (item.path) {
+        this.$router.push({ path: item.path });
+      } else {
+        this.$router.push({ name: item.name });
+      }
+      this.$emit('close');
+    }
+  },
 }
 </script>
 

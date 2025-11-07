@@ -75,16 +75,12 @@ export default {
       }
     },
     filter2: {
-      type: Object,
-      default() {
-        return {}
-      }
+      type: [Object, Boolean],
+      default: false
     },
     filter3: {
-      type: Object,
-      default() {
-        return {}
-      }
+      type: [Object, Boolean],
+      default: false
     },
     useWhatFilter: {
       type: Number,

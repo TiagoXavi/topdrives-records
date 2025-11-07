@@ -37,27 +37,28 @@ const routes = [
     path: '/',
     name: 'Records',
     component: Main,
+    alias: ['/compare', '/challenges', '/events', '/clubs']
   },
-  {
-    path: '/compare',
-    name: 'Compare',
-    component: Main,
-  },
-  {
-    path: '/challenges',
-    name: 'Challenges',
-    component: Main,
-  },
-  {
-    path: '/events',
-    name: 'Events',
-    component: Main,
-  },
-  {
-    path: '/clubs',
-    name: 'Clubs',
-    component: Main,
-  },
+  // {
+  //   path: '/compare',
+  //   name: 'Compare',
+  //   component: Main,
+  // },
+  // {
+  //   path: '/challenges',
+  //   name: 'Challenges',
+  //   component: Main,
+  // },
+  // {
+  //   path: '/events',
+  //   name: 'Events',
+  //   component: Main,
+  // },
+  // {
+  //   path: '/clubs',
+  //   name: 'Clubs',
+  //   component: Main,
+  // },
   {
     path: '/timeline',
     name: 'Timeline',

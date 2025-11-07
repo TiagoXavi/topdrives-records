@@ -9,7 +9,8 @@
         `${time == 0 ? 'Row_DNF ' : '' }`+
         `${false ? 'Row_ForceNormalSizeCell ' : ''}`+
         `${time === null || time === undefined || time === '' ? 'Row_ContentEmpty ' : '' }`+
-        `${false ? 'Row_isTimePredicted ' : '' }`
+        `${false ? 'Row_isTimePredicted ' : '' }` +
+        `${!rid || !selectedTune ? 'Row_DisabledCell ' : '' }`
       "
       class="BaseTimeCell_Cell">
       <div class="BaseTimeCell_Content">{{ time.t | toTimeStringTrCode((track || {}).track) }}</div>
@@ -140,5 +141,15 @@ div:first-child > .BaseTimeCell_Layout {
   box-shadow: inset 0px -13px 16px -17px #5fb500, inset 0px -5px 0px 0px #5fb500;
   color: #90df39;
   background-color: #5fb50022;
+}
+.BaseTimeCell_Content:empty:before {
+  content: "\e961";
+  font-family: 'JurisT' !important;
+  color: #3f3f3f;
+  line-height: 0.9;
+  font-size: 24px;
+}
+.Row_DisabledCell .BaseTimeCell_Content:before {
+  content: "";
 }
 </style>

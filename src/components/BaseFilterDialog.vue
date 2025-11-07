@@ -726,6 +726,10 @@ export default {
       type: Boolean,
       default: false
     },
+    isApp: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: "compare"
@@ -1187,6 +1191,14 @@ export default {
     if (this.enableCounters) {
       this.createCounters();
       this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+    }
+    if (this.isApp) {
+      this.$watch('enableCounters', () => {
+        if (this.enableCounters === true && Object.keys(this.counters).length === 0) {
+          this.createCounters();
+          this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+        }
+      }, { immediate: false, deep: false });
     }
 
     if (this.libraryApprove) {
