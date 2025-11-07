@@ -4012,20 +4012,20 @@ export default {
 
 
 
-    let mode = window.localStorage.getItem("mode");
-    if (mode && mode !== 'cg') {
-      if (this.$route.path === '/') {
-        this.mode = mode;
-      }
-    }
+    // let mode = window.localStorage.getItem("mode");
+    // if (mode && mode !== 'cg') {
+    //   if (this.$route.path === '/') {
+    //     this.mode = mode;
+    //   }
+    // }
 
-    if (this.$route.query && this.$route.query.approve) {
-      this.mode = 'compare';
-      this.libraryApprove = true;
-      setTimeout(() => {
-        this.openLibraryDialog();
-      }, 100);
-    }
+    // if (this.$route.query && this.$route.query.approve) {
+    //   this.mode = 'compare';
+    //   this.libraryApprove = true;
+    //   setTimeout(() => {
+    //     this.openLibraryDialog();
+    //   }, 100);
+    // }
 
     // let cgLocalShowPermanentCgs = window.localStorage.getItem("cgLocalShowPermanentCgs");
     // if (cgLocalShowPermanentCgs) {
@@ -4260,10 +4260,10 @@ export default {
       set: function (newValue) {
         if (this.$route.path.includes(newValue)) return;
         
-        if (newValue === "compare") this.$router.push({ path: "/compare" });
-        if (newValue === "challenges") this.$router.push({ path: "/challenges" });
-        if (newValue === "events") this.$router.push({ path: "/events" });
-        if (newValue === "clubs") this.$router.push({ path: "/clubs" });
+        if (newValue === "compare") this.$router.push({ path: "/compare", params: { isClearQuery: true } });
+        if (newValue === "challenges") this.$router.push({ path: "/challenges", params: { isClearQuery: true } });
+        if (newValue === "events") this.$router.push({ path: "/events", params: { isClearQuery: true } });
+        if (newValue === "clubs") this.$router.push({ path: "/clubs", params: { isClearQuery: true } });
       },
     },
     optionsDialogComputed() {
@@ -5986,7 +5986,7 @@ export default {
       let tracksFromQuery = decoded.tracks;
 
       if (this.$route.query && this.$route.query.share) {
-        this.$router.replace({'query': null});
+        this.$router.replace({ query: null });
       }
 
       if (pushToWork) {
@@ -11584,6 +11584,12 @@ export default {
       if (this.T_S.mainParams) {
         this.changeMode('compare');
         this.loadParams();
+      } else if (this.$route.query && this.$route.query.approve) {
+        this.changeMode('compare');
+        this.libraryApprove = true;
+        setTimeout(() => {
+          this.openLibraryDialog();
+        }, 100);
       } else if (this.$route.query && this.$route.query.share && this.$route.query.share.includes("~")) {
         // from query string
         this.changeMode('compare');
@@ -11599,7 +11605,7 @@ export default {
             this.cgCurrentRound = Number(decodeURI(x.substr(1))) - 1
           }
         })
-        this.$router.replace({'query': null});
+        this.$router.replace({ query: null });
 
       } else if (this.$route.query && this.$route.query.event && this.$route.query.event.includes("~")) {
         // from query string
@@ -11610,15 +11616,25 @@ export default {
             this.eventCurrentId = decodeURI(x.substr(1))
           }
         })
-        this.$router.replace({'query': null});
+        this.$router.replace({ query: null });
 
       } else if (this.$route.query && this.$route.query.clubs !== undefined) {
         // from query string
         this.changeMode('clubs');
 
-        this.$router.replace({'query': null});
+        this.$router.replace({ query: null });
 
       } else {
+        let mode = window.localStorage.getItem("mode");
+        if (mode && mode !== 'cg') {
+          if (this.$route.path === '/') {
+            // this.mode = mode;
+            this.changeMode(mode);
+            return;
+          }
+        }
+
+
         this.changedMode();
       }
     },
