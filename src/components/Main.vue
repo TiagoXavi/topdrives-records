@@ -31,7 +31,9 @@
               </div>
             </template>
             <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <button
+                v-else-if="userloaded"
                 style="font-size: 18px;     padding: 9px 9px;"
                 class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu Main_BestOfOutside"
                 @click="openKingOfDialog()">
@@ -207,6 +209,7 @@
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
             <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <BaseText
                 v-if="user && user.username === 'TiagoXavi'" 
                 v-model="pasteInputModel"
@@ -884,6 +887,9 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
+            <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
+            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
@@ -1270,6 +1276,9 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
+            <template slot="more">
+              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
+            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top club -->
@@ -3355,6 +3364,7 @@ import BaseCarsTeam from './BaseCarsTeam.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseMonoSlider from './BaseMonoSlider.vue'
 import BaseCarList from './BaseCarList.vue'
+import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
 
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
@@ -3397,7 +3407,8 @@ export default {
     BaseCarsTeam,
     BaseExpandDiv,
     BaseMonoSlider,
-    BaseCarList
+    BaseCarList,
+    BaseBlackFridayButton
   },
   props: {
     phantomCar: {

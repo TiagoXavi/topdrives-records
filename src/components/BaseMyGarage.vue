@@ -9,7 +9,7 @@
       <!-- <div class="BaseMyGarage_CarList">
         <div v-for="card in userGarage.playerDeck" class="BaseMyGarage_CardBox">
           <BaseCardGallery
-            :car="resolvedRids[card.rid]"
+            :car="all_cars_obj[card.rid]"
             :options="false"
             :tuneText="card.tun"
             class="BaseMyGarage_GalleryCard" />
@@ -66,7 +66,7 @@
             <template v-slot="{ item, index, active }">
               <div class="BaseMyGarage_CardBox">
                 <BaseCardGallery
-                  :car="resolvedRids[item.rid]"
+                  :car="all_cars_obj[item.rid]"
                   :options="false"
                   :tuneText="item.tun || item.tunZ"
                   class="BaseMyGarage_GalleryCard" />
@@ -166,7 +166,7 @@
                         <div class="BaseMyGarage_RarityStatsCard">
                           <BaseCardGallery
                             v-if="value.car.rid"
-                            :car="resolvedRids[value.car.rid]"
+                            :car="all_cars_obj[value.car.rid]"
                             :options="false"
                             :tuneText="value.car.tun || value.car.tunZ"
                             class="BaseMyGarage_GalleryCard" />
@@ -181,7 +181,7 @@
                         <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
 
                         <!-- <template v-if="value.car.cardId">
-                          <span>{{ resolvedRids[value.car.cardId].name }} </span>
+                          <span>{{ all_cars_obj[value.car.cardId].name }} </span>
                           <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
                           <span v-else>({{ value.v }})</span>
                         </template> -->
@@ -198,9 +198,9 @@
                           <BaseCardGallery
                             v-for="car in month.cars"
                             :ad="`${(car.date || '').slice(0, 13)}`"
-                            :car="resolvedRids[car.rid]"
+                            :car="all_cars_obj[car.rid]"
                             :options="false"
-                            :class="{ BaseMyGarage_MonthTop: resolvedRids[car.rid].prize }"
+                            :class="{ BaseMyGarage_MonthTop: all_cars_obj[car.rid].prize }"
                             class="BaseMyGarage_GalleryCard" />
                         </div>
                       </div>
@@ -209,12 +209,12 @@
                           <div
                             v-for="car in month.cars"
                             class="MainFindCar_CarCard"
-                            :class="{ BaseMyGarage_MonthTop: resolvedRids[car.rid].prize }"
-                            :style="`--color: ${resolvedRids[car.rid].color}`">
+                            :class="{ BaseMyGarage_MonthTop: all_cars_obj[car.rid].prize }"
+                            :style="`--color: ${all_cars_obj[car.rid].color}`">
                             <div class="MainFindCar_BankPhoto">
-                              <img :src="resolvedRids[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                              <img :src="all_cars_obj[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
                             </div>
-                            <div class="MainFindCar_RQ">{{ resolvedRids[car.rid].rq }}</div>
+                            <div class="MainFindCar_RQ">{{ all_cars_obj[car.rid].rq }}</div>
                           </div>
                         </div>
                       </div>
@@ -440,7 +440,7 @@
             <div class="BaseMyGarage_ListLayout">
               <div class="BaseMyGarage_VerticalCardBox">
                 <BaseCardGallery
-                  :car="resolvedRids[item.car.rid]"
+                  :car="all_cars_obj[item.car.rid]"
                   :options="false"
                   :tuneText="item.car.tun || item.car.tunZ"
                   class="BaseMyGarage_GalleryCard" />
@@ -458,7 +458,7 @@
         <!-- <div v-for="item in orderedList" class="BaseMyGarage_OrderedItem">
           <div class="BaseMyGarage_RarityStatsCard">
             <BaseCardGallery
-              :car="resolvedRids[item.car.rid]"
+              :car="all_cars_obj[item.car.rid]"
               :options="false"
               :tuneText="item.car.tun || item.car.tunZ"
               class="BaseMyGarage_GalleryCard" />
@@ -559,7 +559,7 @@ export default {
       userGarage: {},
       loadedName: null,
       myGarageFilterDialog: false,
-      resolvedRids: {},
+      all_cars_obj: {},
       guidToRid: {},
       unsubscribe: null,
       saved: false,
@@ -935,15 +935,15 @@ export default {
       })
     },
     addToResolvedRids(rid) {
-      if (!this.resolvedRids[rid]) {
-        let preCar = this.all_cars_obj[rid];
-        if (preCar) {
-          preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
-          preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
-          preCar.photo = Vue.carPhoto(preCar);
-          this.resolvedRids[rid] = preCar;
-        }
-      }
+      // if (!this.all_cars_obj[rid]) {
+      //   let preCar = this.all_cars_obj[rid];
+      //   if (preCar) {
+      //     preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
+      //     preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
+      //     preCar.photo = Vue.carPhoto(preCar);
+      //     this.all_cars_obj[rid] = preCar;
+      //   }
+      // }
     },
     processSyncObj(obj) {
       let isError = this.errorSwitch(obj);
@@ -1109,17 +1109,17 @@ export default {
       }
       if (!matchSpecial) return;
 
-      if (hlItem.filter.forcePrize && this.resolvedRids[hCar.rid].prize) {
+      if (hlItem.filter.forcePrize && this.all_cars_obj[hCar.rid].prize) {
         forceMatch = true;
       } else {
-        match = this.matchFilter(this.resolvedRids[hCar.rid], hlItem.filter, hCar);
+        match = this.matchFilter(this.all_cars_obj[hCar.rid], hlItem.filter, hCar);
       }
 
 
       if (match || forceMatch) {
         if (hlItem.r) { // rarity things
           hlItem.r["carCount"]++;
-          if (this.resolvedRids[hCar.rid].prize) {
+          if (this.all_cars_obj[hCar.rid].prize) {
             hlItem.r["prizes"]++;
           } else {
             hlItem.r["nonPrizes"]++;
@@ -1173,7 +1173,7 @@ export default {
               this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/ageInDays, true, usedTimes);
             };
             if (key === "higherRQ") {
-              this.compareHlItemBest(hlItem.t, key, hCar, this.resolvedRids[hCar.rid].rq, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, this.all_cars_obj[hCar.rid].rq, true, usedTimes);
             };
             
           })
@@ -1221,11 +1221,14 @@ export default {
       }
     },
     transformAllCarsToObj() {
-      let key = "rid";
-      all_cars.map(car => {
-        this.all_cars_obj[car[key]] = car;
-        this.guidToRid[car.guid] = car.rid;
-      });
+      // let key = "rid";
+      // all_cars.map(car => {
+      //   this.all_cars_obj[car[key]] = car;
+      //   this.guidToRid[car.guid] = car.rid;
+      // });
+      this.all_cars_obj = Vue.all_carsObj;
+      this.guidToRid = Vue.ridByGuid;
+
       this.carsReady = true;
     },
     resolveTuneZ(hCar) {
@@ -1343,7 +1346,9 @@ export default {
         if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
-      if ( context.tunesModel && !context.tunesModel.includes(hCar.tun) ) return false;
+      if ( context.tunesModel && context.tunesModel.length > 0 ) {
+        if ( !context.tunesModel.includes(hCar.tun) ) return false;
+      }
 
 
       return true;
@@ -1679,10 +1684,10 @@ export default {
       this.orderedDialog = true;
     },
     carOrder(a,b) {
-      if (this.resolvedRids[a.car.rid].rq === this.resolvedRids[b.car.rid].rq) {
-        return this.resolvedRids[a.car.rid].name.localeCompare(this.resolvedRids[b.car.rid].name);
+      if (this.all_cars_obj[a.car.rid].rq === this.all_cars_obj[b.car.rid].rq) {
+        return this.all_cars_obj[a.car.rid].name.localeCompare(this.all_cars_obj[b.car.rid].name);
       } else {
-        return this.resolvedRids[b.car.rid].rq - this.resolvedRids[a.car.rid].rq;
+        return this.all_cars_obj[b.car.rid].rq - this.all_cars_obj[a.car.rid].rq;
       }
     },
     onUpdate(viewStartIndex, viewEndIndex, visibleStartIndex, visibleEndIndex) {

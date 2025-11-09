@@ -54,6 +54,12 @@
                 <path fill="#FFC717" d="m54.7 55.9-.5 1.3c-1 .8-2.3 1.4-4.1 1.9s-3.4.7-5 .7c-3.9 0-7-.8-9.4-2.3-2.3-1.5-4.5-4-6.6-7.6-.1-.1-.2-.2-.3-.5s-.8-1.5-2.1-3.8-2.5-4.2-3.8-5.5c-1.3-1.4-2.5-2-3.7-2h-1.4v20.6H0V0h27.8c7.6 0 13.4 1.7 17.6 5.2 4.1 3.5 6.2 8.3 6.2 14.4 0 1.7-.3 3.7-1 5.8s-1.9 4.1-3.6 5.9c-1.7 1.8-3.8 3.3-6.2 4.4.8.8 1.7 2 2.7 3.6 1.2 2 2.2 3.3 2.8 3.8.7.5 1.4.8 2.2.8.5 0 1.2-.2 2.2-.6l1.1.6 2.9 12zM27.1 26.4c1.7 0 3.2-.5 4.4-1.5 1.2-1 1.8-2.4 1.8-4.2 0-1.9-.6-3.4-1.8-4.5-1.2-1.1-2.7-1.7-4.4-1.7h-9.2v11.9h9.2z"/>
               </svg>
             </button>
+            <button
+              v-if="user"
+              class="D_Button Main_OptionsButton Main_OptionsButton42"
+              @click="logout()">
+              <span>{{ $t("m_logout") }}</span>
+            </button>
           </div>
         </div>
       </div>
@@ -115,7 +121,31 @@ export default {
         this.$router.push({ name: item.name });
       }
       this.$emit('close');
-    }
+    },
+    logout() {
+      axios.delete(Vue.preUrl + "/logout")
+      .then(res => {
+        if (res.data === "OK") {
+          this.$store.commit("LOGOUT", {});
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: this.$t('m_logoutSuccess')
+          });
+        } else {
+          throw new Error("Unable to log out");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      });
+    },
   },
 }
 </script>

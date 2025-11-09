@@ -222,6 +222,16 @@
               </BaseChip>
             </template>
           </div>
+          <template v-if="config.garage">
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in searchFilters.garageThings">
+                <BaseChip
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  v-model="searchFilters.garageThingsModel"
+                  :value="item" />
+              </template>
+            </div>
+          </template>
           <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.prizesModel || raceFilterResolved.prizesModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
@@ -885,6 +895,9 @@ export default {
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
+        garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Not full", "Can be upgraded", "Can be fused"],
+        // garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Can be upgraded", "Can be fused", "Fuse completed", "0 fuse", "1 fuse", "2 fuse", "3 fuse", "4 fuse", "5 fuse", "6 fuse", "Unique", "Duplicated", "Legacy", "Not owned"],
+        garageThingsModel: [],
         customTagsModel: [],
         bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
         bodyTypesModel: [],
@@ -2023,7 +2036,7 @@ export default {
       })
       return result;
     },
-    checkMatchFilter(car) {
+    checkMatchFilter(car, hCar) {
       let context = this.searchFilters;
       if (this.kingIsFiltering) context = this.kingFilter;
       if (this.cgIsFiltering) context = this.raceFilterResolved;
@@ -2079,6 +2092,50 @@ export default {
           if (this.custom_tags[tag].includes(car.rid)) return true;
         })
         if (!found) return false;
+      }
+
+      if ( this.config.garage && hCar && context.tunesModel.length > 0 ) {
+        let isValid = true;
+        let isCustom = false;
+        if (
+          context.tunesModel.includes("Custom") &&
+          (hCar.tun !== "332" &&
+          hCar.tun !== "323" &&
+          hCar.tun !== "233" &&
+          hCar.tun !== "111" &&
+          hCar.tun !== "000")
+        ) {
+          isCustom = true;
+        }
+        if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return false;
+      }
+      if ( this.config.garage && hCar && context.garageThingsModel.length > 0 ) {
+        if ( hCar.locked === false && context.garageThingsModel.includes("Locked") ) return false;
+        if ( hCar.locked === true && context.garageThingsModel.includes("Unlocked") ) return false;
+        if ( hCar.tunZ === "000" && context.garageThingsModel.includes("Upgraded") ) return false;
+
+        let carIsReady = hCar.locked === true && !hCar.fuseEndInSecs;
+
+        if ( context.garageThingsModel.includes("Not full") && (this.$parent.carIsFull(hCar) || !carIsReady) ) return false;
+        if ( context.garageThingsModel.includes("Can be upgraded") && (!this.$parent.carCanUpgrade(hCar) || !carIsReady) ) return false;
+        if ( context.garageThingsModel.includes("Can be fused") && (this.$parent.carNumFuses(hCar) >= 5 || !carIsReady) ) return false;
+        if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return false;
+        if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return false;
+
+        // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
+        // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);
+
+        // if ( context.garageThingsModel.includes("0 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("1 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("2 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("3 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("4 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("5 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("6 fuse") ) return false;
+        // if ( context.garageThingsModel.includes("Unique") ) return false;
+        // if ( context.garageThingsModel.includes("Duplicated") ) return false;
+        // if ( context.garageThingsModel.includes("Legacy") ) return false;
+        // if ( context.garageThingsModel.includes("Not owned") ) return false;
       }
 
       return true;
