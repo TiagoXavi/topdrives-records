@@ -113,10 +113,12 @@ i {
 .tdicon-71 .path2:before,
 .tdicon-j0 .path4:before, /* 4 */
 .tdicon-h1 .path2:before,
-.tdicon-grasswet .path2:before,
-.TdIconCondPerc[scode="01"] {
+.tdicon-grasswet .path2:before {
   content: "\e918";
   margin-left: -1em;
+  color: #2ec0ff;
+}
+.TdIconCondPerc[scode="01"] {
   color: #2ec0ff;
 }
 

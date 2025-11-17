@@ -574,8 +574,7 @@
             class="Main_SearchItem"
             @click="item.added ? '' : addCar(index, $event)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
-              <img :src="Vue.all_carsObj[item.rid].photo" loading="lazy" class="MainGallery_Img" alt="">
-              <!-- <img :src="item.ridPhoto" loading="lazy" class="MainGallery_Img" alt=""> -->
+              <img :src="Vue.all_carsObj[item.rid].photo" :key="item.rid" loading="lazy" class="MainGallery_Img" alt="">
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
             <div class="Main_SearchItemLeft">{{ Vue.all_carsObj[item.rid].class }}{{ item.rq }}</div>
@@ -895,7 +894,7 @@ export default {
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
-        garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Not full", "Can be upgraded", "Can be fused"],
+        garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused"],
         // garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Can be upgraded", "Can be fused", "Fuse completed", "0 fuse", "1 fuse", "2 fuse", "3 fuse", "4 fuse", "5 fuse", "6 fuse", "Unique", "Duplicated", "Legacy", "Not owned"],
         garageThingsModel: [],
         customTagsModel: [],
@@ -2116,11 +2115,13 @@ export default {
 
         let carIsReady = hCar.locked === true && !hCar.fuseEndInSecs;
 
+        if ( context.garageThingsModel.includes("Full") && (!this.$parent.carIsFull(hCar) || !carIsReady) ) return false;
         if ( context.garageThingsModel.includes("Not full") && (this.$parent.carIsFull(hCar) || !carIsReady) ) return false;
         if ( context.garageThingsModel.includes("Can be upgraded") && (!this.$parent.carCanUpgrade(hCar) || !carIsReady) ) return false;
         if ( context.garageThingsModel.includes("Can be fused") && (this.$parent.carNumFuses(hCar) >= 5 || !carIsReady) ) return false;
         if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return false;
         if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return false;
+        if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return false;
 
         // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
         // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);

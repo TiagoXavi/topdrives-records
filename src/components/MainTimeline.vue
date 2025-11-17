@@ -1751,8 +1751,9 @@ export default {
       this.ti.events.push(one);
     },
     replaceTracksetsByPaste(iEvent) {
-      this.ti.events[iEvent].resolvedTrackset = this.eventToCopy.resolvedTrackset;
-      this.ti.events[iEvent].trackset = this.eventToCopy.trackset;
+      if (!this.ti.events[iEvent].name) this.ti.events[iEvent].name = this.eventToCopy.name;
+      Vue.set(this.ti.events[iEvent], "resolvedTrackset", JSON.parse(JSON.stringify(this.eventToCopy.resolvedTrackset)));
+      Vue.set(this.ti.events[iEvent], "trackset", JSON.parse(JSON.stringify(this.eventToCopy.trackset)));
       this.ti.events[iEvent].rqLimit = this.eventToCopy.rqLimit;
       this.ti.events[iEvent].filter = this.eventToCopy.filter;
       if (this.eventToCopy.filter2) this.ti.events[iEvent].filter2 = this.eventToCopy.filter2;
@@ -2466,6 +2467,7 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 19px;
+  line-height: 1.1;
 }
 .MainTimeline_ItemTopMiniCars {
   display: flex;

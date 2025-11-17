@@ -10196,6 +10196,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
+      return;
       let c_id = "contest10";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");

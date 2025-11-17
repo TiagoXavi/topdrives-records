@@ -768,9 +768,9 @@ export default {
                 highlightsUsers[user] = Number(key.slice(-1));
               })
             })
-            highlightsUsers["MilleniumJade"] = "w1";
+            highlightsUsers["AnalyzeThat"] = "w1";
             highlightsUsers["Sleeperzz"] = "w2";
-            highlightsUsers["Xotic"] = "w3";
+            highlightsUsers["AF11"] = "w3";
 
             return highlightsUsers;
         };

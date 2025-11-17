@@ -37,8 +37,9 @@
             :asGallery="true"
             :draggable="true"
             :customData="car.customData"
-            :selectedTune="car.selectedTune"
+            :selectedTune="isTunz ? (car.tun || car.tunZ) : car.selectedTune"
             :downloadLoading="loading"
+            :cgOppo="isTunz ? true : false"
             @dragdown="dragMouseDown($event, icar)"
             @delete="carPickerClearIndex(icar)"
           />
@@ -59,6 +60,11 @@
             @click="carPickerForNewEvent(icar)">
             <i aria-hidden="true" class="ticon-plus_2" />
           </button>
+          <div class="BaseCarsTeam_CarEnterCarPropRQ">{{ Math.round(Math.max(0, 
+            (
+              rqLimit - cars.reduce((ac, b) => ac + ((Vue.all_carsObj[b.rid] || {}).rq || 0), 0)
+            ) / cars.filter(x => !x.rid).length
+          )) }}</div>
         </div>
 
       </div>
@@ -125,6 +131,10 @@ export default {
       type: Boolean,
       default: false
     },
+    isTunz: {
+      type: Boolean,
+      default: false
+    },
     width: {
       type: Number,
       default: 226
@@ -157,6 +167,14 @@ export default {
       type: Number,
       default: 2
     },
+    rqLimit: {
+      type: Number,
+      default: 500
+    },
+    pickFunc: {
+      type: Function,
+      default: null
+    }
   },
   data() {
     return {
@@ -176,6 +194,10 @@ export default {
       this.$emit("changed");
     },
     carPickerForNewEvent(index) {
+      if (this.pickFunc) {
+        this.pickFunc(index);
+        return;
+      }
       this.T_S.$patch((state) => {
         state._g_carPicker.dialogLoad = true;
         state._g_carPicker.filter = JSON.parse(JSON.stringify(this.filterToImport));
@@ -467,5 +489,14 @@ export default {
   height: auto;
   aspect-ratio: var(--aspectF);
   background-size: cover;
+}
+.BaseCarsTeam_CarEnterCarPropRQ {
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: none;
+  color: #fff4;
 }
 </style>

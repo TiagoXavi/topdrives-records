@@ -7,6 +7,7 @@
               `${circuit[type] === true && mode === 'compare' ? 'BaseTrackType_Active ' : '' }`+
               `${isTrackSet && circuit[itype].active ? 'BaseTrackType_Active ' : '' }`"
       class="BaseTrackType_Button BaseTrackType_Item"
+      :role="isButton ? 'button' : undefined"
       :dataid="dataid"
       :dataitype="itype"
       :datatype="type">
@@ -202,6 +203,7 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   margin-top: -5px;
+  pointer-events: none;
 }
 /* .Main_OptionsTrackset .Main_CustomTrackItem:hover .BaseTrackType_Label,
 .Main_OptionsTrackset .Main_CustomTrackItem:focus-within .BaseTrackType_Label {
