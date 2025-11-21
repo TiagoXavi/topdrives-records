@@ -297,6 +297,10 @@ export default {
   m_you: "You",
   m_them: "Them",
   m_exportToMatch: "Export to Match",
+  m_dashboard: "Dashboard",
+  m_opponents: "Opponents",
+  m_times: "Times",
+  m_solution: "Solution | Solutions",
 
 
 
