@@ -16,9 +16,46 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: function (id) {
-          // if (id.includes('node_modules')) {
-          //   return 'vendor';
-          // }
+          let notGroup = [
+            "/components/MainGallery",
+            "/components/MainSwagger",
+            "/components/MainCharts",
+            "/components/MainFindCar",
+            "/components/MainDownTimes",
+            "/components/MainTranslate",
+            "/components/MainNewPhotos",
+            "/components/MainTestPoints",
+            "/components/MainAddNewCars",
+            "/components/MainCheatSheet",
+            "/components/MainCodeUtility",
+            "/components/MainPacks",
+            "/components/MainTimeline",
+            "/components/MainCommunity",
+            "/components/MainStuff",
+            "/components/MainAccelCurveMaker",
+            "/components/MainShowcase",
+            "/components/BaseMyGarage",
+            "/components/MainCsvChart",
+            "/components/MainMatchSimulator",
+            "/components/MainTemplateGuidelines",
+            "/components/MainLogin",
+            "/components/MainRegister",
+            "/components/MainVerifyEmail",
+            "/components/MainResetPassword",
+            "/components/MainAskNewPassword"
+          ];
+
+          const blockedList = notGroup.some(path => id.includes(path));
+
+          if (
+            id.includes('/components') &&
+            !id.includes('MainRT') &&
+            !id.includes('tempJson') &&
+            !id.includes('BaseTyreSvg') &&
+            !blockedList
+          ) {
+            return 'components';
+          }
 
           return null;
         }
