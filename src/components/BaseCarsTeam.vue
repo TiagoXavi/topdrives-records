@@ -32,10 +32,10 @@
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
             :options="true"
-            :hideClose="false"
+            :hideClose="readonly"
             :showResetTune="false"
             :asGallery="true"
-            :draggable="true"
+            :draggable="!readonly"
             :customData="car.customData"
             :selectedTune="isTunz ? (car.tun || car.tunZ) : car.selectedTune"
             :downloadLoading="loading"
@@ -132,6 +132,10 @@ export default {
       default: false
     },
     isTunz: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
       type: Boolean,
       default: false
     },

@@ -210,6 +210,45 @@ const ridsToDownload = watchDebounced([], (obj) => {
 
 
 
+function predictTimes(cars, tracks) {
+  // cars = array of car objects with rid and selectedTune
+  let rids = cars.map(x => x.rid);
+  rids = [...new Set(rids)];
+  rids = rids.map(rid => { return { rid } });
+  
+  let body = {
+    rids: [...new Set(rids)],
+    predictObj: {
+      tracks: tracks,
+      cars: cars
+    },
+  }
+  utils.cacheLoading = true;
+
+  window.axios.post(Vue.preUrl + "/cars", body)
+  .then(res => {
+    rids.map(rid => {
+      cacheCars[rid] = {};
+    })
+    res.data.map(car => {
+      if (car.data) cacheCars[car.rid].data = car.data;
+      if (car.users) cacheCars[car.rid].users = car.users;
+      if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
+    });
+    utils.downloadCount++;
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .then(() => {
+    utils.cacheLoading = false;
+  });
+}
+
+
+
+
+
 export default {
     install(Vue) {
 
@@ -349,13 +388,17 @@ export default {
         Vue.tracks_perc = tracksPerc;
         Vue.debounce = debounce;
         Vue.resolveClass = resolveClass;
+        Vue.predictTimes = predictTimes;
         Vue.resolveCountry = function (country) {
             country = countrys.findIndex(x => x === country);
             return letter[country];
         };
         Vue.resolveStat = function (car, type, customData = null, selectedTune) {
             if (selectedTune && car === Vue.all_carsObj[car.rid] && selectedTune !== "000") {
-                return cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t || "-";
+              if (selectedTune.startsWith("Other")) {
+                return "?";
+              }
+              return cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t || "-";
             }
             if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);

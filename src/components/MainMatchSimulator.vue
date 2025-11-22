@@ -251,6 +251,18 @@
           <span>{{ $t("m_copy") }}</span>
         </button> -->
         <button
+          :disabled="
+            !whatTier || whatTier > 3 ||
+            (
+              T_S._match.cars.every(car => !car.rid || !car.selectedTune) &&
+              T_S._match.oppos.every(car => !car.rid || !car.selectedTune)
+            ) ||
+            T_S._match.event.trackset.every(trackst => trackst.every(trackobj => !trackobj.track))
+          "
+          :class="{ D_Button_Loading: Vue.utils.cacheLoading }"
+          class="D_Button D_ButtonDark D_ButtonTier3"
+          @click="predictTimes()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_predictTimes") }}</button>
+        <button
           class="D_Button D_ButtonDark D_ButtonDark2"
           @click="exportToWorkspace()">{{ $t("m_useTrackList") }}</button>
         <button
@@ -258,6 +270,12 @@
           @click="loadPage(T_S._match.page, { shiftKey: true })">
           <i class="ticon-trash D_ButtonIcon" aria-hidden="true"/>
           <span>{{ $t("m_delete") }}</span>
+        </button>
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="rename()">
+          <i class="ticon-pencil D_ButtonIcon" style="font-size: 16px;" aria-hidden="true"/>
+          <span>{{ $t("m_rename") }}</span>
         </button>
       </div>
 
@@ -445,7 +463,17 @@ export default {
     }
   },
   computed: {
-    ...mapState(tdrStore, ["_match"])
+    ...mapState(tdrStore, ["_match"]),
+    whatTier() {
+      let result = 0;
+      if (!this.$store.state.user) return 0;
+      if (this.$store.state.user.tier) result = this.$store.state.user.tier;
+      if (this.mode === "clubs" && this.$store.state.user.mod && (result > 3 || result === 0)) {
+        result = 3;
+        // this.$store.commit("START_LOGROCKET", {});
+      }
+      return result;
+    },
   },
   methods: {
     timesUpdated() {
@@ -853,6 +881,64 @@ export default {
 
       this.T_S.mainParams = { cars, tracks, filter };
       this.$router.push({ path: "/compare" });
+    },
+    predictTimes() {
+      let cars = [];
+      let tracks = [];
+      for (let X = 0; X < 5; X++) {
+        this._match.event.trackset.map(trckst => {
+          if (trckst[X].track) tracks.push(trckst[X].track);
+        })
+      }
+      tracks = [...new Set(tracks)];
+      for (let X = 0; X < 5; X++) {
+        ["oppos", "cars"].map(key => {
+          let car = this._match[key][X];
+          if (!car.rid) return;
+          cars.push({
+            rid: car.rid,
+            selectedTune: car.selectedTune
+          });
+        })
+      }
+
+      Vue.predictTimes(cars, tracks);
+    },
+    rename() {
+      let vm = this;
+
+      let action = function() {
+        let newName = vm.$store.state.confirmDialog.advanced.text.trim();
+        let obj = vm._match.pages[vm._match.page];
+        obj.name = newName;
+        vm._match.name = newName;
+        vm.saveLocalStorage();
+        vm.$store.commit("DEFINE_DIALOG", {
+          active: false
+        });
+      }
+
+      vm.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: vm.$t("m_rename"),
+        actionLabel: vm.$t("m_done"),
+        cancelLabel: vm.$t("m_cancel"),
+        actionColor: "green",
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        action: action,
+        loading: false,
+        maxWidth: "420px",
+        advanced: {
+          type: "text",
+          text: vm._match.name || "",
+          placeholder: "",
+          typeText: "normal",
+          class: "BaseText_Big",
+        }
+      });
+      
     }
   },
 }
@@ -863,10 +949,10 @@ export default {
   margin-top: 30px;
   padding-bottom: 30px;
 }
-.MainMatchSimulator_Mid .BaseEventTrackbox_BoxRelative:first-child:last-child .BaseEventTrackbox_ClassCheck {
+/* .MainMatchSimulator_Mid .BaseEventTrackbox_BoxRelative:first-child:last-child .BaseEventTrackbox_ClassCheck {
   opacity: 0.2;
   display: none;
-}
+} */
 .MainMatchSimulator_Mid .BaseEventTrackbox_LineInactive {
   /* opacity: 1; */
 }

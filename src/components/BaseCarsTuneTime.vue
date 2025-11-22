@@ -11,6 +11,7 @@
         class="BaseCarsTuneTime_Item">
 
         <BaseCarsTuneSelector
+          v-if="showTune"
           :car="car"
           :mini="Vue.utils.windowWidth < 1200"
           @changed="$emit('changed')"
@@ -60,7 +61,11 @@ export default {
     width: {
       type: Number,
       default: 230
-    }
+    },
+    showTune: {
+      type: Boolean,
+      default: true
+    },
   },
   data() {
     return {

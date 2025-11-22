@@ -1929,7 +1929,18 @@ export default {
   display: none;
 }
 .Row_isTimePredicted {
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 7px, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 14px);
+  /* background-image: repeating-linear-gradient(135deg, transparent, transparent 7px, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 14px); */
+}
+.Row_isTimePredicted .Row_Content {
+  opacity: 0.6;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: line-through;
+}
+.Main_2 .Row_isTimePredicted .Row_Content {
+  font-size: 0.9em;
 }
 
 

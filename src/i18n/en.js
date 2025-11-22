@@ -285,6 +285,7 @@ export default {
   m_duplicates: "Duplicates",
   m_prizeCars: "Prize cars",
   m_neverAwardedCars: "Never awarded cars",
+  m_predictTimes: "Predict times",
   m_predictedTimes: "Predicted times",
   m_global: "Global",
   m_forceCars: "Force cars",
@@ -301,6 +302,7 @@ export default {
   m_opponents: "Opponents",
   m_times: "Times",
   m_solution: "Solution | Solutions",
+  m_rename: "Rename",
 
 
 

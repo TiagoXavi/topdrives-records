@@ -35,7 +35,7 @@
               <button
                 v-else-if="userloaded"
                 style="font-size: 18px;     padding: 9px 9px;"
-                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu Main_BestOfOutside"
+                class="D_Button D_ButtonDark D_ButtonDark2 Main_BestOfOutside"
                 @click="openKingOfDialog()">
                 <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
                 <span>{{ $t("m_bestOf") }}</span>
@@ -211,7 +211,7 @@
             <template slot="more">
               <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <BaseText
-                v-if="user && user.username === 'TiagoXavi'" 
+                v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" 
                 v-model="pasteInputModel"
                 type="normal"
                 placeholder="paste here"
@@ -223,6 +223,7 @@
             <!-- top CHALLENGE -->
             <div v-if="cg.rounds" class="Cg_SelectorLayout">
               <div class="Cg_SelectorLeft">
+                  <!-- :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave" -->
                 <button
                   :disabled="cgCurrentRound === 0 || cgLoadingAny || cgNeedSave"
                   class="D_Button Row_DialogButtonTune"
@@ -245,11 +246,12 @@
                     :disabled="cgLoadingAny || cgNeedSave"
                     class="D_Button Main_ArrowDownSelect"
                     @click="cgRoundSelectorDialog = true;">
-                    <span>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
+                    <span v-if="cgCurrentRound === 'd'">{{ $t("m_dashboard") }}</span>
+                    <span v-else>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
                     <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                   </button>
                 </div>
-                <div v-if="cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
+                <div v-if="cgCurrentRound !== 'd' && cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
                   <template v-if="cgRound.creator">
                     <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                     <span
@@ -260,7 +262,7 @@
                     <span class="Main_ViewsCount">{{ (statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
                   </span>
                 </div>
-                <div class="Cg_CenterBottom">
+                <div v-if="cgCurrentRound !== 'd'" class="Cg_CenterBottom">
                   <div
                     :style="`color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
                     class="Cg_RqText">
@@ -751,23 +753,28 @@
                       <i class="ticon-plus_2" aria-hidden="true"/>
                     </button>
                     <template v-for="(bankCar, index) in race.cars">
+                      <!-- :class="{
+                        Cg_BankButtonLose: bankCar.points <= 0 && race.track && race.car,
+                        Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
+                        Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
+                        Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
+                      }" -->
                       <button
                         v-if="bankCar.points !== $t('m_notime') && bankCar.tune"
                         :disabled="cgLoadingAny"
                         :key="index"
-                        :class="{
-                          Cg_BankButtonLose: bankCar.points <= 0 && race.track && race.car,
-                          Cg_PointsRed: bankCar.points < 0 && race.track && race.car,
-                          Cg_PointsGreen: bankCar.points > 0 && race.track && race.car,
-                          Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
-                        }"
+                        :class="`Cg_Points${bankCar.points} ${ (Vue.all_carsObj[bankCar.rid]?.rq - Vue.all_carsObj[(race.cars[race.carIndex] || {}).rid]?.rq) > (cgRound.rqLimit - cgRound.rqFill) ? 'Cg_YouBankOverRq' : ''} ${race.carIndex === index ? 'Cg_YouBankSelected' : ''} `"
                         class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
                         @click="!cgRound.isPreview && cgBankCarClick(race, index, $event, irace, bankCar);">
-                        <div class="Cg_BankPhoto">
+                        <BaseCardMini
+                          :car="Vue.all_carsObj[bankCar.rid]"
+                          :tuneText="bankCar.tune"
+                        />
+                        <!-- <div class="Cg_BankPhoto">
                           <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
-                        </div>
-                        <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div>
-                        <div class="Cg_BankTune">{{ bankCar.tune }}</div>
+                        </div> -->
+                        <!-- <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div> -->
+                        <div class="Cg_BankTuneNew">{{ bankCar.tune }}</div>
                         <div
                           class="Cg_BankResult">
                           <template v-if="showPointsCg">
@@ -844,6 +851,180 @@
         
 
 
+
+      </div>
+
+      <div v-else-if="cgCurrentRound === 'd' && cg.rounds?.['d']" class="Cg_Mid">
+        <!-- DDASH -->
+
+        <div class="Cg_DashHeader">
+          <div class="Cg_DashHeaderControls">
+            <BaseSwitch v-model="cgDashShowOpponents" name="cgDash_Oppos" :label="$t('m_opponents')" :horizontal="true" />
+            <BaseSwitch v-model="cgDashShowTrackset" name="cgDash_Trackset" :label="$t('m_trackset')" :horizontal="true" />
+            <BaseSwitch v-model="cgDashShowOpponentsTimes" name="cgDash_OpposTimes" :label="$t('m_times')" :horizontal="true" />
+            <BaseMonoSlider
+              v-model="cgDashShowSolutionsCount"
+              :min="0"
+              :max="5"
+              :step="1"
+              :label="$tc('m_solution', 2)"
+            />
+          </div>
+          <!-- Toggle Show Opponents -->
+          <!-- Toggle Show Opponents Times -->
+          <!-- Toggle Show Tracks -->
+          <!-- Toggle Show Solutions Deep (1~5) -->
+          <!-- Rounds complete count -->
+          <!-- Expand controls -->
+          <!-- Calc my garage -->
+        </div>
+
+        <div class="Cg_DashBody">
+          <div v-for="(round, iround) in cg.rounds['d'].rounds" class="Cg_DashItem">
+
+            <div class="Cg_DashItemHeader" :style="`--width: ${windowWidth < 1200 ? 115*5 : 230*5}px;`">
+              <div class="Cg_DashItemRound">{{ $tc("m_round", 1) }} {{ iround+1+cgCurrentRoundSum }}</div>
+              <div v-if="cg.rounds[iround].lastAnalyze" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
+              </div>
+              <div v-else-if="cg.rounds[iround].toApprove && cg.rounds[iround].toApprove.length > 0" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" style="color: unset;" aria-hidden="true"/>
+              </div>
+              <div v-else-if="cg.rounds[iround].preDoneMod" class="Main_RoundDone">
+                <i class="ticon-star Main_RoundDoneIcon" style="color: red;" aria-hidden="true"/>
+              </div>
+              <span class="Cg_RqRq" style="margin-left: 18px;"><i class="tdicon-rq" aria-hidden="true"/></span>
+              <span>{{ cg.rounds[iround].rqLimit }}</span>
+              <span v-if="cg.rounds[iround].creator && cg.rounds[iround].lastAnalyze" class="Main_RoundDoneCreator">
+                <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                <span
+                  :class="`Main_UserT${highlightsUsers[cg.rounds[iround].creator]}`"
+                  class="Main_SearchResultUser Cg_Creator">{{ cg.rounds[iround].creator }}</span>
+              </span>
+              <div class="Cg_DashItemRight"></div>
+            </div>
+
+            <BaseExpandDiv :active="cgDashShowOpponents" class="Cg_DashItemOppos">
+              <!-- Opponents -->
+              <div class="Cg_DashItemOpposMid">
+                <BaseCarsTeam
+                  :cars="round.oppos"
+                  :filterToImport="{}"
+                  :width="226"
+                  :aspect="'415 / 256'"
+                  :fsize="12"
+                  :miniWidth="111"
+                  :miniAspect="'111 / 144'"
+                  :miniFsize="12"
+                  :mini="windowWidth < 1200"
+                  :readonly="true"
+                  :gap="4"
+                  style="--gap: 4px;"
+                  prefix="Dash_Oppo"
+                />
+              </div>
+            </BaseExpandDiv>
+            <BaseExpandDiv :active="cgDashShowTrackset" class="Cg_DashItemTrackset">
+              <!-- Trackset -->
+              <div class="Cg_DashItemOpposMid">
+                <BaseEventTrackbox
+                  :event="round.event"
+                  :eventLoadingAny="false"
+                  :user="{ mod: false }"
+                  :eventForceAnalyze="false"
+                  :eventBestPerTrack="{}"
+                  :showBestPerTrack="false"
+                  :hideCheckBox="true"
+                  :disableCampaignTip="true"
+                  :mini="false"
+                  :miniHeight="false"
+                  :size="windowWidth < 1200 ? 115 : 230"
+                  :readonly="true"
+                  :autoResolve="false"
+                  :animationProp="false"
+                  :showMatchPoints="false"
+                />
+              </div>
+            </BaseExpandDiv>
+            <BaseExpandDiv :active="cgDashShowOpponentsTimes" class="Cg_DashItemTimes">
+              <!-- Times -->
+              <div class="Cg_DashItemOpposMid">
+                <BaseCarsTuneTime
+                  :cars="round.oppos"
+                  :tracks="round.event.trackset[0]"
+                  :width="windowWidth < 1200 ? 115 : 230"
+                  :showTune="false"
+                  @changed="changedAny($event)"
+                  @times="changedAnyDash(iround)"
+                  @cog="cogClick($event, 'oppos')"
+                />
+              </div>
+            </BaseExpandDiv>
+            <BaseExpandDiv :active="cgDashShowSolutionsCount > 0" class="Cg_DashItemSolutions">
+              <!-- Solutions -->
+              <div class="Cg_DashItemSolutionsLayout">
+                <div
+                  v-for="(race, irace) in cg.rounds[iround].races"
+                  class="Cg_DashItemSolutionsColumn"
+                  :style="`--cell-width: ${windowWidth < 1200 ? 115 : 230}px;`">
+
+
+                  <template v-for="(bankCar, index) in race.cars">
+                    <button
+                      v-if="bankCar.points > 0 && index < cgDashShowSolutionsCount"
+                      :disabled="cgLoadingAny"
+                      :key="index"
+                      :class="`Cg_Points${bankCar.points} ${ (Vue.all_carsObj[bankCar.rid]?.rq - Vue.all_carsObj[(race.cars[race.carIndex] || {}).rid]?.rq) > (cgRound.rqLimit - cgRound.rqFill) ? 'Cg_YouBankOverRq' : ''} ${race.carIndex === index ? 'Cg_YouBankSelected' : ''} `"
+                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
+                      @click="eventOpenShowCarDialog(bankCar, {}, 0, 0)">
+                      <BaseCardMini
+                        :car="Vue.all_carsObj[bankCar.rid]"
+                        :tuneText="bankCar.tune"
+                      />
+                      <!-- <div class="Cg_BankPhoto">
+                        <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
+                      </div> -->
+                      <!-- <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div> -->
+                      <div class="Cg_BankTuneNew">{{ bankCar.tune }}</div>
+                      <div
+                        class="Cg_BankResult">
+                        <template v-if="showPointsCg">
+                          <span class="Cg_BankPoints">{{ bankCar.points }}</span>
+                        </template>
+                        <template v-else>
+                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">
+                            <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
+                          <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
+                            <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
+                          <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
+                            <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
+                          </span>
+                        </template>
+                      </div>
+                    </button>
+                  </template>
+
+
+
+                </div>
+              </div>
+            </BaseExpandDiv>
+            <div class="Cg_DashItemSolutions"></div>
+          </div>
+          <!-- compact vision (solution only) -->
+          <!-- (1) only Round and solution from garage, big cards... Support partial filters for T3 users -->
+            <!-- If T3, backend will return the solution with partial filter -->
+          <!-- (2) oppos, times, track + solution 1 line -->
+          <!-- (3) add 8 solutions line as mini cards -->
+          <!-- ignore filter -->
+        </div>
+
+        <div class="Cg_DashFooter"></div>
+
+        <div class="Main_" style="margin-top: 500px">{{ cg.rounds['d'].rounds }}</div>
+        
 
       </div>
 
@@ -1042,7 +1223,7 @@
           </div>
 
           <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-          <div class="Cg_Box" style="margin-top: 15px;">
+          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints }">
             <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
               <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
                 <template v-for="(car, icar) in group">
@@ -1062,33 +1243,36 @@
                     @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
                     @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
                     @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
-                    <div class="Cg_BankPhoto Event_BankPhoto">
+                    <!-- <div class="Cg_BankPhoto Event_BankPhoto">
                       <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
-                    </div>
-                    <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
+                    </div> -->
+                    <BaseCardMini
+                      :car="Vue.all_carsObj[car.rid]"
+                      :tuneText="car.tune"
+                      style="pointer-events: none;"
+                    />
+                    <!-- <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div> -->
                     <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                    <div class="Cg_BankTune">{{ car.tune }}</div>
+                    <div class="Cg_BankTuneNew">{{ car.tune }}</div>
                     <!-- <div class="Cg_BankResult">
                       <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
                     </div> -->
-                    <template v-if="car[eventScoreType] === undefined">
-                      <div v-if="!showPoints || (icar === 0 && eventPointsReference[igroup].icar === undefined) || eventPointsReference[igroup].icar === icar" class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
-                        <span class="">{{ car.timeToPrint }}</span>
-                      </div>
-                      <div
-                        v-else-if="car.points !== undefined && car.points !== null"
-                        :class="{ 
-                          Cg_PointsRed: car.points.v < 0,
-                          Cg_PointsGreen: car.points.v > 0,
-                          Cg_PointsGrey: car.points.v === 0
-                        }"
-                        class="Cg_BankResult Event_BankTime">
-                        <span class="Cg_BankPoints">{{ car.points.v }}</span>
-                      </div>
-                    </template>
-                    <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
-                      <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
+                    <div
+                      v-if="car.points !== undefined"
+                      :class="{ 
+                        Cg_PointsRed: car.points.v < 0,
+                        Cg_PointsGreen: car.points.v > 0,
+                        Cg_PointsGrey: car.points.v === 0
+                      }"
+                      class="Cg_BankPointsNew">
+                      <span class="Cg_BankPoints">{{ car.points.v }}</span>
                     </div>
+                    <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
+                      <span class="">{{ car.timeToPrint }}</span>
+                    </div>
+                    <!-- <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
+                      <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
+                    </div> -->
                     
                   </BaseButtonTouch>
                 </template>
@@ -1482,33 +1666,36 @@
                       @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
                       @contextmenu="isMobile ? $event.preventDefault() : clubTogglePick(car, $event)"
                       @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
-                      <div class="Cg_BankPhoto Event_BankPhoto">
+                      <!-- <div class="Cg_BankPhoto Event_BankPhoto">
                         <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
-                      </div>
-                      <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div>
+                      </div> -->
+                      <BaseCardMini
+                        :car="Vue.all_carsObj[car.rid]"
+                        :tuneText="car.tune"
+                        style="pointer-events: none;"
+                      />
+                      <!-- <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div> -->
                       <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                      <div class="Cg_BankTune">{{ car.tune }}</div>
+                      <div class="Cg_BankTuneNew">{{ car.tune }}</div>
                       <!-- <div class="Cg_BankResult">
                         <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
                       </div> -->
-                      <template v-if="car[clubScoreType] === undefined">
-                        <div v-if="!showPoints || (icar === 0 && clubPointsReference[igroup].icar === undefined) || clubPointsReference[igroup].icar === icar" class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
-                          <span class="">{{ car.timeToPrint }}</span>
-                        </div>
-                        <div
-                          v-else-if="car.points !== undefined && car.points !== null"
-                          :class="{ 
-                            Cg_PointsRed: car.points.v < 0,
-                            Cg_PointsGreen: car.points.v > 0,
-                            Cg_PointsGrey: car.points.v === 0
-                          }"
-                          class="Cg_BankResult Event_BankTime">
-                          <span class="Cg_BankPoints">{{ car.points.v }}</span>
-                        </div>
-                      </template>
-                      <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
-                        <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[clubScoreType] }}</span>
+                      <div
+                        v-if="car.points !== undefined"
+                        :class="{ 
+                          Cg_PointsRed: car.points.v < 0,
+                          Cg_PointsGreen: car.points.v > 0,
+                          Cg_PointsGrey: car.points.v === 0
+                        }"
+                        class="Cg_BankPointsNew">
+                        <span class="Cg_BankPoints">{{ car.points.v }}</span>
                       </div>
+                      <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
+                        <span class="">{{ car.timeToPrint }}</span>
+                      </div>
+                      <!-- <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
+                        <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[clubScoreType] }}</span>
+                      </div> -->
                       
                     </BaseButtonTouch>
                   </template>
@@ -1749,7 +1936,7 @@
       <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
         <div class="Main_TeamsHeader">
           <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.12</div>
+          <div class="Main_TeamsEngineLabel">Engine v1.13</div>
         </div>
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
@@ -1829,6 +2016,7 @@
                 :miniFsize="12"
                 :mini="windowWidth < 1200"
                 :gap="5"
+                :rqLimit="eventBestTeamsTarget.rqLimit"
                 prefix="Your"
               />
             </div>
@@ -1848,6 +2036,7 @@
                 :miniFsize="12"
                 :mini="windowWidth < 1200"
                 :gap="5"
+                :rqLimit="eventBestTeamsTarget.rqLimit"
                 prefix="Oppo"
               />
             </div>
@@ -2720,21 +2909,27 @@
             </button>
           </div>
         </div>
-        <div class="Main_OptionsMain">
+        <div v-if="!needSave && mode === 'compare'" class="Main_OptionsMain">
           <div class="D_Center Main_OptionsFooterButtons">
             <button
-              v-if="mode === 'compare'"
               class="D_Button Main_OptionsButton"
               @click="openLibraryDialog()">
               <i class="ticon-dash D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ $t("m_library") }}</span>
             </button>
             <button
-              v-if="mode === 'compare'"
-              class="D_Button Main_OptionsButton"
+              class="D_Button Main_OptionsButton D_ButtonTier4"
               @click="openKingOfDialog()">
-              <i class="ticon-star D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+              <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ $t("m_bestOf") }}</span>
+            </button>
+            <button
+              v-if="whatTier && whatTier <= 3"
+              :class="{ D_Button_Loading: downloadLoading }"
+              class="D_Button Main_OptionsButton D_ButtonTier3"
+              @click="predictTimes()">
+              <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
+              <span>{{ containPredictedTimes ? $t("m_clear") : $t("m_predictTimes") }}</span>
             </button>
           </div>
         </div>
@@ -2842,6 +3037,17 @@
           <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $tc("m_round", 2) }}</div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
+          <button
+            v-if="false"
+            style="padding-left: 15px; padding-right: 15px; min-height: 40px;"
+            class="Main_SearchItem"
+            @click="loadCgRound(cg.date, 'd')">
+            <div class="Main_SearchItemRight Main_SearchItemDashboard">{{ $t("m_dashboard") }}</div>
+            <div v-if="user && user.hasGarage" class="Main_SearchSub">
+              <i class="ticon-car" style="font-size: 1.2em; margin: 0px 5px 0px 0px;" aria-hidden="true"/>
+              <span>{{ $t("m_myGarage") }}</span>
+            </div>
+          </button>
           <template v-for="(item, index) in cg.rounds">
             <button
               style="padding-left: 15px; padding-right: 15px;"
@@ -3364,6 +3570,8 @@ import BaseCarsTeam from './BaseCarsTeam.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
 import BaseMonoSlider from './BaseMonoSlider.vue'
 import BaseCarList from './BaseCarList.vue'
+import BaseCardMini from './BaseCardMini.vue'
+import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
 import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
 
 import { mapState } from 'pinia';
@@ -3408,7 +3616,9 @@ export default {
     BaseExpandDiv,
     BaseMonoSlider,
     BaseCarList,
-    BaseBlackFridayButton
+    BaseBlackFridayButton,
+    BaseCardMini,
+    BaseCarsTuneTime
   },
   props: {
     phantomCar: {
@@ -3493,6 +3703,7 @@ export default {
         loading: false,
         classe: ""
       },
+      containPredictedTimes: false,
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
@@ -3560,6 +3771,10 @@ export default {
       cgPermanentToggle: true,
       cgLongToggle: true,
       cgJsonDownloadRids: [],
+      cgDashShowOpponents: false,
+      cgDashShowTrackset: true,
+      cgDashShowOpponentsTimes: false,
+      cgDashShowSolutionsCount: 1,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -4108,6 +4323,9 @@ export default {
     this.getLastest();
     this.getStatistics();
     this.user = this.$store.state.user;
+    if (this.user) {
+      this.userloaded = true;
+    }
 
     this.loadQueryParams();
   },
@@ -4433,6 +4651,7 @@ export default {
       if (this.mode !== 'challenges') return false;
       if (!this.user || !this.user.mod) return false;
       if (this.cgNeedSave) return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cgRound) return false;
       if (this.cgNewSubmitByMod) return false;
       if (this.cgNewSubmitByModTemplate) return false;
@@ -4449,6 +4668,7 @@ export default {
       if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (this.user.mod) return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cgRound) return false;
       if (!this.cgRound.lastAnalyze) {
         return true
@@ -4458,6 +4678,7 @@ export default {
       if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (!this.user.mod) return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
       if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
       if (this.cg.rounds[this.cgCurrentRound].creator) return false;
@@ -4466,6 +4687,7 @@ export default {
     },
     isRoundReadyForSaveUser() {
       if (!this.isRoundEmptyForUser) return false;
+      if (this.cgCurrentRound === 'd') return false;
       let ready = true;
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined || race.time === null) ready = false;
@@ -4477,6 +4699,7 @@ export default {
     },
     isRoundComplete() {
       if (this.mode !== 'challenges') return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cgRound) return false;
       if (!this.cgRound.date) return false;
       if (!Array.isArray(this.cgRound.races)) return false;
@@ -4493,6 +4716,7 @@ export default {
       if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (!this.cgRound.date) return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (this.cgRound.lastAnalyze) return false;
       if (this.cgRound.isPreview) return false;
       if (this.cgNewSubmitByMod) return false;
@@ -4510,12 +4734,14 @@ export default {
       if (this.mode !== 'challenges') return false;
       if (!this.user) return false;
       if (!this.user.mod) return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cgRound.date) return false;
       if (this.cgRound.reservedTo === this.user.username) return true;
       if (this.cgRound.lastAnalyze) return true;
     },
     cgBlockDownloadAssets() {
       if (this.mode !== 'challenges') return false;
+      if (this.cgCurrentRound === 'd') return false;
       if (!this.cgRound || !this.cgRound.races) return true;
       let isEmpty = true;
       this.cgRound.races.find(race => {
@@ -5704,22 +5930,24 @@ export default {
       });
 
     },
-    downloadDataCars(forceClassic = false) {
+    downloadDataCars(forceClassic = false, predict = false) {
       this.downloadLoading = true;
       let simplifiedCars = [];
       let origMode = this.mode;
 
       if (this.mode === 'compare' || forceClassic) {
         this.carDetailsList.map(x => {
-          simplifiedCars.push({ rid: x.rid })
+          simplifiedCars.push(x.rid);
         });
       } else if (this.mode === 'challenges') {
         Object.keys(Vue.all_cacheObj).map(rid => {
           if (Vue.all_cacheObj[rid].rid && !Vue.all_cacheObj[rid].data) {
-            simplifiedCars.push({ rid: rid })
+            simplifiedCars.push(rid);
           }
         })
       }
+      simplifiedCars = [...new Set(simplifiedCars)];
+      simplifiedCars = simplifiedCars.map(x => { return { rid: x } });
 
       if (simplifiedCars.length === 0) {
         this.downloadLoading = false;
@@ -5733,11 +5961,30 @@ export default {
       }
 
       let url = Vue.preUrl + "/cars";
-      url = this.finalizeUrl(url); 
+      url = this.finalizeUrl(url);
+
+      if (predict) {
+        let rids = JSON.parse(JSON.stringify(simplifiedCars));
+        simplifiedCars = {
+          rids: rids,
+          predictObj: {
+            tracks: this.currentTracks.map(x => x.code),
+            cars: this.carDetailsList.map(x => {
+              return {
+                rid: x.rid,
+                selectedTune: x.selectedTune
+              }
+            })
+          },
+        }
+      }
 
       axios.post(url, simplifiedCars)
       .then(res => {        
         this.applyNewData(res.data, this.mode === 'challenges', origMode);
+        if (predict) {
+          this.containPredictedTimes = true;
+        }
       })
       .catch(error => {
         console.log(error);
@@ -5808,6 +6055,7 @@ export default {
       });
     },
     applyNewData(newData, isCgInitial = false, origMode) {
+      let needReload = false;
       if (origMode === 'challenges') {
         newData.map(y => {
           if (y.data) Vue.set(Vue.all_cacheObj[y.rid], "data", y.data);
@@ -5819,12 +6067,22 @@ export default {
           newData.map(y => {
             if (x.rid === y.rid) {
               if (y.data && !x.data) Vue.set(x, "data", y.data);
-              if (y.data && x.data) Vue.set(x, "data", window._merge(x.data, y.data));
+              if (y.data && x.data) {
+                Vue.set(x, "data", window._merge(x.data, y.data));
+                needReload = true;
+              }
               if (y.users) Vue.set(x, "users", y.users);
               if (y.reviews) Vue.set(x, "reviews", y.reviews);
             }
           })
         });
+        if (needReload) {
+          this.carDetailsList.splice();
+          this.showCarsFix = false;
+          this.$nextTick().then(() => {
+            this.showCarsFix = true;
+          })
+        }
       }
 
 
@@ -6594,10 +6852,11 @@ export default {
       if (round === undefined) {
         let lastRound = window.localStorage.getItem(`cg_${id}`);
         if (lastRound) {
-          round = Number(lastRound);
+          if (lastRound === "d") round = "d";
+          else round = Number(lastRound);
         }
       }
-      if (isNaN(round)) round = 0;
+      if (isNaN(round) && round !== "d") round = 0;
 
       this.cgSeletorDialog = false;
       this.cgRoundSelectorDialog = false;
@@ -6607,6 +6866,9 @@ export default {
       }
       window.localStorage.setItem(`cg_${id}`, round);
       this.cg = cg;
+      // if (round === "d" && !cg.rounds["d"]) {
+      //   this.cgInitDash(this.cg);
+      // }
 
       this.cgCurrentId = cg.date;
       this.cgCurrentName = cg.name;
@@ -6660,6 +6922,7 @@ export default {
       }
     },
     checkRaceTimesNull() {
+      if (this.cgCurrentRound === 'd') return false;
       this.cgRound.races.map(race => {
         if (race.time !== null) return;
         if (!race.car || !race.car.selectedTune || !race.track) {
@@ -6785,6 +7048,7 @@ export default {
 
     },
     cgResolveRoundCars(download = true, retry = 0) {
+      if (this.cgCurrentRound === "d") return;
       if (this.lastestList.length === 0) {
         if (retry > 20) return;
         console.log("retry", retry);
@@ -7811,12 +8075,16 @@ export default {
     loadPrevRound() {
       this.cgSentForReview = false;
       this.forceShowAnalyse = false;
-      this.loadCgRound(this.cgCurrentId, this.cgCurrentRound-1)
+      // let result = this.cgCurrentRound === 0 ? "d" : this.cgCurrentRound-1;
+      let result = this.cgCurrentRound-1;
+      this.loadCgRound(this.cgCurrentId, result)
     },
     loadNextRound() {
       this.cgSentForReview = false;
       this.forceShowAnalyse = false;
-      this.loadCgRound(this.cgCurrentId, this.cgCurrentRound+1)
+      // let result = this.cgCurrentRound === "d" ? 0 : this.cgCurrentRound+1;
+      let result = this.cgCurrentRound+1;
+      this.loadCgRound(this.cgCurrentId, result)
     },
     cgOpenNewCg() {
       this.cgClearSaveNewCg();
@@ -8642,6 +8910,49 @@ export default {
 
       this.$router.push({ name: "Packs", params: { cars } })
     },
+    cgLoadDash() {
+      if (!this.cg || !this.cg.date) return;
+
+      let id = this.cg.date;
+      this.cgSeletorDialog = false;
+      this.cgRoundSelectorDialog = false;
+      window.localStorage.setItem(`cg_${id}`, "d");
+      this.cgCurrentId = cg.date;
+      this.cgCurrentName = cg.name;
+      this.cgCurrentRound = "d";
+    },
+    cgInitDash() {
+      let obj = {
+        name: "Dashboard",
+        rounds: [],
+        rqLimit: 500,
+        rqFill: 0
+      }
+      this.cg.rounds.map((round, ix) => {
+        let _r = {
+          oppos: round.races.map(race => {
+            let oppo = JSON.parse(JSON.stringify(Vue.all_carsObj[race.rid]));
+            oppo.selectedTune = race.tune;
+            oppo.customData = {};
+            return oppo;
+          }),
+          event: {
+            trackset: [round.races.map(race => { return { track: race.track } })],
+            resolvedTrackset: [round.races.map(race => Vue.resolveTrack({ track: race.track }, false, false))]
+          }
+        };
+        obj.rounds.push(_r);
+      })
+      
+      Vue.set(this.cg.rounds, "d", obj);
+    },
+    changedAnyDash(iround) {
+      this.cg.rounds['d'].rounds[iround].oppos.map(car => {
+        if (car && car.selectedTune) {
+          Vue.set(car, "customData", {});
+        }
+      })
+    },
     generateRandom(maxInt, stringParam) {
       let sum = 0;
       for (let i = 0; i < stringParam.length; i++){
@@ -8673,6 +8984,15 @@ export default {
 
         // filter
         let isTier = this.whatTier && this.whatTier <= 3;
+        if (!this.user) {
+          let lastKnownTier = window.localStorage.getItem("_mdt");
+          if (lastKnownTier) {
+            lastKnownTier = parseInt(lastKnownTier);
+            if (lastKnownTier && lastKnownTier <= 3) {
+              isTier = true;
+            }
+          }
+        }
         this.eventList = this.eventList.filter(x => {
 
           if (x.name.includes("Daily Event")) {
@@ -8991,8 +9311,8 @@ export default {
         let uniqueTracks = [];
         this[key].trackset.map(trackset => uniqueTracks.push(trackset[itrack]));
         uniqueTracks = [...new Set(uniqueTracks)];
-        let minCount = uniqueTracks.length;
 
+        // let minCount = uniqueTracks.length;
         // compilation = compilation.filter(car => car.rq < 80);
         
         // let firstRid = [];
@@ -9004,14 +9324,14 @@ export default {
         // });
         // compilation = compilation.filter((x, ix) => ix < 30);
 
-        compilation.map(car => {
-          this.frontCompleteCar(car);
+        // compilation.map(car => {
+          // this.frontCompleteCar(car);
           // if (car.presentCount.length === 1) {
           //   car.track = car.presentCount[0];
           // } else {
           //   debugger;
           // }
-        })
+        // })
 
         if (this.isEvents) {
           Vue.set(this.event.compilation, itrack, compilation);
@@ -9047,6 +9367,7 @@ export default {
             bestTime = car.time;
             bestTimePure = car.time;
             car.timeToPrint = Vue.options.filters.toTimeString(car.time, this.eventKingTracks[itrack]);
+            car.points = { v: 0 };
           } else {
             car.points = Vue.options.filters.userPoints(bestTimePure, car.time, this.eventKingTracks[itrack]);
             if (car.time === 0) {
@@ -9061,7 +9382,7 @@ export default {
               }
             }
           }
-          this.frontCompleteCar(car);
+          // this.frontCompleteCar(car);
           if (icar === 0) {
             if (this.isEvents && this.eventShowOnlyPicks && this.eventPicksList.length > 0) {
               Vue.set(this.eventBestPerTrack, [this.eventKingTracks[itrack]], car);
@@ -9786,7 +10107,7 @@ export default {
         window.open(url, '_blank');
         return;
       }
-      this.tuneDialogCar = JSON.parse(JSON.stringify(car.car));
+      this.tuneDialogCar = JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid]));
       this.tuneDialogCar.selectedTune = '000';
       this.tuneDialogCarIndex = -1;
       this.tuneDialogisOppo = true;
@@ -10088,7 +10409,9 @@ export default {
         if (found) {
           found.classList.remove("Main_BodyPrint");
         } else {
-          document.querySelector(".Main_Body").classList.add("Main_BodyPrint");
+          let boxName = ".Main_Body";
+          if (this.mode === 'challenges' || this.mode === 'events' || this.mode === 'clubs') boxName = ".Cg_Layout";
+          document.querySelector(boxName).classList.add("Main_BodyPrint");
         }
       }
     },
@@ -10354,6 +10677,28 @@ export default {
         this.kingLoading = false;
         this.downloadLoading = false;
       });
+    },
+    predictTimes() {
+      if (this.containPredictedTimes) {
+        this.carDetailsList.map(car => {
+          if (car.selectedTune && car.data && car.data[car.selectedTune] && car.data[car.selectedTune].times) {
+            Object.keys(car.data[car.selectedTune].times).forEach(trackId => {
+              if (car.data[car.selectedTune].times[trackId].isTimePredicted) {
+                delete car.data[car.selectedTune].times[trackId];
+              }
+            });
+          }
+        });
+        this.containPredictedTimes = false;
+        this.carDetailsList.splice();
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        });
+        return;
+      }
+      this.downloadDataCars(false, true);
+      this.optionsDialogActive = false;
     },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
@@ -11577,7 +11922,10 @@ export default {
     handRankingExportClick(index) {
       let cars = [];
       let oppos = [];
-      let oppoIndex = index===0? 1 : 0;
+      let oppoIndex = index=== 0? 1 : 0;
+
+      this.eventBestTeamsDialog = false;
+
 
       if (this.eventBestTeamsBigArray[index][6]) {
         this.eventBestTeamsBigArray[index][6].map((rid, irid) => {

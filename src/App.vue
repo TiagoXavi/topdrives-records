@@ -393,14 +393,21 @@ export default {
           if (this.user && this.user.mod) {
             window.localStorage.setItem('_md', "t");
           }
+          if (this.user && this.user.tier) {
+            window.localStorage.setItem('_mdt', this.user.tier);
+          } else {
+            window.localStorage.setItem('_mdt', 0);
+          }
 
           LogRocket.identify(res.data.username, {
             email: res.data.email
           });
 
-          if (this.$hj) {
-            this.$hj('vpv', res.data.username)
-          }
+          // if (this.$hj) {
+          //   this.$hj('vpv', res.data.username)
+          // }
+
+          
 
           if (res.data.auth) {
             window.localStorage.setItem('auth', res.data.auth);
@@ -420,6 +427,7 @@ export default {
           this.$store.commit("CHANGE_USER", {
             user: null
           });
+          window.localStorage.setItem('_mdt', 0);
         }
       })
       .catch(error => {
@@ -504,6 +512,14 @@ body {
   --w1: #d1aa3c;
   --w2: #a2bec9;
   --w3: #cf7d29;
+
+  --cS: #FFAF17; 
+  --cA: #8C5CFF; 
+  --cC: #FFF62B; 
+  --cD: #1CCCFF; 
+  --cB: #FF3538; 
+  --cE: #76F273; 
+  --cF: #878787; 
 
   --t0-hs: 0, 0%;
   --t0-l0: 54%;
@@ -1611,6 +1627,23 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   color: var(--t0);
   opacity: 0.5;
 }
+.Main_SearchItemDashboard {
+  
+}
+.Main_SearchSub {
+  display: flex;
+  align-items: center;
+  color: var(--t4);
+  font-size: 0.8em;
+  box-shadow: 0px 0px 0px 6px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  min-height: 19px;
+  margin-left: 15px;
+}
+.Main_SearchSub > * {
+  opacity: 0.8;
+}
 body .Main_UserTmod {
   color: var(--tmod);
 }
@@ -2656,7 +2689,7 @@ body .Main_UserTw3:before {
 .Cg_Box {
   display: grid;
   --cg-width: 230px;
-  --cg-height: 150px;
+  --cg-height: 145px;
   grid-template-columns: repeat(5, var(--cg-width));
   justify-content: center;
   --top-height: 145px;
@@ -2852,10 +2885,21 @@ body .Main_UserTw3:before {
 }
 .D_Button.Cg_BankButton {
   padding-left: 0;
-  padding-right: 0;
+  padding-right: 3px;
   overflow: hidden;
   background-color: rgba(0,0,0,0.0);
   --back-opac: 0.06;
+  border-radius: 6px 6px 6px 3px;
+  will-change: transform;
+}
+.D_Button.Cg_BankButton.Cg_YouBankSelected {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.D_Button.Cg_BankButton.Cg_YouBankOverRq {
+  background-color: rgba(100, 0, 0, 0.2);
+}
+.D_Button.Cg_BankButton.Cg_YouBankSelected.Cg_YouBankOverRq {
+  background-color: rgba(50, 0, 0, 0.4);
 }
 .Cg_BankResult {
   min-width: 55px;
@@ -2870,6 +2914,11 @@ body .Main_UserTw3:before {
 .Cg_BankTune {
   /* margin-right: 9px; */
 }
+.Cg_BankTuneNew,
+.Cg_BankPointsNew {
+  margin-left: 9px;
+}
+.
 .Cg_BankCarName {
   color: var(--d-text);
   font-size: 12px;
@@ -2937,6 +2986,30 @@ body .Main_UserTw3:before {
 .Cg_BankButtonLose {
   opacity: 0.4;
 }
+.Cg_BankButton[class*="Cg_Points-"] {
+  --cor: rgb(var(--d-text-red2));
+  --cor2: #000;
+  --light: var(--d-text-red2);
+  --size: 70px;
+  opacity: 0.4;
+}
+.Cg_BankButton[class*="Cg_Points0"] {
+  --cor: #727272;
+  --cor2: #000;
+  --size: 70px;
+  --opacity: 0;
+  opacity: 0.4;
+}
+.Cg_BankButton:not([class*="Cg_Points0"]):not([class*="Cg_Points-"]) {
+  --cor: rgb(var(--d-text-green));
+  --cor2: #000;
+  --light: var(--d-text-green);
+  --size: 70px;
+}
+
+
+
+
 .Cg_Right {
   /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
   height: var(--top-height);
@@ -3119,6 +3192,34 @@ body .Main_UserTw3:before {
   padding: 3px 6px;
   margin: -5px 0px;
   vertical-align: baseline;
+}
+.Cg_DashItemHeader {
+  display: flex;
+  width: var(--width);
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.Cg_DashItemHeader .Main_RoundDoneCreator {
+  box-shadow: unset;
+  background-color: unset;
+}
+.Cg_DashItemSolutionsLayout {
+  display: flex;
+  justify-content: center;
+}
+.Cg_DashItemSolutionsColumn {
+  width: var(--cell-width);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.Cg_DashItemRound {
+  color: rgb(var(--d-text-yellow));
 }
 
 .Main_CgListDividerLayout {
@@ -4978,13 +5079,18 @@ a:visited:not(.D_Button) {
     --cg-width: 115px;
     --cg-height: 145px;
   }
-  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTuneNew,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankPointsNew,
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune,
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankClass,
   .Main_Layout > *:not(.Main_BodyPrint) .Event_BankClass {
     display: none;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankTune {
     color: var(--cor);
+  }
+  .Main_Layout > *:not(.Main_BodyPrint) .Cg_BankResult {
+    min-width: 37px;
   }
   .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankTune {
     display: none;
@@ -4994,8 +5100,14 @@ a:visited:not(.D_Button) {
     margin-right: 0;
     transform: translateX(-7px);
   }
-  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
+  .Main_Layout > *:not(.Main_BodyPrint) .Event_CompilationBox .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
     font-size: 0.7em;
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankResult:not(.Cg_PointsRed):not(.Cg_PointsGreen):not(.Cg_PointsGrey) {
+    display: none;
+  }
+  .Main_Layout.Main_ShowPoints > *:not(.Main_BodyPrint) .Cg_BankPointsNew {
+    display: block;
   }
   .Main_Layout > *:not(.Main_BodyPrint) .Cg_Divider,
   .MainMatchSimulator_Layout .Cg_Divider {
@@ -5013,6 +5125,11 @@ a:visited:not(.D_Button) {
   }
   .Event_BankClass {
     margin-left: 5px;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .Cg_BankButton .BaseCardMini_FloatsRight {
+    display: none;
   }
 }
 @media only screen and (max-width: 600px) {

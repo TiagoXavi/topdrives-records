@@ -1,17 +1,24 @@
 <template functional>
-  <button
-    class="D_Button D_ButtonDark D_ButtonDark2 BaseCardMini_CarButton"
-    @click="">
-    <div class="BaseCardMini_CarCard" :style="`--color: ${props.car.color}`">
+  <div class="BaseCardMini_CarButton" :class="`BaseCardMini_Car${props.car.class}`">
+    <div class="BaseCardMini_CarCard">
       <div class="BaseCardMini_BankPhoto">
-        <img :src="props.car.photo" class="BaseCardMini_BankPhotoImg" alt="">
+        <img :src="props.car.photo" class="BaseCardMini_BankPhotoImg" alt="" loading="lazy">
       </div>
-      <div class="BaseCardMini_Float">{{ props.car.rq }}</div>
-      <div
-        :class="`BaseCardMini_FloatTune${props.tuneText}`"
-        class="BaseCardMini_Float BaseCardMini_FloatTune">{{ props.tuneText }}</div>
+      <div class="BaseCardMini_Floats">
+        <div class="BaseCardMini_Float">{{ props.car.rq }}</div>
+        <!-- <div :class="`BaseCardMini_FloatTune${props.tuneText}`" class="BaseCardMini_FloatsRight">
+          <div class="BaseCardMini_Float BaseCardMini_FloatTune">{{ props.tuneText }}</div>
+        </div> -->
+        <div :class="`BaseCardMini_FloatTune${props.tuneText}`" class="BaseCardMini_FloatsRight">
+          <div class="BaseCardMini_FloatTuneLine" />
+          <div class="BaseCardMini_FloatTuneLine" />
+          <div class="BaseCardMini_FloatTuneLine" />
+          <div class="BaseCardMini_Float BaseCardMini_FloatTune">{{ props.tuneText }}</div>
+        </div>
+      </div>
+      
     </div>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -27,6 +34,13 @@ export default {
 </script>
 
 <style>
+.BaseCardMini_CarS { --color: var(--cS) }
+.BaseCardMini_CarA { --color: var(--cA) }
+.BaseCardMini_CarC { --color: var(--cC) }
+.BaseCardMini_CarD { --color: var(--cD) }
+.BaseCardMini_CarB { --color: var(--cB) }
+.BaseCardMini_CarE { --color: var(--cE) }
+.BaseCardMini_CarF { --color: var(--cF) }
 .D_Button.BaseCardMini_CarButton {
   padding: 2px;
   font-family: 'Roboto Condensed', sans-serif;
@@ -51,36 +65,68 @@ export default {
   transform-origin: left;
 }
 .BaseCardMini_Float {
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 2px 2px 1px 2px;
+  font-size: 14px;
+  border-radius: 0px 3px;
+  color: var(--color);
+  background-color: #2f2f2f;
+}
+.BaseCardMini_Floats {
   position: absolute;
   bottom: 0;
   left: 0;
   display: flex;
-  color: #000;
-  background-color: var(--color);
-  font-weight: bold;
-  line-height: 1;
-  padding: 2px 2px 0px 2px;
-  font-size: 12px;
-  border-radius: 0px 4px;
+  width: 100%;
 }
-.BaseCardMini_FloatTune {
-  /* bottom: 0; */
-  left: unset;
-  right: 0;
-  border-radius: 4px 0px;
+.BaseCardMini_FloatsRight {
+  display: flex;
+  flex-grow: 1;
+  /* font-size: 12px; */
+  /* justify-content: flex-end; */
+  align-items: end;
+  background-color: #2f2f2f;
+  align-self: end;
+  padding: 3px;
+  gap: 3px;
+}
+/* .BaseCardMini_FloatTune323 {
+  justify-content: center;
 }
 .BaseCardMini_FloatTune332 {
-  left: 0;
-  right: unset;
-  bottom: unset;
-  top: 0;
-  border-radius: 4px 0px;
+  justify-content: flex-start;
+} */
+.BaseCardMini_FloatTune {
+  display: none;
 }
-.BaseCardMini_FloatTune323 {
-  left: unset;
-  right: 0;
-  bottom: unset;
-  top: 0;
-  border-radius: 0px 4px 0px 4px;
+.BaseCardMini_FloatTuneLine {
+  background-color: #5f5f5f;
+  height: 3px;
+  flex-grow: 1;
+}
+.BaseCardMini_FloatTune332 .BaseCardMini_FloatTuneLine:nth-child(1) {
+  background-color: var(--color);
+}
+.BaseCardMini_FloatTune323 .BaseCardMini_FloatTuneLine:nth-child(2) {
+  background-color: var(--color);
+}
+.BaseCardMini_FloatTune233 .BaseCardMini_FloatTuneLine:nth-child(3) {
+  background-color: var(--color);
+}
+.BaseCardMini_CarF .BaseCardMini_FloatTuneLine {
+  --color: #ddd;
+}
+.BaseCardMini_FloatsRight:not(.BaseCardMini_FloatTune332):not(.BaseCardMini_FloatTune323):not(.BaseCardMini_FloatTune233) .BaseCardMini_FloatTuneLine {
+  display: none;
+}
+.BaseCardMini_FloatsRight:not(.BaseCardMini_FloatTune332):not(.BaseCardMini_FloatTune323):not(.BaseCardMini_FloatTune233) {
+  padding: 0;
+  background-color: transparent;
+  justify-content: flex-end;
+}
+.BaseCardMini_FloatsRight:not(.BaseCardMini_FloatTune332):not(.BaseCardMini_FloatTune323):not(.BaseCardMini_FloatTune233) .BaseCardMini_FloatTune {
+  display: flex;
+  border-radius: 3px 0px;
 }
 </style>

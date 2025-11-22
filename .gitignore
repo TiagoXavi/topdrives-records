@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/dist2
 matchmake/
 hutch/
 */imgs
@@ -13,6 +14,7 @@ db.json
 rude_all.json
 *.ini
 hutch_*
+tempJson.json
 
 
 # local env files
