@@ -2014,20 +2014,6 @@ body .Main_UserTw3:before {
   justify-content: center;
   align-items: center;
 }
-.Main_ClassChip {
-  font-size: 1.2em;
-  transform: skewY(9deg);
-  font-weight: bold;
-  box-shadow: 0px 4px 0px -0.1px var(--classC);
-}
-.BaseChip.Main_ClassChip:hover,
-.BaseChip.Main_ClassChip.focus-visible {
-  box-shadow: 0px 0px 0px 4px var(--classC);
-}
-.Main_ClassChipActive {
-  background-color: var(--classC);
-  color: black;
-}
 .Main_SectionSelectorLayout {
   margin-bottom: 25px;
 }
