@@ -39,7 +39,8 @@
             :customData="car.customData"
             :selectedTune="isTunz ? (car.tun || car.tunZ) : car.selectedTune"
             :downloadLoading="loading"
-            :cgOppo="isTunz ? true : false"
+            :cgOppo="isTunz || showTune ? true : false"
+            @cog="$emit('cog', icar)"
             @dragdown="dragMouseDown($event, icar)"
             @delete="carPickerClearIndex(icar)"
           />
@@ -56,16 +57,22 @@
         </div>
         <div v-else class="BaseCarsTeam_EnterCarEmpty BaseCarsTeam_CarInner BaseCard_AsGalleryBox">
           <button
+            v-if="!readonly"
             class="D_Button D_ButtonDark BaseCarsTeam_TeamsAddCarButton add"
             @click="carPickerForNewEvent(icar)">
             <i aria-hidden="true" class="ticon-plus_2" />
           </button>
+          <div v-else class="BaseCarsTeam_EnterCarEmpty BaseCarsTeam_CarInner BaseCard_AsGalleryBox">
+            <div class="BaseCarsTeam_AddNotAllowed BaseCarsTeam_TeamsAddCarButton" />
+          </div>
+          
           <div class="BaseCarsTeam_CarEnterCarPropRQ">{{ Math.round(Math.max(0, 
             (
               rqLimit - cars.reduce((ac, b) => ac + ((Vue.all_carsObj[b.rid] || {}).rq || 0), 0)
             ) / cars.filter(x => !x.rid).length
           )) }}</div>
         </div>
+        
 
       </div>
     </div>
@@ -136,6 +143,10 @@ export default {
       default: false
     },
     readonly: {
+      type: Boolean,
+      default: false
+    },
+    showTune: {
       type: Boolean,
       default: false
     },
@@ -502,5 +513,13 @@ export default {
   line-height: 1;
   pointer-events: none;
   color: #fff4;
+}
+.BaseCarsTeam_AddNotAllowed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px);
+  border-radius: 7px;
 }
 </style>

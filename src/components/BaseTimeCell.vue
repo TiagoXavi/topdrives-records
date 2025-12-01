@@ -33,6 +33,10 @@ export default {
     selectedTune: {},
     track: {},
     count: {},
+    onlyDownloadFull: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -45,7 +49,10 @@ export default {
   computed: {
     time() {
       this.count;
-      return Vue.timeCell(this.rid, this.selectedTune, (this.track || {}).track)
+      return Vue.timeCell(this.rid, this.selectedTune, (this.track || {}).track);
+      // let res = Vue.timeCell(this.rid, this.selectedTune, (this.track || {}).track);
+      // console.log(this.rid, res);
+      // return res;
     }
   },
   methods: {},
@@ -53,9 +60,9 @@ export default {
 </script>
 
 <style>
-div:first-child > .BaseTimeCell_Layout {
+/* div:first-child > .BaseTimeCell_Layout {
   box-shadow: inset 2px 2px 0px 0px #ffffff07;
-}
+} */
 .BaseCarsTuneTime_Item {
   width: var(--cell-width);
   text-align: center;

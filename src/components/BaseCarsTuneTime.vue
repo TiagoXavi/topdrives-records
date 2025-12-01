@@ -23,6 +23,7 @@
           :selectedTune="car.selectedTune"
           :track="tracks[icar]"
           :count="count"
+          :onlyDownloadFull="onlyDownloadFull"
         />
 
         <!-- <div class="BaseCarsTuneTime_">{{ car.rid }}</div>
@@ -66,6 +67,10 @@ export default {
       type: Boolean,
       default: true
     },
+    onlyDownloadFull: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -93,5 +98,8 @@ export default {
   display: flex;
   gap: var(--gap);
   justify-content: center;
+  width: calc(var(--cell-width) * 5);
+  margin: 0 auto;
+  box-shadow: inset 2px 2px 0px 0px #ffffff07;
 }
 </style>

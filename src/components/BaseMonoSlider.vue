@@ -83,7 +83,11 @@ export default {
     logarithm: {
       type: Boolean,
       default: false
-    }
+    },
+    name: {
+      type: String,
+      required: false
+    },
   },
   data() {
     return {
@@ -100,6 +104,13 @@ export default {
   },
   beforeMount() {
     this.internal1 = this.value;
+    if (this.name) {
+      let value = window.localStorage.getItem(this.name);
+      if (value) {
+        value = JSON.parse(value);
+        this.$emit('change', Number(value));
+      }
+    }
   }, 
   mounted() {},
   computed: {
@@ -137,6 +148,12 @@ export default {
     },
     changed(e, b) {
       this.$emit("change", Number(this.internal1));
+      if (this.name) {
+        let vm = this;
+        setTimeout(() => {
+          window.localStorage.setItem(vm.name, vm.internal1);
+        }, 10);
+      }
     }
   },
 }

@@ -57,6 +57,11 @@ const utils = Vue.observable({
     altKey: false,
     windowWidth: 0
 });
+const garageByRid = {};
+const garageObj = Vue.observable({
+  loading: false,
+  loaded: false
+});
 
 let limit = all_cars.length; // 5700 items
 for (let Z = 0; Z < limit; Z++) {
@@ -173,38 +178,44 @@ function watchDebounced(array, callback, delay) {
 let lastRidsString;
 
 function downloadCars() {
-    if (!ridsToDownload.length) return;
-    let rids = [...new Set(ridsToDownload)];
-    ridsToDownload.splice(0, ridsToDownload.length);
-    if (JSON.stringify(rids) === lastRidsString) return; // avoid ddos
-    lastRidsString = JSON.stringify(rids);
-    utils.cacheLoading = true;
+  if (!ridsToDownload.length) return;
+  let rids = [...new Set(ridsToDownload)];
+  ridsToDownload.splice(0, ridsToDownload.length);
+  if (JSON.stringify(rids) === lastRidsString) return; // avoid ddos
+  lastRidsString = JSON.stringify(rids);
+  utils.cacheLoading = true;
 
-    window.axios.post(Vue.preUrl + "/cars", rids.map(x => { return { rid: x } }))
-    .then(res => {
-        rids.map(rid => {
-            cacheCars[rid] = {};
+  window.axios.post(Vue.preUrl + "/cars", rids.map(x => { return { rid: x } }))
+  .then(res => {
+    rids.map(rid => {
+      if (!cacheCars[rid]) cacheCars[rid] = {};
+      cacheCars[rid].isDownloaded = true;
+    })
+    res.data.map(car => {
+      if (car.data) {
+        if (!cacheCars[car.rid].data) cacheCars[car.rid].data = {};
+        Object.keys(car.data).map(tune => {
+          cacheCars[car.rid].data[tune] = car.data[tune];
         })
-        res.data.map(car => {
-            if (car.data) cacheCars[car.rid].data = car.data;
-            if (car.users) cacheCars[car.rid].users = car.users;
-            if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
-        });
-        utils.downloadCount++;
-    })
-    .catch(error => {
-        console.log(error);
-    })
-    .then(() => {
-        utils.cacheLoading = false;
+      }
+      if (car.users) cacheCars[car.rid].users = car.users;
+      if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
     });
+    utils.downloadCount++;
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .then(() => {
+    utils.cacheLoading = false;
+  });
 }
 
 
 const ridsToDownload = watchDebounced([], (obj) => {
   // console.log('Array has stopped changing. Final state:', obj);
   downloadCars();
-}, 10);
+}, 100);
 
 
 
@@ -228,10 +239,16 @@ function predictTimes(cars, tracks) {
   window.axios.post(Vue.preUrl + "/cars", body)
   .then(res => {
     rids.map(rid => {
-      cacheCars[rid] = {};
+      if (!cacheCars[rid]) cacheCars[rid] = {};
+      cacheCars[rid].isDownloaded = true;
     })
     res.data.map(car => {
-      if (car.data) cacheCars[car.rid].data = car.data;
+      if (car.data) {
+        if (!cacheCars[car.rid].data) cacheCars[car.rid].data = {};
+        Object.keys(car.data).map(tune => {
+          cacheCars[car.rid].data[tune] = car.data[tune];
+        })
+      }
       if (car.users) cacheCars[car.rid].users = car.users;
       if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
     });
@@ -248,9 +265,85 @@ function predictTimes(cars, tracks) {
 
 
 
+function loadGarage(username) {
+  if (garageObj.loaded) return;
+  garageObj.loading = true;
+  window.axios.post(Vue.preUrl + "/getGarage", {
+    username: username
+  })
+  .then(res => {
+    if (res.data.value.playerDeck) {
+      resolveGarageRes(res.data);
+    }
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .then(() => {
+    garageObj.loading = false;
+    garageObj.loaded = true;
+  });
+}
+
+
+// data.value.playerDeck // [] 
+// [{
+//   "cardRecordId": "000c23cc",
+//   "rid": "Cadillac_XLR_roadster_2004",
+//   "date": "2018-06-24T05:00Z",
+//   "tunZ": "996",
+//   "cW": 523,
+//   "cL": 230,
+//   "cD": 4,
+//   "tun": "332"
+// }]
+function resolveGarageRes(data) {
+  let car;
+  for (let Z = 0; Z < data.value.playerDeck.length; Z++) {
+    car = data.value.playerDeck[Z];
+    if (!garageByRid[car.rid]) garageByRid[car.rid] = [];
+    garageByRid[car.rid].push({
+      cardRecordId: car.cardRecordId,
+      tunZ: car.tunZ,
+      tun: car.tun
+    });
+  }
+}
+
+
+
+
 
 export default {
     install(Vue) {
+
+        Vue.ridByGuid = guidToRid;
+        Vue.all_carsArr = all_cars;
+        Vue.all_cacheObj = cacheCars;
+        Vue.all_carsObj = resolvedRids;
+        Vue.resolveTracksetGroup = resolveTracksetGroup;
+        Vue.resolveTrack = resolveTrack;
+        Vue.utils = utils;
+        Vue.prettyPrintArray = prettyPrintArray;
+        Vue.tracks_perc = tracksPerc;
+        Vue.debounce = debounce;
+        Vue.resolveClass = resolveClass;
+        Vue.predictTimes = predictTimes;
+        Vue.garageByRid = garageByRid;
+        Vue.garageObj = garageObj;
+        Vue.loadGarage = loadGarage;
+
+        Vue.carByRid = function (rid) {
+          return resolvedRids[rid];
+        };
+        Vue.cacheByRid = function (rid) {
+          return cacheCars[rid];
+        };
+
+        Vue.resolveCountry = function (country) {
+          country = countrys.findIndex(x => x === country);
+          return letter[country];
+        };
 
         Vue.toTimeString = function(input, id) {
           if (input === null || input === undefined || input === "") return "";
@@ -369,30 +462,7 @@ export default {
         Vue.clearNumber = function(input) {
           return Number((input).toFixed(2));
         };
-
-
-        Vue.carByRid = function (rid) {
-            return resolvedRids[rid];
-        };
-        Vue.cacheByRid = function (rid) {
-            return cacheCars[rid];
-        };
-        Vue.ridByGuid = guidToRid;
-        Vue.all_carsArr = all_cars;
-        Vue.all_cacheObj = cacheCars;
-        Vue.all_carsObj = resolvedRids;
-        Vue.resolveTracksetGroup = resolveTracksetGroup;
-        Vue.resolveTrack = resolveTrack;
-        Vue.utils = utils;
-        Vue.prettyPrintArray = prettyPrintArray;
-        Vue.tracks_perc = tracksPerc;
-        Vue.debounce = debounce;
-        Vue.resolveClass = resolveClass;
-        Vue.predictTimes = predictTimes;
-        Vue.resolveCountry = function (country) {
-            country = countrys.findIndex(x => x === country);
-            return letter[country];
-        };
+        
         Vue.resolveStat = function (car, type, customData = null, selectedTune) {
             if (selectedTune && car === Vue.all_carsObj[car.rid] && selectedTune !== "000") {
               if (selectedTune.startsWith("Other")) {
@@ -818,24 +888,67 @@ export default {
             return highlightsUsers;
         };
         Vue.timeCell = function (rid, tune, track, key="times") {
-            // console.log("timeCell", rid);
             if (!rid) return "!rid";
-            if (!cacheCars[rid]) {
-                ridsToDownload.push(rid);
-                return "!data";
+            if (
+              !cacheCars[rid] ||
+              (
+                !cacheCars[rid].isDownloaded &&
+                (
+                  !cacheCars[rid].data ||
+                  !cacheCars[rid].data[tune] ||
+                  !cacheCars[rid].data[tune][key] ||
+                  !cacheCars[rid].data[tune][key][track]
+                )
+              )
+            ) {
+              ridsToDownload.push(rid);
+              return "!data";
             }
             if (!tune) return "!tune";
             if (!track) return "!track";
             
 
             if (
-                !cacheCars[rid].data ||
-                !cacheCars[rid].data[tune] ||
-                !cacheCars[rid].data[tune][key] ||
-                !cacheCars[rid].data[tune][key][track]
+              !cacheCars[rid].data ||
+              !cacheCars[rid].data[tune] ||
+              !cacheCars[rid].data[tune][key] ||
+              !cacheCars[rid].data[tune][key][track]
             ) return "!time";
 
             return cacheCars[rid].data[tune][key][track];
+        };
+        Vue.importDumbTimesFromCg = function (cg) {
+          if (!cg && !cg.rounds) return;
+          let tunes = ["332", "323", "233"];
+          cg.rounds.map(round => {
+            round.races.map(race => {
+              if (!(race.time ?? false)) return;
+              if (Vue.isRidDownloaded(race.rid)) return;
+              // if (race.time ?? false) {
+              // }
+              let isDumb = true;
+              let isAS = resolvedRids[race.rid]?.rq > 79;
+              if (tunes.includes(race.tune)) isDumb = false;
+              if (isAS && race.tune === "111") isDumb = false;
+              if (!isDumb) return;
+  
+              if (!cacheCars[race.rid]) cacheCars[race.rid] = {};
+              if (!cacheCars[race.rid].data) cacheCars[race.rid].data = {};
+              if (!cacheCars[race.rid].data[race.tune]) cacheCars[race.rid].data[race.tune] = {};
+              if (!cacheCars[race.rid].data[race.tune].times) cacheCars[race.rid].data[race.tune].times = {};
+              cacheCars[race.rid].data[race.tune].times[race.track] = {
+                t: race.time,
+                isDumb: true
+              }
+            })
+          })
+          console.log("importDumbTimesFromCg", cacheCars);
+
+        };
+        Vue.isRidDownloaded = function (rid) {
+          if (!cacheCars[rid]) return false;
+          if (cacheCars[rid].isDownloaded) return true;
+          return false;
         };
 
 

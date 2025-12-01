@@ -6,7 +6,7 @@
     class="BaseCarsPoints_Layout">
     <div class="BaseCarsPoints_Box">
       <div
-        v-for="(point, i) in points"
+        v-for="(point, i) in pointsF"
         :key="i"
         :class="{
           Cg_PointsRed: point < 0 && typeof point === 'number',
@@ -37,6 +37,10 @@ export default {
     width: {},
     match: {},
     points: {},
+    pointsAuto: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -47,8 +51,12 @@ export default {
   beforeMount() {},
   mounted() {},
   computed: {
-    points2() {
-      return [];
+    pointsF() {
+      if (!this.pointsAuto) return this.points;
+      if (!Array.isArray(this.cars)) return [];
+      this.cars[0]?.customData;
+
+      
       return this.cars.map((_,i) => {
         if (!this.cars[i]) return null;
         if (!this.cars[i].selectedTune) return null;
@@ -62,10 +70,6 @@ export default {
           (Vue.timeCell(this.oppos[i].rid, this.oppos[i].selectedTune, this.tracks[i].track) || {}).t,
           this.tracks[i].track
         ) || {}).v
-
-        if (this.match && this.match.points) {
-          Vue.set(this.match.points, i, pointsYou);
-        }
 
         return pointsYou;
 

@@ -302,7 +302,9 @@ export default {
   m_opponents: "Opponents",
   m_times: "Times",
   m_solution: "Solution | Solutions",
+  m_bestSolution: "Best solution",
   m_rename: "Rename",
+  m_noSolutions: "No solutions",
 
 
 

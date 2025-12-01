@@ -854,176 +854,258 @@
 
       </div>
 
-      <div v-else-if="cgCurrentRound === 'd' && cg.rounds?.['d']" class="Cg_Mid">
+      <div v-else-if="cgCurrentRound === 'd' && cg.rounds?.['d']" class="Cg_Mid" :style="`--cell-width: ${windowWidth < 1200 ? 115 : 230}px;`">
         <!-- DDASH -->
+        <!-- {{ cgDashShowSolutionsCount }} {{ typeof cgDashShowSolutionsCount }} -->
 
         <div class="Cg_DashHeader">
           <div class="Cg_DashHeaderControls">
-            <BaseSwitch v-model="cgDashShowOpponents" name="cgDash_Oppos" :label="$t('m_opponents')" :horizontal="true" />
-            <BaseSwitch v-model="cgDashShowTrackset" name="cgDash_Trackset" :label="$t('m_trackset')" :horizontal="true" />
-            <BaseSwitch v-model="cgDashShowOpponentsTimes" name="cgDash_OpposTimes" :label="$t('m_times')" :horizontal="true" />
-            <BaseMonoSlider
+            <button
+              v-if="!Vue.garageObj.loaded"
+              :class="{ D_Button_Loading: Vue.garageObj.loading }"
+              class="D_Button D_ButtonDark D_ButtonTier4"
+              @click="cgDashToggleMyGarage()"><i class="ticon-car D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_myGarage") }}</button>
+            <BaseSwitch v-if="Vue.garageObj.loaded" :value="cgDashUseMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="false" @change="cgDashToggleMyGarage($event)" />
+            <BaseSwitch v-model="cgDashShowOpponents" name="cgDashShowOpponents" :label="$t('m_opponents')" :horizontal="false" />
+            <BaseSwitch v-model="cgDashShowTrackset" name="cgDashShowTrackset" :label="$t('m_trackset')" :horizontal="false" />
+            <BaseSwitch v-model="cgDashShowOpponentsTimes" name="cgDashShowOpponentsTimes" :label="$t('m_times')" :horizontal="false" />
+            <BaseSwitch v-model="cgDashShowBestSolution" name="cgDashShowBestSolution" :label="$t('m_bestSolution')" :horizontal="false" />
+            <BaseSelectNew v-model="cgDashShowSolutionsCount" :list="[0, 1, 2, 3, 4, 5, 6, 7, 8]" :label="$tc('m_solution', 2)" name="cgDashShowSolutionsCount" class="D_ButtonDark4" />
+
+            
+            <!-- <BaseMonoSlider
               v-model="cgDashShowSolutionsCount"
+              style="min-width: 250px;"
               :min="0"
-              :max="5"
+              :max="8"
               :step="1"
               :label="$tc('m_solution', 2)"
-            />
+              name="cgDashShowSolutionsCount"
+            /> -->
           </div>
-          <!-- Toggle Show Opponents -->
-          <!-- Toggle Show Opponents Times -->
-          <!-- Toggle Show Tracks -->
-          <!-- Toggle Show Solutions Deep (1~5) -->
           <!-- Rounds complete count -->
-          <!-- Expand controls -->
           <!-- Calc my garage -->
         </div>
 
         <div class="Cg_DashBody">
-          <div v-for="(round, iround) in cg.rounds['d'].rounds" class="Cg_DashItem">
+          <!-- <template v-for="(round, iround) in cg.rounds['d'].rounds" >
+          </template> -->
+          <!-- <div>{{ cgDashItemHeight }}</div>
+          <div>{{ cgSolutionsHeight }}</div> -->
 
-            <div class="Cg_DashItemHeader" :style="`--width: ${windowWidth < 1200 ? 115*5 : 230*5}px;`">
-              <div class="Cg_DashItemRound">{{ $tc("m_round", 1) }} {{ iround+1+cgCurrentRoundSum }}</div>
-              <div v-if="cg.rounds[iround].lastAnalyze" class="Main_RoundDone">
-                <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
-              </div>
-              <div v-else-if="cg.rounds[iround].toApprove && cg.rounds[iround].toApprove.length > 0" class="Main_RoundDone">
-                <i class="ticon-star Main_RoundDoneIcon" style="color: unset;" aria-hidden="true"/>
-              </div>
-              <div v-else-if="cg.rounds[iround].preDoneMod" class="Main_RoundDone">
-                <i class="ticon-star Main_RoundDoneIcon" style="color: red;" aria-hidden="true"/>
-              </div>
-              <span class="Cg_RqRq" style="margin-left: 18px;"><i class="tdicon-rq" aria-hidden="true"/></span>
-              <span>{{ cg.rounds[iround].rqLimit }}</span>
-              <span v-if="cg.rounds[iround].creator && cg.rounds[iround].lastAnalyze" class="Main_RoundDoneCreator">
-                <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-                <span
-                  :class="`Main_UserT${highlightsUsers[cg.rounds[iround].creator]}`"
-                  class="Main_SearchResultUser Cg_Creator">{{ cg.rounds[iround].creator }}</span>
-              </span>
-              <div class="Cg_DashItemRight"></div>
-            </div>
+          <RecycleScroller
+            :items="cg.rounds['d'].rounds"
+            :item-size="cgDashItemHeight"
+            :buffer="400"
+            key-field="key"
+            listClass="Cg_DashWrapper"
+            itemClass="Cg_DashScrollerItem"
+            class="Main_DarkScroll"
+            page-mode>
+            <template v-slot="{ item, index, active }">
+              <div v-if="cg.rounds[index]" class="Cg_DashItem">
 
-            <BaseExpandDiv :active="cgDashShowOpponents" class="Cg_DashItemOppos">
-              <!-- Opponents -->
-              <div class="Cg_DashItemOpposMid">
-                <BaseCarsTeam
-                  :cars="round.oppos"
-                  :filterToImport="{}"
-                  :width="226"
-                  :aspect="'415 / 256'"
-                  :fsize="12"
-                  :miniWidth="111"
-                  :miniAspect="'111 / 144'"
-                  :miniFsize="12"
-                  :mini="windowWidth < 1200"
-                  :readonly="true"
-                  :gap="4"
-                  style="--gap: 4px;"
-                  prefix="Dash_Oppo"
-                />
-              </div>
-            </BaseExpandDiv>
-            <BaseExpandDiv :active="cgDashShowTrackset" class="Cg_DashItemTrackset">
-              <!-- Trackset -->
-              <div class="Cg_DashItemOpposMid">
-                <BaseEventTrackbox
-                  :event="round.event"
-                  :eventLoadingAny="false"
-                  :user="{ mod: false }"
-                  :eventForceAnalyze="false"
-                  :eventBestPerTrack="{}"
-                  :showBestPerTrack="false"
-                  :hideCheckBox="true"
-                  :disableCampaignTip="true"
-                  :mini="false"
-                  :miniHeight="false"
-                  :size="windowWidth < 1200 ? 115 : 230"
-                  :readonly="true"
-                  :autoResolve="false"
-                  :animationProp="false"
-                  :showMatchPoints="false"
-                />
-              </div>
-            </BaseExpandDiv>
-            <BaseExpandDiv :active="cgDashShowOpponentsTimes" class="Cg_DashItemTimes">
-              <!-- Times -->
-              <div class="Cg_DashItemOpposMid">
-                <BaseCarsTuneTime
-                  :cars="round.oppos"
-                  :tracks="round.event.trackset[0]"
-                  :width="windowWidth < 1200 ? 115 : 230"
-                  :showTune="false"
-                  @changed="changedAny($event)"
-                  @times="changedAnyDash(iround)"
-                  @cog="cogClick($event, 'oppos')"
-                />
-              </div>
-            </BaseExpandDiv>
-            <BaseExpandDiv :active="cgDashShowSolutionsCount > 0" class="Cg_DashItemSolutions">
-              <!-- Solutions -->
-              <div class="Cg_DashItemSolutionsLayout">
-                <div
-                  v-for="(race, irace) in cg.rounds[iround].races"
-                  class="Cg_DashItemSolutionsColumn"
-                  :style="`--cell-width: ${windowWidth < 1200 ? 115 : 230}px;`">
-
-
-                  <template v-for="(bankCar, index) in race.cars">
-                    <button
-                      v-if="bankCar.points > 0 && index < cgDashShowSolutionsCount"
-                      :disabled="cgLoadingAny"
-                      :key="index"
-                      :class="`Cg_Points${bankCar.points} ${ (Vue.all_carsObj[bankCar.rid]?.rq - Vue.all_carsObj[(race.cars[race.carIndex] || {}).rid]?.rq) > (cgRound.rqLimit - cgRound.rqFill) ? 'Cg_YouBankOverRq' : ''} ${race.carIndex === index ? 'Cg_YouBankSelected' : ''} `"
-                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
-                      @click="eventOpenShowCarDialog(bankCar, {}, 0, 0)">
-                      <BaseCardMini
-                        :car="Vue.all_carsObj[bankCar.rid]"
-                        :tuneText="bankCar.tune"
-                      />
-                      <!-- <div class="Cg_BankPhoto">
-                        <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
-                      </div> -->
-                      <!-- <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div> -->
-                      <div class="Cg_BankTuneNew">{{ bankCar.tune }}</div>
-                      <div
-                        class="Cg_BankResult">
-                        <template v-if="showPointsCg">
-                          <span class="Cg_BankPoints">{{ bankCar.points }}</span>
-                        </template>
-                        <template v-else>
-                          <span v-if="bankCar.points === 0" class="Cg_BankPoints">
-                            <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                          <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
-                            <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                          <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
-                            <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-                          </span>
-                        </template>
-                      </div>
-                    </button>
-                  </template>
-
-
-
+                <div class="Cg_DashItemHeader" :style="`--width: ${windowWidth < 1200 ? 115*5 : 230*5}px;`">
+                  <div class="Cg_DashItemRound">{{ $tc("m_round", 1) }} {{ index+1+cgCurrentRoundSum }}</div>
+                  <div v-if="cg.rounds[index].lastAnalyze" class="Main_RoundDone">
+                    <i class="ticon-star Main_RoundDoneIcon" aria-hidden="true"/>
+                  </div>
+                  <div v-else-if="cg.rounds[index].toApprove && cg.rounds[index].toApprove.length > 0" class="Main_RoundDone">
+                    <i class="ticon-star Main_RoundDoneIcon" style="color: unset;" aria-hidden="true"/>
+                  </div>
+                  <div v-else-if="cg.rounds[index].preDoneMod" class="Main_RoundDone">
+                    <i class="ticon-star Main_RoundDoneIcon" style="color: red;" aria-hidden="true"/>
+                  </div>
+                  <span :style="`display: contents; color: ${ (cgDashShowBestSolution ? item.bestSolutionRqSum : item.solutionsRqSum) > cg.rounds[index].rqLimit ? '#a90000' : '' }`">
+                    <span class="Cg_RqRq" style="margin-left: 18px;"><i class="tdicon-rq" aria-hidden="true"/></span>
+                    <span>{{ (cgDashShowBestSolution ? item.bestSolutionRqSum : item.solutionsRqSum) }}</span>
+                    <span>/</span>
+                    <span>{{ cg.rounds[index].rqLimit }}</span>
+                  </span>
+                  <span v-if="cg.rounds[index].creator && cg.rounds[index].lastAnalyze" class="Main_RoundDoneCreator">
+                    <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                    <span
+                      :class="`Main_UserT${highlightsUsers[cg.rounds[index].creator]}`"
+                      class="Main_SearchResultUser Cg_Creator">{{ cg.rounds[index].creator }}</span>
+                  </span>
+                  <div class="Cg_DashItemRight"></div>
                 </div>
+
+                <BaseExpandDiv :active="cgDashShowOpponents" class="Cg_DashItemOppos">
+                  <!-- Opponents -->
+                  <div class="Cg_DashItemOpposMid">
+                    <BaseCarsTeam
+                      :cars="item.oppos"
+                      :filterToImport="{}"
+                      :width="226"
+                      :aspect="'415 / 256'"
+                      :fsize="12"
+                      :miniWidth="111"
+                      :miniAspect="'111 / 144'"
+                      :miniFsize="12"
+                      :mini="windowWidth < 1200"
+                      :readonly="true"
+                      :gap="4"
+                      :showTune="true"
+                      :loading="Vue.utils.cacheLoading"
+                      :rqLimit="cg.rounds[index].rqLimit"
+                      style="--gap: 4px;"
+                      prefix="Dash_Oppo"
+                      @cog="cgDashcogClick(item.oppos[$event])"
+                    />
+                  </div>
+                </BaseExpandDiv>
+                <BaseExpandDiv :active="cgDashShowTrackset" class="Cg_DashItemTrackset">
+                  <!-- Trackset -->
+                  <div class="Cg_DashItemOpposMid">
+                    <BaseEventTrackbox
+                      :event="item.event"
+                      :eventLoadingAny="false"
+                      :user="{ mod: false }"
+                      :eventForceAnalyze="false"
+                      :eventBestPerTrack="{}"
+                      :showBestPerTrack="false"
+                      :hideCheckBox="true"
+                      :disableCampaignTip="true"
+                      :mini="false"
+                      :miniHeight="false"
+                      :size="windowWidth < 1200 ? 115 : 230"
+                      :readonly="true"
+                      :autoResolve="false"
+                      :animationProp="false"
+                      :showMatchPoints="false"
+                    />
+                  </div>
+                </BaseExpandDiv>
+                <BaseExpandDiv :active="active && cgDashShowOpponentsTimes" class="Cg_DashItemTimes">
+                  <!-- Oppo Times -->
+                  <div class="Cg_DashItemOpposMid">
+                    <BaseCarsTuneTime
+                      :cars="item.oppos"
+                      :tracks="item.event.trackset[0]"
+                      :width="windowWidth < 1200 ? 115 : 230"
+                      :showTune="false"
+                      :onlyDownloadFull="true"
+                      @changed="changedAny($event)"
+                      @times="changedAnyDash(index)"
+                    />
+                  </div>
+                </BaseExpandDiv>
+                <template v-if="item.hasBestSolution">
+                  <BaseExpandDiv :active="active && cgDashShowBestSolution && cgDashShowOpponentsTimes" class="Cg_DashBestSolution">
+                    <!-- Best solution -->
+                    <div class="Cg_DashItemOpposMid">
+                      <BaseCarsPoints
+                        :cars="item.bestSolution"
+                        :oppos="item.oppos"
+                        :match="item"
+                        :tracks="item.event.trackset[0]"
+                        :pointsAuto="true"
+                        :width="windowWidth < 1200 ? 115 : 230"
+                      />
+                    </div>
+                  </BaseExpandDiv>
+                  <BaseExpandDiv :active="cgDashShowBestSolution" class="Cg_DashBestSolution">
+                    <!-- Best solution -->
+                    <div class="Cg_DashItemOpposMid">
+                      <BaseCarsTeam
+                        :cars="item.bestSolution"
+                        :filterToImport="{}"
+                        :width="226"
+                        :aspect="'415 / 256'"
+                        :fsize="12"
+                        :miniWidth="111"
+                        :miniAspect="'111 / 144'"
+                        :miniFsize="12"
+                        :mini="windowWidth < 1200"
+                        :readonly="true"
+                        :gap="4"
+                        :showTune="true"
+                        :rqLimit="cg.rounds[index].rqLimit"
+                        style="--gap: 4px;"
+                        prefix="Dash_Best"
+                        @cog="cgDashcogClick(item.bestSolution[$event])"
+                      />
+                    </div>
+                  </BaseExpandDiv>
+                  <BaseExpandDiv :active="active && cgDashShowBestSolution && cgDashShowOpponentsTimes" class="Cg_DashBestSolution">
+                    <!-- Best solution Times -->
+                    <div class="Cg_DashItemOpposMid">
+                      <BaseCarsTuneTime
+                        :cars="item.bestSolution"
+                        :tracks="item.event.trackset[0]"
+                        :width="windowWidth < 1200 ? 115 : 230"
+                        :showTune="false"
+                        @changed="changedAny($event)"
+                        @times="changedAnyDash(index)"
+                        @cog="cgDashcogClick(item.bestSolution[$event])"
+                      />
+                    </div>
+                  </BaseExpandDiv>
+                  
+                  <BaseExpandDiv :active="cgDashShowSolutionsCount > 0" class="Cg_DashItemSolutions">
+                    <!-- Solutions -->
+                    <div class="Cg_DashItemSolutionsLayout">
+                      <div
+                        v-for="(race, irace) in cg.rounds[index].races"
+                        class="Cg_DashItemSolutionsColumn"
+                        :style="`--cell-width: ${windowWidth < 1200 ? 115 : 230}px;`">
+
+                        
+                        <template v-for="(bankCar, ibank) in item.solutions[irace]">
+                          <button
+                            v-if="ibank > (cgDashShowBestSolution?0:-1) && ibank < cgDashShowSolutionsCount + (cgDashShowBestSolution?1:0)"
+                            :disabled="cgLoadingAny"
+                            :key="ibank"
+                            :class="`Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIs' : ''} ${bankCar.isTimePredicted ? 'Cg_DashBankIsTimePredicted' : ''}`"
+                            class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
+                            @click="cgDashSolutionClick(bankCar, index, irace, ibank, $event);">
+                            <BaseCardMini
+                              :car="Vue.all_carsObj[bankCar.rid]"
+                              :tuneText="bankCar.tune"
+                            />
+                            <div v-if="bankCar.originalTune" class="Cg_BankToUpgrade" style="min-width: 40px;">
+                              <span class="Cg_BankToUpgradeCurrent">{{ bankCar.originalTune }}</span>
+                              <div class="Cg_BankToUpgradeBox">
+                                <span class="Cg_BankToUpgradeFinal">{{ bankCar.tune }}</span>
+                                <i class="ticon-arrow_up_3 Cg_BankToUpgradeArrow" aria-hidden="true"/>
+                              </div>
+                            </div>
+                            <div v-else class="Cg_BankTuneNew" style="min-width: 40px; text-align: left;">{{ bankCar.tune }}</div>
+                            <div class="Cg_BankResult">
+                              <span class="Cg_BankPoints">{{ bankCar.points }}</span>
+                            </div>
+                          </button>
+                        </template>
+
+                        <button
+                          v-if="item.solutions[irace].length > cgDashShowSolutionsCount"
+                          class="D_Button D_ButtonLink Row_ShowMoreButton"
+                          style="margin-top: 4px;"
+                          @click="cgDashViewAllSolutions(index, irace)">
+                          +{{ item.solutions[irace].length - cgDashShowSolutionsCount }} {{ $tc("m_solution", item.solutions[irace].length - cgDashShowSolutionsCount) }}
+                        </button>
+
+
+
+                      </div>
+                    </div>
+                  </BaseExpandDiv>
+                </template>
+                <template v-else-if="cgSolutionsHeight">
+                  <div class="Cg_DashItemEmptySolutionBox" :style="`--height: ${cgSolutionsHeight}px;`">
+                    {{ $t("m_noSolutions") }}
+                  </div>
+                </template>
+                <div class="Cg_DashItemSolutions"></div>
               </div>
-            </BaseExpandDiv>
-            <div class="Cg_DashItemSolutions"></div>
-          </div>
-          <!-- compact vision (solution only) -->
-          <!-- (1) only Round and solution from garage, big cards... Support partial filters for T3 users -->
-            <!-- If T3, backend will return the solution with partial filter -->
-          <!-- (2) oppos, times, track + solution 1 line -->
-          <!-- (3) add 8 solutions line as mini cards -->
-          <!-- ignore filter -->
+            </template>
+          </RecycleScroller>
         </div>
 
-        <div class="Cg_DashFooter"></div>
+        <!-- <div class="Cg_DashFooter"></div> -->
 
-        <div class="Main_" style="margin-top: 500px">{{ cg.rounds['d'].rounds }}</div>
+        <!-- <div class="Main_" style="margin-top: 500px">{{ cg.rounds['d'].rounds }}</div> -->
         
 
       </div>
@@ -1941,7 +2023,7 @@
         <div class="Main_TeamsNeck D_Center2">
           <!-- controls -->
           <div class="Main_TeamsControlsLayout">
-            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" name="hand_MyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
+            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" name="eventMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" name="hand_ForceCars" :label="$t('m_forceCars')" :horizontal="true" />
             <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" name="hand_black" :label="$t('m_blackList')" :horizontal="true" />
             <BaseSwitch
@@ -3527,6 +3609,59 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog
+      :active="cgDashSolutionsDialog"
+      :transparent="true"
+      :lazy="true"
+      max-width="380px"
+      min-width="240px"
+      @close="cgDashSolutionsDialog = false;">
+      <div v-if="cg && cg.rounds && cg.rounds['d'] && cg.rounds['d'].rounds" style="Cg_SelectorDialogBox">
+        <div class="Cg_SelectorDialogHeader">
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $tc("m_round", cgDashSolutionsDialogRound+1) }} {{ cgDashSolutionsDialogRound+1 }} - {{ $t("m_race") }} {{ cgDashSolutionsDialogRace+1 }}</div>
+        </div>
+        <div class="Main_SearchMid Cg_SelectorDialogMid Cg_DialogDashSolutionsList">
+          <template v-for="(bankCar, ibank) in cg.rounds['d'].rounds[cgDashSolutionsDialogRound].solutions[cgDashSolutionsDialogRace]">
+            <button
+              :key="ibank"
+              :class="`Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIs' : ''}`"
+              style="min-height: 42px;"
+              class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
+              @click="cgDashSolutionClick(bankCar, cgDashSolutionsDialogRound, cgDashSolutionsDialogRace, ibank, $event);">
+              <BaseCardMini
+                :car="Vue.all_carsObj[bankCar.rid]"
+                :tuneText="bankCar.tune"
+              />
+              <div v-if="bankCar.originalTune" class="Cg_BankToUpgrade" style="min-width: 40px;">
+                <span class="Cg_BankToUpgradeCurrent">{{ bankCar.originalTune }}</span>
+                <div class="Cg_BankToUpgradeBox">
+                  <span class="Cg_BankToUpgradeFinal">{{ bankCar.tune }}</span>
+                  <i class="ticon-arrow_up_3 Cg_BankToUpgradeArrow" aria-hidden="true"/>
+                </div>
+              </div>
+              <div v-else class="Cg_BankTuneNew" style="min-width: 40px; text-align: left;">{{ bankCar.tune }}</div>
+              <div
+                class="Cg_BankResult">
+                <template v-if="showPointsCg">
+                  <span class="Cg_BankPoints">{{ bankCar.points }}</span>
+                </template>
+                <template v-else>
+                  <span v-if="bankCar.points === 0" class="Cg_BankPoints">
+                    <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
+                  </span>
+                  <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
+                    <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
+                  </span>
+                  <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
+                    <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
+                  </span>
+                </template>
+              </div>
+            </button>
+          </template>
+        </div>
+      </div>
+    </BaseDialog>
   </div>
 </template>
 
@@ -3573,6 +3708,8 @@ import BaseCarList from './BaseCarList.vue'
 import BaseCardMini from './BaseCardMini.vue'
 import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
 import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
+import BaseCarsPoints from './BaseCarsPoints.vue'
+import BaseSelectNew from './BaseSelectNew.vue'
 
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
@@ -3618,7 +3755,9 @@ export default {
     BaseCarList,
     BaseBlackFridayButton,
     BaseCardMini,
-    BaseCarsTuneTime
+    BaseCarsTuneTime,
+    BaseCarsPoints,
+    BaseSelectNew
   },
   props: {
     phantomCar: {
@@ -3771,10 +3910,16 @@ export default {
       cgPermanentToggle: true,
       cgLongToggle: true,
       cgJsonDownloadRids: [],
+      cgDashUseMyGarage: false,
       cgDashShowOpponents: false,
-      cgDashShowTrackset: true,
+      cgDashShowTrackset: false,
       cgDashShowOpponentsTimes: false,
-      cgDashShowSolutionsCount: 1,
+      cgDashShowBestSolution: true,
+      cgDashShowSolutionsCount: 5,
+      cgDashSolutionsDialog: false,
+      cgDashSolutionsDialogRound: 0,
+      cgDashSolutionsDialogRace: 0,
+      cgDashListOfUpgradeSimulations: [],
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -4928,6 +5073,24 @@ export default {
       if (!this.eventBestTeamsLastCache) return false;
       if (JSON.stringify( {...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig} ) === this.eventBestTeamsLastCache) return true;
       return false;
+    },
+    cgDashItemHeight() {
+      if (this.mode !== 'challenges') return 0;
+      let sum = 76 + 20 + 20;
+      if (this.cgDashShowOpponents) sum += 140;
+      if (this.cgDashShowTrackset) sum += 35;
+      if (this.cgDashShowOpponentsTimes) sum += 35;
+      sum += this.cgSolutionsHeight;
+      return sum;
+    },
+    cgSolutionsHeight() {
+      if (this.mode !== 'challenges') return 0;
+      let sum = 0;
+      if (this.cgDashShowSolutionsCount) sum += 10; // padding
+      sum += 42 * this.cgDashShowSolutionsCount;
+      if (this.cgDashShowBestSolution) sum += 140;
+      if (this.cgDashShowBestSolution && this.cgDashShowOpponentsTimes) sum += (35 + 50);
+      return sum;
     }
   },
   methods: {
@@ -6866,8 +7029,9 @@ export default {
       }
       window.localStorage.setItem(`cg_${id}`, round);
       this.cg = cg;
+      Vue.importDumbTimesFromCg(cg);
       // if (round === "d" && !cg.rounds["d"]) {
-      //   this.cgInitDash(this.cg);
+      //   this.cgInitDashDefault();
       // }
 
       this.cgCurrentId = cg.date;
@@ -8912,7 +9076,6 @@ export default {
     },
     cgLoadDash() {
       if (!this.cg || !this.cg.date) return;
-
       let id = this.cg.date;
       this.cgSeletorDialog = false;
       this.cgRoundSelectorDialog = false;
@@ -8921,15 +9084,31 @@ export default {
       this.cgCurrentName = cg.name;
       this.cgCurrentRound = "d";
     },
-    cgInitDash() {
+    cgInitDashDefault() {
+      if (Vue.garageObj.loaded && this.cgDashUseMyGarage) {
+        this.cgInitDash(true);
+      } else {
+        this.cgInitDash(false);
+      }
+    },
+    cgInitDash(useGarage) {
+      if (useGarage && (Vue.garageObj.loaded === false || Object.keys(Vue.garageByRid).length === 0)) {
+        this.$store.commit("DEFINE_SNACK", { active: true, error: true, text: "No garage", type: "error" });
+        return;
+      }
+
       let obj = {
         name: "Dashboard",
         rounds: [],
         rqLimit: 500,
         rqFill: 0
       }
+
+      // if patreon tier 3, run predictor for oppos and solutions
+
       this.cg.rounds.map((round, ix) => {
         let _r = {
+          key: ix,
           oppos: round.races.map(race => {
             let oppo = JSON.parse(JSON.stringify(Vue.all_carsObj[race.rid]));
             oppo.selectedTune = race.tune;
@@ -8939,19 +9118,328 @@ export default {
           event: {
             trackset: [round.races.map(race => { return { track: race.track } })],
             resolvedTrackset: [round.races.map(race => Vue.resolveTrack({ track: race.track }, false, false))]
-          }
+          },
+          bestSolution: this.cgResolveBestSolution(round, useGarage)
         };
+        _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
+
+        _r.solutions = this.cgResolveSolutions(_r, round, useGarage);
+        if (useGarage) this.cgResolveSolutionsToUpgrade(_r, round);
+
+        this.cgResolveRqSums(_r);
+
         obj.rounds.push(_r);
       })
       
       Vue.set(this.cg.rounds, "d", obj);
     },
+    cgResolveBestSolution(round, useGarage) {
+      let bestSolution = [null, null, null, null, null];
+      let usedRids = {};
+      round.races.map((race, irace) => {
+
+        // just sort
+        race.cars.sort((a,b) => {
+          if (Vue.all_carsObj[a.rid].rq === Vue.all_carsObj[b.rid].rq) {
+            return a.rid.localeCompare(b.rid);
+          }
+          return Vue.all_carsObj[a.rid].rq - Vue.all_carsObj[b.rid].rq;
+        });
+
+        // prioritize 100% match cars from garage
+        // if not possible, 
+        race.cars.find(car => {
+          if (car.points > 0) {
+            if (usedRids[car.rid] === undefined) {
+              if (useGarage) {
+                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => x.tun === car.tune)) {
+                  bestSolution[irace] = car;
+                  usedRids[car.rid] = irace;
+                  return true;
+                }
+              } else {
+                // no garage
+                bestSolution[irace] = car;
+                usedRids[car.rid] = irace;
+                return true;
+              }
+            }
+          }
+        });
+      });
+
+      // fix
+      bestSolution.map((car, i) => {
+        if (!car) {
+          let foundInUse;
+          let foundInUseIndex;
+          let foundNotInUse;
+          let substituteOfGiver;
+
+          round.races[i].cars.map(c => {
+            if (c.points > 0) {
+
+              if (usedRids[c.rid] === undefined && !foundNotInUse) {
+                if (useGarage) {
+                  if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => x.tun === c.tune)) {
+                    foundNotInUse = c;
+                  }
+                } else {
+                  foundNotInUse = c;
+                }
+              }
+
+              if (usedRids[c.rid] !== undefined && !foundInUse) {
+                round.races[usedRids[c.rid]].cars.find(c2 => {
+                  if (c2.rid !== c.rid && c2.points > 0 && usedRids[c2.rid] === undefined) {
+                    if (useGarage) {
+                      if (Vue.garageByRid[c2.rid] && Vue.garageByRid[c2.rid].some(x => x.tun === c2.tune)) {
+                        substituteOfGiver = c2;
+                        return true;
+                      }
+                    } else {
+                      // no garage
+                      substituteOfGiver = c2;
+                      return true;
+                    }
+                  }
+                });
+                if (substituteOfGiver) {
+                  foundInUse = c;
+                  foundInUseIndex = usedRids[c.rid];
+                }
+              }
+            }
+          });
+
+
+          if (foundNotInUse) {
+            bestSolution[i] = foundNotInUse;
+            usedRids[foundNotInUse.rid] = true;
+          } else if (foundInUse) {
+            bestSolution[i] = foundInUse;
+            bestSolution[foundInUseIndex] = substituteOfGiver;
+            usedRids[foundInUse.rid] = i;
+            usedRids[substituteOfGiver.rid] = foundInUseIndex;
+          }
+        }
+      })
+
+      return bestSolution.map(solution => {
+        if (!solution || !solution.rid) return {};
+        let car = JSON.parse(JSON.stringify(Vue.all_carsObj[solution.rid]));
+        car.selectedTune = solution.tune;
+        car.customData = {};
+        car.points = solution.points;
+        return car;
+      });
+    },
+    cgResolveSolutions(_r, round, useGarage) {
+      return round.races.map((race, irace) => {
+        let filteredSolutions = [];
+        race.cars.map(car => {
+          if (car.points > 0 && (car.rid !== _r.bestSolution[irace].rid || car.tune !== _r.bestSolution[irace].selectedTune)) {
+            if (useGarage) { // with garage
+              if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => x.tun === car.tune)) {
+                filteredSolutions.push(car);
+              }
+            } else { // no garage
+              filteredSolutions.push(car);
+            }
+          }
+        })
+        filteredSolutions.sort((a,b) => {
+          if (Vue.all_carsObj[a.rid].rq === Vue.all_carsObj[b.rid].rq) {
+            return a.rid.localeCompare(b.rid);
+          }
+          return Vue.all_carsObj[a.rid].rq - Vue.all_carsObj[b.rid].rq;
+        });
+
+        if (_r.hasBestSolution && _r.bestSolution[irace] && _r.bestSolution[irace].rid) {
+          filteredSolutions.unshift({
+            rid: _r.bestSolution[irace].rid,
+            tune: _r.bestSolution[irace].selectedTune,
+            points: _r.bestSolution[irace].points
+          });
+        }
+        return filteredSolutions;
+      });
+    },
+    cgResolveSolutionsToUpgrade(_r, round) {
+      let matchedCars = {};
+      _r.solutions.map((listCars, irace) => {
+        listCars.map(car => {
+          if (!matchedCars[car.rid]) matchedCars[car.rid] = [];
+          if (matchedCars[car.rid].includes(car.tune)) return;
+          matchedCars[car.rid].push(car.tune);
+        })
+      });
+
+      round.races.map((race, irace) => {
+        race.cars.map(car => {
+          if (car.points > 0) {
+            if (matchedCars[car.rid] && matchedCars[car.rid].includes(car.tune)) return;
+            if (!Vue.garageByRid[car.rid]) return;
+            // find a car in garage that can be upgraded to this tune
+            let isOp = false;
+            let found = Vue.garageByRid[car.rid].find(garageCar => {
+              if (garageCar.tun === car.tune) return false;
+              if (garageCar.tun === "332" || garageCar.tun === "323" || garageCar.tun === "233") return false;
+              if (car.points > 65) {
+                isOp = true;
+                return true;
+              }
+              let tunZ = car.tune.split('').map(x => Number(x)*3).join('');
+              let upgradable = tunZ.split('').every((v,i) => {
+                if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
+                  return false;
+                }
+                return true;
+              });
+              return upgradable;
+            });
+            if (found) {
+              _r.solutions[irace].push({
+                rid: car.rid,
+                tune: car.tune,
+                points: car.points,
+                originalTune: found.tun,
+                cardRecordId: found.cardRecordId
+              });
+              if (isOp) {
+                delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
+                _r.solutions[irace][_r.solutions[irace].length-1].tune = found.tun;
+                _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
+                _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
+                _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
+              }
+            }
+          }
+        })
+        _r.solutions[irace].sort((a,b) => {
+          if (a.originalTune && !b.originalTune) return 1;
+          if (!a.originalTune && b.originalTune) return -1;
+        });
+      });
+    },
+    cgResolveRqSums(_r) {
+      let sumRqBestSolution = 0;
+      _r.hasBestSolution && _r.bestSolution.map(car => {
+        if (!car || !car.rid) return;
+        sumRqBestSolution += Vue.all_carsObj[car.rid]?.rq || 0;
+      })
+      _r.bestSolutionRqSum = sumRqBestSolution;
+
+      let sumRqSolutionsFirstLine = 0;
+      _r.solutions.map(listCars => {
+        if (listCars.length === 0) return;
+        sumRqSolutionsFirstLine += Vue.all_carsObj[listCars[0].rid]?.rq || 0;
+      })
+      _r.solutionsRqSum = sumRqSolutionsFirstLine;
+    },
+    cgDashToggleMyGarage(value) {
+      if (!this.user || !this.user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+      if (!Vue.garageObj.loaded) {
+        Vue.loadGarage(this.user.username);
+        let vm = this;
+        let unwatch = vm.$watch('Vue.garageObj.loaded', (newValue, oldValue) => {
+          console.log(`dynamicProperty changed from ${oldValue} to ${newValue}`);
+          if (newValue === true) {
+            vm.cgDashToggleMyGarage(true);
+            unwatch();
+          }
+        });
+        return;
+      }
+      if (Vue.garageObj.loaded) {
+        // console.log("cgDashToggleMyGarage", value);
+        this.cgDashUseMyGarage = value;
+        this.cgInitDash(this.cgDashUseMyGarage);
+      }
+    },
     changedAnyDash(iround) {
+      console.log("changedAnyDash", iround);
       this.cg.rounds['d'].rounds[iround].oppos.map(car => {
         if (car && car.selectedTune) {
           Vue.set(car, "customData", {});
         }
       })
+      this.cg.rounds['d'].rounds[iround].bestSolution.map(car => {
+        if (car && car.selectedTune) {
+          Vue.set(car, "customData", {});
+        }
+      })
+    },
+    cgDashcogClick(car) {
+      this.tuneDialogCar = JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid]));
+      this.tuneDialogCar.selectedTune = car.tune;
+      this.tuneDialogCarIndex = -1;
+      this.tuneDialogisOppo = true;
+      this.tuneDialogActive = true;
+    },
+    cgDashViewAllSolutions(iround, irace) {
+      this.cgDashSolutionsDialogRound = iround;
+      this.cgDashSolutionsDialogRace = irace;
+      this.cgDashSolutionsDialog = true;
+    },
+    cgDashSolutionClick(car, iround, irace, ibank, e) {
+      this.cgDashSolutionsDialog = false;
+      // if car is originalTune, add to simulation of upgrade
+      // if car is isFreePredict, just add/replace to bestSolution
+      // if car is normal, just add/replace to bestSolution
+      let dashRound = this.cg.rounds['d'].rounds[iround];
+      let backupSolutionCar = dashRound.bestSolution[irace] && dashRound.bestSolution[irace].rid ? JSON.parse(JSON.stringify(dashRound.bestSolution[irace])) : null;
+
+      if (car.originalTune) {
+        // upgrade simulation
+        let garageCar = Vue.garageByRid[car.rid].find(x => x.cardRecordId === car.cardRecordId);
+        garageCar.backupTun = garageCar.tun;
+        garageCar.tun = car.tune;
+        delete car.originalTune;
+        this.cgDashListOfUpgradeSimulations.push(garageCar);
+        Vue.set(dashRound.bestSolution, irace, {
+          ...JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])),
+          selectedTune: car.tune,
+          customData: {},
+          points: car.points
+        });
+      } else if (car.isFreePredict) {
+        // free predict
+        Vue.set(dashRound.bestSolution, irace, {
+          ...JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])),
+          selectedTune: car.tune,
+          customData: {},
+          points: car.points
+        });
+      } else {
+        // normal add/replace
+        Vue.set(dashRound.bestSolution, irace, {
+          ...JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])),
+          selectedTune: car.tune,
+          customData: {},
+          points: car.points
+        });
+      }
+
+      if (backupSolutionCar) {
+        let solutionObj = {
+          rid: backupSolutionCar.rid,
+          tune: backupSolutionCar.selectedTune,
+          points: backupSolutionCar.points
+        };
+        if (backupSolutionCar.isFreePredicted) solutionObj.isFreePredict = true;
+        if (backupSolutionCar.isTimePredicted) solutionObj.isTimePredicted = true;
+        if (backupSolutionCar.originalTune) solutionObj.originalTune = backupSolutionCar.originalTune;
+        if (backupSolutionCar.cardRecordId) solutionObj.cardRecordId = backupSolutionCar.cardRecordId;
+        Vue.set(dashRound.solutions[irace], ibank, solutionObj);
+      } else {
+        dashRound.solutions[irace].splice(ibank, 1);
+      }
+      
+      this.cgResolveRqSums(dashRound);
     },
     generateRandom(maxInt, stringParam) {
       let sum = 0;

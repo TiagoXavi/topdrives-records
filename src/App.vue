@@ -119,14 +119,14 @@
     </BaseDialog>
     <BaseDialog
       :active="$store.state.confirmDialog.active"
-      :transparent="false"
+      :transparent="!!$store.state.confirmDialog.transparent"
       :lazy="true"
       :maxWidth="$store.state.confirmDialog.maxWidth"
       :minWidth="$store.state.confirmDialog.minWidth"
       zindex="302"
       @close="$store.state.confirmDialog.active = false;">
       <div style="App_DialogConfirm">
-        <div class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
+        <div  class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
         <template v-if="$store.state.confirmDialog.advanced">
           <div v-if="$store.state.confirmDialog.advanced.type === 'text'" class="App_DialogConfirm_Body">
             <BaseText
@@ -137,8 +137,28 @@
               class="App_DialogConfirmText"
             />
           </div>
+          <template v-if="$store.state.confirmDialog.advanced.type === 'list'" >
+            <div class="Cg_SelectorDialogHeader">
+              <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $store.state.confirmDialog.advanced.label }}</div>
+            </div>
+            <div class="Main_SearchMid Cg_SelectorDialogMid" style="height: unset;">
+              <template v-for="item in $store.state.confirmDialog.advanced.list">
+                <BaseButtonTouch
+                  :class="{
+                    Main_SearchItemActive: item === $store.state.confirmDialog.advanced.model
+                  }"
+                  :disabled="$store.state.confirmDialog.advanced.disabled || item === $store.state.confirmDialog.advanced.model"
+                  style="padding-left: 15px; padding-right: 15px; min-height: 40px;"
+                  class="Main_SearchItem"
+                  @click="$store.state.confirmDialog.action(item, $event)"
+                  @longTouch="$store.state.confirmDialog.action(item, { shiftKey: true, ctrlKey: true })">
+                  <div class="Main_SearchItemRight">{{ item }}</div>
+                </BaseButtonTouch>
+              </template>
+            </div>
+          </template>
         </template>
-        <div class="App_DialogConfirmFooter">
+        <div v-if="!$store.state.confirmDialog.hideFooter" class="App_DialogConfirmFooter">
           <button
             :class="{
               D_Button_Loading: $store.state.confirmDialog.loading
@@ -176,6 +196,7 @@ import BaseTooltip from "@/components/BaseTooltip.vue"
 import BaseText from "@/components/BaseText.vue"
 import BaseFilterDialog from "@/components/BaseFilterDialog.vue"
 import BaseSearchTrackDialog from '@/components/BaseSearchTrackDialog.vue'
+import BaseButtonTouch from '@/components/BaseButtonTouch.vue'
 
 import LogRocket from 'logrocket';
 import { mapState } from 'pinia';
@@ -190,7 +211,8 @@ export default {
     BaseTooltip,
     BaseText,
     BaseFilterDialog,
-    BaseSearchTrackDialog
+    BaseSearchTrackDialog,
+    BaseButtonTouch
   },
   props: {},
   data() {
@@ -793,6 +815,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .D_ButtonDarkTransparent {
   background-color: rgba(255,255,255,0.0);
+  --back-opac: 0.2;
+}
+.D_ButtonDark4 {
+  background-color: rgba(255,255,255,0.03);
   --back-opac: 0.2;
 }
 .D_ButtonBig {
@@ -1489,6 +1515,17 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
 }
 .Main_SearchItemMarked .Main_SearchItemRight span:first-child {
   color: rgb(var(--d-text-green));
+}
+.Main_SearchItemActive {
+  background-color: rgba(var(--back-color), var(--back-opac));
+}
+.Main_SearchItemActive .Main_SearchItemRight {
+  /* color: rgb(var(--d-text-green)); */
+}
+.Main_SearchItem[disabled] {
+  cursor: initial;
+  opacity: 0.2;
+  pointer-events: none;
 }
 .Main_SearchLoading {
   position: fixed;
@@ -3204,9 +3241,94 @@ body .Main_UserTw3:before {
   align-items: center;
   padding-top: 10px;
 }
+.Cg_DashItemSolutionsColumn:empty:before {
+  content: "\e961";
+  font-family: 'JurisT' !important;
+  color: #4b4b4b;
+  line-height: 0.9;
+  font-size: 24px;
+}
 .Cg_DashItemRound {
   color: rgb(var(--d-text-yellow));
 }
+.Cg_DashWrapper {
+
+}
+/* .Cg_DashScrollerItem[style*="-9999px"] {
+  display: none;
+} */
+.Cg_DashHeaderControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: calc(var(--cell-width) * 5);
+  margin: 0 auto;
+}
+.Cg_DashHeaderControls > * {
+  min-width: 60px;
+}
+.Cg_DashItemEmptySolutionBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--height);
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px);
+  width: calc(var(--cell-width) * 5);
+  margin: 0 auto;
+}
+.Cg_DashItemTrackset + .Cg_DashItemTimes .BaseCarsTuneTime_Box {
+  box-shadow: inset 2px 0px 0px 0px #ffffff07;
+}
+.Cg_BankToUpgrade {
+  display: flex;
+  margin-left: 9px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+.Cg_BankToUpgradeBox {
+  display: flex;
+  align-items: center;
+}
+.Cg_BankToUpgradeCurrent {
+  opacity: 0.6;
+  font-size: 13px;
+  color: rgb(var(--d-text-red2));
+}
+/* .Cg_BankToUpgradeGear {
+  width: 28px;
+  font-size: 20px;
+} */
+/* .Cg_BankButton:hover .Cg_BankToUpgradeCurrent,
+.Cg_BankButton:focus-within .Cg_BankToUpgradeCurrent {
+  display: block;
+}
+.Cg_BankButton:hover .Cg_BankToUpgradeGear,
+.Cg_BankButton:focus-within .Cg_BankToUpgradeGear {
+  display: none;
+} */
+.Cg_BankToUpgradeArrow {
+  font-size: 10px;
+  /* opacity: 0.4; */
+  color: rgb(var(--d-text-green));
+}
+.Cg_BankToUpgradeFinal {
+  font-size: 16px;
+}
+.Cg_DashItemSolutionsColumn:hover .Row_ShowMoreButton,
+.Cg_DashItemSolutionsColumn:focus-within .Row_ShowMoreButton {
+  opacity: 1;
+}
+.Cg_DialogDashSolutionsList {
+  display: flex;
+  flex-direction: column;
+}
+.Cg_DashBankIsTimePredicted .Cg_BankPoints {
+  text-decoration: line-through;
+}
+
 
 .Main_CgListDividerLayout {
   display: flex;

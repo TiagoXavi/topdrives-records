@@ -2,7 +2,7 @@
   <div class="BaseCardMini_CarButton" :class="`BaseCardMini_Car${props.car.class}`">
     <div class="BaseCardMini_CarCard">
       <div class="BaseCardMini_BankPhoto">
-        <img :src="props.car.photo" class="BaseCardMini_BankPhotoImg" alt="" loading="lazy">
+        <img :src="props.car.photo" :key="props.car.rid" class="BaseCardMini_BankPhotoImg" alt="" loading="lazy">
       </div>
       <div class="BaseCardMini_Floats">
         <div class="BaseCardMini_Float">{{ props.car.rq }}</div>

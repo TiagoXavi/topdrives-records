@@ -71,7 +71,7 @@ export default {
           this.memoryHeight = `${document.querySelector(`#${this.id}`).offsetHeight}px`;
           if (!this.revertHeight) this.revertHeight = this.memoryHeight;
           // console.log(document.querySelector(`#${this.id}`));
-          console.log(this.memoryHeight);
+          // console.log(this.memoryHeight);
           // debugger;
           this.toHeight = "0px";
         })

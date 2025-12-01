@@ -97,7 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   --loading-color: rgba(0, 0, 0, 0.3);
 }
 .BaseSwitch_Horizontal {
@@ -144,9 +144,13 @@ export default {
 .BaseSwitch_Label {
   font-size: 14px;
   text-align: center;
+  margin-bottom: -3px;
 }
 .BaseSwitch_Horizontal .BaseSwitch_Label {
   text-align: left;
+}
+.BaseSwitch_Layout:not(.BaseSwitch_Horizontal) .BaseSwitch_Label {
+  margin-bottom: -3px;
 }
 
 .BaseSwitch_Input:checked + .BaseSwitch_Slider {
