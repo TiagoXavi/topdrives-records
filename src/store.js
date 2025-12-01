@@ -120,6 +120,7 @@ export default new Vuex.Store({
       "Immortalised in Carbon",
       "Loves Me, Loves Me Not",
       "Marilyn's Collection",
+      "Marilyn's Collection 2",
       "New Beginnings",
       "Nightmare Fuel",
       "Niklas' Collection",
@@ -153,7 +154,7 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [
-      "Filberto's Collection 2"
+      "Ximena's Collection 2"
     ],
     showDataFromPast: false,
     showCustomTunes: false,

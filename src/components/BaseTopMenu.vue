@@ -134,7 +134,7 @@ export default {
         { label: "Charts", path: "/charts" },
         { label: "Packs", path: "/packs" },
         { label: "Timeline", path: "/timeline" },
-        { label: "Match", path: "/match", newCodes: ["matchSimulator"], showNew: false },
+        { label: "Match", path: "/match", newCodes: [], showNew: false },
         { label: "Community", path: "/community" },
         { label: "Stuff", path: "/stuff", newCodes: [], showNew: false },
       ],

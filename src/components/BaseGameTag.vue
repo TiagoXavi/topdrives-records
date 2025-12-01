@@ -559,7 +559,8 @@ export default {
   --tag-s: 70%;
   --tag-l: 60%;
 }
-.BaseGameTag_Ximena\'s_Collection {
+.BaseGameTag_Ximena\'s_Collection,
+.BaseGameTag_Ximena\'s_Collection_2 {
   --tag-h: 126;
   --tag-s: 55%;
   --tag-l: 68%;
@@ -619,5 +620,15 @@ export default {
   --tag-h: 356;
   --tag-s: 70%;
   --tag-l: 55%;
+}
+.BaseGameTag_5000_Cars_Special {
+  --tag-h: 336;
+  --tag-s: 84%;
+  --tag-l: 75%;
+}
+.BaseGameTag_Boss_Rush_Collection {
+  --tag-h: 178;
+  --tag-s: 84%;
+  --tag-l: 74%;
 }
 </style>

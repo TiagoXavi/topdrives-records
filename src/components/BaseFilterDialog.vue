@@ -914,6 +914,7 @@ export default {
           "5th Anniversary",
           "Around the World",
           "As Seen on YT",
+          "Boss Rush Collection",
           "Call of the Wild",
           "Chariots of the Gods",
           "Christmas Collection",
@@ -928,7 +929,6 @@ export default {
           "Gaz's Collection",
           "Gaz's Collection 2",
           "Gunter's Collection",
-          "Gunter's Collection 2",
           "Harriet's Collection",
           "Heavy Metal",
           "Hugo's Collection",
@@ -968,6 +968,7 @@ export default {
           "Trading Paint",
           "Two Tone",
           "Ximena's Collection",
+          "Ximena's Collection 2",
           "Year of the Dragon",
           "Year of the Ox",
           "Year of the Rabbit",
@@ -1001,6 +1002,7 @@ export default {
           "Originals"
         ],
         tags_permanent: [
+          "5000 Cars Special",
           "Concept",
           "Drivers Choice",
           "Eco Friendly",

@@ -3846,7 +3846,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v29.0",
+      gameVersion: "Game v29.1",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,

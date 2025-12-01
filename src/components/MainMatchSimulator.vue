@@ -447,7 +447,7 @@ export default {
   },
   beforeMount() {},
   beforeCreate() {
-    window.localStorage.setItem("matchSimulator", "t");
+    // window.localStorage.setItem("matchSimulator", "t");
   },
   mounted() {
     this.debounceChangedLong = Vue.debounce(this.changedLong, 1000);
