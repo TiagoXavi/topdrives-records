@@ -7029,7 +7029,7 @@ export default {
       }
       window.localStorage.setItem(`cg_${id}`, round);
       this.cg = cg;
-      Vue.importDumbTimesFromCg(cg);
+      // Vue.importDumbTimesFromCg(cg);
       // if (round === "d" && !cg.rounds["d"]) {
       //   this.cgInitDashDefault();
       // }
