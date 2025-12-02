@@ -593,7 +593,7 @@
                   :car="race.car"
                   :customData="Vue.all_cacheObj[race.car.rid]"
                   :fix-back="true"
-                  :downloadLoading="cgLoadingAny"
+                  :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes(race.car.rid)"
                   :needSave="needSave"
                   :draggable="false"
                   :cgOppo="true"
@@ -707,7 +707,7 @@
                       :car="(race.cars[race.carIndex] || {}).car"
                       :customData="Vue.all_cacheObj[(race.cars[race.carIndex] || {}).rid]"
                       :fix-back="true"
-                      :downloadLoading="cgLoadingAny"
+                      :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes((race.cars[race.carIndex] || {}).rid)"
                       :draggable="false"
                       @delete="race.carIndex = undefined; calcRaceResult(race);" />
                     <div v-else class="Cg_CarPlaceHolder">
@@ -3910,6 +3910,8 @@ export default {
       cgPermanentToggle: true,
       cgLongToggle: true,
       cgJsonDownloadRids: [],
+      cgRidsToDownload: [],
+      cgWatchDownloadCache: null,
       cgDashUseMyGarage: false,
       cgDashShowOpponents: false,
       cgDashShowTrackset: false,
@@ -4755,6 +4757,12 @@ export default {
       let result = ["332", "323", "233"];
       if (this.tuneDialogCar.data && this.$store.state.showCustomTunes) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
+          if (typeof tune !== 'string') return;
+          if (tune === "000") return;
+          if (tune[0] === "v") return;
+          if (result.includes(tune)) return;
+          if (tune.startsWith("Other")) return;
+
           if (tune[0] !== "v" && !result.includes(tune)) {
             result.push(tune);
           }
@@ -5601,11 +5609,13 @@ export default {
       let race = this.cgRound.races[this.cgRaceSelected];
       this.cgFilterDialog = false;
 
-      let found = Vue.all_cacheObj[newCar.rid];
-      if (!found) {
-        if (isFromJson) console.log(`!found`);
-        Vue.all_cacheObj[newCar.rid] = { rid: newCar.rid };
-      }
+
+      this.cgResolveIfDownloadRidOrNot(newCar.rid, null, null, this.cgAddingOppoCar);
+      // let found = Vue.all_cacheObj[newCar.rid];
+      // if (!found) {
+      //   if (isFromJson) console.log(`!found`);
+      //   Vue.all_cacheObj[newCar.rid] = { rid: newCar.rid };
+      // }
 
       if (this.cgAddingOppoCar) {
         // adding oppo
@@ -5627,9 +5637,9 @@ export default {
           if (isFromJson) console.log(race.cars[race.carIndex]);
         }
       }
-      if (!isFromJson || !found) {
-        this.downloadCar(newCar.rid, true);
-      }
+      // if (!isFromJson || !found) {
+      //   this.downloadCar(newCar.rid, true);
+      // }
       this.cgSaveRoundHand();
     },
     display(type, save = true) {
@@ -6103,11 +6113,12 @@ export default {
           simplifiedCars.push(x.rid);
         });
       } else if (this.mode === 'challenges') {
-        Object.keys(Vue.all_cacheObj).map(rid => {
-          if (Vue.all_cacheObj[rid].rid && !Vue.all_cacheObj[rid].data) {
-            simplifiedCars.push(rid);
-          }
-        })
+        this.cgRidsToDownload;
+        // Object.keys(Vue.all_cacheObj).map(rid => {
+        //   if (Vue.all_cacheObj[rid].rid && !Vue.all_cacheObj[rid].data) {
+        //     simplifiedCars.push(rid);
+        //   }
+        // })
       }
       simplifiedCars = [...new Set(simplifiedCars)];
       simplifiedCars = simplifiedCars.map(x => { return { rid: x } });
@@ -7029,7 +7040,7 @@ export default {
       }
       window.localStorage.setItem(`cg_${id}`, round);
       this.cg = cg;
-      // Vue.importDumbTimesFromCg(cg);
+      Vue.importDumbTimesFromCg(cg);
       // if (round === "d" && !cg.rounds["d"]) {
       //   this.cgInitDashDefault();
       // }
@@ -7084,6 +7095,35 @@ export default {
         this.pingAssetStatistic(id, round);
         this.cgResolveRoundCars();
       }
+    },
+    cgResolveIfDownloadRidOrNot(rid, tune, track, isOppo) {
+      if (tune === null || track === null) {
+        // need full downloaded
+      }
+      // this.cgRidsToDownload.push(rid);
+
+      // return if need download or not
+
+      // debounce to downloadDataCars
+      let result = Vue.timeCell(rid, tune, track);
+      if (result === "!data") {
+        if (!this.cgWatchDownloadCache) {
+          const vm = this;
+          vm.cgWatchDownloadCache = vm.$watch('Vue.utils.cacheLoading', (newValue, oldValue) => {
+            // console.log(`cgWatchDownloadCache changed from ${oldValue} to ${newValue}`);
+            if (newValue === false) {
+              // after debouce?
+              vm.cgRound.races.map(race => {
+                vm.calcRaceResult(race, false);
+              })
+              vm.cgWatchDownloadCache();
+              vm.cgWatchDownloadCache = null;
+            }
+          });
+        }
+        return false;
+      }
+      return true;
     },
     checkRaceTimesNull() {
       if (this.cgCurrentRound === 'd') return false;
@@ -7225,12 +7265,15 @@ export default {
       // let minCars = [];
       // let ridToPhotoId = {};
 
+
       this.cgRound.races.map(race => {
-        let found = Vue.all_cacheObj[race.rid];
-        if (!found) {
-          Vue.all_cacheObj[race.rid] = { rid: race.rid };
-        }
+        this.cgResolveIfDownloadRidOrNot(race.rid, race.tune, race.track, true);
+        // let found = Vue.all_cacheObj[race.rid];
+        // if (!found) {
+        //   Vue.all_cacheObj[race.rid] = { rid: race.rid };
+        // }
       })
+
 
       // this.cgRound.races.map(race => {
       //   listRids.push(race.rid);
@@ -7271,9 +7314,9 @@ export default {
 
       })
       this.cgRemoveDuplicateSolution();
-      if (download) {
-        this.downloadDataCars();
-      }
+      // if (download) {
+      //   this.downloadDataCars();
+      // }
     },
     cgViewSubmit() {
       let realCgRound = this.cg.rounds[this.cgCurrentRound];
@@ -7454,12 +7497,10 @@ export default {
       
       
       
+      let isReady = this.cgResolveIfDownloadRidOrNot(youRid, null, null, false);
+      if (!isReady) return;
+
       let you = Vue.all_cacheObj[youRid];
-      if (!you) {
-        Vue.all_cacheObj[youRid] = { rid: youRid };
-        this.downloadCar(youRid);
-        return;
-      }
       if (!oppo || race.time === null || race.time === undefined || !you || !you.data) {
         Vue.set(race.cars[race.carIndex], "points", undefined);
         // debugger;
@@ -7508,15 +7549,15 @@ export default {
       }
       
     },
-    cgReCalcRound() {
-      if (this.mode !== 'challenges') return;
-      this.cgRound.races.map(race => {
-        race.carIndex = undefined;
-        this.cgSortBankCars(race);
-      })
-      this.cgRemoveDuplicateSolution();
-      this.downloadDataCars();
-    },
+    // cgReCalcRound() {
+    //   if (this.mode !== 'challenges') return;
+    //   this.cgRound.races.map(race => {
+    //     race.carIndex = undefined;
+    //     this.cgSortBankCars(race);
+    //   })
+    //   this.cgRemoveDuplicateSolution();
+    //   this.downloadDataCars();
+    // },
     cgResolveBankToSave(type, raceIndex, rid, tune, points) {
       if (!this.user) return;
 
@@ -8049,10 +8090,12 @@ export default {
       if (race.carIndex === -1) {
         Vue.set(race, "carIndex", 0);
       }
-      let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
-      if (!found) {
-        Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
-      }
+
+      this.cgResolveIfDownloadRidOrNot(race.cars[race.carIndex].rid, null, null, false);
+      // let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
+      // if (!found) {
+      //   Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
+      // }
     },
     cgRemoveDuplicateSolution() {
       let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`;
@@ -8070,11 +8113,12 @@ export default {
           let race = this.cgRound.races[ridIx];
           Vue.set(race, "carIndex", index);
           
-          let found;
-          found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
-          if (!found) {
-            Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
-          }
+          this.cgResolveIfDownloadRidOrNot(race.cars[race.carIndex].rid, null, null, false);
+          // let found;
+          // found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
+          // if (!found) {
+          //   Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
+          // }
         })
         return
       }
@@ -8123,10 +8167,11 @@ export default {
             let race = this.cgRound.races[option.raceIndex]
             Vue.set(race, "carIndex", option.altCarIndex);
 
-            let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
-            if (!found) {
-              Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
-            }
+            this.cgResolveIfDownloadRidOrNot(race.cars[race.carIndex].rid, null, null, false);
+            // let found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
+            // if (!found) {
+            //   Vue.all_cacheObj[race.cars[race.carIndex].rid] = { rid: race.cars[race.carIndex].rid };
+            // }
 
             return true;
           }

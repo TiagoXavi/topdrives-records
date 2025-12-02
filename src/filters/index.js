@@ -55,7 +55,8 @@ const utils = Vue.observable({
     cacheLoading: false,
     downloadCount: 0,
     altKey: false,
-    windowWidth: 0
+    windowWidth: 0,
+    ridsDownloading: []
 });
 const garageByRid = {};
 const garageObj = Vue.observable({
@@ -184,6 +185,7 @@ function downloadCars() {
   if (JSON.stringify(rids) === lastRidsString) return; // avoid ddos
   lastRidsString = JSON.stringify(rids);
   utils.cacheLoading = true;
+  utils.ridsDownloading = rids;
 
   window.axios.post(Vue.preUrl + "/cars", rids.map(x => { return { rid: x } }))
   .then(res => {
@@ -208,6 +210,7 @@ function downloadCars() {
   })
   .then(() => {
     utils.cacheLoading = false;
+    utils.ridsDownloading = [];
   });
 }
 
@@ -216,7 +219,6 @@ const ridsToDownload = watchDebounced([], (obj) => {
   // console.log('Array has stopped changing. Final state:', obj);
   downloadCars();
 }, 100);
-
 
 
 
@@ -931,8 +933,9 @@ export default {
               if (tunes.includes(race.tune)) isDumb = false;
               if (isAS && race.tune === "111") isDumb = false;
               if (!isDumb) return;
+
   
-              if (!cacheCars[race.rid]) cacheCars[race.rid] = {};
+              if (!cacheCars[race.rid]) cacheCars[race.rid] = { rid: race.rid };
               if (!cacheCars[race.rid].data) cacheCars[race.rid].data = {};
               if (!cacheCars[race.rid].data[race.tune]) cacheCars[race.rid].data[race.tune] = {};
               if (!cacheCars[race.rid].data[race.tune].times) cacheCars[race.rid].data[race.tune].times = {};
@@ -942,7 +945,7 @@ export default {
               }
             })
           })
-          console.log("importDumbTimesFromCg", cacheCars);
+          // console.log("importDumbTimesFromCg", cacheCars);
 
         };
         Vue.isRidDownloaded = function (rid) {
