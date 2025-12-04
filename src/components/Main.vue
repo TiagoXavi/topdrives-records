@@ -32,7 +32,7 @@
             </template>
             <template slot="more">
               <button
-                v-else-if="userloaded"
+                v-if="userloaded"
                 style="font-size: 18px;     padding: 9px 9px;"
                 class="D_Button D_ButtonDark D_ButtonDark2 Main_BestOfOutside"
                 @click="openKingOfDialog()">
