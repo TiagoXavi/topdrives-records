@@ -31,7 +31,6 @@
               </div>
             </template>
             <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <button
                 v-else-if="userloaded"
                 style="font-size: 18px;     padding: 9px 9px;"
@@ -209,7 +208,6 @@
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
             <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
               <BaseText
                 v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" 
                 v-model="pasteInputModel"
@@ -1150,9 +1148,6 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
-            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top event -->
@@ -1542,9 +1537,6 @@
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <BaseBlackFridayButton v-if="(!whatTier || whatTier > 4) && (userloaded || user)" />
-            </template>
           </BaseCorner>
           <div class="Cg_RowCornerBox">
             <!-- top club -->
@@ -3707,7 +3699,6 @@ import BaseMonoSlider from './BaseMonoSlider.vue'
 import BaseCarList from './BaseCarList.vue'
 import BaseCardMini from './BaseCardMini.vue'
 import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
-import BaseBlackFridayButton from './BaseBlackFridayButton.vue'
 import BaseCarsPoints from './BaseCarsPoints.vue'
 import BaseSelectNew from './BaseSelectNew.vue'
 
@@ -3753,7 +3744,6 @@ export default {
     BaseExpandDiv,
     BaseMonoSlider,
     BaseCarList,
-    BaseBlackFridayButton,
     BaseCardMini,
     BaseCarsTuneTime,
     BaseCarsPoints,
@@ -6481,6 +6471,8 @@ export default {
       }
     },
     resolveChangeTime(car, NEW, number, tune) {
+      if (!car) return;
+
       let vm = this;
       let track = `${NEW.id}_a${NEW.surface}${NEW.cond}`;
 
@@ -8946,6 +8938,8 @@ export default {
             if (!allowedTunes.includes(tune)) return;
 
             if (
+              !carCache ||
+              !carCache.data ||
               !carCache.data[tune] ||
               !carCache.data[tune].times ||
               !carCache.data[tune].times[cgRace.track]
