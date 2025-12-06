@@ -59,10 +59,33 @@ const utils = Vue.observable({
     ridsDownloading: []
 });
 const garageByRid = {};
+const garageListUpgraded = Vue.observable([]);
 const garageObj = Vue.observable({
   loading: false,
   loaded: false
 });
+function addToGarageUpgraded(car) {
+  let garageCar = garageByRid[car.rid].find(x => x.cardRecordId === car.cardRecordId);
+  if (garageCar.backupTun) return; // already added
+  Vue.set(garageCar, 'backupTun', garageCar.tun);
+  garageCar.tun = car.tune;
+  garageCar.rid = car.rid; // needed
+  garageListUpgraded.push(garageCar);
+  // console.log(garageListUpgraded);
+  updateGarageUpgradesLocalStorage();
+}
+function removeFromGarageUpgraded(index) {
+  let car = garageListUpgraded[index];
+  car.tun = car.backupTun;
+  delete car.backupTun;
+  garageListUpgraded.splice(index, 1);
+  updateGarageUpgradesLocalStorage();
+}
+function updateGarageUpgradesLocalStorage() {
+  window.localStorage.setItem('garageUpgrades', JSON.stringify(garageListUpgraded));
+}
+
+
 
 let limit = all_cars.length; // 5700 items
 for (let Z = 0; Z < limit; Z++) {
@@ -277,6 +300,7 @@ function loadGarage(username) {
     if (res.data.value.playerDeck) {
       resolveGarageRes(res.data);
     }
+    window.localStorage.setItem('cacheGarage', JSON.stringify(res.data));
   })
   .catch(error => {
     console.log(error);
@@ -310,6 +334,44 @@ function resolveGarageRes(data) {
       tun: car.tun
     });
   }
+
+  // read garageUpgrades from localStorage
+  let storedGarageUpgrades = window.localStorage.getItem('garageUpgrades');
+  if (storedGarageUpgrades) {
+    try {
+      let parsed = JSON.parse(storedGarageUpgrades);
+      parsed.forEach(car => {
+        let garageCar = garageByRid[car.rid]?.find(x => x.cardRecordId === car.cardRecordId);
+        if (garageCar) {
+          garageCar.backupTun = garageCar.tun;
+          garageCar.tun = car.tun;
+          garageCar.rid = car.rid;
+          garageListUpgraded.push(garageCar);
+        }
+      });
+    } catch (error) {
+      console.log("Error parsing garageUpgrades from localStorage:", error);
+    }
+  }
+}
+
+function tryLoadGarageFromStorage() {
+  if (garageObj.loaded) return;
+  if (window.user === null || window.user === undefined) return;
+
+  let storedGarage = window.localStorage.getItem('cacheGarage');
+  if (storedGarage) {
+    try {
+      let parsed = JSON.parse(storedGarage);
+      if (parsed.u !== window.user.username) return; // different user
+      if (parsed.value.playerDeck) {
+        resolveGarageRes(parsed);
+        garageObj.loaded = true;
+      }
+    } catch (error) {
+      console.log("Error parsing cacheGarage from localStorage:", error);
+    }
+  }
 }
 
 
@@ -332,8 +394,12 @@ export default {
         Vue.resolveClass = resolveClass;
         Vue.predictTimes = predictTimes;
         Vue.garageByRid = garageByRid;
+        Vue.garageListUpgraded = garageListUpgraded;
         Vue.garageObj = garageObj;
+        Vue.addToGarageUpgraded = addToGarageUpgraded;
+        Vue.removeFromGarageUpgraded = removeFromGarageUpgraded;
         Vue.loadGarage = loadGarage;
+        Vue.tryLoadGarageFromStorage = tryLoadGarageFromStorage;
 
         Vue.carByRid = function (rid) {
           return resolvedRids[rid];

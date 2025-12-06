@@ -305,6 +305,15 @@ export default {
   m_bestSolution: "Best solution",
   m_rename: "Rename",
   m_noSolutions: "No solutions",
+  m_upgradesSimulation: "Upgrades simulation",
+  m_addedToGarageSim: "Added to garage simulation",
+  m_reload: "Reload",
+  m_faults: "Faults",
+  m_compact: "Compact",
+  m_hideLosers: "Hide losers",
+  m_predict: "Predict",
+  m_comingSoon: "Coming soon",
+  m_soon: "Soon",
 
 
 

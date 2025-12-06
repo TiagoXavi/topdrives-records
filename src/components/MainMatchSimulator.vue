@@ -346,6 +346,7 @@
       :carDetailsList="tuneDialogList"
       :showMove="true"
       :showTunes="true"
+      :class="`BaseDialog_RacePos${tuneDialogCarIndex}`"
       @newIndex="tuneDialogCarIndex = $event; tuneDialogCar = tuneDialogList[$event];"
       @move="cogMove($event)"
       @delete="cogDelete()"

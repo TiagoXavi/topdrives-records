@@ -127,6 +127,7 @@ export default {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 6px;
+  border-radius: 6px;
 }
 .BaseCarList_CarsListEmpty {
   justify-content: center;

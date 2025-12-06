@@ -591,7 +591,7 @@ button {
   z-index: 200;
   left: 10px;
   background-color: #0c0c0c;
-  width: 260px;
+  max-width: 60vw;
   border-radius: 8px;
   padding: 18px;
   transition-duration: 0.15s;
@@ -602,7 +602,7 @@ button {
   transform: translateX(-110%);
 }
 .App_Snack {
-  white-space: pre;
+  /* white-space: pre; */
 }
 .App_PreActive {
   display: block;
@@ -2906,6 +2906,9 @@ body .Main_UserTw3:before {
 .Cg_YouBankManualAdd {
   margin-bottom: 2px;
 }
+.Cg_YouBankHideLosers .Cg_YouBankBox .Cg_BankButton[class*="Cg_Points-"] {
+  display: none;
+}
 .D_Button.Cg_BankButton {
   padding-left: 0;
   padding-right: 3px;
@@ -3224,6 +3227,7 @@ body .Main_UserTw3:before {
   margin-bottom: 10px;
   justify-content: center;
   align-items: center;
+  min-height: 36px;
 }
 .Cg_DashItemHeader .Main_RoundDoneCreator {
   box-shadow: unset;
@@ -3239,6 +3243,8 @@ body .Main_UserTw3:before {
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+}
+.Cg_DashItemSolutionsColumn:has(.Cg_BankButton) {
   padding-top: 10px;
 }
 .Cg_DashItemSolutionsColumn:empty:before {
@@ -3247,9 +3253,14 @@ body .Main_UserTw3:before {
   color: #4b4b4b;
   line-height: 0.9;
   font-size: 24px;
+  text-align: center;
+  margin-top: 8px;
 }
 .Cg_DashItemRound {
   color: rgb(var(--d-text-yellow));
+  font-size: 20px;
+  padding: 0px 6px;
+  margin: 0px -6px;
 }
 .Cg_DashWrapper {
 
@@ -3263,7 +3274,7 @@ body .Main_UserTw3:before {
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
-  width: calc(var(--cell-width) * 5);
+  max-width: calc(var(--cell-width) * 5);
   margin: 0 auto;
 }
 .Cg_DashHeaderControls > * {
@@ -3327,6 +3338,106 @@ body .Main_UserTw3:before {
 }
 .Cg_DashBankIsTimePredicted .Cg_BankPoints {
   text-decoration: line-through;
+}
+.Cg_DashRqBlock {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin-left: 9px;
+  margin-right: 9px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 6px;
+}
+.Cg_DashItemOverRq .Cg_DashRqBlock {
+  color: #a90000;
+  background-color: rgba(var(--d-text-red-b), 0.1);
+  color: rgb(var(--d-text-red2));
+}
+.Cg_DashHasProblem .Cg_DashItemSolutionsColumn > .Cg_DashBankIsFreePred {
+  background-color: rgba(50, 100, 0, 0.3);
+}
+.Cg_DashHasProblem .Cg_DashItemSolutionsColumn > .Cg_DashBankIsFreePred ~ .Cg_DashBankIsFreePred {
+  background-color: unset;
+}
+.Cg_DashReportProblemsTitle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(var(--d-text-red-b), 0.1);
+  color: rgb(var(--d-text-red2));
+  height: 36px;
+  margin-right: 0px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 6px;
+}
+.Cg_DashBestSolutionCompact {
+  display: flex;
+  justify-content: center;
+}
+.Cg_DashItemSolutionsColumn .Cg_BankButton {
+  transition-duration: 0s;
+  will-change: transform, border-radius;
+}
+.Cg_DashShowMoreButton {
+  margin-top: 4px;
+  opacity: 1 !important;
+}
+.Cg_DashUpgradesTitle {
+  font-size: 12px;
+  opacity: 0.5;
+  text-align: center;
+}
+.Cg_DashReloadHeader {
+  gap: 10px;
+}
+.Cg_DashCompact .Cg_DashItemSolutionsColumn {
+  width: auto;
+  padding-top: 0px;
+}
+.Cg_DashCompact .Cg_DashItemSolutionsColumn .Cg_BankTuneNew,
+.Cg_DashCompact .Cg_DashItemSolutionsColumn .Cg_BankResult,
+.Cg_DashCompact .Cg_DashItemSolutionsColumn .Cg_BankToUpgrade,
+.Cg_DashCompact .Cg_DashShowMoreLabel {
+  display: none;
+}
+.Cg_DashCompact .Cg_DashItemSolutionsColumn .Cg_BankButton:first-child {
+  margin-top: 0px;
+}
+.Cg_DashCompact .Row_ShowMoreButton:first-child,
+.Cg_DashCompact .Cg_DashItemSolutionsColumn:empty:before {
+  width: 68px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.Cg_DashCompact .Cg_DashBestSolutionCompact .Cg_BankButton .BaseCardMini_FloatsRight,
+.Cg_DashCompact .Cg_DashItemSolutionsColumn .Cg_BankButton .BaseCardMini_FloatsRight {
+  display: flex !important;
+}
+.Cg_DashCompact .D_Button.Cg_BankButton {
+  border-radius: 3px;
+  padding-right: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.Cg_DashCompact .Cg_DashShowMoreButton {
+  margin-top: 0px;
+}
+.Cg_DashCompact .Cg_DashItemSolutionsColumn:empty:before {
+  font-size: 21px;
+  margin-top: 5px;
+}
+@media only screen and (max-width: 1200px) {
+  .Cg_DashItemSolutionsColumn .Cg_BankResult {
+    display: none;
+  }
+  .Cg_DashItemSolutionsColumn .Cg_BankToUpgrade {
+    margin-left: 5px;
+  }
+  .Cg_DashItemSolutionsColumn .Cg_DashBankIsFreePred {
+    padding-right: 0px;
+  }
 }
 
 

@@ -193,10 +193,12 @@ export default new Vuex.Store({
 
 
     CHANGE_USER: (state, item) => {
-      state.user = item.user
+      state.user = item.user;
+      window.user = item.user;
     },
     LOGOUT: (state, item) => {
-      state.user = null
+      state.user = null;
+      window.user = null;
     },
     CHANGE_TIME: (state, obj) => null,
     DELETE_TIME: (state, obj) => null,

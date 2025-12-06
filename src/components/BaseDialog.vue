@@ -10,7 +10,7 @@
       BaseDialog_Fixed: fixed,
       BaseDialog_UseColor: useColor
     }"
-    :style="`--dialog-index: ${zindex}`"
+    :style="`--dialog-index: ${zindex}; --dialog-width: ${maxWidth};`"
     class="BaseDialog_Layout">
     <div v-if="!fixed" class="BaseDialog_Back" @click="$emit('close')"></div>
     <div class="BaseDialog_Body" :class="{ BaseDialog_Body_Static: isStatic, BaseDialog_Body_Fixed: fixed }">
@@ -220,6 +220,8 @@ export default {
   max-height: calc(80vh - 40px);
   overflow-y: auto;
   overscroll-behavior: contain;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0.7, 0.35, 1);
 }
 .BaseDialog_ForceScroll {
   overflow-y: scroll;
@@ -267,6 +269,51 @@ export default {
 .BaseDialog_UseColor .BaseCard_EffectBackGround {
   display: none;
 }
+/* .BaseDialog_RacePos0 .BaseDialog_Body {
+  justify-content: flex-start;
+}
+.BaseDialog_RacePos1 .BaseDialog_Body,
+.BaseDialog_RacePos3 .BaseDialog_Body {
+  justify-content: space-evenly;
+} */
+
+/* .BaseDialog_RacePos0 .BaseDialog_Body:after {
+  content: "";
+  display: block;
+  width: 10vw;
+}
+.BaseDialog_RacePos1 .BaseDialog_Body:after {
+  content: "";
+  display: block;
+  width: 10vw;
+}
+.BaseDialog_RacePos3 .BaseDialog_Body:before {
+  content: "";
+  display: block;
+  width: 10vw;
+}
+.BaseDialog_RacePos4 .BaseDialog_Body:before {
+  content: "";
+  display: block;
+  width: 10vw;
+} */
+.BaseDialog_RacePos0 .BaseDialog_Box {
+  margin-right: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*3 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
+}
+.BaseDialog_RacePos1 .BaseDialog_Box {
+  margin-right: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*1 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
+}
+.BaseDialog_RacePos3 .BaseDialog_Box {
+  margin-left: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*1 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
+}
+.BaseDialog_RacePos4 .BaseDialog_Box {
+  margin-left: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*3 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
+}
+
+/* .BaseDialog_RacePos4 .BaseDialog_Body {
+  justify-content: flex-end;
+} */
+
 
 @supports not (backdrop-filter: blur(4px)) {
   .BaseDialog_Opaque {

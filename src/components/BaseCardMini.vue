@@ -1,5 +1,5 @@
 <template functional>
-  <div class="BaseCardMini_CarButton" :class="`BaseCardMini_Car${props.car.class}`">
+  <div v-if="props.car && props.car.rid" class="BaseCardMini_CarButton" :class="`BaseCardMini_Car${props.car.class}`">
     <div class="BaseCardMini_CarCard">
       <div class="BaseCardMini_BankPhoto">
         <img :src="props.car.photo" :key="props.car.rid" class="BaseCardMini_BankPhotoImg" alt="" loading="lazy">
@@ -19,6 +19,7 @@
       
     </div>
   </div>
+  <div v-else class="BaseCardMini_CarButton BaseCardMini_BankPhoto BaseCardMini_Empty"></div>
 </template>
 
 <script>
@@ -128,5 +129,8 @@ export default {
 .BaseCardMini_FloatsRight:not(.BaseCardMini_FloatTune332):not(.BaseCardMini_FloatTune323):not(.BaseCardMini_FloatTune233) .BaseCardMini_FloatTune {
   display: flex;
   border-radius: 3px 0px;
+}
+.BaseCardMini_Empty {
+  background-color: #ffffff0a;
 }
 </style>

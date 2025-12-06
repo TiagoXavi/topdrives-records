@@ -32,13 +32,13 @@
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
             :options="true"
-            :hideClose="readonly"
+            :hideClose="!canDelete"
             :showResetTune="false"
             :asGallery="true"
-            :draggable="!readonly"
+            :draggable="canDrag"
             :customData="car.customData"
             :selectedTune="isTunz ? (car.tun || car.tunZ) : car.selectedTune"
-            :downloadLoading="loading"
+            :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes(car.rid)"
             :cgOppo="isTunz || showTune ? true : false"
             @cog="$emit('cog', icar)"
             @dragdown="dragMouseDown($event, icar)"
@@ -57,7 +57,7 @@
         </div>
         <div v-else class="BaseCarsTeam_EnterCarEmpty BaseCarsTeam_CarInner BaseCard_AsGalleryBox">
           <button
-            v-if="!readonly"
+            v-if="canAdd"
             class="D_Button D_ButtonDark BaseCarsTeam_TeamsAddCarButton add"
             @click="carPickerForNewEvent(icar)">
             <i aria-hidden="true" class="ticon-plus_2" />
@@ -134,17 +134,21 @@ export default {
       type: Boolean,
       default: false
     },
-    loading: {
-      type: Boolean,
-      default: false
-    },
     isTunz: {
       type: Boolean,
       default: false
     },
-    readonly: {
+    canAdd: {
       type: Boolean,
-      default: false
+      default: true
+    },
+    canDelete: {
+      type: Boolean,
+      default: true
+    },
+    canDrag: {
+      type: Boolean,
+      default: true
     },
     showTune: {
       type: Boolean,
@@ -205,6 +209,10 @@ export default {
   computed: {},
   methods: {
     carPickerClearIndex(icar) {
+      if (this.$listeners && this.$listeners.delete) {
+        this.$emit("delete", icar);
+        return;
+      }
       Vue.set(this.cars, icar, {});
       this.$emit("changed");
     },

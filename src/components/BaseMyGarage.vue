@@ -916,6 +916,8 @@ export default {
         });
         this.saved = true;
         this.responseText = "";
+        window.localStorage.removeItem("cacheGarage");
+        window.localStorage.removeItem("garageUpgrades");
         
         // finish
         this.transformUserGarageToObj();

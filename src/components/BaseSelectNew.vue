@@ -40,6 +40,12 @@ export default {
         return []
       }
     },
+    options: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
     name: {
       type: String,
       required: false
