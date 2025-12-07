@@ -3678,7 +3678,7 @@
       @close="cgDashSolutionsDialog = false;">
       <div v-if="cg && cg.rounds && cg.rounds['d'] && cg.rounds['d'].rounds" style="Cg_SelectorDialogBox">
         <div class="Cg_SelectorDialogHeader">
-          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $tc("m_round", cgDashSolutionsDialogRound+1) }} {{ cgDashSolutionsDialogRound+1 }} - {{ $t("m_race") }} {{ cgDashSolutionsDialogRace+1 }}</div>
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $tc("m_round", 1) }} {{ cgDashSolutionsDialogRound+1 }} - {{ $t("m_race") }} {{ cgDashSolutionsDialogRace+1 }}</div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid Cg_DialogDashSolutionsList">
           <template v-for="(bankCar, ibank) in cg.rounds['d'].rounds[cgDashSolutionsDialogRound].solutions[cgDashSolutionsDialogRace]">
@@ -9251,10 +9251,10 @@ export default {
           if (car.points > 0) {
             if (usedRids[car.rid] === undefined || useGarage) {
               if (useGarage) {
-                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => x.tun === car.tune && usedHids[x.cardRecordId] === undefined)) {
+                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => (x.tun || x.tunZ) === car.tune && usedHids[x.cardRecordId] === undefined)) {
                   bestSolution[irace] = car;
                   usedRids[car.rid] = irace;
-                  usedHids[Vue.garageByRid[car.rid].find(x => x.tun === car.tune && usedHids[x.cardRecordId] === undefined).cardRecordId] = irace;
+                  usedHids[Vue.garageByRid[car.rid].find(x => (x.tun || x.tunZ) === car.tune && usedHids[x.cardRecordId] === undefined).cardRecordId] = irace;
                   return true;
                 }
               } else {
@@ -9284,9 +9284,9 @@ export default {
 
               if ((usedRids[c.rid] === undefined || useGarage) && !foundNotInUse) {
                 if (useGarage) {
-                  if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => x.tun === c.tune && usedHids[x.cardRecordId] === undefined)) {
+                  if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined)) {
                     foundNotInUse = c;
-                    foundNotInUseGarageCar = Vue.garageByRid[c.rid].find(x => x.tun === c.tune && usedHids[x.cardRecordId] === undefined);
+                    foundNotInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined);
                   }
                 } else {
                   foundNotInUse = c;
@@ -9297,9 +9297,9 @@ export default {
                 round.races[usedRids[c.rid]].cars.find(c2 => {
                   if ((c2.rid !== c.rid || useGarage) && c2.points > 0 && (usedRids[c2.rid] === undefined || useGarage)) {
                     if (useGarage) {
-                      if (Vue.garageByRid[c2.rid] && Vue.garageByRid[c2.rid].some(x => x.tun === c2.tune && usedHids[x.cardRecordId] === undefined)) {
+                      if (Vue.garageByRid[c2.rid] && Vue.garageByRid[c2.rid].some(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined)) {
                         substituteOfGiver = c2;
-                        substituteOfGiverGarageCar = Vue.garageByRid[c2.rid].find(x => x.tun === c2.tune && usedHids[x.cardRecordId] === undefined);
+                        substituteOfGiverGarageCar = Vue.garageByRid[c2.rid].find(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined);
                         return true;
                       }
                     } else {
@@ -9312,7 +9312,7 @@ export default {
                 if (substituteOfGiver) {
                   foundInUse = c;
                   foundInUseIndex = usedRids[c.rid];
-                  if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => x.tun === c.tune && usedHids[x.cardRecordId] !== undefined); 
+                  if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
                 }
               }
             }
@@ -9354,7 +9354,7 @@ export default {
         race.cars.map(car => {
           if (car.points > 0 && (car.rid !== _r.bestSolution[irace].rid || car.tune !== _r.bestSolution[irace].selectedTune)) {
             if (useGarage) { // with garage
-              if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => x.tun === car.tune)) {
+              if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => (x.tun || x.tunZ) === car.tune)) {
                 filteredSolutions.push(car);
               }
             } else { // no garage
@@ -9412,12 +9412,12 @@ export default {
                 rid: car.rid,
                 tune: car.tune,
                 points: car.points,
-                originalTune: found.tun,
+                originalTune: (found.tun || found.tunZ),
                 cardRecordId: found.cardRecordId
               });
               if (isOp) {
                 delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
-                _r.solutions[irace][_r.solutions[irace].length-1].tune = found.tun;
+                _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
                 _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
                 _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
                 _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
