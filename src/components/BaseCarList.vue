@@ -32,7 +32,7 @@
 
     
     <!-- Select car -->
-    <BaseFilterDialog
+    <!-- <BaseFilterDialog
       v-model="searchFilterDialog"
       :lastestList="lastestList"
       :highlightsUsers="highlightsUsers"
@@ -42,17 +42,18 @@
       :raceFilter="genericCarPickerFilter"
       type="carPicker"
       @addCar="addCar($event)"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import BaseFilterDialog from './BaseFilterDialog.vue'
+// import BaseFilterDialog from './BaseFilterDialog.vue'
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'BaseCarList',
   components: {
-    BaseFilterDialog
+    // BaseFilterDialog
   },
   props: {
     list: {
@@ -91,6 +92,7 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
       searchFilterDialog: false,
       genericCarPickerFilter: {},
     }
@@ -101,8 +103,34 @@ export default {
   computed: {},
   methods: {
     openDialog() {
-      this.genericCarPickerFilter = JSON.parse(JSON.stringify(this.filterToImport));
-      this.searchFilterDialog = true;
+      // this.genericCarPickerFilter = JSON.parse(JSON.stringify(this.filterToImport));
+      // this.searchFilterDialog = true;
+
+      this.T_S.$patch((state) => {
+        state._g_carPicker.dialogLoad = true;
+        state._g_carPicker.filter = JSON.parse(JSON.stringify(this.filterToImport));
+        state._g_carPicker.filter2 = false;
+        state._g_carPicker.filter3 = false;
+        state._g_carPicker.filterOnly = false;
+        state._g_carPicker.requirementFilter = false;
+        state._g_carPicker.useWhatFilter = 0;
+        state._g_carPicker.sortEnabled = true;
+        state._g_carPicker.keepMemory = true;
+        state._g_carPicker.enableCounters = true;
+        state._g_carPicker.type = "carPicker";
+        state._g_carPicker.index = null;
+        state._g_carPicker.addCar = this.addCar;
+        state._g_carPicker.clearFilterUpdate = () => {};
+        state._g_carPicker.useFilter = () => {};
+        state._g_carPicker.dual = () => {};
+        state._g_carPicker.config = {};
+      })
+      this.$nextTick().then(() => {
+        this.T_S.$patch((state) => {
+          state._g_carPicker.dialog = true;
+        })
+      })
+
     },
     addCar(newCar) {
       if (this.list.includes(newCar.rid)) return;

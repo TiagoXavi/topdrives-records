@@ -3439,6 +3439,9 @@ body .Main_UserTw3:before {
     padding-right: 0px;
   }
 }
+.Main_IsRqSavers .Cg_BankPointsNew:not(.Cg_BankPointsNewRqSavers) {
+  display: none;
+}
 
 
 .Main_CgListDividerLayout {

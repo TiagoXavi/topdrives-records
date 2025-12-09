@@ -1367,7 +1367,7 @@
           </div>
 
           <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints }">
+          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: event.compilation?.[0]?.[0].saverScore3 !== undefined }">
             <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
               <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
                 <template v-for="(car, icar) in group">
@@ -1410,6 +1410,9 @@
                       }"
                       class="Cg_BankPointsNew">
                       <span class="Cg_BankPoints">{{ car.points.v }}</span>
+                    </div>
+                    <div class="Cg_BankPointsNew Cg_BankPointsNewRqSavers Cg_PointsGreen">
+                      <span class="Cg_BankPoints">{{ car.saverScore3 }}</span>
                     </div>
                     <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
                       <span class="">{{ car.timeToPrint }}</span>
@@ -1787,7 +1790,7 @@
             </div>
 
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-            <div class="Cg_Box" style="margin-top: 15px;">
+            <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints }">
               <div v-for="(group, igroup) in clubCompilation" class="Cg_YouBank Event_CompilationBox">
                 <div class="Cg_YouBankBox" :class="{ Event_HasPickList: clubPicksList.length > 0 && clubEnablePicks }">
                   <template v-for="(car, icar) in group">
@@ -1800,7 +1803,7 @@
                         Event_PredictTime: car.isTimePredicted
                       }"
                       :style="`--cor: ${ car.color }`"
-                      :key="`${car.rid}${car.tune}`"
+                      :key="`${car.rid}${car.tune}${icar}`"
                       class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
                       style="will-change: opacity, transform;"
                       @longTouch="clubTogglePick(car, $event)"
@@ -7686,6 +7689,8 @@ export default {
       if (allowedTunes.includes(tune)) {
         // put on Vue.all_cacheObj
         this.resolveChangeTime(carData, NEW, number, tune);
+      } else if (carData?.data?.[tune]?.times?.[race.track]) {
+        Vue.set(carData.data[tune].times, race.track, { t: number });
       }
 
       Vue.set(race, "time", number);
