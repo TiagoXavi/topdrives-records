@@ -1350,7 +1350,7 @@ export default {
             DRAWS = hCar.cDdiff;
             usedTimes = hCar.cWdiff + hCar.cLdiff + hCar.cDdiff;
             // count ageInMinutes starting for the year of this.userGaragePastYear or the hCar.date if newer
-            let pastYearDate = new Date(`${this.userGaragePastYear}-01-01T00:00:00.000Z`);
+            let pastYearDate = new Date(`${this.garageYear}-01-01T00:00:00.000Z`);
             let effectiveDate = new Date(hCar.date) > pastYearDate ? new Date(hCar.date) : pastYearDate;
             ageInMinutes = (this.today - effectiveDate) / 1000 / 60;
             ageInDays = ageInMinutes / 60 / 24;
@@ -2688,5 +2688,6 @@ export default {
   margin-bottom: 10px;
   flex-grow: 1;
   align-items: center;
+  align-content: center;
 }
 </style>
