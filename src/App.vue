@@ -73,6 +73,18 @@
       @pushCpSuggest="_g_track.pushCpSuggest"
     />
 
+    <BaseCarDetailDialog
+      :active="_g_car.dialog"
+      :car="_g_car.car"
+      :tuneDialogCarIndex="_g_car.tuneDialogCarIndex"
+      :carDetailsList="_g_car.carDetailsList"
+      :showMove="_g_car.showMove"
+      :showTunes="_g_car.showTunes"
+      @close="_g_car.close"
+      @changed="_g_car.changed"
+      @newIndex="_g_car.newIndex"
+    />
+
     <BaseDialog
       :active="loginDialog"
       :transparent="false"
@@ -197,6 +209,7 @@ import BaseText from "@/components/BaseText.vue"
 import BaseFilterDialog from "@/components/BaseFilterDialog.vue"
 import BaseSearchTrackDialog from '@/components/BaseSearchTrackDialog.vue'
 import BaseButtonTouch from '@/components/BaseButtonTouch.vue'
+import BaseCarDetailDialog from '@/components/BaseCarDetailDialog.vue'
 
 import LogRocket from 'logrocket';
 import { mapState } from 'pinia';
@@ -212,7 +225,8 @@ export default {
     BaseText,
     BaseFilterDialog,
     BaseSearchTrackDialog,
-    BaseButtonTouch
+    BaseButtonTouch,
+    BaseCarDetailDialog
   },
   props: {},
   data() {
@@ -352,7 +366,7 @@ export default {
     // window.addEventListener('scroll', this.scroll);
   },
   computed: {
-    ...mapState(tdrStore, ['_g_carPicker', '_g_track'])
+    ...mapState(tdrStore, ['_g_carPicker', '_g_track', '_g_car'])
   },
   methods: {
     letSnack(obj) {

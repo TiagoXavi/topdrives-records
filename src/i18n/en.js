@@ -314,6 +314,18 @@ export default {
   m_predict: "Predict",
   m_comingSoon: "Coming soon",
   m_soon: "Soon",
+  m_tooManyCars: "Too many cars",
+  m_addedYear: "Acquired year",
+  m_carsMaxed: "Cars maxed",
+  m_newCars: "New cars",
+  m_newCarsMaxed: "New cars maxed",
+  m_trophiesEarned: "Trophies earned",
+  m_slotsacquired: "Slots acquired",
+  m_usedSlots: "Used slots",
+  m_greatestDay: "Greatest day",
+  m_highlights: "Highlights",
+  m_uniques: "Uniques",
+  m_sPrizes: "Legendary prizes",
 
 
 

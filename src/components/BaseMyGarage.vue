@@ -9,7 +9,7 @@
       <!-- <div class="BaseMyGarage_CarList">
         <div v-for="card in userGarage.playerDeck" class="BaseMyGarage_CardBox">
           <BaseCardGallery
-            :car="all_cars_obj[card.rid]"
+            :car="Vue.all_carsObj[card.rid]"
             :options="false"
             :tuneText="card.tun"
             class="BaseMyGarage_GalleryCard" />
@@ -27,6 +27,20 @@
 
       <template v-else>
         <!-- MAIN -->
+        <div v-if="userGarage && userGarage.loaded && editEnabled" class="BaseMyGarage_EditBox BaseMyGarage_HLBox">
+          <div class="BaseMyGarage_EditBoxButtons">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+              @click="calcLink(); openConfig();">
+              <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
+            </button>
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
+              @click="toggleTopEdit();">
+              <i class="Main_MenuIcon" :class="`ticon-${ topEdit ? 'minus_2' : 'plus_2' }`" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
         <div class="MainShowcase_SaveBar D_Center2">
           <button
             v-if="!userId"
@@ -51,29 +65,16 @@
         </div>
 
 
-        <!-- <div v-if="false" class="BaseMyGarage_H">
-          <RecycleScroller
-            :items="userGarage.playerDeck"
-            :item-size="300"
-            :item-secondary-size="186"
-            :emitUpdate="true"
-            :gridItems="2"
-            direction="horizontal"
-            listClass="BaseMyGarage_CardsWrapper"
-            itemClass="BaseMyGarage_ScrollerItem"
-            class="BaseMyGarage_CardsBox Main_DarkScroll"
-            @scrollEnd="">
-            <template v-slot="{ item, index, active }">
-              <div class="BaseMyGarage_CardBox">
-                <BaseCardGallery
-                  :car="all_cars_obj[item.rid]"
-                  :options="false"
-                  :tuneText="item.tun || item.tunZ"
-                  class="BaseMyGarage_GalleryCard" />
-              </div>
-            </template>
-          </RecycleScroller>
-        </div> -->
+        <div v-if="userGarage && userGarage.loaded && topEdit" class="D_Center2 BaseMyGarage_AddGroupBoxTop">
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="yearSelector('group', true)">
+            <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+            <span class="">{{ $t('m_newGroup') }}</span>
+          </button>
+          <button class="D_Button BaseMyGarage_AddGroupButton" @click="yearSelector('timeline', true)">
+            <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+            <span class="">{{ $t('m_newTimeline') }}</span>
+          </button>
+        </div>
 
 
         <div class="BaseMyGarage_HLBox">
@@ -127,12 +128,6 @@
                     </div>
                     <div v-if="!pngLoading" class="BaseMyGarage_SideButtons">
                       <button
-                        v-if="item.id === 0 && userGarage.loaded && editEnabled"
-                        class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
-                        @click="calcLink(); openConfig();">
-                        <i class="ticon-gear Main_MenuIcon" aria-hidden="true"/>
-                      </button>
-                      <button
                         v-if="userGarage.loaded"
                         class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
                         @click="sharePrint(item)">
@@ -158,6 +153,112 @@
                     </template>
                   </div>
 
+                  <div v-if="item.specialId === 'recap'" class="BaseMyGarage_PastGarageStats">
+                    <div v-if="userGaragePast.loaded" class="BaseMyGarage_PastTop BaseMyGarage_RarityStatsBox">
+                      <div class="BaseMyGarage_PastTopItem BaseMyGarage_RarityStatsItem">
+                        <div class="BaseMyGarage_RarityStatsValue">
+                          <div class="BaseMyGarage_RarityStatsValueT BaseMyGarage_RarityStatsValueWithIcon">
+                            <i aria-hidden="true" class="ticon-trophy BaseMyGarage_StatValueIcon" style="font-size: 21px;" />
+                            <span>{{ (otherDiffStats.eloScore || '').toLocaleString() }}</span>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $t('m_trophiesEarned') }}</div>
+                      </div>
+                      <div class="BaseMyGarage_PastTopItem BaseMyGarage_RarityStatsItem">
+                        <div class="BaseMyGarage_RarityStatsValue">
+                          <div class="BaseMyGarage_RarityStatsValueT BaseMyGarage_RarityStatsValueWithIcon">
+                            <i aria-hidden="true" class="ticon-arrow_up_3 BaseMyGarage_StatValueIcon" />
+                            <span>{{ otherDiffStats.garageSlots }}</span>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $t('m_slotsacquired') }}</div>
+                      </div>
+                      <div class="BaseMyGarage_PastTopItem BaseMyGarage_RarityStatsItem">
+                        <div class="BaseMyGarage_RarityStatsValue">
+                          <div class="BaseMyGarage_RarityStatsValueT BaseMyGarage_RarityStatsValueWithIcon">
+                            <i aria-hidden="true" class="ticon-arrow_up_3 BaseMyGarage_StatValueIcon" />
+                            <span>{{ otherDiffStats.newCars }}</span>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $t('m_newCars') }}</div>
+                      </div>
+                    </div>
+                    <div v-else-if="loadingPastYear" class="BaseMyGarage_PastTop BaseMyGarage_RarityStatsBox">
+                      <div v-for="n in 3" class="BaseMyGarage_PastTopItem BaseMyGarage_RarityStatsItem BaseMyGarage_RarityLoading"></div>
+                    </div>
+
+                    <div class="BaseMyGarage_PastTop BaseMyGarage_RarityStatsBox">
+                      <div
+                        v-for="(value, key, index) in otherDiffStats.tags"
+                        class="BaseMyGarage_PastTopItem BaseMyGarage_RarityStatsItem"
+                        style="justify-content: center;">
+                        <div v-if="value.S.length" class="BaseMyGarage_STagsList">
+                          <BaseCardMiniButton
+                            v-for="car in value.S"
+                            :car="Vue.all_carsObj[car.rid]"
+                            @click="T_S.miniCarClick(Vue.all_carsObj[car.rid])"
+                          />
+                        </div>
+                        <BaseGameTag :tag="key" class="BaseMyGarage_RarityTag" />
+                        <div class="BaseMyGarage_RarityStatsValue" style="min-height: 43px;">
+                          <div class="BaseMyGarage_RarityStatsValueT BaseMyGarage_RarityStatsValueWithIcon">
+                            <span>{{ value.v }}</span>
+                          </div>
+                        </div>
+                        <div class="BaseMyGarage_RarityStatsName">{{ $t('m_uniques') }}</div>
+                      </div>
+                    </div>
+
+                    <div v-if="otherDiffStats.S_prizes.cars && otherDiffStats.S_prizes.cars.length" class="BaseMyGarage_PastGreatestDayGroup">
+                      <div class="BaseMyGarage_PastSub">{{ $t('m_sPrizes') }} ({{ otherDiffStats.S_prizes.cars.length }})</div>
+                      <div class="BaseMyGarage_PastGreatestDayList">
+                        <BaseCardMiniButton
+                          v-for="car in otherDiffStats.S_prizes.cars"
+                          :car="Vue.all_carsObj[car.rid]"
+                          @click="T_S.miniCarClick(Vue.all_carsObj[car.rid])"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="BaseMyGarage_PastRarityGroup">
+                      <div class="BaseMyGarage_PastSub">{{ $t('m_newCars') }}</div>
+                      <div class="BaseMyGarage_PastRarityBox">
+                        <button
+                          v-for="(value, key, index) in otherDiffStats.new"
+                          :style="`--classC: var(--c${key});`"
+                          class="D_Button BaseMyGarage_PastRarityItem"
+                          @click="pastRarityClick(item, key, 'new')">
+                          <div class="BaseMyGarage_PastRarityName">{{ key }}</div>
+                          <div class="BaseMyGarage_PastRarityValue">{{ value.v }}</div>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="BaseMyGarage_PastRarityGroup" style="margin-bottom: 30px;">
+                      <div class="BaseMyGarage_PastSub">{{ userGaragePast.loaded ? $t('m_carsMaxed') : $t('m_newCarsMaxed') }}</div>
+                      <div class="BaseMyGarage_PastRarityBox">
+                        <button
+                          v-for="(value, key, index) in otherDiffStats.maxed"
+                          :style="`--classC: var(--c${key});`"
+                          class="D_Button BaseMyGarage_PastRarityItem"
+                          @click="pastRarityClick(item, key, 'maxed')">
+                          <div class="BaseMyGarage_PastRarityName">{{ key }}</div>
+                          <div class="BaseMyGarage_PastRarityValue">{{ value.v }}</div>
+                        </button>
+                      </div>
+                    </div>
+                    <div v-if="otherDiffStats.greatestDayFinal" class="BaseMyGarage_PastGreatestDayGroup">
+                      <div class="BaseMyGarage_PastSub">{{ $t('m_greatestDay') }}: {{ otherDiffStats.greatestDayFinal.date }}</div>
+                      <div class="BaseMyGarage_PastGreatestDayList">
+                        <BaseCardMiniButton
+                          v-for="car in otherDiffStats.greatestDayFinal.cars"
+                          :car="Vue.all_carsObj[car.rid]"
+                          @click="T_S.miniCarClick(Vue.all_carsObj[car.rid])"
+                        />
+                      </div>
+                    </div>
+                    <div v-if="item.t" class="BaseMyGarage_PastSub">{{ $t('m_highlights') }}</div>
+                  </div>
+
                   <div v-if="item.t" class="BaseMyGarage_RarityStatsBox BaseMyGarage_RarityStatsBoxCars">
                     <template v-for="(value, key, index) in item.t">
                       <button
@@ -166,7 +267,7 @@
                         <div class="BaseMyGarage_RarityStatsCard">
                           <BaseCardGallery
                             v-if="value.car.rid"
-                            :car="all_cars_obj[value.car.rid]"
+                            :car="Vue.all_carsObj[value.car.rid]"
                             :options="false"
                             :tuneText="value.car.tun || value.car.tunZ"
                             class="BaseMyGarage_GalleryCard" />
@@ -181,7 +282,7 @@
                         <div class="BaseMyGarage_RarityStatsName">{{ $tc(`m_${key}`,1) }}</div>
 
                         <!-- <template v-if="value.car.cardId">
-                          <span>{{ all_cars_obj[value.car.cardId].name }} </span>
+                          <span>{{ Vue.all_carsObj[value.car.cardId].name }} </span>
                           <span v-if="key.includes('Rate')">({{ Math.round(value.v) }}%)</span>
                           <span v-else>({{ value.v }})</span>
                         </template> -->
@@ -195,27 +296,38 @@
                       <div class="BaseMyGarage_MonthLeft">{{ new Date(2024, month.monthIndex, 1).toLocaleString('default', { month: 'short' }) }}</div>
                       <div v-if="!pngLoading && true" class="BaseMyGarage_MonthRight">
                         <div class="BaseMyGarage_MonthMid">
-                          <BaseCardGallery
-                            v-for="car in month.cars"
-                            :ad="`${(car.date || '').slice(0, 13)}`"
-                            :car="all_cars_obj[car.rid]"
-                            :options="false"
-                            :class="{ BaseMyGarage_MonthTop: all_cars_obj[car.rid].prize }"
-                            class="BaseMyGarage_GalleryCard" />
+                          <div v-if="month.cars.length > 70" class="BaseMyGarage_MonthTooMany">
+                            <div class="BaseMyGarage_MonthTooManyText">{{ $t('m_tooManyCars') }} ({{ month.cars.length }})</div>
+                          </div>
+                          <template v-else>
+                            <BaseCardGallery
+                              v-for="car in month.cars"
+                              :ad="`${(car.date || '').slice(0, 13)}`"
+                              :car="Vue.all_carsObj[car.rid]"
+                              :options="false"
+                              :class="{ BaseMyGarage_MonthTop: Vue.all_carsObj[car.rid].prize }"
+                              class="BaseMyGarage_GalleryCard"
+                            />
+                          </template>
                         </div>
                       </div>
                       <div v-else class="BaseMyGarage_MonthRight">
                         <div class="BaseMyGarage_MonthMid">
-                          <div
-                            v-for="car in month.cars"
-                            class="MainFindCar_CarCard"
-                            :class="{ BaseMyGarage_MonthTop: all_cars_obj[car.rid].prize }"
-                            :style="`--color: ${all_cars_obj[car.rid].color}`">
-                            <div class="MainFindCar_BankPhoto">
-                              <img :src="all_cars_obj[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
-                            </div>
-                            <div class="MainFindCar_RQ">{{ all_cars_obj[car.rid].rq }}</div>
+                          <div v-if="month.cars.length > 70" class="BaseMyGarage_MonthTooMany">
+                            <div class="BaseMyGarage_MonthTooManyText">{{ $t('m_tooManyCars') }} ({{ month.cars.length }})</div>
                           </div>
+                          <template v-else>
+                            <div
+                              v-for="car in month.cars"
+                              class="MainFindCar_CarCard"
+                              :class="{ BaseMyGarage_MonthTop: Vue.all_carsObj[car.rid].prize }"
+                              :style="`--color: ${Vue.all_carsObj[car.rid].color}`">
+                              <div class="MainFindCar_BankPhoto">
+                                <img :src="Vue.all_carsObj[car.rid].photo" class="MainFindCar_BankPhotoImg" loading="lazy" alt="">
+                              </div>
+                              <div class="MainFindCar_RQ">{{ Vue.all_carsObj[car.rid].rq }}</div>
+                            </div>
+                          </template>
                         </div>
                       </div>
 
@@ -226,16 +338,6 @@
             </template>
           </DynamicScroller>
 
-
-          <!-- <template v-for="(hl, ihl) in userHighlights">
-            <div
-              v-if="(!pngLoading || pngIndex === ihl) && (userGarage.loaded || ihl === 0)"
-              class="BaseMyGarage_HLItem">
-
-              
-
-            </div>
-          </template> -->
         </div>
 
         <div v-if="userGarage && userGarage.loaded" class="D_Center2 BaseMyGarage_AddGroupBox">
@@ -398,7 +500,7 @@
       min-width="240px"
       @close="yearDialog = false;">
       <div class="BaseMyGarage_ConfigDialogBox">
-        <div class="Main_DialogTitle" style="margin-bottom: 30px;">{{ $tc('c_year', 1) }}</div>
+        <div class="Main_DialogTitle" style="margin-bottom: 30px;">{{ $t('m_addedYear') }}</div>
         <div class="D_Center2 Space_TopGiga" style="flex-wrap: wrap;">
           <button
             v-for="year in yearList"
@@ -440,7 +542,7 @@
             <div class="BaseMyGarage_ListLayout">
               <div class="BaseMyGarage_VerticalCardBox">
                 <BaseCardGallery
-                  :car="all_cars_obj[item.car.rid]"
+                  :car="Vue.all_carsObj[item.car.rid]"
                   :options="false"
                   :tuneText="item.car.tun || item.car.tunZ"
                   class="BaseMyGarage_GalleryCard" />
@@ -455,16 +557,48 @@
             </div>
           </template>
         </RecycleScroller>
-        <!-- <div v-for="item in orderedList" class="BaseMyGarage_OrderedItem">
-          <div class="BaseMyGarage_RarityStatsCard">
-            <BaseCardGallery
-              :car="all_cars_obj[item.car.rid]"
-              :options="false"
-              :tuneText="item.car.tun || item.car.tunZ"
-              class="BaseMyGarage_GalleryCard" />
-          </div>
-          <div class="BaseMyGarage_OrderedRight"></div>
-        </div> -->
+      </div>
+    </BaseDialog>
+
+    <BaseDialog
+      :active="rarityListDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="rarityListDialog = false;">
+      <div class="BaseMyGarage_OrderedLayout">
+        <div class="BaseMyGarage_OrderedHeader">
+          <div class="Main_DialogTitle">{{ rarityDialogTitle }}</div>
+        </div>
+        <RecycleScroller
+          :items="rarityListArr"
+          :item-size="111"
+          :buffer="800"
+          key-field="id"
+          listClass="BaseMyGarage_CardsWrapper"
+          itemClass="BaseMyGarage_ScrollerItem"
+          class="Main_DarkScroll"
+          page-mode>
+          <template v-slot="{ item, index, active }">
+            <div class="BaseMyGarage_ListLayout">
+              <div class="BaseMyGarage_VerticalCardBox">
+                <BaseCardGallery
+                  :car="Vue.all_carsObj[item.rid]"
+                  :options="false"
+                  :tuneText="item.tun || item.tunZ"
+                  class="BaseMyGarage_GalleryCard" />
+              </div>
+              <div class="BaseMyGarage_OrderedRight">
+                <div class="BaseMyGarage_OrderedCount">#{{ index+1 }}</div>
+                <div class="BaseMyGarage_RarityStatsValue">
+                  <div class="BaseMyGarage_RarityStatsValueT" style="font-size: 25px;">{{ item.date.slice(0, 10) }}</div>
+                  <div class="BaseMyGarage_RarityStatsSub" style="opacity: 0.3; margin-top: 3px;">{{ rarityDialogSub }}</div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </RecycleScroller>
       </div>
     </BaseDialog>
 
@@ -472,7 +606,6 @@
 </template>
 
 <script>
-import all_cars from '../database/cars_final.json';
 import BaseCardGallery from './BaseCardGallery.vue';
 import BaseDialog from './BaseDialog.vue';
 import BaseFilterDialog from './BaseFilterDialog.vue';
@@ -480,7 +613,11 @@ import BaseFilterDescription from './BaseFilterDescription.vue';
 import BaseIconSvg from './BaseIconSvg.vue';
 import BaseSwitch from './BaseSwitch.vue';
 import BaseMyGarageTutorial from './BaseMyGarageTutorial.vue';
+import BaseCardMini from './BaseCardMini.vue';
+import BaseCardMiniButton from './BaseCardMiniButton.vue';
+import BaseGameTag from './BaseGameTag.vue';
 import rn_to_rid from '../database/rn_to_rid.json';
+import { tdrStore } from '@/tdrStore.js';
 
 class hlCar {
   constructor(initialValue = 0, suffix = "", prefix = "") {
@@ -504,25 +641,33 @@ class rarityStats {
   }
 }
 class groupStats {
-  constructor() {
+  constructor(isPast) {
     this.mostUsed = new hlCar();
     this.mostWins = new hlCar();
     this.mostLoses = new hlCar();
     this.highWinRate = new hlCar(0, "%");
     this.highLoseRate = new hlCar(0, "%");
-    this.oldest = new hlCar(0, " days");
-    this.oldestNoUse = new hlCar(0, " days");
-    this.lessUseDay = new hlCar(null);
+    if (!isPast) this.oldest = new hlCar(0, " days");
+    if (!isPast) this.oldestNoUse = new hlCar(0, " days");
+    if (!isPast) this.lessUseDay = new hlCar(null);
     this.mostUseDay = new hlCar(0, "/day");
     this.mostWinDay = new hlCar(0, "/day");
     this.mostLoseDay = new hlCar(0, "/day");
-    this.higherRQ = new hlCar(0, "", "RQ");
+    if (!isPast) this.higherRQ = new hlCar(0, "", "RQ");
   }
 }
 class timeline {
   constructor(monthIndex) {
     this.monthIndex = monthIndex;
     this.cars = [];
+  }
+}
+class pastRarityItem {
+  constructor(extra1 = false) {
+    this.v = 0;
+    this.cars = [];
+    if (extra1) this.ridList = [];
+    if (extra1) this.S = [];
   }
 }
 
@@ -535,7 +680,10 @@ export default {
     BaseFilterDescription,
     BaseIconSvg,
     BaseSwitch,
-    BaseMyGarageTutorial
+    BaseMyGarageTutorial,
+    BaseCardMiniButton,
+    BaseCardMini,
+    BaseGameTag
   },
   props: {
     test: {
@@ -545,22 +693,35 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
+      T_S: tdrStore(),
       loading: false,
+      loadingPastYear: false,
       lastestLoading: false,
       screen: "normal",
+      topEdit: false,
+      isTopAdd: false,
       animation: false,
       user: null,
       responseText: "",
-      all_cars,
-      all_cars_obj: {},
       highlightsUsers: {},
-      carsReady: false,
       garageYear: 2025,
       userGarage: {},
+      userGarageByDate: {},
+      userGaragePast: {},
+      otherDiffStats: {},
+      userGaragePastYear: 2024,
+      pointsPerRarity: {
+        S: 20,
+        A: 5,
+        B: 1,
+      },
+      rarityListDialog: false,
+      rarityListArr: [],
+      rarityDialogTitle: "",
+      rarityDialogSub: "",
       loadedName: null,
       myGarageFilterDialog: false,
-      all_cars_obj: {},
-      guidToRid: {},
       unsubscribe: null,
       saved: false,
       confirmDelete: {
@@ -593,14 +754,25 @@ export default {
       shareUrl: "",
       today: new Date(),
       copyUrlSucess: false,
+      nextId: 1000,
       userHighlights: [
+        {
+          id: 100,
+          fixed: true,
+          filter: {},
+          title: "2025 Recap",
+          specialTitle: true,
+          requirePast: true,
+          specialId: "recap"
+        },
         {
           id: 0,
           fixed: true,
           filter: { newerThan: "2025-01-01T00:00:00.000Z", olderThan: "2025-12-31T23:59:59.000Z" },
           t: new groupStats(),
-          title: "My cars of 2025",
-          specialTitle: true
+          title: "New in 2025",
+          specialTitle: true,
+          specialId: "myCarsYear"
         },
         {
           id: 1,
@@ -608,7 +780,8 @@ export default {
           filter: { classesModel: ["S"], newerThan: "2025-01-01T00:00:00.000Z", olderThan: "2025-12-31T23:59:59.000Z" },
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
           title: "2025 Leggy Timeline",
-          specialTitle: true
+          specialTitle: true,
+          specialId: "myCarsYearTimeline"
         },
         {
           id: 2,
@@ -624,6 +797,20 @@ export default {
           title: "Garage",
           specialTitle: true
         },
+        { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() }, // change id
+        { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
+        { id: 37, filter: { tagsModel: ["French Riviera"] }, t: new groupStats() },
+        { id: 36, filter: { tagsModel: ["Asia-Pacific Revival"] }, t: new groupStats() },
+        { id: 26, filter: { tagsModel: ["European Grand Tour"] }, t: new groupStats() },
+        { id: 27, filter: { tagsModel: ["American Overdrive"] }, t: new groupStats() },
+        { id: 28, filter: { tagsModel: ["European New Wave"] }, t: new groupStats() },
+        { id: 29, filter: { tagsModel: ["Asia-Pacific Grand Prix"] }, t: new groupStats() },
+        { id: 30, filter: { tagsModel: ["Pacific Coast Highway"] }, t: new groupStats() },
+        { id: 31, filter: { tagsModel: ["Learn the Savannah Way"] }, t: new groupStats() },
+        { id: 32, filter: { tagsModel: ["Loch to Loch"] }, t: new groupStats() },
+        { id: 33, filter: { tagsModel: ["Amalfi Coast Cruising"] }, t: new groupStats() },
+        { id: 34, filter: { tagsModel: ["Enter the Black Forest"] }, t: new groupStats() },
+        { id: 35, filter: { tagsModel: ["World Expo"] }, t: new groupStats() },
         {
           id: 4,
           filter: { classesModel: ["S"] },
@@ -678,20 +865,6 @@ export default {
         { id: 23, filter: { countrysModel: ["SE"] }, t: new groupStats() },
         { id: 24, filter: { countrysModel: ["KR"] }, t: new groupStats() },
         { id: 25, filter: { countrysModel: ["CZ"] }, t: new groupStats() },
-        { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() }, // change id
-        { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
-        { id: 37, filter: { tagsModel: ["French Riviera"] }, t: new groupStats() },
-        { id: 36, filter: { tagsModel: ["Asia-Pacific Revival"] }, t: new groupStats() },
-        { id: 26, filter: { tagsModel: ["European Grand Tour"] }, t: new groupStats() },
-        { id: 27, filter: { tagsModel: ["American Overdrive"] }, t: new groupStats() },
-        { id: 28, filter: { tagsModel: ["European New Wave"] }, t: new groupStats() },
-        { id: 29, filter: { tagsModel: ["Asia-Pacific Grand Prix"] }, t: new groupStats() },
-        { id: 30, filter: { tagsModel: ["Pacific Coast Highway"] }, t: new groupStats() },
-        { id: 31, filter: { tagsModel: ["Learn the Savannah Way"] }, t: new groupStats() },
-        { id: 32, filter: { tagsModel: ["Loch to Loch"] }, t: new groupStats() },
-        { id: 33, filter: { tagsModel: ["Amalfi Coast Cruising"] }, t: new groupStats() },
-        { id: 34, filter: { tagsModel: ["Enter the Black Forest"] }, t: new groupStats() },
-        { id: 35, filter: { tagsModel: ["World Expo"] }, t: new groupStats() },
       ],
       tutorialModel: [],
       tutorial: {
@@ -799,7 +972,13 @@ export default {
     },
     userHighlightsFiltered() {
       if (this.printingItem) return [this.printingItem];
-      return this.userHighlights.filter((hl, ihl) => (this.userGarage.loaded || ihl === 0));
+      if (!this.userGarage.loaded) { // only first highlight
+        return [this.userHighlights[1]];
+      }
+      // if (!this.userGaragePast.loaded && !this.loadingPastYear) { // return ones that not require requirePast
+      //   return this.userHighlights.filter(hl => !hl.requirePast);
+      // }
+      return this.userHighlights;
     }
   },
   methods: {
@@ -817,17 +996,17 @@ export default {
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {
-          let rids = this.all_cars.map(x => x.rid);
+          let rids = Vue.all_carsArr.map(x => x.rid);
 
           incomingCars.map(car => {
             if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
               if (!rids.includes(car.rid)) {
-                this.all_cars.push(car);
+                Vue.all_carsArr.push(car);
               }
             }
           })
 
-          this.all_cars.sort((a,b) => {
+          Vue.all_carsArr.sort((a,b) => {
             return b.rq - a.rq;
           })
         }
@@ -855,20 +1034,13 @@ export default {
       this.loading = true;
 
       axios.post(Vue.preUrl + "/getGarage", {
-        username: this.userId,
-        year: this.garageYear
+        username: this.userId
       })
       .then(res => {
         this.loading = false;
         this.saved = false;
         if (res.status === 200 && !res.data) {
           // not found
-          // TEMP
-          if (this.garageYear === 2025) {
-            this.garageYear = 2024;
-            this.load();
-            return;
-          }
         }
         if (res.status === 204) {
           // private garage
@@ -885,10 +1057,20 @@ export default {
           }
           if (res.data.value) {
             this.userGarage = res.data.value;
+            if (res.data.year) {
+              this.updateYearPage(res.data.year);
+            }
             this.processPlayerDeckStep2();
           }
           if (res.data.u) {
             this.loadedName = res.data.u;
+          }
+          
+          if (this.user && this.user.garageYears && this.user.garageYears.length > 1) {
+            let pastYear = Number(res.data.year) - 1;
+            if (this.user.garageYears.includes(`${pastYear}`)) {
+              this.loadPastYear(Number(pastYear));
+            }
           }
         }
       })
@@ -903,8 +1085,38 @@ export default {
         });
       })
     },
+    loadPastYear(year) {
+      if (!this.userId) return;
+      this.loadingPastYear = true;
+
+      axios.post(Vue.preUrl + "/getGarage", {
+        username: this.userId,
+        year: year
+      })
+      .then(res => {
+        this.loadingPastYear = false;
+        if (res.data && res.data.value) {
+
+          this.userGaragePastYear = year;
+          this.userGaragePast = res.data.value;
+          this.userHighlights.find(hl => hl.specialId === "recap").t = new groupStats(true);
+          
+          this.initPastGarageCompare();
+          
+          // this.processPlayerDeckStep2();
+        }
+      })
+      .catch(error => {
+        this.loadingPastYear = false;
+        console.log(error);
+      })
+    },
     save() {
       this.loading = true;
+
+      if (this.privacyModel === "private") {
+        this.userGarage.private = true;
+      }
 
       axios.post(Vue.preUrl + "/setGarage", this.userGarage)
       .then(res => {
@@ -921,6 +1133,7 @@ export default {
         
         // finish
         this.transformUserGarageToObj();
+        this.updateYearPage(this.userGarage.date ? new Date(this.userGarage.date).getFullYear() : this.garageYear);
         this.processPlayerDeckStep2();
         this.changeScreen('normal');
 
@@ -935,17 +1148,6 @@ export default {
           type: "error"
         });
       })
-    },
-    addToResolvedRids(rid) {
-      // if (!this.all_cars_obj[rid]) {
-      //   let preCar = this.all_cars_obj[rid];
-      //   if (preCar) {
-      //     preCar.color = Vue.resolveClass(preCar.rq, preCar.class, "color");
-      //     preCar.colorRgb = Vue.resolveClass(preCar.rq, preCar.class, "color", true);
-      //     preCar.photo = Vue.carPhoto(preCar);
-      //     this.all_cars_obj[rid] = preCar;
-      //   }
-      // }
     },
     processSyncObj(obj) {
       let isError = this.errorSwitch(obj);
@@ -977,7 +1179,6 @@ export default {
         totalGiftsClaimed: obj.dailyGift.totalGiftsClaimed
       };
 
-      if (!this.carsReady) this.transformAllCarsToObj();
       this.userGarage.playerDeck = this.processPlayerDeck(obj.playerDeck);
 
       // console.log(this.userGarage);
@@ -996,11 +1197,11 @@ export default {
       let listOfCri = [];
 
       deck.map((hCar, icar) => {
-        this.addToResolvedRids(this.guidToRid[hCar.cardId]);
+        if (hCar.state === 0) return; // holding pool
         let tunZ = this.resolveTuneZ(hCar);
         let dateF = hCar.dateStateChanged;
         if (dateF && dateF.length === 24) dateF = dateF.slice(2, 13);
-        let rn = rn_to_rid.indexOf(this.guidToRid[hCar.cardId]);
+        let rn = rn_to_rid.indexOf(Vue.ridByGuid[hCar.cardId]);
         let cri;
         for (let X = 8; X < 16; X++) {
           cri = hCar.cardRecordId.slice(0,X);
@@ -1047,26 +1248,23 @@ export default {
       return result;
     },
     processPlayerDeckStep2() {
-      if (!this.carsReady) this.transformAllCarsToObj();
       this.resetState();
 
       this.userGarage.playerDeck.map((hCar, icar) => {
-
         hCar.id = icar;
         hCar.tun = this.resolveTune(hCar, hCar.tunZ);
         hCar.date = this.fixDate(hCar.date);
 
-        this.addToResolvedRids(hCar.rid);
-
-
         if (icar < 500 || true) {
           this.updateHighLights(hCar);
         }
+        this.computeCarToRecap(hCar);
       })
 
       this.userGarage.loaded = true;
 
       this.finishProcessPlayerDeck();
+      this.finishRecap();
     },
     transformUserGarageToObj() {
       this.userGarage.playerDeck.map((item, ix) => {
@@ -1083,7 +1281,9 @@ export default {
     },
     updateHighLights(hCar) {
       this.userHighlights.map(hlItem => {
-        if (!hlItem.divider) this.updateHLItem(hlItem, hCar);
+        if (hlItem.divider) return;
+        if (hlItem.requirePast && !this.userGaragePast.loaded) return;
+        this.updateHLItem(hlItem, hCar);
       })
     },
     updateHLItem(hlItem, hCar, isList = false) {
@@ -1111,17 +1311,19 @@ export default {
       }
       if (!matchSpecial) return;
 
-      if (hlItem.filter.forcePrize && this.all_cars_obj[hCar.rid].prize) {
+      if (hlItem.filter.forcePrize && Vue.all_carsObj[hCar.rid].prize) {
         forceMatch = true;
       } else {
-        match = this.matchFilter(this.all_cars_obj[hCar.rid], hlItem.filter, hCar);
+        match = this.matchFilter(Vue.all_carsObj[hCar.rid], hlItem.filter, hCar);
       }
 
 
       if (match || forceMatch) {
+        if (!hlItem.touched) hlItem.touched = true;
+
         if (hlItem.r) { // rarity things
           hlItem.r["carCount"]++;
-          if (this.all_cars_obj[hCar.rid].prize) {
+          if (Vue.all_carsObj[hCar.rid].prize) {
             hlItem.r["prizes"]++;
           } else {
             hlItem.r["nonPrizes"]++;
@@ -1135,25 +1337,40 @@ export default {
         }
 
         if (hlItem.t) {
+          let WINS = hCar.cW || 0;
+          let LOSES = hCar.cL || 0;
+          let DRAWS = hCar.cD || 0;
           let usedTimes = hCar.cW+hCar.cL+hCar.cD;
           let ageInMinutes = (this.today - new Date(hCar.date)) / 1000 / 60;
           let ageInDays = ageInMinutes / 60 / 24;
+          
+          if (hlItem.requirePast && hCar.cWdiff !== undefined) {
+            WINS = hCar.cWdiff;
+            LOSES = hCar.cLdiff;
+            DRAWS = hCar.cDdiff;
+            usedTimes = hCar.cWdiff + hCar.cLdiff + hCar.cDdiff;
+            // count ageInMinutes starting for the year of this.userGaragePastYear or the hCar.date if newer
+            let pastYearDate = new Date(`${this.userGaragePastYear}-01-01T00:00:00.000Z`);
+            let effectiveDate = new Date(hCar.date) > pastYearDate ? new Date(hCar.date) : pastYearDate;
+            ageInMinutes = (this.today - effectiveDate) / 1000 / 60;
+            ageInDays = ageInMinutes / 60 / 24;
+          }
   
           Object.keys(hlItem.t).map(key => {
             if (key === "mostWins") {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, WINS, true, usedTimes);
             };
             if (key === "mostLoses") {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, LOSES, true, usedTimes);
             };
             if (key === "mostUsed") {
               this.compareHlItemBest(hlItem.t, key, hCar, usedTimes, true, usedTimes);
             };
-            if (key === "highWinRate" && hCar.cW > 20) {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/usedTimes*100, true, usedTimes);
+            if (key === "highWinRate" && WINS > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, WINS/usedTimes*100, true, usedTimes);
             };
-            if (key === "highLoseRate" && hCar.cL > 20) {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/usedTimes*100, true, usedTimes);
+            if (key === "highLoseRate" && LOSES > 20) {
+              this.compareHlItemBest(hlItem.t, key, hCar, LOSES/usedTimes*100, true, usedTimes);
             };
   
             if (key === "oldest") {
@@ -1169,13 +1386,13 @@ export default {
               this.compareHlItemBest(hlItem.t, key, hCar, usedTimes/ageInDays, true, usedTimes);
             };
             if (key === "mostWinDay" && ageInDays > 20) {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cW/ageInDays, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, WINS/ageInDays, true, usedTimes);
             };
             if (key === "mostLoseDay" && ageInDays > 20) {
-              this.compareHlItemBest(hlItem.t, key, hCar, hCar.cL/ageInDays, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, LOSES/ageInDays, true, usedTimes);
             };
             if (key === "higherRQ") {
-              this.compareHlItemBest(hlItem.t, key, hCar, this.all_cars_obj[hCar.rid].rq, true, usedTimes);
+              this.compareHlItemBest(hlItem.t, key, hCar, Vue.all_carsObj[hCar.rid].rq, true, usedTimes);
             };
             
           })
@@ -1222,17 +1439,6 @@ export default {
         statItem[hlKey].used = usedTimes;
       }
     },
-    transformAllCarsToObj() {
-      // let key = "rid";
-      // all_cars.map(car => {
-      //   this.all_cars_obj[car[key]] = car;
-      //   this.guidToRid[car.guid] = car.rid;
-      // });
-      this.all_cars_obj = Vue.all_carsObj;
-      this.guidToRid = Vue.ridByGuid;
-
-      this.carsReady = true;
-    },
     resolveTuneZ(hCar) {
       // 969 style
       return `${((hCar.engineMajor-1)*3 + hCar.engineMinor)}`+
@@ -1259,19 +1465,22 @@ export default {
       })
     },
     finishProcessPlayerDeckItem(hlItem) {
+      if (!hlItem.touched) return;
       if (hlItem.t) {
-        hlItem.t["oldest"].v = hlItem.t["oldest"].v / 60 / 24; // convert minutes to days
-        hlItem.t["oldestNoUse"].v = hlItem.t["oldestNoUse"].v / 60 / 24; // convert minutes to days
+        if (hlItem.t["oldest"]) hlItem.t["oldest"].v = hlItem.t["oldest"].v / 60 / 24; // convert minutes to days
+        if (hlItem.t["oldestNoUse"]) hlItem.t["oldestNoUse"].v = hlItem.t["oldestNoUse"].v / 60 / 24; // convert minutes to days
 
         {
           let C = hlItem.t["highWinRate"].car;
           hlItem.t["highWinRate"].sub = `${C.cW} wins, ${C.cW + C.cL + C.cD} uses`;
+          if (hlItem.requirePast && C.cWdiff !== undefined) hlItem.t["highWinRate"].sub = `${C.cWdiff} wins, ${C.cWdiff + C.cLdiff + C.cDdiff} uses`;
         }
         {
           let C = hlItem.t["highLoseRate"].car;
           hlItem.t["highLoseRate"].sub = `${C.cL} loses, ${C.cW + C.cL + C.cD} uses`;
+          if (hlItem.requirePast && C.cWdiff !== undefined) hlItem.t["highLoseRate"].sub = `${C.cLdiff} loses, ${C.cWdiff + C.cLdiff + C.cDdiff} uses`;
         }
-        {
+        if (hlItem.t["lessUseDay"]) {
           let C = hlItem.t["lessUseDay"].car;
           hlItem.t["lessUseDay"].v = `${C.cW + C.cL + C.cD}/${Math.round((this.today - new Date(C.date)) / 1000 / 60 / 60 / 24)} days`;
         }
@@ -1295,10 +1504,12 @@ export default {
             if (key === "highWinRate") {
               C = item.car;
               item.sub = `${C.cW} wins, ${C.cW + C.cL + C.cD} uses`;
+              if (hlItem.requirePast && C.cWdiff !== undefined) item.sub = `${C.cWdiff} wins, ${C.cWdiff + C.cLdiff + C.cDdiff} uses`;
             }
             if (key === "highLoseRate") {
               C = item.car;
               item.sub = `${C.cL} loses, ${C.cW + C.cL + C.cD} uses`;
+              if (hlItem.requirePast && C.cWdiff !== undefined) item.sub = `${C.cLdiff} loses, ${C.cWdiff + C.cLdiff + C.cDdiff} uses`;
             }
             if (key === "lessUseDay") {
               C = item.car;
@@ -1397,7 +1608,8 @@ export default {
     deleteHl(hlItem) {
       this.userHighlights.splice(this.userHighlights.indexOf(hlItem), 1)
     },
-    yearSelector(type) {
+    yearSelector(type, isTop = false) {
+      this.isTopAdd = isTop;
       this.newGroupType = type;
       if (this.yearList.length === 0) {
         let initial = 2016;
@@ -1423,22 +1635,25 @@ export default {
     },
     newGroupFinish(filter) {
       this.myGarageFilterDialog = false;
+      let key = "push";
+      if (this.isTopAdd) key = "unshift";
+
       if (this.newGroupType === "group") {
         if (this.yearModel !== "all") {
           filter = { ...filter, newerThan: `${this.yearModel}-01-01T00:00:00.000Z`, olderThan: `${this.yearModel}-12-31T23:59:59.000Z` };
         }
-        this.userHighlights.push({
-          id: this.userHighlights[this.userHighlights.length-1].id+1,
+        this.userHighlights[key]({
+          id: this.nextId++,
           filter: filter,
           t: new groupStats(),
-          title: this.yearModel !== "all" ? `My cars of ${this.yearModel}` : undefined,
+          title: this.yearModel !== "all" ? `New in ${this.yearModel}` : undefined,
           specialTitle: this.yearModel !== "all",
           canDelete: true
         })
       }
       if (this.newGroupType === "timeline") {
-        this.userHighlights.push({
-          id: this.userHighlights[this.userHighlights.length-1].id+1,
+        this.userHighlights[key]({
+          id: this.nextId++,
           filter: { ...filter, newerThan: `${this.yearModel}-01-01T00:00:00.000Z`, olderThan: `${this.yearModel}-12-31T23:59:59.000Z` },
           title: `${this.yearModel} Timeline`,
           tl: Array.from({length: 12}, (_, i) => new timeline(i)),
@@ -1446,10 +1661,11 @@ export default {
         })
       }
       this.editGroupIndex = this.userHighlights.length - 1;
+      if (this.isTopAdd) this.editGroupIndex = 0;
 
       this.resolveHLByIndex(this.editGroupIndex);
       this.editGroupIndex = -1;
-
+      this.topEdit = false;
     },
     resolveHLByIndex(index) {
       this.userGarage.playerDeck.map(hCar => {
@@ -1662,6 +1878,8 @@ export default {
           [key]: []
         }
       }
+      if (hlItem.requirePast) newHlItem.requirePast = true;
+
       this.userGarage.playerDeck.map((hCar, icar) => {
         this.updateHLItem(newHlItem, hCar);
       });
@@ -1686,10 +1904,10 @@ export default {
       this.orderedDialog = true;
     },
     carOrder(a,b) {
-      if (this.all_cars_obj[a.car.rid].rq === this.all_cars_obj[b.car.rid].rq) {
-        return this.all_cars_obj[a.car.rid].name.localeCompare(this.all_cars_obj[b.car.rid].name);
+      if (Vue.all_carsObj[a.car.rid].rq === Vue.all_carsObj[b.car.rid].rq) {
+        return Vue.all_carsObj[a.car.rid].name.localeCompare(Vue.all_carsObj[b.car.rid].name);
       } else {
-        return this.all_cars_obj[b.car.rid].rq - this.all_cars_obj[a.car.rid].rq;
+        return Vue.all_carsObj[b.car.rid].rq - Vue.all_carsObj[a.car.rid].rq;
       }
     },
     onUpdate(viewStartIndex, viewEndIndex, visibleStartIndex, visibleEndIndex) {
@@ -1711,19 +1929,279 @@ export default {
     },
     resetState() {
       this.userHighlights.map(hlItem => {
+        // TODO: clear garage general tile
         if (hlItem.divider) return;
+        if (hlItem.r) {
+          hlItem.r = new rarityStats();
+        }
         if (hlItem.t) {
-          hlItem.t = new groupStats();
+          hlItem.t = new groupStats(hlItem.requirePast);
         }
         if (hlItem.tl) {
           hlItem.tl = Array.from({length: 12}, (_, i) => new timeline(i));
         }
       })
+      this.resetOtherDiffStats();
     },
     fixDate(date) {
       if (!date) return date;
       if (date.length === 13) return `${date}:00Z`
       return date;
+    },
+    toggleTopEdit() {
+      this.topEdit = !this.topEdit;
+    },
+    updateYearPage(year) {
+      this.garageYear = Number(year);
+      this.userHighlights.map(hlItem => {
+        if (hlItem.specialId) {
+          if (hlItem.filter.newerThan) {
+            hlItem.filter = {
+              ...hlItem.filter,
+              newerThan: `${year}-01-01T00:00:00.000Z`,
+              olderThan: `${year}-12-31T23:59:59.000Z`
+            };
+          }
+          if (hlItem.specialId === "myCarsYear") {
+            hlItem.title = `New in ${year}`;
+          }
+          if (hlItem.specialId === "myCarsYearTimeline") {
+            hlItem.title = `${year} Leggy Timeline`;
+          }
+          if (hlItem.specialId === "recap") {
+            hlItem.title = `${year} Recap`;
+          }
+
+        }
+      });
+    },
+    initPastGarageCompare() {
+      if (!this.userGaragePast) return;
+      if (!this.userGaragePast.playerDeck) return;
+
+      if (Object.keys(this.userGarageByDate).length === 0) {
+        this.transformNewGarageToDateObj();
+      };
+
+      this.otherDiffStats.eloScore = this.userGarage.eloScore - this.userGaragePast.eloScore;
+      this.otherDiffStats.garageSlots = this.userGarage.garageSlots - this.userGaragePast.garageSlots;
+      this.otherDiffStats.garageSlotsUsed = this.userGarage.garageSlotsUsed - this.userGaragePast.garageSlotsUsed;
+
+      // let maxedTunZ = ["996", "969", "699"];
+      let duplicateUnconflict = {};
+      this.userGaragePast.playerDeck.map((pastC, ipastC) => {
+        let found;
+        let foundIndex;
+        let D = pastC.date.slice(0, 10);
+        let Dprev = new Date(new Date(D).getTime() - 24*60*60*1000).toISOString().slice(0,10);
+        // look on the exact date and one day before
+
+        [D, Dprev].map(D => {
+          if (this.userGarageByDate[D]) {
+            this.userGarageByDate[D].cars.map((c, ic) => {
+              if (
+                c.rid === pastC.rid &&
+                c.cD >= pastC.cD &&
+                c.cL >= pastC.cL &&
+                c.cW >= pastC.cW
+              ) {
+                if (found) {
+                  if (!duplicateUnconflict[`${c.rid}__${D}__${foundIndex}`]) {
+                    // first duplicate, store previous
+                    duplicateUnconflict[`${c.rid}__${D}__${foundIndex}`] = ipastC;
+                  } else {
+                    debugger;
+                  }
+                }
+                if (duplicateUnconflict[`${c.rid}__${D}__${ic}`]) {
+                  // already in use
+                  return;
+                }
+                found = c;
+                foundIndex = ic;
+              }
+            });
+          }
+        });
+
+        if (found) { // 2025 car that has been found in past garage
+          found.inPast = true;
+          found.cDdiff = found.cD - pastC.cD;
+          found.cLdiff = found.cL - pastC.cL;
+          found.cWdiff = found.cW - pastC.cW;
+          if (found.tunZ !== pastC.tunZ) {
+            found.oldTunZ = pastC.tunZ;
+            found.oldTun = pastC.tun;
+            if (found.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) {
+              // create a list of cars
+              // car: hCar,
+              // v: carValue,
+              // used: usedTimes
+              this.otherDiffStats.maxed[ Vue.all_carsObj[found.rid].class ].v++;
+              this.otherDiffStats.maxed[ Vue.all_carsObj[found.rid].class ].cars.push(found);
+            }
+          }
+        }
+
+        if (!found) {
+          // past car not found in 2025 garage // sold or fused?
+          this.otherDiffStats.missingCars++;
+          if (false && pastC.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) { // missing full car
+            // doesnt make sense, changed rarity cars break this logic
+            this.otherDiffStats.missingFullCars.push(pastC);
+          }
+        }
+      })
+
+      this.userGaragePast.loaded = true;
+
+      this.userHighlights.map(hlItem => {
+        if (hlItem.requirePast) {
+          this.userGarage.playerDeck.map((hCar, icar) => {
+            this.updateHLItem(hlItem, hCar);
+          });
+          this.finishProcessPlayerDeckItem(hlItem);
+        }
+      });
+
+
+      // { // old
+      //   cD: 2,
+      //   cL: 127,
+      //   cW: 282,
+      //   date: "2024-04-29",
+      //   rid: "Hyundai_Veloster_Rally_Edition_2016",
+      //   tun: "323",
+      //   tunZ: "969"
+      // }
+
+      console.log("Missing cars", this.otherDiffStats.missingCars);
+    },
+    resetOtherDiffStats() {
+      this.otherDiffStats = {
+        eloScore: 0,
+        garageSlots: 0,
+        garageSlotsUsed: 0,
+        newCars: 0,
+        missingCars: 0,
+        greatestDay: {},
+        greatestDayFinal: null,
+        S_prizes: new pastRarityItem(),
+        tags: {
+          "German Powerhaus": new pastRarityItem(true),
+          "French Riviera": new pastRarityItem(true),
+          "Asia-Pacific Revival": new pastRarityItem(true)
+        },
+        maxed: {
+          S: new pastRarityItem(),
+          A: new pastRarityItem(),
+          B: new pastRarityItem(),
+          C: new pastRarityItem(),
+          D: new pastRarityItem(),
+          E: new pastRarityItem(),
+          F: new pastRarityItem()
+        },
+        new: {
+          S: new pastRarityItem(),
+          A: new pastRarityItem(),
+          B: new pastRarityItem(),
+          C: new pastRarityItem(),
+          D: new pastRarityItem(),
+          E: new pastRarityItem(),
+          F: new pastRarityItem()
+        },
+        missingFullCars: []
+      }
+    },
+    transformNewGarageToDateObj() {
+      this.userGarageByDate = {};
+      this.userGarage.playerDeck.map(hCar => {
+        let D = hCar.date.slice(0, 10);
+        if (!this.userGarageByDate[D]) {
+          this.userGarageByDate[D] = {
+            date: D,
+            cars: []
+          }
+        }
+        this.userGarageByDate[D].cars.push(hCar);
+      })
+    },
+    computeCarToRecap(hCar) {
+      if (!hCar.date.startsWith(this.garageYear)) return;
+      let C = Vue.all_carsObj[hCar.rid];
+      let CLA = C.class;
+
+      this.otherDiffStats.newCars++;
+      this.otherDiffStats.new[ CLA ].v++;
+      this.otherDiffStats.new[ CLA ].cars.push(hCar);
+      if (hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) {
+        this.otherDiffStats.maxed[ CLA ].v++;
+        this.otherDiffStats.maxed[ CLA ].cars.push(hCar);
+      }
+      // if (CLA === "S" || CLA === "A" || CLA === "B") {
+      if (CLA === "S" || CLA === "A") {
+        let day = hCar.date.slice(0,10);
+        if (!this.otherDiffStats.greatestDay[day]) this.otherDiffStats.greatestDay[day] = new pastRarityItem();
+        this.otherDiffStats.greatestDay[day].v += this.pointsPerRarity[CLA];
+        this.otherDiffStats.greatestDay[day].cars.push(hCar);
+      }
+
+      if (C.prize && CLA === "S") {
+        this.otherDiffStats.S_prizes.v++;
+        this.otherDiffStats.S_prizes.cars.push(hCar);
+      }
+
+      C.tags.map(tag => {
+        if (this.otherDiffStats.tags[tag]) {
+          // if (!this.otherDiffStats.tags[tag].ridList) this.otherDiffStats.tags[tag].ridList = [];
+          if (!this.otherDiffStats.tags[tag].ridList.includes(hCar.rid)) {
+            // uniques only
+            this.otherDiffStats.tags[tag].ridList.push(hCar.rid);
+            this.otherDiffStats.tags[tag].v++;
+            this.otherDiffStats.tags[tag].cars.push(hCar); // random copy
+          }
+          if (!C.prize && CLA === "S") {
+            // if (!this.otherDiffStats.tags[tag].S) this.otherDiffStats.tags[tag].S = [];
+            this.otherDiffStats.tags[tag].S.push(hCar);
+          }
+        }
+      })
+    },
+    finishRecap() {
+      let greatest = 0;
+      let greatestDay = null;
+      Object.keys(this.otherDiffStats.greatestDay).map(day => {
+        if (this.otherDiffStats.greatestDay[day].v > greatest) {
+          greatest = this.otherDiffStats.greatestDay[day].v;
+          greatestDay = day;
+        }
+      });
+      this.otherDiffStats.greatestDayFinal = this.otherDiffStats.greatestDay[greatestDay];
+      this.otherDiffStats.greatestDayFinal.date = greatestDay;
+      this.otherDiffStats.greatestDayFinal.cars.sort((a,b) => {
+        return Vue.all_carsObj[b.rid].rq - Vue.all_carsObj[a.rid].rq;
+      });
+
+      this.otherDiffStats.S_prizes.cars.sort((a,b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+
+      Object.keys(this.otherDiffStats.tags).map(tag => {
+        if (!this.otherDiffStats.tags[tag].S) return;
+        this.otherDiffStats.tags[tag].S.sort((a,b) => {
+          return Vue.all_carsObj[b.rid].rq - Vue.all_carsObj[a.rid].rq;
+        });
+      })
+    },
+    pastRarityClick(hlItem, CLA, type) {
+      this.otherDiffStats[type][CLA].cars.sort((a,b) => {
+        return new Date(a.date) - new Date(b.date);
+      })
+
+      this.rarityListArr = this.otherDiffStats[type][CLA].cars;
+      this.rarityListDialog = true;
+      this.rarityDialogTitle = `${type === "new" ? "New" : "Maxed"} ${CLA} cars (${this.otherDiffStats[type][CLA].v})`;
+      this.rarityDialogSub = "Date acquired";
     }
   },
 }
@@ -1888,6 +2366,10 @@ export default {
 .BaseMyGarage_AddGroupBox {
   padding-top: 140px;
   padding-bottom: 160px;
+}
+.BaseMyGarage_AddGroupBoxTop {
+  padding-top: 30px;
+  padding-bottom: 90px;
 }
 .BaseMyGarage_AddGroupButton {
   --back-color: 65, 53, 22;
@@ -2078,6 +2560,8 @@ export default {
 }
 .Main_BodyPrint .BaseMyGarage_Share,
 .Main_BodyPrint .BaseMyGarage_ManageFooter,
+.Main_BodyPrint .BaseMyGarage_AddGroupBoxTop,
+.Main_BodyPrint .BaseMyGarage_EditBox,
 .Main_BodyPrint .BaseMyGarage_AddGroupBox {
   display: none;
 }
@@ -2090,7 +2574,8 @@ export default {
 }
 .BaseMyGarage_LoadingUsername,
 .BaseMyGarage_LoadingTitle,
-.BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem {
+.BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem,
+.BaseMyGarage_RarityLoading {
   animation: pulse 1s infinite ease-in-out;
   border-radius: 5px;
 }
@@ -2108,6 +2593,9 @@ export default {
 .BaseMyGarage_LoadingBox .BaseMyGarage_RarityStatsItem {
   height: 204px;
 }
+.BaseMyGarage_RarityLoading {
+  min-height: 72px;
+}
 .BaseMyGarage_Tutorial {
   max-width: 600px;
   margin: 0 auto 40px;
@@ -2116,39 +2604,89 @@ export default {
   opacity: 0.2;
   line-height: 1;
 }
+.BaseMyGarage_EditBox {
+  position: relative;
+}
+.BaseMyGarage_EditBoxButtons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px
+}
+.BaseMyGarage_PastSub {
+  color: rgb(var(--d-text-yellow));
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.BaseMyGarage_PastRarityBox {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.BaseMyGarage_PastRarityValue {
+  font-size: 16px;
+}
+.BaseMyGarage_PastRarityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.BaseMyGarage_PastRarityName {
+  font-size: 28px;
+  transform: skewY(9deg);
+  font-weight: bold;
+  background-color: var(--classC);
+  color: black;
+  padding: 5px 10px;
+  opacity: 0.9;
+  border-radius: 2px;
+  /* box-shadow: 0px 0px 0px -0.1px var(--classC); */
+}
+.BaseMyGarage_RarityStatsValueWithIcon {
+  display: flex;
+  align-items: center;
+}
+.BaseMyGarage_StatValueIcon {
+  color: rgb(var(--d-text-green));
+  margin-right: 3px;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+.BaseMyGarage_GarageSlot {
 
-
-/* @media only screen and (min-width: 860px) {
-  .BaseMyGarage_RarityStatsBoxCars {
-    display: grid;
-    width: 100%;
-    grid-template-areas:
-        "a a a a b b b b c c c c"
-        "d d d e e e f f f g g g"
-        "h h h h i i i i j j j j";
-  }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(1) { grid-area: a; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(2) { grid-area: b; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(3) { grid-area: c; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(4) { grid-area: d; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(5) { grid-area: e; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(6) { grid-area: f; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(7) { grid-area: g; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(8) { grid-area: h; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(9) { grid-area: i; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(10) { grid-area: j; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(11) { grid-area: k; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(12) { grid-area: l; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(13) { grid-area: m; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(14) { grid-area: n; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(15) { grid-area: o; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(16) { grid-area: p; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(17) { grid-area: q; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(18) { grid-area: r; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(19) { grid-area: s; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(20) { grid-area: t; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(21) { grid-area: u; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(22) { grid-area: v; }
-  .BaseMyGarage_RarityStatsBoxCars > :nth-child(23) { grid-area: w; }
-} */
+}
+.BaseMyGarage_PastTop {
+  padding-bottom: 0px;
+}
+.BaseMyGarage_PastGreatestDayList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.BaseMyGarage_PastGarageStats:last-child {
+  padding-bottom: 60px;
+}
+.BaseMyGarage_RarityTagColor {
+  color: hsl(var(--tag-h), var(--tag-s), var(--tag-l));
+}
+.BaseMyGarage_RarityTag {
+  margin-bottom: 4px;
+}
+.BaseMyGarage_RarityTag:first-child {
+  margin-top: 4px;
+}
+.BaseMyGarage_STagsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-grow: 1;
+  align-items: center;
+}
 </style>

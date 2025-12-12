@@ -36,6 +36,17 @@ export const tdrStore = defineStore('main', {
       toggleTrack: () => {},
       pushCpSuggest: () => {}
     },
+    _g_car: {
+      dialog: false,
+      car: {},
+      tuneDialogCarIndex: 0,
+      carDetailsList: [],
+      showMove: false,
+      showTunes: false,
+      close: () => {},
+      changed: () => {},
+      newIndex: () => {}
+    },
 
     _match: null, //MainMatchSimulator
   }),
@@ -50,6 +61,19 @@ export const tdrStore = defineStore('main', {
   actions: {
     reset() {
       this.counter = 0
+    },
+    miniCarClick(car, carObj) {
+      car = JSON.parse(JSON.stringify(car));
+      if (car.selectedTune === undefined && carObj && (carObj.tun || carObj.tunZ)) {
+        car.selectedTune = carObj.tun || carObj.tunZ;
+      }
+      this._g_car.car = car;
+      this._g_car.dialog = true;
+      this._g_car.close = () => {
+        this._g_car.dialog = false;
+      };
+
+      
     }
   },
 

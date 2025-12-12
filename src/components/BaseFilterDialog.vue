@@ -894,7 +894,7 @@ export default {
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
-        garageThings: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused"],
+        garageThings: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Duplicate", "Triplicate", "Quadriplicate+"],
         // garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Can be upgraded", "Can be fused", "Fuse completed", "0 fuse", "1 fuse", "2 fuse", "3 fuse", "4 fuse", "5 fuse", "6 fuse", "Unique", "Duplicated", "Legacy", "Not owned"],
         garageThingsModel: [],
         customTagsModel: [],
@@ -2124,7 +2124,11 @@ export default {
         if ( context.garageThingsModel.includes("Fused") && this.$parent.carNumFuses(hCar) === 0) return false;
         if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return false;
         if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return false;
+
         if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return false;
+        if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return false;
+        if ( context.garageThingsModel.includes("Triplicate") && !this.$parent.carIsUnique(hCar, 3) ) return false;
+        if ( context.garageThingsModel.includes("Quadriplicate+") && !this.$parent.carIsUnique(hCar, 4, true) ) return false;
 
         // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
         // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);

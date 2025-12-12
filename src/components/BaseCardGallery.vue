@@ -8,6 +8,7 @@
       <!-- <div class="Car_HeaderBlockBrand" /> -->
       <img
         :src="carPhoto"
+        :key="car.rid"
         class="Car_ImgTag"
         loading="lazy"
         alt="" >
