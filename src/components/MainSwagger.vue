@@ -16,6 +16,18 @@
           :disabled="loading"
           class="D_Button D_ButtonDark TTT_Button"
           @click="getUserByName()">Send</button>
+        <div class="MainSwagger_ButtonsRight">
+          <button
+            :class="{ D_Button_Loading: loading }"
+            :disabled="loading || !username"
+            class="D_Button D_ButtonDark TTT_Button"
+            @click="addToGiveaway()">✅ giveaway</button>
+          <button
+            :class="{ D_Button_Loading: loading }"
+            :disabled="loading || !username"
+            class="D_Button D_ButtonDark TTT_Button"
+            @click="addToGiveaway(true)">❌ giveaway</button>
+        </div>
       </div>
       <div class="MainSwagger_Response">
         {{ usernameRes }}
@@ -710,6 +722,24 @@ export default {
         vm.loading = false;
       });
     },
+    addToGiveaway(remove = false) {
+      let vm = this;
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/modifyGiveaway", {
+        username: this.username,
+        remove: remove
+      })
+      .then(res => {
+        this.usernameRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    }
   },
 }
 </script>
@@ -732,5 +762,15 @@ export default {
   white-space: pre;
   overflow: hidden;
   font-size: 14px;
+}
+.MainSwagger_Buttons {
+  display: flex;
+  gap: 10px;
+}
+.MainSwagger_ButtonsRight {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-grow: 1;
 }
 </style>

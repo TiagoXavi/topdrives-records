@@ -56,7 +56,8 @@ const utils = Vue.observable({
     downloadCount: 0,
     altKey: false,
     windowWidth: 0,
-    ridsDownloading: []
+    ridsDownloading: [],
+    giveawayUsers: []
 });
 const garageByRid = {};
 const garageListUpgraded = Vue.observable([]);
@@ -944,10 +945,17 @@ export default {
             };
             let pUsers = resData.find(x => x.id === 'pUsers').value;
             Object.keys( pUsers ).forEach(key => {
-              pUsers[key].map(user => {
-                Vue.set(highlightsUsers, user, Number(key.slice(-1)));
-                highlightsUsers[user] = Number(key.slice(-1));
-              })
+              if (key.includes("tier")) {
+                pUsers[key].map(user => {
+                  Vue.set(highlightsUsers, user, Number(key.slice(-1)));
+                  highlightsUsers[user] = Number(key.slice(-1));
+                });
+              }
+              if (key === "giveaway") {
+                pUsers[key].map(user => {
+                  Vue.utils.giveawayUsers.push(user);
+                });
+              }
             })
             highlightsUsers["AnalyzeThat"] = "w1";
             highlightsUsers["Sleeperzz"] = "w2";

@@ -28,6 +28,24 @@
       <template v-else>
         <!-- MAIN -->
         <div v-if="userGarage && userGarage.loaded && editEnabled" class="BaseMyGarage_EditBox BaseMyGarage_HLBox">
+          <div class="BaseMyGarage_ShareGiveaway">
+            <template v-if="Vue.utils.giveawayUsers.includes(user.username)">
+              <div class="BaseMyGarage_ShareText">✅ You've entered the giveaway!</div>
+            </template>
+            <template v-else>
+              <div class="BaseMyGarage_ShareText">🎉 Giveaway 🎉</div>
+              <div class="BaseMyGarage_ShareText"><BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2000 in-game</div>
+              <div class="BaseMyGarage_ShareTextSub">Share your garage to get a chance. Ends in {{ daysLeft }} days</div>
+              <button
+                :disabled="autoShareRunning || loading || loadingPastYear"
+                class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarage_TryAutoShare"
+                @click="autoShareConfirmDialog = true">
+                <span>Learn more</span>
+              </button>
+            </template>
+          </div>
+        </div>
+        <div v-if="userGarage && userGarage.loaded && editEnabled" class="BaseMyGarage_EditBox BaseMyGarage_HLBox">
           <div class="BaseMyGarage_EditBoxButtons">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu BaseMyGarage_Camera"
@@ -602,6 +620,48 @@
       </div>
     </BaseDialog>
 
+    <BaseDialog
+      :active="autoShareConfirmDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="autoShareConfirmDialog = false;">
+      <div class="BaseMyGarage_ShareDialogBox">
+        <div class="BaseMyGarage_ShareText" style="font-size: 1.5em;">🎉 Giveaway 🎉</div>
+        <div class="BaseMyGarage_ShareGroup">
+          <div class="BaseMyGarage_ShareText"><BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2000 in-game</div>
+          <div class="BaseMyGarage_ShareText">1 month of <span style="color: var(--t2)">TDR Premium</span></div>
+        </div>
+        <div class="BaseMyGarage_ShareGroup">
+          <div class="BaseMyGarage_ShareDialogText">Share your garage to get a chance</div>
+          <div class="BaseMyGarage_ShareDialogText">Ends in {{ daysLeft }} days</div>
+        </div>
+        <div class="BaseMyGarage_ShareTextSub">The button below will take a print of your 2025 Recap and share it on TDR Discord automatically, but feel free to share by yourself.</div>
+        <button
+          :disabled="autoShareRunning || loading || loadingPastYear"
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="initAutoShare();">
+          <span>Auto share</span>
+        </button>
+      </div>
+    </BaseDialog>
+
+    <BaseDialog
+      :active="viewMyShareDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="420px"
+      min-width="240px"
+      @close="viewMyShareDialog = false;">
+      <div class="BaseMyGarage_ShareDialogBox">
+        <i class="ticon-correct_1 BaseMyGarage_ShareDialogIcon" aria-hidden="true"/>
+        <div class="BaseMyGarage_ShareDialogText">You've entered the giveaway!</div>
+        <div class="BaseMyGarage_ShareDialogText">Take a look at your share:</div>
+        <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1449094050820132945" style="margin-top: 20px;" />
+      </div>
+    </BaseDialog>
+
   </div>
 </template>
 
@@ -616,6 +676,7 @@ import BaseMyGarageTutorial from './BaseMyGarageTutorial.vue';
 import BaseCardMini from './BaseCardMini.vue';
 import BaseCardMiniButton from './BaseCardMiniButton.vue';
 import BaseGameTag from './BaseGameTag.vue';
+import BaseDiscordButton from './BaseDiscordButton.vue';
 import rn_to_rid from '../database/rn_to_rid.json';
 import { tdrStore } from '@/tdrStore.js';
 
@@ -683,7 +744,8 @@ export default {
     BaseMyGarageTutorial,
     BaseCardMiniButton,
     BaseCardMini,
-    BaseGameTag
+    BaseGameTag,
+    BaseDiscordButton
   },
   props: {
     test: {
@@ -732,6 +794,10 @@ export default {
         loading: false,
         classe: ""
       },
+      autoShareRunning: false,
+      uploadLoading: false,
+      autoShareConfirmDialog: false,
+      viewMyShareDialog: false,
       privacyModel: "public",
       privacyList: ["public", "private"],
       privacyLoading: false,
@@ -918,6 +984,7 @@ export default {
   watch: {},
   beforeCreate() {
     window.localStorage.setItem("myGarage_1", "t");
+    window.localStorage.setItem("recap2025", "t");
     console.log(`${Math.round(window.performance.memory.usedJSHeapSize/1000000)} MB`);
   },
   beforeMount() {
@@ -979,10 +1046,15 @@ export default {
       //   return this.userHighlights.filter(hl => !hl.requirePast);
       // }
       return this.userHighlights;
-    }
+    },
+    daysLeft() {
+      let endDate = new Date(2025, 11, 31);
+      let timeDiff = endDate.getTime() - this.today.getTime();
+      return Math.ceil(timeDiff / (1000 * 3600 * 24));
+    },
   },
   methods: {
-    getLastest() {
+    getLastest(isAutoShare) {
       let vm = this;
       this.lastestLoading = true;
 
@@ -993,6 +1065,10 @@ export default {
         this.lastestLoading = false;
 
         this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+
+        if (isAutoShare && Vue.utils.giveawayUsers.includes(this.user.username)) {
+          this.viewMyShareDialog = true;
+        }
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {
@@ -1735,12 +1811,62 @@ export default {
 
     },
     afterRunSharePrint(c_container, currentCanvas, boxName) {
-      window.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${this.today.toISOString().slice(0,-5)}.png`)
+      if (this.autoShareRunning) {
+        var base64 = window.ReImg.fromCanvas(currentCanvas).toBase64();
+        this.autoShareCallback(base64);
+      } else {
+        window.ReImg.fromCanvas(currentCanvas).downloadPng(`TDR_${this.today.toISOString().slice(0,-5)}.png`)
+      }
 
       document.querySelector(boxName).classList.remove("Main_BodyPrint");
       this.windowWidth = this.tempWindowWidth;
       this.pngLoading = false;
       this.printingItem = null;
+      this.autoShareRunning = false;
+    },
+    autoShareCallback(base64) {
+      this.uploadLoading = true;
+      const base64WithoutPrefix = base64.includes(';base64,') ? base64.substring(base64.indexOf(';base64,') + 8) : base64;
+      const binaryString = window.atob(base64WithoutPrefix);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const blob = new Blob([bytes], { type: "image/png" });
+      let file = new File([blob], `TDR_${this.today.toISOString().slice(0,-5)}.png`, { type: "image/png" });
+      
+      let formData = new FormData();
+      formData.set('image', file);
+      formData.set('username', this.user.username);
+
+      axios.post(Vue.preUrl + '/uploadGarageGiveaway', formData, {
+        headers: {
+         'content-type': 'multipart/form-data' // do not forget this
+        }
+      })
+      .then(res => {
+        this.alreadyUploaded = true;
+        this.getLastest(true);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: this.$t("m_uploadSuccess")
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.uploadLoading = false;
+      });
+
     },
     changeScreen(screen) {
       this.animation = true;
@@ -2009,8 +2135,6 @@ export default {
                   if (!duplicateUnconflict[`${c.rid}__${D}__${foundIndex}`]) {
                     // first duplicate, store previous
                     duplicateUnconflict[`${c.rid}__${D}__${foundIndex}`] = ipastC;
-                  } else {
-                    debugger;
                   }
                 }
                 if (duplicateUnconflict[`${c.rid}__${D}__${ic}`]) {
@@ -2202,6 +2326,14 @@ export default {
       this.rarityListDialog = true;
       this.rarityDialogTitle = `${type === "new" ? "New" : "Maxed"} ${CLA} cars (${this.otherDiffStats[type][CLA].v})`;
       this.rarityDialogSub = "Date acquired";
+    },
+    initAutoShare() {
+      let item = this.userHighlights.find(hl => hl.specialId === "recap");
+      if (item) {
+        this.autoShareConfirmDialog = false;
+        this.autoShareRunning = true;
+        this.sharePrint(item);
+      }
     }
   },
 }
@@ -2689,5 +2821,46 @@ export default {
   flex-grow: 1;
   align-items: center;
   align-content: center;
+}
+.BaseMyGarage_ShareGiveaway {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: clamp(50px, 30vw, 190px);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background-color: #a9904129;
+  color: #cdc2a3;
+  box-shadow: inset 0px 0px 0px 2px #ffe39417;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+.BaseMyGarage_ShareTextSub {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+.BaseMyGarage_TryAutoShare {
+  align-self: flex-start;
+  font-size: 14px;
+  --height: 28px;
+  margin-top: 4px;
+}
+.BaseMyGarage_ShareDialogBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.BaseMyGarage_ShareDialogIcon {
+  font-size: 40px;
+  color: rgb(var(--d-text-green));
+}
+.BaseMyGarage_ShareGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
 }
 </style>
