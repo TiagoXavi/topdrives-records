@@ -1223,6 +1223,11 @@ export default {
       this.searchFilters.prizesModel = ["Non-Prize Cars"];
     }
 
+    if (this.$listeners && this.$listeners.getApplyFilterFunc) {
+      this.$emit("getApplyFilterFunc", this.applyFilter);
+      return;
+    }
+
 
     vm.unsubscribe = vm.$store.subscribe(mutation => {
 

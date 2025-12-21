@@ -1790,7 +1790,7 @@
             </div>
 
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-            <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints }">
+            <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: clubCompilation?.[0]?.[0].saverScore3 !== undefined }">
               <div v-for="(group, igroup) in clubCompilation" class="Cg_YouBank Event_CompilationBox">
                 <div class="Cg_YouBankBox" :class="{ Event_HasPickList: clubPicksList.length > 0 && clubEnablePicks }">
                   <template v-for="(car, icar) in group">
@@ -1833,6 +1833,9 @@
                         }"
                         class="Cg_BankPointsNew">
                         <span class="Cg_BankPoints">{{ car.points.v }}</span>
+                      </div>
+                      <div class="Cg_BankPointsNew Cg_BankPointsNewRqSavers Cg_PointsGreen">
+                        <span class="Cg_BankPoints">{{ car.saverScore3 }}</span>
                       </div>
                       <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
                         <span class="">{{ car.timeToPrint }}</span>
@@ -2435,7 +2438,8 @@
       @close="eventCloseKingFilter()"
       @filterUpdate="eventEventKFilter()"
       @clearFilterUpdate="eventFilterForKing = $event"
-      @listRids="eventAnalyseKFilter();">
+      @listRids="eventAnalyseKFilter();"
+      @getApplyFilterFunc="eventKingDialogApplyFunc = $event;">
       <template v-if="whatTier && whatTier <= 3" slot="header">
         <div class="Main_FilterHeaderLeft">
           <div class="Main_FilterHeaderLeftBox">
@@ -2448,7 +2452,7 @@
           <div class="Main_FilterHeaderLeftRight">
             <button
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonBig"
-              @click="eventFindRqSavers()">{{ $t("m_findRqSavers") }}</button>
+              @click="eventFindRqSaversInit()">{{ $t("m_findRqSavers") }}</button>
           </div>
         </div>
       </template>
@@ -3996,6 +4000,8 @@ export default {
       eventList: [],
       eventLoading: false,
       eventAnalyseLoading: false,
+      eventKingDialogApplyFunc: null,
+      eventKingIsRqSavers: false,
       eventSelectorDialog: false,
       eventNewDialog: false,
       eventNewName: null,
@@ -9204,9 +9210,9 @@ export default {
 
       // if patreon tier 3, run predictor for oppos and solutions
 
-      this.cg.rounds.map((round, ix) => {
+      this.cg.rounds.map((round, iround) => {
         let _r = {
-          key: ix,
+          key: iround,
           oppos: round.races.map(race => {
             if (!race.rid) return {};
             let oppo = JSON.parse(JSON.stringify(Vue.all_carsObj[race.rid]));
@@ -9218,12 +9224,12 @@ export default {
             trackset: [round.races.map(race => { return { track: race.track } })],
             resolvedTrackset: [round.races.map(race => Vue.resolveTrack({ track: race.track }, false, false))]
           },
-          bestSolution: this.cgResolveBestSolution(round, useGarage)
+          bestSolution: this.cgResolveBestSolution(round, useGarage, iround)
         };
         _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
 
-        _r.solutions = this.cgResolveSolutions(_r, round, useGarage);
-        if (useGarage) this.cgResolveSolutionsToUpgrade(_r, round);
+        _r.solutions = this.cgResolveSolutions(_r, round, useGarage, iround);
+        if (useGarage) this.cgResolveSolutionsToUpgrade(_r, round, iround);
 
         this.cgResolveRqSums(_r);
 
@@ -9241,10 +9247,11 @@ export default {
         this.cgReloadIndex = -1;
       }, 1000);
     },
-    cgResolveBestSolution(round, useGarage) {
+    cgResolveBestSolution(round, useGarage, iround) {
       let bestSolution = [null, null, null, null, null];
       let usedRids = {};
       let usedHids = {};
+      
       round.races.map((race, irace) => {
 
         // just sort
@@ -9284,41 +9291,49 @@ export default {
           let substituteOfGiver;
           let substituteOfGiverGarageCar;
 
-          round.races[isolution].cars.map(c => {
-            if (c.points > 0) {
+          round.races[isolution].cars.find(c => {
+            if (foundNotInUse && foundInUse) return true; // end loop
+            if (c.points < 1) return false;
 
-              if ((usedRids[c.rid] === undefined || useGarage) && !foundNotInUse) {
-                if (useGarage) {
-                  if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined)) {
-                    foundNotInUse = c;
-                    foundNotInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined);
-                  }
-                } else {
+            if ((usedRids[c.rid] === undefined || useGarage) && !foundNotInUse) {
+              if (useGarage) {
+                if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined)) {
                   foundNotInUse = c;
+                  foundNotInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined);
                 }
+              } else {
+                foundNotInUse = c;
               }
+            }
 
-              if (usedRids[c.rid] !== undefined && !foundInUse) {
-                round.races[usedRids[c.rid]].cars.find(c2 => {
-                  if ((c2.rid !== c.rid || useGarage) && c2.points > 0 && (usedRids[c2.rid] === undefined || useGarage)) {
-                    if (useGarage) {
-                      if (Vue.garageByRid[c2.rid] && Vue.garageByRid[c2.rid].some(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined)) {
-                        substituteOfGiver = c2;
-                        substituteOfGiverGarageCar = Vue.garageByRid[c2.rid].find(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined);
-                        return true;
-                      }
-                    } else {
-                      // no garage
+            if (usedRids[c.rid] !== undefined && !foundInUse) {
+              round.races[usedRids[c.rid]].cars.find(c2 => {
+                // c2 is other race donate
+                if ((c2.rid !== c.rid || useGarage) && c2.points > 0 && (usedRids[c2.rid] === undefined || useGarage)) {
+                  if (useGarage) {
+                    if (
+                      Vue.garageByRid[c2.rid] &&
+                      Vue.garageByRid[c2.rid].some(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined) &&
+                      Vue.garageByRid[c.rid] &&
+                      Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune)
+                    ) {
+                      if (round.creator === "ds901" && isolution === 2 && c.rid === "Alfa_Romeo_TZ3_Corsa_2010") debugger;
                       substituteOfGiver = c2;
+                      substituteOfGiverGarageCar = Vue.garageByRid[c2.rid].find(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined);
+                      
                       return true;
                     }
+                  } else {
+                    // no garage
+                    substituteOfGiver = c2;
+                    return true;
                   }
-                });
-                if (substituteOfGiver) {
-                  foundInUse = c;
-                  foundInUseIndex = usedRids[c.rid];
-                  if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
                 }
+              });
+              if (substituteOfGiver) {
+                foundInUse = c;
+                foundInUseIndex = usedRids[c.rid];
+                if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
               }
             }
           });
@@ -9353,7 +9368,7 @@ export default {
         return car;
       });
     },
-    cgResolveSolutions(_r, round, useGarage) {
+    cgResolveSolutions(_r, round, useGarage, iround) {
       return round.races.map((race, irace) => {
         let filteredSolutions = [];
         race.cars.map(car => {
@@ -9379,7 +9394,7 @@ export default {
         return filteredSolutions;
       });
     },
-    cgResolveSolutionsToUpgrade(_r, round) {
+    cgResolveSolutionsToUpgrade(_r, round, iround) {
       let matchedCars = {};
       _r.solutions.map((listCars, irace) => {
         listCars.map(car => {
@@ -10459,7 +10474,6 @@ export default {
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
       this.eventKingTracks = this[key].trackset[this.eventCheckFilterCode];
       this.eventKingDialog = false;
-      this.eventAnalyseLoading = true;
 
       // if (this.eventMyGarage) {
       //   this.$store.commit("START_LOGROCKET", {});
@@ -10487,6 +10501,12 @@ export default {
         params.isClubs = true;
         // this.$store.commit("START_LOGROCKET", {});
       }
+      if (this.eventKingIsRqSavers) {
+        this.eventFindRqSavers(params);
+        return;
+      }
+
+      this.eventAnalyseLoading = true;
 
       axios.post(Vue.preUrl + "/eventKings", params)
       .then(res => {
@@ -10535,39 +10555,16 @@ export default {
 
       return this[key];
     },
-    // eventAnalyse(disableAfter = true) {
-    //   // RQ savers, unreleased
-    //   this.eventAnalyseLoading = true;
-
-    //   axios.post(Vue.preUrl + "/analyseEvent", {
-    //     date: this.event.date,
-    //     rqLimit: this.event.rqLimit,
-    //     trackset: this.event.trackset,
-    //     filter: this.event.filter
-    //   })
-    //   .then(res => {
-    //     Vue.set(this, 'trackTimes', res.data)
-    //     // if (disableAfter) this.eventForceAnalyze = false;
-    //     this.eventResolveCompilation();
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     this.$store.commit("DEFINE_SNACK", {
-    //       active: true,
-    //       error: true,
-    //       text: error,
-    //       type: "error"
-    //     });
-    //     if ((error.response || {}).status === 401) {
-    //       this.$store.commit('OPEN_LOGIN');
-    //     }
-    //   })
-    //   .then(() => {
-    //     this.eventAnalyseLoading = false;
-    //   });
-
-    // },
-    eventFindRqSavers() {
+    eventFindRqSaversInit() {
+      if (this.eventKingDialogApplyFunc) {
+        this.eventKingIsRqSavers = true;
+        this.eventKingDialogApplyFunc();
+        this.eventKingIsRqSavers = false;
+        return;
+      }
+      this.eventFindRqSavers();
+    },
+    eventFindRqSavers(params = {}) {
       this.eventCheckFilterCode = this.eventCheckFilterCodePre;
 
       let trackset;
@@ -10593,8 +10590,10 @@ export default {
 
       axios.post(Vue.preUrl + "/analyseEvent", {
         trackset: trackset,
-        filter: filter,
-        isClubs: this.mode === "clubs"
+        origFilter: filter,
+        isClubs: this.mode === "clubs",
+        rrq: this.isEvents ? this.event.rqLimit : 250,
+        ...params
       })
       .then(res => {
         Vue.set(this, 'trackTimes', res.data)

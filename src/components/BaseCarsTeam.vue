@@ -530,4 +530,11 @@ export default {
   background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, 0.09) 24px);
   border-radius: 7px;
 }
+.BaseCarsTeam_Marked0 #BaseCarsTeam_CareventRt0,
+.BaseCarsTeam_Marked1 #BaseCarsTeam_CareventRt1,
+.BaseCarsTeam_Marked2 #BaseCarsTeam_CareventRt2,
+.BaseCarsTeam_Marked3 #BaseCarsTeam_CareventRt3,
+.BaseCarsTeam_Marked4 #BaseCarsTeam_CareventRt4 {
+  box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow));
+}
 </style>
