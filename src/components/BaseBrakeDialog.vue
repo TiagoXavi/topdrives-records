@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style>
-.BaseBrakeDialog_Button {
+.D_Button.BaseBrakeDialog_Button {
   min-width: unset;
   min-height: unset;
   font-size: 0.9em;

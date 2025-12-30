@@ -5280,6 +5280,9 @@ a:visited:not(.D_Button) {
   .Cg_Layout .Cg_SelectorCenter {
     text-align: left;
   }
+  .Cg_Layout .Cg_SelectorEventSpan {
+    text-align: left;
+  }
   .Cg_Layout .Cg_CenterBottom,
   .Cg_Layout .Clubs_DayBox,
   .Cg_Layout .Clubs_DayNotCurrent {

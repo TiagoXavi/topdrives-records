@@ -2444,7 +2444,7 @@
         <div class="Main_FilterHeaderLeft">
           <div class="Main_FilterHeaderLeftBox">
             <BaseSwitch v-model="eventMyGarage" name="eventMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
-            <template v-if="eventPicksList.length > 0">
+            <template v-if="mode === 'events' ? eventPicksList.length > 0 : clubPicksList.length > 0">
               <BaseConfigCheckBox v-model="eventShowOnlyPicks" name="eventShowOnlyPicks" :label="$t('m_eventShowOnlyPicks')" />
               <BaseConfigCheckBox v-model="eventForcePicks" name="eventForcePicks" :label="$t('m_eventForcePicks')" />
             </template>
@@ -3076,7 +3076,7 @@
               v-if="whatTier && whatTier <= 3"
               :class="{ D_Button_Loading: downloadLoading }"
               class="D_Button Main_OptionsButton D_ButtonTier3"
-              @click="predictTimes()">
+              @click="predictTimes($event)">
               <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ containPredictedTimes ? $t("m_clear") : $t("m_predictTimes") }}</span>
             </button>
@@ -6202,6 +6202,9 @@ export default {
             })
           },
         }
+        if (predict === "force") {
+          simplifiedCars.predictObj.force = true;
+        }
       }
 
       axios.post(url, simplifiedCars)
@@ -8765,8 +8768,10 @@ export default {
           let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
           if (car) {
             let allowedTunes = ["332", "323", "233", "000"];
+            let allowedTunesTimes = ["332", "323", "233"];
             if (car.class === 'S' || car.class === 'A') {
-              allowedTunes.push("111")
+              allowedTunes.push("111");
+              allowedTunesTimes.push("111");
             }
             if (!allowedTunes.includes(tune)) {
               if (tune.length > 3) {
@@ -8782,6 +8787,12 @@ export default {
             
             race.rid = car.rid;
             race.tune = tune;
+            if (iround === 8 && irace === 0) {
+              debugger;
+            }
+            if (!allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
+              race.time = null;
+            }
             // race.time = null;
             race.track = null;
             // race.cars = [];
@@ -9251,6 +9262,7 @@ export default {
       let bestSolution = [null, null, null, null, null];
       let usedRids = {};
       let usedHids = {};
+      let rqSum = 0;
       
       round.races.map((race, irace) => {
 
@@ -9280,76 +9292,9 @@ export default {
         });
       });
 
-      // fix
+      // fix no car
       bestSolution.map((car, isolution) => {
-        if (!car) {
-          let foundInUse;
-          let foundInUseIndex;
-          let foundInUseGarageCar;
-          let foundNotInUse;
-          let foundNotInUseGarageCar;
-          let substituteOfGiver;
-          let substituteOfGiverGarageCar;
-
-          round.races[isolution].cars.find(c => {
-            if (foundNotInUse && foundInUse) return true; // end loop
-            if (c.points < 1) return false;
-
-            if ((usedRids[c.rid] === undefined || useGarage) && !foundNotInUse) {
-              if (useGarage) {
-                if (Vue.garageByRid[c.rid] && Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined)) {
-                  foundNotInUse = c;
-                  foundNotInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] === undefined);
-                }
-              } else {
-                foundNotInUse = c;
-              }
-            }
-
-            if (usedRids[c.rid] !== undefined && !foundInUse) {
-              round.races[usedRids[c.rid]].cars.find(c2 => {
-                // c2 is other race donate
-                if ((c2.rid !== c.rid || useGarage) && c2.points > 0 && (usedRids[c2.rid] === undefined || useGarage)) {
-                  if (useGarage) {
-                    if (
-                      Vue.garageByRid[c2.rid] &&
-                      Vue.garageByRid[c2.rid].some(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined) &&
-                      Vue.garageByRid[c.rid] &&
-                      Vue.garageByRid[c.rid].some(x => (x.tun || x.tunZ) === c.tune)
-                    ) {
-                      if (round.creator === "ds901" && isolution === 2 && c.rid === "Alfa_Romeo_TZ3_Corsa_2010") debugger;
-                      substituteOfGiver = c2;
-                      substituteOfGiverGarageCar = Vue.garageByRid[c2.rid].find(x => (x.tun || x.tunZ) === c2.tune && usedHids[x.cardRecordId] === undefined);
-                      
-                      return true;
-                    }
-                  } else {
-                    // no garage
-                    substituteOfGiver = c2;
-                    return true;
-                  }
-                }
-              });
-              if (substituteOfGiver) {
-                foundInUse = c;
-                foundInUseIndex = usedRids[c.rid];
-                if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
-              }
-            }
-          });
-
-
-          if (foundNotInUse) {
-            bestSolution[isolution] = foundNotInUse;
-            usedRids[foundNotInUse.rid] = isolution;
-            if (useGarage) usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
-          } else if (foundInUse) {
-            bestSolution[isolution] = foundInUse;
-            bestSolution[foundInUseIndex] = substituteOfGiver;
-            usedRids[foundInUse.rid] = isolution;
-            usedRids[substituteOfGiver.rid] = foundInUseIndex;
-          }
-        }
+        if (!car) this.cgTryReplacer(round, bestSolution, usedRids, usedHids, isolution, useGarage);
       })
 
       // console.log( bestSolution.map(x => {
@@ -9358,6 +9303,26 @@ export default {
       //     cardRecordId: useGarage && Vue.garageByRid[x?.rid] ? Vue.garageByRid[x.rid].find(y => y.tun === x.tune && usedHids[y.cardRecordId] !== undefined)?.cardRecordId : null,
       //   }
       // }));
+      
+      rqSum = this.cgSumRQ(bestSolution);
+      if (round.rqLimit && rqSum > round.rqLimit) {
+        let rqList = bestSolution.map((car, icar) => {
+          if (!car || !car.rid) return [icar, 0];
+          return [icar, Vue.all_carsObj[car.rid]?.rq || 0];
+        });
+        rqList.sort((a,b) => {
+          return b[1] - a[1];
+        });
+        for (let i = 0; i < rqList.length; i++) {
+          let icar = rqList[i][0];
+          let car = bestSolution[icar];
+          if (!car || !car.rid) continue;
+          
+          this.cgTryReplacer(round, bestSolution, usedRids, usedHids, icar, useGarage, rqSum);
+          rqSum = this.cgSumRQ(bestSolution);
+          if (rqSum <= round.rqLimit) break;
+        }
+      }
 
       return bestSolution.map(solution => {
         if (!solution || !solution.rid) return {};
@@ -9367,6 +9332,94 @@ export default {
         car.points = solution.points;
         return car;
       });
+    },
+    cgSumRQ(bestSolution) {
+      let rqSum = 0;
+      bestSolution.map(car => {
+        if (car && car.rid) {
+          rqSum += Vue.all_carsObj[car.rid].rq;
+        }
+      });
+      return rqSum;
+    },
+    cgTryReplacer(round, bestSolution, usedRids, usedHids, isolution, useGarage, rqSum) {
+      let foundInUse;
+      let foundInUseIndex;
+      let foundInUseGarageCar;
+      let foundNotInUse;
+      let foundNotInUseGarageCar;
+      let substituteOfGiver;
+      let substituteOfGiverGarageCar;
+      let currentRQ = bestSolution[isolution] ? Vue.all_carsObj[bestSolution[isolution].rid]?.rq || 0 : 0;
+
+      round.races[isolution].cars.find(c => {
+        if (useGarage && !Vue.garageByRid[c.rid]) return false;
+        if (foundNotInUse && foundInUse) return true; // end loop
+        if (c.points < 1) return false;
+        if (rqSum - currentRQ + Vue.all_carsObj[c.rid].rq > round.rqLimit) return false;
+
+        let mirrors = [{ rid: c.rid, tune: c.tune, usedIn: usedRids[c.rid] }];
+        if (useGarage) {
+          mirrors = Vue.garageByRid[c.rid]
+            .filter(x => (x.tun || x.tunZ) === c.tune)
+            .map(x => {
+              return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+            });
+        }
+
+        mirrors.find(mirror => {
+          if (mirror.usedIn === undefined && !foundNotInUse) {
+            foundNotInUse = mirror;
+            if (useGarage) foundNotInUseGarageCar = Vue.garageByHid[mirror.cardRecordId];
+          }
+  
+          if (mirror.usedIn !== undefined && !foundInUse) {
+            round.races[mirror.usedIn].cars.find(c2 => {
+              // c2 is other race donate
+              if (c2.points < 1) return false;
+
+              let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
+              if (useGarage) {
+                mirrors_2 = Vue.garageByRid[c2.rid]
+                  .filter(x => (x.tun || x.tunZ) === c2.tune)
+                  .map(x => {
+                    return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+                  });
+              }
+
+              mirrors_2.find(mirror2 => {
+                if (
+                  !mirror2.sameRid &&
+                  mirror2.usedIn === undefined
+                ) {
+                  substituteOfGiver = mirror2;
+                  if (useGarage) substituteOfGiverGarageCar = Vue.garageByHid[mirror2.cardRecordId];
+                  foundInUseIndex = mirror2.usedIn;
+                }
+              });
+
+            });
+            if (substituteOfGiver) {
+              foundInUse = c;
+              if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
+            }
+          }
+        });
+
+
+      });
+
+
+      if (foundNotInUse) {
+        bestSolution[isolution] = foundNotInUse;
+        usedRids[foundNotInUse.rid] = isolution;
+        if (useGarage) usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
+      } else if (foundInUse) {
+        bestSolution[isolution] = foundInUse;
+        bestSolution[foundInUseIndex] = substituteOfGiver;
+        usedRids[foundInUse.rid] = isolution;
+        usedRids[substituteOfGiver.rid] = foundInUseIndex;
+      }
     },
     cgResolveSolutions(_r, round, useGarage, iround) {
       return round.races.map((race, irace) => {
@@ -11325,7 +11378,7 @@ export default {
         this.downloadLoading = false;
       });
     },
-    predictTimes() {
+    predictTimes(e) {
       if (this.containPredictedTimes) {
         this.carDetailsList.map(car => {
           if (car.selectedTune && car.data && car.data[car.selectedTune] && car.data[car.selectedTune].times) {
@@ -11344,7 +11397,7 @@ export default {
         });
         return;
       }
-      this.downloadDataCars(false, true);
+      this.downloadDataCars(false, (e.shiftKey && e.ctrlKey) ? "force" : true);
       this.optionsDialogActive = false;
     },
     isChamp(str) {

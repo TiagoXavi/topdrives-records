@@ -60,13 +60,14 @@ const utils = Vue.observable({
     giveawayUsers: []
 });
 const garageByRid = {};
+const garageByHid = {};
 const garageListUpgraded = Vue.observable([]);
 const garageObj = Vue.observable({
   loading: false,
   loaded: false
 });
 function addToGarageUpgraded(car) {
-  let garageCar = garageByRid[car.rid].find(x => x.cardRecordId === car.cardRecordId);
+  let garageCar = garageByHid[car.cardRecordId];
   if (garageCar.backupTun) return; // already added
   Vue.set(garageCar, 'backupTun', garageCar.tun);
   garageCar.tun = car.tune;
@@ -334,6 +335,7 @@ function resolveGarageRes(data) {
       tunZ: car.tunZ,
       tun: car.tun
     });
+    garageByHid[car.cardRecordId] = garageByRid[car.rid][garageByRid[car.rid].length - 1];
   }
 
   // read garageUpgrades from localStorage
@@ -342,7 +344,7 @@ function resolveGarageRes(data) {
     try {
       let parsed = JSON.parse(storedGarageUpgrades);
       parsed.forEach(car => {
-        let garageCar = garageByRid[car.rid]?.find(x => x.cardRecordId === car.cardRecordId);
+        let garageCar = garageByHid[car.cardRecordId];
         if (garageCar) {
           garageCar.backupTun = garageCar.tun;
           garageCar.tun = car.tun;
@@ -395,6 +397,7 @@ export default {
         Vue.resolveClass = resolveClass;
         Vue.predictTimes = predictTimes;
         Vue.garageByRid = garageByRid;
+        Vue.garageByHid = garageByHid;
         Vue.garageListUpgraded = garageListUpgraded;
         Vue.garageObj = garageObj;
         Vue.addToGarageUpgraded = addToGarageUpgraded;
