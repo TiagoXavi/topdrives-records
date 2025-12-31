@@ -7663,6 +7663,7 @@ export default {
       }
     },
     cgResolveRqFill() {
+      if (!this.cgRound || !this.cgRound.races) return;
       let fill = 0;
       let pointsTotal = 0;
       let showPoints = false;
@@ -9353,6 +9354,7 @@ export default {
       let currentRQ = bestSolution[isolution] ? Vue.all_carsObj[bestSolution[isolution].rid]?.rq || 0 : 0;
 
       round.races[isolution].cars.find(c => {
+        if (!c || !c.rid) return false;
         if (useGarage && !Vue.garageByRid[c.rid]) return false;
         if (foundNotInUse && foundInUse) return true; // end loop
         if (c.points < 1) return false;
@@ -9360,11 +9362,9 @@ export default {
 
         let mirrors = [{ rid: c.rid, tune: c.tune, usedIn: usedRids[c.rid] }];
         if (useGarage) {
-          mirrors = Vue.garageByRid[c.rid]
-            .filter(x => (x.tun || x.tunZ) === c.tune)
-            .map(x => {
-              return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
-            });
+          mirrors = Vue.garageByRid[c.rid].filter(x => (x.tun || x.tunZ) === c.tune).map(x => {
+            return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+          });
         }
 
         mirrors.find(mirror => {
@@ -9376,15 +9376,14 @@ export default {
           if (mirror.usedIn !== undefined && !foundInUse) {
             round.races[mirror.usedIn].cars.find(c2 => {
               // c2 is other race donate
+              if (!c2 || !c2.rid) return false;
               if (c2.points < 1) return false;
 
               let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
               if (useGarage) {
-                mirrors_2 = Vue.garageByRid[c2.rid]
-                  .filter(x => (x.tun || x.tunZ) === c2.tune)
-                  .map(x => {
-                    return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
-                  });
+                mirrors_2 = Vue.garageByRid[c2.rid].filter(x => (x.tun || x.tunZ) === c2.tune).map(x => {
+                  return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+                });
               }
 
               mirrors_2.find(mirror2 => {
