@@ -9362,7 +9362,7 @@ export default {
 
         let mirrors = [{ rid: c.rid, tune: c.tune, usedIn: usedRids[c.rid] }];
         if (useGarage) {
-          mirrors = Vue.garageByRid[c.rid].filter(x => (x.tun || x.tunZ) === c.tune).map(x => {
+          mirrors = (Vue.garageByRid[c.rid] || []).filter(x => (x.tun || x.tunZ) === c.tune).map(x => {
             return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
           });
         }
@@ -9381,7 +9381,7 @@ export default {
 
               let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
               if (useGarage) {
-                mirrors_2 = Vue.garageByRid[c2.rid].filter(x => (x.tun || x.tunZ) === c2.tune).map(x => {
+                mirrors_2 = (Vue.garageByRid[c2.rid] || []).filter(x => (x.tun || x.tunZ) === c2.tune).map(x => {
                   return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
                 });
               }
