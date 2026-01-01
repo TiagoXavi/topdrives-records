@@ -2300,11 +2300,13 @@ export default {
           greatestDay = day;
         }
       });
-      this.otherDiffStats.greatestDayFinal = this.otherDiffStats.greatestDay[greatestDay];
-      this.otherDiffStats.greatestDayFinal.date = greatestDay;
-      this.otherDiffStats.greatestDayFinal.cars.sort((a,b) => {
-        return Vue.all_carsObj[b.rid].rq - Vue.all_carsObj[a.rid].rq;
-      });
+      if (greatestDay) {
+        this.otherDiffStats.greatestDayFinal = this.otherDiffStats.greatestDay[greatestDay];
+        this.otherDiffStats.greatestDayFinal.date = greatestDay;
+        this.otherDiffStats.greatestDayFinal.cars.sort((a,b) => {
+          return Vue.all_carsObj[b.rid].rq - Vue.all_carsObj[a.rid].rq;
+        });
+      };
 
       this.otherDiffStats.S_prizes.cars.sort((a,b) => {
         return new Date(a.date) - new Date(b.date);
