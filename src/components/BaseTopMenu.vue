@@ -130,7 +130,7 @@ export default {
         { label: "Challenges", path: "/challenges" },
         { label: "Events", path: "/events" },
         { label: "Clubs", path: "/clubs" },
-        { label: "Garage", path: "/me", newCodes: ["recap2025"], showNew: false },
+        { label: "Garage", path: "/me", newCodes: [], showNew: false },
         { label: "Charts", path: "/charts" },
         { label: "Packs", path: "/packs" },
         { label: "Timeline", path: "/timeline" },

@@ -27,7 +27,7 @@
 
       <template v-else>
         <!-- MAIN -->
-        <div v-if="userGarage && userGarage.loaded && editEnabled" class="BaseMyGarage_EditBox BaseMyGarage_HLBox">
+        <div v-if="enableGiveAway && userGarage && userGarage.loaded && editEnabled" class="BaseMyGarage_EditBox BaseMyGarage_HLBox">
           <div class="BaseMyGarage_ShareGiveaway">
             <template v-if="Vue.utils.giveawayUsers.includes(user.username)">
               <div class="BaseMyGarage_ShareText">✅ You've entered the giveaway!</div>
@@ -478,11 +478,20 @@
             <div class="BaseMyGarage_DialogSubmitTypeSub">{{ $t(`p_${item}GarageDesc`) }}</div>
           </div>
         </div>
+        <div class="BaseMyGarage_ConfigDialogFooter D_Center2" style="margin-top: 40px;">
+          <button
+            class="D_Button Main_SaveAllButton"
+            @click="changeScreen('upload')">
+            <i class="ticon-refresh_3 D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
+            <span>{{ $t("m_updateGarage") }}</span>
+          </button>
+        </div>
         <div class="BaseMyGarage_ConfigDialogFooter D_Center2 Space_TopGiga">
           <button
+            v-if="user && user.garageYears && user.garageYears.includes(`${garageYear-1}`)"
             class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="changeScreen('upload')">
-            <span>{{ $t("m_updateGarage") }}</span>
+            @click="loadPreviousYear();">
+            <span>{{ garageYear-1 }} Recap</span>
           </button>
           <button
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
@@ -621,6 +630,7 @@
     </BaseDialog>
 
     <BaseDialog
+      v-if="enableGiveAway"
       :active="autoShareConfirmDialog"
       :transparent="false"
       :lazy="true"
@@ -648,6 +658,7 @@
     </BaseDialog>
 
     <BaseDialog
+      v-if="enableGiveAway"
       :active="viewMyShareDialog"
       :transparent="false"
       :lazy="true"
@@ -767,12 +778,13 @@ export default {
       user: null,
       responseText: "",
       highlightsUsers: {},
-      garageYear: 2025,
+      garageYear: 2026,
       userGarage: {},
       userGarageByDate: {},
       userGaragePast: {},
       otherDiffStats: {},
-      userGaragePastYear: 2024,
+      userGaragePastYear: 2025,
+      enableGiveAway: false,
       pointsPerRarity: {
         S: 20,
         A: 5,
@@ -1066,7 +1078,7 @@ export default {
 
         this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
-        if (isAutoShare && Vue.utils.giveawayUsers.includes(this.user.username)) {
+        if (this.enableGiveAway && isAutoShare && Vue.utils.giveawayUsers.includes(this.user.username)) {
           this.viewMyShareDialog = true;
         }
 
@@ -1105,13 +1117,17 @@ export default {
         this.load();
       }, 10);
     },
-    load() {
+    load(forceYear) {
       if (!this.userId) return;
       this.loading = true;
-
-      axios.post(Vue.preUrl + "/getGarage", {
+      let params = {
         username: this.userId
-      })
+      };
+      if (forceYear) {
+        params.year = forceYear;
+      }
+
+      axios.post(Vue.preUrl + "/getGarage", params)
       .then(res => {
         this.loading = false;
         this.saved = false;
@@ -1331,9 +1347,7 @@ export default {
         hCar.tun = this.resolveTune(hCar, hCar.tunZ);
         hCar.date = this.fixDate(hCar.date);
 
-        if (icar < 500 || true) {
-          this.updateHighLights(hCar);
-        }
+        this.updateHighLights(hCar);
         this.computeCarToRecap(hCar);
       })
 
@@ -1358,7 +1372,8 @@ export default {
     updateHighLights(hCar) {
       this.userHighlights.map(hlItem => {
         if (hlItem.divider) return;
-        if (hlItem.requirePast && !this.userGaragePast.loaded) return;
+        // if (hlItem.requirePast && !this.userGaragePast.loaded) return;
+        if (hlItem.requirePast) return;
         this.updateHLItem(hlItem, hCar);
       })
     },
@@ -1825,6 +1840,8 @@ export default {
       this.autoShareRunning = false;
     },
     autoShareCallback(base64) {
+      if (!this.enableGiveAway) return;
+
       this.uploadLoading = true;
       const base64WithoutPrefix = base64.includes(';base64,') ? base64.substring(base64.indexOf(';base64,') + 8) : base64;
       const binaryString = window.atob(base64WithoutPrefix);
@@ -2057,6 +2074,7 @@ export default {
       this.userHighlights.map(hlItem => {
         // TODO: clear garage general tile
         if (hlItem.divider) return;
+        hlItem.touched = false;
         if (hlItem.r) {
           hlItem.r = new rarityStats();
         }
@@ -2068,6 +2086,8 @@ export default {
         }
       })
       this.resetOtherDiffStats();
+      this.userGarageByDate = {};
+      this.userGaragePast = {};
     },
     fixDate(date) {
       if (!date) return date;
@@ -2336,6 +2356,11 @@ export default {
         this.autoShareRunning = true;
         this.sharePrint(item);
       }
+    },
+    loadPreviousYear() {
+      this.resetState();
+      this.load(this.garageYear - 1);
+      this.changeScreen('normal');
     }
   },
 }
