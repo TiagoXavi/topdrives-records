@@ -49,6 +49,8 @@ export const tdrStore = defineStore('main', {
     },
 
     _match: null, //MainMatchSimulator
+    _Mcars: null, //MainCars
+    _Mtracks: null, //MainTracks
   }),
 
   getters: {

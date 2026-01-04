@@ -22,6 +22,9 @@ const MainShowcase = () => import("./components/MainShowcase.vue");
 const BaseMyGarage = () => import("./components/BaseMyGarage.vue");
 const MainCsvChart = () => import("./components/MainCsvChart.vue");
 const MainMatchSimulator = () => import("./components/MainMatchSimulator.vue");
+const MainCars = () => import("./components/MainCars.vue");
+const MainTracks = () => import("./components/MainTracks.vue");
+const MainHome = () => import("./components/MainHome.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -59,6 +62,11 @@ const routes = [
   //   name: 'Clubs',
   //   component: Main,
   // },
+  {
+    path: '/home',
+    name: 'MainHome',
+    component: MainHome,
+  },
   {
     path: '/timeline',
     name: 'Timeline',
@@ -148,6 +156,16 @@ const routes = [
     path: '/match',
     name: 'MainMatchSimulator',
     component: MainMatchSimulator,
+  },
+  {
+    path: '/cars',
+    name: 'MainCars',
+    component: MainCars,
+  },
+  {
+    path: '/tracks',
+    name: 'MainTracks',
+    component: MainTracks,
   },
   {
     path: '/garage/:username',

@@ -170,6 +170,10 @@ export default {
     },
   },
   beforeMount() {
+    if (!import.meta.env.PROD) {
+      this.menus.splice(5, 0, { label: "Cars", path: "/cars" }, { label: "Tracks", path: "/tracks" })
+    }
+
     this.localStorageRead("zoomLevel");
     this.localStorageRead("zoomLevelHorizontal");
     
@@ -384,6 +388,13 @@ export default {
     },
     logoClick() {
       if (this.disableButtons) return;
+      if (!import.meta.env.PROD) {
+        if (this.$route.name !== 'MainHome') {
+          this.$router.push({ name: 'MainHome' })
+        }
+        return;
+      }
+
       if (this.$route.name !== 'Records') {
         this.$router.push({ name: 'Records' })
       }
