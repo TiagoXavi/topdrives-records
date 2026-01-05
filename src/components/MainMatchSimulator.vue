@@ -880,7 +880,7 @@ export default {
       if (this.useWhatFilter) filterAtr = filterAtr + (this.useWhatFilter+1);
       let filter = JSON.parse(JSON.stringify(this._match[filterAtr]));
 
-      this.T_S.mainParams = { cars, tracks, filter };
+      this.T_S.mainParams = { cars, tracks, filter, mode: "compare" };
       this.$router.push({ path: "/compare" });
     },
     predictTimes() {

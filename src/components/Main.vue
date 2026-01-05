@@ -2277,6 +2277,7 @@
       </div>
     </BaseDialog>
 
+    <!-- COMPARE -->
     <BaseFilterDialog
       v-model="searchFilterDialog"
       :lastestList="lastestList"
@@ -4990,6 +4991,7 @@ export default {
       if (this.mode !== 'events') return false;
       if (!this.eventCurrentId) return false;
       if (this.eventCurrentId === "_preview_") return false;
+      if (this.eventCurrentId === "_readonly_") return false;
       if (!this.user || (this.user && !this.user.mod)) return false;
       if (this.event.noAccess) return false;
       if (this.eventFilterToSave && JSON.stringify(this.eventFilterToSave) !== this.eventFilterString) return true;
@@ -8102,7 +8104,7 @@ export default {
 
     },
     cgSaveBank(customArray) {
-      if (!window.location.origin.includes('topdrives')) {
+      if (!window.location.origin.includes('topdrives') && !this.$store.state.showUpcomingTags) {
         console.log("trySave", customArray);
         return;
       };
@@ -9264,6 +9266,8 @@ export default {
       let usedRids = {};
       let usedHids = {};
       let rqSum = 0;
+      let isEmpty = round.races.every(race => race.cars.length === 0);
+      if (isEmpty) return bestSolution;
       
       round.races.map((race, irace) => {
 
@@ -9294,9 +9298,21 @@ export default {
       });
 
       // fix no car
-      bestSolution.map((car, isolution) => {
-        if (!car) this.cgTryReplacer(round, bestSolution, usedRids, usedHids, isolution, useGarage);
-      })
+      let count = 0;
+      let noCarIndex = bestSolution.findIndex(x => !x);
+      let currIndex = noCarIndex;
+      while (noCarIndex > -1 && count < 15) {
+        let res;
+        if (!bestSolution[currIndex]) this.cgTryReplacer(round, bestSolution, usedRids, usedHids, currIndex, useGarage, 0, iround);
+        else if (bestSolution[currIndex]) res = this.cgTryReplacer(round, bestSolution, usedRids, usedHids, currIndex, useGarage, 0, iround, true);
+        if (res) {
+          res = this.cgTryReplacer(round, bestSolution, usedRids, usedHids, noCarIndex, useGarage, 0, iround, true);
+        }
+        noCarIndex = bestSolution.findIndex(x => !x);
+        currIndex++;
+        if (currIndex >= bestSolution.length) currIndex = 0;
+        count++;
+      }
 
       // console.log( bestSolution.map(x => {
       //   return {
@@ -9343,7 +9359,7 @@ export default {
       });
       return rqSum;
     },
-    cgTryReplacer(round, bestSolution, usedRids, usedHids, isolution, useGarage, rqSum) {
+    cgTryReplacer(round, bestSolution, usedRids, usedHids, isolution, useGarage, rqSum, iround, notInUseOnly) {
       let foundInUse;
       let foundInUseIndex;
       let foundInUseGarageCar;
@@ -9353,10 +9369,12 @@ export default {
       let substituteOfGiverGarageCar;
       let currentRQ = bestSolution[isolution] ? Vue.all_carsObj[bestSolution[isolution].rid]?.rq || 0 : 0;
 
+      
+
       round.races[isolution].cars.find(c => {
         if (!c || !c.rid) return false;
         if (useGarage && !Vue.garageByRid[c.rid]) return false;
-        if (foundNotInUse && foundInUse) return true; // end loop
+        if ((foundNotInUse || notInUseOnly) && foundInUse) return true; // end loop
         if (c.points < 1) return false;
         if (rqSum - currentRQ + Vue.all_carsObj[c.rid].rq > round.rqLimit) return false;
 
@@ -9368,12 +9386,14 @@ export default {
         }
 
         mirrors.find(mirror => {
+          if ((foundNotInUse || notInUseOnly) && foundInUse) return true; // end loop
+
           if (mirror.usedIn === undefined && !foundNotInUse) {
             foundNotInUse = mirror;
             if (useGarage) foundNotInUseGarageCar = Vue.garageByHid[mirror.cardRecordId];
           }
   
-          if (mirror.usedIn !== undefined && !foundInUse) {
+          if (mirror.usedIn !== undefined && !foundInUse && !notInUseOnly) {
             round.races[mirror.usedIn].cars.find(c2 => {
               // c2 is other race donate
               if (!c2 || !c2.rid) return false;
@@ -9382,25 +9402,27 @@ export default {
               let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
               if (useGarage) {
                 mirrors_2 = (Vue.garageByRid[c2.rid] || []).filter(x => (x.tun || x.tunZ) === c2.tune).map(x => {
-                  return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+                  return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId], sameRid: x.cardRecordId === mirror.cardRecordId };
                 });
               }
 
               mirrors_2.find(mirror2 => {
                 if (
                   !mirror2.sameRid &&
-                  mirror2.usedIn === undefined
+                  mirror2.usedIn === undefined // the giver should not be used
                 ) {
-                  substituteOfGiver = mirror2;
+                  
+                  
+                  substituteOfGiver = c2;
                   if (useGarage) substituteOfGiverGarageCar = Vue.garageByHid[mirror2.cardRecordId];
-                  foundInUseIndex = mirror2.usedIn;
+                  foundInUseIndex = mirror.usedIn;
                 }
               });
 
             });
             if (substituteOfGiver) {
               foundInUse = c;
-              if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => (x.tun || x.tunZ) === c.tune && usedHids[x.cardRecordId] !== undefined); 
+              if (useGarage) foundInUseGarageCar = Vue.garageByRid[c.rid].find(x => x.cardRecordId === mirror.cardRecordId); 
             }
           }
         });
@@ -9410,15 +9432,28 @@ export default {
 
 
       if (foundNotInUse) {
+        if (bestSolution[isolution]) {
+          delete usedRids[bestSolution[isolution].rid];
+          if (useGarage) {
+            let garageCar = Vue.garageByRid[bestSolution[isolution].rid].find(x => (x.tun || x.tunZ) === bestSolution[isolution].tune && usedHids[x.cardRecordId] === isolution);
+            if (garageCar) delete usedHids[garageCar.cardRecordId];
+          }
+        }
         bestSolution[isolution] = foundNotInUse;
         usedRids[foundNotInUse.rid] = isolution;
         if (useGarage) usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
+        return true;
       } else if (foundInUse) {
         bestSolution[isolution] = foundInUse;
         bestSolution[foundInUseIndex] = substituteOfGiver;
         usedRids[foundInUse.rid] = isolution;
         usedRids[substituteOfGiver.rid] = foundInUseIndex;
+        if (useGarage) usedHids[foundInUseGarageCar.cardRecordId] = isolution;
+        if (useGarage) usedHids[substituteOfGiverGarageCar.cardRecordId] = foundInUseIndex;
+        return true;
       }
+
+      return false;
     },
     cgResolveSolutions(_r, round, useGarage, iround) {
       return round.races.map((race, irace) => {
@@ -9459,7 +9494,7 @@ export default {
       round.races.map((race, irace) => {
         race.cars.map(car => {
           if (car.points > 0) {
-            if (matchedCars[car.rid] && matchedCars[car.rid].includes(car.tune)) return;
+            // if (matchedCars[car.rid] && matchedCars[car.rid].includes(car.tune)) return;
             if (!Vue.garageByRid[car.rid]) return;
             // find a car in garage that can be upgraded to this tune
             let isOp = false;
@@ -9694,6 +9729,7 @@ export default {
           this.eventParsedList.push({ "rqLimit": 500, "trackset": [ [ "tCircuit_a00", "hairpin_a00", "mnGforce_a00", "gForce_a00", "slalom_a00" ], [ "tCircuit_a00", "carPark_a00", "mnGforce_a00", "gForce_a00", "slalom_a00" ], [ "nwCathedral_a00", "tCircuit_a00", "nwSlalom_a00", "gForce_a00", "nwGforce_a00" ], [ "fast_a00", "nwLoop_a00", "nwSlalom_a00", "nwCircuit_a00", "nwGforce_a00" ] ], "filter2": { "name": "2x", "drivesModel": [ "4WD" ], "countrysModel": [ "JP" ], "tyresModel": [ "Performance" ], "prizesModel": [ "Non-Prize Cars" ] }, "user": "TiagoXavi", "filter3": { "name": "2x", "drivesModel": [ "4WD" ], "countrysModel": [ "FR" ], "tyresModel": [ "Performance" ], "prizesModel": [ "Non-Prize Cars" ] }, "comp": [ { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "name": "Eliminator Finals", "startDateTime": "2025-08-20T20:00:00.000Z", "flexibleCriteriaRequired": [ 5, 5, 2, 2, 5, 5 ], "icons": [ "asphalt" ], "date": "eliminator_finals", "image": "ChallengeCategoryRacingRoyalty", "realDate": "2025-08-20T20:06:33.182Z", "filter": { "countrysModel": [ "JP", "FR" ], "weightEnd": 7000, "clearancesModel": [], "fuel": [ "Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol" ], "tyresModel": [ "Performance" ], "customTagsModel": [], "yearModel": [ 1910, 2025 ], "tags_challenge": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger" ], "tags2Model": [], "typesModel": [], "tcsModel": [], "yearStart": 1910, "topSpeedModel": [ 25, 330 ], "handEnd": 110, "mraEnd": 160, "fuelModel": [], "prizesModel": [ "Non-Prize Cars" ], "tags": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger", "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals", "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride", "Rest of the World", "Sub-Zero", "Supercar", "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "brandsModel": [], "brake": [ "A", "B", "C" ], "tagsModel": [], "topSpeedEnd": 330, "drives": [ "FWD", "RWD", "4WD" ], "tags_expansion": [ "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals" ], "prizes": [ "Prize Cars", "Non-Prize Cars" ], "name": "★", "clearances": [ "Low", "Mid", "High" ], "tags3Model": [], "tunesModel": [], "acelEnd": 40, "rqStart": 10, "tags_color": [ "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "tags_permanentDied": [ "Rest of the World", "Sub-Zero", "Supercar" ], "year2Model": [], "classes": [ "F", "E", "D", "C", "B", "A", "S" ], "classesModel": [], "handStart": 30, "countrys": [ "US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "IN", "MX", "CH" ], "weightModel": [ 300, 7000 ], "brakeModel": [], "classesColors": [ "#878787", "#76F273", "#1CCCFF", "#FFF62B", "#FF3538", "#8C5CFF", "#FFAF17" ], "mraStart": 0, "seatsStart": 1, "engine": [ "Front", "Mid", "Mid-rear", "Mixed", "Rear" ], "handModel": [ 30, 110 ], "approveModel": false, "topSpeedStart": 25, "bodyTypesModel": [], "tyres": [ "Performance", "Standard", "All-surface", "Off-road", "Slick" ], "rqModel": [ 10, 119 ], "bodyTypes": [ "Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van" ], "tunes": [ "332", "323", "233", "111", "Custom", "Best" ], "engineModel": [], "brands": [ "AC", "Acura", "Alfa Romeo", "Alpine", "AMC", "Apollo", "Arash", "Ariel", "Aston Martin", "Audi", "Austin", "BAC", "Bentley", "Bizzarrini", "BMW", "Brabham", "Bristol", "Bufori", "Bugatti", "Buick", "Cadillac", "Caterham", "Chevrolet", "Chrysler", "Citroen", "De Tomaso", "DMC", "Dodge", "Donkervoort", "Drako", "DS", "Eagle", "Fiat", "Ford", "Geo", "Ginetta", "Giocattolo", "GMC", "Hennessey", "Holden", "Honda", "Hudson", "Hummer", "Hyundai", "Infiniti", "Jaguar", "Koenigsegg", "KTM", "Lamborghini", "Lancia", "Land Rover", "Lincoln", "Lotus", "Maserati", "Matra", "Mazda", "McLaren", "McMurtry", "Mercedes-Benz", "Mercury", "MG", "Mini", "Mitsubishi", "Mitsuoka", "Morgan", "Nissan", "Oldsmobile", "Pagani", "Peugeot", "Pininfarina", "Plymouth", "Pontiac", "Porsche", "Radical", "RAM", "Renault", "Rezvani", "Rimac", "Rover", "RUF", "Saleen", "Saturn", "SCG", "Skoda", "Smart", "Spyker", "Subaru", "Suzuki", "Talbot", "TVR", "Ultima", "Vauxhall", "Volkswagen", "Volvo", "W Motors", "Zenos", "Zenvo" ], "rqEnd": 119, "yearEnd": 2025, "drivesModel": [ "4WD" ], "seatsModel": [ 1, 9 ], "mraModel": [ 0, 160 ], "acelStart": 1.5, "acelModel": [ 1.5, 40 ], "absModel": [], "seatsEnd": 9, "seats2Model": [], "tags_permanent": [ "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride" ], "weightStart": 300 }, "bucketSize": 100, "filteringQueryStrings": [ "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]", "[\"((\\\"country\\\"=\\\"France\\\"|\\\"country\\\"=\\\"Japan\\\"))\"]", "[\"((\\\"country\\\"=\\\"France\\\"))\"]", "[\"((\\\"country\\\"=\\\"Japan\\\"))\"]", "[\"((\\\"tyretype\\\"=\\\"HiPerformance\\\"))\"]", "[\"((\\\"drivetype\\\"=\\\"FourWD\\\"))\"]" ], "tag": "Special LiveOps", "eid": "t", "endDateTime": "2025-08-22T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 1800000 })
           this.eventParsedList.push({ "rqLimit": 500, "trackset": [ [ "drag100_a00", "kart_a00", "csSmall_a00", "csMed_a01", "rallySmall_a40" ], [ "mile2_a00", "fast_a00", "mnCityLong_a00", "tCircuit_a01", "moto_a11" ], [ "hairpin_a00", "tRoad_a00", "mnCityLong_a00", "slalom_a01", "moto_a11" ], [ "drag100_a00", "indoorKart_a00", "csMed_a00", "csSmall_a01", "rallySmall_a40" ] ], "filter2": { "name": "2x", "countrysModel": [ "GB" ], "tagsModel": [ "European New Wave", "World Expo" ], "prizesModel": [ "Non-Prize Cars" ] }, "user": "TiagoXavi", "filter3": { "name": "2x", "countrysModel": [ "CZ" ], "tagsModel": [ "European New Wave", "World Expo" ], "prizesModel": [ "Non-Prize Cars" ] }, "comp": [ { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Dragster" ] }, { "tyres": [ "Performance", "Slick" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Off-road" ], "clearance": [ "Mid" ], "drives": [], "meta": [ "Twister" ] }, { "tyres": [ "Standard" ], "clearance": [ "Mid" ], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Off-road" ], "clearance": [ "High" ], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "name": "GT Pro Circuit", "startDateTime": "2025-09-09T20:00:00.000Z", "flexibleCriteriaRequired": [ 5, 5, 5, 2, 2 ], "icons": [ "asphalt", "dirt" ], "date": "gt_pro_circuit", "image": "EventGTSeries", "realDate": "2025-09-09T17:08:41.697Z", "filter": { "countrysModel": [ "GB", "CZ" ], "weightEnd": 7000, "clearancesModel": [], "fuel": [ "Bioethanol", "Diesel", "Electric", "Hybrid", "Hydrogen", "Misc", "Petrol" ], "tyresModel": [], "customTagsModel": [], "yearModel": [ 1910, 2025 ], "tags_challenge": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gaz's Collection 2", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "Marilyn's Collection 2", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger" ], "tags2Model": [], "typesModel": [], "tcsModel": [], "yearStart": 1910, "topSpeedModel": [ 25, 330 ], "handEnd": 110, "mraEnd": 160, "fuelModel": [], "prizesModel": [ "Non-Prize Cars" ], "tags": [ "5th Anniversary", "Around the World", "As Seen on YT", "Call of the Wild", "Chariots of the Gods", "Christmas Collection", "Christmas Collection 22", "Coast to Coast", "Cutting Edge", "Desperados", "Electric Excellence", "Famous Tracks", "Filberto's Collection", "Gaz's Collection", "Gaz's Collection 2", "Gunter's Collection", "Harriet's Collection", "Heavy Metal", "Hugo's Collection", "Immortalised in Carbon", "In the Shadows", "In the Shadows 24", "Interstellar", "Legrand's Collection", "Lina's Collection", "Lina's Collection 2", "Loves Me, Loves Me Not", "Marilyn's Collection", "Marilyn's Collection 2", "New Beginnings", "Nightmare Fuel", "Niklas' Collection", "Niklas' Collection 2", "Old Guard", "Photo Finish", "Racing Royalty", "Reclassified", "Ride of the Valkyries", "Riders on the Storm", "Roads Most Travelled", "Sara's Collection", "Silver Screen", "Summer Games", "Summer Games 24", "Summer Games 25", "The Great Outdoors", "The Horror Show", "The Unicorns", "Touma's Collection", "Trading Paint", "Two Tone", "Ximena's Collection", "Year of the Dragon", "Year of the Ox", "Year of the Rabbit", "Year of the Rat", "Year of the Snake", "Year of the Tiger", "German Powerhaus", "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals", "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride", "Rest of the World", "Sub-Zero", "Supercar", "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "brandsModel": [], "brake": [ "A", "B", "C" ], "tagsModel": [ "European New Wave", "World Expo" ], "topSpeedEnd": 330, "drives": [ "FWD", "RWD", "4WD" ], "tags_expansion": [ "German Powerhaus", "French Riviera", "Asia-Pacific Revival", "European Grand Tour", "American Overdrive", "European New Wave", "Asia-Pacific Grand Prix", "Pacific Coast Highway", "Learn the Savannah Way", "Loch to Loch", "Amalfi Coast Cruising", "Enter the Black Forest", "World Expo", "Japan Pro Tour", "American Frontier", "European Revolution", "Great Exhibition", "Italian Renaissance", "German Renaissance", "French Renaissance", "American Dream", "Originals" ], "prizes": [ "Prize Cars", "Non-Prize Cars" ], "name": "★", "clearances": [ "Low", "Mid", "High" ], "tags3Model": [], "tunesModel": [], "acelEnd": 40, "rqStart": 10, "tags_color": [ "Beige", "Black", "Blue", "Brown", "Gold", "Green", "Orange", "Pink", "Purple", "Red", "Silver/Grey", "Turquoise", "White", "Yellow" ], "tags_permanentDied": [ "Rest of the World", "Sub-Zero", "Supercar" ], "year2Model": [], "classes": [ "F", "E", "D", "C", "B", "A", "S" ], "classesModel": [], "handStart": 30, "countrys": [ "US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "IN", "MX", "CH" ], "weightModel": [ 300, 7000 ], "brakeModel": [], "classesColors": [ "#878787", "#76F273", "#1CCCFF", "#FFF62B", "#FF3538", "#8C5CFF", "#FFAF17" ], "mraStart": 0, "seatsStart": 1, "engine": [ "Front", "Mid", "Mid-rear", "Mixed", "Rear" ], "handModel": [ 30, 110 ], "approveModel": false, "topSpeedStart": 25, "bodyTypesModel": [], "tyres": [ "Performance", "Standard", "All-surface", "Off-road", "Slick" ], "rqModel": [ 10, 119 ], "bodyTypes": [ "Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van" ], "tunes": [ "332", "323", "233", "111", "Custom", "Best" ], "engineModel": [], "brands": [ "AC", "Acura", "Alfa Romeo", "Alpine", "AMC", "Apollo", "Arash", "Ariel", "Aston Martin", "Audi", "Austin", "BAC", "Bentley", "Bizzarrini", "BMW", "Brabham", "Bristol", "Bufori", "Bugatti", "Buick", "Cadillac", "Caterham", "Chevrolet", "Chrysler", "Citroen", "De Tomaso", "DMC", "Dodge", "Donkervoort", "Drako", "DS", "Eagle", "Fiat", "Ford", "Geo", "Ginetta", "Giocattolo", "GMC", "Hennessey", "Holden", "Honda", "Hudson", "Hummer", "Hyundai", "Infiniti", "Jaguar", "Koenigsegg", "KTM", "Lamborghini", "Lancia", "Land Rover", "Lincoln", "Lotus", "Maserati", "Matra", "Mazda", "McLaren", "McMurtry", "Mercedes-Benz", "Mercury", "MG", "Mini", "Mitsubishi", "Mitsuoka", "Morgan", "Nissan", "Oldsmobile", "Pagani", "Peugeot", "Pininfarina", "Plymouth", "Pontiac", "Porsche", "Radical", "RAM", "Renault", "Rezvani", "Rimac", "Rover", "RUF", "Saleen", "Saturn", "SCG", "Skoda", "Smart", "Spyker", "Subaru", "Suzuki", "Talbot", "TVR", "Ultima", "Vauxhall", "Volkswagen", "Volvo", "W Motors", "Zenos", "Zenvo" ], "rqEnd": 119, "yearEnd": 2025, "drivesModel": [], "seatsModel": [ 1, 9 ], "mraModel": [ 0, 160 ], "acelStart": 1.5, "acelModel": [ 1.5, 40 ], "absModel": [], "seatsEnd": 9, "seats2Model": [], "tags_permanent": [ "Concept", "Drivers Choice", "Eco Friendly", "Hot Hatch", "Hypercar", "Iconic Variant", "Innovative", "Motorsport", "Muscle Car", "None", "Oddities", "Road", "Sleeper", "Street Racer", "Style Icon", "Team Favourite", "Track", "Ultra Expensive", "Wild Ride" ], "weightStart": 300 }, "bucketSize": 800, "filteringQueryStrings": [ "[\"((\\\"isprizecar\\\"=\\\"0\\\"))\"]", "[\"((\\\"tags\\\"=\\\"4000000000000\\\"|\\\"tags\\\"=\\\"80000000000\\\"))\"]", "[\"((\\\"country\\\"=\\\"CzechRepublic\\\"|\\\"country\\\"=\\\"GreatBritain\\\"))\"]", "[\"((\\\"country\\\"=\\\"CzechRepublic\\\"))\"]", "[\"((\\\"country\\\"=\\\"GreatBritain\\\"))\"]" ], "tag": "GT-Series", "eid": "t", "endDateTime": "2025-09-12T20:00:00.000Z", "hidden": false, "ticketRegenerationTime": 1800000 })
           this.eventParsedList.push({ "bucketSize": 100, "comp": [ { "tyres": [ "All-surface" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Dragster" ] }, { "tyres": [ "Off-road", "All-surface" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Off-road" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Off-road" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Off-road" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] } ], "eid": "t", "endDateTime": "2025-11-05T12:00:00.000Z", "filter": { "tagsModel": [ "Italian Renaissance" ] }, "filteringQueryStrings": [ [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ], [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ], [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ], [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ], [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ], [ "[\"((\\\"tags\\\"=\\\"400000\\\"))\"]" ] ], "flexConfig": [ { "minRQ": 500, "maxEloScore": 9999999, "maxRQ": 501, "minEloScore": 20000 }, { "minRQ": 330, "maxEloScore": 9999999, "maxRQ": 389, "minEloScore": 0 }, { "minRQ": 390, "maxEloScore": 9999999, "maxRQ": 459, "minEloScore": 0 }, { "minRQ": 500, "maxEloScore": 8999, "maxRQ": 501, "minEloScore": 0 }, { "minRQ": 460, "maxEloScore": 9999999, "maxRQ": 499, "minEloScore": 0 }, { "minRQ": 500, "maxEloScore": 19999, "maxRQ": 501, "minEloScore": 9000 } ], "flexibleCriteriaRequired": [ [ 5 ], [ 2 ], [ 3 ], [ 5 ], [ 4 ], [ 5 ] ], "hidden": false, "icons": [ "snow", "ice" ], "image": "Challenge00HugoCS", "name": "Hugo In Hell: Frozen Inferno", "realDate": "2025-11-01T16:49:34.146Z", "rqLimit": 500, "startDateTime": "2025-11-04T12:00:00.000Z", "tag": "Standard", "ticketRegenerationTime": 1800000, "trackset": [ [ "mile4_a60", "hairpin_a60", "forest_a60", "gForce_a60", "forestSlalom_a30" ], [ "mile1_a60", "mile4_a60", "gForce_a60", "forestSlalom_a30", "slalom_a30" ], [ "hClimb_a20", "hClimb_a11", "drag100_a20", "frozenLake_ad0", "slalom_a30" ], [ "mile2_a00", "hairpin_a60", "tRoad_a60", "frozenLake_ad0", "slalom_a30" ] ], "user": "TiagoXavi", "date": "hugo_in_hell_frozen_inferno" });
+          this.eventParsedList.push({ "bucketSize": 100, "comp": [ { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "4WD" ], "meta": [ "Speedster" ] }, { "tyres": [ "Performance" ], "clearance": [ "Low" ], "drives": [ "2WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Standard" ], "clearance": [], "drives": [ "4WD" ], "meta": [ "Twister" ] }, { "tyres": [ "Performance" ], "clearance": [ "Mid" ], "drives": [ "4WD" ], "meta": [ "Speedster" ] } ], "eid": "t", "endDateTime": "2025-12-18T21:00:00.000Z", "filter": { "name": "★", "countrysModel": [ "DE" ], "bodyTypesModel": [ "Estate", "MPV" ] }, "filter2": { "name": "3x", "countrysModel": [ "DE" ], "bodyTypesModel": [ "Estate" ] }, "filter3": { "name": "2x", "countrysModel": [ "DE" ], "bodyTypesModel": [ "MPV" ] }, "filteringQueryStrings": [ [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ], [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ], [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ], [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ], [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ], [ "[\"((\\\"country\\\"=\\\"Germany\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"Estate\\\"))\"]", "[\"((\\\"bodystyle\\\"=\\\"MPV\\\"))\"]" ] ], "flexConfig": [ { "minRQ": 500, "maxEloScore": 9999999, "maxRQ": 501, "minEloScore": 12000 }, { "minRQ": 500, "maxEloScore": 11999, "maxRQ": 501, "minEloScore": 5000 }, { "minRQ": 500, "maxEloScore": 4999, "maxRQ": 501, "minEloScore": 0 }, { "minRQ": 420, "maxEloScore": 9999999, "maxRQ": 499, "minEloScore": 0 }, { "minRQ": 350, "maxEloScore": 9999999, "maxRQ": 419, "minEloScore": 0 }, { "minRQ": 330, "maxEloScore": 9999999, "maxRQ": 349, "minEloScore": 0 } ], "flexibleCriteriaRequired": [ [ 5, 3, 2 ], [ 5, 3, 2 ], [ 4, 3, 2 ], [ 3, 3, 2 ], [ 2, 3, 2 ], [ 1, 3, 2 ] ], "hidden": true, "icons": [ "rain", "clearanceW", "asphalt" ], "image": "EventGermany", "name": "Practical Performance", "realDate": "2025-12-16T17:28:50.517Z", "rqLimit": 375, "startDateTime": "2025-12-16T21:00:00.000Z", "tag": "Standard", "ticketRegenerationTime": 1800000, "trackset": [ [ "fast_a01", "tCircuit_a01", "hairpin_a01", "tRoad_a01", "csSmall_a01" ], [ "indoorKart_a00", "fast_a01", "indoorKart_a00", "kart_a01", "csMed_a01" ], [ "tCircuit_a01", "hairpin_a01", "tRoad_a01", "kart_a01", "csSmall_a01" ], [ "indoorKart_a00", "fast_a01", "fast_a01", "rallySmall_a41", "csSmall_a01" ] ], "user": "TiagoXavi", "date": "practical_performance" });
         }
 
 
@@ -9801,7 +9837,7 @@ export default {
         this.eventLoading = false;
       });
     },
-    loadEventScreen(id, eventParsedToPreview) {
+    loadEventScreen(id, eventParsedToPreview, isReadOnly) {
       this.eventSelectorDialog = false;
       let event;
       this.eventCurrentId = "";
@@ -9816,6 +9852,7 @@ export default {
 
       this.event = event;
       this.eventCurrentId = eventParsedToPreview && !event.date ? "_preview_" : event.date;
+      if (isReadOnly) { this.eventCurrentId = "_readonly_" };
       this.eventCurrentName = event.name;
       this.eventCurrentIsHidden = eventParsedToPreview ? eventParsedToPreview.hidden : (this.eventList.find(x => x.date === event.date) || {}).hidden;
       this.eventCheckFilterCodePre = null;
@@ -11009,9 +11046,9 @@ export default {
         }
       }
     },
-    eventPreviewParsed(event) {
+    eventPreviewParsed(event, isReadOnly) {
       console.log(event, event.filteringQueryStrings);
-      this.loadEventScreen("", event);
+      this.loadEventScreen("", event, isReadOnly);
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
@@ -12641,7 +12678,6 @@ export default {
     },
     loadQueryParams() {
       if (this.T_S.mainParams) {
-        this.changeMode('compare');
         this.loadParams();
       } else if (this.$route.query && this.$route.query.approve) {
         this.changeMode('compare');
@@ -12698,26 +12734,42 @@ export default {
       }
     },
     loadParams() {
-      let carsFromQuery = this.T_S.mainParams.cars;
-      let tracksFromQuery = this.T_S.mainParams.tracks;
+      if (this.T_S.mainParams.mode === "compare") {
+        this.changeMode('compare');
 
-      this.T_S.mainParams = null;
+        let carsFromQuery = this.T_S.mainParams.cars;
+        let tracksFromQuery = this.T_S.mainParams.tracks;
 
-      if (true) {
-        if (tracksFromQuery.length > 0) {
-          this.clearAllTracks()
-          this.pushTrackSet(tracksFromQuery);
+        this.T_S.mainParams = null;
+
+        if (true) {
+          if (tracksFromQuery.length > 0) {
+            this.clearAllTracks()
+            this.pushTrackSet(tracksFromQuery);
+          }
+          this.prepareCars(carsFromQuery);
+          this.updateOptions();
+          this.updateCarLocalStorage();
+
         }
-        this.prepareCars(carsFromQuery);
-        this.updateOptions();
-        this.updateCarLocalStorage();
 
+        this.showCarsFix = false;
+        this.$nextTick().then(() => {
+          this.showCarsFix = true;
+        });
+
+      } else if (this.T_S.mainParams.mode === "challenges") {
+        this.changeMode('challenges');
+        // TODO
+      } else if (this.T_S.mainParams.mode === "events") {
+        this.changeMode('events');
+
+        this.eventPreviewParsed(this.T_S.mainParams.event, true);
+
+      } else if (this.T_S.mainParams.mode === "clubs") {
+        this.changeMode('clubs');
+        // TODO
       }
-
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      });
     }
     
   }

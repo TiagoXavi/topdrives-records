@@ -198,7 +198,10 @@ export default {
 
     this.left_width = 55;
     this.right_width = 55;
+    let leftExpanded = 150;
     let menusTotal = 0;
+    let miniLogoPoint = 1200 - leftExpanded - this.right_width - this.safe_margin;
+    let miniActivated = false;
     let menu_buttons = (document.querySelectorAll(".BaseTopMenu_Button") || []);
     menu_buttons.forEach((x, ix) => {
       menusTotal += x.offsetWidth;
@@ -210,6 +213,10 @@ export default {
 
     let currentTotal = this.left_width + this.right_width + this.safe_margin;
     this.menus.map((x, ix) => {
+      if (!miniActivated && currentTotal > miniLogoPoint) {
+        currentTotal += 200;
+        miniActivated = true;
+      }
       currentTotal += x.width;
       Vue.set(x, "minWidth", currentTotal);
     })

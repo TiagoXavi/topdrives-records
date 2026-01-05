@@ -765,7 +765,7 @@
         <div v-if="detailObj.events && detailObj.events.length > 0" class="MainTimeline_EventsLayout">
           <div v-for="(event, iEvent) in detailObj.events" class="MainTimeline_EventsItem">
             <div class="MainTimeline_EventsItemTop">
-              <div class="MainTimeline_EventsItemName">{{ event.name }}</div>
+              <div class="D_Button D_ButtonLink MainTimeline_EventsItemName" @click="exportToEvents(event)">{{ event.name }}</div>
               <!-- <div class="MainTimeline_EventsItemRQ">{{ $t('m_rqLimit') }}: {{ event.rqLimit }}</div> -->
             </div>
             <div class="MainTimeline_EventsItemMid">
@@ -1214,6 +1214,7 @@ import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
 import BaseBrakeDialog from './BaseBrakeDialog.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import tracksRepo from '../database/tracks_repo.json'
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'MainTimeline',
@@ -2295,6 +2296,29 @@ export default {
       this.searchParams.dayStart = "";
       this.searchParams.dayEnd = "";
       this.closeFilterDayDialog();
+    },
+    exportToEvents(event) {
+      return;
+      const T_S = tdrStore();
+      // T_S.mainParams = { event: { ...event, comp: [] }, mode: "events" };
+      T_S.mainParams = {
+        event: {
+          ...event,
+          comp: [],
+          filteringQueryStrings: [
+            "[\"((\\\"year\\\"=\\\"2022-2024\\\"))\"]",
+            "[\"((\\\"fuel\\\"=\\\"Electric\\\"))\"]",
+            "[\"((\\\"rq\\\"=\\\"10-95\\\"))\"]"
+          ],
+          flexibleCriteriaRequired: [
+            5,
+            5,
+            4
+          ]
+        },
+        mode: "events"
+      };
+      this.$router.push({ path: "/events" });
     }
   },
 }
