@@ -5,21 +5,27 @@
       <div class="BaseMyGarageTutorial_Dual D_Center2">
         <button
           class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
+          @click="changeScreen('androidAlone');">
+          <i class="brand-android BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true"/>
+          <span class="BaseMyGarageTutorial_ButtonLabel">Android</span>
+        </button>
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
           @click="changeScreen('android');">
           <i class="brand-android BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true"/>
           <span class="BaseMyGarageTutorial_ButtonLabel">PC + Android emulator</span>
         </button>
         <button
           class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
-          @click="changeScreen('ios');">
-          <i class="brand-apple BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true" style="margin-bottom: 7px;"/>
-          <span class="BaseMyGarageTutorial_ButtonLabel">PC + iOS</span>
-        </button>
-        <button
-          class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
           @click="changeScreen('iosAlone');">
           <i class="brand-apple BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true" style="margin-bottom: 7px;"/>
           <span class="BaseMyGarageTutorial_ButtonLabel">iOS</span>
+        </button>
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2 BaseMyGarageTutorial_MainButton"
+          @click="changeScreen('ios');">
+          <i class="brand-apple BaseMyGarageTutorial_MainButtonIcon" aria-hidden="true" style="margin-bottom: 7px;"/>
+          <span class="BaseMyGarageTutorial_ButtonLabel">PC + iOS</span>
         </button>
       </div>
     </div>
@@ -173,6 +179,42 @@
         <div>24. Paste below. Done.</div>
       </div>
     </div>
+    <div v-else-if="screen === 'androidAlone'" :class="{ MainTimeline_InitAnimation: animation }" class="BaseMyGarageTutorial_Screen1">
+      <div class="BaseMyGarageTutorial_Title">
+        <button class="D_Button BaseMyGarageTutorial_BackButton" @click="changeScreen('home');">
+          <i class="ticon-arrow_left_2 BaseMyGarageTutorial_BackIcon" aria-hidden="true"/>
+        </button>
+        Android
+      </div>
+      <div class="BaseMyGarageTutorial_Topics">
+        <div>1. Download, install and open <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" target="_blank" rel="noopener noreferrer">Cx File Explorer</a> for Android. You can use any other file explorer app, just make sure that it can access Android folder.</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_1.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>2. Allow Cx File Explorer to access your files. Notifications are also required by the app</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_10.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>3. You need to upload your Garage.dat file. Maybe you want to restart the game produce a fresh new one.</div>
+        <div>4. Use the upload button at the end of this tutorial to upload it</div>
+        <div>5. This part can be different for every version o Android, but the goal is the same. After clicking in the upload button, choose Cx File Explorer as file manager to select Garage.dat</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_7.png" alt="" style="max-width: 100%;">
+        </div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_8.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>6. Navigate to the path bellow. Check Garage.dat and press Select to confirm.</div>
+        <div class="BaseMyGarageTutorial_TopicCode">(Main storage) > Android > data > com.hutchgames.cccg > files > Garage.dat</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_2.png" alt="" style="max-width: 100%;">
+        </div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_9.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>7. Done</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -207,6 +249,9 @@ export default {
       this.$nextTick().then(() => {
         this.screen = screen;
       })
+      if (screen === "home") this.$emit('home');
+      if (screen === "androidAlone") this.$emit('file');
+      if (screen === "android" || screen === "iosAlone" || screen === "ios") this.$emit('response');
     },
   },
 }
@@ -239,5 +284,11 @@ export default {
   position: absolute;
   top: 0;
   left: -30px;
+}
+.BaseMyGarageTutorial_TopicCode {
+  font-family: monospace;
+  background-color: #0004;
+  box-shadow: 0px 0px 0px 8px #0004;
+  border-radius: 2px;
 }
 </style>

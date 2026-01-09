@@ -326,6 +326,7 @@ export default {
   m_highlights: "Highlights",
   m_uniques: "Uniques",
   m_sPrizes: "Legendary prizes",
+  m_submit: "Submit",
 
 
 

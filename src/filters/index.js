@@ -1030,6 +1030,84 @@ export default {
           if (cacheCars[rid].isDownloaded) return true;
           return false;
         };
+        Vue.resolveTuneZ = function (hCar) {
+          // 969 style
+          return `${((hCar.engineMajor-1)*3 + hCar.engineMinor)}`+
+          `${((hCar.weightMajor-1)*3 + hCar.weightMinor)}`+
+          `${((hCar.chassisMajor-1)*3 + hCar.chassisMinor)}`;
+        };
+        Vue.resolveTune = function (tunZ) {
+          // 323 style
+          let res = null;
+
+          if (
+            tunZ[0] % 3 === 0 &&
+            tunZ[1] % 3 === 0 &&
+            tunZ[2] % 3 === 0
+          ) {
+            res = `${tunZ[0] / 3}${tunZ[1] / 3}${tunZ[2] / 3}`
+          }
+
+          return res;
+        };
+        Vue.baseCarsTeamCarsFromRawCg = function (ladder, _iRound) {
+          let oppos = ladder.opponents;
+          let zoneSize = ladder.zoneSize;
+          let cars = [{}, {}, {}, {}, {}];
+          // {
+          //   rid: car.rid,
+          //   selectedTune: car.selectedTune
+          // }
+
+          if (!ladder.challengeSetIds[Math.floor(_iRound / zoneSize)]) return cars;
+
+          cars.map((carObj, icar) => {
+            let op = oppos[_iRound*5 + icar];
+            let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`;
+            let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
+            let tunZ = Vue.resolveTuneZ(op);
+            let selectedTune = Vue.resolveTune(op, tunZ);
+            if (!selectedTune) selectedTune = tunZ;
+
+            carObj.rid = car.rid;
+            carObj.selectedTune = selectedTune;
+
+          });
+
+          return cars;
+        };
+        Vue.baseEventTrackEventFromRawTracks = function (rawTracks) {
+          // [
+          //   "mtHairpin_a01",
+          //   "mtSlalom_a01",
+          //   "kart_a01",
+          //   "mile2_a01",
+          //   "mtTwisty_a01"
+          // ]
+          let _event = {
+            check: null,
+            trackset: [
+              [{ track: null }, { track: null }, { track: null }, { track: null }, { track: null }]
+            ],
+            resolvedTrackset: [
+              [null, null, null, null, null]
+            ]
+          }
+          let trackst = [{ track: null }, { track: null }, { track: null }, { track: null }, { track: null }];
+          rawTracks.map((trackCode, itrcode) => {
+            trackst[itrcode].track = trackCode;
+          })
+
+          Vue.set(_event.trackset, 0, trackst);
+          Vue.set(_event.resolvedTrackset, 0, [null, null, null, null, null]);
+          _event.trackset[0].map((trackobj, itrjobj) => {
+            if (trackobj.track) {
+              Vue.set(_event.resolvedTrackset[0], itrjobj, Vue.resolveTrack({ track: trackobj.track }, false, false));
+            }
+          })
+
+          return _event;
+        };
         Vue.cyrb53 = function (str, seed = 0) {
           let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
           for(let i = 0, ch; i < str.length; i++) {

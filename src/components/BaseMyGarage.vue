@@ -379,29 +379,54 @@
       class="BaseMyGarage_UploadLayout">
       <div class="BaseMyGarage_UploadMid Space_TopPlus">
         <!-- How it works -->
-        <BaseMyGarageTutorial class="BaseMyGarage_Tutorial"/>
-        <div class="BaseMyGarage_TextBox">
-          <div class="BaseText_Label">Response body of /api/game/v3/sync/</div>
-          <textarea
-            v-model="responseText"
-            rows="8"
-            class="Main_TextArea data-hj-allow"
-            placeholder="Paste here..."
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-            @paste="interceptPaste($event)"
-          />
-        </div>
-        <div class="BaseMyGarage_Submit D_Center2 Space_TopPlus">
-          <button
-            :class="{ D_Button_Loading: loading }"
-            :disabled="!responseText"
-            class="D_Button Main_SaveAllButton"
-            @click="validateText()">
-            <span>{{ $t("m_uploadMyGarage") }}</span>
-          </button>
+        <BaseMyGarageTutorial
+          class="BaseMyGarage_Tutorial"
+          @file="changeUploadType('file')"
+          @home="changeUploadType('home')"
+          @response="changeUploadType('response')"
+        />
+        <div class="BaseMyGarage_UploadMethodsBox">
+          <div v-if="uploadType !== 'response'" class="BaseMyGarage_UploadLeft">
+            <label :class="{ D_Button_Loading: loading }" class="D_Button BaseMyGarage_BigUpload">
+              <input
+                style="display: none;"
+                type="file"
+                accept=".dat"
+                @change="loadFile($event)">
+                <span>Upload Garage.dat</span>
+            </label>
+          </div>
+          <div class="BaseMyGarage_UploadDivisor">
+            <div class="BaseMyGarage_UploadDivisorLine"></div>
+            <div class="BaseMyGarage_UploadDivisorText">or</div>
+            <div class="BaseMyGarage_UploadDivisorLine"></div>
+          </div>
+          <div v-if="uploadType !== 'file'" class="BaseMyGarage_UploadRight">
+            <div class="BaseMyGarage_TextBox">
+              <div class="BaseText_Label">Response body of /api/game/v3/sync/</div>
+              <textarea
+                v-model="responseText"
+                rows="8"
+                class="Main_TextArea data-hj-allow"
+                placeholder="Paste here..."
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+                @paste="interceptPaste($event)"
+              />
+            </div>
+            <div class="BaseMyGarage_Submit D_Center2">
+              <button
+                :class="{ D_Button_Loading: loading }"
+                :disabled="!responseText"
+                class="D_Button Main_SaveAllButton"
+                @click="validateText()">
+                <span>{{ $t("m_submit") }}</span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="D_Center2 Space_TopPlus">
@@ -412,6 +437,7 @@
           <span>{{ $t("m_cancel") }}</span>
         </button>
       </div>
+      <div style="padding-bottom: 50px;"></div>
     </div>
 
     <BaseFilterDialog
@@ -777,6 +803,7 @@ export default {
       animation: false,
       user: null,
       responseText: "",
+      uploadType: "home",
       highlightsUsers: {},
       garageYear: 2026,
       userGarage: {},
@@ -2129,9 +2156,15 @@ export default {
         this.transformNewGarageToDateObj();
       };
 
-      this.otherDiffStats.eloScore = this.userGarage.eloScore - this.userGaragePast.eloScore;
-      this.otherDiffStats.garageSlots = this.userGarage.garageSlots - this.userGaragePast.garageSlots;
-      this.otherDiffStats.garageSlotsUsed = this.userGarage.garageSlotsUsed - this.userGaragePast.garageSlotsUsed;
+      if (this.userGarage.eloScore && this.userGaragePast.eloScore) {
+        this.otherDiffStats.eloScore = this.userGarage.eloScore - this.userGaragePast.eloScore;
+      }
+      if (this.userGarage.garageSlots && this.userGaragePast.garageSlots) {
+        this.otherDiffStats.garageSlots = this.userGarage.garageSlots - this.userGaragePast.garageSlots;
+      }
+      if (this.userGarage.garageSlotsUsed && this.userGaragePast.garageSlotsUsed) {
+        this.otherDiffStats.garageSlotsUsed = this.userGarage.garageSlotsUsed - this.userGaragePast.garageSlotsUsed;
+      }
 
       // let maxedTunZ = ["996", "969", "699"];
       let duplicateUnconflict = {};
@@ -2146,6 +2179,7 @@ export default {
           if (this.userGarageByDate[D]) {
             this.userGarageByDate[D].cars.map((c, ic) => {
               if (
+                !pastC.cardRecordId &&
                 c.rid === pastC.rid &&
                 c.cD >= pastC.cD &&
                 c.cL >= pastC.cL &&
@@ -2164,11 +2198,21 @@ export default {
                 found = c;
                 foundIndex = ic;
               }
+              if (
+                pastC.cardRecordId &&
+                pastC.cardRecordId === c.cardRecordId
+              ) {
+                found = c;
+                foundIndex = ic;
+              }
             });
           }
         });
 
         if (found) { // 2025 car that has been found in past garage
+          // if (found.cardRecordId === "0eb7df0d") {
+          //   debugger;
+          // }
           found.inPast = true;
           found.cDdiff = found.cD - pastC.cD;
           found.cLdiff = found.cL - pastC.cL;
@@ -2361,6 +2405,75 @@ export default {
       this.resetState();
       this.load(this.garageYear - 1);
       this.changeScreen('normal');
+    },
+    changeUploadType(method) {
+      this.uploadType = method;
+    },
+    loadFile(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onload = this.onload;
+      reader.readAsText(file);
+    },
+    onload(e) {
+      let str = e.target.result;
+
+      let errMsg = this.errorSwitchUploadFile(str);
+      
+      if (errMsg) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: errMsg,
+          type: "error"
+        });
+        return;
+      }
+      // str === '1\nPlayerDeck=1DBB1521,s[{"blueprintComponentId":nu'
+      let jsonStart = str.indexOf(",s[");
+      str = str.substring(jsonStart + 2);
+      if (str.endsWith("\n")) {
+        str = str.substring(0, str.length - 1);
+      }
+
+      let json;
+      try {
+        json = JSON.parse(str);
+      } catch (error) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: "Not valid JSON",
+          type: "error"
+        });
+        return;
+      }
+
+      this.userGarage = {
+        date: new Date().toISOString(),
+        region: "-",
+        registrationDate: "2000-01-01T00:00:00.000Z",
+        raceQuota: 500,
+        eloScore: 0,
+        garageSlots: 0,
+        garageSlotsUsed: 0,
+        activeDaysCounter: 0,
+        platform: "android",
+        totalGiftsClaimed: 0
+      };
+
+      this.userGarage.playerDeck = this.processPlayerDeck(json);
+
+      this.save();
+    },
+    errorSwitchUploadFile(str) {
+      if (typeof str !== "string") {
+        return "Not a string";
+      }
+      if (!str.substring(0, 50).includes(",s[")) {
+        return "Not valid file";
+      }
+      return null;
     }
   },
 }
@@ -2655,8 +2768,6 @@ export default {
   opacity: 0.4;
 }
 .BaseMyGarage_TextBox {
-  max-width: 600px;
-  margin: 0 auto;
 }
 .BaseMyGarage_SideButtons {
   display: flex;
@@ -2889,5 +3000,48 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 7px;
+}
+.BaseMyGarage_UploadLeft,
+.BaseMyGarage_UploadRight {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+.D_Button.BaseMyGarage_BigUpload {
+  --back-color: 49, 141, 8;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 0.7);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px 17px;
+  min-height: calc( var(--height) * 0.8 );
+}
+.BaseMyGarage_UploadMethodsBox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.BaseMyGarage_UploadDivisor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  align-self: normal;
+}
+.BaseMyGarage_UploadDivisorLine {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.04);
+  flex-grow: 1;
+}
+.BaseMyGarage_UploadDivisor:last-child,
+.BaseMyGarage_UploadDivisor:first-child {
+  display: none;
 }
 </style>

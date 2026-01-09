@@ -133,4 +133,7 @@ export default {
 .BaseCardMini_Empty {
   background-color: #ffffff0a;
 }
+.BaseCardMini_FloatTune:empty {
+  display: none !important;
+}
 </style>
