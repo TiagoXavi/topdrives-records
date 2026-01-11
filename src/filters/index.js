@@ -1108,6 +1108,33 @@ export default {
 
           return _event;
         };
+
+        Vue.tagsDate = {
+          "German Powerhaus": "2025-09-08",
+          "French Riviera": "2025-06-24",
+          "Asia-Pacific Revival": "2025-03-11",
+          "European Grand Tour": "2024-07-30",
+          "American Overdrive": "2024-04-03",
+          "European New Wave": "2023-11-20",
+          "Asia-Pacific Grand Prix": "2023-07-26",
+          "Pacific Coast Highway": "2023-04-11",
+          "Learn the Savannah Way": "2023-02-13",
+          "Loch to Loch": "2022-12-13",
+          "Amalfi Coast Cruising": "2022-11-16",
+          "Enter the Black Forest": "2022-11-16",
+          "World Expo": "2022-08-15",
+          "Japan Pro Tour": "2021-09-02",
+          "American Frontier": "2020-12-21",
+          "European Revolution": "2020-08-17",
+          "Great Exhibition": "2020-01-22",
+          "Italian Renaissance": "2019-09-30",
+          "German Renaissance": "2019-06-24",
+          "French Renaissance": "2019-03-20",
+          "American Dream": "2018-10-08",
+          "Originals": "2017-08-29"
+        };
+
+
         Vue.cyrb53 = function (str, seed = 0) {
           let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
           for(let i = 0, ch; i < str.length; i++) {

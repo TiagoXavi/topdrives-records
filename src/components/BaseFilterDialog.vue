@@ -1390,7 +1390,8 @@ export default {
       if (!this.filterOnly) {
         setTimeout(() => {
           try {
-            document.querySelector(`#SearchInput${this.id}`).focus();  
+            document.querySelector(`#SearchInput${this.id}`).focus();
+            document.querySelector(`#SearchInput${this.id}`).select();
           } catch (error) {}
         }, 10);
       }

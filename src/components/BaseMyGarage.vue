@@ -128,7 +128,19 @@
                       <div v-if="item.title" :class="{ BaseMyGarage_FilterBoxSpecial: item.specialTitle}" class="BaseFilterDescription_Layout">
                         <div v-if="item.specialTitle" class="BaseMyGarage_DividerBackLight" style="--light: var(--d-text-yellow);"></div>
                         <div class="BaseFilterDescription_Item">
+                          <button
+                            v-if="item.specialId === 'recap'"
+                            class="D_Button D_ButtonTransparent BaseMyGarage_RecapArrowButton"
+                            @click="loadPreviousYear();">
+                            <i class="ticon-angle-left BaseMyGarage_RecapArrow" aria-hidden="true"/>
+                          </button>
                           <div class="BaseFilterDescription_Value">{{ item.title }}</div>
+                          <button
+                            v-if="item.specialId === 'recap'"
+                            class="D_Button D_ButtonTransparent BaseMyGarage_RecapArrowButton"
+                            @click="loadPreviousYear(true);">
+                            <i class="ticon-angle-right BaseMyGarage_RecapArrow" aria-hidden="true"/>
+                          </button>
                         </div>
                       </div>
                       <div
@@ -513,16 +525,15 @@
           </button>
         </div>
         <div class="BaseMyGarage_ConfigDialogFooter D_Center2 Space_TopGiga">
-          <button
-            v-if="user && user.garageYears && user.garageYears.includes(`${garageYear-1}`)"
+          <!-- <button
             class="D_Button D_ButtonDark D_ButtonDark2"
             @click="loadPreviousYear();">
             <span>{{ garageYear-1 }} Recap</span>
-          </button>
+          </button> -->
           <button
             class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
             @click="askDelete()">
-            <span>{{ $t("m_delete") }}</span>
+            <span>{{ $t("m_delete") }}: {{ garageYear }}</span>
           </button>
         </div>
         <div class="BaseMyGarage_ShareLink Space_TopGiga">
@@ -846,6 +857,8 @@ export default {
       blankFilterStr: "",
       pngLoading: false,
       printingItem: null,
+      lastIsBetterResult: null,
+      lastIsBetterHid: null,
       orderedDialog: false,
       orderedList: [],
       orderedKey: "",
@@ -2000,7 +2013,7 @@ export default {
     noPlayerDeck() {
       this.confirmDelete = {
         dialog: true,
-        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again.\n\nTo fix you need to open the game in another device, make any change in your garage like upgrading a car, add a car from holding pool. Then, go back to the first device, open the game again.\n\nIf done right the game will re-download the entire garage again, that is what you need.`,
+        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again.\n\nTo fix, upgrade any car, re-open the game again.\n\nThis will force the game to re-download the entire garage again, that is what you need.`,
         actionLabel: `Cancel`,
         action: null,
         loading: false,
@@ -2275,11 +2288,7 @@ export default {
         greatestDay: {},
         greatestDayFinal: null,
         S_prizes: new pastRarityItem(),
-        tags: {
-          "German Powerhaus": new pastRarityItem(true),
-          "French Riviera": new pastRarityItem(true),
-          "Asia-Pacific Revival": new pastRarityItem(true)
-        },
+        tags: {},
         maxed: {
           S: new pastRarityItem(),
           A: new pastRarityItem(),
@@ -2300,6 +2309,20 @@ export default {
         },
         missingFullCars: []
       }
+
+      this.otherDiffStats.tags = {};
+
+      Object.keys(Vue.tagsDate).map(tag => {
+        if (Vue.tagsDate[tag].startsWith(this.garageYear)) {
+          this.otherDiffStats.tags[tag] = new pastRarityItem(true);
+          // this.otherDiffStats.tags[tag].ridList = [];
+        }
+      })
+      
+      // "German Powerhaus": new pastRarityItem(true),
+      // "French Riviera": new pastRarityItem(true),
+      // "Asia-Pacific Revival": new pastRarityItem(true)
+
     },
     transformNewGarageToDateObj() {
       this.userGarageByDate = {};
@@ -2401,10 +2424,22 @@ export default {
         this.sharePrint(item);
       }
     },
-    loadPreviousYear() {
+    loadPreviousYear(isNext) {
+      let toYear = this.garageYear - 1;
+      if (isNext) toYear = this.garageYear + 1;
+
+      let isReal = this.user && this.user.garageYears && this.user.garageYears.includes(`${toYear}`);
+      if (isReal) {
+        this.resetState();
+        this.load(toYear);
+        this.changeScreen('normal');
+        return;
+      }
+
       this.resetState();
-      this.load(this.garageYear - 1);
-      this.changeScreen('normal');
+      this.updateYearPage(toYear);
+      this.processPlayerDeckStep2();
+      this.configDialog = false;
     },
     changeUploadType(method) {
       this.uploadType = method;
@@ -2603,7 +2638,7 @@ export default {
 }
 .BaseMyGarage_FilterBox .BaseFilterDescription_Item {
   display: flex;
-  gap: 0.23em;
+  gap: 0.13em;
   padding: 8px;
   background-color: #ffc5171c;
   border-radius: 10px;
@@ -2832,7 +2867,8 @@ export default {
 .Main_BodyPrint .BaseMyGarage_ManageFooter,
 .Main_BodyPrint .BaseMyGarage_AddGroupBoxTop,
 .Main_BodyPrint .BaseMyGarage_EditBox,
-.Main_BodyPrint .BaseMyGarage_AddGroupBox {
+.Main_BodyPrint .BaseMyGarage_AddGroupBox,
+.Main_BodyPrint .BaseMyGarage_RecapArrowButton {
   display: none;
 }
 .Main_BodyPrint .BaseMyGarage_HLBox {
@@ -3043,5 +3079,13 @@ export default {
 .BaseMyGarage_UploadDivisor:last-child,
 .BaseMyGarage_UploadDivisor:first-child {
   display: none;
+}
+.BaseMyGarage_RecapArrowButton {
+  align-self: flex-start;
+  --height: 60px;
+}
+.BaseMyGarage_RecapArrow {
+  color: rgb(var(--d-text-yellow));
+  font-size: 34px;
 }
 </style>

@@ -767,7 +767,19 @@ export default {
       });
 
       if (this.isReferencePoints) return;
-      if (item.isTimePredicted) return;
+      if (item.isTimePredicted) {
+        item.isTimePredicted = false;
+        item.text = "";
+        e.srcElement.innerText = '';
+
+        this.$nextTick().then(() => {
+          // set focus
+          e.srcElement.setAttribute("contenteditable", true);
+          e.srcElement.focus();
+        });
+
+        return;
+      };
 
       this.$nextTick().then(() => {
         if (this.type === "times" && this.loggedin && item.text !== '' ) {

@@ -195,12 +195,9 @@
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/cx_10.png" alt="" style="max-width: 100%;">
         </div>
-        <div>3. You need to upload your Garage.dat file. Maybe you want to restart the game produce a fresh new one.</div>
+        <div>3. You need to upload your Garage.dat file. Maybe you want to restart the game to produce a fresh new one.</div>
         <div>4. Use the upload button at the end of this tutorial to upload it</div>
-        <div>5. This part can be different for every version o Android, but the goal is the same. After clicking in the upload button, choose Cx File Explorer as file manager to select Garage.dat</div>
-        <div class="BaseMyGarageTutorial_TopicImage">
-          <img src="/assets/tutorial/cx_7.png" alt="" style="max-width: 100%;">
-        </div>
+        <div>5. This part can be different for every version o Android, but the goal is the same: After clicking in the upload button, choose Cx File Explorer as file manager to select Garage.dat</div>
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/cx_8.png" alt="" style="max-width: 100%;">
         </div>
@@ -212,7 +209,11 @@
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/cx_9.png" alt="" style="max-width: 100%;">
         </div>
-        <div>7. Done</div>
+        <div>7. Maybe you get access denied to the folder</div>
+        <div class="BaseMyGarageTutorial_TopicImage">
+          <img src="/assets/tutorial/cx_11.png" alt="" style="max-width: 100%;">
+        </div>
+        <div>8. If that your case, click "Open with system file manager", navigate to the folder, copy Garage.dat to an easily accessible folder, then, upload the copied file.</div>
       </div>
     </div>
   </div>

@@ -428,6 +428,8 @@ export default {
           this.user = res.data;
           if (this.user && this.user.mod) {
             window.localStorage.setItem('_md', "t");
+          } else {
+            window.localStorage.deleteItem('_md');
           }
           if (this.user && this.user.tier) {
             window.localStorage.setItem('_mdt', this.user.tier);

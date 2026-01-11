@@ -415,9 +415,11 @@
 
       <div v-else-if="cgRound.date" class="Cg_Mid">
         <!-- <div>{{ "isRoundEmptyForUser" }} {{ isRoundEmptyForUser }}</div>
+        <div>{{ "isRoundEmptyForModders" }} {{ isRoundEmptyForModders }}</div>
         <div>{{ "cgRound.date" }} {{ cgRound.date }}</div>
         <div>{{ "cgRound.reservedTo" }} {{ cgRound.reservedTo }}</div>
-        <div>{{ "cgIsApproving" }} {{ cgIsApproving }}</div> -->
+        <div>{{ "cgIsApproving" }} {{ cgIsApproving }}</div>
+        <div>{{ "isRoundComplete" }} {{ isRoundComplete }}</div> -->
 
         <!-- CG MID -->
 
@@ -2364,6 +2366,7 @@
         tcs: false,
         abs: false
       }"
+      :keepMemory="true"
       type="cg"
       @addCar="addCarCg($event)"
       @listRids="cgAnalyseRoundFinish($event);"
@@ -3854,6 +3857,7 @@ export default {
       lastestList: [],
       statistics: {},
       statisticsLoading: false,
+      usedToMod: false,
       searchInputT: '',
       searchFilterDialog: false,
       librarySearchDialog: false,
@@ -4454,6 +4458,9 @@ export default {
     this.cgGetLocalStorage();
     this.eventGetLocalStorage();
     let _md = window.localStorage.getItem("_md");
+    if (_md) {
+      this.usedToMod = true;
+    }
 
 
 
@@ -6555,6 +6562,7 @@ export default {
       Vue.set(car.data[tune].times[track], "u", vm.user.username);
       Vue.set(car.data[tune].times[track], "down", []);
       Vue.set(car.data[tune].times[track], "up", []);
+      delete car.data[tune].times[track].isTimePredicted;
       /**/ Vue.set(car.dataToSave[tune].times[track], "t", number);
 
       if (!car.users || !car.users.includes(vm.user.username)) {
@@ -7000,7 +7008,7 @@ export default {
       .then(res => {
         this.cgList = res.data.value;
 
-        if ((this.user && this.user.mod) || import.meta.env.DEV) {
+        if ((this.user && this.user.mod) || this.usedToMod || import.meta.env.DEV) {
           this.cgList.push({
             "date": "proving_grounds_test",
             "name": "Proving Grounds: test"
@@ -9276,14 +9284,22 @@ export default {
 
         // prioritize 100% match cars from garage
         // if not possible, 
-        race.cars.find(car => {
+        race.cars.find((car, icar) => {
           if (car.points > 0) {
             if (usedRids[car.rid] === undefined || useGarage) {
               if (useGarage) {
-                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => (x.tun || x.tunZ) === car.tune && usedHids[x.cardRecordId] === undefined)) {
+                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => this.isBetterTune(x, car, iround, irace) && usedHids[x.cardRecordId] === undefined)) {
                   bestSolution[irace] = car;
                   usedRids[car.rid] = irace;
-                  usedHids[Vue.garageByRid[car.rid].find(x => (x.tun || x.tunZ) === car.tune && usedHids[x.cardRecordId] === undefined).cardRecordId] = irace;
+                  usedHids[this.lastIsBetterHid] = irace;
+                  if (this.lastIsBetterResult === "better") {
+                    // bestSolution[irace] = JSON.parse(JSON.stringify(bestSolution[irace]));
+                    // bestSolution[irace].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
+                    // push new car into race.cars index icar+1, copy current car but set tune to Vue.garageByHid[this.lastIsBetterHid].tun;
+                    race.cars.splice(icar + 1, 0, JSON.parse(JSON.stringify(car)));
+                    race.cars[icar + 1].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
+                    bestSolution[irace] = race.cars[icar + 1];
+                  }
                   return true;
                 }
               } else {
@@ -9380,7 +9396,7 @@ export default {
 
         let mirrors = [{ rid: c.rid, tune: c.tune, usedIn: usedRids[c.rid] }];
         if (useGarage) {
-          mirrors = (Vue.garageByRid[c.rid] || []).filter(x => (x.tun || x.tunZ) === c.tune).map(x => {
+          mirrors = (Vue.garageByRid[c.rid] || []).filter(x => this.isBetterTune(x, c)).map(x => {
             return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
           });
         }
@@ -9401,7 +9417,7 @@ export default {
 
               let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
               if (useGarage) {
-                mirrors_2 = (Vue.garageByRid[c2.rid] || []).filter(x => (x.tun || x.tunZ) === c2.tune).map(x => {
+                mirrors_2 = (Vue.garageByRid[c2.rid] || []).filter(x => this.isBetterTune(x, c2)).map(x => {
                   return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId], sameRid: x.cardRecordId === mirror.cardRecordId };
                 });
               }
@@ -9435,7 +9451,7 @@ export default {
         if (bestSolution[isolution]) {
           delete usedRids[bestSolution[isolution].rid];
           if (useGarage) {
-            let garageCar = Vue.garageByRid[bestSolution[isolution].rid].find(x => (x.tun || x.tunZ) === bestSolution[isolution].tune && usedHids[x.cardRecordId] === isolution);
+            let garageCar = Vue.garageByRid[bestSolution[isolution].rid].find(x => this.isBetterTune(x, bestSolution[isolution]) && usedHids[x.cardRecordId] === isolution);
             if (garageCar) delete usedHids[garageCar.cardRecordId];
           }
         }
@@ -9461,6 +9477,8 @@ export default {
         race.cars.map(car => {
           if (car.points > 0 && (car.rid !== _r.bestSolution[irace].rid || car.tune !== _r.bestSolution[irace].selectedTune)) {
             if (useGarage) { // with garage
+              // if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => this.isBetterTune(x, car, iround, irace))) {
+              // here need to be equal
               if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => (x.tun || x.tunZ) === car.tune)) {
                 filteredSolutions.push(car);
               }
@@ -9491,19 +9509,47 @@ export default {
         })
       });
 
+      function pushSol(garageCar, car, irace, isBetter, isOp) {
+        _r.solutions[irace].push({
+          rid: car.rid,
+          tune: car.tune,
+          points: car.points,
+          originalTune: (garageCar.tun || garageCar.tunZ),
+          cardRecordId: garageCar.cardRecordId
+        });
+        if (isBetter) {
+          delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
+          _r.solutions[irace][_r.solutions[irace].length-1].tune = (garageCar.tun || garageCar.tunZ);
+        }
+        if (isOp) {
+          delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
+          _r.solutions[irace][_r.solutions[irace].length-1].tune = (garageCar.tun || garageCar.tunZ);
+          _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
+          _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
+          _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
+        }
+      }
+
       round.races.map((race, irace) => {
         race.cars.map(car => {
           if (car.points > 0) {
             // if (matchedCars[car.rid] && matchedCars[car.rid].includes(car.tune)) return;
             if (!Vue.garageByRid[car.rid]) return;
             // find a car in garage that can be upgraded to this tune
-            let isOp = false;
-            let found = Vue.garageByRid[car.rid].find(garageCar => {
+
+            
+            Vue.garageByRid[car.rid].map(garageCar => {
               if (garageCar.tun === car.tune) return false;
+
+              if (this.isBetterTune(garageCar, car, iround, irace)) {
+                pushSol(garageCar, car, irace, true, false);
+                return;
+              }
+
               if (garageCar.tun === "332" || garageCar.tun === "323" || garageCar.tun === "233") return false;
               if (car.points > 65) {
-                isOp = true;
-                return true;
+                pushSol(garageCar, car, irace, false, true);
+                return;
               }
               let tunZ = car.tune.split('').map(x => Number(x)*3).join('');
               let upgradable = tunZ.split('').every((v,i) => {
@@ -9512,24 +9558,31 @@ export default {
                 }
                 return true;
               });
-              return upgradable;
+              if (upgradable) pushSol(garageCar, car, irace, false, false);
             });
-            if (found) {
-              _r.solutions[irace].push({
-                rid: car.rid,
-                tune: car.tune,
-                points: car.points,
-                originalTune: (found.tun || found.tunZ),
-                cardRecordId: found.cardRecordId
-              });
-              if (isOp) {
-                delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
-                _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
-                _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
-                _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
-                _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
-              }
-            }
+            // filtered.map(found => {
+            //   _r.solutions[irace].push({
+            //     rid: car.rid,
+            //     tune: car.tune,
+            //     points: car.points,
+            //     originalTune: (found.tun || found.tunZ),
+            //     cardRecordId: found.cardRecordId
+            //   });
+            //   if (isBetter) {
+            //     if (car.rid === "Lamborghini_Gallardo_SE_2005" && iround === 1 && irace === 4) {
+            //       debugger;
+            //     }
+            //     delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
+            //     _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
+            //   }
+            //   if (isOp) {
+            //     delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
+            //     _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
+            //     _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
+            //     _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
+            //     _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
+            //   }
+            // })
           }
         })
         this.cgSolutionsSortByOrigTune(_r.solutions[irace]);
@@ -9549,6 +9602,44 @@ export default {
         sumRqSolutionsFirstLine += Vue.all_carsObj[listCars[0].rid]?.rq || 0;
       })
       _r.solutionsRqSum = sumRqSolutionsFirstLine;
+    },
+    isBetterTune(x, car, iround, irace) {
+      this.lastIsBetterResult = null;
+      this.lastIsBetterHid = null;
+      if ((x.tun || x.tunZ) === car.tune) {
+        this.lastIsBetterResult = "equal";
+        this.lastIsBetterHid = x.cardRecordId;
+        return true;
+      };
+      let fTun;
+      let is999tune = false;
+      if (x.tun) fTun = x.tun;
+      else if (x.tunZ) {
+        fTun = x.tunZ;
+        is999tune = true;
+      }
+      else {
+        this.lastIsBetterResult = "worse";
+        return false;
+      }
+
+      if (is999tune) {
+        if (car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v)*3)) {
+          // tune is also 999
+        } else {
+          car.tune = car.tune.split('').map(x => Number(x)*3).join('');
+        }
+      }
+
+      let better = car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v));
+
+      if (better) {
+        this.lastIsBetterResult = "better";
+        this.lastIsBetterHid = x.cardRecordId;
+      }else {
+        this.lastIsBetterResult = "worse";
+      } 
+      return better;
     },
     cgDashToggleMyGarage(value) {
       if (value !== undefined) window.localStorage.setItem("cgDashUseMyGarage", JSON.stringify(value));
@@ -11419,7 +11510,7 @@ export default {
         this.carDetailsList.map(car => {
           if (car.selectedTune && car.data && car.data[car.selectedTune] && car.data[car.selectedTune].times) {
             Object.keys(car.data[car.selectedTune].times).forEach(trackId => {
-              if (car.data[car.selectedTune].times[trackId].isTimePredicted) {
+              if (car.data[car.selectedTune].times[trackId]?.isTimePredicted) {
                 delete car.data[car.selectedTune].times[trackId];
               }
             });
