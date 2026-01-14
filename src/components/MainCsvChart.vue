@@ -308,26 +308,6 @@ export default {
       });
       this.carsReady = true;
     },
-    resolveTuneZ(hCar) {
-      // 969 style
-      return `${((hCar.engineMajor-1)*3 + hCar.engineMinor)}`+
-      `${((hCar.weightMajor-1)*3 + hCar.weightMinor)}`+
-      `${((hCar.chassisMajor-1)*3 + hCar.chassisMinor)}`;
-    },
-    resolveTune(tunZ) {
-      // 323 style
-      let res = null;
-
-      if (
-        tunZ[0] % 3 === 0 &&
-        tunZ[1] % 3 === 0 &&
-        tunZ[2] % 3 === 0
-      ) {
-        res = `${tunZ[0] / 3}${tunZ[1] / 3}${tunZ[2] / 3}`
-      }
-
-      return res;
-    },
     detailClick(e) {
       console.log(JSON.parse(JSON.stringify(e.point.custom)));
     },

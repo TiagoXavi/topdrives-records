@@ -343,6 +343,7 @@ export default {
 
       if (mutation.type == "LOGOUT") {
         vm.user = null;
+        vm.T_S._user = null;
       }
       if (mutation.type == "OPEN_LOGIN") {
         vm.loginDialog = true;
@@ -459,12 +460,14 @@ export default {
           this.$store.commit("CHANGE_USER", {
             user: this.user
           });
+          this.T_S._user = this.user;
 
         } else {
           this.user = null;
           this.$store.commit("CHANGE_USER", {
             user: null
           });
+          this.T_S._user = null;
           window.localStorage.setItem('_mdt', 0);
         }
       })

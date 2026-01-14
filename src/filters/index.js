@@ -330,11 +330,7 @@ function resolveGarageRes(data) {
   for (let Z = 0; Z < data.value.playerDeck.length; Z++) {
     car = data.value.playerDeck[Z];
     if (!garageByRid[car.rid]) garageByRid[car.rid] = [];
-    garageByRid[car.rid].push({
-      cardRecordId: car.cardRecordId,
-      tunZ: car.tunZ,
-      tun: car.tun
-    });
+    garageByRid[car.rid].push(car);
     garageByHid[car.cardRecordId] = garageByRid[car.rid][garageByRid[car.rid].length - 1];
   }
 
@@ -1050,6 +1046,18 @@ export default {
 
           return res;
         };
+        Vue.resolveMinors = function (hCar, tunZ) {
+          // 333 max
+          if (tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) >= 24) return null
+          if (
+            hCar.engineMinor === 3 &&
+            hCar.weightMinor === 3 &&
+            hCar.chassisMinor === 3
+          ) {
+            return null
+          }
+          return `${hCar.engineMinor}${hCar.weightMinor}${hCar.chassisMinor}`;
+        };
         Vue.baseCarsTeamCarsFromRawCg = function (ladder, _iRound) {
           let oppos = ladder.opponents;
           let zoneSize = ladder.zoneSize;
@@ -1066,7 +1074,7 @@ export default {
             let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`;
             let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
             let tunZ = Vue.resolveTuneZ(op);
-            let selectedTune = Vue.resolveTune(op, tunZ);
+            let selectedTune = Vue.resolveTune(tunZ);
             if (!selectedTune) selectedTune = tunZ;
 
             carObj.rid = car.rid;

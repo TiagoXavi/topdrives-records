@@ -207,7 +207,7 @@ export default {
       menusTotal += x.offsetWidth;
       Vue.set(this.menus[ix], "width", x.offsetWidth);
     })
-    this.all_width = this.left_width + this.right_width + menusTotal;
+    this.all_width = this.left_width + this.right_width + menusTotal + 200;
     this.doc_width = document.documentElement.offsetWidth;
 
 

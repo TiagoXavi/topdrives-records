@@ -9612,6 +9612,7 @@ export default {
         return true;
       };
       let fTun;
+      let fTunCar = car.tune;
       let is999tune = false;
       if (x.tun) fTun = x.tun;
       else if (x.tunZ) {
@@ -9627,11 +9628,11 @@ export default {
         if (car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v)*3)) {
           // tune is also 999
         } else {
-          car.tune = car.tune.split('').map(x => Number(x)*3).join('');
+          fTunCar = car.tune.split('').map(x => Number(x)*3).join('');
         }
       }
 
-      let better = car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v));
+      let better = fTunCar.split('').every((v,i) => Number(fTun[i]) >= Number(v));
 
       if (better) {
         this.lastIsBetterResult = "better";

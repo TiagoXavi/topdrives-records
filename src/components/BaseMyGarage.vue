@@ -1330,7 +1330,7 @@ export default {
 
       deck.map((hCar, icar) => {
         if (hCar.state === 0) return; // holding pool
-        let tunZ = this.resolveTuneZ(hCar);
+        let tunZ = Vue.resolveTuneZ(hCar);
         let dateF = hCar.dateStateChanged;
         if (dateF && dateF.length === 24) dateF = dateF.slice(2, 13);
         let rn = rn_to_rid.indexOf(Vue.ridByGuid[hCar.cardId]);
@@ -1384,7 +1384,7 @@ export default {
 
       this.userGarage.playerDeck.map((hCar, icar) => {
         hCar.id = icar;
-        hCar.tun = this.resolveTune(hCar, hCar.tunZ);
+        hCar.tun = Vue.resolveTune(hCar.tunZ);
         hCar.date = this.fixDate(hCar.date);
 
         this.updateHighLights(hCar);
@@ -1569,26 +1569,6 @@ export default {
         statItem[hlKey].v = carValue;
         statItem[hlKey].used = usedTimes;
       }
-    },
-    resolveTuneZ(hCar) {
-      // 969 style
-      return `${((hCar.engineMajor-1)*3 + hCar.engineMinor)}`+
-      `${((hCar.weightMajor-1)*3 + hCar.weightMinor)}`+
-      `${((hCar.chassisMajor-1)*3 + hCar.chassisMinor)}`;
-    },
-    resolveTune(hCar, tunZ) {
-      // 323 style
-      let res = null;
-
-      if (
-        tunZ[0] % 3 === 0 &&
-        tunZ[1] % 3 === 0 &&
-        tunZ[2] % 3 === 0
-      ) {
-        res = `${tunZ[0] / 3}${tunZ[1] / 3}${tunZ[2] / 3}`
-      }
-
-      return res;
     },
     finishProcessPlayerDeck() {
       this.userHighlights.map(hlItem => {
@@ -2764,6 +2744,9 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   opacity: 0.1;
+}
+.BaseMyGarage_HLItem[style*="translateY(-9999px)"] {
+  transform: translateY(-99999px) translateX(0px) !important;
 }
 .BaseMyGarage_FilterBoxSpecial {
   margin-bottom: -7px;

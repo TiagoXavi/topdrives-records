@@ -2754,30 +2754,6 @@
     ]
   },
   {
-    "name": "Daily Challenge",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "dockCirc_a00"
-          },
-          {
-            "name": "dockUdrag_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "dockAltCirc_ac0"
-          },
-          {
-            "name": "dockKart_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "name": "World Tour International",
     "matches": [
       {
