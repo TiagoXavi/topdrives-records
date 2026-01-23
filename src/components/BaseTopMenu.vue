@@ -89,6 +89,9 @@
               </template>
             </div>
           </div>
+          <div v-if="isGarageCache" class="Main_SaveGalleryBox" style="margin-top: 15px;">
+            <button class="D_Button D_ButtonDark" @click="clearGarageCache()">{{ $t("m_clearGarageCache") }}</button>
+          </div>
         </div>
       </BaseDialog>
     </div>
@@ -158,7 +161,8 @@ export default {
       doc_width: 0,
       safe_margin: 40,
       isVertical: true,
-      disableButtons: false
+      disableButtons: false,
+      isGarageCache: !!window.localStorage.getItem("cacheGarage"),
     }
   },
   watch: {
@@ -483,6 +487,12 @@ export default {
       } else {
         this.$store.commit("CHANGE_ZOOM_LEVEL_HORIZONTAL", this.local_zoomLevelHorizontal);
       }
+    },
+    clearGarageCache() {
+      window.localStorage.removeItem("cacheGarage");
+      window.localStorage.removeItem("garageUpgrades");
+
+      this.isGarageCache = false;
     }
   },
 }
