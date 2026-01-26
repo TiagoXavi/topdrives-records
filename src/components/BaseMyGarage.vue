@@ -2640,6 +2640,7 @@ export default {
   --height: 111px !important;
   --card-font-size: 9px;
   --card-g-height: 111px;
+  --card-g-heightraw: 111;
   border-radius: 5px;
   margin: 0;
 }
@@ -2736,6 +2737,7 @@ export default {
   --height: 111px !important;
   --card-font-size: 9px;
   --card-g-height: 111px;
+  --card-g-heightraw: 111;
   border-radius: 5px;
   margin: 0;
 }

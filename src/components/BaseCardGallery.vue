@@ -183,6 +183,7 @@ export default {
   height: var(--height) !important;
   --card-font-size: 15px;
   --card-g-height: 184px;
+  --card-g-heightraw: 184;
   line-height: 1;
   background-color: unset;
   background-image: unset;
@@ -248,6 +249,7 @@ export default {
   --width: 150px;
   --height: 92px;
   --card-g-height: 92px;
+  --card-g-heightraw: 92;
   --card-font-size: 7px;
   --factor: 3px;
   margin: 0;
@@ -267,6 +269,7 @@ export default {
   --height: 71px;
   --card-font-size: 6px;
   --card-g-height: 71px;
+  --card-g-heightraw: 71;
   --factor: 2px;
   margin: 0;
 }

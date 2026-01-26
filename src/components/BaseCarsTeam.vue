@@ -11,6 +11,7 @@
       `--drag-left-slo: 1;` +
       `--drag-top-slo: 7;` +
       `--widthF: ${mini ? miniWidth : width}px;` +
+      `--widthFraw: ${mini ? miniWidth : width};` +
       `--aspectF: ${mini ? miniAspect : aspect};` +
       `--fsizeF: ${mini ? miniFsize : fsize}px;`
     "
@@ -471,12 +472,14 @@ export default {
   --card-g-width: var(--widthF);
   --card-g-height: 142px;
   --card-g-height: round(calc(var(--widthF) * ((415 / 256) - 1)), 1px);
+  --card-g-heightraw: round(calc(var(--widthFraw) * ((415 / 256) - 1)), 1);
   --card-g-font: var(--fsizeF);
   /* --card-g-height: 200px; */
 }
 @supports not (width: round(4px, 1px)) {
   .BaseCard_AsGalleryBox.BaseCarsTeam_CarInner {
     --card-g-height: calc(var(--widthF) * (var(--aspectF) - 1));
+    --card-g-heightraw: calc(var(--widthFraw) * (var(--aspectF) - 1));
   }
 }
 /* .Main_Compact .BaseCard_AsGalleryBox.BaseCarsTeam_CarInner {

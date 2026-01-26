@@ -544,6 +544,7 @@ body {
   --card-gap: 0.5%;
   --card-brown: #45403a;
   --card-g-height: calc(var(--top-height) - 6px);
+  --card-g-heightraw: 144;
 
   --t0: #d7d7d7;
   --tmod: #bfcd36;
@@ -2738,6 +2739,7 @@ body .Main_UserTw3:before {
   justify-content: center;
   --top-height: 145px;
   --compare-card-width: 226px;
+  --card-g-heightraw: 139;
 }
 .Cg_RoundSubmitsControl {
   display: flex;
@@ -5233,7 +5235,7 @@ a:visited:not(.D_Button) {
 .Car_HeaderLogo {
   background-image: url('/assets/brands_sprite.png');
   width: calc(100% * 38 / 415);
-  height: calc(100% * 28 / 256);
+  height: calc(100% * 27 / 256); /* 27px because of bleeding */
   top: 0.25%;
   left: 0.75%;
   --s-height: 3136px;
@@ -5244,8 +5246,8 @@ a:visited:not(.D_Button) {
   /* the var --i is the logo index */
   /* normally the parent container has height of 256px, then, this element has height of 28px */
   /* But the parent container can have a different height, so we need to calculate the position dynamically */
-  background-size: auto calc(var(--s-height) * (var(--card-g-height) / 1px / 256));
-  background-position: 0 calc( (var(--s-unit) * var(--i)) * (var(--card-g-height) / 1px / 256) * -1 );
+  background-size: auto calc(var(--s-height) * (var(--card-g-heightraw) / 256));
+  background-position: 0 calc( (var(--s-unit) * var(--i)) * (var(--card-g-heightraw) / 256) * -1 );
   /* convert variable 256px to 256 by dividing by 1px */
 }
 .Car_Logo_Abarth { --i: 0 }

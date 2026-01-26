@@ -6,6 +6,7 @@
     }"
     :style="
       `--width: ${_Mcars.width}px;` +
+      `--widthraw: ${_Mcars.width};` +
       `--aspect: ${_Mcars.aspect};` +
       `--fsize: ${_Mcars.fsize}px;` +
       `--blockWidth: ${blockWidth}px;`
@@ -436,12 +437,15 @@ export default {
 .MainCars_CarLeft {
   --card-g-width: var(--width);
   --card-g-height: 142px;
+  --card-g-heightraw: 111;
   --card-g-height: round(calc(var(--width) * ((415 / 256) - 1)), 1px);
+  --card-g-heightraw: round(calc(var(--widthraw) * ((415 / 256) - 1)), 1);
   --card-g-font: var(--fsize);
 }
 .MainCars_Big .MainCars_CarLeft {
   --card-g-width: var(--width);
   --card-g-height: 256px;
+  --card-g-heightraw: 256;
 }
 .MainCars_Big .Car_Header {
   border-radius: 11px;

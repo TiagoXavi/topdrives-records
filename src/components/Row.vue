@@ -1542,6 +1542,7 @@ export default {
   --width: 300px;
   --height: 186px;
   --card-g-height: 186px;
+  --card-g-heightraw: 186;
   width: var(--width) !important;
   height: var(--height) !important;
   --card-font-size: 15px;
@@ -1983,6 +1984,7 @@ export default {
     height: 161px !important;
     --card-font-size: 12px;
     --card-g-height: 161px;
+    --card-g-heightraw: 161;
   }
 }
 @media only screen and (max-width: 1200px) {

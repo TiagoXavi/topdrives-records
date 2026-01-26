@@ -616,6 +616,7 @@ export default {
   height: 161px !important;
   --card-font-size: 13px;
   --card-g-height: 161px;
+  --card-g-heightraw: 161;
   margin: 0;
 }
 .MainShowcase_BaseCardDiv .BaseCard_EffectBackGround {

@@ -107,6 +107,7 @@ export default {
   height: 184px !important;
   --card-font-size: 15px;
   --card-g-height: 184px;
+  --card-g-heightraw: 184;
 }
 .Row_DialogCardCard2 .Car_HeaderStatValue {
   line-height: 1;
