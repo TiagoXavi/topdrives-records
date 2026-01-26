@@ -1541,6 +1541,7 @@ export default {
 .Car_Header.Row_DialogCardCard {
   --width: 300px;
   --height: 186px;
+  --card-g-height: 186px;
   width: var(--width) !important;
   height: var(--height) !important;
   --card-font-size: 15px;
@@ -1981,6 +1982,7 @@ export default {
     width: 261px !important;
     height: 161px !important;
     --card-font-size: 12px;
+    --card-g-height: 161px;
   }
 }
 @media only screen and (max-width: 1200px) {

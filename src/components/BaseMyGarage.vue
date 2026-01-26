@@ -457,7 +457,8 @@
       :filterOnly="true"
       :config="{
         customTags: false,
-        tunes: true
+        tunes: true,
+        garage: true
       }"
       importFilterName="MYGARAGE_INTERNALFILTER_IMPORT"
       ref="myGarageFilter"
@@ -1445,7 +1446,8 @@ export default {
       if (hlItem.filter.forcePrize && Vue.all_carsObj[hCar.rid].prize) {
         forceMatch = true;
       } else {
-        match = this.matchFilter(Vue.all_carsObj[hCar.rid], hlItem.filter, hCar);
+        // match = this.matchFilter(Vue.all_carsObj[hCar.rid], hlItem.filter, hCar);
+        match = this.$refs.myGarageFilter.checkMatchFilter(Vue.all_carsObj[hCar.rid], hCar, hlItem.filter);
       }
 
 
@@ -2637,6 +2639,7 @@ export default {
   --width: 180px !important;
   --height: 111px !important;
   --card-font-size: 9px;
+  --card-g-height: 111px;
   border-radius: 5px;
   margin: 0;
 }
@@ -2732,6 +2735,7 @@ export default {
   --width: 180px !important;
   --height: 111px !important;
   --card-font-size: 9px;
+  --card-g-height: 111px;
   border-radius: 5px;
   margin: 0;
 }

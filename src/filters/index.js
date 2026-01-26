@@ -726,6 +726,8 @@ export default {
             let carsFromQuery = [];
             let tracksFromQuery = [];
 
+            template = template.replaceAll("%2B", "+").replaceAll("%26", "&");
+
             template.split("~").map(x => {
               if (x[0] === "C") {
                 carsFromQuery.push({ // car

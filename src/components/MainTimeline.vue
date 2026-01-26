@@ -3142,6 +3142,7 @@ export default {
   width: 261px !important;
   height: 161px !important;
   --card-font-size: 13px;
+  --card-g-height: 161px;
 }
 .MainTimeline_DialogTitleDivider2 {
   font-size: 13px;

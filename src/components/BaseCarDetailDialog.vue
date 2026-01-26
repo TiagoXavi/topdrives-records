@@ -274,6 +274,7 @@ export default {
   --width: 415px;
   --height: 256px;
   --card-font-size: 19px;
+  --card-g-height: 256px;
   border-radius: 11px;
   box-shadow: 0px 34px 28px -24px #00000050, 0px -24px 28px -24px #00000066;
 }

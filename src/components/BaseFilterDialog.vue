@@ -82,6 +82,7 @@
                 :value="item" />
             </template>
           </div>
+
           <div v-if="config.classes !== false && internalConfig.classes !== false" class="Main_FilterChips Main_FilterClassChips">
             <template v-for="(item, ix) in searchFilters.classes">
               <BaseChip
@@ -93,6 +94,85 @@
                 :value="item" />
             </template>
           </div>
+
+
+          <template v-if="config.garage || config.garageRT">
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.upgradesModel"
+                :min="searchFilters.upgradesStart"
+                :max="searchFilters.upgradesEnd"
+                :label="$t('c_upgrades')"
+                class="Main_FilterSlider"
+              />
+              <BaseDualSlider
+                v-model="searchFilters.fusesModel"
+                :min="searchFilters.fusesStart"
+                :max="searchFilters.fusesEnd"
+                :label="$t('c_fuses')"
+                class="Main_FilterSlider"
+              />
+            </div>
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.winRateModel"
+                :min="searchFilters.winRateStart"
+                :max="searchFilters.winRateEnd"
+                :label="$t('c_winRate')"
+                suffix="%"
+                class="Main_FilterSlider"
+              />
+              <BaseDualSlider
+                v-model="searchFilters.racesModel"
+                :min="searchFilters.racesStart"
+                :max="searchFilters.racesEnd"
+                :label="$t('c_races')"
+                :step="50"
+                :rightPlus="true"
+                class="Main_FilterSlider"
+              />
+            </div>
+            <div class="Main_FilterDual">
+              <BaseDualSlider
+                v-model="searchFilters.unitsModel"
+                :min="searchFilters.unitsStart"
+                :max="searchFilters.unitsEnd"
+                :label="$t('c_units')"
+                :rightPlus="true"
+                class="Main_FilterSlider"
+              />
+              <BaseDualSlider
+                v-model="searchFilters.daysModel"
+                :min="searchFilters.daysStart"
+                :max="searchFilters.daysEnd"
+                :label="$t('c_days')"
+                :step="20"
+                :rightPlus="true"
+                class="Main_FilterSlider"
+              />
+            </div>
+          </template>
+
+          <div v-if="config.garage" class="Main_FilterChipsFlex">
+            <template v-for="(item, ix) in searchFilters.garageThings">
+              <BaseChip
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                v-model="searchFilters.garageThingsModel"
+                :value="item" />
+            </template>
+          </div>
+
+          <div v-if="config.garageRT" class="Main_FilterChipsFlex">
+            <template v-for="(item, ix) in searchFilters.garageThingsRT">
+              <BaseChip
+                class="BaseChip_MinWidth BaseChip_DontCrop"
+                v-model="searchFilters.garageThingsModel"
+                :value="item" />
+            </template>
+          </div>
+
+
+          
           <BaseDualSlider
             v-if="config.rq !== false && internalConfig.rq !== false"
             v-model="searchFilters.rqModel"
@@ -186,6 +266,7 @@
               :min="searchFilters.weightStart"
               :max="searchFilters.weightEnd"
               :label="$t('c_weight')"
+              :step="20"
               class="Main_FilterSlider" />
             <BaseDualSlider
               v-model="searchFilters.seatsModel"
@@ -222,16 +303,6 @@
               </BaseChip>
             </template>
           </div>
-          <template v-if="config.garage">
-            <div class="Main_FilterChipsFlex">
-              <template v-for="(item, ix) in searchFilters.garageThings">
-                <BaseChip
-                  class="BaseChip_MinWidth BaseChip_DontCrop"
-                  v-model="searchFilters.garageThingsModel"
-                  :value="item" />
-              </template>
-            </div>
-          </template>
           <div v-if="config.prizes !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.prizesModel || raceFilterResolved.prizesModel.length === 0)" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.prizes">
               <BaseChip
@@ -772,6 +843,8 @@ export default {
     return {
       Vue: Vue,
       id: 0,
+      today: new Date(),
+      msPerDay: 1000 * 60 * 60 * 24,
       loading: false,
       loadingShowMore: false,
       firstTimeOpen: true,
@@ -793,7 +866,6 @@ export default {
       galleryLastKey: undefined,
       showingLastest: false,
       alreadySearched: false,
-      cgIsFiltering: false,
       filterCount: 0,
       sortModel: null,
       sortModelSpecial: null,
@@ -852,6 +924,7 @@ export default {
       ],
       clearFilterObj: {},
       internalConfig: {},
+      activeKeys: {},
       searchFilters: {
         yearStart: 1910,
         yearEnd: 2025,
@@ -894,9 +967,36 @@ export default {
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
-        garageThings: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Duplicate", "Triplicate", "Quadriplicate+"],
-        // garageThings: ["Locked", "Unlocked", "Upgraded", "Fusing", "Servicing", "Can be upgraded", "Can be fused", "Fuse completed", "0 fuse", "1 fuse", "2 fuse", "3 fuse", "4 fuse", "5 fuse", "6 fuse", "Unique", "Duplicated", "Legacy", "Not owned"],
+
+        garageThings: ["Can be upgraded", "Can be fused"],
+        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Duplicate", "Triplicate", "Quadriplicate+"],
         garageThingsModel: [],
+
+        upgradesStart: 0,
+        upgradesEnd: 24,
+        upgradesModel: [],
+
+        fusesStart: 0,
+        fusesEnd: 6,
+        fusesModel: [],
+        
+        racesStart: 0,
+        racesEnd: 20000,
+        racesModel: [],
+
+        winRateStart: 0,
+        winRateEnd: 100,
+        winRateModel: [],
+
+        unitsStart: 1,
+        unitsEnd: 9,
+        unitsModel: [],
+
+        daysStart: 0,
+        daysEnd: 3500,
+        daysModel: [],
+
+
         customTagsModel: [],
         bodyTypes: ["Convertible", "Coupe", "Estate", "Hatchback", "MPV", "Pickup", "Roadster", "Saloon", "SUV", "Van"],
         bodyTypesModel: [],
@@ -1400,8 +1500,6 @@ export default {
       }, 10);
     },
     closeDialogSearch() {
-      this.cgIsFiltering = false;
-      this.kingIsFiltering = false;
       this.cgAddingYouCar = false;
       this.cgAddingOppoCar = false;
     },
@@ -1444,7 +1542,6 @@ export default {
 
         setTimeout(() => {
           this.isFiltering = false;
-          this.cgIsFiltering = false;
         }, 99);
       }
     },
@@ -1494,6 +1591,10 @@ export default {
         this.showingLastest = false;
         this.alreadySearched = false;
         this.showAllFilter = false;
+        return [];
+      }
+
+      if (this.filterOnly) {
         return [];
       }
 
@@ -1923,14 +2024,21 @@ export default {
       }
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1910, 2025];
-      if (type === "rqModel") return [10, 119];
-      if (type === "topSpeedModel") return [25, 330];
-      if (type === "acelModel") return [1.5, 40];
-      if (type === "handModel") return [30, 110];
-      if (type === "mraModel") return [0, 160];
-      if (type === "weightModel") return [300, 7000];
-      if (type === "seatsModel") return [1, 9];
+      type = type.replace("Model", "");
+      if (this.searchFilters[`${type}Start`] !== undefined && this.searchFilters[`${type}End`] !== undefined) {
+        return [this.searchFilters[`${type}Start`], this.searchFilters[`${type}End`]];
+      } else {
+        console.log(type);
+        debugger;
+      }
+      // if (type === "yearModel") return [1910, 2025];
+      // if (type === "rqModel") return [10, 119];
+      // if (type === "topSpeedModel") return [25, 330];
+      // if (type === "acelModel") return [1.5, 40];
+      // if (type === "handModel") return [30, 110];
+      // if (type === "mraModel") return [0, 160];
+      // if (type === "weightModel") return [300, 7000];
+      // if (type === "seatsModel") return [1, 9];
     },
     addDualFilter() {
       this.$emit("dual");
@@ -1944,6 +2052,13 @@ export default {
       this.searchFilters.mraModel = this.defaultFilters("mraModel");
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
+      this.searchFilters.upgradesModel = this.defaultFilters("upgradesModel");
+      this.searchFilters.fusesModel = this.defaultFilters("fusesModel");
+      this.searchFilters.racesModel = this.defaultFilters("racesModel");
+      this.searchFilters.winRateModel = this.defaultFilters("winRateModel");
+      this.searchFilters.unitsModel = this.defaultFilters("unitsModel");
+      this.searchFilters.daysModel = this.defaultFilters("daysModel");
+      this.searchFilters.garageThingsModel = [];
       this.searchFilters.tunesModel = [];
       this.searchFilters.classesModel = [];
       this.searchFilters.tyresModel = [];
@@ -1977,6 +2092,15 @@ export default {
         mraModel: this.defaultFilters("mraModel"),
         weightModel: this.defaultFilters("weightModel"),
         seatsModel: this.defaultFilters("seatsModel"),
+
+        upgradesModel: this.defaultFilters("upgradesModel"),
+        fusesModel: this.defaultFilters("fusesModel"),
+        racesModel: this.defaultFilters("racesModel"),
+        winRateModel: this.defaultFilters("winRateModel"),
+        unitsModel: this.defaultFilters("unitsModel"),
+        daysModel: this.defaultFilters("daysModel"),
+        garageThingsModel: [],
+        
         tunesModel: [],
         classesModel: [],
         tyresModel: [],
@@ -2008,12 +2132,17 @@ export default {
       if (customFilter) {
         filter = customFilter;
       }
+      let vm = this;
+      this.activeKeys = {};
+      // debugger;
 
       Object.keys( filter ).forEach(function (key) {
         if (key.includes("Model")) {
           if (defaults[key] !== undefined && JSON.stringify(filter[key]) !== JSON.stringify(defaults[key])) {
             count++;
             clearFilter[key.replace("Model","")] = filter[key];
+            // debugger;
+            vm.activeKeys[key.replace("Model","")] = true;
           }
         }
         if (key === "name") {
@@ -2043,66 +2172,64 @@ export default {
       })
       return result;
     },
-    checkMatchFilter(car, hCar) {
+    checkMatchFilter(car, hCar, argFilter) {
       let context = this.searchFilters;
-      if (this.kingIsFiltering) context = this.kingFilter;
-      if (this.cgIsFiltering) context = this.raceFilterResolved;
-      if (this.cgIsFiltering && (this.cgAddingYouCar || this.cgAddingOppoCar)) context = this.cgFilterForAddCar;
+      if (this.clearFilterObj && Object.keys(this.clearFilterObj).length > 0) {
+        context = this.insertKeyModel(this.clearFilterObj);
+      }
+      if (!argFilter && context.acelEnd) { // not clear
+        this.clearFilterObj = this.resolveFilterCount();
+        context = this.insertKeyModel(this.clearFilterObj);
+      }
+      if (argFilter) context = argFilter; // CLEAR
+
+
 
 
       // between
-      if ( !this.filterCheckBetween(car.year, context.yearModel) ) return false;
-      if ( !this.filterCheckBetween(car.rq, context.rqModel) ) return false;
-      if ( !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return false;
-      if ( JSON.stringify(context.acelModel) !== JSON.stringify(this.defaultFilters("acelModel")) ) {
-        if ( !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
-      }
-      if ( !this.filterCheckBetween(car.hand, context.handModel) ) return false;
-      if ( JSON.stringify(context.mraModel) !== JSON.stringify(this.defaultFilters("mraModel")) ) {
-        if ( !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
-      }
-      if (JSON.stringify(this.defaultFilters("weightModel")) !== JSON.stringify(context.weightModel)) {
-        if ( !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
-      }
-      if (JSON.stringify(this.defaultFilters("seatsModel")) !== JSON.stringify(context.seatsModel)) {
-        if ( !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
-      }
+      if ( context.yearModel && !this.filterCheckBetween(car.year, context.yearModel) ) return false;
+      if ( context.rqModel && !this.filterCheckBetween(car.rq, context.rqModel) ) return false;
+      if ( context.topSpeedModel && !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return false;
+      if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
+      if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return false;
+      if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
+      if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
+      if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
 
       // includes
-      if ( !this.filterCheckIncludes(car.class, context.classesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.tyres, context.tyresModel) ) return false;
-      if ( !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
-      if ( !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
-      if ( !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
-      if ( !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
+      if ( context.classesModel && !this.filterCheckIncludes(car.class, context.classesModel) ) return false;
+      if ( context.tyresModel && !this.filterCheckIncludes(car.tyres, context.tyresModel) ) return false;
+      if ( context.drivesModel && !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
+      if ( context.clearancesModel && !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
+      if ( context.countrysModel && !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
+      if ( context.year2Model && !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
+      if ( context.seats2Model && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
 
-      if ( !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
-      if ( !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
-      if ( !this.filterCheckIncludes(car.brake, context.brakeModel) ) return false;
-      if ( !this.filterCheckIncludes(car.tcs, context.tcsModel) ) return false;
-      if ( !this.filterCheckIncludes(car.abs, context.absModel) ) return false;
+      if ( context.fuelModel && !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
+      if ( context.engineModel && !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
+      if ( context.brakeModel && !this.filterCheckIncludes(car.brake, context.brakeModel) ) return false;
+      if ( context.tcsModel && !this.filterCheckIncludes(car.tcs, context.tcsModel) ) return false;
+      if ( context.absModel && !this.filterCheckIncludes(car.abs, context.absModel) ) return false;
 
-      if ( !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tags2Model || []), car.rid) ) return false;
-      if ( !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
-      if ( !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
+      if ( context.bodyTypesModel && !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
+      if ( context.tagsModel && !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
+      if ( context.tags2Model && !this.filterCheckIncludesArray(car.tags, (context.tags2Model || []), car.rid) ) return false;
+      if ( context.tags3Model && !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
+      if ( context.brandsModel && !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
 
-      if ( context.prizesModel.length > 0 ) {
+      if ( context.prizesModel ) {
         if ( car.prize && !context.prizesModel.includes("Prize Cars") ) return false;
         if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
       }
 
-      if ( context.customTagsModel.length > 0 ) {
+      if ( context.customTagsModel ) {
         let found = context.customTagsModel.find(tag => {
           if (this.custom_tags[tag].includes(car.rid)) return true;
         })
         if (!found) return false;
       }
-
-      if ( this.config.garage && hCar && context.tunesModel.length > 0 ) {
-        let isValid = true;
+  
+      if ( (this.config.garage || this.config.garageRT) && hCar && context.tunesModel ) {
         let isCustom = false;
         if (
           context.tunesModel.includes("Custom") &&
@@ -2116,7 +2243,48 @@ export default {
         }
         if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return false;
       }
-      if ( this.config.garage && hCar && context.garageThingsModel.length > 0 ) {
+
+
+      if ( context.customTagsModel ) {
+        let found = context.customTagsModel.find(tag => {
+          if (this.custom_tags[tag].includes(car.rid)) return true;
+        })
+        if (!found) return false;
+      }
+
+
+
+      // garage (normal)
+
+      if ( this.config.garage && hCar) {
+        if ( context.upgradesModel && !this.filterCheckBetween(this.carNumUps(hCar), context.upgradesModel) ) return false;
+        if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
+        if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
+        if ( context.winRateModel && this.carNumRaces(hCar) && !this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel) ) return false;
+        if ( context.unitsModel && !this.filterCheckBetween(0, context.unitsModel) ) return false;
+        if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
+      }
+
+      // {
+      //     "cardRecordId": "000c23cc",
+      //     "rid": "Cadillac_XLR_roadster_2004",
+      //     "date": "2018-06-24T05:00Z",
+      //     "tunZ": "996",
+      //     "cW": 525,
+      //     "cL": 230,
+      //     "cD": 4,
+      //     "tun": "332"
+      // }
+
+
+
+
+
+
+      // garageRT
+
+
+      if ( this.config.garageRT && hCar && context.garageThingsModel?.length > 0 ) {
         if ( hCar.locked === false && context.garageThingsModel.includes("Locked") ) return false;
         if ( hCar.locked === true && context.garageThingsModel.includes("Unlocked") ) return false;
         if ( hCar.tunZ === "000" && context.garageThingsModel.includes("Upgraded") ) return false;
@@ -2360,6 +2528,72 @@ export default {
           });
       }
     },
+    carNumUps(car) {
+      if (!car.tunZ) return 0;
+      return car.tunZ.split("").reduce((acc,b) => acc+Number(b), 0);
+    },
+    carIsFull(car) {
+      return this.carNumUps(car) >= 24;
+    },
+    carIsUnique(car, qty = 1, biggerThan = false) { // TODO
+      if (!car.rid) debugger;
+      if (!this.config._myGarage[car.rid]) debugger;
+      if (biggerThan) {
+        if (this.config._myGarage[car.rid].length >= qty) return true;
+        return false;
+      }
+      if (this.config._myGarage[car.rid].length === qty) return true;
+      return false;
+    },
+    carCanUpgrade(car, type, returnArr) { // TODO
+      if (!car.minors) return false;
+      if ([...car.minors].reduce((sum, digit) => sum + Number(digit), 0) >= 9) return false;
+      if (!type && !returnArr) return true; // not specified, can be upgraded
+      let indexT = this.garageCarFuseList.indexOf(type);
+
+      if (type && !returnArr) {
+        if (car.minors[indexT] === '3') return false;
+        return true;
+      }
+
+      if (returnArr) {
+        let arr = [];
+        car.minors.split("").map((str, ix) => {
+          if (type && indexT !== ix) return;
+          let num = Number(str);
+          for (let Z = num; Z < 3; Z++) {
+            arr.push(this.garageCarFuseList[ix]);
+          }
+        })
+        return arr;
+      }
+    },
+    carNumFuses(car, type) { // TODO
+      let num = 0;
+      let indexT = this.garageCarFuseList.indexOf(type);
+      car.tunZ.split("").map((str, ix) => {
+        if (type && indexT !== ix) return;
+        // 9 => 3
+        // 7 => 3
+        // 6 => 1 ou 2
+        // 3 => 0 ou 1
+        // 0 => 0
+        // 1 => 0
+        let fuses = Math.floor( (Number(str) - 1) / 3);
+        if (car.minors && car.minors[ix] === "0") fuses++;
+        num += fuses;
+      })
+      return num;
+    },
+    carNumDays(car) {
+      return Math.floor((this.today - new Date(car.date)) / this.msPerDay);
+    },
+    carWinRate(car) {
+      return Math.round((car.cW / (car.cW + car.cL + car.cD)) * 100);
+    },
+    carNumRaces(car) {
+      return car.cW + car.cL + car.cD;
+    }
   },
 }
 </script>

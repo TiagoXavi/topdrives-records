@@ -542,6 +542,8 @@ body {
   --card-font-size: 12px;
   --card-stat-height: calc( (100% - var(--card-top-height) - (var(--card-stat-div)*4)) / 4 );
   --card-gap: 0.5%;
+  --card-brown: #45403a;
+  --card-g-height: calc(var(--top-height) - 6px);
 
   --t0: #d7d7d7;
   --tmod: #bfcd36;
@@ -588,10 +590,10 @@ body {
   font-size: 18px;
   background-color: var(--d-back);
   color: var(--d-text);
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: scroll;
   -webkit-text-size-adjust: none;
-  -ms-text-size-adjus: none;
+  -ms-text-size-adjust: none;
   text-size-adjust: none;
 }
 button {
@@ -4025,7 +4027,7 @@ a:visited:not(.D_Button) {
   font-size: 1.4em;
   bottom: 9%;
   left: unset;
-  right: calc(var(--card-right-width) + 1%);
+  right: calc(var(--card-right-width) + 1.6%);
 }
 
 
@@ -4405,22 +4407,46 @@ a:visited:not(.D_Button) {
   width: var(--card-left-width);
   height: 20%;
   left: 0;
-  bottom: calc(var(--card-left-height) - 3%);
+  bottom: calc(var(--card-left-height) - 2.5%);
   text-align: center;
   font-weight: bold;
 }
 .Car_HeaderBlockPrize {
-  display: flex;
+  /* display: flex;
   color: rgb(var(--d-text-yellow));
-  font-size: 16px;
+  font-size: 1.4em;
+  line-height: 1;
   background-color: #412900;
   left: 1%;
   top: calc(var(--card-top-height) + 2%);
-  padding: 3px;
+  padding: 0px;
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
+  width: 1.4em;
+  height: 1.4em;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5%; */
+  width: var(--card-left-width);
+  height: 20%;
+  left: 0;
+  bottom: calc(var(--card-left-height) + 13%);
+  text-align: center;
+  font-weight: bold;
+}
+.Car_HeaderPrizeBack {
+  background-color: var(--card-brown);
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  transform: skewY(11deg);
+}
+.Car_HeaderTrophy {
+  color: var(--class-color);
+  position: relative;
+  margin-bottom: 14%;
 }
 .Car_HeaderBlockTopSpeed {
   top: calc(var(--card-top-height));
@@ -4472,7 +4498,7 @@ a:visited:not(.D_Button) {
   gap: 3px;
   bottom: 2%;
   font-size: 0.7em;
-  right: calc(var(--card-right-width) + 1%);
+  right: calc(var(--card-right-width) + 1.6%);
   font-weight: 400;
   width: 50%;
   justify-content: flex-end;
@@ -4484,9 +4510,9 @@ a:visited:not(.D_Button) {
 }
 .Car_HeaderBlockStars {
   flex-direction: row;
-  gap: 6px;
-  font-size: 0.6em;
-  bottom: 5%;
+  gap: 12%;
+  font-size: 0.7em;
+  bottom: calc(6% - 0.5em);
   left: calc(var(--card-left-width) + 3.5%);
   color: var(--class-color);
   filter: drop-shadow(0px 1px 1px #000c);
@@ -4533,6 +4559,7 @@ a:visited:not(.D_Button) {
   display: flex;
   justify-content: center;
   font-size: 1.3em;
+  margin-top: 5%;
 }
 .Car_HeaderRQLabel i {
   line-height: 0.5;
@@ -4548,12 +4575,25 @@ a:visited:not(.D_Button) {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: skewY(9deg);
+  transform: skewY(11deg);
+}
+.Car_HeaderClassBack2 {
+  background-color: var(--class-color);
+  opacity: 0.4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  transform: skewY(-11deg);
+}
+.Car_HeaderBlockPrize + .Car_HeaderBlockClass .Car_HeaderClassBack2 {
+  height: 100%;
 }
 .Car_HeaderClassValue {
   position: relative;
   color: black;
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
 /* .Car_HeaderBlockTopSpeed,
 .Car_HeaderBlock060,
@@ -4632,9 +4672,9 @@ a:visited:not(.D_Button) {
 }
 .Car_TuneTip {
   background-color: rgb(55, 54, 49, 0.6);
-  right: calc(var(--card-right-width) + 0px);
-  bottom: 16px;
-  font-size: 14px;
+  right: calc(var(--card-right-width) + 1.6%);
+  bottom: 10%;
+  font-size: 1.4em;
   font-weight: bold;
   padding: 2px 4px;
   border-radius: 3px;
@@ -5190,6 +5230,136 @@ a:visited:not(.D_Button) {
   width: calc(100% + 40px);
   margin-left: -20px;
 }
+.Car_HeaderLogo {
+  background-image: url('/assets/brands_sprite.png');
+  width: calc(100% * 38 / 415);
+  height: calc(100% * 28 / 256);
+  top: 0.25%;
+  left: 0.75%;
+  --s-height: 3136px;
+  --s-unit: 28px;
+  --s-percentage: 28 / 3136;
+  --i: -1;
+  /* the sprite has 3136px height, and each logo is 28px tall */
+  /* the var --i is the logo index */
+  /* normally the parent container has height of 256px, then, this element has height of 28px */
+  /* But the parent container can have a different height, so we need to calculate the position dynamically */
+  background-size: auto calc(var(--s-height) * (var(--card-g-height) / 1px / 256));
+  background-position: 0 calc( (var(--s-unit) * var(--i)) * (var(--card-g-height) / 1px / 256) * -1 );
+  /* convert variable 256px to 256 by dividing by 1px */
+}
+.Car_Logo_Abarth { --i: 0 }
+.Car_Logo_AC { --i: 1 }
+.Car_Logo_Acura { --i: 2 }
+.Car_Logo_Alfa_Romeo { --i: 3 }
+.Car_Logo_Alpine { --i: 4 }
+.Car_Logo_AMC { --i: 5 }
+.Car_Logo_Apollo { --i: 6 }
+.Car_Logo_Arash { --i: 7 }
+.Car_Logo_Ariel { --i: 8 }
+.Car_Logo_Aston_Martin { --i: 9 }
+.Car_Logo_Audi_\(Auto_Union\) { --i: 10 }
+.Car_Logo_Audi { --i: 11 }
+.Car_Logo_Austin-Healey { --i: 12 }
+.Car_Logo_Austin { --i: 13 }
+.Car_Logo_Pininfarina { --i: 14 }
+.Car_Logo_Autozam { --i: 15 }
+.Car_Logo_BAC { --i: 16 }
+.Car_Logo_Bentley { --i: 17 }
+.Car_Logo_Bizzarrini { --i: 18 }
+.Car_Logo_BMW { --i: 19 }
+.Car_Logo_Brabham { --i: 20 }
+.Car_Logo_Bristol { --i: 21 }
+.Car_Logo_Bufori { --i: 22 }
+.Car_Logo_Bugatti { --i: 23 }
+.Car_Logo_Buick { --i: 24 }
+.Car_Logo_Cadillac { --i: 25 }
+.Car_Logo_Caterham { --i: 26 }
+.Car_Logo_Chevrolet { --i: 27 }
+.Car_Logo_Chrysler { --i: 28 }
+.Car_Logo_Citroen { --i: 29 }
+.Car_Logo_Datsun { --i: 30 }
+.Car_Logo_De_Tomaso { --i: 31 }
+.Car_Logo_DMC { --i: 32 }
+.Car_Logo_Dodge { --i: 33 }
+.Car_Logo_Donkervoort { --i: 34 }
+.Car_Logo_Drako { --i: 35 }
+.Car_Logo_DS { --i: 36 }
+.Car_Logo_Eagle { --i: 37 }
+.Car_Logo_Farboud { --i: 38 }
+.Car_Logo_Fiat { --i: 39 }
+.Car_Logo_Ford { --i: 40 }
+.Car_Logo_Geo { --i: 41 }
+.Car_Logo_Ginetta { --i: 42 }
+.Car_Logo_Giocattolo { --i: 43 }
+.Car_Logo_GMC { --i: 44 }
+.Car_Logo_Gumpert { --i: 45 }
+.Car_Logo_Hennessey { --i: 46 }
+.Car_Logo_Holden { --i: 47 }
+.Car_Logo_Honda { --i: 48 }
+.Car_Logo_Hudson { --i: 49 }
+.Car_Logo_Hummer { --i: 50 }
+.Car_Logo_Hyundai { --i: 51 }
+.Car_Logo_Infiniti { --i: 52 }
+.Car_Logo_Jaguar { --i: 53 }
+.Car_Logo_Koenigsegg { --i: 54 }
+.Car_Logo_KTM { --i: 55 }
+.Car_Logo_Lamborghini { --i: 56 }
+.Car_Logo_Lancia { --i: 57 }
+.Car_Logo_Land_Rover { --i: 58 }
+.Car_Logo_Lincoln { --i: 59 }
+.Car_Logo_Lotus { --i: 60 }
+.Car_Logo_Maserati { --i: 61 }
+.Car_Logo_Matra { --i: 62 }
+.Car_Logo_Maybach { --i: 63 }
+.Car_Logo_Mazda { --i: 64 }
+.Car_Logo_Mazdaspeed { --i: 65 }
+.Car_Logo_McLaren { --i: 66 }
+.Car_Logo_McMurtry { --i: 67 }
+.Car_Logo_Mercedes-AMG { --i: 68 }
+.Car_Logo_Mercedes-Benz { --i: 69 }
+.Car_Logo_Mercury { --i: 70 }
+.Car_Logo_MG { --i: 71 }
+.Car_Logo_Mini { --i: 72 }
+.Car_Logo_Mitsubishi { --i: 73 }
+.Car_Logo_Mitsuoka { --i: 74 }
+.Car_Logo_Morgan { --i: 75 }
+.Car_Logo_Nissan { --i: 76 }
+.Car_Logo_Oldsmobile { --i: 77 }
+.Car_Logo_Opel { --i: 78 }
+.Car_Logo_Pagani { --i: 79 }
+.Car_Logo_Peugeot { --i: 80 }
+.Car_Logo_Plymouth { --i: 81 }
+.Car_Logo_Pontiac { --i: 82 }
+.Car_Logo_Porsche { --i: 83 }
+.Car_Logo_Radical { --i: 84 }
+.Car_Logo_RAM { --i: 85 }
+.Car_Logo_Range_Rover { --i: 86 }
+.Car_Logo_Renault_Sport { --i: 87 }
+.Car_Logo_Renault { --i: 88 }
+.Car_Logo_Rezvani { --i: 89 }
+.Car_Logo_Rimac { --i: 90 }
+.Car_Logo_Rolls-Royce { --i: 91 }
+.Car_Logo_Rover { --i: 92 }
+.Car_Logo_RUF { --i: 93 }
+.Car_Logo_Saleen { --i: 94 }
+.Car_Logo_Saturn { --i: 95 }
+.Car_Logo_SCG { --i: 96 }
+.Car_Logo_Shelby { --i: 97 }
+.Car_Logo_Skoda { --i: 98 }
+.Car_Logo_Smart { --i: 99 }
+.Car_Logo_Spyker { --i: 100 }
+.Car_Logo_Subaru { --i: 101 }
+.Car_Logo_Suzuki { --i: 102 }
+.Car_Logo_Talbot { --i: 103 }
+.Car_Logo_TVR { --i: 104 }
+.Car_Logo_Ultima { --i: 105 }
+.Car_Logo_Vauxhall { --i: 106 }
+.Car_Logo_Volkswagen { --i: 107 }
+.Car_Logo_Volvo { --i: 108 }
+.Car_Logo_W_Motors { --i: 109 }
+.Car_Logo_Zenos { --i: 110 }
+.Car_Logo_Zenvo { --i: 111 }
 
 
 

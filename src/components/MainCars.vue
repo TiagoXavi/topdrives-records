@@ -1,47 +1,130 @@
 <template>
   <div
     :class="{
-      Main_Compact: Vue.utils.windowWidth < 1200
+      Main_Compact: Vue.utils.windowWidth < 1200,
+      MainCars_Big: _Mcars.width === 415
     }"
+    :style="
+      `--width: ${_Mcars.width}px;` +
+      `--aspect: ${_Mcars.aspect};` +
+      `--fsize: ${_Mcars.fsize}px;` +
+      `--blockWidth: ${blockWidth}px;`
+    "
     class="MainCars_Root">
-    
-    
-    
-    
-    
-    
-    <div class="MainCars_Header">
 
-      <div class="MainCars_HeaderControls">
+
+
+
+
+    <div class="MainCars_SearchBox">
+
+      <div class="MainCars_SearchBoxInner">
+        <input
+          v-model="_Mcars.input"
+          id="MainCars_SearchInput"
+          :placeholder="$t('m_search')"
+          class="D_SearchInput data-hj-allow"
+          type="search"
+          @focus="searchFocus = true;"
+          @blur="searchBlur()"
+          @input="searchInputFunc($event)">
         <button
-          v-if="!Vue.garageObj.loaded"
-          :class="{ D_Button_Loading: Vue.garageObj.loading }"
-          class="D_Button D_ButtonDark D_ButtonTier4"
-          @click="toggleMyGarage()"><i class="ticon-car D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_myGarage") }}</button>
-        <BaseSwitch v-if="Vue.garageObj.loaded" :value="isGarage" :label="`${$t('m_myGarage')}`" :horizontal="false" @change="toggleMyGarage($event)" />
+          v-if="_Mcars.input && _Mcars.input.length > 0"
+          class="D_Button D_SearchInputClose"
+          @click="closeFilterText()">
+          <i class="ticon-close_2" aria-hidden="true"/>
+        </button>
       </div>
-      
+      <button
+        class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
+        @click="openFilter();">
+        <span>Filters</span>
+        <span v-if="filterCount > 0" class="Main_FiltersButtonCount">{{ filterCount }}</span>
+      </button>
+
+
+      <!-- <input
+        v-model="_Mcars.input"
+        :placeholder="$t('m_search')"
+        class="D_SearchInput data-hj-allow"
+        type="search"
+        autocomplete="off"
+        @keyup.enter="searchByText()">
+      <div class="MainTimeline_HeaderMagnifierButtonBox">
+        <button
+          class="D_Button MainTimeline_HeaderMagnifierButton"
+          @click="searchByText()">
+          <i class="ticon-search_big" aria-hidden="true"/>
+        </button>
+      </div> -->
+
+    </div>
+    
+    
+    
+    
+    
+    
+
+    <div class="MainCars_HeaderControls">
+      <button
+        v-if="!Vue.garageObj.loaded"
+        :class="{ D_Button_Loading: Vue.garageObj.loading }"
+        class="D_Button D_ButtonDark D_ButtonTier4"
+        @click="toggleMyGarage()"><i class="ticon-car D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_myGarage") }}</button>
+      <BaseSwitch v-if="Vue.garageObj.loaded" :value="_Mcars.isGarage" :label="`${$t('m_myGarage')}`" :horizontal="false" @change="toggleMyGarage($event)" />
+      <BaseSwitch v-model="_Mcars.showStatus" name="MainCars_ShowStats" :label="$t('m_statsView')" :horizontal="false" />
+      <div class="Main_FilterChipsFlex" style="justify-content: flex-start; gap: 0px;">
+        <template v-for="(item, ix) in sizes">
+          <BaseChip
+            :inputValue="_Mcars.width === item.width"
+            class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small MainCars_SizeChip"
+            :class="{ D_ButtonActive: _Mcars.width === item.width }"
+            required="true"
+            :value="item"
+            @click="changeSize(item)">
+            <span class="MainCars_SizeIcon" :style="`--size: ${item.width}px;`"></span>
+          </BaseChip>
+        </template>
+      </div>
     </div>
 
 
 
 
 
-    <div class="MainCars_Body" :class="`MainCars_View${_Mcars.view}`">
+    <div
+      class="MainCars_Body"
+      :class="`MainCars_View${_Mcars.view}`">
       <RecycleScroller
-        :items="_Mcars.cars"
+        :items="cars"
         :item-size="carHeight"
+        :item-secondary-size="_Mcars.showStatus ? null : (_Mcars.width + 5)"
         :buffer="Math.max(400, carHeight)"
-        :key-field="isGarage ? 'cardRecordId' : 'rid'"
+        :key-field="garageWorking ? 'cardRecordId' : 'rid'"
+        :gridItems="_Mcars.showStatus ? 1 : Math.floor(Math.min(915, Vue.utils.windowWidth) / (_Mcars.width + 5))"
         listClass="Cg_DashWrapper"
         itemClass="Cg_DashScrollerItem"
-        class="Main_DarkScroll"
+        class="MainCars_BodyBox Main_DarkScroll"
         page-mode>
         <template v-slot="{ item, index, active }">
           <div
             :class="{ MainCars_CarSelected: false }"
             class="MainCars_CarItem">
-            {{ item.rid }}
+            <div class="MainCars_CarLeft">
+              <BaseCard
+                :car="Vue.all_carsObj[item.rid]"
+                :fix-back="false"
+                :options="false"
+                :hideClose="true"
+                :showResetTune="false"
+                :asGallery="true"
+                :draggable="false"
+                :selectedTune="_Mcars.isGarage ? (item.tun || item.tunZ) : null"
+                :cgOppo="_Mcars.isGarage ? true : false"
+              />
+            </div>
+            <div class="MainCars_CarRight"></div>
           </div>
         </template>
       </RecycleScroller>
@@ -55,8 +138,9 @@
       :filterOnly="true"
       :config="{
         tunes: true,
-        garage: true
+        garage: garageWorking
       }"
+      :raceFilter="_Mcars.filter"
       style="z-index: 200;"
       importFilterName="MAINCARS_IMPORT"
       ref="mainCarsFiltRef"
@@ -76,6 +160,8 @@
 import MainCarsDetail from "./MainCarsDetail.vue";
 import BaseSwitch from "./BaseSwitch.vue";
 import BaseFilterDialog from "./BaseFilterDialog.vue";
+import BaseCard from "./BaseCard.vue";
+import BaseChip from "./BaseChip.vue";
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
 
@@ -84,7 +170,9 @@ export default {
   components: {
     MainCarsDetail,
     BaseSwitch,
-    BaseFilterDialog
+    BaseFilterDialog,
+    BaseCard,
+    BaseChip
   },
   props: {
     test: {
@@ -96,46 +184,94 @@ export default {
     return {
       Vue: Vue,
       T_S: tdrStore(),
-      isGarage: false,
       filterDialog: false,
-      filter: {}
+      sizes: [
+        { width: 200, aspect: '415 / 256', fsize: 10 },
+        { width: 300, aspect: '415 / 256', fsize: 15 },
+        { width: 415, aspect: '415 / 256', fsize: 20 },
+      ],
+      cars: [],
+      debounceFilter: null,
+      searchFocus: false,
+      filterCount: 0
     }
   },
-  watch: {},
+  watch: {
+    'T_S._user'(newVal, oldVal) {
+      Vue.tryLoadGarageFromStorage();
+      if (this._Mcars.isGarage && this.T_S._user && this.T_S._user.hasGarage) {
+        this.loadCars();
+      }
+    }
+  },
   created() {
     if (!this.T_S._Mcars) {
       this.T_S.$patch((state) => {
         state._Mcars = {
-          cars: [],
-          view: "list"
+          input: "",
+          filter: {},
+          view: "list",
+          showStatus: true,
+          isGarage: false,
+          width: 300,
+          aspect: '415 / 256',
+          fsize: 15,
+          sortMethod: 'rqDesc'
         }
       })
-      this.loadCars();
     }
   },
-  beforeMount() {},
-  mounted() {},
+  beforeMount() {
+    let MainCarsIsGarage = window.localStorage.getItem("MainCarsIsGarage");
+    if (MainCarsIsGarage) {
+      MainCarsIsGarage = JSON.parse(MainCarsIsGarage);
+      this._Mcars.isGarage = MainCarsIsGarage;
+    }
+  },
+  mounted() {
+    this.debounceFilter = Vue.debounce(this.loadCars, 1500); 
+    this.loadCars();
+  },
   computed: {
-    ...mapState(tdrStore, ["_Mcars"]),
+    ...mapState(tdrStore, ["_Mcars", "_user"]),
     carHeight() {
-      return 150;
+      return this._Mcars.width / (415 / 256) + 5;
+    },
+    blockWidth() {
+      if (this._Mcars.showStatus) {
+        return Math.min(915, Vue.utils.windowWidth) - 20;
+      } else {
+        return (this._Mcars.width + 5) * Math.floor(Math.min(915, Vue.utils.windowWidth) / (this._Mcars.width + 5)) - 5;
+      }
+    },
+    garageWorking() {
+      return this._Mcars.isGarage && this.T_S._user && this.T_S._user.hasGarage && Vue.garageObj.loaded;
     }
   },
   methods: {
     loadCars() {
-      if (this.isGarage) return this.loadByGarage();
+      Vue.tryLoadGarageFromStorage();
+      if (this._Mcars.isGarage) {
+        if (!this.T_S._user || !this.T_S._user.hasGarage) {
+          return;
+        }
+        if (Vue.garageObj.loaded) {
+          return this.loadByGarage();
+        }
+      }
 
       let result = [];
-      let hasFilter = Object.keys(this.filter).length > 0;
+      let hasFilter = Object.keys(this._Mcars.filter).length > 0;
 
-      if (!hasFilter) return this.T_S._Mcars.cars = Vue.all_carsArr;
+      if (!hasFilter) return this.cars = Vue.all_carsArr;
 
       Vue.all_carsArr.map(car => {
         if (!this.matchFilter(car)) return;
         result.push(car);
       });
       
-      this.T_S._Mcars.cars = result;
+      this.cars = result;
+      // no sort needed
     },
     loadByGarage() {
       let keys = [];
@@ -149,7 +285,7 @@ export default {
         return;
       }
       let result = [];
-      let hasFilter = Object.keys(this.filter).length > 0;
+      let hasFilter = Object.keys(this._Mcars.filter).length > 0;
 
       keys.map(rid => {
         Vue.garageByRid[rid].map(gCar => {
@@ -160,15 +296,37 @@ export default {
         });
       });
       
-      this.T_S._Mcars.cars = result;
+      this.cars = result;
+      this.sortCars();
     },
     matchFilter(car, hCar) {
       if (!this.$refs.mainCarsFiltRef.checkMatchFilter(car, hCar)) return false;
       return true;
     },
+    sortCars() {
+      if (this._Mcars.sortMethod === 'rqDesc') { // default
+        this.cars.sort(this.resolveDraw);
+        return;
+      }
+      if (this._Mcars.sortMethod === 'rqAsc') {
+        this.cars.sort((a,b) => {
+          if (Vue.all_carsObj[a.rid]?.rq !== Vue.all_carsObj[b.rid]?.rq) {
+            return Vue.all_carsObj[a.rid]?.rq - Vue.all_carsObj[b.rid]?.rq;
+          }
+          return this.resolveDraw(a,b);
+        });
+        return;
+      }
+    },
+    resolveDraw(a,b) {
+      if (Vue.all_carsObj[a.rid]?.rq === Vue.all_carsObj[b.rid]?.rq) {
+        return (Vue.all_carsObj[b.rid]?.name || "").localeCompare(Vue.all_carsObj[a.rid]?.name);
+      } else {
+        return Vue.all_carsObj[b.rid]?.rq - Vue.all_carsObj[a.rid]?.rq;
+      }
+    },
     clearFilterRes(filter) {
-
-      this.filter = filter;
+      this._Mcars.filter = filter;
       this.loadCars();
       this.filterDialog = false;
     },
@@ -176,7 +334,7 @@ export default {
 
     },
     toggleMyGarage(value) {
-      if (value !== undefined) window.localStorage.setItem("isGarage", JSON.stringify(value));
+      if (value !== undefined) window.localStorage.setItem("MainCarsIsGarage", JSON.stringify(value));
       if (!this.T_S._user || !this.T_S._user.hasGarage) {
         this.noGarageUploaded();
         return;
@@ -195,7 +353,7 @@ export default {
       }
       if (Vue.garageObj.loaded) {
         // console.log("toggleMyGarage", value);
-        this.isGarage = value;
+        this._Mcars.isGarage = value;
         this.loadCars();
       }
     },
@@ -224,9 +382,104 @@ export default {
         maxWidth: "420px"
       });
     },
+    changeSize(item) {
+      this._Mcars.width = item.width;
+      this._Mcars.aspect = item.aspect;
+      this._Mcars.fsize = item.fsize;
+    },
+    searchByText() {
+      this._Mcars.input = this._Mcars.input.trim();
+      this.loadCars();
+    },
+    searchInputFunc(e) {
+      this.debounceFilter();
+    },
+    searchBlur() {
+      setTimeout(() => {
+        this.searchFocus = false;
+      }, 200);
+    },
+    openFilter() {
+      this.filterDialog = true;
+    }
   },
 }
 </script>
 
 <style>
+.MainCars_Root {
+  padding: 40px 0;
+}
+.MainCars_SearchBox {
+  display: flex;
+  position: relative;
+  /* width: var(--blockWidth); */
+  width: 910px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.MainCars_SearchBox .Main_FiltersButton {
+  border-bottom-right-radius: 10px;
+}
+.MainCars_SearchBoxInner {
+  position: relative;
+  flex-grow: 10;
+}
+.MainCars_Body {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.MainCars_BodyBox {
+  width: var(--blockWidth);
+}
+.MainCars_CarLeft {
+  --card-g-width: var(--width);
+  --card-g-height: 142px;
+  --card-g-height: round(calc(var(--width) * ((415 / 256) - 1)), 1px);
+  --card-g-font: var(--fsize);
+}
+.MainCars_Big .MainCars_CarLeft {
+  --card-g-width: var(--width);
+  --card-g-height: 256px;
+}
+.MainCars_Big .Car_Header {
+  border-radius: 11px;
+}
+.MainCars_SizeIcon {
+  display: flex;
+  width: calc(var(--size) * 0.05 + 5px);
+  height: calc(var(--size) * 0.03 + 5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.MainCars_SizeChip {
+  --back-opac: 0.0;
+  background-color: #0000;
+}
+.MainCars_HeaderControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  max-width: calc(var(--cell-width) * 5);
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.MainCars_HeaderControls > * {
+  min-width: 60px;
+}
+.MainTimeline_HeaderMagnifierButtonBox {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  width: 44px;
+}
+.MainTimeline_HeaderMagnifierButton {
+  font-size: 22px;
+  width: 100%;
+}
 </style>

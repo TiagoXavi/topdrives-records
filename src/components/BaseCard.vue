@@ -46,18 +46,21 @@
           <i class="ticon-close_3 Car_HeaderIcon" aria-hidden="true"/>
         </button>
       </div>
-      <div class="Car_HeaderToolsBack" />
+      <div v-if="options" class="Car_HeaderToolsBack" />
       <div v-if="tuneText" class="Car_TuneTipGallery">{{ tuneText }}</div>
+      <div class="Car_HeaderLogo" :class="`Car_Logo_${(car.logo || car.brand).replaceAll(' ', '_')}`" />
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: resolveCar && resolveCar.rq > 99 }">{{ resolveCar.rq }}</div>
         <div class="Car_HeaderRQLabel"><i class="tdicon-rq" aria-hidden="true"/></div>
       </div>
+      <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
+        <div class="Car_HeaderPrizeBack" />
+        <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
+      </div>
       <div class="Car_HeaderBlockClass">
+        <div class="Car_HeaderClassBack2" />
         <div class="Car_HeaderClassBack" />
         <div class="Car_HeaderClassValue">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
-      </div>
-      <div v-if="car.prize" class="Car_HeaderBlockPrize" title="Prize car">
-        <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
       </div>
       <div class="Car_HeaderBackDropRight">
         <div class="Car_HeaderRightBlockUnique">

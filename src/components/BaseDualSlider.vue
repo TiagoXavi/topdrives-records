@@ -45,8 +45,8 @@
           v-if="label"
           class="BaseDualSlider_FillLabel">{{ label }}</div>
       </div>
-      <div class="BaseDualSlider_LabelL">{{ internal0 }}</div>
-      <div class="BaseDualSlider_LabelR">{{ internal1 }}</div>
+      <div class="BaseDualSlider_LabelL" :suffix="suffix">{{ internal0 }}</div>
+      <div class="BaseDualSlider_LabelR" :suffix="rightPlus && internal1 == max ? '+' : suffix">{{ internal1 }}</div>
     </div>
   </div>
 </template>
@@ -83,6 +83,14 @@ export default {
     logarithm: {
       type: Boolean,
       default: false
+    },
+    rightPlus: {
+      type: Boolean,
+      default: false
+    },
+    suffix: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -308,6 +316,10 @@ export default {
   transform: translateX(50%);
   /* right: calc( var(--posR) + (var(--percR) / 25) * 1% - 2% ); */
   right: calc( var(--posR) );
+}
+.BaseDualSlider_LabelL:after,
+.BaseDualSlider_LabelR:after {
+  content: attr(suffix);
 }
 .BaseDualSlider_FillLabel {
   text-align: center;

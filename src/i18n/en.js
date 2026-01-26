@@ -327,6 +327,8 @@ export default {
   m_uniques: "Uniques",
   m_sPrizes: "Legendary prizes",
   m_submit: "Submit",
+  m_clearGarageCache: "Clear garage cache",
+
 
 
 
@@ -461,6 +463,12 @@ export default {
   c_template: "Template",
   c_tcs: "TCS",
   c_abs: "ABS",
+  c_upgrades: "Upgrades",
+  c_fuses: "Fuses",
+  c_units: "Units",
+  c_winRate: "Win Rate",
+  c_races: "Races",
+  c_days: "Days",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",

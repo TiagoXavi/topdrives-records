@@ -175,6 +175,28 @@ export default {
           }
         }
       }
+      if (this.searchTracks.includes("_a")) {
+        let trackCode = this.searchTracks.split("_a")[0];
+        let surfaceCond = this.searchTracks.split("_a")[1];
+        let isValid = false;
+        filteredTracks.find(x => {
+          if (x.id === trackCode) {
+            return x.types.find(y => {
+              if (y[0] === surfaceCond[0] && y[1] === surfaceCond[1]) {
+                isValid = true;
+                return true;
+              }
+            })
+          }
+        })
+        if (isValid) {
+          this.$emit('toggleTrack', { track: this.searchTracks, e: {} });
+          this.resolveTrack(this.searchTracks);
+          this.searchTracks = '';
+          this.$emit('close');
+          return;
+        }
+      }
 
 
       if (typesInput.length > 0) {
