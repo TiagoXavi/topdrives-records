@@ -178,6 +178,14 @@ export default {
       if (f.year2Model && f.year2Model.length > 0) result.push({ label: this.$tc("c_year", 2), value: f.year2Model.join(", ") });
       if (f.seats2Model && f.seats2Model.length > 0) result.push({ label: this.$t("c_seats"), value: f.seats2Model.join(", ") });
 
+      if (f.garageThingsModel && f.garageThingsModel.length > 0) result.push({ label: this.$t("m_garage"), value: f.garageThingsModel.join(", ") });
+      if (f.upgradesModel && JSON.stringify(f.upgradesModel) !== '[0,24]') result.push({ label: this.$t("c_upgrades"), value: f.upgradesModel.join("-") });
+      if (f.fusesModel && JSON.stringify(f.fusesModel) !== '[0,6]') result.push({ label: this.$t("c_fuses"), value: f.fusesModel.join("-") });
+      if (f.racesModel && JSON.stringify(f.racesModel) !== '[0,20000]') result.push({ label: this.$t("c_races"), value: f.racesModel.join("-") });
+      if (f.winRateModel && JSON.stringify(f.winRateModel) !== '[0,100]') result.push({ label: this.$t("c_winRate"), value: f.winRateModel.join("-") });
+      if (f.unitsModel && JSON.stringify(f.unitsModel) !== '[1,9]') result.push({ label: this.$t("c_units"), value: f.unitsModel.join("-") });
+      if (f.daysModel && JSON.stringify(f.daysModel) !== '[0,3500]') result.push({ label: this.$t("c_days"), value: f.daysModel.join("-") });
+      
       if (this.emitDescResolved) {
         this.$emit('descResolved', result);
       }

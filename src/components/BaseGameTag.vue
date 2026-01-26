@@ -631,4 +631,14 @@ export default {
   --tag-s: 84%;
   --tag-l: 74%;
 }
+.BaseGameTag_Ministry_of_Racing\:_Crown_Pursuit {
+  --tag-h: 42;
+  --tag-s: 76%;
+  --tag-l: 60%;
+}
+.BaseGameTag_Year_of_the_Horsepower {
+  --tag-h: 358;
+  --tag-s: 79%;
+  --tag-l: 43%;
+}
 </style>

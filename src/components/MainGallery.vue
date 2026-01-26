@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL29-fixed.json'
-import plOld from '../database/cars_final_PL28.json'
+import data_cars from '../database/cars_final_PL30-fixed.json'
+import plOld from '../database/cars_final_PL29.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -564,6 +564,7 @@ export default {
           "Marilyn's Collection 2",
           "Motorsport",
           "Muscle Car",
+          "Ministry of Racing: Crown Pursuit",
           "New Beginnings",
           "Nightmare Fuel",
           "Niklas' Collection",
@@ -600,6 +601,7 @@ export default {
           "Wild Ride",
           "World Expo",
           "Year of the Dragon",
+          "Year of the Horsepower",
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
@@ -726,7 +728,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v29", "t");
+    window.localStorage.setItem("changes_v30", "t");
   },
   beforeMount() {
     // // check new cars

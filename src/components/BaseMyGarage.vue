@@ -916,7 +916,8 @@ export default {
           title: "Garage",
           specialTitle: true
         },
-        { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() }, // change id
+        { id: 40, filter: { tagsModel: ["Ministry of Racing: Crown Pursuit"] }, t: new groupStats() }, // change id
+        { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() },
         { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
         { id: 37, filter: { tagsModel: ["French Riviera"] }, t: new groupStats() },
         { id: 36, filter: { tagsModel: ["Asia-Pacific Revival"] }, t: new groupStats() },
@@ -1168,8 +1169,7 @@ export default {
         params.year = forceYear;
       }
 
-      axios.post(Vue.preUrl + "/getGarage", params)
-      .then(res => {
+      Vue.loadGarage(params, true, res => {
         this.loading = false;
         this.saved = false;
         if (res.status === 200 && !res.data) {
@@ -1198,7 +1198,7 @@ export default {
           if (res.data.u) {
             this.loadedName = res.data.u;
           }
-          
+
           if (this.user && this.user.garageYears && this.user.garageYears.length > 1) {
             let pastYear = Number(res.data.year) - 1;
             if (this.user.garageYears.includes(`${pastYear}`)) {
@@ -1206,8 +1206,8 @@ export default {
             }
           }
         }
-      })
-      .catch(error => {
+      },
+      error => {
         this.loading = false;
         console.log(error);
         this.$store.commit("DEFINE_SNACK", {
@@ -1216,7 +1216,7 @@ export default {
           text: error,
           type: "error"
         });
-      })
+      });
     },
     loadPastYear(year) {
       if (!this.userId) return;

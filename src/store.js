@@ -105,6 +105,7 @@ export default new Vuex.Store({
       "Desperados",
       "Famous Tracks",
       "Filberto's Collection",
+      "Filberto's Collection 2",
       "Gaz's Collection",
       "Gaz's Collection 2",
       "Gunter's Collection",

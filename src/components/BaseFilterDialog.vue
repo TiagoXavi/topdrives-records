@@ -153,14 +153,14 @@
             </div>
           </template>
 
-          <div v-if="config.garage" class="Main_FilterChipsFlex">
+          <!-- <div v-if="config.garage" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.garageThings">
               <BaseChip
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 v-model="searchFilters.garageThingsModel"
                 :value="item" />
             </template>
-          </div>
+          </div> -->
 
           <div v-if="config.garageRT" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.garageThingsRT">
@@ -874,6 +874,7 @@ export default {
       factor: false,
       statsView: false,
       oldTagsExpanded: false,
+      garageCarFuseList: ["engine", "weight", "chassis"],
       counters: {},
       countersDefault: null,
       countersBetween: {
@@ -1049,7 +1050,6 @@ export default {
           "Old Guard",
           "Photo Finish",
           "Racing Royalty",
-          "Reclassified",
           "Rest of the World",
           "Ride of the Valkyries",
           "Riders on the Storm",
@@ -1070,6 +1070,7 @@ export default {
           "Ximena's Collection",
           "Ximena's Collection 2",
           "Year of the Dragon",
+          "Year of the Horsepower",
           "Year of the Ox",
           "Year of the Rabbit",
           "Year of the Rat",
@@ -1077,6 +1078,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "Ministry of Racing: Crown Pursuit",
           "Autobahn Icons",
           "German Powerhaus",
           "French Riviera",
@@ -1114,6 +1116,7 @@ export default {
           "Muscle Car",
           "None",
           "Oddities",
+          "Reclassified",
           "Road",
           "Sleeper",
           "Street Racer",
@@ -2261,7 +2264,7 @@ export default {
         if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
         if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
         if ( context.winRateModel && this.carNumRaces(hCar) && !this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel) ) return false;
-        if ( context.unitsModel && !this.filterCheckBetween(0, context.unitsModel) ) return false;
+        if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
         if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
       }
 
@@ -2535,14 +2538,19 @@ export default {
     carIsFull(car) {
       return this.carNumUps(car) >= 24;
     },
+    carNumUnits(car) {
+      if (!car.rid) debugger;
+      if (!Vue.garageByRid[car.rid]) return false;
+      return Vue.garageByRid[car.rid].length;
+    },
     carIsUnique(car, qty = 1, biggerThan = false) { // TODO
       if (!car.rid) debugger;
-      if (!this.config._myGarage[car.rid]) debugger;
+      if (!Vue.garageByRid[car.rid]) debugger;
       if (biggerThan) {
-        if (this.config._myGarage[car.rid].length >= qty) return true;
+        if (Vue.garageByRid[car.rid].length >= qty) return true;
         return false;
       }
-      if (this.config._myGarage[car.rid].length === qty) return true;
+      if (Vue.garageByRid[car.rid].length === qty) return true;
       return false;
     },
     carCanUpgrade(car, type, returnArr) { // TODO

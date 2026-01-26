@@ -292,24 +292,29 @@ function predictTimes(cars, tracks) {
 
 
 
-function loadGarage(username) {
-  if (garageObj.loaded) return;
+function loadGarage(params, force, callBack, errorCallBack) {
+  if (garageObj.loaded && !force) return;
   garageObj.loading = true;
-  window.axios.post(Vue.preUrl + "/getGarage", {
-    username: username
-  })
+  
+  window.axios.post(Vue.preUrl + "/getGarage", params)
   .then(res => {
-    if (res.data.value.playerDeck) {
-      resolveGarageRes(res.data);
+    if (!params.year) {
+      if (res.data.value.playerDeck) {
+        resolveGarageRes(res.data);
+      }
+      window.localStorage.setItem('cacheGarage', JSON.stringify(res.data));
     }
-    window.localStorage.setItem('cacheGarage', JSON.stringify(res.data));
+    if (callBack) callBack(res);
   })
   .catch(error => {
     console.log(error);
+    if (errorCallBack) errorCallBack(error);
   })
   .then(() => {
-    garageObj.loading = false;
-    garageObj.loaded = true;
+    if (!params.year) {
+      garageObj.loading = false;
+      garageObj.loaded = true;
+    }
   });
 }
 

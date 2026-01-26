@@ -383,7 +383,7 @@ export default {
       if (e.shiftKey) {
         this.deleteTime(e.point.custom.rid, e.point.custom.tune);
       } else if (!supportsTouch) {
-        let url = `https://www.topdrivesrecords.com?share=~K${this.chartTrack.code}~C${e.point.custom.rid}~T${e.point.custom.tune}`
+        let url = `${window.location.origin}?share=~K${this.chartTrack.code}~C${e.point.custom.rid.replaceAll("+", "%2B").replaceAll("&", "%26")}~T${e.point.custom.tune}`
         window.open(url, '_blank').focus();
       }
     },

@@ -3437,8 +3437,8 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #10</div>
-          <div class="Main_AnnouncementSubTitle">Autobahn Icons</div>
+          <div class="Main_AnnouncementTitle">Contest #11</div>
+          <div class="Main_AnnouncementSubTitle">Ministry of Racing: Crown Pursuit</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
@@ -3447,7 +3447,7 @@
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
           </div>
-          <div class="Main_AnnouncementMaybe">3rd November ~ 16th November</div>
+          <div class="Main_AnnouncementMaybe">26th January ~ 8th February</div>
 
           <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1104184336158302259" style="margin-top: 20px;" />
         </div>
@@ -3916,7 +3916,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v29.1",
+      gameVersion: "Game v30.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -11348,7 +11348,7 @@ export default {
     },
     checkAnnouncement() {
       return;
-      let c_id = "contest10";
+      let c_id = "contest11";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {
