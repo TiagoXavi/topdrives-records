@@ -302,7 +302,11 @@ function loadGarage(params, force, callBack, errorCallBack) {
       if (res.data.value.playerDeck) {
         resolveGarageRes(res.data);
       }
-      window.localStorage.setItem('cacheGarage', JSON.stringify(res.data));
+      try {
+        window.localStorage.setItem('cacheGarage', JSON.stringify(res.data));
+      } catch (error) {
+        console.error("Error saving cacheGarage to localStorage:", error);
+      }
     }
     if (callBack) callBack(res);
   })
