@@ -5204,6 +5204,7 @@ a:visited:not(.D_Button) {
 .BaseCard_AsGalleryBox {
   --card-g-width: 150px;
   --card-g-height: 92px;
+  --card-g-heightraw: 92;
   --card-g-font: 7px;
 }
 .Main_Compact .BaseCard_AsGalleryBox {

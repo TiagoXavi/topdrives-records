@@ -9276,6 +9276,10 @@ export default {
       let rqSum = 0;
       let isEmpty = round.races.every(race => race.cars.length === 0);
       if (isEmpty) return bestSolution;
+
+      // if (iround === 1 && useGarage) {
+      //   debugger;
+      // }
       
       round.races.map((race, irace) => {
 
@@ -9319,6 +9323,9 @@ export default {
       let currIndex = noCarIndex;
       while (noCarIndex > -1 && count < 15) {
         let res;
+        // if (iround === 1 && useGarage && currIndex === 3) {
+        //   debugger;
+        // }
         if (!bestSolution[currIndex]) this.cgTryReplacer(round, bestSolution, usedRids, usedHids, currIndex, useGarage, 0, iround);
         else if (bestSolution[currIndex]) res = this.cgTryReplacer(round, bestSolution, usedRids, usedHids, currIndex, useGarage, 0, iround, true);
         if (res) {
@@ -9397,7 +9404,7 @@ export default {
         let mirrors = [{ rid: c.rid, tune: c.tune, usedIn: usedRids[c.rid] }];
         if (useGarage) {
           mirrors = (Vue.garageByRid[c.rid] || []).filter(x => this.isBetterTune(x, c)).map(x => {
-            return { rid: c.rid, tune: c.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
+            return { rid: c.rid, tune: (x.tun || x.tunZ), cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId] };
           });
         }
 
@@ -9418,7 +9425,7 @@ export default {
               let mirrors_2 = [{ rid: c2.rid, tune: c2.tune, usedIn: usedRids[c2.rid], sameRid: c2.rid === c.rid }];
               if (useGarage) {
                 mirrors_2 = (Vue.garageByRid[c2.rid] || []).filter(x => this.isBetterTune(x, c2)).map(x => {
-                  return { rid: c2.rid, tune: c2.tune, cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId], sameRid: x.cardRecordId === mirror.cardRecordId };
+                  return { rid: c2.rid, tune: (x.tun || x.tunZ), cardRecordId: x.cardRecordId, usedIn: usedHids[x.cardRecordId], sameRid: x.cardRecordId === mirror.cardRecordId };
                 });
               }
 
@@ -9649,7 +9656,7 @@ export default {
         return;
       }
       if (!Vue.garageObj.loaded) {
-        Vue.loadGarage(this.user.username);
+        Vue.loadGarage({ username: this.user.username });
         let vm = this;
         let unwatch = vm.$watch('Vue.garageObj.loaded', (newValue, oldValue) => {
           console.log(`dynamicProperty changed from ${oldValue} to ${newValue}`);
@@ -10089,6 +10096,14 @@ export default {
         // }
         Vue.set(x, "nameStyled", styl);
       })
+      this.eventList.map(x => {
+        if (x.endDateTime && x.endDateTime.localeCompare(now) < 0) {
+          Vue.set(x, "ended", true);
+        }
+        if (x.startDateTime && x.startDateTime.localeCompare(now) < 0) {
+          Vue.set(x, "started", true);
+        }
+      })
       this.eventList.sort((a,b) => {
         if (a.index === b.index && a.endDateTime && b.endDateTime) {
 
@@ -10100,18 +10115,18 @@ export default {
 
           if (!a.endDateTime) return -1;
           if (!b.endDateTime) return 1;
+          if (!a.startDateTime) return 1;
+          if (!b.startDateTime) return -1;
+          if (a.ended && !b.ended) return -1;
+          if (b.ended && !a.ended) return 1;
+          if (a.started && !b.started) return -1;
+          if (b.started && !a.started) return 1;
 
-          let aEnded = a.endDateTime.localeCompare(now) < 0;
-          let bEnded = b.endDateTime.localeCompare(now) < 0;
-          if (aEnded && !bEnded) return -1;
-          if (bEnded && !aEnded) return 1;
-
-          // let aNotStarted = a.startDateTime.localeCompare(now) > 0;
-          // let bNotStarted = b.startDateTime.localeCompare(now) > 0;
-          // if (aNotStarted && !bNotStarted) return 1;
-          // if (bNotStarted && !aNotStarted) return -1;
-          if (b.endDateTime !== a.endDateTime) {
+          if (a.started && b.started && b.endDateTime !== a.endDateTime) {
             return a.endDateTime.localeCompare(b.endDateTime);
+          }
+          if (!a.started && !b.started && b.endDateTime !== a.endDateTime) {
+            return a.startDateTime.localeCompare(b.startDateTime);
           }
           return a.name.localeCompare(b.name, "en", {numeric: true});
         }

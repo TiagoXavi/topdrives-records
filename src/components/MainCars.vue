@@ -341,7 +341,7 @@ export default {
         return;
       }
       if (!Vue.garageObj.loaded) {
-        Vue.loadGarage(this.T_S._user.username);
+        Vue.loadGarage({ username: this.T_S._user.username });
         let vm = this;
         let unwatch = vm.$watch('Vue.garageObj.loaded', (newValue, oldValue) => {
           console.log(`dynamicProperty changed from ${oldValue} to ${newValue}`);

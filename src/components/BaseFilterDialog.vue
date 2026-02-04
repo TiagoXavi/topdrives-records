@@ -2502,8 +2502,8 @@ export default {
     },
     handleKeyUp(e) {
       if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
+        this.clearFilterObj = this.resolveFilterCount();
         let toCopy = this.insertKeyModel(this.clearFilterObj);
-        // console.log(JSON.stringify(toCopy));
         navigator.clipboard.writeText(JSON.stringify(toCopy));
       }
       if (e.key === "v" && (e.ctrlKey || e.metaKey)) {

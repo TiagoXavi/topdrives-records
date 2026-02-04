@@ -256,6 +256,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Track value</div>
+      <div class="MainSwagger_Fields">
+        <BaseText
+          v-model="trackValue"
+          type="normal"
+          label="Track Value"
+          class="Space_Bottom"
+          placeholder="" />
+      </div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="getTrackValue()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ trackValueRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Contest</div>
       <div class="MainSwagger_Buttons">
         <button
@@ -361,6 +382,8 @@ export default {
       newEventRes: null,
       rid: null,
       ridConfirmRes: null,
+      trackValue: null,
+      trackValueRes: null
 
     }
   },
@@ -596,6 +619,33 @@ export default {
       axios.get(Vue.preUrl + "/carRefresh/" + this.rid)
       .then(res => {
         this.ridConfirmRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+    getTrackValue() {
+      let vm = this;
+      vm.loading = true;
+
+      let params = {
+        track: this.trackValue
+      };
+      let parsed;
+      try {
+        parsed = JSON.parse(this.trackValue);
+        params = {
+          trackset: parsed
+        };
+      } catch (error) {
+      }
+
+      axios.post(Vue.preUrl + "/trackValue", params)
+      .then(res => {
+        this.trackValueRes = res.data;
       })
       .catch(error => {
         vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });

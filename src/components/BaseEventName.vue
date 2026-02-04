@@ -5,18 +5,29 @@
     :class="`${tag}`"
     @click="$emit('click', $event)"
     @longTouch="$emit('longTouch', $event)">
-    <div
-      v-if="item.nameStyled"
-      v-html="item.nameStyled"
-      :class="contentClass"
-      class="BaseEventName_Right"
-      :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`"
-    />
-    <div
-      v-else
-      :class="contentClass"
-      class="BaseEventName_Right"
-      :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`">{{ name }}</div>
+    <div class="BaseEventName_Left">
+      <span
+        v-if="item.nameStyled"
+        v-html="item.nameStyled"
+        :class="contentClass"
+        class="BaseEventName_Right"
+        :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`"
+      />
+      <span
+        v-else
+        :class="contentClass"
+        class="BaseEventName_Right"
+        :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`">{{ name }}</span>
+      <BaseRemainingTime
+        v-if="item?.endDateTime || item?.startDateTime"
+        :endDateTime="started ? item?.endDateTime : item?.startDateTime"
+        :hideNegative="true"
+        :mini="true"
+        :showClock="false"
+        class="BaseEventName_Timer"
+      />
+
+    </div>
     <i
       v-for="icon in item.icons"
       :class="`tdicon-${icon}`"
@@ -34,12 +45,14 @@
 <script>
 import BaseButtonTouch from './BaseButtonTouch.vue';
 import BaseIconSvg from './BaseIconSvg.vue';
+import BaseRemainingTime from './BaseRemainingTime.vue';
 
 export default {
   name: 'BaseEventName',
   components: {
     BaseButtonTouch,
-    BaseIconSvg
+    BaseIconSvg,
+    BaseRemainingTime
   },
   props: {
     item: {
@@ -62,7 +75,10 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      started: false,
+      ended: false
+    }
   },
   watch: {},
   beforeMount() {},
@@ -73,14 +89,17 @@ export default {
     },
     tag() {
       if (!this.item.tag) return "";
+      let now = new Date().toISOString();
       // if (this.item.date && this.item.date !== "__preview__") return "";
       
       let result = "";
       result += "BaseEventTag_" + this.item.tag.trim().toLowerCase().replace(/  +/g, ' ').replace(/ +/g, '_').replace(/-+/g, '_').normalize('NFD').replace(/\p{Diacritic}/gu, "")
 
-      if (this.item.startDateTime) {
-        if (this.item.startDateTime.localeCompare(new Date().toISOString()) > 0 && (!this.item.tag || this.item.tag !== "Daily Event")) {
+      if (this.item.startDateTime && (!this.item.tag || this.item.tag !== "Daily Event")) {
+        if (this.item.startDateTime.localeCompare(now) > 0) {
           result += " BaseEventTag_Preview"
+        } else {
+          this.started = true;
         }
       }
 
@@ -88,9 +107,11 @@ export default {
         let diff = new Date() - new Date(this.item.endDateTime);
         
         if (diff > 14 * 60 * 60 * 1000) { // 14 hours
-          result += " BaseEventTag_Ended"
+          result += " BaseEventTag_Ended";
+          this.ended = true;
         } else if (diff > 0) {
-          result += " BaseEventTag_EndedEu"
+          result += " BaseEventTag_EndedEu"; // still active in US, AP
+          this.ended = true;
         }
       }
       return result;
@@ -128,21 +149,18 @@ export default {
 .BaseEventName_Added {
   opacity: 0.5;
 }
+.BaseEventName_Left {
+  flex-grow: 1;
+  text-align: left;
+}
 .BaseEventName_Marked .BaseEventName_Right span:first-child {
   color: rgb(var(--d-text-green));
 }
 .BaseEventName_Right {
   text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
-          line-clamp: 2; 
-  -webkit-box-orient: vertical;
 }
 .BaseEventName_Events {
   margin-right: 5px;
-  flex-grow: 1;
 }
 /* .BaseEventTag_daily_event {
   display: none;
@@ -164,5 +182,18 @@ export default {
 }
 .BaseEventTag_Ended:not(.BaseEventTag_daily_event) {
   color: #e54444;
+}
+.BaseEventName_Timer {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #0003;
+  box-shadow: 0px 0px 0px 2px #0003;
+  padding: 2px 3px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+.BaseEventName_Timer:empty {
+  display: none;
 }
 </style>
