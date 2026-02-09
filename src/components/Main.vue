@@ -7363,12 +7363,12 @@ export default {
         let options = [];
         this.campaign.map((city, icity) => {
           city.matches.map((match, imatch) => {
-            if (match.trackset.includes(tcode)) {
+            if (match.trackset.includes(race.track)) {
               options.push({
                 city: city.name,
                 icity,
                 imatch,
-                irace: match.trackset.findIndex(track => track === tcode),
+                irace: match.trackset.findIndex(track => track === race.track),
                 code: `${icity}${imatch}`
               })
             }
