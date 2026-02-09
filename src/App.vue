@@ -68,9 +68,12 @@
     <BaseSearchTrackDialog
       :active="_g_track.dialog"
       :mode="_g_track.mode"
+      :onlyCampaign="_g_track.onlyCampaign"
+      :customCodes="_g_track.customCodes"
       @close="_g_track.close"
       @toggleTrack="_g_track.toggleTrack"
       @pushCpSuggest="_g_track.pushCpSuggest"
+      @campaignTrackCodes="_g_track.campaignTrackCodes"
     />
 
     <BaseCarDetailDialog

@@ -951,7 +951,8 @@ export default {
               "Leafclaw": 'mod',
               "biava": 'mod',
               "artkatt": 'mod',
-              "Chachisco": 'mod'
+              "Chachisco": 'mod',
+              "Bramdal": 'mod'
             };
             let pUsers = resData.find(x => x.id === 'pUsers').value;
             Object.keys( pUsers ).forEach(key => {
@@ -967,9 +968,9 @@ export default {
                 });
               }
             })
-            highlightsUsers["AnalyzeThat"] = "w1";
-            highlightsUsers["Sleeperzz"] = "w2";
-            highlightsUsers["AF11"] = "w3";
+            highlightsUsers["Sleeperzz"] = "w1";
+            highlightsUsers["Eyeon"] = "w2";
+            highlightsUsers["Real_Gardevoir"] = "w3";
 
             return highlightsUsers;
         };

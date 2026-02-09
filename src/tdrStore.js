@@ -32,9 +32,12 @@ export const tdrStore = defineStore('main', {
     _g_track: {
       dialog: false,
       mode: "",
+      onlyCampaign: false,
+      customCodes: [],
       close: () => {},
       toggleTrack: () => {},
-      pushCpSuggest: () => {}
+      pushCpSuggest: () => {},
+      campaignTrackCodes: () => {}
     },
     _g_car: {
       dialog: false,

@@ -323,17 +323,17 @@ export default {
         let options = [];
         this.campaign.map((city, icity) => {
           city.matches.map((match, imatch) => {
-            match.races.map((race, irace) => {
-              if (race.name.slice(0, -4) === tcode) {
+            match.trackset.map((track, itrack) => {
+              if (track.slice(0, -4) === tcode) {
                 options.push({
                   city: city.name,
                   icity,
                   imatch,
-                  irace,
+                  irace: itrack,
                   code: `${icity}${imatch}`
                 })
               }
-            })
+            });
           })
         })
         currentTracksOptions.push(options);

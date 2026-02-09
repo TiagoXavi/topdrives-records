@@ -3101,12 +3101,12 @@
           <div class="Main_CampaignName">{{ `${city.name} ${city.imatch+1}` }}</div>
           <div class="Main_CampaignMatch">
             <div
-              v-for="race in campaign[city.icity].matches[city.imatch].races"
-              :class="{ Main_CampaignRaceOff: !city.includes.includes(race.name) }"
+              v-for="track in campaign[city.icity].matches[city.imatch].trackset"
+              :class="{ Main_CampaignRaceOff: !city.includes.includes(track) }"
               class="Main_CampaignRace">
-              <div class="Main_CampaignTrackName">{{ $t('t_'+(tracksRepo.find(x => x.id === race.name.substr(0, race.name.length-4)) || {}).id) }}</div>
+              <div class="Main_CampaignTrackName">{{ $t('t_'+(tracksRepo.find(x => x.id === track.substr(0, track.length-4)) || {}).id) }}</div>
               <div class="Main_CampaignTrackCond">
-                <BaseTypeName :type="race.name.substr(race.name.length-2)" :showDry="false" />
+                <BaseTypeName :type="track.substr(track.length-2)" :showDry="false" />
               </div>
             </div>
           </div>
@@ -5387,6 +5387,7 @@ export default {
     pushCpSuggest(obj) {
       if (obj.e && (obj.e.ctrlKey || obj.e.metaKey)) {
         this.clearAllTracks();
+        this.closeDialogTrackSearch();
       }
       this.toggleTrackSet(obj.list.map(x => x.code));
     },
@@ -5430,17 +5431,15 @@ export default {
         let tcode = `${x.id}_a${x.surface}${x.cond}`
         this.campaign.map((city, icity) => {
           city.matches.map((match, imatch) => {
-            match.races.map((race, irace) => {
-              if (race.name === tcode) {
-                options.push({
-                  city: city.name,
-                  icity,
-                  imatch,
-                  irace,
-                  code: `${icity}${imatch}`
-                })
-              }
-            })
+            if (match.trackset.includes(tcode)) {
+              options.push({
+                city: city.name,
+                icity,
+                imatch,
+                irace: match.trackset.findIndex(track => track === tcode),
+                code: `${icity}${imatch}`
+              })
+            }
           })
         })
         currentTracksOptions.push(options);
@@ -5477,10 +5476,11 @@ export default {
         city.matches.map((match, imatch) => {
           let includes = [];
           let indexSum = 0;
-          match.races.map((race, irace) => {
-            if (currentCodes.includes(race.name)) {
-              includes.push(race.name)
-              indexSum += irace
+          
+          match.trackset.map((track, itrack) => {
+            if (currentCodes.includes(track)) {
+              includes.push(track)
+              indexSum += itrack
             }
           })
           matchesScore.push({
@@ -5492,65 +5492,6 @@ export default {
           })
         })
       })
-
-
-      // // 
-      // // 
-      // // test campaign obj
-      // let campaignTracksOutOfDefault = [];
-      // this.campaign.map((city, icity) => {
-      //   if (city.name.startsWith("YB") || city.name.startsWith("SN") || city.name === "Challenge Leagues" || city.name === "Daily Challenge") {
-      //     return;
-      //   }
-      //   city.matches.map((match, imatch) => {
-      //     match.races.map((race, irace) => {
-
-      //       let found = this.tracksButtons.find(group => {
-      //         return group.list.find(list => {
-      //           return list.tracks.find(track => {
-      //             return track === race.name
-      //           })
-      //         })
-      //       })
-      //       if (!found) campaignTracksOutOfDefault.push(race.name);
-
-      //     })
-      //   })
-      // })
-      // campaignTracksOutOfDefault = [...new Set(campaignTracksOutOfDefault)];
-      // console.log("campaignTracksOutOfDefault", campaignTracksOutOfDefault);
-
-      // let defaultTracksOutOfCampaign = [];
-      // this.tracksButtons.map(group => {
-      //   group.list.map(list => {
-      //     list.tracks.map(track => {
-      //       let found = false;
-
-      //       this.campaign.map((city, icity) => {
-      //         if (city.name.startsWith("YB") || city.name.startsWith("SN") || city.name === "Challenge Leagues" || city.name === "Daily Challenge") {
-      //           return;
-      //         }
-      //         city.matches.map((match, imatch) => {
-      //           match.races.map((race, irace) => {
-      //             if (race.name === track) {
-      //               found = true;
-      //             }
-      //           })
-      //         })
-      //       })
-
-      //       if (!found) defaultTracksOutOfCampaign.push(track);
-
-      //     })
-      //   })
-      // })
-      // defaultTracksOutOfCampaign = [...new Set(defaultTracksOutOfCampaign)];
-      // console.log("defaultTracksOutOfCampaign", defaultTracksOutOfCampaign);
-
-      // debugger;
-      // // 
-      // // 
-      // // 
 
 
       matchesScore.sort(function(a, b) {
@@ -7422,17 +7363,15 @@ export default {
         let options = [];
         this.campaign.map((city, icity) => {
           city.matches.map((match, imatch) => {
-            match.races.map((rac, irace) => {
-              if (rac.name === race.track) {
-                options.push({
-                  city: city.name,
-                  icity,
-                  imatch,
-                  irace,
-                  code: `${icity}${imatch}`
-                })
-              }
-            })
+            if (match.trackset.includes(tcode)) {
+              options.push({
+                city: city.name,
+                icity,
+                imatch,
+                irace: match.trackset.findIndex(track => track === tcode),
+                code: `${icity}${imatch}`
+              })
+            }
           })
         })
         currentTracksOptions.push(options);
@@ -10070,9 +10009,18 @@ export default {
         this.eventFromStorage = lastEvent.date;
       }
     },
-    eventStyleList() {
+    eventsListFix() {
       let now = new Date().toISOString();
-
+      this.eventList.map(x => {
+        if (x.endDateTime && x.endDateTime.localeCompare(now) < 0) {
+          Vue.set(x, "ended", true);
+        }
+        if (x.startDateTime && x.startDateTime.localeCompare(now) < 0) {
+          Vue.set(x, "started", true);
+        }
+      })
+    },
+    eventStyleList() {
       this.eventList.sort((a,b) => {
         return a.name.localeCompare(b.name, "en", {numeric: true});
       })
@@ -10095,14 +10043,6 @@ export default {
         //   }
         // }
         Vue.set(x, "nameStyled", styl);
-      })
-      this.eventList.map(x => {
-        if (x.endDateTime && x.endDateTime.localeCompare(now) < 0) {
-          Vue.set(x, "ended", true);
-        }
-        if (x.startDateTime && x.startDateTime.localeCompare(now) < 0) {
-          Vue.set(x, "started", true);
-        }
       })
       this.eventList.sort((a,b) => {
         if (a.index === b.index && a.endDateTime && b.endDateTime) {
@@ -11362,6 +11302,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
+      return;
       let c_id = "contest11";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");

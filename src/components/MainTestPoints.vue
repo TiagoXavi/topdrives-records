@@ -315,9 +315,9 @@ export default {
       let options = [];
       this.campaign.map((city, icity) => {
         city.matches.map((match, imatch) => {
-          match.races.map((rac, irace) => {
-            if (rac.name === this.chartTrack.code) {
-              options.push(`${city.name} ${imatch+1} r${irace+1}`)
+          match.trackset.map((track, itrack) => {
+            if (track === this.chartTrack.code) {
+              options.push(`${city.name} ${imatch+1} t${itrack+1}`)
             }
           })
         })

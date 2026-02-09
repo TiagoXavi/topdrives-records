@@ -113,6 +113,14 @@ export default {
     mode: {
       type: String,
       default: "other"
+    },
+    onlyCampaign: {
+      type: Boolean,
+      default: false
+    },
+    customCodes: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -120,7 +128,8 @@ export default {
       searchTracks: '',
       campaign,
       tracksRepo,
-      cpTrackSuggestion: null
+      cpTrackSuggestion: null,
+      campaignTrackCodes: []
     }
   },
   watch: {
@@ -139,6 +148,9 @@ export default {
   mounted() {},
   computed: {
     filteredTracks() {
+      if (this.onlyCampaign && this.campaignTrackCodes.length === 0) {
+        this.compileCampaignTrackCodes();
+      }
       let vm = this;
       let filteredTracks = this.tracksRepo;
       let conds = ["dry", "wet", "dirt", "gravel", "ice", "sand", "snow", "grass"];
@@ -160,13 +172,13 @@ export default {
         })
         if (found) {
           let arr = [];
-          found.matches[Number(lastWord) - 1].races.map(code => {
+          found.matches[Number(lastWord) - 1].trackset.map(track => {
             // {"id":"gForce","surface":"0","cond":"0","code":"gForce_a00","campaign":"GER Stuttgart 4"}
             arr.push({
-              surface: code.name.slice(-2,-1),
-              cond: code.name.slice(-1),
-              code: code.name,
-              id: code.name.slice(0, -4)
+              surface: track.slice(-2,-1),
+              cond: track.slice(-1),
+              code: track,
+              id: track.slice(0, -4)
             })
           })
           this.cpTrackSuggestion = {
@@ -264,7 +276,37 @@ export default {
       filteredTracks.sort((a,b) => {
         return a.nameCalc.localeCompare(b.nameCalc);
       })
-      
+
+      if (this.customCodes && this.customCodes.length) {
+        filteredTracks  = JSON.parse(JSON.stringify(filteredTracks));
+        filteredTracks = filteredTracks.filter(x => {
+          let has = false;
+          x.types = x.types.filter(type => {
+            if (this.customCodes.includes(`${x.id}_a${type}`)) {
+              has = true;
+              return true;
+            }
+          })
+          if (has) {
+            return true;
+          }
+        });
+      } else if (this.onlyCampaign) {
+        filteredTracks  = JSON.parse(JSON.stringify(filteredTracks));
+        filteredTracks = filteredTracks.filter(x => {
+          let has = false;
+          x.types = x.types.filter(type => {
+            if (this.campaignTrackCodes.includes(`${x.id}_a${type}`)) {
+              has = true;
+              return true;
+            }
+          })
+          if (has) {
+            return true;
+          }
+        });
+      }
+
       return filteredTracks;
     }
   },
@@ -287,13 +329,13 @@ export default {
       let options = [];
       this.campaign.map((city, icity) => {
         city.matches.map((match, imatch) => {
-          match.races.map((rac, irace) => {
-            if (rac.name === track) {
+          match.trackset.map((trackCampaign, itrack) => {
+            if (trackCampaign === track) {
               options.push({
                 city: city.name,
                 icity,
                 imatch,
-                irace,
+                irace: itrack,
                 code: `${icity}${imatch}`
               })
             }
@@ -347,6 +389,23 @@ export default {
     },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
+    },
+    compileCampaignTrackCodes() {
+      let codes = [];
+      this.campaign.map(city => {
+        if (!city.h_matches) return;
+        city.matches.map(match => {
+          match.trackset.map(track => {
+            codes.push(track);
+          })
+        })
+      })
+      codes = [...new Set(codes)];
+      codes.sort();
+      this.campaignTrackCodes = codes;
+      if (this.$listeners['campaignTrackCodes']) {
+        this.$emit('campaignTrackCodes', codes);
+      }
     }
   },
 }

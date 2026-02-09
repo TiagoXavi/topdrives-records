@@ -1,5681 +1,2951 @@
 [
-  {
-    "name": "SN Road to SN",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "tCircuitr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a10"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "tokyoBridge_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "tokyoOffRamp_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "csMed_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "drag100_a10"
-          },
-          {
-            "name": "tokyoOverpass_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "hClimb_a11"
-          },
-          {
-            "name": "gForce_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoOverpass_a01"
-          },
-          {
-            "name": "drag60_a01"
-          },
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "tokyoDrag_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "draglshape_a00"
-          },
-          {
-            "name": "runwayDragSlalom_a00"
-          },
-          {
-            "name": "rallySmall_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoDrag_a00"
-          },
-          {
-            "name": "tokyoOffRamp_a01"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "mile4r_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "tokyoOffRamp_a00"
-          },
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "tokyoBridge_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN Orig 2010s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "csMed_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "gForce_a20"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "carPark_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a20"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "carPark_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a50"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "testBowlr_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "mile2_a20"
-          },
-          {
-            "name": "drag100_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mnHairpin_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a11"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mtIncline_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a11"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "mile1_a20"
-          },
-          {
-            "name": "moto_a10"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN Orig 2000s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a01"
-          },
-          {
-            "name": "mtSlalom_a01"
-          },
-          {
-            "name": "mtIncline_a00"
-          },
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "rallySmall_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "forest_a00"
-          },
-          {
-            "name": "mtHairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "gForce_a50"
-          },
-          {
-            "name": "hairpin_a50"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "fastr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "rallyMed_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "tokyoOverpass_a01"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN Orig 80-90s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "gForce_a50"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mnHairpin_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "drag100b_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "mtHairpin_a01"
-          },
-          {
-            "name": "mtTwisty_a01"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "forestRiver_a41"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "tokyoOverpass_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "testBowlr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "mile4_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "mnHairpin_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN JPT 10-20s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mtTour_a01"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "runwayDrag_a01"
-          },
-          {
-            "name": "airplaneHangars_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoBridge_a00"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "gForce_a11"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtSlalom_a01"
-          },
-          {
-            "name": "forestSlalom_a10"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "forest_a01"
-          },
-          {
-            "name": "forestSlalom_a71"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "drag50150_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "tokyoGforce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "carPark_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "forestRiver_a40"
-          },
-          {
-            "name": "mtTwisty_a00"
-          },
-          {
-            "name": "mtHairpin_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "csMed_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "draglshape_a00"
-          },
-          {
-            "name": "runwayLoop_a01"
-          },
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "drag30130_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN JPT 2000s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "mnHairpin_a01"
-          },
-          {
-            "name": "mnCity_a01"
-          },
-          {
-            "name": "mnCityLong_a01"
-          },
-          {
-            "name": "mnGforce_a01"
-          },
-          {
-            "name": "mile1_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallyMed_a41"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "tokyoDrag_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "figureEight_a01"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "serviceRoads_a00"
-          },
-          {
-            "name": "speedbump12km_a00"
-          },
-          {
-            "name": "draglshape_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "runwayDragSlalom_a01"
-          },
-          {
-            "name": "airplaneHangars_a01"
-          },
-          {
-            "name": "airplaneSlalom_a10"
-          },
-          {
-            "name": "figureEight_ab0"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtHairpin_a01"
-          },
-          {
-            "name": "mtHill_a01"
-          },
-          {
-            "name": "rallySmall_a41"
-          },
-          {
-            "name": "mtTour_a01"
-          },
-          {
-            "name": "mtSlalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "gForce_a11"
-          },
-          {
-            "name": "slalom_a11"
-          },
-          {
-            "name": "mtTwisty_a00"
-          },
-          {
-            "name": "mile2_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "speedbump1km_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "rallyMed_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "tokyoDrag_a00"
-          },
-          {
-            "name": "tokyoOverpass_a01"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "drag100150_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "drag60_a01"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "SN JPT 80-90s",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "rallyMed_a41"
-          },
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "testBowlr_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "speedbump12km_a60"
-          },
-          {
-            "name": "gForce_a60"
-          },
-          {
-            "name": "tCircuit_a60"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "rallySmall_a41"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile2_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "oceanHighway_a01"
-          },
-          {
-            "name": "oceanCity_a00"
-          },
-          {
-            "name": "oceanParking_a01"
-          },
-          {
-            "name": "testBowl_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "draglshape_a01"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "runwayLoop_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "airplaneSlalom_a10"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "airplaneHangars_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a11"
-          },
-          {
-            "name": "mtSlalom_a01"
-          },
-          {
-            "name": "mtTwisty_a11"
-          },
-          {
-            "name": "hClimb_a11"
-          },
-          {
-            "name": "rallySmall_a41"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "carPark_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "drag50150_a00"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "tokyoOffRamp_a01"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "drag30130_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB Road to YB",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mnGforce_a00"
-          },
-          {
-            "name": "waterDrag_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mnHairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "mnCityNarrow_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "mnCityLong_a01"
-          },
-          {
-            "name": "hairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mnCityLong_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "mnHairpin_a41"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "mnHairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "gForce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mnCityLong_a00"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "mnGforce_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mnHairpin_a41"
-          },
-          {
-            "name": "mile4r_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "mnCityNarrow_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB USA",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mile2_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanLongDrag_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "oceanSlalom_ac0"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanShortDrag_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "oceanLongDrag_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "oceanLongDrag_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "oceanCity_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "oceanLongDrag_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanSlalom_ac0"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "oceanParking_a00"
-          },
-          {
-            "name": "canyonButte_a41"
-          },
-          {
-            "name": "drag120_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanParking_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "oceanHighway_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanCity_a00"
-          },
-          {
-            "name": "canyonButte_a41"
-          },
-          {
-            "name": "oceanSlalom_ac0"
-          },
-          {
-            "name": "oceanLongDrag_a00"
-          },
-          {
-            "name": "dtRoad_a40"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB Germany",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "fast_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "hClimb_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "forest_a01"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "northloop1_a00"
-          },
-          {
-            "name": "northloop2_a00"
-          },
-          {
-            "name": "northloop3_a00"
-          },
-          {
-            "name": "northloop4_a01"
-          },
-          {
-            "name": "northloop5_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "forest_a01"
-          },
-          {
-            "name": "mtTwisty_a11"
-          },
-          {
-            "name": "forestRiver_ab0"
-          },
-          {
-            "name": "mtIncline_a01"
-          },
-          {
-            "name": "hairpin_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "forestSlalom_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "forestRiver_a41"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mtHairpin_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "northloop_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB UK",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "gForce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "mile2_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "csMed_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "hClimb_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB France",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "forest_a00"
-          },
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "mtTwisty_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "forest_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "forestRiver_a40"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "mtHairpin_a00"
-          },
-          {
-            "name": "mile4_a20"
-          },
-          {
-            "name": "gForce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtTour_a00"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mtHill_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "forestRiver_ab0"
-          },
-          {
-            "name": "mtSlalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mtSlalom_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mtIncline_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "forestSlalom_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "forest_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mtHill_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtHairpin_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB Japan",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "fast_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoBridge_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoDrag_a00"
-          },
-          {
-            "name": "tokyoGforce_a00"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "tokyoGforce_a01"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "mile2_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          },
-          {
-            "name": "rallySmall_a41"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "rallyMed_a41"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "slalom_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "tCircuit_a60"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtTwisty_a60"
-          },
-          {
-            "name": "mtSlalom_a01"
-          },
-          {
-            "name": "frozenLake_ad0"
-          },
-          {
-            "name": "tokyoOffRamp_a01"
-          },
-          {
-            "name": "mtTwisty_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "tokyoBridge_a01"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "mtIncline_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "tokyoLoop_a01"
-          },
-          {
-            "name": "tokyoOffRamp_a01"
-          },
-          {
-            "name": "mtTwisty_a60"
-          },
-          {
-            "name": "tokyoDrag_a01"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "YB Italy",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "drag100_a01"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "forest_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "mile4r_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "fastr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "drag100_a01"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Challenge Leagues",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "mtTour_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mtHairpin_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mtHill_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "World Tour International",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "laguna_a00"
-          },
-          {
-            "name": "nwDrag_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "townSlalom_a00"
-          },
-          {
-            "name": "fastr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "nwCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "nwSlalom_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "townSprint_a00"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "nwGforce_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "northloop1_a00"
-          },
-          {
-            "name": "nwLoop_a00"
-          },
-          {
-            "name": "forest_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "nwCathedral_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "northloop2_a00"
-          },
-          {
-            "name": "mile2_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "townSlalom_a00"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "nwDrag_a00"
-          },
-          {
-            "name": "forest_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "nwCathedral_a01"
-          },
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "canyonTour_a01"
-          },
-          {
-            "name": "laguna_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "nwDrag_a01"
-          },
-          {
-            "name": "canyonTour_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "northloop4_a00"
-          },
-          {
-            "name": "kart_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "townSprint_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "nwTour_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "FR Chamonix",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "canyonTour_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "hairpin_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mtHairpin_a11"
-          },
-          {
-            "name": "hairpin_a50"
-          },
-          {
-            "name": "drag60_a50"
-          },
-          {
-            "name": "canyonTour_a01"
-          },
-          {
-            "name": "rallySmall_a41"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a60"
-          },
-          {
-            "name": "mile4_a60"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "mile2_a60"
-          },
-          {
-            "name": "tCircuit_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mnCityNarrow_a00"
-          },
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mnHairpin_a41"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "csSmall_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "oceanSlalom_ac0"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "tCircuitr_a01"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "gForce_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "forest_a60"
-          },
-          {
-            "name": "slalom_a60"
-          },
-          {
-            "name": "mnHairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "airplaneSlalom_a10"
-          },
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "figureEight_ab0"
-          },
-          {
-            "name": "gForcer_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "USA West Coast",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "drag100_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "mnGforce_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tokyoLoop_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mnCityLong_a00"
-          },
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "tokyoOffRamp_a00"
-          },
-          {
-            "name": "tokyoOverpass_a00"
-          },
-          {
-            "name": "mnCity_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "slalom_a11"
-          },
-          {
-            "name": "mile2_a11"
-          },
-          {
-            "name": "hClimb_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "drag120_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "mile2_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a10"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "drag100_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "mile2_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "JP Atsugi",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "drag120_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "hairpin_a60"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "drag150_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "slalom_a60"
-          },
-          {
-            "name": "gForce_a60"
-          },
-          {
-            "name": "mile4_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "csSmall_a60"
-          },
-          {
-            "name": "mile1_a60"
-          },
-          {
-            "name": "csMed_a60"
-          },
-          {
-            "name": "carPark_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "testBowlr_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "GER Bavaria",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "drag150_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "gForce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "hairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "testBowlr_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "drag100b_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "tCircuit_a60"
-          },
-          {
-            "name": "mile4_a60"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag50150_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "FIN Tykkimaki",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "frozenLake_ad0"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "slalom_a60"
-          },
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "drag100_a20"
-          },
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "hClimb_a20"
-          },
-          {
-            "name": "hClimb_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "hairpin_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a60"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "hairpin_a20"
-          },
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "frozenLake_ad0"
-          },
-          {
-            "name": "slalom_a30"
-          },
-          {
-            "name": "hClimb_a20"
-          },
-          {
-            "name": "hClimb_a11"
-          },
-          {
-            "name": "drag100_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "gForce_a20"
-          },
-          {
-            "name": "mile2_a20"
-          },
-          {
-            "name": "testBowlr_a20"
-          },
-          {
-            "name": "mile1_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalom_a60"
-          },
-          {
-            "name": "gForce_a60"
-          },
-          {
-            "name": "mile2_a60"
-          },
-          {
-            "name": "testBowlr_a60"
-          },
-          {
-            "name": "mile1_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "frozenLake_ad0"
-          },
-          {
-            "name": "mile4_a30"
-          },
-          {
-            "name": "gForce_a30"
-          },
-          {
-            "name": "slalom_a30"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag120_a20"
-          },
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "frozenLake_ad0"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "COL Tatacoa",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "gForce_a10"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "csMed_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "slalom_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a50"
-          },
-          {
-            "name": "mile1_a10"
-          },
-          {
-            "name": "slalom_a10"
-          },
-          {
-            "name": "drag100b_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a50"
-          },
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a50"
-          },
-          {
-            "name": "tRoad_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a10"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "drag100_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a10"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "tRoad_a50"
-          },
-          {
-            "name": "mile4_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hClimb_a10"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "USA Nevada",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "mile2_a20"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a11"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "slalom_a11"
-          },
-          {
-            "name": "mile2_a11"
-          },
-          {
-            "name": "hClimb_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a10"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "drag100_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "drag150_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "testBowl_a10"
-          },
-          {
-            "name": "tCircuit_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a20"
-          },
-          {
-            "name": "gForce_a20"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "drag100_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "slalom_a10"
-          },
-          {
-            "name": "moto_a11"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "gForce_a11"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "UK London",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a10"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a20"
-          },
-          {
-            "name": "tRoad_a20"
-          },
-          {
-            "name": "slalom_a20"
-          },
-          {
-            "name": "mile2_a20"
-          },
-          {
-            "name": "tRoad_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "csSmall_a01"
-          },
-          {
-            "name": "rallySmall_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "kart_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "rallyMed_a40"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "testBowlr_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "drag100_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "testBowlr_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "rallySmall_a40"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "IT Milan",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "hairpin_a60"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "hairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "fastr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile2_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "mile2_a01"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "fast_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag100_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "GER Stuttgart",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "hairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag150_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag50150_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile1r_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "drag150_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "kart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "tCircuit_a60"
-          },
-          {
-            "name": "mile4_a60"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "drag100b_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hClimb_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "gForce_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "UAE Dubai",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "hClimb_a50"
-          },
-          {
-            "name": "mile1_a50"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tRoad_a50"
-          },
-          {
-            "name": "slalom_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "tRoad_a50"
-          },
-          {
-            "name": "hClimb_a50"
-          },
-          {
-            "name": "mile2_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "drag170_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "drag75125_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile2_a50"
-          },
-          {
-            "name": "slalom_a50"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "drag100b_a00"
-          },
-          {
-            "name": "csSmall_a50"
-          },
-          {
-            "name": "mile4_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "gForce_a50"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "hClimb_a50"
-          },
-          {
-            "name": "hairpin_a50"
-          },
-          {
-            "name": "mile4_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag170_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "gForce_a50"
-          },
-          {
-            "name": "mile1_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "drag120_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "hClimb_a50"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "JP Tokyo",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "csMed_a01"
-          },
-          {
-            "name": "gForce_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a01"
-          },
-          {
-            "name": "slalom_a01"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "slalom_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "testBowlr_a01"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "carPark_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "slalom_a60"
-          },
-          {
-            "name": "gForce_a60"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "hairpin_a60"
-          },
-          {
-            "name": "tRoad_a01"
-          },
-          {
-            "name": "drag150_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "hairpin_a00"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "drag30130_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "drag120_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "indoorKart_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "csSmall_a60"
-          },
-          {
-            "name": "mile1_a60"
-          },
-          {
-            "name": "csMed_a60"
-          },
-          {
-            "name": "carPark_a00"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "USA New York",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "drag150_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "tRoad_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4r_a00"
-          },
-          {
-            "name": "drag150_a00"
-          },
-          {
-            "name": "gForcer_a00"
-          },
-          {
-            "name": "slalomr_a00"
-          },
-          {
-            "name": "drag150b_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "carPark_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "mile1_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "indoorKart_a00"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "tRoad_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "testBowl_a00"
-          },
-          {
-            "name": "gForce_a00"
-          },
-          {
-            "name": "mile4_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "csMed_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "hClimb_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a20"
-          },
-          {
-            "name": "gForce_a20"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "csSmall_a00"
-          },
-          {
-            "name": "drag100_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "mile4_a11"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mile2_a20"
-          },
-          {
-            "name": "hClimb_a11"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "testBowlr_a00"
-          },
-          {
-            "name": "moto_a10"
-          },
-          {
-            "name": "testBowl_a10"
-          },
-          {
-            "name": "tCircuit_a10"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "MON Monte Carlo",
-    "matches": [
-      {
-        "races": [
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "tCircuit_a00"
-          },
-          {
-            "name": "fast_a01"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "mnHairpin_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mnCityNarrow_a00"
-          },
-          {
-            "name": "mile4_a00"
-          },
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "mile2_a00"
-          },
-          {
-            "name": "mnHairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallyMed_a40"
-          },
-          {
-            "name": "tRoad_a10"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mile4_a20"
-          },
-          {
-            "name": "tCircuit_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "kart_a00"
-          },
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "fastr_a00"
-          },
-          {
-            "name": "moto_a10"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mnHairpin_a00"
-          },
-          {
-            "name": "drag100b_a01"
-          },
-          {
-            "name": "mnHairpin_a01"
-          },
-          {
-            "name": "tRoad_a60"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mnCity_a00"
-          },
-          {
-            "name": "mnGforce_a00"
-          },
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "mile4_a01"
-          },
-          {
-            "name": "slalom_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "tRoad_a60"
-          },
-          {
-            "name": "hairpin_a01"
-          },
-          {
-            "name": "tRoad_a00"
-          },
-          {
-            "name": "mile4_a50"
-          },
-          {
-            "name": "gForce_a50"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "rallySmall_a40"
-          },
-          {
-            "name": "kart_a01"
-          },
-          {
-            "name": "tCircuit_a01"
-          },
-          {
-            "name": "mile1_a01"
-          },
-          {
-            "name": "mnHairpin_a01"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "waterDrag_a00"
-          },
-          {
-            "name": "tCircuitr_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "hClimb_a10"
-          },
-          {
-            "name": "fast_a00"
-          }
-        ]
-      },
-      {
-        "races": [
-          {
-            "name": "mile1_a00"
-          },
-          {
-            "name": "fast_a00"
-          },
-          {
-            "name": "slalom_a00"
-          },
-          {
-            "name": "mnHairpin_a40"
-          },
-          {
-            "name": "mnCityLong_a00"
-          }
-        ]
-      }
-    ]
-  }
+    {
+        "name": "SN Road to SN",
+        "matches": [
+            {
+                "trackset": [
+                    "tokyoBridge_a01",
+                    "tokyoOverpass_a00",
+                    "mile4_a01",
+                    "tokyoDrag_a01",
+                    "tCircuitr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a10",
+                    "tokyoLoop_a01",
+                    "tokyoBridge_a00",
+                    "mile1r_a00",
+                    "tokyoOffRamp_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a01",
+                    "fast_a00",
+                    "csSmall_a00",
+                    "tokyoGforce_a01",
+                    "csMed_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoDrag_a01",
+                    "tokyoLoop_a00",
+                    "mile1_a01",
+                    "drag100_a10",
+                    "tokyoOverpass_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1r_a00",
+                    "rallyMed_a40",
+                    "drag75125_a00",
+                    "hClimb_a11",
+                    "gForce_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoOverpass_a01",
+                    "drag60_a01",
+                    "tokyoBridge_a01",
+                    "tokyoLoop_a00",
+                    "tokyoDrag_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuitr_a00",
+                    "mile2_a00",
+                    "draglshape_a00",
+                    "runwayDragSlalom_a00",
+                    "rallySmall_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoDrag_a00",
+                    "tokyoOffRamp_a01",
+                    "mile1r_a00",
+                    "tokyoGforce_a01",
+                    "mile4r_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoBridge_a01",
+                    "tokyoOverpass_a00",
+                    "tokyoDrag_a01",
+                    "drag150b_a00",
+                    "tokyoLoop_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoLoop_a00",
+                    "rallyMed_a40",
+                    "tokyoOffRamp_a00",
+                    "drag30130_a00",
+                    "tokyoBridge_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN Orig 2010s",
+        "matches": [
+            {
+                "trackset": [
+                    "tCircuit_a01",
+                    "testBowl_a00",
+                    "kart_a00",
+                    "carPark_a00",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForcer_a00",
+                    "drag100_a00",
+                    "fast_a01",
+                    "mile2_a00",
+                    "csMed_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "gForce_a20",
+                    "mtSlalom_a00",
+                    "slalom_a01",
+                    "carPark_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a20",
+                    "kart_a01",
+                    "indoorKart_a00",
+                    "drag100_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "mile4_a00",
+                    "slalom_a20",
+                    "csMed_a01",
+                    "carPark_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "hClimb_a50",
+                    "fast_a01",
+                    "drag100_a00",
+                    "kart_a01",
+                    "testBowlr_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalom_a20",
+                    "tRoad_a10",
+                    "moto_a11",
+                    "mile2_a20",
+                    "drag100_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "gForce_a00",
+                    "mnHairpin_a00",
+                    "mile1_a00",
+                    "slalomr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hClimb_a11",
+                    "drag100b_a01",
+                    "tCircuit_a00",
+                    "indoorKart_a00",
+                    "mtIncline_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a11",
+                    "testBowlr_a01",
+                    "drag120_a00",
+                    "mile1_a20",
+                    "moto_a10"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN Orig 2000s",
+        "matches": [
+            {
+                "trackset": [
+                    "slalom_a01",
+                    "carPark_a01",
+                    "gForce_a01",
+                    "csMed_a01",
+                    "tokyoLoop_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a01",
+                    "mtSlalom_a01",
+                    "mtIncline_a00",
+                    "hClimb_a00",
+                    "rallySmall_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a01",
+                    "oceanHighway_a00",
+                    "hairpin_a00",
+                    "kart_a00",
+                    "csSmall_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "fastr_a00",
+                    "hairpin_a00",
+                    "tCircuitr_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a01",
+                    "mtSlalom_a00",
+                    "kart_a00",
+                    "forest_a00",
+                    "mtHairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag75125_a00",
+                    "gForce_a50",
+                    "hairpin_a50",
+                    "gForce_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "tRoad_a00",
+                    "mile2_a01",
+                    "drag100b_a01",
+                    "fastr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a11",
+                    "hClimb_a00",
+                    "drag100_a00",
+                    "tRoad_a11",
+                    "rallyMed_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a01",
+                    "gForce_a01",
+                    "slalom_a01",
+                    "indoorKart_a00",
+                    "hairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoGforce_a01",
+                    "tokyoBridge_a01",
+                    "tokyoOverpass_a01",
+                    "tokyoDrag_a01",
+                    "tokyoLoop_a01"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN Orig 80-90s",
+        "matches": [
+            {
+                "trackset": [
+                    "csMed_a01",
+                    "drag100_a00",
+                    "csSmall_a00",
+                    "rallySmall_a40",
+                    "kart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "fast_a00",
+                    "drag120_a00",
+                    "indoorKart_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "hairpin_a01",
+                    "gForce_a50",
+                    "mile4_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mnCity_a00",
+                    "mile2_a00",
+                    "mnHairpin_a01",
+                    "kart_a01",
+                    "drag100b_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallySmall_a40",
+                    "mtHairpin_a01",
+                    "mtTwisty_a01",
+                    "mtSlalom_a00",
+                    "forestRiver_a41"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a01",
+                    "tokyoLoop_a01",
+                    "csMed_a00",
+                    "csSmall_a00",
+                    "tokyoOverpass_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForcer_a00",
+                    "fastr_a00",
+                    "slalomr_a00",
+                    "mile4r_a00",
+                    "testBowlr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a00",
+                    "hairpin_a00",
+                    "gForce_a00",
+                    "fast_a01",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a01",
+                    "kart_a01",
+                    "mile1_a01",
+                    "slalom_a01",
+                    "mile4_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "testBowl_a00",
+                    "tCircuitr_a00",
+                    "drag120_a00",
+                    "mile1r_a00",
+                    "mnHairpin_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN JPT 10-20s",
+        "matches": [
+            {
+                "trackset": [
+                    "kart_a01",
+                    "mtTour_a01",
+                    "slalom_a00",
+                    "runwayDrag_a01",
+                    "airplaneHangars_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallySmall_a40",
+                    "tCircuitr_a00",
+                    "testBowlr_a01",
+                    "hairpin_a00",
+                    "csSmall_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoBridge_a00",
+                    "tokyoLoop_a00",
+                    "tokyoOverpass_a00",
+                    "gForce_a11",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtSlalom_a01",
+                    "forestSlalom_a10",
+                    "drag120_a00",
+                    "forest_a01",
+                    "forestSlalom_a71"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag150b_a00",
+                    "fastr_a00",
+                    "hairpin_a00",
+                    "drag30130_a00",
+                    "drag50150_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForcer_a00",
+                    "tokyoBridge_a01",
+                    "tokyoLoop_a01",
+                    "tokyoOverpass_a00",
+                    "tokyoGforce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a01",
+                    "csMed_a01",
+                    "rallySmall_a40",
+                    "csSmall_a01",
+                    "carPark_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hClimb_a00",
+                    "moto_a10",
+                    "forestRiver_a40",
+                    "mtTwisty_a00",
+                    "mtHairpin_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a01",
+                    "gForce_a00",
+                    "indoorKart_a00",
+                    "tokyoLoop_a00",
+                    "csMed_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag150b_a00",
+                    "draglshape_a00",
+                    "runwayLoop_a01",
+                    "rallyMed_a40",
+                    "drag30130_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN JPT 2000s",
+        "matches": [
+            {
+                "trackset": [
+                    "mnHairpin_a01",
+                    "mnCity_a01",
+                    "mnCityLong_a01",
+                    "mnGforce_a01",
+                    "mile1_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallyMed_a41",
+                    "testBowlr_a01",
+                    "fast_a01",
+                    "tokyoGforce_a01",
+                    "tokyoDrag_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "figureEight_a01",
+                    "tCircuitr_a00",
+                    "serviceRoads_a00",
+                    "speedbump12km_a00",
+                    "draglshape_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a01",
+                    "runwayDragSlalom_a01",
+                    "airplaneHangars_a01",
+                    "airplaneSlalom_a10",
+                    "figureEight_ab0"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtHairpin_a01",
+                    "mtHill_a01",
+                    "rallySmall_a41",
+                    "mtTour_a01",
+                    "mtSlalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalomr_a00",
+                    "gForce_a11",
+                    "slalom_a11",
+                    "mtTwisty_a00",
+                    "mile2_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag30130_a00",
+                    "fastr_a00",
+                    "speedbump1km_a00",
+                    "fast_a01",
+                    "rallyMed_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoLoop_a00",
+                    "testBowlr_a01",
+                    "tokyoDrag_a00",
+                    "tokyoOverpass_a01",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a00",
+                    "drag100150_a00",
+                    "slalomr_a00",
+                    "drag60_a01",
+                    "tokyoLoop_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag120_a00",
+                    "mile1r_a00",
+                    "fastr_a00",
+                    "drag75125_a00",
+                    "tCircuit_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SN JPT 80-90s",
+        "matches": [
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "rallyMed_a41",
+                    "hClimb_a00",
+                    "mile2_a00",
+                    "testBowlr_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "speedbump12km_a60",
+                    "gForce_a60",
+                    "tCircuit_a60",
+                    "csSmall_a01",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a11",
+                    "rallySmall_a41",
+                    "testBowlr_a01",
+                    "kart_a01",
+                    "mile2_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "oceanHighway_a01",
+                    "oceanCity_a00",
+                    "oceanParking_a01",
+                    "testBowl_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalomr_a00",
+                    "tCircuitr_a00",
+                    "draglshape_a01",
+                    "csMed_a00",
+                    "runwayLoop_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "fast_a01",
+                    "airplaneSlalom_a10",
+                    "indoorKart_a00",
+                    "airplaneHangars_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a11",
+                    "mtSlalom_a01",
+                    "mtTwisty_a11",
+                    "hClimb_a11",
+                    "rallySmall_a41"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag75125_a00",
+                    "gForcer_a00",
+                    "slalomr_a00",
+                    "drag150b_a00",
+                    "carPark_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoLoop_a01",
+                    "fast_a01",
+                    "drag50150_a00",
+                    "tokyoDrag_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a01",
+                    "drag120_a00",
+                    "tokyoOffRamp_a01",
+                    "csMed_a01",
+                    "drag30130_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB Road to YB",
+        "matches": [
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "mnGforce_a00",
+                    "waterDrag_a00",
+                    "mile1_a00",
+                    "mnHairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "mnCityNarrow_a00",
+                    "slalomr_a00",
+                    "mnCityLong_a01",
+                    "hairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a11",
+                    "mile2_a00",
+                    "tCircuit_a01",
+                    "fast_a00",
+                    "mnCityLong_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "csSmall_a01",
+                    "mnHairpin_a41",
+                    "csMed_a01",
+                    "mnHairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4r_a00",
+                    "slalom_a00",
+                    "kart_a00",
+                    "tCircuit_a00",
+                    "testBowl_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "csSmall_a01",
+                    "carPark_a00",
+                    "slalomr_a00",
+                    "gForce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "moto_a11",
+                    "tRoad_a00",
+                    "mnCityLong_a00",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalomr_a00",
+                    "mnGforce_a00",
+                    "mile1_a00",
+                    "csMed_a00",
+                    "mile1r_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "indoorKart_a00",
+                    "csMed_a00",
+                    "indoorKart_a00",
+                    "mnHairpin_a41",
+                    "mile4r_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a11",
+                    "mnCityNarrow_a00",
+                    "gForcer_a00",
+                    "fast_a01",
+                    "tCircuit_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB USA",
+        "matches": [
+            {
+                "trackset": [
+                    "oceanHighway_a00",
+                    "tRoad_a00",
+                    "mile1_a00",
+                    "mile1_a00",
+                    "mile2_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanLongDrag_a00",
+                    "hairpin_a00",
+                    "oceanHighway_a00",
+                    "drag100_a00",
+                    "oceanSlalom_ac0"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanShortDrag_a00",
+                    "fastr_a00",
+                    "oceanLongDrag_a00",
+                    "tRoad_a00",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "drag100_a00",
+                    "mile2_a00",
+                    "testBowl_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "mile1_a00",
+                    "fast_a01",
+                    "mile4_a00",
+                    "oceanLongDrag_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanHighway_a00",
+                    "oceanCity_a00",
+                    "gForcer_a00",
+                    "oceanLongDrag_a00",
+                    "hairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanSlalom_ac0",
+                    "testBowl_a00",
+                    "fast_a00",
+                    "mile4r_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "oceanHighway_a00",
+                    "oceanParking_a00",
+                    "canyonButte_a41",
+                    "drag120_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanParking_a00",
+                    "drag100b_a00",
+                    "oceanHighway_a00",
+                    "tCircuitr_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanCity_a00",
+                    "canyonButte_a41",
+                    "oceanSlalom_ac0",
+                    "oceanLongDrag_a00",
+                    "dtRoad_a40"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB Germany",
+        "matches": [
+            {
+                "trackset": [
+                    "hClimb_a00",
+                    "kart_a01",
+                    "mile4_a00",
+                    "gForce_a01",
+                    "fast_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a01",
+                    "mile1_a01",
+                    "hairpin_a01",
+                    "tRoad_a01",
+                    "hClimb_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "forest_a01",
+                    "mtSlalom_a00",
+                    "csSmall_a01",
+                    "slalom_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a01",
+                    "carPark_a01",
+                    "mile2_a00",
+                    "slalom_a01",
+                    "gForce_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "northloop1_a00",
+                    "northloop2_a00",
+                    "northloop3_a00",
+                    "northloop4_a01",
+                    "northloop5_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "forest_a01",
+                    "mtTwisty_a11",
+                    "forestRiver_ab0",
+                    "mtIncline_a01",
+                    "hairpin_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "csMed_a01",
+                    "csSmall_a01",
+                    "tRoad_a11",
+                    "tRoad_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a11",
+                    "fast_a01",
+                    "gForce_a01",
+                    "mile2_a00",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "tCircuit_a01",
+                    "slalom_a01",
+                    "tRoad_a00",
+                    "forestSlalom_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "forestRiver_a41",
+                    "kart_a01",
+                    "mtHairpin_a00",
+                    "hairpin_a01",
+                    "northloop_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB UK",
+        "matches": [
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "tRoad_a00",
+                    "slalomr_a00",
+                    "tCircuitr_a00",
+                    "gForce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "hClimb_a00",
+                    "drag100b_a00",
+                    "slalom_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "slalom_a00",
+                    "gForcer_a00",
+                    "kart_a00",
+                    "mile2_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "testBowl_a00",
+                    "tRoad_a00",
+                    "csMed_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "kart_a01",
+                    "carPark_a00",
+                    "fast_a00",
+                    "csMed_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fastr_a00",
+                    "tCircuitr_a00",
+                    "hairpin_a01",
+                    "slalom_a00",
+                    "hClimb_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "carPark_a01",
+                    "mile4_a00",
+                    "tRoad_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "gForce_a00",
+                    "testBowl_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a01",
+                    "mile4_a00",
+                    "mile2_a00",
+                    "fastr_a00",
+                    "tCircuit_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "hairpin_a00",
+                    "gForce_a00",
+                    "slalom_a00",
+                    "mile4_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB France",
+        "matches": [
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "forest_a00",
+                    "hClimb_a00",
+                    "mtTwisty_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a00",
+                    "tCircuit_a00",
+                    "kart_a00",
+                    "fast_a00",
+                    "forest_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "forestRiver_a40",
+                    "drag100_a00",
+                    "mtHairpin_a00",
+                    "mile4_a20",
+                    "gForce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtTour_a00",
+                    "mtSlalom_a00",
+                    "mile1_a00",
+                    "mtHill_a00",
+                    "tCircuitr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a00",
+                    "hairpin_a00",
+                    "tRoad_a00",
+                    "forestRiver_ab0",
+                    "mtSlalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a00",
+                    "tCircuit_a00",
+                    "gForce_a00",
+                    "mile4_a00",
+                    "hairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "carPark_a00",
+                    "csSmall_a00",
+                    "mtSlalom_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "csSmall_a00",
+                    "mtIncline_a00",
+                    "csSmall_a00",
+                    "forestSlalom_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "forest_a00",
+                    "kart_a00",
+                    "csMed_a00",
+                    "mtHill_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtHairpin_a00",
+                    "tCircuit_a00",
+                    "csSmall_a00",
+                    "csMed_a00",
+                    "tRoad_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB Japan",
+        "matches": [
+            {
+                "trackset": [
+                    "tokyoLoop_a01",
+                    "tokyoGforce_a01",
+                    "gForce_a01",
+                    "carPark_a01",
+                    "fast_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoBridge_a00",
+                    "tCircuit_a01",
+                    "carPark_a01",
+                    "gForce_a01",
+                    "tCircuit_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoDrag_a00",
+                    "tokyoGforce_a00",
+                    "tokyoLoop_a00",
+                    "tokyoGforce_a01",
+                    "tRoad_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a11",
+                    "hairpin_a01",
+                    "tRoad_a11",
+                    "tokyoBridge_a01",
+                    "mile2_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a01",
+                    "tokyoDrag_a01",
+                    "rallySmall_a41",
+                    "kart_a01",
+                    "rallyMed_a41"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a00",
+                    "carPark_a01",
+                    "tCircuit_a01",
+                    "fast_a01",
+                    "slalom_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "tokyoLoop_a01",
+                    "tCircuit_a60",
+                    "mile1_a01",
+                    "slalom_a01",
+                    "gForce_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtTwisty_a60",
+                    "mtSlalom_a01",
+                    "frozenLake_ad0",
+                    "tokyoOffRamp_a01",
+                    "mtTwisty_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "slalom_a01",
+                    "tokyoBridge_a01",
+                    "mile1_a01",
+                    "mtIncline_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a60",
+                    "tokyoLoop_a01",
+                    "tokyoOffRamp_a01",
+                    "mtTwisty_a60",
+                    "tokyoDrag_a01"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "YB Italy",
+        "matches": [
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "slalomr_a00",
+                    "indoorKart_a00",
+                    "mile4_a01",
+                    "kart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "tCircuit_a00",
+                    "drag100b_a00",
+                    "mile1_a00",
+                    "csSmall_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "kart_a00",
+                    "csSmall_a01",
+                    "fast_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4r_a00",
+                    "gForce_a01",
+                    "drag100_a01",
+                    "tCircuitr_a00",
+                    "forest_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "tRoad_a01",
+                    "mile2_a00",
+                    "tCircuitr_a00",
+                    "tCircuit_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a00",
+                    "tRoad_a00",
+                    "gForce_a00",
+                    "carPark_a00",
+                    "indoorKart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForcer_a00",
+                    "kart_a01",
+                    "mile4_a00",
+                    "fast_a01",
+                    "mile4r_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "csSmall_a01",
+                    "gForce_a00",
+                    "indoorKart_a00",
+                    "fastr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "fastr_a00",
+                    "slalom_a00",
+                    "mile2_a00",
+                    "mile1r_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "gForce_a00",
+                    "mile4_a00",
+                    "kart_a00",
+                    "drag100_a01"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Challenge Leagues",
+        "matches": [
+            {
+                "trackset": [
+                    "mtTour_a00",
+                    "mile2_a00",
+                    "mtHairpin_a00",
+                    "tRoad_a00",
+                    "mtHill_a00"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "World Tour International",
+        "matches": [
+            {
+                "trackset": [
+                    "laguna_a00",
+                    "nwDrag_a00",
+                    "mile1_a00",
+                    "townSlalom_a00",
+                    "fastr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a00",
+                    "tCircuit_a00",
+                    "mile4_a00",
+                    "tCircuit_a00",
+                    "nwCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a00",
+                    "nwSlalom_a00",
+                    "tCircuit_a00",
+                    "townSprint_a00",
+                    "kart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "kart_a00",
+                    "mile1_a00",
+                    "nwGforce_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "northloop1_a00",
+                    "nwLoop_a00",
+                    "forest_a00",
+                    "kart_a00",
+                    "tCircuitr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "nwCathedral_a00",
+                    "fastr_a00",
+                    "mile4_a00",
+                    "northloop2_a00",
+                    "mile2_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a01",
+                    "townSlalom_a00",
+                    "mile4_a01",
+                    "nwDrag_a00",
+                    "forest_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a01",
+                    "nwCathedral_a01",
+                    "mile2_a01",
+                    "canyonTour_a01",
+                    "laguna_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "nwDrag_a01",
+                    "canyonTour_a01",
+                    "tCircuit_a01",
+                    "northloop4_a00",
+                    "kart_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a01",
+                    "townSprint_a01",
+                    "slalom_a01",
+                    "kart_a00",
+                    "nwTour_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "389049ed-b1cc-4b75-9cb9-4feb4c9a2de6",
+            "f950fea7-597e-4545-b096-3734c055d807",
+            "6979913c-3d08-4981-bc6c-65c9b9a197d4",
+            "294df16a-f78d-4e15-b5c0-c694af7e3aa5",
+            "74cfa9dd-e0dc-4ec3-8b9d-d63d4fcf6144",
+            "7785b1f8-5b31-48e7-a7fe-63cfea070b9d",
+            "08091c4b-e84d-4502-8b0d-cb36192a5215",
+            "326c9ccc-cbe0-40fc-a228-2b2aff160507",
+            "19690183-b63b-4fd0-b1bf-636a1d2ae2a0",
+            "726715c7-3859-4878-88fc-e164942a9c3c"
+        ]
+    },
+    {
+        "name": "FR Chamonix",
+        "matches": [
+            {
+                "trackset": [
+                    "canyonTour_a00",
+                    "tRoad_a00",
+                    "mile1_a00",
+                    "mile4_a11",
+                    "hairpin_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "mtHairpin_a11",
+                    "hairpin_a50",
+                    "drag60_a50",
+                    "canyonTour_a01",
+                    "rallySmall_a41"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a60",
+                    "mile4_a60",
+                    "tRoad_a60",
+                    "mile2_a60",
+                    "tCircuit_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "csMed_a00",
+                    "mnCityNarrow_a00",
+                    "mnCity_a00",
+                    "tokyoOverpass_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mnHairpin_a41",
+                    "tokyoOverpass_a00",
+                    "csMed_a00",
+                    "tRoad_a11",
+                    "csSmall_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "drag30130_a00",
+                    "mile2_a00",
+                    "csMed_a00",
+                    "hairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "oceanSlalom_ac0",
+                    "fast_a00",
+                    "gForcer_a00",
+                    "mile4_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a00",
+                    "slalom_a01",
+                    "tCircuitr_a01",
+                    "tCircuitr_a00",
+                    "gForce_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "gForce_a00",
+                    "forest_a60",
+                    "slalom_a60",
+                    "mnHairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "airplaneSlalom_a10",
+                    "mnCity_a00",
+                    "gForce_a01",
+                    "figureEight_ab0",
+                    "gForcer_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "f04c8c23-9a33-4c9d-9442-89f09588fdde",
+            "6220e9b3-106c-4b64-9972-40406febc428",
+            "c17c85fc-9140-4e48-8908-ee2c7f101578",
+            "52d32470-aad1-4396-8607-eda7f8f9915b",
+            "687dbd3a-a4ba-435f-a8b0-447ec66c85c1",
+            "cf9f6174-69f6-4b65-8110-2d94a5c0a47e",
+            "a3dd7192-1b17-4573-8958-aa67f8fb51e1",
+            "39d983c8-facb-4610-9509-49f892437207",
+            "0788a60d-52b8-463e-85ed-4429119b3396",
+            "3d55eea5-9799-4b51-a3e5-a452f3ef5b44"
+        ]
+    },
+    {
+        "name": "USA West Coast",
+        "matches": [
+            {
+                "trackset": [
+                    "testBowlr_a01",
+                    "drag100_a01",
+                    "gForce_a01",
+                    "mile2_a01",
+                    "mnGforce_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a00",
+                    "tokyoLoop_a00",
+                    "indoorKart_a00",
+                    "carPark_a00",
+                    "gForcer_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mnCityLong_a00",
+                    "drag30130_a00",
+                    "tokyoOffRamp_a00",
+                    "tokyoOverpass_a00",
+                    "mnCity_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a11",
+                    "mile4_a00",
+                    "slalom_a11",
+                    "mile2_a11",
+                    "hClimb_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a00",
+                    "csMed_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4r_a00",
+                    "drag100_a00",
+                    "gForcer_a00",
+                    "slalomr_a00",
+                    "drag120_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "tRoad_a20",
+                    "slalom_a20",
+                    "mile2_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "slalom_a10",
+                    "slalom_a00",
+                    "tRoad_a00",
+                    "drag100_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "mile1_a00",
+                    "csSmall_a00",
+                    "tRoad_a10",
+                    "mile2_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "testBowl_a00",
+                    "drag100b_a00",
+                    "mile4_a00",
+                    "mile2_a00",
+                    "mile1_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "97127363-7bbe-4e71-957e-15fd467afb60",
+            "1ebd294d-1ecc-457f-af60-8cb3a36b9c21",
+            "2f0e44fd-18d6-4e6f-9b86-fe6cf6ea490c",
+            "eeddffd3-bcc4-482e-b94b-b34f22660843",
+            "c456100f-3b0a-4249-8242-fe76462e99cf",
+            "64f70af1-62aa-4745-b2e0-69f30068a34f",
+            "40648267-8391-4ec2-9dfb-9c746b489c8a",
+            "bf0cb909-a839-41da-a50f-85ebc5a3088c",
+            "a89915dd-4ca1-4b32-945c-8ffa4ccdf1d5",
+            "c233c307-a893-4f70-bfcf-fa3844c4a720"
+        ]
+    },
+    {
+        "name": "JP Atsugi",
+        "matches": [
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "csSmall_a00",
+                    "mile4_a00",
+                    "csMed_a00",
+                    "indoorKart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag30130_a00",
+                    "indoorKart_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "drag120_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "carPark_a00",
+                    "slalom_a00",
+                    "csMed_a00",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "hairpin_a01",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a01",
+                    "slalom_a01",
+                    "kart_a01",
+                    "csMed_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "fastr_a00",
+                    "tRoad_a01",
+                    "hairpin_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "hairpin_a01",
+                    "hairpin_a60",
+                    "tRoad_a01",
+                    "drag150_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a01",
+                    "tRoad_a60",
+                    "slalom_a60",
+                    "gForce_a60",
+                    "mile4_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "csSmall_a60",
+                    "mile1_a60",
+                    "csMed_a60",
+                    "carPark_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuitr_a00",
+                    "testBowlr_a00",
+                    "kart_a00",
+                    "gForce_a00",
+                    "slalom_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "7094277d-d43b-4b83-a9be-8c2563b32ae6",
+            "27e718bb-de0e-4c4c-b970-32240ebed5a8",
+            "037efde1-0000-48ad-867a-59092321257e",
+            "22533fcd-b307-4704-abe8-0885059fb1e7",
+            "175bbd54-5efa-4662-be37-0537a13fbb6d",
+            "c1a7248b-23af-4385-a324-89542f5eddbf",
+            "555b5ba0-1c75-4dd8-893e-5d8f3608c659",
+            "1a69670a-45db-4729-b159-585d6aab0acb",
+            "a7297bba-d3c6-4ada-8bc3-92d6751574ca",
+            "37bd116f-7dd8-4f9e-a353-d61f73c05b2e"
+        ]
+    },
+    {
+        "name": "GER Bavaria",
+        "matches": [
+            {
+                "trackset": [
+                    "gForce_a00",
+                    "mile1r_a00",
+                    "drag100b_a00",
+                    "slalom_a00",
+                    "drag150_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "testBowlr_a01",
+                    "slalom_a01",
+                    "gForce_a01",
+                    "tCircuit_a00",
+                    "kart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hClimb_a10",
+                    "hairpin_a00",
+                    "tRoad_a00",
+                    "drag150b_a00",
+                    "gForce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag75125_a00",
+                    "slalom_a00",
+                    "csMed_a00",
+                    "drag120_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "tRoad_a00",
+                    "tRoad_a01",
+                    "tRoad_a60",
+                    "hairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "fastr_a00",
+                    "kart_a00",
+                    "fast_a01",
+                    "kart_a01",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "slalom_a00",
+                    "gForce_a00",
+                    "kart_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalom_a00",
+                    "testBowlr_a00",
+                    "slalom_a01",
+                    "gForce_a01",
+                    "drag100b_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "mile4_a00",
+                    "tCircuit_a60",
+                    "mile4_a60",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "csSmall_a00",
+                    "carPark_a00",
+                    "csMed_a00",
+                    "drag50150_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "4b3c45a7-2024-4690-943d-15beb573f4bc",
+            "d3bdc856-0937-46bb-b9c5-f13e0e309888",
+            "5725303d-566e-40a6-87b1-a0590d707535",
+            "b4c86fae-499d-4f7c-b29a-b00a26b63517",
+            "f9e0bdad-ac04-4ace-a502-8034cc69778e",
+            "91cd3f77-1897-4ac4-9d43-6cfdfd07356f",
+            "31272df8-b792-4cb0-a244-037c68a07382",
+            "81a05240-b764-43aa-ab09-c24038a4d266",
+            "7fbb1eab-98e1-48d4-970a-2af4a004d72c",
+            "aa48a259-fccb-4b59-875d-378f3ca20b0d"
+        ]
+    },
+    {
+        "name": "FIN Tykkimäki",
+        "matches": [
+            {
+                "trackset": [
+                    "frozenLake_ad0",
+                    "tRoad_a60",
+                    "slalom_a60",
+                    "tRoad_a11",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a20",
+                    "drag100_a20",
+                    "slalom_a20",
+                    "hClimb_a20",
+                    "hClimb_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "tRoad_a00",
+                    "hairpin_a01",
+                    "tRoad_a01",
+                    "hairpin_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a01",
+                    "mile4_a01",
+                    "kart_a01",
+                    "mile2_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a60",
+                    "tRoad_a60",
+                    "hairpin_a20",
+                    "tRoad_a20",
+                    "tRoad_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "frozenLake_ad0",
+                    "slalom_a30",
+                    "hClimb_a20",
+                    "hClimb_a11",
+                    "drag100_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalom_a20",
+                    "gForce_a20",
+                    "mile2_a20",
+                    "testBowlr_a20",
+                    "mile1_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalom_a60",
+                    "gForce_a60",
+                    "mile2_a60",
+                    "testBowlr_a60",
+                    "mile1_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a60",
+                    "frozenLake_ad0",
+                    "mile4_a30",
+                    "gForce_a30",
+                    "slalom_a30"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag120_a20",
+                    "tRoad_a20",
+                    "tCircuit_a01",
+                    "frozenLake_ad0",
+                    "tRoad_a01"
+                ]
+            }
+        ],
+        "h_matches": [
+            "1abc2e9a-b2a8-4811-8bb4-81ab5c09517f",
+            "a34f7c05-22e8-46dd-a326-92073383f6cb",
+            "46f3816c-ed5a-4496-a4c6-37a3e97176e8",
+            "d412692d-9af9-485b-8912-e5c67301f012",
+            "c4254729-dcf9-4c8c-ba2e-60e04723b828",
+            "6213875f-4d36-4b91-8ce8-4f5e1fe09b25",
+            "de632c27-c7e3-49ec-879c-6f9bbef3ad92",
+            "aa445a19-1599-439c-8dd5-73799fbcb9ec",
+            "0d59c803-19a4-4a12-a0cf-e9824b7ab533",
+            "165e0fa5-f9b1-4059-bebd-9b4a40dccde5"
+        ]
+    },
+    {
+        "name": "COL Tatacoa",
+        "matches": [
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "hClimb_a10",
+                    "mile2_a00",
+                    "gForce_a10",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "mile4_a00",
+                    "tRoad_a00",
+                    "mile2_a00",
+                    "csMed_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "tRoad_a10",
+                    "hClimb_a10",
+                    "slalom_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "slalom_a50",
+                    "mile1_a10",
+                    "slalom_a10",
+                    "drag100b_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "mile4_a00",
+                    "slalom_a00",
+                    "tRoad_a10",
+                    "hClimb_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "tCircuitr_a00",
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a50",
+                    "hClimb_a10",
+                    "tRoad_a10",
+                    "slalom_a50",
+                    "tRoad_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a10",
+                    "slalom_a00",
+                    "mile2_a00",
+                    "gForce_a00",
+                    "drag100_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "hairpin_a10",
+                    "tRoad_a10",
+                    "tRoad_a50",
+                    "mile4_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "csSmall_a00",
+                    "mile1_a00",
+                    "tRoad_a00",
+                    "hClimb_a10"
+                ]
+            }
+        ],
+        "h_matches": [
+            "759cf787-a1c3-4c0c-bde6-4346c7dfe4a1",
+            "0b2a330e-5676-49ef-878c-98919dfe9d8e",
+            "4aff2d9e-b498-45cf-98ad-faddf5ad516c",
+            "56d6ddf2-2511-4149-8f85-5152092c82e9",
+            "b7dfbbbf-cb15-40be-a7f1-dc452aa0ab6a",
+            "68435236-14b2-4e93-b593-0890898689f7",
+            "4975077e-849c-4e32-b7ce-899e75722b69",
+            "f75511da-635e-4908-9195-52a2e1187345",
+            "ff24ba0c-02ca-40e5-9c00-23eb4eb2d5ed",
+            "af446182-b9c0-4790-a8b6-c3f874a77ae8"
+        ]
+    },
+    {
+        "name": "USA Nevada",
+        "matches": [
+            {
+                "trackset": [
+                    "moto_a10",
+                    "indoorKart_a00",
+                    "mile4_a11",
+                    "mile1_a00",
+                    "slalom_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "mile1_a00",
+                    "csSmall_a00",
+                    "moto_a10",
+                    "hClimb_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "tRoad_a20",
+                    "slalom_a20",
+                    "mile2_a20"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a11",
+                    "mile4_a11",
+                    "slalom_a11",
+                    "mile2_a11",
+                    "hClimb_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "slalom_a10",
+                    "slalom_a00",
+                    "tRoad_a00",
+                    "drag100_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4r_a00",
+                    "drag150_a00",
+                    "gForcer_a00",
+                    "slalomr_a00",
+                    "drag150b_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuitr_a00",
+                    "testBowl_a00",
+                    "moto_a10",
+                    "testBowl_a10",
+                    "tCircuit_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a20",
+                    "gForce_a20",
+                    "mile4_a11",
+                    "csSmall_a00",
+                    "drag100_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a00",
+                    "csMed_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a10",
+                    "slalom_a10",
+                    "moto_a11",
+                    "mile4_a11",
+                    "gForce_a11"
+                ]
+            }
+        ],
+        "h_matches": [
+            "b8cce1f1-7849-4d85-a22f-33e0018f1114",
+            "e7ea486b-1af8-430f-9db6-4f62587ff987",
+            "73170641-39a3-4fbe-8547-c878e1a893bb",
+            "2716ffd2-4a6a-4369-973b-5e2da947db50",
+            "3fca3106-ee0c-4a82-85bf-c146bbe09c87",
+            "93d7cd1e-db90-427f-8823-93b57cd0e6ef",
+            "2f16f0c5-0039-4b6d-b6f0-52b338298d6b",
+            "e6d3693f-6dcb-44c3-bbd6-4a344ae2daef",
+            "07e73d37-2a28-4873-8b62-b9a45456cac1",
+            "3392bd19-e22e-4826-a28f-cae894105f18"
+        ]
+    },
+    {
+        "name": "UK London",
+        "matches": [
+            {
+                "trackset": [
+                    "rallySmall_a40",
+                    "tRoad_a10",
+                    "slalom_a10",
+                    "tRoad_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a20",
+                    "tRoad_a20",
+                    "slalom_a20",
+                    "mile2_a20",
+                    "tRoad_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a01",
+                    "mile4_a00",
+                    "mile2_a00",
+                    "rallyMed_a40",
+                    "tRoad_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "csMed_a00",
+                    "indoorKart_a00",
+                    "csSmall_a01",
+                    "rallySmall_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "kart_a01",
+                    "tCircuit_a01",
+                    "fast_a01",
+                    "drag100b_a01",
+                    "kart_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "mile1_a00",
+                    "csMed_a00",
+                    "drag100b_a00",
+                    "rallyMed_a40"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallySmall_a40",
+                    "drag100b_a00",
+                    "mile1_a01",
+                    "kart_a01",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100b_a00",
+                    "gForce_a00",
+                    "mile4_a00",
+                    "testBowlr_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fastr_a00",
+                    "tCircuit_a00",
+                    "drag100_a00",
+                    "fast_a01",
+                    "drag100_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "rallyMed_a40",
+                    "testBowlr_a00",
+                    "gForce_a00",
+                    "rallySmall_a40"
+                ]
+            }
+        ],
+        "h_matches": [
+            "a4346f9c-dff6-494f-911a-273e6cedfa29",
+            "facd28f9-b654-4d68-bcb2-24edfd86c8aa",
+            "af500860-60b0-4f50-bdef-e0ae6df494ab",
+            "dec43350-6b2c-4327-9d1c-d14cbad9b299",
+            "ba398bda-0c1c-4488-a2d6-90454cc3c0d9",
+            "af88b64c-47ca-462d-9b6f-f93177d76c18",
+            "31e83866-608f-4769-9932-cc3ca8d28ff5",
+            "bf4d7404-3838-47c7-8365-793ea757391f",
+            "6da0c625-58bc-4d63-8629-cef5dc8c874b",
+            "c0bb2a3f-8144-4d45-b91f-93654c0b64c1"
+        ]
+    },
+    {
+        "name": "IT Milan",
+        "matches": [
+            {
+                "trackset": [
+                    "hairpin_a01",
+                    "hairpin_a60",
+                    "tRoad_a60",
+                    "tRoad_a01",
+                    "hairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "mile1_a00",
+                    "gForce_a00",
+                    "tCircuit_a01",
+                    "fastr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "drag100b_a00",
+                    "gForce_a00",
+                    "csMed_a00",
+                    "mile2_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "csMed_a00",
+                    "slalomr_a00",
+                    "mile1r_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fastr_a00",
+                    "tCircuitr_a00",
+                    "slalom_a00",
+                    "kart_a00",
+                    "slalomr_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "csSmall_a00",
+                    "slalom_a00",
+                    "fast_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "csSmall_a00",
+                    "mile1_a00",
+                    "tRoad_a00",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "testBowlr_a01",
+                    "mile4_a01",
+                    "mile2_a01",
+                    "mile1_a01",
+                    "fast_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "mile2_a00",
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag100_a00",
+                    "testBowl_a00",
+                    "drag100b_a01",
+                    "slalom_a00",
+                    "kart_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "72420723-4882-4f10-9beb-65960d1d8049",
+            "d53e1523-6454-47da-9276-57db0b4c2a72",
+            "6f9888aa-b3be-40ee-8a0c-193f1b40d709",
+            "6854e448-4630-4974-9349-c2ee66ed7795",
+            "83a82409-e61a-4acc-b7ce-794e8f13f750",
+            "57de28fc-67d7-4f5e-a2cf-8ae3a90b78f9",
+            "7a048710-aede-465b-9a6f-b16699e6303a",
+            "a67133ad-844d-49a6-9ae7-a7207bdcf915",
+            "1218a607-1dbe-468d-8181-3e2ae309ec10",
+            "a3a667d9-ea6b-40b2-bb65-8848367fa92e"
+        ]
+    },
+    {
+        "name": "GER Stuttgart",
+        "matches": [
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "tRoad_a00",
+                    "tRoad_a01",
+                    "tRoad_a60",
+                    "hairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag150_a00",
+                    "csSmall_a00",
+                    "carPark_a00",
+                    "csMed_a00",
+                    "drag50150_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "kart_a00",
+                    "fast_a01",
+                    "kart_a01",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a00",
+                    "mile1r_a00",
+                    "drag100b_a00",
+                    "slalom_a00",
+                    "drag150_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "testBowlr_a01",
+                    "slalom_a01",
+                    "gForce_a01",
+                    "tCircuitr_a00",
+                    "kart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "mile4_a00",
+                    "tCircuit_a60",
+                    "mile4_a60",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "slalom_a00",
+                    "testBowl_a00",
+                    "slalom_a01",
+                    "gForce_a01",
+                    "drag100b_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "hClimb_a00",
+                    "hairpin_a00",
+                    "tRoad_a00",
+                    "drag150b_a00",
+                    "gForce_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag75125_a00",
+                    "slalom_a00",
+                    "csMed_a00",
+                    "drag120_a00",
+                    "csSmall_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "slalomr_a00",
+                    "gForce_a00",
+                    "kart_a00",
+                    "tCircuit_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "b37b30ec-4cab-43ad-a632-e7e4999e2813",
+            "576803ef-dfb0-4c6e-8a67-ff0faacb1cb5",
+            "3f42ee29-b0a5-4b69-94a1-df95ca67561a",
+            "87455af1-1110-46fb-b0a1-e4e8ba23b487",
+            "bd49162d-d188-4e23-8e2b-2410fb997f67",
+            "43c084e2-59c2-4ce7-94ad-68d5a3414fea",
+            "b38b9774-dbde-4f59-9abd-0726d9a9c70f",
+            "a19d8337-4b16-4526-a15f-1df9fd09d655",
+            "d06c5609-2eae-4cea-8e24-f6147f1e3ec6",
+            "cb35d7db-db3e-477f-8710-b2bc6359957b"
+        ]
+    },
+    {
+        "name": "UAE Dubai",
+        "matches": [
+            {
+                "trackset": [
+                    "hClimb_a50",
+                    "mile1_a50",
+                    "csMed_a00",
+                    "tRoad_a50",
+                    "slalom_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "drag150b_a00",
+                    "tRoad_a50",
+                    "hClimb_a50",
+                    "mile2_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "csSmall_a00",
+                    "slalom_a00",
+                    "csMed_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "drag170_a00",
+                    "gForce_a00",
+                    "drag75125_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "fast_a00",
+                    "kart_a00",
+                    "testBowl_a00",
+                    "gForce_a00",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile2_a50",
+                    "slalom_a50",
+                    "fast_a00",
+                    "mile1_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "csSmall_a00",
+                    "drag100b_a00",
+                    "csSmall_a50",
+                    "mile4_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "gForce_a50",
+                    "mile1_a00",
+                    "hClimb_a50",
+                    "hairpin_a50",
+                    "mile4_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag170_a00",
+                    "carPark_a00",
+                    "mile1_a00",
+                    "gForce_a50",
+                    "mile1_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "drag120_a00",
+                    "drag150b_a00",
+                    "csSmall_a00",
+                    "hClimb_a50"
+                ]
+            }
+        ],
+        "h_matches": [
+            "8c0d5e7f-134b-4583-975a-6aa6785f0500",
+            "98c48a89-1b25-4312-92f0-6399ecd66f19",
+            "0c9905e6-9726-4b95-b8da-18bbfc85cdaf",
+            "3cb9b37a-8236-4821-9059-22e1c8c1e27b",
+            "8f95094c-c99f-427e-9aee-4d356c2ca315",
+            "1f0565b9-eb36-415f-a419-671851c3deca",
+            "0e3599bc-c2d1-48db-96fe-7f77423e1260",
+            "0b6e1693-060e-4449-bcc8-c2b6f7bd747e",
+            "b6a457da-5b66-4d25-a4e5-15ecc9c89c1b",
+            "e5dc7ff4-d699-4567-9913-1d63be9c5698"
+        ]
+    },
+    {
+        "name": "JP Tokyo",
+        "matches": [
+            {
+                "trackset": [
+                    "hairpin_a01",
+                    "tRoad_a01",
+                    "csMed_a01",
+                    "gForce_a01",
+                    "tCircuit_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a01",
+                    "slalom_a01",
+                    "kart_a01",
+                    "csMed_a00",
+                    "slalom_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuitr_a00",
+                    "testBowlr_a01",
+                    "kart_a00",
+                    "gForce_a00",
+                    "carPark_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a01",
+                    "tRoad_a10",
+                    "slalom_a60",
+                    "gForce_a60",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "hairpin_a00",
+                    "hairpin_a01",
+                    "hairpin_a60",
+                    "tRoad_a01",
+                    "drag150_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "carPark_a00",
+                    "slalom_a00",
+                    "csMed_a00",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "tRoad_a00",
+                    "hairpin_a00",
+                    "hairpin_a01",
+                    "tRoad_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "drag30130_a00",
+                    "indoorKart_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "drag120_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "carPark_a00",
+                    "csSmall_a00",
+                    "mile4_a00",
+                    "csMed_a00",
+                    "indoorKart_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "csSmall_a60",
+                    "mile1_a60",
+                    "csMed_a60",
+                    "carPark_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "7f5c517d-1163-4015-b238-614beec985ad",
+            "3aade8b2-a37d-4177-850f-a90053242c7f",
+            "fa6fe5f8-0ffc-4369-869f-cc94f100f056",
+            "7efeea07-fcf0-45d0-8289-8d2150c3bb98",
+            "e5dda2ee-db61-4209-bc20-3ef018be507d",
+            "5802abc4-6991-438f-ab55-41b45460e7ff",
+            "41e019d3-aa92-47ac-a970-adecc7b33635",
+            "404f8201-c731-4150-be9d-9b00642c7df3",
+            "ab3ca189-ae29-4f73-8f44-eed00bc5644c",
+            "f62d1f4f-01aa-4396-9b34-9849a070dcda"
+        ]
+    },
+    {
+        "name": "USA New York",
+        "matches": [
+            {
+                "trackset": [
+                    "drag150_a10",
+                    "hClimb_a10",
+                    "moto_a10",
+                    "mile1_a00",
+                    "tRoad_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4r_a00",
+                    "drag150_a00",
+                    "gForcer_a00",
+                    "slalomr_a00",
+                    "drag150b_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "mile2_a00",
+                    "carPark_a00",
+                    "csSmall_a00",
+                    "mile1_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "moto_a10",
+                    "indoorKart_a00",
+                    "mile4_a11",
+                    "mile1_a00",
+                    "slalom_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile4_a00",
+                    "mile2_a00",
+                    "mile1_a00",
+                    "slalom_a00",
+                    "tRoad_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csSmall_a00",
+                    "slalom_a00",
+                    "testBowl_a00",
+                    "gForce_a00",
+                    "mile4_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "csMed_a00",
+                    "mile1_a00",
+                    "csSmall_a00",
+                    "moto_a10",
+                    "hClimb_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a20",
+                    "gForce_a20",
+                    "mile4_a11",
+                    "csSmall_a00",
+                    "drag100_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a10",
+                    "mile4_a11",
+                    "slalom_a00",
+                    "mile2_a20",
+                    "hClimb_a11"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuit_a00",
+                    "testBowlr_a00",
+                    "moto_a10",
+                    "testBowl_a10",
+                    "tCircuit_a10"
+                ]
+            }
+        ],
+        "h_matches": [
+            "41930fbc-602f-461d-8e9f-aef320d64050",
+            "5cea17ae-47a7-490d-99e3-cfa89e606efd",
+            "36b068d3-a3e9-40d3-a525-a94f899c964d",
+            "f523f2d1-1c7c-4b5a-95bb-a4f80de8f249",
+            "cbd97eb6-61ab-449c-8168-0bc9b16fae46",
+            "641d9e74-f4ef-4e26-bd64-22e2277da1ca",
+            "232388b3-31a5-4507-9c3a-10d9d416b89c",
+            "8a0c66bf-dc0f-4f7f-a96e-9263e1ed1da3",
+            "4db9a739-70b4-48a0-b8fb-cd94f89b89e9",
+            "916a510e-c9fd-47e1-8a9d-c464823241b5"
+        ]
+    },
+    {
+        "name": "MON Monte Carlo",
+        "matches": [
+            {
+                "trackset": [
+                    "mnCity_a00",
+                    "tCircuit_a00",
+                    "fast_a01",
+                    "kart_a00",
+                    "mnHairpin_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mnCityNarrow_a00",
+                    "mile4_a00",
+                    "mnCity_a00",
+                    "mile2_a00",
+                    "mnHairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallyMed_a40",
+                    "tRoad_a10",
+                    "mile1_a00",
+                    "mile4_a20",
+                    "tCircuit_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "tCircuitr_a00",
+                    "kart_a00",
+                    "rallySmall_a40",
+                    "fastr_a00",
+                    "moto_a10"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a00",
+                    "mnHairpin_a00",
+                    "drag100b_a01",
+                    "mnHairpin_a01",
+                    "tRoad_a60"
+                ]
+            },
+            {
+                "trackset": [
+                    "mnCity_a00",
+                    "mnGforce_a00",
+                    "mile1_a00",
+                    "mile4_a01",
+                    "slalom_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "tRoad_a60",
+                    "hairpin_a01",
+                    "tRoad_a00",
+                    "mile4_a50",
+                    "gForce_a50"
+                ]
+            },
+            {
+                "trackset": [
+                    "rallySmall_a40",
+                    "kart_a01",
+                    "tCircuit_a01",
+                    "mile1_a01",
+                    "mnHairpin_a01"
+                ]
+            },
+            {
+                "trackset": [
+                    "waterDrag_a00",
+                    "tCircuitr_a00",
+                    "slalom_a00",
+                    "hClimb_a10",
+                    "fast_a00"
+                ]
+            },
+            {
+                "trackset": [
+                    "mile1_a00",
+                    "fast_a00",
+                    "slalom_a00",
+                    "mnHairpin_a40",
+                    "mnCityLong_a00"
+                ]
+            }
+        ],
+        "h_matches": [
+            "1a356b47-d433-4924-adeb-38445519b206",
+            "d043fc92-a1c1-4668-b641-0b2ebd3cb649",
+            "b8ea3bb3-a8cb-42a9-ab7b-59fe228be03e",
+            "3788e29b-8817-4dfd-b87e-ebd60cc66a59",
+            "0d39c4b2-3041-4f15-ba98-b6ff799e9ee6",
+            "5d5a1f85-d341-4992-b9a1-81010723d454",
+            "20db4846-be46-48ab-9800-f4af2e815fd9",
+            "7760a097-57d7-41a9-a36d-99779b100886",
+            "4036f66c-464c-4d7e-8590-a48b6cb3e297",
+            "a613cd5b-d194-45ca-9d6c-7a7ebc84a96a"
+        ]
+    }
 ]

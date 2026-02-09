@@ -238,13 +238,13 @@ export default {
               let options = [];
               this.campaign.map((city, icity) => {
                 city.matches.map((match, imatch) => {
-                  match.races.map((rac, irace) => {
-                    if (rac.name === downtime.track) {
+                  match.trackset.map((track, itrack) => {
+                    if (track === downtime.track) {
                       options.push({
                         city: city.name,
                         icity,
                         imatch,
-                        irace,
+                        irace: itrack,
                         code: `${icity}${imatch}`
                       })
                     }
