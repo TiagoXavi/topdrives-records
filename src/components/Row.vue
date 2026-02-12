@@ -563,7 +563,7 @@ export default {
             downList = (car.data[this.tun].times[trackCode] || {}).down;
             upList = (car.data[this.tun].times[trackCode] || {}).up;
             author = (car.data[this.tun].times[trackCode] || {}).u;
-            date = ((car.data[this.tun].times[trackCode] || {}).d || "").slice(0,10);
+            date = ((car.data[this.tun].times[trackCode] || {}).d || 0).toDateFromCounter();
             isTimePredicted = !!(car.data[this.tun].times[trackCode] || {}).isTimePredicted;
           }
           if (text === undefined || text === null) text = "";
@@ -609,7 +609,7 @@ export default {
           downList = (this.customData.data[this.tun].times[trackCode] || {}).down;
           upList = (this.customData.data[this.tun].times[trackCode] || {}).up;
           author = (this.customData.data[this.tun].times[trackCode] || {}).u;
-          date = ((this.customData.data[this.tun].times[trackCode] || {}).d || "").slice(0,10);
+          date = ((this.customData.data[this.tun].times[trackCode] || {}).d || 0).toDateFromCounter();
 
           if (text === '' && this.cgTime) {
             text = this.cgTime;

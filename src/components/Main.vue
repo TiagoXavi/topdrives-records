@@ -8867,37 +8867,6 @@ export default {
       this.cgRoundResultJsonErrorTxt = "";
       if (!this.cgRoundResultJson) return;
 
-
-      Number.prototype.toHHMMSS = function () {
-        var numm = Number(this.toFixed(3).slice(0,-1))
-        var sec_num = parseInt(numm, 10); // don't forget the second param
-        var hours = Math.floor(sec_num / 3600);
-        var minutes = Math.floor((sec_num - hours * 3600) / 60);
-        var seconds = sec_num - hours * 3600 - minutes * 60;
-        var milesi = Math.round((numm - parseInt(numm)) * 100);
-        // if (this * 10000 - Math.round(this) * 10000 >= -5) {
-        //   milesi = 0;
-        //   seconds += 1;
-        // }
-
-        if (hours < 10) {
-          hours = '0' + hours;
-        }
-        if (minutes < 10) {
-          minutes = '0' + minutes;
-        }
-        if (seconds < 10) {
-          seconds = '0' + seconds;
-        }
-        if (milesi < 10) {
-          milesi = '0' + milesi;
-        }
-        return minutes + ':' + seconds + ':' + milesi;
-      };
-      Number.prototype.toTestBowl = function () {
-        return parseInt(this * 2.2369)
-      };
-
       let result = JSON.parse(this.cgRoundResultJson);
       result.resultData.roundData.map((race, irace) => {
         console.log(`result.resultData.roundData.map, ${irace+1}`);

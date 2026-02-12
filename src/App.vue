@@ -282,6 +282,72 @@ export default {
     String.prototype._ = function() {
       return this.replace(/_\$\w/g, "");
     }
+    String.prototype.toDaysCounter = function() {
+      let date1 = new Date(this);
+      if (isNaN(date1.getTime())) return 0;
+      return Math.ceil(Math.abs( (new Date("2024-03-03")) - date1) / (1000 * 60 * 60 * 24));
+    }
+    String.prototype.toTime = function () {
+      return Vue.options.filters.toTimeNumber(this, "");
+    };
+    Number.prototype.toDateFromCounter = function() {
+      let date1 = new Date("2024-03-03");
+      date1.setDate(date1.getDate() + this);
+      return date1.toISOString().split("T")[0];
+    }
+    String.prototype.toDateFromCounter = function () { // temporary
+      return this.slice(0,10);
+    };
+    Number.prototype.toHHMMSS = function () {
+      var numm = Number(this.toFixed(3).slice(0,-1))
+      var sec_num = parseInt(numm, 10); // don't forget the second param
+      var hours = Math.floor(sec_num / 3600);
+      var minutes = Math.floor((sec_num - hours * 3600) / 60);
+      var seconds = sec_num - hours * 3600 - minutes * 60;
+      var milesi = Math.round((numm - parseInt(numm)) * 100);
+      // if (this * 10000 - Math.round(this) * 10000 >= -5) {
+      //   milesi = 0;
+      //   seconds += 1;
+      // }
+      // 29.99971 > 00:30:00
+      // 43.6995 > 00:43:70
+      // 112.3095 > 01:52:31
+      // 43.9495 > 00:43:95
+      // 44.0495 > 00:44:04
+      // 44.2995 > 00:44:29
+      // 44.1995 > 00:44:20
+      // 43.9495 > 00:43:95
+      // 65.4495 > 01:05:45
+      // 43.8495 > 00:43:84
+      // 43.8495 > 00:43:84
+      // 44.1995 > 00:44:20
+      // 43.8495 > 00:43:84
+      // 112.0595 > 01:52:06
+      // 43.8995 > 00:43:90
+      // 43.7995 > 00:43:79
+      // 44.0995 > 00:44:09
+      // 537.6295 > 08:57:63
+
+      if (hours < 10) {
+        hours = '0' + hours;
+      }
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+      if (milesi < 10) {
+        milesi = '0' + milesi;
+      }
+      return minutes + ':' + seconds + ':' + milesi;
+    };
+    Number.prototype.toTestBowl = function () {
+      // 79.57351 > 178
+      // 71.78595 > 160 correct
+      // 79.57351 > 178 correct
+      return parseInt(this * 2.2369);
+    };
 
     let vm = this;
     this.isMobile = Vue.options.filters.isMobile();
