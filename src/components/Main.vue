@@ -1490,7 +1490,6 @@
           <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
-              :disabled="!event.filteringQueryStrings"
               class="D_Button D_ButtonDark D_ButtonTier2"
               @click="openHandRankingDialog()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
             <button
@@ -2208,7 +2207,7 @@
             </div>
             <button
               :class="{ D_Button_Loading: eventBestTeamsLoading }"
-              :disabled="!whatTier || whatTier > 2 || !eventBestTeamsTarget.filteringQueryStrings || eventBestTeamSameAsBefore"
+              :disabled="!whatTier || whatTier > 2 || eventBestTeamSameAsBefore"
               class="D_Button D_ButtonDark D_ButtonTier2"
               @click="getHandRanking($event)">
               <template v-if="eventBestLastLoadingMsg">
@@ -3153,6 +3152,19 @@
           <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_challenges") }}</div>
           <div v-if="user && user.mod" class="Cg_SelectorDialogRight">
             <button
+              v-if="cgCatsConfig && cgCatsNeedSave"
+              :class="{ D_Button_Loading: cgCatsSaving }"
+              class="D_Button D_ButtonDark D_ButtonDarkSave"
+              @click="cgSaveCats()">
+              <i class="ticon-correct_2" aria-hidden="true"/>
+            </button>
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="toggleCgCatsConfig()">
+              <i class="ticon-gear" aria-hidden="true"/>
+            </button>
+            <button
+              :disabled="cgCatsConfig"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgOpenNewCg()">
               <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
@@ -3160,7 +3172,7 @@
             </button>
           </div>
         </div>
-        <div class="Main_SearchMid Cg_SelectorDialogMid">
+        <div v-if="!cgCatsConfig" class="Main_SearchMid Cg_SelectorDialogMid">
           <template v-for="item in cgList">
             <BaseEventName
               v-if="(cgPermanentToggle && item.index > 90) || (cgLongToggle && item.index > 40 && item.index < 90) || item.index < 30"
@@ -3173,6 +3185,30 @@
           <div class="Main_CgListDividerLayout">
             <!-- <BaseSwitch v-model="cgLongToggle" name="cgLongToggle" :label="$t('m_longTerm')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" /> -->
             <BaseSwitch v-model="cgPermanentToggle" name="cgPermanentToggle" :label="$t('m_permanents')" :horizontal="true" @click="afterTogglePermanents('.Cg_SelectorDialogListScroll1 .Cg_SelectorDialogMid')" />
+          </div>
+        </div>
+        <div v-else class="Main_SearchMid Cg_SelectorDialogMid">
+          <div
+            v-for="(value, key, index) in cgCats"
+            :style="`--cor: ${value.color};`"
+            class="Cg_CatsItem">
+            <div class="Cg_CatsIndex">{{ value.index }}</div>
+            <div class="Cg_CatsOrdener">
+              <button
+                class="D_Button Cg_SelectTrackButton"
+                @click="cgCatMoveUp(key)">
+                <i class="ticon-arrow_up_3" aria-hidden="true"/>
+              </button>
+              <!-- <button
+                class="D_Button Cg_SelectTrackButton"
+                @click="">
+                <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+              </button> -->
+            </div>
+            <div class="Cg_CatsName">{{ key }}</div>
+            <div class="Cg_CatsColor">
+              <BaseColorPicker :value="value.color" @change="cgSetColor(key, $event)" />
+            </div>
           </div>
         </div>
       </div>
@@ -3346,7 +3382,8 @@
               :item="item"
               contentClass="BaseEventName_Events"
               @click="loadEventFull(item.date, $event)"
-              @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })" />
+              @longTouch="loadEventFull(item.date, { shiftKey: true, ctrlKey: true })"
+              @needRefresh="eventRefreshDebounce()" />
           </template>
         </div>
       </div>
@@ -3780,6 +3817,7 @@ import BaseCardMini from './BaseCardMini.vue'
 import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
 import BaseCarsPoints from './BaseCarsPoints.vue'
 import BaseSelectNew from './BaseSelectNew.vue'
+import BaseColorPicker from './BaseColorPicker.vue'
 
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
@@ -3826,7 +3864,8 @@ export default {
     BaseCardMini,
     BaseCarsTuneTime,
     BaseCarsPoints,
-    BaseSelectNew
+    BaseSelectNew,
+    BaseColorPicker
   },
   props: {
     phantomCar: {
@@ -3996,6 +4035,10 @@ export default {
       cgDashLoaded: false,
       cgDashListGarageUpgrade: Vue.garageListUpgraded,
       cgReloadIndex: -1,
+      cgCats: {},
+      cgCatsLastSave: null,
+      cgCatsConfig: false,
+      cgCatsSaving: false,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -4083,6 +4126,8 @@ export default {
       },
       eventBestTeamsTarget: {},
       eventBestLastLoadingMsg: null,
+      eventRefreshDebounce: null,
+      eventRefreshResting: false,
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -4530,6 +4575,7 @@ export default {
     let vm = this;
     
     this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 2000);
+    this.eventRefreshDebounce = Vue.debounce(this.autoFireLoadEvents, 100);
 
     this.getLastest();
     this.getStatistics();
@@ -4993,6 +5039,17 @@ export default {
     },
     pngLabel() {
       return this.pngLoading ? this.$t("m_pleaseWait3dot") : this.$t("m_downloadPng")
+    },
+    cgCatsNeedSave() {
+      if (this.mode !== 'challenges') return false;
+      if (!this.user || (this.user && !this.user.mod)) return false;
+      if (this.cgLoadingAny) return false;
+      if (this.cgCatsLastSave === null) return false;
+      if (this.cgCatsLastSave !== JSON.stringify(this.cgCats)) {
+        // console.log(this.cgCatsLastSave, JSON.stringify(this.cgCats));
+        return true;
+      };
+      return false;
     },
     eventNeedSave() {
       if (this.mode !== 'events') return false;
@@ -6975,6 +7032,7 @@ export default {
         // }
 
         this.styleCgList();
+        this.cgBkpCat();
         if (resolveInitial && this.cgCurrentId && this.cgList.find(x => x.date === this.cgCurrentId)) {
           this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
         } else {
@@ -9007,14 +9065,15 @@ export default {
 
     },
     styleCgList() {
-      let chooseColors = {};
-      let listIndexes = {};
+      // let chooseColors = {};
+      // let listIndexes = {};
       let colors = ["#c29cff", "#a9d0ff", "#8dcf8f", "#bfbb3d", "#57d7d7", "#ff8b8b"];
       this.cgList.map(x => {
-        if (x.name.includes(":")) {
+        if (x.name.includes(":") && x.name.includes("(")) {
           x.prefix = x.name.split(":")[0];
-          if (!listIndexes[x.prefix] && x.index) listIndexes[x.prefix] = x.index;
-          if (!chooseColors[x.prefix] && x.color) chooseColors[x.prefix] = x.color;
+          if (!this.cgCats[x.prefix]) Vue.set(this.cgCats, x.prefix, { index: 21, color: null });
+          if ((!this.cgCats[x.prefix].index || this.cgCats[x.prefix].index === 21) && x.index) this.cgCats[x.prefix].index = x.index;
+          if (!this.cgCats[x.prefix].color && x.color) this.cgCats[x.prefix].color = x.color;
         }
       })
       this.cgList.sort((a,b) => {
@@ -9025,8 +9084,8 @@ export default {
         if (x.index === undefined) Vue.set(x, "index", 10);
 
         if (x.prefix) {
-          if (listIndexes[x.prefix]) x.index = listIndexes[x.prefix];
-          if (chooseColors[x.prefix]) x.color = chooseColors[x.prefix];
+          if (this.cgCats[x.prefix].index) x.index = this.cgCats[x.prefix].index;
+          if (this.cgCats[x.prefix].color) x.color = this.cgCats[x.prefix].color;
         }
 
         if (x.name.substr(0, 5) === 'GTT: ') {
@@ -9092,11 +9151,11 @@ export default {
         if (typeof x.romanValue === 'number') {
           let num = this.generateRandom(colors.length-1, x.prefix || "");
           let color;
-          if (x.color) chooseColors[x.prefix] = x.color;
-          if (chooseColors[x.prefix]) color = chooseColors[x.prefix];
+          if (x.color) this.cgCats[x.prefix].color = x.color;
+          if (this.cgCats[x.prefix].color) color = this.cgCats[x.prefix].color;
           else {
             color = colors[num];
-            chooseColors[x.prefix] = color;
+            this.cgCats[x.prefix].color = color;
             colors.splice(num, 1)
           }
           Vue.set(x, "nameStyled", `<span style="color: ${color}">${x.name.slice(0, xIndex+1)}</span>${x.name.slice(xIndex+1)}`);
@@ -9119,6 +9178,60 @@ export default {
 
       // console.log(JSON.parse(JSON.stringify(this.cgList)));
       
+    },
+    cgCatSort() {
+      // sort this.cgCats object by index
+      this.cgCats = Object.fromEntries(
+        Object.entries(this.cgCats).sort(([, a], [, b]) => {
+          return (a.index || 21) - (b.index || 21);
+        })
+      );
+    },
+    cgBkpCat() {
+      this.cgCatSort();
+      this.cgCatsLastSave = JSON.stringify(this.cgCats);
+    },
+    cgCatMoveUp(key) {
+      if (!this.cgCats[key]) return;
+      let index = this.cgCats[key].index;
+      if (index === undefined) index = 21;
+      this.cgCats[key].index = index - 1;
+
+      Object.keys(this.cgCats).map(k => {
+        if (k !== key && this.cgCats[k].index === index - 1) {
+          this.cgCats[k].index = index;
+        }
+      })
+      this.cgCatSort();
+      this.styleCgList();
+    },
+    cgSetColor(key, color) {
+      if (!this.cgCats[key]) Vue.set(this.cgCats, key, {});
+      Vue.set(this.cgCats[key], "color", color);
+      this.styleCgList();
+    },
+    cgSaveCats() {
+      this.cgCatsSaving = true;
+
+      axios.post(Vue.preUrl + "/saveCgCats", {
+        cats: this.cgCats
+      })
+      .then(() => {
+        this.cgBkpCat();
+        this.cgCatsConfig = false;
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.cgCatsSaving = false;
+      });
     },
     cgExportSolutionsToPacks() {
       let rids = [];
@@ -9738,6 +9851,9 @@ export default {
       });
       return problemRounds;
     },
+    toggleCgCatsConfig() {
+      this.cgCatsConfig = !this.cgCatsConfig;
+    },
     garageRemoveFromListUpgraded(index) {
       Vue.removeFromGarageUpgraded(index);
     },
@@ -9748,6 +9864,17 @@ export default {
       }
       let result = sum % (maxInt+1);
       return result;
+    },
+    autoFireLoadEvents() {
+      console.log("autoFireLoadEvents");
+      if (this.eventRefreshResting) return;
+
+      this.loadEvents(false);
+      this.eventRefreshResting = true;
+      // rest 1 hour
+      setTimeout(() => {
+        this.eventRefreshResting = false;
+      }, (1000 * 60 * 60 * 1) + Math.floor(Math.random() * (1000 * 60 * 5))); // add random 0-5 minutes to avoid all users hitting at the same time
     },
     loadEvents(resolveInitial = true, after) {
       this.eventLoading = true;
@@ -12511,6 +12638,11 @@ export default {
         config.clubReqsGroupModel = this.eventBestTeamsTarget.clubReqsGroupModel;
         config.rqLimit = this.eventBestTeamsTarget.rqLimit;
       }
+      if (this.mode === 'events') {
+        // config.filteringQueryStrings = []; // TEMP
+        // config.flexibleCriteriaRequired = []; // TEMP
+        config.eventFilter = this.eventBestTeamsTarget.filter;
+      }
 
       // this.$store.commit("START_LOGROCKET", {});
 
@@ -12574,6 +12706,12 @@ export default {
 
       } catch (error) {
         console.error('Error fetching stream:', error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error.message || error,
+          type: "error"
+        });
         this.eventBestTeamsLoading = false;
         this.eventBestLastLoadingMsg = null;
       }

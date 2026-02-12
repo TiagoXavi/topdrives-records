@@ -163,6 +163,9 @@ export default {
             if (this.type === "acel" && e === "0") {
               e = "N/A"
             }
+            if (isInteger) {
+              e = parseInt(e);
+            }
             this.internalValue = e;
             this.inputed(e);
             this.$emit('change', e);

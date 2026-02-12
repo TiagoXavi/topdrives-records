@@ -299,7 +299,7 @@ function loadGarage(params, force, callBack, errorCallBack) {
   window.axios.post(Vue.preUrl + "/getGarage", params)
   .then(res => {
     if (!params.year) {
-      if (res.data.value.playerDeck) {
+      if (res.data.value?.playerDeck) {
         resolveGarageRes(res.data);
       }
       try {
@@ -883,6 +883,12 @@ export default {
             var diffMins = Math.floor(((diffMs % 86400000) % 3600000) / 60000); // minutes
             var diffSeconds = Math.floor((((diffMs % 86400000) % 3600000) % 60000) / 1000); // seconds
 
+            // use diffDays only if bigger than 72 hours, otherwise show hours and minutes
+            if (diffDays < 2) {
+              diffHrs += diffDays * 24;
+              diffDays = 0;
+            }
+
             if (diffDays) result += `${diffDays}d `;
             if (diffHrs) result += `${diffHrs}h `;
             if (diffMins && !diffDays) result += `${diffMins}m `;
@@ -1130,6 +1136,7 @@ export default {
         };
 
         Vue.tagsDate = {
+          "Ministry of Racing: Crown Pursuit": "2026-01-26",
           "German Powerhaus": "2025-09-08",
           "French Riviera": "2025-06-24",
           "Asia-Pacific Revival": "2025-03-11",

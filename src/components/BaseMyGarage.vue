@@ -517,7 +517,45 @@
             <div class="BaseMyGarage_DialogSubmitTypeSub">{{ $t(`p_${item}GarageDesc`) }}</div>
           </div>
         </div>
-        <div class="BaseMyGarage_ConfigDialogFooter D_Center2" style="margin-top: 40px;">
+        <div v-if="current && isGarageDat" class="BaseMyGarage_ConfigDialogFooter D_Center2" style="margin-top: 40px;">
+          <BaseText
+            v-model="raceQuotaInput"
+            :loading="privacyLoading"
+            class="BaseText_Big"
+            type="integer"
+            label="RQ"
+            placeholder=""
+          />
+          <BaseText
+            v-model="eloScoreInput"
+            :loading="privacyLoading"
+            class="BaseText_Big"
+            type="integer"
+            :label="$t('m_trophyCount')"
+            placeholder=""
+          />
+          <BaseText
+            v-model="garageSlotsInput"
+            :loading="privacyLoading"
+            class="BaseText_Big"
+            type="integer"
+            :label="$t('m_garageSlots')"
+            placeholder=""
+          />
+        </div>
+        <div v-if="current && needSaveElo" class="BaseMyGarage_ConfigDialogFooter D_Center2" style="margin-top: 40px; min-height: 40px;">
+          <button
+            class="D_Button D_ButtonDark"
+            @click="cancelElo()">
+            <span>{{ $t("m_cancel") }}</span>
+          </button>
+          <button
+            class="D_Button D_ButtonDark D_ButtonDarkSave"
+            @click="saveElo()">
+            <span>{{ $t("m_save") }}</span>
+          </button>
+        </div>
+        <div v-else-if="current" class="BaseMyGarage_ConfigDialogFooter D_Center2" style="margin-top: 40px; min-height: 40px;">
           <button
             class="D_Button Main_SaveAllButton"
             @click="changeScreen('upload')">
@@ -726,6 +764,7 @@ import BaseCardMini from './BaseCardMini.vue';
 import BaseCardMiniButton from './BaseCardMiniButton.vue';
 import BaseGameTag from './BaseGameTag.vue';
 import BaseDiscordButton from './BaseDiscordButton.vue';
+import BaseText from './BaseText.vue';
 import rn_to_rid from '../database/rn_to_rid.json';
 import { tdrStore } from '@/tdrStore.js';
 
@@ -794,7 +833,8 @@ export default {
     BaseCardMiniButton,
     BaseCardMini,
     BaseGameTag,
-    BaseDiscordButton
+    BaseDiscordButton,
+    BaseText
   },
   props: {
     test: {
@@ -1032,7 +1072,12 @@ export default {
             }
           }
         }
-      }
+      },
+      current: true,
+      raceQuotaInput: 500,
+      eloScoreInput: 0,
+      garageSlotsInput: 0,
+      eloSaving: false
     }
   },
   watch: {},
@@ -1106,6 +1151,12 @@ export default {
       let timeDiff = endDate.getTime() - this.today.getTime();
       return Math.ceil(timeDiff / (1000 * 3600 * 24));
     },
+    isGarageDat() {
+      return this.userGarage?.registrationDate === "2000-01-01T00:00:00.000Z";
+    },
+    needSaveElo() {
+      return this.isGarageDat && ((this.userGarage.eloScore !== this.eloScoreInput) || (this.userGarage.raceQuota !== this.raceQuotaInput) || (this.userGarage.garageSlots !== this.garageSlotsInput) || this.eloSaving);
+    }
   },
   methods: {
     getLastest(isAutoShare) {
@@ -1168,6 +1219,11 @@ export default {
       if (forceYear) {
         params.year = forceYear;
       }
+      this.current = true;
+      if (forceYear && forceYear != new Date().getFullYear()) {
+        this.current = false;
+      }
+
 
       Vue.loadGarage(params, true, res => {
         this.loading = false;
@@ -1188,7 +1244,12 @@ export default {
           if (res.data.privacy) {
             this.privacyModel = res.data.privacy;
           }
+
           if (res.data.value) {
+            if (res.data.value.raceQuota) this.raceQuotaInput = res.data.value.raceQuota;
+            if (res.data.value.eloScore) this.eloScoreInput = res.data.value.eloScore;
+            if (res.data.value.garageSlots) this.garageSlotsInput = res.data.value.garageSlots;
+
             this.userGarage = res.data.value;
             if (res.data.year) {
               this.updateYearPage(res.data.year);
@@ -1245,15 +1306,25 @@ export default {
       })
     },
     save() {
+      if (this.userGarage?.playerDeck?.length < 1) {
+        this.$store.commit("DEFINE_SNACK", { active: true, error: true, text: "No player deck", type: "error" });
+        return;
+      }
       this.loading = true;
 
       if (this.privacyModel === "private") {
         this.userGarage.private = true;
       }
+      if (this.userGarage.registrationDate === "2000-01-01T00:00:00.000Z") { // garage.dat
+        this.userGarage.raceQuota = Math.max(100, Math.min(500, this.raceQuotaInput)) || 500;
+        this.userGarage.eloScore = Math.max(0, this.eloScoreInput) || 0;
+        this.userGarage.garageSlots = Math.max(0, this.garageSlotsInput) || 0;
+      }
 
       axios.post(Vue.preUrl + "/setGarage", this.userGarage)
       .then(res => {
         this.loading = false;
+        this.eloSaving = false;
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,
@@ -1273,6 +1344,7 @@ export default {
       })
       .catch(error => {
         this.loading = false;
+        this.eloSaving = false;
         console.log(error);
         this.$store.commit("DEFINE_SNACK", {
           active: true,
@@ -2029,6 +2101,31 @@ export default {
         });
       })
     },
+    saveElo() {
+      this.eloSaving = true;
+      this.userGarage.playerDeck = this.tdrFormatToUploadFormat(this.userGarage.playerDeck);
+      this.save();
+    },
+    cancelElo() {
+      this.raceQuotaInput = this.userGarage.raceQuota || 500;
+      this.eloScoreInput = this.userGarage.eloScore || 0;
+      this.garageSlotsInput = this.userGarage.garageSlots || 0;
+    },
+    tdrFormatToUploadFormat(deck) {
+      if (!deck || deck.length === 0) return [];
+      if (!deck[0].cardRecordId) return [];
+      return deck.map(item => {
+        return [
+          item.cardRecordId,
+          rn_to_rid.indexOf(item.rid),
+          item.date.length === 17 ? item.date.slice(2, 13) : item.date,
+          item.tunZ !== "000" ? item.tunZ : 0,
+          item.cW || 0,
+          item.cL || 0,
+          item.cD || 0
+        ]
+      })
+    },
     tileClick(hlItem, key) {
       // key = "oldestNoUse"
       // hlItem.filter
@@ -2157,9 +2254,9 @@ export default {
       if (this.userGarage.garageSlots && this.userGaragePast.garageSlots) {
         this.otherDiffStats.garageSlots = this.userGarage.garageSlots - this.userGaragePast.garageSlots;
       }
-      if (this.userGarage.garageSlotsUsed && this.userGaragePast.garageSlotsUsed) {
-        this.otherDiffStats.garageSlotsUsed = this.userGarage.garageSlotsUsed - this.userGaragePast.garageSlotsUsed;
-      }
+      // if (this.userGarage.garageSlotsUsed && this.userGaragePast.garageSlotsUsed) {
+      //   this.otherDiffStats.garageSlotsUsed = this.userGarage.garageSlotsUsed - this.userGaragePast.garageSlotsUsed;
+      // }
 
       // let maxedTunZ = ["996", "969", "699"];
       let duplicateUnconflict = {};
@@ -2468,7 +2565,7 @@ export default {
 
       this.userGarage = {
         date: new Date().toISOString(),
-        region: "-",
+        region: this.userGarage.region || "-",
         registrationDate: "2000-01-01T00:00:00.000Z",
         raceQuota: 500,
         eloScore: 0,

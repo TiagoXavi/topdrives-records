@@ -67,6 +67,15 @@ if (import.meta.env.PROD) {
   Vue.preUrl = window.location.origin.replace(window.location.port, "3000");
   Vue.preUrlCharlie = window.location.origin.replace(window.location.port, "3001");
   window.documentTitle();
+
+  // import('timemachine').then((module) => {
+  //   // Use the module's exported functions
+  //   window.timemachine = module.default;
+  //   timemachine.config({
+  //     keepTime: true,
+  //     difference: 1000 * 60 * 60 * 1 // 1 hour in future
+  //   });
+  // })
 }
 
 new Vue({

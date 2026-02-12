@@ -846,6 +846,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   background-color: rgba(255,255,255,0.03);
   --back-opac: 0.2;
 }
+.D_ButtonDarkSave {
+  --back-color: 49, 141, 8;
+  --back-opac: 1;
+  background-color: rgba(var(--back-color), 0.7);
+  color: white;
+}
 .D_ButtonBig {
   padding: 12px 15px;
 }
@@ -3082,6 +3088,10 @@ body .Main_UserTw3:before {
   font-size: 14px;
   --height: 27px;
 }
+.Cg_SelectorDialogRight {
+  display: flex;
+  gap: 5px;
+}
 .Cg_SelectorDialogHeader {
   background-color: var(--d-back);
   display: flex;
@@ -3467,6 +3477,22 @@ body .Main_UserTw3:before {
 }
 .Main_IsRqSavers .Cg_BankPointsNew:not(.Cg_BankPointsNewRqSavers) {
   display: none;
+}
+.Cg_CatsItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.Cg_CatsOrdener {
+  display: flex;
+  height: 34px;
+}
+.Cg_CatsOrdener > button {
+  /* height: 50%; */
+  min-height: unset;
+}
+.Cg_CatsName {
+  color: var(--cor);
 }
 
 

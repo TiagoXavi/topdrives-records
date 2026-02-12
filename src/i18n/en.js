@@ -328,6 +328,8 @@ export default {
   m_sPrizes: "Legendary prizes",
   m_submit: "Submit",
   m_clearGarageCache: "Clear garage cache",
+  m_trophyCount: "Trophy count",
+  m_garageSlots: "Garage slots",
 
 
 

@@ -45,7 +45,9 @@ export default {
   },
   beforeMount() {},
   mounted() {
-    this.calcResult(); // first quick
+    let shouldContinue = this.calcResult(); // first quick
+    if (!shouldContinue) return;
+
     this.inverval = setInterval(() => {
       this.calcResult();
       // console.log("a")
@@ -74,6 +76,7 @@ export default {
 
           if (this.quickMs < 0) {
             clearInterval(this.inverval);
+            return false;
           }
         } else {
           var now = new Date();
@@ -88,15 +91,18 @@ export default {
   
           this.result = res;
           if (this.mini) this.result = this.result.split(" ")[0];
-          if (this.hideNegative && now > Date2) this.result = "";
+          if (this.hideNegative && now > Date2) {
+            this.result = "";
+            this.firstTimeNegative();
+          }
 
-          console.log("BaseRemainingTime", nextUpdateInMs);
+          if (import.meta.env.DEV) console.log("BaseRemainingTime", nextUpdateInMs);
 
           if (!this.result) {
             this.quickMs = null;
             clearInterval(this.inverval);
             clearTimeout(this.timeout);
-            return;
+            return false;
           }
   
           if (nextUpdateInMs > 1000) {
@@ -112,6 +118,12 @@ export default {
 
       }
 
+    },
+    firstTimeNegative() {
+      if (this.$listeners.ended) {
+        // console.log("Emitting ended event");
+        this.$emit("ended");
+      }
     }
   },
 }

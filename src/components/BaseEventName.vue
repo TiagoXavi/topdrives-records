@@ -24,6 +24,7 @@
         :hideNegative="true"
         :mini="true"
         :showClock="false"
+        @ended="endedFunc()"
         class="BaseEventName_Timer"
       />
 
@@ -117,7 +118,12 @@ export default {
       return result;
     }
   },
-  methods: {},
+  methods: {
+    endedFunc() {
+      this.$emit('needRefresh', this.item);
+      // console.log("Event ended", this.item.name);
+    }
+  },
 }
 </script>
 
