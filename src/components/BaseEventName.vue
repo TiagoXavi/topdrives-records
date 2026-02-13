@@ -24,7 +24,7 @@
         :hideNegative="true"
         :mini="true"
         :showClock="false"
-        @ended="endedFunc()"
+        @ended="!started ? endedFunc() : null"
         class="BaseEventName_Timer"
       />
 
