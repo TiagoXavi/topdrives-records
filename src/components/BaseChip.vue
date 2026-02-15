@@ -7,7 +7,8 @@
     @touchstart="touchstart($event)"
     @touchend="touchend($event)"
     @touchmove="touchmove($event)">
-    <span class="BaseChip_Text"><slot>{{ label ? label : (dicio && dicio[value] ? dicio[value] : value) }}</slot></span>
+    <!-- <span class="BaseChip_Text"><slot>{{ label ? label : (dicio && dicio[value] ? dicio[value] : value) }}</slot></span> -->
+    <span class="BaseChip_Text"><slot>{{ label ? label : value }}</slot></span>
     <span v-if="!isNaN(counter) && counter !== 0" class="BaseChip_Sub">{{ counter }}</span>
   </button>
 </template>
@@ -35,12 +36,12 @@ export default {
       type: [String, Number, Boolean, Object, Array],
       default: false
     },
-    dicio: {
-      type: Object,
-      default() {
-        return null
-      }
-    },
+    // dicio: {
+    //   type: Object,
+    //   default() {
+    //     return null
+    //   }
+    // },
     activeClass: {
       type: String,
       default: 'D_ButtonActive'
@@ -64,7 +65,11 @@ export default {
     oneOnly: {
       type: Boolean,
       default: false
-    }
+    },
+    name: {
+      type: String,
+      required: false
+    },
   },
   data() {
     return {
@@ -114,15 +119,24 @@ export default {
         }
 
         if ((this.isRequired && newValue.length > 0) || !this.isRequired) {
-          if (e) this.$emit('click', { newValue, e });
-          else this.$emit('click', newValue);
+          if (e) this.toEmit({ newValue, e });
+          else this.toEmit(newValue);
         }
       } else if (this.value !== null) {
-        if (e) this.$emit('click', { newValue: isChecked || this.isRequired ? this.value : null, e });
-        else this.$emit('click', isChecked || this.isRequired ? this.value : null);
+        if (e) this.toEmit({ newValue: isChecked || this.isRequired ? this.value : null, e });
+        else this.toEmit(isChecked || this.isRequired ? this.value : null);
       } else {
-        if (e) this.$emit('click', { newValue: isChecked ? true : false, e });
-        else this.$emit('click', isChecked ? true : false);
+        if (e) this.toEmit({ newValue: isChecked ? true : false, e });
+        else this.toEmit(isChecked ? true : false);
+      }
+      
+    },
+    toEmit(toEmit) {
+      this.$emit('click', toEmit);
+      if (this.name) {
+        setTimeout(() => {
+          window.localStorage.setItem(this.name, toEmit instanceof Object && !(toEmit instanceof Array) ? JSON.stringify(toEmit) : toEmit);
+        }, 10);
       }
     },
     touchstart(e) {

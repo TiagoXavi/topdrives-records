@@ -330,6 +330,7 @@ export default {
   m_clearGarageCache: "Clear garage cache",
   m_trophyCount: "Trophy count",
   m_garageSlots: "Garage slots",
+  m_expanded: "Expanded",
 
 
 

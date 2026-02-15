@@ -92,10 +92,10 @@
         </button>
         <div
           v-if="showBestPerTrack && Array.isArray(trackMonoArray) && trackMonoArray[0] && eventBestPerTrack[(trackMonoArray[0].code) || '']"
-          :style="`--cor: ${ eventBestPerTrack[trackMonoArray[0].code].color }`"
+          :style="`--cor: ${ Vue.all_carsObj[eventBestPerTrack[trackMonoArray[0].code].rid]?.color }`"
           class="BaseEventTrackbox_BestBox">
           <div class="BaseEventTrackbox_BestPhoto">
-            <img :src="eventBestPerTrack[trackMonoArray[0].code].photo" class="BaseEventTrackbox_BestImg" alt="">
+            <img :src="Vue.all_carsObj[eventBestPerTrack[trackMonoArray[0].code].rid]?.photo" class="BaseEventTrackbox_BestImg" alt="">
             <div class="BaseEventTrackbox_BestTune" :class="`BaseEventTrackbox_BestTune${eventBestPerTrack[trackMonoArray[0].code].tune}`">{{ eventBestPerTrack[trackMonoArray[0].code].tune }}</div>
           </div>
         </div>
@@ -238,6 +238,7 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
       T_S: tdrStore(),
       isMobile: false,
       itrackset: null,

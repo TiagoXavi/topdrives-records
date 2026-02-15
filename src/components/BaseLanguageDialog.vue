@@ -2,6 +2,7 @@
   <BaseDialog
     :active="active"
     :transparent="false"
+    :lazy="true"
     max-width="460px"
     min-width="240px"
     @close="$emit('close')">
