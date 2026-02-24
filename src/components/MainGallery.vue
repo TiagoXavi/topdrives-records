@@ -565,7 +565,7 @@ export default {
           "Marilyn's Collection 2",
           "Motorsport",
           "Muscle Car",
-          "Ministry of Racing: Crown Pursuit",
+          "Crown Pursuit",
           "New Beginnings",
           "Nightmare Fuel",
           "Niklas' Collection",

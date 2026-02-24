@@ -632,7 +632,7 @@ export default {
   --tag-s: 84%;
   --tag-l: 74%;
 }
-.BaseGameTag_Ministry_of_Racing\:_Crown_Pursuit {
+.BaseGameTag_Crown_Pursuit {
   --tag-h: 42;
   --tag-s: 76%;
   --tag-l: 60%;
