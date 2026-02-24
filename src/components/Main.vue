@@ -7754,7 +7754,7 @@ export default {
       let tune = car.selectedTune;
       let carData = Vue.all_cacheObj[car.rid];
       let track = race.track;
-      let trackname = vm.$t(`t_${race.track.slice(0, -4)}`);
+      let trackname = vm.$t(`t_${(race.track||"").replace("Z50","").slice(0, -4)}`);
 
 
       let action = function() {
@@ -8301,7 +8301,7 @@ export default {
           let surf = track.slice(-2);
           if (surf) {
             let key;
-            if ( surf[0] === "0" && bump.includes((track).slice(0, -4)) ) {
+            if ( surf[0] === "0" && bump.includes((track||"").replace("Z50","").slice(0, -4)) ) {
               if (surf[1] === "0") key = "clearance";
               else key = "clearanceW";
             }

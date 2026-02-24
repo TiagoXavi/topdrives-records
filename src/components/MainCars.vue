@@ -322,6 +322,7 @@ export default {
       Vue: Vue,
       T_S: tdrStore(),
       filterDialog: false,
+      ready: false,
       sizes: [
         { width: 68, aspect: '415 / 256', fsize: 5 },
         { width: 200, aspect: '415 / 256', fsize: 10 },
@@ -402,7 +403,7 @@ export default {
           width: 68,
           aspect: '415 / 256',
           fsize: 5,
-          sortMethod: 'rq',
+          sortMethod: 'R_Medals_score',
           sortDesc: true,
           expanded: false,
           cols: {
@@ -444,11 +445,12 @@ export default {
   mounted() {
     this.debounceFilter = Vue.debounce(this.loadCars, 500);
     this.debounceChangedLong = Vue.debounce(this.changedLong, 1000);
-    this.loadCars();
 
     if (this.$refs.mainCarsFiltRef) {
       this.$refs.mainCarsFiltRef.searchFilters.tunes = this.$refs.mainCarsFiltRef.searchFilters.tunes.filter(x => x !== "Best");
     }
+
+    this.prepareCars();
   },
   computed: {
     ...mapState(tdrStore, ["_Mcars", "_user"]),
@@ -495,7 +497,13 @@ export default {
     }
   },
   methods: {
+    async prepareCars() {
+      await Vue.carsCompile("R_Medals");
+      this.ready = true;
+      this.loadCars();
+    },
     loadCars() {
+      if (!this.ready) return;
       Vue.tryLoadGarageFromStorage();
       if (this._Mcars.isGarage) {
         if (!this.T_S._user || !this.T_S._user.hasGarage) {
@@ -524,10 +532,10 @@ export default {
       
       this.cars = result;
       this.sortCars();
-      this.checkCompilations();
       this.saveLocal();
     },
     loadByGarage() {
+      if (!this.ready) return;
       let keys = [];
       let isInvalid = Vue.garageObj.loaded === false;
       if (!isInvalid) {
@@ -561,7 +569,6 @@ export default {
       
       this.cars = result;
       this.sortCars();
-      this.checkCompilations();
       this.saveLocal();
     },
     matchFilter(car, hCar) {
@@ -569,6 +576,7 @@ export default {
       return true;
     },
     sortCars() {
+      if (!this.ready) return;
       if (this.cars.length === 0) return;
 
       let propKey = this._Mcars.sortMethod;
@@ -667,13 +675,6 @@ export default {
       } else {
         return Vue.all_carsObj[b.rid]?.rq - Vue.all_carsObj[a.rid]?.rq;
       }
-    },
-    async checkCompilations() {
-      if (this.cars.length === 0) return;
-
-      if (Vue.all_carsObj[this.cars[0].rid]?.["R_Medals_score"] === undefined) await Vue.carsCompile("R_Medals");
-      // console.log(Vue.all_carsObj[this.cars[0].rid]?.["R_Medals_score"]);
-
     },
     changedLong() {
       this.saveLocal();

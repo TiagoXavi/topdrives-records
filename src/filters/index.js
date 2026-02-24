@@ -12,6 +12,7 @@ const classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255
 const countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
 const letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
 var ignore50points = false;
+var R_MedalsLoaded = false;
 
 function resolveClass(rq, classe, type, rgb = false) {
     let resultClass;
@@ -1236,6 +1237,7 @@ export default {
         };
         Vue.carsCompile = async function (type) {
           if (type === "R_Medals") {
+            if (R_MedalsLoaded) return;
             let obj = await import('../compilations/R_Medals_Light.json');
             
             let rid;
@@ -1245,6 +1247,7 @@ export default {
                 Vue.set(Vue.all_carsObj[rid], "R_Medals_score", value);
               }
             });
+            R_MedalsLoaded = true;
           }
         };
         Vue.getRMedals = function (rids, rns = [], callBack, errorCallBack) {

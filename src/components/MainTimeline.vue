@@ -1237,6 +1237,7 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
       all_cars,
       user: null,
       unsubscribe: null,
