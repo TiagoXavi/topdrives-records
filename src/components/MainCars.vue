@@ -839,6 +839,7 @@ export default {
         this._Mcars.sortMethod = column;
       }
       this.sortCars();
+      this.debounceChangedLong();
     },
     hoverHandle(e, isOut) {
       if (

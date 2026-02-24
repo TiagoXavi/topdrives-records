@@ -964,13 +964,17 @@ export default {
             for (let X = 0; X < tracksPerc[trackCode].length; X++) {
                 if (
                     skipAsphalt &&
+                    (/_a[A-Z]/.test(trackCode.slice(-4,-1)) ? index===0 : true) &&
                     (
                         tracksPerc[trackCode][X][0] === "00" ||
                         (tracksPerc[trackCode][X][0] === "01" && trackCode !== "figureEight_a01") ||
                         tracksPerc[trackCode][X][1] === 1
                     )
                 ) {
-                    continue;
+                  if ((index === 0 && /_a[A-Z]/.test(trackCode.slice(-4,-1)))) {
+                    curr++;
+                  }
+                  continue;
                 }
                 if (index === curr) {
                     if (!isCode) return `${tracksPerc[trackCode][X][1]}%`;
