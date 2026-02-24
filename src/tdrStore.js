@@ -50,11 +50,23 @@ export const tdrStore = defineStore('main', {
       changed: () => {},
       newIndex: () => {}
     },
+    _g_cFull: {
+      dialog: false,
+      car: {},
+      tuneDialogCarIndex: 0,
+      carDetailsList: [],
+      showMove: false,
+      showTunes: false,
+      close: () => {},
+      changed: () => {},
+      newIndex: () => {}
+    },
 
     _match: null, //MainMatchSimulator
     _Mcars: null, //MainCars
     _Mtracks: null, //MainTracks
     _user: null,
+    _lastest: null,
   }),
 
   getters: {

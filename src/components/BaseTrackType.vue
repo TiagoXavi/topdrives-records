@@ -187,7 +187,8 @@ export default {
 }
 .BaseTrackType_Icon .TdIconCondPerc {
   margin-left: 1px;
-  font-size: 10px;
+  font-size: 11px;
+  /* opacity: 0.8; */
 }
 .Main_OptionsTrackset .BaseTrackType_Item {
   flex-direction: column;
@@ -216,4 +217,53 @@ export default {
 /* .Main_OptionsTrackset .Main_CustomTrackItem:hover .TdIconCondRel,
 .Main_OptionsTrackset .Main_CustomTrackItem:focus-within .TdIconCondRel {
 } */
+.Main_CustomTrackItem .TdIconCondPercGroup {
+  transition-duration: 0.12s;
+  transition-timing-function: linear;
+  opacity: 1;
+}
+.Main_CustomTrackItem:not(:hover) .BaseTrackType_Item:not(.BaseTrackType_Active) .TdIconCondPercGroup {
+  opacity: 0;
+  margin-top: -9px;
+}
+.BaseTrackType_Button.Type_A1 {
+  background: linear-gradient(to right, rgba(var(--color-wet), 0.0), rgba(var(--color-wet), 0.2));
+}
+.BaseTrackType_Button.Type_B1 {
+  background: linear-gradient(to right, rgba(var(--color-wet), 0.2), rgba(var(--color-wet), 0.0));
+}
+.BaseTrackType_Button.Type_C0 {
+  background: linear-gradient(to right, rgba(var(--color-sand), 0.0), rgba(var(--color-sand), 0.2));
+}
+.BaseTrackType_Button.Type_D0 {
+  background: linear-gradient(to right, rgba(var(--color-snow), 0.0), rgba(var(--color-snow), 0.2));
+}
+.BaseTrackType_Button.Type_E0 {
+  background: linear-gradient(to right, rgba(var(--color-dirt), 0.0), rgba(var(--color-dirt), 0.2));
+}
+.BaseTrackType_Button.Type_A1,
+.BaseTrackType_Button.Type_C0,
+.BaseTrackType_Button.Type_D0,
+.BaseTrackType_Button.Type_E0 {
+  box-shadow: inset -24px 0px 0px 0px rgba(var(--ccond), 0.1);
+}
+.BaseTrackType_Button.Type_B1 {
+  box-shadow: inset 24px 0px 0px 0px rgba(var(--ccond), 0.1);
+}
+
+.Type_A1 .path00:before,
+.Type_B1 .path1:before,
+.Type_C0 .path00:before,
+.Type_D0 .path00:before,
+.Type_E0 .path00:before {
+  transition-duration: 0.12s;
+}
+.Main_CustomTrackItem:not(:hover) .Type_A1:not(.BaseTrackType_Active) .path00:before,
+.Main_CustomTrackItem:not(:hover) .Type_B1:not(.BaseTrackType_Active) .path1:before,
+.Main_CustomTrackItem:not(:hover) .Type_C0:not(.BaseTrackType_Active) .path00:before,
+.Main_CustomTrackItem:not(:hover) .Type_D0:not(.BaseTrackType_Active) .path00:before,
+.Main_CustomTrackItem:not(:hover) .Type_E0:not(.BaseTrackType_Active) .path00:before {
+  color: rgba(var(--ccond), 0.8);
+  opacity: 0.4;
+}
 </style>

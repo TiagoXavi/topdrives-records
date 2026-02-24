@@ -34,8 +34,18 @@ export default {
       type: Boolean,
       default: false
     },
+    checks: {
+      type: Boolean,
+      default: false
+    },
+    dialogConfig: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
     list: {
-      type: Array,
+      type: [Array, Object],
       default() {
         return []
       }
@@ -50,12 +60,18 @@ export default {
       type: String,
       required: false
     },
+    itemLabel: {
+      type: Function,
+      default(item) {
+        return item;
+      }
+    }
   },
   beforeMount() {
     if (this.name) {
       let value = window.localStorage.getItem(this.name);
       if (value) {
-        value = JSON.parse(value);
+        if (!isNaN(value)) value = Number(value);
         this.$emit('change', value);
       }
     }
@@ -79,19 +95,21 @@ export default {
 
       vm.$store.commit("DEFINE_DIALOG", {
         active: true,
-        minWidth: "240px",
+        minWidth: vm.dialogConfig.minWidth || "240px",
         title: "",
         error: false,
         transparent: true,
         disabled: false,
         action: action,
         loading: false,
-        maxWidth: "420px",
+        maxWidth: vm.dialogConfig.maxWidth || "420px",
         hideFooter: true,
         advanced: {
           label: vm.label ? vm.label : vm.$t('m_select'),
           type: "list",
           list: vm.list,
+          itemLabel: vm.itemLabel,
+          checks: vm.checks,
           model: vm.value,
           placeholder: "",
           typeText: "normal",
@@ -110,12 +128,15 @@ export default {
   padding: 6px 10px;
   gap: 4px;
   min-width: 80px;
+  background-clip: padding-box;
 }
 .BaseSelectNew_Left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+  flex-grow: 1;
+  max-width: 100%;
 }
 .BaseSelectNew_Label {
   font-size: 0.7em;
@@ -123,5 +144,13 @@ export default {
 }
 .BaseSelectNew_Right {
   margin-right: -5px;
+}
+.BaseSelectNew_Value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: -1px;
+  padding-bottom: 1px;
 }
 </style>

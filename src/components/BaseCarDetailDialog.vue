@@ -4,6 +4,7 @@
     :transparent="false"
     :style="`--class-color: ${carClassColor};`"
     :useColor="true"
+    :lazy="true"
     max-width="415px"
     min-width="240px"
     @close="$emit('close')">
@@ -237,7 +238,7 @@ export default {
   methods: {
     getColor(color) {
       this.carClassColor = color;
-      console.log(color);
+      // console.log(color);
     },
     changeTuneCar(selectedTune) {
       if (selectedTune === this.car.selectedTune) {

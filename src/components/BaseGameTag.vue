@@ -421,7 +421,8 @@ export default {
   --tag-s: 53%;
   --tag-l: 52%;
 }
-.BaseGameTag_Touma\'s_Collection {
+.BaseGameTag_Touma\'s_Collection,
+.BaseGameTag_Touma\'s_Collection_2 {
   --tag-h: 7;
   --tag-s: 78%;
   --tag-l: 53%;

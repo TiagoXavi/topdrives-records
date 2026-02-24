@@ -2,14 +2,15 @@ import tracks_factor from '../database/tracks_factor.json';
 import all_cars from '../database/cars_final.json';
 import tracksRepo from '../database/tracks_repo.json';
 import tracksPerc from '../database/tracks_perc.json';
+import rn_to_rid from '../database/rn_to_rid.json';
 import Vue from 'vue';
 
-var classes = ["F","E","D","C","B","A","S"];
-var classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
-var classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255, 246, 43", "255, 53, 56", "140, 92, 255", "255, 175, 23"];
+const classes = ["F","E","D","C","B","A","S"];
+const classesColors = ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"];
+const classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255, 246, 43", "255, 53, 56", "140, 92, 255", "255, 175, 23"];
 
-var countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
-var letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
+const countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
+const letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
 var ignore50points = false;
 
 function resolveClass(rq, classe, type, rgb = false) {
@@ -51,13 +52,49 @@ function carPhoto(car) {
 var resolvedRids = {};
 var guidToRid = {};
 const cacheCars = Vue.observable({});
+const R_Medals = Vue.observable({});
 const utils = Vue.observable({
+    loading: false,
     cacheLoading: false,
     downloadCount: 0,
     altKey: false,
     windowWidth: 0,
     ridsDownloading: [],
-    giveawayUsers: []
+    giveawayUsers: [],
+    lastestcars: [],
+    statistics: {},
+    highlightsUsers: {
+      "bcp_": 'mod',
+      "TiagoXavi": 'mod',
+      "Bigredmachine": 'mod',
+      "duck": 'mod',
+      "HansKasai": 'mod',
+      "fiero": 'mod',
+      "L1ZVRD": 'mod',
+      "rei348": 'mod',
+      "Enginn": 'mod',
+      "vel_8": 'mod',
+      "Ansami_MH": 'mod',
+      "RenMasamune": 'mod',
+      "boliveira82": 'mod',
+      "ELtotheLIS": 'mod',
+      "CapSora": 'mod',
+      "Skapis": 'mod',
+      "Draugr": 'mod',
+      "TopDrives": 'mod',
+      "Asaneon": 'mod',
+      "Dennis": 'mod',
+      "MichaelB": 'mod',
+      "Leafclaw": 'mod',
+      "biava": 'mod',
+      "artkatt": 'mod',
+      "Chachisco": 'mod',
+      "Bramdal": 'mod',
+
+      "Sleeperzz": "w1",
+      "Eyeon": "w2",
+      "Real_Gardevoir": "w3"
+    }
 });
 const garageByRid = {};
 const garageByHid = {};
@@ -393,6 +430,8 @@ export default {
         Vue.all_carsArr = all_cars;
         Vue.all_cacheObj = cacheCars;
         Vue.all_carsObj = resolvedRids;
+        Vue.rn_to_rid = rn_to_rid;
+        Vue.R_Medals = R_Medals;
         Vue.resolveTracksetGroup = resolveTracksetGroup;
         Vue.resolveTrack = resolveTrack;
         Vue.utils = utils;
@@ -540,16 +579,23 @@ export default {
           return Number((input).toFixed(2));
         };
         
-        Vue.resolveStat = function (car, type, customData = null, selectedTune) {
-            if (selectedTune && car === Vue.all_carsObj[car.rid] && selectedTune !== "000") {
-              if (selectedTune.startsWith("Other")) {
-                return "?";
-              }
-              return cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t || "-";
-            }
+        Vue.resolveStat = function (car, type, customData = null, selectedTune, forceStats) {
             if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
                 return car[type] || "-";
+            }
+            if (selectedTune && car === Vue.all_carsObj[car.rid]) {
+              if (cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t) {
+                return cacheCars[car.rid].data[selectedTune].info[type].t;
+              }
+              if (forceStats) {
+                if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
+                 return car[type] || "-";
+              }
+              if (selectedTune.startsWith("Other")) {
+                return "?";
+              }
+              return "-";
             }
             if (car.selectedTune && car.selectedTune.includes("Other")) {
                 return "?";
@@ -623,9 +669,12 @@ export default {
                 car.clearance === 'Low' &&
                 (
                     item.id === 'csSmall' ||
+                    item.id === 'csSmallZ50' ||
                     item.id === 'dockCity' ||
                     item.id === 'csMed' ||
+                    item.id === 'csMedZ50' ||
                     item.id === 'oceanCity' ||
+                    item.id === 'oceanCityZ50' ||
                     item.id === 'speedbump12km' ||
                     item.id === 'speedbump1km' ||
                     item.id === 'desertHill' ||
@@ -794,6 +843,12 @@ export default {
             if (trackCode.startsWith("nwGforce_a") && !trackCode.startsWith("nwGforce_a0")) factor = 1000;
             if (trackCode.startsWith("lumberTwisty_a") && !trackCode.startsWith("lumberTwisty_a4")) factor = 1000;
 
+            if (trackCode.endsWith("_aA1")) factor = 1000; // temp
+            if (trackCode.endsWith("_aB1")) factor = 1000; // temp
+            if (trackCode.endsWith("_aC0")) factor = 1000; // temp
+            if (trackCode.endsWith("_aD0")) factor = 1000; // temp
+            if (trackCode.endsWith("_aE0")) factor = 1000; // temp
+
 
 
             if (trackCode.includes("testBowl")) {
@@ -929,56 +984,37 @@ export default {
         Vue.toggleIgnore50points = function () {
             ignore50points = !ignore50points;
         };
-        Vue.resolveHighlightsUsers = function (resData) {
-            let highlightsUsers = {
-              "bcp_": 'mod',
-              "TiagoXavi": 'mod',
-              "Bigredmachine": 'mod',
-              "duck": 'mod',
-              "HansKasai": 'mod',
-              "fiero": 'mod',
-              "L1ZVRD": 'mod',
-            //   "intrx": 'mod',
-              "rei348": 'mod',
-              "Enginn": 'mod',
-              "vel_8": 'mod',
-              "Ansami_MH": 'mod',
-              "RenMasamune": 'mod',
-              "boliveira82": 'mod',
-              "ELtotheLIS": 'mod',
-              "CapSora": 'mod',
-            //   "Mattsy": 'mod',
-              "Skapis": 'mod',
-              "Draugr": 'mod',
-              "TopDrives": 'mod',
-              "Asaneon": 'mod',
-              "Dennis": 'mod',
-              "MichaelB": 'mod',
-              "Leafclaw": 'mod',
-              "biava": 'mod',
-              "artkatt": 'mod',
-              "Chachisco": 'mod',
-              "Bramdal": 'mod'
-            };
-            let pUsers = resData.find(x => x.id === 'pUsers').value;
-            Object.keys( pUsers ).forEach(key => {
+        Vue.loadLastest = function (resData) {
+          if (resData.pUsers) {
+            Object.keys( resData.pUsers ).forEach(key => {
               if (key.includes("tier")) {
-                pUsers[key].map(user => {
-                  Vue.set(highlightsUsers, user, Number(key.slice(-1)));
-                  highlightsUsers[user] = Number(key.slice(-1));
+                resData.pUsers[key].map(user => {
+                  Vue.set(Vue.utils.highlightsUsers, user, Number(key.slice(-1)));
                 });
               }
               if (key === "giveaway") {
-                pUsers[key].map(user => {
+                resData.pUsers[key].map(user => {
                   Vue.utils.giveawayUsers.push(user);
                 });
               }
             })
-            highlightsUsers["Sleeperzz"] = "w1";
-            highlightsUsers["Eyeon"] = "w2";
-            highlightsUsers["Real_Gardevoir"] = "w3";
-
-            return highlightsUsers;
+          }
+          if (resData.lastestcars) {
+            Vue.set(Vue.utils, "lastestcars", resData.lastestcars);
+          }
+          if (resData.statistics) {
+            Vue.set(Vue.utils, "statistics", resData.statistics);
+          }
+          if (resData.mra) {
+            Object.keys(resData.mra).map(rid => {
+              if (Vue.all_carsObj[rid]) {
+                Vue.set(Vue.all_carsObj[rid], "mra", resData.mra[rid]);
+              }
+            });
+          }
+          if (resData.newCars) {
+            // Not used anymore
+          }
         };
         Vue.timeCell = function (rid, tune, track, key="times") {
             if (!rid) return "!rid";
@@ -1136,7 +1172,7 @@ export default {
         };
 
         Vue.tagsDate = {
-          "Ministry of Racing: Crown Pursuit": "2026-01-26",
+          "Crown Pursuit": "2026-01-26",
           "German Powerhaus": "2025-09-08",
           "French Riviera": "2025-06-24",
           "Asia-Pacific Revival": "2025-03-11",
@@ -1169,6 +1205,88 @@ export default {
           );
         }
 
+        Vue.readLocalStorage = function (key, obj, prop, shouldParse = false) {
+          let value = localStorage.getItem(key);
+          if (value) {
+            if (shouldParse) {
+              try {
+                value = JSON.parse(value);
+              } catch (error) {
+                console.log("Error parsing JSON from localStorage:", error);
+                return;
+              }
+            }
+            obj[prop] = value;
+          }
+        };
+
+        Vue.garageCompile = function (type) {
+          if (Object.keys(Vue.garageByRid).length === 0) return;
+          let now = Date.now();
+
+          Object.keys(Vue.garageByRid).map(rid => {
+            
+            Vue.garageByRid[rid].map(gCar => {
+              if (type === "races") gCar.races = gCar.cW+gCar.cL+gCar.cD;
+              if (type === "winRate") gCar.winRate = gCar.cW / (gCar.cW + gCar.cL + gCar.cD);
+              if (type === "days") gCar.days = (now - new Date(gCar.date)) / (1000 * 60 * 60 * 24);
+              if (type === "units") gCar.units = Vue.garageByRid[rid].length;
+            });
+          });
+        };
+        Vue.carsCompile = async function (type) {
+          if (type === "R_Medals") {
+            let obj = await import('../compilations/R_Medals_Light.json');
+            
+            let rid;
+            obj.default.map((value, rn) => {
+              rid = rn_to_rid[rn];
+              if (Vue.all_carsObj[rid] && !Vue.all_carsObj[rid].R_Medals_score) {
+                Vue.set(Vue.all_carsObj[rid], "R_Medals_score", value);
+              }
+            });
+          }
+        };
+        Vue.getRMedals = function (rids, rns = [], callBack, errorCallBack) {
+
+          if (rids) rids.map(rid => {
+            if (!R_Medals[rn_to_rid.indexOf(rid)]) {
+              rns.push(rn_to_rid.indexOf(rid));
+            }
+          });
+
+          if (rns.length === 0) {
+            if (callBack) callBack({});
+            return;
+          };
+
+          utils.loading = true;
+
+          window.axios.post(Vue.preUrlCharlie + "/medals", { rns })
+          .then(res => {
+            utils.loading = false;
+
+            if (res.data) {
+              Object.keys(res.data).map(rn => {
+                R_Medals[rn] = res.data[rn];
+              });
+            }
+
+            if (callBack) callBack(res);
+          })
+          .catch(error => {
+            console.log(error);
+            if (errorCallBack) errorCallBack(error);
+          })
+          .then(() => {
+            utils.loading = false;
+          });
+        };
+
+        Vue.matchSearch = function (car, input) {
+          if (typeof input !== 'string' || typeof car.name !== 'string') return false;
+          return car.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(input) !== -1;
+        }
 
         Vue.cyrb53 = function (str, seed = 0) {
           let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;

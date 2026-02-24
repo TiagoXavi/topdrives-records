@@ -73,7 +73,8 @@ if (import.meta.env.PROD) {
   //   window.timemachine = module.default;
   //   timemachine.config({
   //     keepTime: true,
-  //     difference: 1000 * 60 * 60 * 1 // 1 hour in future
+  //     // difference: 1000 * 60 * 60 * 1 // 1 hour in future
+  //     difference: 1000 * 60 * 4.1 * -1 // current time
   //   });
   // })
 }

@@ -102,8 +102,6 @@
       <BaseCarList
         :list="carDetailsList"
         :forceNonPrize="true"
-        :highlightsUsers="highlightsUsers"
-        :lastestList="lastestList"
         :filterToImport="carsFilter"
         style="margin-top: 17px;"
       />
@@ -642,8 +640,6 @@ export default {
       packFilterDialog: false,
       packFilter: {},
       packFilterDescResolved: [],
-      lastestList: [],
-      highlightsUsers: {},
       carDetailsList: [],
       simulateUntilGetAll: false,
       showResult: false,

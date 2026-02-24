@@ -62,17 +62,17 @@
         <div class="Car_HeaderClassBack" />
         <div class="Car_HeaderClassValue">{{ this.resolveCar.rq | resolveClass(this.resolveCar.class, "letter") }}</div>
       </div>
-      <div class="Car_HeaderBackDropRight">
+      <div class="Car_HeaderBackDropRight" :class="{ Car_ForceStats: forceStats }">
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData, fTune) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData, fTune, forceStats) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData, fTune) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData, fTune, forceStats) }}</div>
           <div class="Car_HeaderStatLabel">0-60MPH</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData, fTune) }}</div>
+          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData, fTune, forceStats) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
@@ -182,6 +182,10 @@ export default {
       default: null
     },
     asGallery: {
+      type: Boolean,
+      default: false
+    },
+    forceStats: {
       type: Boolean,
       default: false
     },

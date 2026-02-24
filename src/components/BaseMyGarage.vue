@@ -64,7 +64,7 @@
             v-if="!userId"
             class="D_Button Main_LoginToEdit"
             @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
-          <div v-else-if="(userGarage && userGarage.loaded) || !editEnabled" :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
+          <div v-else-if="(userGarage && userGarage.loaded) || !editEnabled" :class="`Main_UserT${Vue.utils.highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
             <BaseIconSvg type="laurel" />
             <div class="MainShowcase_Title">{{ loadedName || userId }}</div>
             <div v-if="userGarage.eloScore" class="BaseMyGarage_UserBottom">
@@ -765,7 +765,6 @@ import BaseCardMiniButton from './BaseCardMiniButton.vue';
 import BaseGameTag from './BaseGameTag.vue';
 import BaseDiscordButton from './BaseDiscordButton.vue';
 import BaseText from './BaseText.vue';
-import rn_to_rid from '../database/rn_to_rid.json';
 import { tdrStore } from '@/tdrStore.js';
 
 class hlCar {
@@ -856,7 +855,6 @@ export default {
       user: null,
       responseText: "",
       uploadType: "home",
-      highlightsUsers: {},
       garageYear: 2026,
       userGarage: {},
       userGarageByDate: {},
@@ -956,7 +954,7 @@ export default {
           title: "Garage",
           specialTitle: true
         },
-        { id: 40, filter: { tagsModel: ["Ministry of Racing: Crown Pursuit"] }, t: new groupStats() }, // change id
+        { id: 40, filter: { tagsModel: ["Crown Pursuit"] }, t: new groupStats() }, // change id
         { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() },
         { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
         { id: 37, filter: { tagsModel: ["French Riviera"] }, t: new groupStats() },
@@ -1088,7 +1086,7 @@ export default {
   },
   beforeMount() {
     this.user = this.$store.state.user;
-    this.getLastest();
+    // this.getLastest();
   },
   mounted() {
     let vm = this;
@@ -1169,7 +1167,7 @@ export default {
       .then(res => {
         this.lastestLoading = false;
 
-        this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+        // Vue.utils.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
         if (this.enableGiveAway && isAutoShare && Vue.utils.giveawayUsers.includes(this.user.username)) {
           this.viewMyShareDialog = true;
@@ -1406,7 +1404,7 @@ export default {
         let tunZ = Vue.resolveTuneZ(hCar);
         let dateF = hCar.dateStateChanged;
         if (dateF && dateF.length === 24) dateF = dateF.slice(2, 13);
-        let rn = rn_to_rid.indexOf(Vue.ridByGuid[hCar.cardId]);
+        let rn = Vue.rn_to_rid.indexOf(Vue.ridByGuid[hCar.cardId]);
         let cri;
         for (let X = 8; X < 16; X++) {
           cri = hCar.cardRecordId.slice(0,X);
@@ -1473,7 +1471,7 @@ export default {
       this.userGarage.playerDeck.map((item, ix) => {
         this.userGarage.playerDeck[ix] = {
           cardRecordId: item[0],
-          rid: rn_to_rid[item[1]],
+          rid: Vue.rn_to_rid[item[1]],
           date: `20${item[2]}:00Z`,
           tunZ: item[3] === 0 ? "000" : item[3],
           cW: item[4],

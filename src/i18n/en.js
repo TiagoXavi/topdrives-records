@@ -331,6 +331,7 @@ export default {
   m_trophyCount: "Trophy count",
   m_garageSlots: "Garage slots",
   m_expanded: "Expanded",
+  m_column: "Column | Columns",
 
 
 
@@ -472,6 +473,7 @@ export default {
   c_winRate: "Win Rate",
   c_races: "Races",
   c_days: "Days",
+  c_R_Medals_score: "R Score",
   
   t_drag100b: "0-100-0mph",
   t_drag100: "0-100mph",
@@ -677,14 +679,5 @@ export default {
   t_damView: "Mountain Dam Dam View Platform",
   t_damTiny: "Mountain Dam Tiny Mountain Town",
   t_damRace: "Mountain Dam Race Across Dam",
-  t_damExtended: "Mountain Dam Extended",
-  t_mile1H50: "1 Mile 50/50",
-  t_mile1H60: "1 Mile 60/40",
-  t_mile1H70: "1 Mile 70/30",
-  t_tCircuitH50: "Twisty Circuit 50/50",
-  t_tCircuitH60: "Twisty Circuit 60/40",
-  t_tCircuitH70: "Twisty Circuit 70/30",
-  t_fastH50: "Fast Circuit 50/50",
-  t_fastH60: "Fast Circuit 60/40",
-  t_fastH70: "Fast Circuit 70/30"
+  t_damExtended: "Mountain Dam Extended"
 }

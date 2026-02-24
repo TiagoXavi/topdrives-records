@@ -28,7 +28,7 @@
             <template slot="by">
               <div v-if="user && inverted" class="Main_PrintBy">
                 <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
               </div>
             </template>
             <template slot="more">
@@ -75,7 +75,7 @@
 
               <div v-if="user && !inverted" class="Main_PrintBy">
                 <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
               </div>
             </div>
 
@@ -171,7 +171,7 @@
           <template
             v-for="(username, i) in contributorsList">
             <template v-if="i > 0">, </template>
-            <span :class="`Main_UserT${highlightsUsers[username]}`">{{ username }}</span>
+            <span :class="`Main_UserT${Vue.utils.highlightsUsers[username]}`">{{ username }}</span>
           </template>
         </div>
       </div>
@@ -252,11 +252,11 @@
                   <template v-if="cgRound.creator">
                     <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                     <span
-                      :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
+                      :class="`Main_UserT${Vue.utils.highlightsUsers[cgRound.creator]}`"
                       class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
                   </template>
                   <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
+                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
                   </span>
                 </div>
                 <div v-if="cgCurrentRound !== 'd'" class="Cg_CenterBottom">
@@ -319,7 +319,7 @@
                     </template>
                     <div v-if="user" class="Main_PrintBy">
                       <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
 
@@ -449,7 +449,7 @@
               <div v-if="cgRound && cgRound.creator" style="margin-bottom: 10px;">
                 <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                 <span
-                  :class="`Main_UserT${highlightsUsers[cgRound.creator]}`"
+                  :class="`Main_UserT${Vue.utils.highlightsUsers[cgRound.creator]}`"
                   class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
               </div>
               <template v-if="user && user.mod">
@@ -882,7 +882,13 @@
               name="cgDashCompact"
               @change="cgDashCompact = $event"
             />
-            <BaseSelectNew v-model="cgDashShowSolutionsCount" :list="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]" :label="$tc('m_solution', 2)" name="cgDashShowSolutionsCount" class="D_ButtonDark4" />
+            <BaseSelectNew
+              v-model="cgDashShowSolutionsCount"
+              :list="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]"
+              :label="$tc('m_solution', 2)"
+              name="cgDashShowSolutionsCount"
+              class="D_ButtonDark4"
+            />
           </div>
         </div>
 
@@ -975,7 +981,7 @@
                   <span v-if="cg.rounds[index].creator && cg.rounds[index].lastAnalyze" class="Main_RoundDoneCreator" style="margin-left: 0px;">
                     <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                     <span
-                      :class="`Main_UserT${highlightsUsers[cg.rounds[index].creator]}`"
+                      :class="`Main_UserT${Vue.utils.highlightsUsers[cg.rounds[index].creator]}`"
                       class="Main_SearchResultUser Cg_Creator">{{ cg.rounds[index].creator }}</span>
                   </span>
                   <button
@@ -1234,10 +1240,10 @@
                 <div v-if="event && event.user">
                   <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                   <span
-                    :class="`Main_UserT${highlightsUsers[event.user]}`"
+                    :class="`Main_UserT${Vue.utils.highlightsUsers[event.user]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
                   <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (statistics[`events_${eventCurrentId}`] || {}).c || 0 }} views</span>
+                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`events_${eventCurrentId}`] || {}).c || 0 }} views</span>
                   </span>
                 </div>
                 <div class="Cg_CenterBottom">
@@ -1282,7 +1288,7 @@
                     </template>
                     <div v-if="user" class="Main_PrintBy">
                       <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
 
@@ -1647,10 +1653,10 @@
                 <div v-if="clubDaySelectedObj && clubDaySelectedObj.user">
                   <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                   <span
-                    :class="`Main_UserT${highlightsUsers[clubDaySelectedObj.user]}`"
+                    :class="`Main_UserT${Vue.utils.highlightsUsers[clubDaySelectedObj.user]}`"
                     class="Main_SearchResultUser Cg_Creator">{{ clubDaySelectedObj.user }}</span>
                   <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (statistics[`clubs_${clubDaySelected}`] || {}).c || 0 }} views</span>
+                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`clubs_${clubDaySelected}`] || {}).c || 0 }} views</span>
                   </span>
                 </div>
                 <div class="Cg_CenterBottom" style="min-height: unset;">
@@ -1692,7 +1698,7 @@
                     </template>
                     <div v-if="user" class="Main_PrintBy" style="margin-top: 5px;">
                       <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
                     </div>
                   </div>
 
@@ -2281,8 +2287,6 @@
     <!-- COMPARE -->
     <BaseFilterDialog
       v-model="searchFilterDialog"
-      :lastestList="lastestList"
-      :highlightsUsers="highlightsUsers"
       :sortEnabled="true"
       :enableCounters="true"
       ref="mainFilterDialog"
@@ -2581,8 +2585,8 @@
                 <BaseText :value="resolveStat(tuneDialogCar, 'hand')" :label="$t('c_handling')" class="Row_FieldStat" :disabled="true" />
               </div>
             </div>
-            <div v-if="mode === 'compare' && statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
-              <div class="Main_ViewsCountDialog">{{ statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
+            <div v-if="mode === 'compare' && Vue.utils.statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
+              <div class="Main_ViewsCountDialog">{{ Vue.utils.statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
             </div>
           </div>
           <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
@@ -2669,7 +2673,6 @@
               <BaseReviewList
                 :car="tuneDialogCar"
                 :user="user || {}"
-                :highlightsUsers="highlightsUsers"
                 :reviewUrl="reviewUrl"
                 @isReviewing="isReviewing = $event"
                 @submited="resolveCarReview($event)"
@@ -2684,7 +2687,7 @@
                 <template
                   v-for="(username, i) in tuneDialogCar.users">
                   <template v-if="i > 0">, </template>
-                  <span :class="`Main_UserT${highlightsUsers[username]}`">{{ username }}</span>
+                  <span :class="`Main_UserT${Vue.utils.highlightsUsers[username]}`">{{ username }}</span>
                 </template>
               </div>
             </div>
@@ -3103,7 +3106,7 @@
               v-for="track in campaign[city.icity].matches[city.imatch].trackset"
               :class="{ Main_CampaignRaceOff: !city.includes.includes(track) }"
               class="Main_CampaignRace">
-              <div class="Main_CampaignTrackName">{{ $t('t_'+(tracksRepo.find(x => x.id === track.substr(0, track.length-4)) || {}).id) }}</div>
+              <div class="Main_CampaignTrackName">{{ $t('t_'+(tracksRepo.find(x => x.id === track.substr(0, track.length-4)) || {}).id || "").replace("Z50","") }}</div>
               <div class="Main_CampaignTrackCond">
                 <BaseTypeName :type="track.substr(track.length-2)" :showDry="false" />
               </div>
@@ -3254,7 +3257,7 @@
               <span v-if="item.creator && item.lastAnalyze" class="Main_RoundDoneCreator">
                 <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                 <span
-                  :class="`Main_UserT${highlightsUsers[item.creator]}`"
+                  :class="`Main_UserT${Vue.utils.highlightsUsers[item.creator]}`"
                   class="Main_SearchResultUser Cg_Creator">{{ item.creator }}</span>
               </span>
               <div v-if="item.icons" class="Main_RoundIcons">
@@ -3475,7 +3478,7 @@
         </div>
         <div class="Main_AnnouncementBox">
           <div class="Main_AnnouncementTitle">Contest #11</div>
-          <div class="Main_AnnouncementSubTitle">Ministry of Racing: Crown Pursuit</div>
+          <div class="Main_AnnouncementSubTitle">Crown Pursuit</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
@@ -3892,10 +3895,6 @@ export default {
       isMobile: false,
       isPrinting: false,
       announcementDialog: false,
-      highlightsUsers: {},
-      lastestList: [],
-      statistics: {},
-      statisticsLoading: false,
       usedToMod: false,
       searchInputT: '',
       searchFilterDialog: false,
@@ -3955,7 +3954,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v30.0",
+      gameVersion: "Game v30.1",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -4429,9 +4428,9 @@ export default {
     //   })
 
     // },
-    carDetailsList: function() {
-      console.log(this.carDetailsList.length);
-    },
+    // carDetailsList: function() {
+    //   console.log(this.carDetailsList.length);
+    // },
     "$route.path": function() {
       let r = this.$route.path;
       if (r === "/" || r === "/compare" || r === "/challenges" || r === "/events" || r === "/clubs") {
@@ -4577,8 +4576,8 @@ export default {
     this.debounceCgSaveBank = Vue.debounce(this.cgSaveBank, 2000);
     this.eventRefreshDebounce = Vue.debounce(this.autoFireLoadEvents, 100);
 
-    this.getLastest();
-    this.getStatistics();
+    // this.getLastest();
+    // this.getStatistics();
     this.user = this.$store.state.user;
     if (this.user) {
       this.userloaded = true;
@@ -4704,6 +4703,9 @@ export default {
       if (mutation.type == "CHANGE_USER") {
         vm.user = mutation.payload.user;
         vm.userloaded = true;
+        vm.carDetailsList.map(x => {
+          Vue.set(x, "mra", Vue.all_carsObj[x.rid]?.mra || x.mra);
+        })
       }
 
       if (mutation.type == "LOGOUT") {
@@ -5887,16 +5889,16 @@ export default {
 
       axios.get(Vue.preUrl + "/statistics")
       .then(res => {
-        this.statistics = {
-          ...this.statistics,
+        Vue.utils.statistics = {
+          ...Vue.utils.statistics,
           ...res.data
         };
 
         axios.get(Vue.preUrlCharlie + "/statisticsC")
         .then(res => {
           this.statisticsLoading = false;
-          this.statistics = {
-            ...this.statistics,
+          Vue.utils.statistics = {
+            ...Vue.utils.statistics,
             ...res.data
           };
         })
@@ -5920,9 +5922,9 @@ export default {
       .then(res => {
         this.lastestLoading = false;
         
-        this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+        // Vue.utils.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
-        this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
+        // this.lastestList = res.data.find(x => x.id === 'lastestcars').value;
 
         // let incomingCars = res.data.find(x => x.id === 'newCars').value;
         // if (incomingCars && incomingCars.length > 0) {
@@ -7319,7 +7321,7 @@ export default {
     },
     cgResolveRoundCars(download = true, retry = 0) {
       if (this.cgCurrentRound === "d") return;
-      if (this.lastestList.length === 0) {
+      if (Vue.utils.lastestcars.length === 0) {
         if (retry > 20) return;
         console.log("retry", retry);
         setTimeout(() => {
@@ -8270,9 +8272,12 @@ export default {
       ]
       let bump = [
         'csSmall',
+        'csSmallZ50',
         'dockCity',
         'csMed',
+        'csMedZ50',
         'oceanCity',
+        'oceanCityZ50',
         'speedbump12km',
         'speedbump1km',
         'miStreets2',

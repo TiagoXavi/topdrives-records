@@ -4,7 +4,7 @@
       <div v-for="(rev, irev) in car.reviews" class="BaseReviewList_ReviewItem">
         <div class="BaseReviewList_ReviewTop">
           <div class="BaseReviewList_ReviewItemLeft">
-            <span :class="`Main_UserT${highlightsUsers[rev.user]}`">{{ rev.user }}: </span>
+            <span :class="`Main_UserT${Vue.utils.highlightsUsers[rev.user]}`">{{ rev.user }}: </span>
             <span>{{ rev.text }}</span>
           </div>
           <div v-if="user && user.canReview && rev.user === user.username" class="BaseReviewList_ReviewItemRight">
@@ -94,10 +94,6 @@ export default {
       required: true
     },
     user: {
-      type: Object,
-      required: true
-    },
-    highlightsUsers: {
       type: Object,
       required: true
     },

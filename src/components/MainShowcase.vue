@@ -8,7 +8,7 @@
           :class="`MainShowcase_Stars_${item.score}`"
           class="D_Button D_ButtonDark MainShowcase_UserButton"
           @click="$router.replace({ name: 'MainShowcaseUser', params: { username: item.username } }); reload();">
-          <span :class="`Main_UserT${highlightsUsers[item.username]}`">{{ item.username }}</span>
+          <span :class="`Main_UserT${Vue.utils.highlightsUsers[item.username]}`">{{ item.username }}</span>
         </button>
       </div>
     </div>
@@ -33,7 +33,7 @@
         @click="save()">
         <span>{{ $t("m_save") }}</span>
       </button>
-      <div v-else :class="`Main_UserT${highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
+      <div v-else :class="`Main_UserT${Vue.utils.highlightsUsers[userId]}`" class="MainShowcase_TitleBox">
         <BaseIconSvg type="laurel" />
         <div class="MainShowcase_Title">{{ userId }}</div>
         <BaseIconSvg type="laurel" />
@@ -163,8 +163,6 @@
     <!-- Select car -->
     <BaseFilterDialog
       v-model="searchCarDialog"
-      :lastestList="lastestList"
-      :highlightsUsers="highlightsUsers"
       :sortEnabled="true"
       :enableCounters="false"
       :forceNonPrize="false"
@@ -236,8 +234,6 @@ export default {
       user: null,
       searchCarDialog: false,
       all_cars,
-      lastestList: [],
-      highlightsUsers: {},
       showcaseList: [],
       resolvedRids: {},
       carAddIndex: -1,
@@ -265,7 +261,7 @@ export default {
     this.user = this.$store.state.user;
 
     // check new cars
-    this.getLastest();
+    // this.getLastest();
   },
   mounted() {
     this.loadList();
@@ -327,7 +323,7 @@ export default {
       .then(res => {
         this.lastestLoading = false;
 
-        this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+        // Vue.utils.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {

@@ -674,7 +674,7 @@
           </div>
           <div class="MainTimeline_DialogInfo">
             <div class="MainTimeline_DialogInfoLabel">{{ $t('m_by') }}</div>
-            <div class="MainTimeline_DialogInfoValue" :class="`Main_UserT${highlightsUsers[detailObj.author]}`">{{ detailObj.author }}</div>
+            <div class="MainTimeline_DialogInfoValue" :class="`Main_UserT${Vue.utils.highlightsUsers[detailObj.author]}`">{{ detailObj.author }}</div>
           </div>
         </div>
         <div class="MainTimeline_DialogViewDual">
@@ -1058,8 +1058,6 @@
     <!-- Select car -->
     <BaseFilterDialog
       v-model="searchCarDialog"
-      :lastestList="lastestList"
-      :highlightsUsers="highlightsUsers"
       :sortEnabled="true"
       :enableCounters="false"
       :forceNonPrize="false"
@@ -1246,8 +1244,6 @@ export default {
       newLoading: false,
       timeline: [],
       resolvedRids: {},
-      lastestList: [],
-      highlightsUsers: {},
       lastestLoading: false,
       detailDialog: false,
       detailObj: {},
@@ -1346,7 +1342,7 @@ export default {
     this.resetFilter();
     this.searchParamsEmptyString = JSON.stringify(this.searchParams);
     this.searchTimeline();
-    this.getLastest();
+    // this.getLastest();
     // setTimeout(() => {}, 1000);
     this.user = this.$store.state.user;
   },
@@ -2196,7 +2192,7 @@ export default {
       .then(res => {
         this.lastestLoading = false;
 
-        this.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
+        // Vue.utils.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
 
         let incomingCars = res.data.find(x => x.id === 'newCars').value;
         if (incomingCars && incomingCars.length > 0) {

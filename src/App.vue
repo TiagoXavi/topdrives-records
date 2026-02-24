@@ -77,6 +77,7 @@
     />
 
     <BaseCarDetailDialog
+      v-if="_g_car.dialog"
       :active="_g_car.dialog"
       :car="_g_car.car"
       :tuneDialogCarIndex="_g_car.tuneDialogCarIndex"
@@ -86,6 +87,19 @@
       @close="_g_car.close"
       @changed="_g_car.changed"
       @newIndex="_g_car.newIndex"
+    />
+
+    <BaseCarDetailFull
+      v-if="_g_cFull.dialog"
+      :active="_g_cFull.dialog"
+      :car="_g_cFull.car"
+      :tuneDialogCarIndex="_g_cFull.tuneDialogCarIndex"
+      :carDetailsList="_g_cFull.carDetailsList"
+      :showMove="_g_cFull.showMove"
+      :showTunes="_g_cFull.showTunes"
+      @close="_g_cFull.close"
+      @changed="_g_cFull.changed"
+      @newIndex="_g_cFull.newIndex"
     />
 
     <BaseDialog
@@ -157,19 +171,33 @@
               <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $store.state.confirmDialog.advanced.label }}</div>
             </div>
             <div class="Main_SearchMid Cg_SelectorDialogMid" style="height: unset;">
-              <template v-for="item in $store.state.confirmDialog.advanced.list">
-                <BaseButtonTouch
-                  :class="{
-                    Main_SearchItemActive: item === $store.state.confirmDialog.advanced.model
-                  }"
-                  :disabled="$store.state.confirmDialog.advanced.disabled || item === $store.state.confirmDialog.advanced.model"
-                  style="padding-left: 15px; padding-right: 15px; min-height: 40px;"
-                  class="Main_SearchItem"
-                  @click="$store.state.confirmDialog.action(item, $event)"
-                  @longTouch="$store.state.confirmDialog.action(item, { shiftKey: true, ctrlKey: true })">
-                  <div class="Main_SearchItemRight">{{ item }}</div>
-                </BaseButtonTouch>
+
+              <template v-if="Array.isArray($store.state.confirmDialog.advanced.list)">
+                <template v-for="item in $store.state.confirmDialog.advanced.list">
+                  <BaseButtonTouch
+                    :class="{
+                      Main_SearchItemActive: item === $store.state.confirmDialog.advanced.model
+                    }"
+                    :disabled="$store.state.confirmDialog.advanced.disabled || item === $store.state.confirmDialog.advanced.model"
+                    style="padding-left: 15px; padding-right: 15px; min-height: 40px;"
+                    class="Main_SearchItem"
+                    @click="$store.state.confirmDialog.action(item, $event)"
+                    @longTouch="$store.state.confirmDialog.action(item, { shiftKey: true, ctrlKey: true })">
+                    <div class="Main_SearchItemRight">{{ $store.state.confirmDialog.advanced.itemLabel ? $store.state.confirmDialog.advanced.itemLabel(item) : item }}</div>
+                  </BaseButtonTouch>
+                </template>
               </template>
+
+              <template v-else>
+                <template v-for="(item, key) in $store.state.confirmDialog.advanced.list">
+                  <BaseCheckBox
+                    v-model="$store.state.confirmDialog.advanced.list[key]"
+                    :label="$store.state.confirmDialog.advanced.itemLabel ? $store.state.confirmDialog.advanced.itemLabel(key) : key"
+                    style="margin-bottom: 5px;"
+                  />
+                </template>
+              </template>
+
             </div>
           </template>
         </template>
@@ -206,13 +234,10 @@
 <script>
 import BaseTopMenu from "@/components/BaseTopMenu.vue"
 import BaseDialog from "@/components/BaseDialog.vue"
-import MainLogin from "@/components/MainLogin.vue"
 import BaseTooltip from "@/components/BaseTooltip.vue"
 import BaseText from "@/components/BaseText.vue"
 import BaseFilterDialog from "@/components/BaseFilterDialog.vue"
 import BaseSearchTrackDialog from '@/components/BaseSearchTrackDialog.vue'
-import BaseButtonTouch from '@/components/BaseButtonTouch.vue'
-import BaseCarDetailDialog from '@/components/BaseCarDetailDialog.vue'
 
 import LogRocket from 'logrocket';
 import { mapState } from 'pinia';
@@ -223,13 +248,15 @@ export default {
   components: {
     BaseTopMenu,
     BaseDialog,
-    MainLogin,
+    MainLogin: () => import('@/components/MainLogin.vue'),
     BaseTooltip,
     BaseText,
     BaseFilterDialog,
     BaseSearchTrackDialog,
-    BaseButtonTouch,
-    BaseCarDetailDialog
+    BaseButtonTouch: () => import('@/components/BaseButtonTouch.vue'),
+    BaseCarDetailDialog: () => import('@/components/BaseCarDetailDialog.vue'),
+    BaseCarDetailFull: () => import('@/components/BaseCarDetailFull.vue'),
+    BaseCheckBox: () => import('@/components/BaseCheckBox.vue')
   },
   props: {},
   data() {
@@ -399,6 +426,7 @@ export default {
   mounted() {
     let vm = this;
     this.getUser();
+    // this.getLastest();
 
     vm.$store.subscribe(mutation => {
 
@@ -436,7 +464,7 @@ export default {
     // window.addEventListener('scroll', this.scroll);
   },
   computed: {
-    ...mapState(tdrStore, ['_g_carPicker', '_g_track', '_g_car'])
+    ...mapState(tdrStore, ['_g_carPicker', '_g_track', '_g_car', '_g_cFull'])
   },
   methods: {
     letSnack(obj) {
@@ -494,6 +522,9 @@ export default {
       // user
       axios.get(Vue.preUrl + "/getUser")
       .then(res => {
+
+        Vue.loadLastest(res.data);
+
         if (res.data.username) {
           this.user = res.data;
           if (this.user && this.user.mod) {
@@ -510,12 +541,6 @@ export default {
           LogRocket.identify(res.data.username, {
             email: res.data.email
           });
-
-          // if (this.$hj) {
-          //   this.$hj('vpv', res.data.username)
-          // }
-
-          
 
           if (res.data.auth) {
             window.localStorage.setItem('auth', res.data.auth);
@@ -541,6 +566,30 @@ export default {
         }
       })
       .catch(error => {
+        console.log(error);
+      });
+    },
+    getLastest() {
+      this.lastestLoading = true;
+
+      // lastest cars
+      axios.get(Vue.preUrl + "/lastest")
+      .then(res => {
+        this.lastestLoading = false;
+
+        let mraData = res.data.find(x => x.id === 'mra').value;
+        Object.keys(mraData).map(rid => {
+          if (Vue.all_carsObj[rid]) {
+            Vue.set(Vue.all_carsObj[rid], "mra", mraData[rid]);
+          }
+        });
+
+        this.loadCars();
+
+
+      })
+      .catch(error => {
+        this.lastestLoading = false;
         console.log(error);
       });
 
@@ -931,7 +980,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .D_Button.D_ButtonNoActive.focus-visible {
   background-color: rgba(var(--back-color), 0.3);
 }
-.D_Button:hover:not(.D_ButtonActive):not([disabled]):not(.D_Button_Correct):not(.D_Button_Error) {
+.D_Button:hover:not(.D_ButtonActive):not([disabled]):not(.D_Button_Correct):not(.D_Button_Error):not(.D_Button_NoHover) {
   color: #fffc;
   background-color: rgba(var(--back-color), var(--back-opac));
 }
@@ -1587,7 +1636,8 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   padding: 7px 25px 7px 0px;
   display: flex;
   width: 100%;
-  min-width: fit-content;
+  max-width: 100%;
+  /* min-width: fit-content; */
   background: transparent;
   outline: 0;
   border: none;
@@ -1601,6 +1651,7 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   font-size: 20px;
   color: var(--d-text);
   align-items: center;
+  overflow: hidden;
 }
 .Main_SearchItem:hover,
 .Main_SearchItem.focus-visible {
@@ -1723,10 +1774,21 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  display: flex;
+  align-items: center;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 2;
           line-clamp: 2; 
   -webkit-box-orient: vertical;
+  white-space: nowrap; */
+}
+.Main_SearchItemName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.BaseFilterDialog_Mid .Main_SearchItem {
+  padding-right: 7px;
 }
 .Main_SearchItemRightEvents {
   margin-right: 5px;
@@ -1741,8 +1803,9 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   box-shadow: 0px 0px 0px 2px #0003;
   background-color: #0003;
   padding: 1px 3px;
-  margin-left: 0.2em;
+  margin-left: 0.5em;
   margin-right: 2px;
+  margin-bottom: -1px;
 }
 .Main_SearchItemRight b {
   color: #fffd;
@@ -1753,7 +1816,20 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
 .Main_SearchResultUser {
   font-size: 0.8em;
   margin-right: 2px;
-  color: var(--t0);
+  /* color: var(--t0); */
+  /* box-shadow: 0px 0px 0px 2px #0003;
+  background-color: #0003;
+  margin-left: 0.5em;
+  padding: 1px 3px; */
+}
+.BaseFilterDialog_Mid .Main_SearchResultUser {
+  font-size: 0.7em;
+  margin-right: 2px;
+  /* color: var(--t0); */
+  box-shadow: 0px 0px 0px 2px #0003;
+  background-color: #0003;
+  margin-left: 0.5em;
+  padding: 1px 3px;
 }
 .Main_SearchResultUserBy {
   font-size: 0.8em;
@@ -2263,6 +2339,27 @@ body .Main_UserTw3:before {
   align-items: center;
   gap: 5px;
 }
+.Main_CustomTrackLeftDynamic {
+  flex-grow: 1;
+  height: 40px;
+  display: flex;
+}
+.Main_CustomTrackLeftDynamic_L {
+  overflow: visible;
+}
+.Main_CustomTrackLeftDynamic_L path {
+  stroke: #ffffff1c;
+  stroke-width: 3px;
+  fill: none;
+}
+.Main_CustomTrackLeftDynamic_R {
+  flex-grow: 1;
+  padding-right: 10px;
+}
+.Main_CustomTrackLeftDynamic_R line {
+  stroke: #ffffff1c;
+  stroke-width: 3px;
+}
 .Main_AllTracksBox {
   margin: 0 -20px;
 }
@@ -2307,6 +2404,8 @@ body .Main_UserTw3:before {
   background-color: rgba(var(--color-dry), var(--type-back-opac));
 }
 .Type_01,
+.Type_A1,
+.Type_B1,
 .Type_01 ~ .BaseCompItem_Drives,
 [dataid="lumberTwisty"].Type_41,
 .Row_Tracks [data="lumberTwisty_a41"],
@@ -2324,6 +2423,7 @@ body .Main_UserTw3:before {
 .Type_i0,
 .Type_k0,
 .Type_m0,
+.Type_E0,
 .Type_10 ~ .BaseCompItem_Drives {
   --ccond: var(--color-dirt);
   --back-color: var(--color-dirt);
@@ -2350,6 +2450,7 @@ body .Main_UserTw3:before {
 .Type_50,
 .Type_e0,
 .Type_c0,
+.Type_C0,
 .Type_c1,
 .Type_51 {
   --ccond: var(--color-sand);
@@ -2360,6 +2461,7 @@ body .Main_UserTw3:before {
 }
 .Type_60,
 .Type_d0,
+.Type_D0,
 .Type_h0,
 .Type_h1 {
   --ccond: var(--color-snow);
@@ -2376,6 +2478,18 @@ body .Main_UserTw3:before {
   color: rgb(var(--color-grass));
   --type-back-opac: 0.09;
   background-color: rgba(var(--color-grass), var(--type-back-opac));
+}
+.Row_Cell.Type_A1,
+.Row_Cell.Type_C0,
+.Row_Cell.Type_D0,
+.Row_Cell.Type_E0 {
+  background: linear-gradient(158deg, rgba(var(--ccond), 0.0) 45%, rgba(var(--ccond), 0.2) 60%);
+}
+.Row_Cell.Type_B1 {
+  background: linear-gradient(-162deg, rgba(var(--ccond), 0.0) 30%, rgba(var(--ccond), 0.2) 45%);
+}
+.Row_Cell.Type_A1 {
+  color: unset;
 }
 .TypeText_Dry {
   color: rgb(var(--color-dry))
@@ -2432,7 +2546,6 @@ body .Main_UserTw3:before {
   justify-content: space-evenly;
   font-family: 'Roboto', sans-serif;
   /* color: var(--d-text-b); */
-  bottom: -7px;
   width: 100%;
   font-size: 9px;
   height: 11px;
@@ -3364,12 +3477,6 @@ body .Main_UserTw3:before {
   padding: 0px 6px;
   margin: 0px -6px;
 }
-.Cg_DashWrapper {
-
-}
-/* .Cg_DashScrollerItem[style*="-9999px"] {
-  display: none;
-} */
 .Cg_DashHeaderControls {
   display: flex;
   justify-content: center;
@@ -4583,6 +4690,7 @@ a:visited:not(.D_Button) {
   justify-content: flex-start;
   align-items: center;
   gap: 0.23em;
+  text-align: left;
 }
 .Car_HeaderNameBig {
   font-size: 0.85em;
@@ -4987,6 +5095,9 @@ a:visited:not(.D_Button) {
 /* .Main_Compact .Car_ImgTag {
   width: clamp(100%, var(--compare-card-width), var(--compare-card-width));
 } */
+.Car_ForceStats .Car_HeaderStatValue:not(.Car_HeaderStatLabelDrive) {
+  opacity: 0.4;
+}
 
 
 
@@ -5327,6 +5438,13 @@ a:visited:not(.D_Button) {
 .Main_Teams_Body {
   width: calc(100% + 40px);
   margin-left: -20px;
+}
+.Main_Brand {
+  background-image: url('/assets/brands_sprite.png');
+  width: 38px;
+  height: 28px;
+  --i: -1;
+  background-position: 0 calc( (28px * var(--i)) * -1 );
 }
 .Car_HeaderLogo {
   background-image: url('/assets/brands_sprite.png');

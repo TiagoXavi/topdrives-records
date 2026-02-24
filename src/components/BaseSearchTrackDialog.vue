@@ -27,7 +27,15 @@
         <div
           v-for="(circuit, index) in filteredTracks"
           class="Main_CustomTrackItem" :key="index">
-          <div class="Main_CustomTrackLeft">
+          <div v-if="circuit.id.endsWith('Z50')" class="Main_CustomTrackLeftDynamic">
+            <svg width="30" height="40" class="Main_CustomTrackLeftDynamic_L">
+              <path d="M30,20 a20,20 0 0,1 -20,-20 l 0,-10" />
+            </svg>
+            <svg class="Main_CustomTrackLeftDynamic_R" width="20" height="40">
+              <line x1="0" y1="20" x2="100%" y2="20"/>
+            </svg>
+          </div>
+          <div v-else class="Main_CustomTrackLeft">
             <div class="Main_CustomTrackName">
               <template>{{ circuit.nameCalc | toTimeString }}</template>
               <i
@@ -264,13 +272,13 @@ export default {
       }
       if (tracksInput.length > 0) {
         filteredTracks = filteredTracks.filter(x => {
-          return vm.$t('t_'+x.id).toLowerCase().includes(tracksInput.join(" "));
+          return vm.$t('t_'+x.id.replace("Z50","")).toLowerCase().includes(tracksInput.join(" "));
         });
       }
 
       filteredTracks.map(x => {
-        x.nameCalc = this.$t('t_'+x.id);
-        x.nameEng = this.$t('t_'+x.id, "en");
+        x.nameCalc = this.$t('t_'+x.id.replace("Z50",""));
+        x.nameEng = this.$t('t_'+x.id.replace("Z50", ""), "en");
       })
 
       filteredTracks.sort((a,b) => {

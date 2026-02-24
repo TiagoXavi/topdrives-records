@@ -103,9 +103,12 @@
         <i
           v-if="(
             item.id === 'csSmall' ||
+            item.id === 'csSmallZ50' ||
             item.id === 'dockCity' ||
             item.id === 'csMed' ||
+            item.id === 'csMedZ50' ||
             item.id === 'oceanCity' ||
+            item.id === 'oceanCityZ50' ||
             item.id === 'speedbump12km' ||
             item.id === 'speedbump1km' ||
             item.id === 'desertHill' ||
@@ -530,8 +533,8 @@ export default {
       if (this.type === "tracks") {
         this.list.map(x => {
           result.push({
-            text: this.$t('t_'+x.id),
-            textEng: this.$t('t_'+x.id, "en"),
+            text: this.$t('t_'+(x.id||"").replace("Z50","")),
+            textEng: this.$t('t_'+(x.id||"").replace("Z50",""), "en"),
             cond: x.cond,
             surface: x.surface,
             id: x.id,
@@ -855,7 +858,7 @@ export default {
       formData.set('config', JSON.stringify({
         author: this.user.username,
         car: `${this.car.name} (${this.tun})`,
-        track: `${this.$i18n._vm.messages.en['t_'+item.id]}/${this.$t('t_'+item.id)} - ${Vue.options.filters.resolveCond(item.trackType)}`,
+        track: `${this.$i18n._vm.messages.en['t_'+item.id]}/${this.$t('t_'+(item.id||"").replace("Z50",""))} - ${Vue.options.filters.resolveCond(item.trackType)}`,
         currentTime: Vue.options.filters.toTimeString(item.text, item.id),
         timeAuthor: item.author,
         url: url

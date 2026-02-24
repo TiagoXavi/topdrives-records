@@ -308,7 +308,7 @@
               <BaseChip
                 v-model="searchFilters.prizesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
-                :counter="counters[`${item}`]"
+                :counter="counters[`${item === 'Prize Cars' ? 'prizes_true' : 'prizes_false'}`]"
                 :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
@@ -495,14 +495,18 @@
               </template>
             </template>
           </div>
-          <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.brandsModel || raceFilterResolved.brandsModel.length === 0)" class="Main_FilterChipsFlex">
+          <div v-if="config.brands !== false && (!cgAddingYouCar || !raceFilterResolved || !raceFilterResolved.brandsModel || raceFilterResolved.brandsModel.length === 0)" class="Main_FilterChipsFlex BaseFilterDialog_BrandsBox">
             <template v-for="(item, ix) in searchFilters.brands">
               <BaseChip
                 v-model="searchFilters.brandsModel"
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                :dicio="{ Citroen: 'Citroën', Skoda: 'Škoda' }"
+                class="BaseChip_MinWidth BaseChip_DontCrop BaseFilterDialog_BrandChip"
                 :counter="counters[`brands_${item}`]"
-                :value="item" />
+                :value="item">
+                <div class="BaseFilterDialog_BrandLeft">
+                  <div :class="`Car_Logo_${item.replaceAll(' ', '_')}`" class="Main_Brand"></div>
+                </div>
+                <span>{{ dicio[item] || item }}</span>
+              </BaseChip>
             </template>
           </div>
           <div v-if="config.customTags !== false && type === 'compare'" class="Main_FilterChipsFlex">
@@ -639,23 +643,23 @@
             v-if="index < searchMax || showAllFilter"
             :style="{ '--color': Vue.all_carsObj[item.rid].color }"
             :class="{
-              Main_SearchItemAdded: item.added,
+              Main_SearchItemAdded: added[item.rid],
               Main_SearchItemMarked: markedList.includes(item.rid)
             }"
             class="Main_SearchItem"
-            @click="item.added ? '' : addCar(index, $event)">
+            @click="added[item.rid] ? '' : addCar(index, $event, item)">
             <div v-if="!showAllFilter" class="Main_SearchItemImg">
               <img :src="Vue.all_carsObj[item.rid].photo" :key="item.rid" loading="lazy" class="MainGallery_Img" alt="">
             </div>
             <div v-else class="Main_ImgPlaceholder"></div>
-            <div class="Main_SearchItemLeft">{{ Vue.all_carsObj[item.rid].class }}{{ item.rq }}</div>
+            <div class="Main_SearchItemLeft">{{ Vue.all_carsObj[item.rid].class }}{{ Vue.all_carsObj[item.rid].rq }}</div>
             <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && sortModel !== 'name' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
               <template v-if="sortModel === 'acel' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(1) }}</template>
               <template v-else-if="sortModel === 'mra' && typeof item[sortModel] === 'number'">{{ item[sortModel].toFixed(2) }}</template>
               <template v-else>{{ item[sortModel] }}</template>
             </div>
             <div v-if="!showStats || showingLastest" class="Main_SearchItemRight">
-              <span v-html="item.locatedName || item.name" /><i v-if="item.prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/>&nbsp;<span v-if="sortModel !== 'year' || showingLastest" class="Main_SearchItemYear">{{ item.year }}</span>&nbsp;<span v-if="item.lastestUser" class="Main_SearchResultUser"><span style="color: rgba(255,255,255,0.5)">by</span>&nbsp;<span :class="`Main_UserT${highlightsUsers[item.lastestUser]}`">{{ item.lastestUser }}</span></span><span v-else-if="item.mra && sortModel !== 'mra'" class="Main_SearchItemYear">{{ item.mra }}</span>
+              <span v-html="item.locatedName || Vue.all_carsObj[item.rid].name" class="Main_SearchItemName" /><i v-if="Vue.all_carsObj[item.rid].prize" class="ticon-trophy Main_SearchTrophy" aria-hidden="true"/><span v-if="item.user" class="Main_SearchResultUser"><span :class="`Main_UserT${Vue.utils.highlightsUsers[item.user]}`">{{ item.user }}</span></span><span v-else-if="Vue.all_carsObj[item.rid].mra && sortModel !== 'mra'" class="Main_SearchItemYear">{{ Vue.all_carsObj[item.rid].mra }}</span>
             </div>
             <template v-else>
               <div
@@ -721,18 +725,6 @@ export default {
     active: {
       type: [Boolean, String],
       default: false
-    },
-    lastestList: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    highlightsUsers: {
-      type: Object,
-      default() {
-        return {}
-      }
     },
     config: {
       type: Object,
@@ -852,7 +844,7 @@ export default {
       isFiltering: false,
       debounceFilter: null,
       debounceCounter: null,
-      searchMax: 20,
+      searchMax: 60,
       showAllFilter: false,
       searchResult: [],
       searchResultLength: null,
@@ -874,6 +866,7 @@ export default {
       factor: false,
       statsView: false,
       oldTagsExpanded: false,
+      added: {},
       garageCarFuseList: ["engine", "weight", "chassis"],
       counters: {},
       countersDefault: null,
@@ -970,7 +963,7 @@ export default {
         prizesModel: [],
 
         garageThings: ["Can be upgraded", "Can be fused"],
-        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Duplicate", "Triplicate", "Quadriplicate+"],
+        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Not every full", "Duplicate", "Triplicate", "Quadriplicate+"],
         garageThingsModel: [],
 
         upgradesStart: 0,
@@ -1030,6 +1023,7 @@ export default {
           "Gaz's Collection",
           "Gaz's Collection 2",
           "Gunter's Collection",
+          "Gunter's Collection 2",
           "Harriet's Collection",
           "Heavy Metal",
           "Hugo's Collection",
@@ -1065,6 +1059,7 @@ export default {
           "The Horror Show",
           "The Unicorns",
           "Touma's Collection",
+          "Touma's Collection 2",
           "Trading Paint",
           "Two Tone",
           "Ximena's Collection",
@@ -1078,7 +1073,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
-          "Ministry of Racing: Crown Pursuit",
+          "Crown Pursuit",
           "Autobahn Icons",
           "German Powerhaus",
           "French Riviera",
@@ -1256,13 +1251,11 @@ export default {
       custom_tags,
       showSecret: false,
       secretInitialized: false,
-      memoryFilter: null
+      memoryFilter: null,
+      dicio: { Citroen: 'Citroën', Skoda: 'Škoda', "Mercedes-Benz": "Mercedes" }
     }
   },
   watch: {
-    lastestList: function() {
-      this.calcLastest();
-    },
     active: function() {
       if (this.active) {
         this.openDialogSearch();
@@ -1480,6 +1473,9 @@ export default {
           this.cgResetFilterForAdd();
         }
       }
+      if (this.firstTimeOpen && this.type === 'compare') {
+        this.changeFilter();
+      }
       if (this.firstTimeOpen && this.type === 'library') {
         this.changeFilterT();
       }
@@ -1566,7 +1562,6 @@ export default {
       let bestHand = [];
       let bestMra = [];
       let bestWeight = [];
-      this.resetCounters();
       // let searchStr = this.searchInput.toLowerCase().replace(/  +/g, ' ').split(" ");
       let searchStr = this.searchInput.trim().toLowerCase().replace(/  +/g, ' ').normalize('NFD').replace(/\p{Diacritic}/gu, "");
       let strIndex = -1;
@@ -1574,20 +1569,28 @@ export default {
       let tryFind;
       let foundExact = false;
       let sortString = this.sortModel ? this.sortModel.toString() : '';
+      let memKeys = Object.keys(this.clearFilterObj);
       this.clearFilterObj = this.resolveFilterCount();
+      let newKeys = Object.keys(this.clearFilterObj).filter(x => !memKeys.includes(x));
+      let keyToNotReset = newKeys.length === 1 ? newKeys[0] : null;
+      if (Object.keys(this.clearFilterObj).length === 1 && memKeys.length === 1 && newKeys.length === 0) {
+        keyToNotReset = memKeys[0];
+      }
+      this.resetCounters(keyToNotReset);
+
       if (this.type === 'cg' && this.cgAddingYouCar) {
         vm.internalConfig = {};
         Object.keys(this.clearFilterObj).forEach(key => {
           vm.internalConfig[key] = false;
         })
       }
-      if (searchStr === "" && this.filterCount === 0 && this.lastestList.length) {
+      if (searchStr === "" && this.filterCount === 0 && Vue.utils.lastestcars.length) {
         this.searchLoading = false;
         this.closeFilterText();
         return [];
       }
-      if (searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
-        this.searchMax = 20;
+      if (!this.filterOnly && searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
+        this.searchMax = 60;
         this.searchResult = Vue.all_carsArr;
         this.searchResultLength = Vue.all_carsArr.length;
         this.searchLoading = false;
@@ -1597,7 +1600,7 @@ export default {
         return [];
       }
 
-      if (this.filterOnly) {
+      if (this.filterOnly && !this.enableCounters) {
         return [];
       }
 
@@ -1619,7 +1622,7 @@ export default {
           strIndex = -2;
         }
 
-        if (this.filterCount > 0 || this.lastestList.length === 0) {
+        if (this.filterCount > 0 || Vue.utils.lastestcars.length === 0) {
           if (strIndex > -1 || strIndex === -2) {
             if (this.checkMatchFilter(x)) {
               shouldPush = true;
@@ -1667,7 +1670,7 @@ export default {
           if (prePush.mra) bestMra.push(prePush.mra);
 
           if (this.enableCounters) {
-            this.carStatsToCounters(prePush);
+            this.carStatsToCounters(prePush, keyToNotReset);
           }
 
 
@@ -1843,7 +1846,7 @@ export default {
         })
       }
 
-      this.searchMax = 20;
+      this.searchMax = 60;
 
       this.searchResult = result;
       this.searchLoading = false;
@@ -1924,38 +1927,26 @@ export default {
       });
 
     },
-    calcLastest() {
-      let result = [];
-      let prePush;
+    // calcLastest() {
+    //   let result = [];
+    //   let prePush;
 
-      this.lastestList.map(y => {
-        Vue.all_carsArr.map(x => {
-          if (x.rid === y.rid) {
-            prePush = JSON.parse(JSON.stringify(x));
-            prePush.locatedName = x.name;
-            prePush.lastestUser = y.user;
-            result.push(prePush);
-          }
-        })
-      })
-      // result.map(x => {
-      //   Vue.set(x, "class", Vue.resolveClass(x.rq, x.class, "letter"));
-      //   Vue.set(x, "classColor", Vue.resolveClass(x.rq, x.class, "color"));    
-      //   try {
-      //     Vue.set(x, "ridPhoto", '');
-      //     setTimeout(() => {
-      //       Vue.set(x, "ridPhoto", Vue.carPhoto(x));
-      //     }, 1);
-      //   } catch (error) {
-      //     Vue.set(x, "ridPhoto", '');
-      //   }    
-      // })
+    //   this.lastestList.map(y => {
+    //     Vue.all_carsArr.map(x => {
+    //       if (x.rid === y.rid) {
+    //         prePush = JSON.parse(JSON.stringify(x));
+    //         prePush.locatedName = x.name;
+    //         prePush.lastestUser = y.user;
+    //         result.push(prePush);
+    //       }
+    //     })
+    //   })
 
-      this.showingLastest = true;
-      this.searchMax = 100;
-      this.lastestContributionsResolved = result;
-      this.searchResult = result;
-    },
+    //   this.showingLastest = true;
+    //   this.searchMax = 100;
+    //   this.lastestContributionsResolved = result;
+    //   this.searchResult = result;
+    // },
     createCounters() {
       if (!this.enableCounters) return;
       this.counterKeys.map(key => {
@@ -1970,47 +1961,67 @@ export default {
       Vue.set(this.counters, `abs_false`, 0);
       Vue.set(this.counters, `tcs_true`, 0);
       Vue.set(this.counters, `tcs_false`, 0);
-      Vue.set(this.counters, `Prize Cars`, 0);
-      Vue.set(this.counters, `Non-Prize Cars`, 0);
+      Vue.set(this.counters, `prizes_true`, 0);
+      Vue.set(this.counters, `prizes_false`, 0);
 
       // console.log(this.counters);
       this.countersDefault = JSON.stringify(this.counters);
     },
-    resetCounters() {
+    resetCounters(keyToNotReset) {
       if (!this.enableCounters) return;
+      let memValues = {};
+      if (keyToNotReset) {
+        Object.keys(this.counters).map(key => {
+          if (key.startsWith(keyToNotReset + "_")) {
+            memValues[key] = this.counters[key];
+          }
+        })
+      }
       this.counters = JSON.parse(this.countersDefault);
+      if (keyToNotReset) {
+        Object.keys(memValues).map(key => {
+          this.counters[key] = memValues[key];
+        })
+      }
     },
-    carStatsToCounters(car) {
+    carStatsToCounters(car, keyToNotTouch) {
       if (!this.enableCounters) return;
-      this.counters[`classes_${car.class}`] += 1
-      this.counters[`tyres_${car.tyres}`] += 1
-      this.counters[`drives_${car.drive}`] += 1
-      this.counters[`clearances_${car.clearance}`] += 1
-      this.counters[`countrys_${car.country}`] += 1
-      this.counters[`fuel_${car.fuel}`] += 1
-      this.counters[`engine_${car.engine}`] += 1
-      this.counters[`brake_${car.brake}`] += 1
-      this.counters[`brands_${car.brand}`] += 1
-      
-      car.bodyTypes.map(item => {
-        this.counters[`bodyTypes_${item}`] += 1
+      if (!keyToNotTouch || keyToNotTouch !== "classes") this.counters[`classes_${car.class}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "tyres") this.counters[`tyres_${car.tyres}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "drives") this.counters[`drives_${car.drive}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "clearances") this.counters[`clearances_${car.clearance}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "countrys") this.counters[`countrys_${car.country}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "fuel") this.counters[`fuel_${car.fuel}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "engine") this.counters[`engine_${car.engine}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "brake") this.counters[`brake_${car.brake}`] += 1;
+      if (!keyToNotTouch || keyToNotTouch !== "brands") this.counters[`brands_${car.brand}`] += 1;
+
+      (!keyToNotTouch || keyToNotTouch !== "bodyTypes") && car.bodyTypes.map(item => {
+        this.counters[`bodyTypes_${item}`] += 1;
       })
       let temp = [];
-      car.tags.map(item => {
+      (!keyToNotTouch || keyToNotTouch !== "tags") && car.tags.map(item => {
         if (temp.includes(item)) {
           console.log(car.rid);
         }
         temp.push(item);
-        this.counters[`tags_${item}`] += 1
+        this.counters[`tags_${item}`] += 1;
       })
 
-      if (car.abs) this.counters[`abs_true`] += 1
-      else this.counters[`abs_false`] += 1
-      if (car.tcs) this.counters[`tcs_true`] += 1
-      else this.counters[`tcs_false`] += 1
+      if (!keyToNotTouch || keyToNotTouch !== "abs") {
+        if (car.abs) this.counters[`abs_true`] += 1;
+        else this.counters[`abs_false`] += 1;
 
-      if (car.prize) this.counters[`Prize Cars`] += 1
-      else this.counters[`Non-Prize Cars`] += 1
+      }
+      if (!keyToNotTouch || keyToNotTouch !== "tcs") {
+        if (car.tcs) this.counters[`tcs_true`] += 1;
+        else this.counters[`tcs_false`] += 1;
+      }
+      if (!keyToNotTouch || keyToNotTouch !== "prizes") {
+        if (car.prize) this.counters[`prizes_true`] += 1;
+        else this.counters[`prizes_false`] += 1;
+      }
+
 
       // this.counters[`classes_${car.year}`] += 1 // between
       // this.counters[`classes_${car.topSpeed}`] += 1 // between
@@ -2022,7 +2033,7 @@ export default {
     },
     calcCounters() {
       if (!this.enableCounters) return;
-      if (this.countersDefault && this.isFiltering) {
+      if (this.countersDefault && (this.isFiltering || this.filterOnly)) {
         this.changeFilter();
       }
     },
@@ -2263,7 +2274,10 @@ export default {
         if ( context.upgradesModel && !this.filterCheckBetween(this.carNumUps(hCar), context.upgradesModel) ) return false;
         if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
         if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
-        if ( context.winRateModel && this.carNumRaces(hCar) && !this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel) ) return false;
+        if ( context.winRateModel) {
+          if (!this.carNumRaces(hCar)) return false;
+          if (!this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel)) return false;
+        };
         if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
         if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
       }
@@ -2301,6 +2315,7 @@ export default {
         if ( context.garageThingsModel.includes("Fused") && this.$parent.carNumFuses(hCar) === 0) return false;
         if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return false;
         if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return false;
+        if ( context.garageThingsModel.includes("Not every full") && !this.$parent.notEveryFull(hCar) ) return false;
 
         if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return false;
         if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return false;
@@ -2369,29 +2384,35 @@ export default {
         this.changeFilter();
       } else if (this.type === 'carPicker') {
         this.changeFilter();
-      } else {
-        this.searchResult = this.lastestContributionsResolved;
-        this.showingLastest = true;
-        this.showAllFilter = false;
+      } else if (this.type === 'compare') {
+        // this.searchResult = this.lastestContributionsResolved;
+        this.showLastest();
+        
       }
       this.alreadySearched = false;
     },
-    addCar(index, e) {
+    showLastest() {
+      this.showingLastest = true;
+      this.showAllFilter = false;
+
+      this.searchResult = Vue.utils.lastestcars;
+    },
+    addCar(index, e, item) {
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
         try {
-          navigator.clipboard.writeText(this.searchResult[index].rid);
+          navigator.clipboard.writeText(item.rid);
         } catch (error) {
           console.log("localhost")
         }
-        console.log(this.searchResult[index].rid);
+        console.log(item.rid);
         return;
       }
 
-      this.$emit("addCar", JSON.parse(JSON.stringify(this.searchResult[index])));
+      this.$emit("addCar", JSON.parse(JSON.stringify(Vue.all_carsObj[item.rid])));
 
-      Vue.set(this.searchResult[index], "added", true);
+      Vue.set(this.added, item.rid, true);
       setTimeout(() => {
-        Vue.set(this.searchResult[index], "added", false);
+        Vue.set(this.added, item.rid, false);
       }, 800);
 
     },
@@ -2696,6 +2717,57 @@ export default {
 }
 .Main_FilterRedIcon {
   color: rgb(var(--d-text-red2));
+}
+.BaseFilterDialog_BrandsBox {
+  columns: auto 145px;
+  display: block !important;
+  /* background-color: #0004; */
+  margin: 0 -20px;
+  padding: 10px 20px 20px 20px;
+}
+.BaseFilterDialog_BrandChip {
+  padding: 0px 8px 0px 5px;
+  background-color: #0000;
+  height: 50px;
+  display: flex;
+  margin-bottom: 5px;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.BaseFilterDialog_BrandChip .BaseChip_Text {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  justify-content: center;
+  /* flex-direction: column; */
+  gap: 11px;
+  overflow: unset;
+}
+.BaseFilterDialog_BrandChip .BaseChip_Sub {
+  left: 52px;
+  text-align: left;
+}
+.BaseFilterDialog_BrandChip.D_ButtonActive:not(p) {
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  box-shadow: unset;
+  background: linear-gradient(0deg, rgb(var(--d-text-green)) 0%, rgb(var(--d-text-green)) 4%, rgba(var(--d-text-green), 0.4) 4%, rgba(var(--d-text-green), 0.0) 98%);
+}
+.BaseFilterDialog_BrandLeft {
+  background-color: #0004;
+  border-radius: 30px;
+  box-shadow: 0px 0px 0px 5px #0004;
+  display: flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+}
+.BaseFilterDialog_BrandChip .BaseChip_Text span {
+  font-size: 0.8em;
+}
+.BaseFilterDialog_BrandChip:not(.D_ButtonActive) .BaseChip_Text span {
+  color: var(--d-text);
 }
 
 

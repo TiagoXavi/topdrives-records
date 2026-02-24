@@ -92,12 +92,30 @@ i {
 .tdicon-i0 .path00:before,
 .tdicon-f0 .path00:before,
 .tdicon-m0 .path00:before,
+.tdicon-A1 .path00:before,
+.tdicon-A1 .path1:before,
+.tdicon-B1 .path00:before,
+.tdicon-B1 .path1:before,
+.tdicon-C0 .path00:before,
+.tdicon-D0 .path00:before,
+.tdicon-E0 .path00:before,
 [dataid="figureEight"] .tdicon-01 .path00:before,
 .tdicon-wet .path1:before,
 .TdIconCondPerc[scode="00"] {
   content: "\e905";
   color: #cdcdcd;
 }
+
+.tdicon-01 .path1:before,
+.tdicon-rain .path1:before,
+.tdicon-41 .path00:before,
+.tdicon-c1 .path00:before,
+.tdicon-A1 .path1:before,
+.tdicon-B1 .path00:before {
+  color: #5eceff;
+}
+
+
 
 /* wet */
 .tdicon-01 .path2:before,
@@ -113,6 +131,8 @@ i {
 .tdicon-71 .path2:before,
 .tdicon-j0 .path4:before, /* 4 */
 .tdicon-h1 .path2:before,
+.tdicon-A1 .path2:before,
+.tdicon-B1 .path01:before,
 .tdicon-grasswet .path2:before {
   content: "\e918";
   margin-left: -1em;
@@ -135,6 +155,7 @@ i {
 .tdicon-k0 .path1:before,
 .tdicon-l0 .path1:before,
 .tdicon-e0 .path1:before, 
+.tdicon-E0 .path1:before, 
 .tdicon-h0 .path1:before,
 .tdicon-h1 .path1:before,
 .tdicon-m0 .path1:before,
@@ -168,6 +189,7 @@ i {
 .tdicon-e0 .path3:before, /* 3 */
 .tdicon-i0 .path3:before, /* 3 */
 .tdicon-c0 .path1:before,
+.tdicon-C0 .path1:before,
 .tdicon-sand .path1:before,
 .tdicon-51 .path1:before,
 .tdicon-c1 .path1:before,
@@ -180,6 +202,7 @@ i {
 /* snow */
 .tdicon-60 .path1:before,
 .tdicon-d0 .path1:before,
+.tdicon-D0 .path1:before,
 .tdicon-h0 .path3:before, /* 3 */
 .tdicon-h1 .path3:before, /* 3 */
 .tdicon-g0 .path3:before, /* 3 */

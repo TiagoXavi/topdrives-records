@@ -114,6 +114,7 @@ export default {
           } else {
             this.quickMs = diffMs;
           }
+          return true;
         }
 
       }

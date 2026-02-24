@@ -34,8 +34,6 @@
     <!-- Select car -->
     <!-- <BaseFilterDialog
       v-model="searchFilterDialog"
-      :lastestList="lastestList"
-      :highlightsUsers="highlightsUsers"
       :sortEnabled="true"
       :enableCounters="true"
       :forceNonPrize="forceNonPrize"
@@ -60,18 +58,6 @@ export default {
       type: Array,
       default() {
         return []
-      }
-    },
-    lastestList: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    highlightsUsers: {
-      type: Object,
-      default() {
-        return {}
       }
     },
     filterToImport: {
