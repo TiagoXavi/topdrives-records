@@ -96,6 +96,7 @@ export default {
 }
 .BaseContentLoader_BigBars_LoadingBox {
   display: flex;
+  width: 100%;
 }
 .BaseContentLoader_BigBars_LoadingBox:not(:last-child) {
   margin-bottom: 10px;

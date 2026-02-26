@@ -588,9 +588,9 @@ export default {
         obj.event.trackset.map((trackst, it) => {
           Vue.set(this._match.event.trackset, it, trackst);
           Vue.set(this._match.event.resolvedTrackset, it, [null, null, null, null, null]);
-          this._match.event.trackset[it].map((trackobj, itrjobj) => {
+          this._match.event.trackset[it].map((trackobj, itrackobj) => {
             if (trackobj.track) {
-              Vue.set(this._match.event.resolvedTrackset[it], itrjobj, Vue.resolveTrack({ track: trackobj.track }, false, false));
+              Vue.set(this._match.event.resolvedTrackset[it], itrackobj, Vue.resolveTrack({ track: trackobj.track }, false, false));
             }
           })
         })

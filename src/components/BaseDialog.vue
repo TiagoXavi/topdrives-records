@@ -130,6 +130,7 @@ export default {
           this.animOut = false;
           this.preActive = false;
           this.realActive = false;
+          this.$emit('out');
         }, 99);
       }
     }
@@ -263,8 +264,7 @@ export default {
   display: contents;
 }
 .BaseDialog_UseColor .BaseDialog_Opaque {
-  background-image: radial-gradient(at center left, var(--class-color) -285%, transparent 65%),
-    radial-gradient(at center right, #4f2d2399 -145%, transparent 75%);
+  background-image: radial-gradient(at center left, var(--class-color) -285%, transparent 65%), radial-gradient(at center right, #4f2d2399 -145%, transparent 75%);
 }
 .BaseDialog_UseColor .BaseCard_EffectBackGround {
   display: none;

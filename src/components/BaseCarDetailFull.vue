@@ -2,19 +2,46 @@
   <BaseDialog
     :active="active"
     :transparent="false"
-    :style="`--class-color: ${carClassColor};`"
+    :style="`--class-color: ${carClassColor}; --fire-size: 140px;`"
     :useColor="true"
     :lazy="true"
-    max-width="415px"
+    :disableScroll="true"
+    :class="`BaseCarDetailFull_Car${car?.class}`"
+    class="Global_CarDetailFull"
+    max-width="460px"
     min-width="240px"
-    @close="$emit('close')">
-    <div class="Main_TuneDialog BaseCarDetailDialog_Layout">
+    @close="$emit('close')"
+    @out="closed();">
+    <div class="Main_TuneDialog BaseCarDetailFull_Layout">
 
-      <div v-if="car && car.rid" class="Row_DialogLayout">
+      <div v-if="car && car.rid" class="BaseCarDetailFull_CarLayout">
+        <div class="Row_DialogCard">
+          <div class="Row_DialogCardLeft">
+            <BaseCard
+              :car="Vue.all_carsObj[car.rid]"
+              :isDialogBox="true"
+              :options="false"
+              :customData="car.customData"
+              :selectedTune="car.selectedTune"
+              @color="getColor($event)"
+            />
+          </div>
+        </div>
+      </div>
 
-        <div
-          v-if="showMove"
-          class="Row_OrderBox">
+      <div v-if="car && car.rid" class="BaseCarDetailFull_BodyLayout Main_DarkScroll Main_DarkScrollMini">
+
+        <div v-if="car.tags && car.tags.length > 0" class="BaseCarDetailFull_TagsRoot">
+          <div class="Row_DialogCardTags BaseCarDetailFull_Tags">
+            <BaseGameTag
+              v-for="tag in car.tags"
+              :key="tag"
+              :tag="tag"
+            />
+          </div>
+        </div>
+
+        <div v-if="showMove" class="Row_OrderBox">
           <div class="Row_OrderBoxLayout">
             <button
               v-if="tuneDialogCarIndex > -1"
@@ -39,7 +66,51 @@
           </div>
         </div>
 
-        <div v-if="showTunes" class="Row_DialogHeader" style="margin-bottom: 15px;">
+        <div v-if="!medals && Vue.utils.loading" class="BaseCarDetailFull_Loading BaseCarDetailFull_NichesComum">
+          <BaseContentLoader
+            :contents="true"
+            itemWidth="111px"
+            :itemHeight="20"
+            style="padding: 10px 10px 10px 20px; width: 100%;"
+            type="bigBars"
+            count="10"
+          />
+        </div>
+        <div v-else-if="(!medals || !medals.Global) && !Vue.utils.loading" class="BaseCarDetailFull_NotFound BaseCarDetailFull_NichesComum">
+          <i class="ticon-line BaseCarDetailFull_NotFoundLine" aria-hidden="true"/>
+        </div>
+        <div v-else class="BaseCarDetailFull_NichesComum">
+          <div class="BaseCarDetailFull_ScoreDual Space_TopGiga">
+            <div class="BaseCarDetailFull_ScoreHeader">
+              <div class="BaseCarDetailFull_ScoreFire">
+                <img
+                  :src="anim ? `/assets/fire.png` : `/assets/firestop.png`"
+                  class="BaseCarDetailFull_ScoreFireIconImg"
+                />
+              </div>
+              <div class="BaseCarDetailFull_ScoreValue">{{ medals.total }}</div>
+            </div>
+
+            <div v-if="medals.result?.mainNiches" class="BaseCarDetailFull_NichesBody">
+              <div v-for="item in medals.result.mainNiches" class="BaseCarDetailFull_Niche">
+                <div class="BaseCarDetailFull_NicheName" :class="{ BaseCarDetailFull_NicheNameSeats: item[0].includes('seat') }">{{ item[0] }}</div>
+                <div class="BaseCarDetailFull_NicheValue">{{ Math.round(item[1]) }}</div>
+                <div class="BaseCarDetailFull_NicheStars"><BaseStars :value="item[2]" /></div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="medals.result?.tracks" class="BaseCarDetailFull_TracksBody Space_TopGiga">
+            <template v-for="(item, ix) in medals.result.tracks">
+              <div v-if="ix < 10 || medals.result.tracks[ix][1] === medals.result.tracks[9][1]" class="BaseCarDetailFull_Track">
+                <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
+                <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div v-if="showTunes && !Vue.utils.loading" class="Row_DialogHeader Space_TopGiga">
           <button
             v-for="item in tuneDialogTunes"
             :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
@@ -50,29 +121,8 @@
             <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
           </button>
         </div>
-
-
-        <div class="Row_DialogBody">
-          <div class="Row_DialogCard">
-            <div class="Row_DialogCardLeft">
-              <BaseCard
-                :car="Vue.all_carsObj[car.rid]"
-                :isDialogBox="true"
-                :options="false"
-                :customData="car.customData"
-                :selectedTune="car.selectedTune"
-                @color="getColor($event)"
-              />
-            </div>
-          </div>
-        </div>
-        <div v-if="car.tags && car.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 18px;">
-          <BaseGameTag
-            v-for="tag in car.tags"
-            :key="tag"
-            :tag="tag" />
-        </div>
-        <div class="Row_DialogCardDual Space_TopPlus">
+        
+        <div v-if="!Vue.utils.loading" class="Row_DialogCardDual Space_TopGiga">
           <div class="Row_DialogCardBottom">
             <div class="Row_DialogCardStat">
               <div class="Row_DialogCardStatLabel">ABS</div>
@@ -136,6 +186,9 @@ import BaseDialog from './BaseDialog.vue';
 import BaseCard from './BaseCard.vue';
 import BaseGameTag from './BaseGameTag.vue';
 import BaseBrakeDialog from './BaseBrakeDialog.vue';
+import BaseContentLoader from './BaseContentLoader.vue';
+import BaseStars from './BaseStars.vue';
+import BaseTrack from './BaseTrack.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
 
@@ -145,7 +198,10 @@ export default {
     BaseDialog,
     BaseCard,
     BaseGameTag,
-    BaseBrakeDialog
+    BaseBrakeDialog,
+    BaseContentLoader,
+    BaseStars,
+    BaseTrack
   },
   props: {
     active: {
@@ -180,11 +236,17 @@ export default {
   data() {
     return {
       Vue: Vue,
-      carClassColor: null
+      carClassColor: null,
+      medals: null,
+      anim: true
     }
   },
   watch: {},
-  beforeMount() {},
+  beforeMount() {
+    if (this.active) {
+      this.init();
+    }
+  },
   mounted() {},
   computed: {
     tuneDialogTunes() {
@@ -236,6 +298,26 @@ export default {
     }
   },
   methods: {
+    init() {
+      if (this.car && this.car.rid) {
+        Vue.getRMedals([this.car.rid], [], () => {
+
+            let res = Vue.R_Medals[Vue.rn_to_rid.indexOf(this.car.rid)];
+            this.medals = res;
+            if (this.medals.Global) {
+              console.log(this.medals.result.stars, this.medals);
+              console.log(this.medals.result.tracks);
+
+              this.anim = this.medals.result.mainNiches.some(item => Math.round(item[2]) >= 5);
+            }
+
+          },
+          (error) => {
+            console.error("Failed to get medals:", error);
+          }
+        );
+      }
+    },
     getColor(color) {
       this.carClassColor = color;
       // console.log(color);
@@ -265,19 +347,236 @@ export default {
       Vue.set(this.carDetailsList, this.tuneDialogCarIndex, {});
       this.$emit("changed");
       this.$emit("close");
+    },
+    closed() {
+      this.medals = null;
+    },
+    calcKeys() {
+      return [];
+      let result = ["Global"];
+      if (this.car.class === "S") result.push("S Non-prize");
+      result.push(this.car.drive);
+      result.push(this.car.tyres);
+      result.push(this.car.clearance);
+
+      if (this.car.year <= 1979) result.push("Pre80s");
+      else if (this.car.year <= 1989) result.push("80s");
+      else if (this.car.year <= 1999) result.push("90s");
+      else if (this.car.year <= 2009) result.push("00s");
+      else if (this.car.year <= 2019) result.push("10s");
+      else if (this.car.year <= 2029) result.push("20s");
+      else result.push("30s");
+
+      if (this.car.seats == 1) result.push("1 seat");
+      else if (this.car.seats <= 3) result.push("2-3 seats");
+      else if (this.car.seats == 4) result.push("4 seats");
+      else result.push("5+ seats");
+
+      this.car.bodyTypes.map(body => {
+        if (body === "MPV" || body === "Van") result.push("MPV/Van");
+        else result.push(body);
+      })
+
+      if (this.fuel === "Petrol") result.push("Petrol");
+      else if (this.fuel === "Diesel") result.push("Diesel");
+      else if (this.fuel === "Electric") result.push("Electric");
+      else if (this.fuel === "Hybrid") result.push("Hybrid");
+      else result.push("Misc fuels");
+
+      this.car.tags.map(tag => {
+        if (Vue.tagsDate[tag]) {
+
+        }
+      })
+
+      let brandCount = 0;
+      let countryCount = 0;
+      Vue.all_carsArr.map(car => {
+        if (car.brand === this.car.brand) brandCount++;
+        if (car.country === this.car.country) countryCount++;
+      })
+      if (brandCount < 50) result.push("Other brands");
+      else result.push(this.car.brand);
+
+      if (countryCount < 50) result.push("Other countries");
+      else result.push(this.car.country);
+
+      return result;
     }
   },
 }
 </script>
 
 <style>
-.BaseCarDetailDialog_Layout .Car_Header.Row_DialogCardCard {
+.Global_CarDetailFull {
+  --fireFilter: unset;
+}
+.BaseCarDetailFull_CarA {
+  --fireFilter: hue-rotate(194deg) saturate(16) brightness(1);
+}
+.BaseCarDetailFull_CarB {
+  --fireFilter: hue-rotate(310deg) saturate(6);
+}
+.BaseCarDetailFull_CarC {
+  --fireFilter: hue-rotate(9deg) saturate(2) brightness(1.2);
+}
+.BaseCarDetailFull_CarD {
+  --fireFilter: hue-rotate(187deg) saturate(7) brightness(1);
+}
+.BaseCarDetailFull_CarE {
+  --fireFilter: hue-rotate(58deg) saturate(0.8) brightness(1.2);
+}
+.BaseCarDetailFull_CarF {
+  --fireFilter: saturate(0) brightness(0.9);
+}
+.Global_CarDetailFull.BaseDialog_UseColor .BaseDialog_Opaque {
+  background-image: radial-gradient(ellipse 630px 230px at 0px -7px, var(--class-color) -305%, transparent 65%), radial-gradient(ellipse 5px 190px at 0px 66px, var(--class-color) 0%, transparent 35%);
+}
+.BaseCarDetailFull_Layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.Global_CarDetailFull,
+.BaseCarDetailFull_Layout .Car_Header.Row_DialogCardCard {
   --width: 415px;
   --height: 256px;
   --card-font-size: 19px;
   --card-g-height: 256px;
   --card-g-heightraw: 256;
+}
+.BaseCarDetailFull_TagsRoot {
+  display: flex;
+  justify-content: center;
+}
+.BaseCarDetailFull_Tags {
+  width: clamp(var(--width), var(--width), 100%);
+}
+.BaseCarDetailFull_Layout .Car_Header.Row_DialogCardCard {
   border-radius: 11px;
   box-shadow: 0px 34px 28px -24px #00000050, 0px -24px 28px -24px #00000066;
+}
+.BaseCarDetailFull_CarLayout {
+  margin-top: calc(var(--height) * -1 + 50px);
+  position: fixed;
+  z-index: 1;
+}
+.BaseCarDetailFull_BodyLayout {
+  overflow-y: scroll;
+  height: calc(100vh - 270px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  overscroll-behavior: contain;
+  padding: 20px;
+  padding-top: 65px;
+  box-sizing: border-box;
+  max-height: max-content;
+}
+.BaseCarDetailFull_BodyLayout::-webkit-scrollbar-button {
+  height: 15px;
+}
+.Global_CarDetailFull .BaseDialog_ForceNoScroll {
+  margin-top: 210px;
+  padding: 0px 20px;
+  max-height: calc(100vh - 270px);
+}
+.BaseCarDetailFull_NichesComum {
+  min-height: 230px;
+}
+.BaseCarDetailFull_ScoreDual {
+  display: flex;
+  min-height: 230px;
+  align-items: center;
+  justify-content: center;
+}
+.BaseCarDetailFull_ScoreHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  margin-top: 40px;
+}
+.BaseCarDetailFull_ScoreFire {
+  position: absolute;
+  display: flex;
+  top: -91px;
+  filter: var(--fireFilter);
+}
+.BaseCarDetailFull_ScoreValue {
+  position: relative;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  color: var(--d-back);
+  font-size: 29px;
+}
+.BaseCarDetailFull_ScoreFireIconImg {
+  height: var(--fire-size);
+}
+.BaseCarDetailFull_Niche {
+  display: flex;
+}
+.BaseCarDetailFull_Niche .BaseStars_StarActive {
+  color: var(--class-color);
+}
+.BaseCarDetailFull_CarF .BaseStars_StarActive {
+  color: #aaa;
+}
+.BaseCarDetailFull_NicheName {
+  white-space: nowrap;
+  width: 130px;
+  font-size: 0.8em;
+  text-overflow: ellipsis;
+  margin-right: 6px;
+  text-align: right;
+  flex-grow: 1;
+  direction: rtl;
+}
+.BaseCarDetailFull_NicheValue {
+  min-width: 25px;
+  text-align: right;
+  margin-right: 8px;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+.BaseCarDetailFull_NicheNameSeats {
+  direction: ltr;
+}
+.BaseCarDetailFull_TracksBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.BaseCarDetailFull_Track {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.BaseCarDetailFull_TrackValue {
+  text-align: right;
+  font-size: 0.8em;
+  width: 37px;
+}
+.BaseCarDetailFull_TrackComp {
+  width: var(--left-width);
+}
+.BaseCarDetailFull_NotFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  opacity: 0.4;
+}
+.BaseCarDetailFull_Loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  width: 100%;
+  padding-top: 20px;
+  margin: 0 auto;
+  padding-bottom: 50px;
 }
 </style>

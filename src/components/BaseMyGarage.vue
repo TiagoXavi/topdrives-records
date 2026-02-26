@@ -1086,7 +1086,7 @@ export default {
   },
   beforeMount() {
     this.user = this.$store.state.user;
-    // this.getLastest();
+    this.load();
   },
   mounted() {
     let vm = this;
@@ -1157,52 +1157,6 @@ export default {
     }
   },
   methods: {
-    getLastest(isAutoShare) {
-      let vm = this;
-      this.lastestLoading = true;
-
-
-      // lastest cars
-      axios.get(Vue.preUrl + "/lastest")
-      .then(res => {
-        this.lastestLoading = false;
-
-        // Vue.utils.highlightsUsers = Vue.resolveHighlightsUsers(res.data);
-
-        if (this.enableGiveAway && isAutoShare && Vue.utils.giveawayUsers.includes(this.user.username)) {
-          this.viewMyShareDialog = true;
-        }
-
-        let incomingCars = res.data.find(x => x.id === 'newCars').value;
-        if (incomingCars && incomingCars.length > 0) {
-          let rids = Vue.all_carsArr.map(x => x.rid);
-
-          incomingCars.map(car => {
-            if (!!(car.photoId && car.rq && car.onlyName && car.brand && car.country && car.year && car.clearance && car.topSpeed && car.hand && car.drive && car.tyres && car.weight && car.tags && car.bodyTypes && car.fuel && car.seats && car.engine)) {
-              if (!rids.includes(car.rid)) {
-                Vue.all_carsArr.push(car);
-              }
-            }
-          })
-
-          Vue.all_carsArr.sort((a,b) => {
-            return b.rq - a.rq;
-          })
-        }
-
-
-        if (!this.loading && !this.userGarage.date) {
-          this.load();
-        }
-
-
-      })
-      .catch(error => {
-        this.lastestLoading = false;
-        console.log(error);
-      });
-
-    },
     reload() {
       setTimeout(() => {
         this.load();
@@ -1956,7 +1910,8 @@ export default {
       })
       .then(res => {
         this.alreadyUploaded = true;
-        this.getLastest(true);
+        // this.getLastest(true);
+        // TODO
         this.$store.commit("DEFINE_SNACK", {
           active: true,
           correct: true,

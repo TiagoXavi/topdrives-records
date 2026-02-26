@@ -1346,6 +1346,9 @@ textarea::-webkit-scrollbar-corner,
 body::-webkit-scrollbar-corner {
   background-color: #222;
 }
+.Main_DarkScrollMini::-webkit-scrollbar {
+  width: 4px;
+}
 
 textarea::-webkit-resizer {
   width: 18px;
@@ -4346,8 +4349,8 @@ a:visited:not(.D_Button) {
 .Main_Compact .Main_BodyPrint .Car_HeaderBlock060,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockHandling,
 .Main_Compact .Main_BodyPrint .Car_HeaderBlockDrive,
-.Main_BodyPrint .Car_HeaderBlockTop,
-.Main_BodyPrint .Car_HeaderBackDropRight {
+.Main_Compact .Main_BodyPrint .Car_HeaderBlockTop,
+.Main_Compact .Main_BodyPrint .Car_HeaderBackDropRight {
   background-color: hsla(40, 6%, 30%, 0.7);
 }
 .Main_BodyPrint .Car_HeaderBlockTop {

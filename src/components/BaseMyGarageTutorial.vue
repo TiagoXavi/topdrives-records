@@ -100,7 +100,7 @@
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_3.png" alt="" style="max-width: 100%;">
         </div>
-        <div>5. Tap to open the URL on Safari, don't work on other browser</div>
+        <div>5. Tap to open the URL on Safari, don't try other browser</div>
         <div class="BaseMyGarageTutorial_TopicImage">
           <img src="/assets/tutorial/proxyman_4.png" alt="" style="max-width: 100%;">
         </div>

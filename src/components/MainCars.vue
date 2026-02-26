@@ -86,15 +86,16 @@
           </BaseChip>
           <template v-for="(item, ix) in sizes">
             <BaseChip
-              :disabled="item.width === 68 && !_Mcars.showStats"
-              :inputValue="_Mcars.width === item.width"
+              v-if="ix > 0"
+              :disabled="item.width === 415 && _Mcars.showStats"
+              :inputValue="_Mcars.width === (_Mcars.showStats ? sizes[ix-1].width : item.width)"
               class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small MainCars_SizeChip"
-              :class="{ D_ButtonActive: _Mcars.width === item.width }"
+              :class="{ D_ButtonActive: _Mcars.width === (_Mcars.showStats ? sizes[ix-1].width : item.width) }"
               required="true"
               :value="item"
               :key="`MainCars_Size_${item.width}`"
-              @click="changeSize(item)">
-              <span class="MainCars_SizeIcon" :style="`--size: ${item.width}px;`"></span>
+              @click="changeSize( (_Mcars.showStats ? sizes[ix-1] : item) )">
+              <span class="MainCars_SizeIcon" :style="`--size: ${ (_Mcars.showStats ? sizes[ix-1].width : item.width) }px;`"></span>
             </BaseChip>
           </template>
         </div>
@@ -105,7 +106,6 @@
             :label="$t('m_sort')"
             :itemLabel="(item) => $tc(`c_${item}`, 1)"
             :dialogConfig="{ maxWidth: '250px' }"
-            name="MainCars_SortSelect"
             class="D_ButtonDark4 MainCars_SortSelect"
             @change="_Mcars.sortMethod = $event; sortCars(); debounceChangedLong();">
             <span>{{ $tc(`c_${_Mcars.sortMethod}`, 1) }}</span>
@@ -217,12 +217,16 @@
                 <div v-if="_Mcars.cols.acel" :style="`--w: ${columnObj.acel.w}em`" class="MainCars_St MainCars_c_acel">{{ Vue.all_carsObj[item.rid].acel ? Vue.all_carsObj[item.rid].acel.toFixed(1) : 'N/A' }}</div>
                 <div v-if="_Mcars.cols.hand" :style="`--w: ${columnObj.hand.w}em`" class="MainCars_St MainCars_c_hand">{{ Vue.all_carsObj[item.rid].hand }}</div>
                 <div v-if="_Mcars.cols.mra" :style="`--w: ${columnObj.mra.w}em`" class="MainCars_St MainCars_c_mra">{{ Vue.all_carsObj[item.rid].mra ? Vue.all_carsObj[item.rid].mra.toFixed(2) : "-" }}</div>
+
+                <div v-if="_Mcars.cols.drive" :style="`--w: ${columnObj.drive.w}em`" class="MainCars_St MainCars_c_drive">{{ Vue.all_carsObj[item.rid].drive }}</div>
+                <div v-if="_Mcars.cols.tyres" :style="`--w: ${columnObj.tyres.w}em`" class="MainCars_St MainCars_c_tyres">{{ $t(`c_${Vue.all_carsObj[item.rid].tyres.toLowerCase()}2`) }}</div>
+                <div v-if="_Mcars.cols.clearance" :style="`--w: ${columnObj.clearance.w}em`" class="MainCars_St MainCars_c_clearance">{{ $t(`c_${Vue.all_carsObj[item.rid].clearance.toLowerCase()}`) }}</div>
+
                 <div v-if="_Mcars.cols.weight" :style="`--w: ${columnObj.weight.w}em`" class="MainCars_St MainCars_c_weight">{{ Vue.all_carsObj[item.rid].weight }}</div>
                 <div v-if="_Mcars.cols.year" :style="`--w: ${columnObj.year.w}em`" class="MainCars_St MainCars_c_year">{{ Vue.all_carsObj[item.rid].year }}</div>
 
                 <div v-if="_Mcars.cols.abs" :style="`--w: ${columnObj.abs.w}em`" :class="{ Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].abs }" class="MainCars_St MainCars_c_abs Row_DialogCardStatRed">{{ Vue.all_carsObj[item.rid].abs ? 'Yes' : 'No' }}</div>
                 <div v-if="_Mcars.cols.tcs" :style="`--w: ${columnObj.tcs.w}em`" :class="{ Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].tcs }" class="MainCars_St MainCars_c_tcs Row_DialogCardStatRed">{{ Vue.all_carsObj[item.rid].tcs ? 'Yes' : 'No' }}</div>
-                <div v-if="_Mcars.cols.clearance" :style="`--w: ${columnObj.clearance.w}em`" class="MainCars_St MainCars_c_clearance">{{ $t(`c_${Vue.all_carsObj[item.rid].clearance.toLowerCase()}`) }}</div>
                 <div v-if="_Mcars.cols.fuel" :style="`--w: ${columnObj.fuel.w}em`" class="MainCars_St MainCars_c_fuel">{{ $t(`c_${Vue.all_carsObj[item.rid].fuel.toLowerCase()}`) }}</div>
                 <div v-if="_Mcars.cols.seats" :style="`--w: ${columnObj.seats.w}em`" class="MainCars_St MainCars_c_seats">{{ Vue.all_carsObj[item.rid].seats }}</div>
                 <div v-if="_Mcars.cols.engine" :style="`--w: ${columnObj.engine.w}em`" class="MainCars_St MainCars_c_engine">{{ $t(`c_${Vue.all_carsObj[item.rid].engine.toLowerCase()}Engine`) }}</div>
@@ -360,11 +364,13 @@ export default {
         { type: "acel", fixed: 1, nick: "0-60", w: 2 },
         { type: "hand", fixed: 0, nick: "Hand", w: 2 },
         { type: "mra", fixed: 2, nick: "MRA", w: 3.2 },
+        { type: "drive", fixed: 0, nick: "Drive", w: 3 },
+        { type: "tyres", fixed: 0, nick: "Tyres", w: 3 },
+        { type: "clearance", fixed: 0, nick: "Clea.", w: 3 },
         { type: "weight", fixed: 0, nick: "Weight", w: 3 },
         { type: "year", fixed: 0, nick: "Year", w: 3 },
         { type: "abs", fixed: 0, nick: "ABS", w: 2 },
         { type: "tcs", fixed: 0, nick: "TCS", w: 2 },
-        { type: "clearance", fixed: 0, nick: "Clea.", w: 3 },
         { type: "fuel", fixed: 0, nick: "Fuel", w: 4 },
         { type: "seats", fixed: 0, nick: "Sts", w: 1 },
         { type: "engine", fixed: 0, nick: "Engine", w: 3 },
@@ -415,11 +421,13 @@ export default {
             acel: true,
             hand: true,
             mra: true,
+            drive: true,
+            tyres: true,
+            clearance: true,
             weight: true,
             year: true,
             abs: true,
             tcs: true,
-            clearance: true,
             fuel: true,
             seats: true,
             engine: true,
@@ -432,15 +440,6 @@ export default {
     }
   },
   beforeMount() {
-    // Vue.readLocalStorage("MainCarsIsGarage", this._Mcars, "isGarage", true);
-    // let width = window.localStorage.getItem("MainCarsWidth");
-    // if (width) {
-    //   width = parseInt(width);
-    //   let sizeItem = this.sizes.find(s => s.width === width);
-    //   if (sizeItem) {
-    //     this.changeSize(sizeItem);
-    //   }
-    // }
   },
   mounted() {
     this.debounceFilter = Vue.debounce(this.loadCars, 500);
@@ -500,9 +499,9 @@ export default {
     async prepareCars() {
       await Vue.carsCompile("R_Medals");
       this.ready = true;
-      this.loadCars();
+      this.loadCars(true);
     },
-    loadCars() {
+    loadCars(initial) {
       if (!this.ready) return;
       Vue.tryLoadGarageFromStorage();
       if (this._Mcars.isGarage) {
@@ -532,7 +531,7 @@ export default {
       
       this.cars = result;
       this.sortCars();
-      this.saveLocal();
+      if (!initial) this.saveLocal();
     },
     loadByGarage() {
       if (!this.ready) return;
@@ -804,7 +803,7 @@ export default {
     },
     cardClick(item) {
       // console.log(JSON.parse(JSON.stringify( item?.R_Medals_tracks || Vue.all_carsObj[item.rid]?.R_Medals_tracks || [] )));
-      if (import.meta.env.DEV) this.getMedals(item);
+      // if (import.meta.env.DEV) this.getMedals(item);
       if (this.garageWorking) {
         console.log(item, Vue.all_carsObj[item.rid]);
       }
@@ -817,21 +816,20 @@ export default {
 
 
     },
-    getMedals(item) {
-      Vue.getRMedals([item.rid], [], () => {
+    // getMedals(item) {
+    //   Vue.getRMedals([item.rid], [], () => {
         
-        let res = Vue.R_Medals[Vue.rn_to_rid.indexOf(item.rid)];
-        console.log(res?.result?.stars, res);
-        console.log(res?.result?.mainNiches);
-        console.log(res?.result?.tracks);
+    //     let res = Vue.R_Medals[Vue.rn_to_rid.indexOf(item.rid)];
+    //     console.log(res?.result?.stars, res);
+    //     console.log(res?.result?.mainNiches);
+    //     console.log(res?.result?.tracks);
   
-        },
-        (error) => {
-          console.error("Failed to get medals:", error);
-        }
-      );
-
-    },
+    //     },
+    //     (error) => {
+    //       console.error("Failed to get medals:", error);
+    //     }
+    //   );
+    // },
     sortClick(column) {
       if (this._Mcars.sortMethod === column) {
         this._Mcars.sortDesc = !this._Mcars.sortDesc;

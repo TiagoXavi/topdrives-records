@@ -39,7 +39,8 @@ export default {
     m_count323: "323",
     m_count233: "233",
     'c_bodyType': "@:c_bodyStyle",
-    'c_engine': "@:c_enginePos"
+    'c_engine': "@:c_enginePos",
+    'c_tyres': "@:c_tyre",
   },
   es,
   fr,

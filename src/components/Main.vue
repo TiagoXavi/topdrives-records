@@ -1375,7 +1375,7 @@
           </div>
 
           <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: event.compilation?.[0]?.[0].saverScore3 !== undefined }">
+          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: event.compilation?.[0]?.[0]?.saverScore3 !== undefined }">
             <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
               <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
                 <template v-for="(car, icar) in group">
