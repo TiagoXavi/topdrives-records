@@ -279,7 +279,6 @@
       :raceFilter="_Mcars.filter"
       :enableCounters="true"
       style="z-index: 200;"
-      importFilterName="MAINCARS_IMPORT"
       ref="mainCarsFiltRef"
       ridsMutationName="MAINCARS_RIDSMUT"
       @clearFilterUpdate="clearFilterRes($event)"
@@ -389,6 +388,9 @@ export default {
         this.loadCars();
       }
     }
+  },
+  beforeCreate() {
+    window.localStorage.setItem("tabCars", "t");
   },
   created() {
     this.columnObj = this.columns.reduce((acc, col) => {
@@ -571,7 +573,7 @@ export default {
       this.saveLocal();
     },
     matchFilter(car, hCar) {
-      if (!this.$refs.mainCarsFiltRef.checkMatchFilter(car, hCar)) return false;
+      if (!this.$refs.mainCarsFiltRef.checkMatchFilter(car, hCar, this._Mcars.filter)) return false;
       return true;
     },
     sortCars() {
@@ -687,7 +689,6 @@ export default {
         try {
           let parsed = JSON.parse(local);
           this._Mcars.input = parsed.input || this._Mcars.input;
-          this._Mcars.filter = parsed.filter || this._Mcars.filter;
           this._Mcars.view = parsed.view || this._Mcars.view;
           this._Mcars.showStats = parsed.showStats || this._Mcars.showStats;
           this._Mcars.isGarage = parsed.isGarage || this._Mcars.isGarage;
@@ -699,6 +700,12 @@ export default {
           this._Mcars.expanded = parsed.expanded || this._Mcars.expanded;
           if (Object.keys(parsed.cols || {}).length === Object.keys(this._Mcars.cols).length) {
             this._Mcars.cols = parsed.cols;
+          }
+
+          if (parsed.filter) {
+            this._Mcars.filter = parsed.filter;
+            // let filterCopy = JSON.parse(JSON.stringify(parsed.filter));
+            // this.$store.commit("MAINCARS_IMPORT", { filter: filterCopy });
           }
         } catch (e) {
           console.error("Failed to parse local storage MainCars:", e);

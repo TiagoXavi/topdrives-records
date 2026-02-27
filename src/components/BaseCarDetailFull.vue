@@ -84,11 +84,12 @@
             <div class="BaseCarDetailFull_ScoreHeader">
               <div class="BaseCarDetailFull_ScoreFire">
                 <img
-                  :src="anim ? `/assets/fire.png` : `/assets/firestop.png`"
+                  :src="anim || (car.prize && medals.total === 0) ? `/assets/fire.png` : `/assets/firestop.png`"
+                  :class="{ BaseCarDetailFull_ScoreFireEmpty: car.prize && medals.total === 0 }"
                   class="BaseCarDetailFull_ScoreFireIconImg"
                 />
               </div>
-              <div class="BaseCarDetailFull_ScoreValue">{{ medals.total }}</div>
+              <div class="BaseCarDetailFull_ScoreValue">{{ car.prize && medals.total === 0 ? '?' : medals.total }}</div>
             </div>
 
             <div v-if="medals.result?.mainNiches" class="BaseCarDetailFull_NichesBody">
@@ -123,6 +124,7 @@
               </div>
             </template>
             <button
+              v-if="medals.result.tracks.length > 0"
               style="margin-top: 10px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="exportToWorkspace($event)">{{ $t("m_useTrackList") }}</button>
@@ -419,7 +421,7 @@ export default {
 
 
       tdrStore().mainParams = { cars, tracks, mode: "compare" };
-      this.$router.push({ path: "/compare" });
+      this.$router.push({ path: `/compare?t=${new Date().getTime()}` });
       this.$emit('close');
     },
   },
@@ -449,7 +451,8 @@ export default {
   --fireFilter: saturate(0) brightness(0.9);
 }
 .Global_CarDetailFull.BaseDialog_UseColor .BaseDialog_Opaque {
-  background-image: radial-gradient(ellipse 630px 230px at 0px -7px, var(--class-color) -305%, transparent 65%), radial-gradient(ellipse 5px 190px at 0px 66px, var(--class-color) 0%, transparent 35%);
+  /* background-image: radial-gradient(ellipse 630px 230px at 0px -7px, var(--class-color) -305%, transparent 65%), radial-gradient(ellipse 5px 190px at 0px 66px, var(--class-color) 0%, transparent 35%); */
+  background-image: radial-gradient(ellipse 590px 310px at 0px 193px, var(--class-color) -325%, transparent 75%), radial-gradient(ellipse 5px 350px at 0px 186px, var(--class-color) 0%, transparent 35%);
 }
 .BaseCarDetailFull_Layout {
   position: relative;
@@ -491,9 +494,6 @@ export default {
   padding-top: 65px;
   box-sizing: border-box;
   max-height: max-content;
-}
-.BaseCarDetailFull_BodyLayout::-webkit-scrollbar-button {
-  height: 15px;
 }
 .Global_CarDetailFull .BaseDialog_ForceNoScroll {
   margin-top: 230px;

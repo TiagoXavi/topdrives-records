@@ -19,7 +19,7 @@
     </div>
     <div
       :style="`${ user && user.tier ? '--cor-hs: var(--t'+user.tier+'-hs); --cor-l: var(--t'+user.tier+'-l); --cor-l0: var(--t'+user.tier+'-l0);' : ''}`"
-      class="BaseTopMenu_Right">
+      class="BaseTopMenu_Right BaseTopMenu_RightNew">
       <div class="BaseTopMenu_RightBackLight"></div>
       <button
         class="BaseTopMenu_RightButton"
@@ -134,6 +134,7 @@ export default {
         { label: "Events", path: "/events" },
         { label: "Clubs", path: "/clubs" },
         { label: "Garage", path: "/me", newCodes: [], showNew: false },
+        { label: "Cars", path: "/cars", newCodes: ["tabCars"], showNew: false, },
         { label: "Charts", path: "/charts" },
         { label: "Packs", path: "/packs" },
         { label: "Timeline", path: "/timeline" },
@@ -175,7 +176,7 @@ export default {
   },
   beforeMount() {
     if (!import.meta.env.PROD) {
-      this.menus.splice(5, 0, { label: "Cars", path: "/cars" }, { label: "Tracks", path: "/tracks" })
+      this.menus.splice(6, 0, { label: "Tracks", path: "/tracks" })
     }
 
     this.localStorageRead("zoomLevel");
@@ -233,6 +234,9 @@ export default {
         @media only screen and (max-width: ${x.minWidth}px) {
           .BaseTopMenu_Button:nth-child(${ix+1}) {
             display: none;
+          }
+          .BaseTopMenu_Layout:has(.BaseTopMenu_New:nth-child(${ix+1}):not(.BaseTopMenu_Active):not(.BaseTopMenuUserDialog_Active)) .BaseTopMenu_RightNew:after {
+            content: "new" !important;
           }
           .BaseTopMenuUserDialog_Button:nth-child(${ix+1}) {
             display: inline-flex;
@@ -672,10 +676,10 @@ export default {
 .Main_isMobile .BaseTopMenu_RightBallLetter {
   margin-left: -22px;
 }
-.BaseTopMenu_New:not(.BaseTopMenu_Active) {
+.BaseTopMenu_New:not(.BaseTopMenu_Active):not(.BaseTopMenuUserDialog_Active) {
   position: relative;
 }
-.BaseTopMenu_New:not(.BaseTopMenu_Active):after {
+.BaseTopMenu_New:not(.BaseTopMenu_Active):not(.BaseTopMenuUserDialog_Active):after {
   content: "new";
   color: rgb(var(--d-text-yellow));
   font-size: 14px;
@@ -683,6 +687,14 @@ export default {
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
+}
+.BaseTopMenu_RightNew:after {
+  content: unset;
+  color: rgb(var(--d-text-yellow));
+  font-size: 14px;
+  position: absolute;
+  bottom: -16px;
+  right: 10px;
 }
 .BaseTopMenu_HasGarageBox {
   position: absolute;

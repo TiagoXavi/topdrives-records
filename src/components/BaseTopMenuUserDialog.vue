@@ -10,7 +10,10 @@
           <button 
             v-for="item in menus"
             :key="item.path"
-            :class="{ BaseTopMenuUserDialog_Active: $route.path === item.path }"
+            :class="{
+              BaseTopMenuUserDialog_Active: $route.path === item.path,
+              BaseTopMenu_New: item.showNew
+            }"
             class="D_Button BaseTopMenuUserDialog_Button"
             @click="tabClick(item);">{{ item.label }}</button>
         </div>

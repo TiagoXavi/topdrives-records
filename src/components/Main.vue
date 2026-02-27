@@ -2490,7 +2490,17 @@
       max-width="420px"
       min-width="240px"
       @close="closeTune()">
-      <div class="Main_TuneDialog">
+      <div class="Main_TuneDialog ">
+        <div v-if="Vue.utils.R_MedalsLoaded && tuneDialogCar && tuneDialogCar.rid && Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score !== undefined" class="Main_ShortCutBox">
+          <button class="D_Button Main_ShortCutBoxButton" @click="openCarFullDetail(tuneDialogCar)">
+            <img
+              src="/assets/fire100.png"
+              class="Main_ShortCutBoxFire"
+            />
+            <div class="Main_ShortCutBoxValue">{{ Vue.all_carsObj[tuneDialogCar.rid].prize && Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score === 0 ? '?' : Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score }}</div>
+            
+          </button>
+        </div>
 
         <div v-if="tuneDialogActive" class="Row_DialogLayout">
           <div
@@ -4445,6 +4455,11 @@ export default {
         }, 100);
       }
     },
+    "$route.query": function() {
+      if (this.$route.name === "Records") {
+        this.loadParams();
+      }
+    },
     cgNeedSave: function() {
       if (this.cgNeedSave) {
         window.onbeforeunload = function(){
@@ -4689,6 +4704,7 @@ export default {
           vm.tuneDialogCarIndex = indexCar;
           vm.tuneDialogActive = mutation.payload.active;
           vm.tuneDialogisOppo = false;
+          Vue.carsCompile("R_Medals");
         }
       }
 
@@ -12946,6 +12962,8 @@ export default {
       }
     },
     loadParams() {
+      if (!this.T_S.mainParams) return;
+
       if (this.T_S.mainParams.mode === "compare") {
         this.changeMode('compare');
 
@@ -12982,6 +13000,17 @@ export default {
         this.changeMode('clubs');
         // TODO
       }
+      if (this.T_S.mainParams) {
+        this.T_S.mainParams = null;
+      }
+    },
+    openCarFullDetail(car) {
+      this.T_S._g_cFull.car = Vue.all_carsObj[car.rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
+      this.closeTune()
     }
     
   }

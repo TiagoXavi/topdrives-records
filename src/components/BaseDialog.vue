@@ -27,7 +27,7 @@
           BaseDialog_Grow: grow,
           BaseDialog_Contents: displayContents
         }"
-        class="BaseDialog_Box Main_DarkScroll">
+        class="BaseDialog_Box Main_DarkScroll Main_DarkScrollMini">
         <slot />
       </div>
     </div>
@@ -265,6 +265,7 @@ export default {
 }
 .BaseDialog_UseColor .BaseDialog_Opaque {
   background-image: radial-gradient(at center left, var(--class-color) -285%, transparent 65%), radial-gradient(at center right, #4f2d2399 -145%, transparent 75%);
+  background-color: #333;
 }
 .BaseDialog_UseColor .BaseCard_EffectBackGround {
   display: none;

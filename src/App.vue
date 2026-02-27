@@ -1349,6 +1349,9 @@ body::-webkit-scrollbar-corner {
 .Main_DarkScrollMini::-webkit-scrollbar {
   width: 4px;
 }
+.Main_DarkScrollMini::-webkit-scrollbar-button {
+  height: 15px;
+}
 
 textarea::-webkit-resizer {
   width: 18px;
@@ -2867,6 +2870,26 @@ body .Main_UserTw3:before {
   font-size: 40px;
   line-height: 3;
   opacity: 0.2;
+}
+.Main_ShortCutBox {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.Main_ShortCutBoxButton {
+  position: absolute;
+  top: 3px;
+}
+.Main_ShortCutBoxFire {
+  position: absolute;
+  top: -18px;
+  height: 50px;
+  filter: grayscale(1);
+  opacity: 0.2;
+}
+.Main_ShortCutBoxValue {
+  position: relative;
+  top: 1px;
 }
 
 
