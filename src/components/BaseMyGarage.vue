@@ -2070,7 +2070,7 @@ export default {
       return deck.map(item => {
         return [
           item.cardRecordId,
-          rn_to_rid.indexOf(item.rid),
+          Vue.rn_to_rid.indexOf(item.rid),
           item.date.length === 17 ? item.date.slice(2, 13) : item.date,
           item.tunZ !== "000" ? item.tunZ : 0,
           item.cW || 0,

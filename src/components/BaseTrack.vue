@@ -6,6 +6,7 @@
     :options="false"
     :cg="true"
     :class="{ BaseTrack_First: isFirst }"
+    :showCampaignTip="false"
     class="BaseTrack_Row"
     type="tracks"
   />
@@ -41,7 +42,6 @@ export default {
       this.tracks.forEach(track => {
         if (track) {
           result.push(...Vue.resolveTrack({ track }, false, false));
-          debugger;
         }
       });
       return result;

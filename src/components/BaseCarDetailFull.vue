@@ -102,11 +102,30 @@
 
           <div v-if="medals.result?.tracks" class="BaseCarDetailFull_TracksBody Space_TopGiga">
             <template v-for="(item, ix) in medals.result.tracks">
-              <div v-if="ix < 10 || medals.result.tracks[ix][1] === medals.result.tracks[9][1]" class="BaseCarDetailFull_Track">
+              <div v-if="(ix < 10 || medals.result.tracks[ix][1] === medals.result.tracks[9][1]) || showAllTracks" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
                 <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
                 <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
+                <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune">
+                  <!-- <BaseBestTune :dataObj="cacheObj.data" :track="item[0]" /> -->
+                  <BaseBestTune
+                    :tune="
+                      ['332', '323', '233'].reduce((best, tune) => {
+                        let time = cacheObj.data?.[tune]?.times?.[item[0]]?.t;
+                        if (time && (!best || time < best.time)) {
+                          return { time, tune };
+                        }
+                        return best;
+                      }, null)?.tune || '-'
+                    "
+                  />
+                </div>
+                <div v-else class="BaseCarDetailFull_TrackBestTune" />
               </div>
             </template>
+            <button
+              style="margin-top: 10px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="exportToWorkspace($event)">{{ $t("m_useTrackList") }}</button>
           </div>
         </div>
 
@@ -189,8 +208,10 @@ import BaseBrakeDialog from './BaseBrakeDialog.vue';
 import BaseContentLoader from './BaseContentLoader.vue';
 import BaseStars from './BaseStars.vue';
 import BaseTrack from './BaseTrack.vue';
+import BaseBestTune from './BaseBestTune.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'BaseCarDetailFull',
@@ -201,7 +222,8 @@ export default {
     BaseBrakeDialog,
     BaseContentLoader,
     BaseStars,
-    BaseTrack
+    BaseTrack,
+    BaseBestTune
   },
   props: {
     active: {
@@ -238,7 +260,10 @@ export default {
       Vue: Vue,
       carClassColor: null,
       medals: null,
-      anim: true
+      anim: true,
+      cgWatchDownloadCache: null,
+      cacheObj: null,
+      showAllTracks: false
     }
   },
   watch: {},
@@ -306,9 +331,29 @@ export default {
             this.medals = res;
             if (this.medals.Global) {
               console.log(this.medals.result.stars, this.medals);
-              console.log(this.medals.result.tracks);
+              // console.log(this.medals.result.tracks);
 
               this.anim = this.medals.result.mainNiches.some(item => Math.round(item[2]) >= 5);
+
+              if (this.medals.result?.tracks) {
+                // this.loadTunesTimes();
+                let result = Vue.timeCell(this.car.rid, "332", "kart_a00");
+                if (result === "!data") {
+                  if (!this.cgWatchDownloadCache) {
+                    const vm = this;
+                    vm.cgWatchDownloadCache = vm.$watch('Vue.utils.cacheLoading', (newValue, oldValue) => {
+                      // console.log(`cgWatchDownloadCache changed from ${oldValue} to ${newValue}`);
+                      if (newValue === false) {
+                        // after debouce?
+                        vm.cacheObj = Vue.all_cacheObj[vm.car.rid];
+                      }
+                    });
+                  }
+                  return false;
+                } else {
+                  this.cacheObj = Vue.all_cacheObj[this.car.rid];
+                }
+              }
             }
 
           },
@@ -317,6 +362,9 @@ export default {
           }
         );
       }
+    },
+    loadTunesTimes() {
+
     },
     getColor(color) {
       this.carClassColor = color;
@@ -351,58 +399,29 @@ export default {
     closed() {
       this.medals = null;
     },
-    calcKeys() {
-      return [];
-      let result = ["Global"];
-      if (this.car.class === "S") result.push("S Non-prize");
-      result.push(this.car.drive);
-      result.push(this.car.tyres);
-      result.push(this.car.clearance);
+    exportToWorkspace(e) {
+      if (e && e.shiftKey && (e.ctrlKey || e.metaKey)) {
+        this.showAllTracks = true;
+        return;
+      }
 
-      if (this.car.year <= 1979) result.push("Pre80s");
-      else if (this.car.year <= 1989) result.push("80s");
-      else if (this.car.year <= 1999) result.push("90s");
-      else if (this.car.year <= 2009) result.push("00s");
-      else if (this.car.year <= 2019) result.push("10s");
-      else if (this.car.year <= 2029) result.push("20s");
-      else result.push("30s");
-
-      if (this.car.seats == 1) result.push("1 seat");
-      else if (this.car.seats <= 3) result.push("2-3 seats");
-      else if (this.car.seats == 4) result.push("4 seats");
-      else result.push("5+ seats");
-
-      this.car.bodyTypes.map(body => {
-        if (body === "MPV" || body === "Van") result.push("MPV/Van");
-        else result.push(body);
-      })
-
-      if (this.fuel === "Petrol") result.push("Petrol");
-      else if (this.fuel === "Diesel") result.push("Diesel");
-      else if (this.fuel === "Electric") result.push("Electric");
-      else if (this.fuel === "Hybrid") result.push("Hybrid");
-      else result.push("Misc fuels");
-
-      this.car.tags.map(tag => {
-        if (Vue.tagsDate[tag]) {
-
+      let cars = ["332", "323", "233"].map(tune => {
+        let car = {
+          rid: this.car.rid,
+          selectedTune: tune
         }
-      })
+        return car;
+      });
+      
 
-      let brandCount = 0;
-      let countryCount = 0;
-      Vue.all_carsArr.map(car => {
-        if (car.brand === this.car.brand) brandCount++;
-        if (car.country === this.car.country) countryCount++;
-      })
-      if (brandCount < 50) result.push("Other brands");
-      else result.push(this.car.brand);
+      let tracks = this.medals.result.tracks.filter((item, ix) => ix < 10 || item[1] === this.medals.result.tracks[9][1]).map(item => item[0]);
 
-      if (countryCount < 50) result.push("Other countries");
-      else result.push(this.car.country);
 
-      return result;
-    }
+
+      tdrStore().mainParams = { cars, tracks, mode: "compare" };
+      this.$router.push({ path: "/compare" });
+      this.$emit('close');
+    },
   },
 }
 </script>
@@ -477,7 +496,7 @@ export default {
   height: 15px;
 }
 .Global_CarDetailFull .BaseDialog_ForceNoScroll {
-  margin-top: 210px;
+  margin-top: 230px;
   padding: 0px 20px;
   max-height: calc(100vh - 270px);
 }
@@ -519,6 +538,9 @@ export default {
 }
 .BaseCarDetailFull_Niche .BaseStars_StarActive {
   color: var(--class-color);
+}
+.BaseCarDetailFull_Niche .BaseBestTune_T {
+  background-color: var(--class-color);
 }
 .BaseCarDetailFull_CarF .BaseStars_StarActive {
   color: #aaa;
@@ -574,9 +596,12 @@ export default {
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  width: 100%;
+  width: 70%;
   padding-top: 20px;
   margin: 0 auto;
   padding-bottom: 50px;
+}
+.BaseCarDetailFull_TrackBestTune {
+  width: 37px;
 }
 </style>

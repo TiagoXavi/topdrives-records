@@ -1572,7 +1572,7 @@ export default {
       let memKeys = Object.keys(this.clearFilterObj);
       this.clearFilterObj = this.resolveFilterCount();
       let newKeys = Object.keys(this.clearFilterObj).filter(x => !memKeys.includes(x));
-      let keyToNotReset = newKeys.length === 1 ? newKeys[0] : null;
+      let keyToNotReset = memKeys.length > 0 && newKeys.length === 1 ? newKeys[0] : null;
       if (Object.keys(this.clearFilterObj).length === 1 && memKeys.length === 1 && newKeys.length === 0) {
         keyToNotReset = memKeys[0];
       }
@@ -2719,11 +2719,16 @@ export default {
   color: rgb(var(--d-text-red2));
 }
 .BaseFilterDialog_BrandsBox {
-  columns: auto 145px;
-  display: block !important;
+  /* columns: auto 145px; */
+  /* display: block !important; */
   /* background-color: #0004; */
   margin: 0 -20px;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 0px 20px 30px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  grid-auto-rows: 1fr;
+  justify-content: flex-start !important;
+  justify-items: flex-start;
 }
 .BaseFilterDialog_BrandChip {
   padding: 0px 8px 0px 5px;
