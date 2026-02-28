@@ -112,7 +112,7 @@
                     :tune="
                       ['332', '323', '233'].reduce((best, tune) => {
                         let time = cacheObj.data?.[tune]?.times?.[item[0]]?.t;
-                        if (time && (!best || time < best.time)) {
+                        if (time && (!best || ( item[0].includes('testBowl') ? (time > best.time) : (time < best.time)))) {
                           return { time, tune };
                         }
                         return best;
