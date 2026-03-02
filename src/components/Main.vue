@@ -9701,6 +9701,8 @@ export default {
       _r.solutionsRqSum = sumRqSolutionsFirstLine;
     },
     isBetterTune(x, car, iround, irace) {
+      // x === garage car
+      // car === solution car
       this.lastIsBetterResult = null;
       this.lastIsBetterHid = null;
       if ((x.tun || x.tunZ) === car.tune) {
@@ -9710,6 +9712,10 @@ export default {
       };
       let fTun;
       let fTunCar = car.tune || car.selectedTune;
+      if (!fTunCar) {
+        this.lastIsBetterResult = "worse";
+        return false;
+      }
       let is999tune = false;
       if (x.tun) fTun = x.tun;
       else if (x.tunZ) {
@@ -9721,7 +9727,7 @@ export default {
         return false;
       }
 
-      if (is999tune) {
+      if (is999tune && car.tune) {
         if (car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v)*3)) {
           // tune is also 999
         } else {

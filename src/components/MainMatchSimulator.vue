@@ -557,7 +557,7 @@ export default {
       }
 
       if (page !== 0) {
-        this.$store.commit("START_LOGROCKET", {});
+        // this.$store.commit("START_LOGROCKET", {});
       }
 
       this.useWhatFilter = 0;
