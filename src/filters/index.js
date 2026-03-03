@@ -581,7 +581,14 @@ export default {
         };
         
         Vue.resolveStat = function (car, type, customData = null, selectedTune, forceStats) {
-            if (car.selectedTune === null || car.selectedTune === undefined || car.selectedTune === "000") {
+            if (
+              !selectedTune &&
+              (
+                car.selectedTune === null || 
+                car.selectedTune === undefined || 
+                car.selectedTune === "000"
+              )
+            ) {
                 if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
                 return car[type] || "-";
             }

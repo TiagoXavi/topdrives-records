@@ -4592,7 +4592,7 @@ export default {
     this.eventRefreshDebounce = Vue.debounce(this.autoFireLoadEvents, 100);
 
     // this.getLastest();
-    // this.getStatistics();
+    this.getStatistics();
     this.user = this.$store.state.user;
     if (this.user) {
       this.userloaded = true;
@@ -5903,27 +5903,27 @@ export default {
     getStatistics() {
       this.statisticsLoading = true;
 
+      axios.get(Vue.preUrlCharlie + "/statisticsC")
+      .then(res => {
+        this.statisticsLoading = false;
+        Vue.utils.statistics = {
+          ...Vue.utils.statistics,
+          ...res.data
+        };
+      })
+      .catch(error => {
+        this.statisticsLoading = false;
+        console.log(error);
+      });
+
+      return;
+
       axios.get(Vue.preUrl + "/statistics")
       .then(res => {
         Vue.utils.statistics = {
           ...Vue.utils.statistics,
           ...res.data
         };
-
-        axios.get(Vue.preUrlCharlie + "/statisticsC")
-        .then(res => {
-          this.statisticsLoading = false;
-          Vue.utils.statistics = {
-            ...Vue.utils.statistics,
-            ...res.data
-          };
-        })
-        .catch(error => {
-          this.statisticsLoading = false;
-          console.log(error);
-        });
-
-
       })
       .catch(error => {
         this.statisticsLoading = false;

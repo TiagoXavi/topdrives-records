@@ -773,10 +773,10 @@ export default {
     toggleListView(value) {
       this._Mcars.showStats = value;
       this.viewFix = false;
-      if (value === false && this._Mcars.width === 68) {
+      if (value === false) {
         this.changeSize(this.sizes[1]);
       }
-      if (value === true && this._Mcars.width === 200) {
+      if (value === true) {
         this.changeSize(this.sizes[0]);
       }
       this.$nextTick(() => {

@@ -472,24 +472,6 @@ export default {
       ],
       otherPackTypes: [
         {
-          name: "Racing Pack (Daily Objectives)",
-          color: Vue.resolveClass(10, "D", "color", true),
-          packColor: {
-            background: "#212121",
-            bottomStrip: "#890a0a",
-            gBackground1: "#1e1e1e",
-            gBackground2: "#353535",
-            gStrip1: "#009eb9",
-            gStrip2: "#049dc1",
-            name: "RACING PACK"
-          },
-          cards: [
-            { S: 0.50, A: 1.50, B: 8.00, C: 30.00, D: 60.00 },
-          ],
-          priceCash: 0,
-          priceGold: 0
-        },
-        {
           name: "Black Diamond",
           color: Vue.resolveClass(10, "S", "color", true),
           packColor: {
@@ -617,6 +599,46 @@ export default {
           ],
           priceCash: 0,
           priceGold: 1599
+        },
+        {
+          name: "Premium Lite",
+          color: Vue.resolveClass(10, "C", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#b5c0c3",
+            gBackground2: "#606869",
+            gStrip1: "#ffe93a",
+            gStrip2: "#c19900",
+            name: "PREMIUM LITE"
+          },
+          cards: [
+            { S: 0.50, A: 2.00, B: 7.50, C: 90.00 },
+            { D: 100.00 },
+            { D: 20.00, E: 80.00 },
+            { D: 10.00, E: 90.00 },
+            { D: 10.00, E: 90.00 },
+          ],
+          priceCash: 0,
+          priceGold: 0
+        },
+        {
+          name: "Racing Pack (Daily Objectives)",
+          color: Vue.resolveClass(10, "D", "color", true),
+          packColor: {
+            background: "#212121",
+            bottomStrip: "#890a0a",
+            gBackground1: "#1e1e1e",
+            gBackground2: "#353535",
+            gStrip1: "#009eb9",
+            gStrip2: "#049dc1",
+            name: "RACING PACK"
+          },
+          cards: [
+            { S: 0.50, A: 1.50, B: 8.00, C: 30.00, D: 60.00 },
+          ],
+          priceCash: 0,
+          priceGold: 0
         },
       ],
       classes: {
