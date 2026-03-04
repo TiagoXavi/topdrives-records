@@ -172,11 +172,13 @@ export default {
 .BaseDialog_Back {
   background-color: #0007;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
   transition-duration: 0.1s;
   backdrop-filter: blur(1.7px);
   opacity: 0;
+  top: -50%;
+  left: -50%;
 }
 /* .BaseDialog_RealActive .BaseDialog_Back {
   background-color: #000f;

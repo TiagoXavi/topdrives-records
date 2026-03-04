@@ -485,7 +485,8 @@ export default {
 }
 .BaseCarDetailFull_BodyLayout {
   overflow-y: scroll;
-  height: calc(100vh - 270px);
+  height: fit-content;
+  max-height: calc(100vh - 270px);
   width: calc(100% + 40px);
   margin-left: -20px;
   margin-right: -20px;
@@ -493,7 +494,6 @@ export default {
   padding: 20px;
   padding-top: 65px;
   box-sizing: border-box;
-  max-height: max-content;
 }
 .Global_CarDetailFull .BaseDialog_ForceNoScroll {
   margin-top: 230px;
