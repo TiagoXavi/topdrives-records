@@ -424,7 +424,7 @@
     },
     {
         "id": "mtHillZ50",
-        "types": [ "A1", "B1", "C0", "D0", "E0" ],
+        "types": [ "A1", "B1", "C0", "E0" ],
         "group": "mt"
     },
     {
@@ -434,7 +434,7 @@
     },
     {
         "id": "mtInclineZ50",
-        "types": [ "A1", "B1", "C0", "E0" ],
+        "types": [ "A1", "B1", "C0", "D0", "E0" ],
         "group": "mt"
     },
     {
@@ -621,7 +621,7 @@
     },
     {
         "id": "speedbump1km",
-        "types": [ "00" ]
+        "types": [ "00", "60" ]
     },
     {
         "id": "testBowl",
