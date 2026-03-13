@@ -617,7 +617,7 @@
     },
     {
         "id": "speedbump12km",
-        "types": [ "00", "60" ]
+        "types": [ "00", "01", "60" ]
     },
     {
         "id": "speedbump1km",
