@@ -10645,11 +10645,17 @@ export default {
     eventMoveTrackRight(itrackset, itrackMonoArray) {
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';
       let trackRightToLeft = this[key].trackset[itrackset][itrackMonoArray+1]
+      if (this.isEvents) {
+        if (!this.event.tracksetBkp) {
+          Vue.set(this.event, "tracksetBkp", JSON.parse(JSON.stringify(this.event.trackset)));
+        }
+      }
 
       Vue.set(this[key].trackset[itrackset], [itrackMonoArray+1], this[key].trackset[itrackset][itrackMonoArray]);
       Vue.set(this[key].trackset[itrackset], [itrackMonoArray], trackRightToLeft);
+
       
-      if (this.isEvents) this.eventResolveTrackset();
+      if (this.isEvents) this.eventResolveTrackset(true);
       else this.clubsResolveTrackGroup();
     },
     eventTrackNewIndex(obj) {
