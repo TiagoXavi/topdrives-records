@@ -5090,10 +5090,12 @@ export default {
       if (this.eventTracksetString === JSON.stringify(this.event.trackset)) return false;
       let localTracks = JSON.parse(this.eventTracksetString);
       let areEqual = false;
+      if ((!this.event.trackset)) return false;
       if (localTracks.length !== this.event.trackset.length) return true;
-      areEqual = localTracks.every((trackset, itrackset) => {
-        return trackset.every(a => this.event.trackset[itrackset].some(b => a === b));
-      })
+      // areEqual = localTracks.every((trackset, itrackset) => {
+      //   return trackset.every(a => this.event.trackset[itrackset].every(b => a === b));
+      // })
+      areEqual = this.eventCheckTracksetBeforeLocal(localTracks);
       return !areEqual;
     },
     clubTrackNeedSave() {
@@ -5321,7 +5323,7 @@ export default {
       }
       if (this.mode === 'events') {
         Vue.set(this.event.trackset[this.eventTracksetSelected], this.eventRaceSelected, track);
-        this.eventResolveTrackset()
+        this.eventResolveTrackset(true)
         this.closeDialogTrackSearch();
         return;
       }
@@ -10139,6 +10141,7 @@ export default {
       }
     },
     eventSaveTracksetLocal() {
+      // console.log(this.event.trackset);
       window.localStorage.setItem(`tracksOrder_${this.eventCurrentName}_${this.event.realDate}`, JSON.stringify(this.event.trackset));
     },
     eventLoadTracksetLocal() {
@@ -10158,10 +10161,14 @@ export default {
       }
     },
     eventCheckTracksetBeforeLocal(localTracks) {
-      let areEqual = false;
-      localTracks.map((trackset, itrackset) => {
-        areEqual = trackset.every(a => this.event.trackset[itrackset].some(b => a === b));
+      let areEqual = true;
+      localTracks.find((trackset, itrackset) => {
+        areEqual = trackset.every(a => this.event.trackset[itrackset].filter(b => a === b).length === trackset.filter(c => a === c).length);
+        if (!areEqual) {
+          return true;
+        }
       })
+      // console.log(localTracks, this.event.trackset, areEqual);
       return areEqual;
     },
     eventResetTracksetLocal() {
