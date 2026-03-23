@@ -5478,11 +5478,11 @@ a:visited:not(.D_Button) {
   height: calc(100% * 27 / 256); /* 27px because of bleeding */
   top: 0.25%;
   left: 0.75%;
-  --s-height: 3136px;
+  --s-height: 3192px;
   --s-unit: 28px;
-  --s-percentage: 28 / 3136;
+  --s-percentage: 28 / 3192;
   --i: -1;
-  /* the sprite has 3136px height, and each logo is 28px tall */
+  /* the sprite has 3192px height, and each logo is 28px tall */
   /* the var --i is the logo index */
   /* normally the parent container has height of 256px, then, this element has height of 28px */
   /* But the parent container can have a different height, so we need to calculate the position dynamically */
@@ -5602,6 +5602,8 @@ a:visited:not(.D_Button) {
 .Car_Logo_W_Motors { --i: 109 }
 .Car_Logo_Zenos { --i: 110 }
 .Car_Logo_Zenvo { --i: 111 }
+.Car_Logo_Morris { --i: 112 }
+.Car_Logo_Radford { --i: 113 }
 
 
 

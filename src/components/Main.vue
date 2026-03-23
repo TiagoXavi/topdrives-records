@@ -3487,8 +3487,8 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #11</div>
-          <div class="Main_AnnouncementSubTitle">Crown Pursuit</div>
+          <div class="Main_AnnouncementTitle">Contest #12</div>
+          <div class="Main_AnnouncementSubTitle">Rogue Agents</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
@@ -3497,7 +3497,7 @@
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
           </div>
-          <div class="Main_AnnouncementMaybe">26th January ~ 8th February</div>
+          <div class="Main_AnnouncementMaybe">23th March ~ 5th April</div>
 
           <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1104184336158302259" style="margin-top: 20px;" />
         </div>
@@ -3964,7 +3964,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v30.1",
+      gameVersion: "Game v31",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -11491,8 +11491,8 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
-      let c_id = "contest11";
+      // return;
+      let c_id = "contest12";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");
       if (dt) {

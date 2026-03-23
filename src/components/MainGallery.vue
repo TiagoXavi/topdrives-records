@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL30-fixed.json'
-import plOld from '../database/cars_final_PL29.json'
+import data_cars from '../database/cars_final_PL31-fixed.json'
+import plOld from '../database/cars_final_PL30.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -541,6 +541,8 @@ export default {
           "Gunter's Collection",
           "Gunter's Collection 2",
           "Heavy Metal",
+          "Hugo's Collection",
+          "Hugo's Collection 2",
           "French Renaissance",
           "French Riviera",
           "German Powerhaus",
@@ -563,6 +565,7 @@ export default {
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",
           "Marilyn's Collection 2",
+          "Ministry of Racing",
           "Motorsport",
           "Muscle Car",
           "Crown Pursuit",
@@ -580,6 +583,7 @@ export default {
           "Riders on the Storm",
           "Road",
           "Roads Most Travelled",
+          "Rogue Agents",
           "Silver Screen",
           "Sleeper",
           "Street Racer",
@@ -1215,7 +1219,7 @@ export default {
             oldCar.tyres === car.tyres &&
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
-            Math.abs(oldCar.rq - car.rq) < 4 &&
+            Math.abs(oldCar.rq - car.rq) < 2 &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&

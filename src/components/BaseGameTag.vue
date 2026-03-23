@@ -566,7 +566,8 @@ export default {
   --tag-s: 55%;
   --tag-l: 68%;
 }
-.BaseGameTag_Hugo\'s_Collection {
+.BaseGameTag_Hugo\'s_Collection,
+.BaseGameTag_Hugo\'s_Collection_2 {
   --tag-h: 222;
   --tag-s: 70%;
   --tag-l: 70%;
@@ -612,11 +613,7 @@ export default {
   --tag-s: 70%;
   --tag-l: 26%;
 }
-.BaseGameTag_German_Powerhaus {
-  --tag-h: 356;
-  --tag-s: 70%;
-  --tag-l: 55%;
-}
+.BaseGameTag_German_Powerhaus,
 .BaseGameTag_Autobahn_Icons {
   --tag-h: 356;
   --tag-s: 70%;
@@ -632,7 +629,9 @@ export default {
   --tag-s: 84%;
   --tag-l: 74%;
 }
-.BaseGameTag_Crown_Pursuit {
+.BaseGameTag_Crown_Pursuit,
+.BaseGameTag_Ministry_of_Racing,
+.BaseGameTag_Rogue_Agents {
   --tag-h: 42;
   --tag-s: 76%;
   --tag-l: 60%;
