@@ -1539,7 +1539,7 @@
             <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
           </div>
 
-          <div v-if="user && user.mod && Vue.preUrl && !Vue.preUrl.includes('topdrives') && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
+          <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -8319,17 +8319,17 @@ export default {
           let surf = track.slice(-2);
           if (surf) {
             let key;
-            if ( surf[0] === "0" && bump.includes((track||"").replace("Z50","").slice(0, -4)) ) {
-              if (surf[1] === "0") key = "clearance";
+            if ( (surf[0] === "0" || surf[0] === "A" || surf[0] === "B") && bump.includes((track||"").replace("Z50","").slice(0, -4)) ) {
+              if (surf === "00") key = "clearance";
               else key = "clearanceW";
             }
-            else if (surf === "01" || track === "lumberTwisty_a41") key = "rain";
+            else if (surf === "01" || surf === "A1" || surf === "B1" || track === "lumberTwisty_a41") key = "rain";
             else if (surf === "00" || track === "lumberTwisty_a40") key = "asphalt";
-            else if (surf[0] === "1" || surf[0] === "4") key = "dirt";
+            else if (surf[0] === "1" || surf[0] === "4" || surf[0] === "4" || surf === "E0") key = "dirt";
             else if (surf[0] === "2" || surf[0] === "b") key = "gravel";
             else if (surf[0] === "3" || surf[0] === "g") key = "ice";
-            else if (surf[0] === "5" || surf[0] === "e" || surf[0] === "c") key = "sand";
-            else if (surf[0] === "6" || surf[0] === "d" || surf[0] === "h") key = "snow";
+            else if (surf[0] === "5" || surf[0] === "e" || surf[0] === "c" || surf === "C0") key = "sand";
+            else if (surf[0] === "6" || surf[0] === "d" || surf[0] === "h" || surf === "D0") key = "snow";
             else if (surf[0] === "7" || surf[0] === "f") key = "grass";
             icons.push(key);
           }

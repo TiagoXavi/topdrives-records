@@ -7,14 +7,15 @@ hutch/
 */imgs
 */cards_imgs
 cars_short.json
-MainExtr.vue
-MainRT*
-MainParser.vue
-db.json
-rude_all.json
-*.ini
-hutch_*
+# MainExtr.vue
+# MainRT*
+# MainParser.vue
+# db.json
+# *.ini
+# hutch_*
+RT_*/
 tempJson.json
+src/.gitignore
 
 
 # local env files

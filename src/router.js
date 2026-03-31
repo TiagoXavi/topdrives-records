@@ -237,11 +237,11 @@ const routes = [
 
 if (import.meta.env.DEV) {
 
-  const MainRT = () => import("./components/MainRT.vue");
+  const MainRT = () => import("../../topdrives-records-RT/RT_components/MainRT.vue");
   const MainUpdateRqData = () => import("./components/MainUpdateRqData.vue");
   const MainValidateFinalJson = () => import("./components/MainValidateFinalJson.vue");
   const MainCarsEdit = () => import("./components/MainCarsEdit.vue");
-  const MainParser = () => import("./components/MainParser.vue");
+  const MainParser = () => import("../../topdrives-records-RT/RT_components/MainParser.vue");
   const MainCRCContest = () => import("./components/MainCRCContest.vue");
 
   routes.push(
