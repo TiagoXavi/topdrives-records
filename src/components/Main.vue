@@ -8568,6 +8568,7 @@ export default {
         preDone: this.cgRound.preDoneMod
       })
       .then(res => {
+        Vue.clearCacheCars();
         this.loadChallengeFull(this.cgCurrentId);
         this.forceShowAnalyse = false;
       })

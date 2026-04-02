@@ -582,7 +582,10 @@ export default {
         
         Vue.resolveStat = function (car, type, customData = null, selectedTune, forceStats) {
             if (
-              !selectedTune &&
+              (
+                !selectedTune ||
+                selectedTune === "000"
+              ) &&
               (
                 car.selectedTune === null || 
                 car.selectedTune === undefined || 
@@ -1063,7 +1066,7 @@ export default {
           let tunes = ["332", "323", "233"];
           cg.rounds.map(round => {
             round.races.map(race => {
-              if (!(race.time ?? false)) return;
+              if (!race.time && race.time !== 0) return;
               if (Vue.isRidDownloaded(race.rid)) return;
               // if (race.time ?? false) {
               // }
@@ -1300,6 +1303,14 @@ export default {
         Vue.matchSearch = function (car, input) {
           if (typeof input !== 'string' || typeof car.name !== 'string') return false;
           return car.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "").indexOf(input) !== -1;
+        }
+
+        Vue.clearCacheCars = function () {
+          // delete all entrys in cacheCars but keep the reference
+          lastRidsString = "";
+          Object.keys(cacheCars).map(key => {
+            delete cacheCars[key];
+          });
         }
 
         Vue.cyrb53 = function (str, seed = 0) {
