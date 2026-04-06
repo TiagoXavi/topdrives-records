@@ -139,7 +139,7 @@
         <template v-for="column in columns">
           <!-- remove _c_ -->
           <div
-            v-if="_Mcars.cols[column.type] && (garageWorking || !column.isGarage)"
+            v-if="_Mcars.cols[column.type] && (column.offGarage ? (Vue.garageObj.loaded) : (garageWorking || !column.isGarage))"
             :key="column.type"
             :style="`--w: ${column.w}em`"
             :class="`MainCars_c_${column.type} ${_Mcars.sortMethod === column.type ? 'MainCars_ColumnActive' : ''}`"
@@ -241,6 +241,7 @@
                   :style="`--w: ${columnObj.brake.w}em`"
                   :class="{ Row_DialogCardStatRed: Vue.all_carsObj[item.rid].brake === 'C', Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].brake === 'A' }"
                   class="MainCars_St MainCars_c_brake">{{ Vue.all_carsObj[item.rid].brake || "?" }}</div>
+                <div v-if="_Mcars.cols.units && Vue.garageObj.loaded" :style="`--w: ${columnObj.units.w}em`" class="MainCars_St MainCars_c_units">{{ item.rid | garageUnits }}</div>
               </div>
               <!-- 
               Uses, wins, draws, losses, winrate
@@ -374,7 +375,8 @@ export default {
         { type: "seats", fixed: 0, nick: "Sts", w: 1 },
         { type: "engine", fixed: 0, nick: "Engine", w: 3 },
         { type: "bodyType", fixed: 0, nick: "Body", w: 4 },
-        { type: "brake", fixed: 0, nick: "Brk", w: 1 }
+        { type: "brake", fixed: 0, nick: "Brk", w: 1 },
+        { type: "units", fixed: 0, nick: "Uni", w: 1, offGarage: true }
       ],
       columnObj: {},
       viewFix: true,
@@ -434,7 +436,8 @@ export default {
             seats: true,
             engine: true,
             bodyType: true,
-            brake: true
+            brake: true,
+            units: false
           }
         }
       })
@@ -581,6 +584,26 @@ export default {
       if (this.cars.length === 0) return;
 
       let propKey = this._Mcars.sortMethod;
+
+      if (propKey === "units") {
+        if (!Vue.garageObj.loaded) propKey = "R_Medals_score";
+      }
+      if (propKey === "units") {
+        this.cars.sort((a,b) => {
+          let aVal = Vue.garageByRid[a.rid]?.length || 0;
+          let bVal = Vue.garageByRid[b.rid]?.length || 0;
+          if (aVal === bVal) {
+            return this.resolveDraw(a,b);
+          }
+          if (this._Mcars.sortDesc) {
+            return bVal - aVal;
+          } else {
+            return aVal - bVal;
+          }
+        });
+        return;
+      }
+
       if (propKey === "name" || propKey === "brand" || propKey === "country" || propKey === "brake" || propKey === "engine" || propKey === "fuel" || propKey === "clearance") {
         // Duplicated code for performance
         if (propKey === "name") propKey = "onlyName";
@@ -1075,7 +1098,7 @@ export default {
 .MainCars_Hover_engine .MainCars_c_engine,
 .MainCars_Hover_bodyType .MainCars_c_bodyType,
 .MainCars_Hover_brake .MainCars_c_brake,
-.MainCars_Hover_bodyType .MainCars_c_bodyType {
+.MainCars_Hover_units .MainCars_c_units {
   background-color: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.05);
 }

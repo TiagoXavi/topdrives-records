@@ -1312,6 +1312,11 @@ export default {
             delete cacheCars[key];
           });
         }
+        Vue.garageUnits = function (rid) {
+          if (!garageObj.loaded) return "-";
+          if (!Vue.garageByRid[rid]) return "-";
+          return Vue.garageByRid[rid].length;
+        }
 
         Vue.cyrb53 = function (str, seed = 0) {
           let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
@@ -1351,6 +1356,7 @@ export default {
         Vue.filter('timeCell', Vue.timeCell);
         Vue.filter('cellSub', Vue.cellSub);
         Vue.filter('toTitleCase', Vue.toTitleCase);
+        Vue.filter('garageUnits', Vue.garageUnits);
     }
 };
 
