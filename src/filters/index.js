@@ -93,8 +93,8 @@ const utils = Vue.observable({
       "Bramdal": 'mod',
 
       "Sleeperzz": "w1",
-      "Eyeon": "w2",
-      "Real_Gardevoir": "w3"
+      "Travisl_2727": "w2",
+      "Eyeon": "w3"
     }
 });
 const garageByRid = {};

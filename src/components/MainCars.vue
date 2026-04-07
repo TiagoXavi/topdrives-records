@@ -59,6 +59,18 @@
 
     <div class="MainCars_HeaderControls MainCars_StickyListView">
       <div class="MainCars_StickyListBox">
+        <!-- <div class="MainCars_SortBox">
+          <BaseSelectNew
+            :value="_Mcars.R_ScoreNiche"
+            :list="R_NichesList"
+            label="R Score"
+            :checks="true"
+            :dialogConfig="{ maxWidth: '350px' }"
+            class="D_ButtonDark4">
+            {{ _Mcars.R_ScoreNiche }}
+          </BaseSelectNew>
+        </div> -->
+
         <button
           v-if="!Vue.garageObj.loaded"
           :class="{ D_Button_Loading: Vue.garageObj.loading }"
@@ -301,6 +313,7 @@ import BaseCard from "./BaseCard.vue";
 import BaseChip from "./BaseChip.vue";
 import BaseSelectNew from "./BaseSelectNew.vue";
 import BaseCardMini from "./BaseCardMini.vue";
+import R_NichesList from "@/compilations/R_NichesList.json";
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
 
@@ -380,7 +393,8 @@ export default {
       ],
       columnObj: {},
       viewFix: true,
-      indexHover: -1
+      indexHover: -1,
+      R_NichesList
     }
   },
   watch: {
@@ -416,6 +430,7 @@ export default {
           sortMethod: 'R_Medals_score',
           sortDesc: true,
           expanded: false,
+          R_ScoreNiche: null,
           cols: {
             R_Medals_score: true,
             races: true,

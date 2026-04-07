@@ -106,7 +106,7 @@
               <div v-if="(ix < 10 || medals.result.tracks[ix][1] === medals.result.tracks[9][1]) || showAllTracks" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
                 <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
                 <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
-                <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune">
+                <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
                   <!-- <BaseBestTune :dataObj="cacheObj.data" :track="item[0]" /> -->
                   <BaseBestTune
                     :tune="

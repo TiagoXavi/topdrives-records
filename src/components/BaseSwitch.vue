@@ -54,7 +54,7 @@ export default {
     name: {
       type: String,
       required: false
-    },
+    }
   },
   data() {
     return {
@@ -67,7 +67,11 @@ export default {
       let value = window.localStorage.getItem(this.name);
       if (value) {
         value = JSON.parse(value);
-        this.$emit('change', value);
+        if (this.$listeners['change2']) {
+          this.$emit('change2', value);
+        } else {
+          this.$emit('change', value);
+        }
       }
     }
   },
@@ -144,7 +148,6 @@ export default {
 .BaseSwitch_Label {
   font-size: 14px;
   text-align: center;
-  margin-bottom: -3px;
 }
 .BaseSwitch_Horizontal .BaseSwitch_Label {
   text-align: left;

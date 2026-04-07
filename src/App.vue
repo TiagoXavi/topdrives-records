@@ -1698,10 +1698,23 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   overflow: hidden;
   margin-right: 10px;
   background-color: #00000038;
+  position: relative;
 }
 .MainGallery_Img {
   transform: scale(1.3);
   height: 100%;
+}
+.Main_SearchItemImgRq {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 2px 2px 1px 2px;
+  font-size: 12px;
+  border-radius: 0px 3px;
+  color: var(--color);
+  background-color: #2f2f2f;
 }
 .Main_SearchItemLeft {
   color: var(--color);

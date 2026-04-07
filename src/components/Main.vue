@@ -2289,6 +2289,9 @@
       v-model="searchFilterDialog"
       :sortEnabled="true"
       :enableCounters="true"
+      :config="{
+        garageSwitch: true
+      }"
       ref="mainFilterDialog"
       importFilterName="CLASSIC_FILTER_IMPORT"
       refName="MAIN_FILTER_REF"
@@ -2367,7 +2370,8 @@
         weight: false,
         brake: false,
         tcs: false,
-        abs: false
+        abs: false,
+        garageSwitch: true
       }"
       :keepMemory="true"
       type="cg"
@@ -2677,7 +2681,19 @@
               </div>
             </div>
           </div>
-          <div v-if="(tuneDialogCar.reviews && tuneDialogCar.reviews.length > 0) || (user && user.canReview)" class="Row_DialogCardUsers Space_TopPlus">
+          <div v-if="tuneDialogCar.users" class="Row_DialogReviewsBox Space_TopPlus">
+            <div class="Row_DialogCardStat">
+              <div class="Row_DialogCardStatLabel">{{ $t("m_contributors") }}</div>
+              <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">
+                <template
+                  v-for="(username, i) in tuneDialogCar.users">
+                  <template v-if="i > 0">, </template>
+                  <span :class="`Main_UserT${Vue.utils.highlightsUsers[username]}`">{{ username }}</span>
+                </template>
+              </div>
+            </div>
+          </div>
+          <!-- <div v-if="(tuneDialogCar.reviews && tuneDialogCar.reviews.length > 0) || (user && user.canReview)" class="Row_DialogCardUsers Space_TopPlus">
             <div class="Row_DialogCardStat">
               <div v-if="!isReviewing" class="Row_DialogCardStatLabel">{{ $tc("m_review", 2) }}</div>
               <BaseReviewList
@@ -2707,7 +2723,7 @@
               class="D_Button D_ButtonDarkTransparent"
               style="width: 100%;"
               @click="showReviews = true">{{ $t('m_showContributors') }} ({{ tuneDialogCar.users.length }})</button>
-          </div>
+          </div> -->
         </div>
 
       </div>
@@ -11492,7 +11508,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // return;
+      return;
       let c_id = "contest12";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");

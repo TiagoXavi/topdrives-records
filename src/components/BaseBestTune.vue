@@ -1,5 +1,5 @@
 <template functional>
-  <div class="BaseBestTune_">
+  <div class="BaseBestTune_Root">
     <div class="BaseBestTune_Item BaseBestTune_Text">{{ props.tune }}</div>
     <div class="BaseBestTune_Item BaseBestTune_Blocks">
       <div :class="{ 'BaseBestTune_T': props.tune === '332' }" class="BaseBestTune_D" />
@@ -32,21 +32,24 @@ export default {
 }
 .BaseBestTune_D {
   height: 1em;
-  background-color: #555;
+  background-color: #494949;
   flex-grow: 1;
 }
 .BaseBestTune_Text {
   position: relative;
   opacity: 0;
   height: 1em;
+  line-height: 1em;
 }
-.BaseBestTune_HoverAction:hover .BaseBestTune_Text {
+.BaseBestTune_HoverAction:hover .BaseBestTune_Text,
+.BaseBestTune_Root:not(:has(.BaseBestTune_T)) .BaseBestTune_Text {
   opacity: 1;
 }
-.BaseBestTune_HoverAction:hover .BaseBestTune_Text + .BaseBestTune_Blocks {
+.BaseBestTune_HoverAction:hover .BaseBestTune_Text + .BaseBestTune_Blocks,
+.BaseBestTune_Root:not(:has(.BaseBestTune_T)) .BaseBestTune_Blocks {
   opacity: 0;
 }
 .BaseBestTune_T {
-  background-color: rgb(var(--d-text-yellow));
+  background-color: currentColor;
 }
 </style>
