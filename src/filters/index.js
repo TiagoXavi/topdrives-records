@@ -57,6 +57,8 @@ const utils = Vue.observable({
     loading: false,
     cacheLoading: false,
     R_MedalsLoaded: false,
+    R_MedalsNicheLoaded: false,
+    R_MedalsOldLoaded: false,
     downloadCount: 0,
     altKey: false,
     windowWidth: 0,
@@ -1018,7 +1020,10 @@ export default {
             Vue.set(Vue.utils, "lastestcars", resData.lastestcars);
           }
           if (resData.statistics) {
-            Vue.set(Vue.utils, "statistics", resData.statistics);
+            Vue.set(Vue.utils, "statistics", {
+              ...Vue.utils.statistics,
+              ...resData.statistics
+            });
           }
           if (resData.mra) {
             Object.keys(resData.mra).map(rid => {
@@ -1249,7 +1254,7 @@ export default {
             });
           });
         };
-        Vue.carsCompile = async function (type) {
+        Vue.carsCompile = async function (type, arg2) {
           if (type === "R_Medals") {
             if (utils.R_MedalsLoaded) return;
             let obj = await import('../compilations/R_Medals_Light.json');
@@ -1262,6 +1267,35 @@ export default {
               }
             });
             utils.R_MedalsLoaded = true;
+          }
+
+          if (type === "R_MedalsNiche") {
+            utils.R_MedalsNicheLoaded = false;
+            let obj = await import(`../compilations/R_MedalsNiches_${arg2.replace(/\W/g, "")}.json`);
+            if (!obj || !obj.default) return;
+            
+            let rid;
+            obj.default.map((value, rn) => {
+              rid = rn_to_rid[rn];
+              if (Vue.all_carsObj[rid]) {
+                Vue.set(Vue.all_carsObj[rid], "R_Medals_scoreNiche", value);
+              }
+            });
+            utils.R_MedalsNicheLoaded = true;
+          }
+
+          if (type === "R_MedalsOld") {
+            if (utils.R_MedalsOldLoaded) return;
+            let obj = await import('../compilations/R_Medals_Light_Old.json');
+            
+            let rid;
+            obj.default.map((value, rn) => {
+              rid = rn_to_rid[rn];
+              if (Vue.all_carsObj[rid] && !Vue.all_carsObj[rid].R_Medals_scoreDiff) {
+                Vue.set(Vue.all_carsObj[rid], "R_Medals_scoreDiff", Vue.all_carsObj[rid].R_Medals_score - value);
+              }
+            });
+            utils.R_MedalsOldLoaded = true;
           }
         };
         Vue.getRMedals = function (rids, rns = [], callBack, errorCallBack) {

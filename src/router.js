@@ -163,6 +163,11 @@ const routes = [
     component: MainCars,
   },
   {
+    path: '/carsDiff',
+    name: 'MainCarsDiff',
+    component: MainCars,
+  },
+  {
     path: '/tracks',
     name: 'MainTracks',
     component: MainTracks,

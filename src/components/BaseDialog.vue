@@ -8,7 +8,8 @@
       BaseDialog_AnimIn: animIntro,
       BaseDialog_AnimOut: animOut,
       BaseDialog_Fixed: fixed,
-      BaseDialog_UseColor: useColor
+      BaseDialog_UseColor: useColor,
+      BaseDialog_ScrollParent: scrollParent
     }"
     :style="`--dialog-index: ${zindex}; --dialog-width: ${maxWidth};`"
     class="BaseDialog_Layout">
@@ -89,6 +90,10 @@ export default {
       default: false
     },
     useColor: {
+      type: Boolean,
+      default: false
+    },
+    scrollParent: {
       type: Boolean,
       default: false
     },
@@ -272,34 +277,6 @@ export default {
 .BaseDialog_UseColor .BaseCard_EffectBackGround {
   display: none;
 }
-/* .BaseDialog_RacePos0 .BaseDialog_Body {
-  justify-content: flex-start;
-}
-.BaseDialog_RacePos1 .BaseDialog_Body,
-.BaseDialog_RacePos3 .BaseDialog_Body {
-  justify-content: space-evenly;
-} */
-
-/* .BaseDialog_RacePos0 .BaseDialog_Body:after {
-  content: "";
-  display: block;
-  width: 10vw;
-}
-.BaseDialog_RacePos1 .BaseDialog_Body:after {
-  content: "";
-  display: block;
-  width: 10vw;
-}
-.BaseDialog_RacePos3 .BaseDialog_Body:before {
-  content: "";
-  display: block;
-  width: 10vw;
-}
-.BaseDialog_RacePos4 .BaseDialog_Body:before {
-  content: "";
-  display: block;
-  width: 10vw;
-} */
 .BaseDialog_RacePos0 .BaseDialog_Box {
   margin-right: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*3 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
 }
@@ -312,10 +289,12 @@ export default {
 .BaseDialog_RacePos4 .BaseDialog_Box {
   margin-left: clamp(0px, calc(var(--dialog-width)*0.5 + var(--cell-width)*3 + 50px), calc( 100vw - var(--dialog-width) - 100px ));
 }
-
-/* .BaseDialog_RacePos4 .BaseDialog_Body {
-  justify-content: flex-end;
-} */
+.BaseDialog_ScrollParent {
+  
+}
+.BaseDialog_MidScrollParent {
+  height: unset;
+}
 
 
 @supports not (backdrop-filter: blur(4px)) {

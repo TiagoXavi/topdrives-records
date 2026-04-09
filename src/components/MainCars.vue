@@ -59,17 +59,6 @@
 
     <div class="MainCars_HeaderControls MainCars_StickyListView">
       <div class="MainCars_StickyListBox">
-        <!-- <div class="MainCars_SortBox">
-          <BaseSelectNew
-            :value="_Mcars.R_ScoreNiche"
-            :list="R_NichesList"
-            label="R Score"
-            :checks="true"
-            :dialogConfig="{ maxWidth: '350px' }"
-            class="D_ButtonDark4">
-            {{ _Mcars.R_ScoreNiche }}
-          </BaseSelectNew>
-        </div> -->
 
         <button
           v-if="!Vue.garageObj.loaded"
@@ -117,7 +106,7 @@
             :list="sortListResolved"
             :label="$t('m_sort')"
             :itemLabel="(item) => $tc(`c_${item}`, 1)"
-            :dialogConfig="{ maxWidth: '250px' }"
+            :dialogConfig="{ maxWidth: '300px' }"
             class="D_ButtonDark4 MainCars_SortSelect"
             @change="_Mcars.sortMethod = $event; sortCars(); debounceChangedLong();">
             <span>{{ $tc(`c_${_Mcars.sortMethod}`, 1) }}</span>
@@ -136,9 +125,22 @@
             :label="$tc('m_column', 2)"
             :itemLabel="(item) => $tc(`c_${item}`, 1)"
             :checks="true"
-            :dialogConfig="{ maxWidth: '250px' }"
+            :dialogConfig="{ maxWidth: '300px' }"
             class="D_ButtonDark4">
             {{ Object.values(_Mcars.cols).filter(x => x).length }}
+          </BaseSelectNew>
+        </div>
+        <div v-if="$route.name !== 'MainCarsDiff'" class="MainCars_SortBox">
+          <BaseSelectNew
+            :value="_Mcars.R_ScoreNiche"
+            :list="R_NichesList"
+            :label="$t('c_R_Medals_score') + ' ' + $t('m_niche')"
+            :checks="true"
+            :dialogConfig="{ maxWidth: '350px' }"
+            :clearable="true"
+            class="D_ButtonDark4 MainCars_NichesSelect"
+            @change="_Mcars.R_ScoreNiche = $event; changedNiche();">
+            {{ _Mcars.R_ScoreNiche || $t('m_all') }}
           </BaseSelectNew>
         </div>
       </div>
@@ -158,7 +160,7 @@
             class="MainCars_Column MainCars_St"
             role="button"
             @click="sortClick(column.type)">
-            <div v-if="column.type === 'R_Medals_score'" class="MainCars_FireIcon">
+            <div v-if="column.type === 'R_Medals_score' || column.type === 'R_Medals_scoreDiff'" class="MainCars_FireIcon">
               <img
                 :src="_Mcars.sortMethod === column.type ? `/assets/fire100.png` : `/assets/fire100stop.png`"
                 class="MainCars_FireIconImg"
@@ -219,7 +221,8 @@
                 />
               </button>
               <div v-if="_Mcars.showStats" class="MainCars_CarRight">
-                <div v-if="_Mcars.cols.R_Medals_score" :style="`--w: ${columnObj.R_Medals_score.w}em`" class="MainCars_St MainCars_c_R_Medals_score">{{ Vue.all_carsObj[item.rid].R_Medals_score }}</div>
+                <div v-if="_Mcars.cols.R_Medals_score" :style="`--w: ${columnObj.R_Medals_score.w}em`" class="MainCars_St MainCars_c_R_Medals_score">{{ _Mcars.R_ScoreNiche ? Vue.all_carsObj[item.rid].R_Medals_scoreNiche : Vue.all_carsObj[item.rid].R_Medals_score }}</div>
+                <div v-if="_Mcars.cols.R_Medals_scoreDiff" :style="`--w: ${columnObj.R_Medals_scoreDiff.w}em`" class="MainCars_St MainCars_c_R_Medals_scoreDiff" :class="{ Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].R_Medals_scoreDiff > 0, Row_DialogCardStatRed: Vue.all_carsObj[item.rid].R_Medals_scoreDiff < 0 }">{{ Vue.all_carsObj[item.rid].R_Medals_scoreDiff > 0 ? '+' : '' }}{{ Vue.all_carsObj[item.rid].R_Medals_scoreDiff }}</div>
 
                 <div v-if="_Mcars.cols.races && garageWorking" :style="`--w: ${columnObj.races.w}em`" class="MainCars_St MainCars_c_races">{{ item.races }}</div>
                 <div v-if="_Mcars.cols.winRate && garageWorking" :style="`--w: ${columnObj.winRate.w}em`" class="MainCars_St MainCars_c_winRate">{{ item.winRate ? Math.round(item.winRate * 100) + "%" : 'N/A' }}</div>
@@ -518,6 +521,12 @@ export default {
   methods: {
     async prepareCars() {
       await Vue.carsCompile("R_Medals");
+      if (this.$route.name === "MainCarsDiff") {
+        await Vue.carsCompile("R_MedalsOld");
+        Vue.set(this._Mcars.cols, 'R_Medals_scoreDiff', true);
+        this.columns.splice(1, 0, { type: 'R_Medals_scoreDiff', fixed: 0, nick: "RscrΔ", w: 2.5, isGarage: false });
+        this.columnObj.R_Medals_scoreDiff = { type: 'R_Medals_scoreDiff', fixed: 0, nick: "RscrΔ", w: 2.5, isGarage: false };
+      }
       this.ready = true;
       this.loadCars(true);
     },
@@ -599,6 +608,9 @@ export default {
       if (this.cars.length === 0) return;
 
       let propKey = this._Mcars.sortMethod;
+      if (propKey === "R_Medals_score" && this._Mcars.R_ScoreNiche) {
+        propKey = "R_Medals_scoreNiche";
+      }
 
       if (propKey === "units") {
         if (!Vue.garageObj.loaded) propKey = "R_Medals_score";
@@ -726,6 +738,7 @@ export default {
       if (local) {
         try {
           let parsed = JSON.parse(local);
+          if (parsed.sortMethod === 'R_Medals_scoreDiff') parsed.sortMethod = 'R_Medals_score';
           this._Mcars.input = parsed.input || this._Mcars.input;
           this._Mcars.view = parsed.view || this._Mcars.view;
           this._Mcars.showStats = parsed.showStats || this._Mcars.showStats;
@@ -908,6 +921,14 @@ export default {
         // console.log("hoverHandle", e);
         this.indexHover = -1;
       }
+    },
+    async changedNiche() {
+      if (this._Mcars.R_ScoreNiche) {
+        await Vue.carsCompile("R_MedalsNiche", this._Mcars.R_ScoreNiche);
+        this._Mcars.sortMethod = "R_Medals_score";
+        this._Mcars.sortDesc = true;
+        this.sortCars();
+      }
     }
   },
 }
@@ -1027,6 +1048,9 @@ export default {
   border-bottom-right-radius: 0px;
   width: 92px;
   box-shadow: inset -1px 0px 0px 0px #ffffff0a;
+}
+.MainCars_SortSelect .BaseSelectNew_Left {
+  max-width: 100%;
 }
 .MainCars_SortSelect .BaseSelectNew_Right {
   display: none;
@@ -1164,6 +1188,9 @@ export default {
 }
 .MainCars_SortDesc .MainCars_ColumnActive .MainCars_FireIconImg {
   filter: unset;
+}
+.MainCars_NichesSelect {
+  width: 125px;
 }
 
 </style>

@@ -28,6 +28,15 @@
       }"
       class="App_SnackLayout">
       <div
+        v-if="snackCar"
+        class="App_SnackRecord">
+        <BaseCardMini
+          :car="snackCar"
+          style="min-width: 68px;"
+        />
+      </div>
+      <div
+        v-else
         class="App_Snack"
         @click="snackActive = false">{{ snackText }}</div>
     </div>
@@ -149,13 +158,14 @@
     <BaseDialog
       :active="$store.state.confirmDialog.active"
       :transparent="!!$store.state.confirmDialog.transparent"
+      :scrollParent="true"
       :lazy="true"
       :maxWidth="$store.state.confirmDialog.maxWidth"
       :minWidth="$store.state.confirmDialog.minWidth"
       zindex="302"
       @close="$store.state.confirmDialog.active = false;">
       <div style="App_DialogConfirm">
-        <div  class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
+        <div class="App_DialogConfirmTitle">{{ $store.state.confirmDialog.title }}</div>
         <template v-if="$store.state.confirmDialog.advanced">
           <div v-if="$store.state.confirmDialog.advanced.type === 'text'" class="App_DialogConfirm_Body">
             <BaseText
@@ -169,8 +179,18 @@
           <template v-if="$store.state.confirmDialog.advanced.type === 'list'" >
             <div class="Cg_SelectorDialogHeader">
               <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $store.state.confirmDialog.advanced.label }}</div>
+              <template v-if="$store.state.confirmDialog.advanced.headerButton">
+                <div class="Cg_SelectorDialogRight">
+                  <button
+                    class="D_Button D_ButtonDark D_ButtonDark2"
+                    @click="$store.state.confirmDialog.advanced.headerButton.action">
+                    <i v-if="$store.state.confirmDialog.advanced.headerButton.icon" :class="$store.state.confirmDialog.advanced.headerButton.icon" class="D_ButtonIcon" aria-hidden="true"/>
+                    <span>{{ $store.state.confirmDialog.advanced.headerButton.label }}</span>
+                  </button>
+                </div>
+              </template>
             </div>
-            <div class="Main_SearchMid Cg_SelectorDialogMid" style="height: unset;">
+            <div class="Main_SearchMid Main_SearchMidMax Cg_SelectorDialogMid BaseDialog_MidScrollParent">
 
               <template v-if="Array.isArray($store.state.confirmDialog.advanced.list)">
                 <template v-for="item in $store.state.confirmDialog.advanced.list">
@@ -190,11 +210,13 @@
 
               <template v-else>
                 <template v-for="(item, key) in $store.state.confirmDialog.advanced.list">
-                  <BaseCheckBox
-                    v-model="$store.state.confirmDialog.advanced.list[key]"
-                    :label="$store.state.confirmDialog.advanced.itemLabel ? $store.state.confirmDialog.advanced.itemLabel(key) : key"
-                    style="margin-bottom: 5px;"
-                  />
+                  <button
+                    style="padding-left: 15px; padding-right: 15px;"
+                    class="Main_SearchItem"
+                    @click="$store.state.confirmDialog.advanced.list[key] = !$store.state.confirmDialog.advanced.list[key]">
+                    <BaseCheckBox :value="$store.state.confirmDialog.advanced.list[key]" style="margin-right: 10px"/>
+                    <div class="Main_SearchItemRight Main_SearchItemList">{{ $store.state.confirmDialog.advanced.itemLabel ? $store.state.confirmDialog.advanced.itemLabel(key) : key }}</div>
+                  </button>
                 </template>
               </template>
 
@@ -256,7 +278,8 @@ export default {
     BaseButtonTouch: () => import('@/components/BaseButtonTouch.vue'),
     BaseCarDetailDialog: () => import('@/components/BaseCarDetailDialog.vue'),
     BaseCarDetailFull: () => import('@/components/BaseCarDetailFull.vue'),
-    BaseCheckBox: () => import('@/components/BaseCheckBox.vue')
+    BaseCheckBox: () => import('@/components/BaseCheckBox.vue'),
+    BaseCardMini: () => import('@/components/BaseCardMini.vue')
   },
   props: {},
   data() {
@@ -268,6 +291,7 @@ export default {
       snackCorrect: false,
       snackBlue: false,
       snackTimeout: null,
+      snackCar: null,
 
       realActive: false,
       preActive: false,
@@ -474,15 +498,29 @@ export default {
       if (this.snackActive) this.shake();
 
       this.snackActive = true;
-      if (obj.text.response && obj.text.response.data && obj.text.response.data.message) {
+      if (obj.text?.response && obj.text.response.data && obj.text.response.data.message) {
         this.snackText = obj.text.response.data.message;
-      } else if (obj.text.message) {
+      } else if (obj.text?.message) {
         this.snackText = obj.text.message;
       } else {
         this.snackText = obj.text;
       }
       this.snackActive = true;
-      if (obj.error) {
+      this.snackCar = null;
+
+      if (obj.cardId) {
+        this.snackCar = Vue.all_carsObj[Vue.ridByGuid[obj.cardId]];
+        this.snackError = false;
+        this.snackCorrect = false;
+        this.snackBlue = false;
+      }
+      else if (obj.car) {
+        this.snackCar = obj.car;
+        this.snackError = false;
+        this.snackCorrect = false;
+        this.snackBlue = false;
+      }
+      else if (obj.error) {
         this.snackError = true;
         this.snackCorrect = false;
         this.snackBlue = false;
@@ -547,6 +585,10 @@ export default {
           }
           if (res.data.auth === true) {
             window.localStorage.removeItem('auth');
+          }
+
+          if (res.data.w) {
+            this.$store.commit("START_LOGROCKET", {});
           }
 
           document.body.classList.add(`App_UserTier${this.user.tier || 0}`);
@@ -1612,6 +1654,10 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
   overscroll-behavior-block: contain;
   overscroll-behavior-x: contain;
   position: relative;
+}
+.Main_SearchMidMax {
+  height: unset;
+  max-height: 60vh;
 }
 .Main_SearchMidT {
   /* padding: 25px; */

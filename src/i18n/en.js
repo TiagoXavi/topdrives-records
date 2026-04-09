@@ -332,6 +332,8 @@ export default {
   m_garageSlots: "Garage slots",
   m_expanded: "Expanded",
   m_column: "Column | Columns",
+  m_niche: "Niche",
+  m_all: "All",
 
 
 

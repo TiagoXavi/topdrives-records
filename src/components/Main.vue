@@ -5924,10 +5924,10 @@ export default {
       axios.get(Vue.preUrlCharlie + "/statisticsC")
       .then(res => {
         this.statisticsLoading = false;
-        Vue.utils.statistics = {
+        Vue.set(Vue.utils, "statistics", {
           ...Vue.utils.statistics,
           ...res.data
-        };
+        });
       })
       .catch(error => {
         this.statisticsLoading = false;

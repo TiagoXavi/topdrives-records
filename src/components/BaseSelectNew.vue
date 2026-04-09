@@ -38,6 +38,10 @@ export default {
       type: Boolean,
       default: false
     },
+    clearable: {
+      type: Boolean,
+      default: false
+    },
     dialogConfig: {
       type: Object,
       default() {
@@ -114,6 +118,12 @@ export default {
           placeholder: "",
           typeText: "normal",
           class: "BaseText_Big",
+          headerButton: vm.clearable ? {
+            label: vm.$t('m_clear'),
+            action() {
+              action(null);
+            }
+          } : null
         }
       });
     }
@@ -136,11 +146,15 @@ export default {
   align-items: flex-start;
   gap: 2px;
   flex-grow: 1;
-  max-width: 100%;
+  max-width: calc(100% - 17px);
 }
 .BaseSelectNew_Label {
   font-size: 0.7em;
   opacity: 0.8;
+  white-space: nowrap;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .BaseSelectNew_Right {
   margin-right: -5px;
