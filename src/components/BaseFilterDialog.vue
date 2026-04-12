@@ -668,6 +668,7 @@
             <div v-if="!showingLastest && sortModel && sortModel !== 'rq' && sortModel !== 'name' && (!showStats || sortModelSpecial)" :class="`Main_SearchItemValue_${sortModel} ${sortModelSpecial ? 'Main_SearchItemValue_Special' : ''}`" class="Main_SearchItemValue">
               <template v-if="sortModel === 'acel' && typeof Vue.all_carsObj[item.rid][sortModel] === 'number'">{{ Vue.all_carsObj[item.rid][sortModel].toFixed(1) }}</template>
               <template v-else-if="sortModel === 'mra' && typeof Vue.all_carsObj[item.rid][sortModel] === 'number'">{{ Vue.all_carsObj[item.rid][sortModel].toFixed(2) }}</template>
+              <template v-else-if="sortModelSpecial">{{ item[sortModel] }}</template>
               <template v-else>{{ Vue.all_carsObj[item.rid][sortModel] }}</template>
             </div>
             <div v-if="!showStats || showingLastest" class="Main_SearchItemRight">
@@ -1817,14 +1818,17 @@ export default {
         let minus = -1;
         if (kSort === "acel") {
           reversed = !reversed;
-          plus = -1;
-          minus = 1;
+        }
+        if (reversed) {
+          let temp = plus;
+          plus = minus;
+          minus = temp;
         }
         if (this.sortModelSpecial) {
           result.map(car => {
             let newValue = 0;
             this.sortModelSpecial.map((item, xItem) => {
-              let reducedValue = car[item] || 0;
+              let reducedValue = Vue.all_carsObj[car.rid][item] || 0;
 
               if (kSort === 'mra_acel'){
                 if (item === "mra") reducedValue = Math.pow(reducedValue, 0.6) / 2;
@@ -1858,9 +1862,9 @@ export default {
               if (kSort === 'hand_ola') {
                 if (item === "hand") reducedValue = Math.pow(reducedValue, 3) / 5000;
                 if (item === "ola") {
-                  if (car.topSpeed < 101) reducedValue = 0;
-                  else if (!car.mra) reducedValue = 0;
-                  else reducedValue = (Math.pow(car.topSpeed - 100, 0.4) * 10) / (car.mra || 10000);
+                  if (Vue.all_carsObj[car.rid].topSpeed < 101) reducedValue = 0;
+                  else if (!Vue.all_carsObj[car.rid].mra) reducedValue = 0;
+                  else reducedValue = (Math.pow(Vue.all_carsObj[car.rid].topSpeed - 100, 0.4) * 10) / (Vue.all_carsObj[car.rid].mra || 10000);
                 }
               }
 
@@ -1893,6 +1897,7 @@ export default {
           })
         }
 
+        let sortSpec = this.sortModelSpecial;
         result.sort(function(a, b) {
           if (kSort === "name") {
             if (reversed) {
@@ -1901,14 +1906,26 @@ export default {
               return Vue.all_carsObj[a.rid].name.localeCompare(Vue.all_carsObj[b.rid].name);
             }
           } else {
-            if (reversed) {
-              if (Vue.all_carsObj[a.rid][kSort] && !Vue.all_carsObj[b.rid][kSort]) return plus;
-              if (Vue.all_carsObj[b.rid][kSort] && !Vue.all_carsObj[a.rid][kSort]) return minus;
-              return Vue.all_carsObj[a.rid][kSort] - Vue.all_carsObj[b.rid][kSort];
+            if (sortSpec) {
+              if (reversed) {
+                if (a[kSort] && !b[kSort]) return plus;
+                if (b[kSort] && !a[kSort]) return minus;
+                return a[kSort] - b[kSort];
+              } else {
+                if (b[kSort] && !a[kSort]) return plus;
+                if (a[kSort] && !b[kSort]) return minus;
+                return b[kSort] - a[kSort];
+              }
             } else {
-              if (Vue.all_carsObj[b.rid][kSort] && !Vue.all_carsObj[a.rid][kSort]) return plus;
-              if (Vue.all_carsObj[a.rid][kSort] && !Vue.all_carsObj[b.rid][kSort]) return minus;
-              return Vue.all_carsObj[b.rid][kSort] - Vue.all_carsObj[a.rid][kSort];
+              if (reversed) {
+                if (Vue.all_carsObj[a.rid][kSort] && !Vue.all_carsObj[b.rid][kSort]) return plus;
+                if (Vue.all_carsObj[b.rid][kSort] && !Vue.all_carsObj[a.rid][kSort]) return minus;
+                return Vue.all_carsObj[a.rid][kSort] - Vue.all_carsObj[b.rid][kSort];
+              } else {
+                if (Vue.all_carsObj[b.rid][kSort] && !Vue.all_carsObj[a.rid][kSort]) return plus;
+                if (Vue.all_carsObj[a.rid][kSort] && !Vue.all_carsObj[b.rid][kSort]) return minus;
+                return Vue.all_carsObj[b.rid][kSort] - Vue.all_carsObj[a.rid][kSort];
+              }
             }
           }
         });

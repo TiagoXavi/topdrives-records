@@ -239,7 +239,7 @@ export default {
         state._g_carPicker.clearFilterUpdate = () => {};
         state._g_carPicker.useFilter = () => {};
         state._g_carPicker.dual = () => {};
-        state._g_carPicker.config = {};
+        state._g_carPicker.config = { garageSwitch: true };
       })
       this.$nextTick().then(() => {
         this.T_S.$patch((state) => {

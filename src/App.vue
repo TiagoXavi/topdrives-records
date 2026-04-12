@@ -474,7 +474,7 @@ export default {
       }
 
       if (mutation.type == "START_LOGROCKET") {
-        if (vm.user && vm.user.username && vm.user.username.includes("TiagoXavi")) {
+        if (vm.user && vm.user.username && vm.user.username === "TiagoXavi") {
           return;
         }
         if (!vm.logRocketInitialized && Vue.preUrl.includes('topdrivesrecords')) {
