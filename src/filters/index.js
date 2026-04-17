@@ -1192,6 +1192,7 @@ export default {
         };
 
         Vue.tagsDate = {
+          "Rogue Agents": "2026-03-23",
           "Crown Pursuit": "2026-01-26",
           "German Powerhaus": "2025-09-08",
           "French Riviera": "2025-06-24",
