@@ -192,7 +192,7 @@
           <button
             :key="car.rid"
             class="D_Button D_ButtonDark D_ButtonDark2 MainPacks_CarButton"
-            @click="eventOpenShowCarDialog(car)">
+            @click="openCarFullDetail(car)">
             <div class="MainPacks_CarCard" :style="`--color: ${car.color}`">
               <div class="MainPacks_BankPhoto">
                 <img :src="car.photo" class="MainPacks_BankPhotoImg" loading="lazy" alt="">
@@ -242,12 +242,6 @@
       @filterUpdate="updateFilter($event)"
       @listRids="filterFinish($event);"
     />
-    
-
-    <BaseCarDetailDialog
-      :active="tuneDialogActive"
-      :car="tuneDialogCar"
-      @close="tuneDialogActive = false;" />
       
 
     <BaseDialog
@@ -283,10 +277,10 @@ import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
 import BaseText from './BaseText.vue'
 import BaseDialog from './BaseDialog.vue'
-import BaseCarDetailDialog from './BaseCarDetailDialog.vue'
 import BasePackSvg from './BasePackSvg.vue'
 import BaseCarList from './BaseCarList.vue'
-import all_cars from '../database/cars_final.json'
+import all_cars from '../database/cars_final.json';
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'MainPacks',
@@ -298,7 +292,6 @@ export default {
     BaseIconSvg,
     BaseText,
     BaseDialog,
-    BaseCarDetailDialog,
     BasePackSvg,
     BaseCarList
   },
@@ -311,6 +304,7 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
       lastestLoading: false,
       packModel: null,
       packTypes: [
@@ -746,7 +740,6 @@ export default {
       },
       all_cars,
       tuneDialogCar: {},
-      tuneDialogActive: false,
       otherPacksDialog: false,
       carsFilter: {}
     }
@@ -1615,12 +1608,12 @@ export default {
         this.showDefaultResultList = true;
       }
     },
-    eventOpenShowCarDialog(car) {
-      this.tuneDialogCar = JSON.parse(JSON.stringify(car));
-      this.tuneDialogCar.selectedTune = '000';
-      // this.tuneDialogCarIndex = -1;
-      // this.tuneDialogisOppo = true;
-      this.tuneDialogActive = true;
+    openCarFullDetail(car) {
+      this.T_S._g_cFull.car = Vue.all_carsObj[car.rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
     },
     isFromFree(icard) {
       if (this.packFilterDescResolved.length === 0) return false;

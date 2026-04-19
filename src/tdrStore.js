@@ -81,14 +81,11 @@ export const tdrStore = defineStore('main', {
       this.counter = 0
     },
     miniCarClick(car, carObj) {
-      car = JSON.parse(JSON.stringify(car));
-      if (car.selectedTune === undefined && carObj && (carObj.tun || carObj.tunZ)) {
-        car.selectedTune = carObj.tun || carObj.tunZ;
-      }
-      this._g_car.car = car;
-      this._g_car.dialog = true;
-      this._g_car.close = () => {
-        this._g_car.dialog = false;
+
+      this._g_cFull.car = Vue.all_carsObj[car.rid];
+      this._g_cFull.dialog = true;
+      this._g_cFull.close = () => {
+        this._g_cFull.dialog = false;
       };
 
       

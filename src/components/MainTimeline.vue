@@ -879,100 +879,6 @@
 
 
 
-
-    <!-- car view -->
-    <BaseDialog
-      :active="tuneDialogActive"
-      :transparent="false"
-      :lazy="true"
-      max-width="420px"
-      min-width="240px"
-      @close="closeTune()">
-      <div class="Main_TuneDialog">
-
-        <div v-if="tuneDialogActive" class="Row_DialogLayout">
-          <div class="Row_DialogBody Space_TopPlus">
-            <div class="Row_DialogCard">
-              <div class="Row_DialogCardLeft">
-                <BaseCard
-                  :car="tuneDialogCar"
-                  :isDialogBox="true"
-                  :options="false" />
-              </div>
-              <div class="Row_DialogCardRight">
-                <BaseText :value="resolveStat(tuneDialogCar, 'topSpeed')" :label="$t('c_topSpeed')" class="Space_Bottom Row_FieldStat" :disabled="true" />
-                <BaseText :value="resolveStat(tuneDialogCar, 'acel')" label="0-60mph" class="Space_Bottom Row_FieldStat" :disabled="true" />
-                <BaseText :value="resolveStat(tuneDialogCar, 'hand')" :label="$t('c_handling')" class="Row_FieldStat" :disabled="true" />
-              </div>
-            </div>
-          </div>
-          <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
-            <BaseGameTag
-              v-for="tag in tuneDialogCar.tags"
-              :key="tag"
-              :tag="tag" />
-          </div>
-          <div class="Row_DialogCardDual Space_TopPlus">
-            <div class="Row_DialogCardBottom">
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">ABS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.abs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">TCS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">
-                  <span v-if="tuneDialogCar.mra" style="margin-right: 7px;">{{ tuneDialogCar.mra }}</span>
-                </div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.weight }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.fuel.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.seats }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.engine.toLowerCase()}Engine`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-                <div class="Row_DialogCardStatValue">
-                  <template v-for="(body, index) in tuneDialogCar.bodyTypes">
-                    <template v-if="index !== 0">,&nbsp;</template>
-                    <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                  </template>
-                </div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                <div
-                  :class="{ Row_DialogCardStatRed: tuneDialogCar.brake === 'C', Row_DialogCardStatCorrect: tuneDialogCar.brake === 'A' }"
-                  class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}<BaseBrakeDialog /></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </BaseDialog>
-    <!-- car view -->
-
-
-
     <BaseDialog
       :active="imageDialog"
       :transparent="true"
@@ -1238,6 +1144,7 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
       all_cars,
       user: null,
       unsubscribe: null,
@@ -1290,8 +1197,6 @@ export default {
       deleteLinkIndex: -1,
       linkSelectedIndex: -1,
       linkLoadingIndex: -1,
-      tuneDialogCar: {},
-      tuneDialogActive: false,
       lastRidClick: null,
       imageDialog: false,
       imageDialogUrl: "",
@@ -2175,12 +2080,11 @@ export default {
       })
     },
     openDetailCarDialog(rid) {
-      this.tuneDialogCar = JSON.parse(JSON.stringify(this.resolvedRids[rid]));
-      this.tuneDialogCar.selectedTune = '000';
-      this.tuneDialogActive = true;
-    },
-    closeTune() {
-      this.tuneDialogActive = false;
+      this.T_S._g_cFull.car = Vue.all_carsObj[rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
     },
     resolveStat(car, type, customData = null) {
       return Vue.resolveStat(car, type, customData);

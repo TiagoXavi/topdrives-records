@@ -8,9 +8,23 @@
     max-width="415px"
     min-width="240px"
     @close="$emit('close')">
-    <div class="Main_TuneDialog BaseCarDetailDialog_Layout">
+    <div
+      :class="{ BaseCarDetailDialog_NoHeader: !showMove || !showTunes }"
+      class="Main_TuneDialog BaseCarDetailDialog_Layout">
 
       <div v-if="car && car.rid" class="Row_DialogLayout">
+
+        <div
+          v-if="Vue.utils.R_MedalsLoaded && Vue.all_carsObj[car.rid].R_Medals_score !== undefined"
+          class="Main_ShortCutBox">
+          <button class="D_Button Main_ShortCutBoxButton" @click="openCarFullDetail(car)">
+            <img
+              src="/assets/fire100.png"
+              class="Main_ShortCutBoxFire"
+            />
+            <div class="Main_ShortCutBoxValue">{{ Vue.all_carsObj[car.rid].prize && Vue.all_carsObj[car.rid].R_Medals_score === 0 ? '?' : Vue.all_carsObj[car.rid].R_Medals_score }}</div>
+          </button>
+        </div>
 
         <div
           v-if="showMove"
@@ -138,6 +152,7 @@ import BaseGameTag from './BaseGameTag.vue';
 import BaseBrakeDialog from './BaseBrakeDialog.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'BaseCarDetailDialog',
@@ -180,10 +195,17 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
       carClassColor: null
     }
   },
-  watch: {},
+  watch: {
+    active: function(newVal) {
+      if (newVal) {
+        Vue.carsCompile("R_Medals");
+      }
+    }
+  },
   beforeMount() {},
   mounted() {},
   computed: {
@@ -265,19 +287,37 @@ export default {
       Vue.set(this.carDetailsList, this.tuneDialogCarIndex, {});
       this.$emit("changed");
       this.$emit("close");
+    },
+    openCarFullDetail(car) {
+      this.T_S._g_cFull.car = Vue.all_carsObj[car.rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
+      this.$emit("close");
     }
   },
 }
 </script>
 
 <style>
+.BaseCarDetailDialog_Layout {
+  --height-h: 256px;
+}
 .BaseCarDetailDialog_Layout .Car_Header.Row_DialogCardCard {
   --width: 415px;
-  --height: 256px;
+  --height: var(--height-h);
   --card-font-size: 19px;
-  --card-g-height: 256px;
+  --card-g-height: var(--height-h);
   --card-g-heightraw: 256;
   border-radius: 11px;
   box-shadow: 0px 34px 28px -24px #00000050, 0px -24px 28px -24px #00000066;
+}
+.BaseCarDetailDialog_NoHeader .Main_ShortCutBoxButton {
+  top: calc(var(--height-h) + 10px);
+  z-index: 200;
+}
+.BaseCarDetailDialog_NoHeader .Row_DialogCardTags {
+  margin-right: 40px;
 }
 </style>

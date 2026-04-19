@@ -7543,6 +7543,7 @@ export default {
       this.tuneDialogisOppo = isOppo;
       this.tuneDialogActive = true;
       this.tuneDialogRace = race;
+      Vue.carsCompile("R_Medals");
     },
     calcRaceResult(race, isCgInitial) {
       this.showCarsFix = false;
@@ -9809,6 +9810,7 @@ export default {
       this.tuneDialogisOppo = false;
       this.tuneDialogActive = true;
       this.cgDashSolutionsDialogRound = iround;
+      Vue.carsCompile("R_Medals");
     },
     cgDashViewAllSolutions(iround, irace) {
       this.cgDashSolutionsDialogRound = iround;
@@ -11101,6 +11103,7 @@ export default {
       this.tuneDialogCarIndex = igroup;
       this.tuneDialogisOppo = true;
       this.tuneDialogActive = true;
+      Vue.carsCompile("R_Medals");
     },
     eventClearPicks() {
       this.eventPicksList = [];
