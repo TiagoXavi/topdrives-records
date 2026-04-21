@@ -293,6 +293,7 @@ export default {
   "t_mtIncline": "Гори: Дорога з ухилом",
   "t_mtTour": "Гори: Експедиція",
   "t_forestRiver": "Лісова переправа",
+  "t_speedbump14km": "Гонка з перешкодами: 1/4 км",
   "t_speedbump12km": "Гонка з перешкодами: 1/2 км",
   "t_speedbump1km": "Гонка з перешкодами: 1 км",
   "t_runwayLoop": "Петля на зліткі",

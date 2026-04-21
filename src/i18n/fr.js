@@ -309,6 +309,7 @@ export default {
   "t_runwayDragSlalom": "Piste de dragsters et slalom",
   "t_runwayLoop": "Boucle",
   "t_serviceRoads": "Voies de service",
+  "t_speedbump14km": "Ralentisseur 1/4 km",
   "t_speedbump12km": "Ralentisseur 1/2 km",
   "t_speedbump1km": "Ralentisseur 1 km",
   "t_butte": "Butte",

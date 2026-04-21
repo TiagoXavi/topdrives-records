@@ -365,6 +365,7 @@ export default {
   "t_tokyoGforce": "Teste de Força G em Tóquio",
   "t_tokyoLoop": "Circuito de Tóquio (R)",
   "t_slalomr": "Teste de Estabilidade (R)",
+  "t_speedbump14km": "Lombada 1/4 km",
   "t_speedbump12km": "Lombada 1/2 km",
   "t_speedbump1km": "Lombada 1 km",
   "t_serviceRoads": "Ruas de Acesso",

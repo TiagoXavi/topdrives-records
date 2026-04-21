@@ -562,6 +562,7 @@ export default {
   t_serviceRoads: "Service Roads",
   t_slalom: "Slalom Test",
   t_slalomr: "Slalom Test (R)",
+  t_speedbump14km: "Speedbump 1/4 km",
   t_speedbump12km: "Speedbump 1/2 km",
   t_speedbump1km: "Speedbump 1 km",
   t_testBowl: "Test Bowl",
@@ -617,6 +618,11 @@ export default {
   t_miSlalom: "Miami Slalom",
   t_miGforce: "Miami G-Force",
   t_miBeachDrag: "Miami Beach Drag",
+
+  t_jpDrag: "Japan Park Drag",
+  t_jpGforce: "Japan Park GForce",
+  t_jpCircuit: "Japan Park Circuit",
+
   t_itArch: "Italy Arch Alley",
   t_itFall: "Italy Fall Down",
   t_itFoun: "Italy Fountain Chicane",

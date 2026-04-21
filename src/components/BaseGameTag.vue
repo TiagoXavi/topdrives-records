@@ -641,4 +641,19 @@ export default {
   --tag-s: 79%;
   --tag-l: 43%;
 }
+.BaseGameTag_Team_Steel {
+  --tag-h: 359;
+  --tag-s: 73%;
+  --tag-l: 56%;
+}
+.BaseGameTag_Sakura_Festival {
+  --tag-h: 348;
+  --tag-s: 100%;
+  --tag-l: 86%;
+}
+.BaseGameTag_Team_Edwards {
+  --tag-h: 241;
+  --tag-s: 90%;
+  --tag-l: 60%;
+}
 </style>

@@ -288,6 +288,7 @@ export default {
   "t_tokyoDrag": "Accelerazione Tokyo",
   "t_forestRiver": "Guado del Fiume",
   "t_mtHill": "Scalata di Montagna",
+  "t_speedbump14km": "Dossi 1/4km",
   "t_speedbump12km": "Dossi 1/2km",
   "t_speedbump1km": "Dossi 1km",
   "t_smallRoad": "Strada Secondaria",

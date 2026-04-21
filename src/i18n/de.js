@@ -296,6 +296,7 @@ export default {
   "t_runwayDragSlalom": "Startbahn-Drag&-Slalom",
   "t_runwayLoop": "Startbahn-Schleife",
   "t_serviceRoads": "Wartungsstraßen",
+  "t_speedbump14km": "Bodenschwelle 1/4 km",
   "t_speedbump12km": "Bodenschwelle 1/2 km",
   "t_speedbump1km": "Bodenschwelle 1 km",
   "t_tokyoBridge": "Tokio-Brücke",

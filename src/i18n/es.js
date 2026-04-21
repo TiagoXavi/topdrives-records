@@ -273,6 +273,7 @@ export default {
   "t_runwayDrag": "Picódromo aeroportuario",
   "t_slalom": "Test de eslalon",
   "t_slalomr": "Test de eslalon (R)",
+  "t_speedbump14km": "Badén 1/4km",
   "t_speedbump12km": "Badén 1/2km",
   "t_speedbump1km": "Badén 1km",
   "t_testBowl": "Anillo de pruebas",

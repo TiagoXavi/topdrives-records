@@ -53,6 +53,7 @@
                   circuit.id === 'dockCity' ||
                   circuit.id === 'csMed' ||
                   circuit.id === 'oceanCity' ||
+                  circuit.id === 'speedbump14km' ||
                   circuit.id === 'speedbump12km' ||
                   circuit.id === 'speedbump1km' ||
                   circuit.id === 'desertHill' ||

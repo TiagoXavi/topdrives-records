@@ -688,6 +688,7 @@ export default {
                     item.id === 'csMedZ50' ||
                     item.id === 'oceanCity' ||
                     item.id === 'oceanCityZ50' ||
+                    item.id === 'speedbump14km' ||
                     item.id === 'speedbump12km' ||
                     item.id === 'speedbump1km' ||
                     item.id === 'desertHill' ||

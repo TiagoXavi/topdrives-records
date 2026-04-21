@@ -33,6 +33,7 @@ export default {
     c_acel: "0-60mph | 0-60mph",
     c_mra: "MRA | MRA",
     c_ola: "OLA | OLA",
+    c_hill: "HCB | HCB",
     'c_?': "?",
     'c_?Engine': "?",
     m_count332: "332",

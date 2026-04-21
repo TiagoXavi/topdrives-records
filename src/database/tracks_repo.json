@@ -307,6 +307,18 @@
     "types": ["00"]
   },
   {
+    "id": "jpDrag",
+    "types": ["00"]
+  },
+  {
+    "id": "jpGforce",
+    "types": ["00"]
+  },
+  {
+    "id": "jpCircuit",
+    "types": ["00"]
+  },
+  {
     "id": "kart",
     "types": ["00","01"]
   },
@@ -613,6 +625,10 @@
   },
   {
     "id": "slalomr",
+    "types": ["00"]
+  },
+  {
+    "id": "speedbump14km",
     "types": ["00"]
   },
   {

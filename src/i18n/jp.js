@@ -307,6 +307,7 @@ export default {
   "t_serviceRoads": "整備ロード",
   "t_slalom": "スラロム テスト",
   "t_slalomr": "スラロム テスト (R)",
+  "t_speedbump14km": "防止帯 1/4km",
   "t_speedbump12km": "防止帯 1/2km",
   "t_speedbump1km": "防止帯 1km",
   "t_testBowl": "テスト ボウル",

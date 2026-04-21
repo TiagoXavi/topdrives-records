@@ -291,6 +291,7 @@ export default {
   "t_serviceRoads": "Service Roads",
   "t_slalom": "Slalom Test",
   "t_slalomr": "Slalom Test (R)",
+  "t_speedbump14km": "Speedbump 1/4 χλμ",
   "t_speedbump12km": "Speedbump 1/2 χλμ",
   "t_speedbump1km": "Speedbump 1 χλμ",
   "t_testBowl": "Test Bowl",

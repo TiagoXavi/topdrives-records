@@ -397,6 +397,7 @@ export default {
   "t_rallySmall": "汽车拉力赛道（小型）",
   "t_riverSprint": "冰河冲刺",
   "t_runwayDragSlalom": "跑道&障碍道",
+  "t_speedbump14km": "1/4公里减速带",
   "t_speedbump12km": "1/2公里减速带",
   "t_speedbump1km": "1公里减速带",
   "t_tokyoLoop": "东京环道",
