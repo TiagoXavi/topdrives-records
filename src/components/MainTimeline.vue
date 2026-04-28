@@ -1924,9 +1924,19 @@ export default {
       // this.finishUploadImage(null, clipboardEvent);
     },
     convertToJPG(imageFile) {
+      if (!(imageFile instanceof File)) {
+        console.error("Not a file");
+        this.$store.commit("DEFINE_SNACK", { active: true, error: true, text: "Not a file", type: "error" });
+        return;
+      }
       let vm = this;
-      var img = new Image;
+      var img = new Image();
+      img.onerror = (e, b) => {
+        console.error("Error loading image");
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: "Error loading image", type: "error" });
+      }
       img.onload = (e, b, t) => {
+        console.log("Loaded image");
 
         URL.revokeObjectURL(e.target.src);             // free up memory
         var c = document.createElement("canvas")  // create a temp. canvas

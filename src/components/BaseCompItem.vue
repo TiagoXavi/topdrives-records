@@ -71,7 +71,7 @@
         <div
           v-if="comp.clearance && comp.clearance.length > 0"
           :class="{
-            Type_60: (comp.clearance.includes('Mid') || comp.clearance.includes('High')) && !(comp.tyres.includes('Off-road') || comp.tyres.includes('All-surface')),
+            Type_60: comp.clearance.includes('Mid') || (comp.clearance.includes('High') && !comp.tyres.includes('All-surface') && !comp.tyres.includes('Off-road')),
             Type_10: comp.clearance.includes('High') && (comp.tyres.includes('Off-road') || comp.tyres.includes('All-surface')),
           }"
           class="BaseCompItem_Normal BaseCompItem_Clearances">

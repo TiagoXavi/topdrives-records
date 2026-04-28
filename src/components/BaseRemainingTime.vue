@@ -40,7 +40,9 @@ export default {
       clearTimeout(this.timeout);
       this.timeout = null;
       this.quickMs = null;
-      this.calcResult(); // first quick
+      this.calcResult();
+
+      if (!this.inverval) this.restart();
     }
   },
   beforeMount() {},
@@ -48,10 +50,7 @@ export default {
     let shouldContinue = this.calcResult(); // first quick
     if (!shouldContinue) return;
 
-    this.inverval = setInterval(() => {
-      this.calcResult();
-      // console.log("a")
-    }, 1000);
+    this.restart();
   },
   beforeDestroy() {
     clearInterval(this.inverval);
@@ -59,6 +58,12 @@ export default {
   },
   computed: {},
   methods: {
+    restart() {
+      this.inverval = setInterval(() => {
+        this.calcResult();
+        // console.log("a")
+      }, 1000);
+    },
     calcResult() {
       
       if (!this.timeout) {
