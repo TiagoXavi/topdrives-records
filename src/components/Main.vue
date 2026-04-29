@@ -852,6 +852,13 @@
               @click="cgResetRound()">{{ $t("m_resetRound") }}</button>
           </div>
 
+          <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
+            <button
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="refreshLocalTimesByFilter()">Refresh local times</button>
+          </div>
+
         </template>
         
 
@@ -12891,24 +12898,32 @@ export default {
       });
     },
     refreshLocalTimesByFilter() {
-      let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
-      let filterAtr = 'filter';
-      if (key === "event") {
-        if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
-      }
-      if (key === "clubReqsGroupModel") {
-        if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
-      }
-      let refreshFilter = this.eventFilterForKingLast !== this[key].date;
-      this.eventFilterForKingLast = this[key].date;
+      let params = {}
 
-      if (!Object.keys(this.eventFilterForKing).length || refreshFilter) {
-        this.eventFilterForKing = JSON.parse(JSON.stringify(this[key][filterAtr]));
+      if (this.mode === 'challenges') {
+        params = {
+          filter: this.cgRound.filter
+        }
+      } else {
+        let key = this.isEvents ? 'event' : 'clubReqsGroupModel';
+        let filterAtr = 'filter';
+        if (key === "event") {
+          if (this.eventUseWhatFilter) filterAtr = filterAtr + (this.eventUseWhatFilter+1);
+        }
+        if (key === "clubReqsGroupModel") {
+          if (this.clubUseWhatFilter) filterAtr = filterAtr + (this.clubUseWhatFilter+1);
+        }
+        let refreshFilter = this.eventFilterForKingLast !== this[key].date;
+        this.eventFilterForKingLast = this[key].date;
+  
+        if (!Object.keys(this.eventFilterForKing).length || refreshFilter) {
+          this.eventFilterForKing = JSON.parse(JSON.stringify(this[key][filterAtr]));
+        }
+        params = {
+          filter: this.eventFilterForKing
+        }
       }
-
-      let params = {
-        filter: this.eventFilterForKing
-      }
+      
 
       this.eventAnalyseLoading = true;
 
