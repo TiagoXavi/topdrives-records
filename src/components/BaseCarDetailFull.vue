@@ -32,12 +32,14 @@
       <div v-if="car && car.rid" class="BaseCarDetailFull_BodyLayout Main_DarkScroll Main_DarkScrollMini">
 
         <div v-if="car.tags && car.tags.length > 0" class="BaseCarDetailFull_TagsRoot">
-          <div class="Row_DialogCardTags BaseCarDetailFull_Tags">
-            <BaseGameTag
-              v-for="tag in car.tags"
-              :key="tag"
-              :tag="tag"
-            />
+          <div class="BaseCarDetailFull_Tags">
+            <div class="Row_DialogCardTags" style="padding: 0 4px;">
+              <BaseGameTag
+                v-for="tag in car.tags"
+                :key="tag"
+                :tag="tag"
+              />
+            </div>
           </div>
         </div>
 
@@ -131,6 +133,27 @@
           </div>
         </div>
 
+        <div v-if="!Vue.utils.loading && similars.length > 0" class="BaseCarDetailFull_Similars Space_TopGiga">
+          <div class="BaseCarDetailFull_SimilarsList">
+            <BaseCardMiniButton
+              v-for="similarItem in similars"
+              :car="Vue.all_carsObj[similarItem.car.rid]"
+              @click="reload(Vue.all_carsObj[similarItem.car.rid]);"
+            />
+          </div>
+          <div class="BaseCarDetailFull_SimilarsBottom D_Center2">
+            <button
+              v-if="similars.length < 30 - 6"
+              style="margin-top: 10px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="findSimilarCars(similars.length + 6)">+6</button>
+            <button
+              style="margin-top: 10px;"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="exportSimilars()">{{ $t("m_compare") }}</button>
+          </div>
+        </div>
+
         <div v-if="showTunes && !Vue.utils.loading" class="Row_DialogHeader Space_TopGiga">
           <button
             v-for="item in tuneDialogTunes"
@@ -144,57 +167,7 @@
         </div>
         
         <div v-if="!Vue.utils.loading" class="Row_DialogCardDual Space_TopGiga">
-          <div class="Row_DialogCardBottom">
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">ABS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.abs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">TCS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.tcs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.clearance.toLowerCase()}`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-              <div class="Row_DialogCardStatValue">
-                <span v-if="car.mra" style="margin-right: 7px;">{{ car.mra }}</span>
-              </div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-              <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.fuel.toLowerCase()}`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-              <div class="Row_DialogCardStatValue">{{ car.seats }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.engine.toLowerCase()}Engine`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-              <div class="Row_DialogCardStatValue">
-                <template v-for="(body, index) in car.bodyTypes">
-                  <template v-if="index !== 0">,&nbsp;</template>
-                  <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                </template>
-              </div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-              <div
-              :class="{ Row_DialogCardStatRed: car.brake === 'C', Row_DialogCardStatCorrect: car.brake === 'A' }"
-              class="Row_DialogCardStatValue">{{ car.brake || "?" }}<BaseBrakeDialog /></div>
-            </div>
-          </div>
+          <BaseCarStats :car="car" />
         </div>
       </div>
 
@@ -206,11 +179,13 @@
 import BaseDialog from './BaseDialog.vue';
 import BaseCard from './BaseCard.vue';
 import BaseGameTag from './BaseGameTag.vue';
-import BaseBrakeDialog from './BaseBrakeDialog.vue';
 import BaseContentLoader from './BaseContentLoader.vue';
 import BaseStars from './BaseStars.vue';
 import BaseTrack from './BaseTrack.vue';
 import BaseBestTune from './BaseBestTune.vue';
+import BaseCardMiniButton from './BaseCardMiniButton.vue';
+import BaseCardMini from './BaseCardMini.vue';
+import BaseCarStats from './BaseCarStats.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
 import { tdrStore } from '@/tdrStore.js';
@@ -221,11 +196,13 @@ export default {
     BaseDialog,
     BaseCard,
     BaseGameTag,
-    BaseBrakeDialog,
     BaseContentLoader,
     BaseStars,
     BaseTrack,
-    BaseBestTune
+    BaseBestTune,
+    BaseCardMiniButton,
+    BaseCardMini,
+    BaseCarStats
   },
   props: {
     active: {
@@ -260,12 +237,14 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
       carClassColor: null,
       medals: null,
       anim: true,
       cgWatchDownloadCache: null,
       cacheObj: null,
-      showAllTracks: false
+      showAllTracks: false,
+      similars: []
     }
   },
   watch: {},
@@ -363,6 +342,8 @@ export default {
             console.error("Failed to get medals:", error);
           }
         );
+
+        this.findSimilarCars();
       }
     },
     loadTunesTimes() {
@@ -420,10 +401,139 @@ export default {
 
 
 
-      tdrStore().mainParams = { cars, tracks, mode: "compare" };
+      this.T_S.mainParams = { cars, tracks, mode: "compare" };
       this.$router.push({ path: `/compare?t=${new Date().getTime()}` });
       this.$emit('close');
     },
+    findSimilarCars(limit = 6) {
+      let similars = [];
+
+      let score = 0;
+      let carAcelHandScore = this.hand_acelScore(this.car);
+      let shouldUseAcelHandScore = !!carAcelHandScore;
+      if (this.car.rq > 80 && this.car.hand < 80) shouldUseAcelHandScore = false; // COPO
+
+      Vue.all_carsArr.map(car => {
+        if (car.rid === this.car.rid) return;
+        if (Math.abs(car.rq - this.car.rq) > 10) return;
+
+        let bothRacing = !!(
+          (car.tyres === "Slick" && this.car.drive !== "4WD" && this.car.tyres === "Performance") ||
+          (this.car.tyres === "Slick" && car.drive !== "4WD" && car.tyres === "Performance")
+        );
+        if (!bothRacing && car.class !== "S") {
+          if (car.drive === "4WD" && this.car.drive !== "4WD") return;
+          if (this.car.drive === "4WD" && car.drive !== "4WD") return;
+        }
+
+        score = 0;
+        if (car.clearance === this.car.clearance || (car.tyres === "Off-road" && this.car.tyres === "Off-road") || (car.tyres === "Standard" && this.car.tyres === "Standard")) score += 5;
+        if (car.tyres === this.car.tyres || bothRacing) score += 5;
+        if (car.drive === this.car.drive || bothRacing) score += 5;
+        if (car.class === this.car.class) score += 2;
+        // if (car.brand === this.car.brand) score += 1;
+        if (car.country === this.car.country) score += 0.5;
+        // if (car.seats === this.car.seats) score += 0.5;
+        // if (car.fuel === this.car.fuel) score += 1;
+        // if (car.engine === this.car.engine) score += 0.5;
+        // if (car.brake === this.car.brake) score += 0.5;
+
+        if (shouldUseAcelHandScore && (car.acel && this.car.acel && Math.abs(car.acel - this.car.acel) < 1)) {
+          score += this.clampDiff(this.hand_acelScore(car), carAcelHandScore, 30) * 8;
+        } else {
+          score += this.clampDiff(car.acel, this.car.acel, (car.acel < 5 ? 1.5 : 5)) * 3;
+          score += this.clampDiff(car.hand, this.car.hand, 10) * 2;
+        }
+        
+        score += this.clampDiff(car.topSpeed, this.car.topSpeed, 80);
+        score += this.clampDiff(car.mra, this.car.mra, 70) * 2;
+        score += this.clampDiff(car.weight, this.car.weight, 1000) * 1;
+        score += this.clampDiff(car.rq, this.car.rq, 10) * 2;
+        // score += this.clampDiff(car.year, this.car.year, 15);
+
+        // score += this.scoreByArrayItems(car.bodyTypes, this.car.bodyTypes) * 0.5;
+        // score += this.scoreByArrayItems(car.tags, this.car.tags) * 0.5;
+
+        if (score > 5) {
+          similars.push({ car, score });
+        }
+      });
+      similars.sort((a, b) => b.score - a.score);
+      similars = similars.slice(0, limit);
+      console.log(JSON.parse(JSON.stringify(similars)));
+      this.similars = similars;
+    },
+    clampDiff(value1, value2, diffToMakeItZero = 100) {
+      if (typeof value1 !== 'number' || typeof value2 !== 'number') return 0;
+
+      let diff = Math.abs(value1 - value2);
+      return Math.max(0, 1 - diff / diffToMakeItZero);
+    },
+    scoreByArrayItems(arr1, arr2) {
+      let ignore = ["Ministry of Racing"];
+      if (!arr1 || !arr2 || !Array.isArray(arr1) || !Array.isArray(arr2)) return 0;
+      let score = 0;
+      arr1.forEach(item => {
+        if (arr2.includes(item) && !ignore.includes(item)) {
+          score += 1;
+        }
+      });
+      return score;
+    },
+    exportSimilars() {
+      let tune;
+      let tracks = [];
+
+      if (this.medals?.result?.tracks) {
+        let tunesCount = {};
+        ["332", "323", "233"].map(t => {
+          let count = 0;
+          this.medals.result.tracks.find((item, iItem) => {
+            if (iItem >= 10) return true;
+            tracks.push(item[0]);
+            
+            if (item[0] === "testBowl") {
+              count += Object.keys(this.cacheObj?.data?.[t]?.times || {}).filter(key => key.includes("testBowl") && this.cacheObj.data[t].times[key] && this.cacheObj.data[t].times[key].t !== 0).length;
+            } else {
+              count += Object.keys(this.cacheObj?.data?.[t]?.times || {}).filter(key => !key.includes("testBowl") && this.cacheObj.data[t].times[key] && this.cacheObj.data[t].times[key].t !== 0).length;
+            }
+            return false;
+          });
+          tunesCount[t] = count;
+        });
+        tune = Object.keys(tunesCount).reduce((best, t) => {
+          if (tunesCount[t] > (tunesCount[best] || 0)) {
+            return t;
+          }
+          return best;
+        }, null);
+      }
+
+      let cars = [{ rid: this.car.rid, selectedTune: tune }];
+
+      if (tune) {
+        cars.push( ...this.similars.map(item => ({ rid: item.car.rid, selectedTune: tune })) );
+      } else {
+        cars.push( ...this.similars.map(item => ({ rid: item.car.rid })) );
+      }
+
+      this.T_S.mainParams = { cars, tracks, mode: "compare" };
+      this.$router.push({ path: `/compare?t=${new Date().getTime()}` });
+      this.$emit('close');
+    },
+    reload(newCar) {
+      this.medals = null;
+      this.T_S.miniCarClick(newCar);
+      setTimeout(() => {
+        this.init();
+        let target = document.querySelector(".BaseCarDetailFull_Layout .Main_DarkScrollMini");
+        if (target) target.scrollTo({ top: 0 });
+      }, 1);
+    },
+    hand_acelScore(car) {
+      if (typeof car.acel !== 'number') return 0;
+      return (Math.pow(car.hand, 3) / 100) / (car.acel * 10);
+    }
   },
 }
 </script>
@@ -603,5 +713,15 @@ export default {
 }
 .BaseCarDetailFull_TrackBestTune {
   width: 37px;
+}
+.BaseCarDetailFull_Similars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.BaseCarDetailFull_SimilarsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 </style>

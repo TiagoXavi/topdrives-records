@@ -854,7 +854,7 @@
 
           <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
             <button
-              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              :class="{ D_Button_Loading: eventAnalyseLoading || cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="refreshLocalTimesByFilter()">Refresh local times</button>
           </div>
@@ -959,6 +959,7 @@
             :item-size="cgDashItemHeight"
             :buffer="Math.max(400, cgDashItemHeight)"
             key-field="key"
+            key="Main1"
             listClass="Cg_DashWrapper"
             itemClass="Cg_DashScrollerItem"
             class="Main_DarkScroll"
@@ -2240,6 +2241,7 @@
             :item-size="windowWidth < 1200 ? 170 : 122"
             :buffer="800"
             key-field="3"
+            key="Main2"
             listClass="Main_Teams_CardsWrapper"
             itemClass="Main_Teams_ScrollerItem"
             class="Main_DarkScroll"
@@ -2260,14 +2262,6 @@
               </div>
               <div class="Main_Teams_ListLayout">
                 <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
-                  <!-- <BaseCardGallery
-                    :car="Vue.all_carsObj[rid]"
-                    :key="`${rid}_${index}`"
-                    :options="false"
-                    :showPrize="true"
-                    :tuneText="item[5][index]"
-                    class="Main_Teams_GalleryCard BaseCardGallery150"
-                  /> -->
                   <BaseCard
                     :car="Vue.all_carsObj[rid]"
                     :fix-back="false"
@@ -2312,7 +2306,9 @@
         topSpeed: false,
         acel: false,
         hand: false,
-        weight: false
+        weight: false,
+        ola: false,
+        hill: false
       }"
       :libraryApprove="libraryApprove"
       type="library"
@@ -2354,6 +2350,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: true,
         abs: true
@@ -2375,6 +2373,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: false,
         abs: false,
@@ -2400,6 +2400,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: false,
         abs: false
@@ -2429,6 +2431,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: false,
         abs: false
@@ -2475,24 +2479,6 @@
         </div>
       </template>
     </BaseFilterDialog>
-
-    <!-- <BaseFilterDialog
-      v-if="eventAddCarDialogLoad"
-      v-model="eventAddCarDialog"
-      :raceFilter="event.filter"
-      :config="{
-        topSpeed: false,
-        acel: false,
-        hand: false,
-        weight: false,
-        brake: false,
-        tcs: false,
-        abs: false
-      }"
-      type="event"
-      @addCar="addCarEvent($event)"
-      @listRids="cgAnalyseRoundFinish($event);"
-    /> -->
 
     <BaseDialog
       :active="tuneDialogActive"
@@ -2617,76 +2603,11 @@
               :tag="tag" />
           </div>
           <div class="Row_DialogCardDual Space_TopPlus">
-            <div class="Row_DialogCardBottom">
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">ABS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.abs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">TCS</div>
-                <div :class="{ Row_DialogCardStatCorrect: tuneDialogCar.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ tuneDialogCar.tcs ? 'Yes' : 'No' }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.clearance.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">
-                  <template v-if="!mraEditing">
-                    <span v-if="tuneDialogCar.mra" style="margin-right: 7px;">{{ tuneDialogCar.mra }}</span>
-                    <button
-                      v-if="user && user.mod"
-                      :disabled="mraLoading"
-                      :class="{ D_Button_Loading: mraLoading }"
-                      class="D_Button D_ButtonDark Main_EditMraButton"
-                      @click="mraEditing = true;">
-                      <i class="ticon-pencil" aria-hidden="true"/>
-                    </button>
-                  </template>
-                  <template v-else>
-                    <BaseText
-                      v-model="mraEditInput"
-                      :acel="tuneDialogCar.acel"
-                      type="mra"
-                      class="Row_FieldStat Main_EditMraField"
-                      placeholder="type..."
-                      @change="sendMra()" />
-                  </template>
-                </div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.weight }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.fuel.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-                <div class="Row_DialogCardStatValue">{{ tuneDialogCar.seats }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-                <div class="Row_DialogCardStatValue">{{ $t(`c_${tuneDialogCar.engine.toLowerCase()}Engine`) }}</div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-                <div class="Row_DialogCardStatValue">
-                  <template v-for="(body, index) in tuneDialogCar.bodyTypes">
-                    <template v-if="index !== 0">,&nbsp;</template>
-                    <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                  </template>
-                </div>
-              </div>
-              <div class="Row_DialogCardStat">
-                <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                <div
-                  :class="{ Row_DialogCardStatRed: tuneDialogCar.brake === 'C', Row_DialogCardStatCorrect: tuneDialogCar.brake === 'A' }"
-                  class="Row_DialogCardStatValue">{{ tuneDialogCar.brake || "?" }}<BaseBrakeDialog /></div>
-              </div>
-            </div>
+            <BaseCarStats :car="tuneDialogCar" @mraChanged="carDetailsList.map(x => {
+              if (x.rid === tuneDialogCar.rid) {
+                Vue.set(x, 'mra', $event);
+              }
+            })" />
           </div>
           <div v-if="tuneDialogCar.users" class="Row_DialogReviewsBox Space_TopPlus">
             <div class="Row_DialogCardStat">
@@ -2798,7 +2719,7 @@
             :disabled="copyUrlSucess"
             style="font-size: 16px;"
             class="D_Button D_ButtonDark D_ButtonDark2"
-            @click="copyUrl()">{{ $t("m_copy") }}</button>
+            @click="copyUrl()">{{ $tc("m_copy") }}</button>
         </div>
         <template v-if="mode === 'compare'">
           <div class="Main_DialogTitle">{{ $t("m_listCars") }}</div>
@@ -2814,7 +2735,7 @@
               :disabled="copyListSucess"
               style="font-size: 16px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="copyList()">{{ $t("m_copy") }}</button>
+              @click="copyList()">{{ $tc("m_copy") }}</button>
           </div>
         </template>
       </div>
@@ -3824,11 +3745,9 @@ import BaseChip from './BaseChip.vue'
 import BaseGameTag from './BaseGameTag.vue'
 import BaseCheckBox from './BaseCheckBox.vue'
 import BaseConfigCheckBox from './BaseConfigCheckBox.vue'
-import BaseDonateButton from './BaseDonateButton.vue'
 import BaseDiscordButton from './BaseDiscordButton.vue'
 import BaseUserCard from './BaseUserCard.vue'
 import BaseContentLoader from './BaseContentLoader.vue'
-import BaseLogoSpining from './BaseLogoSpining.vue'
 import BaseCompItem from './BaseCompItem.vue'
 import BaseTrackType from './BaseTrackType.vue'
 import BaseFilterDescription from './BaseFilterDescription.vue'
@@ -3837,25 +3756,18 @@ import BaseButtonTouch from './BaseButtonTouch.vue'
 import BaseCorner from './BaseCorner.vue'
 import BaseSwitch from './BaseSwitch.vue'
 import BaseIconSvg from './BaseIconSvg.vue'
-import BaseReviewList from './BaseReviewList.vue'
-import BasePrizeBoard from './BasePrizeBoard.vue'
 import BaseEventName from './BaseEventName.vue'
-import BaseBrakeDialog from './BaseBrakeDialog.vue'
-import BaseCardGallery from './BaseCardGallery.vue'
-// import data_cars from '../database/cars_final.json'
 import campaign from '../database/campaign.json'
 import tracksRepo from '../database/tracks_repo.json'
 import BaseCarsTeam from './BaseCarsTeam.vue'
 import BaseExpandDiv from './BaseExpandDiv.vue'
-import BaseMonoSlider from './BaseMonoSlider.vue'
 import BaseCarList from './BaseCarList.vue'
 import BaseCardMini from './BaseCardMini.vue'
 import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
 import BaseCarsPoints from './BaseCarsPoints.vue'
 import BaseSelectNew from './BaseSelectNew.vue'
-import BaseColorPicker from './BaseColorPicker.vue'
+import BaseCarStats from './BaseCarStats.vue'
 
-import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
 
 export default {
@@ -3875,9 +3787,8 @@ export default {
     BaseCard,
     BaseTypeName,
     BaseFilterDescription,
-    BaseDonateButton,
     BaseDiscordButton,
-    BaseLogoSpining,
+    BaseLogoSpining: () => import('@/components/BaseLogoSpining.vue'),
     BaseCompItem,
     BaseConfigCheckBox,
     BaseFilterDialog,
@@ -3886,22 +3797,20 @@ export default {
     BaseButtonTouch,
     BaseCorner,
     BaseSwitch,
-    BaseReviewList,
     BaseIconSvg,
     BaseMemoryDialog,
-    BasePrizeBoard,
+    BasePrizeBoard: () => import('@/components/BasePrizeBoard.vue'),
     BaseEventName,
-    BaseBrakeDialog,
-    BaseCardGallery,
     BaseCarsTeam,
     BaseExpandDiv,
-    BaseMonoSlider,
+    BaseMonoSlider: () => import('@/components/BaseMonoSlider.vue'),
     BaseCarList,
     BaseCardMini,
     BaseCarsTuneTime,
     BaseCarsPoints,
     BaseSelectNew,
-    BaseColorPicker
+    BaseColorPicker: () => import('@/components/BaseColorPicker.vue'),
+    BaseCarStats
   },
   props: {
     phantomCar: {
@@ -3966,9 +3875,6 @@ export default {
       lastestLoading: false,
       
       currentViewport: null,
-      mraEditing: false,
-      mraEditInput: null,
-      mraLoading: false,
       voteLoading: false,
       successVote: false,
       saveToGalleryDialog: false,
@@ -5185,6 +5091,8 @@ export default {
           acel: false,
           hand: false,
           weight: false,
+          ola: false,
+          hill: false,
           tunes: true
         };
       }
@@ -5194,6 +5102,8 @@ export default {
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         rq: false,
         year: false,
         tyres: false,
@@ -11726,50 +11636,6 @@ export default {
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
         this.updateCarLocalStorage();
       }
-    },
-    sendMra() {
-      console.log(this.mraEditInput);
-      if (!this.mraEditInput) return;
-      let rid = this.tuneDialogCar.rid;
-      let newMRA = Number(this.mraEditInput);
-
-      this.mraLoading = true;
-
-      axios.post(Vue.preUrl + "/setMra", {
-        rid: rid,
-        mra: this.mraEditInput
-      })
-      .then(res => {
-        this.mraEditing = false;
-        this.tuneDialogCar.mra = newMRA;
-
-        // Vue.all_carsObj[rid].photo
-        Vue.set(Vue.all_carsObj[rid], "mra", newMRA);
-        // this.all_cars.find(x => {
-        //   if (x.rid === rid) {
-        //     return true
-        //   }
-        // })
-        this.carDetailsList.find(x => {
-          if (x.rid === rid) {
-            Vue.set(x, "mra", newMRA);
-            return true
-          }
-        })
-
-      })
-      .catch(error => {
-        console.log(error);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: error,
-          type: "error"
-        });
-      })
-      .then(() => {
-        this.mraLoading = false;
-      });
     },
     resolveCarReview(reviewObj) {
       let reviewList = [];

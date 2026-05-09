@@ -685,57 +685,7 @@
                 :isDialogBox="true"
                 :options="false" />
             </div>
-            <template v-if="!detailObj.filter || Object.keys(detailObj.filter).length === 0">
-              <div v-for="car in [resolvedRids[detailObj.p_rid[0]]]" class="Row_DialogCardBottom MainTimeline_BaseCardSide">
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">ABS</div>
-                  <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.abs ? 'Yes' : 'No' }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">TCS</div>
-                  <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.tcs ? 'Yes' : 'No' }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-                  <div class="Row_DialogCardStatValue">{{ $t(`c_${car.clearance.toLowerCase()}`) }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-                  <div class="Row_DialogCardStatValue">{{ car.mra || '-' }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-                  <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-                  <div class="Row_DialogCardStatValue">{{ $t(`c_${car.fuel.toLowerCase()}`) }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-                  <div class="Row_DialogCardStatValue">{{ car.seats }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-                  <div class="Row_DialogCardStatValue">{{ $t(`c_${car.engine.toLowerCase()}Engine`) }}</div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-                  <div class="Row_DialogCardStatValue">
-                    <template v-for="(body, index) in car.bodyTypes">
-                      <template v-if="index !== 0">,&nbsp;</template>
-                      <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                    </template>
-                  </div>
-                </div>
-                <div class="Row_DialogCardStat">
-                  <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-                  <div
-                    :class="{ Row_DialogCardStatRed: car.brake === 'C', Row_DialogCardStatCorrect: car.brake === 'A' }"
-                    class="Row_DialogCardStatValue">{{ car.brake || "?" }}<BaseBrakeDialog /></div>
-                </div>
-              </div>
-            </template>
+            <BaseCarStats :car="resolvedRids[detailObj.p_rid[0]]" style="max-width: 270px;" />
           </div>
           <div v-else-if="detailObj.p_rid && detailObj.p_rid.length > 1" class="MainTimeline_DialogViewRewardedCars Main_DarkScroll">
             <div class="MainTimeline_DialogTitleDivider">{{ $t("m_rewardedCar") }}</div>
@@ -938,6 +888,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: false,
         abs: false
@@ -954,6 +906,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         brake: false,
         tcs: false,
         abs: false
@@ -1057,6 +1011,8 @@
           acel: false,
           hand: false,
           weight: false,
+          ola: false,
+          hill: false,
           brake: false,
           tcs: false,
           abs: false
@@ -1077,6 +1033,8 @@
           acel: false,
           hand: false,
           weight: false,
+          ola: false,
+          hill: false,
           brake: false,
           tcs: false,
           abs: false
@@ -1115,8 +1073,8 @@ import BaseFilterDialog from './BaseFilterDialog.vue'
 import BaseDatePicker from './BaseDatePicker.vue'
 import BaseEventTrackbox from './BaseEventTrackbox.vue'
 import BaseSearchTrackDialog from './BaseSearchTrackDialog.vue'
-import BaseBrakeDialog from './BaseBrakeDialog.vue'
 import BaseGameTag from './BaseGameTag.vue'
+import BaseCarStats from './BaseCarStats.vue'
 import tracksRepo from '../database/tracks_repo.json'
 import { tdrStore } from '@/tdrStore.js';
 
@@ -1133,7 +1091,7 @@ export default {
     BaseEventTrackbox,
     BaseSearchTrackDialog,
     BaseGameTag,
-    BaseBrakeDialog
+    BaseCarStats
   },
   props: {
     test: {
@@ -3055,6 +3013,9 @@ export default {
   --card-font-size: 13px;
   --card-g-height: 161px;
   --card-g-heightraw: 161;
+}
+.MainTimeline_BaseCardBox .BaseCarStats_Line {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .MainTimeline_DialogTitleDivider2 {
   font-size: 13px;

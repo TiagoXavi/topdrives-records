@@ -67,7 +67,7 @@
                   class="D_Button Main_OptionsButton"
                   @click="newPage(true)">
                   <i class="ticon-plus_2" style="font-size: 14px; margin-right: 5px;" aria-hidden="true"/>
-                  <span>{{ $t("m_copy") }}</span>
+                  <span>{{ $tc("m_copy") }}</span>
                 </button>
               </div>
             </div>
@@ -248,7 +248,7 @@
           class="D_Button D_ButtonDark D_ButtonDark2"
           @click="newPage(true)">
           <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-          <span>{{ $t("m_copy") }}</span>
+          <span>{{ $tc("m_copy") }}</span>
         </button> -->
         <button
           :disabled="
@@ -293,22 +293,6 @@
       <!-- Filtro, como base para adicionar carros, mas não limitar -->
 
     </div>
-
-
-    <!-- <BaseFilterDialog
-      v-model="dialogFilter"
-      :filterOnly="true"
-      :config="{
-        topSpeed: false,
-        acel: false,
-        hand: false,
-        weight: false,
-        brake: false,
-        tcs: false,
-        abs: false
-      }"
-      @clearFilterUpdate="updateFilterMain($event)"
-    /> -->
 
 
     <BaseDialog
@@ -781,6 +765,8 @@ export default {
           acel: false,
           hand: false,
           weight: false,
+          ola: false,
+          hill: false,
           brake: false,
           tcs: false,
           abs: false

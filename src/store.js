@@ -78,6 +78,7 @@ export default new Vuex.Store({
       advanced: null,
       loading: false
     },
+    confirmDialogDefaultBkp: null,
     snack: {
       text: "",
       active: false
@@ -230,6 +231,8 @@ export default new Vuex.Store({
     MYGARAGE_INTERNALFILTER_IMPORT: (state, obj) => null,
     OPEN_LOGIN: (state, obj) => null,
     OPEN_BRAKES: (state, obj) => null,
+    OPEN_OLA: (state, obj) => null,
+    OPEN_HILL: (state, obj) => null,
     CLEAR_PRIZEBOARD: (state, obj) => null,
     BEFOREUNLOAD_TOUCH: (state, obj) => null,
     CLEAR_EDITABLE: () => {
@@ -271,8 +274,11 @@ export default new Vuex.Store({
       };
     },
     DEFINE_DIALOG: (state, config) => {
+      if (!state.confirmDialogDefaultBkp) {
+        state.confirmDialogDefaultBkp = JSON.stringify(state.confirmDialog);
+      }
       state.confirmDialog = {
-        ...state.confirmDialog,
+        ...JSON.parse(state.confirmDialogDefaultBkp),
         ...config,
         advanced: config.advanced || null
       };

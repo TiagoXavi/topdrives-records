@@ -218,6 +218,8 @@
         acel: false,
         hand: false,
         weight: false,
+        ola: false,
+        hill: false,
         prizes: false,
         customTags: false,
         brake: false,

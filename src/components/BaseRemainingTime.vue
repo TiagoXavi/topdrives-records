@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ BaseRemainingTime_Clock: showClock }" class="BaseRemainingTime_Layout">{{ result }}</div>
+  <div :class="{ BaseRemainingTime_Clock: showClock, BaseRemainingTime_Negative: isNegative }" class="BaseRemainingTime_Layout">{{ result }}</div>
 </template>
 
 <script>
@@ -32,17 +32,24 @@ export default {
       result: "-",
       inverval: null,
       timeout: null,
-      quickMs: null
+      quickMs: null,
+      isNegative: false,
+      stopedReason: null
     }
   },
   watch: {
     endDateTime: function() {
       clearTimeout(this.timeout);
+      clearInterval(this.inverval);
+      this.inverval = null;
       this.timeout = null;
       this.quickMs = null;
-      this.calcResult();
+      this.isNegative = false;
+      
+      let shouldContinue = this.calcResult();
+      if (!shouldContinue) return;
 
-      if (!this.inverval) this.restart();
+      this.restart();
     }
   },
   beforeMount() {},
@@ -80,9 +87,16 @@ export default {
           this.result = result;
 
           if (this.quickMs < 0) {
+            if (this.hideNegative) this.result = "";
+            this.firstTimeNegative();
             clearInterval(this.inverval);
+            this.stopedReason = "quickMs";
             return false;
           }
+          this.isNegative = false;
+
+          this.stopedReason = null;
+          return true;
         } else {
           var now = new Date();
           var Date2 = new Date(this.endDateTime);
@@ -96,9 +110,11 @@ export default {
   
           this.result = res;
           if (this.mini) this.result = this.result.split(" ")[0];
-          if (this.hideNegative && now > Date2) {
-            this.result = "";
+          if (now > Date2) {
+            if (this.hideNegative) this.result = "";
             this.firstTimeNegative();
+          } else {
+            this.isNegative = false;
           }
 
           if (import.meta.env.DEV) console.log("BaseRemainingTime", nextUpdateInMs);
@@ -107,6 +123,7 @@ export default {
             this.quickMs = null;
             clearInterval(this.inverval);
             clearTimeout(this.timeout);
+            this.stopedReason = `noResult ${ diffDays, diffHrs, diffMins, diffMs, res }`;
             return false;
           }
   
@@ -119,6 +136,8 @@ export default {
           } else {
             this.quickMs = diffMs;
           }
+          
+          this.stopedReason = null;
           return true;
         }
 
@@ -126,6 +145,7 @@ export default {
 
     },
     firstTimeNegative() {
+      this.isNegative = true;
       if (this.$listeners.ended) {
         // console.log("Emitting ended event");
         this.$emit("ended");

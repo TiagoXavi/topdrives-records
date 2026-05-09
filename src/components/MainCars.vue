@@ -23,23 +23,33 @@
 
     <div class="MainCars_SearchBox MainCars_StickyListView">
 
-      <div class="MainCars_StickyListBox">
+      <div class="MainCars_StickyListBox" :class="{ 'MainCars_StickyListBoxEmpty': Object.keys(this._Mcars.filter).length === 0 }">
         <div class="MainCars_SearchBoxInner">
           <input
             v-model="_Mcars.input"
             id="MainCars_SearchInput"
             :placeholder="$t('m_search')"
+            style="padding-right: 160px;"
             class="D_SearchInput data-hj-allow"
             type="search"
             @focus="searchFocus = true;"
             @blur="searchBlur()"
             @input="searchInputFunc($event)">
-          <button
-            v-if="_Mcars.input && _Mcars.input.length > 0"
-            class="D_Button D_SearchInputClose"
-            @click="closeFilterText()">
-            <i class="ticon-close_2" aria-hidden="true"/>
-          </button>
+          <div class="MainCars_RightSearchBox">
+            <button
+              v-if="_Mcars.input && _Mcars.input.length > 0"
+              class="D_Button D_SearchInputClose"
+              @click="closeFilterText()">
+              <i class="ticon-close_2" aria-hidden="true"/>
+            </button>
+            <BaseFilterDescription
+              :filter="_Mcars.filter"
+              :asFilterLabel="true"
+              :showTitle="false"
+              :showEmpty="false"
+              class="MainCars_FilterDescription Main_DarkScrollMini"
+            />
+          </div>
         </div>
         <button
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
@@ -188,6 +198,7 @@
           :buffer="Math.max(400, carHeight)"
           :key-field="garageWorking ? 'cardRecordId' : 'rid'"
           :gridItems="_Mcars.showStats ? undefined : this.wCalc"
+          key="MainCars1"
           listClass="MainCars_Wrapper"
           itemClass="MainCars_ScrollerItem"
           :class="_Mcars.showStats ? 'MainCars_BodyBoxStats' : 'MainCars_BodyBox'"
@@ -232,6 +243,8 @@
                 <div v-if="_Mcars.cols.acel" :style="`--w: ${columnObj.acel.w}em`" class="MainCars_St MainCars_c_acel">{{ Vue.all_carsObj[item.rid].acel ? Vue.all_carsObj[item.rid].acel.toFixed(1) : 'N/A' }}</div>
                 <div v-if="_Mcars.cols.hand" :style="`--w: ${columnObj.hand.w}em`" class="MainCars_St MainCars_c_hand">{{ Vue.all_carsObj[item.rid].hand }}</div>
                 <div v-if="_Mcars.cols.mra" :style="`--w: ${columnObj.mra.w}em`" class="MainCars_St MainCars_c_mra">{{ Vue.all_carsObj[item.rid].mra ? Vue.all_carsObj[item.rid].mra.toFixed(2) : "-" }}</div>
+                <!-- <div v-if="_Mcars.cols.mra" :style="`--w: ${columnObj.mra.w}em`" class="MainCars_St MainCars_c_mra">{{ Vue.all_carsObj[item.rid].mra ? (Vue.all_carsObj[item.rid].mra - 60) / Vue.all_carsObj[item.rid].rq : "-" }}</div> -->
+                <div v-if="_Mcars.cols.ola" :style="`--w: ${columnObj.ola.w}em`" class="MainCars_St MainCars_c_ola">{{ Vue.all_carsObj[item.rid].ola }}</div>
 
                 <div v-if="_Mcars.cols.drive" :style="`--w: ${columnObj.drive.w}em`" class="MainCars_St MainCars_c_drive">{{ Vue.all_carsObj[item.rid].drive }}</div>
                 <div v-if="_Mcars.cols.tyres" :style="`--w: ${columnObj.tyres.w}em`" class="MainCars_St MainCars_c_tyres">{{ $t(`c_${Vue.all_carsObj[item.rid].tyres.toLowerCase()}2`) }}</div>
@@ -255,27 +268,14 @@
                   v-if="_Mcars.cols.brake"
                   :style="`--w: ${columnObj.brake.w}em`"
                   :class="{ Row_DialogCardStatRed: Vue.all_carsObj[item.rid].brake === 'C', Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].brake === 'A' }"
-                  class="MainCars_St MainCars_c_brake">{{ Vue.all_carsObj[item.rid].brake || "?" }}</div>
+                  class="MainCars_St MainCars_c_brake">{{ Vue.all_carsObj[item.rid].brake }}</div>
+                <div
+                  v-if="_Mcars.cols.hill"
+                  :style="`--w: ${columnObj.hill.w}em`"
+                  :class="{ Row_DialogCardStatCorrect: Vue.all_carsObj[item.rid].hill > 0 }"
+                  class="MainCars_St MainCars_c_hill">{{ Vue.all_carsObj[item.rid].hill }}</div>
                 <div v-if="_Mcars.cols.units && Vue.garageObj.loaded" :style="`--w: ${columnObj.units.w}em`" class="MainCars_St MainCars_c_units">{{ item.rid | garageUnits }}</div>
               </div>
-              <!-- 
-              Uses, wins, draws, losses, winrate
-              date
-              -->
-              <!--
-              R Score?
-              Tags
-              Awarded date (prizes)
-              ABS
-              TCS
-              Clearance
-              MRA (stock)
-              Weight (stock)
-              Fuel
-              Seats
-              Engine pos
-              Body style
-              Brake -->
             </div>
           </template>
         </RecycleScroller>
@@ -316,6 +316,7 @@ import BaseCard from "./BaseCard.vue";
 import BaseChip from "./BaseChip.vue";
 import BaseSelectNew from "./BaseSelectNew.vue";
 import BaseCardMini from "./BaseCardMini.vue";
+import BaseFilterDescription from "./BaseFilterDescription.vue";
 import R_NichesList from "@/compilations/R_NichesList.json";
 import { mapState } from 'pinia';
 import { tdrStore } from '@/tdrStore.js';
@@ -329,7 +330,8 @@ export default {
     BaseCard,
     BaseChip,
     BaseSelectNew,
-    BaseCardMini
+    BaseCardMini,
+    BaseFilterDescription
   },
   props: {
     test: {
@@ -361,12 +363,14 @@ export default {
         { value: 'acel', isGarage: false },
         { value: 'hand', isGarage: false },
         { value: 'mra', isGarage: false },
+        { value: 'ola', isGarage: false },
         { value: 'weight', isGarage: false },
         { value: 'year', isGarage: false },
         { value: 'name', isGarage: false },
         { value: 'seats', isGarage: false },
         { value: 'brand', isGarage: false },
         { value: 'country', isGarage: false },
+        { value: 'hill', isGarage: false },
       ],
       debounceFilter: null,
       debounceChangedLong: () => {},
@@ -380,6 +384,7 @@ export default {
         { type: "acel", fixed: 1, nick: "0-60", w: 2 },
         { type: "hand", fixed: 0, nick: "Hand", w: 2 },
         { type: "mra", fixed: 2, nick: "MRA", w: 3.2 },
+        { type: "ola", fixed: 0, nick: "OLA", w: 2 },
         { type: "drive", fixed: 0, nick: "Drive", w: 3 },
         { type: "tyres", fixed: 0, nick: "Tyres", w: 3 },
         { type: "clearance", fixed: 0, nick: "Clea.", w: 3 },
@@ -392,6 +397,7 @@ export default {
         { type: "engine", fixed: 0, nick: "Engine", w: 3 },
         { type: "bodyType", fixed: 0, nick: "Body", w: 4 },
         { type: "brake", fixed: 0, nick: "Brk", w: 1 },
+        { type: "hill", fixed: 0, nick: "HCB", w: 2 },
         { type: "units", fixed: 0, nick: "Uni", w: 1, offGarage: true }
       ],
       columnObj: {},
@@ -443,6 +449,7 @@ export default {
             acel: true,
             hand: true,
             mra: true,
+            ola: true,
             drive: true,
             tyres: true,
             clearance: true,
@@ -455,6 +462,7 @@ export default {
             engine: true,
             bodyType: true,
             brake: true,
+            hill: true,
             units: false
           }
         }
@@ -630,6 +638,23 @@ export default {
         });
         return;
       }
+      // if (propKey === "mra") {
+      //   this.cars.sort((a,b) => {
+      //     let aVal = Vue.all_carsObj[a.rid]?.[propKey] ? 1 : 0;
+      //     let bVal = Vue.all_carsObj[b.rid]?.[propKey] ? 1 : 0;
+      //     aVal = aVal ? (Vue.all_carsObj[a.rid].mra - 60) / Vue.all_carsObj[a.rid].rq : 0;
+      //     bVal = bVal ? (Vue.all_carsObj[b.rid].mra - 60) / Vue.all_carsObj[b.rid].rq : 0;
+      //     if (aVal === bVal) {
+      //       return this.resolveDraw(a,b);
+      //     }
+      //     if (this._Mcars.sortDesc) {
+      //       return bVal - aVal;
+      //     } else {
+      //       return aVal - bVal;
+      //     }
+      //   });
+      //   return;
+      // }
 
       if (propKey === "name" || propKey === "brand" || propKey === "country" || propKey === "brake" || propKey === "engine" || propKey === "fuel" || propKey === "clearance") {
         // Duplicated code for performance
@@ -1127,6 +1152,7 @@ export default {
 .MainCars_Hover_acel .MainCars_c_acel,
 .MainCars_Hover_hand .MainCars_c_hand,
 .MainCars_Hover_mra .MainCars_c_mra,
+.MainCars_Hover_ola .MainCars_c_ola,
 .MainCars_Hover_weight .MainCars_c_weight,
 .MainCars_Hover_year .MainCars_c_year,
 .MainCars_Hover_abs .MainCars_c_abs,
@@ -1137,6 +1163,7 @@ export default {
 .MainCars_Hover_engine .MainCars_c_engine,
 .MainCars_Hover_bodyType .MainCars_c_bodyType,
 .MainCars_Hover_brake .MainCars_c_brake,
+.MainCars_Hover_hill .MainCars_c_hill,
 .MainCars_Hover_units .MainCars_c_units {
   background-color: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.05);
@@ -1191,6 +1218,40 @@ export default {
 }
 .MainCars_NichesSelect {
   width: 125px;
+}
+.MainCars_RightSearchBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.MainCars_RightSearchBox .D_SearchInputClose {
+  position: static;
+  transform: unset;
+}
+.MainCars_RightSearchBox .D_SearchInputClose.D_Button:active:not(.D_ButtonNoActive) {
+  transform: translateY(2px);
+}
+.MainCars_FilterDescription {
+  padding: 7px 9px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: -3px 0px 0px 0px #595959;
+  transition-duration: 0.2s;
+}
+.D_SearchInput.focus-visible ~ .MainCars_RightSearchBox .MainCars_FilterDescription {
+  box-shadow: -3px 0px 0px 0px #479cd1;
+}
+.MainCars_StickyListBoxEmpty .MainCars_FilterDescription {
+  display: none;
+}
+.MainCars_StickyListBoxEmpty .D_SearchInputClose {
+  /* display: none; */
 }
 
 </style>

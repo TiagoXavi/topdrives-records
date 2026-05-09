@@ -155,16 +155,48 @@
                 class="Main_FilterSlider"
               />
             </div>
+            <div class="BaseFilterDialog_GarageModeRoot">
+              <button
+                v-if="!showCustomGarageFilterMode"
+                class="D_Button D_ButtonDark D_ButtonDarkTransparent Main_FilterChipsShowExpand"
+                @click="showCustomGarageFilterMode = true;">
+                <span>{{ $t("m_garageFilterMode") }}</span>
+                <i class="ticon-keyboard_arrow_down Main_FilterChipsShowExpandIcon" aria-hidden="true"/>
+              </button>
+              <BaseExpandDiv :active="showCustomGarageFilterMode">
+                <div class="Main_FilterChipsFlex" style="position: relative; margin-top: 5px;">
+                  <div class="Main_FilterChipsLabel">{{ $t("m_garageFilterMode") }}</div>
+                  <template v-for="(item, ix) in garageModes">
+                    <BaseChip
+                      v-model="garageMode"
+                      :value="item" 
+                      :label="$t(`m_${item}`)"
+                      required="true"
+                      class="BaseChip_MinWidth BaseChip_DontCrop"
+                    />
+                  </template>
+                  <BaseMonoSlider :value="1" style="display: none;"/>
+                </div>
+              </BaseExpandDiv>
+              <BaseExpandDiv :active="showCustomGarageFilterMode && garageMode !== 'normal'">
+                <div class="BaseFilterDialog_GarageModeInner">
+                  <div class="BaseFilterDialog_GarageModeLeft">{{ $t('m_ifMatches') }}</div>
+                  <div class="BaseFilterDialog_GarageModeRight">
+                    <BaseMonoSlider
+                      v-model="garageModeQty"
+                      :min="1"
+                      :max="9"
+                      :step="1"
+                      :label="$tc('m_copy', garageModeQty)"
+                      class="BaseFilterDialog_GarageModeSlider"
+                    />
+                  </div>
+                </div>
+              </BaseExpandDiv>
+            </div>
           </template>
-
-          <!-- <div v-if="config.garage" class="Main_FilterChipsFlex">
-            <template v-for="(item, ix) in searchFilters.garageThings">
-              <BaseChip
-                class="BaseChip_MinWidth BaseChip_DontCrop"
-                v-model="searchFilters.garageThingsModel"
-                :value="item" />
-            </template>
-          </div> -->
+          
+          
 
           <div v-if="config.garageRT" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in searchFilters.garageThingsRT">
@@ -295,6 +327,21 @@
                 class="BaseChip_MinWidth BaseChip_DontCrop"
                 :value="item" />
             </template>
+          </div>
+          <div v-if="config.ola !== false && internalConfig.ola !== false" class="Main_FilterDual">
+            <BaseDualSlider
+              v-model="searchFilters.olaModel"
+              :min="searchFilters.olaStart"
+              :max="searchFilters.olaEnd"
+              label="OLA"
+              class="Main_FilterSlider" />
+            <BaseDualSlider
+              v-model="searchFilters.hillModel"
+              :min="searchFilters.hillStart"
+              :max="searchFilters.hillEnd"
+              :step="5"
+              label="HCB"
+              class="Main_FilterSlider" />
           </div>
           <div v-if="config.countrys !== false && internalConfig.countrys !== false" class="Main_FilterChips2">
             <template v-for="(item, ix) in searchFilters.countrys">
@@ -731,7 +778,8 @@ export default {
     BaseCheckBox,
     BaseButtonTouch,
     BaseSwitch,
-    BaseBestTune
+    BaseBestTune,
+    BaseMonoSlider: () => import('@/components/BaseMonoSlider.vue')
   },
   model: {
     prop: 'active',
@@ -883,6 +931,10 @@ export default {
       factor: false,
       statsView: false,
       oldTagsExpanded: false,
+      showCustomGarageFilterMode: false,
+      garageMode: "normal",
+      garageModes: ["normal", "showAllCopies", "hideAllCopies"],
+      garageModeQty: 1,
       added: null,
       addedTimeout: null,
       garageCarFuseList: ["engine", "weight", "chassis"],
@@ -897,6 +949,8 @@ export default {
         mra: 0,
         weight: 0,
         seats: 0,
+        hill: 0,
+        ola: 0,
       },
       counterKeys: ["classes", "tyres", "drives", "clearances", "countrys", "prizes", "bodyTypes", "fuel", "engine", "brake", "tags", "brands"],
       showFilterInstance: false,
@@ -917,6 +971,8 @@ export default {
         "year",
         "name",
         "seats",
+        "ola",
+        "hill",
         ["mra", "acel"],
         ["mra", "acel", "topSpeed"],
         ["mra", "topSpeed"],
@@ -964,6 +1020,12 @@ export default {
         seatsStart: 1,
         seatsEnd: 9,
         seatsModel: [],
+        hillStart: 0,
+        hillEnd: 60,
+        hillModel: [],
+        olaStart: 0,
+        olaEnd: 100,
+        olaModel: [],
         tunes: ["332", "323", "233", "111", "Custom", "Best"],
         tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
@@ -975,7 +1037,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["US", "DE", "JP", "GB", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "HR", "ZA", "NZ", "AE", "AR", "IN", "MX", "CH"],
+        countrys: ["DE", "GB", "US", "JP", "FR", "IT", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "IN", "HR", "ZA", "AE", "NZ", "AR", "CH", "MX"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars"],
         prizesModel: [],
@@ -2132,6 +2194,8 @@ export default {
       this.searchFilters.acelModel = this.defaultFilters("acelModel");
       this.searchFilters.handModel = this.defaultFilters("handModel");
       this.searchFilters.mraModel = this.defaultFilters("mraModel");
+      this.searchFilters.hillModel = this.defaultFilters("hillModel");
+      this.searchFilters.olaModel = this.defaultFilters("olaModel");
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.upgradesModel = this.defaultFilters("upgradesModel");
@@ -2163,6 +2227,9 @@ export default {
       this.searchFilters.approveModel = false;
       this.searchFilters.year2Model = [];
       this.searchFilters.seats2Model = [];
+      this.showCustomGarageFilterMode = false;
+      this.garageMode = "normal";
+      this.garageModeQty = 1;
     },
     resolveFilterCount(customFilter) {
       let defaults = {
@@ -2172,6 +2239,8 @@ export default {
         acelModel: this.defaultFilters("acelModel"),
         handModel: this.defaultFilters("handModel"),
         mraModel: this.defaultFilters("mraModel"),
+        hillModel: this.defaultFilters("hillModel"),
+        olaModel: this.defaultFilters("olaModel"),
         weightModel: this.defaultFilters("weightModel"),
         seatsModel: this.defaultFilters("seatsModel"),
 
@@ -2275,6 +2344,8 @@ export default {
       if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
       if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return false;
       if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
+      if ( context.hillModel && !this.filterCheckBetween(car.hill, context.hillModel) ) return false;
+      if ( context.olaModel && !this.filterCheckBetween(car.ola, context.olaModel) ) return false;
       if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
       if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
 
@@ -2339,15 +2410,24 @@ export default {
       // garage (normal)
 
       if ( this.config.garage && hCar) {
-        if ( context.upgradesModel && !this.filterCheckBetween(this.carNumUps(hCar), context.upgradesModel) ) return false;
-        if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
-        if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
-        if ( context.winRateModel) {
-          if (!this.carNumRaces(hCar)) return false;
-          if (!this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel)) return false;
-        };
+        if ( !this.filterGarageIsValidEntry(context, hCar, "upgradesModel", this.carNumUps) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "fusesModel", this.carNumFuses) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "racesModel", this.carNumRaces) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "winRateModel", this.carWinRate) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "daysModel", this.carNumDays) ) return false;
         if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
-        if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
+
+        if (false) {
+          if ( context.upgradesModel && !this.filterCheckBetween(this.carNumUps(hCar), context.upgradesModel) ) return false;
+          if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
+          if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
+          if ( context.winRateModel) {
+            if (!this.carNumRaces(hCar)) return false;
+            if (!this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel)) return false;
+          };
+          if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
+          if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
+        }
       }
 
       // {
@@ -2441,11 +2521,39 @@ export default {
         return valuesArray.includes(x);
       });
     },
-    // searchBlur() {
-    //   setTimeout(() => {
-    //     this.searchFocus = false;
-    //   }, 200);
-    // },
+    filterGarageIsValidEntry(context, hCar, stringModel, checkFunction) {
+      if (!context[stringModel]) return true;
+
+      if (this.garageMode === "normal") {
+        if (stringModel === "winRateModel" && !this.carNumRaces(hCar)) return false;
+        return this.filterCheckBetween(checkFunction(hCar), context[stringModel]);
+      };
+
+      let listOfCars = [];
+      Vue.garageByRid[hCar.rid].map(gCar => listOfCars.push(gCar));
+
+      let valid = false;
+      let validCountCurrent = 0;
+      listOfCars.find(gCar => {
+        let result = true;
+        if (stringModel === "winRateModel") {
+          result = this.carNumRaces(gCar);
+        }
+        if (result) {
+          result = this.filterCheckBetween(checkFunction(gCar), context[stringModel]);
+        }
+        if (result) {
+          validCountCurrent++;
+          if (validCountCurrent >= this.garageModeQty) {
+            valid = true;
+            return true;
+          }
+        }
+      });
+
+      if (this.garageMode === "hideAllCopies") return !valid;
+      return valid;
+    },
     closeFilterText() {
       this.searchInput = '';
       if (this.type === 'cg' && (this.cgAddingYouCar || this.cgAddingOppoCar)) {
@@ -2935,6 +3043,24 @@ export default {
   margin-right: 10px;
   gap: 15px;
   justify-content: space-between;
+}
+.BaseFilterDialog_GarageModeRoot {
+  display: flex;
+  flex-direction: column;
+}
+.BaseFilterDialog_GarageModeInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  gap: 10px;
+}
+.BaseFilterDialog_GarageModeRight {
+  max-width: 270px;
+  flex-grow: 1;
+}
+.BaseFilterDialog_GarageModeLeft {
+  margin-top: 19px;
 }
 
 

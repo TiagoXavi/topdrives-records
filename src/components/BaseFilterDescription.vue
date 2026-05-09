@@ -22,7 +22,7 @@
             <div class="BaseFilterDescription_Label">{{ item.label }}</div>
             <div class="BaseFilterDescription_Value">{{ item.value }}</div>
           </div>
-          <div v-if="descResolved.length === 0" class="BaseFilterDescription_Empty">{{ $t("m_empty") }}</div>
+          <div v-if="descResolved.length === 0 && showEmpty" class="BaseFilterDescription_Empty">{{ $t("m_empty") }}</div>
         </div>
         <div v-if="(!loading && ready && user && user.mod) || isKing" class="BaseFilterDescription_Bottom Cg_FilterButtons">
           <button
@@ -109,6 +109,10 @@ export default {
     isKing: {
       type: Boolean,
       default: false
+    },
+    showEmpty: {
+      type: Boolean,
+      default: true
     },
     user: {
       required: false

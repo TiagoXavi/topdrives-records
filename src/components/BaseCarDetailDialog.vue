@@ -87,57 +87,7 @@
             :tag="tag" />
         </div>
         <div class="Row_DialogCardDual Space_TopPlus">
-          <div class="Row_DialogCardBottom">
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">ABS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.abs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.abs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">TCS</div>
-              <div :class="{ Row_DialogCardStatCorrect: car.tcs }" class="Row_DialogCardStatValue Row_DialogCardStatRed">{{ car.tcs ? 'Yes' : 'No' }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $tc("c_clearance", 1) }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.clearance.toLowerCase()}`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">MRA ({{ $t("c_stock").toLowerCase() }})</div>
-              <div class="Row_DialogCardStatValue">
-                <span v-if="car.mra" style="margin-right: 7px;">{{ car.mra }}</span>
-              </div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_weight") }} ({{ $t("c_stock").toLowerCase() }})</div>
-              <div class="Row_DialogCardStatValue">{{ car.weight }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_fuel") }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.fuel.toLowerCase()}`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_seats") }}</div>
-              <div class="Row_DialogCardStatValue">{{ car.seats }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_enginePos") }}</div>
-              <div class="Row_DialogCardStatValue">{{ $t(`c_${car.engine.toLowerCase()}Engine`) }}</div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_bodyStyle") }}</div>
-              <div class="Row_DialogCardStatValue">
-                <template v-for="(body, index) in car.bodyTypes">
-                  <template v-if="index !== 0">,&nbsp;</template>
-                  <template>{{ $t(`c_${body.toLowerCase()}`) }}</template>
-                </template>
-              </div>
-            </div>
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("c_brake") }}</div>
-              <div
-              :class="{ Row_DialogCardStatRed: car.brake === 'C', Row_DialogCardStatCorrect: car.brake === 'A' }"
-              class="Row_DialogCardStatValue">{{ car.brake || "?" }}<BaseBrakeDialog /></div>
-            </div>
-          </div>
+          <BaseCarStats :car="car" />
         </div>
       </div>
 
@@ -149,7 +99,7 @@
 import BaseDialog from './BaseDialog.vue';
 import BaseCard from './BaseCard.vue';
 import BaseGameTag from './BaseGameTag.vue';
-import BaseBrakeDialog from './BaseBrakeDialog.vue';
+import BaseCarStats from './BaseCarStats.vue';
 import Row from './Row.vue'; // CSS
 import Car from './Car.vue'; // CSS
 import { tdrStore } from '@/tdrStore.js';
@@ -160,7 +110,7 @@ export default {
     BaseDialog,
     BaseCard,
     BaseGameTag,
-    BaseBrakeDialog
+    BaseCarStats
   },
   props: {
     active: {

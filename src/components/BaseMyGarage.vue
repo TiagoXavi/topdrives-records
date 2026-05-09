@@ -103,6 +103,7 @@
             :buffer="800"
             :emit-update="true"
             key-field="id"
+            key="BaseMyGarage1"
             listClass="BaseMyGarage_HlWrapper"
             itemClass="BaseMyGarage_HLItem"
             class="Main_DarkScroll"
@@ -589,7 +590,7 @@
               :disabled="copyUrlSucess"
               style="font-size: 16px;"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="copyUrl()">{{ $t("m_copy") }}</button>
+              @click="copyUrl()">{{ $tc("m_copy") }}</button>
           </div>
         </div>
       </div>
@@ -637,6 +638,7 @@
           :item-size="111"
           :buffer="800"
           key-field="id"
+          key="BaseMyGarage2"
           listClass="BaseMyGarage_CardsWrapper"
           itemClass="BaseMyGarage_ScrollerItem"
           class="Main_DarkScroll"
@@ -679,6 +681,7 @@
           :item-size="111"
           :buffer="800"
           key-field="id"
+          key="BaseMyGarage3"
           listClass="BaseMyGarage_CardsWrapper"
           itemClass="BaseMyGarage_ScrollerItem"
           class="Main_DarkScroll"

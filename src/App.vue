@@ -132,6 +132,7 @@
       zindex="102"
       @close="brakeDialog = false;">
       <div style="App_DialogCustom">
+        <div class="Main_DialogTitle">{{ $t("c_brake") }}</div>
         <div class="App_BrakeItem">
           <div class="App_BrakeLeft"><span class="Row_DialogCardStatCorrect">A</span> class: </div>
           <div class="App_BrakeRight">
@@ -142,17 +143,76 @@
         <div class="App_BrakeItem">
           <div class="App_BrakeLeft">B class: </div>
           <div class="App_BrakeRight">
-            <div>★★☆</div>
+            <div>★★<span style="color: grey;">☆</span></div>
             <div>100-0 in ~4.9s</div>
           </div>
         </div>
         <div class="App_BrakeItem">
           <div class="App_BrakeLeft"><span class="Row_DialogCardStatRed">C</span> class: </div>
           <div class="App_BrakeRight">
-            <div>★☆☆</div>
+            <div>★<span style="color: grey;">☆☆</span></div>
             <div>100-0 in ~5.7s</div>
           </div>
         </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="olaDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="350px"
+      min-width="240px"
+      zindex="102"
+      @close="olaDialog = false;">
+      <div style="App_DialogCustom">
+        <div class="Main_DialogTitle">Off-the-Line Acceleration</div>
+        <div class="Main_DialogSub">{{ $t('p_olaDialogSub') }}</div>
+        <div v-for="item in [
+          { label: 'High 20+', d: 'M 10 190 C 20 20, 70 10, 390 10' },
+          { label: 'Mid ~12', d: 'M 10 190 C 70 70, 120 10, 390 0' },
+          { label: 'Low 5-', d: 'M 10 190 C 100 100, 260 10, 390 0' },
+        ]" class="App_OlaItem">
+          <div class="App_OlaLeft">{{ item.label }}</div>
+          <div class="App_OlaRight">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
+              <g stroke="#555" stroke-width="1">
+                <line x1="0" y1="1" x2="400" y2="1" />
+                <line x1="0" y1="40" x2="400" y2="40" />
+                <line x1="0" y1="80" x2="400" y2="80" />
+                <line x1="0" y1="120" x2="400" y2="120" />
+                <line x1="0" y1="160" x2="400" y2="160" />
+                <line x1="0" y1="199" x2="400" y2="199" />
+
+                <line x1="1" y1="0" x2="1" y2="200" />
+                <line x1="80" y1="0" x2="80" y2="200" />
+                <line x1="160" y1="0" x2="160" y2="200" />
+                <line x1="240" y1="0" x2="240" y2="200" />
+                <line x1="320" y1="0" x2="320" y2="200" />
+                <line x1="399" y1="0" x2="399" y2="200" />
+              </g>
+              <path
+                :d="item.d"
+                fill="none" 
+                stroke="#ffc717" 
+                stroke-width="7" 
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
+      :active="hillDialog"
+      :transparent="false"
+      :lazy="true"
+      max-width="250px"
+      min-width="240px"
+      zindex="102"
+      @close="hillDialog = false;">
+      <div style="App_DialogCustom">
+        <div class="Main_DialogTitle">Hill Climb Bonus</div>
+        <div class="Main_DialogSub">{{ $t('p_hillDialogSub') }}</div>
       </div>
     </BaseDialog>
     <BaseDialog
@@ -304,6 +364,8 @@ export default {
       isMobile: false,
       loginDialog: false,
       brakeDialog: false,
+      olaDialog: false,
+      hillDialog: false
     }
   },
   watch: {
@@ -471,6 +533,12 @@ export default {
       }
       if (mutation.type == "OPEN_BRAKES") {
         vm.brakeDialog = true;
+      }
+      if (mutation.type == "OPEN_OLA") {
+        vm.olaDialog = true;
+      }
+      if (mutation.type == "OPEN_HILL") {
+        vm.hillDialog = true;
       }
 
       if (mutation.type == "START_LOGROCKET") {
@@ -2191,6 +2259,13 @@ body .Main_UserTw3:before {
 .Main_DialogTitle:not(:first-child) {
   margin-top: 25px;
 }
+.Main_DialogSub {
+  font-size: 0.9em;
+}
+.Main_DialogSub:not(:last-child) {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
 .Main_ShareDownloadBox {
   display: flex;
   flex-wrap: wrap;
@@ -2912,17 +2987,6 @@ body .Main_UserTw3:before {
 }
 .Main_KingTuneSelector {
   
-}
-.Main_EditMraButton {
-  font-size: 16px;
-  padding: 0 3px;
-  --height: 28px;
-  min-width: 41px;
-  margin-top: -4px;
-}
-.Main_EditMraField > input {
-  margin-top: -1px;
-  padding: 5px 6px;
 }
 .Main_EventListDividir {
   text-align: center;
@@ -4084,6 +4148,21 @@ a:visited:not(.D_Button) {
 .App_BrakeRight > :first-child {
   font-size: 2em;
   color: rgb(var(--d-text-yellow));
+}
+.App_OlaItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+}
+.App_OlaItem + .App_OlaItem {
+  margin-top: 15px;
+}
+.App_OlaLeft {
+
+}
+.App_OlaRight {
+  width: 240px;
 }
 
 
