@@ -486,21 +486,23 @@ export default {
 
       if (this.medals?.result?.tracks) {
         let tunesCount = {};
-        ["332", "323", "233"].map(t => {
-          let count = 0;
-          this.medals.result.tracks.find((item, iItem) => {
-            if (iItem >= 10) return true;
-            tracks.push(item[0]);
-            
-            if (item[0] === "testBowl") {
-              count += Object.keys(this.cacheObj?.data?.[t]?.times || {}).filter(key => key.includes("testBowl") && this.cacheObj.data[t].times[key] && this.cacheObj.data[t].times[key].t !== 0).length;
-            } else {
-              count += Object.keys(this.cacheObj?.data?.[t]?.times || {}).filter(key => !key.includes("testBowl") && this.cacheObj.data[t].times[key] && this.cacheObj.data[t].times[key].t !== 0).length;
+
+        this.medals.result.tracks.find((item, iItem) => {
+          if (iItem >= 10) return true;
+          tracks.push(item[0]);
+
+          let best = ["332", "323", "233"].reduce((best, tune) => {
+            let time = this.cacheObj?.data?.[tune]?.times?.[item[0]]?.t;
+            if (time && (!best || ( item[0].includes('testBowl') ? (time > best.time) : (time < best.time)))) {
+              return { time, tune };
             }
-            return false;
-          });
-          tunesCount[t] = count;
+            return best;
+          }, null)?.tune;
+          if (best) {
+            tunesCount[best] = (tunesCount[best] || 0) + 1;
+          }
         });
+        
         tune = Object.keys(tunesCount).reduce((best, t) => {
           if (tunesCount[t] > (tunesCount[best] || 0)) {
             return t;

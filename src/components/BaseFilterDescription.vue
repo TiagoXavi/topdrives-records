@@ -161,6 +161,8 @@ export default {
       if (f.handModel && JSON.stringify(f.handModel) !== '[30,110]') result.push({ label: this.$t("c_handling"), value: f.handModel.join("-") });
       if (f.mraModel && JSON.stringify(f.mraModel) !== '[0,160]') result.push({ label: "MRA", value: f.mraModel.join("-") });
       if (f.weightModel && JSON.stringify(f.weightModel) !== '[300,7000]') result.push({ label: this.$t("c_weight"), value: f.weightModel.join("-") });
+      if (f.olaModel && JSON.stringify(f.olaModel) !== '[0,100]') result.push({ label: this.$tc("c_ola", 1), value: f.olaModel.join("-") });
+      if (f.hillModel && JSON.stringify(f.hillModel) !== '[0,60]') result.push({ label: this.$tc("c_hill", 1), value: f.hillModel.join("-") });
 
       if (f.tunesModel && f.tunesModel.length > 0) result.push({ label: this.$t("c_tune"), value: f.tunesModel.join(", ") });
       if (f.classesModel && f.classesModel.length > 0) result.push({ label: this.$tc("c_class", 1), value: f.classesModel.join(", ") });

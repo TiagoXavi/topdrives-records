@@ -536,6 +536,17 @@ export default {
         this.columnObj.R_Medals_scoreDiff = { type: 'R_Medals_scoreDiff', fixed: 0, nick: "RscrΔ", w: 2.5, isGarage: false };
       }
       this.ready = true;
+
+      if (false) {
+        let filtered = Vue.all_carsArr.filter(x => !x.prize)
+        let avg = filtered.reduce((acc,b) => acc + b.R_Medals_score, 0) / filtered.length;
+        let med = filtered.sort((a,b) => b.R_Medals_score - a.R_Medals_score)[Math.floor(filtered.length/2)].R_Medals_score;
+        console.log("Avg:", avg);
+        console.log("Med:", med);
+        debugger;
+      }
+
+
       this.loadCars(true);
     },
     loadCars(initial) {

@@ -2858,6 +2858,7 @@ export default {
   height: var(--img-height);
   background-size: cover;
   background-color: unset !important;
+  background-position: center;
   /* overflow: hidden; */
   /* flex-grow: 1; */
 }
