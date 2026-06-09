@@ -198,11 +198,11 @@
     </div>
     <div
       v-else-if="mode === 'challenges'"
-      class="Cg_Layout"
+      class="Cg_Layout Cg_LayoutCg"
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <BaseCorner
+          <!-- <BaseCorner
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
@@ -216,192 +216,201 @@
                 class="BaseText_InternalMicro"
                 @paste="resolvePaste($event)" />
             </template>
-          </BaseCorner>
-          <div class="Cg_RowCornerBox">
-            <!-- top CHALLENGE -->
-            <div v-if="cg.rounds" class="Cg_SelectorLayout">
-              <div class="Cg_SelectorLeft">
-                <button
-                  :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave"
-                  class="D_Button Row_DialogButtonTune"
-                  @click="loadPrevRound()">
-                  <i class="ticon-arrow_left_3" aria-hidden="true"/>
-                </button>
-              </div>
-              <div class="Cg_SelectorCenter">
-                <div class="Cg_SelectorEvent">
-                  <button
-                    :disabled="cgLoadingAny || cgNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="cgSeletorDialog = true;">
-                    <span class="Cg_SelectorEventSpan">{{ cg.name }}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                </div>
-                <div class="Cg_SelectorRound">
-                  <button
-                    :disabled="cgLoadingAny || cgNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="cgRoundSelectorDialog = true;">
-                    <span v-if="cgCurrentRound === 'd'">{{ $t("m_dashboard") }}</span>
-                    <span v-else>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                </div>
-                <div v-if="cgCurrentRound !== 'd' && cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
-                  <template v-if="cgRound.creator">
-                    <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-                    <span
-                      :class="`Main_UserT${Vue.utils.highlightsUsers[cgRound.creator]}`"
-                      class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
-                  </template>
-                  <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
-                  </span>
-                </div>
-                <div v-if="cgCurrentRound !== 'd'" class="Cg_CenterBottom">
-                  <div
-                    :style="`color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
-                    class="Cg_RqText">
-                    <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
-                    <span>{{ cgRound.rqFill }}</span>
-                    <span>/</span>
-                    <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
-                    <BaseButtonTouch
-                      v-if="user && (user.mod || isRoundEmptyForUser) && (!cgIsApproving || user.mod) && !cgIsApproving"
-                      :disabled="cgLoadingAny"
-                      class="D_Button Main_AddTrackDirect"
-                      @click="cgOpenRqEdit($event)"
-                      @longTouch="cgOpenRqEdit({ shiftKey: true, ctrlKey: true })">
-                      <i class="ticon-pencil" aria-hidden="true"/>
-                    </BaseButtonTouch>
-                    <div
-                      v-if="cgRound.showPoints && cgRound.lastAnalyze"
-                      :class="{ Cg_PointsSum_Red: cgRound.sumPoints < 250, Cg_PointsSum_Green: cgRound.sumPoints >= 250 }"
-                      class="Cg_PointsSum"
-                      style="margin-left: 20px;">
-                      <span class="Cg_Pts">pts</span>
-                      <span class="Cg_PointsSumText">{{ cgRound.sumPoints }}</span>
-                    </div>
+          </BaseCorner> -->
+          <BaseCover
+            v-if="cg.rounds"
+            cover="_Brand"
+            :name="(cg.name||'').split(': ')[1] || cg.name"
+            :height="190"
+            type="event"
+            class="BaseCover_Alone BaseCover_Cg"
+          />
+          <div class="Cg_HeaderLeftMid">
+            <div class="Cg_HeaderBoxNew">
+              <div class="Cg_RowCornerBox">
+                <!-- top CHALLENGE -->
+                <div v-if="cg.rounds" class="Cg_SelectorLayout">
+                  <div v-if="false" class="Cg_SelectorLeft">
+                    <button
+                      :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave"
+                      class="D_Button Row_DialogButtonTune"
+                      @click="loadPrevRound()">
+                      <i class="ticon-arrow_left_3" aria-hidden="true"/>
+                    </button>
                   </div>
-                  <!-- save button -->
-                  <div class="Cg_SaveButtonBox">
-                    <template v-if="!user">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          class="D_Button Main_LoginToEdit"
-                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
-                      </div>
-                    </template>
-                    <template v-else-if="user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="cgSaveAll()">{{ $t("m_submitReview") }}</button>
-                      </div>
-                    </template>
-                    <template v-else-if="user && cgNeedSave && !isRoundEmptyForUser">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="cgSaveAll()">{{ $t("m_save") }}</button>
-                      </div>
-                    </template>
-                    <template v-if="showAnalyse && !cgIsApproving">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="cgAnalyseRound()">{{ $t("m_analyze") }}</button>
-                      </div>
-                    </template>
-                    <div v-if="user" class="Main_PrintBy">
-                      <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                  <div class="Cg_SelectorCenter">
+                    <div class="Cg_SelectorEvent">
+                      <!-- <button
+                        :disabled="cgLoadingAny || cgNeedSave"
+                        class="D_Button Main_ArrowDownSelect"
+                        @click="cgSeletorDialog = true;">
+                        <span class="Cg_SelectorEventSpan">{{ cg.name }}</span>
+                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                      </button> -->
+                      <BaseEventName
+                        :item="cgList.find(item => item.date === cgCurrentId)"
+                        :onlyName="true"
+                        contentClass="BaseEventName_Events"
+                        class="BaseEventName_HeaderTitle"
+                        @click="cgSeletorDialog = true;">
+                        <i class="ticon-keyboard_arrow_down" style="vertical-align: middle;" aria-hidden="true"/>
+                      </BaseEventName>
                     </div>
-                  </div>
+                    <div class="Cg_SelectorRound">
+                      <button
+                        :disabled="cgLoadingAny || cgNeedSave"
+                        class="D_Button Main_ArrowDownSelect"
+                        @click="cgRoundSelectorDialog = true;">
+                        <span v-if="cgCurrentRound === 'd'">{{ $t("m_dashboard") }}</span>
+                        <span v-else>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
+                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                      </button>
+                    </div>
+                    <div v-if="cgCurrentRound !== 'd' && cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
+                      <template v-if="cgRound.creator">
+                        <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                        <span
+                          :class="`Main_UserT${Vue.utils.highlightsUsers[cgRound.creator]}`"
+                          class="Main_SearchResultUser Cg_Creator">{{ cgRound.creator }}</span>
+                      </template>
+                      <span class="Cg_ViewsCount Main_ViewsBox">
+                        <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
+                      </span>
+                    </div>
+                    <div v-if="cgCurrentRound !== 'd'" class="Cg_CenterBottom Cg_CenterBottomCg">
+                      <div
+                        :style="`color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
+                        class="Cg_RqText">
+                        <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
+                        <span>{{ cgRound.rqFill }}</span>
+                        <span>/</span>
+                        <span :style="`color: ${ cgRound.rqLimit === 500 ? '#a90000' : '' }`">{{ cgRound.rqLimit }}</span>
+                        <BaseButtonTouch
+                          v-if="user && (user.mod || isRoundEmptyForUser) && (!cgIsApproving || user.mod) && !cgIsApproving"
+                          :disabled="cgLoadingAny"
+                          class="D_Button Main_AddTrackDirect"
+                          @click="cgOpenRqEdit($event)"
+                          @longTouch="cgOpenRqEdit({ shiftKey: true, ctrlKey: true })">
+                          <i class="ticon-pencil" aria-hidden="true"/>
+                        </BaseButtonTouch>
+                        <div
+                          v-if="cgRound.showPoints && cgRound.lastAnalyze"
+                          :class="{ Cg_PointsSum_Red: cgRound.sumPoints < 250, Cg_PointsSum_Green: cgRound.sumPoints >= 250 }"
+                          class="Cg_PointsSum"
+                          style="margin-left: 20px;">
+                          <span class="Cg_Pts">pts</span>
+                          <span class="Cg_PointsSumText">{{ cgRound.sumPoints }}</span>
+                        </div>
+                      </div>
+                      <!-- save button -->
+                      <div class="Cg_SaveButtonBox">
+                        <template v-if="!user">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              class="D_Button Main_LoginToEdit"
+                              @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="user && !user.mod && isRoundEmptyForUser && cgNeedSave && isRoundReadyForSaveUser">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="cgSaveAll()">{{ $t("m_submitReview") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="user && cgNeedSave && !isRoundEmptyForUser">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="cgSaveAll()">{{ $t("m_save") }}</button>
+                          </div>
+                        </template>
+                        <template v-if="showAnalyse && !cgIsApproving">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="cgAnalyseRound()">{{ $t("m_analyze") }}</button>
+                          </div>
+                        </template>
+                        <div v-if="user" class="Main_PrintBy">
+                          <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+                          <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                        </div>
+                      </div>
 
+                    </div>
+                  </div>
+                  <div v-if="false" class="Cg_SelectorRight">
+                    <button
+                      :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny || cgNeedSave"
+                      class="D_Button Row_DialogButtonTune"
+                      @click="loadNextRound()">
+                      <i class="ticon-arrow_right_3" aria-hidden="true"/>
+                    </button>
+                  </div>
                 </div>
+                
+
               </div>
-              <div class="Cg_SelectorRight">
-                <button
-                  :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny || cgNeedSave"
-                  class="D_Button Row_DialogButtonTune"
-                  @click="loadNextRound()">
-                  <i class="ticon-arrow_right_3" aria-hidden="true"/>
-                </button>
-              </div>
+
+              <BaseFilterDescription
+                v-if="cg.rounds"
+                :filter="cgRound.filter"
+                :loading="cgLoadingAny"
+                :user="user"
+                :ready="cgRound.date && user && (user.mod || isRoundEmptyForUser) && !cgIsApproving"
+                class="Cg_Right"
+                @changeClick="cgOpenRequirementDialog()" />
             </div>
-            
 
+            <div class="Cg_HeaderBottom Cg_TabLayout">
+              <template v-if="cg.rounds">
+                <template v-for="tab in cgTabs">
+                  <BaseChip
+                    :inputValue="cgTab"
+                    :disabled="cgLoadingAny"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_AsTab"
+                    required="true"
+                    :value="tab"
+                    :label="tab === 'round' ? $tc(`m_round`, 2) : $t(`m_${tab}`)"
+                    @click="cgChangeTab(tab)" />
+                </template>
+                <div class="Cg_TabsCorner">
+                  <BaseCorner
+                    :gameVersion="gameVersion"
+                    :isTabCorner="true"
+                    class="Cg_BaseCornerAsTab"
+                    @menu="openMainDialog();"
+                    @longCamera="showPoints = !showPoints;"
+                    @camera="shareDialog = true; generateUrl();">
+                    <template slot="more">
+                      <BaseText
+                        v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" 
+                        v-model="pasteInputModel"
+                        type="normal"
+                        placeholder="paste here"
+                        class="BaseText_InternalMicro"
+                        @paste="resolvePaste($event)" />
+                    </template>
+                  </BaseCorner>
+                </div>
+              </template>
+            </div>
           </div>
-
-          <BaseFilterDescription
-            :filter="cgRound.filter"
-            :loading="cgLoadingAny"
-            :user="user"
-            :ready="cgRound.date && user && (user.mod || isRoundEmptyForUser) && !cgIsApproving"
-            class="Cg_Right"
-            @changeClick="cgOpenRequirementDialog()" />
 
           <div class="Cg_RqCount">
             <div
+              key="cgFill"
               :style="`width: ${ (cgRound.rqFill * 100) / cgRound.rqLimit }%; background-color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
               class="Cg_RqFill" />
           </div>
         </div>
       </div>
 
-      <!-- NOT THIS TIME -->
-      <div v-if="cgRound.date && cgRound.notThisTime" class="Cg_Mid">
-        <div class="Cg_NotThisTime_Icon">
-          <svg class="Cg_NotThisTime_IconSvg" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 512 360" viewBox="0 0 512 360">
-            <path d="M31.4 8.2C37.4 5.5 44 4 50.6 4.1h407.7c7.6-.2 15.4.8 22.2 4.2-70.9 71-141.7 142.1-212.5 213.2-4.7 5.1-12.7 5.9-18.9 3.6-3.2-1.1-5.4-3.8-7.7-6.1-70-70.3-140-140.5-210-210.8zM5.7 44.2c.9-5.3 2.3-10.6 4.7-15.5C60.7 79.1 111 129.6 161.2 180.1 111 230.5 60.7 280.9 10.4 331.3c-2.3-4.8-3.8-10-4.7-15.3V44.2zM350.8 180.1C401 129.6 451.3 79.2 501.6 28.7c2.3 4.8 3.7 10 4.7 15.3v270.6c-.5 5.8-2.2 11.5-4.7 16.7-50.3-50.4-100.5-100.8-150.8-151.2z"/>
-            <path d="M31.4 351.9c50.2-50.3 100.4-100.7 150.5-151 14.3 14.2 28.4 28.6 42.7 42.7 14.5 14 38.4 16 55.4 5.6 5.3-3.1 9.4-7.6 13.7-11.9 12.1-12.1 24.2-24.3 36.3-36.4 50.2 50.4 100.4 100.7 150.6 151.1-6.1 2.6-12.6 4.2-19.3 4.1H50.6c-6.6 0-13.2-1.5-19.2-4.2z"/>
-          </svg>
-        </div>
-        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime1") }}</div>
-        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime2") }}</div>
-        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime3") }} <button class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonDarkYellow Cg_NotThisTime_Button" @click="$router.push({ name: 'Community' });">Community</button></div>
-        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime4") }}</div>
-        <div class="Cg_NotThisTime_P">{{ $t("p_cgNotThisTime5") }}</div>
-        <div v-if="cgRound.date && user && user.username" class="Cg_BottomModTools">
-          <!-- Down -->
-          <button
-            :class="{
-              Row_VotedAgainst: cgRound.upList && cgRound.upList.includes(user.username),
-              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
-            }"
-            :title="(cgRound.downList || []).join(', ')"
-            class="D_Button Row_VoteButton Row_VoteButtonDown"
-            @click="cgVote('down')">
-            <i
-              :class="`ticon-thumbs_down${ cgRound.downList && cgRound.downList.includes(user.username) ? '_fill' : '' }`"
-              class="Row_VoteIcon"
-              aria-hidden="true"/>
-            <span class="Row_DownCount">{{ (cgRound.downList || []).length }}</span>
-          </button>
-          <!-- Up -->
-          <button
-            :class="{
-              Row_VotedAgainst: cgRound.downList && cgRound.downList.includes(user.username),
-              D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading
-            }"
-            :title="(cgRound.upList || []).join(', ')"
-            class="D_Button Row_VoteButton Row_VoteButtonUp"
-            @click="cgVote('up')">
-            <i
-              :class="`ticon-thumbs_up${ cgRound.upList && cgRound.upList.includes(user.username) ? '_fill' : '' }`"
-              class="Row_VoteIcon"
-              aria-hidden="true"/>
-            <span class="Row_UpCount">{{ (cgRound.upList || []).length }}</span>
-          </button>
-        </div>
-      </div>
-
-      <div v-else-if="(cgLoading && (!cgRound || !cgRound.date)) || (downloadLoading && !user && cgLoading)" class="Cg_Mid">
+      <div v-if="(cgLoading && (!cgRound || !cgRound.date)) || (downloadLoading && !user && cgLoading)" class="Cg_Mid">
         <div class="Cg_MidLoading">
           <BaseContentLoader
             :contents="true"
@@ -422,6 +431,26 @@
         <div>{{ "isRoundComplete" }} {{ isRoundComplete }}</div> -->
 
         <!-- CG MID -->
+
+        <div class="Clubs_SemiBox">
+          <div class="Clubs_Box">
+            <div class="Clubs_SelectorBox">
+              <!-- v-if="iround >= Math.min(cg.rounds.length-9, cgCurrentRound-4) && iround <= Math.max(8, cgCurrentRound+4)" -->
+              <BaseButtonTouch
+                v-for="(round, iround) in cg.rounds"
+                :class="{ Row_DialogButtonTuneActive: cgCurrentRound === iround }"
+                class="D_Button Main_OptionsButton Main_MiniPage"
+                @click="cgCurrentRound === iround ? (cgRoundSelectorDialog = true) : loadCgRound(cgCurrentId, iround)">
+                <span style="pointer-events: none; user-select: none;">{{ iround+1 }}</span>
+                <div class="Main_MiniPageSub Main_MiniPageSubBottom">
+                  <i v-if="cg.rounds[iround].lastAnalyze" class="ticon-star Main_RoundDoneIconMiniRound" aria-hidden="true"/>
+                  <i v-else-if="cg.rounds[iround].toApprove && cg.rounds[iround].toApprove.length > 0" class="ticon-star Main_RoundDoneIconMiniRound" style="color: unset;" aria-hidden="true"/>
+                  <i v-else-if="cg.rounds[iround].preDoneMod" class="ticon-star Main_RoundDoneIconMiniRound" style="color: red;" aria-hidden="true"/>
+                </div>
+              </BaseButtonTouch>
+            </div>
+          </div>
+        </div>
 
         <template v-if="cgIsApproving" >
           <!-- CG SUBMITS NAVIGATION -->
@@ -981,7 +1010,7 @@
                     <i v-else-if="cg.rounds[index].preDoneMod" class="ticon-star Main_RoundDoneIcon" style="color: red;" aria-hidden="true"/>
                   </button>
                   <div class="Cg_DashRqBlock">
-                    <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
+                    <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
                     <span>{{ (cgDashShowBestSolution ? item.bestSolutionRqSum : item.solutionsRqSum) }}</span>
                     <span>/</span>
                     <span>{{ cg.rounds[index].rqLimit }}</span>
@@ -1226,113 +1255,169 @@
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <BaseCorner
+          <!-- <BaseCorner
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-          </BaseCorner>
-          <div class="Cg_RowCornerBox">
-            <!-- top event -->
-            <div v-if="eventCurrentId" class="Cg_SelectorLayout">
-              <div class="Cg_SelectorCenter">
-                <div class="Cg_SelectorEvent">
-                  <button
-                    :disabled="eventLoading || eventNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="eventSelectorDialog = true;">
-                    <span>{{ event.name }}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                </div>
-                <div v-if="event && event.user">
-                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-                  <span
-                    :class="`Main_UserT${Vue.utils.highlightsUsers[event.user]}`"
-                    class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
-                  <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`events_${eventCurrentId}`] || {}).c || 0 }} views</span>
-                  </span>
-                </div>
-                <div class="Cg_CenterBottom">
-                  <div class="Cg_RqText">
-                    <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
-                    <span>{{ event.rqLimit }}</span>
-                    <BaseButtonTouch
-                      v-if="user && user.mod && event.canViewEvent"
-                      :disabled="eventLoading"
-                      class="D_Button Main_AddTrackDirect"
-                      @click="eventOpenRqEdit($event)"
-                      @longTouch="eventOpenRqEdit({ shiftKey: true, ctrlKey: true })">
-                      <i class="ticon-pencil" aria-hidden="true"/>
-                    </BaseButtonTouch>
-                  </div>
-                  <!-- save button -->
-                  <div class="Cg_SaveButtonBox">
-                    <template v-if="!user">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          class="D_Button Main_LoginToEdit"
-                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+          </BaseCorner> -->
+          <BaseCover
+            v-if="eventCurrentId"
+            :cover="event.image"
+            :name="event.name"
+            :minRq="event.flexConfig ? event.flexConfig.reduce((acc, b) => Math.min(acc, b.minRQ), 500) : 500"
+            :minElo="event.flexConfig ? event.flexConfig.reduce((acc, b) => Math.min(acc, b.minEloScore), 0) : 0"
+            :startDateTime="event.startDateTime"
+            :endDateTime="event.endDateTime"
+            :height="190"
+            type="event"
+            class="BaseCover_Alone"
+          />
+          <div class="Cg_HeaderLeftMid">
+            <div class="Cg_HeaderBoxNew">
+              <div class="Cg_RowCornerBox">
+                <!-- top event -->
+                <div v-if="eventCurrentId" class="Cg_SelectorLayout">
+                  <div class="Cg_SelectorCenter">
+                    <div class="Cg_SelectorEvent">
+                      <BaseEventName
+                        :item="eventCurrentId === '_preview_' ? event : eventList.find(e => e.date === eventCurrentId)"
+                        :onlyName="true"
+                        contentClass="BaseEventName_Events"
+                        class="BaseEventName_HeaderTitle"
+                        @click="eventSelectorDialog = true;">
+                        <i class="ticon-keyboard_arrow_down" style="vertical-align: middle;" aria-hidden="true"/>
+                      </BaseEventName>
+                    </div>
+                    <div v-if="event && event.user">
+                      <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                      <span
+                        :class="`Main_UserT${Vue.utils.highlightsUsers[event.user]}`"
+                        class="Main_SearchResultUser Cg_Creator">{{ event.user }}</span>
+                      <span class="Cg_ViewsCount Main_ViewsBox">
+                        <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`events_${eventCurrentId}`] || {}).c || 0 }} views</span>
+                      </span>
+                    </div>
+                    <div class="Cg_CenterBottom">
+                      <div class="Cg_RqText">
+                        <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
+                        <span>{{ event.rqLimit }}</span>
+                        <BaseButtonTouch
+                          v-if="user && user.mod && event.canViewEvent"
+                          :disabled="eventLoading"
+                          class="D_Button Main_AddTrackDirect"
+                          @click="eventOpenRqEdit($event)"
+                          @longTouch="eventOpenRqEdit({ shiftKey: true, ctrlKey: true })">
+                          <i class="ticon-pencil" aria-hidden="true"/>
+                        </BaseButtonTouch>
                       </div>
-                    </template>
-                    <template v-else-if="eventNeedSave && user && user.mod && event.canViewEvent">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: eventLoadingAny }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="eventSaveAll()">{{ $t("m_save") }}</button>
+                      <!-- save button -->
+                      <div class="Cg_SaveButtonBox">
+                        <template v-if="!user">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              class="D_Button Main_LoginToEdit"
+                              @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="eventNeedSave && user && user.mod && event.canViewEvent">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: eventLoadingAny }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="eventSaveAll()">{{ $t("m_save") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="eventCurrentId === '_preview_'">
+                          <button
+                            :class="{ D_Button_Loading: eventLoadingAny }"
+                            style="--back-color: 200,0,0;"
+                            class="D_Button Main_SaveAllButton"
+                            @click="saveNewEvent(event)">{{ $t("m_createNewEvent") }}</button>
+                        </template>
+                        <div v-if="user" class="Main_PrintBy">
+                          <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+                          <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                        </div>
                       </div>
-                    </template>
-                    <template v-else-if="eventCurrentId === '_preview_'">
+
+                    </div>
+                    <div style="display: flex; justify-content: center;">
                       <button
+                        v-if="user && user.mod && !eventNeedSave && event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset) && event.canViewEvent"
                         :class="{ D_Button_Loading: eventLoadingAny }"
-                        style="--back-color: 200,0,0;"
-                        class="D_Button Main_SaveAllButton"
-                        @click="saveNewEvent(event)">{{ $t("m_createNewEvent") }}</button>
-                    </template>
-                    <template v-else-if="event.compilation && event.compilation.length > 0">
-                      <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
-                    </template>
-                    <div v-if="user" class="Main_PrintBy">
-                      <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                        class="D_Button D_ButtonDark D_ButtonDark2"
+                        style="white-space: pre; font-size: 0.8em; min-height: 27px;"
+                        @click="eventConfirmSaveTrackset()">Save trackset as default</button>
                     </div>
                   </div>
-
-                </div>
-                <div style="display: flex; justify-content: center;">
-                  <button
-                    v-if="user && user.mod && !eventNeedSave && event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset) && event.canViewEvent"
-                    :class="{ D_Button_Loading: eventLoadingAny }"
-                    class="D_Button D_ButtonDark D_ButtonDark2"
-                    style="white-space: pre; font-size: 0.8em; min-height: 27px;"
-                    @click="eventConfirmSaveTrackset()">Save trackset as default</button>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <BaseFilterDescription
-            :filter="event.filter"
-            :filter2="event.filter2"
-            :filter3="event.filter3"
-            :loading="eventLoadingAny"
-            :user="event.canViewEvent ? user : {}"
-            :ready="eventCurrentId"
-            :useWhatFilter="eventUseWhatFilter"
-            class="Cg_Right"
-            @changeClick="openEventRequirementsDialog()"
-            @useFilter="eventUseWhatFilter = $event; eventRefreshKingFilter();"
-            @newNameFilter="eventRenameFilter($event)" />
+              <BaseFilterDescription
+                v-if="eventCurrentId"
+                :filter="event.filter"
+                :filter2="event.filter2"
+                :filter3="event.filter3"
+                :loading="eventLoadingAny"
+                :user="event.canViewEvent ? user : {}"
+                :ready="eventCurrentId"
+                :useWhatFilter="eventUseWhatFilter"
+                class="Cg_Right"
+                @changeClick="openEventRequirementsDialog()"
+                @useFilter="eventUseWhatFilter = $event; eventRefreshKingFilter();"
+                @newNameFilter="eventRenameFilter($event)"
+              />
+            </div>
+
+            <div class="Cg_HeaderBottom Cg_TabLayout">
+              <template v-if="eventCurrentId">
+                <template v-for="tab in eventTabs">
+                  <BaseChip
+                    :inputValue="eventTab"
+                    :disabled="eventLoadingAny"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_AsTab"
+                    required="true"
+                    :value="tab"
+                    :label="$t(`m_${tab}`)"
+                    @click="eventChangeTab(tab)" />
+                </template>
+                <div class="Cg_TabsCorner">
+                  <template v-if="event.compilation && eventTab === 'trackset' && event.compilation.length > 0">
+                    <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
+                  </template>
+                  <BaseCorner
+                    :gameVersion="gameVersion"
+                    :isTabCorner="true"
+                    class="Cg_BaseCornerAsTab"
+                    @menu="openMainDialog();"
+                    @longCamera="showPoints = !showPoints;"
+                    @camera="shareDialog = true; generateUrl();">
+                    <template slot="more">
+                      <BaseText
+                        v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" 
+                        v-model="pasteInputModel"
+                        type="normal"
+                        placeholder="paste here"
+                        class="BaseText_InternalMicro"
+                        @paste="resolvePaste($event)" />
+                    </template>
+                  </BaseCorner>
+                </div>
+              </template>
+            </div>
+
+          </div>
 
           <div class="Cg_RqCount">
             <div
+              key="eventFill"
               :style="`width: ${ (event.rqFill * 100) / event.rqLimit }%; background-color: ${ event.rqFill > event.rqLimit ? '#a90000' : '' }`"
               class="Cg_RqFill" />
           </div>
 
         </div>
+        
       </div>
       <div class="Cg_Mid"> <!-- EVENT -->
         <template v-if="eventCurrentId">
@@ -1341,247 +1426,280 @@
           <div>{{ eventFilterToSave }}</div>
           <div>{{ eventFilterToSave2 }}</div> -->
 
-          <template v-if="event.noAccess">
-            <div v-for="m in 4" class="Cg_Box">
-              <div v-for="n in 5" class="Event_CompItem Event_CompItemPlaceholder">
-                <div v-if="m === 1" class="Event_CompPlaceholderQuestion">?</div>
+          <template v-if="eventTab === 'trackset' || eventTab === 'hands'">
+            <template v-if="event.noAccess">
+              <div v-for="m in 4" class="Cg_Box">
+                <div v-for="n in 5" class="Event_CompItem Event_CompItemPlaceholder">
+                  <div v-if="m === 1" class="Event_CompPlaceholderQuestion">?</div>
+                </div>
               </div>
+            </template>
+
+            <div v-else class="Cg_Box">
+              <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
+                <BaseCompItem
+                  :isMod="user && user.mod"
+                  :comp="comp"
+                  @edit="eventEditComp(igroup)" />
+              </div>
+            </div>
+            
+            <BaseEventTrackbox
+              :event="event"
+              :eventLoadingAny="eventLoadingAny"
+              :user="user"
+              :check="eventCheckFilterCode"
+              :eventForceAnalyze="eventForceAnalyze"
+              :eventBestPerTrack="eventBestPerTrack"
+              :showBestPerTrack="showPoints"
+              :compact="(compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200)"
+              @newindex="eventTrackNewIndex($event)"
+              @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
+              @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
+              @openKingFilter="eventOpenKingFilter($event.itrackset, $event.e);"
+              @up="eventMove('up', $event.itrackset);"
+              @down="eventMove('down', $event.itrackset);"
+              @delete="eventDeleteTrackset($event.itrackset);"
+            />
+            <div v-if="event.canViewEvent && !eventBlockAddTrackset && (event.resolvedTrackset || []).length < 6 && user && user.mod" class="Event_NewTracksetBox">
+              <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
+                <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+                <span>{{ $t("m_trackset") }}</span>
+              </button>
             </div>
           </template>
 
-          <div v-else class="Cg_Box">
-            <div v-for="(comp, igroup) in event.comp" class="Event_CompItem">
-              <BaseCompItem
-                :isMod="user && user.mod"
-                :comp="comp"
-                @edit="eventEditComp(igroup)" />
-            </div>
-          </div>
-          
-          <BaseEventTrackbox
-            :event="event"
-            :eventLoadingAny="eventLoadingAny"
-            :user="user"
-            :check="eventCheckFilterCode"
-            :eventForceAnalyze="eventForceAnalyze"
-            :eventBestPerTrack="eventBestPerTrack"
-            :showBestPerTrack="showPoints"
-            :compact="(compact && mode === 'compare') || ((mode === 'challenges' || mode === 'events') && windowWidth < 1200)"
-            @newindex="eventTrackNewIndex($event)"
-            @openDialogTrackSearch="eventTracksetSelected = $event.itrackset; eventRaceSelected = $event.itrackMonoArray; openDialogTrackSearch(false)"
-            @eventMoveTrackRight="eventMoveTrackRight($event.itrackset, $event.itrackMonoArray);"
-            @openKingFilter="eventOpenKingFilter($event.itrackset, $event.e);"
-            @up="eventMove('up', $event.itrackset);"
-            @down="eventMove('down', $event.itrackset);"
-            @delete="eventDeleteTrackset($event.itrackset);"
-          />
-          <div v-if="event.canViewEvent && !eventBlockAddTrackset && (event.resolvedTrackset || []).length < 6 && user && user.mod" class="Event_NewTracksetBox">
-            <button class="D_Button D_Button D_ButtonDark D_ButtonDark2" @click="eventAddTrackset()">
-              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
-              <span>{{ $t("m_trackset") }}</span>
-            </button>
-          </div>
-
-          <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
-          <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: event.compilation?.[0]?.[0]?.saverScore3 !== undefined }">
-            <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
-              <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
-                <template v-for="(car, icar) in group">
-                  <BaseButtonTouch
-                    :disabled="eventLoadingAny"
-                    :class="{
-                      Event_BankReference: eventPointsReference[igroup].icar === icar,
-                      Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
-                      Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune),
-                      Event_PredictTime: car.isTimePredicted
-                    }"
-                    :style="`--cor: ${ car.color }`"
-                    :key="`${car.rid}${car.tune}${icar}`"
-                    class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
-                    style="will-change: opacity, transform;"
-                    @longTouch="eventTogglePick(car, $event)"
-                    @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
-                    @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
-                    @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
-                    <!-- <div class="Cg_BankPhoto Event_BankPhoto">
-                      <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
-                    </div> -->
-                    <BaseCardMini
-                      :car="Vue.all_carsObj[car.rid]"
-                      :tuneText="car.tune"
-                      style="pointer-events: none;"
-                    />
-                    <!-- <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div> -->
-                    <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
-                    <div class="Cg_BankTuneNew">{{ car.tune }}</div>
-                    <!-- <div class="Cg_BankResult">
-                      <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
-                    </div> -->
-                    <div
-                      v-if="car.points !== undefined"
-                      :class="{ 
-                        Cg_PointsRed: car.points.v < 0,
-                        Cg_PointsGreen: car.points.v > 0,
-                        Cg_PointsGrey: car.points.v === 0
+          <template v-if="eventTab === 'trackset'">
+            <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
+            <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: event.compilation?.[0]?.[0]?.saverScore3 !== undefined }">
+              <div v-for="(group, igroup) in event.compilation" class="Cg_YouBank Event_CompilationBox">
+                <div class="Cg_YouBankBox" :class="{ Event_HasPickList: eventPicksList.length > 0 && eventEnablePicks }">
+                  <template v-for="(car, icar) in group">
+                    <BaseButtonTouch
+                      :disabled="eventLoadingAny"
+                      :class="{
+                        Event_BankReference: eventPointsReference[igroup].icar === icar,
+                        Event_BankSemiReference: eventPointsReference[igroup].icar === undefined && icar === 0,
+                        Event_BankPick: eventPicksList.find(x => x.rid === car.rid && x.tune === car.tune) || Object.keys(eventPointsReference).find(key => eventPointsReference[key].rid === car.rid && eventPointsReference[key].tune === car.tune),
+                        Event_PredictTime: car.isTimePredicted
                       }"
-                      class="Cg_BankPointsNew">
-                      <span class="Cg_BankPoints">{{ car.points.v }}</span>
-                    </div>
-                    <div class="Cg_BankPointsNew Cg_BankPointsNewRqSavers Cg_PointsGreen">
-                      <span class="Cg_BankPoints">{{ car.saverScore3 }}</span>
-                    </div>
-                    <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
-                      <span class="">{{ car.timeToPrint }}</span>
-                    </div>
-                    <!-- <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
-                      <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
-                    </div> -->
-                    
-                  </BaseButtonTouch>
-                </template>
-                <!-- <button
-                  v-if="user && user.mod"
-                  :disabled="eventLoadingAny"
-                  class="D_Button Main_AddTrackDirect"
-                  @click="eventAddCar(igroup);">
-                  <i class="ticon-plus_2" aria-hidden="true"/>
-                </button> -->
+                      :style="`--cor: ${ car.color }`"
+                      :key="`${car.rid}${car.tune}${icar}`"
+                      class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton Event_BankButton"
+                      style="will-change: opacity, transform;"
+                      @longTouch="eventTogglePick(car, $event)"
+                      @shortTouch="eventOpenShowCarDialog(car, $event, igroup, icar)"
+                      @contextmenu="isMobile ? $event.preventDefault() : eventTogglePick(car, $event)"
+                      @click="isMobile ? $event.preventDefault() : eventOpenShowCarDialog(car, $event, igroup, icar);">
+                      <!-- <div class="Cg_BankPhoto Event_BankPhoto">
+                        <img :src="car.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
+                      </div> -->
+                      <BaseCardMini
+                        :car="Vue.all_carsObj[car.rid]"
+                        :tuneText="car.tune"
+                        style="pointer-events: none;"
+                      />
+                      <!-- <div :style="`color: ${ car.color }`" class="Event_BankClass">{{ (car.car || {}).class }}{{ (car.car || {}).rq }}</div> -->
+                      <!-- <div class="Main_SearchItemRight Cg_BankCarName Event_BankCarName">{{ car.car.name }}</div> -->
+                      <div class="Cg_BankTuneNew">{{ car.tune }}</div>
+                      <!-- <div class="Cg_BankResult">
+                        <span class="Cg_BankPoints">{{ car.saverScore1 }}-{{ car.saverScore2 }}</span>
+                      </div> -->
+                      <div
+                        v-if="car.points !== undefined"
+                        :class="{ 
+                          Cg_PointsRed: car.points.v < 0,
+                          Cg_PointsGreen: car.points.v > 0,
+                          Cg_PointsGrey: car.points.v === 0
+                        }"
+                        class="Cg_BankPointsNew">
+                        <span class="Cg_BankPoints">{{ car.points.v }}</span>
+                      </div>
+                      <div class="Cg_BankPointsNew Cg_BankPointsNewRqSavers Cg_PointsGreen">
+                        <span class="Cg_BankPoints">{{ car.saverScore3 }}</span>
+                      </div>
+                      <div class="Cg_BankResult Event_BankTime Event_BankTimeToPrint">
+                        <span class="">{{ car.timeToPrint }}</span>
+                      </div>
+                      <!-- <div v-else class="Cg_BankResult Event_BankTime Cg_PointsGreen">
+                        <span class="Cg_BankPoints">{{ car.track && car.track.includes('testBowl') ? car.time : car[eventScoreType] }}</span>
+                      </div> -->
+                      
+                    </BaseButtonTouch>
+                  </template>
+                  <!-- <button
+                    v-if="user && user.mod"
+                    :disabled="eventLoadingAny"
+                    class="D_Button Main_AddTrackDirect"
+                    @click="eventAddCar(igroup);">
+                    <i class="ticon-plus_2" aria-hidden="true"/>
+                  </button> -->
+                </div>
               </div>
             </div>
-          </div>
 
-          <div
-            v-if="event.compilation && event.compilation.length && (!whatTier || whatTier > 3)"
-            style="margin: 20px auto; max-width: 500px;"
-            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-            <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
-          </div>
-
-          <div
-            v-if="event.hidden"
-            style="margin: 20px auto; max-width: 500px;"
-            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-            <span>{{ $t("p_eventHiddenForPatreons") }}</span>
-          </div>
-
-          <div
-            v-if="!user && !event.hidden"
-            style="margin: 20px auto; max-width: 500px;"
-            class="Event_CompilationIncomplete Main_SaveGalleryGuide">
-            <span>{{ $t("p_eventsKingLogin") }}</span>
-          </div>
-
-          <!-- <div v-if="eventPicksList.length > 0" class="Event_PicksManage">
-            <div v-for="pick in eventPicksList" class="Main_EventPick Cg_BankButton Event_BankButton">
-              <div class="Cg_BankPhoto Event_BankPhoto">
-                <img :src="pick.photo" class="Cg_BankPhotoImg" alt="">
-              </div>
-              <div :style="`color: ${ pick.color }`" class="Event_BankClass">{{ (pick.car || {}).class }}{{ (pick.car || {}).rq }}</div>
-              <div class="Cg_BankTune" :style="`--cor: ${ pick.color }`">{{ pick.tune }}</div>
-              <button class="D_Button D_ButtonDark D_ButtonDark2 Event_PickRemoveButton" @click="eventRemovePick(pick)">
-                <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-              </button>
+            <div
+              v-if="event.compilation && event.compilation.length && (!whatTier || whatTier > 3)"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_patronsOnly", { tier: 3 }) }}<br>{{ $t("p_eventsKingDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/voeIpyglb0w'>Youtube</a></span>
             </div>
-          </div> -->
 
-          <!-- <div v-if="eventPicksList.length > 0" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <BaseCheckBox v-model="eventEnablePicks" :label="$t('m_enablePicks')"/>
-          </div> -->
+            <div
+              v-if="event.hidden"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_eventHiddenForPatreons") }}</span>
+            </div>
 
-          <!-- <div v-if="user && user.username === 'TiagoXavi' && eventForceAnalyze" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <template v-for="(type, ix) in eventScoreList">
-              <BaseChip
-                v-model="eventScoreType"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
-                required="true"
-                :value="type"
-                @click="eventAnalyse(false)" />
+            <div
+              v-if="!user && !event.hidden"
+              style="margin: 20px auto; max-width: 500px;"
+              class="Event_CompilationIncomplete Main_SaveGalleryGuide">
+              <span>{{ $t("p_eventsKingLogin") }}</span>
+            </div>
+
+            <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
+
+            <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonTier2"
+                @click="openHandRankingDialog()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button>
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportCriteriaToPacks()">{{ $t("m_eventPack") }}</button>
+              <button
+                v-if="event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset)"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventResetTracksetLocal()">{{ $t("m_resetTrackset") }}</button>
+              <button
+                v-if="user && user.mod && !eventBlockAddTrackset"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventExportEventToTimeline()">{{ $t("m_exportToTimeline") }}</button>
+              <button
+                v-if="eventPicksList.length > 0"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
+              <button
+                v-if="eventHasPrizeBoard"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="eventClearBoard()">{{ $t("m_clearBoard") }}</button>
+              <button
+                v-if="user && user.mod && eventCurrentIsHidden"
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+                @click="eventSetVisible()">Set visible</button>
+              <BaseSwitch v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
+              <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
+            </div>
+
+            <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
+              <button
+                :class="{ D_Button_Loading: eventLoadingAny }"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="refreshLocalTimesByFilter()">Refresh local times</button>
+            </div>
+
+
+            <div v-if="user && user.mod && event.canViewEvent && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
+              <template v-for="(icon, ix) in clubsIconsList">
+                <BaseChip
+                  v-model="event.icons"
+                  class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
+                  :value="icon">
+                  <i
+                    :class="`tdicon-${icon}`"
+                    class="TdIconCond"
+                    aria-hidden="true">
+                    <span class="path1"/>
+                    <span class="path2"/>
+                    <span class="path3"/>
+                    <span class="path4"/>
+                  </i>
+                </BaseChip>
+              </template>
+            </div>
+
+            <div v-if="user && user.mod && eventCurrentId === '_preview_'" class="Cg_BottomModTools D_Center2" style="margin-top: 30px;">
+              <BaseText
+                v-model="event.name"
+                :instantModel="true"
+                class="BaseText_Big"
+                type="normal"
+                :label="$t('m_eventName')" />
+            </div>
+          </template> <!-- end trackset -->
+          
+          <template v-if="eventTab === 'info'">
+
+            <div v-if="!event.prizes" style="text-align: center;">
+              <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
+            </div>
+            <template v-else>
+              <BaseRewards v-if="event.prizes && event.prizes.length" :prizes="event.prizes" :tag="event.tag" :rs="300" />
+              <div class="Main_EventInfoBottom">
+                <div class="Main_EventInfoGrid">
+                  <div class="Main_EventInfoLabel">{{ $t('m_ticketRegeneration') }}</div>
+                  <div class="Main_EventInfoValue">{{ event.ticketRegenerationTime / 60000 }} min</div>
+                  <div class="Main_EventInfoLabel">{{ $t('m_bucketSize') }}</div>
+                  <div class="Main_EventInfoValue">{{ event.bucketSize }}</div>
+                  <template v-if="event.startDateTime">
+                    <div class="Main_EventInfoLabel">{{ $t('m_duration') }}</div>
+                    <div class="Main_EventInfoValue">{{ (new Date(event.endDateTime) - new Date(event.startDateTime)) / 3600000 }} h</div>
+                  </template>
+                </div>
+              </div>
+              <div v-if="event.flexConfig" class="Main_EventInfoBottom">
+                <div class="Main_EventInfoBracketsGrid">
+                  <div class="Main_EventInfoBracketTitle">{{ $tc('m_bracket', 2) }}</div>
+                  <template v-for="bracket in event.flexConfig">
+                    <div class="Main_EventBracketRq">
+                      <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
+                      <span>{{ bracket.minRQ }}</span>
+                    </div>
+                    <div class="Main_EventBracketElo">
+                      <i aria-hidden="true" class="ticon-trophy"></i>
+                      <span>{{ bracket.minEloScore }}</span>
+                    </div>
+                  </template>
+                </div>
+              </div>
             </template>
-          </div> -->
+            
 
-          <BasePrizeBoard v-if="$store.state.showPrizeBoard && event.canViewEvent" :id="eventCurrentId" @hasLocal="eventHasPrizeBoard = $event;" />
+          </template> <!-- end info -->
 
-          <div v-if="!eventNeedSave && event.canViewEvent && eventCurrentId !== '_preview_'" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <button
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonTier2"
-              @click="openHandRankingDialog()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_handRanking") }}</button>
-            <button
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportTracksToWorkspace()">{{ $t("m_useTrackList") }}</button>
-            <button
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button>
-            <button
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportCriteriaToPacks()">{{ $t("m_eventPack") }}</button>
-            <button
-              v-if="event.tracksetBkp && JSON.stringify(event.tracksetBkp) !== JSON.stringify(event.trackset)"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventResetTracksetLocal()">{{ $t("m_resetTrackset") }}</button>
-            <button
-              v-if="user && user.mod && !eventBlockAddTrackset"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportEventToTimeline()">{{ $t("m_exportToTimeline") }}</button>
-            <button
-              v-if="eventPicksList.length > 0"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventClearPicks()">{{ $t("m_clearPicks") }}</button>
-            <button
-              v-if="eventHasPrizeBoard"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventClearBoard()">{{ $t("m_clearBoard") }}</button>
-            <button
-              v-if="user && user.mod && eventCurrentIsHidden"
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
-              @click="eventSetVisible()">Set visible</button>
-            <BaseSwitch v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')" :horizontal="true" />
-            <!-- <BaseCheckBox v-if="eventPicksList.length > 0" v-model="eventEnablePicks" :label="$t('m_enablePicks')"/> -->
-          </div>
-
-          <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <button
-              :class="{ D_Button_Loading: eventLoadingAny }"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="refreshLocalTimesByFilter()">Refresh local times</button>
-          </div>
+          <template v-if="eventTab === 'hands'">
+            <BaseEventHandRanking
+              :eventBestTeamsConfig="eventBestTeamsConfig"
+              :eventBestTeamsTarget="eventBestTeamsTarget"
+              :eventBestTeamSameAsBefore="eventBestTeamSameAsBefore"
+              :windowWidth="windowWidth"
+              :whatTier="whatTier"
+              :eventBestTeamsBigArray="eventBestTeamsBigArray"
+              :eventBestLastLoadingMsg="eventBestLastLoadingMsg"
+              :eventBestTeamsLoading="eventBestTeamsLoading"
+              :eventBestTeamsLastCache="eventBestTeamsLastCache"
+              :getHandRanking="getHandRanking"
+              :handRankingExportClick="handRankingExportClick"
+            />
+          </template> <!-- end hands -->
 
 
-          <div v-if="user && user.mod && event.canViewEvent && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
-            <template v-for="(icon, ix) in clubsIconsList">
-              <BaseChip
-                v-model="event.icons"
-                class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_Small"
-                :value="icon">
-                <i
-                  :class="`tdicon-${icon}`"
-                  class="TdIconCond"
-                  aria-hidden="true">
-                  <span class="path1"/>
-                  <span class="path2"/>
-                  <span class="path3"/>
-                  <span class="path4"/>
-                </i>
-              </BaseChip>
-            </template>
-          </div>
-
-          <div v-if="user && user.mod && eventCurrentId === '_preview_'" class="Cg_BottomModTools D_Center2" style="margin-top: 30px;">
-            <BaseText
-              v-model="event.name"
-              :instantModel="true"
-              class="BaseText_Big"
-              type="normal"
-              :label="$t('m_eventName')" />
-          </div>
 
         </template>
         <div v-else-if="eventLoading" class="Cg_MidLoading">
@@ -1617,116 +1735,158 @@
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <BaseCorner
+          <!-- <BaseCorner
             :gameVersion="gameVersion"
             @menu="openMainDialog();"
             @longCamera="showPoints = !showPoints;"
             @camera="shareDialog = true; generateUrl();">
-          </BaseCorner>
-          <div class="Cg_RowCornerBox">
-            <!-- top club -->
-            <div class="Cg_SelectorLayout">
-              <div class="Cg_SelectorCenter">
-                <div class="Clubs_DayBox">
-                  <button
-                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave || clubDayNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="clubDayConfigDialog = true;">
-                    <span>{{ clubDaySelected || "-" }}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                  <button
-                    v-if="clubDayNeedSave && user && user.mod"
-                    :class="{ D_Button_Loading: clubLoadingAny }"
-                    class="D_Button Main_SaveAllButton"
-                    @click="clubDaySaveAll()">{{ $t("m_saveDay") }}</button>
-                </div>
-                <div v-if="!clubLoading && clubDaySelected !== clubServerDateISO" class="Clubs_DayNotCurrent">({{ $t('m_notCurrent') }})</div>
-                <div v-if="user && user.mod" class="Clubs_TrackReqSelectBox">
-                  <button
-                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="clubTracksetDialog = true;">
-                    <span>{{ $t("m_tracksets") }} {{`(${clubTracksGroupsActive.length})`}}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                  <button
-                    :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
-                    class="D_Button Main_ArrowDownSelect"
-                    @click="clubReqsDialog = true;">
-                    <span>{{ $t("m_reqs") }} {{`(${clubReqGroupsActive.length})`}}</span>
-                    <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                  </button>
-                </div>
-                <div v-if="clubDaySelectedObj && clubDaySelectedObj.user">
-                  <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
-                  <span
-                    :class="`Main_UserT${Vue.utils.highlightsUsers[clubDaySelectedObj.user]}`"
-                    class="Main_SearchResultUser Cg_Creator">{{ clubDaySelectedObj.user }}</span>
-                  <span class="Cg_ViewsCount Main_ViewsBox">
-                    <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`clubs_${clubDaySelected}`] || {}).c || 0 }} views</span>
-                  </span>
-                </div>
-                <div class="Cg_CenterBottom" style="min-height: unset;">
-                  <!-- save button -->
-                  <div class="Cg_SaveButtonBox">
-                    <template v-if="!user">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          class="D_Button Main_LoginToEdit"
-                          @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+          </BaseCorner> -->
+          <BaseCover
+            v-if="clubTracksGroupModel.comp"
+            cover="ClubEvent"
+            name="Club events"
+            :minRq="250"
+            :height="209"
+            type="event"
+            class="BaseCover_Alone BaseCover_Club"
+          />
+          <div class="Cg_HeaderLeftMid">
+            <div class="Cg_HeaderBoxNew">
+              <div class="Cg_RowCornerBox">
+                <!-- top club -->
+                <div v-if="clubTracksGroupModel.comp" class="Cg_SelectorLayout">
+                  <div class="Cg_SelectorCenter">
+                    <div class="Clubs_DayBox">
+                      <button
+                        :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave || clubDayNeedSave"
+                        class="D_Button Main_ArrowDownSelect"
+                        @click="clubDayConfigDialog = true;">
+                        <span>{{ clubDaySelected || "-" }}</span>
+                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                      </button>
+                      <button
+                        v-if="clubDayNeedSave && user && user.mod"
+                        :class="{ D_Button_Loading: clubLoadingAny }"
+                        class="D_Button Main_SaveAllButton"
+                        @click="clubDaySaveAll()">{{ $t("m_saveDay") }}</button>
+                    </div>
+                    <div v-if="!clubLoading && clubDaySelected !== clubServerDateISO" class="Clubs_DayNotCurrent">({{ $t('m_notCurrent') }})</div>
+                    <div v-if="user && user.mod" class="Clubs_TrackReqSelectBox">
+                      <button
+                        :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
+                        class="D_Button Main_ArrowDownSelect"
+                        @click="clubTracksetDialog = true;">
+                        <span>{{ $t("m_tracksets") }} {{`(${clubTracksGroupsActive.length})`}}</span>
+                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                      </button>
+                      <button
+                        :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
+                        class="D_Button Main_ArrowDownSelect"
+                        @click="clubReqsDialog = true;">
+                        <span>{{ $t("m_reqs") }} {{`(${clubReqGroupsActive.length})`}}</span>
+                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
+                      </button>
+                    </div>
+                    <div v-if="clubDaySelectedObj && clubDaySelectedObj.user">
+                      <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
+                      <span
+                        :class="`Main_UserT${Vue.utils.highlightsUsers[clubDaySelectedObj.user]}`"
+                        class="Main_SearchResultUser Cg_Creator">{{ clubDaySelectedObj.user }}</span>
+                      <span class="Cg_ViewsCount Main_ViewsBox">
+                        <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`clubs_${clubDaySelected}`] || {}).c || 0 }} views</span>
+                      </span>
+                    </div>
+                    <div class="Cg_CenterBottom" style="min-height: unset;">
+                      <!-- save button -->
+                      <div class="Cg_SaveButtonBox">
+                        <template v-if="!user">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              class="D_Button Main_LoginToEdit"
+                              @click="$store.commit('OPEN_LOGIN');">{{ $t("m_login") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="clubTrackNeedSave && user && user.mod">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: clubLoadingAny }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="clubSaveTrackset()">{{ $t("m_saveTrackset") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="clubReqNeedSave && user && user.mod">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: clubLoadingAny }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="clubSaveReq()">{{ $t("m_saveReqs") }}</button>
+                          </div>
+                        </template>
+                        <template v-else-if="isMobile && clubCompilation && clubCompilation.length > 0">
+                          <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
+                        </template>
+                        <template v-if="clubShowAnalyse">
+                          <div class="Main_SaveAllBox">
+                            <button
+                              :class="{ D_Button_Loading: clubLoadingAny }"
+                              class="D_Button Main_SaveAllButton"
+                              @click="clubAnalyse()">{{ $t("m_analyze") }}</button>
+                          </div>
+                        </template>
+                        <div v-if="user" class="Main_PrintBy" style="margin-top: 5px;">
+                          <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
+                          <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+                        </div>
                       </div>
-                    </template>
-                    <template v-else-if="clubTrackNeedSave && user && user.mod">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: clubLoadingAny }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="clubSaveTrackset()">{{ $t("m_saveTrackset") }}</button>
-                      </div>
-                    </template>
-                    <template v-else-if="clubReqNeedSave && user && user.mod">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: clubLoadingAny }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="clubSaveReq()">{{ $t("m_saveReqs") }}</button>
-                      </div>
-                    </template>
-                    <template v-else-if="isMobile && clubCompilation && clubCompilation.length > 0">
-                      <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
-                    </template>
-                    <template v-if="clubShowAnalyse">
-                      <div class="Main_SaveAllBox">
-                        <button
-                          :class="{ D_Button_Loading: clubLoadingAny }"
-                          class="D_Button Main_SaveAllButton"
-                          @click="clubAnalyse()">{{ $t("m_analyze") }}</button>
-                      </div>
-                    </template>
-                    <div v-if="user" class="Main_PrintBy" style="margin-top: 5px;">
-                      <div class="Main_PrintByLabel">{{ $t("m_printBy") }}</div>
-                      <div :class="`Main_UserT${Vue.utils.highlightsUsers[user.username]}`" class="Main_PrintByUser">{{ user.username }}</div>
+
                     </div>
                   </div>
-
                 </div>
               </div>
+
+              <BaseFilterDescription
+                v-if="clubTracksGroupModel.comp"
+                :filter="clubReqsGroupModel.filter"
+                :filter2="clubReqsGroupModel.filter2"
+                :filter3="clubReqsGroupModel.filter3"
+                :loading="clubLoadingAny"
+                :user="user"
+                :ready="clubReqsGroupModel.date"
+                :useWhatFilter="clubUseWhatFilter"
+                class="Cg_Right"
+                @changeClick="clubShowRequirementsDialog($event)"
+                @useFilter="clubUseWhatFilter = $event; eventRefreshKingFilter();"
+                @newNameFilter="clubRenameFilter($event)"
+              />
+            </div>
+            <div class="Cg_HeaderBottom Cg_TabLayout">
+              <template v-if="clubTracksGroupModel.comp">
+                <template v-for="tab in clubTabs">
+                  <BaseChip
+                    :inputValue="clubTab"
+                    :disabled="clubLoadingAny"
+                    class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_AsTab"
+                    required="true"
+                    :value="tab"
+                    :label="$t(`m_${tab}`)"
+                    @click="clubChangeTab(tab)" />
+                </template>
+                <div class="Cg_TabsCorner">
+                  <template v-if="clubCompilation && clubTab === 'trackset' && clubCompilation.length > 0">
+                    <BaseSwitch v-model="showPoints" :label="$t('m_points')" />
+                  </template>
+                  <BaseCorner
+                    :gameVersion="gameVersion"
+                    :isTabCorner="true"
+                    class="Cg_BaseCornerAsTab"
+                    @menu="openMainDialog();"
+                    @longCamera="showPoints = !showPoints;"
+                    @camera="shareDialog = true; generateUrl();">
+                  </BaseCorner>
+                </div>
+              </template>
             </div>
           </div>
-
-          <BaseFilterDescription
-            :filter="clubReqsGroupModel.filter"
-            :filter2="clubReqsGroupModel.filter2"
-            :filter3="clubReqsGroupModel.filter3"
-            :loading="clubLoadingAny"
-            :user="user"
-            :ready="clubReqsGroupModel.date"
-            :useWhatFilter="clubUseWhatFilter"
-            class="Cg_Right"
-            @changeClick="clubShowRequirementsDialog($event)"
-            @useFilter="clubUseWhatFilter = $event; eventRefreshKingFilter();"
-            @newNameFilter="clubRenameFilter($event)" />
 
           <!-- <div class="Cg_RqCount">
             <div
@@ -1766,7 +1926,7 @@
           </div>
         </div>
         <template v-if="clubTracksGroupModel.comp">
-          <template>
+          <template v-if="clubTab === 'trackset' || clubTab === 'hands'">
 
             <div class="Cg_Box">
               <div v-for="(comp, igroup) in clubTracksGroupModel.comp" class="Event_CompItem">
@@ -1803,7 +1963,9 @@
                 <span>{{ $t("m_trackset") }}</span>
               </button>
             </div>
+          </template> <!-- end trackset -->
 
+          <template v-if="clubTab === 'trackset'">
             <!-- <div class="Event_SubTitle Main_DialogTitle">Trackset</div> -->
             <div class="Cg_Box" style="margin-top: 15px;" :class="{ Cg_BoxShowPoints: showPoints, Main_IsRqSavers: clubCompilation?.[0]?.[0].saverScore3 !== undefined }">
               <div v-for="(group, igroup) in clubCompilation" class="Cg_YouBank Event_CompilationBox">
@@ -1974,8 +2136,25 @@
               </div>
               
             </div>
+          </template> <!-- end info -->
 
-          </template>
+          <template v-if="clubTab === 'hands'">
+            <BaseEventHandRanking
+              :eventBestTeamsConfig="eventBestTeamsConfig"
+              :eventBestTeamsTarget="eventBestTeamsTarget"
+              :eventBestTeamSameAsBefore="eventBestTeamSameAsBefore"
+              :windowWidth="windowWidth"
+              :whatTier="whatTier"
+              :eventBestTeamsBigArray="eventBestTeamsBigArray"
+              :eventBestLastLoadingMsg="eventBestLastLoadingMsg"
+              :eventBestTeamsLoading="eventBestTeamsLoading"
+              :eventBestTeamsLastCache="eventBestTeamsLastCache"
+              :getHandRanking="getHandRanking"
+              :handRankingExportClick="handRankingExportClick"
+            />
+          </template> <!-- end hands -->
+
+          
         </template>
         <div v-else-if="clubLoading" class="Cg_MidLoading">
           <BaseContentLoader
@@ -2087,203 +2266,6 @@
     </BaseDialog>
 
     
-
-    <BaseDialog
-      :active="eventBestTeamsDialog"
-      :transparent="false"
-      :lazy="true"
-      max-width="820px"
-      min-width="240px"
-      @close="eventBestTeamsDialog = false;">
-      <div v-if="eventBestTeamsDialog" class="Main_TeamsLayout">
-        <div class="Main_TeamsHeader">
-          <div class="Main_DialogTitle" style="margin-bottom: 0px;">{{ eventBestTeamsTarget.name }}</div>
-          <div class="Main_TeamsEngineLabel">Engine v1.14</div>
-        </div>
-        <div class="Main_TeamsNeck D_Center2">
-          <!-- controls -->
-          <div class="Main_TeamsControlsLayout">
-            <BaseSwitch v-model="eventBestTeamsConfig.myGarage" name="eventMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.forceCarsBool" name="hand_ForceCars" :label="$t('m_forceCars')" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.blackListBool" name="hand_black" :label="$t('m_blackList')" :horizontal="true" />
-            <BaseSwitch
-              :value="eventBestTeamsConfig.repeatCars || eventBestTeamsConfig.myGarage"
-              :label="$t('m_duplicates')"
-              :horizontal="true"
-              :disabled="eventBestTeamsConfig.myGarage"
-              name="hand_repeat"
-              @change="eventBestTeamsConfig.repeatCars = $event"
-            />
-            <BaseSwitch v-model="eventBestTeamsConfig.uniqueHands" name="hand_farming" :label="$t('m_farmingHands')" :horizontal="true" />
-            <BaseSwitch v-model="eventBestTeamsConfig.prizeCars" name="hand_prizes" :label="$t('m_prizeCars')" :horizontal="true" />
-            <!-- <BaseSwitch v-model="eventBestTeamsConfig.forceOppoBool" name="hand_ForceOppo" :label="$t('m_forceOppo')" :horizontal="true" /> -->
-            <BaseSwitch
-              :value="eventBestTeamsConfig.prizeCars && eventBestTeamsConfig.neverAwardedCars"
-              :label="$t('m_neverAwardedCars')"
-              :horizontal="true"
-              :disabled="!eventBestTeamsConfig.prizeCars || true"
-              name="hand_neverAwarded"
-              @change="eventBestTeamsConfig.neverAwardedCars = $event"
-            />
-            <BaseSwitch
-              :value="eventBestTeamsConfig.predictedTimes || eventBestTeamsConfig.myGarage"
-              :label="$t('m_predictedTimes')"
-              :horizontal="true"
-              :disabled="eventBestTeamsConfig.myGarage"
-              name="hand_predicted"
-              @change="eventBestTeamsConfig.predictedTimes = $event"
-            />
-          </div>
-
-          <BaseExpandDiv :active="eventBestTeamsConfig.blackListBool" class="Main_TeamsForceCarsExpand">
-
-            <BaseCarList
-              :list="eventBestTeamsConfig.blackList"
-              :filterToImport="eventBestTeamsTarget.filter"
-              class="Main_TeamsCarsList"
-              size="small"
-            />
-
-          </BaseExpandDiv>
-
-          <div v-if="eventBestTeamsTarget.resolvedTrackset" class="Main_TeamsTrackset" :class="{ Main_TeamsTracksetWithBottom: eventBestTeamsConfig.forceCarsBool || eventBestTeamsConfig.forceOppoBool }">
-            <BaseEventTrackbox
-              :event="{ resolvedTrackset: eventBestTeamsTarget.resolvedTrackset }"
-              :eventLoadingAny="false"
-              :user="{ mod: false }"
-              :check="null"
-              :eventForceAnalyze="false"
-              :eventBestPerTrack="{}"
-              :showBestPerTrack="false"
-              :hideCheckBox="true"
-              :disableCampaignTip="true"
-              :mini="true"
-              :miniHeight="true"
-              :size="windowWidth < 1200 ? 119 : 154"
-              :readonly="true"
-            />
-          </div>
-
-          <BaseExpandDiv :active="eventBestTeamsConfig.forceCarsBool" class="Main_TeamsForceCarsExpand">
-            <!-- Force cars -->
-            <div class="Main_TeamsCanEnterEventMid">
-              <BaseCarsTeam
-                :cars="eventBestTeamsConfig.forceCars"
-                :filterToImport="eventBestTeamsTarget.filter"
-                :width="150"
-                :aspect="'415 / 256'"
-                :fsize="7"
-                :miniWidth="111"
-                :miniAspect="'111 / 144'"
-                :miniFsize="12"
-                :mini="windowWidth < 1200"
-                :gap="5"
-                :rqLimit="eventBestTeamsTarget.rqLimit"
-                prefix="Your"
-              />
-            </div>
-          </BaseExpandDiv>
-
-          <BaseExpandDiv :active="eventBestTeamsConfig.forceOppoBool" class="Main_TeamsForceCarsExpand">
-            <!-- Force opponents -->
-            <div class="Main_TeamsCanEnterEventMid">
-              <BaseCarsTeam
-                :cars="eventBestTeamsConfig.forceOppoCars"
-                :filterToImport="eventBestTeamsTarget.filter"
-                :width="150"
-                :aspect="'415 / 256'"
-                :fsize="7"
-                :miniWidth="111"
-                :miniAspect="'111 / 144'"
-                :miniFsize="12"
-                :mini="windowWidth < 1200"
-                :gap="5"
-                :rqLimit="eventBestTeamsTarget.rqLimit"
-                prefix="Oppo"
-              />
-            </div>
-          </BaseExpandDiv>
-
-          <div v-if="eventBestTeamsTarget.clubReqsGroupModel" class="Main_TeamsRQSliderBox">
-            <BaseMonoSlider
-              v-model="eventBestTeamsTarget.rqLimit"
-              :min="60"
-              :max="500"
-              :step="5"
-              :label="$t('m_rqLimit')"
-              class="Main_TeamsRQSlider"
-            />
-          </div>
-          
-          <div class="Main_TeamsFooter D_Center2">
-            <div v-if="!whatTier || whatTier > 2" class="Main_SaveGalleryGuide">
-              <span>{{ $t("p_patronsOnly", { tier: 2 }) }}<br>{{ $t("p_bestHandDescription") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/PU6QnGUSGJA'>Youtube</a></span>
-            </div>
-            <button
-              :class="{ D_Button_Loading: eventBestTeamsLoading }"
-              :disabled="!whatTier || whatTier > 2 || eventBestTeamSameAsBefore"
-              class="D_Button D_ButtonDark D_ButtonTier2"
-              @click="getHandRanking($event)">
-              <template v-if="eventBestLastLoadingMsg">
-                <span>{{ eventBestLastLoadingMsg }}</span>
-              </template>
-              <template v-else>
-                <i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/>
-                <span>{{ $t("m_loadRanking") }}</span>
-                <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
-              </template>
-            </button>
-          </div>
-        </div>
-        <div v-if="eventBestTeamsBigArray.length" class="Main_Teams_Body Space_TopPlus">
-          <RecycleScroller
-            :items="eventBestTeamsBigArray"
-            :item-size="windowWidth < 1200 ? 170 : 122"
-            :buffer="800"
-            key-field="3"
-            key="Main2"
-            listClass="Main_Teams_CardsWrapper"
-            itemClass="Main_Teams_ScrollerItem"
-            class="Main_DarkScroll"
-            page-mode>
-            <template v-slot="{ item, index, active }">
-              <div class="Main_Teams_Index">
-                <div class="Main_Teams_IndexValue">#{{ index+1 }}</div>
-                <div class="Main_Teams_IndexRQ">RQ{{ item[1] }}</div>
-                <div class="Main_Teams_IndexPts">{{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
-                <div class="Main_Teams_ExportBox">
-                  <button
-                    class="Main_Teams_ExportMatch D_Button D_ButtonDark"
-                    @click="handRankingExportClick(index)">
-                    <span>{{ $t("m_exportToMatch") }}</span>
-                    <i class="ticon-internal" style="margin-left: 4px;" aria-hidden="true"/>
-                  </button>
-                </div>
-              </div>
-              <div class="Main_Teams_ListLayout">
-                <div v-for="(rid, index) in item[6]" class="Main_Teams_VerticalCardBox BaseCard_AsGalleryBox">
-                  <BaseCard
-                    :car="Vue.all_carsObj[rid]"
-                    :fix-back="false"
-                    :tuneText="item[5][index]"
-                    :options="false"
-                    :hideClose="true"
-                    :showResetTune="false"
-                    :showCompactOverlay="false"
-                    :asGallery="true"
-                  />
-                </div>
-              </div>
-            </template>
-          </RecycleScroller>
-        </div>
-        <div v-else-if="eventBestTeamsLastCache" class="Main_Teams_NoResponse">
-          <div class="Cg_Offline">
-            <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
-          </div>
-        </div>
-      </div>
-    </BaseDialog>
 
     <!-- COMPARE -->
     <BaseFilterDialog
@@ -3186,7 +3168,7 @@
           <button
             style="padding-left: 15px; padding-right: 15px; min-height: 40px;"
             class="Main_SearchItem"
-            @click="loadCgRound(cg.date, 'd')">
+            @click="cgChangeTab('dashboard')">
             <div class="Main_SearchItemRight Main_SearchItemDashboard">{{ $t("m_dashboard") }}</div>
             <div v-if="user && user.hasGarage" class="Main_SearchSub">
               <i class="ticon-car" style="font-size: 23px; margin: 0px 5px 0px 0px;" aria-hidden="true"/>
@@ -3662,14 +3644,27 @@
           </div>
         </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid">
-          <template v-for="(item, key) in clubArrayClubDays">
-            <BaseEventName
-              :item="item"
-              :class="{ Clubs_DaySelectorActive: item.date === clubDaySelected }"
-              :customName="`${item.date}${item.date === clubServerDateISO ? ` (${$t('m_current')})` : ''}`"
-              @click="clubsLoadDay(item.date, $event)"
-              @longTouch="clubsLoadDay(item.date, { shiftKey: true, ctrlKey: true })" />
-          </template>
+
+          <RecycleScroller
+            :items="clubArrayClubDays"
+            :item-size="38"
+            :buffer="800"
+            key-field="date"
+            key="daySelector"
+            listClass=""
+            itemClass=""
+            class="Main_DarkScroll"
+            page-mode>
+            <template v-slot="{ item, index, active }">
+              <BaseEventName
+                :item="item"
+                :class="{ Clubs_DaySelectorActive: item.date === clubDaySelected }"
+                :customName="`${item.date}${item.date === clubServerDateISO ? ` (${$t('m_current')})` : ''}`"
+                @click="clubsLoadDay(item.date, $event)"
+                @longTouch="clubsLoadDay(item.date, { shiftKey: true, ctrlKey: true })"
+              />
+            </template>
+          </RecycleScroller>
         </div>
       </div>
     </BaseDialog>
@@ -3727,6 +3722,13 @@
         </div>
       </div>
     </BaseDialog>
+
+
+      
+
+
+
+
   </div>
 </template>
 
@@ -3767,6 +3769,7 @@ import BaseCarsTuneTime from './BaseCarsTuneTime.vue'
 import BaseCarsPoints from './BaseCarsPoints.vue'
 import BaseSelectNew from './BaseSelectNew.vue'
 import BaseCarStats from './BaseCarStats.vue'
+import BaseCover from './BaseCover.vue'
 
 import { tdrStore } from '@/tdrStore.js';
 
@@ -3810,7 +3813,10 @@ export default {
     BaseCarsPoints,
     BaseSelectNew,
     BaseColorPicker: () => import('@/components/BaseColorPicker.vue'),
-    BaseCarStats
+    BaseCarStats,
+    BaseCover,
+    BaseRewards: () => import('@/components/BaseRewards.vue'),
+    BaseEventHandRanking: () => import('@/components/BaseEventHandRanking.vue'),
   },
   props: {
     phantomCar: {
@@ -4058,6 +4064,8 @@ export default {
         prizeCars: true,
         neverAwardedCars: true,
         predictedTimes: true,
+        balanced: false,
+        garageUpgrade: false,
         forceCars: [{}, {}, {}, {}, {}],
         forceOppoCars: [{}, {}, {}, {}, {}],
         blackList: [],
@@ -4066,6 +4074,13 @@ export default {
       eventBestLastLoadingMsg: null,
       eventRefreshDebounce: null,
       eventRefreshResting: false,
+      eventTabs: ["trackset", "hands", "info"],
+      eventTab: "trackset",
+      cgTabs: ["round", "dashboard"], // info later
+      cgTab: "round",
+      cgTabRoundMemory: null,
+      clubTabs: ["trackset", "hands"], // info later (map)
+      clubTab: "trackset",
       club: {},
       clubLoading: false,
       clubNewLoading: false,
@@ -5748,13 +5763,17 @@ export default {
         if (this.eventList.length === 0) {
           this.loadEvents();
         }
-        // this.resetBestTeamsConfig();
+        if (this.eventTab === "hands") {
+          this.openHandRankingDialog();
+        }
       }
       if (this.mode === "clubs") {
         if (this.clubTracksGroups.length === 0) {
           this.loadClubs();
         }
-        // this.resetBestTeamsConfig();
+        if (this.clubTab === "hands") {
+          this.openHandRankingDialog();
+        }
       }
     },
     newIndex(obj, isDialog = false, isTrack = false) {
@@ -6490,7 +6509,7 @@ export default {
     },
     outsideClick() {
       this.$store.commit("HIDE_DETAIL");
-      if (this.mode !== "events") {
+      if (this.mode !== "events" && this.mode !== "clubs") {
         this.showPoints = false;
       }
     },
@@ -7020,9 +7039,9 @@ export default {
         let cg = this.cgList.find(x => x.date === date)
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
-          if (res.data.notThisTime) Vue.set(cg, "notThisTime", true);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.cgLoading = false;
+          this.cgTabRoundMemory = null;
           this.loadCgRound(date, round);
         }
         this.lookForChangedCars(res.data);
@@ -7060,6 +7079,10 @@ export default {
       window.localStorage.setItem(`cg_${id}`, round);
       this.cg = cg;
       Vue.importDumbTimesFromCg(cg);
+
+      this.cgTab = "round";
+      if (round === "d") this.cgTab = "dashboard";
+
       if (round === "d" && !cg.rounds["d"]) {
         this.cgInitDashDefault();
       }
@@ -7087,7 +7110,6 @@ export default {
           this.cgRound.filter.topSpeedModel[0] = 25;
         }
       }
-      if (this.cg.notThisTime) this.cgRound.notThisTime = true;
 
       this.cgRoundsNumber = cg.rounds.length;
       this.generateUrl();
@@ -7108,7 +7130,7 @@ export default {
 
       this.cgResolveRoundCars(false);
       this.checkRaceTimesNull();
-      if (this.cgIsApproving || this.cg.notThisTime) {
+      if (this.cgIsApproving) {
         this.loadCgRoundAsset(id, round);
       } else {
         this.pingAssetStatistic(id, round);
@@ -7193,7 +7215,7 @@ export default {
     loadCgRoundAsset(id, round) {
       let roundId = `${id}_${round}`;
       if (this.cgLoadedAssets.includes(roundId)) return;
-      if (this.cgBlockDownloadAssets && !this.cg.notThisTime) return;
+      if (this.cgBlockDownloadAssets) return;
       this.cgLoading = true;
 
       axios.get(Vue.preUrlCharlie + `/asset/${roundId}`)
@@ -7213,10 +7235,6 @@ export default {
                 realCgRound.toApprove[index].upList = item.value.up;
               }
             })
-          }
-          if (this.cg.notThisTime && votes.length >= 1) {
-            Vue.set(this.cgRound, 'downList', votes[0].value.down);
-            Vue.set(this.cgRound, 'upList', votes[0].value.up);
           }
         }
         let assetCars = res.data.find(x => x.sort === 'cars');
@@ -8754,7 +8772,7 @@ export default {
             
             race.rid = car.rid;
             race.tune = tune;
-            if (iround === 8 && irace === 0) {
+            if (iround === 3 && irace === 0) {
               debugger;
             }
             if (!allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
@@ -8778,6 +8796,33 @@ export default {
         });
         return;
       }
+
+      newCg.info = {
+        name: json.ladder.name,
+        id: json.ladder.id,
+        rqMin: json.ladder.rqMin,
+        rqMax: json.ladder.rqMax,
+        image: json.ladder.characterImage,
+        startDateTime: json.ladder.startDateTime,
+        endDateTime: json.ladder.endDateTime,
+        prizeCardEntryRequirement: json.ladder.prizeCardEntryRequirement,
+        requirePrizeCard: json.ladder.requirePrizeCard,
+        inventoryItemRequirement: json.ladder.inventoryItemRequirement,
+        inventoryItemAmount: json.ladder.inventoryItemAmount,
+        inventoryItemConsumed: json.ladder.inventoryItemConsumed,
+        rungEligibility: json.ladder.rungEligibility,
+        maxTickets: json.ladder.maxTickets,
+        rungPrizes: json.ladder.rungPrizes,
+        hideOnCompletion: json.ladder.hideOnCompletion,
+        challengeUnlockRequirements: json.ladder.challengeUnlockRequirements,
+        tags: json.ladder.tags
+      };
+      if (json.ladder.cat) {
+        newCg.info.cat = json.ladder.cat;
+      }
+      newCg.flexibleCardPacks = json.flexibleCardPacks;
+
+
 
       this.cg = newCg;
       this.cgList.find(x => {
@@ -9842,6 +9887,18 @@ export default {
     toggleCgCatsConfig() {
       this.cgCatsConfig = !this.cgCatsConfig;
     },
+    cgChangeTab(tab) {
+      this.cgTab = tab;
+      if (tab === "dashboard") {
+        this.cgTabRoundMemory = this.cgCurrentRound;
+        this.loadCgRound(this.cg.date, 'd');
+      }
+      if (tab === "round") {
+        let round = 0;
+        if (this.cgTabRoundMemory && this.cgTabRoundMemory !== 'd') round = this.cgTabRoundMemory;
+        this.loadCgRound(this.cg.date, round);
+      }
+    },
     garageRemoveFromListUpgraded(index) {
       Vue.removeFromGarageUpgraded(index);
     },
@@ -9969,9 +10026,18 @@ export default {
         date: date
       })
       .then(res => {
-        let event = this.eventList.find(x => x.date === date)
+        let event = this.eventList.find(x => x.date === date);
+        Vue.updateInventory(res.data.inventory);
         if (event.date === res.data.date) {
           Object.keys( res.data ).forEach(key => {
+            if (key === "flexConfig") {
+              res.data[key].sort((a,b) => {
+                if (a.minRQ !== b.minRQ) {
+                  return b.minRQ - a.minRQ;
+                }
+                return b.minEloScore - a.minEloScore;
+              })
+            }
             Vue.set(event, key, res.data[key]);
           })
           this.loadEventScreen(date);
@@ -10003,6 +10069,7 @@ export default {
         }
       }
 
+      this.eventTab = "trackset";
       this.event = event;
       this.eventCurrentId = eventParsedToPreview && !event.date ? "_preview_" : event.date;
       if (isReadOnly) { this.eventCurrentId = "_readonly_" };
@@ -10100,6 +10167,10 @@ export default {
     eventCheckTracksetBeforeLocal(localTracks) {
       let areEqual = true;
       localTracks.find((trackset, itrackset) => {
+        if (!this.event.trackset[itrackset]) {
+          areEqual = false;
+          return true;
+        };
         areEqual = trackset.every(a => this.event.trackset[itrackset].filter(b => a === b).length === trackset.filter(c => a === c).length);
         if (!areEqual) {
           return true;
@@ -10321,8 +10392,10 @@ export default {
 
       if (this.isEvents) {
         Vue.set(this.event, "compilation", data);
+        this.eventTab = "trackset";
       } else {
         Vue.set(this, "clubCompilation", data);
+        this.clubTab = "trackset";
       }
       return;
     },
@@ -11150,6 +11223,8 @@ export default {
           console.log(error);
         }
 
+
+
         if (
           isParsed &&
           typeof obj === "object" &&
@@ -11164,7 +11239,9 @@ export default {
           .then(res => {
             this.eventNewDialog = false;
             this.eventNewLoading = false;
-            this.eventParsedList = res.data;
+            Vue.updateInventory(res.data.inventory);
+
+            this.eventParsedList = res.data.events;
             let now = new Date().toISOString();
 
             // resolve events by dateTime
@@ -11178,8 +11255,7 @@ export default {
               let bNotStarted = b.startDateTime.localeCompare(now) > 0;
               if (aNotStarted && !bNotStarted) return 1;
               if (bNotStarted && !aNotStarted) return -1;
-              
-              
+
               if (b.endDateTime !== a.endDateTime) {
                 return a.endDateTime.localeCompare(b.endDateTime);
               }
@@ -11218,11 +11294,64 @@ export default {
           })
 
         }
+        
+
+
+
+        if (
+          isParsed &&
+          typeof obj === "object" &&
+          obj.inventory &&
+          obj.inventory.config &&
+          Array.isArray(obj.inventory.config)
+        ) {
+          e.preventDefault();
+
+          this.eventNewLoading = true;
+
+          axios.post(Vue.preUrl + "/inventoryMap", obj.inventory.config)
+          .then(res => {
+            this.eventNewDialog = false;
+            this.eventNewLoading = false;
+
+            this.$store.commit("DEFINE_SNACK", {
+              active: true,
+              correct: true,
+              text: "Uploaded"
+            });
+
+          })
+          .catch(error => {
+            this.eventNewError = true;
+            this.eventNewLoading = false;
+            setTimeout(() => { this.eventNewError = false}, 1500);
+
+            console.log(error);
+            this.$store.commit("DEFINE_SNACK", {
+              active: true,
+              error: true,
+              text: error,
+              type: "error"
+            });
+          })
+
+        }
+
+
+
+
       }
     },
     eventPreviewParsed(event, isReadOnly) {
       console.log(event, event.filteringQueryStrings);
       this.loadEventScreen("", event, isReadOnly);
+    },
+    eventChangeTab(tab) {
+      if (tab === "hands") {
+        this.openHandRankingDialog();
+        return;
+      }
+      this.eventTab = tab;
     },
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
@@ -12454,6 +12583,13 @@ export default {
       });
       
     },
+    clubChangeTab(tab) {
+      if (tab === "hands") {
+        this.openHandRankingDialog();
+        return;
+      }
+      this.clubTab = tab;
+    },
     afterTogglePermanents(selector) {
       let el = document.querySelector(selector);
       if (!el) return;
@@ -12515,6 +12651,9 @@ export default {
       }
     },
     openHandRankingDialog() {
+      this.eventCheckFilterCodePre = null;
+      this.eventCheckFilterCode = null;
+      
       let filter;
       let filterAtr = 'filter';
 
@@ -12531,6 +12670,7 @@ export default {
           name: this.event.name,
           resolvedTrackset: this.event.resolvedTrackset
         }
+        this.eventTab = "hands";
       }
 
       if (this.isClubs) {
@@ -12547,6 +12687,7 @@ export default {
           name: `${this.clubTracksGroupModel.name}/${this.clubReqsGroupModel.name}`,
           resolvedTrackset: this.clubTracksGroupModel.resolvedTrackset
         }
+        this.clubTab = "hands";
       }
 
       let id = `${this.mode}_${this.eventBestTeamsTarget.name}_${this.eventBestTeamsTarget.rqLimit}`;
@@ -12555,7 +12696,7 @@ export default {
       }
       this.eventBestTeamsLastId = id;
 
-      this.eventBestTeamsDialog = true;
+
     },
     async getHandRanking(e) {
       if (this.eventBestTeamsConfig.myGarage && !this.user.hasGarage) {
@@ -12564,17 +12705,21 @@ export default {
       }
 
       this.eventBestTeamsLoading = true;
+      window.onbeforeunload = function(){ return 'Are you sure you want to leave?' };
+      this.$store.commit('BEFOREUNLOAD_TOUCH');
 
       let config = {
         trackset: this.eventBestTeamsTarget.trackset,
         rqLimit: this.eventBestTeamsTarget.rqLimit,
-        filteringQueryStrings: this.eventBestTeamsTarget.filteringQueryStrings,
-        flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired,
+        filteringQueryStrings: this.eventBestTeamsTarget.filteringQueryStrings || [],
+        flexibleCriteriaRequired: this.eventBestTeamsTarget.flexibleCriteriaRequired || [],
         flexConfig: this.eventBestTeamsTarget.flexConfig,
         sendStats: this.$store.state.showUpcomingTags,
         myGarage: this.eventBestTeamsConfig.myGarage,
         repeatCars: this.eventBestTeamsConfig.repeatCars || this.eventBestTeamsConfig.myGarage,
         uniqueHands: this.eventBestTeamsConfig.uniqueHands,
+        balanced: this.eventBestTeamsConfig.balanced,
+        garageUpgrade: this.eventBestTeamsConfig.garageUpgrade,
         prizeCars: this.eventBestTeamsConfig.prizeCars,
         neverAwardedCars: this.eventBestTeamsConfig.neverAwardedCars,
         predictedTimes: this.eventBestTeamsConfig.predictedTimes || this.eventBestTeamsConfig.myGarage,
@@ -12586,6 +12731,7 @@ export default {
       }
       if (this.eventBestTeamsConfig.forceOppoBool && this.eventBestTeamsConfig.forceOppoCars.some(car => car.rid)) {
         config.forceOppoCars = this.eventBestTeamsConfig.forceOppoCars.map(car => car.rid);
+        config.balanced = false;
       }
       if (this.eventBestTeamsConfig.blackListBool && this.eventBestTeamsConfig.blackList.length > 0) {
         config.blackList = this.eventBestTeamsConfig.blackList;
@@ -12595,8 +12741,6 @@ export default {
         config.rqLimit = this.eventBestTeamsTarget.rqLimit;
       }
       if (this.mode === 'events') {
-        // config.filteringQueryStrings = []; // TEMP
-        // config.flexibleCriteriaRequired = []; // TEMP
         config.eventFilter = this.eventBestTeamsTarget.filter;
       }
 
@@ -12614,6 +12758,8 @@ export default {
 
         if (!response.ok) {
           this.eventBestTeamsLoading = false;
+          window.onbeforeunload = null;
+          this.$store.commit('BEFOREUNLOAD_TOUCH');
           this.eventBestLastLoadingMsg = null;
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -12629,7 +12775,11 @@ export default {
             break;
           }
 
-          const chunkText = decoder.decode(value, { stream: true });
+          let chunkText = decoder.decode(value, { stream: true });
+          if (chunkText.includes("}{\"")) {
+            let splited = chunkText.split("}{");
+            chunkText = "{" + splited[splited.length - 1];
+          }
           let parsed;
           try {
             // console.log(chunkText);
@@ -12652,12 +12802,14 @@ export default {
               console.log(parsed);
             }
             this.eventBestTeamsBigArray = parsed.arr;
-            this.eventBestTeamsDialog = true;
+            // this.eventBestTeamsDialog = true;
             this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
           }
         }
 
         this.eventBestTeamsLoading = false;
+        window.onbeforeunload = null;
+        this.$store.commit('BEFOREUNLOAD_TOUCH');
         this.eventBestLastLoadingMsg = null;
 
       } catch (error) {
@@ -12669,6 +12821,8 @@ export default {
           type: "error"
         });
         this.eventBestTeamsLoading = false;
+        window.onbeforeunload = null;
+        this.$store.commit('BEFOREUNLOAD_TOUCH');
         this.eventBestLastLoadingMsg = null;
       }
 
@@ -12809,15 +12963,19 @@ export default {
       let oppos = [];
       let oppoIndex = index=== 0? 1 : 0;
 
-      this.eventBestTeamsDialog = false;
-
 
       if (this.eventBestTeamsBigArray[index][6]) {
         this.eventBestTeamsBigArray[index][6].map((rid, irid) => {
           cars.push({ rid: rid, selectedTune: this.eventBestTeamsBigArray[index][5][irid] })
         })
       }
-      if (this.eventBestTeamsBigArray[oppoIndex][6]) {
+      if (this.eventBestTeamsConfig.forceOppoCars) {
+        this.eventBestTeamsConfig.forceOppoCars.map(car => {
+          if (car.rid) {
+            oppos.push({ rid: car.rid })
+          }
+        })
+      } else if (this.eventBestTeamsBigArray[oppoIndex][6]) {
         this.eventBestTeamsBigArray[oppoIndex][6].map((rid, irid) => {
           oppos.push({ rid: rid, selectedTune: this.eventBestTeamsBigArray[oppoIndex][5][irid] })
         })

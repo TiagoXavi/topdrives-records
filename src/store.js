@@ -203,6 +203,8 @@ export default new Vuex.Store({
     LOGOUT: (state, item) => {
       state.user = null;
       window.user = null;
+      window.localStorage.removeItem("cacheGarage");
+      window.localStorage.removeItem("garageUpgrades");
     },
     CHANGE_TIME: (state, obj) => null,
     DELETE_TIME: (state, obj) => null,
@@ -233,6 +235,8 @@ export default new Vuex.Store({
     OPEN_BRAKES: (state, obj) => null,
     OPEN_OLA: (state, obj) => null,
     OPEN_HILL: (state, obj) => null,
+    OPEN_ITEM_DETAIL: (state, obj) => null,
+    OPEN_PACK_DETAIL: (state, obj) => null,
     CLEAR_PRIZEBOARD: (state, obj) => null,
     BEFOREUNLOAD_TOUCH: (state, obj) => null,
     CLEAR_EDITABLE: () => {

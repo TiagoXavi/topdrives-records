@@ -229,6 +229,7 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
       loading: false,
       listLoading: false,
       user: null,
@@ -259,6 +260,7 @@ export default {
   beforeMount() {
     this.resetCars();
     this.user = this.$store.state.user;
+    this.load();
 
     // check new cars
     // this.getLastest();

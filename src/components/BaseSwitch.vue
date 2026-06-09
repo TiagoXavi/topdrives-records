@@ -148,6 +148,7 @@ export default {
 .BaseSwitch_Label {
   font-size: 14px;
   text-align: center;
+  line-height: 1.1;
 }
 .BaseSwitch_Horizontal .BaseSwitch_Label {
   text-align: left;
@@ -224,5 +225,8 @@ export default {
 .BaseSwitch_Disabled .BaseSwitch_Input:checked + .BaseSwitch_Slider:before {
   color: #5fb500;
   transform: translateX(calc(var(--width) - var(--height))) rotate(45deg);
+}
+.BaseSwitch_NoWrapParent .BaseSwitch_Label {
+  white-space: nowrap;
 }
 </style>

@@ -7,13 +7,13 @@
     <div class="Main_CornerMid">
       <div class="Main_CornerMidBox">
         <BaseButtonTouch
-          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu Main_CornerMenu"
+          :class="`D_Button D_ButtonMenu Main_CornerMenu ${isTabCorner ? '' : 'D_ButtonDark D_ButtonDark2'}`"
           @click="$emit('menu')"
           @longTouch="$emit('longMenu')">
           <i class="ticon-3menu Main_MenuIcon" aria-hidden="true"/>
         </BaseButtonTouch>
         <BaseButtonTouch
-          class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonMenu"
+          :class="`D_Button D_ButtonMenu ${isTabCorner ? '' : 'D_ButtonDark D_ButtonDark2'}`"
           @click="$emit('camera')"
           @longTouch="$emit('longCamera')">
           <i class="ticon-camera1 Main_MenuIcon" aria-hidden="true"/>
@@ -42,7 +42,7 @@ export default {
     BaseButtonTouch
   },
   props: {
-    test: {
+    isTabCorner: {
       type: Boolean,
       default: false
     },
@@ -63,4 +63,26 @@ export default {
 </script>
 
 <style>
+.Cg_BaseCornerAsTab {
+  height: auto;
+  width: auto;
+  flex-direction: row;
+}
+.Cg_TabsCorner {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-right: -3px;
+  gap: 5px;
+}
+.Cg_BaseCornerAsTab .Main_CornerMid {
+  margin: 0px;
+  flex-direction: row;
+  flex-grow: unset;
+  gap: 0;
+}
+.Cg_BaseCornerAsTab .D_Button.D_ButtonMenu {
+  padding: 10px 7px;
+}
 </style>

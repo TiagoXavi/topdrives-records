@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`${isDialogBox ? 'BaseCard_LayoutDialog' : ''} BaseCard_Class${resolveCar.class} ${asGallery ? 'BaseCard_LayoutAsDialog' : ''}`"
+    :class="`${isDialogBox ? 'BaseCard_LayoutDialog' : ''} ${isDialogBox || noCompact ? 'BaseCard_NoCompact' : ''} BaseCard_Class${resolveCar.class} ${asGallery ? 'BaseCard_LayoutAsDialog' : ''}`"
     :style="`--class-color: ${carClassColor}; --class-color-rgb: ${carClassColorRgb};`"
     class="BaseCard_Layout">
     <div v-if="fixBack" class="BaseCard_FixBack" />
@@ -182,6 +182,10 @@ export default {
       default: null
     },
     asGallery: {
+      type: Boolean,
+      default: false
+    },
+    noCompact: {
       type: Boolean,
       default: false
     },

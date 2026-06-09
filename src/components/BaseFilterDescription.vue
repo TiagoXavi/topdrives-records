@@ -1,5 +1,5 @@
 <template>
-  <div class="Main_DarkScroll BaseFilterDescription_Root">
+  <div class="Main_DarkScroll Main_DarkScrollMini BaseFilterDescription_Root">
     <template v-if="(currentFilter !== undefined) && (!hideIfEmpty || descResolved.length > 0)">
       <div v-if="hasFilter2 || hasFilter3" class="BaseFilterDescription_MultiBox">
         <template v-for="n in 3">

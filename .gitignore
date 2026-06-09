@@ -16,6 +16,11 @@ cars_short.json
 RT_*/
 tempJson.json
 src/.gitignore
+public/*/bkp/
+public/*/orig/
+public/*/temp/
+public/*/JPEG/
+public/h_trackOutlines/
 
 
 # local env files

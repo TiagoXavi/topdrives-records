@@ -246,6 +246,7 @@ export default {
   background-position: 50% 60%;
   background-repeat: no-repeat;
   opacity: 0.1;
+  pointer-events: none;
 }
 .BaseCarStats_GreenIcon {
   color: rgb(var(--d-text-green));

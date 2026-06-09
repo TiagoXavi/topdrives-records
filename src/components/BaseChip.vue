@@ -349,4 +349,27 @@ export default {
   background-color: var(--classC);
   color: black;
 }
+.BaseChip_AsTab {
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 16px 23px;
+  height: auto;
+  font-size: 0.9em;
+}
+.D_ButtonActive.BaseChip_AsTab:not(p) {
+  box-shadow: inset 0px -24px 25px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+}
+.BaseChip.BaseChip_AsTab:not(.D_ButtonActive):hover,
+.BaseChip.BaseChip_AsTab:not(.D_ButtonActive).focus-visible {
+  background-color: rgba(var(--d-text-green-b), 0.08);
+  box-shadow: inset 0px -24px 25px -20px rgba(var(--d-text-green), 0.0);
+}
+.BaseChip.BaseChip_AsTab.D_ButtonActive:hover,
+.BaseChip.BaseChip_AsTab.D_ButtonActive.focus-visible {
+  box-shadow: inset 0px -43px 25px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
+}
+.BaseChip_AsTab.D_ButtonActive {
+  pointer-events: none;
+  cursor: initial;
+}
 </style>

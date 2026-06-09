@@ -339,6 +339,15 @@ export default {
   m_showAllCopies: "Show all copies",
   m_hideAllCopies: "Hide all copies",
   m_ifMatches: "If matches",
+  m_hands: "Hands",
+  m_balanced: "Balanced",
+  m_info: "Info",
+  m_ticketRegeneration: "Ticket regeneration",
+  m_bucketSize: "Bucket size",
+  m_bracket: "Bracket | Brackets",
+  m_duration: "Duration",
+  m_expiration: "Expiration",
+  m_upgradeCars: "Max my cars",
 
 
 
@@ -381,11 +390,6 @@ export default {
   p_publicDescript: "There is a public link and anyone can enter",
   p_userSentCommunityForAnalyse: "Thanks! Your community will be analysed by TDR mod team.",
   p_communityToBeInvited: "To be invited, type what is being asked below:",
-  p_cgNotThisTime1: "This challenge isn't available here",
-  p_cgNotThisTime2: "We decided to not put this challenge on TDR. Let's play the old school way, just for the fun. Before TDR we all did this, we can do again. Maybe it can be too hard or risky, but just this challenge. The other ones are running normally.",
-  p_cgNotThisTime3: "Why? We lost some social ways of looking for help and solutions. This time we want to see players helping each other instead of TDR giving all the solutions. Helping each other is the core of every community. Discord, Facebook, Reddit, Youtube... There are many. Are you not in any community? There is a tab with a lot of them, find one you like:",
-  p_cgNotThisTime4: "Just to be clear, this isn't a paywall. Not even patrons or moderators are able to see the rounds.",
-  p_cgNotThisTime5: "I hope you understand. Have a fun!",
   p_privateGarageDesc: "Only you can view",
   p_publicGarageDesc: "People with link can view",
   p_youNeedGarage: "You need to upload your garage first",

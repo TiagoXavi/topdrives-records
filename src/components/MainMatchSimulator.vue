@@ -8,29 +8,28 @@
 
 
 
+  
 
 
 
-
-    <div class="Cg_Header">
-      <div class="Cg_HeaderLeft">
-        <div class="Cg_Corner">
+    <div class="MainMatchSimulator_Header">
+      <div class="MainMatchSimulator_HeaderLeft">
+        <!-- <div class="Cg_Corner">
           <div class="Main_CornerMid">
           </div>
-        </div>
-        <div class="Cg_RowCornerBox">
-          <!-- top CHALLENGE -->
+        </div> -->
+        <div class="MainMatchSimulator_RowCornerBox">
           
           <div v-if="T_S._match.pages" class="MainMatchSimulator_PagesBox">
             <BaseButtonTouch
               v-for="(m, index) in T_S._match.pages"
               v-if="index >= Math.min(T_S._match.pages.length-9, T_S._match.page-4) && index <= Math.max(8, T_S._match.page+4)"
               :class="{ Row_DialogButtonTuneActive: T_S._match.page === index }"
-              class="D_Button Main_OptionsButton MainMatchSimulator_PageSave"
+              class="D_Button Main_OptionsButton Main_MiniPage"
               @longTouch="loadPage(index, { shiftKey: true }, $event)"
               @click="loadPage(index, $event)">
               <span style="pointer-events: none; user-select: none;">{{ index+1 }}</span>
-              <div v-if="T_S._match.pages[index] && T_S._match.pages[index].name" class="MainMatchSimulator_PageSub">{{ T_S._match.pages[index].name }}</div>
+              <div v-if="T_S._match.pages[index] && T_S._match.pages[index].name" class="Main_MiniPageSub">{{ T_S._match.pages[index].name }}</div>
             </BaseButtonTouch>
             <button
               class="D_Button Main_MemorySave"
@@ -52,7 +51,7 @@
                 <div
                   :style="`color: ${ T_S._match.rqFill > T_S._match.rqLimit ? '#a90000' : '' }; margin-left: 10px;`"
                   class="Cg_RqText">
-                  <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
+                  <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
                   <span>{{ T_S._match.rqFill }}</span>
                   <span>/</span>
                   <span>{{ T_S._match.rqLimit }}</span>
@@ -93,7 +92,7 @@
           :user="{ mod: true }"
           :useWhatFilter="useWhatFilter"
           @useFilter="useWhatFilter = $event;"
-          class="Cg_Right"
+          class="MainMatchSimulator_Right"
           @changeClick="openDialogFilter()" />
 
         <div class="Cg_RqCount">
@@ -932,6 +931,50 @@ export default {
 </script>
 
 <style>
+.MainMatchSimulator_Header {
+  width: 100%;
+  /* margin: 15px 0px -10px 0px; */
+}
+.MainMatchSimulator_HeaderLeft {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+  min-height: 150px;
+  box-sizing: border-box;
+  gap: 50px;
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
+}
+.MainMatchSimulator_RowCornerBox {
+  z-index: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  transition-duration: 0.15s;
+  transition-property: set;
+  justify-content: center;
+  flex-direction: column;
+}
+.MainMatchSimulator_Right {
+  background-color: hsl(var(--back-h), var(--back-s), 12%);
+  height: 128px;
+  max-width: 240px;
+  padding: 6px 7px 7px 7px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-radius: 5px;
+  min-height: 70px;
+  width: 100%;
+}
+.MainMatchSimulator_Layout .Cg_RqCount {
+  bottom: -2px;
+}
+
+
 .MainMatchSimulator_Mid {
   margin-top: 30px;
   padding-bottom: 30px;
@@ -944,7 +987,7 @@ export default {
   /* opacity: 1; */
 }
 .MainMatchSimulator_Layout .Cg_SelectorLayout {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   flex-grow: unset;
 }
 .MainMatchSimulator_TotalLayout {
@@ -1014,22 +1057,6 @@ export default {
 .MainMatchSimulator_Mid .BaseEventTrackbox_PointBig {
   font-size: 0.8em;
 }
-.MainMatchSimulator_PageSave {
-  position: relative;
-}
-.MainMatchSimulator_PageSub {
-  pointer-events: none;
-  user-select: none;
-  position: absolute;
-  top: -3px;
-  left: 0%;
-  width: 100%;
-  overflow: hidden;
-  font-size: 11px;
-  opacity: 0.3;
-  text-align: center;
-  /* color: rgb(var(--d-text-green)); */
-}
 .MainMatchSimulator_Layout .Cg_Divider {
   /* margin-top: 0px; */
 }
@@ -1054,7 +1081,7 @@ export default {
 }
 @media only screen and (max-width: 850px) {
   .MainMatchSimulator_Layout .Cg_Corner,
-  .MainMatchSimulator_Layout .Cg_Right {
+  .MainMatchSimulator_Layout .MainMatchSimulator_Right {
     width: auto;
     padding: 0 15px;
   }
@@ -1066,7 +1093,7 @@ export default {
   .MainMatchSimulator_Layout .Cg_SelectorRight {
     display: none;
   }
-  .MainMatchSimulator_Layout .Cg_RowCornerBox {
+  .MainMatchSimulator_Layout .MainMatchSimulator_RowCornerBox {
     align-items: flex-start;
   }
   .MainMatchSimulator_Layout .Cg_CenterBottom {

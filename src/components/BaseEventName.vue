@@ -1,11 +1,11 @@
 <template>
   <BaseButtonTouch
-    style="padding-left: 15px; padding-right: 15px;"
     class="BaseEventName_Item"
     :class="`${tag}`"
     @click="$emit('click', $event)"
     @longTouch="$emit('longTouch', $event)">
     <div class="BaseEventName_Left">
+      <div v-if="important" class="BaseEventName_Fire"></div>
       <span
         v-if="item.nameStyled"
         v-html="item.nameStyled"
@@ -18,10 +18,11 @@
         :class="contentClass"
         class="BaseEventName_Right"
         :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`">{{ name }}</span>
+      <slot />
       <BaseRemainingTime
-        v-if="item?.endDateTime || item?.startDateTime"
+        v-if="!onlyName && (!item?.endDateTime || item?.startDateTime)"
         :endDateTime="started ? item?.endDateTime : item?.startDateTime"
-        :hideNegative="true"
+        :hideNegative="false"
         :mini="true"
         :showClock="false"
         @ended="!started ? endedFunc() : null"
@@ -29,16 +30,18 @@
       />
 
     </div>
-    <i
-      v-for="icon in item.icons"
-      :class="`tdicon-${icon}`"
-      class="TdIconCond"
-      aria-hidden="true">
-      <span class="path1"/>
-      <span class="path2"/>
-      <span class="path3"/>
-      <span class="path4"/>
-    </i>
+    <template v-if="!onlyName">
+      <i
+        v-for="icon in item.icons"
+        :class="`tdicon-${icon}`"
+        class="TdIconCond"
+        aria-hidden="true">
+        <span class="path1"/>
+        <span class="path2"/>
+        <span class="path3"/>
+        <span class="path4"/>
+      </i>
+    </template>
     <!-- <BaseIconSvg v-for="icon in item.icons" :type="`n_${icon}`" :useMargin="false" /> -->
   </BaseButtonTouch>
 </template>
@@ -73,12 +76,17 @@ export default {
     contentClass: {
       type: String,
       default: ""
+    },
+    onlyName: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       started: false,
-      ended: false
+      ended: false,
+      important: false
     }
   },
   watch: {},
@@ -89,7 +97,10 @@ export default {
       return this.customName ? this.customName : this.item.name;
     },
     tag() {
+      this.important = false;
       if (!this.item.tag) return "";
+      if (Vue.importantTags.includes(this.item.tag)) this.important = true;
+
       let now = new Date().toISOString();
       // if (this.item.date && this.item.date !== "__preview__") return "";
       
@@ -130,6 +141,8 @@ export default {
 <style>
 .BaseEventName_Item {
   padding: 7px 25px 7px 0px;
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   width: 100%;
   min-width: fit-content;
@@ -149,7 +162,7 @@ export default {
 }
 .BaseEventName_Item:hover,
 .BaseEventName_Item.focus-visible {
-  color: #fff6;
+  /* color: #fff6; */
   background-color: rgba(var(--back-color), var(--back-opac));
 }
 .BaseEventName_Added {
@@ -200,6 +213,41 @@ export default {
   vertical-align: middle;
 }
 .BaseEventName_Timer:empty {
+  display: none;
+}
+.BaseEventName_HeaderTitle {
+  font-size: 1.2em;
+  padding-left: 4px;
+  padding-right: 0;
+  margin-left: -4px;
+  color: var(--d-text-b);
+  min-width: unset;
+}
+.BaseEventName_HeaderTitle .BaseEventName_Events {
+  margin-right: 0;
+}
+.BaseEventName_HeaderTitle .BaseEventName_Left {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.BaseEventName_Item:has(.BaseEventName_Fire) {
+  position: relative;
+  overflow: hidden;
+}
+.BaseEventName_Fire {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 100px;
+  height: 100%;
+  background-image: url(/assets/fire.png);
+  background-size: 80%;
+  background-position: 50% 60%;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.Cg_Header .BaseEventName_Fire {
   display: none;
 }
 </style>

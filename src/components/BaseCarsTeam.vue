@@ -13,9 +13,9 @@
       `--widthF: ${mini ? miniWidth : width}px;` +
       `--widthFraw: ${mini ? miniWidth : width};` +
       `--aspectF: ${mini ? miniAspect : aspect};` +
-      `--fsizeF: ${mini ? miniFsize : fsize}px;`
-    "
-    style="--gap: 5px;">
+      `--fsizeF: ${mini ? miniFsize : fsize}px;` +
+      `--gap: ${gap}px;`
+    ">
     <div
       :class="`BaseCarsTeam_Layout${prefix}`"
       class="BaseCarsTeam_Box"> <!-- BaseCarsTeam_DraggingParent ,  -->
@@ -32,7 +32,7 @@
           <BaseCard
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
-            :options="true"
+            :options="!readOnly"
             :hideClose="!canDelete"
             :showResetTune="false"
             :asGallery="true"
@@ -194,6 +194,10 @@ export default {
     pickFunc: {
       type: Function,
       default: null
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -494,6 +498,9 @@ export default {
 .BaseCarsTeam_TeamsAddCarButton {
   width: var(--widthF);
   aspect-ratio: var(--aspectF);
+  height: round(calc(var(--widthF) * ((415 / 256) - 1)), 1px);
+}
+.Main_Compact .BaseCarsTeam_TeamsAddCarButton {
   height: auto;
 }
 @supports not (aspect-ratio: 415 / 256) {

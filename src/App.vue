@@ -216,6 +216,26 @@
       </div>
     </BaseDialog>
     <BaseDialog
+      :active="inventoryItemDetailDialog"
+      :transparent="false"
+      :lazy="true"
+      :disableScroll="true"
+      max-width="450px"
+      min-width="240px"
+      zindex="102"
+      @close="inventoryItemDetailDialog = false;">
+      <div v-if="inventoryItemDetailItem" style="App_DialogCustom">
+        <div class="Main_DialogInventoryHeader">
+          <div class="Main_DialogInventoryImage"><BaseItem :item="inventoryItemDetailItem" :size="128" :clicable="false" /></div>
+        </div>
+        <div class="Main_DialogInventoryBody">
+          <div class="Main_DialogInventoryName Space_Top">{{ inventoryItemDetailItem.name }}</div>
+          <div class="Main_DialogInventoryDescription Space_Top">{{ inventoryItemDetailItem.unlockDescription }}</div>
+          <div class="Main_DialogInventoryExpiration Space_Top">{{ $t('m_expiration') }}: {{ inventoryItemDetailItem.expirationDate | formatUTCDateString }}</div>
+        </div>
+      </div>
+    </BaseDialog>
+    <BaseDialog
       :active="$store.state.confirmDialog.active"
       :transparent="!!$store.state.confirmDialog.transparent"
       :scrollParent="true"
@@ -310,6 +330,55 @@
     <portal-target name="app_dialogs" multiple>
     </portal-target>
 
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+      <defs>
+        <pattern id="trianglePattern" width="200" height="200" patternUnits="userSpaceOnUse">
+          <animate attributeName="x" from="0" to="200" dur="12s" repeatCount="indefinite" />
+          <g fill="currentColor" >
+            <polygon points="16,30.4 33.8,52.3 5.9,53.4 "/>
+            <polygon points="120.9,39.5 142.2,32.3 137.4,55.3 "/>
+            <polygon points="182.2,144 165.1,170.7 153.2,142.1 "/>
+            <polygon points="59.2,119.1 57.6,143.9 32.9,129.4 "/>
+            <polygon points="85.8,39.6 84.4,60.9 63.2,48.5 "/>
+            <polygon points="33.5,101.2 32.8,111.2 22.8,105.4 "/>
+            <polygon points="60.9,154 68.7,160.4 58.2,165.1 "/>
+            <polygon points="88.8,186.5 88.1,196.6 78.2,190.7 "/>
+            <polygon points="63.1,14.9 62.5,24.9 52.5,19 "/>
+            <polygon points="191.7,173 188.1,182.4 180.3,173.9 "/>
+            <polygon points="89.6,86.3 105.7,109.1 79.2,110.5 "/>
+            <polygon points="92.7,4.6 112.6,17 90.9,23.5 "/>
+            <polygon points="153.5,70.4 168.7,79.8 152.1,84.8 "/>
+            <polygon points="172.5,105.6 182.6,111.9 171.5,115.2 "/>
+            <polygon points="97.3,150.7 107,171 83,168 "/>
+            <polygon points="138.6,93.1 145.1,106.7 128.9,104.7 "/>
+            <polygon points="124.4,129.9 144.5,129.9 132.8,149.5 "/>
+            <polygon points="118.8,57.7 122.9,67.9 112.7,66.2 "/>
+            <polygon points="188.1,53 192.3,63.2 182,61.5 "/>
+            <polygon points="135.1,168.3 139.3,178.6 129,176.8 "/>
+            <polygon points="100.5,123.3 104.6,133.6 94.4,131.8 "/>
+            <polygon points="12,159.7 31,168.4 15,177.7 "/>
+            <polygon points="51.7,68.7 66.7,80.7 50,86.1 "/>
+            <polygon points="166.5,16.4 187.1,32.9 164.2,40.3 "/>
+            <polygon points="-3.4,74.7 14.4,84.1 -5,96 "/>
+            <polygon points="196.6,74.7 214.4,84.1 195,96 "/>
+            <polygon points="216,138.8 198,132 212.2,121.7 "/>
+            <polygon points="16,138.8 -2,132 12.2,121.7 "/>
+            <polygon points="-5.3,-4.3 9.7,7.7 -7,12.8 "/>
+            <polygon points="194.7,-4.3 209.7,7.7 193,12.8 "/>
+            <polygon points="194.7,195.7 209.7,207.7 193,212.8 "/>
+            <polygon points="37,-14.3 57.1,-14.2 45.4,5.3 "/>
+            <polygon points="37,185.7 57.1,185.8 45.4,205.3 "/>
+            <polygon points="131,2.4 148.1,-8.3 148.5,14.5 "/>
+            <polygon points="131,202.4 148.1,191.7 148.5,214.5 "/>
+          </g>
+        </pattern>
+        <mask id="triangleMask" x="0" y="0" width="1" height="1" >
+          <rect x="0" y="0" width="400" height="400" fill="url(#trianglePattern)" />
+        </mask>
+      </defs>
+    </svg>
+
   </div>
 </template>
 
@@ -339,7 +408,8 @@ export default {
     BaseCarDetailDialog: () => import('@/components/BaseCarDetailDialog.vue'),
     BaseCarDetailFull: () => import('@/components/BaseCarDetailFull.vue'),
     BaseCheckBox: () => import('@/components/BaseCheckBox.vue'),
-    BaseCardMini: () => import('@/components/BaseCardMini.vue')
+    BaseCardMini: () => import('@/components/BaseCardMini.vue'),
+    BaseItem: () => import('@/components/BaseItem.vue')
   },
   props: {},
   data() {
@@ -365,7 +435,9 @@ export default {
       loginDialog: false,
       brakeDialog: false,
       olaDialog: false,
-      hillDialog: false
+      hillDialog: false,
+      inventoryItemDetailDialog: false,
+      inventoryItemDetailItem: null
     }
   },
   watch: {
@@ -549,6 +621,23 @@ export default {
           vm.logRocketInitialized = true;
           LogRocket.init('detmgd/topdrives-records');
         }
+      }
+
+      if (mutation.type == "OPEN_ITEM_DETAIL") {
+        let item;
+        if (mutation.payload && mutation.payload[0] && Vue.inventory[mutation.payload[0]]) {
+          item = Vue.inventory[mutation.payload[0]]
+        } else if (mutation.payload && mutation.payload[0]) {
+          item = {
+            "name": "Unknown item",
+            "image": "KeyGrey",
+            "unlockDescription": "Unknown item"
+          }
+        }
+        this.inventoryItemDetailDialog = true;
+        this.inventoryItemDetailItem = item;
+      }
+      if (mutation.type == "OPEN_PACK_DETAIL") {
       }
 
     });
@@ -1294,8 +1383,9 @@ button.D_Button.D_Button_Error {
 .D_Button.Main_ArrowDownSelect {
   color: var(--d-text-b);
   font-size: 1.2em;
-  padding: 0 2px 0 9px;
+  padding: 0 2px 0 4px;
   border-radius: 0;
+  margin-left: -4px;
 }
 .D_Button.D_ButtonRedLight,
 .BaseChip.D_ButtonRedLight {
@@ -1461,6 +1551,74 @@ body::-webkit-scrollbar-corner {
 }
 .Main_DarkScrollMini::-webkit-scrollbar-button {
   height: 15px;
+}
+.Main_DarkScrollMiniHorizontal::-webkit-scrollbar {
+  height: 4px;
+}
+.Main_DarkScrollMiniHorizontal::-webkit-scrollbar-button {
+  width: 4px;
+}
+.Main_DarkScrollMiniHorizontal {
+  scroll-behavior: smooth;
+  scroll-timeline: --container-scroll inline;
+  position: relative;
+  scrollbar-width: none;
+}
+.Main_DarkScrollMiniHorizontalScope {
+  timeline-scope: --container-scroll;
+}
+.Main_DarkScrollMiniHorizontal_Sticky {
+  position: sticky;
+  left: 0;
+  height: 0;
+  width: 0;
+  overflow: visible;
+  z-index: 2;
+}
+.Main_DarkScrollMiniHorizontal_Right,
+.Main_DarkScrollMiniHorizontal_Left {
+  position: absolute;
+  left: calc(var(--wBody) - 41px);
+  top: calc(var(--rs) * 0.5 + 15px);
+  transform: translateY(-50%) !important;
+  z-index: 10;
+  background: #00000012;
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  animation: hideAtEnd linear both;
+  animation-timeline: --container-scroll;
+  backdrop-filter: blur(9px);
+  font-size: 16px;
+}
+@supports not (animation-timeline: --container-scroll) {
+  .Main_DarkScrollMiniHorizontal_Right,
+  .Main_DarkScrollMiniHorizontal_Left {
+    animation: unset;
+  }
+}
+.Main_DarkScrollMiniHorizontal_Left {
+  left: 5px;
+  right: unset;
+  animation-direction: reverse; 
+}
+.Main_DarkScrollMiniHorizontal_Right > *,
+.Main_DarkScrollMiniHorizontal_Left > * {
+  pointer-events: none;
+}
+@keyframes hideAtEnd {
+  0% {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  99% {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 textarea::-webkit-resizer {
@@ -3039,6 +3197,12 @@ body .Main_UserTw3:before {
 .Cg_HeaderLeft {
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 25px;
+  min-height: 234px;
+  box-sizing: border-box;
 }
 .Cg_RowCornerBox {
   /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
@@ -3046,12 +3210,14 @@ body .Main_UserTw3:before {
   white-space: nowrap;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   transition-duration: 0.15s;
   transition-property: set;
   justify-content: center;
   flex-grow: 1;
   flex-direction: column;
+  /* width: clamp(100px, 300px, 100%); */
+  /* max-width: 56%; */
 }
 .Cg_SelectorLayout {
   display: flex;
@@ -3063,7 +3229,8 @@ body .Main_UserTw3:before {
 }
 .Cg_SelectorCenter {
   flex-grow: 1;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
 .Cg_SaveButtonBox {
 
@@ -3313,8 +3480,11 @@ body .Main_UserTw3:before {
   width: 100%;
   height: 5px;
   position: absolute;
-  bottom: 0;
-  z-index: 30;
+  bottom: 78px;
+  z-index: 0;
+}
+.Cg_LayoutCg .Cg_RqCount {
+  bottom: 84px;
 }
 .Cg_RqFill {
   background-color: #474747;
@@ -3330,13 +3500,14 @@ body .Main_UserTw3:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+  margin-left: 0px;
 }
 .Cg_RqRq {
   margin-right: 3px;
   font-size: 26px;
   line-height: 1;
-  display: flex;
+  display: inline-flex;
 }
 .Cg_Pts {
   transform: scaleX(1.7) skewX(-14deg);
@@ -3349,9 +3520,13 @@ body .Main_UserTw3:before {
   display: flex;
   align-items: center;
   gap: 15px;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 34px;
   margin-top: 5px;
+}
+.Cg_CenterBottomCg {
+  margin-bottom: -10px;
+  margin-top: 1px;
 }
 .Cg_PointsSum {
   margin-left: 10px;
@@ -3397,15 +3572,22 @@ body .Main_UserTw3:before {
 
 
 .Cg_Right {
-  /* background-color: hsl(var(--back-h), var(--back-s), 15%); */
-  height: var(--top-height);
-  width: var(--left-width);
-  padding: 3px;
+  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  height: 128px;
+  max-width: 240px;
+  padding: 6px 7px 7px 7px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   overflow-y: auto;
+  border-radius: 5px;
+  min-height: 70px;
+  width: 100%;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.Cg_LayoutCg .Cg_Right {
+  margin-top: 0px;
 }
 .Cg_ReqsTitle {
   opacity: 0.6;
@@ -3483,6 +3665,10 @@ body .Main_UserTw3:before {
   color: rgb(var(--d-text-yellow));
   margin-left: 6px;
 }
+.Main_RoundDoneIconMiniRound {
+  font-size: 11px;
+  color: rgb(var(--d-text-yellow));
+}
 .Main_RoundDoneCreator {
   margin-left: 18px;
   box-shadow: 0px 0px 0px 6px rgba(0,0,0,0.15);
@@ -3498,12 +3684,13 @@ body .Main_UserTw3:before {
   opacity: 0.9;
 }
 .Cg_Header {
-  position: static;
+  /* position: static;
   left: 0;
   top: 0;
-  width: 100%;
   z-index: 30;
-  background-color: hsl(var(--back-h), var(--back-s), 15%);
+  background-color: hsl(var(--back-h), var(--back-s), 15%); */
+  width: 100%;
+  margin: 15px 0px -10px 0px;
 }
 .Cg_RoundEmptyBox {
   text-align: center;
@@ -3537,6 +3724,8 @@ body .Main_UserTw3:before {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: left;
+  line-height: 1.1;
 }
 .Cg_Creator {
   color: var(--d-text);
@@ -3816,6 +4005,44 @@ body .Main_UserTw3:before {
 .Cg_CatsName {
   color: var(--cor);
 }
+.Cg_HeaderBoxNew {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 22px;
+  min-height: 108px;
+  margin-left: 22px;
+  min-width: 41vw;
+  min-height: 108px;
+}
+.Cg_LayoutCg .Cg_HeaderBoxNew {
+  margin-top: 0;
+  min-height: 118px;
+}
+.Cg_HeaderBoxNew .BaseEventName_HeaderTitle {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 36px;
+  width: unset;
+}
+.Cg_TabLayout {
+  background-color: hsl(var(--back-h), var(--back-s), 23%);
+  padding: 0px 10px;
+  display: flex;
+  /* justify-content: center; */
+  gap: 5px;
+  margin-top: 20px;
+  padding-left: 50vw;
+  margin-left: -50vw;
+  padding-right: 50vw;
+  margin-right: -50vw;
+  min-height: 53px;
+}
+.Cg_HeaderLeftMid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 
 .Main_CgListDividerLayout {
@@ -4006,10 +4233,23 @@ body .Main_UserTw3:before {
   padding-bottom: 20px;
 }
 .Clubs_SemiBox {
-  background-color: hsl(var(--back-h), var(--back-s), 23%);
+  background-color: hsl(var(--back-h), var(--back-s), 17%);
   margin-bottom: 20px;
-  padding: 20px 10px;
+  padding: 12px 10px;
+  margin-top: -34px;
+  min-height: 36px;
+  margin-bottom: 25px;
 }
+.Cg_LayoutCg .Clubs_SemiBox {
+  margin-top: -43px;
+}
+.Clubs_SemiBox .BaseChip:not(.D_ButtonActive) {
+  background-color: rgb(255, 255, 255, 0.04);
+}
+.Clubs_SemiBox .BaseChip.D_ButtonActive {
+  background-color: #2b2b2b44;
+}
+
 .Clubs_Box {
   --cg-width: 230px;
   display: flex;
@@ -4021,13 +4261,13 @@ body .Main_UserTw3:before {
 .Clubs_DayBox {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 3px;
 }
 .Clubs_DayNotCurrent {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 0.8em;
   margin-top: -5px;
   margin-bottom: 5px;
@@ -4334,49 +4574,49 @@ a:visited:not(.D_Button) {
 
 
 
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) {
   --card-left-width: 19%;
   --card-right-width: 31%;
   /* --card-top-height: 11.5%; */
   /* --card-stat-height: 31.9px; */
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip):not(.Car_HeaderBackDropRight):not(.Car_HeaderBlockTop):not(.Car_TuneTipGallery) {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) > *:not(.Car_HeaderName):not(.Car_HeaderBlockRQ):not(.Car_HeaderBlockClass):not(.Car_HeaderBlockTopSpeed):not(.Car_HeaderBlock060):not(.Car_HeaderBlockHandling):not(.Car_HeaderBlockDrive):not(.Car_CompactOverlay):not(.Car_HeaderBlockPrize):not(.Car_HeaderBlockTires):not(.Car_TuneTip):not(.Car_HeaderBackDropRight):not(.Car_HeaderBlockTop):not(.Car_TuneTipGallery) {
   display: none;
 }
-.Main_Compact .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
   display: none;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) {
   width: 120px;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderName {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderName {
   font-size: 0.8em;
   width: calc(100% - 4%);
   margin-top: 0px;
   left: 2%;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderNameBig {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderNameBig {
   font-size: 0.7em;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderNameBigBig {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderNameBigBig {
   font-size: 0.6em;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTopSpeed,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlock060,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockHandling,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockDrive {
   /* box-shadow: 0px -2px 0px hsla(0, 100%, 100%, 0.09); */
   /* backdrop-filter: blur(4px); */
   /* background-color: #0000004a; */
   /* background: linear-gradient(90deg, #0003, #e5ded080); */
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBackDropRight {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBackDropRight {
   backdrop-filter: blur(11px);
 }
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
   backdrop-filter: blur(15px);
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderRightBlockUnique {
   /* background: linear-gradient(90deg, #0003, #87785a80); */
   /* background-color: #00000042; */
   background: linear-gradient(90deg, #0004, #5b5b5b80);
@@ -4384,11 +4624,11 @@ a:visited:not(.D_Button) {
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderRightBlockUnique {
   background-color: #00000042;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderRightBlockUnique,
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderRightBlockUnique,
 .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderRightBlockUnique {
   box-shadow: 0px -1px 0px 0px #ffffff1c;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTires {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTires {
   padding-right: 1px;
 }
 .Main_Compact .Car_TuneTipGallery {
@@ -4400,11 +4640,11 @@ a:visited:not(.D_Button) {
 
 
 
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatValue {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderStatValue {
   padding-right: 1px;
   font-size: 1.3em;
 }
-.Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderStatLabel {
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderStatLabel {
   padding-right: 1px;
   font-size: 0.5em;
 }
@@ -4638,6 +4878,20 @@ a:visited:not(.D_Button) {
 }
 .Main_BodyPrint .Main_Logo {
   display: block;
+}
+.Main_BodyPrint .Cg_BaseCornerAsTab .Main_GamePrintInfo {
+  margin-top: 0px;
+}
+.Main_BodyPrint .Cg_TabLayout {
+  padding-left: calc(var(--wBody) * 0.5);
+  margin-left: calc(var(--wBody) * -0.5);
+  padding-right: calc(var(--wBody) * 0.25);
+  margin-right: calc(var(--wBody) * -0.25);
+  min-height: 53px;
+  width: calc(60vw - 160px);
+}
+.Main_BodyPrint .Cg_TabLayout > .BaseChip:not(.D_ButtonActive) {
+  display: none;
 }
 
 
@@ -5375,26 +5629,25 @@ a:visited:not(.D_Button) {
 .Main_TeamsEngineLabel {
   font-size: 14px;
   opacity: 0.5;
+  text-align: center;
+  margin-top: 15px;
 }
 .Main_TeamsControlsLayout {
-  /* display: flex; */
-  /* display: grid; */
-  gap: 10px;
+  display: grid;
+  gap: 15px;
   justify-content: center;
   margin-bottom: 20px;
-  /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
-  /* grid-template-columns: repeat(auto-fit, minmax(200px, max-content)); */
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 80px;
-  width: 100%;
-  align-items: center;
+  /* width: clamp(400px, 100%, 860px); */
+  grid-template-columns: repeat(10, minmax(max-content, 1fr));
+  gap: 0px;
 }
 .Main_TeamsControlsLayout > * {
   break-inside: avoid;
+}
+.BaseCard_AsGalleryBox.Main_Teams_GalleryBox {
+
 }
 /* .Main_TeamsControlsLayout .BaseSwitch_Layout {
   justify-content: center;
@@ -5402,7 +5655,7 @@ a:visited:not(.D_Button) {
 .Main_TeamsNeck {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .Main_TeamsFooter {
   flex-direction: column;
@@ -5433,6 +5686,101 @@ a:visited:not(.D_Button) {
 .TC_Cell {
   width: var(--cell-width);
   height: var(--cell-height);
+}
+.BaseTrianglesBack_Layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* --triangle-color: #dfb743; */
+}
+.Main_EventInfoBottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.Main_EventInfoGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+.Main_EventInfoLabel {
+  text-align: right;
+}
+.Main_EventInfoValue {
+  color: rgb(var(--d-text-yellow));
+}
+.Main_EventInfoBracketsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.Main_EventBracketRq {
+  display: flex;
+  align-items: center;
+}
+.Main_EventBracketElo {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.Main_EventInfoBracketTitle {
+  grid-column: span 2;
+  text-align: center;
+  color: rgb(var(--d-text-yellow));
+}
+.Main_EventBracketElo > i {
+  color: var(--d-text-b);
+}
+.Main_DialogInventoryHeader {
+  display: flex;
+  justify-content: center;
+  margin-top: -80px;
+}
+.Main_DialogInventoryName {
+  color: rgb(var(--d-text-yellow));
+}
+.Main_DialogInventoryBody {
+
+}
+.Main_DialogInventoryDescription {
+
+}
+.Main_DialogInventoryExpiration {
+
+}
+.Main_MiniPage {
+  position: relative;
+}
+.Main_MiniPageSub {
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: -3px;
+  left: 0%;
+  width: 100%;
+  overflow: hidden;
+  font-size: 11px;
+  opacity: 0.3;
+  text-align: center;
+  /* color: rgb(var(--d-text-green)); */
+}
+.Main_MiniPageSub.Main_MiniPageSubBottom {
+  top: -5px;
+  opacity: 0;
+  transition-duration: 0.1s;
+  will-change: opacity;
+}
+/* .Row_DialogButtonTuneActive .Main_MiniPageSubBottom {
+  opacity: 1;
+}
+.Row_DialogButtonTuneActive .Main_RoundDoneIconMiniRound {
+  color: rgb(var(--d-text-green));
+} */
+.Clubs_SemiBox:hover .Main_MiniPageSubBottom,
+.Clubs_SemiBox:focus-within .Main_MiniPageSubBottom {
+  opacity: 0.5;
 }
 
 
@@ -5536,11 +5884,8 @@ a:visited:not(.D_Button) {
   flex-direction: row;
   align-items: center;
   gap: 15px;
-  width: 770px;
+  width: calc(var(--cell-width) * 5);
   justify-content: flex-start;
-}
-.Main_Compact .Main_Teams_Index {
-  width: 595px;
 }
 .Main_Teams_ListLayout {
   display: flex;
@@ -5586,6 +5931,9 @@ a:visited:not(.D_Button) {
 .Main_Compact .BaseCard_AsGalleryBox .Car_HeaderTools,
 .Main_Compact .BaseCard_AsGalleryBox .Car_HeaderToolsBack {
   display: block !important;
+}
+.Main_Compact .BaseCard_AsGalleryBox .Car_HeaderTools {
+  height: 60%;
 }
 .Main_Compact .BaseCard_AsGalleryBox .Car_CompactOverlay {
   display: none;
@@ -5824,33 +6172,33 @@ a:visited:not(.D_Button) {
   .Main_2 .Main_Body:not(.Main_BodyPrint) .Main_BestOfOutside {
     display: none;
   }
-  .Cg_Layout .Cg_Corner {
+  /* .Cg_Layout .Cg_Corner {
     width: auto;
     padding: 0 15px;
-  }
-  .Cg_Layout .Cg_SelectorLeft {
+  } */
+  /* .Cg_Layout .Cg_SelectorLeft {
     margin-right: 10px;
-  }
-  .Cg_Layout .Main_CornerMid {
+  } */
+  /* .Cg_Layout .Main_CornerMid {
     margin: 0px;
-  }
-  .Cg_Layout .Cg_SelectorCenter {
+  } */
+  /* .Cg_Layout .Cg_SelectorCenter {
     text-align: left;
-  }
-  .Cg_Layout .Cg_SelectorEventSpan {
+  } */
+  /* .Cg_Layout .Cg_SelectorEventSpan {
     text-align: left;
-  }
-  .Cg_Layout .Cg_CenterBottom,
+  } */
+  /* .Cg_Layout .Cg_CenterBottom,
   .Cg_Layout .Clubs_DayBox,
   .Cg_Layout .Clubs_DayNotCurrent {
     justify-content: flex-start;
-  }
-  .Cg_Layout .Cg_RqText {
+  } */
+  /* .Cg_Layout .Cg_RqText {
     margin-left: 9px;
-  }
-  .Cg_Layout .D_Button.Main_ArrowDownSelect {
+  } */
+  /* .Cg_Layout .D_Button.Main_ArrowDownSelect {
     padding: 0 2px 0 2px;
-  }
+  } */
   .Main_TeamsControlsLayout {
     max-height: 120px;
   }
@@ -5922,6 +6270,14 @@ a:visited:not(.D_Button) {
   .Event_BankClass {
     margin-left: 5px;
   }
+  .Main_TeamsControlsLayout {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    max-width: calc(var(--cell-width) * 5);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(100% / 10 - 20px, 80px, 100%), 1fr));
+    gap: 15px;
+  }
 }
 @media only screen and (min-width: 1201px) {
   .Cg_BankButton .BaseCardMini_FloatsRight {
@@ -5933,11 +6289,6 @@ a:visited:not(.D_Button) {
     justify-content: flex-start;
   }
 }
-@media only screen and (max-width: 550px) {
-  .Main_TeamsControlsLayout {
-    max-height: 150px;
-  }
-}
 
 
 
@@ -5945,10 +6296,10 @@ a:visited:not(.D_Button) {
 
 
 @supports not (backdrop-filter: blur(4px)) {
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTopSpeed,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlock060,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockHandling,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockDrive {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 0.8);
   }
@@ -5963,17 +6314,22 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 1);
   }
+  .Main_DarkScrollMiniHorizontal_Right,
+  .Main_DarkScrollMiniHorizontal_Left {
+    backdrop-filter: unset;
+    background: #1d1d1de3;
+  }
 }
 /* duplicate */
 @media (pointer:coarse) {
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockTopSpeed,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlock060,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockHandling,
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBlockDrive {
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTopSpeed,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlock060,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockHandling,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockDrive {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 0.8);
   }
-  .Main_Compact .BaseCard_Layout:not(.BaseCard_LayoutDialog) .Car_HeaderBackDropRight,
+  .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBackDropRight,
   .BaseCard_Layout:not(.Car_WithVideoNoBox) .Car_WithVideo .Car_HeaderBackDropRight {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);

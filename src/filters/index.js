@@ -127,6 +127,143 @@ function updateGarageUpgradesLocalStorage() {
   window.localStorage.setItem('garageUpgrades', JSON.stringify(garageListUpgraded));
 }
 
+const brands = {
+  "Abarth": "Abarth",
+  "AC": "AC",
+  "Acura": "Acura",
+  "Alfa": "Alfa_Romeo",
+  "Alpine": "Alpine",
+  "AMC": "AMC",
+  "Apollo": "Apollo",
+  "Arash": "Arash",
+  "Ariel": "Ariel",
+  "Aston_Martin": "Aston_Martin",
+  "Audi_\(Auto_Union\)": "Audi_\(Auto_Union\)",
+  "Audi": "Audi",
+  "Austin-Healey": "Austin-Healey",
+  "Austin": "Austin",
+  "AutomobiliPininfarina": "Pininfarina",
+  "Autozam": "Autozam",
+  "BAC": "BAC",
+  "Bentley": "Bentley",
+  "Bizzarrini": "Bizzarrini",
+  "BMW": "BMW",
+  "Brabham": "Brabham",
+  "Bristol": "Bristol",
+  "Bufori": "Bufori",
+  "Bugatti": "Bugatti",
+  "Buick": "Buick",
+  "Cadillac": "Cadillac",
+  "Caterham": "Caterham",
+  "Chevrolet": "Chevrolet",
+  "Chrysler": "Chrysler",
+  "Citroen": "Citroen",
+  "Datsun": "Datsun",
+  "DeTomaso": "De_Tomaso",
+  "DMC": "DMC",
+  "Dodge": "Dodge",
+  "Donkervoort": "Donkervoort",
+  "Drako": "Drako",
+  "DS": "DS",
+  "Eagle": "Eagle",
+  "Farboud": "Farboud",
+  "Fiat": "Fiat",
+  "Ford": "Ford",
+  "Geo": "Geo",
+  "Ginetta": "Ginetta",
+  "Giocattolo": "Giocattolo",
+  "GMC": "GMC",
+  "Gumpert": "Gumpert",
+  "Hennessey": "Hennessey",
+  "Holden": "Holden",
+  "Honda": "Honda",
+  "Hudson": "Hudson",
+  "Hummer": "Hummer",
+  "Hyundai": "Hyundai",
+  "Infiniti": "Infiniti",
+  "Jaguar": "Jaguar",
+  "Koenigsegg": "Koenigsegg",
+  "KTM": "KTM",
+  "Lamborghini": "Lamborghini",
+  "Lancia": "Lancia",
+  "Landrover": "Land_Rover",
+  "Lincoln": "Lincoln",
+  "Lotus": "Lotus",
+  "Maserati": "Maserati",
+  "Matra": "Matra",
+  "Maybach": "Maybach",
+  "Mazda": "Mazda",
+  "Mazdaspeed": "Mazdaspeed",
+  "McLaren": "McLaren",
+  "McMurtry": "McMurtry",
+  "Mercedes-AMG": "Mercedes-AMG",
+  "Mercedes-Benz": "Mercedes-Benz",
+  "Mercury": "Mercury",
+  "MG": "MG",
+  "Mini": "Mini",
+  "Mitsubishi": "Mitsubishi",
+  "Mitsuoka": "Mitsuoka",
+  "Morgan": "Morgan",
+  "Nissan": "Nissan",
+  "Oldsmobile": "Oldsmobile",
+  "Opel": "Opel",
+  "Pagani": "Pagani",
+  "Peugeot": "Peugeot",
+  "Plymouth": "Plymouth",
+  "Pontiac": "Pontiac",
+  "Porsche": "Porsche",
+  "Radical": "Radical",
+  "Ram": "RAM",
+  "RangeRover": "Range_Rover",
+  "RenaultSport": "Renault_Sport",
+  "Renault": "Renault",
+  "Rezvani": "Rezvani",
+  "Rimac": "Rimac",
+  "Rolls-Royce": "Rolls-Royce",
+  "Rover": "Rover",
+  "RUF": "RUF",
+  "Saleen": "Saleen",
+  "Saturn": "Saturn",
+  "SCG": "SCG",
+  "Shelby": "Shelby",
+  "Skoda": "Skoda",
+  "Smart": "Smart",
+  "Spyker": "Spyker",
+  "Subaru": "Subaru",
+  "Suzuki": "Suzuki",
+  "Talbot": "Talbot",
+  "TVR": "TVR",
+  "Ultima": "Ultima",
+  "Vauxhall": "Vauxhall",
+  "Volkswagen": "Volkswagen",
+  "Volvo": "Volvo",
+  "W Motors": "W_Motors",
+  "Zenos": "Zenos",
+  "Zenvo": "Zenvo",
+  "Morris": "Morris",
+  "Radford": "Radford"
+}
+
+const importantTags = [
+  "LiveOps 1",
+  "LiveOps 2",
+  "LiveOps 3",
+  "Tri-Series",
+  "Tri-Series-Final",
+  "Endurance",
+  "GT-Series"
+]
+
+const inventory = Vue.observable({});
+
+function updateInventory(newInventory) {
+  if (!newInventory) return;
+  Object.keys(newInventory).forEach(key => {
+    Vue.set(inventory, key, newInventory[key]);
+  });
+  console.log(inventory);
+}
+
 
 
 let limit = all_cars.length; // 5700 items
@@ -423,6 +560,25 @@ function tryLoadGarageFromStorage() {
 }
 
 
+function formatUTCDateString(isoString) {
+  const date = new Date(isoString);
+
+  // 1. Format the date part (YYYY-MM-DD)
+  const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'UTC' };
+  // 'en-CA' naturally outputs YYYY-MM-DD
+  const datePart = new Intl.DateTimeFormat('en-CA', dateOptions).format(date);
+
+  // 2. Format the time part (HHhmm)
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' };
+  const timePart = new Intl.DateTimeFormat('en-US', timeOptions)
+    .format(date)
+    .replace(':', 'h'); // Replace the colon with 'h'
+
+  // 3. Combine them into the desired format
+  return `${datePart} - ${timePart} (UTC)`;
+}
+
+
 
 
 
@@ -451,6 +607,11 @@ export default {
         Vue.removeFromGarageUpgraded = removeFromGarageUpgraded;
         Vue.loadGarage = loadGarage;
         Vue.tryLoadGarageFromStorage = tryLoadGarageFromStorage;
+        Vue.brands = brands;
+        Vue.importantTags = importantTags;
+        Vue.updateInventory = updateInventory;
+        Vue.inventory = inventory;
+        Vue.formatUTCDateString = formatUTCDateString;
 
         Vue.carByRid = function (rid) {
           return resolvedRids[rid];
@@ -943,17 +1104,21 @@ export default {
 
             return result;
         };
-        Vue.timeDiffString = function (date, laterDate) {
+        Vue.timeDiffString = function (date, laterDate, HMS) {
             let result = "";
 
             var diffMs = (laterDate - date); // milliseconds between now & Date2
+            if (diffMs < 0) {
+              diffMs = diffMs * -1;
+              result = "-";
+            }
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
             var diffMins = Math.floor(((diffMs % 86400000) % 3600000) / 60000); // minutes
             var diffSeconds = Math.floor((((diffMs % 86400000) % 3600000) % 60000) / 1000); // seconds
 
             // use diffDays only if bigger than 72 hours, otherwise show hours and minutes
-            if (diffDays < 2) {
+            if (diffDays < 2 || HMS) {
               diffHrs += diffDays * 24;
               diffDays = 0;
             }
@@ -961,7 +1126,9 @@ export default {
             if (diffDays) result += `${diffDays}d `;
             if (diffHrs) result += `${diffHrs}h `;
             if (diffMins && !diffDays) result += `${diffMins}m `;
-            if (diffSeconds && diffMins < 5 && !diffDays && !diffHrs) result += `${diffSeconds}s `;
+            if (HMS || (diffSeconds && diffMins < 5 && !diffDays && !diffHrs)) result += `${diffSeconds}s `;
+
+            result = result.trim();
 
             return {
                 diffDays,
@@ -1393,6 +1560,7 @@ export default {
         Vue.filter('cellSub', Vue.cellSub);
         Vue.filter('toTitleCase', Vue.toTitleCase);
         Vue.filter('garageUnits', Vue.garageUnits);
+        Vue.filter('formatUTCDateString', Vue.formatUTCDateString);
     }
 };
 

@@ -171,7 +171,7 @@
                 `"
                 :style="`
                   --class-color: ${(item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].color : ''} ;
-                  --class-color-rgb: ${(item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
+                  --class-color-rgb: ${(item.p_rid || []).length > 1 && (item.links && item.links.find(x => x.cover)) ? item.color : (item.p_rid || []).length > 0 ? resolvedRids[item.p_rid[0]].colorRgb : item.color || '' } ;
                 `"
                 class="MainTimeline_ItemRoot">
                 <div class="MainTimeline_ItemBacklight"></div>
@@ -703,14 +703,16 @@
               </button>
             </div>
           </div>
-          <BaseFilterDescription
-            v-if="detailObj.filter && Object.keys(detailObj.filter).length > 0"
-            :filter="detailObj.filter"
-            :asFilterLabel="true"
-            :hideIfEmpty="false"
-            :emitDescResolved="true"
-            class="MainTimeline_DialogViewFilterDescription" />
         </div>
+
+        <BaseFilterDescription
+          v-if="detailObj.filter && Object.keys(detailObj.filter).length > 0"
+          :filter="detailObj.filter"
+          :asFilterLabel="true"
+          :hideIfEmpty="false"
+          :emitDescResolved="true"
+          class="MainTimeline_DialogViewFilterDescription"
+        />
 
         <div v-if="detailObj.events && detailObj.events.length > 0" class="MainTimeline_EventsLayout">
           <div v-for="(event, iEvent) in detailObj.events" class="MainTimeline_EventsItem">
@@ -2380,28 +2382,27 @@ export default {
   /* text-align: left; */
 }
 .MainTimeline_ItemBacklight {
-  top: -62px;
-  left: -45px;
+  top: -20px;
+  left: -15px;
   background: radial-gradient(rgba(var(--class-color-rgb), var(--backlight-opac)) 0%, rgba(var(--class-color-rgb), 0) 60%);
   position: absolute;
   pointer-events: none;
-  width: 280px;
-  height: 210px;
+  width: 300px;
+  height: 130px;
 }
 .MainTimeline_ItemOdd .MainTimeline_ItemBacklight {
-  top: -62px;
   left: unset;
-  right: -45px;
+  right: 5px;
 }
 .MainTimeline_Scroller_Item[style*='translateY(0px)'] .MainTimeline_ItemBacklight {
-  top: -5px;
-  height: 120px;
+  top: -11px;
+  height: 115px;
 }
-.MainTimeline_Scroller_Item:last-child .MainTimeline_ItemBacklight {
+/* .MainTimeline_Scroller_Item:last-child .MainTimeline_ItemBacklight {
   top: unset;
   bottom: 0;
   height: 120px;
-}
+} */
 .MainTimeline_ClassB,
 .MainTimeline_ClassA {
   --backlight-opac: 0.18;

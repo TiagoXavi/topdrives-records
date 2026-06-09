@@ -25,6 +25,10 @@ export default {
     showClock: {
       type: Boolean,
       default: false
+    },
+    HMS: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -77,10 +81,19 @@ export default {
         let result = "";
 
         if (this.quickMs) {
-          this.quickMs -= 1000;
-          var diffMins = Math.floor(this.quickMs / 60 / 1000); // minutes
+          let ended = this.quickMs < 0;
+          this.quickMs = Math.abs(this.quickMs);
+          if (ended) {
+            result += "-";
+            this.quickMs += 1000;
+          } else {
+            this.quickMs -= 1000;
+          }
+          var diffHours = Math.floor(this.quickMs / 3600000); // hours
+          var diffMins = Math.floor((this.quickMs % 3600000) / 60000); // minutes
           var diffSeconds = Math.floor((this.quickMs % 60000) / 1000); // seconds
 
+          if (diffHours > 0) result += `${diffHours}h `;
           if (diffMins > 0) result += `${diffMins}m `;
           result += `${diffSeconds}s`;
 
@@ -89,24 +102,26 @@ export default {
           if (this.quickMs < 0) {
             if (this.hideNegative) this.result = "";
             this.firstTimeNegative();
-            clearInterval(this.inverval);
-            this.stopedReason = "quickMs";
-            return false;
+            // clearInterval(this.inverval);
+            // this.stopedReason = "quickMs";
+            return true;
           }
-          this.isNegative = false;
+          if (ended) this.quickMs = this.quickMs * -1;
 
+          this.isNegative = false;
           this.stopedReason = null;
           return true;
         } else {
           var now = new Date();
           var Date2 = new Date(this.endDateTime);
 
-          var { diffDays, diffMs, diffHrs, diffMins, result: res } = Vue.options.filters.timeDiffString(now, Date2);
+          var { diffDays, diffMs, diffHrs, diffMins, result: res } = Vue.options.filters.timeDiffString(now, Date2, this.HMS);
   
           let nextUpdateInMs = 1000;
           if (diffDays) nextUpdateInMs = 60 * 60 * 1000; // 1 hr in Ms
           else if (diffHrs || diffMins >= 5) nextUpdateInMs = 60 * 1000; // 1 min in Ms
           else nextUpdateInMs = 1000; // 1 sec in Ms (less than 5 min)
+          if (this.HMS) nextUpdateInMs = 1000;
   
           this.result = res;
           if (this.mini) this.result = this.result.split(" ")[0];
@@ -135,6 +150,7 @@ export default {
             }, nextUpdateInMs);
           } else {
             this.quickMs = diffMs;
+            if (this.result.startsWith("-")) this.quickMs = this.quickMs * -1;
           }
           
           this.stopedReason = null;
