@@ -656,4 +656,29 @@ export default {
   --tag-s: 90%;
   --tag-l: 60%;
 }
+.BaseGameTag_Summer_Games_26 {
+  --tag-h: 169;
+  --tag-s: 98%;
+  --tag-l: 48%;
+}
+.BaseGameTag_50_Years_of_GTI {
+  --tag-h: 351;
+  --tag-s: 85%;
+  --tag-l: 52%;
+}
+.BaseGameTag_Midnight_Racers {
+  --tag-h: 37;
+  --tag-s: 98%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Summer_Games_Variants {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_VW_GTI_Variants {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
 </style>

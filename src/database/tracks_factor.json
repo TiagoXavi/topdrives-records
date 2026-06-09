@@ -229,5 +229,6 @@
   "tokyoOffRampZ50": 1000,
   "tokyoOverpassZ50": 1000,
   "tCircuitZ50": 1000,
-  "tRoadZ50": 1000
+  "tRoadZ50": 1000,
+  "jpDrag": 600
 }

@@ -1085,6 +1085,7 @@ export default {
         absModel: [],
         approveModel: false,
         tags_challenge: [
+          "50 Years of GTI",
           "5th Anniversary",
           "Around the World",
           "As Seen on YT",
@@ -1134,6 +1135,7 @@ export default {
           "Summer Games",
           "Summer Games 24",
           "Summer Games 25",
+          "Summer Games 26",
           "Supercar",
           "Team Edwards",
           "Team Steel",
@@ -1154,6 +1156,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "Midnight Racers",
           "Rogue Agents",
           "Ministry of Racing",
           "Crown Pursuit",
@@ -1199,9 +1202,11 @@ export default {
           "Sleeper",
           "Street Racer",
           "Style Icon",
+          "Summer Games Variants",
           "Team Favourite",
           "Track",
           "Ultra Expensive",
+          "VW GTI Variants",
           "Wild Ride",
         ],
         tags_color: [
@@ -1301,6 +1306,7 @@ export default {
           "Porsche",
           "Radford",
           "Radical",
+          "RAESR",
           "RAM",
           "Renault",
           "Rezvani",

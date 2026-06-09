@@ -3413,8 +3413,8 @@
           <BaseLogoSpining />
         </div>
         <div class="Main_AnnouncementBox">
-          <div class="Main_AnnouncementTitle">Contest #12</div>
-          <div class="Main_AnnouncementSubTitle">Rogue Agents</div>
+          <div class="Main_AnnouncementTitle">Contest #13</div>
+          <div class="Main_AnnouncementSubTitle">Midnight Racers</div>
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
@@ -3423,7 +3423,7 @@
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
           </div>
-          <div class="Main_AnnouncementMaybe">23th March ~ 5th April</div>
+          <div class="Main_AnnouncementMaybe">9th June ~ 24th June</div>
 
           <BaseDiscordButton link="https://discord.com/channels/1008569974094311544/1104184336158302259" style="margin-top: 20px;" />
         </div>

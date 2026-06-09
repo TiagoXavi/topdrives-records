@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL31-fixed.json'
-import plOld from '../database/cars_final_PL30.json'
+import data_cars from '../database/cars_final_PL32-fixed.json'
+import plOld from '../database/cars_final_PL31.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -507,6 +507,7 @@ export default {
         engineModel: [],
         tags: [
           "5000 Cars Special",
+          "50 Years of GTI",
           "5th Anniversary",
           "Amalfi Coast Cruising",
           "American Dream",
@@ -563,6 +564,7 @@ export default {
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",
           "Marilyn's Collection 2",
+          "Midnight Racers",
           "Ministry of Racing",
           "Motorsport",
           "Muscle Car",
@@ -590,6 +592,9 @@ export default {
           "Sub-Zero",
           "Summer Games",
           "Summer Games 24",
+          "Summer Games 25",
+          "Summer Games 26",
+          "Summer Games Variants",
           "Supercar",
           "Team Edwards",
           "Team Steel",
@@ -601,6 +606,7 @@ export default {
           "Track",
           "Trading Paint",
           "Two Tone",
+          "VW GTI Variants",
           "Ximena's Collection",
           "Ximena's Collection 2",
           "Ultra Expensive",
@@ -734,7 +740,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v30", "t");
+    window.localStorage.setItem("changes_v32", "t");
   },
   beforeMount() {
     // // check new cars

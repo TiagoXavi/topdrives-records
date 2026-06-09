@@ -957,7 +957,8 @@ export default {
           title: "Garage",
           specialTitle: true
         },
-        { id: 41, filter: { tagsModel: ["Rogue Agents"] }, t: new groupStats() }, // change id
+        { id: 42, filter: { tagsModel: ["Midnight Racers"] }, t: new groupStats() }, // change id
+        { id: 41, filter: { tagsModel: ["Rogue Agents"] }, t: new groupStats() },
         { id: 40, filter: { tagsModel: ["Crown Pursuit"] }, t: new groupStats() },
         { id: 39, filter: { tagsModel: ["Autobahn Icons"] }, t: new groupStats() },
         { id: 38, filter: { tagsModel: ["German Powerhaus"] }, t: new groupStats() },
