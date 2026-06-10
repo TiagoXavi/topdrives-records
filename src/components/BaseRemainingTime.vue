@@ -106,9 +106,13 @@ export default {
             // this.stopedReason = "quickMs";
             return true;
           }
-          if (ended) this.quickMs = this.quickMs * -1;
+          if (ended) {
+            this.quickMs = this.quickMs * -1;
+            this.isNegative = true;
+          } else {
+            this.isNegative = false;
+          }
 
-          this.isNegative = false;
           this.stopedReason = null;
           return true;
         } else {

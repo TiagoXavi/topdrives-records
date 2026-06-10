@@ -219,7 +219,7 @@
           </BaseCorner> -->
           <BaseCover
             v-if="cg.rounds"
-            cover="_Brand"
+            cover="zzBrand"
             :name="(cg.name||'').split(': ')[1] || cg.name"
             :height="190"
             type="event"

@@ -90,8 +90,10 @@ export default {
       }
       if (Vue.brands[fileName]) {
         this.brand = Vue.brands[fileName];
-        fileName = "_Brand";
+        fileName = "zzBrand";
       }
+      if (fileName === "_60s") fileName = "60s";
+      if (fileName === "_StyleIcon") fileName = "StyleIcon";
 
       return '/h_cgs/' + fileName + '.jpg';
     },
