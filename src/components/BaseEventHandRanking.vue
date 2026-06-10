@@ -102,6 +102,18 @@
         </div>
       </BaseExpandDiv>
 
+      <BaseExpandDiv :active="eventBestTeamsConfig.garageUpgrade" class="Main_TeamsForceCarsExpand">
+        <div class="Main_TeamsRQSliderBox">
+          <BaseDualSlider
+            v-model="eventBestTeamsConfig.garageUpgradeRange"
+            :min="10"
+            :max="120"
+            :label="`RQ ${$t('m_upgradeCars')}`"
+            class="Main_TeamsRQSlider"
+          />
+        </div>
+      </BaseExpandDiv>
+
       <div v-if="eventBestTeamsTarget.clubReqsGroupModel" class="Main_TeamsRQSliderBox">
         <BaseMonoSlider
           v-model="eventBestTeamsTarget.rqLimit"
@@ -210,6 +222,7 @@
 
 <script>
 import BaseMonoSlider from './BaseMonoSlider.vue';
+import BaseDualSlider from './BaseDualSlider.vue';
 import BaseExpandDiv from './BaseExpandDiv.vue';
 import BaseCarsTeam from './BaseCarsTeam.vue';
 import BaseCarList from './BaseCarList.vue';
@@ -222,7 +235,8 @@ export default {
     BaseExpandDiv,
     BaseCarsTeam,
     BaseCarList,
-    BaseSwitch
+    BaseSwitch,
+    BaseDualSlider
   },
   props: {
     eventBestTeamsConfig: {},

@@ -1000,12 +1000,12 @@ export default {
         year2Model: [],
         seats2Model: [],
         rqStart: 10,
-        rqEnd: 119,
+        rqEnd: 120,
         rqModel: [],
         topSpeedStart: 25,
-        topSpeedEnd: 330,
+        topSpeedEnd: 375,
         topSpeedModel: [],
-        acelStart: 1.5,
+        acelStart: 1.4,
         acelEnd: 40,
         acelModel: [],
         handStart: 30,
@@ -2182,7 +2182,7 @@ export default {
         debugger;
       }
       // if (type === "yearModel") return [1910, 2025];
-      // if (type === "rqModel") return [10, 119];
+      // if (type === "rqModel") return [10, 120];
       // if (type === "topSpeedModel") return [25, 330];
       // if (type === "acelModel") return [1.5, 40];
       // if (type === "handModel") return [30, 110];

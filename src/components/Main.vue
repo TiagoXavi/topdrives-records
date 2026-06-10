@@ -4066,6 +4066,7 @@ export default {
         predictedTimes: true,
         balanced: false,
         garageUpgrade: false,
+        garageUpgradeRange: [10, 120],
         forceCars: [{}, {}, {}, {}, {}],
         forceOppoCars: [{}, {}, {}, {}, {}],
         blackList: [],
@@ -7103,8 +7104,8 @@ export default {
         // if (this.cgRound.filter.yearModel && this.cgRound.filter.yearModel[1] === 2024) {
         //   this.cgRound.filter.yearModel[1] = 2025;
         // }
-        if (this.cgRound.filter.rqModel && (this.cgRound.filter.rqModel[1] === 114 || this.cgRound.filter.rqModel[1] === 100)) {
-          this.cgRound.filter.rqModel[1] = 119;
+        if (this.cgRound.filter.rqModel && (this.cgRound.filter.rqModel[1] === 114 || this.cgRound.filter.rqModel[1] === 100 || this.cgRound.filter.rqModel[1] === 119)) {
+          this.cgRound.filter.rqModel[1] = 120;
         }
         if (this.cgRound.filter.topSpeedModel && this.cgRound.filter.topSpeedModel[0] === 50) {
           this.cgRound.filter.topSpeedModel[0] = 25;
@@ -11869,7 +11870,12 @@ export default {
       // this.clubsChangeTrackGroup(0);
       // this.clubsChangeReqsGroup(0);
       this.clubsLoadDay(this.clubDaySelected);
-      this.clubsTrackResetStringsToSave();  
+      this.clubsTrackResetStringsToSave();
+    },
+    checkHandRankingClubs() {
+      if (this.clubTab === "hands") {
+        this.openHandRankingDialog();
+      }
     },
     clubsLoadDay(date, e) {
       if (e && e.shiftKey && this.user && this.user.canDelete && this.user.mod) {
@@ -11992,6 +11998,7 @@ export default {
       this.clubsTrackResetStringsToSave();
       this.clubLoadPicks();
       // this.resetBestTeamsConfig();
+      this.checkHandRankingClubs();
     },
     clubsResolveTrackGroup(original = null) {
       if (original === null && this.clubIsShowingOriginal && this.clubHasOriginalOrder) {
@@ -12037,6 +12044,7 @@ export default {
       this.clubsReqResetStringsToSave();
       this.clubLoadPicks();
       // this.resetBestTeamsConfig();
+      this.checkHandRankingClubs();
     },    
     clubAddTrackset() {
       this.clubTracksGroupModel.trackset.push([null,null,null,null,null]);
@@ -12720,6 +12728,7 @@ export default {
         uniqueHands: this.eventBestTeamsConfig.uniqueHands,
         balanced: this.eventBestTeamsConfig.balanced,
         garageUpgrade: this.eventBestTeamsConfig.garageUpgrade,
+        garageUpgradeRange: this.eventBestTeamsConfig.garageUpgradeRange,
         prizeCars: this.eventBestTeamsConfig.prizeCars,
         neverAwardedCars: this.eventBestTeamsConfig.neverAwardedCars,
         predictedTimes: this.eventBestTeamsConfig.predictedTimes || this.eventBestTeamsConfig.myGarage,

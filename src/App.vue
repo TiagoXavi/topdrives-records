@@ -5664,7 +5664,8 @@ a:visited:not(.D_Button) {
 .Main_TeamsRQSliderBox {
   width: 100%;
   max-width: 800px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
 }
 .Main_TeamsCanEnterEventMid {
   margin-top: 10px;
