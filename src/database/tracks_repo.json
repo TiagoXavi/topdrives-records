@@ -49,7 +49,7 @@
   },
   {
     "id": "mile1Z50",
-    "types": ["A1","B1","C0","E0"]
+    "types": ["A1","B1","C0","D0","E0"]
   },
   {
     "id": "mile1r",
@@ -93,7 +93,7 @@
   },
   {
     "id": "airplaneSlalom",
-    "types": ["10"]
+    "types": ["10","11"]
   },
   {
     "id": "smallRoad",
@@ -190,7 +190,7 @@
   },
   {
     "id": "desertBig",
-    "types": ["40"]
+    "types": ["40","41"]
   },
   {
     "id": "desertHill",
@@ -268,7 +268,7 @@
   },
   {
     "id": "forest",
-    "types": ["00","01","30","60"]
+    "types": ["00","01","11","30","60"]
   },
   {
     "id": "forestSlalom",
@@ -426,7 +426,7 @@
   },
   {
     "id": "mtHairpinZ50",
-    "types": ["B1","C0","D0","E0"],
+    "types": ["A1","B1","C0","D0","E0"],
     "group": "mt"
   },
   {
@@ -516,7 +516,7 @@
   },
   {
     "id": "northloop",
-    "types": ["00","01"]
+    "types": ["00","01","60"]
   },
   {
     "id": "northloop1",
@@ -530,7 +530,7 @@
   },
   {
     "id": "northloop3",
-    "types": ["00","01"],
+    "types": ["00","01","60"],
     "group": "nLoop"
   },
   {
@@ -629,7 +629,7 @@
   },
   {
     "id": "speedbump14km",
-    "types": ["00"]
+    "types": ["00","01"]
   },
   {
     "id": "speedbump12km",
@@ -725,5 +725,253 @@
   {
     "id": "waterDrag",
     "types": ["00","01"]
+  },
+  {
+    "id": "mileOne50",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "mileOne60",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "damValley",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damExtended",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damRally",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damRun",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damTwisty",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damTwisty2",
+    "types": ["40","41"]
+  },
+  {
+    "id": "damView",
+    "types": ["40","41"]
+  },
+  {
+    "id": "fast60",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "maliAll",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "maliTour",
+    "types": ["00","50"]
+  },
+  {
+    "id": "maliUp",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "maliCave",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "maliHairpin",
+    "types": ["00","11","e0"]
+  },
+  {
+    "id": "maliFast",
+    "types": ["00","50"]
+  },
+  {
+    "id": "maliLong",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "maliObserv",
+    "types": ["00","01"]
+  },
+  {
+    "id": "maliTcircuit",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "mixedDrag",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "mojAround",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojCircuit",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojCross",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "mojExtended",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "mojOver",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojSlalom",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojSmall",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "mojSmallDesert",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "mojCenter",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojFreeway",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojMile2",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojMile2Bump",
+    "types": ["00","01"]
+  },
+  {
+    "id": "mojMile4",
+    "types": ["00","01"]
+  },
+  {
+    "id": "palFinish",
+    "types": ["00","c0","c1"]
+  },
+  {
+    "id": "palUDrag",
+    "types": ["00","50"]
+  },
+  {
+    "id": "palside",
+    "types": ["00","11","e0"]
+  },
+  {
+    "id": "palside2",
+    "types": ["00","11","e0"]
+  },
+  {
+    "id": "palCircuit",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "palCliff",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "palCross",
+    "types": ["00","01"]
+  },
+  {
+    "id": "palExtended",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "palExtended2",
+    "types": ["00","e0","i0"]
+  },
+  {
+    "id": "rosDrag",
+    "types": ["00","01"]
+  },
+  {
+    "id": "rosRoute1",
+    "types": ["00","01"]
+  },
+  {
+    "id": "rosRoute2",
+    "types": ["00","01"]
+  },
+  {
+    "id": "rosRoute3",
+    "types": ["00","01"]
+  },
+  {
+    "id": "rosRoute4",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "rosRoute5",
+    "types": ["00","10","11"]
+  },
+  {
+    "id": "rosRoute6",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "rosRoute7",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "rosSlalom",
+    "types": ["00","01"]
+  },
+  {
+    "id": "tCircuit50",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "tCircuit60",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "tCircuit70",
+    "types": ["00","j0"]
+  },
+  {
+    "id": "valDown",
+    "types": ["00","41","m0"]
+  },
+  {
+    "id": "valHairpin",
+    "types": ["00","10","k0"]
+  },
+  {
+    "id": "valOff",
+    "types": ["00","10","k0"]
+  },
+  {
+    "id": "valCross",
+    "types": ["00","41","m0"]
+  },
+  {
+    "id": "valRun",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "valSwitchback",
+    "types": ["00","41","m0"]
+  },
+  {
+    "id": "valTour",
+    "types": ["00","40","41"]
+  },
+  {
+    "id": "valSlalom",
+    "types": ["00","10","k0"]
   }
 ]

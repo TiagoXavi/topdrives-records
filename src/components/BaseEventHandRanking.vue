@@ -102,7 +102,7 @@
         </div>
       </BaseExpandDiv>
 
-      <BaseExpandDiv :active="eventBestTeamsConfig.garageUpgrade" class="Main_TeamsForceCarsExpand">
+      <BaseExpandDiv :active="eventBestTeamsConfig.myGarage && eventBestTeamsConfig.garageUpgrade" class="Main_TeamsForceCarsExpand">
         <div class="Main_TeamsRQSliderBox">
           <BaseDualSlider
             v-model="eventBestTeamsConfig.garageUpgradeRange"

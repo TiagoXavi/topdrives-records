@@ -8277,8 +8277,8 @@ export default {
               if (surf === "00") key = "clearance";
               else key = "clearanceW";
             }
-            else if (surf === "01" || surf === "A1" || surf === "B1" || track === "lumberTwisty_a41") key = "rain";
-            else if (surf === "00" || track === "lumberTwisty_a40") key = "asphalt";
+            else if (surf === "01" || surf === "A1" || surf === "B1" || track === "lumberTwisty_a41" || track === "damView_a41" || track === "damTwisty_a41" || track === "damRun_a41") key = "rain";
+            else if (surf === "00" || track === "lumberTwisty_a40" || track === "damView_a40" || track === "damTwisty_a40" || track === "damRun_a40") key = "asphalt";
             else if (surf[0] === "1" || surf[0] === "4" || surf[0] === "4" || surf === "E0") key = "dirt";
             else if (surf[0] === "2" || surf[0] === "b") key = "gravel";
             else if (surf[0] === "3" || surf[0] === "g") key = "ice";

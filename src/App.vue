@@ -2688,7 +2688,13 @@ body .Main_UserTw3:before {
 }
 .Main_CustomTrackItem .Type_00,
 [dataid="lumberTwisty"].Type_40,
-.EventTrack [data="lumberTwisty_a40"] {
+.EventTrack [data="lumberTwisty_a40"],
+[dataid="damTwisty"].Type_40,
+.EventTrack [data="damTwisty_a40"],
+[dataid="damRun"].Type_40,
+.EventTrack [data="damRun_a40"],
+[dataid="damView"].Type_40,
+.EventTrack [data="damView_a40"] {
   --ccond: var(--color-dry);
   --back-color: var(--color-dry);
   --type-back-opac: 0.09;
@@ -2707,6 +2713,12 @@ body .Main_UserTw3:before {
 .Type_01 ~ .BaseCompItem_Drives,
 [dataid="lumberTwisty"].Type_41,
 .Row_Tracks [data="lumberTwisty_a41"],
+[dataid="damView"].Type_41,
+.Row_Tracks [data="damView_a41"],
+[dataid="damTwisty"].Type_41,
+.Row_Tracks [data="damTwisty_a41"],
+[dataid="damRun"].Type_41,
+.Row_Tracks [data="damRun_a41"],
 .Row_Tracks [data="dockAltCirc_ac1"] {
   --ccond: var(--color-wet);
   --back-color: var(--color-wet);
@@ -2718,6 +2730,12 @@ body .Main_UserTw3:before {
 .Type_11,
 .Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]),
 .Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]),
+.Type_40:not([data="damView_a40"]):not([dataid="damView"]),
+.Type_41:not([data="damView_a41"]):not([dataid="damView"]),
+.Type_40:not([data="damTwisty_a40"]):not([dataid="damTwisty"]),
+.Type_41:not([data="damTwisty_a41"]):not([dataid="damTwisty"]),
+.Type_40:not([data="damRun_a40"]):not([dataid="damRun"]),
+.Type_41:not([data="damRun_a41"]):not([dataid="damRun"]),
 .Type_i0,
 .Type_k0,
 .Type_m0,
@@ -2750,6 +2768,8 @@ body .Main_UserTw3:before {
 .Type_c0,
 .Type_C0,
 .Type_c1,
+.Type_11[data="palside_a11"],
+.Type_11[dataid="palside"],
 .Type_51 {
   --ccond: var(--color-sand);
   --back-color: var(--color-sand);

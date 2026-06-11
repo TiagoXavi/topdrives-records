@@ -1024,6 +1024,8 @@ export default {
             if (trackCode.endsWith("_aD0")) factor = 1000; // temp
             if (trackCode.endsWith("_aE0")) factor = 1000; // temp
 
+            if (trackCode === "rosSlalom_a01") factor = 1000;
+
 
 
             if (trackCode.includes("testBowl")) {
