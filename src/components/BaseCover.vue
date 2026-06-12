@@ -2,7 +2,7 @@
   <div :style="`--h: ${height}px`" class="BaseCover_Layout">
     <div class="BaseCover_Top">
       <BaseRemainingTime
-        v-if="endDateTime || startDateTime"
+        v-if="endDateTime && !endDateTime.startsWith('2060')"
         :endDateTime="started ? endDateTime : startDateTime"
         :hideNegative="false"
         :mini="false"
@@ -19,7 +19,7 @@
       onerror="this.classList.add('BaseCover_Error');" 
     >
     <div v-if="brand" :class="`Car_Logo_${brand.replaceAll(' ', '_')}`" class="BaseCover_Brand Main_Brand"></div>
-    <div class="BaseCover_Title">{{ nameCalc }}</div>
+    <div class="BaseCover_Title" :class="{ BaseCover_TitleBig: nameCalc.length > 28 }">{{ nameCalc }}</div>
     <div class="BaseCover_RqBox">
       <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
       <span>{{ minRqCalc }}</span>
@@ -173,6 +173,9 @@ export default {
   width: 93%;
   line-height: 1;
 }
+.BaseCover_TitleBig {
+  font-size: calc(0.089 * var(--h));
+}
 .BaseCover_RqBox {
   display: flex;
   justify-content: center;
@@ -220,7 +223,7 @@ export default {
   font-size: calc(0.089 * var(--h));
   bottom: calc(0.09 * var(--h));
 }
-.BaseCover_RqBox {
+.BaseCover_Club .BaseCover_RqBox {
   bottom: 0;
 }
 .BaseCover_Cg .BaseCover_RqBox {

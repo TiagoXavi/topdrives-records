@@ -219,9 +219,11 @@
           </BaseCorner> -->
           <BaseCover
             v-if="cg.rounds"
-            cover="zzBrand"
-            :name="(cg.name||'').split(': ')[1] || cg.name"
+            :cover="cg?.info?.image || 'zzBrand'"
+            :name="cg?.info?.name || (cg.name||'').split(': ')[1] || cg.name"
             :height="190"
+            :startDateTime="cg?.info?.startDateTime"
+            :endDateTime="cg?.info?.endDateTime"
             type="event"
             class="BaseCover_Alone BaseCover_Cg"
           />
@@ -3418,7 +3420,7 @@
           <div class="Main_AnnouncementItem">Prizes:</div>
           <div style="display: flex;justify-content: center;text-align: left;margin: 13px 0px 23px 0px;margin-right: -2px;">
             <div>
-              <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div>
+              <!-- <div class="Main_AnnouncementItem">• Up to <BaseIconSvg type="gold" :useMargin="false" style="width: 1.3em;display: inline-flex;vertical-align: bottom;" /> 2500 in-game</div> -->
               <div class="Main_AnnouncementItem">• 1 month of TDR premium</div>
               <div class="Main_AnnouncementItem">• 🥇 Medal aside of your name</div>
             </div>
@@ -7038,14 +7040,15 @@ export default {
       .then(res => {
         this.cgLoadedAssets = [];
         let cg = this.cgList.find(x => x.date === date)
+        this.lookForChangedCars(res.data);
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
+          Vue.set(cg, "info", res.data.info);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.cgLoading = false;
           this.cgTabRoundMemory = null;
           this.loadCgRound(date, round);
         }
-        this.lookForChangedCars(res.data);
         this.cgResolveIcons();
         this.checkPreDoneRounds(res.data);
       })
@@ -7137,6 +7140,8 @@ export default {
         this.pingAssetStatistic(id, round);
         this.cgResolveRoundCars();
       }
+
+      this.lookForDeprecatedTracksInner();
     },
     cgResolveIfDownloadRidOrNot(rid, tune, track, isOppo) {
       if (tune === null || track === null) {
@@ -8774,7 +8779,7 @@ export default {
             race.rid = car.rid;
             race.tune = tune;
             if (iround === 3 && irace === 0) {
-              debugger;
+              // debugger;
             }
             if (!allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
               race.time = null;
@@ -8811,9 +8816,16 @@ export default {
         inventoryItemRequirement: json.ladder.inventoryItemRequirement,
         inventoryItemAmount: json.ladder.inventoryItemAmount,
         inventoryItemConsumed: json.ladder.inventoryItemConsumed,
-        rungEligibility: json.ladder.rungEligibility,
+        rungEligibility: json.ladder.rungEligibility.map(x => {
+          if (!x.inventoryItemRequirement) return 0;
+          return [x.inventoryItemRequirement.slice(0,8), x.inventoryItemAmount, x.inventoryItemConsumed];
+        }),
         maxTickets: json.ladder.maxTickets,
-        rungPrizes: json.ladder.rungPrizes,
+        rungPrizes: json.ladder.rungPrizes.map(rung => {
+          return rung.map(prize => {
+            return [prize.prizeType, prize.prizeValue, prize.prizeMaxClaims];
+          });
+        }),
         hideOnCompletion: json.ladder.hideOnCompletion,
         challengeUnlockRequirements: json.ladder.challengeUnlockRequirements,
         tags: json.ladder.tags
@@ -11559,7 +11571,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      return;
+      // return;
       let c_id = "contest12";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");
@@ -11576,6 +11588,9 @@ export default {
     
     lookForChangedCars(data) {
       if (!this.user || !this.user.mod) return;
+      this.lookForDeprecatedTracks(data);
+
+      return;
 
       import('@/database/custom_tags.json').then(custom_tags => {
         let changedRids = custom_tags.default["27.0 changed cars"];
@@ -11588,6 +11603,65 @@ export default {
         })
 
       }).catch(e => {console.log("load custom_tags failed", e)});
+    },
+    lookForDeprecatedTracks(data) {
+      let tracksToTransform = {
+        "valCross_a41": "valCross_am1",
+        "valSlalom_a10": "valSlalom_ak1",
+        "valHairpin_a10": "valHairpin_ak1",
+        "valSwitchback_a41": "valSwitchback_am1",
+        "valOff_a10": "valOff_ak1",
+        "valDown_a41": "valDown_am1",
+        "maliAll_ae0": "maliAll_ai1",
+        "maliCave_ae0": "maliCave_ai1",
+        "maliHairpin_a11": "maliHairpin_ae1",
+        "maliLong_ae0": "maliLong_ai1",
+        "maliUp_ae0": "maliUp_ai1",
+        "maliTcircuit_ae0": "maliTcircuit_ai1",
+        "palExtended_ae0": "palExtended_ai1",
+        "palside_a11": "palside_ae1",
+        "palside2_a11": "palside2_ae1",
+        "palExtended2_ae0": "palExtended2_ai1"
+      };
+
+      data.rounds.map((round, iround) => {
+        round.races.map((race, irace) => {
+          if (tracksToTransform[race.track]) {
+            console.log(`${data.name}, Round ${iround+1}, Race ${irace+1}, ${race.track}`);
+            // race.track = tracksToTransform[race.track];
+          }
+        })
+      })
+    },
+    lookForDeprecatedTracksInner() {
+      let tracksToTransform = {
+        "valCross_a41": "valCross_am1",
+        "valSlalom_a10": "valSlalom_ak1",
+        "valHairpin_a10": "valHairpin_ak1",
+        "valSwitchback_a41": "valSwitchback_am1",
+        "valOff_a10": "valOff_ak1",
+        "valDown_a41": "valDown_am1",
+        "maliAll_ae0": "maliAll_ai1",
+        "maliCave_ae0": "maliCave_ai1",
+        "maliHairpin_a11": "maliHairpin_ae1",
+        "maliLong_ae0": "maliLong_ai1",
+        "maliUp_ae0": "maliUp_ai1",
+        "maliTcircuit_ae0": "maliTcircuit_ai1",
+        "palExtended_ae0": "palExtended_ai1",
+        "palside_a11": "palside_ae1",
+        "palside2_a11": "palside2_ae1",
+        "palExtended2_ae0": "palExtended2_ai1"
+      };
+
+      this.cgRound.races.map((race, irace) => {
+        if (tracksToTransform[race.track]) {
+          console.log(`Fixing track = Race ${irace+1}, ${race.track}`);
+          // race.track = tracksToTransform[race.track];
+          this.cgRaceSelected = irace;
+          this.toggleTrack( { track: tracksToTransform[race.track], e: {} } );
+        }
+      })
+
     },
     openMemoryDialog() {
       // this.$store.commit("START_LOGROCKET", {});
@@ -13107,4 +13181,4 @@ export default {
 
 <style>
 
-</style>
+</style

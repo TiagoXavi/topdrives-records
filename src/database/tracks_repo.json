@@ -768,7 +768,7 @@
   },
   {
     "id": "maliAll",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "maliTour",
@@ -776,15 +776,15 @@
   },
   {
     "id": "maliUp",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "maliCave",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "maliHairpin",
-    "types": ["00","11","e0"]
+    "types": ["00","e0","e1"]
   },
   {
     "id": "maliFast",
@@ -792,7 +792,7 @@
   },
   {
     "id": "maliLong",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "maliObserv",
@@ -800,7 +800,7 @@
   },
   {
     "id": "maliTcircuit",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "mixedDrag",
@@ -868,11 +868,11 @@
   },
   {
     "id": "palside",
-    "types": ["00","11","e0"]
+    "types": ["00","e0","e1"]
   },
   {
     "id": "palside2",
-    "types": ["00","11","e0"]
+    "types": ["00","e0","e1"]
   },
   {
     "id": "palCircuit",
@@ -888,11 +888,11 @@
   },
   {
     "id": "palExtended",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "palExtended2",
-    "types": ["00","e0","i0"]
+    "types": ["00","i0","i1"]
   },
   {
     "id": "rosDrag",
@@ -944,19 +944,19 @@
   },
   {
     "id": "valDown",
-    "types": ["00","41","m0"]
+    "types": ["00","m0","m1"]
   },
   {
     "id": "valHairpin",
-    "types": ["00","10","k0"]
+    "types": ["00","k0","k1"]
   },
   {
     "id": "valOff",
-    "types": ["00","10","k0"]
+    "types": ["00","k0","k1"]
   },
   {
     "id": "valCross",
-    "types": ["00","41","m0"]
+    "types": ["00","m0","m1"]
   },
   {
     "id": "valRun",
@@ -964,7 +964,7 @@
   },
   {
     "id": "valSwitchback",
-    "types": ["00","41","m0"]
+    "types": ["00","m0","m1"]
   },
   {
     "id": "valTour",
@@ -972,6 +972,6 @@
   },
   {
     "id": "valSlalom",
-    "types": ["00","10","k0"]
+    "types": ["00","k0","k1"]
   }
 ]

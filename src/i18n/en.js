@@ -675,7 +675,7 @@ export default {
   t_mojCenter: "Mojave Town Center",
   t_mojFreeway: "Mojave Town Freeway",
   t_mojMile2: "Mojave 1/2 Mile Drag",
-  t_mojMile2Bump: "Mojave 1/2 Mile Drag w/ Speed Bump",
+  t_mojMile2Bump: "Mojave 1/2 Mile Drag (Bump)",
   t_mojMile4: "Mojave 1/4 Mile Drag",
   t_palFinish: "Palmdale Beach Finish",
   t_palUDrag: "Palmdale Beach U-Drag",

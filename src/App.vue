@@ -2728,17 +2728,18 @@ body .Main_UserTw3:before {
 }
 .Type_10,
 .Type_11,
-.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]),
-.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]),
-.Type_40:not([data="damView_a40"]):not([dataid="damView"]),
-.Type_41:not([data="damView_a41"]):not([dataid="damView"]),
-.Type_40:not([data="damTwisty_a40"]):not([dataid="damTwisty"]),
-.Type_41:not([data="damTwisty_a41"]):not([dataid="damTwisty"]),
-.Type_40:not([data="damRun_a40"]):not([dataid="damRun"]),
-.Type_41:not([data="damRun_a41"]):not([dataid="damRun"]),
+.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]):not([data="damView_a40"]):not([dataid="damView"]):not([data="damTwisty_a40"]):not([dataid="damTwisty"]):not([data="damRun_a40"]):not([dataid="damRun"]),
+.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]):not([data="damView_a41"]):not([dataid="damView"]):not([data="damTwisty_a41"]):not([dataid="damTwisty"]):not([data="damRun_a41"]):not([dataid="damRun"]),
 .Type_i0,
+.Type_i1,
 .Type_k0,
+.Type_k1,
 .Type_m0,
+.Type_m1,
+.Type_e0[data="maliHairpin_ae0"],
+.Type_e0[dataid="maliHairpin"],
+.Type_e1[data="maliHairpin_ae1"],
+.Type_e1[dataid="maliHairpin"],
 .Type_E0,
 .Type_10 ~ .BaseCompItem_Drives {
   --ccond: var(--color-dirt);
@@ -2765,11 +2766,14 @@ body .Main_UserTw3:before {
 }
 .Type_50,
 .Type_e0,
+.Type_e1,
 .Type_c0,
 .Type_C0,
+.Type_i0[data="palExtended_ai0"],
+.Type_i0[dataid="palExtended"],
+.Type_i1[data="palExtended_ai1"],
+.Type_i1[dataid="palExtended"],
 .Type_c1,
-.Type_11[data="palside_a11"],
-.Type_11[dataid="palside"],
 .Type_51 {
   --ccond: var(--color-sand);
   --back-color: var(--color-sand);
