@@ -49,21 +49,23 @@
               </i>
               <i
                 v-if="(
-                  circuit.id === 'csSmall' ||
-                  circuit.id === 'dockCity' ||
                   circuit.id === 'csMed' ||
+                  circuit.id === 'csSmall' ||
+                  circuit.id === 'moto' ||
                   circuit.id === 'oceanCity' ||
                   circuit.id === 'speedbump14km' ||
                   circuit.id === 'speedbump12km' ||
                   circuit.id === 'speedbump1km' ||
-                  circuit.id === 'desertHill' ||
-                  circuit.id === 'moto' ||
-                  circuit.id === 'desertRallyDirt' ||
+                  circuit.id === 'dockCity' ||
                   circuit.id === 'miStreets2' ||
-                  circuit.id === 'itBump' ||
-                  circuit.id === 'dsTnFreeway' ||
-                  circuit.id === 'dsTnLove' ||
-                  circuit.id === 'dsTnMile2bump'
+                  circuit.id === 'csMedZ50' ||
+                  circuit.id === 'csSmallZ50' ||
+                  circuit.id === 'oceanCityZ50' ||
+                  circuit.id === 'mojFreeway' ||
+                  circuit.id === 'mojExtended' ||
+                  circuit.id === 'mojMile2Bump' ||
+                  circuit.id === 'desertHill' ||
+                  circuit.id === 'desertRallyDirt'
                 )"
                 class="tdicon-clearance Row_TdIconPerk"
                 aria-hidden="true">

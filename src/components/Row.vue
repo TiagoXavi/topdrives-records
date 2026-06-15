@@ -102,24 +102,23 @@
         </i>
         <i
           v-if="(
-            item.id === 'csSmall' ||
-            item.id === 'csSmallZ50' ||
-            item.id === 'dockCity' ||
             item.id === 'csMed' ||
-            item.id === 'csMedZ50' ||
+            item.id === 'csSmall' ||
+            item.id === 'moto' ||
             item.id === 'oceanCity' ||
-            item.id === 'oceanCityZ50' ||
             item.id === 'speedbump14km' ||
             item.id === 'speedbump12km' ||
             item.id === 'speedbump1km' ||
-            item.id === 'desertHill' ||
-            item.id === 'moto' ||
-            item.id === 'desertRallyDirt' ||
+            item.id === 'dockCity' ||
             item.id === 'miStreets2' ||
-            item.id === 'itBump' ||
-            item.id === 'dsTnFreeway' ||
-            item.id === 'dsTnLove' ||
-            item.id === 'dsTnMile2bump'
+            item.id === 'csMedZ50' ||
+            item.id === 'csSmallZ50' ||
+            item.id === 'oceanCityZ50' ||
+            item.id === 'mojFreeway' ||
+            item.id === 'mojExtended' ||
+            item.id === 'mojMile2Bump' ||
+            item.id === 'desertHill' ||
+            item.id === 'desertRallyDirt'
           )"
           class="tdicon-clearance Row_TdIconPerk"
           aria-hidden="true">
@@ -1489,9 +1488,12 @@ export default {
 }
 .D_Button.Row_DialogButtonTune {
   color: var(--d-text-b);
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0 9px;
+}
+.D_Button.Row_DialogButtonTune:not(.Row_DialogButtonTuneBorderRadius) {
   border-radius: 0;
+  font-size: 1.2em;
 }
 .D_Button.Row_DialogButtonTuneRelative {
   position: relative;

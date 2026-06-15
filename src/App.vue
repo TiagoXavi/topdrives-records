@@ -4263,6 +4263,8 @@ body .Main_UserTw3:before {
   margin-top: -34px;
   min-height: 36px;
   margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
 }
 .Cg_LayoutCg .Clubs_SemiBox {
   margin-top: -43px;
@@ -5787,15 +5789,15 @@ a:visited:not(.D_Button) {
   width: 100%;
   overflow: hidden;
   font-size: 11px;
-  opacity: 0.3;
+  opacity: 0.5;
   text-align: center;
   /* color: rgb(var(--d-text-green)); */
 }
 .Main_MiniPageSub.Main_MiniPageSubBottom {
   top: -5px;
-  opacity: 0;
+  /* opacity: 0;
   transition-duration: 0.1s;
-  will-change: opacity;
+  will-change: opacity; */
 }
 /* .Row_DialogButtonTuneActive .Main_MiniPageSubBottom {
   opacity: 1;
@@ -5803,10 +5805,10 @@ a:visited:not(.D_Button) {
 .Row_DialogButtonTuneActive .Main_RoundDoneIconMiniRound {
   color: rgb(var(--d-text-green));
 } */
-.Clubs_SemiBox:hover .Main_MiniPageSubBottom,
+/* .Clubs_SemiBox:hover .Main_MiniPageSubBottom,
 .Clubs_SemiBox:focus-within .Main_MiniPageSubBottom {
   opacity: 0.5;
-}
+} */
 
 
 

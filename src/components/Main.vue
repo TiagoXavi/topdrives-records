@@ -232,23 +232,8 @@
               <div class="Cg_RowCornerBox">
                 <!-- top CHALLENGE -->
                 <div v-if="cg.rounds" class="Cg_SelectorLayout">
-                  <div v-if="false" class="Cg_SelectorLeft">
-                    <button
-                      :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave"
-                      class="D_Button Row_DialogButtonTune"
-                      @click="loadPrevRound()">
-                      <i class="ticon-arrow_left_3" aria-hidden="true"/>
-                    </button>
-                  </div>
                   <div class="Cg_SelectorCenter">
                     <div class="Cg_SelectorEvent">
-                      <!-- <button
-                        :disabled="cgLoadingAny || cgNeedSave"
-                        class="D_Button Main_ArrowDownSelect"
-                        @click="cgSeletorDialog = true;">
-                        <span class="Cg_SelectorEventSpan">{{ cg.name }}</span>
-                        <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
-                      </button> -->
                       <BaseEventName
                         :item="cgList.find(item => item.date === cgCurrentId)"
                         :onlyName="true"
@@ -345,14 +330,6 @@
 
                     </div>
                   </div>
-                  <div v-if="false" class="Cg_SelectorRight">
-                    <button
-                      :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny || cgNeedSave"
-                      class="D_Button Row_DialogButtonTune"
-                      @click="loadNextRound()">
-                      <i class="ticon-arrow_right_3" aria-hidden="true"/>
-                    </button>
-                  </div>
                 </div>
                 
 
@@ -437,7 +414,14 @@
         <div class="Clubs_SemiBox">
           <div class="Clubs_Box">
             <div class="Clubs_SelectorBox">
-              <!-- v-if="iround >= Math.min(cg.rounds.length-9, cgCurrentRound-4) && iround <= Math.max(8, cgCurrentRound+4)" -->
+              
+              
+              <button
+                :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave"
+                class="D_Button Row_DialogButtonTune Row_DialogButtonTuneBorderRadius"
+                @click="loadPrevRound()">
+                <i class="ticon-arrow_left_3" aria-hidden="true"/>
+              </button>
               <BaseButtonTouch
                 v-for="(round, iround) in cg.rounds"
                 :class="{ Row_DialogButtonTuneActive: cgCurrentRound === iround }"
@@ -450,6 +434,13 @@
                   <i v-else-if="cg.rounds[iround].preDoneMod" class="ticon-star Main_RoundDoneIconMiniRound" style="color: red;" aria-hidden="true"/>
                 </div>
               </BaseButtonTouch>
+              <button
+                :disabled="cgCurrentRound === cgRoundsNumber - 1 || cgLoadingAny || cgNeedSave"
+                class="D_Button Row_DialogButtonTune Row_DialogButtonTuneBorderRadius"
+                @click="loadNextRound()">
+                <i class="ticon-arrow_right_3" aria-hidden="true"/>
+              </button>
+              
             </div>
           </div>
         </div>
@@ -866,6 +857,10 @@
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace('cg')">{{ $t("m_useTrackList") }}</button>
+            <!-- <button
+              :class="{ D_Button_Loading: eventLoadingAny }"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button> -->
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -11634,6 +11629,7 @@ export default {
       })
     },
     lookForDeprecatedTracksInner() {
+      if (!this.user || !this.user.mod) return;
       let tracksToTransform = {
         "valCross_a41": "valCross_am1",
         "valSlalom_a10": "valSlalom_ak1",

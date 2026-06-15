@@ -842,22 +842,23 @@ export default {
             if (
                 car.clearance === 'Low' &&
                 (
-                    item.id === 'csSmall' ||
-                    item.id === 'csSmallZ50' ||
-                    item.id === 'dockCity' ||
                     item.id === 'csMed' ||
-                    item.id === 'csMedZ50' ||
+                    item.id === 'csSmall' ||
+                    item.id === 'moto' ||
                     item.id === 'oceanCity' ||
-                    item.id === 'oceanCityZ50' ||
                     item.id === 'speedbump14km' ||
                     item.id === 'speedbump12km' ||
                     item.id === 'speedbump1km' ||
+                    item.id === 'dockCity' ||
+                    item.id === 'miStreets2' ||
+                    item.id === 'csMedZ50' ||
+                    item.id === 'csSmallZ50' ||
+                    item.id === 'oceanCityZ50' ||
+                    item.id === 'mojFreeway' ||
+                    item.id === 'mojExtended' ||
+                    item.id === 'mojMile2Bump' ||
                     item.id === 'desertHill' ||
-                    item.id === 'miStreets2'||
-                    item.id === 'itBump' ||
-                    item.id === 'dsTnFreeway' ||
-                    item.id === 'dsTnLove' ||
-                    item.id === 'dsTnMile2bump'
+                    item.id === 'desertRallyDirt'
                 )
             ) {
                 return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();

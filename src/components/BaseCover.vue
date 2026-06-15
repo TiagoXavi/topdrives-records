@@ -121,7 +121,7 @@ export default {
   position: relative;
   height: var(--h);
   padding-top: calc(0.1 * var(--h));
-  z-index: 1;
+  z-index: 2;
 }
 .BaseCover_Top {
   position: absolute;
