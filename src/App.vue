@@ -2694,7 +2694,9 @@ body .Main_UserTw3:before {
 [dataid="damRun"].Type_40,
 .EventTrack [data="damRun_a40"],
 [dataid="damView"].Type_40,
-.EventTrack [data="damView_a40"] {
+.EventTrack [data="mojExtended_a40"],
+[dataid="mojExtended"].Type_40,
+.EventTrack [data="mojExtended_a40"] {
   --ccond: var(--color-dry);
   --back-color: var(--color-dry);
   --type-back-opac: 0.09;
@@ -2719,6 +2721,9 @@ body .Main_UserTw3:before {
 .Row_Tracks [data="damTwisty_a41"],
 [dataid="damRun"].Type_41,
 .Row_Tracks [data="damRun_a41"],
+[dataid="mojExtended"].Type_41,
+.Row_Tracks [data="mojExtended_a41"],
+[dataid="dockAltCirc"].Type_c1,
 .Row_Tracks [data="dockAltCirc_ac1"] {
   --ccond: var(--color-wet);
   --back-color: var(--color-wet);
@@ -2728,8 +2733,8 @@ body .Main_UserTw3:before {
 }
 .Type_10,
 .Type_11,
-.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]):not([data="damView_a40"]):not([dataid="damView"]):not([data="damTwisty_a40"]):not([dataid="damTwisty"]):not([data="damRun_a40"]):not([dataid="damRun"]),
-.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]):not([data="damView_a41"]):not([dataid="damView"]):not([data="damTwisty_a41"]):not([dataid="damTwisty"]):not([data="damRun_a41"]):not([dataid="damRun"]),
+.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]):not([data="damView_a40"]):not([dataid="damView"]):not([data="damTwisty_a40"]):not([dataid="damTwisty"]):not([data="damRun_a40"]):not([dataid="damRun"]):not([data="mojExtended_a40"]):not([dataid="mojExtended"]),
+.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]):not([data="damView_a41"]):not([dataid="damView"]):not([data="damTwisty_a41"]):not([dataid="damTwisty"]):not([data="damRun_a41"]):not([dataid="damRun"]):not([data="mojExtended_a41"]):not([dataid="mojExtended"]),
 .Type_i0,
 .Type_i1,
 .Type_k0,

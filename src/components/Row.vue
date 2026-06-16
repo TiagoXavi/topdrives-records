@@ -1491,10 +1491,10 @@ export default {
   font-size: 1em;
   padding: 0 9px;
 }
-.D_Button.Row_DialogButtonTune:not(.Row_DialogButtonTuneBorderRadius) {
+/* .D_Button.Row_DialogButtonTune:not(.Row_DialogButtonTuneBorderRadius) {
   border-radius: 0;
   font-size: 1.2em;
-}
+} */
 .D_Button.Row_DialogButtonTuneRelative {
   position: relative;
   background-color: rgba(0,0,0, 0.15);
