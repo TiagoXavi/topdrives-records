@@ -2,9 +2,9 @@
   <div class="BaseBestTune_Root">
     <div class="BaseBestTune_Item BaseBestTune_Text">{{ props.tune }}</div>
     <div class="BaseBestTune_Item BaseBestTune_Blocks">
-      <div :class="{ 'BaseBestTune_T': props.tune === '332' }" class="BaseBestTune_D" />
-      <div :class="{ 'BaseBestTune_T': props.tune === '323' }" class="BaseBestTune_D" />
-      <div :class="{ 'BaseBestTune_T': props.tune === '233' }" class="BaseBestTune_D" />
+      <div :class="{ 'BaseBestTune_T': props.tune === '332' || props.tune[0] === 'T' }" class="BaseBestTune_D" />
+      <div :class="{ 'BaseBestTune_T': props.tune === '323' || props.tune[1] === 'T' }" class="BaseBestTune_D" />
+      <div :class="{ 'BaseBestTune_T': props.tune === '233' || props.tune[2] === 'T' }" class="BaseBestTune_D" />
     </div>
   </div>
 </template>

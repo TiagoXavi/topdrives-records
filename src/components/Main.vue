@@ -857,10 +857,10 @@
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="eventExportTracksToWorkspace('cg')">{{ $t("m_useTrackList") }}</button>
-            <!-- <button
+            <button
               :class="{ D_Button_Loading: eventLoadingAny }"
               class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button> -->
+              @click="eventExportTracksToMatch()">{{ $t("m_exportToMatch") }}</button>
             <button
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
@@ -10038,16 +10038,19 @@ export default {
         Vue.updateInventory(res.data.inventory);
         if (event.date === res.data.date) {
           Object.keys( res.data ).forEach(key => {
-            if (key === "flexConfig") {
-              res.data[key].sort((a,b) => {
-                if (a.minRQ !== b.minRQ) {
-                  return b.minRQ - a.minRQ;
-                }
-                return b.minEloScore - a.minEloScore;
-              })
-            }
+            // if (key === "flexConfig") {
+            //   res.data[key].sort((a,b) => {
+            //     if (a.minRQ !== b.minRQ) {
+            //       return b.minRQ - a.minRQ;
+            //     }
+            //     return b.minEloScore - a.minEloScore;
+            //   })
+            // }
             Vue.set(event, key, res.data[key]);
           })
+
+          this.eventSortFlex(event);
+
           this.loadEventScreen(date);
         }
       })
@@ -11026,7 +11029,26 @@ export default {
           filter3: this.clubReqsGroupModel.filter3,
           name: this.clubTracksGroupModel.name
         }
+        debugger;
         this.$router.push({ name: "MainMatchSimulator", params: { event: ev, picks: this.eventReducePicks() } });
+      }
+      if (this.mode === "challenges") {
+        let ev = {
+          trackset: [this.cgRound.races.map(r => r.track)],
+          rqLimit: this.cgRound.rqLimit || 500,
+          filter: this.cgRound.filter,
+          name: `${this.cgCurrentRound+1}${this.cg.name}`
+        }
+        let picks = [];
+        this.cgRound.races.map(race => {
+          picks.push({ rid: race.cars[race.carIndex].rid, tune: race.cars[race.carIndex].tune });
+        });
+        this.cgRound.races.map(race => {
+          picks.push({ rid: race.rid, tune: race.tune });
+        });
+        debugger;
+
+        this.$router.push({ name: "MainMatchSimulator", params: { event: ev, picks: picks } });
       }
     },
     eventExportCriteriaToPacks() {
@@ -11361,6 +11383,35 @@ export default {
       }
       this.eventTab = tab;
     },
+    eventSortFlex(event) {
+      if (
+        event.flexConfig &&
+        event.filteringQueryStrings &&
+        event.flexibleCriteriaRequired &&
+        event.flexConfig.length === event.filteringQueryStrings.length &&
+        event.flexConfig.length === event.flexibleCriteriaRequired.length
+      ) {
+        let toSort = [...event.flexConfig.map((x, i) => {
+          return {
+            flex: x,
+            query: event.filteringQueryStrings[i],
+            criteria: event.flexibleCriteriaRequired[i]
+          }
+        })];
+        toSort.sort((a,b) => {
+          if (a.flex.minRQ !== b.flex.minRQ) {
+            return b.flex.minRQ - a.flex.minRQ;
+          }
+          return b.flex.minEloScore - a.flex.minEloScore;
+        })
+        Vue.set(event, "flexConfig", toSort.map(x => x.flex));
+        Vue.set(event, "filteringQueryStrings", toSort.map(x => x.query));
+        Vue.set(event, "flexibleCriteriaRequired", toSort.map(x => x.criteria));
+
+        console.log(event);
+      }
+    },
+
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
 

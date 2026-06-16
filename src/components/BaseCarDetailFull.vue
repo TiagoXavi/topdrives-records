@@ -110,17 +110,7 @@
                 <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
                 <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
                   <!-- <BaseBestTune :dataObj="cacheObj.data" :track="item[0]" /> -->
-                  <BaseBestTune
-                    :tune="
-                      ['332', '323', '233'].reduce((best, tune) => {
-                        let time = cacheObj.data?.[tune]?.times?.[item[0]]?.t;
-                        if (time && (!best || ( item[0].includes('testBowl') ? (time > best.time) : (time < best.time)))) {
-                          return { time, tune };
-                        }
-                        return best;
-                      }, null)?.tune || '-'
-                    "
-                  />
+                  <BaseBestTune :tune="bestTunePerTrack?.[item[0]] || '-'" />
                 </div>
                 <div v-else class="BaseCarDetailFull_TrackBestTune" />
               </div>
@@ -243,6 +233,7 @@ export default {
       anim: true,
       cgWatchDownloadCache: null,
       cacheObj: null,
+      bestTunePerTrack: null,
       showAllTracks: false,
       similars: []
     }
@@ -327,12 +318,14 @@ export default {
                       if (newValue === false) {
                         // after debouce?
                         vm.cacheObj = Vue.all_cacheObj[vm.car.rid];
+                        vm.calcBestTunePerTrack();
                       }
                     });
                   }
                   return false;
                 } else {
                   this.cacheObj = Vue.all_cacheObj[this.car.rid];
+                  this.calcBestTunePerTrack();
                 }
               }
             }
@@ -491,15 +484,14 @@ export default {
           if (iItem >= 10) return true;
           tracks.push(item[0]);
 
-          let best = ["332", "323", "233"].reduce((best, tune) => {
-            let time = this.cacheObj?.data?.[tune]?.times?.[item[0]]?.t;
-            if (time && (!best || ( item[0].includes('testBowl') ? (time > best.time) : (time < best.time)))) {
-              return { time, tune };
-            }
-            return best;
-          }, null)?.tune;
-          if (best) {
+          let best = this.bestTunePerTrack?.[item[0]];
+          if (best && !best.includes("T")) {
             tunesCount[best] = (tunesCount[best] || 0) + 1;
+          }
+          if (best && best.includes("T")) {
+            if (best[0] === "T") tunesCount["332"] = (tunesCount["332"] || 0) + 1;
+            if (best[1] === "T") tunesCount["323"] = (tunesCount["323"] || 0) + 1;
+            if (best[2] === "T") tunesCount["233"] = (tunesCount["233"] || 0) + 1;
           }
         });
         
@@ -535,6 +527,36 @@ export default {
     hand_acelScore(car) {
       if (typeof car.acel !== 'number') return 0;
       return (Math.pow(car.hand, 3) / 100) / (car.acel * 10);
+    },
+    calcBestTunePerTrack() {
+      if (!this.cacheObj?.data || !this.medals?.result?.tracks) return;
+
+      let result = {};
+      this.medals.result.tracks.map(item => {
+        let ties = [false, false, false];
+        let isTB = item[0].includes('testBowl');
+        let bestTune = null;
+        ['332', '323', '233'].map((tune, itune) => {
+          let time = this.cacheObj.data?.[tune]?.times?.[item[0]]?.t;
+          if (time) {
+            if (!bestTune || (isTB ? (time > bestTune.time) : (time < bestTune.time))) {
+              bestTune = { time, tune };
+              ties = [false, false, false];
+              ties[itune] = true;
+            } else if (time === bestTune.time) {
+              ties[itune] = true;
+            }
+          }
+        });
+        if (bestTune) {
+          result[item[0]] = bestTune.tune;
+        }
+        if (ties.filter(t => t).length > 1) {
+          result[item[0]] = ties.map(t => t ? "T": "-").join("");
+        }
+      });
+      this.bestTunePerTrack = result;
+      console.log("bestTunePerTrack", this.bestTunePerTrack);
     }
   },
 }

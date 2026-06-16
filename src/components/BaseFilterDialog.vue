@@ -1798,7 +1798,7 @@ export default {
                 tunes.push(hCar.tun);
               }
             })
-            if (tunes.length > 0 && tunes.includes("000")) {
+            if (tunes.filter(x => x !== "000").length > 0) {
               tunes = tunes.filter(x => x !== "000");
             }
             tunes.sort().reverse();
