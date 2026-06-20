@@ -2568,6 +2568,10 @@ body .Main_UserTw3:before {
   width: 25px;
   margin: -5px 6px -5px 0px;
 }
+.Main_BoostyLogo {
+  width: 25px;
+  margin: -5px 6px -5px 0px;
+}
 .Main_Disclaimer {
   display: flex;
   flex-direction: column;

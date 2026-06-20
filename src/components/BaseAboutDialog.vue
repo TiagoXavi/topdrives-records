@@ -17,7 +17,7 @@
 
       <div style="gap: 10px;" class="D_Center Space_TopPlus">
         <BaseDiscordButton />
-        <BaseDonateButton />
+        <BaseDonateButton :forceBoosty="true" />
       </div>
 
       <div class="Main_AboutFlag">

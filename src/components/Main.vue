@@ -9374,7 +9374,7 @@ export default {
       let currIndex = noCarIndex;
       while (noCarIndex > -1 && count < 15) {
         let res;
-        // if (iround === 1 && useGarage && currIndex === 3) {
+        // if (iround === 0 && useGarage && currIndex === 1) {
         //   debugger;
         // }
         if (!_r.bestSolution[currIndex]?.rid) this.cgTryReplacer(round, _r, usedRids, usedHids, currIndex, useGarage, 0, iround, false, isRerun);
@@ -9409,7 +9409,7 @@ export default {
           let car = _r.bestSolution[icar];
           if (!car || !car.rid) continue;
           
-          this.cgTryReplacer(round, _r, usedRids, usedHids, icar, useGarage, rqSum, iround, false, isRerun);
+          this.cgTryReplacer(round, _r, usedRids, usedHids, icar, useGarage, rqSum, iround, false, isRerun, true);
           rqSum = this.cgSumRQ(_r.bestSolution);
           if (rqSum <= round.rqLimit) break;
         }
@@ -9425,7 +9425,10 @@ export default {
         count = 0;
         currIndex = rqList[count % 5][0];
         while ((round.rqLimit && this.cgSumRQ(_r.bestSolution) > round.rqLimit) && count < 15) {
-          this.cgTryReplacer(round, _r, usedRids, usedHids, currIndex, useGarage, 0, iround, true, isRerun);
+          // if (iround === 0 && useGarage && currIndex === 1) {
+          //   debugger;
+          // }
+          this.cgTryReplacer(round, _r, usedRids, usedHids, currIndex, useGarage, 0, iround, true, isRerun, true);
           // console.log(_r.bestSolution.map(x => `${Vue.all_carsObj[x?.rid]?.rq || 0} ${x?.rid}`));
           count++;
           currIndex = rqList[count % 5][0];
@@ -9462,7 +9465,7 @@ export default {
       });
       return rqSum;
     },
-    cgTryReplacer(round, _r, usedRids, usedHids, isolution, useGarage, rqSum, iround, notInUseOnly, isRerun) {
+    cgTryReplacer(round, _r, usedRids, usedHids, isolution, useGarage, rqSum, iround, notInUseOnly, isRerun, isOverRq) {
       let foundInUse;
       let foundInUseIndex;
       let foundInUseGarageCar;
@@ -9492,7 +9495,7 @@ export default {
         mirrors.find(mirror => {
           if ((foundNotInUse || notInUseOnly) && foundInUse) return true; // end loop
 
-          if (mirror.usedIn === undefined && !foundNotInUse) {
+          if (mirror.usedIn === undefined && !foundNotInUse && (Vue.all_carsObj[mirror.rid].rq <= currentRQ || !isOverRq)) {
             foundNotInUse = mirror;
             if (useGarage) foundNotInUseGarageCar = Vue.garageByHid[mirror.cardRecordId];
           }
@@ -9515,8 +9518,6 @@ export default {
                   !mirror2.sameRid &&
                   mirror2.usedIn === undefined // the giver should not be used
                 ) {
-                  
-                  
                   substituteOfGiver = c2;
                   if (useGarage) substituteOfGiverGarageCar = Vue.garageByHid[mirror2.cardRecordId];
                   foundInUseIndex = mirror.usedIn;
@@ -9530,22 +9531,23 @@ export default {
             }
           }
         });
-
-
       });
-
 
       if (foundNotInUse) {
         if (_r.bestSolution[isolution]?.rid) {
           delete usedRids[_r.bestSolution[isolution].rid];
           if (useGarage) {
+            this.cgReturnToSolutions(_r, round, useGarage, isolution);
             let garageCar = Vue.garageByRid[_r.bestSolution[isolution].rid].find(x => this.isBetterTune(x, _r.bestSolution[isolution]) && usedHids[x.cardRecordId] === isolution);
             if (garageCar) delete usedHids[garageCar.cardRecordId];
           }
         }
         _r.bestSolution[isolution] = foundNotInUse;
         usedRids[foundNotInUse.rid] = isolution;
-        if (useGarage) usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
+        if (useGarage) {
+          usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
+          _r.bestSolution[isolution].points = LIST.find(x => x.cardRecordId === _r.bestSolution[isolution].cardRecordId || (x.rid === _r.bestSolution[isolution].rid && x.tune === _r.bestSolution[isolution].tune))?.points;
+        }
         return true;
       } else if (foundInUse) {
         _r.bestSolution[isolution] = foundInUse;
@@ -9758,6 +9760,43 @@ export default {
         // console.log("cgDashToggleMyGarage", value);
         this.cgDashUseMyGarage = value;
         this.cgInitDash(this.cgDashUseMyGarage);
+      }
+    },
+    cgReturnToSolutions(_r, round, useGarage, isolution) {
+      if (!_r.solutions?.[isolution]) return;
+
+      let found;
+      let foundGarage;
+
+      found = _r.solutions[isolution].find(x => {
+        if (!x || !x.rid) return false;
+        if (x.rid !== _r.bestSolution[isolution].rid) return false;
+        if (_r.bestSolution[isolution].cardRecordId) { // tune
+          if (x.tune !== _r.bestSolution[isolution].tune) return false;
+        } else { // selectedTune
+          if (x.tune !== _r.bestSolution[isolution].selectedTune) return false;
+        }
+        if (_r.bestSolution[isolution].cardRecordId && x.cardRecordId) {
+          if (x.cardRecordId !== _r.bestSolution[isolution].cardRecordId) return false;
+        }
+        return true;
+      });
+
+      if (!found) {
+        // if (isolution === 3) {
+        //   debugger;
+        // }
+        let obj = {
+          rid: _r.bestSolution[isolution].rid,
+          tune: _r.bestSolution[isolution].cardRecordId ? _r.bestSolution[isolution].tune : _r.bestSolution[isolution].selectedTune,
+          points: _r.bestSolution[isolution].points
+        }
+        if (_r.bestSolution[isolution].isFreePredicted) obj.isFreePredict = true;
+        if (_r.bestSolution[isolution].isTimePredicted) obj.isTimePredicted = true;
+        if (_r.bestSolution[isolution].originalTune) obj.originalTune = _r.bestSolution[isolution].originalTune;
+        if (_r.bestSolution[isolution].cardRecordId) obj.cardRecordId = _r.bestSolution[isolution].cardRecordId;
+        _r.solutions[isolution].push(obj);
+        this.cgSolutionsArrSort(_r.solutions[isolution]);
       }
     },
     changedAnyDash(iround) {
@@ -11029,7 +11068,6 @@ export default {
           filter3: this.clubReqsGroupModel.filter3,
           name: this.clubTracksGroupModel.name
         }
-        debugger;
         this.$router.push({ name: "MainMatchSimulator", params: { event: ev, picks: this.eventReducePicks() } });
       }
       if (this.mode === "challenges") {
@@ -11046,7 +11084,6 @@ export default {
         this.cgRound.races.map(race => {
           picks.push({ rid: race.rid, tune: race.tune });
         });
-        debugger;
 
         this.$router.push({ name: "MainMatchSimulator", params: { event: ev, picks: picks } });
       }
@@ -11680,6 +11717,7 @@ export default {
       })
     },
     lookForDeprecatedTracksInner() {
+      return;
       if (!this.user || !this.user.mod) return;
       let tracksToTransform = {
         "valCross_a41": "valCross_am1",
