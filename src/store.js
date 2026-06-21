@@ -169,6 +169,7 @@ export default new Vuex.Store({
     homePointsToggle: false,
     showPointsCgForce: true,
     showPrizeBoard: false,
+    enableBlurEffect: true,
     showPermanentCgs: true,
     showLongCgs: true,
     zoomLevel: "100%",
@@ -188,6 +189,7 @@ export default new Vuex.Store({
     CHANGE_HOME_POINTS_TOGGLE: (state, status) => state.homePointsToggle = status,
     CHANGE_POINTS_CG_FORCE: (state, status) => state.showPointsCgForce = status,
     CHANGE_PRIZE_BOARD: (state, status) => state.showPrizeBoard = status,
+    CHANGE_ENABLE_BLUR_EFFECT: (state, status) => state.enableBlurEffect = status,
     CHANGE_PERMANENT_CGS: (state, status) => state.showPermanentCgs = status,
     CHANGE_LONG_CGS: (state, status) => state.showLongCgs = status,
     CHANGE_ZOOM_LEVEL: (state, level = "100%") => {

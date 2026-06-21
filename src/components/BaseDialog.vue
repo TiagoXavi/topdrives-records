@@ -306,4 +306,12 @@ export default {
     backdrop-filter: unset;
   }
 }
+
+.Main_DisableBlur .BaseDialog_Opaque {
+  background-color: var(--d-back);
+  backdrop-filter: unset;
+}
+.Main_DisableBlur .BaseDialog_Back {
+  backdrop-filter: unset;
+}
 </style>

@@ -348,6 +348,7 @@ export default {
   m_duration: "Duration",
   m_expiration: "Expiration",
   m_upgradeCars: "Max my cars",
+  m_enableBlurEffect: "Enable blur effect",
 
 
 

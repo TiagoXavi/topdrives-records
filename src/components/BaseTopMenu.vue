@@ -64,6 +64,7 @@
           <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
           <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" />
           <BaseConfigCheckBox v-model="showPrizeBoard" name="showPrizeBoard" :label="`${$t('m_events')}: ${$t('m_showPrizeBoard')}`" />
+          <BaseConfigCheckBox v-model="enableBlurEffect" name="enableBlurEffect" :label="`${$t('m_enableBlurEffect')}`" />
           <div v-if="isMobile" class="Main_SaveGalleryBox" style="margin-top: 15px;">
             <div class="Main_OptionsLabel">{{ $t("m_zoom") }}</div>
             <div class="Main_FilterChipsFlex" style="justify-content: flex-start;">
@@ -140,7 +141,7 @@ export default {
         { label: "Timeline", path: "/timeline" },
         { label: "Match", path: "/match", newCodes: [], showNew: false },
         { label: "Community", path: "/community" },
-        { label: "Stuff", path: "/stuff", newCodes: ["changes_v32"], showNew: false },
+        { label: "Stuff", path: "/stuff", newCodes: [], showNew: false },
       ],
       menuDialog: false,
       aboutDialog: false,
@@ -152,6 +153,7 @@ export default {
       local_homePointsToggle: false,
       local_showPointsCgForce: true,
       local_showPrizeBoard: false,
+      local_enableBlurEffect: true,
       local_zoomLevel: "100%",
       local_zoomLevelHorizontal: "80%",
       isMobile: false,
@@ -192,6 +194,7 @@ export default {
     this.localStorageRead("homePointsToggle");
     this.localStorageRead("showPointsCgForce");
     this.localStorageRead("showPrizeBoard");
+    this.localStorageRead("enableBlurEffect");
 
   },
   beforeDestroy() {
@@ -352,6 +355,15 @@ export default {
       set: function (newValue) {
         this.local_showPrizeBoard = newValue;
         this.$store.commit("CHANGE_PRIZE_BOARD", newValue);
+      }
+    },
+    enableBlurEffect: {
+      get: function () {
+        return this.local_enableBlurEffect;
+      },
+      set: function (newValue) {
+        this.local_enableBlurEffect = newValue;
+        this.$store.commit("CHANGE_ENABLE_BLUR_EFFECT", newValue);
       }
     },
     zoomLevel: {

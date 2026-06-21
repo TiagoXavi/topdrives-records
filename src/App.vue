@@ -2,7 +2,8 @@
   <div
     :class="{
       Main_isMobile: isMobile,
-      Main_isDesktop: !isMobile
+      Main_isDesktop: !isMobile,
+      Main_DisableBlur: $store.state.enableBlurEffect === false
     }"
     class="App_Layout">
     <BaseTopMenu :user="user" />
@@ -6331,6 +6332,26 @@ a:visited:not(.D_Button) {
 
 
 
+.Main_DisableBlur .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTopSpeed,
+.Main_DisableBlur .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlock060,
+.Main_DisableBlur .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockHandling,
+.Main_DisableBlur .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockDrive {
+  backdrop-filter: unset;
+  background-color: hsla(40, 6%, 30%, 0.8);
+}
+.Main_DisableBlur .Car_HeaderBackDropRight {
+  backdrop-filter: unset !important;
+  background-color: hsla(40, 6%, 30%, 0.7);
+}
+.Main_DisableBlur .Main_Compact .Car_HeaderBlockTop {
+  backdrop-filter: unset;
+  background-color: hsla(40, 6%, 30%, 1);
+}
+.Main_DisableBlur .Main_DarkScrollMiniHorizontal_Right,
+.Main_DisableBlur .Main_DarkScrollMiniHorizontal_Left {
+  backdrop-filter: unset;
+  background: #1d1d1de3;
+}
 
 @supports not (backdrop-filter: blur(4px)) {
   .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_HeaderBlockTopSpeed,
@@ -6344,9 +6365,6 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);
   }
-  /* .Car_HeaderBlockTop,
-  .Car_HeaderBlockBrand,
-  .Car_HeaderBlockYear { */
   .Main_Compact .Car_HeaderBlockTop {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 1);
@@ -6371,12 +6389,14 @@ a:visited:not(.D_Button) {
     backdrop-filter: unset !important;
     background-color: hsla(40, 6%, 30%, 0.7);
   }
-  /* .Car_HeaderBlockTop,
-  .Car_HeaderBlockBrand,
-  .Car_HeaderBlockYear { */
   .Main_Compact .Car_HeaderBlockTop {
     backdrop-filter: unset;
     background-color: hsla(40, 6%, 30%, 1);
+  }
+  .Main_DarkScrollMiniHorizontal_Right,
+  .Main_DarkScrollMiniHorizontal_Left {
+    backdrop-filter: unset;
+    background: #1d1d1de3;
   }
   .Car_HeaderToolsHoverContainer {
     display: none;
