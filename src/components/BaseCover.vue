@@ -88,6 +88,9 @@ export default {
       if (fileName.startsWith('ChallengeCategory')) {
         fileName = fileName.replace('ChallengeCategory', '');
       }
+      if (fileName.startsWith('Challenge')) {
+        fileName = fileName.replace('Challenge', '');
+      }
       if (Vue.brands[fileName]) {
         this.brand = Vue.brands[fileName];
         fileName = "zzBrand";

@@ -349,6 +349,10 @@ export default {
   m_expiration: "Expiration",
   m_upgradeCars: "Max my cars",
   m_enableBlurEffect: "Enable blur effect",
+  m_championships: "Championships",
+  m_owners: "Owners",
+
+
 
 
 

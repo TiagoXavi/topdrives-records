@@ -105,7 +105,7 @@
 
           <div v-if="medals.result?.tracks" class="BaseCarDetailFull_TracksBody Space_TopGiga">
             <template v-for="(item, ix) in medals.result.tracks">
-              <div v-if="(ix < 10 || medals.result.tracks[ix][1] === medals.result.tracks[9][1]) || showAllTracks" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
+              <div v-if="(ix < showTracksCount)" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
                 <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
                 <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
                 <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
@@ -115,11 +115,18 @@
                 <div v-else class="BaseCarDetailFull_TrackBestTune" />
               </div>
             </template>
-            <button
-              v-if="medals.result.tracks.length > 0"
-              style="margin-top: 10px;"
-              class="D_Button D_ButtonDark D_ButtonDark2"
-              @click="exportToWorkspace($event)">{{ $t("m_useTrackList") }}</button>
+            <div class="BaseCarDetailFull_SimilarsBottom D_Center2">
+              <button
+                v-if="medals.result.tracks.length > showTracksCount"
+                style="margin-top: 10px;"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="exportToWorkspace(true)">+6</button>
+              <button
+                v-if="medals.result.tracks.length > 0"
+                style="margin-top: 10px;"
+                class="D_Button D_ButtonDark D_ButtonDark2"
+                @click="exportToWorkspace()">{{ $t("m_useTrackList") }}</button>
+            </div>
           </div>
         </div>
 
@@ -158,6 +165,63 @@
         
         <div v-if="!Vue.utils.loading" class="Row_DialogCardDual Space_TopGiga">
           <BaseCarStats :car="car" />
+        </div>
+
+        <div v-if="!Vue.utils.loading && medals.garage" class="Row_DialogCardDual Space_TopGiga" style="--gap: 7px;">
+          <div class="BaseCarStats_Root">
+            <div class="BaseCarStats_Line">
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.owners | perc(medals.garage.statsGtotal) }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("m_owners") }}</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.duplicates | perc(medals.garage.owners) }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("m_duplicates") }}</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.winRate | perc(100) }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("c_winRate") }}</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.fullWinRate | perc(100) }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("c_winRate") }} {{ $t("m_fullyUpgraded") }}</div>
+              </div>
+            </div>
+            <div class="BaseCarStats_Line">
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.tunes["332"] | perc(medals.garage.semiCount) }}</div>
+                <div class="BaseCarStats_TileLabel">332</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.tunes["323"] | perc(medals.garage.semiCount) }}</div>
+                <div class="BaseCarStats_TileLabel">323</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.tunes["233"] | perc(medals.garage.semiCount) }}</div>
+                <div class="BaseCarStats_TileLabel">233</div>
+              </div>
+              <div class="BaseCarStats_Tile">
+                <div class="BaseCarStats_TileValue">{{ medals.garage.tunes["111"] | perc(medals.garage.semiCount) }}</div>
+                <div class="BaseCarStats_TileLabel">111</div>
+              </div>
+            </div>
+            <div class="BaseCarStats_Line" style="grid-template-columns: 1fr 1fr 1fr;">
+              <button class="BaseCarStats_Tile BaseCarStats_TileButton D_Button" @click="championships()">
+                <div :class="{ Row_DialogCardStatCorrect: medals.championships?.length > 4 }" class="BaseCarStats_TileValue">{{ medals.championships?.length || 0 }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("m_championships") }}</div>
+              </button>
+              <button class="BaseCarStats_Tile BaseCarStats_TileButton D_Button" @click="clubs()">
+                <div :class="{ Row_DialogCardStatCorrect: medals.clubsReqs?.c > 19 }" class="BaseCarStats_TileValue">{{ medals.clubsReqs?.c || 0 }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("m_clubs") }}</div>
+              </button>
+              <div class="BaseCarStats_Tile">
+                <div v-if="!medals.garage.oldestDays" class="BaseCarStats_TileValue">?</div>
+                <!-- calcute date now subtract oldestDays and return date in date format -->
+                <div v-else class="BaseCarStats_TileValue">{{ new Date(new Date().getTime() - medals.garage.oldestDays * 24 * 60 * 60 * 1000).toISOString().slice(0,10) }}</div>
+                <div class="BaseCarStats_TileLabel">{{ $t("m_oldest") }}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -234,7 +298,7 @@ export default {
       cgWatchDownloadCache: null,
       cacheObj: null,
       bestTunePerTrack: null,
-      showAllTracks: false,
+      showTracksCount: 10,
       similars: []
     }
   },
@@ -375,9 +439,9 @@ export default {
     closed() {
       this.medals = null;
     },
-    exportToWorkspace(e) {
-      if (e && e.shiftKey && (e.ctrlKey || e.metaKey)) {
-        this.showAllTracks = true;
+    exportToWorkspace(addMore) {
+      if (addMore) {
+        this.showTracksCount += 6;
         return;
       }
 
@@ -390,7 +454,7 @@ export default {
       });
       
 
-      let tracks = this.medals.result.tracks.filter((item, ix) => ix < 10 || item[1] === this.medals.result.tracks[9][1]).map(item => item[0]);
+      let tracks = this.medals.result.tracks.filter((item, ix) => ix < this.showTracksCount).map(item => item[0]);
 
 
 
@@ -475,14 +539,13 @@ export default {
     },
     exportSimilars() {
       let tune;
-      let tracks = [];
+      let tracks = this.medals.result.tracks.filter((item, ix) => ix < this.showTracksCount).map(item => item[0]);
 
       if (this.medals?.result?.tracks) {
         let tunesCount = {};
 
         this.medals.result.tracks.find((item, iItem) => {
           if (iItem >= 10) return true;
-          tracks.push(item[0]);
 
           let best = this.bestTunePerTrack?.[item[0]];
           if (best && !best.includes("T")) {
@@ -557,7 +620,46 @@ export default {
       });
       this.bestTunePerTrack = result;
       console.log("bestTunePerTrack", this.bestTunePerTrack);
-    }
+    },
+    championships() {
+      let list = this.medals?.championships || ["Not useful on championships"];
+
+      this.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: "",
+        hideFooter: true,
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        loading: false,
+        maxWidth: "420px",
+        advanced: {
+          label: this.$t("m_championships"),
+          type: "simpleList",
+          list: list
+        }
+      });
+    },
+    clubs() {
+      let list = this.medals?.clubsReqs?.list || [];
+      list.sort();
+
+      this.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: "",
+        hideFooter: true,
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        loading: false,
+        maxWidth: "420px",
+        advanced: {
+          label: `${this.$t("m_clubs")} ${this.$t("m_reqs")}`,
+          type: "simpleList",
+          list: list
+        }
+      });
+    },
   },
 }
 </script>

@@ -257,6 +257,12 @@
               class="App_DialogConfirmText"
             />
           </div>
+          <div v-if="$store.state.confirmDialog.advanced.type === 'simpleList'" class="App_DialogConfirm_Body">
+            <div class="Main_DialogTitle">{{ $store.state.confirmDialog.advanced.label }}</div>
+            <div v-for="item in $store.state.confirmDialog.advanced.list" :key="item" class="App_DialogConfirm_BodyListItem">
+              {{ item }}
+            </div>
+          </div>
           <template v-if="$store.state.confirmDialog.advanced.type === 'list'" >
             <div class="Cg_SelectorDialogHeader">
               <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $store.state.confirmDialog.advanced.label }}</div>

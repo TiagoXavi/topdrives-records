@@ -1524,6 +1524,17 @@ export default {
           if (!Vue.garageByRid[rid]) return "-";
           return Vue.garageByRid[rid].length;
         }
+        Vue.perc = function (value, total) {
+          if (typeof value !== 'number' || typeof total !== 'number' || total === 0) return "?";
+          if (value === 0) return "0%";
+          // if result below 10, return 1 decimal case
+          // if result below 1, return 2 decimal case
+          let result = (value / total) * 100;
+          if (result < 1) {
+            return `${result.toFixed(1)}%`;
+          }
+          return `${Math.round(result)}%`;
+        }
 
         Vue.cyrb53 = function (str, seed = 0) {
           let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
@@ -1565,6 +1576,7 @@ export default {
         Vue.filter('toTitleCase', Vue.toTitleCase);
         Vue.filter('garageUnits', Vue.garageUnits);
         Vue.filter('formatUTCDateString', Vue.formatUTCDateString);
+        Vue.filter('perc', Vue.perc);
     }
 };
 

@@ -417,7 +417,7 @@
               
               
               <button
-                :disabled="cgCurrentRound === 'd' || cgLoadingAny || cgNeedSave"
+                :disabled="cgCurrentRound === 'd' || cgCurrentRound === 0 || cgLoadingAny || cgNeedSave"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonTuneBorderRadius"
                 @click="loadPrevRound()">
                 <i class="ticon-arrow_left_3" aria-hidden="true"/>
@@ -1656,7 +1656,7 @@
                   <div class="Main_EventInfoValue">{{ event.bucketSize }}</div>
                   <template v-if="event.startDateTime">
                     <div class="Main_EventInfoLabel">{{ $t('m_duration') }}</div>
-                    <div class="Main_EventInfoValue">{{ (new Date(event.endDateTime) - new Date(event.startDateTime)) / 3600000 }} h</div>
+                    <div class="Main_EventInfoValue">{{ Math.round((new Date(event.endDateTime) - new Date(event.startDateTime)) / 3600000) }} h</div>
                   </template>
                 </div>
               </div>
@@ -11654,7 +11654,7 @@ export default {
       this.pointsResolved = result;
     },
     checkAnnouncement() {
-      // return;
+      return;
       let c_id = "contest12";
       if (window.localStorage.getItem(c_id)) return;
       let dt = window.localStorage.getItem("_dt");
