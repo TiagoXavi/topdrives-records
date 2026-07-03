@@ -538,7 +538,7 @@ export default {
       // 79.57351 > 178
       // 71.78595 > 160 correct
       // 79.57351 > 178 correct
-      return parseInt(this * 2.2369);
+      return parseInt(this * 2.2369362920544025);
     };
 
     let vm = this;

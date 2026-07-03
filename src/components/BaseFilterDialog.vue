@@ -1043,7 +1043,7 @@ export default {
         prizesModel: [],
 
         garageThings: ["Can be upgraded", "Can be fused"],
-        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "Not every full", "Duplicate", "Triplicate", "Quadriplicate+"],
+        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "No one full", "Not every full", "Duplicate", "Triplicate", "Quadriplicate+"],
         garageThingsModel: [],
 
         upgradesStart: 0,
@@ -2472,6 +2472,7 @@ export default {
         if ( context.garageThingsModel.includes("Not every full") && !this.$parent.notEveryFull(hCar) ) return false;
         if ( context.garageThingsModel.includes("Counter owned") && !this.$parent.carIsUniqueInResult(hCar) ) return false;
         if ( context.garageThingsModel.includes("Counter 5+ fuse") && (this.$parent.carNumFuses(hCar) < 5 || !this.$parent.carIsUniqueInResult(hCar)) ) return false;
+        if ( context.garageThingsModel.includes("No one full") && (this.$parent.atLeastOneCopyFull(hCar) || !carIsReady) ) return false;
 
         if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return false;
         if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return false;

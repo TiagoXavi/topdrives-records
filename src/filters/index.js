@@ -94,9 +94,9 @@ const utils = Vue.observable({
       "Chachisco": 'mod',
       "Bramdal": 'mod',
 
-      "Sleeperzz": "w1",
-      "Travisl_2727": "w2",
-      "Eyeon": "w3"
+      "mrtn": "w1",
+      "Kabash": "w2",
+      "G1anluca": "w3"
     }
 });
 const garageByRid = {};
@@ -1534,6 +1534,23 @@ export default {
             return `${result.toFixed(1)}%`;
           }
           return `${Math.round(result)}%`;
+        }
+        Vue.copyToClipboard = function (obj) {
+          if (!obj) return;
+          if (typeof obj !== 'string') {
+            try {
+              obj = JSON.stringify(obj, null, 2);
+            } catch (error) {
+              console.log("Error stringifying object for clipboard:", error);
+              return;
+            }
+          }
+          navigator.clipboard.writeText(obj).then(() => {
+            // console.log("Copied to clipboard:", obj);
+          }).catch(err => {
+            console.error("Could not copy text: ", err);
+          });
+
         }
 
         Vue.cyrb53 = function (str, seed = 0) {
