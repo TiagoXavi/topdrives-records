@@ -2515,19 +2515,20 @@ export default {
     filterCheckIncludesArray(valuesArray, array, rid) {
       if (array === undefined) return true;
       if (array.length === 0) return true;
-      return !!array.find(x => {
+      const valuesSet = new Set(valuesArray);
+      return array.some(x => {
         if (x === "Road") {
-          return !valuesArray.includes("Motorsport") && !valuesArray.includes("Concept") && !valuesArray.includes("Track");
+          return !valuesSet.has("Motorsport") && !valuesSet.has("Concept") && !valuesSet.has("Track");
         }
         if (x === "World Expo Road Trip") {
-          return valuesArray.includes("Amalfi Coast Cruising") ||
-          valuesArray.includes("Enter the Black Forest") ||
-          valuesArray.includes("Learn the Savannah Way") ||
-          valuesArray.includes("Loch to Loch") ||
-          valuesArray.includes("Pacific Coast Highway") ||
-          valuesArray.includes("World Expo");
+          return valuesSet.has("Amalfi Coast Cruising") ||
+          valuesSet.has("Enter the Black Forest") ||
+          valuesSet.has("Learn the Savannah Way") ||
+          valuesSet.has("Loch to Loch") ||
+          valuesSet.has("Pacific Coast Highway") ||
+          valuesSet.has("World Expo");
         }
-        return valuesArray.includes(x);
+        return valuesSet.has(x);
       });
     },
     filterGarageIsValidEntry(context, hCar, stringModel, checkFunction) {
