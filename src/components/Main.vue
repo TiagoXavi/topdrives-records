@@ -10321,8 +10321,10 @@ export default {
       
       if (this.isEvents) {
         Vue.set(this.event, "compilation", []);
+        this.eventTab = "trackset";
       } else {
         Vue.set(this, "clubCompilation", []);
+        this.clubTab = "trackset";
       }
 
       let key = this.isEvents ? 'event' : 'clubTracksGroupModel';

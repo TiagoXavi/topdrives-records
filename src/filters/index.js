@@ -248,6 +248,8 @@ const importantTags = [
   "LiveOps 1",
   "LiveOps 2",
   "LiveOps 3",
+  "LiveOps 4",
+  "LiveOps 5",
   "Tri-Series",
   "Tri-Series-Final",
   "Endurance",
