@@ -55,7 +55,7 @@ export default {
 
     this.tools = [
       { name: "MainShowcase", label: this.$t("m_videoShowcase") },
-      { name: "Gallery", label: this.$t("m_vChanges", { version: '32.0' }), newCodes: [], showNew: false },
+      { name: "Gallery", label: this.$t("m_vChanges", { version: '32.1' }), newCodes: [], showNew: false },
       // { name: "MainNewPhotos", label: this.$t("m_vNewPhotos", { version: '24.1' }), newCodes: [], showNew: false },
       { name: "MainCheatSheet", label: this.$t("m_cheatSheet") },
       { name: "MainFindCar", label: this.$t("m_carFinder") },

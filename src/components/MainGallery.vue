@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL32-fixed.json'
-import plOld from '../database/cars_final_PL31.json'
+import data_cars from '../database/cars_final_PL32_1-fixed.json'
+import plOld from '../database/cars_final_PL32.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -1046,10 +1046,11 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
-      this.searchFilters.onlyAnyChangeModel = [];
+      this.searchFilters.onlyAnyChangeModel = [true];
       this.searchFilters.onlyNewRarityModel = [];
       this.searchFilters.onlyNewPerformanceModel = [];
-      this.searchFilters.onlyRelevantChangesModel = [true];
+      this.searchFilters.onlyRelevantChangesModel = [];
+      // this.searchFilters.onlyRelevantChangesModel = [true];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
