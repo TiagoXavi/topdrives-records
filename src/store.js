@@ -143,6 +143,8 @@ export default new Vuex.Store({
       "Summer Games 24",
       "Summer Games 25",
       "Supercar",
+      "Team Edwards",
+      "Team Steel",
       "The Great Outdoors",
       "The Horror Show",
       "The Unicorns",
@@ -159,9 +161,7 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [
-      "50 Years of GTI"
-    ],
+    upcomingTags: [],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,
