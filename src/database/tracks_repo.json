@@ -157,7 +157,8 @@
   },
   {
     "id": "dealsGap",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "deals"
   },
   {
     "id": "dealsGap1",
@@ -186,7 +187,8 @@
   },
   {
     "id": "dealsGapBack",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "deals"
   },
   {
     "id": "desertBig",
@@ -308,15 +310,18 @@
   },
   {
     "id": "jpDrag",
-    "types": ["00"]
+    "types": ["00"],
+    "group": "jp"
   },
   {
     "id": "jpGforce",
-    "types": ["00"]
+    "types": ["00"],
+    "group": "jp"
   },
   {
     "id": "jpCircuit",
-    "types": ["00"]
+    "types": ["00"],
+    "group": "jp"
   },
   {
     "id": "kart",
@@ -348,47 +353,58 @@
   },
   {
     "id": "miCircuit",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miStreets1",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miStreets2",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miUdrag",
-    "types": ["c0","c1"]
+    "types": ["c0","c1"],
+    "group": "mi"
   },
   {
     "id": "miCause",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miCauseDrag",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miBridge",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miFigure",
-    "types": ["50"]
+    "types": ["50"],
+    "group": "mi"
   },
   {
     "id": "miSlalom",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miGforce",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mi"
   },
   {
     "id": "miBeachDrag",
-    "types": ["50"]
+    "types": ["50"],
+    "group": "mi"
   },
   {
     "id": "mnGforce",
@@ -436,12 +452,12 @@
   },
   {
     "id": "mtHillZ50",
-    "types": ["A1","B1","C0","D0","E0"],
+    "types": ["A1","B1","C0","E0"],
     "group": "mt"
   },
   {
     "id": "mtIncline",
-    "types": ["00","01","10","11","60"],
+    "types": ["00","01","11","60"],
     "group": "mt"
   },
   {
@@ -728,250 +744,305 @@
   },
   {
     "id": "mileOne50",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "mileOne60",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "damValley",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damExtended",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damRally",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damRun",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damTwisty",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damTwisty2",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "damView",
-    "types": ["40","41"]
+    "types": ["40","41"],
+    "group": "dam"
   },
   {
     "id": "fast60",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "maliAll",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "mali"
   },
   {
     "id": "maliTour",
-    "types": ["00","50"]
+    "types": ["50"],
+    "group": "mali"
   },
   {
     "id": "maliUp",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "mali"
   },
   {
     "id": "maliCave",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "mali"
   },
   {
     "id": "maliHairpin",
-    "types": ["00","e0","e1"]
+    "types": ["e0","e1"],
+    "group": "mali"
   },
   {
     "id": "maliFast",
-    "types": ["00","50"]
+    "types": ["50"],
+    "group": "mali"
   },
   {
     "id": "maliLong",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "mali"
   },
   {
     "id": "maliObserv",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "mali"
   },
   {
     "id": "maliTcircuit",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "mali"
   },
   {
     "id": "mixedDrag",
-    "types": ["00","40","41"]
+    "types": ["40","41"]
   },
   {
     "id": "mojAround",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojCircuit",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojCross",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "moj"
   },
   {
     "id": "mojExtended",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "moj"
   },
   {
     "id": "mojOver",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojSlalom",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojSmall",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "moj"
   },
   {
     "id": "mojSmallDesert",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "moj"
   },
   {
     "id": "mojCenter",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojFreeway",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojMile2",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojMile2Bump",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "mojMile4",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "moj"
   },
   {
     "id": "palFinish",
-    "types": ["00","c0","c1"]
+    "types": ["c0","c1"],
+    "group": "pal"
   },
   {
     "id": "palUDrag",
-    "types": ["00","50"]
+    "types": ["50"],
+    "group": "pal"
   },
   {
     "id": "palside",
-    "types": ["00","e0","e1"]
+    "types": ["e0","e1"],
+    "group": "pal"
   },
   {
     "id": "palside2",
-    "types": ["00","e0","e1"]
+    "types": ["e0","e1"],
+    "group": "pal"
   },
   {
     "id": "palCircuit",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "pal"
   },
   {
     "id": "palCliff",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "pal"
   },
   {
     "id": "palCross",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "pal"
   },
   {
     "id": "palExtended",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "pal"
   },
   {
     "id": "palExtended2",
-    "types": ["00","i0","i1"]
+    "types": ["i0","i1"],
+    "group": "pal"
   },
   {
     "id": "rosDrag",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "ros"
   },
   {
     "id": "rosRoute1",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "ros"
   },
   {
     "id": "rosRoute2",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "ros"
   },
   {
     "id": "rosRoute3",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "ros"
   },
   {
     "id": "rosRoute4",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "ros"
   },
   {
     "id": "rosRoute5",
-    "types": ["00","10","11"]
+    "types": ["10","11"],
+    "group": "ros"
   },
   {
     "id": "rosRoute6",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "ros"
   },
   {
     "id": "rosRoute7",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "ros"
   },
   {
     "id": "rosSlalom",
-    "types": ["00","01"]
+    "types": ["00","01"],
+    "group": "ros"
   },
   {
     "id": "tCircuit50",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "tCircuit60",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "tCircuit70",
-    "types": ["00","j0"]
+    "types": ["j0"]
   },
   {
     "id": "valDown",
-    "types": ["00","m0","m1"]
+    "types": ["m0","m1"],
+    "group": "val"
   },
   {
     "id": "valHairpin",
-    "types": ["00","k0","k1"]
+    "types": ["k0","k1"],
+    "group": "val"
   },
   {
     "id": "valOff",
-    "types": ["00","k0","k1"]
+    "types": ["k0","k1"],
+    "group": "val"
   },
   {
     "id": "valCross",
-    "types": ["00","m0","m1"]
+    "types": ["m0","m1"],
+    "group": "val"
   },
   {
     "id": "valRun",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "val"
   },
   {
     "id": "valSwitchback",
-    "types": ["00","m0","m1"]
+    "types": ["m0","m1"],
+    "group": "val"
   },
   {
     "id": "valTour",
-    "types": ["00","40","41"]
+    "types": ["40","41"],
+    "group": "val"
   },
   {
     "id": "valSlalom",
-    "types": ["00","k0","k1"]
+    "types": ["k0","k1"],
+    "group": "val"
   }
 ]

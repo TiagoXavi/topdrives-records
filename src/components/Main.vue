@@ -427,7 +427,7 @@
                 :class="{ Row_DialogButtonTuneActive: cgCurrentRound === iround }"
                 class="D_Button Main_OptionsButton Main_MiniPage"
                 @click="cgCurrentRound === iround ? (cgRoundSelectorDialog = true) : loadCgRound(cgCurrentId, iround)">
-                <span style="pointer-events: none; user-select: none;">{{ iround+1 }}</span>
+                <span style="pointer-events: none; user-select: none;">{{ iround+1+cgCurrentRoundSum }}</span>
                 <div class="Main_MiniPageSub Main_MiniPageSubBottom">
                   <i v-if="cg.rounds[iround].lastAnalyze" class="ticon-star Main_RoundDoneIconMiniRound" aria-hidden="true"/>
                   <i v-else-if="cg.rounds[iround].toApprove && cg.rounds[iround].toApprove.length > 0" class="ticon-star Main_RoundDoneIconMiniRound" style="color: unset;" aria-hidden="true"/>
