@@ -8,17 +8,56 @@
     v-if="car !== null"
     style="--drag-left: 0;--drag-top: 0;"
     class="Car_Layout"
+    :class="{ Car_LoadingRoot: Vue.utils.cacheLoading }"
     @mouseenter="$emit('enter')">
     <BaseCard
-      :car="car"
+      :car="carCalc"
       :fix-back="true"
       :downloadLoading="downloadLoading"
       :needSave="needSave"
+      :selectedTune="car.selectedTune"
+      :count="count"
       @longTouch="$emit('longTouch')"
       @dragdown="dragMouseDown($event)"
       @delete="$emit('delete')" />
     <div class="Car_Body">
-      <Row
+
+      <BaseCarsTuneSelector
+        :car="carCalc"
+        :carConfig="car"
+        :mini="compact"
+        :compare="true"
+        @changed="$emit('changed', $event)"
+        @cog="$emit('cog', { car, index })"
+      />
+
+      <div v-if="Vue.unreleased.includes(car.rn)" class="Row_EmptyInviteBox">
+        <div class="Row_EmptyInvite Row_EmptyInvite2">
+          <div>{{ $t("p_patronsUnreleased") }}</div>
+        </div>
+      </div>
+
+      <template v-for="(track, iTrack) in trackList">
+        <BaseTimeCell
+          :index="index"
+          :rid="car.rid"
+          :selectedTune="car.selectedTune"
+          :track="track.code"
+          :count="count"
+          :code="`${index}_${iTrack}`"
+          :highlights="highlights"
+          :countPerTrack="countPerTrack"
+          :showPoints="showPoints"
+          :isReferencePoints="isReferencePoints"
+          :hoverIndex="hoverIndex"
+          :points="points"
+          :lastIndex="lastIndex"
+        />
+      </template>
+
+
+
+      <!-- <Row
         :car="car"
         :list="trackList"
         :highlights="highlights"
@@ -36,7 +75,8 @@
         @move="moveCar($event)"
         @moreTracks="$emit('moreTracks', $event)"
         @delete="$emit('delete')"
-        type="times" />
+        type="times"
+      /> -->
     </div>
   </div>
   <div
@@ -52,8 +92,9 @@
 </template>
 
 <script>
-import Row from './Row.vue'
 import BaseCard from './BaseCard.vue';
+import BaseTimeCell from './BaseTimeCell.vue';
+import BaseCarsTuneSelector from './BaseCarsTuneSelector.vue';
 
 var initX = 0;
 var initY = 0;
@@ -70,8 +111,9 @@ var skip = false;
 export default {
   name: 'Car',
   components: {
-    Row,
-    BaseCard
+    BaseCard,
+    BaseTimeCell,
+    BaseCarsTuneSelector
   },
   props: {
     car: {
@@ -153,14 +195,24 @@ export default {
   },
   data() {
     return {
-      
+      count: 0,
+      Vue: Vue
     }
   },
-  watch: {},
+  watch: {
+    "Vue.utils.d_.downloadCount": function () {
+      // console.log(this.count);
+      this.count++;
+    }
+  },
   beforeMount() {},
   mounted() {
   },
-  computed: {},
+  computed: {
+    carCalc() {
+      return this.car && this.car.rid ? Vue.all_carsObj[this.car.rid] : null;
+    }
+  },
   methods: {
     // dragElement(elmnt) {
     //   if (document.getElementById(elmnt.id + "header")) {

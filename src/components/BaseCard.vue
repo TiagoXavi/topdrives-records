@@ -6,7 +6,7 @@
     <div v-if="fixBack" class="BaseCard_FixBack" />
     <div v-if="isDialogBox" class="BaseCard_EffectBackGround"></div>
     <div
-      class="Car_Header"
+      class="Car_Header Car_LoadingAuto"
       :class="{ Row_DialogCardCard: isDialogBox, Car_Loading: downloadLoading, Car_WithVideo: videoSrc }">
       <img
         :src="carPhotoSrc"
@@ -48,7 +48,7 @@
       </div>
       <div v-if="options" class="Car_HeaderToolsBack" />
       <div v-if="tuneText" class="Car_TuneTipGallery">{{ tuneText }}</div>
-      <div class="Car_HeaderLogo" :class="`Car_Logo_${(car.logo || car.brand).replaceAll(' ', '_')}`" />
+      <div class="Car_HeaderLogo" :class="`Car_Logo_${(car.brand || '').replaceAll(' ', '_')}`" />
       <div class="Car_HeaderBlockRQ">
         <div class="Car_HeaderRQValue" :class="{ Car_HeaderRQValue3: resolveCar && resolveCar.rq > 99 }">{{ resolveCar.rq }}</div>
         <div class="Car_HeaderRQLabel"><i class="tdicon-rq" aria-hidden="true"/></div>
@@ -64,15 +64,15 @@
       </div>
       <div class="Car_HeaderBackDropRight" :class="{ Car_ForceStats: forceStats }">
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData, fTune, forceStats) }}</div>
+          <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('topSpeed', fTune, count) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData, fTune, forceStats) }}</div>
+          <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('acel', fTune, count) }}</div>
           <div class="Car_HeaderStatLabel">0-60MPH</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
-          <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData, fTune, forceStats) }}</div>
+          <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('hand', fTune, count) }}</div>
           <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
         </div>
         <div class="Car_HeaderRightBlockUnique">
@@ -95,7 +95,7 @@
     <div
       :class="{ Car_Loading: downloadLoading }"
       :style="`--class-color: ${carClassColor}`"
-      class="Car_Header2"
+      class="Car_Header2 Car_LoadingAuto"
       @mousedown="$emit('dragdown', $event)"
       @touchstart="touchstart($event)"
       @touchend="touchend()"
@@ -110,7 +110,7 @@
         >
       </div>
       <div class="BaseCard_Header2Right">
-        <div class="BaseCard_Header2Top"><b>[{{ resolveCar.rq }}]</b> {{ car.brand }}</div>
+        <div class="BaseCard_Header2Top"><b>{{ resolveCar.rq }}</b> {{ car.brand }}</div>
         <div class="BaseCard_Header2Bottom">{{ car.onlyName }}</div>
       </div>
       <div class="BaseCard_Header2Right2">{{ resolveCar.rq }}</div>
@@ -200,7 +200,8 @@ export default {
       type: Boolean,
       default: true
     },
-    selectedTune: {}
+    selectedTune: {},
+    count: {},
   },
   data() {
     return {

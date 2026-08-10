@@ -554,7 +554,7 @@ export default {
       Vue.tryLoadGarageFromStorage();
       if (this._Mcars.isGarage) {
         if (!this.T_S._user || !this.T_S._user.hasGarage) {
-          return;
+          this._Mcars.isGarage = false;
         }
         if (Vue.garageObj.loaded) {
           return this.loadByGarage();

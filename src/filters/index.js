@@ -3,6 +3,7 @@ import all_cars from '../database/cars_final.json';
 import tracksRepo from '../database/tracks_repo.json';
 import tracksPerc from '../database/tracks_perc.json';
 import rn_to_rid from '../database/rn_to_rid.json';
+import rn_to_track from '../database/rn_to_track.json';
 import Vue from 'vue';
 
 const classes = ["F","E","D","C","B","A","S"];
@@ -51,18 +52,28 @@ function carPhoto(car) {
 
 var resolvedRids = {};
 var guidToRid = {};
+const statsParse = { topSpeed: 0, acel: 1, hand: 2 };
 const cacheCars = Vue.observable({});
+const timesCache = Vue.observable({});
+const statsCache = Vue.observable({});
 const R_Medals = Vue.observable({});
+const unreleased = Vue.observable([]);
 const utils = Vue.observable({
     loading: false,
     cacheLoading: false,
+    statsLoading: false,
     R_MedalsLoaded: false,
     R_MedalsNicheLoaded: false,
     R_MedalsOldLoaded: false,
-    downloadCount: 0,
+    d_: {
+      downloadCount: 0,
+      statsCount: 0
+    },
     altKey: false,
     windowWidth: 0,
-    ridsDownloading: [],
+    releasedPrizes: [],
+    rnsDownloading: [],
+    statsDownloading: [],
     giveawayUsers: [],
     lastestcars: [],
     statistics: {},
@@ -256,6 +267,31 @@ const importantTags = [
   "GT-Series"
 ]
 
+const extraTunes = [
+  "112",
+  "121",
+  "211",
+  "122",
+  "212",
+  "221",
+  "222",
+  "113",
+  "131",
+  "311",
+  "312",
+  "321",
+  "213",
+  "231",
+  "123",
+  "132",
+  "223",
+  "232",
+  "322",
+  "133",
+  "313",
+  "331"
+]
+
 const inventory = Vue.observable({});
 
 function updateInventory(newInventory) {
@@ -383,90 +419,198 @@ function watchDebounced(array, callback, delay) {
 let lastRidsString;
 
 function downloadCars() {
-  if (!ridsToDownload.length) return;
-  let rids = [...new Set(ridsToDownload)];
-  ridsToDownload.splice(0, ridsToDownload.length);
-  if (JSON.stringify(rids) === lastRidsString) return; // avoid ddos
-  lastRidsString = JSON.stringify(rids);
-  utils.cacheLoading = true;
-  utils.ridsDownloading = rids;
+  if (!TCodeToDownload.length) return;
+  let TCodes = [...new Set(TCodeToDownload)];
+  TCodeToDownload.splice(0, TCodeToDownload.length);
+  
+  utils.rnsDownloading = [...new Set(TCodes.map(x => Number(x.split("_")[0])))];
+  
+  let params = {
+    TCodes: TCodes
+  }
 
-  window.axios.post(Vue.preUrl + "/cars", rids.map(x => { return { rid: x } }))
+  let TracksRn;
+  if (window.location.pathname.includes("/compare")) {
+    TracksRn = [...new Set(TracksRnToDownload)];
+    TracksRnToDownload.splice(0, TracksRnToDownload.length);
+    params.tracksRn = TracksRn;
+  }
+  
+  if (JSON.stringify(params) === lastRidsString) return; // avoid ddos
+  lastRidsString = JSON.stringify(params);
+  utils.cacheLoading = true;
+  
+  window.axios.post(Vue.preUrl + "/cors", params)
   .then(res => {
-    rids.map(rid => {
-      if (!cacheCars[rid]) cacheCars[rid] = {};
-      cacheCars[rid].isDownloaded = true;
-    })
-    res.data.map(car => {
-      if (car.data) {
-        if (!cacheCars[car.rid].data) cacheCars[car.rid].data = {};
-        Object.keys(car.data).map(tune => {
-          cacheCars[car.rid].data[tune] = car.data[tune];
-        })
+    if (res.data.times) {
+      if (TracksRn) {
+        TracksRn.forEach((rn, iTrack) => {
+          TCodes.forEach((TCod, iTCod) => {
+            let TCodeFull = TCod + "_" + rn;
+            timesCache[TCodeFull] = res.data.times[iTrack * TCodes.length + iTCod];
+            if (timesCache[TCodeFull] === 0) timesCache[TCodeFull] = -1;
+            // if (rn_to_track[rn] && rn_to_track[rn].includes('testBowl') && timesCache[TCodeFull] > 0) {
+            //   timesCache[TCodeFull] = timesCache[TCodeFull].toTestBowlSrvDisplay();
+            // }
+          });
+        });
+      } else {
+        TCodes.forEach((TCod, iTCod) => {
+          timesCache[TCod] = res.data.times[iTCod] || null;
+          if (timesCache[TCod] === 0) timesCache[TCod] = -1;
+        });
       }
-      if (car.users) cacheCars[car.rid].users = car.users;
-      if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
+    }
+    res.data.stats && Object.keys(res.data.stats).forEach(key => {
+      statsCache[key] = res.data.stats[key] || null;
     });
-    utils.downloadCount++;
+    if (res.data.unreleased) {
+      res.data.unreleased.forEach(rn => {
+        if (!unreleased.includes(rn)) {
+          unreleased.push(rn);
+        }
+      });
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    Vue.$store.commit("DEFINE_SNACK", {
+      active: true,
+      error: true,
+      text: error,
+      type: "error"
+    });
+  })
+  .then(() => {
+    utils.d_.downloadCount++;
+    utils.cacheLoading = false;
+    utils.rnsDownloading = [];
+  });
+}
+
+let lastStatsString;
+
+function downloadStats() {
+  if (!statsToDownload.length) return;
+  let TCodes = [...new Set(statsToDownload)];
+  statsToDownload.splice(0, statsToDownload.length);
+  if (JSON.stringify(TCodes) === lastStatsString) return; // avoid ddos
+  lastStatsString = JSON.stringify(TCodes);
+  utils.statsLoading = true;
+  utils.statsDownloading = TCodes;
+
+  window.axios.post(Vue.preUrl + "/stats", TCodes)
+  .then(res => {
+    res.data.stats && Object.keys(res.data.stats).forEach(key => {
+      statsCache[key] = res.data.stats[key];
+    });
+    utils.d_.statsCount++;
   })
   .catch(error => {
     console.log(error);
   })
   .then(() => {
-    utils.cacheLoading = false;
-    utils.ridsDownloading = [];
+    utils.statsLoading = false;
+    utils.statsDownloading = [];
   });
 }
 
 
-const ridsToDownload = watchDebounced([], (obj) => {
+const TracksRnToDownload = [];
+const TCodeToDownload = watchDebounced([], (obj) => {
   // console.log('Array has stopped changing. Final state:', obj);
+  if (utils.cacheLoading) {
+    TCodeToDownload.push(); // tick
+    return;
+  };
   downloadCars();
+}, 100);
+const statsToDownload = watchDebounced([], (obj) => {
+  // console.log('Array has stopped changing. Final state:', obj);
+  if (utils.statsLoading) {
+    statsToDownload.push(); // tick
+    return;
+  };
+  downloadStats();
 }, 100);
 
 
-
-
-function predictTimes(cars, tracks) {
-  // cars = array of car objects with rid and selectedTune
-  let rids = cars.map(x => x.rid);
-  rids = [...new Set(rids)];
-  rids = rids.map(rid => { return { rid } });
-  
-  let body = {
-    rids: [...new Set(rids)],
-    predictObj: {
-      tracks: tracks,
-      cars: cars
-    },
+function getTCodFull(rid, tune, track) {
+  if (!rid || !tune || !track) return null;
+  if (tune !== "333" && /^[0-3]+$/.test(tune)) { // 323 format
+    tune = tune.split("").map(x => x * 3).join("");
   }
-  utils.cacheLoading = true;
+  return `${rn_to_rid.indexOf(rid)}_${tune}_${rn_to_track.indexOf(track)}`;
+}
+function getTCod(rid, tune) {
+  if (!rid || !tune) return null;
+  if (tune !== "333" && /^[0-3]+$/.test(tune)) { // 323 format
+    tune = tune.split("").map(x => x * 3).join("");
+  }
+  return `${rn_to_rid.indexOf(rid)}_${tune}`;
+}
 
-  window.axios.post(Vue.preUrl + "/cars", body)
-  .then(res => {
-    rids.map(rid => {
-      if (!cacheCars[rid]) cacheCars[rid] = {};
-      cacheCars[rid].isDownloaded = true;
-    })
-    res.data.map(car => {
-      if (car.data) {
-        if (!cacheCars[car.rid].data) cacheCars[car.rid].data = {};
-        Object.keys(car.data).map(tune => {
-          cacheCars[car.rid].data[tune] = car.data[tune];
-        })
-      }
-      if (car.users) cacheCars[car.rid].users = car.users;
-      if (car.reviews) cacheCars[car.rid].reviews = car.reviews;
-    });
-    utils.downloadCount++;
-  })
-  .catch(error => {
-    console.log(error);
-  })
-  .then(() => {
-    utils.cacheLoading = false;
+String.prototype.parseTCodeFull = function () {
+  return this.split("_").map((x, ix) => {
+    if (ix === 0) return rn_to_rid[x];
+    if (ix === 2) return rn_to_track[x];
+    return x;
   });
 }
+String.prototype.parseTCode = function () {
+  return this.split("_").map((x, ix) => {
+    if (ix === 0) return rn_to_rid[x];
+    return x;
+  });
+}
+String.prototype.to323TuneIfPossible = function () {
+  if (/^[0369]+$/.test(this)) {
+    return this.split("").map(x => x / 3).join("");
+  }
+  return this.toString();
+}
+String.prototype.to969TuneIfPossible = function () {
+  if (this === "333") return this;
+  if (/^[0123]+$/.test(this)) {
+    return this.split("").map(x => x * 3).join("");
+  }
+  return this.toString();
+}
+String.prototype.tuneSum = function () {
+  return this.split("").reduce((a, b) => Number(a) + Number(b), 0);
+}
+Number.prototype.toTestBowlSrvDisplay = function () {
+  return parseInt(this / 0.44703999161720276);
+}
+
+function getTimeFromCache(rid, tune, track) {
+  let TCodeFull = getTCodFull(rid, tune, track);
+  return timesCache[TCodeFull];
+}
+function timeIsBest(a, b, track) {
+  if (!a || !b) return false;
+  if (a === b) return false;
+  let bothDNF = a < 0 && b < 0;
+  if (bothDNF) return a < b; // most negative is better
+  if (a < 0) return false; // a is DNF, b is not
+  if (b < 0) return true; // b is DNF, a is not
+  
+  let isTB = track.includes('testBowl');
+  if (isTB) return a > b; // higher is better
+  return a < b; // lower is better
+}
+function loadTimesFromKing(car, track) {
+  if (!car || !track) return;
+  let TCodeFull = getTCodFull(car.rid, car.tun, track);
+  if (TCodeFull) {
+    timesCache[TCodeFull] = car.time;
+    if (timesCache[TCodeFull] === 0) timesCache[TCodeFull] = -1;
+  }
+  if (car.stats) {
+    statsCache[getTCod(car.rid, car.tun)] = car.stats || null;
+  }
+}
+
 
 
 
@@ -592,6 +736,7 @@ export default {
         Vue.all_cacheObj = cacheCars;
         Vue.all_carsObj = resolvedRids;
         Vue.rn_to_rid = rn_to_rid;
+        Vue.rn_to_track = rn_to_track;
         Vue.R_Medals = R_Medals;
         Vue.resolveTracksetGroup = resolveTracksetGroup;
         Vue.resolveTrack = resolveTrack;
@@ -600,7 +745,6 @@ export default {
         Vue.tracks_perc = tracksPerc;
         Vue.debounce = debounce;
         Vue.resolveClass = resolveClass;
-        Vue.predictTimes = predictTimes;
         Vue.garageByRid = garageByRid;
         Vue.garageByHid = garageByHid;
         Vue.garageListUpgraded = garageListUpgraded;
@@ -614,6 +758,16 @@ export default {
         Vue.updateInventory = updateInventory;
         Vue.inventory = inventory;
         Vue.formatUTCDateString = formatUTCDateString;
+        Vue.getTimeFromCache = getTimeFromCache;
+        Vue.getTCodFull = getTCodFull;
+        Vue.getTCod = getTCod;
+        Vue.timeIsBest = timeIsBest;
+        Vue.timesCache = timesCache;
+        Vue.statsCache = statsCache;
+        Vue.statsParse = statsParse;
+        Vue.unreleased = unreleased;
+        Vue.loadTimesFromKing = loadTimesFromKing;
+        Vue.extraTunes = extraTunes;
 
         Vue.carByRid = function (rid) {
           return resolvedRids[rid];
@@ -639,7 +793,7 @@ export default {
           }
           if ((id || "").includes("testBowl")) {
             if (!isNaN(num)) {
-              return `${Math.floor(num)}`;
+              return num.toTestBowlSrvDisplay();
             }
           }
 
@@ -665,6 +819,12 @@ export default {
         };
         Vue.toTimeStringTrCode = function(input, trCode) {
             if (!trCode) return "";
+            if (input === "!loading") return "";
+            if (input === "!tune") return "";
+            if (input === "!rid") return "";
+            if (input === "!track") return "";
+            if (input === null) return "";
+            if (input <= 0) return "DNF";
             return Vue.toTimeString(input, trCode.slice(0,-4));
         };
 
@@ -745,56 +905,73 @@ export default {
           return Number((input).toFixed(2));
         };
         
-        Vue.resolveStat = function (car, type, customData = null, selectedTune, forceStats) {
-            if (
-              (
-                !selectedTune ||
-                selectedTune === "000"
-              ) &&
-              (
-                car.selectedTune === null || 
-                car.selectedTune === undefined || 
-                car.selectedTune === "000"
-              )
-            ) {
-                if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
-                return car[type] || "-";
-            }
-            if (selectedTune && car === Vue.all_carsObj[car.rid]) {
-              if (cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t) {
-                return cacheCars[car.rid].data[selectedTune].info[type].t;
-              }
-              if (forceStats) {
-                if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
-                 return car[type] || "-";
-              }
-              if (selectedTune.startsWith("Other")) {
-                return "?";
-              }
-              return "-";
-            }
-            if (car.selectedTune && car.selectedTune.includes("Other")) {
-                return "?";
-            }
-            if (typeof car.selectedTune !== 'string') return "err";
+        Vue.resolveStat = function (rid, type, selectedTune) {
+          let res;
+          if (!selectedTune || selectedTune === "000") {
+            // base stats
+            res = Vue.all_carsObj[rid]?.[type];
+          } else {
+            let TCod = getTCod(rid, selectedTune);
+            res = statsCache[TCod]?.[statsParse[type]];
+          }
+          if (type === "acel" && res === null) return "N/A";
+          if (type === "acel" && res) return res.toFixed(1);
+          return res || "-";
 
-            if (customData) {
-                return customData?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
-                // try {
-                //     if (!customData.data[car.selectedTune].info[type].t) return "-";
-                //     return customData.data[car.selectedTune].info[type].t;
-                // } catch (error) {
-                //     return "-";
-                // }
-            } else {
-                return car?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
-                // try {
-                //     if (!car.data[car.selectedTune].info[type].t) return "-";
-                //     return car.data[car.selectedTune].info[type].t;
-                // } catch (error) {
-                //     return "-";
-                // }
-            }
+          // if (
+          //   (
+          //     !selectedTune ||
+          //     selectedTune === "000"
+          //   ) &&
+          //   (
+          //     car.selectedTune === null || 
+          //     car.selectedTune === undefined || 
+          //     car.selectedTune === "000"
+          //   )
+          // ) {
+          //     if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
+          //     return car[type] || "-";
+          // }
+
+          // if (car && car.selectedTune && car.selectedTune.includes("Other")) {
+          //   return "?";
+          // }
+
+          // if (car && car.rid && selectedTune) {
+          //   let TCod = getTCod(car.rid, selectedTune);
+
+          //   if (cacheCars[car.rid]?.data?.[selectedTune]?.info?.[type]?.t) {
+          //     return cacheCars[car.rid].data[selectedTune].info[type].t;
+          //   }
+          //   if (forceStats) {
+          //     if (type === "acel" && typeof car[type] === 'number') return car[type].toFixed(1);
+          //       return car[type] || "-";
+          //   }
+          //   if (selectedTune.startsWith("Other")) {
+          //     return "?";
+          //   }
+          //   return "-";
+          // }
+
+          // if (typeof car.selectedTune !== 'string') return "err";
+
+          // if (customData) {
+          //     return customData?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
+          //     // try {
+          //     //     if (!customData.data[car.selectedTune].info[type].t) return "-";
+          //     //     return customData.data[car.selectedTune].info[type].t;
+          //     // } catch (error) {
+          //     //     return "-";
+          //     // }
+          // } else {
+          //     return car?.data?.[car.selectedTune]?.info?.[type]?.t || "-";
+          //     // try {
+          //     //     if (!car.data[car.selectedTune].info[type].t) return "-";
+          //     //     return car.data[car.selectedTune].info[type].t;
+          //     // } catch (error) {
+          //     //     return "-";
+          //     // }
+          // }
             
         };
         Vue.boldTunes = function (tune) {
@@ -878,6 +1055,124 @@ export default {
             ) {
                 return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
             }
+
+        };
+        Vue.cellSubNew = function (rid, tune, track) {
+            if (!rid || !tune || !track) return;
+
+            if (Vue.all_carsObj[rid].clearance === 'Low') {
+              let trackId = track.split("_")[0];
+              if (
+                  trackId === 'csMed' ||
+                  trackId === 'csSmall' ||
+                  trackId === 'moto' ||
+                  trackId === 'oceanCity' ||
+                  trackId === 'speedbump14km' ||
+                  trackId === 'speedbump12km' ||
+                  trackId === 'speedbump1km' ||
+                  trackId === 'dockCity' ||
+                  trackId === 'miStreets2' ||
+                  trackId === 'csMedZ50' ||
+                  trackId === 'csSmallZ50' ||
+                  trackId === 'oceanCityZ50' ||
+                  trackId === 'mojFreeway' ||
+                  trackId === 'mojExtended' ||
+                  trackId === 'mojMile2Bump' ||
+                  trackId === 'desertHill' ||
+                  trackId === 'desertRallyDirt'
+              ) {
+                return window.i18n.t(`c_${Vue.all_carsObj[rid].clearance.toLowerCase()}`).toLowerCase();
+              }
+            }
+
+            if (Vue.all_carsObj[rid].clearance === 'Low' || Vue.all_carsObj[rid].clearance === 'Mid') {
+              let trackId = track.split("_")[0];
+              if (
+                  trackId === 'moto' ||
+                  trackId === 'desertRallyDirt'
+              ) {
+                return window.i18n.t(`c_${Vue.all_carsObj[rid].clearance.toLowerCase()}`).toLowerCase();
+              }
+            }
+
+            if (
+              track === "drag100_a00" ||
+              track === "drag150_a00" ||
+              track === "drag170_a00" ||
+              track === "drag100b_a00" ||
+              track === "drag100b_a01" ||
+              track === "drag100b_a10" ||
+              track === "drag150b_a00"
+            ) {
+              let TCod = getTCodFull(rid, tune, track);
+              let time = timesCache[TCod];
+              if (time === undefined) return "";
+              let acel;
+              if (track === "drag100_a00") {
+                if (tune === "000") {
+                  acel = Vue.all_carsObj[rid].acel;
+                } else {
+                  acel = statsCache[getTCod(rid, tune)];
+                }
+                if (!acel || (tune !== "000" && !acel[1])) return "";
+                return Vue.mra(time, (tune === "000" ? acel : acel[1]));
+              }
+
+              let track2;
+              let time2;
+              if (track === "drag150_a00") {
+                track2 = "drag100_a00";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.mra(time, time2);
+              }
+              if (track === "drag170_a00") {
+                track2 = "drag150_a00";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.mra(time, time2, 25);
+              }
+              if (track === "drag100b_a00") {
+                track2 = "drag100_a00";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.brake(time, time2);
+              }
+              if (track === "drag100b_a01") {
+                track2 = "drag100_a01";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.brake(time, time2);
+              }
+              if (track === "drag100b_a10") {
+                track2 = "drag100_a10";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.brake(time, time2);
+              }
+              if (track === "drag150b_a00") {
+                track2 = "drag150_a00";
+                time2 = timesCache[getTCodFull(rid, tune, track2)];
+                if (time2 === undefined) return "";
+                return Vue.brake(time, time2);
+              }
+
+              
+              // if (track === "drag100_a00") return Vue.mra(time, acel[1]);
+              // if (track === "drag150_a00") return Vue.mra(time, car?.data?.[tun]?.times?.drag100_a00?.t);
+              // if (track === "drag170_a00") return Vue.mra(time, car?.data?.[tun]?.times?.drag150_a00?.t, 25);
+  
+              // if (track === "drag100b_a00") return Vue.brake(time, car?.data?.[tun]?.times?.drag100_a00?.t);
+              // if (track === "drag100b_a01") return Vue.brake(time, car?.data?.[tun]?.times?.drag100_a01?.t);
+              // if (track === "drag100b_a10") return Vue.brake(time, car?.data?.[tun]?.times?.drag100_a10?.t);
+              // if (track === "drag150b_a00") return Vue.brake(time, car?.data?.[tun]?.times?.drag150_a00?.t);
+
+              
+            }
+            
+
+
+            
 
         };
         Vue.kShort = function (number) {
@@ -986,17 +1281,17 @@ export default {
         };
         Vue.carPhoto = carPhoto;
         Vue.userPoints = function (userTime, oppoTime, trackCode) {
-            if (isNaN(userTime) || isNaN(oppoTime)) return;
+            if(isNaN(userTime) || isNaN(oppoTime)) return;
             if (!trackCode) return;
             let track = trackCode;
             if (trackCode.includes("_a")) track = trackCode.slice(0,-4);
-            if (!tracks_factor[track] || isNaN(tracks_factor[track])) return;
+            // if (!tracks_factor[track] || isNaN(tracks_factor[track])) return;
 
             let result;
             let wt = Math.min(userTime, oppoTime);
             let lt = Math.max(userTime, oppoTime);
             let isLose = userTime > oppoTime;
-            let factor = tracks_factor[track];
+            let factor = tracks_factor[track] || 1000;
 
 
             // especials
@@ -1038,14 +1333,6 @@ export default {
 
                 if (wt === lt) return { v: 0, i: true };
 
-
-                // var diffPercent = lt/wt*100;
-                // result = -384.0318 + (490971 - -384.0318)/(1 + Math.pow(diffPercent/0.08919558, 1.017337)); // v2
-                // result = Math.round(result);
-                // if (trackCode.includes("testBowlr")) result = result - 5;
-                // if (trackCode === "testBowl_a10") result = result - 3;
-                // if (trackCode === "testBowlr_a20") result = result + 5;
-
                 var diffPercent = lt/wt*100;
                 result = -363.1035 + (423861800 - -363.1035)/(1 + Math.pow(diffPercent/0.00004795929, 0.9598014))
                 result = Math.round(result);
@@ -1060,12 +1347,14 @@ export default {
                 return { v: result, i: true };
             }
 
-            if (wt == lt) return { v: 0, i: false };
-            if (wt == 0 || lt == 0) {
-                result = 250;
-                if (!isLose) result = result * -1;
-                return { v: result, i: false };
+            if (userTime < -1 && oppoTime < -1) {
+              result = 50;
+              if (oppoTime < userTime) result = result * -1;
+              return { v: result, i: false };
             }
+            if (userTime == oppoTime) return { v: 0, i: false };
+            if (userTime < -1 && oppoTime > 0) return { v: -250, i: false };
+            if (oppoTime < -1 && userTime > 0) return { v: 250, i: false };
 
             result = (factor * -1) * (wt / lt) + factor;
             // console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
@@ -1208,39 +1497,67 @@ export default {
           if (resData.newCars) {
             // Not used anymore
           }
+          if (resData.releasedPrizes) {
+            Vue.set(Vue.utils, "releasedPrizes", resData.releasedPrizes);
+          }
         };
-        Vue.timeCell = function (rid, tune, track, key="times") {
-            if (!rid) return "!rid";
-            if (
-              !cacheCars[rid] ||
-              (
-                !cacheCars[rid].isDownloaded &&
-                (
-                  !cacheCars[rid].data ||
-                  !cacheCars[rid].data[tune] ||
-                  !cacheCars[rid].data[tune][key] ||
-                  !cacheCars[rid].data[tune][key][track]
-                )
-              )
-            ) {
-              ridsToDownload.push(rid);
-              return "!data";
+        Vue.timeCell = function (rid, tune, track) {
+          if (!rid) return "!rid";
+          if (!tune) return "!tune";
+          if (!track) return "!track";
+
+          let TCod = getTCodFull(rid, tune, track);
+          if (timesCache[TCod] === undefined) {
+            if (window.location.pathname === "/" || window.location.pathname === "/compare") {
+              // separate tracks
+              TCod = getTCod(rid, tune);
+              TCodeToDownload.push(TCod);
+              TracksRnToDownload.push(rn_to_track.indexOf(track));
+              // if (rn_to_track.indexOf(track) === 63) {
+              //   debugger;
+              // }
+            } else {
+              TCodeToDownload.push(TCod);
             }
-            if (!tune) return "!tune";
-            if (!track) return "!track";
-            
+            return "!loading";
+          }
 
-            if (
-              !cacheCars[rid].data ||
-              !cacheCars[rid].data[tune] ||
-              !cacheCars[rid].data[tune][key] ||
-              !cacheCars[rid].data[tune][key][track]
-            ) return "!time";
+          return timesCache[TCod];
+        };
+        Vue.statsCell = function (rid, tune) {
+          if (!rid) return "!rid";
+          if (!tune) return "!tune";
 
-            return cacheCars[rid].data[tune][key][track];
+          let TCod = getTCod(rid, tune);
+          if (!statsCache[TCod]) {
+            statsToDownload.push(TCod);
+            return "!loading";
+          }
+
+          return statsCache[TCod];
         };
         Vue.importDumbTimesFromCg = function (cg) {
           if (!cg && !cg.rounds) return;
+          cg.rounds.map(round => {
+            round.races.map(race => {
+              if (!race.rid) return;
+              if (!race.tune) return;
+              if (race.stats) {
+                let TCode = getTCod(race.rid, race.tune);
+                statsCache[TCode] = race.stats;
+              }
+
+              if (!race.track) return;
+              if (race.time === undefined || race.time === null) return;
+
+              let TCodeFull = getTCodFull(race.rid, race.tune, race.track);
+
+              timesCache[TCodeFull] = race.time;
+              if (timesCache[TCodeFull] === 0) timesCache[TCodeFull] = -1;
+            });
+          });
+
+          return;
           let tunes = ["332", "323", "233"];
           cg.rounds.map(round => {
             round.races.map(race => {
@@ -1592,6 +1909,7 @@ export default {
         Vue.filter('trackToPerc', Vue.trackToPerc);
         Vue.filter('timeCell', Vue.timeCell);
         Vue.filter('cellSub', Vue.cellSub);
+        Vue.filter('cellSubNew', Vue.cellSubNew);
         Vue.filter('toTitleCase', Vue.toTitleCase);
         Vue.filter('garageUnits', Vue.garageUnits);
         Vue.filter('formatUTCDateString', Vue.formatUTCDateString);

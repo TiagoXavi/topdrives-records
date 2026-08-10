@@ -2056,9 +2056,6 @@ export default {
         this.T_S._g_cFull.dialog = false;
       };
     },
-    resolveStat(car, type, customData = null) {
-      return Vue.resolveStat(car, type, customData);
-    },
     getLastest() {
       this.lastestLoading = true;
 

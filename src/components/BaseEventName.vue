@@ -11,13 +11,13 @@
         v-html="item.nameStyled"
         :class="contentClass"
         class="BaseEventName_Right"
-        :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`"
+        :style="`font-size: ${name?.length > maxLength ? '0.8em' : ''}`"
       />
       <span
         v-else
         :class="contentClass"
         class="BaseEventName_Right"
-        :style="`font-size: ${name.length > maxLength ? '0.8em' : ''}`">{{ name }}</span>
+        :style="`font-size: ${name?.length > maxLength ? '0.8em' : ''}`">{{ name }}</span>
       <slot />
       <BaseRemainingTime
         v-if="!onlyName && (!item?.endDateTime || item?.startDateTime)"

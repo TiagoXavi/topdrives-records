@@ -85,7 +85,24 @@
                 v-model="searchFilters.tunesModel"
                 :value="item" />
             </template>
+            <button
+              v-if="!extraTunesExpanded"
+              class="D_Button D_ButtonDark D_ButtonDarkTransparent"
+              @click="extraTunesExpanded = true;">
+              <i class="ticon-keyboard_arrow_down Main_FilterChipsShowExpandIcon" aria-hidden="true"/>
+            </button>
           </div>
+
+          <BaseExpandDiv :active="extraTunesExpanded">
+            <div class="Main_FilterChipsFlex">
+              <template v-for="(item, ix) in Vue.extraTunes">
+                <BaseChip
+                  class="BaseChip_MinWidth BaseChip_DontCrop"
+                  v-model="searchFilters.tunesModel"
+                  :value="item" />
+              </template>
+            </div>
+          </BaseExpandDiv>
 
           <div v-if="config.classes !== false && internalConfig.classes !== false" class="Main_FilterChips Main_FilterClassChips">
             <template v-for="(item, ix) in searchFilters.classes">
@@ -931,6 +948,7 @@ export default {
       factor: false,
       statsView: false,
       oldTagsExpanded: false,
+      extraTunesExpanded: false,
       showCustomGarageFilterMode: false,
       garageMode: "normal",
       garageModes: ["normal", "showAllCopies", "hideAllCopies"],
@@ -1026,7 +1044,7 @@ export default {
         olaStart: 0,
         olaEnd: 100,
         olaModel: [],
-        tunes: ["332", "323", "233", "111", "Custom", "Best"],
+        tunes: ["332", "323", "233", "111", "000", "Best"],
         tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
         classesColors: ["#878787","#76F273","#1CCCFF","#FFF62B","#FF3538","#8C5CFF","#FFAF17"],
@@ -2602,7 +2620,7 @@ export default {
         return;
       }
 
-      let car = JSON.parse(JSON.stringify(Vue.all_carsObj[item.rid]));
+      let car = { rid: item.rid };
       if (item.tune) {
         if (this.allowThisTune(item.tune, car.rq)) {
           car.selectedTune = item.tune;

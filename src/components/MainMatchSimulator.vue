@@ -112,7 +112,7 @@
 
 
 
-    <div class="MainMatchSimulator_Mid">
+    <div class="MainMatchSimulator_Mid" :class="{ Car_LoadingRoot: Vue.utils.cacheLoading }">
       <div class="MainMatchSimulator_Oppos">
         <BaseCarsTeam
           :cars="_match.oppos"
@@ -126,6 +126,7 @@
           :mini="Vue.utils.windowWidth < 1200"
           :loading="Vue.utils.cacheLoading"
           :rqLimit="T_S._match.rqLimit"
+          :count="count"
           prefix="Oppo"
           style="--gap: 2px;"
           @changed="changedAny($event)"
@@ -135,6 +136,7 @@
         :cars="T_S._match.oppos"
         :tracks="T_S._match.event.check !== null ? T_S._match.event.trackset[T_S._match.event.check] : [null,null,null,null,null]"
         :width="Vue.utils.windowWidth < 1200 ? 115 : 230"
+        :count="count"
         @changed="changedAny($event)"
         @times="changedAny($event)"
         @cog="cogClick($event, 'oppos')"
@@ -189,6 +191,7 @@
           :mini="Vue.utils.windowWidth < 1200"
           :loading="Vue.utils.cacheLoading"
           :rqLimit="T_S._match.rqLimit"
+          :count="count"
           prefix="Your"
           style="--gap: 2px;"
           @changed="changedAny($event)"
@@ -199,6 +202,7 @@
         :cars="_match.cars"
         :tracks="_match.event.check !== null ? _match.event.trackset[_match.event.check] : [null,null,null,null,null]"
         :width="Vue.utils.windowWidth < 1200 ? 115 : 230"
+        :count="count"
         @times="timesUpdated();"
         @changed="changedAny($event)"
         @cog="cogClick($event, 'cars')"
@@ -249,18 +253,6 @@
           <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
           <span>{{ $tc("m_copy") }}</span>
         </button> -->
-        <button
-          :disabled="
-            !whatTier || whatTier > 3 ||
-            (
-              T_S._match.cars.every(car => !car.rid || !car.selectedTune) &&
-              T_S._match.oppos.every(car => !car.rid || !car.selectedTune)
-            ) ||
-            T_S._match.event.trackset.every(trackst => trackst.every(trackobj => !trackobj.track))
-          "
-          :class="{ D_Button_Loading: Vue.utils.cacheLoading }"
-          class="D_Button D_ButtonDark D_ButtonTier3"
-          @click="predictTimes()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_predictTimes") }}</button>
         <button
           class="D_Button D_ButtonDark D_ButtonDark2"
           @click="exportToWorkspace()">{{ $t("m_useTrackList") }}</button>
@@ -396,10 +388,16 @@ export default {
       tuneDialogCarIndex: 0,
       tuneDialogCar: {},
       tuneDialogList: [],
-      useWhatFilter: 0
+      useWhatFilter: 0,
+      count: 0
     }
   },
-  watch: {},
+  watch: {
+    "Vue.utils.d_.downloadCount": function () {
+      // console.log(this.count);
+      this.count++;
+    }
+  },
   created() {
     if (!this.T_S._match) {
       this.T_S.$patch((state) => {
@@ -473,6 +471,7 @@ export default {
       })
     },
     changedAny(type) {
+      console.log("changedAny", type);
       if (type) {
         // console.log("____", type);
         if (type === "trackCheckbox") {
@@ -563,7 +562,7 @@ export default {
           // Vue.set(this._match[key], icar, {"class":"S","rq":108,"onlyName":"R18","brand":"Audi","year":2016,"abs":false,"tcs":false,"clearance":"Low","country":"DE","topSpeed":225,"acel":2.4,"hand":102,"drive":"4WD","tyres":"Slick","mra":124.35,"weight":875,"name":"Audi R18","rid":"Audi_R18_2016","prize":true,"bodyTypes":["Coupe"],"fuel":"Hybrid","seats":"1","engine":"Mid","tags":["Enter the Black Forest","Silver/Grey","Motorsport"],"photoOrig":"Audi_R18_CARD","guid":"dc679e68-c215-4bf7-87e0-04a4931231e5","brake":"A","color":"#FFAF17","colorRgb":"255, 175, 23","photo":"/imgs_final/Audi_R18_2016.jpg","locatedName":"Audi R18","topSpeed_":-1,"hand_":-1,"weight_":-1,"acel_":-1,"mra_":-1,"classColor":"#FFAF17","ridPhoto":"/imgs_final/Audi_R18_2016.jpg","selectedTune":"233"});
           Vue.set(this._match[key], icar, {
             ...(JSON.parse(JSON.stringify( Vue.all_carsObj[car.rid] ))),
-            selectedTune: car.selectedTune
+            selectedTune: car.selectedTune === "Other" ? null : car.selectedTune
           });
         })
       })
@@ -717,10 +716,12 @@ export default {
           if (!this._match.oppos[ii].selectedTune) return null;
 
           let calc = (Vue.userPoints(
-            (Vue.timeCell(this._match.cars[ii].rid, this._match.cars[ii].selectedTune, trackObj.track) || {}).t,
-            (Vue.timeCell(this._match.oppos[ii].rid, this._match.oppos[ii].selectedTune, trackObj.track) || {}).t,
+            Vue.timeCell(this._match.cars[ii].rid, this._match.cars[ii].selectedTune, trackObj.track),
+            Vue.timeCell(this._match.oppos[ii].rid, this._match.oppos[ii].selectedTune, trackObj.track),
             trackObj.track
           ) || {}).v
+
+          // console.log("calc", calc, this._match.cars[ii].rid, this._match.cars[ii].selectedTune, this._match.oppos[ii].rid, this._match.oppos[ii].selectedTune, trackObj.track);
 
           if (calc === undefined) return window.i18n.t(`m_notime`);
 
@@ -867,28 +868,6 @@ export default {
 
       this.T_S.mainParams = { cars, tracks, filter, mode: "compare" };
       this.$router.push({ path: "/compare" });
-    },
-    predictTimes() {
-      let cars = [];
-      let tracks = [];
-      for (let X = 0; X < 5; X++) {
-        this._match.event.trackset.map(trckst => {
-          if (trckst[X].track) tracks.push(trckst[X].track);
-        })
-      }
-      tracks = [...new Set(tracks)];
-      for (let X = 0; X < 5; X++) {
-        ["oppos", "cars"].map(key => {
-          let car = this._match[key][X];
-          if (!car.rid) return;
-          cars.push({
-            rid: car.rid,
-            selectedTune: car.selectedTune
-          });
-        })
-      }
-
-      Vue.predictTimes(cars, tracks);
     },
     rename() {
       let vm = this;

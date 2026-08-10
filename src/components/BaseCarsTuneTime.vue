@@ -13,15 +13,17 @@
         <BaseCarsTuneSelector
           v-if="showTune"
           :car="car"
+          :carConfig="car"
           :mini="Vue.utils.windowWidth < 1200"
           @changed="$emit('changed')"
           @cog="$emit('cog', { car, icar })"
         />
 
+
         <BaseTimeCell
           :rid="car.rid"
           :selectedTune="car.selectedTune"
-          :track="tracks[icar]"
+          :track="tracks[icar]?.track"
           :count="count"
           :onlyDownloadFull="onlyDownloadFull"
         />
@@ -80,7 +82,7 @@ export default {
     }
   },
   watch: {
-    "Vue.utils.downloadCount": function () {
+    "Vue.utils.d_.downloadCount": function () {
       // console.log("new times");
       this.count++;
       this.$emit("times");

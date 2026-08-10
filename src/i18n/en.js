@@ -368,6 +368,7 @@ export default {
   p_modDoingRound: "{mod} is doing this round",
   p_patronsOnly: "This feature is available for patrons only (Tier {tier}).",
   p_patronsPreviewCg: "Patrons at least tier 3 can preview solutions",
+  p_patronsUnreleased: "Patrons at least tier 4 can view unreleased cars",
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",
   p_chartsDescription: "It puts all database of a track into a chart. For a demonstration:",
   p_bestHandDescription: "It calculates the best possible hand. For a demonstration:",

@@ -28,7 +28,7 @@
         class="BaseCarsTeam_Car"> <!-- BaseCarsTeam_Dragging , BaseCarsTeam_PushLeft, BaseCarsTeam_PushRight  -->
         <div
           v-if="car && car.rid"
-          class="BaseCarsTeam_CarInner BaseCard_AsGalleryBox"> 
+          class="BaseCarsTeam_CarInner BaseCard_AsGalleryBox Global_LoadingRoot">
           <BaseCard
             :car="Vue.all_carsObj[car.rid]"
             :fix-back="false"
@@ -39,8 +39,9 @@
             :draggable="canDrag"
             :customData="car.customData"
             :selectedTune="isTunz ? (car.tun || car.tunZ) : car.selectedTune"
-            :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes(car.rid)"
+            :downloadLoading="Vue.utils.cacheLoading && Vue.utils.rnsDownloading.includes(Vue.rn_to_rid.indexOf(car.rid))"
             :cgOppo="isTunz || showTune ? true : false"
+            :count="count"
             @cog="$emit('cog', icar)"
             @dragdown="dragMouseDown($event, icar)"
             @delete="carPickerClearIndex(icar)"
@@ -198,7 +199,8 @@ export default {
     readOnly: {
       type: Boolean,
       default: false
-    }
+    },
+    count: {}
   },
   data() {
     return {

@@ -540,6 +540,7 @@ export default {
       // 79.57351 > 178 correct
       return parseInt(this * 2.2369362920544025);
     };
+    Vue.$store = this.$store;
 
     let vm = this;
     this.isMobile = Vue.options.filters.isMobile();
@@ -4295,7 +4296,7 @@ body .Main_UserTw3:before {
 .Clubs_Box {
   --cg-width: 230px;
   display: flex;
-  max-width: calc(var(--cg-width) * 5);
+  /* max-width: calc(var(--cg-width) * 5); */
   margin: 0 auto;
   justify-content: center;
   gap: 30px;
@@ -5437,10 +5438,14 @@ a:visited:not(.D_Button) {
   font-size: 25px;
   color: white;
 }
-.Car_Loading {
+.Car_Loading,
+.Car_LoadingRoot:has(.BaseTimeCell_Loading) .Car_LoadingAuto,
+.Global_LoadingRoot .Car_LoadingAuto.Car_Loading {
   overflow: hidden;
 }
-.Car_Loading::after {
+.Car_Loading::after,
+.Car_LoadingRoot:has(.BaseTimeCell_Loading) .Car_LoadingAuto::after,
+.Global_LoadingRoot .Car_LoadingAuto.Car_Loading::after {
   content: "";
   position: absolute;
   width: 150%;
@@ -5601,8 +5606,8 @@ a:visited:not(.D_Button) {
   display: flex;
   height: var(--cell-height);
   /* margin: -7px 0; */
-  width: 53px;
-  min-width: 53px;
+  width: 62px;
+  min-width: 62px;
   border-radius: 0px 3px 3px 0px;
   overflow: hidden;
   margin-right: 5px;

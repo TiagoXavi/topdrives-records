@@ -172,6 +172,27 @@
       </div>
     </div>
     <div class="MainSwagger_Box">
+      <div class="MainSwagger_Title">Cars released to add</div>
+      <div class="MainSwagger_Fields">
+        <BaseCarList
+          :list="carsReleasedToAdd"
+          class="Main_TeamsCarsList"
+          size="small"
+        />
+      </div>
+      <div class="MainSwagger_">Released: {{ Vue.utils.releasedPrizes.length }} toAdd: {{ carsReleasedToAdd.length }}</div>
+      <div class="MainSwagger_Buttons">
+        <button
+          :class="{ D_Button_Loading: loading }"
+          :disabled="loading"
+          class="D_Button D_ButtonDark TTT_Button"
+          @click="setCarsReleasedToAdd()">Send</button>
+      </div>
+      <div class="MainSwagger_Response">
+        {{ carsReleasedToAddRes }}
+      </div>
+    </div>
+    <div class="MainSwagger_Box">
       <div class="MainSwagger_Title">Scan sessions</div>
       <div class="MainSwagger_Fields">
         <BaseText
@@ -341,11 +362,13 @@
 
 <script>
 import BaseText from '@/components/BaseText.vue';
+import BaseCarList from '@/components/BaseCarList.vue';
 
 export default {
   name: 'MainSwagger',
   components: {
-    BaseText
+    BaseText,
+    BaseCarList
   },
   props: {
     test: {
@@ -355,6 +378,7 @@ export default {
   },
   data() {
     return {
+      Vue: Vue,
       loading: false,
       user: null,
       username: null,
@@ -383,7 +407,9 @@ export default {
       rid: null,
       ridConfirmRes: null,
       trackValue: null,
-      trackValueRes: null
+      trackValueRes: null,
+      carsReleasedToAdd: [],
+      carsReleasedToAddRes: null,
 
     }
   },
@@ -416,13 +442,6 @@ export default {
       .then(() => {
         vm.loading = false;
       });
-
-
-      // TEMP
-      axios.get(Vue.preUrlCharlie + "/getUser")
-      .then(res => {
-        //
-      })
 
     },
     getConfig() {
@@ -789,8 +808,36 @@ export default {
       .then(() => {
         vm.loading = false;
       });
-    }
-  },
+    },
+    setCarsReleasedToAdd() {
+      let vm = this;
+
+      let listOfRns = this.carsReleasedToAdd.map(rid => Vue.rn_to_rid.indexOf(rid));
+      let isValid = true;
+      listOfRns.forEach(rn => {
+        if (Vue.utils.releasedPrizes.includes(rn)) {
+          isValid = false;
+          vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: `RN ${rn} already released`, type: "error" });
+        }
+      });
+      if (!isValid) return;
+
+      vm.loading = true;
+
+      axios.post(Vue.preUrl + "/setReleasedPrizes", {
+        listToAdd: this.carsReleasedToAdd
+      })
+      .then(res => {
+        this.carsReleasedToAddRes = res.data;
+      })
+      .catch(error => {
+        vm.$store.commit("DEFINE_SNACK", { active: true, error: true, text: error, type: "error" });
+      })
+      .then(() => {
+        vm.loading = false;
+      });
+    },
+  }
 }
 </script>
 

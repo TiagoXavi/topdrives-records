@@ -48,12 +48,12 @@
             :value="item" />
         </template>
       </div>
-      <BaseConfigCheckBox
+      <!-- <BaseConfigCheckBox
         v-model="chartShowDownvoted"
         style="margin-top: 3px;"
         class="Main_ChartTrackBox"
         name="chartShowDownvoted"
-        :label="$t('m_includeDownvote')" />
+        :label="$t('m_includeDownvote')" /> -->
       <BaseConfigCheckBox
         v-model="chartHideOutOfFilter"
         style="margin-top: 3px;"
@@ -90,7 +90,7 @@
       v-model="filterDialog"
       :filterOnly="true"
       @filterUpdate="updateChartFilter($event)"
-      @listRids="chartAnalyseFinish($event);"
+      ref="chartFilter"
     />
 
   </div>
@@ -210,9 +210,10 @@ export default {
     },
     chartAnalyse() {
       if (!this.chartTrack.code) return;
-      this.$store.commit("FILTER_EMIT_RIDS", { total: 5000 });
+      this.chartAnalyseFinish();
+      // this.$store.commit("FILTER_EMIT_RIDS", { total: 5000 });
     },
-    chartAnalyseFinish(listOfRids) {
+    chartAnalyseFinish() {
       this.chartLoading = true;
       // this.$store.commit("START_LOGROCKET", {});
 
@@ -223,7 +224,7 @@ export default {
       })
       .then(res => {
         this.chartResult = res.data;
-        this.prepareChart(listOfRids);
+        this.prepareChart();
 
         if (res.data.length === 0) {
           this.$store.commit("DEFINE_SNACK", {
@@ -248,69 +249,68 @@ export default {
         this.chartLoading = false;
       });
     },
-    prepareChart(listOfRids) {
+    prepareChart() {
       let vm = this;
       let arrDados = this.chartResult;
       let series = [];
       let objListRid = {}
-      listOfRids.map(x => {
-        objListRid[x.rid] = true;
-      });
 
-      let byProximity = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
-      let bannedTimes = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
-      let timesPerClass = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      // let byProximity = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      // let bannedTimes = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
+      // let timesPerClass = { S:[], A:[], B:[], C:[], D:[], E:[], F:[] };
 
 
-      arrDados.map(x => {
-        timesPerClass[x.class].push(x.time)
-      })
-      Object.keys(timesPerClass).map(key => {
-        timesPerClass[key].sort((a, b) => a - b);
-      })
-      Object.keys(timesPerClass).map(key => {
-        byProximity[key] = this.groupProximity(timesPerClass[key])
-        if (timesPerClass[key].length > 10) {
-          byProximity[key].map((x, ix) => {
-            if (ix === 0 || ix === byProximity[key].length - 1) {
-              if (typeof x === 'number') bannedTimes[key].push(x);
-              if (typeof x === 'object' && x.length < 3 && x.length > 0) {
-                x.map(time => {
-                  bannedTimes[key].push(time)
-                })
-              }
-            }
-          })
-        }
-      })
+      // arrDados.map(x => {
+      //   timesPerClass[x.class].push(x.time)
+      // })
+      // Object.keys(timesPerClass).map(key => {
+      //   timesPerClass[key].sort((a, b) => a - b);
+      // })
+      // Object.keys(timesPerClass).map(key => {
+      //   byProximity[key] = this.groupProximity(timesPerClass[key])
+      //   if (timesPerClass[key].length > 10) {
+      //     byProximity[key].map((x, ix) => {
+      //       if (ix === 0 || ix === byProximity[key].length - 1) {
+      //         if (typeof x === 'number') bannedTimes[key].push(x);
+      //         if (typeof x === 'object' && x.length < 3 && x.length > 0) {
+      //           x.map(time => {
+      //             bannedTimes[key].push(time)
+      //           })
+      //         }
+      //       }
+      //     })
+      //   }
+      // })
 
-      arrDados = arrDados.filter(x => {
-        x.car = vm.all_cars_obj[x.rid];
-        if (
-          bannedTimes[x.class].includes(x.time) &&
-          x.rq !== 10 &&
-          !this.chartTrack.code.includes('drag') &&
-          (x.car.tyres !== "Slick" || this.chartTrack.code.includes('_a00')) &&
-          (x.car.tyres !== "Off-road" || !this.chartTrack.code.includes('_a01')) &&
-          x.rid !== 'Land_Rover_Series_1_1948'
-          ) {
-          if (!this.user.canDelete) {
-            return false;
-          } else {
-            x.suspect = true;
-          }
-        }
-        return true;
-      });
+      // arrDados = arrDados.filter(x => {
+      //   x.car = vm.all_cars_obj[x.rid];
+      //   if (
+      //     bannedTimes[x.class].includes(x.time) &&
+      //     x.rq !== 10 &&
+      //     !this.chartTrack.code.includes('drag') &&
+      //     (x.car.tyres !== "Slick" || this.chartTrack.code.includes('_a00')) &&
+      //     (x.car.tyres !== "Off-road" || !this.chartTrack.code.includes('_a01')) &&
+      //     x.rid !== 'Land_Rover_Series_1_1948'
+      //     ) {
+      //     if (!this.user.canDelete) {
+      //       return false;
+      //     } else {
+      //       x.suspect = true;
+      //     }
+      //   }
+      //   return true;
+      // });
 
       arrDados.map((x, ix) => {
-        if (this.chartHideOutOfFilter && !objListRid[x.rid]) {
+        x.car = vm.all_cars_obj[x.rid];
+        let isInFilter = this.matchFilter(x.car);
+        if (this.chartHideOutOfFilter && !isInFilter) {
           return;
         }
 
-        let inSeries = series.find(y => y.name === x.class)
+        let inSeries = series.find(y => y.name === x.car.class)
         if (!inSeries) {
-          series.push({ name: x.class, color: Vue.resolveClass(x.rq, x.class, "color") });
+          series.push({ name: x.car.class, color: Vue.resolveClass(x.car.rq, x.car.class, "color") });
           inSeries = series[series.length-1]
         }
         if (!inSeries.data) {
@@ -320,14 +320,14 @@ export default {
         let photo = Vue.carPhoto(x);
       
         inSeries.data.push({
-            y: x.rq,
+            y: x.car.rq,
             x: x.time,
-            name: `${x.name} (${x.tune})`,
-            className: `${objListRid[x.rid] ? '' : "Highcharts_HidePoint "}${x.suspect ? "Highcharts_Suspect " : '' }`,
+            name: `${x.car.name} (${x.tune})`,
+            className: `${isInFilter ? '' : "Highcharts_HidePoint "}`,
             custom: {
               ...x,
               photo: photo,
-              color: Vue.resolveClass(x.rq, x.car.class, "color"),
+              color: Vue.resolveClass(x.car.rq, x.car.class, "color"),
               user: x.user
             }
         })
@@ -349,8 +349,9 @@ export default {
         },
         series,
         yAxis: {
-          min: 0,
-          max: 110,
+          min: 5,
+          max: 120,
+          tickInterval: 10,
           allowDecimals: false,
           labels: {
             format: 'RQ{text}'
@@ -436,7 +437,11 @@ export default {
         }
         return r;
       }, [])
-    }
+    },
+    matchFilter(car) {
+      return this.$refs.chartFilter.checkMatchFilter(car);
+      if (!this.$refs.chartFilter.checkMatchFilter(car)) return false;
+    },
   },
 }
 </script>

@@ -44,15 +44,15 @@
         <i class="ticon-trophy Car_HeaderTrophy" aria-hidden="true"/>
       </div>
       <div class="Car_HeaderBlockTopSpeed">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('topSpeed', customData) }}</div>
+        <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('topSpeed') }}</div>
         <div class="Car_HeaderStatLabel">{{ $t("c_topSpeed").toUpperCase() }}</div>
       </div>
       <div class="Car_HeaderBlock060">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('acel', customData) }}</div>
+        <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('acel') }}</div>
         <div class="Car_HeaderStatLabel">0-60MPH</div>
       </div>
       <div class="Car_HeaderBlockHandling">
-        <div class="Car_HeaderStatValue">{{ car | resolveStat('hand', customData) }}</div>
+        <div class="Car_HeaderStatValue">{{ car.rid | resolveStat('hand') }}</div>
         <div class="Car_HeaderStatLabel">{{ $t("c_handling").toUpperCase() }}</div>
       </div>
       <div class="Car_HeaderBlockDrive">

@@ -108,8 +108,7 @@
               <div v-if="(ix < showTracksCount)" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
                 <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
                 <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
-                <div v-if="cacheObj?.data" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
-                  <!-- <BaseBestTune :dataObj="cacheObj.data" :track="item[0]" /> -->
+                <div v-if="timesLoaded" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
                   <BaseBestTune :tune="bestTunePerTrack?.[item[0]] || '-'" />
                 </div>
                 <div v-else class="BaseCarDetailFull_TrackBestTune" />
@@ -296,7 +295,6 @@ export default {
       medals: null,
       anim: true,
       cgWatchDownloadCache: null,
-      cacheObj: null,
       bestTunePerTrack: null,
       showTracksCount: 10,
       similars: []
@@ -310,37 +308,41 @@ export default {
   },
   mounted() {},
   computed: {
+    timesLoaded() {
+      Vue.utils.d_.downloadCount;
+      return Vue.timesCache[Vue.getTCodFull(this.car.rid, "332", this.medals?.result?.tracks?.[0]?.[0])];
+    },
     tuneDialogTunes() {
       if (!this.showTunes) return [];
       if (!this.car.rid) return [];
 
-      let carWithData = Vue.all_cacheObj[this.car.rid]?.data;
-      if (!carWithData) return [];
+      // if (!carWithData) return [];
 
-      let result = ["332", "323", "233"];
-      if (carWithData && this.$store.state.showCustomTunes) {
-        Object.keys( carWithData ).forEach(tune => {
-          if (tune[0] !== "v" && !result.includes(tune)) {
-            result.push(tune);
-          }
-        })
-      };
+      let result = ["332", "323", "233", "111"];
+      // if (carWithData && this.$store.state.showCustomTunes) {
+      //   Object.keys( carWithData ).forEach(tune => {
+      //     if (tune[0] !== "v" && !result.includes(tune)) {
+      //       result.push(tune);
+      //     }
+      //   })
+      // };
       // if (this.tuneDialogCar.forceTune && !result.includes(this.tuneDialogCar.forceTune)) {
       //   result.push(this.tuneDialogCar.forceTune);
       // }
 
-      if ((this.car.class === "S" || this.car.class === "A") && !result.includes("111")) result.push("111");
+      // if ((this.car.class === "S" || this.car.class === "A") && !result.includes("111")) result.push("111");
 
-      if (this.mode === 'compare' && carWithData && this.$store.state.showDataFromPast) {
-        Object.keys( carWithData ).forEach(tune => {
-          if (tune[0] === "v") {
-            result.push(tune);
-          }
-        })
-      };
+      // if (this.mode === 'compare' && carWithData && this.$store.state.showDataFromPast) {
+      //   Object.keys( carWithData ).forEach(tune => {
+      //     if (tune[0] === "v") {
+      //       result.push(tune);
+      //     }
+      //   })
+      // };
       return result;
     },
     tunesCount() {
+      return {};
       if (!this.showTunes) return {};
       if (!this.car.rid) return {};
 
@@ -373,22 +375,27 @@ export default {
 
               if (this.medals.result?.tracks) {
                 // this.loadTunesTimes();
-                let result = Vue.timeCell(this.car.rid, "332", "kart_a00");
-                if (result === "!data") {
+                let needWatch = false;
+                this.medals.result.tracks.forEach((medalTrackObj, itr) => {
+                  if (itr >= this.showTracksCount) return;
+                  if (Vue.timeCell(this.car.rid, "332", medalTrackObj[0]) === "!loading") needWatch = true;
+                  if (Vue.timeCell(this.car.rid, "323", medalTrackObj[0]) === "!loading") needWatch = true;
+                  if (Vue.timeCell(this.car.rid, "233", medalTrackObj[0]) === "!loading") needWatch = true;
+                });
+                
+                if (needWatch) {
                   if (!this.cgWatchDownloadCache) {
                     const vm = this;
                     vm.cgWatchDownloadCache = vm.$watch('Vue.utils.cacheLoading', (newValue, oldValue) => {
                       // console.log(`cgWatchDownloadCache changed from ${oldValue} to ${newValue}`);
                       if (newValue === false) {
                         // after debouce?
-                        vm.cacheObj = Vue.all_cacheObj[vm.car.rid];
                         vm.calcBestTunePerTrack();
                       }
                     });
                   }
                   return false;
                 } else {
-                  this.cacheObj = Vue.all_cacheObj[this.car.rid];
                   this.calcBestTunePerTrack();
                 }
               }
@@ -442,6 +449,7 @@ export default {
     exportToWorkspace(addMore) {
       if (addMore) {
         this.showTracksCount += 6;
+        this.init();
         return;
       }
 
@@ -592,17 +600,19 @@ export default {
       return (Math.pow(car.hand, 3) / 100) / (car.acel * 10);
     },
     calcBestTunePerTrack() {
-      if (!this.cacheObj?.data || !this.medals?.result?.tracks) return;
+      if (!this.medals?.result?.tracks || !Vue.getTimeFromCache(this.car.rid, "332", this.medals.result.tracks[0][0])) return;
 
       let result = {};
-      this.medals.result.tracks.map(item => {
+      this.medals.result.tracks.forEach(item => {
         let ties = [false, false, false];
         let isTB = item[0].includes('testBowl');
         let bestTune = null;
-        ['332', '323', '233'].map((tune, itune) => {
-          let time = this.cacheObj.data?.[tune]?.times?.[item[0]]?.t;
+        let track = item[0];
+        ['332', '323', '233'].forEach((tune, itune) => {
+          let time = Vue.getTimeFromCache(this.car.rid, tune, track);
+          
           if (time) {
-            if (!bestTune || (isTB ? (time > bestTune.time) : (time < bestTune.time))) {
+            if (!bestTune || Vue.timeIsBest(time, bestTune.time, track)) {
               bestTune = { time, tune };
               ties = [false, false, false];
               ties[itune] = true;

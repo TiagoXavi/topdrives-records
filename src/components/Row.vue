@@ -1513,8 +1513,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
   flex-wrap: wrap;
+}
+.Row_DialogHeader + .Row_DialogHeader {
+  margin-top: 4px;
 }
 .D_Button.Row_DialogButtonTuneWin {
   box-shadow:  0 6px 0px -4px rgba(var(--d-text-green), 0.4);
@@ -1695,6 +1698,11 @@ export default {
 .Row_Times {
   position: relative;
 }
+.Row_EmptyInviteBox {
+  position: relative;
+  height: 0;
+  z-index: 1;
+}
 .Row_EmptyInvite {
   position: absolute;
   top: calc(var(--cell-height) * 1.3 + 4%);
@@ -1715,6 +1723,14 @@ export default {
   width: max-content;
   padding: 5px 15px;
   justify-content: center;
+}
+.Row_EmptyInvite2 {
+  font-size: 12px;
+  top: calc(var(--cell-height) * 0.4);
+}
+.Main_2 .Row_EmptyInvite2 {
+  top: 9px;
+  left: 7px;
 }
 .Row_ShowMoreTracks {
   display: flex;

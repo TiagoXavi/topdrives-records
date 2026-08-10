@@ -66,8 +66,8 @@ export default {
         if (!this.tracks[i].track) return null;
 
         let pointsYou = (Vue.userPoints(
-          (Vue.timeCell(this.cars[i].rid, this.cars[i].selectedTune, this.tracks[i].track) || {}).t,
-          (Vue.timeCell(this.oppos[i].rid, this.oppos[i].selectedTune, this.tracks[i].track) || {}).t,
+          Vue.timeCell(this.cars[i].rid, this.cars[i].selectedTune, this.tracks[i].track),
+          Vue.timeCell(this.oppos[i].rid, this.oppos[i].selectedTune, this.tracks[i].track),
           this.tracks[i].track
         ) || {}).v
 

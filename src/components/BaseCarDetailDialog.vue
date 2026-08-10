@@ -163,10 +163,13 @@ export default {
       if (!this.showTunes) return [];
       if (!this.car.rid) return [];
 
+      let result = ["332", "323", "233", "111", "000"];
+      return result;
+
       let carWithData = Vue.all_cacheObj[this.car.rid]?.data;
       if (!carWithData) return [];
 
-      let result = ["332", "323", "233"];
+      // let result = ["332", "323", "233"];
       if (carWithData && this.$store.state.showCustomTunes) {
         Object.keys( carWithData ).forEach(tune => {
           if (tune[0] !== "v" && !result.includes(tune)) {
@@ -190,6 +193,7 @@ export default {
       return result;
     },
     tunesCount() {
+      return {};
       if (!this.showTunes) return {};
       if (!this.car.rid) return {};
 

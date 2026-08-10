@@ -111,7 +111,7 @@
         <div class="Main_BacktopBox">
           <div class="Main_Backtop"></div>
         </div>
-        <div v-if="showCarsFix" class="Main_CarList" @click.stop @mouseleave="hoverIndex = -1;">
+        <div v-if="showCarsFix" class="Main_CarList" @click.stop="mainCarsListGeneralClick($event)" @mouseleave="hoverIndex = -1;">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
               :car="car"
@@ -137,7 +137,9 @@
               @delete="deleteCar(carIx)"
               @moreTracks="moreTracksCar($event)"
               @newindex="newIndex($event)"
-              @enter="hoverCarJs(carIx)" />
+              @enter="hoverCarJs(carIx)"
+              @cog="openCarTuneDialog($event)"
+              @changed="changedTune($event)" />
           </template>
           <template v-if="carDetailsList.length < maxCarNumber">
             <div
@@ -202,21 +204,6 @@
       @click.stop="outsideClick()">
       <div class="Cg_Header">
         <div class="Cg_HeaderLeft">
-          <!-- <BaseCorner
-            :gameVersion="gameVersion"
-            @menu="openMainDialog();"
-            @longCamera="showPoints = !showPoints;"
-            @camera="shareDialog = true; generateUrl();">
-            <template slot="more">
-              <BaseText
-                v-if="user && user.username === 'TiagoXavi' && forceShowAnalyse" 
-                v-model="pasteInputModel"
-                type="normal"
-                placeholder="paste here"
-                class="BaseText_InternalMicro"
-                @paste="resolvePaste($event)" />
-            </template>
-          </BaseCorner> -->
           <BaseCover
             v-if="cg.rounds"
             :cover="cg?.info?.image || 'zzBrand'"
@@ -564,7 +551,7 @@
             </div>
 
             <!-- CG user mod -->
-            <template v-if="isRoundEmptyForModders && !isRoundComplete && !cgRound.reservedTo">
+            <template v-if="false && isRoundEmptyForModders && !isRoundComplete && !cgRound.reservedTo">
               <div class="Cg_RoundEmptyBox Cg_RoundEmptyBoxMods">
                 <div class="Cg_RoundEmptyTitle">{{ $t("m_emptyRound") }}</div>
                 <div class="Cg_RoundEmptyBody">{{ $t("p_lockRoundPhrase") }}</div>
@@ -605,31 +592,32 @@
         <!-- CG CORE -->
         <template v-if="!cgNewSubmitByMod && (isRoundComplete || user) && (!cgRound.reservedTo || (user && cgRound.reservedTo === user.username))">
           <div
-            v-if="showCarsFix"
             :class="{ Cg_YouBankHideLosers: cgHideLosersInSolutions }"
             class="Cg_Box"
             style="margin-bottom: 25px;">
             <div
               v-for="(race, irace) in cgRound.races"
               class="Cg_Race"
+              :class="{ Car_LoadingRoot: Vue.utils.cacheLoading }"
               @click.stop>
               <div class="Cg_Opponent">
                 <BaseCard
-                  v-if="race.car"
-                  :car="race.car"
-                  :customData="Vue.all_cacheObj[race.car.rid]"
+                  v-if="race.rid"
+                  :car="Vue.all_carsObj[race.rid]"
+                  :selectedTune="race.tune"
                   :fix-back="true"
-                  :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes(race.car.rid)"
+                  :downloadLoading="Vue.utils.cacheLoading && Vue.utils.rnsDownloading.includes(Vue.rn_to_rid.indexOf(race.rid))"
                   :needSave="needSave"
                   :draggable="false"
                   :cgOppo="true"
+                  :count="count"
                   :options="!cgIsApproving"
-                  :hideClose="!user || !user.mod || !isRoundModAllowedEdit"
-                  :showResetTune="(user && user.mod && isRoundModAllowedEdit) || isRoundEmptyForUser"
-                  @cog="cgShowTuneDialog(race.car, race, true, irace)"
-                  @longTouch="cgShowTuneDialog(race.car, race, true, irace)"
-                  @delete="race.car = undefined; race.rid = null; calcRaceResult(race);"
-                  @refreshTune="cgChangeTuneOppo(race.car, undefined, race)" />
+                  :hideClose="!user || !user.mod"
+                  :showResetTune="(user && user.mod) || isRoundEmptyForUser"
+                  @cog="cgShowTuneDialog(race, true, irace)"
+                  @longTouch="cgShowTuneDialog(race, true, irace)"
+                  @delete="race.rid = null; race.tune = null; calcRaceResult(race);"
+                  @refreshTune="cgChangeTuneOppo(undefined, race)" />
                 <div v-else class="Cg_CarPlaceHolder">
                   <button
                     :disabled="cgLoadingAny || !user || (!user.mod && !isRoundEmptyForUser) || (isRoundEmptyForModders && !isRoundComplete && !cgRound.reservedTo)"
@@ -638,28 +626,29 @@
                     <i class="ticon-plus_2 Car_AddIcon" aria-hidden="true"/>
                   </button>
                 </div>
-                <!-- <div class="Main_" v-if="race.car">{{race.car.selectedTune}}</div> -->
                 
-                <div v-if="race.car && !race.car.selectedTune" class="Cg_OppoTuneBox">
+                <div v-if="race.rid && !race.tune" class="Cg_OppoTuneBox">
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, '332', race)">332</button>
+                    @click="cgChangeTuneOppo('332', race)">332</button>
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, '323', race)">323</button>
+                    @click="cgChangeTuneOppo('323', race)">323</button>
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, '233', race)">233</button>
-                  <button
-                    v-if="race.car && (race.car.class === 'S' || race.car.class === 'A')"
-                    class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, '111', race)">111</button>
+                    @click="cgChangeTuneOppo('233', race)">233</button>
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, '000', race)">000</button>
+                    @click="cgChangeTuneOppo('222', race)">222</button>
                   <button
                     class="D_Button Cg_OppoTuneButton"
-                    @click="cgChangeTuneOppo(race.car, 'Other', race)">{{ $t("m_other") }}</button>
+                    @click="cgChangeTuneOppo('111', race)">111</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgChangeTuneOppo('000', race)">000</button>
+                  <button
+                    class="D_Button Cg_OppoTuneButton"
+                    @click="cgDialogCustomOppoTune(race)">{{ $t("m_other") }}</button>
                 </div>
               </div>
               <div class="Cg_Track">
@@ -681,8 +670,14 @@
                   <span v-else>{{ $t("m_selectTrack") }}</span>
                 </button>
               </div>
-              <div v-if="race.car && race.car.selectedTune && race.track" class="Cg_ThemTime">
-                <Row
+              <div v-if="race.rid && race.tune && race.track" class="Cg_ThemTime">
+                <BaseTimeCell
+                  :rid="race.rid"
+                  :selectedTune="race.tune"
+                  :track="race.track"
+                  :count="count"
+                />
+                <!-- <Row
                   :car="race.car"
                   :list="race.resolvedTracks"
                   :loggedin="!!user"
@@ -697,18 +692,19 @@
                   :forceCustomAuthor="isRoundEmptyForUser"
                   type="times"
                   @deleteTime="cgDeleteTime(race, $event, true)"
-                  @changeTime="cgChangeTimeOppo(race, $event, irace)" />
+                  @changeTime="cgChangeTimeOppo(race, $event, irace)"
+                /> -->
               </div>
               <div v-else class="Cg_ThemTime">
                 <div class="Row_Cell Row_DisabledCell" />
               </div>
-              <template v-if="race.track && race.car && (cgRound.lastAnalyze || (!!user && user.mod) || cgRound.isPreview) && (!cgIsApproving || cgRound.isPreview)">
+              <template v-if="race.track && race.rid && (cgRound.lastAnalyze || (!!user && user.mod) || cgRound.isPreview) && (!cgIsApproving || cgRound.isPreview)">
                 <template v-if="!cgRound.isPreview">
                   <div
                     :class="{
-                      Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.car,
-                      Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.car,
-                      Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.car,
+                      Cg_PointsRed: (race.cars[race.carIndex] || {}).points < 0 && race.track && race.rid,
+                      Cg_PointsGreen: (race.cars[race.carIndex] || {}).points > 0 && race.track && race.rid,
+                      Cg_PointsGrey: (race.cars[race.carIndex] || {}).points === 0 && race.track && race.rid,
                     }"
                     class="Cg_Divider"
                     @click="cgOpenPointsEdit(race)"
@@ -717,24 +713,16 @@
                     @mouseleave="showPoints = false;">
                     <div class="Cg_DividerBackLight"></div>
                     <div v-if="!race.track || !race.car || (race.cars[race.carIndex] || {}).points === undefined" class="Cg_Points">{{ $t("m_select") }}</div>
-                    <template v-else-if="showPointsCg">
-                      <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
-                    </template>
-                    <template v-else>
-                      <div v-if="(race.cars[race.carIndex] || {}).points === 0" class="Cg_Points">{{ $t("m_draw") }}</div>
-                      <div v-else-if="(race.cars[race.carIndex] || {}).points > 0" class="Cg_Points">{{ $t("m_win") }}</div>
-                      <div v-else-if="(race.cars[race.carIndex] || {}).points < 0" class="Cg_Points">{{ $t("m_lose") }}</div>
-                      <div v-else class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
-                    </template>
+                    <div class="Cg_Points">{{ (race.cars[race.carIndex] || {}).points }}</div>
                   </div>
                   <div class="CgYouCar">
                     <BaseCard
-                      v-if="(race.cars[race.carIndex] || {}).car"
-                      :car="(race.cars[race.carIndex] || {}).car"
-                      :customData="Vue.all_cacheObj[(race.cars[race.carIndex] || {}).rid]"
+                      v-if="(race.cars[race.carIndex] || {}).rid"
+                      :car="Vue.all_carsObj[race.cars[race.carIndex].rid]"
                       :fix-back="true"
-                      :downloadLoading="Vue.utils.cacheLoading && Vue.utils.ridsDownloading.includes((race.cars[race.carIndex] || {}).rid)"
+                      :downloadLoading="Vue.utils.cacheLoading && Vue.utils.rnsDownloading.includes(Vue.rn_to_rid.indexOf(race.cars[race.carIndex].rid))"
                       :draggable="false"
+                      :count="count"
                       @delete="race.carIndex = undefined; calcRaceResult(race);" />
                     <div v-else class="Cg_CarPlaceHolder">
                       <button
@@ -746,10 +734,25 @@
                     </div>
                   </div>
                   <div
-                    v-if="(race.cars[race.carIndex] || {}).car && race.track"
+                    v-if="(race.cars[race.carIndex] || {}).rid && race.track"
                     class="Cg_YouTime">
-                    <Row
-                      :car="(race.cars[race.carIndex] || {}).car"
+                    <BaseCarsTuneSelector
+                      :car="Vue.all_carsObj[race.cars[race.carIndex].rid]"
+                      :carConfig="race.cars[race.carIndex]"
+                      :mini="compact"
+                      :compare="false"
+                      :externalSetTune="true"
+                      @changeToTune="cgChangeTuneYou(race, $event)"
+                      @cog="cgShowTuneDialog(race, false, irace)"
+                    />
+                    <BaseTimeCell
+                      :rid="race.cars[race.carIndex].rid"
+                      :selectedTune="race.cars[race.carIndex].selectedTune"
+                      :track="race.track"
+                      :count="count"
+                    />
+                    <!-- <Row
+                      :car="(race.cars[race.carIndex] || {}).rid"
                       :list="race.resolvedTracks"
                       :loggedin="!!user"
                       :user="user"
@@ -763,7 +766,8 @@
                       @changeTime="cgChangeTimeYou(race, $event)"
                       @changeTune="cgChangeTuneYou(race, $event)"
                       @deleteTime="cgDeleteTime(race, $event)"
-                      @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race, false, irace)" />
+                      @showTuneDialog="cgShowTuneDialog(race.cars[race.carIndex].car, race, false, irace)"
+                    /> -->
                   </div>
                   <div v-else class="Cg_YouTime">
                     <div class="Row_Cell Row_DisabledCell" />
@@ -786,7 +790,7 @@
                         Cg_PointsGrey: bankCar.points === 0 && race.track && race.car,
                       }" -->
                       <button
-                        v-if="bankCar.points !== $t('m_notime') && bankCar.tune"
+                        v-if="bankCar.points !== $t('m_notime') && bankCar.selectedTune"
                         :disabled="cgLoadingAny"
                         :key="index"
                         :class="`Cg_Points${bankCar.points} ${ (Vue.all_carsObj[bankCar.rid]?.rq - Vue.all_carsObj[(race.cars[race.carIndex] || {}).rid]?.rq) > (cgRound.rqLimit - cgRound.rqFill) ? 'Cg_YouBankOverRq' : ''} ${race.carIndex === index ? 'Cg_YouBankSelected' : ''} `"
@@ -794,29 +798,15 @@
                         @click="!cgRound.isPreview && cgBankCarClick(race, index, $event, irace, bankCar);">
                         <BaseCardMini
                           :car="Vue.all_carsObj[bankCar.rid]"
-                          :tuneText="bankCar.tune"
+                          :tuneText="bankCar.selectedTune"
                         />
                         <!-- <div class="Cg_BankPhoto">
                           <img :src="bankCar.photo" loading="lazy" class="Cg_BankPhotoImg" alt="">
                         </div> -->
                         <!-- <div :style="`color: ${ bankCar.color }`" class="Cg_BankClass">{{ (bankCar.car || {}).class }}{{ (bankCar.car || {}).rq }}</div> -->
-                        <div class="Cg_BankTuneNew">{{ bankCar.tune }}</div>
-                        <div
-                          class="Cg_BankResult">
-                          <template v-if="showPointsCg">
-                            <span class="Cg_BankPoints">{{ bankCar.points }}</span>
-                          </template>
-                          <template v-else>
-                            <span v-if="bankCar.points === 0" class="Cg_BankPoints">
-                              <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
-                            </span>
-                            <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
-                              <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
-                            </span>
-                            <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
-                              <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-                            </span>
-                          </template>
+                        <div class="Cg_BankTuneNew">{{ bankCar.selectedTune }}</div>
+                        <div class="Cg_BankResult">
+                          <span class="Cg_BankPoints">{{ bankCar.points }}</span>
                         </div>
                       </button>
                     </template>
@@ -826,14 +816,14 @@
             </div>
           </div>
 
-          <div v-if="isRoundReadyForPreview" class="Cg_BottomModTools">
+          <!-- <div v-if="isRoundReadyForPreview" class="Cg_BottomModTools">
             <button
               v-if="whatTier && whatTier <= 3"
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonTier3"
               @click="cgPreviewSolutions()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_previewSolutions") }}</button>
             <div v-else class="Main_SaveGalleryGuide" style="margin-bottom: 15px;">{{ $t("p_patronsPreviewCg") }}</div>
-          </div>
+          </div> -->
 
           <!-- <div class="Main_">showAnalyse {{showAnalyse}}</div>
           <div class="Main_">isRoundReadyForPreview {{isRoundReadyForPreview}}</div>
@@ -878,11 +868,27 @@
               @click="cgResetRound()">{{ $t("m_resetRound") }}</button>
           </div>
 
-          <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px;">
+          <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px; user-select: text;">
             <button
               :class="{ D_Button_Loading: eventAnalyseLoading || cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="refreshLocalTimesByFilter()">Refresh local times</button>
+            <br>
+          </div>
+
+          <div v-if="user && user.mod && user.username === 'TiagoXavi' && $store.state.showUpcomingTags" class="Cg_BottomModTools" style="margin-top: 30px; width: 70%; margin-left: auto; margin-right: auto;">
+            <textarea
+              v-model="cgRaw"
+              rows="15"
+              class="Main_TextArea data-hj-allow"
+              placeholder="Challenge raw"
+            />
+            <div style="text-align: center;">
+              <button
+                :class="{ D_Button_Loading: cgSaveLoading }"
+                class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                @click="cgPrepareSaveRaw()">{{ $t("m_send") }}</button>
+            </div>
           </div>
 
         </template>
@@ -1611,6 +1617,21 @@
                 @click="refreshLocalTimesByFilter()">Refresh local times</button>
             </div>
 
+            <div v-if="user && user.mod && user.username === 'TiagoXavi' && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px; width: 70%; margin-left: auto; margin-right: auto;">
+              <textarea
+                v-model="eventRaw"
+                rows="15"
+                class="Main_TextArea data-hj-allow"
+                placeholder="Event raw"
+              />
+              <div style="text-align: center;">
+                <button
+                  :class="{ D_Button_Loading: clubLoadingAny }"
+                  class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonGreen"
+                  @click="eventPrepareSaveRaw()">{{ $t("m_send") }}</button>
+              </div>
+            </div>
+
 
             <div v-if="user && user.mod && event.canViewEvent && !eventBlockAddTrackset" class="Cg_BottomModTools" style="margin-top: 30px;">
               <template v-for="(icon, ix) in clubsIconsList">
@@ -2233,13 +2254,13 @@
               :value="item" />
           </template>
         </div> -->
-        <BaseConfigCheckBox
+        <!-- <BaseConfigCheckBox
           v-if="!kingFixed"
           v-model="kingShowDownvoted"
           style="margin-top: 3px;"
           class="Main_KingTrackBox"
           name="kingShowDownvoted"
-          :label="$t('m_includeDownvote')" />
+          :label="$t('m_includeDownvote')" /> -->
         <BaseConfigCheckBox
           v-if="!inverted"
           v-model="kingForceVerticalView"
@@ -2467,13 +2488,13 @@
       min-width="240px"
       @close="closeTune()">
       <div class="Main_TuneDialog ">
-        <div v-if="Vue.utils.R_MedalsLoaded && tuneDialogCar && tuneDialogCar.rid && Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score !== undefined" class="Main_ShortCutBox">
-          <button class="D_Button Main_ShortCutBoxButton" @click="openCarFullDetail(tuneDialogCar)">
+        <div v-if="Vue.utils.R_MedalsLoaded && tuneDialogCarRid && Vue.all_carsObj[tuneDialogCarRid].R_Medals_score !== undefined" class="Main_ShortCutBox">
+          <button class="D_Button Main_ShortCutBoxButton" @click="openCarFullDetail(tuneDialogCarConfig)">
             <img
               src="/assets/fire100.png"
               class="Main_ShortCutBoxFire"
             />
-            <div class="Main_ShortCutBoxValue">{{ Vue.all_carsObj[tuneDialogCar.rid].prize && Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score === 0 ? '?' : Vue.all_carsObj[tuneDialogCar.rid].R_Medals_score }}</div>
+            <div class="Main_ShortCutBoxValue">{{ Vue.all_carsObj[tuneDialogCarRid].prize && Vue.all_carsObj[tuneDialogCarRid].R_Medals_score === 0 ? '?' : Vue.all_carsObj[tuneDialogCarRid].R_Medals_score }}</div>
             
           </button>
         </div>
@@ -2508,87 +2529,105 @@
           <div v-if="!this.tuneDialogisOppo" class="Row_DialogHeader">
             <button
               v-for="item in tuneDialogTunes"
-              :class="{ Row_DialogButtonTuneActive: tuneDialogCar.selectedTune === item }"
-              :title="((((tuneDialogCar.data || {})[item] || {}).info || {}).tuneCreator || {}).t"
+              :class="{
+                Row_DialogButtonTuneActive: tuneDialogCarConfig.selectedTune === item,
+                Row_DialogButtonTuneWin: tuneDialogTuneWins.includes(item),
+                Row_DialogButtonTuneLose: tuneDialogTuneLose.includes(item)
+              }"
               class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
-              @click="changeTuneCar(tuneDialogCar, item)">
+              @click="changeTuneCar(tuneDialogCarConfig, item)">
               {{ item }}
-              <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+              <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
             </button>
             <button
               v-if="whatTier && whatTier <= 2 && $store.state.showCustomTunes"
               class="D_Button Row_DialogButtonTune"
-              @click="chooseCustomTune(tuneDialogCar)">
+              @click="chooseCustomTune(tuneDialogCarConfig)">
               <i class="ticon-plus_1" style="font-size: 18px;" aria-hidden="true"/>
+            </button>
+          </div>
+          <div v-if="
+            !tuneDialogisOppo && 
+            (
+              Vue.all_carsObj[tuneDialogCarRid].class === 'S' ||
+              Vue.all_carsObj[tuneDialogCarRid].class === 'A' || 
+              Vue.all_carsObj[tuneDialogCarRid].class === 'B'
+            )
+          " class="Row_DialogHeader">
+            <button
+              v-for="item in Vue.extraTunes"
+              :class="{
+                Row_DialogButtonTuneActive: tuneDialogCarConfig.selectedTune === item,
+                Row_DialogButtonTuneWin: tuneDialogTuneWins.includes(item),
+                Row_DialogButtonTuneLose: tuneDialogTuneLose.includes(item)
+              }"
+              class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
+              @click="changeTuneCar(tuneDialogCarConfig, item)">
+              {{ item }}
+              <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
             </button>
           </div>
           <div class="Row_DialogBody Space_TopPlus">
             <div class="Row_DialogCard">
               <div class="Row_DialogCardLeft">
                 <BaseCard
-                  :car="tuneDialogCar"
+                  :car="Vue.all_carsObj[tuneDialogCarRid]"
+                  :selectedTune="tuneDialogCarConfig.selectedTune"
                   :isDialogBox="true"
+                  :count="count"
                   :options="false" />
               </div>
-              <div v-if="(tuneDialogCar.selectedTune && !tuneDialogCar.selectedTune.includes('Other')) && tuneDialogCar.selectedTune !== '000'" class="Row_DialogCardRight">
+              <div v-if="(tuneDialogCarConfig.selectedTune && !tuneDialogCarConfig.selectedTune.includes('Other')) && tuneDialogCarConfig.selectedTune !== '000'" class="Row_DialogCardRight">
                 <BaseText
-                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).t"
-                  :disabled="!tuneDialogCar.selectedTune ||
-                             !user ||
-                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).t ?
-                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).topSpeed || {}).u !== user.username ? user.mod ? false : true : false : false )"
+                  :value="Vue.resolveStat(tuneDialogCarRid, 'topSpeed', tuneDialogCarConfig.selectedTune)"
+                  :disabled="true"
                   type="topSpeed"
                   :label="$t('c_topSpeed')"
                   class="Space_Bottom Row_FieldStat"
                   placeholder="-"
-                  @change="changeStatCar(tuneDialogCar, 'topSpeed', $event)" />
+                  @change="changeStatCar(tuneDialogCarConfig, 'topSpeed', $event)" />
                 <BaseText
-                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).t"
-                  :disabled="!tuneDialogCar.selectedTune ||
-                             !user ||
-                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).t ?
-                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).acel || {}).u !== user.username ? user.mod ? false : true : false : false )"
+                  :value="Vue.resolveStat(tuneDialogCarRid, 'acel', tuneDialogCarConfig.selectedTune)"
+                  :disabled="true"
                   type="acel"
                   label="0-60mph"
                   class="Space_Bottom Row_FieldStat"
                   placeholder="-"
-                  @change="changeStatCar(tuneDialogCar, 'acel', $event)" />
+                  @change="changeStatCar(tuneDialogCarConfig, 'acel', $event)" />
                 <BaseText
-                  :value="((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).t"
-                  :disabled="!tuneDialogCar.selectedTune ||
-                             !user ||
-                             ( ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).t ?
-                             ((((tuneDialogCar.data || {})[tuneDialogCar.selectedTune] || {}).info || {}).hand || {}).u !== user.username ? user.mod ? false : true : false : false )"
+                  :value="Vue.resolveStat(tuneDialogCarRid, 'hand', tuneDialogCarConfig.selectedTune)"
+                  :disabled="true"
                   type="hand"
                   :label="$t('c_handling')"
                   class="Row_FieldStat"
                   placeholder="-"
-                  @change="changeStatCar(tuneDialogCar, 'hand', $event)" />
+                  @change="changeStatCar(tuneDialogCarConfig, 'hand', $event)" />
               </div>
               <div v-else class="Row_DialogCardRight">
-                <BaseText :value="resolveStat(tuneDialogCar, 'topSpeed')" :label="$t('c_topSpeed')" class="Space_Bottom Row_FieldStat" :disabled="true" />
-                <BaseText :value="resolveStat(tuneDialogCar, 'acel')" label="0-60mph" class="Space_Bottom Row_FieldStat" :disabled="true" />
-                <BaseText :value="resolveStat(tuneDialogCar, 'hand')" :label="$t('c_handling')" class="Row_FieldStat" :disabled="true" />
+                <BaseText :value="Vue.resolveStat(tuneDialogCarRid, 'topSpeed')" :label="$t('c_topSpeed')" class="Space_Bottom Row_FieldStat" :disabled="true" />
+                <BaseText :value="Vue.resolveStat(tuneDialogCarRid, 'acel')" label="0-60mph" class="Space_Bottom Row_FieldStat" :disabled="true" />
+                <BaseText :value="Vue.resolveStat(tuneDialogCarRid, 'hand')" :label="$t('c_handling')" class="Row_FieldStat" :disabled="true" />
               </div>
             </div>
-            <div v-if="mode === 'compare' && Vue.utils.statistics[`car_${tuneDialogCar.rid}`]" class="Main_ViewsBox">
-              <div class="Main_ViewsCountDialog">{{ Vue.utils.statistics[`car_${tuneDialogCar.rid}`].c }} views</div>
+            <div v-if="mode === 'compare' && Vue.utils.statistics[`car_${tuneDialogCarRid}`]" class="Main_ViewsBox">
+              <div class="Main_ViewsCountDialog">{{ Vue.utils.statistics[`car_${tuneDialogCarRid}`].c }} views</div>
             </div>
           </div>
-          <div v-if="tuneDialogCar.tags && tuneDialogCar.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
+          <div v-if="Vue.all_carsObj[tuneDialogCarRid].tags && Vue.all_carsObj[tuneDialogCarRid].tags.length > 0" class="Row_DialogCardTags" style="margin-top: 12px;">
             <BaseGameTag
-              v-for="tag in tuneDialogCar.tags"
+              v-for="tag in Vue.all_carsObj[tuneDialogCarRid].tags"
               :key="tag"
               :tag="tag" />
           </div>
           <div class="Row_DialogCardDual Space_TopPlus">
-            <BaseCarStats :car="tuneDialogCar" @mraChanged="carDetailsList.map(x => {
-              if (x.rid === tuneDialogCar.rid) {
+            <BaseCarStats :car="Vue.all_carsObj[tuneDialogCarRid]" @mraChanged="carDetailsList.map(x => {
+              if (x.rid === tuneDialogCarRid) {
                 Vue.set(x, 'mra', $event);
               }
             })" />
           </div>
-          <div v-if="tuneDialogCar.users" class="Row_DialogReviewsBox Space_TopPlus">
+
+          <!-- <div v-if="tuneDialogCar.users" class="Row_DialogReviewsBox Space_TopPlus">
             <div class="Row_DialogCardStat">
               <div class="Row_DialogCardStatLabel">{{ $t("m_contributors") }}</div>
               <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">
@@ -2599,38 +2638,8 @@
                 </template>
               </div>
             </div>
-          </div>
-          <!-- <div v-if="(tuneDialogCar.reviews && tuneDialogCar.reviews.length > 0) || (user && user.canReview)" class="Row_DialogCardUsers Space_TopPlus">
-            <div class="Row_DialogCardStat">
-              <div v-if="!isReviewing" class="Row_DialogCardStatLabel">{{ $tc("m_review", 2) }}</div>
-              <BaseReviewList
-                :car="tuneDialogCar"
-                :user="user || {}"
-                :reviewUrl="reviewUrl"
-                @isReviewing="isReviewing = $event"
-                @submited="resolveCarReview($event)"
-                @getUrl="reviewUrl = { url: generateUrl(true) }"
-                @loadTemplate="reviewLoadTemplate($event)"/>
-            </div>
-          </div>
-          <div v-if="tuneDialogCar.users && !isReviewing && (!tuneDialogCar.reviews || tuneDialogCar.reviews.length === 0 || showReviews)" class="Row_DialogReviewsBox Space_TopPlus">
-            <div class="Row_DialogCardStat">
-              <div class="Row_DialogCardStatLabel">{{ $t("m_contributors") }}</div>
-              <div class="Row_DialogCardStatValue" style="font-size: 0.9em;">
-                <template
-                  v-for="(username, i) in tuneDialogCar.users">
-                  <template v-if="i > 0">, </template>
-                  <span :class="`Main_UserT${Vue.utils.highlightsUsers[username]}`">{{ username }}</span>
-                </template>
-              </div>
-            </div>
-          </div>
-          <div v-else-if="tuneDialogCar.users && !isReviewing && !showReviews" style="margin-top: 20px; margin-bottom: -10px; opacity: 0.6;">
-            <button
-              class="D_Button D_ButtonDarkTransparent"
-              style="width: 100%;"
-              @click="showReviews = true">{{ $t('m_showContributors') }} ({{ tuneDialogCar.users.length }})</button>
           </div> -->
+
         </div>
 
       </div>
@@ -3011,14 +3020,6 @@
               <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ $t("m_bestOf") }}</span>
             </button>
-            <button
-              v-if="whatTier && whatTier <= 3"
-              :class="{ D_Button_Loading: downloadLoading }"
-              class="D_Button Main_OptionsButton D_ButtonTier3"
-              @click="predictTimes($event)">
-              <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
-              <span>{{ containPredictedTimes ? $t("m_clear") : $t("m_predictTimes") }}</span>
-            </button>
           </div>
         </div>
       </div>
@@ -3225,7 +3226,9 @@
             iid="Cg_NewCgName"
             type="normal"
             :label="$t('m_challengeName')"
-            placeholder="" />
+            placeholder=""
+            @paste="createNewCgByJson($event)"
+          />
         </div>
         <BaseText
           v-model="cgNewModel.numberRounds"
@@ -3697,22 +3700,8 @@
                 </div>
               </div>
               <div v-else class="Cg_BankTuneNew" style="min-width: 40px; text-align: left;">{{ bankCar.tune }}</div>
-              <div
-                class="Cg_BankResult">
-                <template v-if="showPointsCg">
-                  <span class="Cg_BankPoints">{{ bankCar.points }}</span>
-                </template>
-                <template v-else>
-                  <span v-if="bankCar.points === 0" class="Cg_BankPoints">
-                    <i class="ticon-minus_2 Cg_BankPointsIcon" aria-hidden="true"/>
-                  </span>
-                  <span v-else-if="bankCar.points > 0" class="Cg_BankPoints">
-                    <i class="ticon-correct_1 Cg_BankPointsIcon" aria-hidden="true"/>
-                  </span>
-                  <span v-else-if="bankCar.points < 0" class="Cg_BankPoints">
-                    <i class="ticon-close_3 Cg_BankPointsIcon" aria-hidden="true"/>
-                  </span>
-                </template>
+              <div class="Cg_BankResult">
+                <span class="Cg_BankPoints">{{ bankCar.points }}</span>
               </div>
             </button>
           </template>
@@ -3767,6 +3756,8 @@ import BaseCarsPoints from './BaseCarsPoints.vue'
 import BaseSelectNew from './BaseSelectNew.vue'
 import BaseCarStats from './BaseCarStats.vue'
 import BaseCover from './BaseCover.vue'
+import BaseTimeCell from './BaseTimeCell.vue'
+import BaseCarsTuneSelector from './BaseCarsTuneSelector.vue'
 
 import { tdrStore } from '@/tdrStore.js';
 
@@ -3814,6 +3805,8 @@ export default {
     BaseCover,
     BaseRewards: () => import('@/components/BaseRewards.vue'),
     BaseEventHandRanking: () => import('@/components/BaseEventHandRanking.vue'),
+    BaseTimeCell,
+    BaseCarsTuneSelector
   },
   props: {
     phantomCar: {
@@ -3861,14 +3854,17 @@ export default {
       // searchLoading: false,
       searchLoadingT: false,
       searchLoadingT2: false,
-      maxCarNumber: 30,
+      maxTrackNumber: 50,
       shareDialog: false,
       pngLoading: false,
       tuneDialogActive: false,
-      tuneDialogCar: null,
+      tuneDialogCarRid: null,
+      tuneDialogCarConfig: null, // selected tune, TCode
       tuneDialogCarIndex: null,
       tuneDialogRace: null,
       tuneDialogisOppo: false,
+      tuneDialogTuneWins: [],
+      tuneDialogTuneLose: [],
       customTuneDialogActive: false,
       customTuneDialogCar: null,
       customTuneDialogTune: null,
@@ -3980,6 +3976,7 @@ export default {
       cgCatsLastSave: null,
       cgCatsConfig: false,
       cgCatsSaving: false,
+      cgRaw: null,
       forceShowAnalyse: false,
       event: {},
       eventCurrentId: null,
@@ -4074,6 +4071,7 @@ export default {
       eventRefreshResting: false,
       eventTabs: ["trackset", "hands", "info"],
       eventTab: "trackset",
+      eventRaw: null,
       cgTabs: ["round", "dashboard"], // info later
       cgTab: "round",
       cgTabRoundMemory: null,
@@ -4334,55 +4332,11 @@ export default {
       surfaces: ["Asphalt", "Dirt", "Gravel", "Ice", "Asphalt/Dirt", "Sand", "Snow", "Grass", "Asphalt/Gravel", "Asphalt/Sand", "Asphalt/Snow", "Sand/Dirt"],
       conds: ["Dry", "Wet"],
       //      0       1      2      3
-      tunes: ["332", "233", "323", "111"]
+      tunes: ["332", "233", "323", "111"],
+      count: 0
     }
   },
   watch: {
-    // phantomCar: function() {
-    //   console.log( JSON.parse(JSON.stringify(this.phantomCar.data[this.phantomCar.selectedTune].times)) );
-    //   this.clearAllTracks();
-    //   this.clearAllCars();
-
-    //   this.showCarsFix = false;
-    //   this.$nextTick().then(() => {
-    //     this.showCarsFix = true;
-
-    //     this.carDetailsList.push(JSON.parse(JSON.stringify(this.phantomCar)));
-    //     this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
-    //     this.nextId++;
-    //     let tracks = [];
-    //     Object.keys( this.phantomCar.data[this.phantomCar.selectedTune].times ).forEach(function (track) {
-    //       tracks.push(track);
-    //     })
-    //     this.moreTracksCar(tracks)
-    //     // 2x
-    //     this.carDetailsList.push(JSON.parse(JSON.stringify(this.phantomCar)));
-    //     this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
-    //     this.nextId++;
-    //     this.carDetailsList[this.carDetailsList.length - 1].data = {};
-
-
-    //     axios.get(Vue.preUrl + "/car/" + this.phantomCar.rid)
-    //     .then(res => {
-    //       if (res.data.data) Vue.set(this.carDetailsList[this.carDetailsList.length - 1], "data", res.data.data);
-    //       if (res.data.users) Vue.set(this.carDetailsList[this.carDetailsList.length - 1], "users", res.data.users);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //       this.$store.commit("DEFINE_SNACK", {
-    //         active: true,
-    //         error: true,
-    //         text: error,
-    //         type: "error"
-    //       });
-    //     })
-
-    //   })
-
-    // },
-    // carDetailsList: function() {
-    //   console.log(this.carDetailsList.length);
-    // },
     "$route.path": function() {
       let r = this.$route.path;
       if (r === "/" || r === "/compare" || r === "/challenges" || r === "/events" || r === "/clubs") {
@@ -4452,6 +4406,13 @@ export default {
       }
       this.$store.commit('BEFOREUNLOAD_TOUCH');
     },
+    "Vue.utils.d_.downloadCount": function () {
+      // console.log(this.count);
+      this.count++;
+      if (this.mode === 'challenges') {
+        this.cgCheckRoundTimes();
+      }
+    }
   },
   beforeMount() {
     this.isMobile = Vue.options.filters.isMobile();
@@ -4577,10 +4538,10 @@ export default {
             vm.confirmDelete.dialog = false;
             Vue.set(car.data[tune].times, track, undefined);
 
-            vm.showCarsFix = false;
-            vm.$nextTick().then(() => {
-              vm.showCarsFix = true;
-            })
+            // vm.showCarsFix = false;
+            // vm.$nextTick().then(() => {
+            //   vm.showCarsFix = true;
+            // })
 
             vm.$store.commit("DEFINE_SNACK", {
               active: true,
@@ -4642,7 +4603,8 @@ export default {
         let car = vm.carDetailsList[indexCar];
 
         if (car) {
-          vm.tuneDialogCar = car;
+          vm.tuneDialogCarRid = car.rid;
+          vm.tuneDialogCarConfig = car;
           vm.tuneDialogCarIndex = indexCar;
           vm.tuneDialogActive = mutation.payload.active;
           vm.tuneDialogisOppo = false;
@@ -4661,9 +4623,9 @@ export default {
       if (mutation.type == "CHANGE_USER") {
         vm.user = mutation.payload.user;
         vm.userloaded = true;
-        vm.carDetailsList.map(x => {
-          Vue.set(x, "mra", Vue.all_carsObj[x.rid]?.mra || x.mra);
-        })
+        // vm.carDetailsList.map(x => {
+        //   Vue.set(x, "mra", Vue.all_carsObj[x.rid]?.mra || x.mra);
+        // })
       }
 
       if (mutation.type == "LOGOUT") {
@@ -4712,6 +4674,10 @@ export default {
         if (newValue === "clubs") this.$router.push({ path: "/clubs", params: { isClearQuery: true } });
       },
     },
+    maxCarNumber() {
+      if (this.currentTracks.length < 2) return 30;
+      return 15;
+    },
     optionsDialogComputed() {
       if (this.T_S._g_track.dialog) return false;
       if (this.librarySearchDialog) return false;
@@ -4726,6 +4692,7 @@ export default {
       let result = [];
       let sortedByTracks = {};
       vm.countTimesPerTrack = {};
+      Vue.utils.d_.downloadCount;
 
 
       // result length = number of cars
@@ -4733,22 +4700,26 @@ export default {
         result.push({});
       });
 
+      let trackCodes = this.currentTracks.map(x => `${x.id}_a${x.surface}${x.cond}`);
+
       // insert every type of track in both result && sortedByTracks
-      this.currentTracks.map((x, ix) => {
-        vm.countTimesPerTrack[`${x.id}_a${x.surface}${x.cond}`] = 0;
-        sortedByTracks[`${x.id}_a${x.surface}${x.cond}`] = [];
+      trackCodes.forEach(trCode => {
+        vm.countTimesPerTrack[trCode] = 0;
+        sortedByTracks[trCode] = [];
         result.map(y => {
-          y[`${x.id}_a${x.surface}${x.cond}`] = null;
+          y[trCode] = null;
         })
       });
       
-      // insere os times de cada carro em suas respectivas trackId
-      this.carDetailsList.map(x => {
-        if ( x.selectedTune && x.data && x.data[x.selectedTune] && x.data[x.selectedTune].times ) {
-          Object.keys( x.data[x.selectedTune].times ).forEach(function (trackId) {
-            if (sortedByTracks[trackId]) {
-              vm.countTimesPerTrack[trackId] = vm.countTimesPerTrack[trackId] + 1;
-              sortedByTracks[trackId].push((x.data[x.selectedTune].times[trackId] || {}).t);
+      // insere os times de cada carro em suas respectivas trCode
+      let val;
+      this.carDetailsList.map(car => {
+        if ( car.selectedTune ) {
+          trackCodes.forEach(trCode => {
+            val = Vue.getTimeFromCache(car.rid, car.selectedTune, trCode);
+            if (val) {
+              sortedByTracks[trCode].push(Vue.getTimeFromCache(car.rid, car.selectedTune, trCode));
+              vm.countTimesPerTrack[trCode] = vm.countTimesPerTrack[trCode] + 1;
             }
           });
         }
@@ -4756,32 +4727,30 @@ export default {
       // console.log(vm.countTimesPerTrack);
 
       // dá sort nos times e remove duplicates
-      Object.keys( sortedByTracks ).forEach(function (trackId) {
-        if (sortedByTracks[trackId].length === 1) {
-          sortedByTracks[trackId] = [];
+      Object.keys( sortedByTracks ).forEach(function (trCode) {
+        if (sortedByTracks[trCode].length === 1) {
+          sortedByTracks[trCode] = [];
         } else {
-          sortedByTracks[trackId].sort(function(a, b) {
-            if (trackId.includes('testBowl')) return b - a;
-            if (a === 0) return 9999999;
-            if (b === 0) return -9999999;
+          sortedByTracks[trCode].sort(function(a, b) {
+            if (trCode.includes('testBowl')) return b - a;
+            if (a === 0 || a === null) return 9999999;
+            if (b === 0 || b === null) return -9999999;
+            if (a < 0 && b > 0) return 9999999;
+            if (a > 0 && b < 0) return -9999999;
             return a - b;
           });
-          sortedByTracks[trackId] = [...new Set(sortedByTracks[trackId])];
+          sortedByTracks[trCode] = [...new Set(sortedByTracks[trCode])];
         }
       });
 
       // preenche result com seus respectivos ranking
       let tempValue;
       result.map((x, ix) => {
-        Object.keys( x ).forEach(function (trackId) {
-          if (
-            vm.carDetailsList[ix].data &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId]
-          ) {
-            tempValue = vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId].t;
-            x[trackId] = sortedByTracks[trackId].indexOf(tempValue);
+        let rid = vm.carDetailsList[ix].rid;
+        Object.keys( x ).forEach(function (trCode) {
+          if (Vue.getTimeFromCache(rid, vm.carDetailsList[ix].selectedTune, trCode) !== undefined) {
+            tempValue = Vue.getTimeFromCache(rid, vm.carDetailsList[ix].selectedTune, trCode);
+            x[trCode] = sortedByTracks[trCode].indexOf(tempValue);
           }
         });
       })
@@ -4824,7 +4793,14 @@ export default {
       return contritrs
     },
     tuneDialogTunes() {
-      let result = ["332", "323", "233"];
+      let result = ["332", "323", "233", "111", "000"];
+      if (this.tuneDialogCarConfig.forceTune && !result.includes(this.tuneDialogCarConfig.forceTune)) {
+        result.push(this.tuneDialogCarConfig.forceTune);
+      }
+      return result;
+
+
+      // let result = ["332", "323", "233"];
       if (this.tuneDialogCar.data && this.$store.state.showCustomTunes) {
         Object.keys( this.tuneDialogCar.data ).forEach(tune => {
           if (typeof tune !== 'string') return;
@@ -4854,6 +4830,7 @@ export default {
       return result;
     },
     tunesCount() {
+      return {};
       if (!this.tuneDialogCar.data) return {};
       let result = {};
       this.tuneDialogTunes.map(tune => {
@@ -4880,10 +4857,19 @@ export default {
       if (this.cgNewSubmitByModTemplate) return false;
       let show = true;
       if (this.forceShowAnalyse) return true;
-      this.cgRound.races.map(race => {
-        if (!race.rid || race.time === undefined || race.time === null) show = false;
-        if (!race.track) show = false;
-        if (race.cars && race.cars.length > 4) show = false
+      this.cgRound.races.find(race => {
+        if (!race.rid || !race.tune) {
+          show = false;
+          return true;
+        }
+        if (!race.track) {
+          show = false;
+          return true;
+        }
+        if (race.cars && race.cars.length > 4) {
+          show = false;
+          return true;
+        }
       })
       return show;
     },
@@ -5131,9 +5117,6 @@ export default {
         tags: false,
         brands: false
       }
-    },
-    showPointsCg() {
-      return this.showPoints || this.$store.state.showPointsCgForce;
     },
     whatTier() {
       let result = 0;
@@ -5401,10 +5384,10 @@ export default {
     },
     clearAllCars() {
       this.carDetailsList = [];
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      })
+      // this.showCarsFix = false;
+      // this.$nextTick().then(() => {
+      //   this.showCarsFix = true;
+      // })
       this.updateCarLocalStorage();
     },
     pushCpSuggest(obj) {
@@ -5545,10 +5528,10 @@ export default {
       // console.log(clearMatches);
       this.smartCampaign = clearMatches;
 
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      })
+      // this.showCarsFix = false;
+      // this.$nextTick().then(() => {
+      //   this.showCarsFix = true;
+      // })
 
     },
     updateOptions() {
@@ -5581,10 +5564,10 @@ export default {
           this.tuneDialogRace.carIndex = undefined;
         }
         this.tuneDialogActive = false;
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        })
+        // this.showCarsFix = false;
+        // this.$nextTick().then(() => {
+        //   this.showCarsFix = true;
+        // })
         return;
       }
       this.isReviewing = false;
@@ -5595,10 +5578,10 @@ export default {
 
       this.carDetailsList = this.carDetailsList.filter((x, ix) => ix !== index);
 
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      })
+      // this.showCarsFix = false;
+      // this.$nextTick().then(() => {
+      //   this.showCarsFix = true;
+      // })
       this.updateCarLocalStorage();
       this.tuneDialogActive = false;
     },
@@ -5629,22 +5612,19 @@ export default {
     },
     addCar(newCar) {
       if (this.carDetailsList.length < this.maxCarNumber) {
+        newCar.softId = this.nextId;
+        newCar.TCode = Vue.getTCod(newCar.rid, newCar.selectedTune);
+        newCar.class = Vue.all_carsObj[newCar.rid].class;
+        newCar.rq = Vue.all_carsObj[newCar.rid].rq;
+        newCar.rn = Vue.rn_to_rid.indexOf(newCar.rid);
         this.carDetailsList.push(newCar);
-        this.carDetailsList[this.carDetailsList.length - 1].softId = this.nextId;
         this.nextId++;
-        // console.log(this.carDetailsList.map(x => x.softId));
 
         if (this.carDetailsList.length >= this.maxCarNumber) {
           this.searchFilterDialog = false;
         }
 
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        })
-
         this.updateCarLocalStorage();
-        this.downloadCar(this.carDetailsList[this.carDetailsList.length - 1].rid);
       }
     },
     addCarCg(newCar, isFromJson = false) {
@@ -5652,7 +5632,7 @@ export default {
       this.cgFilterDialog = false;
 
 
-      this.cgResolveIfDownloadRidOrNot(newCar.rid, null, null, this.cgAddingOppoCar);
+      // this.cgResolveIfDownloadRidOrNot(newCar.rid, null, null, this.cgAddingOppoCar);
       // let found = Vue.all_cacheObj[newCar.rid];
       // if (!found) {
       //   if (isFromJson) console.log(`!found`);
@@ -5673,9 +5653,9 @@ export default {
           if (isFromJson) console.log(`found`);
           race.cars.push( { rid: newCar.rid } );
           race.carIndex = race.cars.length-1;
-          Vue.set(race.cars[race.carIndex], "photo", Vue.carPhoto(newCar));
-          Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
-          Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
+          // Vue.set(race.cars[race.carIndex], "photo", Vue.carPhoto(newCar));
+          // Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));
+          // Vue.set(race.cars[race.carIndex], "color", Vue.resolveClass(race.cars[race.carIndex].car.rq, race.cars[race.carIndex].car.class, "color"));
           if (isFromJson) console.log(race.cars[race.carIndex]);
         }
       }
@@ -5744,6 +5724,7 @@ export default {
 
         let cars = window.localStorage.getItem("cars");
         if (cars) {
+          Vue.set(this, "carDetailsList", []);
           this.prepareCars(JSON.parse(cars));
         }
 
@@ -5946,62 +5927,52 @@ export default {
       window.localStorage.setItem('cars', JSON.stringify(toSave));
     },
     prepareCars(cars) {
-      let result = [];
+      // let result = [];
       if (cars && cars.length > 0) {
+        Vue.set(this, "carDetailsList", []);
         
         cars.map(y => {
-          // let found = Vue.all_carsArr.find(x => {
-          //   if (x.rid === y.rid) {
-          //     result.push(JSON.parse(JSON.stringify(x)));
-          //     if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
-          //     result[result.length-1].softId = this.nextId;
-          //     this.nextId++;
-          //     return true;
-          //   }
-          // })
           let found = Vue.all_carsObj[y.rid];
           if (found) {
-            result.push(JSON.parse(JSON.stringify(found)));
-            if (y.selectedTune) result[result.length-1].selectedTune = y.selectedTune;
-            result[result.length-1].softId = this.nextId;
-            this.nextId++;
-          } else {
-            result.push({
-              rid: y.rid,
-              selectedTune: y.selectedTune,
-              class: "?",
-              rq: null,
-              onlyName: "",
-              brand: "",
-              year: null,
-              abs: true,
-              tcs: true,
-              clearance: null,
-              country: null,
-              topSpeed: null,
-              acel: null,
-              hand: null,
-              drive: null,
-              tyres: null,
-              mra: null,
-              weight: 1000,
-              name: "",
-              tags: [],
-              prize: false,
-              bodyTypes: [],
-              fuel: "Petrol",
-              seats: "1",
-              engine: "Mid",
-              brake: null
-            });
-            result[result.length-1].softId = this.nextId;
-            this.nextId++;
+            this.addCar({ rid: y.rid, selectedTune: y.selectedTune });
           }
+          // } else {
+          //   result.push({
+          //     rid: y.rid,
+          //     selectedTune: y.selectedTune,
+          //     class: "?",
+          //     rq: null,
+          //     onlyName: "",
+          //     brand: "",
+          //     year: null,
+          //     abs: true,
+          //     tcs: true,
+          //     clearance: null,
+          //     country: null,
+          //     topSpeed: null,
+          //     acel: null,
+          //     hand: null,
+          //     drive: null,
+          //     tyres: null,
+          //     mra: null,
+          //     weight: 1000,
+          //     name: "",
+          //     tags: [],
+          //     prize: false,
+          //     bodyTypes: [],
+          //     fuel: "Petrol",
+          //     seats: "1",
+          //     engine: "Mid",
+          //     brake: null
+          //   });
+          //   result[result.length-1].softId = this.nextId;
+          //   this.nextId++;
+          // }
         })
         
       }
-      Vue.set(this, "carDetailsList", result);
-      this.downloadDataCars(true);
+      // Vue.set(this, "carDetailsList", result);
+      // this.downloadDataCars(true);
     },
     recheckCarDetailsList() {
       this.carDetailsList.map((car, index) => {
@@ -6014,13 +5985,14 @@ export default {
         }
       })
       if (this.carDetailsList.length > 0) {
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        })
+        // this.showCarsFix = false;
+        // this.$nextTick().then(() => {
+        //   this.showCarsFix = true;
+        // })
       }
     },
     saveAll(saveBankAfter = false) {
+      return;
       this.saveLoading = true;
 
 
@@ -6132,6 +6104,7 @@ export default {
 
     },
     downloadDataCars(forceClassic = false, predict = false) {
+      return;
       this.downloadLoading = true;
       let simplifiedCars = [];
       let origMode = this.mode;
@@ -6206,6 +6179,7 @@ export default {
       });
     },
     downloadCar(rid, isJson = false) {
+      return;
       this.downloadLoading = true;
       let origMode = this.mode;
 
@@ -6260,6 +6234,7 @@ export default {
       });
     },
     applyNewData(newData, isCgInitial = false, origMode) {
+      return;
       let needReload = false;
       if (origMode === 'challenges') {
         newData.map(y => {
@@ -6283,10 +6258,10 @@ export default {
         });
         if (needReload) {
           this.carDetailsList.splice();
-          this.showCarsFix = false;
-          this.$nextTick().then(() => {
-            this.showCarsFix = true;
-          })
+          // this.showCarsFix = false;
+          // this.$nextTick().then(() => {
+          //   this.showCarsFix = true;
+          // })
         }
       }
 
@@ -6438,7 +6413,7 @@ export default {
       let result = "";
       let list = [];
       this.carDetailsList.map(x => {
-        list.push(`RQ${x.rq} ${x.name}`)
+        list.push(`RQ${x.rq} ${Vue.all_carsObj[x.rid].name}`)
       });
       list = [...new Set(list)];
 
@@ -6468,16 +6443,17 @@ export default {
           this.clearAllTracks()
           this.pushTrackSet(tracksFromQuery);
         }
+        Vue.set(this, "carDetailsList", []);
         this.prepareCars(carsFromQuery);
         this.updateOptions();
         this.updateCarLocalStorage();
 
       }
 
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      });
+      // this.showCarsFix = false;
+      // this.$nextTick().then(() => {
+      //   this.showCarsFix = true;
+      // });
 
     },
     finalizeUrl(url) {
@@ -6548,11 +6524,12 @@ export default {
         this.cgChangeTuneYou(this.tuneDialogRace, newTune);
       } else {
         Vue.set(car, "selectedTune", newTune);
+        Vue.set(car, "TCode", Vue.getTCod(car.rid, newTune));
         if (!fromRow) {
-          this.showCarsFix = false;
-          this.$nextTick().then(() => {
-            this.showCarsFix = true;
-          })
+          // this.showCarsFix = false;
+          // this.$nextTick().then(() => {
+          //   this.showCarsFix = true;
+          // })
         }
         this.updateCarLocalStorage();
         this.showPoints = false;
@@ -6560,6 +6537,7 @@ export default {
 
     },
     changeStatCar(car, type, value) {
+      return;
       let selectedTune = car.selectedTune;
 
       if (this.mode === 'challenges')  {
@@ -6580,6 +6558,10 @@ export default {
       /**/ Vue.set(car.dataToSave[selectedTune].info[type], "t", value);
       this.needSaveChange(true);
 
+    },
+    changedTune(car) {
+      this.updateCarLocalStorage();
+      this.showPoints = false;
     },
     openSaveToGalleryDialog() {
       this.clearSaveToGallery();
@@ -6959,6 +6941,7 @@ export default {
       }
     },
     clearDataToSave() {
+      return;
       if (this.mode === 'challenges') {
         Object.keys(Vue.all_cacheObj).map(rid => {
           delete Vue.all_cacheObj[rid].dataToSave;
@@ -7034,15 +7017,24 @@ export default {
       })
       .then(res => {
         this.cgLoadedAssets = [];
-        let cg = this.cgList.find(x => x.date === date)
+        let cg = this.cgList.find(x => x.date === date);
         this.lookForChangedCars(res.data);
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
           Vue.set(cg, "info", res.data.info);
+          this.cgNormalizeFormat(cg);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
           this.cgLoading = false;
           this.cgTabRoundMemory = null;
           this.loadCgRound(date, round);
+          if (this.user && this.user.mod) {
+            this.cgRaw = {
+              name: cg.name,
+              date: cg.date,
+              info: cg.info
+            };
+            this.cgRaw = JSON.stringify(this.cgRaw, null, 2);
+          }
         }
         this.cgResolveIcons();
         this.checkPreDoneRounds(res.data);
@@ -7135,6 +7127,9 @@ export default {
         this.pingAssetStatistic(id, round);
         this.cgResolveRoundCars();
       }
+      setTimeout(() => {
+        this.cgResolveRqFill();
+      }, 100);
 
       this.lookForDeprecatedTracksInner();
     },
@@ -7168,6 +7163,7 @@ export default {
       return true;
     },
     checkRaceTimesNull() {
+      return;
       if (this.cgCurrentRound === 'd') return false;
       this.cgRound.races.map(race => {
         if (race.time !== null) return;
@@ -7183,7 +7179,7 @@ export default {
         } catch (error) {
           // nada
         }
-        if (tryoppotime || tryoppotime === 0) {
+        if (tryoppotime || tryoppotime <= 0) {
           if (race.time && race.time !== tryoppotime && this.cgRoundToSave.length > 0) {
             // commit the change to database
             this.cgRoundToSave.push({
@@ -7340,10 +7336,10 @@ export default {
         if (race.tune) Vue.set(race.car, "selectedTune", race.tune);
 
         race.cars.map((car, icar) => {
-          Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
-          Vue.set(car, "car", JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
-          Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
-          Vue.set(car.car, "selectedTune", car.tune);
+          // Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
+          // Vue.set(car, "car", JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
+          // Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
+          // Vue.set(car.car, "selectedTune", car.tune);
         })
 
         // tracks
@@ -7438,15 +7434,46 @@ export default {
         }
       }
     },
-    cgChangeTuneOppo(car, tune, race) {
-      Vue.set(car, "selectedTune", tune);
+    cgDialogCustomOppoTune(race) {
+      let vm = this;
+
+      let action = function() {
+        vm.cgChangeTuneOppo(vm.$store.state.confirmDialog.advanced.text.trim(), race);
+        vm.$store.commit("DEFINE_DIALOG", {
+          active: false
+        });
+      }
+
+      vm.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: vm.$t("c_tune"),
+        actionLabel: vm.$t("m_done"),
+        cancelLabel: vm.$t("m_cancel"),
+        actionColor: "green",
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        action: action,
+        loading: false,
+        maxWidth: "420px",
+        advanced: {
+          type: "text",
+          text: "",
+          placeholder: "e.g. 798 or 112",
+          typeText: "tune",
+          class: "BaseText_Big",
+        }
+      });
+    },
+    cgChangeTuneOppo(tune, race) {
+      Vue.set(race, "tune", tune);
 
       if (tune === undefined) {
         race.time = null;
       } else {
         this.cgRoundToSave.push({
           type: "oppoCar",
-          rid: car.rid,
+          rid: race.rid,
           tune: tune,
           raceIndex: this.cgRound.races.indexOf(race)
         })
@@ -7454,6 +7481,9 @@ export default {
       }
     },
     cgChangeTuneYou(race, newTune) {
+      if (typeof newTune === "object") {
+        newTune = newTune.selectedTune;
+      }
       // Vue.set(car, "selectedTune", tune);
 
       //chaged tune of you car
@@ -7464,57 +7494,107 @@ export default {
         race.cars.push( JSON.parse(JSON.stringify( race.cars[race.carIndex] )) );
         race.carIndex = race.cars.length-1;
         race.cars[race.carIndex].tune = newTune;
-        race.cars[race.carIndex].points = undefined;
-        race.cars[race.carIndex].car.selectedTune = newTune;
+        race.cars[race.carIndex].selectedTune = newTune;
+        race.cars[race.carIndex].points = this.cgTryGetPointsFromCache(race);
+
       }
 
-      this.tuneDialogCar = race.cars[race.carIndex].car; 
-      this.tuneDialogCar.data = Vue.all_cacheObj[race.cars[race.carIndex].rid].data;
+      this.tuneDialogCarRid = race.cars[race.carIndex].rid;
+      this.tuneDialogCarConfig = race.cars[race.carIndex];
       this.calcRaceResult(race);
     },
-    cgShowTuneDialog(car, race, isOppo = false, irace) {
-      this.tuneDialogCar = car;
-      this.tuneDialogCar.data = Vue.all_cacheObj[car.rid].data;
+    cgTryGetPointsFromCache(race) {
+      let youRid = race.cars[race.carIndex].rid;
+      let youTune = race.cars[race.carIndex].tune;
+      let points = undefined;
+      let time = Vue.getTimeFromCache(youRid, youTune, race.track);
+      if (time === undefined) return points;
+      points = (Vue.userPoints(time, race.time, race.track) || { v: 1000 }).v;
+      return points;
+    },
+    cgShowTuneDialog(race, isOppo = false, irace) {
+      if (Vue.utils.cacheLoading) return;
+
+      this.tuneDialogCarRid = race.rid;
+      race.selectedTune = race.tune;
+      this.tuneDialogCarConfig = race;
+      if (!isOppo) {
+        this.tuneDialogCarRid = race.cars[race.carIndex].rid;
+        this.tuneDialogCarConfig = race.cars[race.carIndex];
+      }
       this.tuneDialogCarIndex = irace;
       this.tuneDialogisOppo = isOppo;
       this.tuneDialogActive = true;
+      this.tuneDialogTuneWins = [];
+      this.tuneDialogTuneLose = [];
+      if (!isOppo) {
+        this.cgLoadYouTimesTuneAll(race, irace);
+      }
       this.tuneDialogRace = race;
       Vue.carsCompile("R_Medals");
     },
+    cgLoadYouTimesTuneAll(race, irace) {
+      let tunes = ["332", "323", "233", "111", "000"];
+      if (
+        Vue.all_carsObj[this.tuneDialogCarRid].class === 'S' ||
+        Vue.all_carsObj[this.tuneDialogCarRid].class === 'A' || 
+        Vue.all_carsObj[this.tuneDialogCarRid].class === 'B'
+      ) {
+        tunes = [
+          ...tunes,
+          ...Vue.extraTunes
+        ]
+      }
+
+
+      tunes.forEach(tune => {
+        let time = Vue.timeCell(this.tuneDialogCarRid, tune, race.track);
+        if (time === null || time === "!loading") return;
+        if (Vue.timeIsBest(time, race.time, race.track)) {
+          this.tuneDialogTuneWins.push(tune);
+        } else {
+          this.tuneDialogTuneLose.push(tune);
+        }
+      });
+    },
+    cgLoadYouTimesAfter() {
+      this.cgLoadYouTimesTuneAll(this.tuneDialogRace, this.tuneDialogCarIndex);
+    },
     calcRaceResult(race, isCgInitial) {
-      this.showCarsFix = false;
-      this.$nextTick().then(() => {
-        this.showCarsFix = true;
-      })
       setTimeout(() => {
         this.cgResolveRqFill();
       }, 100);
+      return;
+      // this.showCarsFix = false;
+      // this.$nextTick().then(() => {
+      //   this.showCarsFix = true;
+      // })
       let irace = this.cgRound.races.indexOf(race);
 
       
-      if (!race.car || !race.car.selectedTune || !race.track) {
-        race.time = null
-        return;
-      }
+      // if (!race.car || !race.car.selectedTune || !race.track) {
+      //   race.time = null
+      //   return;
+      // }
 
-      let oppo = Vue.all_cacheObj[race.car.rid];
-      let tryoppotime;
-      try {
-        tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
-      } catch (error) {
-        // nada
-      }
-      if (tryoppotime || tryoppotime === 0) {
-        if (race.time && race.time !== tryoppotime && this.cgRoundToSave.length > 0) {
-          // commit the change to database
-          this.cgRoundToSave.push({
-            type: "oppoTime",
-            time: tryoppotime,
-            raceIndex: this.cgRound.races.indexOf(race)
-          })
-        }
-        race.time = tryoppotime;
-      }
+      // let oppo = Vue.all_cacheObj[race.car.rid];
+      // let tryoppotime;
+      // try {
+      //   tryoppotime = oppo.data[race.car.selectedTune].times[race.track].t
+      // } catch (error) {
+      //   // nada
+      // }
+      // if (tryoppotime || tryoppotime <= 0) {
+      //   if (race.time && race.time !== tryoppotime && this.cgRoundToSave.length > 0) {
+      //     // commit the change to database
+      //     this.cgRoundToSave.push({
+      //       type: "oppoTime",
+      //       time: tryoppotime,
+      //       raceIndex: this.cgRound.races.indexOf(race)
+      //     })
+      //   }
+      //   race.time = tryoppotime;
+      // }
 
 
       if (typeof race.carIndex !== 'number') {
@@ -7522,41 +7602,41 @@ export default {
       }
 
       let youRid = race.cars[race.carIndex].rid;
-      let youTune = race.cars[race.carIndex].car.selectedTune;
+      let youTune = race.cars[race.carIndex].tune;
       let points = 0;
 
-      if (!(race.cars[race.carIndex] || {}).car || !((race.cars[race.carIndex] || {}).car || {}).selectedTune) {
-        // Vue.set(race.cars[race.carIndex], "points", undefined);
-        // debugger;
-        // this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
-        return;
-      }
+      // if (!(race.cars[race.carIndex] || {}).rid || !((race.cars[race.carIndex] || {}).tune)) {
+      //   // Vue.set(race.cars[race.carIndex], "points", undefined);
+      //   // debugger;
+      //   // this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
+      //   return;
+      // }
       
       
       
-      let isReady = this.cgResolveIfDownloadRidOrNot(youRid, null, null, false);
-      if (!isReady) return;
+      // let isReady = this.cgResolveIfDownloadRidOrNot(youRid, null, null, false);
+      // if (!isReady) return;
 
-      let you = Vue.all_cacheObj[youRid];
-      if (!oppo || race.time === null || race.time === undefined || !you || !you.data) {
-        Vue.set(race.cars[race.carIndex], "points", undefined);
-        // debugger;
-        // this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
-        return;
-      }
+      // let you = Vue.all_cacheObj[youRid];
+      // if (!oppo || race.time === null || race.time === undefined || !you || !you.data) {
+      //   Vue.set(race.cars[race.carIndex], "points", undefined);
+      //   // debugger;
+      //   // this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
+      //   return;
+      // }
 
 
-      let oppotime = race.time;
-      let youtime = (((you.data[youTune] || {}).times || {})[race.track] || {}).t
-      if (oppotime === undefined || youtime === undefined) {
-        if (youtime === undefined && youTune) {
-          Vue.set(race.cars[race.carIndex], "points", this.$t("m_notime"));
-          if (!!this.user && this.user.mod && isCgInitial) {
-            this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
-          }
-        }
-        return;
-      }
+      // let oppotime = race.time;
+      // let youtime = (((you.data[youTune] || {}).times || {})[race.track] || {}).t
+      // if (oppotime === undefined || youtime === undefined) {
+      //   if (youtime === undefined && youTune) {
+      //     Vue.set(race.cars[race.carIndex], "points", this.$t("m_notime"));
+      //     if (!!this.user && this.user.mod && isCgInitial) {
+      //       this.cgResolveBankToSave("remove", irace, youRid, youTune, points);
+      //     }
+      //   }
+      //   return;
+      // }
       
       // if (race.track.includes("testBowl")) {
       //   if (oppotime > youtime) points = -50;
@@ -7649,7 +7729,7 @@ export default {
       let showPoints = false;
       this.cgRound.races.map(race => {
         try {
-          fill = fill + race.cars[race.carIndex].car.rq;
+          fill = fill + Vue.all_carsObj[race.cars[race.carIndex].rid].rq;
           if (Number(race.cars[race.carIndex].points)) {
             pointsTotal = pointsTotal + race.cars[race.carIndex].points;
             if (race.cars[race.carIndex].points < 50) {
@@ -7667,6 +7747,7 @@ export default {
       Vue.set(this.cgRound, "showPoints", showPoints);
     },
     cgChangeTimeOppo(race, event, irace) {
+      return;
       let car = race.car;
       let tune = car.selectedTune;
       let carData = Vue.all_cacheObj[car.rid];
@@ -7708,6 +7789,7 @@ export default {
       this.calcRaceResult(race);
     },
     cgChangeTimeYou(race, event) {
+      return;
       let car = race.cars[race.carIndex].car;
       let tune = car.selectedTune;
       let carData = Vue.all_cacheObj[car.rid];
@@ -7718,6 +7800,7 @@ export default {
       this.calcRaceResult(race);
     },
     cgDeleteTime(race, event, isOppo = false) {
+      return;
       let vm = this;
       let car;
       if (isOppo) car = race.car;
@@ -7742,10 +7825,10 @@ export default {
           if (isOppo) Vue.set(race, 'time', null);
           Vue.set(carData.data[tune].times, track, undefined);
 
-          vm.showCarsFix = false;
-          vm.$nextTick().then(() => {
-            vm.showCarsFix = true;
-          })
+          // vm.showCarsFix = false;
+          // vm.$nextTick().then(() => {
+          //   vm.showCarsFix = true;
+          // })
 
           vm.$store.commit("DEFINE_SNACK", {
             active: true,
@@ -7958,6 +8041,7 @@ export default {
       
     },
     cgPreviewSolutions() {
+      return;
       let tracks = [];
       let oppos = [];
       let times = [];
@@ -8082,6 +8166,7 @@ export default {
 
     },
     cgSaveBank(customArray) {
+      return; // TEMP
       if (!window.location.origin.includes('topdrives') && !this.$store.state.showUpcomingTags) {
         console.log("trySave", customArray);
         return;
@@ -8119,10 +8204,10 @@ export default {
       if (race.cars.length === 0) return;
 
       race.cars.sort((a, b) => {
-        if (a.car.rq === b.car.rq) {
-          return a.car.rid.localeCompare(b.car.rid)
+        if (Vue.all_carsObj[a.rid].rq === Vue.all_carsObj[b.rid].rq) {
+          return a.rid.localeCompare(b.rid)
         } else {
-          return a.car.rq  - b.car.rq 
+          return Vue.all_carsObj[a.rid].rq  - Vue.all_carsObj[b.rid].rq 
         }
       })
 
@@ -8351,7 +8436,7 @@ export default {
     },
     cgClearSaveNewCg() {
       this.cgNewModel.name = null;
-      this.cgNewModel.numberRounds = 10;
+      // this.cgNewModel.numberRounds = 10;
     },
     cgCloseNewCg() {
       this.cgSeletorDialog = true;
@@ -8431,7 +8516,7 @@ export default {
         if (!this.user.mod) return;
       };
 
-      let car = Vue.all_cacheObj[race.cars[race.carIndex].rid];
+      let car = Vue.all_carsObj[race.cars[race.carIndex].rid];
       let trytime
       if (!car) return;
       try {
@@ -8485,31 +8570,18 @@ export default {
     },
     cgAnalyseRound() {
       this.cgAnalyseRoundFinish();
-      return;
-      let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.3 ));
-      let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
+      // let rqMax = Math.floor(Math.pow( this.cgRound.rqLimit/5, 1.3 ));
+      // let rqMin = Math.floor(Math.pow( this.cgRound.rqLimit/5, 0.7 ));
       // this.$store.commit("CG_EMIT_RIDS", { rqMax, rqMin });
     },
     cgAnalyseRoundFinish() {
-
-      let clearRound = this.cgRound.races.map(x => {
-        let time;
-        let cgCar = Vue.all_cacheObj[x.rid];
-
-        if (
-          x.car.selectedTune &&
-          cgCar &&
-          cgCar.data && 
-          cgCar.data[x.tune] &&
-          cgCar.data[x.tune].times &&
-          cgCar.data[x.tune].times[x.track] &&
-          cgCar.data[x.tune].times[x.track].t !== undefined
-        ) {
-          time = cgCar.data[x.tune].times[x.track].t;
-        } else {
-          time = x.time;
+      let clearRound = this.cgRound.races.map(race => {
+        return {
+          track: race.track,
+          rid: race.rid,
+          tune: race.tune,
+          time: race.time
         }
-        return { track: x.track, time: time }
       })
 
       this.cgAnalyseLoading = true;
@@ -8517,12 +8589,10 @@ export default {
       axios.post(Vue.preUrl + "/analyseRound", {
         date: this.cgCurrentId,
         round: this.cgCurrentRound,
-        filter: this.cgRound.filter,
-        cgRound: clearRound,
-        preDone: this.cgRound.preDoneMod
+        cgRound: clearRound
       })
       .then(res => {
-        Vue.clearCacheCars();
+        // Vue.clearCacheCars();
         this.loadChallengeFull(this.cgCurrentId);
         this.forceShowAnalyse = false;
       })
@@ -8704,12 +8774,40 @@ export default {
         }
       }
     },
-    cgSubmitCompleteJson() {
+    cgSubmitCompleteJson(createNew) {
       let json = JSON.parse(this.cgCompleteJson);
       let oppos = json.ladder.opponents;
       // let list = oppos.map(x => x.cardId);
       // list = [...new Set(list)];
-      let newCg = JSON.parse(JSON.stringify(this.cg));
+      let newCg;
+      newCg = JSON.parse(JSON.stringify(this.cg));
+      if (createNew) {
+        newCg = {
+          date: null,
+          rounds: [],
+          name: json.ladder.name,
+          // name: "Proving Grounds: test2"
+        }
+        json.ladder.rungPrizes.map((rung, irung) => {
+          let races = [];
+          [...Array(5)].map((_, i) => {
+            races.push({
+              "cars": [],
+              "rid": null,
+              "time": null,
+              "track": null,
+              "tune": null
+            })
+          });
+
+          newCg.rounds.push({
+            "date": new Date().toISOString(),
+            "filter": {},
+            "races": races,
+            "rqLimit": 500
+          });
+        });
+      }
       // let AllCarsFiltered = [];
       let zoneSize = json.ladder.zoneSize;
 
@@ -8730,13 +8828,13 @@ export default {
         if (roundErrorCount > 1) shouldStop = true;
         errorMsgArray.push(msg);
       }
-      if (this.cgCurrentRoundSum) {
+      if (this.cgCurrentRoundSum && !createNew) {
         count = this.cgCurrentRoundSum * 5;
       }
 
       newCg.rounds.map((round, iround) => {
         let _iRound = iround
-        if (this.cgCurrentRoundSum) {
+        if (this.cgCurrentRoundSum && !createNew) {
           _iRound = this.cgCurrentRoundSum+_iRound;
         }
 
@@ -8750,22 +8848,31 @@ export default {
         round.races.map((race, irace) => {
           let op = oppos[count];
           
-          let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`
+          let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`;
+          if (createNew) {
+            tune = `${((op.engineMajor-1) * 3 + op.engineMinor)}${((op.weightMajor-1) * 3 + op.weightMinor)}${((op.chassisMajor-1) * 3 + op.chassisMinor)}`;
+          }
           let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
           if (car) {
-            let allowedTunes = ["332", "323", "233", "000"];
-            let allowedTunesTimes = ["332", "323", "233"];
-            if (car.class === 'S' || car.class === 'A') {
-              allowedTunes.push("111");
-              allowedTunesTimes.push("111");
-            }
-            if (!allowedTunes.includes(tune)) {
-              if (tune.length > 3) {
-                tune = `Other`;
-              } else {
-                tune = `Other${tune}`;
+
+            let allowedTunes;
+            let allowedTunesTimes;
+            if (!createNew) {
+              allowedTunes = ["332", "323", "233", "000"];
+              allowedTunesTimes = ["332", "323", "233"];
+              if (car.class === 'S' || car.class === 'A') {
+                allowedTunes.push("111");
+                allowedTunesTimes.push("111");
+              }
+              if (!allowedTunes.includes(tune)) {
+                if (tune.length > 3) {
+                  tune = `Other`;
+                } else {
+                  tune = `Other${tune}`;
+                }
               }
             }
+
             if (round.lastAnalyze) {
               if (race.rid && race.rid !== car.rid) computeError(`RID round${_iRound+1} race${irace+1} old:      ${race.rid}     n:     ${car.rid}`);
             }
@@ -8776,7 +8883,7 @@ export default {
             if (iround === 3 && irace === 0) {
               // debugger;
             }
-            if (!allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
+            if (!createNew && !allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
               race.time = null;
             }
             // race.time = null;
@@ -8832,19 +8939,29 @@ export default {
 
 
 
-      this.cg = newCg;
-      this.cgList.find(x => {
-        if (x.date === newCg.date) {
-          x = newCg;
-          return true;
-        }
-      })
+      if (!createNew) {
+        this.cg = newCg;
+        this.cgList.find(x => {
+          if (x.date === newCg.date) {
+            x = newCg;
+            return true;
+          }
+        })
+      }
 
       this.cgSaveLoading = true;
 
-      axios.post(Vue.preUrl + "/setCgPredict", newCg)
+      let url = Vue.preUrl + "/setCgPredict";
+      if (createNew) url = Vue.preUrl + "/createCgByJson";
+
+      axios.post(url, newCg)
       .then(res => {
-        this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
+        this.cgNewDialog = false;
+        if (createNew) {
+          this.cgCurrentId = res.data.date;
+          this.cgCurrentRound = 0;
+        }
+        this.loadChallenges();
         this.cgCompleteJson = "";
         this.forceShowAnalyse = false;
         this.$store.commit("DEFINE_SNACK", {
@@ -8875,6 +8992,7 @@ export default {
       
     },
     cgSubmitRoundResultJson() {
+      return;
       this.cgJsonDownloadRids = [];
       this.cgRoundResultJsonErrorTxt = "";
       if (!this.cgRoundResultJson) return;
@@ -8953,6 +9071,7 @@ export default {
       });
     },
     afterResolveCarJson(result, count = 0) {
+      return;
       if (count > 10) return;
       
       let isDownloaded = this.cgJsonDownloadRids.length === 0;
@@ -9814,11 +9933,14 @@ export default {
     },
     cgDashcogClick(car, index, iround) {
       if (!car || !car.rid) return;
-      this.tuneDialogCar = JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid]));
-      this.tuneDialogCar.selectedTune = car.tune;
+      this.tuneDialogCarRid = car.rid;
+      this.tuneDialogCarConfig = car;
+      this.tuneDialogCarConfig.selectedTune = car.tune;
       this.tuneDialogCarIndex = index;
       this.tuneDialogisOppo = false;
       this.tuneDialogActive = true;
+      this.tuneDialogTuneWins = [];
+      this.tuneDialogTuneLose = [];
       this.cgDashSolutionsDialogRound = iround;
       Vue.carsCompile("R_Medals");
     },
@@ -9945,6 +10067,91 @@ export default {
         if (this.cgTabRoundMemory && this.cgTabRoundMemory !== 'd') round = this.cgTabRoundMemory;
         this.loadCgRound(this.cg.date, round);
       }
+    },
+    cgNormalizeFormat(cg) {
+      if (!cg.rounds) return;
+      
+      cg.rounds.map(round => {
+        round.races.map(race => {
+          if (race.tune && race.tune.includes("Other") && race.tune.length > 5) {
+            race.tune = race.tune.replace("Other", "");
+          }
+          race.cars && race.cars.map((car, icar) => {
+            if (Array.isArray(car) && typeof car[0] === "number") {
+              Vue.set(race.cars, icar, {
+                rid: Vue.rn_to_rid[car[0]],
+                tune: car[1],
+                selectedTune: car[1],
+                points: car[2]
+              });
+            } else {
+              Vue.set(car, "selectedTune", car.tune);
+            }
+          });
+        });
+      });
+    },
+    cgCheckRoundTimes() {
+      this.cgRound.races.map((race, irace) => {
+        let time = Vue.timeCell(race.rid, race.tune, race.track);
+        if (time !== race.time) {
+          race.time = time;
+        }
+        if (race.carIndex > -1 && race.cars[race.carIndex] && race.cars[race.carIndex].points === undefined) {
+          let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].tune, race.track);
+          let points = (Vue.userPoints(time2, race.time, race.track) || { v: 1000 }).v;
+          Vue.set(race.cars[race.carIndex], "points", points);
+        }
+      });
+
+      if (this.tuneDialogActive) {
+        this.cgLoadYouTimesAfter();
+      }
+      this.checkPreDoneRounds(this.cg);
+    },
+    cgPrepareSaveRaw() {
+      let params = { date: this.cg.date };
+      let parsed = JSON.parse(this.cgRaw);
+
+      let keys = [
+        "name",
+        "info",
+      ]
+
+      keys.map(key => {
+        if (JSON.stringify(parsed[key]) !== JSON.stringify(this.cg[key])) params[key] = parsed[key];
+      });
+
+      console.log(params);
+      if (Object.keys(params).length === 1) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "No changes to save"
+        });
+        return;
+      }
+
+
+      this.cgSaveLoading = true;
+      axios.post(Vue.preUrl + "/editCgRaw", params)
+      .then(res => {
+        this.cgSaveLoading = false;
+        this.$store.state.showUpcomingTags = false;
+      })
+      .catch(error => {
+        this.cgSaveLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if ((error.response || {}).status === 401) {
+          this.$store.commit('OPEN_LOGIN');
+        }
+      })
     },
     garageRemoveFromListUpgraded(index) {
       Vue.removeFromGarageUpgraded(index);
@@ -10089,6 +10296,9 @@ export default {
           })
 
           this.eventSortFlex(event);
+          if (this.user && this.user.mod) {
+            this.eventRaw = JSON.stringify(res.data, null, 2);
+          }
 
           this.loadEventScreen(date);
         }
@@ -10412,10 +10622,10 @@ export default {
             car.points = { v: 0 };
           } else {
             car.points = Vue.options.filters.userPoints(bestTimePure, car.time, this.eventKingTracks[itrack]);
-            if (car.time === 0) {
+            if (car.time <= 0) {
               car.timeToPrint = "DNF";
             } else if ((this.eventKingTracks[itrack] || "").includes("testBowl")) {
-              car.timeToPrint = car.time;
+              car.timeToPrint = car.time.toTestBowlSrvDisplay();
             } else {
               if (car.time < bestTime) {
                 car.timeToPrint = `${(car.time - bestTime).toFixed(2)}`
@@ -11158,11 +11368,15 @@ export default {
         window.open(url, '_blank');
         return;
       }
-      this.tuneDialogCar = JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid]));
-      this.tuneDialogCar.selectedTune = '000';
+      this.tuneDialogCarRid = car.rid;
+      car.selectedTune = car.tune;
+      this.tuneDialogCarConfig = car;
+      this.tuneDialogCarConfig.selectedTune = '000';
       this.tuneDialogCarIndex = igroup;
       this.tuneDialogisOppo = true;
       this.tuneDialogActive = true;
+      this.tuneDialogTuneWins = [];
+      this.tuneDialogTuneLose = [];
       Vue.carsCompile("R_Medals");
     },
     eventClearPicks() {
@@ -11450,6 +11664,61 @@ export default {
         console.log(event);
       }
     },
+    eventPrepareSaveRaw() {
+      let params = { date: this.eventCurrentId };
+      let parsed = JSON.parse(this.eventRaw);
+
+      let keys = [
+        "name",
+        "flexibleCriteriaRequired",
+        "flexConfig",
+        "image",
+        "bucketSize",
+        "filteringQueryStrings",
+        "tag",
+        "startDateTime",
+        "endDateTime",
+        "ticketRegenerationTime",
+        "prizes",
+        "user"
+      ]
+      this.eventSortFlex(parsed);
+
+      keys.map(key => {
+        if (JSON.stringify(parsed[key]) !== JSON.stringify(this.event[key])) params[key] = parsed[key];
+      });
+
+      console.log(params);
+      if (Object.keys(params).length === 1) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          correct: true,
+          text: "No changes to save"
+        });
+        return;
+      }
+
+
+      this.saveLoading = true;
+      axios.post(Vue.preUrl + "/updateEvent", params)
+      .then(res => {
+        this.saveLoading = false;
+        this.$store.state.showUpcomingTags = false;
+      })
+      .catch(error => {
+        this.saveLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if ((error.response || {}).status === 401) {
+          this.$store.commit('OPEN_LOGIN');
+        }
+      })
+    },
 
     askDeleteTimeGeneral(rid, tune, track) {
       let vm = this;
@@ -11585,10 +11854,10 @@ export default {
       console.log(e);
       if (this.mode === "compare") {
         if (this.needSave) {
-          this.showCarsFix = false;
-          this.$nextTick().then(() => {
-            this.showCarsFix = true;
-          })
+          // this.showCarsFix = false;
+          // this.$nextTick().then(() => {
+          //   this.showCarsFix = true;
+          // })
         }
         this.resolvePointsClassic();
       }
@@ -11639,14 +11908,11 @@ export default {
       result.map((x, ix) => {
         Object.keys( x ).forEach(function (trackId) {
           if (
-            vm.carDetailsList[ix].data &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune] &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times &&
-            vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId]
+            Vue.timesCache[vm.carDetailsList[ix].TCode + "_" + Vue.rn_to_track.indexOf(trackId)]
           ) {
-            tempValue = (vm.carDetailsList[ix].data[vm.carDetailsList[ix].selectedTune].times[trackId] || {}).t;
+            tempValue = Vue.timesCache[vm.carDetailsList[ix].TCode + "_" + Vue.rn_to_track.indexOf(trackId)];
             if (vm.carHoverIndex > -1 && vm.carHoverIndex !== ix) {
-              let referenceTime = (vm.carDetailsList[vm.carHoverIndex].data[vm.carDetailsList[vm.carHoverIndex].selectedTune].times[trackId] || {}).t;
+              let referenceTime = Vue.timesCache[vm.carDetailsList[vm.carHoverIndex].TCode + "_" + Vue.rn_to_track.indexOf(trackId)];
               x[trackId] = Vue.options.filters.userPoints(referenceTime, tempValue, trackId);
             }
           }
@@ -11824,29 +12090,28 @@ export default {
         this.clearAllCars();
         this.pushTrackSet([this.kingTrack.code]);
 
-        let result = [];
+        // let result = [];
         res.data.map(car => {
-          result.push(JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
-          result[result.length-1].selectedTune = car.tune;
-          result[result.length-1].softId = this.nextId;
-          this.nextId++;
+          Vue.loadTimesFromKing(car, this.kingTrack.code);
+          this.addCar({ rid: car.rid, selectedTune: car.tune });
         })
-        Vue.set(this, "carDetailsList", result);
-        this.applyNewData(res.data, this.mode === 'challenges', origMode);
-        if (this.eventMyGarage) {
-          this.carDetailsList.map((car, icar) => {
-            if (!res.data[icar].isTimePredicted) return;
-            let tune = car.selectedTune;
-            let track = this.kingTrack.code;
+        // Vue.set(this, "carDetailsList", result);
+        // this.applyNewData(res.data, this.mode === 'challenges', origMode);
+        // if (this.eventMyGarage) {
+        //   this.carDetailsList.map((car, icar) => {
+        //     if (!res.data[icar].isTimePredicted) return;
+        //     let tune = car.selectedTune;
+        //     let track = this.kingTrack.code;
 
-            if (!car.data) Vue.set(car, "data", {});
-            if (!car.data[tune]) Vue.set(car.data, tune, {});
-            if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
-            if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
-            Vue.set(car.data[tune].times[track], "t", res.data[icar].time);
-            Vue.set(car.data[tune].times[track], "isTimePredicted", true);
-          })
-        }
+        //     if (!car.data) Vue.set(car, "data", {});
+        //     if (!car.data[tune]) Vue.set(car.data, tune, {});
+        //     if (!car.data[tune].times) Vue.set(car.data[tune], "times", {});
+        //     if (!car.data[tune].times[track]) Vue.set(car.data[tune].times, track, {});
+        //     Vue.set(car.data[tune].times[track], "t", res.data[icar].time);
+        //     Vue.set(car.data[tune].times[track], "isTimePredicted", true);
+        //   })
+        // }
+
         this.updateOptions();
         // this.updateCarLocalStorage();
         if (!this.kingFixed) this.kingDialog = false;
@@ -11855,7 +12120,7 @@ export default {
           this.colorsChange("full", false);
         }
 
-        if (result.length === 0) {
+        if (res.data.length === 0) {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             error: true,
@@ -11879,36 +12144,14 @@ export default {
         this.downloadLoading = false;
       });
     },
-    predictTimes(e) {
-      if (this.containPredictedTimes) {
-        this.carDetailsList.map(car => {
-          if (car.selectedTune && car.data && car.data[car.selectedTune] && car.data[car.selectedTune].times) {
-            Object.keys(car.data[car.selectedTune].times).forEach(trackId => {
-              if (car.data[car.selectedTune].times[trackId]?.isTimePredicted) {
-                delete car.data[car.selectedTune].times[trackId];
-              }
-            });
-          }
-        });
-        this.containPredictedTimes = false;
-        this.carDetailsList.splice();
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        });
-        return;
-      }
-      this.downloadDataCars(false, (e.shiftKey && e.ctrlKey) ? "force" : true);
-      this.optionsDialogActive = false;
-    },
     isChamp(str) {
       return str.startsWith("SN") || str.startsWith("YB");
     },
-    frontCompleteCar(car) {
-      Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
-      Vue.set(car, "car", JSON.parse(JSON.stringify( Vue.all_carsObj[car.rid] )));
-      Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
-    },
+    // frontCompleteCar(car) {
+    //   Vue.set(car, "photo", Vue.all_carsObj[car.rid].photo);
+    //   Vue.set(car, "car", JSON.parse(JSON.stringify( Vue.all_carsObj[car.rid] )));
+    //   Vue.set(car, "color", Vue.all_carsObj[car.rid].color);
+    // },
     chooseCustomTune(car) {
       this.customTuneDialogCar = car;
       this.customTuneDialogActive = true;
@@ -11927,43 +12170,6 @@ export default {
         this.customTuneDialogCar.selectedTune = this.customTuneDialogTune;
         this.updateCarLocalStorage();
       }
-    },
-    resolveCarReview(reviewObj) {
-      let reviewList = [];
-      if (this.tuneDialogCar.reviews && this.tuneDialogCar.reviews.length > 0) {
-        reviewList = this.tuneDialogCar.reviews;
-      }
-      let foundIndex = reviewList.findIndex(x => x.user === this.user.username);
-
-      if (reviewObj.isDelete) {
-        // delete
-        reviewList.splice(foundIndex, 1);
-      } else if (foundIndex > -1) {
-        // edit
-        if (reviewObj.reviewText) reviewList[foundIndex].text = reviewObj.reviewText;
-        if (reviewObj.reviewLink) reviewList[foundIndex].link = reviewObj.reviewLink;
-        reviewList[foundIndex].lastEdit = (new Date()).toISOString();
-      } else {
-        // new
-        let newReview = {
-          text: reviewObj.reviewText,
-          link: reviewObj.reviewLink,
-          user: this.user.username,
-          date: (new Date()).toISOString()
-        }
-        reviewList.push(newReview);
-      }
-
-      this.carDetailsList.find(x => {
-        if (x.rid === this.tuneDialogCar.rid) {
-          Vue.set(x, "reviews", reviewList);
-          return true
-        }
-      })
-    },
-    reviewLoadTemplate(template) {
-      this.closeTune();
-      this.decodeTemplateString(template, true);
     },
     gestureResolve(e) {
       return;
@@ -12777,10 +12983,7 @@ export default {
       resizeObserver.observe(el);
 
     },
-    resolveStat(car, type, customData = null) {
-      return Vue.resolveStat(car, type, customData);
-    },
-    resolvePaste(e) {
+    resolvePaste(e) { //cg paste old
       if (e) {
         e.preventDefault();
         let text = e.clipboardData.getData('text');
@@ -12794,6 +12997,7 @@ export default {
         if (!success) return;
 
         if (text.includes('resultData') && text.includes('roundData')) { // race result
+          return;
           if (text.includes('ladderPlayerData')) { // challenge
             if (this.mode === 'challenges' && this.cgRound && this.cgRound.date && this.cgRound.races[0].track !== null && !this.cgIsApproving) {
               this.cgRoundResultJson = text;
@@ -12813,6 +13017,29 @@ export default {
           if (this.mode === 'challenges' && this.cgRound && this.cgRound.date && !this.cgIsApproving) {
             this.cgCompleteJson = text;
             this.cgSubmitCompleteJson();
+            return;
+          }
+        }
+
+      }
+    },
+    createNewCgByJson(e) { // cg old
+      if (e) {
+        e.preventDefault();
+        let text = e.clipboardData.getData('text');
+        let success = false;
+
+        try {
+          JSON.parse(text);
+          success = true;
+        } catch (error) {}
+
+        if (!success) return;
+
+        if (text.includes('zoneEligibility') && text.includes('zoneSize')) { // complete cg rounds
+          if (this.mode === 'challenges') {
+            this.cgCompleteJson = text;
+            this.cgSubmitCompleteJson(true);
             return;
           }
         }
@@ -13021,10 +13248,7 @@ export default {
 
         let result = [];
         res.data.map(car => {
-          result.push(JSON.parse(JSON.stringify(Vue.all_carsObj[car.rid])));
-          result[result.length-1].selectedTune = car.tune;
-          result[result.length-1].softId = this.nextId;
-          this.nextId++;
+          this.addCar({ rid: car.rid, selectedTune: car.tune });
         })
         Vue.set(this, "carDetailsList", result);
         this.applyNewData(res.data, this.mode === 'challenges', this.mode);
@@ -13226,16 +13450,17 @@ export default {
             this.clearAllTracks()
             this.pushTrackSet(tracksFromQuery);
           }
+          Vue.set(this, "carDetailsList", []);
           this.prepareCars(carsFromQuery);
           this.updateOptions();
           this.updateCarLocalStorage();
 
         }
 
-        this.showCarsFix = false;
-        this.$nextTick().then(() => {
-          this.showCarsFix = true;
-        });
+        // this.showCarsFix = false;
+        // this.$nextTick().then(() => {
+        //   this.showCarsFix = true;
+        // });
 
       } else if (this.T_S.mainParams.mode === "challenges") {
         this.changeMode('challenges');
@@ -13260,6 +13485,45 @@ export default {
         this.T_S._g_cFull.dialog = false;
       };
       this.closeTune()
+    },
+    openCarTuneDialog(ev) {
+      let car = ev.car;
+      if (car) {
+        this.tuneDialogCarRid = car.rid;
+        this.tuneDialogCarConfig = car;
+        this.tuneDialogCarIndex = ev.index;
+        this.tuneDialogActive = true;
+        this.tuneDialogTuneWins = [];
+        this.tuneDialogTuneLose = [];
+        this.tuneDialogisOppo = false;
+        Vue.carsCompile("R_Medals");
+      }
+    },
+    mainCarsListGeneralClick(e) {
+      let currEl = e.target;
+      let code;
+      while (true) {
+        if (!currEl) break;
+        if (currEl.classList.contains("BaseTimeCell_Layout")) {
+          code = currEl.getAttribute("data");
+          break;
+        }
+        if (currEl.classList.contains("Main_CarList") || currEl === document.body) break;
+        currEl = currEl.parentElement;
+      }
+
+      if (code) {
+        let carIndex = code.split("_")[0];
+        let trackIndex = code.split("_")[1];
+        let car = this.carDetailsList[carIndex];
+        let track = this.currentTracks[trackIndex];
+
+        console.log(Vue.getTimeFromCache(car.rid, car.selectedTune, track.code), code);
+        return;
+
+      }
+      
+      console.log(code);
     }
     
   }

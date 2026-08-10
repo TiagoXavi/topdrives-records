@@ -1,8 +1,9 @@
 <template>
-  <div class="BaseTimeCell_Layout">
+  <div class="BaseTimeCell_Layout" :data="code">
     <div
-      :data="`${(track || {}).track}`"
+      :data="track"
       :class="
+        `${time === '!loading' ? 'BaseTimeCell_Loading ' : '' }`+
         `${count === -3 ? 'Row_ItemError ' : '' }`+
         `${count === -4 ? 'Row_ItemCorrect ' : '' }`+
         `${count === -5 ? 'Row_DetailsActive ' : '' }`+
@@ -10,10 +11,29 @@
         `${false ? 'Row_ForceNormalSizeCell ' : ''}`+
         `${time === null || time === undefined || time === '' ? 'Row_ContentEmpty ' : '' }`+
         `${false ? 'Row_isTimePredicted ' : '' }` +
-        `${!rid || !selectedTune ? 'Row_DisabledCell ' : '' }`
+        `${!rid || !selectedTune ? 'Row_DisabledCell ' : '' }`+
+        `${lastIndex > 0 ? 'Row_ColorHighFirst ' : '' }`+
+        `${showPoints ? 'Row_HideColorBack ' : '' }`+
+        `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
+        `Row_ColorByIndex${highlights?.[track]}`
       "
-      class="BaseTimeCell_Cell">
-      <div class="BaseTimeCell_Content">{{ time.t | toTimeStringTrCode((track || {}).track) }}</div>
+      :style="{
+        '--color-index': highlights?.[track],
+        '--last-index': countPerTrack?.[track] - 1
+      }"
+      class="BaseTimeCell_Cell Row_ColorByIndex">
+      <div v-if="!showPoints" class="BaseTimeCell_Content">{{ time | toTimeStringTrCode(track) }}</div>
+      <div
+        v-else-if="points && points[track] !== undefined  && points[track] !== null"
+        :class="{
+          Row_PointsWin: points[track].v > 0,
+          Row_PointsLose: points[track].v < 0,
+          Row_PointsDraw: points[track].v === 0
+        }"
+        class="Row_Content">
+        {{ points[track].v }}
+      </div>
+      <div class="Row_xRA">{{ rid | cellSubNew(selectedTune, track) }}</div>
     </div>
   </div>
 </template>
@@ -33,15 +53,18 @@ export default {
     selectedTune: {},
     track: {},
     count: {},
-    onlyDownloadFull: {
-      type: Boolean,
-      default: false
-    },
+    index: {},
+    code: {},
+    highlights: {},
+    countPerTrack: {},
+    showPoints: {},
+    isReferencePoints: {},
+    hoverIndex: {},
+    points: {},
+    lastIndex: {}
   },
   data() {
-    return {
-      Vue: Vue,
-    }
+    return {}
   },
   watch: {},
   beforeMount() {},
@@ -49,10 +72,8 @@ export default {
   computed: {
     time() {
       this.count;
-      return Vue.timeCell(this.rid, this.selectedTune, (this.track || {}).track);
-      // let res = Vue.timeCell(this.rid, this.selectedTune, (this.track || {}).track);
-      // console.log(this.rid, res);
-      // return res;
+      // console.log("BaseTimeCell computed time", this.rid, this.selectedTune, this.track);
+      return Vue.timeCell(this.rid, this.selectedTune, this.track);
     }
   },
   methods: {},
@@ -158,5 +179,27 @@ export default {
 }
 .Row_DisabledCell .BaseTimeCell_Content:before {
   content: "";
+}
+.Row_xRA {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1;
+  position: absolute;
+  right: 2px;
+  bottom: 0px;
+  width: 96%;
+  text-align: right;
+}
+.Main_2 .BaseTimeCell_Cell {
+  width: var(--cell-width);
+}
+.Main_2 .BaseTimeCell_Content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Main_2 .BaseCarsTuneSelector_ChooseBox {
+  width: max-content;
+  height: calc(var(--cell-height) * 0.7);
 }
 </style>
