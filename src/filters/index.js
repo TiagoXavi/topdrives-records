@@ -430,7 +430,7 @@ function downloadCars() {
   }
 
   let TracksRn;
-  if (window.location.pathname.includes("/compare")) {
+  if (window.location.pathname === "/" || window.location.pathname === "/compare") {
     TracksRn = [...new Set(TracksRnToDownload)];
     TracksRnToDownload.splice(0, TracksRnToDownload.length);
     params.tracksRn = TracksRn;

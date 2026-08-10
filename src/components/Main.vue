@@ -95,7 +95,7 @@
               type="tracks"
               @newindex="newIndex($event, false, true)" />
             <div class="Row_ShowMoreTracks Main_AddTrackBox">
-              <button class="D_Button Main_AddTrackDirect Main_AddTrackDirectLarger" @click="openDialogTrackSearch(false)">
+              <button v-if="currentTracks.length < maxTrackNumber" class="D_Button Main_AddTrackDirect Main_AddTrackDirectLarger" @click="openDialogTrackSearch(false)">
                 <i class="ticon-plus_2" aria-hidden="true"/>
               </button>
               <button
@@ -719,6 +719,7 @@
                     <BaseCard
                       v-if="(race.cars[race.carIndex] || {}).rid"
                       :car="Vue.all_carsObj[race.cars[race.carIndex].rid]"
+                      :selectedTune="race.cars[race.carIndex].selectedTune"
                       :fix-back="true"
                       :downloadLoading="Vue.utils.cacheLoading && Vue.utils.rnsDownloading.includes(Vue.rn_to_rid.indexOf(race.cars[race.carIndex].rid))"
                       :draggable="false"
@@ -739,8 +740,8 @@
                     <BaseCarsTuneSelector
                       :car="Vue.all_carsObj[race.cars[race.carIndex].rid]"
                       :carConfig="race.cars[race.carIndex]"
-                      :mini="compact"
-                      :compare="false"
+                      :compare="windowWidth < 1200"
+                      :mini="Vue.utils.windowWidth < 1200"
                       :externalSetTune="true"
                       @changeToTune="cgChangeTuneYou(race, $event)"
                       @cog="cgShowTuneDialog(race, false, irace)"
@@ -876,7 +877,7 @@
             <br>
           </div>
 
-          <div v-if="user && user.mod && user.username === 'TiagoXavi' && $store.state.showUpcomingTags" class="Cg_BottomModTools" style="margin-top: 30px; width: 70%; margin-left: auto; margin-right: auto;">
+          <div v-if="user && user.mod && user.username === 'TiagoXavi' && forceShowAnalyse" class="Cg_BottomModTools" style="margin-top: 30px; width: 70%; margin-left: auto; margin-right: auto;">
             <textarea
               v-model="cgRaw"
               rows="15"
@@ -5191,6 +5192,7 @@ export default {
         }
       })
       this.verifyActiveButtons();
+      this.compareLimitProtection();
     },
     removeTrackSet(trackset) {
       let index;
@@ -5209,6 +5211,7 @@ export default {
       } else if (group) {
         this.validateTracks([track], group)
       }
+      this.compareLimitProtection();
     },
     removeTrack(track, group = false) {
       let index = this.indexOfTrack(track);
@@ -7731,6 +7734,7 @@ export default {
         try {
           fill = fill + Vue.all_carsObj[race.cars[race.carIndex].rid].rq;
           if (Number(race.cars[race.carIndex].points)) {
+            console.log(race.cars[race.carIndex].points);
             pointsTotal = pointsTotal + race.cars[race.carIndex].points;
             if (race.cars[race.carIndex].points < 50) {
               showPoints = true;
@@ -10099,8 +10103,12 @@ export default {
         }
         if (race.carIndex > -1 && race.cars[race.carIndex] && race.cars[race.carIndex].points === undefined) {
           let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].tune, race.track);
-          let points = (Vue.userPoints(time2, race.time, race.track) || { v: 1000 }).v;
-          Vue.set(race.cars[race.carIndex], "points", points);
+          if (typeof time2 !== "number") {
+            Vue.set(race.cars[race.carIndex], "points", undefined);
+          } else {
+            let points = (Vue.userPoints(time2, race.time, race.track) || { v: 1000 }).v;
+            Vue.set(race.cars[race.carIndex], "points", points);
+          }
         }
       });
 
@@ -13524,6 +13532,17 @@ export default {
       }
       
       console.log(code);
+    },
+    compareLimitProtection() {
+      if (this.currentTracks.length > this.maxTrackNumber) {
+        // remove the amount of tracks at start of the array
+        let removeCount = this.currentTracks.length - this.maxTrackNumber;
+        this.currentTracks.splice(0, removeCount);
+
+      }
+      if (this.currentTracks.length >= this.maxTrackNumber) {
+        this.T_S._g_track.dialog = false;
+      }
     }
     
   }

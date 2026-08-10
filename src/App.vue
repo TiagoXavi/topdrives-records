@@ -4733,8 +4733,10 @@ a:visited:not(.D_Button) {
   border-top-width: 2px;
   border-top-color: #ffffff1c;
 }
-.Main_2 .Main_BodyPrint .Row_ConfigCell {
+.Main_2 .Main_BodyPrint .Row_ConfigCell,
+.Main_2 .Main_BodyPrint .BaseCarsTuneSelector_Compare {
   width: 70px; /* this value is hard coded in sharePrint() */
+
 }
 .Main_2:not(.Main_ColorsFull) .Main_BodyPrint .Car_Layout:nth-child(3n-1) .Row_Cell {
   border-top-style: solid;

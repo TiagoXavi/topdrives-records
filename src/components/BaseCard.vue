@@ -254,7 +254,7 @@ export default {
       return parsed ? parsed : ''
     },
     fTune() {
-      return this.car.selectedTune || this.selectedTune || "";
+      return this.selectedTune || "";
     }
   },
   methods: {
