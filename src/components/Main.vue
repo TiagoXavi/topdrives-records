@@ -856,7 +856,6 @@
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2"
               @click="cgExportSolutionsToPacks()">{{ $t("m_solutionsInPacks") }}</button>
-            <BaseSwitch v-if="cgRound.lastAnalyze" v-model="cgHideLosersInSolutions" name="cgHideLosersInSolutions" :label="$t('m_hideLosers')" :horizontal="true" />
           </div>
           <div v-if="forceShowAnalyse" class="Cg_BottomModTools">
             <button
@@ -10096,26 +10095,28 @@ export default {
       });
     },
     cgCheckRoundTimes() {
-      this.cgRound.races.map((race, irace) => {
-        let time = Vue.timeCell(race.rid, race.tune, race.track);
-        if (time !== race.time) {
-          race.time = time;
-        }
-        if (race.carIndex > -1 && race.cars[race.carIndex] && race.cars[race.carIndex].points === undefined) {
-          let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].tune, race.track);
-          if (typeof time2 !== "number") {
-            Vue.set(race.cars[race.carIndex], "points", undefined);
-          } else {
-            let points = (Vue.userPoints(time2, race.time, race.track) || { v: 1000 }).v;
-            Vue.set(race.cars[race.carIndex], "points", points);
+      if (this.cgTab !== 'dashboard') {
+        this.cgRound.races.map((race, irace) => {
+          let time = Vue.timeCell(race.rid, race.tune, race.track);
+          if (time !== race.time) {
+            race.time = time;
           }
+          if (race.carIndex > -1 && race.cars[race.carIndex] && race.cars[race.carIndex].points === undefined) {
+            let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].tune, race.track);
+            if (typeof time2 !== "number") {
+              Vue.set(race.cars[race.carIndex], "points", undefined);
+            } else {
+              let points = (Vue.userPoints(time2, race.time, race.track) || { v: 1000 }).v;
+              Vue.set(race.cars[race.carIndex], "points", points);
+            }
+          }
+        });
+        if (this.tuneDialogActive) {
+          this.cgLoadYouTimesAfter();
         }
-      });
 
-      if (this.tuneDialogActive) {
-        this.cgLoadYouTimesAfter();
+        this.checkPreDoneRounds(this.cg);
       }
-      this.checkPreDoneRounds(this.cg);
     },
     cgPrepareSaveRaw() {
       let params = { date: this.cg.date };
