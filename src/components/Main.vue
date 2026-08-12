@@ -9460,7 +9460,7 @@ export default {
                       selectedTune: this.lastIsbetterFinalTune,
                       points: car.points,
                     });
-                    race.cars[icar + 1].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
+                    race.cars[icar + 1].tune = (Vue.garageByHid[this.lastIsBetterHid].tun || Vue.garageByHid[this.lastIsBetterHid].tunZ);
                     _r.bestSolution[irace] = race.cars[icar + 1];
                   }
                   return true;
@@ -9749,7 +9749,7 @@ export default {
                 pushSol(garageCar, car, irace, false, true);
                 return;
               }
-              let tunZ = car.tune.split('').map(x => Number(x)*3).join('');
+              let tunZ = (car.tune || car.selectedTune || "").split('').map(x => Number(x)*3).join('');
               let upgradable = tunZ.split('').every((v,i) => {
                 if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
                   return false;
@@ -9910,6 +9910,7 @@ export default {
           tune: _r.bestSolution[isolution].cardRecordId ? _r.bestSolution[isolution].tune : _r.bestSolution[isolution].selectedTune,
           points: _r.bestSolution[isolution].points
         }
+        
         if (_r.bestSolution[isolution].isFreePredicted) obj.isFreePredict = true;
         if (_r.bestSolution[isolution].isTimePredicted) obj.isTimePredicted = true;
         if (_r.bestSolution[isolution].originalTune) obj.originalTune = _r.bestSolution[isolution].originalTune;
