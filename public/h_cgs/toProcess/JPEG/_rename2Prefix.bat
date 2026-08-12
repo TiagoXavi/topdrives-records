@@ -12,5 +12,10 @@ for %%f in (Challenge*.jpg) do (
     set "newname=!filename:Challenge=!%%~xf"
     ren "%%f" "!newname!"
 )
+for %%f in (Event*.jpg) do (
+    set "filename=%%~nf"
+    set "newname=!filename:Event=!%%~xf"
+    ren "%%f" "!newname!"
+)
 
 endlocal

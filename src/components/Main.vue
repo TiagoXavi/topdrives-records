@@ -1107,6 +1107,7 @@
                         :match="item"
                         :tracks="item.event.trackset[0]"
                         :pointsAuto="true"
+                        :pointsBackup="item.bestSolution.map(x => x.points)"
                         :width="windowWidth < 1200 ? 115 : 230"
                       />
                     </div>
@@ -4057,7 +4058,6 @@ export default {
         uniqueHands: false,
         prizeCars: true,
         neverAwardedCars: true,
-        predictedTimes: true,
         balanced: false,
         garageUpgrade: false,
         garageUpgradeRange: [10, 120],
@@ -8851,30 +8851,10 @@ export default {
         round.races.map((race, irace) => {
           let op = oppos[count];
           
-          let tune = `${(op.engineMajor * op.engineMinor) / 3}${(op.weightMajor * op.weightMinor) / 3}${(op.chassisMajor * op.chassisMinor) / 3}`;
-          if (createNew) {
-            tune = `${((op.engineMajor-1) * 3 + op.engineMinor)}${((op.weightMajor-1) * 3 + op.weightMinor)}${((op.chassisMajor-1) * 3 + op.chassisMinor)}`;
-          }
+          let tune = `${((op.engineMajor-1) * 3 + op.engineMinor)}${((op.weightMajor-1) * 3 + op.weightMinor)}${((op.chassisMajor-1) * 3 + op.chassisMinor)}`;
+
           let car = Vue.all_carsObj[Vue.ridByGuid[op.cardId]];
           if (car) {
-
-            let allowedTunes;
-            let allowedTunesTimes;
-            if (!createNew) {
-              allowedTunes = ["332", "323", "233", "000"];
-              allowedTunesTimes = ["332", "323", "233"];
-              if (car.class === 'S' || car.class === 'A') {
-                allowedTunes.push("111");
-                allowedTunesTimes.push("111");
-              }
-              if (!allowedTunes.includes(tune)) {
-                if (tune.length > 3) {
-                  tune = `Other`;
-                } else {
-                  tune = `Other${tune}`;
-                }
-              }
-            }
 
             if (round.lastAnalyze) {
               if (race.rid && race.rid !== car.rid) computeError(`RID round${_iRound+1} race${irace+1} old:      ${race.rid}     n:     ${car.rid}`);
@@ -8885,9 +8865,6 @@ export default {
             race.tune = tune;
             if (iround === 3 && irace === 0) {
               // debugger;
-            }
-            if (!createNew && !allowedTunesTimes.includes(tune) && race.time !== null && !round.lastAnalyze) {
-              race.time = null;
             }
             // race.time = null;
             race.track = null;
@@ -9465,6 +9442,7 @@ export default {
           if (car.points > 0) {
             if (usedRids[car.rid] === undefined || useGarage) {
               if (useGarage) {
+                
                 if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => this.isBetterTune(x, car, iround, irace) && usedHids[x.cardRecordId] === undefined)) {
                   _r.bestSolution[irace] = car;
                   usedRids[car.rid] = irace;
@@ -9473,7 +9451,15 @@ export default {
                     // _r.bestSolution[irace] = JSON.parse(JSON.stringify(_r.bestSolution[irace]));
                     // _r.bestSolution[irace].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
                     // push new car into race.cars index icar+1, copy current car but set tune to Vue.garageByHid[this.lastIsBetterHid].tun;
-                    race.cars.splice(icar + 1, 0, JSON.parse(JSON.stringify(car)));
+                    // if (iround === 11 && irace === 1) {
+                    //   debugger;
+                    // }
+                    race.cars.splice(icar + 1, 0, {
+                      rid: car.rid,
+                      tune: this.lastIsbetterFinalTune,
+                      selectedTune: this.lastIsbetterFinalTune,
+                      points: car.points,
+                    });
                     race.cars[icar + 1].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
                     _r.bestSolution[irace] = race.cars[icar + 1];
                   }
@@ -9819,6 +9805,7 @@ export default {
       // x === garage car
       // car === solution car
       this.lastIsBetterResult = null;
+      this.lastIsbetterFinalTune = null;
       this.lastIsBetterHid = null;
       if ((x.tun || x.tunZ) === car.tune) {
         this.lastIsBetterResult = "equal";
@@ -9842,22 +9829,32 @@ export default {
         return false;
       }
 
-      if (is999tune && car.tune) {
-        if (car.tune.split('').every((v,i) => Number(fTun[i]) >= Number(v)*3)) {
-          // tune is also 999
-        } else {
-          fTunCar = car.tune.split('').map(x => Number(x)*3).join('');
+      let arrTunes = [
+        fTunCar,
+        ...(car.alt || [])
+      ]
+
+      let better;
+      arrTunes.find(tune => {
+        if (is999tune && tune) {
+          if (tune.split('').every((v,i) => Number(fTun[i]) >= Number(v)*3)) {
+            // tune is also 999
+          } else {
+            tune = tune.split('').map(x => Number(x)*3).join('');
+          }
         }
-      }
+        better = tune.split('').every((v,i) => Number(fTun[i]) >= Number(v));
 
-      let better = fTunCar.split('').every((v,i) => Number(fTun[i]) >= Number(v));
+        if (better) {
+          this.lastIsBetterResult = "better";
+          this.lastIsBetterHid = x.cardRecordId;
+          this.lastIsbetterFinalTune = tune;
+        }else {
+          this.lastIsBetterResult = "worse";
+        } 
+        return better;
+      });
 
-      if (better) {
-        this.lastIsBetterResult = "better";
-        this.lastIsBetterHid = x.cardRecordId;
-      }else {
-        this.lastIsBetterResult = "worse";
-      } 
       return better;
     },
     cgDashToggleMyGarage(value) {
@@ -10087,6 +10084,9 @@ export default {
                 selectedTune: car[1],
                 points: car[2]
               });
+              if (car[3]) {
+                Vue.set(race.cars[icar], "alt", car[3] );
+              }
             } else {
               Vue.set(car, "selectedTune", car.tune);
             }
@@ -11965,6 +11965,28 @@ export default {
       }).catch(e => {console.log("load custom_tags failed", e)});
     },
     lookForDeprecatedTracks(data) {
+      let tracksToReview = [
+        "testBowl_a00",
+        "testBowl_a01",
+        "testBowl_a10",
+        "testBowlr_a00",
+        "testBowlr_a01",
+        "testBowlr_a20",
+        "testBowlr_a60"
+      ]
+      data.rounds.map((round, iround) => {
+        round.races.map((race, irace) => {
+          if (tracksToReview.includes(race.track) && race.time > 70) {
+            console.log(`${data.name}  Round ${iround+1}  ${race.track}`);
+            // race.track = tracksToTransform[race.track];
+          }
+          if (typeof race.tune === "string" && race.tune.includes("Other") && race.tune.length !== 8) {
+            console.log(`${data.name}  Round ${iround+1}  Race ${irace+1}  ${race.tune}`);
+          }
+        })
+      })
+
+      return;
       let tracksToTransform = {
         "valCross_a41": "valCross_am1",
         "valSlalom_a10": "valSlalom_ak1",
@@ -13128,7 +13150,6 @@ export default {
         garageUpgradeRange: this.eventBestTeamsConfig.garageUpgradeRange,
         prizeCars: this.eventBestTeamsConfig.prizeCars,
         neverAwardedCars: this.eventBestTeamsConfig.neverAwardedCars,
-        predictedTimes: this.eventBestTeamsConfig.predictedTimes || this.eventBestTeamsConfig.myGarage,
         shiftKey: e && e.shiftKey
       }
       

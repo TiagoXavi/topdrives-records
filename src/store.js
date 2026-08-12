@@ -142,6 +142,7 @@ export default new Vuex.Store({
       "Summer Games",
       "Summer Games 24",
       "Summer Games 25",
+      "Summer Games 26",
       "Supercar",
       "Team Edwards",
       "Team Steel",

@@ -37,6 +37,7 @@ export default {
     width: {},
     match: {},
     points: {},
+    pointsBackup: {},
     pointsAuto: {
       type: Boolean,
       default: false
@@ -71,6 +72,9 @@ export default {
           this.tracks[i].track
         ) || {}).v
 
+        if (pointsYou === undefined && this.pointsBackup?.[i] !== undefined) {
+          return this.pointsBackup[i];
+        }
         return pointsYou;
 
       })

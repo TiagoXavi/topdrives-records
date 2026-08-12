@@ -1281,6 +1281,7 @@ export default {
         };
         Vue.carPhoto = carPhoto;
         Vue.userPoints = function (userTime, oppoTime, trackCode) {
+            if (userTime === null || oppoTime === null) return;
             if(isNaN(userTime) || isNaN(oppoTime)) return;
             if (!trackCode) return;
             let track = trackCode;

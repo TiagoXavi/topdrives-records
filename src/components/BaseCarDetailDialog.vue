@@ -61,7 +61,27 @@
             class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
             @click="changeTuneCar(item)">
             {{ item }}
-            <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div>
+            <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
+          </button>
+        </div>
+
+        <div v-if="
+          showTunes && 
+          (
+            Vue.all_carsObj[car.rid].class === 'S' ||
+            Vue.all_carsObj[car.rid].class === 'A' || 
+            Vue.all_carsObj[car.rid].class === 'B'
+          )
+        " class="Row_DialogHeader" style="margin-bottom: 15px; margin-top: -10px;">
+          <button
+            v-for="item in Vue.extraTunes"
+            :class="{
+              Row_DialogButtonTuneActive: car.selectedTune === item
+            }"
+            class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
+            @click="changeTuneCar(item)">
+            {{ item }}
+            <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
           </button>
         </div>
 
@@ -75,6 +95,7 @@
                 :options="false"
                 :customData="car.customData"
                 :selectedTune="car.selectedTune"
+                :count="Vue.utils.d_.downloadCount"
                 @color="getColor($event)"
               />
             </div>

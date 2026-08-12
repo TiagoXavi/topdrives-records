@@ -41,14 +41,6 @@
           name="hand_balanced"
           @change="eventBestTeamsConfig.balanced = $event"
         />
-        <BaseSwitch
-          :value="eventBestTeamsConfig.predictedTimes || eventBestTeamsConfig.myGarage"
-          :label="$t('m_predictedTimes')"
-          :horizontal="false"
-          :disabled="eventBestTeamsConfig.myGarage"
-          name="hand_predicted"
-          @change="eventBestTeamsConfig.predictedTimes = $event"
-        />
       </div>
 
       <BaseExpandDiv :active="eventBestTeamsConfig.blackListBool" class="Main_TeamsForceCarsExpand">
