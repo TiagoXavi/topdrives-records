@@ -41,7 +41,7 @@
       <div
         class="Main_ChartTrackBox Main_ChartFilterChipsInside"
         style="margin-top: 4px;">
-        <template v-for="(item, ix) in ['332', '323', '233', '111']">
+        <template v-for="(item, ix) in ['332', '323', '233', '111', '000']">
           <BaseChip
             v-model="chartTunes"
             class="BaseChip_MinWidth BaseChip_TuneStyle"

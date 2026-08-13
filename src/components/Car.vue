@@ -27,6 +27,7 @@
         :carConfig="car"
         :mini="compact"
         :compare="true"
+        :showPerc="true"
         @changed="$emit('changed', $event)"
         @cog="$emit('cog', { car, index })"
       />

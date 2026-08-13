@@ -12,6 +12,7 @@
         class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
         @click="setTune(item)">
         {{ item }}
+        <div v-if="showPerc && car.R_Medals_scorePerc?.[item] !== undefined" class="D_ButtonNoteTune">{{ car.R_Medals_scorePerc?.[item] }}</div>
       </button>
       <button class="D_Button Row_ConfigButton" @click="cogClick($event)">
         <i class="ticon-gear Row_ConfigIcon" aria-hidden="true"/>
@@ -42,7 +43,8 @@ export default {
     carConfig: {},
     mini: {},
     compare: {},
-    externalSetTune: {}
+    externalSetTune: {},
+    showPerc: {}
   },
   data() {
     return {

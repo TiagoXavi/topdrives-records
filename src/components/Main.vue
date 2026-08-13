@@ -6619,15 +6619,15 @@ export default {
         rids.push(car.rid);
         if (!t.minrq || car.rq < t.minrq) t.minrq = car.rq;
         if (!t.maxrq || car.rq > t.maxrq) t.maxrq = car.rq;
-        if (!t.minyear || car.year < t.minyear) t.minyear = car.year;
-        if (!t.maxyear || car.year > t.maxyear) t.maxyear = car.year;
-        t.drive.push(car.drive);
-        t.brand.push(car.brand);
-        t.country.push(car.country);
-        t.class.push(car.class);
-        t.clearance.push(car.clearance);
-        t.tyre.push(car.tyres);
-        car.tags.map(y => {
+        if (!t.minyear || Vue.all_carsObj[car.rid].year < t.minyear) t.minyear = Vue.all_carsObj[car.rid].year;
+        if (!t.maxyear || Vue.all_carsObj[car.rid].year > t.maxyear) t.maxyear = Vue.all_carsObj[car.rid].year;
+        t.drive.push(Vue.all_carsObj[car.rid].drive);
+        t.brand.push(Vue.all_carsObj[car.rid].brand);
+        t.country.push(Vue.all_carsObj[car.rid].country);
+        t.class.push(Vue.all_carsObj[car.rid].class);
+        t.clearance.push(Vue.all_carsObj[car.rid].clearance);
+        t.tyre.push(Vue.all_carsObj[car.rid].tyres);
+        Vue.all_carsObj[car.rid].tags.map(y => {
           if (!taaag[y]) taaag[y] = 0;
           taaag[y] += 1;
         })

@@ -1751,12 +1751,20 @@ export default {
           if (type === "R_Medals") {
             if (utils.R_MedalsLoaded) return;
             let obj = await import('../compilations/R_Medals_Light.json');
+            let obj2 = await import('../compilations/R_Medals_LightTunesPerc.json');
             
             let rid;
             obj.default.map((value, rn) => {
               rid = rn_to_rid[rn];
               if (Vue.all_carsObj[rid] && !Vue.all_carsObj[rid].R_Medals_score) {
                 Vue.set(Vue.all_carsObj[rid], "R_Medals_score", value);
+              }
+              if (obj2.default[rn] && Vue.all_carsObj[rid] && !Vue.all_carsObj[rid].R_Medals_scorePerc) {
+                Vue.set(Vue.all_carsObj[rid], "R_Medals_scorePerc", {});
+                let tunes = ["332", "323", "233", "111"];
+                obj2.default[rn].map((count, index) => {
+                  Vue.set(Vue.all_carsObj[rid].R_Medals_scorePerc, tunes[index], count);
+                });
               }
             });
             utils.R_MedalsLoaded = true;

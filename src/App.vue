@@ -650,6 +650,10 @@ export default {
 
     });
 
+    setTimeout(() => {
+      Vue.carsCompile("R_Medals");
+    }, 1000);
+
     // window.addEventListener('scroll', this.scroll);
   },
   computed: {
@@ -1355,6 +1359,21 @@ button.D_Button.D_Button_Error {
   border-radius: 3px;
   padding: 2px;
   padding-right: 2.5px;
+}
+.D_ButtonNoteTune {
+  position: absolute;
+  top: -6px;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 10px;
+  background-color: #2a4900;
+  color: #bfffb4;
+  border-radius: 3px;
+  padding: 2px 3px 2px 3px;
+}
+.D_ButtonNoteTuneHigh {
+  background-color: #2a4900;
+  color: #bfffb4;
 }
 .D_ButtonDarkPrimary {
   --btn-h: 46;
