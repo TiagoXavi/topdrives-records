@@ -1690,15 +1690,9 @@ export default {
       let tryFind;
       let foundExact = false;
       let sortString = this.sortModel ? this.sortModel.toString() : '';
-      let memKeys = Object.keys(this.clearFilterObj);
       this.clearFilterObj = this.resolveFilterCount();
-      let newKeys = Object.keys(this.clearFilterObj).filter(x => !memKeys.includes(x));
-      let keyToNotReset = memKeys.length > 0 && newKeys.length === 1 ? newKeys[0] : null;
-      if (Object.keys(this.clearFilterObj).length === 1 && memKeys.length === 1 && newKeys.length === 0) {
-        keyToNotReset = memKeys[0];
-      }
-      this.resetCounters(keyToNotReset);
-      
+      this.resetCounters();
+
 
       if (this.type === 'cg' && this.cgAddingYouCar) {
         vm.internalConfig = {};
@@ -1706,7 +1700,10 @@ export default {
           vm.internalConfig[key] = false;
         })
       }
-      if (searchStr === "" && this.filterCount === 0 && Vue.utils.lastestcars.length) {
+      // for these types closeFilterText() calls changeFilter() back, so calling it here
+      // would recurse forever, they fall through to the regular path below instead
+      let closeTextRecurses = this.type === 'carPicker' || (this.type === 'cg' && (this.cgAddingYouCar || this.cgAddingOppoCar));
+      if (!closeTextRecurses && searchStr === "" && this.filterCount === 0 && Vue.utils.lastestcars.length) {
         this.searchLoading = false;
         this.closeFilterText();
         return [];
@@ -1732,6 +1729,9 @@ export default {
         return;
       }
 
+      // resolved once, checkMatchFilter would rebuild it for every single car
+      let filterContext = this.resolveFilterContext();
+
       // search and/or filter
       Vue.all_carsArr.map((x, ix) => {
 
@@ -1750,9 +1750,13 @@ export default {
           strIndex = -2;
         }
 
+        // "" matched everything / null is out / "classes" failed only that counter group
+        let failedGroup = null;
+
         if (this.filterCount > 0 || Vue.utils.lastestcars.length === 0) {
           if (strIndex > -1 || strIndex === -2) {
-            if (this.checkMatchFilter(x)) {
+            failedGroup = this.matchFilterFail(x, undefined, undefined, this.enableCounters, filterContext);
+            if (failedGroup === "") {
               shouldPush = true;
             }
           }
@@ -1780,7 +1784,18 @@ export default {
         }
 
         if (this.useMyGarage && Vue.garageObj.loaded) {
-          if (!Vue.garageByRid[x.rid]) shouldPush = false;
+          if (!Vue.garageByRid[x.rid]) {
+            shouldPush = false;
+            failedGroup = null;
+          }
+        }
+
+        if (shouldPush) failedGroup = "";
+
+        // a car that only failed ONE group still feeds that group's counters, so the
+        // chips of a same group never hide each other, every other filter still applies
+        if (this.enableCounters && failedGroup !== null) {
+          this.carStatsToCounters(x, failedGroup || null);
         }
 
         if (shouldPush) {
@@ -1802,10 +1817,6 @@ export default {
           bestWeight.push(x.weight);
           if (x.acel) bestAccel.push(x.acel);
           if (x.mra) bestMra.push(x.mra);
-
-          if (this.enableCounters) {
-            this.carStatsToCounters(x, keyToNotReset);
-          }
 
           if (this.useMyGarage && Vue.garageObj.loaded) {
             // create a new copy for every unique tune of the car
@@ -2121,57 +2132,41 @@ export default {
       // console.log(this.counters);
       this.countersDefault = JSON.stringify(this.counters);
     },
-    resetCounters(keyToNotReset) {
+    resetCounters() {
       if (!this.enableCounters) return;
-      let memValues = {};
-      if (keyToNotReset) {
-        Object.keys(this.counters).map(key => {
-          if (key.startsWith(keyToNotReset + "_")) {
-            memValues[key] = this.counters[key];
-          }
-        })
-      }
       this.counters = JSON.parse(this.countersDefault);
-      if (keyToNotReset) {
-        Object.keys(memValues).map(key => {
-          this.counters[key] = memValues[key];
-        })
-      }
     },
-    carStatsToCounters(car, keyToNotTouch) {
+    // onlyKey null = the car matched every filter, it counts everywhere
+    // onlyKey "classes" = the car failed only that group, it counts for that group alone
+    carStatsToCounters(car, onlyKey) {
       if (!this.enableCounters) return;
-      if (!keyToNotTouch || keyToNotTouch !== "classes") this.counters[`classes_${car.class}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "tyres") this.counters[`tyres_${car.tyres}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "drives") this.counters[`drives_${car.drive}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "clearances") this.counters[`clearances_${car.clearance}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "countrys") this.counters[`countrys_${car.country}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "fuel") this.counters[`fuel_${car.fuel}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "engine") this.counters[`engine_${car.engine}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "brake") this.counters[`brake_${car.brake}`] += 1;
-      if (!keyToNotTouch || keyToNotTouch !== "brands") this.counters[`brands_${car.brand}`] += 1;
+      if (!onlyKey || onlyKey === "classes") this.counters[`classes_${car.class}`] += 1;
+      if (!onlyKey || onlyKey === "tyres") this.counters[`tyres_${car.tyres}`] += 1;
+      if (!onlyKey || onlyKey === "drives") this.counters[`drives_${car.drive}`] += 1;
+      if (!onlyKey || onlyKey === "clearances") this.counters[`clearances_${car.clearance}`] += 1;
+      if (!onlyKey || onlyKey === "countrys") this.counters[`countrys_${car.country}`] += 1;
+      if (!onlyKey || onlyKey === "fuel") this.counters[`fuel_${car.fuel}`] += 1;
+      if (!onlyKey || onlyKey === "engine") this.counters[`engine_${car.engine}`] += 1;
+      if (!onlyKey || onlyKey === "brake") this.counters[`brake_${car.brake}`] += 1;
+      if (!onlyKey || onlyKey === "brands") this.counters[`brands_${car.brand}`] += 1;
 
-      (!keyToNotTouch || keyToNotTouch !== "bodyTypes") && car.bodyTypes.map(item => {
+      if (!onlyKey || onlyKey === "bodyTypes") car.bodyTypes.map(item => {
         this.counters[`bodyTypes_${item}`] += 1;
       })
-      let temp = [];
-      (!keyToNotTouch || keyToNotTouch !== "tags") && car.tags.map(item => {
-        if (temp.includes(item)) {
-          console.log(car.rid);
-        }
-        temp.push(item);
+      if (!onlyKey || onlyKey === "tags") car.tags.map(item => {
         this.counters[`tags_${item}`] += 1;
       })
 
-      if (!keyToNotTouch || keyToNotTouch !== "abs") {
+      if (!onlyKey || onlyKey === "abs") {
         if (car.abs) this.counters[`abs_true`] += 1;
         else this.counters[`abs_false`] += 1;
 
       }
-      if (!keyToNotTouch || keyToNotTouch !== "tcs") {
+      if (!onlyKey || onlyKey === "tcs") {
         if (car.tcs) this.counters[`tcs_true`] += 1;
         else this.counters[`tcs_false`] += 1;
       }
-      if (!keyToNotTouch || keyToNotTouch !== "prizes") {
+      if (!onlyKey || onlyKey === "prizes") {
         if (car.prize) this.counters[`prizes_true`] += 1;
         else this.counters[`prizes_false`] += 1;
       }
@@ -2347,65 +2342,119 @@ export default {
       })
       return result;
     },
-    checkMatchFilter(car, hCar, argFilter) {
+    resolveFilterContext() {
       let context = this.searchFilters;
       if (this.clearFilterObj && Object.keys(this.clearFilterObj).length > 0) {
         context = this.insertKeyModel(this.clearFilterObj);
       }
-      if (!argFilter && context.acelEnd) { // not clear
+      if (context.acelEnd) { // not clear
         this.clearFilterObj = this.resolveFilterCount();
         context = this.insertKeyModel(this.clearFilterObj);
       }
-      if (argFilter) context = argFilter; // CLEAR
-
-
-
+      return context;
+    },
+    checkMatchFilter(car, hCar, argFilter) {
+      return this.matchFilterFail(car, hCar, argFilter) === "";
+    },
+    // same checks as checkMatchFilter, but it also says WHY the car did not match:
+    //   ""        -> matches every filter
+    //   null      -> out (a filter with no counters failed, or 2+ counter groups failed)
+    //   "classes" -> only that counter group failed, so the car still feeds ITS counters
+    // that last case is what keeps chips of the same group from cancelling each other out
+    // trackGroups off = stop on the first failure (cheapest path, when counters are off)
+    matchFilterFail(car, hCar, argFilter, trackGroups, contextArg) {
+      let context = argFilter || contextArg || this.resolveFilterContext();
+      let failed = "";
 
       // between
-      if ( context.yearModel && !this.filterCheckBetween(car.year, context.yearModel) ) return false;
-      if ( context.rqModel && !this.filterCheckBetween(car.rq, context.rqModel) ) return false;
-      if ( context.topSpeedModel && !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return false;
-      if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
-      if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return false;
-      if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
-      if ( context.hillModel && !this.filterCheckBetween(car.hill, context.hillModel) ) return false;
-      if ( context.olaModel && !this.filterCheckBetween(car.ola, context.olaModel) ) return false;
-      if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
-      if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
+      if ( context.yearModel && !this.filterCheckBetween(car.year, context.yearModel) ) return null;
+      if ( context.rqModel && !this.filterCheckBetween(car.rq, context.rqModel) ) return null;
+      if ( context.topSpeedModel && !this.filterCheckBetween(car.topSpeed, context.topSpeedModel) ) return null;
+      if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return null;
+      if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return null;
+      if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return null;
+      if ( context.hillModel && !this.filterCheckBetween(car.hill, context.hillModel) ) return null;
+      if ( context.olaModel && !this.filterCheckBetween(car.ola, context.olaModel) ) return null;
+      if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return null;
+      if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return null;
 
-      // includes
-      if ( context.classesModel && !this.filterCheckIncludes(car.class, context.classesModel) ) return false;
-      if ( context.tyresModel && !this.filterCheckIncludes(car.tyres, context.tyresModel) ) return false;
-      if ( context.drivesModel && !this.filterCheckIncludes(car.drive, context.drivesModel) ) return false;
-      if ( context.clearancesModel && !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) return false;
-      if ( context.countrysModel && !this.filterCheckIncludes(car.country, context.countrysModel) ) return false;
-      if ( context.year2Model && !this.filterCheckIncludes(car.year, context.year2Model) ) return false;
-      if ( context.seats2Model && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return false;
-
-      if ( context.fuelModel && !this.filterCheckIncludes(car.fuel, context.fuelModel) ) return false;
-      if ( context.engineModel && !this.filterCheckIncludes(car.engine, context.engineModel) ) return false;
-      if ( context.brakeModel && !this.filterCheckIncludes(car.brake, context.brakeModel) ) return false;
-      if ( context.tcsModel && !this.filterCheckIncludes(car.tcs, context.tcsModel) ) return false;
-      if ( context.absModel && !this.filterCheckIncludes(car.abs, context.absModel) ) return false;
-
-      if ( context.bodyTypesModel && !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) return false;
-      if ( context.tagsModel && !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) return false;
-      if ( context.tags2Model && !this.filterCheckIncludesArray(car.tags, (context.tags2Model || []), car.rid) ) return false;
-      if ( context.tags3Model && !this.filterCheckIncludesArray(car.tags, (context.tags3Model || []), car.rid) ) return false;
-      if ( context.brandsModel && !this.filterCheckIncludes(car.brand, context.brandsModel) ) return false;
-
-      if ( context.prizesModel ) {
-        if ( car.prize && !context.prizesModel.includes("Prize Cars") ) return false;
-        if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
-      }
+      // includes without counters
+      if ( context.year2Model && !this.filterCheckIncludes(car.year, context.year2Model) ) return null;
+      if ( context.seats2Model && !this.filterCheckIncludes(Number(car.seats), context.seats2Model) ) return null;
 
       if ( context.customTagsModel ) {
         let found = context.customTagsModel.find(tag => {
           if (this.custom_tags[tag].includes(car.rid)) return true;
         })
-        if (!found) return false;
+        if (!found) return null;
       }
-  
+
+      // includes with counters, each one is its own group
+      if ( context.classesModel && !this.filterCheckIncludes(car.class, context.classesModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "classes";
+      }
+      if ( context.tyresModel && !this.filterCheckIncludes(car.tyres, context.tyresModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "tyres";
+      }
+      if ( context.drivesModel && !this.filterCheckIncludes(car.drive, context.drivesModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "drives";
+      }
+      if ( context.clearancesModel && !this.filterCheckIncludes(car.clearance, context.clearancesModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "clearances";
+      }
+      if ( context.countrysModel && !this.filterCheckIncludes(car.country, context.countrysModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "countrys";
+      }
+      if ( context.fuelModel && !this.filterCheckIncludes(car.fuel, context.fuelModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "fuel";
+      }
+      if ( context.engineModel && !this.filterCheckIncludes(car.engine, context.engineModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "engine";
+      }
+      if ( context.brakeModel && !this.filterCheckIncludes(car.brake, context.brakeModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "brake";
+      }
+      if ( context.tcsModel && !this.filterCheckIncludes(car.tcs, context.tcsModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "tcs";
+      }
+      if ( context.absModel && !this.filterCheckIncludes(car.abs, context.absModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "abs";
+      }
+      if ( context.bodyTypesModel && !this.filterCheckIncludesArray(car.bodyTypes, context.bodyTypesModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "bodyTypes";
+      }
+      if ( context.brandsModel && !this.filterCheckIncludes(car.brand, context.brandsModel) ) {
+        if (!trackGroups || failed) return null;
+        failed = "brands";
+      }
+      // the 3 tag pages share the same tags_ counters, so they are one group
+      if (
+        ( context.tagsModel && !this.filterCheckIncludesArray(car.tags, context.tagsModel, car.rid) ) ||
+        ( context.tags2Model && !this.filterCheckIncludesArray(car.tags, context.tags2Model, car.rid) ) ||
+        ( context.tags3Model && !this.filterCheckIncludesArray(car.tags, context.tags3Model, car.rid) )
+      ) {
+        if (!trackGroups || failed) return null;
+        failed = "tags";
+      }
+
+      if ( context.prizesModel ) {
+        if ( (car.prize && !context.prizesModel.includes("Prize Cars")) || (!car.prize && !context.prizesModel.includes("Non-Prize Cars")) ) {
+          if (!trackGroups || failed) return null;
+          failed = "prizes";
+        }
+      }
+
       if ( (this.config.garage || this.config.garageRT) && hCar && context.tunesModel ) {
         let isCustom = false;
         if (
@@ -2418,15 +2467,7 @@ export default {
         ) {
           isCustom = true;
         }
-        if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return false;
-      }
-
-
-      if ( context.customTagsModel ) {
-        let found = context.customTagsModel.find(tag => {
-          if (this.custom_tags[tag].includes(car.rid)) return true;
-        })
-        if (!found) return false;
+        if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return null;
       }
 
 
@@ -2434,24 +2475,12 @@ export default {
       // garage (normal)
 
       if ( this.config.garage && hCar) {
-        if ( !this.filterGarageIsValidEntry(context, hCar, "upgradesModel", this.carNumUps) ) return false;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "fusesModel", this.carNumFuses) ) return false;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "racesModel", this.carNumRaces) ) return false;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "winRateModel", this.carWinRate) ) return false;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "daysModel", this.carNumDays) ) return false;
-        if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
-
-        if (false) {
-          if ( context.upgradesModel && !this.filterCheckBetween(this.carNumUps(hCar), context.upgradesModel) ) return false;
-          if ( context.fusesModel && !this.filterCheckBetween(this.carNumFuses(hCar), context.fusesModel) ) return false;
-          if ( context.racesModel && !this.filterCheckBetween(this.carNumRaces(hCar), context.racesModel) ) return false;
-          if ( context.winRateModel) {
-            if (!this.carNumRaces(hCar)) return false;
-            if (!this.filterCheckBetween(this.carWinRate(hCar), context.winRateModel)) return false;
-          };
-          if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
-          if ( context.daysModel && !this.filterCheckBetween(this.carNumDays(hCar), context.daysModel) ) return false;
-        }
+        if ( !this.filterGarageIsValidEntry(context, hCar, "upgradesModel", this.carNumUps) ) return null;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "fusesModel", this.carNumFuses) ) return null;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "racesModel", this.carNumRaces) ) return null;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "winRateModel", this.carWinRate) ) return null;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "daysModel", this.carNumDays) ) return null;
+        if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return null;
       }
 
       // {
@@ -2474,28 +2503,28 @@ export default {
 
 
       if ( this.config.garageRT && hCar && context.garageThingsModel?.length > 0 ) {
-        if ( hCar.locked === false && context.garageThingsModel.includes("Locked") ) return false;
-        if ( hCar.locked === true && context.garageThingsModel.includes("Unlocked") ) return false;
-        if ( hCar.tunZ === "000" && context.garageThingsModel.includes("Upgraded") ) return false;
+        if ( hCar.locked === false && context.garageThingsModel.includes("Locked") ) return null;
+        if ( hCar.locked === true && context.garageThingsModel.includes("Unlocked") ) return null;
+        if ( hCar.tunZ === "000" && context.garageThingsModel.includes("Upgraded") ) return null;
 
         let carIsReady = hCar.locked === true && !hCar.fuseEndInSecs;
 
-        if ( context.garageThingsModel.includes("Full") && (!this.$parent.carIsFull(hCar) || !carIsReady) ) return false;
-        if ( context.garageThingsModel.includes("Not full") && (this.$parent.carIsFull(hCar) || !carIsReady) ) return false;
-        if ( context.garageThingsModel.includes("Can be upgraded") && (!this.$parent.carCanUpgrade(hCar) || !carIsReady) ) return false;
-        if ( context.garageThingsModel.includes("Can be fused") && (this.$parent.carNumFuses(hCar) >= 5 || !carIsReady) ) return false;
-        if ( context.garageThingsModel.includes("Fused") && this.$parent.carNumFuses(hCar) === 0) return false;
-        if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return false;
-        if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return false;
-        if ( context.garageThingsModel.includes("Not every full") && !this.$parent.notEveryFull(hCar) ) return false;
-        if ( context.garageThingsModel.includes("Counter owned") && !this.$parent.carIsUniqueInResult(hCar) ) return false;
-        if ( context.garageThingsModel.includes("Counter 5+ fuse") && (this.$parent.carNumFuses(hCar) < 5 || !this.$parent.carIsUniqueInResult(hCar)) ) return false;
-        if ( context.garageThingsModel.includes("No one full") && (this.$parent.atLeastOneCopyFull(hCar) || !carIsReady) ) return false;
+        if ( context.garageThingsModel.includes("Full") && (!this.$parent.carIsFull(hCar) || !carIsReady) ) return null;
+        if ( context.garageThingsModel.includes("Not full") && (this.$parent.carIsFull(hCar) || !carIsReady) ) return null;
+        if ( context.garageThingsModel.includes("Can be upgraded") && (!this.$parent.carCanUpgrade(hCar) || !carIsReady) ) return null;
+        if ( context.garageThingsModel.includes("Can be fused") && (this.$parent.carNumFuses(hCar) >= 5 || !carIsReady) ) return null;
+        if ( context.garageThingsModel.includes("Fused") && this.$parent.carNumFuses(hCar) === 0) return null;
+        if ( context.garageThingsModel.includes("Servicing") && !this.$parent.carIsServicing(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Fusing") && !this.$parent.carIsFusing(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Not every full") && !this.$parent.notEveryFull(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Counter owned") && !this.$parent.carIsUniqueInResult(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Counter 5+ fuse") && (this.$parent.carNumFuses(hCar) < 5 || !this.$parent.carIsUniqueInResult(hCar)) ) return null;
+        if ( context.garageThingsModel.includes("No one full") && (this.$parent.atLeastOneCopyFull(hCar) || !carIsReady) ) return null;
 
-        if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return false;
-        if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return false;
-        if ( context.garageThingsModel.includes("Triplicate") && !this.$parent.carIsUnique(hCar, 3) ) return false;
-        if ( context.garageThingsModel.includes("Quadriplicate+") && !this.$parent.carIsUnique(hCar, 4, true) ) return false;
+        if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return null;
+        if ( context.garageThingsModel.includes("Triplicate") && !this.$parent.carIsUnique(hCar, 3) ) return null;
+        if ( context.garageThingsModel.includes("Quadriplicate+") && !this.$parent.carIsUnique(hCar, 4, true) ) return null;
 
         // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
         // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);
@@ -2513,7 +2542,7 @@ export default {
         // if ( context.garageThingsModel.includes("Not owned") ) return false;
       }
 
-      return true;
+      return failed;
     },
     filterCheckBetween(value, array) {
       if (value === null) return false;

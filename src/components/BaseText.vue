@@ -32,6 +32,32 @@
 <script>
 // import BaseDetalheHeader from '@/components/shared/BaseDetalheHeader/BaseDetalheHeader.vue';
 
+const ACEL = /^[0-9]{1,2}\.[0-9]$/;
+const ACEL_SOFT = /^[0-9]{1,2}\.[0-9]{1,2}$/;
+const TOP_HAND = /^[0-9]{2,3}$/;
+const INTEGER = /^-?[0-9]+$/;
+const TUNE = /^[0-9]{3}$/;
+const MRA = /^([0-9]{1,3}(?:\.[0-9]{1,2})?)$/;
+const TIME = /^[0-9]{1,2}\:[0-9]{2}$/;
+
+const INVALID_TUNES = ["332", "323", "233", "000", "333"];
+
+// One validator per `type` prop, so only the relevant test runs on each input.
+const VALIDATORS = {
+  acel: e => ACEL.test(e) || e === "0" || e === "N/A",
+  acelSoft: e => ACEL_SOFT.test(e) || INTEGER.test(e),
+  topSpeed: e => TOP_HAND.test(e),
+  hand: e => TOP_HAND.test(e),
+  integer: e => INTEGER.test(e),
+  tune: e => {
+    if (/^[ABC]+$/.test(e) && e.length === 3) {
+      return true;
+    }
+    return TUNE.test(e) && !INVALID_TUNES.includes(e) && [...e].reduce((a, b) => Number(a) + Number(b)) <= 24;
+  },
+  mra: e => MRA.test(e)
+};
+
 export default {
   name: 'BaseText',
   components: {
@@ -124,21 +150,7 @@ export default {
             e = e.replaceAll(",", ".");
           }
 
-          var acel = new RegExp(/^[0-9]{1,2}\.[0-9]$/g);
-          var isAcel = acel.test(e);
-          var acelSoft = new RegExp(/^[0-9]{1,2}\.[0-9]{1,2}$/g);
-          var isAcelSoft = acelSoft.test(e);
-          var topHand = new RegExp(/^[0-9]{2,3}$/g);
-          var isTopHand = topHand.test(e);
-          var integer = new RegExp(/^-?[0-9]+$/g);
-          var isInteger = integer.test(e);
-          var tune = new RegExp(/^[0-9]{3}$/g);
-          var isTune = tune.test(e) && e !== "332" && e !== "323" && e !== "233" && e !== "000" && e !== "333" && [...e].reduce((a,b) => Number(a)+Number(b)) <= 24;
-          var mra = new RegExp(/^([0-9]{1,3}(?:\.[0-9]{1,2})?)$/g);
-          var isMra = mra.test(e);
-          var time = new RegExp(/^[0-9]{1,2}\:[0-9]{2}$/g);
-          var isTime = time.test(e);
-          if (this.type === "mra" && isTime) {
+          if (this.type === "mra" && TIME.test(e)) {
             let timeNumber = Vue.options.filters.toTimeNumber(e);
             let calcMra = Vue.options.filters.mra(timeNumber, this.acel);
             this.internalValue = calcMra;
@@ -151,15 +163,7 @@ export default {
             return;
           }
     
-          if (
-              (this.type === "acel" && (isAcel || e === "0" || e === "N/A")) ||
-              (this.type === "topSpeed" && isTopHand) ||
-              (this.type === "hand" && isTopHand) ||
-              (this.type === "integer" && isInteger) ||
-              (this.type === "tune" && isTune) ||
-              (this.type === "mra" && isMra) ||
-              (this.type === "acelSoft" && (isAcelSoft || isInteger))
-            ) {
+          if (VALIDATORS[this.type] && VALIDATORS[this.type](e)) {
             if (this.type === "acel" && e === "0") {
               e = "N/A"
             }
