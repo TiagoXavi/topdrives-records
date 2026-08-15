@@ -17,22 +17,30 @@
         <div class="BaseRewards_Title">
           <div class="BaseRewards_TitleText">Rank {{ item.people }}</div>
         </div>
-        <div v-if="(item.pack || item.car) || ((!item.pack && !item.car) && (!item.items || item.items.length === 0))" class="BaseRewards_PackBox">
+        <div
+          v-if="(item.pack || item.car) || ((!item.pack && !item.car) && (!item.items || item.items.length === 0))"
+          :class="{
+            BaseRewards_PackBoxTriple: (item.pack && item.cars && item.cars.length > 1),
+            BaseRewards_PackBoxCarDual: (item.cars && item.cars.length === 2 && !item.pack),
+          }"
+          class="BaseRewards_PackBox">
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" class="BaseTrianglesBack_Layout">
             <rect width="100%" height="100%" mask="url(#triangleMask)" class="BaseRewards_PackTriangles" />
           </svg>
           <BasePackBmp v-if="item.pack" :pack="item.pack" class="BaseRewards_PackItem" style="position: relative; z-index: 1;" />
-          <div v-if="item.car" class="BaseRewards_CarItem">
-            <BaseCard
-              :car="Vue.all_carsObj[item.car.rid]"
-              :fix-back="false"
-              :options="false"
-              :hideClose="true"
-              :showResetTune="false"
-              :asGallery="true"
-              :noCompact="true"
-              :draggable="false"
-            />
+          <div v-if="item.cars && item.cars.length" class="BaseRewards_CarsBox">
+            <button v-for="(car, icar) in item.cars" class="D_Button BaseRewards_CarItem" @click="cardClick(car.rid)">
+              <BaseCard
+                :car="Vue.all_carsObj[car.rid]"
+                :fix-back="false"
+                :options="false"
+                :hideClose="true"
+                :showResetTune="false"
+                :asGallery="true"
+                :noCompact="true"
+                :draggable="false"
+              />
+            </button>
           </div>
         </div>
         <div v-if="item.items && item.items.length" class="BaseRewards_ItemsBox">
@@ -116,7 +124,11 @@ export default {
       return this.prizes;
     }
   },
-  methods: {},
+  methods: {
+    cardClick(rid) {
+      Vue.globalRidFullDetail(rid);
+    }
+  },
 }
 </script>
 
@@ -146,7 +158,7 @@ export default {
   border-radius: calc(0.015 * var(--rs));
   min-height: calc(0.98 * var(--rs));
 }
-.BaseRewards_Item:has(.BaseRewards_PackItem + .BaseRewards_CarItem) {
+.BaseRewards_Item:has(.BaseRewards_PackItem + .BaseRewards_CarsBox) {
   width: calc(0.73 * var(--rs));
   min-width: calc(0.73 * var(--rs));
 }
@@ -232,6 +244,12 @@ export default {
 .BaseRewards_Box::-webkit-scrollbar {
   height: 0px;
 }
+.BaseRewards_CarsBox {
+  display: flex;
+  gap: calc(0.01 * var(--rs));
+  justify-content: center;
+  align-items: center;
+}
 .BaseRewards_CarItem {
   --width: calc(0.5 * var(--rs));
   --widthraw: calc(0.5 * var(--rsraw));
@@ -246,7 +264,7 @@ export default {
 .BaseRewards_PackItem {
   --size: calc(0.33 * var(--rs)) !important;
 }
-.BaseRewards_PackItem + .BaseRewards_CarItem {
+.BaseRewards_PackItem + .BaseRewards_CarsBox .BaseRewards_CarItem {
   --width: calc(0.33 * var(--rs));
   --widthraw: calc(0.33 * var(--rsraw));
   --fsize: calc(0.017 * var(--rs));
@@ -254,6 +272,11 @@ export default {
 .BaseRewards_PackItem:not(:last-child) {
   --size: calc(0.23 * var(--rs)) !important;
   margin-left: calc(-0.015 * var(--rs));
+}
+.BaseRewards_PackBoxTriple {
+  flex-direction: column;
+  gap: calc(0.01 * var(--rs));
+  height: calc(0.47 * var(--rs));
 }
 
 

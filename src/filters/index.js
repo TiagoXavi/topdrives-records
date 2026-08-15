@@ -1354,8 +1354,8 @@ export default {
               return { v: result, i: false };
             }
             if (userTime == oppoTime) return { v: 0, i: false };
-            if (userTime < -1 && oppoTime > 0) return { v: -250, i: false };
-            if (oppoTime < -1 && userTime > 0) return { v: 250, i: false };
+            if ((userTime < -1 || userTime === 0) && oppoTime > 0) return { v: -250, i: false };
+            if ((oppoTime < -1 || oppoTime === 0) && userTime > 0) return { v: 250, i: false };
 
             result = (factor * -1) * (wt / lt) + factor;
             // console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );

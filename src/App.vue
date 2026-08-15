@@ -541,6 +541,13 @@ export default {
       return parseInt(this * 2.2369362920544025);
     };
     Vue.$store = this.$store;
+    Vue.globalRidFullDetail = (rid) => {
+      this.T_S._g_cFull.car = Vue.all_carsObj[rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
+    }
 
     let vm = this;
     this.isMobile = Vue.options.filters.isMobile();

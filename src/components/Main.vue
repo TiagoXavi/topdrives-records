@@ -2538,7 +2538,7 @@
               class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
               @click="changeTuneCar(tuneDialogCarConfig, item)">
               {{ item }}
-              <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
+              <div v-if="Vue.all_carsObj[tuneDialogCarRid].R_Medals_scorePerc?.[item] !== undefined" class="D_ButtonNoteTune">{{ Vue.all_carsObj[tuneDialogCarRid].R_Medals_scorePerc?.[item] }}</div>
             </button>
             <button
               v-if="whatTier && whatTier <= 2 && $store.state.showCustomTunes"
