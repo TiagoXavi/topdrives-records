@@ -351,6 +351,7 @@ export default {
   m_enableBlurEffect: "Enable blur effect",
   m_championships: "Championships",
   m_owners: "Owners",
+  m_fast: "Fast",
 
 
 

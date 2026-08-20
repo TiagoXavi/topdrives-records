@@ -4,7 +4,10 @@
       v-for="(type, itype) in resolvedList"
       :class="`Type_${type} `+
               `${isButton ? 'D_Button D_ButtonDark D_ButtonDark2 ' : '' }`+
+              `${circuit[itype]?.span === 2 ? 'BaseTrackType_Span2 ' : '' }`+
+              `${circuit[itype]?.span === 3 ? 'BaseTrackType_Span3 ' : '' }`+
               `${circuit[type] === true && mode === 'compare' ? 'BaseTrackType_Active ' : '' }`+
+              `${isTrackSet && circuit[itype]?.tracks?.length === 0 ? 'BaseTrackType_Disabled ' : '' }`+
               `${isTrackSet && circuit[itype].active ? 'BaseTrackType_Active ' : '' }`"
       class="BaseTrackType_Button BaseTrackType_Item"
       :role="isButton ? 'button' : undefined"
@@ -24,16 +27,8 @@
           <span v-bind:scode="`${dataid}_a${type}` | trackToPerc(2, false, true)" class="TdIconCondPerc">{{ `${dataid}_a${type}` | trackToPerc(2, false) }}</span>
         </div>
       </i>
-      <div v-if="isTrackSet" class="BaseTrackType_Label">
-        <span class="TypeText_Dry" v-if="type == '00'">{{ $t('s_dry') }}{{ circuit[itype].customSufix ? ` ${circuit[itype].customSufix}` : '' }}</span>
-        <span class="TypeText_Wet" v-if="type == '01'">{{ $t('s_wet') }}</span>
-        <span class="TypeText_Dirt" v-if="type == '10'">{{ $t('s_dirt') }}</span>
-        <span class="TypeText_Dirt" v-if="type == '11'">{{ $t('s_mud') }}</span>
-        <span class="TypeText_Gravel" v-if="type == '20'">{{ $t('s_gravel') }}</span>
-        <span class="TypeText_Ice" v-if="type == '30'">{{ $t('s_ice') }}</span>
-        <span class="TypeText_Sand" v-if="type == '50'">{{ $t('s_sand') }}</span>
-        <span class="TypeText_Snow" v-if="type == '60'">{{ $t('s_snow') }}</span>
-        <span class="TypeText_Grass" v-if="type == '70'">{{ $t('s_grass') }}</span>
+      <div v-if="isTrackSet && type && trackTypes[type]" class="BaseTrackType_Label">
+        <span :class="trackTypes[type].cla">{{ circuit[itype]?.customLabel || $t(trackTypes[type].label) }}<span v-if="circuit[itype]?.customSufix">{{ ` ${circuit[itype].customSufix}` }}</span></span>
       </div>
       <!-- <span class="TypeText_Dry" v-if="type[0] == '0'"><BaseIconSvg :type="`n_asphalt${type[1] == '1'?'rain':''}`" :useMargin="false"/>{{ isTrackSet && circuit[itype].customSufix ? ` ${circuit[itype].customSufix}` : '' }}</span>
       <span class="TypeText_Dirt" v-else-if="type[0] == '1'"><BaseIconSvg :type="`n_dirt${type[1] == '1'?'rain':''}`" :useMargin="false"/></span>
@@ -83,6 +78,18 @@
 import BaseIconSvg from '@/components/BaseIconSvg.vue';
 import BaseCustomTag from '@/components/BaseCustomTag.vue';
 
+const TRACK_TYPES = {
+  "00": { cla: "TypeText_Dry", label: "s_dry" },
+  "01": { cla: "TypeText_Wet", label: "s_wet" },
+  "10": { cla: "TypeText_Dirt", label: "s_dirt" },
+  "11": { cla: "TypeText_Dirt", label: "s_mud" },
+  "20": { cla: "TypeText_Gravel", label: "s_gravel" },
+  "30": { cla: "TypeText_Ice", label: "s_ice" },
+  "50": { cla: "TypeText_Sand", label: "s_sand" },
+  "60": { cla: "TypeText_Snow", label: "s_snow" },
+  "70": { cla: "TypeText_Grass", label: "s_grass" },
+}
+
 export default {
   name: 'BaseTrackType',
   components: {
@@ -121,6 +128,9 @@ export default {
   watch: {},
   beforeMount() {},
   mounted() {},
+  created() {
+    this.trackTypes = TRACK_TYPES;
+  },
   computed: {
     resolvedList() {
       if (this.isTrackSet) {
@@ -159,7 +169,7 @@ export default {
   justify-content: center;
   min-height: var(--height);
 }
-.Main_CustomTrackItem .BaseTrackType_Item.BaseTrackType_Active {
+.Main_CustomTrackItem .BaseTrackType_Item.BaseTrackType_Active:not(.BaseTrackType_Disabled) {
   box-shadow: inset 0px 0px 0px 2px rgba(var(--ccond), 0.7);
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -206,6 +216,27 @@ export default {
   margin-top: -5px;
   pointer-events: none;
 }
+.BaseTrackType_Disabled {
+  cursor: initial;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.BaseTrackType_Span2 {
+  width: 73px;
+}
+.BaseTrackType_Span3 {
+  width: 116px;
+}
+.Main_OptionsTrackset .BaseTrackType_Item:not(.BaseTrackType_Span2):not(.BaseTrackType_Span3) {
+  max-width: 30px;
+}
+.Main_OptionsTrackset .BaseTrackType_Item:not(.BaseTrackType_Span2):not(.BaseTrackType_Span3) .BaseTrackType_Label {
+  display: flex;
+  justify-content: center;
+  gap: 0.25em;
+  overflow: unset;
+}
+
 /* .Main_OptionsTrackset .Main_CustomTrackItem:hover .BaseTrackType_Label,
 .Main_OptionsTrackset .Main_CustomTrackItem:focus-within .BaseTrackType_Label {
 } */

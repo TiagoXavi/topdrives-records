@@ -93,10 +93,14 @@
       :tuneDialogCarIndex="_g_car.tuneDialogCarIndex"
       :carDetailsList="_g_car.carDetailsList"
       :showMove="_g_car.showMove"
+      :showDelete="_g_car.showDelete"
       :showTunes="_g_car.showTunes"
+      :externalController="_g_car.externalController"
+      class="App_BaseCarDetailDialog"
       @close="_g_car.close"
       @changed="_g_car.changed"
       @newIndex="_g_car.newIndex"
+      @delete="_g_car.delete"
     />
 
     <BaseCarDetailFull
@@ -2319,10 +2323,18 @@ body .Main_UserTw3:before {
   flex-direction: column;
   margin: 10px -20px 0px -20px;
 }
+.Main_OptionsTracksetBox {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin: 10px 20px 0px 20px;
+}
+.Main_OptionsTrackset_Left {
+  display: flex;
+  gap: 4px;
+}
 .Main_OptionsTracksetMore {
-  align-self: center;
-  margin-top: 10px;
-  min-width: 150px;
+  
 }
 .Main_OptionsLabel {
   opacity: 0.8;
@@ -2715,7 +2727,7 @@ body .Main_UserTw3:before {
 }
 .Main_CustomTrackRight {
   display: flex;
-  gap: 2px;
+  gap: 3px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -2729,6 +2741,8 @@ body .Main_UserTw3:before {
 .EventTrack [data="lumberTwisty_a40"],
 [dataid="damTwisty"].Type_40,
 .EventTrack [data="damTwisty_a40"],
+[dataid="damTwisty2"].Type_40,
+.EventTrack [data="damTwisty2_a40"],
 [dataid="damRun"].Type_40,
 .EventTrack [data="damRun_a40"],
 [dataid="damView"].Type_40,
@@ -2757,6 +2771,8 @@ body .Main_UserTw3:before {
 .Row_Tracks [data="damView_a41"],
 [dataid="damTwisty"].Type_41,
 .Row_Tracks [data="damTwisty_a41"],
+[dataid="damTwisty2"].Type_41,
+.Row_Tracks [data="damTwisty2_a41"],
 [dataid="damRun"].Type_41,
 .Row_Tracks [data="damRun_a41"],
 [dataid="mojExtended"].Type_41,
@@ -2771,12 +2787,13 @@ body .Main_UserTw3:before {
 }
 .Type_10,
 .Type_11,
-.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]):not([data="damView_a40"]):not([dataid="damView"]):not([data="damTwisty_a40"]):not([dataid="damTwisty"]):not([data="damRun_a40"]):not([dataid="damRun"]):not([data="mojExtended_a40"]):not([dataid="mojExtended"]),
-.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]):not([data="damView_a41"]):not([dataid="damView"]):not([data="damTwisty_a41"]):not([dataid="damTwisty"]):not([data="damRun_a41"]):not([dataid="damRun"]):not([data="mojExtended_a41"]):not([dataid="mojExtended"]),
+.Type_40:not([data="lumberTwisty_a40"]):not([dataid="lumberTwisty"]):not([data="damView_a40"]):not([dataid="damView"]):not([data="damTwisty_a40"]):not([dataid="damTwisty"]):not([data="damTwisty2_a40"]):not([dataid="damTwisty2"]):not([data="damRun_a40"]):not([dataid="damRun"]):not([data="mojExtended_a40"]):not([dataid="mojExtended"]),
+.Type_41:not([data="lumberTwisty_a41"]):not([dataid="lumberTwisty"]):not([data="damView_a41"]):not([dataid="damView"]):not([data="damTwisty_a41"]):not([dataid="damTwisty"]):not([data="damTwisty2_a41"]):not([dataid="damTwisty2"]):not([data="damRun_a41"]):not([dataid="damRun"]):not([data="mojExtended_a41"]):not([dataid="mojExtended"]),
 .Type_i0,
 .Type_i1,
 .Type_k0,
 .Type_k1,
+.Type_j0,
 .Type_m0,
 .Type_m1,
 .Type_e0[data="maliHairpin_ae0"],
@@ -4338,8 +4355,6 @@ body .Main_UserTw3:before {
   display: flex;
   justify-content: flex-start;
   font-size: 0.8em;
-  margin-top: -5px;
-  margin-bottom: 5px;
   opacity: 0.6;
 }
 .Clubs_DaySelectorActive {

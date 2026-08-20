@@ -9,7 +9,7 @@
     min-width="240px"
     @close="$emit('close')">
     <div
-      :class="{ BaseCarDetailDialog_NoHeader: !showMove || !showTunes }"
+      :class="{ BaseCarDetailDialog_NoHeader: !showMove && !showTunes && !showDelete }"
       class="Main_TuneDialog BaseCarDetailDialog_Layout">
 
       <div v-if="car && car.rid" class="Row_DialogLayout">
@@ -27,24 +27,25 @@
         </div>
 
         <div
-          v-if="showMove"
+          v-if="showMove || showDelete"
           class="Row_OrderBox">
           <div class="Row_OrderBoxLayout">
             <button
-              v-if="tuneDialogCarIndex > -1"
+              v-if="showMove && tuneDialogCarIndex > -1"
               :disabled="tuneDialogCarIndex === 0"
               class="D_Button Row_DialogButtonTune"
               @click="cogMove()">
               <i class="ticon-arrow_left_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
-              v-if="tuneDialogCarIndex > -1"
+              v-if="showMove && tuneDialogCarIndex > -1"
               :disabled="tuneDialogCarIndex >= carDetailsList.length - 1"
               class="D_Button Row_DialogButtonTune"
               @click="cogMove(true)">
               <i class="ticon-arrow_right_3 Row_ConfigIcon Row_OrderIcon" aria-hidden="true"/>
             </button>
             <button
+              v-if="showDelete"
               :disabled="false"
               class="D_Button Row_DialogButtonTune Row_DialogButtonClose"
               @click="cogDelete()">
@@ -57,11 +58,10 @@
           <button
             v-for="item in tuneDialogTunes"
             :class="{ Row_DialogButtonTuneActive: car.selectedTune === item }"
-            :title="((((car.data || {})[item] || {}).info || {}).tuneCreator || {}).t"
             class="D_Button Row_DialogButtonTune Row_DialogButtonTuneRelative"
             @click="changeTuneCar(item)">
             {{ item }}
-            <!-- <div v-if="tunesCount[item]" class="D_ButtonNote">{{ tunesCount[item] }}</div> -->
+            <div v-if="Vue.all_carsObj[car.rid].R_Medals_scorePerc?.[item] !== undefined" class="D_ButtonNoteTune">{{ Vue.all_carsObj[car.rid].R_Medals_scorePerc?.[item] }}</div>
           </button>
         </div>
 
@@ -101,14 +101,14 @@
             </div>
           </div>
         </div>
-        <div v-if="car.tags && car.tags.length > 0" class="Row_DialogCardTags" style="margin-top: 18px;">
+        <div v-if="Vue.all_carsObj[car.rid].tags && Vue.all_carsObj[car.rid].tags.length > 0" class="Row_DialogCardTags" style="margin-top: 18px;">
           <BaseGameTag
-            v-for="tag in car.tags"
+            v-for="tag in Vue.all_carsObj[car.rid].tags"
             :key="tag"
             :tag="tag" />
         </div>
         <div class="Row_DialogCardDual Space_TopPlus">
-          <BaseCarStats :car="car" />
+          <BaseCarStats :car="Vue.all_carsObj[car.rid]" />
         </div>
       </div>
 
@@ -158,7 +158,15 @@ export default {
       type: Boolean,
       default: false
     },
+    showDelete: {
+      type: Boolean,
+      default: false
+    },
     showTunes: {
+      type: Boolean,
+      default: false
+    },
+    externalController: {
       type: Boolean,
       default: false
     },
@@ -238,11 +246,13 @@ export default {
       // console.log(color);
     },
     changeTuneCar(selectedTune) {
-      if (selectedTune === this.car.selectedTune) {
-        selectedTune = undefined
+      if (!this.externalController) {
+        if (selectedTune === this.car.selectedTune) {
+          selectedTune = undefined
+        }
+        Vue.set(this.car, "selectedTune", selectedTune);
       }
-      Vue.set(this.car, "selectedTune", selectedTune);
-      this.$emit("changed");
+      this.$emit("changed", selectedTune);
       // this.$emit("tune", selectedTune);
     },
     cogMove(isRight) {
@@ -259,9 +269,12 @@ export default {
       this.$emit("changed");
     },
     cogDelete() {
-      Vue.set(this.carDetailsList, this.tuneDialogCarIndex, {});
-      this.$emit("changed");
-      this.$emit("close");
+      if (!this.externalController) {
+        Vue.set(this.carDetailsList, this.tuneDialogCarIndex, {});
+        this.$emit("changed");
+        this.$emit("close");
+      };
+      this.$emit("delete", this.tuneDialogCarIndex);
     },
     openCarFullDetail(car) {
       this.T_S._g_cFull.car = Vue.all_carsObj[car.rid];

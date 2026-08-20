@@ -45,10 +45,13 @@ export const tdrStore = defineStore('main', {
       tuneDialogCarIndex: 0,
       carDetailsList: [],
       showMove: false,
+      showDelete: false,
       showTunes: false,
+      externalController: false,
       close: () => {},
       changed: () => {},
-      newIndex: () => {}
+      newIndex: () => {},
+      delete: () => {}
     },
     _g_cFull: {
       dialog: false,

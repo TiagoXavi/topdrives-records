@@ -938,7 +938,7 @@
               <template v-for="(car, index) in cgDashListGarageUpgrade">
                 <button
                   class="D_Button D_ButtonDark D_ButtonDark2 BaseCarList_CarButton"
-                  @click="garageRemoveFromListUpgraded(index);">
+                  @click="garageEditSimulatedUpgradedCar(index, car);">
                   <BaseCardMini
                     :car="Vue.all_carsObj[car.rid]"
                     :tuneText="car.tun"
@@ -1783,13 +1783,13 @@
                         <span>{{ clubDaySelected || "-" }}</span>
                         <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                       </button>
+                      <div v-if="!clubLoading && clubDaySelected !== clubServerDateISO" class="Clubs_DayNotCurrent">({{ $t('m_notCurrent') }})</div>
                       <button
                         v-if="clubDayNeedSave && user && user.mod"
                         :class="{ D_Button_Loading: clubLoadingAny }"
                         class="D_Button Main_SaveAllButton"
                         @click="clubDaySaveAll()">{{ $t("m_saveDay") }}</button>
                     </div>
-                    <div v-if="!clubLoading && clubDaySelected !== clubServerDateISO" class="Clubs_DayNotCurrent">({{ $t('m_notCurrent') }})</div>
                     <div v-if="user && user.mod" class="Clubs_TrackReqSelectBox">
                       <button
                         :disabled="clubLoading || clubTrackNeedSave || clubReqNeedSave"
@@ -2921,21 +2921,46 @@
           <div class="Main_OptionsTrackset">
             <div
               v-for="(item, index) in tracksButtons"
-              class="Main_CustomTrackItem" :key="index">
-              <div class="Main_CustomTrackLeft">
-                <div class="Main_CustomTrackName">{{ $t(`m_${item.name.toLowerCase()}`) }}</div>
-              </div>
-              <div class="Main_CustomTrackRight" @click="clickTracksetHandle($event, item)">
-                <template>
-                  <BaseTrackType
-                    :circuit="item.list"
-                    :isTrackSet="true" />
-                </template>
-              </div>
+              class="Main_CustomTrackLayout" :key="item.id">
+              <BaseExpandDiv :active="!!item[optionsTrackset]">
+                <div class="Main_CustomTrackItem">
+                  <div class="Main_CustomTrackLeft">
+                    <div class="Main_CustomTrackName">
+                      {{ $t(item.dict) + (item.suffix ? item.suffix : "") }}
+                      <i v-if="item.bump" class="tdicon-clearance Row_TdIconPerk" aria-hidden="true">
+                        <span class="path1"/>
+                        <span class="path2"/>
+                        <span class="path3"/>
+                      </i>
+                    </div>
+                    
+                  </div>
+                  <div class="Main_CustomTrackRight" @click="clickTracksetHandle($event, item[optionsTrackset])">
+                    <BaseTrackType
+                      :circuit="item[optionsTrackset] || []"
+                      :isTrackSet="true"
+                    />
+                  </div>
+                </div>
+              </BaseExpandDiv>
             </div>
-            <button
-              class="D_Button Main_OptionsButton Main_OptionsTracksetMore"
-              @click="openDialogTrackSearch()">{{ $t("m_more3dot") }}</button>
+            <div class="Main_OptionsTracksetBox">
+              <div class="Main_OptionsTrackset_Left">
+                <button
+                  v-for="item in tracksButtonsCats"
+                  :class="{ D_ButtonActive: optionsTrackset === item }"
+                  class="D_Button Main_OptionsButton Main_OptionsTracksetMore"
+                  @click="optionsTracksetChange(item)">
+                  {{ $t(`m_${item}`) }}
+                </button>
+              </div>
+              <button
+                class="D_Button Main_OptionsButton Main_OptionsTracksetMore"
+                style="min-width: 110px;"
+                @click="openDialogTrackSearch()">
+                {{ $t("m_more3dot") }}
+              </button>
+            </div>
           </div>
         </div>
         <div v-else-if="!!user && needSave && mode === 'compare'" class="Main_OptionsSaveData">
@@ -3873,6 +3898,7 @@ export default {
       optionsDialogActive: false,
       printImageDialog: false,
       lastestLoading: false,
+      optionsTrackset: "expanded",
       
       currentViewport: null,
       voteLoading: false,
@@ -4195,10 +4221,55 @@ export default {
       currentTracksSetsNames: [],
       ignore50points: false,
       pasteInputModel: null,
+      tracksButtonsCats: ['campaign', 'expanded'],
       tracksButtons: [
         {
-          name: "Twisty",
-          list: [
+          id: "sTwisty",
+          dict: "m_twisty",
+          suffix: " (S)",
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["slalom_a00","slalomr_a00","mtSlalom_a00","townSlalom_a00","miSlalom_a00","mojSlalom_a00","rosSlalom_a00","carPark_a00","gForce_a00","gForcer_a00","nwGforce_a00","jpGforce_a00","mnGforce_a00","tokyoGforce_a00","indoorKart_a00","dockKart_a00","kart_a00","mnCityNarrow_a00","mtTwisty_a00","tRoad_a00",]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["slalom_a01","mtSlalom_a01","townSlalom_a01","miSlalom_a01","mojSlalom_a01","rosSlalom_a01","carPark_a01","gForce_a01","nwGforce_a01","mnGforce_a01","tokyoGforce_a01","dockKart_a01","kart_a01","mnCityNarrow_a01","mtTwisty_a01","tRoad_a01",]
+            },
+            {
+              type: "01",
+              active: false,
+              customSufix: "2",
+              tracks: ["figureEight_a01","kartZ50_aA1","mtSlalomZ50_aA1","tokyoGforceZ50_aA1","mtTwistyZ50_aA1","kartZ50_aB1","tokyoGforceZ50_aB1","mtSlalomZ50_aB1","mtTwistyZ50_aB1","tRoadZ50_aB1",]
+            },
+            {
+              type: "10",
+              customLabel: "Off",
+              active: false,
+              customLabel: "Off",
+              tracks: ["slalom_a20","forestSlalom_a20","gForce_a20","tRoad_a20","figureEight_ab0","slalom_a10","mtSlalom_a10","forestSlalom_a10","airplaneSlalom_a10","gForce_a10","tRoad_a10","mtTwisty_a10","kartZ50_aE0","mtSlalomZ50_aE0","mtTwistyZ50_aE0","tRoadZ50_aE0",]
+            },
+            {
+              type: "10",
+              active: false,
+              customLabel: "Off",
+              customSufix: "2",
+              tracks: ["figureEight_ac0","kartZ50_aC0","mtSlalomZ50_aC0","mtTwistyZ50_aC0","tRoadZ50_aC0","kartZ50_aD0","mtSlalomZ50_aD0","tokyoGforceZ50_aD0","mtTwistyZ50_aD0","tRoadZ50_aD0","figureEight_ad0","cross_af0","fieldSlalom_af0",]
+            },
+            {
+              type: "50",
+              active: false,
+              customLabel: "Off",
+              tracks: ["slalom_a11","mtSlalom_a11","forestSlalom_a11","airplaneSlalom_a11","gForce_a11","tRoad_a11","mtTwisty_a11","slalom_a50","gForce_a50","tRoad_a50","slalom_a60","mtSlalom_a60","townSlalom_a60","gForce_a60","nwGforce_a60","tRoad_a60","mtTwisty_a60","frozenLake_ad0","fieldSlalom_a70","forestSlalom_a70","forestSlalom_a71","slalom_a30","forestSlalom_a30","frozenRivSla_a30","gForce_a30","tRoad_a30","forest_a30","riverSprint_ag0",]
+            },
+          ],
+        },
+        {
+          id: "twisty",
+          dict: "m_twisty",
+          campaign: [
             {
               type: "00",
               active: false,
@@ -4246,10 +4317,85 @@ export default {
               tracks: ["gForce_a60","hairpin_a60","tRoad_a60","tCircuit_a60","frozenLake_ad0","slalom_a60","forest_a60"]
             },
           ],
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["hairpin_a00","mtHairpin_a00","oceanParking_a00","nwCircuit_a00","nwTour_a00","nwLoop_a00","nwSlalom_a00","miStreets1_a00","miGforce_a00","tCircuit_a00","tCircuitr_a00","jpCircuit_a00","lumberTwisty_a40","mnHairpin_a00","mnCityLong_a00","mnCity_a00","forest_a00","dealsGap_a00","dockCirc_a00","canyonTour_a00","townTour_a00",]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["hairpin_a01","mtHairpin_a01","oceanParking_a01","airplaneHangars_a01","dockCirc_a01","nwCircuit_a01","nwLoop_a01","nwCathedral_a01","nwSlalom_a01","tCircuit_a01","tCircuitr_a01","miCircuit_a01","mnHairpin_a01","mnCityLong_a01","mnCity_a01","forest_a01","dealsGap_a01","canyonTour_a01","townTour_a01","mtIncline_a01"]
+            },
+            {
+              type: "01",
+              active: false,
+              customSufix: "2",
+              tracks: ["mtHairpinZ50_aA1","tCircuitZ50_aA1","oceanParkingZ50_aA1","mtHairpinZ50_aB1","tCircuitZ50_aB1","oceanParkingZ50_aB1","lumberTwisty_a41","damView_a41","damRun_a41","damTwisty_a41","damTwisty2_a41",]
+            },
+            {
+              type: "10",
+              customLabel: "Off",
+              active: false,
+              customLabel: "Off",
+              tracks: ["hairpin_a20","forestRiver_ab0","hairpin_a10","mtHairpin_a10","tCircuit_a10","lookout_a10","lumberRiver_a10","rosRoute5_a10","damExtended_a40","rallySmall_a40","rallyMed_a40","butte_a40","dtRoad_a40","mnHairpin_a40","damRally_a40","mojCross_a40","mojSmall_a40","mojSmallDesert_a40","palCircuit_a40","lumberForest_a40","valTour_a40","forestRiver_a40","desertSmall_a40","desertBig_a40",]
+            },
+            {
+              type: "10",
+              active: false,
+              customLabel: "Off",
+              customSufix: "2",
+              tracks: ["mnHairpin_a41","forestRiver_a41","dealsGapBack_a41","rallySmall_a41","rallyMed_a41","canyonButte_a41","canyonDtRoad_a41","damExtended_a41","damRally_a41","damValley_a41","lumberForest_a41","mojSmall_a41","palCircuit_a41",]
+            },
+            {
+              type: "50",
+              customLabel: "Off",
+              active: false,
+              tracks: ["mtHairpin_a11","forest_a11","canyonLookout_a11","lumberRiver_a11","mtIncline_a11","maliHairpin_ae0","maliHairpin_ae1","hairpin_a50","canyonDtRoad_ae0","canyonButte_ae0","hairpin_a60","mtHairpin_a60","tCircuit_a60","forest_a60","townTour_a60","mtIncline_a60","lumberTwisty_ah1","lumberForest_ah1",]
+            },
+          ],
         },
         {
-          name: "Drag",
-          list: [
+          id: "fast",
+          dict: "m_fast",
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["fast_a00","fastr_a00","mtIncline_a00","oceanHighway_a00","tokyoLoop_a00","tokyoOffRamp_a00","tokyoOverpass_a00","laguna_a00","miCause_a00","rosRoute1_a00","runwayDragSlalom_a00","mojOver_a00","tokyoBridge_a00","miBridge_a00","mtTour_a00","dockGforceDrag_a00","dockUdrag_a00","mtHill_a00","northloop_a00","northloop5_a00",]
+            },
+            {
+              type: "01",
+              active: false,
+              tracks: ["fast_a01","fastr_a01","oceanHighway_a01","tokyoLoop_a01","tokyoOffRamp_a01","tokyoOverpass_a01","laguna_a01","miCause_a01","rosRoute1_a01","runwayDragSlalom_a01","runwayLoop_a01","tokyoBridge_a01","miBridge_a01","mtTour_a01","mojAround_a01","dockGforceDrag_a01","dockUdrag_a01","mtHill_a01","northloop_a01","northloop5_a01"]
+            },
+            {
+              type: "01",
+              active: false,
+              customSufix: "2",
+              tracks: ["fastZ50_aA1", "oceanHighwayZ50_aA1", "tokyoLoopZ50_aA1", "tokyoOffRampZ50_aA1", "tokyoOverpassZ50_aA1", "mtInclineZ50_aA1", "tokyoBridgeZ50_aA1", "mtTourZ50_aA1", "mtHillZ50_aA1", "fastZ50_aB1", "oceanHighwayZ50_aB1", "tokyoLoopZ50_aB1", "tokyoOffRampZ50_aB1", "tokyoOverpassZ50_aB1", "tokyoBridgeZ50_aB1", "mtInclineZ50_aB1", "mtTourZ50_aB1", "mtHillZ50_aB1",]
+            },
+            {
+              type: "10",
+              customLabel: "Off",
+              active: false,
+              span: 2,
+              tracks: ["fastZ50_aE0","oceanHighwayZ50_aE0","mtInclineZ50_aE0","mtTourZ50_aE0","mtHillZ50_aE0","oceanSlalom_ac0","palFinish_ac0","dockAltCirc_ac0","fastZ50_aC0","oceanHighwayZ50_aC0","mtInclineZ50_aC0","mtTourZ50_aC0","mtHillZ50_aC0","miUdrag_ac0","miUdrag_ac1","fastZ50_aD0","tokyoLoopZ50_aD0","tokyoOffRampZ50_aD0","tokyoOverpassZ50_aD0","mtInclineZ50_aD0","tokyoBridgeZ50_aD0",]
+            },
+            {
+              type: "50",
+              customLabel: "Off",
+              active: false,
+              tracks: ["mtTour_a11","mtHill_a11","rosRoute5_a11","fast60_aj0","canyonLookout_a50","canyonTour_a50","maliTour_a50","maliFast_a50","palUDrag_a50","palside_ae0","palside2_ae0","palside_ae1","palside2_ae1","northloop_a60","northloop1_a60","northloop2_a60","northloop3_a60","northloop4_a60","northloop5_a60","mtTour_a60","mtHill_a60",]
+            },
+            
+          ]
+        },
+        {
+          id: "drag",
+          dict: "m_drag",
+          campaign: [
             {
               type: "00",
               active: false,
@@ -4296,11 +4442,40 @@ export default {
               active: false,
               tracks: ["mile4_a60","mile2_a60","mile1_a60","testBowlr_a60"]
             },
+          ],
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["jpDrag_a00","oceanShortDrag_a00","mile4_a00","mile4r_a00","oceanLongDrag_a00","mile2_a00","tokyoDrag_a00","mile1_a00","mile1r_a00","draglshape_a00","hClimb_a00","drag100_a00","drag100b_a00","drag120_a00","drag75125_a00","drag30130_a00","drag150_a00","drag50150_a00","drag100150_a00","drag170_a00","drag200_a00","testBowl_a00",]
+            },
+            {
+              type: "01",
+              span: 2,
+              active: false,
+              tracks: ["drag60_a01","drag100_a01","drag100b_a01","oceanShortDrag_a01","waterDrag_a01","mile4_a01","oceanLongDrag_a01","tokyoDrag_a01","mile2_a01","runwayDrag_a01","mile1_a01","draglshape_a01","drag75125_a01","drag150_a01","testBowlr_a01","mile2Z50_aA1","mile1Z50_aA1","mile2Z50_aB1","mile1Z50_aB1",]
+            },
+            {
+              type: "10",
+              customLabel: "Off",
+              span: 2,
+              active: false,
+              tracks: ["drag60_a20","drag60b_a20","drag100_a20","mile4_a20","mile2_a20","mile1_a20","drag120_a20","hClimb_a20","testBowlr_a20","drag100_a10","drag100b_a10","mile1_a10","mixedDrag_a40","hClimb_a10","drag150_a10","hClimbr_a10","testBowl_a10","mile2Z50_aE0","mile1Z50_aE0","mile2Z50_aC0","mile1Z50_aC0","mile2Z50_aD0","mile1Z50_aD0",]
+            },
+            {
+              type: "50",
+              customLabel: "Off",
+              active: false,
+              tracks: ["mile4_a11","mile2_a11","mixedDrag_a41","mileOne50_aj0","mileOne60_aj0","hClimb_a11","drag60_a50","mile4_a50","miBeachDrag_a50","mile2_a50","mile1_a50","hClimb_a50","nwDrag_a60","mile4_a60","mile2_a60","mile1_a60","hClimb_a60","testBowlr_a60","mile4_a30",]
+            },
+            
           ]
         },
         {
-          name: "City",
-          list: [
+          id: "bumpTwisty",
+          dict: "m_twisty",
+          bump: true,
+          campaign: [
             {
               type: "00",
               active: false,
@@ -4321,6 +4496,54 @@ export default {
               active: false,
               tracks: ["csSmall_a60","csMed_a60"]
             },
+          ],
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["csSmall_a00","csMed_a00","miStreets2_a00","dockCity_a00","oceanCity_a00","mojFreeway_a00","mojExtended_a40",]
+            },
+            {
+              type: "01",
+              span: 2,
+              active: false,
+              tracks: ["csSmall_a01","csMed_a01","miStreets2_a01","dockCity_a01","oceanCity_a01","mojFreeway_a01","csSmallZ50_aA1","csMedZ50_aA1","oceanCityZ50_aA1","csSmallZ50_aB1","csMedZ50_aB1","oceanCityZ50_aB1","mojExtended_a41",]
+            },
+            {
+              type: "10",
+              span: 3,
+              customLabel: "Off",
+              active: false,
+              tracks: ["moto_a10","moto_a11","csSmall_a50","csSmall_a60","csMed_a60","desertRallyDirt_a40","desertRallyDirt_a41","desertHill_a40","desertHill_a41","csSmallZ50_aE0","csMedZ50_aE0","oceanCityZ50_aE0","csSmallZ50_aC0","csMedZ50_aC0","oceanCityZ50_aC0","csSmallZ50_aD0","csMedZ50_aD0",]
+            },
+
+            
+          ]
+        },
+        {
+          id: "bumpDrag",
+          dict: "m_drag",
+          bump: true,
+          expanded: [
+            {
+              type: "00",
+              active: false,
+              tracks: ["speedbump14km_a00","speedbump12km_a00","speedbump1km_a00","mojMile2Bump_a00",]
+            },
+            {
+              type: "01",
+              span: 2,
+              active: false,
+              tracks: ["speedbump14km_a01","speedbump12km_a01","speedbump1km_a01","mojMile2Bump_a01",]
+            },
+            {
+              type: "10",
+              span: 3,
+              customLabel: "Off",
+              active: false,
+              tracks: ["speedbump12km_a20","speedbump1km_a20","speedbump12km_a60","speedbump1km_a60",]
+            },
+            
           ]
         }
       ],
@@ -4470,6 +4693,10 @@ export default {
     let colors = window.localStorage.getItem("colors");
     if (colors) {
       this.colorsChange(colors);
+    }
+    let optionsTrackset = window.localStorage.getItem("optionsTrackset");
+    if (optionsTrackset) {
+      this.optionsTracksetChange(optionsTrackset);
     }
     
     let cgDashUseMyGarage = window.localStorage.getItem("cgDashUseMyGarage");
@@ -5220,14 +5447,19 @@ export default {
         this.validateTracks([track], group)
       }
     },
-    clickTracksetHandle(e, item) {
+    optionsTracksetChange(type) {
+      if (!this.tracksButtonsCats.includes(type)) return;
+      this.optionsTrackset = type;
+      window.localStorage.setItem('optionsTrackset', type);
+    },
+    clickTracksetHandle(e, list) {
       if (
         e.target &&
         typeof e.target.className === "string" &&
         e.target.className.startsWith("BaseTrackType_Button")
       ) {
         let itype = e.target.attributes.getNamedItem("dataitype").value;
-        this.toggleTrackSet(item.list[itype].tracks);
+        this.toggleTrackSet(list[itype].tracks);
       }
     },
     toggleTrackSet(trackset) {
@@ -5370,13 +5602,12 @@ export default {
       let incluedesAll = true;
       let index;
       if (!trackset) return false;
-      trackset.map(x => {
-        index = this.currentTracks.findIndex(y => {
-          if (x === `${y.id}_a${y.surface}${y.cond}`) {
-            return true
-          }
-        });
-        if (index === -1) incluedesAll = false;
+      trackset.find(x => {
+        index = this.currentTracks.findIndex(y => x === y.code);
+        if (index === -1) {
+          incluedesAll = false;
+          return true;
+        }
       })
       return incluedesAll;
     },
@@ -5401,13 +5632,16 @@ export default {
     },
     verifyActiveButtons() {
       this.tracksButtons.map(group => {
-        group.list.map(x => {
-          if (this.includeAllTracks(x.tracks)) {
-            x.active = true;
-          } else {
-            x.active = false;
-          }
-        })
+        this.tracksButtonsCats.map(optionsTrackset => {
+          if (!group[optionsTrackset]) return;
+          group[optionsTrackset].map(x => {
+            if (this.includeAllTracks(x.tracks)) {
+              x.active = true;
+            } else {
+              x.active = false;
+            }
+          })
+        });
 
       })
 
@@ -5721,7 +5955,7 @@ export default {
           this.pushTrackSet(tracks);
         }
         if (this.currentTracks.length === 0) {
-          this.pushTrackSet(this.tracksButtons[0].list[0].tracks);
+          this.pushTrackSet(this.tracksButtons[1].campaign[0].tracks);
         }
 
         let cars = window.localStorage.getItem("cars");
@@ -8365,8 +8599,8 @@ export default {
               if (surf === "00") key = "clearance";
               else key = "clearanceW";
             }
-            else if (surf === "01" || surf === "A1" || surf === "B1" || track === "lumberTwisty_a41" || track === "damView_a41" || track === "damTwisty_a41" || track === "damRun_a41") key = "rain";
-            else if (surf === "00" || track === "lumberTwisty_a40" || track === "damView_a40" || track === "damTwisty_a40" || track === "damRun_a40") key = "asphalt";
+            else if (surf === "01" || surf === "A1" || surf === "B1" || track === "lumberTwisty_a41" || track === "damView_a41" || track === "damTwisty_a41" || track === "damTwisty2_a41" || track === "damRun_a41") key = "rain";
+            else if (surf === "00" || track === "lumberTwisty_a40" || track === "damView_a40" || track === "damTwisty_a40" || track === "damTwisty2_a40" || track === "damRun_a40") key = "asphalt";
             else if (surf[0] === "1" || surf[0] === "4" || surf[0] === "4" || surf === "E0") key = "dirt";
             else if (surf[0] === "2" || surf[0] === "b") key = "gravel";
             else if (surf[0] === "3" || surf[0] === "g") key = "ice";
@@ -9749,14 +9983,43 @@ export default {
                 pushSol(garageCar, car, irace, false, true);
                 return;
               }
-              let tunZ = (car.tune || car.selectedTune || "").split('').map(x => Number(x)*3).join('');
-              let upgradable = tunZ.split('').every((v,i) => {
-                if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
-                  return false;
+              let arrTunes = [
+                (car.tune || car.selectedTune || ""),
+                ...(car.alt || [])
+              ]
+
+              let tuneGoalForWin;
+              arrTunes.find(tune => {
+                let tunZ = tune;
+                let is999tune = true;
+                if (tune !== "333" && /^[0-3]+$/.test(tune)) {
+                  is999tune = false;
+                  tunZ = tune.split('').map(x => Number(x)*3).join('');
                 }
-                return true;
+
+                let upgradable = tunZ.split('').every((v,i) => {
+                  // solution is 133 (233 hidden)
+                  // garageCar is 212
+
+                  if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
+                    return false;
+                  }
+                  return true;
+                });
+
+                if (upgradable) {
+                  tuneGoalForWin = tune;
+                  return true;
+                }
+
               });
-              if (upgradable) pushSol(garageCar, car, irace, false, false);
+
+              let newCarObj = {
+                ...car,
+                tune: tuneGoalForWin || car.tune,
+              }
+
+              if (tuneGoalForWin) pushSol(garageCar, newCarObj, irace, false, false);
             });
             // filtered.map(found => {
             //   _r.solutions[irace].push({
@@ -9849,7 +10112,7 @@ export default {
           this.lastIsBetterResult = "better";
           this.lastIsBetterHid = x.cardRecordId;
           this.lastIsbetterFinalTune = tune;
-        }else {
+        } else {
           this.lastIsBetterResult = "worse";
         } 
         return better;
@@ -10117,6 +10380,7 @@ export default {
         }
 
         this.checkPreDoneRounds(this.cg);
+        this.cgResolveRqFill();
       }
     },
     cgPrepareSaveRaw() {
@@ -10163,8 +10427,46 @@ export default {
         }
       })
     },
-    garageRemoveFromListUpgraded(index) {
-      Vue.removeFromGarageUpgraded(index);
+    garageEditSimulatedUpgradedCar(index, car) {
+      // debugger;
+      let vm = this;
+      car.selectedTune = car.tun;
+      this.T_S.$patch((state) => {
+        state._g_car.car = car;
+        state._g_car.tuneDialogCarIndex = index;
+        state._g_car.carDetailsList = [];
+        state._g_car.showMove = false;
+        state._g_car.showDelete = true;
+        state._g_car.showTunes = true;
+        state._g_car.externalController = true;
+        state._g_car.close = () => {  
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          })
+        };
+        state._g_car.changed = (tune) => {
+          car.tun = tune;
+          car.tunZ = tune.split('').map(x => Number(x)*3).join('');
+
+          vm.cgDashLoaded = true;
+          setTimeout(() => {
+            vm.cgDashLoaded = false;
+            vm.cgReloadIndex = -1;
+          }, 1000);
+        };
+        state._g_car.newIndex = () => {};
+        state._g_car.delete = () => {
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          });
+          Vue.removeFromGarageUpgraded(index);
+          // console.log(car, index);
+          // debugger;
+        };
+      })
+      this.$nextTick().then(() => {
+        this.T_S._g_car.dialog = true;
+      })
     },
     generateRandom(maxInt, stringParam) {
       let sum = 0;

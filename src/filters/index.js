@@ -12,6 +12,29 @@ const classesColorsRgb = ["135, 135, 135", "118, 242, 115", "28, 204, 255", "255
 
 const countrys = ['France', 'Sweden', 'Germany', 'Croatia', 'UK', 'Italy', 'Japan', 'USA', 'Netherlands', 'Austria', 'Australia'];
 const letter = ['FR', 'SE', 'DE', 'HR', 'UK', 'IT', 'JP', 'US', 'NL', 'AT', 'AU'];
+const bumpTracks = {
+  csMed: true,
+  csSmall: true,
+  moto: true,
+  oceanCity: true,
+  speedbump14km: true,
+  speedbump12km: true,
+  speedbump1km: true,
+  dockCity: true,
+  miStreets2: true,
+  csMedZ50: true,
+  csSmallZ50: true,
+  oceanCityZ50: true,
+  mojFreeway: true,
+  mojExtended: true,
+  mojMile2Bump: true,
+  desertHill: true,
+  desertRallyDirt: true
+}
+const bumpTracksHigh = {
+  moto: true,
+  desertRallyDirt: true,
+}
 var ignore50points = false;
 
 function resolveClass(rq, classe, type, rgb = false) {
@@ -108,7 +131,8 @@ const utils = Vue.observable({
       "mrtn": "w1",
       "Kabash": "w2",
       "G1anluca": "w3"
-    }
+    },
+    tracksWeight: {}
 });
 const garageByRid = {};
 const garageByHid = {};
@@ -768,6 +792,8 @@ export default {
         Vue.unreleased = unreleased;
         Vue.loadTimesFromKing = loadTimesFromKing;
         Vue.extraTunes = extraTunes;
+        Vue.bumpTracks = bumpTracks;
+        Vue.bumpTracksHigh = bumpTracksHigh;
 
         Vue.carByRid = function (rid) {
           return resolvedRids[rid];
@@ -1018,29 +1044,8 @@ export default {
             if (item.trackCode === "drag100b_a10") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag100_a10?.t);
             if (item.trackCode === "drag150b_a00") return Vue.brake(item.text, car?.data?.[tun]?.times?.drag150_a00?.t);
 
-            if (
-                car.clearance === 'Low' &&
-                (
-                    item.id === 'csMed' ||
-                    item.id === 'csSmall' ||
-                    item.id === 'moto' ||
-                    item.id === 'oceanCity' ||
-                    item.id === 'speedbump14km' ||
-                    item.id === 'speedbump12km' ||
-                    item.id === 'speedbump1km' ||
-                    item.id === 'dockCity' ||
-                    item.id === 'miStreets2' ||
-                    item.id === 'csMedZ50' ||
-                    item.id === 'csSmallZ50' ||
-                    item.id === 'oceanCityZ50' ||
-                    item.id === 'mojFreeway' ||
-                    item.id === 'mojExtended' ||
-                    item.id === 'mojMile2Bump' ||
-                    item.id === 'desertHill' ||
-                    item.id === 'desertRallyDirt'
-                )
-            ) {
-                return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
+            if (car.clearance === 'Low' && bumpTracks[item.id]) {
+              return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
             }
 
             if (
@@ -1048,10 +1053,7 @@ export default {
                     car.clearance === 'Low' ||
                     car.clearance === 'Mid'
                 ) &&
-                (
-                    item.id === 'moto' ||
-                    item.id === 'desertRallyDirt'
-                )
+                (bumpTracksHigh[item.id])
             ) {
                 return window.i18n.t(`c_${car.clearance.toLowerCase()}`).toLowerCase();
             }
@@ -1062,35 +1064,14 @@ export default {
 
             if (Vue.all_carsObj[rid].clearance === 'Low') {
               let trackId = track.split("_")[0];
-              if (
-                  trackId === 'csMed' ||
-                  trackId === 'csSmall' ||
-                  trackId === 'moto' ||
-                  trackId === 'oceanCity' ||
-                  trackId === 'speedbump14km' ||
-                  trackId === 'speedbump12km' ||
-                  trackId === 'speedbump1km' ||
-                  trackId === 'dockCity' ||
-                  trackId === 'miStreets2' ||
-                  trackId === 'csMedZ50' ||
-                  trackId === 'csSmallZ50' ||
-                  trackId === 'oceanCityZ50' ||
-                  trackId === 'mojFreeway' ||
-                  trackId === 'mojExtended' ||
-                  trackId === 'mojMile2Bump' ||
-                  trackId === 'desertHill' ||
-                  trackId === 'desertRallyDirt'
-              ) {
+              if (bumpTracks[trackId]) {
                 return window.i18n.t(`c_${Vue.all_carsObj[rid].clearance.toLowerCase()}`).toLowerCase();
               }
             }
 
             if (Vue.all_carsObj[rid].clearance === 'Low' || Vue.all_carsObj[rid].clearance === 'Mid') {
               let trackId = track.split("_")[0];
-              if (
-                  trackId === 'moto' ||
-                  trackId === 'desertRallyDirt'
-              ) {
+              if (bumpTracksHigh[trackId]) {
                 return window.i18n.t(`c_${Vue.all_carsObj[rid].clearance.toLowerCase()}`).toLowerCase();
               }
             }
@@ -1752,6 +1733,7 @@ export default {
             if (utils.R_MedalsLoaded) return;
             let obj = await import('../compilations/R_Medals_Light.json');
             let obj2 = await import('../compilations/R_Medals_LightTunesPerc.json');
+            let obj3 = await import('../compilations/R_trackPopularity2.json');
             
             let rid;
             obj.default.map((value, rn) => {
@@ -1767,6 +1749,8 @@ export default {
                 });
               }
             });
+            utils.tracksWeight = obj3.default;
+            
             utils.R_MedalsLoaded = true;
           }
 
@@ -1878,7 +1862,9 @@ export default {
           }).catch(err => {
             console.error("Could not copy text: ", err);
           });
-
+        }
+        Vue.getTrackWeight = function (trackCode) {
+          return utils.tracksWeight[trackCode] || "";
         }
 
         Vue.cyrb53 = function (str, seed = 0) {
@@ -1923,6 +1909,7 @@ export default {
         Vue.filter('garageUnits', Vue.garageUnits);
         Vue.filter('formatUTCDateString', Vue.formatUTCDateString);
         Vue.filter('perc', Vue.perc);
+        Vue.filter('getTrackWeight', Vue.getTrackWeight);
     }
 };
 

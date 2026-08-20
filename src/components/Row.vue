@@ -64,8 +64,8 @@
               `Type_${type === 'tracks' ? item.trackType : ''} `+
               `${normalSize ? 'Row_ForceNormalSizeCell ' : ''}`+
               `${item.text === null || item.text === undefined || item.text === '' ? 'Row_ContentEmpty ' : '' }`+
-              `${type === 'tracks' && item.text.replace(' (R)','').length > 17 ? 'Row_TrackNameBig ' : '' }`+
-              `${type === 'tracks' && item.text.replace(' (R)','').length > 22 ? 'Row_TrackNameBigBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > (bumpTracks[item.id] ? 10 : 17) ? 'Row_TrackNameBig ' : '' }`+
+              `${type === 'tracks' && item.text.replace(' (R)','').length > (bumpTracks[item.id] ? 15 : 22) ? 'Row_TrackNameBigBig ' : '' }`+
 
               `${showPoints ? 'Row_HideColorBack ' : '' }`+
               `${isReferencePoints ? 'Row_HideColorBack ' : '' }`+
@@ -101,25 +101,7 @@
           <span class="path4"/>
         </i>
         <i
-          v-if="(
-            item.id === 'csMed' ||
-            item.id === 'csSmall' ||
-            item.id === 'moto' ||
-            item.id === 'oceanCity' ||
-            item.id === 'speedbump14km' ||
-            item.id === 'speedbump12km' ||
-            item.id === 'speedbump1km' ||
-            item.id === 'dockCity' ||
-            item.id === 'miStreets2' ||
-            item.id === 'csMedZ50' ||
-            item.id === 'csSmallZ50' ||
-            item.id === 'oceanCityZ50' ||
-            item.id === 'mojFreeway' ||
-            item.id === 'mojExtended' ||
-            item.id === 'mojMile2Bump' ||
-            item.id === 'desertHill' ||
-            item.id === 'desertRallyDirt'
-          )"
+          v-if="bumpTracks[item.id]"
           class="tdicon-clearance Row_TdIconPerk"
           aria-hidden="true">
           <span class="path1"/>
@@ -154,7 +136,13 @@
         <div class="Row_Placeholder">{{ placeholder }}</div>
         <div class="Row_PlaceholderTune">{{ item.name }}</div>
       </template>
-      <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign" >{{ item.campaign }}<div v-if="item.campaignNum" class="Row_Campaign_Balls" :class="`Row_Campaign_Balls${item.campaignNum}`"><div v-for="n in 5"></div></div></div>
+      <div v-if="type === 'tracks' && showCampaignTip" class="Row_Campaign" >
+        <span>{{ item.campaign }}</span>
+        <div class="Row_TrackWeight">{{ item.trackCode | getTrackWeight }}</div>
+        <div v-if="item.campaignNum" class="Row_Campaign_Balls" :class="`Row_Campaign_Balls${item.campaignNum}`">
+          <div v-for="n in 5"></div>
+        </div>
+      </div>
 
       <div v-if="type === 'times'" class="Row_xRA">{{ item | cellSub(car, tun) }}</div>
 
@@ -490,6 +478,9 @@ export default {
         document.removeEventListener("paste", this.interceptPaste)
       }
     }
+  },
+  created() {
+    this.bumpTracks = Vue.bumpTracks;
   },
   beforeMount() {},
   mounted() {
@@ -1940,11 +1931,20 @@ export default {
 .Main_2 .Row_Tracks:not(.Row_Cg) .RowTrack_PushRight {
   transform: translateX(var(--cell-width));
 }
+.Row_Item.Row_Cell:not(.Row_TrackNameBig):has(.TdIconCondPerc:not(:empty)+.TdIconCondPerc:not(:empty)) {
+  font-size: 15px;
+}
 .Row_TrackNameBig {
   font-size: 16px;
 }
+.Row_TrackNameBig:has(.TdIconCondPerc:not(:empty)+.TdIconCondPerc:not(:empty)) {
+  font-size: 13px;
+}
 .Row_TrackNameBigBig {
   font-size: 14px;
+}
+.Row_TrackNameBigBig:has(.TdIconCondPerc:not(:empty)+.TdIconCondPerc:not(:empty)) {
+  font-size: 12px;
 }
 .Main_2 .Row_Content {
   font-size: 14px;
@@ -1977,6 +1977,13 @@ export default {
 }
 .Main_2 .Row_isTimePredicted .Row_Content {
   font-size: 0.9em;
+}
+.Row_TrackWeight {
+  position: absolute;
+  top: -3px;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 10px;
 }
 
 
