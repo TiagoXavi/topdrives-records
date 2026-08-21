@@ -9108,17 +9108,6 @@ export default {
         })
       })
 
-      if (errorCount > 3 || shouldStop) {
-        console.log(errorMsgArray);
-        this.$store.commit("DEFINE_SNACK", {
-          active: true,
-          error: true,
-          text: "Too much errors: " + errorCount,
-          type: "error"
-        });
-        return;
-      }
-
       newCg.info = {
         name: json.ladder.name,
         id: json.ladder.id,
@@ -9151,6 +9140,20 @@ export default {
       }
       newCg.flexibleCardPacks = json.flexibleCardPacks;
 
+      
+
+      if (!createNew) {
+        if (this.cg.info && newCg.info && this.cg.info.id !== newCg.info.id) {
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: `Challenge ID mismatch!`,
+            type: "error"
+          });
+          return;
+        }
+      }
+
 
 
       if (!createNew) {
@@ -9163,7 +9166,27 @@ export default {
         })
       }
 
+      let foundBrother = this.cgList.find(x => x.info?.cat?.id === newCg.info?.cat?.id);
+      if (foundBrother && foundBrother.prefix) {
+        let prefix = foundBrother.prefix;
+        let nextChap = 0;
+        this.cgList.map(x => {
+          if (x.name.startsWith(prefix)) {
+            // get the string insde of ()
+            let match = x.name.match(/\(([^)]+)\)/);
+            if (match && match[1]) {
+              let chap = parseInt(match[1]);
+              if (chap > nextChap) nextChap = chap;
+            }
+          }
+        });
+        if (nextChap) {
+          newCg.name = `${prefix}: ${newCg.name} (${nextChap+1})`;
+        }
+      }
+
       this.cgSaveLoading = true;
+
 
       let url = Vue.preUrl + "/setCgPredict";
       if (createNew) url = Vue.preUrl + "/createCgByJson";
