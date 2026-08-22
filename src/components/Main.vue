@@ -9637,13 +9637,16 @@ export default {
           },
           bestSolution: [null, null, null, null, null],
         };
-        this.cgResolveBestSolution(_r, round, useGarage, iround);
-        _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
+        
 
-        _r.solutions = this.cgResolveSolutions(_r, round, useGarage, iround);
         if (useGarage) {
+          this.cgResolveBestSolution(_r, round, useGarage, iround);
           this.cgResolveSolutionsToUpgrade(_r, round, iround);
-          this.cgResolveBestSolution(_r, round, useGarage, iround, true); // rerun
+        } else {
+          this.cgResolveBestSolution(_r, round, useGarage, iround);
+          _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
+          _r.solutions = this.cgResolveSolutions(_r, round, useGarage, iround);
+
         }
 
         this.cgResolveRqSums(_r);
@@ -9655,6 +9658,7 @@ export default {
       if (useGarage) obj.problemRounds = this.cgResolveProblemRounds(obj.rounds);
       
       Vue.set(this.cg.rounds, "d", obj);
+      this.cg.dashboard = obj;
 
       this.cgDashLoaded = true;
       setTimeout(() => {
@@ -9667,28 +9671,28 @@ export default {
       let usedHids = {};
       let rqSum = 0;
       if (round.races.every(race => race.cars.length === 0)) return; // empty orig solutions
-      if (_r.bestSolution.every(car => car?.rid)) return; // nothing to fill
+      // if (_r.bestSolution.every(car => car?.rid)) return; // nothing to fill
 
       // if (iround === 1 && useGarage) {
       //   debugger;
       // }
 
-      if (isRerun) {
-        // fill already used rids and hids
-        _r.bestSolution.map((car, irace) => {
-          if (car && car.rid) {
-            usedRids[car.rid] = irace;
-            if (useGarage && Vue.garageByRid[car.rid]) {
-              let garageCar = Vue.garageByRid[car.rid].find(x => x.tun === car.selectedTune);
-              if (garageCar) {
-                usedHids[garageCar.cardRecordId] = irace;
-              }
-            }
-          }
-        })
-      }
+      // if (isRerun) {
+      //   // fill already used rids and hids
+      //   _r.bestSolution.map((car, irace) => {
+      //     if (car && car.rid) {
+      //       usedRids[car.rid] = irace;
+      //       if (useGarage && Vue.garageByRid[car.rid]) {
+      //         let garageCar = Vue.garageByRid[car.rid].find(x => x.tun === car.selectedTune);
+      //         if (garageCar) {
+      //           usedHids[garageCar.cardRecordId] = irace;
+      //         }
+      //       }
+      //     }
+      //   })
+      // }
       
-      !isRerun && round.races.map((race, irace) => {
+      round.races.map((race, irace) => {
 
         // just sort
         this.cgSolutionsArrSort(race.cars);
@@ -9700,31 +9704,40 @@ export default {
             if (usedRids[car.rid] === undefined || useGarage) {
               if (useGarage) {
                 
-                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => this.isBetterTune(x, car, iround, irace) && usedHids[x.cardRecordId] === undefined)) {
-                  _r.bestSolution[irace] = car;
-                  usedRids[car.rid] = irace;
+                if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => usedHids[x.cardRecordId] === undefined && this.isBetterTune(x, car, iround, irace))) {
+                  _r.bestSolution[irace] = {
+                    rid: car.rid,
+                    tune: this.lastIsbetterFinalTune,
+                    selectedTune: this.lastIsbetterFinalTune,
+                    points: car.points,
+                    cardRecordId: this.lastIsBetterHid
+                  };
                   usedHids[this.lastIsBetterHid] = irace;
-                  if (this.lastIsBetterResult === "better") {
-                    // _r.bestSolution[irace] = JSON.parse(JSON.stringify(_r.bestSolution[irace]));
-                    // _r.bestSolution[irace].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
-                    // push new car into race.cars index icar+1, copy current car but set tune to Vue.garageByHid[this.lastIsBetterHid].tun;
-                    // if (iround === 11 && irace === 1) {
-                    //   debugger;
-                    // }
-                    race.cars.splice(icar + 1, 0, {
-                      rid: car.rid,
-                      tune: this.lastIsbetterFinalTune,
-                      selectedTune: this.lastIsbetterFinalTune,
-                      points: car.points,
-                    });
-                    race.cars[icar + 1].tune = (Vue.garageByHid[this.lastIsBetterHid].tun || Vue.garageByHid[this.lastIsBetterHid].tunZ);
-                    _r.bestSolution[irace] = race.cars[icar + 1];
-                  }
+                  // usedRids[car.rid] = irace;
+                  // if (this.lastIsBetterResult === "better") {
+                  //   // _r.bestSolution[irace] = JSON.parse(JSON.stringify(_r.bestSolution[irace]));
+                  //   // _r.bestSolution[irace].tune = Vue.garageByHid[this.lastIsBetterHid].tun;
+                  //   // push new car into race.cars index icar+1, copy current car but set tune to Vue.garageByHid[this.lastIsBetterHid].tun;
+                  //   // race.cars.splice(icar + 1, 0, {
+                  //   //   rid: car.rid,
+                  //   //   tune: this.lastIsbetterFinalTune,
+                  //   //   selectedTune: this.lastIsbetterFinalTune,
+                  //   //   points: car.points,
+                  //   // });
+                  //   race.cars[icar + 1].tune = (Vue.garageByHid[this.lastIsBetterHid].tun || Vue.garageByHid[this.lastIsBetterHid].tunZ);
+                  //   race.cars[icar + 1].selectedTune = race.cars[icar + 1].tune;
+                  //   _r.bestSolution[irace] = race.cars[icar + 1];
+                  // }
                   return true;
                 }
               } else {
                 // no garage
-                _r.bestSolution[irace] = car;
+                _r.bestSolution[irace] = {
+                  rid: car.rid,
+                  tune: car.tune,
+                  selectedTune: car.tune,
+                  points: car.points
+                };
                 usedRids[car.rid] = irace;
                 return true;
               }
@@ -9739,9 +9752,6 @@ export default {
       let currIndex = noCarIndex;
       while (noCarIndex > -1 && count < 15) {
         let res;
-        // if (iround === 0 && useGarage && currIndex === 1) {
-        //   debugger;
-        // }
         if (!_r.bestSolution[currIndex]?.rid) this.cgTryReplacer(round, _r, usedRids, usedHids, currIndex, useGarage, 0, iround, false, isRerun);
         else if (_r.bestSolution[currIndex]) res = this.cgTryReplacer(round, _r, usedRids, usedHids, currIndex, useGarage, 0, iround, true, isRerun);
         if (res) {
@@ -9802,12 +9812,12 @@ export default {
 
       _r.bestSolution = _r.bestSolution.map(solution => {
         if (!solution || !solution.rid) return {};
-        if (solution.customData) return solution; // done already
-        let car = JSON.parse(JSON.stringify(Vue.all_carsObj[solution.rid]));
-        car.selectedTune = solution.tune;
-        car.customData = {};
-        car.points = solution.points;
-        return car;
+        // if (solution.customData) return solution; // done already
+        // let car = JSON.parse(JSON.stringify(Vue.all_carsObj[solution.rid]));
+        // car.selectedTune = solution.tune;
+        // car.customData = {};
+        // car.points = solution.points;
+        return solution;
       });
 
       if (isRerun) {
@@ -9898,8 +9908,12 @@ export default {
         });
       });
 
+      
+      
+
       if (foundNotInUse) {
         if (_r.bestSolution[isolution]?.rid) {
+          // clear the current solution in that index
           delete usedRids[_r.bestSolution[isolution].rid];
           if (useGarage) {
             this.cgReturnToSolutions(_r, round, useGarage, isolution);
@@ -9907,20 +9921,33 @@ export default {
             if (garageCar) delete usedHids[garageCar.cardRecordId];
           }
         }
+
+        if (useGarage) {
+          foundNotInUse = this.cgAddGarageCarAsSolution(_r, round, foundNotInUse, foundNotInUseGarageCar, isolution);
+          usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
+          // _r.bestSolution[isolution].points = LIST.find(x => x.cardRecordId === _r.bestSolution[isolution].cardRecordId || (x.rid === _r.bestSolution[isolution].rid && x.tune === _r.bestSolution[isolution].tune))?.points;
+        }
         _r.bestSolution[isolution] = foundNotInUse;
         usedRids[foundNotInUse.rid] = isolution;
-        if (useGarage) {
-          usedHids[foundNotInUseGarageCar.cardRecordId] = isolution;
-          _r.bestSolution[isolution].points = LIST.find(x => x.cardRecordId === _r.bestSolution[isolution].cardRecordId || (x.rid === _r.bestSolution[isolution].rid && x.tune === _r.bestSolution[isolution].tune))?.points;
-        }
         return true;
+
       } else if (foundInUse) {
+
+        // if (iround === 19 && isolution === 4) {
+        //   debugger;
+        // }
+        if (useGarage) {
+          foundInUse = this.cgAddGarageCarAsSolution(_r, round, foundInUse, foundInUseGarageCar, isolution);
+          substituteOfGiver = this.cgAddGarageCarAsSolution(_r, round, substituteOfGiver, substituteOfGiverGarageCar, foundInUseIndex);
+
+          usedHids[foundInUseGarageCar.cardRecordId] = isolution;
+          usedHids[substituteOfGiverGarageCar.cardRecordId] = foundInUseIndex;
+        }
+        
         _r.bestSolution[isolution] = foundInUse;
         _r.bestSolution[foundInUseIndex] = substituteOfGiver;
         usedRids[foundInUse.rid] = isolution;
         usedRids[substituteOfGiver.rid] = foundInUseIndex;
-        if (useGarage) usedHids[foundInUseGarageCar.cardRecordId] = isolution;
-        if (useGarage) usedHids[substituteOfGiverGarageCar.cardRecordId] = foundInUseIndex;
         return true;
       }
 
@@ -9931,15 +9958,7 @@ export default {
         let filteredSolutions = [];
         race.cars.map(car => {
           if (car.points > 0 && (car.rid !== _r.bestSolution[irace].rid || car.tune !== _r.bestSolution[irace].selectedTune)) {
-            if (useGarage) { // with garage
-              // if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => this.isBetterTune(x, car, iround, irace))) {
-              // here need to be equal
-              if (Vue.garageByRid[car.rid] && Vue.garageByRid[car.rid].some(x => (x.tun || x.tunZ) === car.tune)) {
-                filteredSolutions.push(car);
-              }
-            } else { // no garage
-              filteredSolutions.push(car);
-            }
+            filteredSolutions.push(car);
           }
         })
         this.cgSolutionsArrSort(filteredSolutions);
@@ -9955,16 +9974,17 @@ export default {
       });
     },
     cgResolveSolutionsToUpgrade(_r, round, iround) {
-      let matchedCars = {};
-      _r.solutions.map((listCars, irace) => {
-        listCars.map(car => {
-          if (!matchedCars[car.rid]) matchedCars[car.rid] = [];
-          if (matchedCars[car.rid].includes(car.tune)) return;
-          matchedCars[car.rid].push(car.tune);
-        })
-      });
+      // let matchedCars = {};
+      // _r.solutions.map((listCars, irace) => {
+      //   listCars.map(car => {
+      //     if (!matchedCars[car.rid]) matchedCars[car.rid] = [];
+      //     if (matchedCars[car.rid].includes(car.tune)) return;
+      //     matchedCars[car.rid].push(car.tune);
+      //   })
+      // });
 
       function pushSol(garageCar, car, irace, isBetter, isOp) {
+        if (!_r.solutions) _r.solutions = [[], [], [], [], []];
         _r.solutions[irace].push({
           rid: car.rid,
           tune: car.tune,
@@ -9986,87 +10006,86 @@ export default {
       }
 
       round.races.map((race, irace) => {
+        let rids = [...(new Set(race.cars.map(car => car.rid)))];
+
+
+
+        rids.map(rid => {
+          if (!Vue.garageByRid[rid]) return;
+
+          Vue.garageByRid[rid].map(garageCar => {
+            if (_r.bestSolution[irace] && _r.bestSolution[irace].cardRecordId === garageCar.cardRecordId) return;
+            let car = race.cars.find(x => x.rid === rid);
+            if (!car) return;
+
+            // if (garageCar.tun === car.tune) return false;
+
+            if (this.isBetterTune(garageCar, car, iround, irace)) {
+              let solCar = {
+                rid: car.rid,
+                tune: this.lastIsbetterFinalTune,
+                selectedTune: this.lastIsbetterFinalTune,
+                points: car.points,
+              }
+              pushSol(garageCar, solCar, irace, true, false);
+              return;
+            }
+            
+            // continue to check if can sol with upgrades
+
+            
+            
+            let arrTunes = [
+              (car.tune || car.selectedTune || ""),
+              ...(car.alt || [])
+            ]
+
+            let tuneGoalForWin;
+            arrTunes.find(tune => {
+              let tunZ = tune;
+              let is999tune = true;
+              if (tune !== "333" && /^[0-3]+$/.test(tune)) {
+                is999tune = false;
+                tunZ = tune.split('').map(x => Number(x)*3).join('');
+              }
+
+              let upgradable = tunZ.split('').every((v,i) => {
+                // solution is 133 (233 hidden)
+                // garageCar is 212
+
+                if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
+                  return false;
+                }
+                return true;
+              });
+
+              if (upgradable) {
+                tuneGoalForWin = tune;
+                return true;
+              }
+
+            });
+
+            let newCarObj = {
+              ...car,
+              tune: tuneGoalForWin || car.tune,
+            }
+
+            if (tuneGoalForWin) pushSol(garageCar, newCarObj, irace, false, false);
+          });
+
+        });
+
+
         race.cars.map(car => {
           if (car.points > 0) {
-            // if (matchedCars[car.rid] && matchedCars[car.rid].includes(car.tune)) return;
             if (!Vue.garageByRid[car.rid]) return;
             // find a car in garage that can be upgraded to this tune
 
             
-            Vue.garageByRid[car.rid].map(garageCar => {
-              if (garageCar.tun === car.tune) return false;
+            
 
-              if (this.isBetterTune(garageCar, car, iround, irace)) {
-                pushSol(garageCar, car, irace, true, false);
-                return;
-              }
-
-              if (garageCar.tun === "332" || garageCar.tun === "323" || garageCar.tun === "233") return false;
-              if (car.points > 65) {
-                pushSol(garageCar, car, irace, false, true);
-                return;
-              }
-              let arrTunes = [
-                (car.tune || car.selectedTune || ""),
-                ...(car.alt || [])
-              ]
-
-              let tuneGoalForWin;
-              arrTunes.find(tune => {
-                let tunZ = tune;
-                let is999tune = true;
-                if (tune !== "333" && /^[0-3]+$/.test(tune)) {
-                  is999tune = false;
-                  tunZ = tune.split('').map(x => Number(x)*3).join('');
-                }
-
-                let upgradable = tunZ.split('').every((v,i) => {
-                  // solution is 133 (233 hidden)
-                  // garageCar is 212
-
-                  if (Number(garageCar.tunZ[i]) > Number(tunZ[i])) {
-                    return false;
-                  }
-                  return true;
-                });
-
-                if (upgradable) {
-                  tuneGoalForWin = tune;
-                  return true;
-                }
-
-              });
-
-              let newCarObj = {
-                ...car,
-                tune: tuneGoalForWin || car.tune,
-              }
-
-              if (tuneGoalForWin) pushSol(garageCar, newCarObj, irace, false, false);
-            });
-            // filtered.map(found => {
-            //   _r.solutions[irace].push({
-            //     rid: car.rid,
-            //     tune: car.tune,
-            //     points: car.points,
-            //     originalTune: (found.tun || found.tunZ),
-            //     cardRecordId: found.cardRecordId
-            //   });
-            //   if (isBetter) {
-            //     if (car.rid === "Lamborghini_Gallardo_SE_2005" && iround === 1 && irace === 4) {
-            //       debugger;
-            //     }
-            //     delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
-            //     _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
-            //   }
-            //   if (isOp) {
-            //     delete _r.solutions[irace][_r.solutions[irace].length-1].originalTune;
-            //     _r.solutions[irace][_r.solutions[irace].length-1].tune = (found.tun || found.tunZ);
-            //     _r.solutions[irace][_r.solutions[irace].length-1].isTimePredicted = true;
-            //     _r.solutions[irace][_r.solutions[irace].length-1].isFreePredict = true;
-            //     _r.solutions[irace][_r.solutions[irace].length-1].points = car.points - 15;
-            //   }
-            // })
+            
           }
         })
         this.cgSolutionsSortByOrigTune(_r.solutions[irace]);
@@ -10096,6 +10115,7 @@ export default {
       if ((x.tun || x.tunZ) === car.tune) {
         this.lastIsBetterResult = "equal";
         this.lastIsBetterHid = x.cardRecordId;
+        this.lastIsbetterFinalTune = (x.tun || x.tunZ);
         return true;
       };
       let fTun;
@@ -10134,7 +10154,7 @@ export default {
         if (better) {
           this.lastIsBetterResult = "better";
           this.lastIsBetterHid = x.cardRecordId;
-          this.lastIsbetterFinalTune = tune;
+          this.lastIsbetterFinalTune = (x.tun || x.tunZ);
         } else {
           this.lastIsBetterResult = "worse";
         } 
@@ -10205,6 +10225,35 @@ export default {
         this.cgSolutionsArrSort(_r.solutions[isolution]);
       }
     },
+    cgAddGarageCarAsSolution(_r, round, matchedSolution, matchedSolutionGarageCar, isolution) {
+      // keep the cars list reference and return the new insert if not already included
+      return {
+        rid: matchedSolution.rid,
+        tune: matchedSolutionGarageCar.tun,
+        selectedTune: matchedSolutionGarageCar.tun,
+        cardRecordId: matchedSolutionGarageCar.cardRecordId,
+        points: matchedSolution.points
+      }
+      
+      let LIST = round.races[isolution].cars;
+
+      let isCarIncludedInList = LIST.find((c, ic) => {
+        return c.rid === matchedSolution.rid && c.tune === matchedSolutionGarageCar.tun;
+      });
+      if (!isCarIncludedInList) {
+        LIST.push({
+          rid: matchedSolution.rid,
+          tune: matchedSolutionGarageCar.tun,
+          selectedTune: matchedSolutionGarageCar.tun,
+          points: matchedSolution.points
+        });
+        let toReturn = LIST[LIST.length-1];
+        this.cgSolutionsArrSort(LIST);
+        return toReturn;
+      } else {
+        return matchedSolution;
+      }
+    },
     changedAnyDash(iround) {
       console.log("changedAnyDash", iround);
       this.cg.rounds['d'].rounds[iround].oppos.map(car => {
@@ -10220,16 +10269,44 @@ export default {
     },
     cgDashcogClick(car, index, iround) {
       if (!car || !car.rid) return;
-      this.tuneDialogCarRid = car.rid;
-      this.tuneDialogCarConfig = car;
-      this.tuneDialogCarConfig.selectedTune = car.tune;
-      this.tuneDialogCarIndex = index;
-      this.tuneDialogisOppo = false;
-      this.tuneDialogActive = true;
-      this.tuneDialogTuneWins = [];
-      this.tuneDialogTuneLose = [];
-      this.cgDashSolutionsDialogRound = iround;
-      Vue.carsCompile("R_Medals");
+
+      let vm = this;
+      this.T_S.$patch((state) => {
+        state._g_car.car = Vue.all_carsObj[car.rid];
+        state._g_car.tuneDialogCarIndex = index;
+        state._g_car.carDetailsList = [];
+        state._g_car.showMove = false;
+        state._g_car.showDelete = true;
+        state._g_car.showTunes = false;
+        state._g_car.externalController = true;
+        state._g_car.close = () => {  
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          })
+        };
+        state._g_car.changed = () => {};
+        state._g_car.newIndex = () => {};
+        state._g_car.delete = () => {
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          });
+          vm.cgDashSolutionClick(null, iround, index);
+        };
+      })
+      this.$nextTick().then(() => {
+        this.T_S._g_car.dialog = true;
+      });
+
+      // this.tuneDialogCarRid = car.rid;
+      // this.tuneDialogCarConfig = car;
+      // this.tuneDialogCarConfig.selectedTune = car.tune;
+      // this.tuneDialogCarIndex = index;
+      // this.tuneDialogisOppo = false;
+      // this.tuneDialogActive = true;
+      // this.tuneDialogTuneWins = [];
+      // this.tuneDialogTuneLose = [];
+      // this.cgDashSolutionsDialogRound = iround;
+      // Vue.carsCompile("R_Medals");
     },
     cgDashViewAllSolutions(iround, irace) {
       this.cgDashSolutionsDialogRound = iround;

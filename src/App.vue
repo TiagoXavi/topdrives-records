@@ -342,7 +342,7 @@
     </portal-target>
 
     
-    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="display: flex;">
       <defs>
         <pattern id="trianglePattern" width="200" height="200" patternUnits="userSpaceOnUse">
           <animate attributeName="x" from="0" to="200" dur="12s" repeatCount="indefinite" />
