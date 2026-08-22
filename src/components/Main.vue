@@ -5020,6 +5020,7 @@ export default {
       return contritrs
     },
     tuneDialogTunes() {
+      if (!this.tuneDialogCarRid) return [];
       let result = ["332", "323", "233", "111", "000"];
       if (this.tuneDialogCarConfig.forceTune && !result.includes(this.tuneDialogCarConfig.forceTune)) {
         result.push(this.tuneDialogCarConfig.forceTune);
@@ -9982,9 +9983,9 @@ export default {
       //     matchedCars[car.rid].push(car.tune);
       //   })
       // });
+      if (!_r.solutions) _r.solutions = [[], [], [], [], []];
 
       function pushSol(garageCar, car, irace, isBetter, isOp) {
-        if (!_r.solutions) _r.solutions = [[], [], [], [], []];
         _r.solutions[irace].push({
           rid: car.rid,
           tune: car.tune,

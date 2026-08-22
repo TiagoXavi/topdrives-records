@@ -143,11 +143,15 @@ const garageObj = Vue.observable({
 });
 function addToGarageUpgraded(car) {
   let garageCar = garageByHid[car.cardRecordId];
-  if (garageCar.backupTun) return; // already added
-  Vue.set(garageCar, 'backupTun', garageCar.tun);
+  let alreadySimulated = !!garageCar.backupTun;
+
+  if (!alreadySimulated) {
+    Vue.set(garageCar, 'backupTun', garageCar.tun);
+    garageListUpgraded.push(garageCar);
+  }
+  
   garageCar.tun = car.tune;
   garageCar.rid = car.rid; // needed
-  garageListUpgraded.push(garageCar);
   // console.log(garageListUpgraded);
   updateGarageUpgradesLocalStorage();
 }
