@@ -4023,6 +4023,9 @@ body .Main_UserTw3:before {
 .Cg_DashReloadHeader {
   gap: 10px;
 }
+.D_Button.Cg_DashBankSelectedAlready {
+  background-color: rgba(100, 0, 0, 0.2);
+}
 .Cg_DashCompact .Cg_DashItemSolutionsColumn {
   width: auto;
   padding-top: 0px;

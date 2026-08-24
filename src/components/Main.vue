@@ -1178,7 +1178,11 @@
                           v-if="ibank < cgDashShowSolutionsCount-1"
                           :disabled="cgLoadingAny"
                           :key="`${ibank}_${bankCar.rid}`"
-                          :class="`Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIsFreePred' : ''} ${bankCar.isTimePredicted ? 'Cg_DashBankIsTimePredicted' : ''}`"
+                          :class="
+                            `Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIsFreePred' : ''} `+
+                            `${bankCar.isTimePredicted ? 'Cg_DashBankIsTimePredicted' : ''} `+
+                            `${bankCar.cardRecordId && item.bestSolution.some(x => x.cardRecordId === bankCar.cardRecordId) ? 'Cg_DashBankSelectedAlready' : ''}`
+                          "
                           class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
                           @click="cgDashSolutionClick(bankCar, index, irace, ibank, $event);">
                           <BaseCardMini
@@ -9643,6 +9647,7 @@ export default {
         if (useGarage) {
           this.cgResolveBestSolution(_r, round, useGarage, iround);
           this.cgResolveSolutionsToUpgrade(_r, round, iround);
+          _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
         } else {
           this.cgResolveBestSolution(_r, round, useGarage, iround);
           _r.hasBestSolution = _r.bestSolution.some(car => car && car.rid);
