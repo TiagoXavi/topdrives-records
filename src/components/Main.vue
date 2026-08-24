@@ -3923,7 +3923,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v32.1",
+      gameVersion: "Game v32.3",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,

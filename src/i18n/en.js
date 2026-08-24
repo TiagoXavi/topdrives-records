@@ -712,5 +712,5 @@ export default {
   t_valRun: "Valley Run",
   t_valSwitchback: "Valley Switchback",
   t_valTour: "Valley Tour",
-  t_valSlalom: "Vallley River Slalom"
+  t_valSlalom: "Valley River Slalom"
 }

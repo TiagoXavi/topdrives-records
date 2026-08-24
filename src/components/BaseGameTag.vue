@@ -671,6 +671,11 @@ export default {
   --tag-s: 98%;
   --tag-l: 50%;
 }
+.BaseGameTag_Detroit_Motor_City {
+  --tag-h: 37;
+  --tag-s: 98%;
+  --tag-l: 50%;
+}
 .BaseGameTag_Summer_Games_Variants {
   --tag-h: 0;
   --tag-s: 0%;
@@ -680,5 +685,35 @@ export default {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;
+}
+.BaseGameTag_Winter_Wonderland {
+  --tag-h: 192;
+  --tag-s: 79%;
+  --tag-l: 68%;
+}
+.BaseGameTag_Halloween_\'26 {
+  --tag-h: 32;
+  --tag-s: 100%;
+  --tag-l: 48%;
+}
+.BaseGameTag_Audi_Sport_Racing_Legends {
+  --tag-h: 354;
+  --tag-s: 85%;
+  --tag-l: 52%;
+}
+.BaseGameTag_Audi_Variant {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Halloween_2026_Variant {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_TD_9th_Anniversary {
+  --tag-h: 273;
+  --tag-s: 54%;
+  --tag-l: 56%;
 }
 </style>
