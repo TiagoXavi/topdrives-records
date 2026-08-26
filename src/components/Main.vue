@@ -3050,6 +3050,7 @@
               <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ $t("m_bestOf") }}</span>
             </button>
+            <BaseSwitch v-model="editMode" :label="$t('m_edit')" :horizontal="true" />
           </div>
         </div>
       </div>
@@ -3873,6 +3874,7 @@ export default {
       memorySearchDialogLoad: false,
       userloaded: false,
       Vue: Vue,
+      editMode: false,
 
       showReviews: false,
       isReviewing: false,
@@ -9186,7 +9188,11 @@ export default {
           }
         });
         if (nextChap) {
-          newCg.name = `${prefix}: ${newCg.name} (${nextChap+1})`;
+          if (newCg.name.includes(` (${nextChap+1})`)) {
+            newCg.name = `${prefix}: ${newCg.name}`;
+          } else {
+            newCg.name = `${prefix}: ${newCg.name} (${nextChap+1})`;
+          }
         }
       }
 
@@ -13958,8 +13964,10 @@ export default {
         let track = this.currentTracks[trackIndex];
 
         console.log(Vue.getTimeFromCache(car.rid, car.selectedTune, track.code), code);
+        if (this.editMode) {
+          this.initFixTimeDialog(car, track, carIndex, trackIndex, Vue.getTimeFromCache(car.rid, car.selectedTune, track.code));
+        }
         return;
-
       }
       
       console.log(code);
@@ -13974,6 +13982,97 @@ export default {
       if (this.currentTracks.length >= this.maxTrackNumber) {
         this.T_S._g_track.dialog = false;
       }
+    },
+    initFixTimeDialog(car, track, carIndex, trackIndex, currentTime) {
+      let vm = this;
+
+
+      let action = function() {
+        console.log(vm.$store.state.confirmDialog.advanced.text);
+
+        vm.$store.state.confirmDialog.loading = true;
+        let time = Vue.toTimeNumber(vm.$store.state.confirmDialog.advanced.text, track.code);
+
+        axios.post(Vue.preUrl + "/setTimeFix", {
+          rid: car.rid,
+          tune: car.selectedTune,
+          track: track.code,
+          isDelete: vm.$store.state.confirmDialog.advanced.text === "clear",
+          newTime: vm.$store.state.confirmDialog.advanced.text === "clear" ? 0 : time
+        })
+        .then(res => {
+          vm.$store.state.confirmDialog.active = false;
+
+          let TCodeFull = Vue.getTCodFull(car.rid, car.selectedTune, track.code);
+          Vue.timesCache[TCodeFull] = time;
+          vm.count++;
+          Vue.utils.d_.downloadCount++;
+
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: vm.$t('m_saveSuccess')
+          });
+        })
+        .catch(error => {
+          console.log(error);
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: error,
+            type: "error"
+          });
+        })
+        .then(() => {
+          vm.$store.state.confirmDialog.loading = false;
+        });
+      }
+
+
+      let blur = function() {
+        if (vm.$store.state.confirmDialog.advanced.text === "clear") {
+          vm.$store.state.confirmDialog.disabled = false;
+          return;
+        }
+        let stringFormat;
+        let numberFormat;
+        if (vm.$store.state.confirmDialog.advanced.text.includes(":")) {
+          numberFormat = Vue.toTimeNumber(vm.$store.state.confirmDialog.advanced.text, track.code);
+          stringFormat = Vue.toTimeString(numberFormat);
+        } else {
+          numberFormat = Vue.toTimeNumber(vm.$store.state.confirmDialog.advanced.text, track.code);
+          stringFormat = Vue.toTimeString(numberFormat);
+        }
+        if (typeof numberFormat !== "number" || isNaN(numberFormat)) {
+          vm.$store.state.confirmDialog.advanced.text = "";
+          vm.$store.state.confirmDialog.disabled = true;
+          return;
+        }
+        vm.$store.state.confirmDialog.disabled = false;
+        vm.$store.state.confirmDialog.advanced.text = stringFormat;
+      }
+
+      vm.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: `${car.rid}\n${car.selectedTune}\n${track.code}\nCurrent: ${Vue.toTimeString(currentTime)}\n`,
+        actionLabel: vm.$t("m_save"),
+        cancelLabel: vm.$t("m_cancel"),
+        actionColor: "green",
+        minWidth: "240px",
+        error: false,
+        disabled: true,
+        action: action,
+        loading: false,
+        maxWidth: "420px",
+        advanced: {
+          type: "text",
+          text: "",
+          placeholder: "00:00:00",
+          typeText: "normal",
+          class: "BaseText_Big",
+          blur: blur
+        }
+      });
     }
     
   }

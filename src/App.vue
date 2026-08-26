@@ -259,6 +259,7 @@
               :placeholder="$store.state.confirmDialog.advanced.placeholder"
               :class="$store.state.confirmDialog.advanced.class"
               class="App_DialogConfirmText"
+              @blur="$store.state.confirmDialog.advanced.blur ? $store.state.confirmDialog.advanced.blur() : null"
             />
           </div>
           <div v-if="$store.state.confirmDialog.advanced.type === 'simpleList'" class="App_DialogConfirm_Body">
@@ -5712,6 +5713,9 @@ a:visited:not(.D_Button) {
   justify-content: flex-end;
   gap: 5px;
   margin-top: 20px;
+}
+.App_DialogConfirmTitle {
+  white-space: pre-line;
 }
 .Main_TeamsHeader {
   display: flex;
