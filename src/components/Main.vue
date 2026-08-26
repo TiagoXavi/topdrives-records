@@ -3050,7 +3050,7 @@
               <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
               <span>{{ $t("m_bestOf") }}</span>
             </button>
-            <BaseSwitch v-model="editMode" :label="$t('m_edit')" :horizontal="true" />
+            <BaseSwitch v-if="user && user.mod" v-model="editMode" :label="$t('m_edit')" :horizontal="true" />
           </div>
         </div>
       </div>
