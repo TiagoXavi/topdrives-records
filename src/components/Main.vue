@@ -957,15 +957,6 @@
             <span>{{ $t("m_reload") }}</span>
             <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/>
           </button>
-          <button
-            :disabled="true"
-            :class="{ D_Button_Loading: downloadLoading }"
-            class="D_Button D_ButtonDark D_ButtonTier3"
-            @click="">
-            <i class="ticon-crown D_ButtonIcon" style="font-size: 22px;" aria-hidden="true"/>
-            <span>{{ $t("m_comingSoon") }}</span>
-            <!-- <i class="ticon-arrow_down_3" style="margin-left: 5px;" aria-hidden="true"/> -->
-          </button>
         </div>
 
         <BaseExpandDiv :active="Vue.garageObj.loaded && cgDashUseMyGarage && cg.rounds['d'].problemRounds.length > 0">

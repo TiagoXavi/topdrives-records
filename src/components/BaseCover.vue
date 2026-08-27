@@ -19,7 +19,7 @@
       onerror="this.classList.add('BaseCover_Error');" 
     >
     <div v-if="brand" :class="`Car_Logo_${brand.replaceAll(' ', '_')}`" class="BaseCover_Brand Main_Brand"></div>
-    <div class="BaseCover_Title" :class="{ BaseCover_TitleBig: nameCalc.length > 28 }">{{ nameCalc }}</div>
+    <div class="BaseCover_Title" :class="{ BaseCover_TitleBig: nameCalc.length > 25 }">{{ nameCalc }}</div>
     <div class="BaseCover_RqBox">
       <span class="Cg_RqRq"><i class="tdicon-rq" aria-hidden="true"/></span>
       <span>{{ minRqCalc }}</span>
@@ -81,6 +81,8 @@ export default {
     coverUrl() {
       this.brand = null;
       if (!this.cover) return '';
+      if (this.cover.startsWith('http')) return this.cover;
+
       let fileName = this.cover;
       if (fileName.startsWith('Event')) {
         fileName = fileName.replace('Event', '');
