@@ -4025,7 +4025,8 @@ body .Main_UserTw3:before {
   gap: 10px;
 }
 .D_Button.Cg_DashBankSelectedAlready {
-  background-color: rgba(100, 0, 0, 0.2);
+  /* background-color: rgba(100, 0, 0, 0.2); */
+  opacity: 0.4;
 }
 .Cg_DashCompact .Cg_DashItemSolutionsColumn {
   width: auto;

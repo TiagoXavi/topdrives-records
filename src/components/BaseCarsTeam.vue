@@ -24,7 +24,10 @@
         v-if="showDragCards"
         style="--drag-left: 0;--drag-top: 0;"
         :id="`BaseCarsTeam_Car${prefix}${icar}`"
-        :class="`BaseCarsTeam_Car${prefix}`"
+        :class="
+          `BaseCarsTeam_Car${prefix}` +
+          (car.cardRecordId ? ` BaseCarsTeam_Guid_${car.cardRecordId}` : '')
+        "
         class="BaseCarsTeam_Car"> <!-- BaseCarsTeam_Dragging , BaseCarsTeam_PushLeft, BaseCarsTeam_PushRight  -->
         <div
           v-if="car && car.rid"

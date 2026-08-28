@@ -3706,7 +3706,11 @@
           <template v-for="(bankCar, ibank) in cg.rounds['d'].rounds[cgDashSolutionsDialogRound].solutions[cgDashSolutionsDialogRace]">
             <button
               :key="ibank"
-              :class="`Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIsFreePred' : ''} ${bankCar.isTimePredicted ? 'Cg_DashBankIsTimePredicted' : ''}`"
+              :class="
+                `Cg_Points${bankCar.points} ${bankCar.originalTune ? 'Cg_DashBankIsFreePred' : ''} `+
+                `${bankCar.isTimePredicted ? 'Cg_DashBankIsTimePredicted' : ''} `+
+                `${bankCar.cardRecordId && cg.rounds['d'].rounds[cgDashSolutionsDialogRound].bestSolution.some(x => x.cardRecordId === bankCar.cardRecordId) ? 'Cg_DashBankSelectedAlready' : ''}`
+              "
               style="min-height: 42px;"
               class="D_Button D_ButtonDark D_ButtonDark2 Cg_BankButton"
               @click="cgDashSolutionClick(bankCar, cgDashSolutionsDialogRound, cgDashSolutionsDialogRace, ibank, $event);">
@@ -13799,7 +13803,7 @@ export default {
           cars.push({ rid: rid, selectedTune: this.eventBestTeamsBigArray[index][5][irid] })
         })
       }
-      if (this.eventBestTeamsConfig.forceOppoCars) {
+      if (this.eventBestTeamsConfig.forceOppoBool && this.eventBestTeamsConfig.forceOppoCars) {
         this.eventBestTeamsConfig.forceOppoCars.map(car => {
           if (car.rid) {
             oppos.push({ rid: car.rid })
@@ -13811,7 +13815,13 @@ export default {
         })
       }
 
-      this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, cars, oppos } });
+      if (this.mode === 'events') {
+        this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, cars, oppos } });
+      }
+      if (this.mode === 'clubs') {
+        this.$router.push({ name: "MainMatchSimulator", params: { event: {...this.clubReqsGroupModel, ...this.clubTracksGroupModel}, cars, oppos } });
+      }
+
     },
     loadQueryParams() {
       if (this.T_S.mainParams) {
