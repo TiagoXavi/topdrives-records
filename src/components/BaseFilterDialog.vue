@@ -39,7 +39,7 @@
       </div>
       <div v-if="isFiltering || filterOnly" class="Main_SearchMid BaseFilterDialog_Mid">
         <div class="Main_FilterItems">
-          <div v-if="!cgAddingYouCar || (user && user.mod)" class="Main_FilterClearTop">
+          <div class="Main_FilterClearTop">
             <div v-if="config.garageSwitch && T_S._user && T_S._user.hasGarage" class="BaseFilterDialog_MyGarageDefaultBox">
               <BaseSwitch :value="useMyGarage" :loading="Vue.garageObj.loading" :label="`${$t('m_myGarage')}`" :horizontal="true" @change="toggleMyGarage($event, true)" />
             </div>
@@ -1699,12 +1699,12 @@ export default {
       this.resetCounters();
 
 
-      if (this.type === 'cg' && this.cgAddingYouCar) {
-        vm.internalConfig = {};
-        Object.keys(this.clearFilterObj).forEach(key => {
-          vm.internalConfig[key] = false;
-        })
-      }
+      // if (this.type === 'cg' && this.cgAddingYouCar) {
+      //   vm.internalConfig = {};
+      //   Object.keys(this.clearFilterObj).forEach(key => {
+      //     vm.internalConfig[key] = false;
+      //   })
+      // }
       // for these types closeFilterText() calls changeFilter() back, so calling it here
       // would recurse forever, they fall through to the regular path below instead
       let closeTextRecurses = this.type === 'carPicker' || (this.type === 'cg' && (this.cgAddingYouCar || this.cgAddingOppoCar));
