@@ -106,8 +106,14 @@
           <div v-if="medals.result?.tracks" class="BaseCarDetailFull_TracksBody Space_TopGiga">
             <template v-for="(item, ix) in medals.result.tracks">
               <div v-if="(ix < showTracksCount)" class="BaseCarDetailFull_Track BaseBestTune_HoverAction">
-                <div class="BaseCarDetailFull_TrackValue">{{ Math.round(item[1]) }}</div>
-                <div class="BaseCarDetailFull_TrackName"><BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp" /></div>
+                <div class="BaseCarDetailFull_TrackValue">
+                  <i v-if="item[3]" class="ticon-crown BaseCarDetailFull_TrackKing" aria-hidden="true"/>
+                  <span class="BaseCarDetailFull_TrackValueText">{{ Math.round(item[1]) }}</span>
+                </div>
+                <div class="BaseCarDetailFull_TrackName">
+                  <div class="BaseCarDetailFull_TrackWeight">{{ item[2] }}</div>
+                  <BaseTrack :tracks="[item[0]]" :isFirst="ix===0" class="BaseCarDetailFull_TrackComp Row_IgnoreSmall" />
+                </div>
                 <div v-if="timesLoaded" class="BaseCarDetailFull_TrackBestTune" style="color: rgb(var(--d-text-yellow));">
                   <BaseBestTune :tune="bestTunePerTrack?.[item[0]] || '-'" />
                 </div>
@@ -166,7 +172,7 @@
           <BaseCarStats :car="car" />
         </div>
 
-        <div v-if="!Vue.utils.loading && medals.garage" class="Row_DialogCardDual Space_TopGiga" style="--gap: 7px;">
+        <div v-if="!Vue.utils.loading && medals?.garage" class="Row_DialogCardDual Space_TopGiga" style="--gap: 7px;">
           <div class="BaseCarStats_Root">
             <div class="BaseCarStats_Line">
               <div class="BaseCarStats_Tile">
@@ -371,7 +377,7 @@ export default {
               console.log(this.medals.result.stars, this.medals);
               // console.log(this.medals.result.tracks);
 
-              this.anim = this.medals.result.mainNiches.some(item => Math.round(item[2]) >= 5);
+              this.anim = this.medals.result.mainNiches.some(item => Math.round(item[2]) >= 5) || this.medals.total >= 100;
 
               if (this.medals.result?.tracks) {
                 // this.loadTunesTimes();
@@ -476,13 +482,17 @@ export default {
       let score = 0;
       let carAcelHandScore = this.hand_acelScore(this.car);
       let shouldUseAcelHandScore = !!carAcelHandScore;
-      if (this.car.rq > 80 && this.car.hand < 80) shouldUseAcelHandScore = false; // COPO
+      let isCopo = this.car.hand < 80 && this.car.acel < 2.5 && this.car.tyres !== "Off-road";
+      if (isCopo) shouldUseAcelHandScore = false; // COPO
+      let otherIsCopo = false;
 
       Vue.all_carsArr.map(car => {
         if (car.rid === this.car.rid) return;
-        if (Math.abs(car.rq - this.car.rq) > 10) return;
+        otherIsCopo = car.hand < 80 && car.acel < 2.5 && car.tyres !== "Off-road";
+        if (Math.abs(car.rq - this.car.rq) > 10 && (isCopo && !otherIsCopo)) return;
 
         let bothRacing = !!(
+          (car.tyres === "Slick" && this.car.tyres === "Slick") ||
           (car.tyres === "Slick" && this.car.drive !== "4WD" && this.car.tyres === "Performance") ||
           (this.car.tyres === "Slick" && car.drive !== "4WD" && car.tyres === "Performance")
         );
@@ -492,9 +502,19 @@ export default {
         }
 
         score = 0;
-        if (car.clearance === this.car.clearance || (car.tyres === "Off-road" && this.car.tyres === "Off-road") || (car.tyres === "Standard" && this.car.tyres === "Standard")) score += 5;
-        if (car.tyres === this.car.tyres || bothRacing) score += 5;
-        if (car.drive === this.car.drive || bothRacing) score += 5;
+        if (
+          car.clearance === this.car.clearance ||
+          (car.tyres === "Off-road" && this.car.tyres === "Off-road") ||
+          (car.tyres === "Standard" && this.car.tyres === "Standard") ||
+          (isCopo && otherIsCopo)
+        ) score += 10;
+
+        if (car.tyres === this.car.tyres) score += 10;
+        else if (bothRacing) score += 5;
+        if (car.drive === this.car.drive) score += 10;
+        else if (bothRacing) score += 5;
+        if (car.tyres === "Slick" && this.car.tyres === "Slick" && car.drive !== this.car.drive) score += 5;
+
         if (car.class === this.car.class) score += 2;
         // if (car.brand === this.car.brand) score += 1;
         if (car.country === this.car.country) score += 0.5;
@@ -503,17 +523,16 @@ export default {
         // if (car.engine === this.car.engine) score += 0.5;
         // if (car.brake === this.car.brake) score += 0.5;
 
-        if (shouldUseAcelHandScore && (car.acel && this.car.acel && Math.abs(car.acel - this.car.acel) < 1)) {
-          score += this.clampDiff(this.hand_acelScore(car), carAcelHandScore, 30) * 8;
-        } else {
-          score += this.clampDiff(car.acel, this.car.acel, (car.acel < 5 ? 1.5 : 5)) * 3;
-          score += this.clampDiff(car.hand, this.car.hand, 10) * 2;
+        if ((car.acel && this.car.acel && Math.abs(car.acel - this.car.acel) < 1)) {
+          score += this.clampDiff(this.hand_acelScore(car), carAcelHandScore, (carAcelHandScore / 2)) * 8;
         }
+        score += this.clampDiff(car.acel, this.car.acel, (this.car.acel / 2)) * 5;
+        score += this.clampDiff(car.hand, this.car.hand, 10) * 4;
         
-        score += this.clampDiff(car.topSpeed, this.car.topSpeed, 80);
-        score += this.clampDiff(car.mra, this.car.mra, 70) * 2;
+        score += this.clampDiff(car.topSpeed, this.car.topSpeed, 60) * 5;
+        score += this.clampDiff(car.mra, this.car.mra, 40) * 2;
         score += this.clampDiff(car.weight, this.car.weight, 1000) * 1;
-        score += this.clampDiff(car.rq, this.car.rq, 10) * 2;
+        score += this.clampDiff(car.rq, this.car.rq, 10) * 4;
         // score += this.clampDiff(car.year, this.car.year, 15);
 
         // score += this.scoreByArrayItems(car.bodyTypes, this.car.bodyTypes) * 0.5;
@@ -629,7 +648,7 @@ export default {
         }
       });
       this.bestTunePerTrack = result;
-      console.log("bestTunePerTrack", this.bestTunePerTrack);
+      // console.log("bestTunePerTrack", this.bestTunePerTrack);
     },
     championships() {
       let list = this.medals?.championships || ["Not useful on championships"];
@@ -820,11 +839,19 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
+  background-color: unset !important;
 }
 .BaseCarDetailFull_TrackValue {
   text-align: right;
   font-size: 0.8em;
-  width: 37px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: end;
+}
+.BaseCarDetailFull_TrackValueText {
+  color: var(--d-text);
 }
 .BaseCarDetailFull_TrackComp {
   width: var(--left-width);
@@ -859,5 +886,22 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.BaseCarDetailFull_TrackName {
+  position: relative;
+}
+.BaseCarDetailFull_TrackWeight {
+  position: absolute;
+  top: -1px;
+  left: -7px;
+  font-size: 0.7em;
+  opacity: 0.0;
+}
+.BaseCarDetailFull_Track:hover .BaseCarDetailFull_TrackWeight {
+  opacity: 1;
+}
+.BaseCarDetailFull_TrackKing {
+  margin-top: 1px;
+  margin-right: 3px;
 }
 </style>

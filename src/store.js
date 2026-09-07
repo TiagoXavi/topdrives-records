@@ -93,6 +93,7 @@ export default new Vuex.Store({
     ano: null,
     tuneDialog: false,
     oldTags: [
+      "50 Years of GTI",
       "5th Anniversary",
       "Around the World",
       "As Seen on YT",
@@ -163,6 +164,7 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [
+
       "Halloween '26",
       "Winter Wonderland",
     ],

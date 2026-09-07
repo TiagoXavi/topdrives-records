@@ -2004,7 +2004,7 @@ export default {
 
 
 @media only screen and (max-width: 767px) {
-  .Row_Tracks .Row_Content {
+  .Row_Tracks:not(.Row_IgnoreSmall) .Row_Content {
     white-space: normal;
     font-size: 0.7em;
   }
@@ -2017,7 +2017,7 @@ export default {
   }
 }
 @media only screen and (max-width: 1200px) {
-  .Row_Tracks.Row_Cg .Row_Content {
+  .Row_Tracks:not(.Row_IgnoreSmall).Row_Cg .Row_Content {
     white-space: normal;
     font-size: 0.7em;
   }

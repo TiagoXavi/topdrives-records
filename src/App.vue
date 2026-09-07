@@ -3,7 +3,8 @@
     :class="{
       Main_isMobile: isMobile,
       Main_isDesktop: !isMobile,
-      Main_DisableBlur: $store.state.enableBlurEffect === false
+      Main_DisableBlur: $store.state.enableBlurEffect === false,
+      [`RootC_${$route.name}`]: true
     }"
     class="App_Layout">
     <BaseTopMenu :user="user" />

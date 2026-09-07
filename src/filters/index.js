@@ -4,6 +4,7 @@ import tracksRepo from '../database/tracks_repo.json';
 import tracksPerc from '../database/tracks_perc.json';
 import rn_to_rid from '../database/rn_to_rid.json';
 import rn_to_track from '../database/rn_to_track.json';
+import R_TrackWeights from '../compilations/R_TrackWeights.json';
 import Vue from 'vue';
 
 const classes = ["F","E","D","C","B","A","S"];
@@ -79,7 +80,7 @@ const statsParse = { topSpeed: 0, acel: 1, hand: 2 };
 const cacheCars = Vue.observable({});
 const timesCache = Vue.observable({});
 const statsCache = Vue.observable({});
-const R_Medals = Vue.observable({});
+const R_Medals = {};
 const unreleased = Vue.observable([]);
 const utils = Vue.observable({
     loading: false,
@@ -1787,6 +1788,47 @@ export default {
             utils.R_MedalsOldLoaded = true;
           }
         };
+        // R_Medals.json stores every track as its rn_to_track index (it is a lot
+        // smaller than the names), so turn them back into track names on arrival.
+        // Idempotent: a value that is already a name is left alone.
+        const R_MedalsNonNicheKeys = ["tunes", "total", "totalTrackKing", "clubsReqs", "garage", "championships", "result"];
+        function rMedalTrackName(trackRn) {
+          return rn_to_track[trackRn] !== undefined ? rn_to_track[trackRn] : trackRn;
+        }
+        function rMedalTracksToNames(item) {
+          if (!item) return item;
+
+          Object.keys(item).map(NC => {
+            if (R_MedalsNonNicheKeys.includes(NC)) return;
+            Object.keys(item[NC]).map(CAT => {
+              if (CAT === "trackKing") { // [ count, { trackRn: count } ]
+                const byName = {};
+                Object.keys(item[NC][CAT][1]).map(trackRn => {
+                  byName[rMedalTrackName(trackRn)] = item[NC][CAT][1][trackRn];
+                });
+                item[NC][CAT][1] = byName;
+                return;
+              }
+              item[NC][CAT][1].map(t_Item => { // [ [ trackRn, value ] ]
+                t_Item[0] = rMedalTrackName(t_Item[0]);
+              });
+            });
+          });
+
+          if (item.result && item.result.tracks) {
+            item.result.tracks.map(t_Item => {
+              t_Item[2] = R_TrackWeights[t_Item[0]] || 0;
+              t_Item[0] = rMedalTrackName(t_Item[0]);
+              if (item.Global?.trackKing?.[1]?.[t_Item[0]]) t_Item[3] = item.Global.trackKing[1][t_Item[0]];
+            });
+
+            
+
+          }
+
+          return item;
+        }
+
         Vue.getRMedals = function (rids, rns = [], callBack, errorCallBack) {
 
           if (rids) rids.map(rid => {
@@ -1808,7 +1850,7 @@ export default {
 
             if (res.data) {
               Object.keys(res.data).map(rn => {
-                R_Medals[rn] = res.data[rn];
+                R_Medals[rn] = Object.freeze(rMedalTracksToNames(res.data[rn]));
               });
             }
 
