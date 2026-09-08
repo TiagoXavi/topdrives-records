@@ -478,6 +478,7 @@ export default {
 
     if (this.$refs.mainCarsFiltRef) {
       this.$refs.mainCarsFiltRef.searchFilters.tunes = this.$refs.mainCarsFiltRef.searchFilters.tunes.filter(x => x !== "Best");
+      this.syncFilterDialog();
     }
 
     this.prepareCars();
@@ -798,6 +799,14 @@ export default {
           console.error("Failed to parse local storage MainCars:", e);
         }
       }
+    },
+
+    // the filter restored from local storage lives in _Mcars.filter; push it into the
+    // dialog so its chips/sliders match what is applied (deep copy: the dialog edits it)
+    syncFilterDialog() {
+      if (!this.$refs.mainCarsFiltRef) return;
+      if (Object.keys(this._Mcars.filter || {}).length === 0) return;
+      this.$refs.mainCarsFiltRef.importFilter(JSON.parse(JSON.stringify(this._Mcars.filter)), false);
     },
 
     clearFilterRes(filter) {

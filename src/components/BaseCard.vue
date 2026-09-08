@@ -24,7 +24,7 @@
         <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(resolveCar.tyres || "?").toLowerCase()}`) || "-" }}</span>
         <span class="Car_HeaderBlockTiresLabel"> {{ $tc("c_tyre", 2) }}</span>
       </div>
-      <div :class="`Car_NumberStars${fTune}`" class="Car_HeaderBlockStars">
+      <div :class="[`Car_NumberStars${fTune}`, fTuneStarsClass]" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
       </div>
       <template v-if="cgOppo">
@@ -255,6 +255,9 @@ export default {
     },
     fTune() {
       return this.selectedTune || "";
+    },
+    fTuneStarsClass() {
+      return Vue.resolveTuneStarsClass(this.fTune);
     }
   },
   methods: {

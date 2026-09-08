@@ -56,6 +56,29 @@ function resolveClass(rq, classe, type, rgb = false) {
     if (type === "color" && !rgb) return classesColors[resultClass];
     if (type === "color" && rgb) return classesColorsRgb[resultClass];
 }
+// A full tune has 24 upgrades (max): 332/323/233 in 323 notation, 996/969/699 in 969 notation.
+// More than 33% of them shows 1 star, more than 66% shows 2 stars, only a full tune shows 3.
+const TUNE_MAX_UPGRADES = 24;
+
+function resolveTuneStars(tune) {
+    if (typeof tune !== 'string') return 0;
+    // strips the old car version prefix ("v12") so it is not read as tune digits
+    let match = tune.replace(/^v\d\d/, '').match(/\d{3}/);
+    if (!match) return 0;
+
+    let digits = match[0];
+    // in 969 notation each digit already counts the upgrades, in 323 notation each digit is worth 3
+    let is969 = digits === "333" || /[4-9]/.test(digits);
+    let upgrades = digits.tuneSum() * (is969 ? 1 : 3);
+
+    if (upgrades >= TUNE_MAX_UPGRADES) return 3;
+    if (upgrades > TUNE_MAX_UPGRADES * 0.66) return 2;
+    if (upgrades > TUNE_MAX_UPGRADES * 0.33) return 1;
+    return 0;
+}
+function resolveTuneStarsClass(tune) {
+    return `Car_Stars${resolveTuneStars(tune)}`;
+}
 function carPhoto(car) {
     // try {
         if (typeof car === "object") {
@@ -774,6 +797,8 @@ export default {
         Vue.tracks_perc = tracksPerc;
         Vue.debounce = debounce;
         Vue.resolveClass = resolveClass;
+        Vue.resolveTuneStars = resolveTuneStars;
+        Vue.resolveTuneStarsClass = resolveTuneStarsClass;
         Vue.garageByRid = garageByRid;
         Vue.garageByHid = garageByHid;
         Vue.garageListUpgraded = garageListUpgraded;
@@ -1934,6 +1959,7 @@ export default {
         Vue.filter('toTimeNumber', Vue.toTimeNumber);
         Vue.filter('clearNumber', Vue.clearNumber);
         Vue.filter('resolveClass', Vue.resolveClass);
+        Vue.filter('resolveTuneStarsClass', Vue.resolveTuneStarsClass);
         Vue.filter('resolveStat', Vue.resolveStat);
         Vue.filter('boldTunes', Vue.boldTunes);
         Vue.filter('convertTires', Vue.convertTires);

@@ -5408,16 +5408,14 @@ a:visited:not(.D_Button) {
 /* .Car_NumberStars :nth-child(3) {
   opacity: 0.2;
 } */
-.Car_NumberStars .Car_Star,
-.Car_NumberStarsundefined .Car_Star,
-.Car_NumberStars000 .Car_Star {
+/* star count comes from Vue.resolveTuneStarsClass (src/filters/index.js) */
+.Car_Stars0 .Car_Star {
   opacity: 0.2;
 }
-.Car_HeaderBlockStars[class*='111'] .Car_Star:not(:nth-child(1)) {
+.Car_Stars1 .Car_Star:not(:nth-child(1)) {
   opacity: 0.2;
 }
-.Car_HeaderBlockStars:not([class*='111']):not([class*='332']):not([class*='323']):not([class*='233']) .Car_Star:nth-child(3),
-.Car_HeaderBlockStars.Car_NumberStarsOther .Car_Star:nth-child(3) {
+.Car_Stars2 .Car_Star:nth-child(3) {
   opacity: 0.2;
 }
 .Car_AddHeader {

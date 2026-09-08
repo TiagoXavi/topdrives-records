@@ -1493,18 +1493,7 @@ export default {
       }
 
       if (mutation.type == vm.importFilterName) {
-        vm.clearFilter();
-        vm.searchFilters = {
-          ...vm.searchFilters,
-          ...mutation.payload.filter
-        };
-        vm.searchStr = "";
-        if (mutation.payload.filter.year2Model || mutation.payload.filter.seats2Model) {
-          this.initSecretYear(true);
-        }
-        setTimeout(() => {
-          vm.applyFilter();
-        }, 101);
+        vm.importFilter(mutation.payload.filter);
       }
 
       if (mutation.type == vm.refName) {
@@ -2671,6 +2660,28 @@ export default {
       }, 800);
 
     },
+    // loads an external filter (already in searchFilters shape, keys with the "Model"
+    // suffix) into the dialog, so the UI reflects what is currently applied outside.
+    // apply = false when the caller already has the filter applied and only wants the sync.
+    importFilter(filter, apply = true) {
+      this.clearFilter();
+      this.searchFilters = {
+        ...this.searchFilters,
+        ...filter
+      };
+      this.searchStr = "";
+      if (filter.year2Model || filter.seats2Model) {
+        this.initSecretYear(true);
+      }
+      this.multi = this.searchFilters.tags2Model.length > 0 || this.searchFilters.tags3Model.length > 0;
+      if (apply) {
+        setTimeout(() => {
+          this.applyFilter();
+        }, 101);
+      } else {
+        this.clearFilterObj = this.resolveFilterCount();
+      }
+    },
     cgResetFilterForAdd() {
       this.searchInput = '';
       this.searchFilters = JSON.parse(JSON.stringify(this.searchFilters));
@@ -2863,7 +2874,7 @@ export default {
         // 3 => 0 ou 1
         // 0 => 0
         // 1 => 0
-        let fuses = Math.floor( (Number(str) - 1) / 3);
+        let fuses = Math.floor( Math.max(0, Number(str) - 1) / 3);
         if (car.minors && car.minors[ix] === "0") fuses++;
         num += fuses;
       })
