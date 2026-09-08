@@ -2,6 +2,7 @@
 node_modules
 /dist
 /dist2
+/context_for_ai
 matchmake/
 hutch/
 */imgs

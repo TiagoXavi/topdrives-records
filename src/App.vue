@@ -327,10 +327,10 @@
             :class="{
               D_Button_Loading: $store.state.confirmDialog.loading,
               Main_SaveAllButton: $store.state.confirmDialog.actionColor === 'green',
-              D_Button_Error: $store.state.confirmDialog.actionColor === 'red'
+              D_ButtonRed: $store.state.confirmDialog.actionColor === 'red'
             }"
             :disabled="$store.state.confirmDialog.disabled"
-            class="D_Button"
+            class="D_Button D_ButtonDark3"
             @click="$store.state.confirmDialog.action">{{ $store.state.confirmDialog.actionLabel }}</button>
         </div>
       </div>

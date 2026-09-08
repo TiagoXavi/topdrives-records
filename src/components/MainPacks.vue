@@ -8,19 +8,114 @@
             v-model="packModel"
             :value="item" 
             :label="item.name"
-            :disabled="running"
+            :disabled="running || editing"
             :style="`--cor: ${item.color}`"
             required="true"
             class="BaseChip_MinWidth BaseChip_DontCrop MainPacks_ChipPack" />
         </template>
-        <button class="BaseChip BaseChip_MinWidth BaseChip_DontCrop MainPacks_ChipMore" @click="otherPacksDialog = true;">
+        <button
+          :disabled="editing"
+          class="BaseChip BaseChip_MinWidth BaseChip_DontCrop MainPacks_ChipMore"
+          @click="otherPacksDialog = true;">
           <i class="ticon-plus_2 MainPacks_ChipMoreIcon" aria-hidden="true"/>
         </button>
       </div>
     </div>
-    <div v-if="packModel && packModel.name" class="MainPacks_PacksOdsBox">
+
+    <BaseExpandDiv :active="editing">
+      <div class="MainPacks_Editor">
+        <div class="MainPacks_EditorHead">
+          <BaseText
+            v-model="packEditor.name"
+            :label="$t('c_name')"
+            :instantModel="true"
+            type="normal"
+            class="BaseText_Big MainPacks_EditorName"
+            placeholder="" />
+        </div>
+
+        <div class="MainPacks_EditorColors">
+          <div class="MainPacks_EditorColorsBox">
+            <button
+              v-for="pal in packPalettes"
+              :key="pal.key"
+              :class="{ MainPacks_EditorColorActive: packEditor.paletteKey === pal.key }"
+              :style="`--b1: ${pal.packColor.gBackground1}; --b2: ${pal.packColor.gBackground2}; --g1: ${pal.packColor.gStrip1}; --g2: ${pal.packColor.gStrip2}`"
+              class="D_Button MainPacks_EditorColor"
+              @click="packEditor.paletteKey = pal.key" />
+          </div>
+        </div>
+
+        <div class="MainPacks_EditorGrid">
+          <div class="MainPacks_EditorRow">
+            <div class="MainPacks_EditorNum" />
+            <div
+              v-for="cls in classOrder"
+              :key="cls"
+              :style="`--cor: ${classes[cls]}`"
+              class="MainPacks_EditorCls">{{ cls }}</div>
+            <div class="MainPacks_EditorSum">%</div>
+            <div class="MainPacks_EditorCheck">{{ $tc('m_filter', 1) }}</div>
+            <div class="MainPacks_EditorDel" />
+          </div>
+          <div v-for="(card, icard) in packEditor.cards" :key="`card${icard}`" class="MainPacks_EditorRow">
+            <div class="MainPacks_EditorNum">{{ icard + 1 }}</div>
+            <input
+              v-for="(cls, iclass) in classOrder"
+              :key="cls"
+              :value="card[cls]"
+              inputmode="decimal"
+              autocomplete="off"
+              class="MainPacks_RateInput"
+              @focus="$event.target.select()"
+              @input="rateInput(icard, cls, $event)"
+              @change="rateCommit(icard, cls)">
+            <div
+              :class="cardTotal(card) === 100 ? 'MainPacks_EditorSumOk' : 'MainPacks_EditorSumBad'"
+              class="MainPacks_EditorSum">{{ cardTotal(card) }}</div>
+            <BaseCheckBox
+              class="MainPacks_EditorCheckBox D_Center"
+              :value="packEditor.cardsCriteria[icard]"
+              @change="toggleEditorCheck(icard)"
+            />
+            <button
+              :disabled="packEditor.cards.length < 2"
+              class="D_Button MainPacks_EditorDel"
+              @click="removeEditorCard(icard)">
+              <i class="ticon-minus_2" aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
+
+        <button
+          class="D_Button D_ButtonDark D_ButtonDark2"
+          @click="addEditorCard()">
+          <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+          <span>{{ $t("m_card") }}</span>
+        </button>
+
+        <div class="MainPacks_EditorButtons">
+          <div class="MainPacks_EditorButtonsRight">
+            <button
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="closeEditor()">{{ $t("m_cancel") }}</button>
+            <button
+              class="D_Button D_ButtonDark D_ButtonDarkSave"
+              @click="saveEditorPack()">{{ $t("m_save") }}</button>
+          </div>
+        </div>
+
+        <button
+          v-if="packEditor.id"
+          class="D_Button D_ButtonDark D_ButtonRedLight"
+          @click="deleteEditorPack()">{{ $t("m_delete") }}</button>
+
+      </div>
+    </BaseExpandDiv>
+
+    <div v-if="packModel && packModel.name && !editing" class="MainPacks_PacksOdsBox">
       <div class="MainPacks_CustomizePackLayout">
-        <div class="MainPacks_CustomizePackBox" :class="`BasePackSvg_C_${packModel.packColor.name.replaceAll(' ', '_')}`" :style="`--cor: ${packModel.packColor.gStrip1}`">
+        <div class="MainPacks_CustomizePackBox" :class="packSvgClass" :style="`--cor: ${packModel.packColor.gStrip1}`">
           <button
             class="D_Button MainPacks_CustomizeButton"
             :disabled="running"
@@ -38,7 +133,15 @@
               @descResolved="packFilterDescResolved = $event;" />
           </button>
         </div>
-        
+        <div v-if="packModel.custom" class="MainPacks_CustomBar">
+          <button
+            :disabled="running"
+            class="D_Button D_ButtonDark D_ButtonDark2"
+            @click="openEditor(packModel)">
+            <i class="ticon-pencil D_ButtonIcon" aria-hidden="true"/>
+            <span>{{ $t("m_edit") }}</span>
+          </button>
+        </div>
       </div>
 
       <div v-if="ratesCompact" class="" @click="ratesCompact = !ratesCompact">
@@ -66,7 +169,7 @@
       </div>
     </div>
 
-    <div v-if="packModel && packModel.name" class="MainPacks_GoalLayout Space_TopPlus">
+    <div v-if="packModel && packModel.name && !editing" class="MainPacks_GoalLayout Space_TopPlus">
       <div class="MainPacks_ChipBox">
         <div class="Main_FilterChipsFlex">
           <template v-for="(item, ix) in goalList">
@@ -83,7 +186,7 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel === 'noGoal'" class="MainPacks_NumOpenLayout Space_TopPlus MainPacks_Center">
+    <div v-if="!editing && goalModel && goalModel === 'noGoal'" class="MainPacks_NumOpenLayout Space_TopPlus MainPacks_Center">
       <BaseText
         v-model="numberOfOpensNoGoal"
         type="integer"
@@ -97,7 +200,7 @@
     </div>
 
 
-    <template v-if="goalModel && goalModel === 'specificCar'">
+    <template v-if="!editing && goalModel && goalModel === 'specificCar'">
 
       <BaseCarList
         :list="carDetailsList"
@@ -108,12 +211,24 @@
 
     </template>
 
-    <div v-if="goalModel && goalModel === 'specificCar' && carDetailsList.length > 1" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
+    <div v-if="!editing && goalModel && goalModel === 'specificCar' && carDetailsList.length > 1" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
       <BaseSwitch v-model="simulateUntilGetOne" :label="$t('m_simulateUntilGetOne')" :horizontal="true" :disabled="running" />
       <BaseSwitch v-model="simulateUntilGetAll" :label="$t('m_simulateUntilGetAll')" :horizontal="true" :disabled="running" />
     </div>
 
-    <div v-if="goalModel && goalModel === 'specificAttr'" class="MainPacks_FilterBox">
+    <div v-if="!editing && goalModel === 'notOwned'" class="MainPacks_GarageBox MainPacks_Center">
+      <button
+        v-if="!garageReady"
+        :class="{ D_Button_Loading: Vue.garageObj.loading }"
+        class="D_Button D_ButtonDark D_ButtonTier4"
+        @click="loadMyGarage()"><i class="ticon-car D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_myGarage") }}</button>
+      <div v-else class="MainPacks_GarageLoaded">
+        <i class="ticon-correct_2 D_ButtonIcon" aria-hidden="true"/>
+        <span>{{ $t("m_myGarage") }}</span>
+      </div>
+    </div>
+
+    <div v-if="!editing && isAttrGoal" class="MainPacks_FilterBox">
       <div class="MainPacks_ChartFilter Main_DarkScroll">
         <template v-if="chartFilter">
           <div class="Cg_Reqs">
@@ -128,7 +243,7 @@
       </div>
     </div>
 
-    <div v-if="goalModel && goalModel === 'specificAttr'" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
+    <div v-if="!editing && isAttrGoal" class="MainPacks_SwitchBox MainPacks_Center Space_TopPlus" style="flex-direction: column;">
       <BaseText
         v-model="numberOfMatchesNeededAttr"
         type="integer"
@@ -149,7 +264,7 @@
         @click="run()">{{ $t("m_simulate") }}</button>
     </div>
 
-    <div v-if="showResult" class="MainPacks_Result MainPacks_Center" style="margin-top: 50px;">
+    <div v-if="showResult && !editing" class="MainPacks_Result MainPacks_Center" style="margin-top: 50px;">
       <div class="MainPacks_ResultCounts">
         <div :class="{ MainPacks_CardLineStoped: !running }" class="MainPacks_CardLine MainPacks_ResultLine" style="justify-content: center;">
           <div><button class="D_Button D_ButtonDark MainPacks_Card" :style="`--cor: ${classes.S}; min-width: 3.5em;`" :disabled="viewingClass === 'S' || simulateRunStats.S === 0" @click="seeCars('S')"><div>S</div><div>{{ simulateRunStats.S }}</div></button><button v-if="viewingClass === 'S'" class="D_Button D_ButtonDark MainPacks_CloseClass" @click="closeClass()"><i class="ticon-close" aria-hidden="true"/></button></div>
@@ -185,7 +300,7 @@
       </div>
     </div>
 
-    <div v-if="showResult" class="MainPacks_SpecificCar Space_TopPlus">
+    <div v-if="showResult && !editing" class="MainPacks_SpecificCar Space_TopPlus">
       <div class="MainPacks_CarsList" :class="{ MainPacks_CarsListEmpty: (showDefaultResultList && defaultResultList.length === 0) || ((!showingDroppedCars && !showDefaultResultList) && simulateRunStats.matched.length === 0) }">
 
         <template v-for="car in (showDefaultResultList ? defaultResultList : (showingDroppedCars ? listDroppedCars : simulateRunStats.matched) )">
@@ -255,6 +370,18 @@
       class="Cg_SelectorDialog"
       @close="otherPacksDialog = false">
       <div style="Cg_SelectorDialogBox">
+        <div class="Cg_SelectorDialogHeader">
+          <div class="Cg_SelectorDialogTitle Main_DialogTitle">{{ $t("m_packs") }}</div>
+          <div class="Cg_SelectorDialogRight">
+            <button
+              :disabled="running"
+              class="D_Button D_ButtonDark D_ButtonDark2"
+              @click="newCustomPack()">
+              <i class="ticon-plus_2 D_ButtonIcon" aria-hidden="true"/>
+              <span>{{ $t("m_new") }}</span>
+            </button>
+          </div>
+        </div>
         <div class="Main_SearchMid Cg_SelectorDialogMid" style="padding-top: 7px;">
           <template v-for="(item, ix) in otherPackTypes">
             <button
@@ -264,6 +391,18 @@
               @click="packModel = item; otherPacksDialog = false;">
               <div class="Main_SearchItemRight">{{ item.name }}</div>
             </button>
+          </template>
+          <template v-if="customPackTypes.length > 0">
+            <div class="MainPacks_OtherPackDivider">{{ $t("m_customPacks") }}</div>
+            <template v-for="(item, ix) in customPackTypes">
+              <button
+                style="padding-left: 15px;"
+                class="Main_SearchItem MainPacks_OtherPackItem"
+                :style="`--cor: ${item.color}`"
+                @click="packModel = item; otherPacksDialog = false;">
+                <div class="Main_SearchItemRight">{{ item.name }}</div>
+              </button>
+            </template>
           </template>
         </div>
       </div>
@@ -281,6 +420,8 @@ import BaseText from './BaseText.vue'
 import BaseDialog from './BaseDialog.vue'
 import BasePackSvg from './BasePackSvg.vue'
 import BaseCarList from './BaseCarList.vue'
+import BaseExpandDiv from './BaseExpandDiv.vue'
+import BaseCheckBox from './BaseCheckBox.vue'
 import all_cars from '../database/cars_final.json';
 import { tdrStore } from '@/tdrStore.js';
 
@@ -295,7 +436,9 @@ export default {
     BaseText,
     BaseDialog,
     BasePackSvg,
-    BaseCarList
+    BaseCarList,
+    BaseExpandDiv,
+    BaseCheckBox
   },
   props: {
     test: {
@@ -313,6 +456,7 @@ export default {
         {
           name: "Carbon Fiber",
           color: Vue.resolveClass(10, "B", "color", true),
+          cardsCriteria: [1, 1, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -342,6 +486,7 @@ export default {
         {
           name: "Ceramic",
           color: Vue.resolveClass(10, "C", "color", true),
+          cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -380,6 +525,7 @@ export default {
         {
           name: "Aluminium",
           color: Vue.resolveClass(10, "D", "color", true),
+          cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -409,6 +555,7 @@ export default {
         {
           name: "Steel",
           color: Vue.resolveClass(10, "E", "color", true),
+          cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -438,6 +585,7 @@ export default {
         {
           name: "Plastic",
           color: Vue.resolveClass(10, "F", "color", true),
+          cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -470,6 +618,7 @@ export default {
         {
           name: "Black Diamond",
           color: Vue.resolveClass(10, "S", "color", true),
+          cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
             gBackground1: "#1e1e1e",
@@ -491,6 +640,7 @@ export default {
         {
           name: "Diamond",
           color: Vue.resolveClass(10, "S", "color", true),
+          cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
             gBackground1: "#1e1e1e",
@@ -512,6 +662,7 @@ export default {
         {
           name: "Sapphire",
           color: Vue.resolveClass(10, "A", "color", true),
+          cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
             gBackground1: "#1e1e1e",
@@ -533,6 +684,7 @@ export default {
         {
           name: "Titanium",
           color: Vue.resolveClass(10, "A", "color", true),
+          cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -555,6 +707,7 @@ export default {
         {
           name: "Platinum",
           color: Vue.resolveClass(10, "B", "color", true),
+          cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -577,6 +730,7 @@ export default {
         {
           name: "Super Carbon",
           color: Vue.resolveClass(10, "B", "color", true),
+          cardsCriteria: [1, 1, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -599,6 +753,7 @@ export default {
         {
           name: "Premium Lite",
           color: Vue.resolveClass(10, "C", "color", true),
+          cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -621,6 +776,7 @@ export default {
         {
           name: "Racing Pack (Daily Objectives)",
           color: Vue.resolveClass(10, "D", "color", true),
+          cardsCriteria: [1],
           packColor: {
             background: "#212121",
             bottomStrip: "#890a0a",
@@ -646,11 +802,22 @@ export default {
         E: Vue.resolveClass(10, "E", "color"),
         F: Vue.resolveClass(10, "F", "color"),
       },
+      classOrder: ["S", "A", "B", "C", "D", "E", "F"],
+      customPackTypes: [],
+      packEditor: {
+        active: false,
+        id: null,
+        name: "",
+        paletteKey: null,
+        cards: [],
+        cardsCriteria: [],
+      },
       goalModel: null,
       goalList: [
         "noGoal",
         "specificCar",
-        "specificAttr"
+        "specificAttr",
+        "notOwned"
       ],
       ratesCompact: true,
       filterDialog: false,
@@ -743,10 +910,16 @@ export default {
       all_cars,
       tuneDialogCar: {},
       otherPacksDialog: false,
-      carsFilter: {}
+      carsFilter: {},
+      packFilterContext: null,
+      attrFilterContext: null
     }
   },
-  watch: {},
+  watch: {
+    'T_S._user'() {
+      Vue.tryLoadGarageFromStorage();
+    }
+  },
   beforeMount() {
 
     if (import.meta.env.DEV) {
@@ -795,6 +968,10 @@ export default {
     
   },
   mounted() {
+    this.loadCustomPacks();
+
+    Vue.tryLoadGarageFromStorage();
+
     if (this.$route.params && this.$route.params.filter) {
       let filterCopy = JSON.parse(JSON.stringify(this.$route.params.filter));
       // filterCopy.prizesModel = ["Non-Prize Cars"];
@@ -827,11 +1004,57 @@ export default {
         this.simulateUntilGetAll = !newValue;
       },
     },
+    editing() {
+      return this.packEditor.active;
+    },
+    garageReady() {
+      return !!(this.T_S._user && this.T_S._user.hasGarage && Vue.garageObj.loaded);
+    },
+    // both goals share the requirement filter box and the quantity input
+    isAttrGoal() {
+      return this.goalModel === 'specificAttr' || this.goalModel === 'notOwned';
+    },
+    // every distinct color combination already used by a default pack, so a custom
+    // pack can only ever be painted with a color the game itself uses
+    packPalettes() {
+      let list = [];
+      let seen = {};
+      [...this.packTypes, ...this.otherPackTypes].map(pack => {
+        let c = pack.packColor;
+        let key = `${c.gBackground1}_${c.gBackground2}_${c.gStrip1}_${c.gStrip2}`;
+        if (seen[key]) return;
+        seen[key] = true;
+        list.push({
+          key,
+          label: pack.name,
+          color: pack.color,
+          svgClass: `BasePackSvg_C_${c.name.replaceAll(' ', '_')}`,
+          packColor: {
+            background: c.background,
+            bottomStrip: c.bottomStrip,
+            gBackground1: c.gBackground1,
+            gBackground2: c.gBackground2,
+            gStrip1: c.gStrip1,
+            gStrip2: c.gStrip2
+          }
+        });
+      })
+      return list;
+    },
+    packSvgClass() {
+      if (!this.packModel || !this.packModel.packColor) return '';
+      if (this.packModel.svgClass) return this.packModel.svgClass;
+      return `BasePackSvg_C_${this.packModel.packColor.name.replaceAll(' ', '_')}`;
+    },
     ready() {
+      if (this.packEditor.active) return false;
       if (!this.packModel) return false;
       if (!this.goalModel) return false;
       if (this.goalModel === 'specificCar') {
         if (this.carDetailsList.length === 0) return false;
+      }
+      if (this.goalModel === 'notOwned') {
+        if (!this.garageReady) return false;
       }
       return true;
     },
@@ -916,7 +1139,7 @@ export default {
     },
     currentPackCards() {
       if (!this.packModel || !this.packModel.name) return [];
-      
+      if (this.packModel.custom) return this.packModel.cards;
 
       if (this.packModel.name === "Carbon Fiber" || this.packModel.name === "Ceramic") {
         if (this.isNoLeggyPack) {
@@ -928,6 +1151,258 @@ export default {
     }
   },
   methods: {
+    loadMyGarage() {
+      if (!this.T_S._user || !this.T_S._user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+      if (Vue.garageObj.loaded) return;
+      Vue.loadGarage({ username: this.T_S._user.username });
+    },
+    noGarageUploaded() {
+      let vm = this;
+
+      let action = function() {
+        vm.$router.push({ name: "BaseMyGarage" });
+        vm.$store.commit("DEFINE_DIALOG", {
+          active: false
+        });
+      }
+
+      vm.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: vm.$t('p_youNeedGarage'),
+        actionLabel: vm.$t('m_uploadMyGarage'),
+        cancelLabel: vm.$t('m_cancel'),
+        actionColor: "green",
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        action: action,
+        loading: false,
+        maxWidth: "420px"
+      });
+    },
+    isNewCar(car) {
+      return !Vue.garageByRid[car.rid] || Vue.garageByRid[car.rid].length === 0;
+    },
+    loadCustomPacks() {
+      let stored = window.localStorage.getItem("packsCustom");
+      if (!stored) return;
+      try {
+        let parsed = JSON.parse(stored);
+        if (parsed instanceof Array) {
+          this.customPackTypes = parsed.filter(x => x && x.packColor && x.cards && x.cards.length > 0);
+        }
+      } catch (error) {
+        console.log("Error parsing packsCustom from localStorage:", error);
+      }
+    },
+    persistCustomPacks() {
+      window.localStorage.setItem("packsCustom", JSON.stringify(this.customPackTypes));
+    },
+    newCustomPack() {
+      this.otherPacksDialog = false;
+      this.openEditor(null);
+    },
+    openEditor(pack) {
+      if (this.running) return;
+      this.showResult = false;
+      this.packEditor.id = pack ? pack.id : null;
+      this.packEditor.name = pack ? pack.name : "";
+      let palette = pack ? this.packPalettes.find(x => x.key === pack.paletteKey) : null;
+      this.packEditor.paletteKey = palette ? palette.key : this.packPalettes[0].key;
+      this.packEditor.cards = pack ? pack.cards.map(card => this.cardToRaw(card)) : [this.emptyRawCard()];
+      this.packEditor.cardsCriteria = pack ? (pack.cardsCriteria || [1]) : [1];
+      this.packEditor.active = true;
+    },
+    closeEditor() {
+      this.packEditor.active = false;
+    },
+    emptyRawCard() {
+      let raw = {};
+      this.classOrder.map(cls => {
+        raw[cls] = "";
+      })
+      return raw;
+    },
+    cardToRaw(card) {
+      let raw = this.emptyRawCard();
+      Object.keys(card).map(cls => {
+        if (raw[cls] === undefined) return;
+        raw[cls] = this.formatRate(card[cls]);
+      })
+      return raw;
+    },
+    parseRate(value) {
+      if (value === null || value === undefined) return null;
+      let clean = String(value).trim().replace(",", ".");
+      if (clean === "" || clean === ".") return null;
+      let num = Number(clean);
+      if (isNaN(num)) return null;
+      if (num < 0) num = 0;
+      if (num > 100) num = 100;
+      return Math.round(num * 100) / 100;
+    },
+    formatRate(num) {
+      if (num === null || num === undefined) return "";
+      return String(Math.round(num * 100) / 100);
+    },
+    cardTotal(card) {
+      let total = 0;
+      this.classOrder.map(cls => {
+        let num = this.parseRate(card[cls]);
+        if (num !== null) total += num;
+      })
+      return Math.round(total * 100) / 100;
+    },
+    // only sanitizes while typing, so nothing jumps around under the user
+    rateInput(icard, cls, event) {
+      let clean = String(event.target.value).replace(",", ".").replace(/[^0-9.]/g, "");
+      let parts = clean.split(".");
+      if (parts.length > 2) {
+        clean = `${parts.shift()}.${parts.join("")}`;
+      }
+      if (clean.includes(".")) {
+        let dot = clean.split(".");
+        clean = `${dot[0].slice(0, 3)}.${dot[1].slice(0, 2)}`;
+      } else {
+        clean = clean.slice(0, 3);
+      }
+      if (clean !== event.target.value) {
+        event.target.value = clean;
+      }
+      this.packEditor.cards[icard][cls] = clean;
+    },
+    // runs on blur/enter only, so nothing moves while the user is still typing
+    rateCommit(icard, cls) {
+      this.balanceCard(this.packEditor.cards[icard], cls);
+    },
+    // only one field ever moves: the last filled class placed after the edited one.
+    // if nothing after it is filled, nothing adapts.
+    balanceCard(card, lockedKey) {
+      card[lockedKey] = this.formatRate(this.parseRate(card[lockedKey]));
+
+      let lockedIx = this.classOrder.indexOf(lockedKey);
+      let targetKey = null;
+      this.classOrder.map((cls, ix) => {
+        if (ix <= lockedIx) return;
+        if (this.parseRate(card[cls]) === null) return;
+        targetKey = cls;
+      })
+      if (!targetKey) return;
+
+      let rest = 0;
+      this.classOrder.map(cls => {
+        if (cls === targetKey) return;
+        let num = this.parseRate(card[cls]);
+        if (num !== null) rest += num;
+      })
+
+      let value = Math.round((100 - rest) * 100) / 100;
+      if (value < 0) value = 0;
+      card[targetKey] = this.formatRate(value);
+    },
+    addEditorCard() {
+      this.packEditor.cards.push(this.emptyRawCard());
+      this.packEditor.cardsCriteria.push(0);
+    },
+    removeEditorCard(icard) {
+      if (this.packEditor.cards.length < 2) return;
+      this.packEditor.cards.splice(icard, 1);
+      this.packEditor.cardsCriteria.splice(icard, 1);
+    },
+    saveEditorPack() {
+      let name = this.packEditor.name ? String(this.packEditor.name).trim() : "";
+      if (!name) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: this.$t('m_packNeedName')
+        });
+        return;
+      }
+
+      let invalid = this.packEditor.cards.find(card => this.cardTotal(card) !== 100);
+      if (invalid) {
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: this.$t('m_packMustBe100')
+        });
+        return;
+      }
+
+      let palette = this.packPalettes.find(x => x.key === this.packEditor.paletteKey) || this.packPalettes[0];
+      let cards = this.packEditor.cards.map(card => {
+        let out = {};
+        this.classOrder.map(cls => {
+          let num = this.parseRate(card[cls]);
+          if (num !== null && num > 0) out[cls] = num;
+        })
+        return out;
+      })
+
+      let pack = {
+        custom: true,
+        id: this.packEditor.id || `c${Date.now()}${Math.round(Math.random() * 1000)}`,
+        name,
+        paletteKey: palette.key,
+        color: palette.color,
+        svgClass: palette.svgClass,
+        packColor: { ...palette.packColor, name: name.toUpperCase() },
+        cards,
+        cardsCriteria: this.packEditor.cardsCriteria.slice(),
+        priceCash: 0,
+        priceGold: 0
+      };
+
+      let ix = this.customPackTypes.findIndex(x => x.id === pack.id);
+      if (ix === -1) this.customPackTypes.push(pack);
+      else this.$set(this.customPackTypes, ix, pack);
+
+      this.persistCustomPacks();
+      this.packEditor.active = false;
+      this.packModel = pack;
+    },
+    deleteEditorPack() {
+      let vm = this;
+      let id = this.packEditor.id;
+      if (!id) return;
+
+      this.$store.commit("DEFINE_DIALOG", {
+        active: true,
+        title: this.$t('m_deletePack'),
+        actionLabel: this.$t('m_delete'),
+        cancelLabel: this.$t('m_cancel'),
+        actionColor: "red",
+        maxWidth: "420px",
+        minWidth: "240px",
+        error: false,
+        disabled: false,
+        loading: false,
+        action() {
+          vm.customPackTypes = vm.customPackTypes.filter(x => x.id !== id);
+          vm.persistCustomPacks();
+          if (vm.packModel && vm.packModel.id === id) {
+            vm.packModel = null;
+            vm.goalModel = null;
+            vm.showResult = false;
+          }
+          vm.packEditor.active = false;
+          vm.$store.commit("DEFINE_DIALOG", { active: false });
+          vm.$store.commit("DEFINE_SNACK", {
+            active: true,
+            correct: true,
+            text: vm.$t('m_deleteSuccess')
+          });
+        }
+      });
+    },
+    toggleEditorCheck(icard) {
+      let val = this.packEditor.cardsCriteria[icard] === 1 ? 0 : 1;
+      Vue.set(this.packEditor.cardsCriteria, icard, val);
+    },
     getLastest() {
       let vm = this;
       this.lastestLoading = true;
@@ -998,13 +1473,15 @@ export default {
     run() {
       // this.$store.commit("START_LOGROCKET", {});
       this.resetRun();
+      this.cacheFilterContexts();
       this.prepareAvailableCars();
       if (this.packFilterDescResolved.length > 0) this.prepareFreeCars();
       this.removeImpossibles();
-      if (!this.checkIfPackIsViable()) {
+      let viable = this.checkIfPackIsViable();
+      if (!viable) {
         return;
       }
-      if (this.checkIfPackIsViable() === "noS") {
+      if (viable === "noS") {
         // start again with isNoLeggyPack === true;
         this.resetRun();
         this.isNoLeggyPack = true;
@@ -1036,7 +1513,7 @@ export default {
         this.startOpening();
       }
 
-      if (this.goalModel === 'specificAttr') {
+      if (this.isAttrGoal) {
         this.finalLimit = this.limit;
         if (this.numberOfMatchesNeededAttr < 1) this.numberOfMatchesNeededAttr = 1;
         if (!this.prepareCarsIwantInAvailableCars()) {
@@ -1104,7 +1581,7 @@ export default {
         let last = this.openOne();
         this.updatedDropped(last);
 
-        if (this.goalModel === 'specificCar' || this.goalModel === 'specificAttr') {
+        if (this.goalModel === 'specificCar' || this.isAttrGoal) {
           last.map(l => {
             this.simulateRunStats.goalRidsOriginal.map(g => {
               if (l.rid === g) {
@@ -1130,6 +1607,12 @@ export default {
           }
           if (this.goalModel === 'specificAttr') {
             if (this.defaultResultList.reduce((accumulator, car) => accumulator + car.count, 0) >= this.numberOfMatchesNeededAttr) {
+              this.simulateRunStats.success = true;
+            }
+          }
+          // a repeat of a car already dropped is not a new car, so only distinct rids count
+          if (this.goalModel === 'notOwned') {
+            if (this.defaultResultList.length >= this.numberOfMatchesNeededAttr) {
               this.simulateRunStats.success = true;
             }
           }
@@ -1188,40 +1671,76 @@ export default {
       let rng = Math.round(Math.random() * (total - 1))
       return this.simulateRunStats[arrName][cls][rng].rid;
     },
+    // BaseFilterDialog rebuilds its filter context on every checkMatchFilter() call, and
+    // when a filter is untouched that rebuild runs resolveFilterCount() -- ~40 JSON.stringify
+    // comparisons -- per car. The context cannot change mid-run, so resolve it once here and
+    // hand it to every check as argFilter.
+    cacheFilterContexts() {
+      this.packFilterContext = this.$refs.packFilter.resolveFilterContext();
+      this.attrFilterContext = this.$refs.attrFilter.resolveFilterContext();
+    },
     prepareAvailableCars() {
+      // filled as plain arrays first: pushing straight into the observed ones would fire
+      // a reactivity notification per car. one assignment per class at the end instead.
+      let buckets = {};
       Object.keys(this.simulateRunStats.availableCars).map(key => {
-        this.simulateRunStats.availableCars[key] = this.all_cars.filter(car => car.class === key && this.matchFilter(car));
+        buckets[key] = [];
+      })
+      // one pass bucketed by class, instead of one full scan per class
+      this.all_cars.map(car => {
+        if (!buckets[car.class]) return;
+        if (!this.matchFilter(car)) return;
+        buckets[car.class].push(car);
+      })
+      Object.keys(buckets).map(key => {
+        this.simulateRunStats.availableCars[key] = buckets[key];
       })
     },
     prepareFreeCars() {
+      let buckets = {};
       Object.keys(this.simulateRunStats.freeCars).map(key => {
-        this.simulateRunStats.freeCars[key] = this.all_cars.filter(car => car.class === key && !car.prize);
+        buckets[key] = [];
+      })
+      this.all_cars.map(car => {
+        if (!buckets[car.class]) return;
+        if (car.prize) return;
+        buckets[car.class].push(car);
+      })
+      Object.keys(buckets).map(key => {
+        this.simulateRunStats.freeCars[key] = buckets[key];
       })
     },
     prepareCarsIwantInAvailableCars() {
       let sum = 0;
       let isViable = true;
-      let classes = [];
+      let classes = {};
       this.currentPackCards.map(x => {
         Object.keys(x).map(key => {
-          classes.push(key);
+          classes[key] = true;
         })
       })
-      classes = [...new Set(classes)];
 
-      console.log(this.all_cars.length);
-
+      let withAttr = {};
+      let withAttrFree = {};
       Object.keys(this.simulateRunStats.availableCarsAndAttr).map(key => {
-        if (!classes.includes(key)) return;
+        if (!classes[key]) return;
+        withAttr[key] = [];
+        withAttrFree[key] = [];
+      })
 
-        this.simulateRunStats.availableCarsAndAttr[key] = this.all_cars.filter(car => {
-          return car.class === key && this.matchFilter(car) && this.matchFilterAttr(car)
-        });
-        this.simulateRunStats.availableCarsAndAttrFree[key] = this.all_cars.filter(car => {
-          return car.class === key && this.matchFilterAttr(car)
-        });
-        sum += this.simulateRunStats.availableCarsAndAttr[key].length;
-        sum += this.simulateRunStats.availableCarsAndAttrFree[key].length;
+      // one pass: matchGoalCar decides both buckets, matchFilter only narrows the first one
+      this.all_cars.map(car => {
+        if (withAttr[car.class] === undefined) return;
+        if (!this.matchGoalCar(car)) return;
+        withAttrFree[car.class].push(car);
+        if (this.matchFilter(car)) withAttr[car.class].push(car);
+      })
+
+      Object.keys(withAttr).map(key => {
+        this.simulateRunStats.availableCarsAndAttr[key] = withAttr[key];
+        this.simulateRunStats.availableCarsAndAttrFree[key] = withAttrFree[key];
+        sum += withAttr[key].length;
+        sum += withAttrFree[key].length;
       })
 
       if (sum === 0) isViable = false;
@@ -1238,11 +1757,17 @@ export default {
 
     },
     matchFilter(car) {
-      if (!this.$refs.packFilter.checkMatchFilter(car)) return false;
+      if (this.packFilterDescResolved.length && !this.$refs.packFilter.checkMatchFilter(car, undefined, this.packFilterContext)) return false;
       if (!car.prize) return true;
     },
+    // the requirement filter, plus the garage check when the goal is "not owned"
+    matchGoalCar(car) {
+      if (!this.matchFilterAttr(car)) return false;
+      if (this.goalModel === 'notOwned' && !this.isNewCar(car)) return false;
+      return true;
+    },
     matchFilterAttr(car) {
-      if (!this.$refs.attrFilter.checkMatchFilter(car)) return false;
+      if (!this.$refs.attrFilter.checkMatchFilter(car, undefined, this.attrFilterContext)) return false;
       if (!car.prize) return true;
     },
     resetRun() {
@@ -1298,6 +1823,7 @@ export default {
       this.simulateRunStats.costGold = 0;
       this.simulateRunStats.probabilityPerOpen = 0;
       this.simulateRunStats.cumulativeProbability = 0;
+      this.simulateRunStats.probabilityNewCar = 0;
       this.simulateRunStats.luckScore = 0;
       this.simulateRunStats.notGarantedClasses = [];
       this.simulateRunStats.mainClasses = [];
@@ -1619,11 +2145,14 @@ export default {
     },
     isFromFree(icard) {
       if (this.packFilterDescResolved.length === 0) return false;
+      if (this.packModel.cardsCriteria && this.packModel.cardsCriteria[icard] !== undefined) {
+        return !this.packModel.cardsCriteria[icard];
+      }
       if (icard === 0) return false;
-      if (icard === 1 && this.packModel.name === "Carbon Fiber") return false;
-      if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Titanium") return false;
-      if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Platinum") return false;
-      if (icard === 1 && this.packModel.name === "Finals Super Carbon") return false;
+      // if (icard === 1 && this.packModel.name === "Carbon Fiber") return false;
+      // if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Titanium") return false;
+      // if ((icard === 1 || icard === 2) && this.packModel.name === "Finals Platinum") return false;
+      // if (icard === 1 && this.packModel.name === "Finals Super Carbon") return false;
       return true;
     },
     checkIfPackIsViable() {
@@ -1983,6 +2512,176 @@ export default {
 }
 .MainPacks_OtherPackItem {
   box-shadow: inset 4px 0px 0px 0px rgba(var(--cor), 0.8);
+}
+.MainPacks_GarageBox {
+  padding-top: 20px;
+}
+.MainPacks_GarageLoaded {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9em;
+  color: rgb(var(--d-text-green));
+  background-color: rgba(var(--d-text-green), 0.12);
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+.MainPacks_OtherPackDivider {
+  font-size: 0.7em;
+  opacity: 0.5;
+  padding: 12px 15px 4px 15px;
+}
+.MainPacks_CustomBar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.MainPacks_Editor {
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px auto 0 auto;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.MainPacks_EditorHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 15px;
+  width: 100%;
+  max-width: 350px;
+}
+.MainPacks_EditorName {
+  flex-grow: 1;
+  min-width: 130px;
+}
+.MainPacks_EditorColors {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.MainPacks_EditorColorsBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+}
+.D_Button.MainPacks_EditorColor {
+  --height: 26px;
+  width: 26px;
+  min-width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(160deg, var(--b1) 0%, var(--b2) 45%, var(--g1) 47%, var(--g2) 100%);
+}
+.D_Button.MainPacks_EditorColorActive {
+  /* box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow)); */
+  height: 40px;
+}
+.MainPacks_EditorGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.MainPacks_EditorGrid::-webkit-scrollbar {
+  height: 6px;
+}
+.MainPacks_EditorGrid::-webkit-scrollbar-track {
+  background-color: #0002;
+}
+.MainPacks_EditorGrid::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+.MainPacks_EditorRow {
+  display: grid;
+  grid-template-columns: 1.4em repeat(7, minmax(32px, 1fr)) 2.1em 2.1em 1.6em;
+  gap: 3px;
+  align-items: center;
+  min-width: 385px;
+}
+.MainPacks_EditorNum {
+  font-size: 0.75em;
+  opacity: 0.5;
+  text-align: center;
+}
+.MainPacks_EditorCls {
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--cor);
+  transform: skewY(9deg);
+  color: black;
+  opacity: 0.8;
+  width: 1.3em;
+  justify-self: center;
+  margin: 6px 0;
+}
+.MainPacks_RateInput {
+  background-color: rgba(0,0,0,0.2);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--d-text-b);
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 8px 2px;
+  width: 100%;
+  transition-duration: 0.1s;
+}
+.MainPacks_RateInput:hover {
+  box-shadow: 0px 0px 0px 2px #fff2;
+}
+.MainPacks_RateInput:focus {
+  box-shadow: 0px 0px 0px 2px #459bd1;
+  background-color: #459bd126;
+  color: #8cc9ef;
+}
+.MainPacks_EditorSum {
+  text-align: center;
+  font-size: 0.72em;
+  border-radius: 3px;
+  padding: 3px 0;
+}
+.MainPacks_EditorSumOk {
+  color: rgb(var(--d-text-green));
+  background-color: rgba(var(--d-text-green), 0.12);
+}
+.MainPacks_EditorSumBad {
+  color: rgb(var(--d-text-red2));
+  background-color: rgba(var(--d-text-red), 0.12);
+}
+.MainPacks_EditorCheck {
+  text-align: center;
+  font-size: 0.72em;
+}
+.D_Button.MainPacks_EditorDel {
+  --height: 24px;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 14px;
+  width: 100%;
+  color: #fff4;
+}
+.MainPacks_EditorButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.MainPacks_EditorButtonsRight {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  gap: 8px;
 }
 .MainPacks_PackButton {
   width: 100%;
