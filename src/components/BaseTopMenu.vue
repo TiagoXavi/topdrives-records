@@ -136,6 +136,7 @@ export default {
         { label: "Clubs", path: "/clubs" },
         { label: "Garage", path: "/me", newCodes: [], showNew: false },
         { label: "Cars", path: "/cars", newCodes: [], showNew: false, },
+        { label: "Tracks", path: "/tracks", newCodes: ["tracksTab"], showNew: false, },
         { label: "Charts", path: "/charts" },
         { label: "Packs", path: "/packs" },
         { label: "Timeline", path: "/timeline" },
@@ -177,9 +178,9 @@ export default {
     },
   },
   beforeMount() {
-    if (!import.meta.env.PROD) {
-      this.menus.splice(6, 0, { label: "Tracks", path: "/tracks" })
-    }
+    // if (!import.meta.env.PROD) {
+    //   this.menus.splice(6, 0, { label: "Tracks", path: "/tracks" })
+    // }
 
     this.localStorageRead("zoomLevel");
     this.localStorageRead("zoomLevelHorizontal");
@@ -410,6 +411,8 @@ export default {
       document.documentElement.style.setProperty('--wBody', `${wBody}px`);
       let hBody = document.documentElement.offsetHeight;
       document.documentElement.style.setProperty('--hBody', `${hBody}px`);
+      Vue.utils.wBody = wBody;
+      Vue.utils.hBody = hBody;
 
       
     },

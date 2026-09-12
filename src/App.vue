@@ -2738,6 +2738,7 @@ body .Main_UserTw3:before {
   display: flex;
   align-items: center;
 }
+.BaseTrackType_SelfActive .Type_00,
 .Main_CustomTrackItem .Type_00,
 [dataid="lumberTwisty"].Type_40,
 .EventTrack [data="lumberTwisty_a40"],
@@ -6379,7 +6380,7 @@ a:visited:not(.D_Button) {
   }
 }
 @media only screen and (min-width: 1201px) {
-  .Cg_BankButton .BaseCardMini_FloatsRight {
+  .Cg_BankButton:not(.Cg_BankButtonTuneFloatAlways) .BaseCardMini_FloatsRight {
     display: none;
   }
 }

@@ -30,46 +30,6 @@
       <div v-if="isTrackSet && type && trackTypes[type]" class="BaseTrackType_Label">
         <span :class="trackTypes[type].cla">{{ circuit[itype]?.customLabel || $t(trackTypes[type].label) }}<span v-if="circuit[itype]?.customSufix">{{ ` ${circuit[itype].customSufix}` }}</span></span>
       </div>
-      <!-- <span class="TypeText_Dry" v-if="type[0] == '0'"><BaseIconSvg :type="`n_asphalt${type[1] == '1'?'rain':''}`" :useMargin="false"/>{{ isTrackSet && circuit[itype].customSufix ? ` ${circuit[itype].customSufix}` : '' }}</span>
-      <span class="TypeText_Dirt" v-else-if="type[0] == '1'"><BaseIconSvg :type="`n_dirt${type[1] == '1'?'rain':''}`" :useMargin="false"/></span>
-      <span class="TypeText_Gravel" v-else-if="type[0] == '2'"><BaseIconSvg :type="`n_gravel`" :useMargin="false"/></span>
-      <span class="TypeText_Ice" v-else-if="type[0] == '3'"><BaseIconSvg :type="`n_ice`" :useMargin="false"/></span>
-      <span class="TypeText_Sand" v-else-if="type[0] == '5'"><BaseIconSvg :type="`n_sand`" :useMargin="false"/></span>
-      <span class="TypeText_Snow" v-else-if="type[0] == '6'"><BaseIconSvg :type="`n_snow`" :useMargin="false"/></span>
-      <span class="TypeText_Grass" v-else-if="type[0] == '7'"><BaseIconSvg :type="`n_grass${type[1] == '1'?'rain':''}`" :useMargin="false"/></span>
-      <template v-else>
-        <template v-if="type == 'e0'">
-          <span class="TypeText_Sand">{{ `${$t('s_sand')}\n` }}</span>
-          <span class="TypeText_Dirt">{{ $t('s_dirt') }}</span>
-        </template>
-        <template v-else-if="type == 'f0'">
-          <span class="TypeText_Dry">{{ $t('s_aspht') }}</span>
-          <span class="TypeText_Grass">{{ ` ${$t('s_grass')}` }}</span>
-          <span class="TypeText_Dirt">{{ `\n${$t('s_dirt')}` }}</span>
-        </template>
-        <template v-else-if="type == 'g0'">
-          <span class="TypeText_Ice">{{ $t('s_ice') }}</span>
-          <span class="TypeText_Snow">{{ `\n${$t('s_snow')}` }}</span>
-        </template>
-        <template v-else-if="type == 'h0'">
-          <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
-          <span class="TypeText_Dirt">{{ `\n${$t('s_dirt')}` }}</span>
-        </template>
-        <template v-else-if="type == 'h1'">
-          <span class="TypeText_Snow">{{ $t('s_snow') }}</span>
-          <span class="TypeText_Dirt">{{ ` ${$t('s_dirt')}` }}</span>
-        </template>
-        <template v-else>
-          <span v-if="type !== '01'" class="TypeText_Dry">{{ $t('s_aspht') }}</span>
-          <span class="TypeText_Dirt" v-if="type == '40'">{{ `\n${$t('s_dirt')}` }}</span>
-          <span class="TypeText_Gravel" v-else-if="type == 'b0'">{{ `\n${$t('s_gravel')}` }}</span>
-          <span class="TypeText_Sand" v-else-if="type == 'c0'">{{ `\n${$t('s_sand')}` }}</span>
-          <span class="TypeText_Snow" v-else-if="type == 'd0'">{{ `\n${$t('s_snow')}` }}</span>
-          <span class="TypeText_Dirt" v-else-if="type == '41'">{{ ` ${$t('s_dirt')}` }}</span>
-          <span class="TypeText_Sand" v-else-if="type == 'c1'">{{ ` ${$t('s_sand')}` }}</span>
-        </template>
-      </template> -->
-      <!-- <span class="TypeText_Wet" v-if="type[1] == '1'"><br v-if="type !== '01'"><BaseIconSvg :type="`n_rain${type !== '01' ? '2' : ''}`" :useMargin="false"/></span> -->
     </div>
   </div>
 </template>
@@ -169,10 +129,12 @@ export default {
   justify-content: center;
   min-height: var(--height);
 }
+.BaseTrackType_SelfActive .BaseTrackType_Item.BaseTrackType_Active:not(.BaseTrackType_Disabled),
 .Main_CustomTrackItem .BaseTrackType_Item.BaseTrackType_Active:not(.BaseTrackType_Disabled) {
   box-shadow: inset 0px 0px 0px 2px rgba(var(--ccond), 0.7);
   background-color: rgba(0, 0, 0, 0.2);
 }
+.BaseTrackType_SelfActive .BaseTrackType_Item.BaseTrackType_Active.Type_00,
 .Main_CustomTrackItem .BaseTrackType_Item.BaseTrackType_Active.Type_00 {
   --type-back-opac: 0.15;
 }
@@ -275,11 +237,13 @@ export default {
 .BaseTrackType_Button.Type_A1,
 .BaseTrackType_Button.Type_C0,
 .BaseTrackType_Button.Type_D0,
+.BaseTrackType_Button.Type_B1,
 .BaseTrackType_Button.Type_E0 {
-  box-shadow: inset -24px 0px 0px 0px rgba(var(--ccond), 0.1);
+  --typeW: -24px;
+  box-shadow: inset var(--typeW) 0px 0px 0px rgba(var(--ccond), 0.1);
 }
 .BaseTrackType_Button.Type_B1 {
-  box-shadow: inset 24px 0px 0px 0px rgba(var(--ccond), 0.1);
+  --typeW: 24px;
 }
 
 .Type_A1 .path00:before,

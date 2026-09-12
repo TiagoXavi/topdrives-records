@@ -118,6 +118,8 @@ const utils = Vue.observable({
     },
     altKey: false,
     windowWidth: 0,
+    wBody: 0,
+    hBody: 0,
     releasedPrizes: [],
     rnsDownloading: [],
     statsDownloading: [],

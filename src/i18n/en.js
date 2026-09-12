@@ -359,6 +359,14 @@ export default {
   m_championships: "Championships",
   m_owners: "Owners",
   m_fast: "Fast",
+  m_fastestTimes: "Fastest cars",
+  m_rqSavers: "RQ savers",
+  m_pointsMultiplier: "Points multiplier",
+  m_bumpPenalty: "Bump penalty",
+  m_startingSpeed: "Starting speed",
+  m_start: "Start",
+  m_finish: "Finish",
+  m_length: "Length",
 
 
 
@@ -407,6 +415,7 @@ export default {
   p_privateGarageDesc: "Only you can view",
   p_publicGarageDesc: "People with link can view",
   p_youNeedGarage: "You need to upload your garage first",
+  p_trackLoadFailed: "Could not load track: {error}",
   p_olaDialogSub: "A factor value between 0 and 100. The higher, the better launch/initial speed.",
   p_hillDialogSub: "The higher value, the easier for the car to climb hills.",
   
