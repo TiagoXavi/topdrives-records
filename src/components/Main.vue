@@ -11502,9 +11502,10 @@ export default {
         forceFree,
         onlyPicks: this.eventShowOnlyPicks,
         forcePicks: this.eventForcePicks,
-        myGarage: this.eventMyGarage && (!forceFree || !(this.whatTier && this.whatTier <= 3)),
+        myGarage: this.eventMyGarage && !!(this.whatTier && this.whatTier <= 3),
         picks: []
       }
+      if (forceFree) params.myGarage = false;
 
       params.picks = this.eventReducePicks();
 
