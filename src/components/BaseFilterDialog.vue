@@ -1209,6 +1209,7 @@ export default {
         ],
         tags_permanent: [
           "5000 Cars Special",
+          "Audi Variant",
           "Concept",
           "Drivers Choice",
           "Eco Friendly",

@@ -145,6 +145,7 @@ export default new Vuex.Store({
       "Summer Games 25",
       "Summer Games 26",
       "Supercar",
+      "TD 9th Anniversary",
       "Team Edwards",
       "Team Steel",
       "The Great Outdoors",
@@ -164,8 +165,6 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [
-
-      "Halloween '26",
       "Winter Wonderland",
     ],
     showDataFromPast: false,
