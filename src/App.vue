@@ -6047,8 +6047,8 @@ a:visited:not(.D_Button) {
   font-size: 14px;
 }
 .Main_Teams_Body {
-  width: calc(100% + 40px);
-  margin-left: -20px;
+  /* width: calc(100% + 40px);
+  margin-left: -20px; */
 }
 .Main_Brand {
   background-image: url('/assets/brands_sprite.png');

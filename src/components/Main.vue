@@ -866,6 +866,11 @@
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
               @click="cgResetRound()">{{ $t("m_resetRound") }}</button>
+            <button
+              v-if="user && user.mod && user.username === 'TiagoXavi'"
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="cgSpreadFilterToAllRounds()">Spread filter to all rounds</button>
           </div>
 
           <div v-if="user && user.mod && user.username === 'TiagoXavi'" class="Cg_BottomModTools" style="margin-top: 30px; user-select: text;">
@@ -5378,6 +5383,7 @@ export default {
     //   }
     // },
     eventBestTeamSameAsBefore() {
+      if (!import.meta.env.PROD) return false;
       if (!this.eventBestTeamsLastCache) return false;
       if (JSON.stringify( {...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig} ) === this.eventBestTeamsLastCache) return true;
       return false;
@@ -10519,6 +10525,37 @@ export default {
       .then(res => {
         this.cgSaveLoading = false;
         this.$store.state.showUpcomingTags = false;
+      })
+      .catch(error => {
+        this.cgSaveLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if ((error.response || {}).status === 401) {
+          this.$store.commit('OPEN_LOGIN');
+        }
+      })
+    },
+    cgSpreadFilterToAllRounds() {
+      let filter = JSON.stringify(this.cg.rounds[this.cgCurrentRound].filter);
+      this.cg.rounds.map(round => {
+        Vue.set(round, "filter", JSON.parse(filter));
+
+      });
+
+      let params = {
+        date: this.cg.date,
+        rounds: this.cg.rounds
+      };
+
+      this.cgSaveLoading = true;
+      axios.post(Vue.preUrl + "/spreadFilterAnalyse", params)
+      .then(res => {
+        this.cgSaveLoading = false;
       })
       .catch(error => {
         this.cgSaveLoading = false;

@@ -2026,7 +2026,7 @@ export default {
     noPlayerDeck() {
       this.confirmDelete = {
         dialog: true,
-        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again.\n\nTo fix, upgrade any car, re-open the game again.\n\nThis will force the game to re-download the entire garage again, that is what you need.`,
+        msg: `No playerdeck. This happens because the game already knows your garage, so it doesn't download again.\n\nTo fix, fuse any car, close the game immediately after confirming the fuse, clear the logs on Proxyman or HttpToolkit, re-open the game again.\n\nThis will force the game to re-download the entire garage again, that is what you need.`,
         actionLabel: `Cancel`,
         action: null,
         loading: false,

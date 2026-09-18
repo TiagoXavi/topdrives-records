@@ -607,6 +607,7 @@ export default {
     },
     reload(newCar) {
       this.medals = null;
+      this.showTracksCount = 10;
       this.T_S.miniCarClick(newCar);
       setTimeout(() => {
         this.init();
