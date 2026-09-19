@@ -415,6 +415,7 @@ export default {
   p_privateGarageDesc: "Only you can view",
   p_publicGarageDesc: "People with link can view",
   p_youNeedGarage: "You need to upload your garage first",
+  p_nothingToPaste: "There is no team copied to paste",
   p_trackLoadFailed: "Could not load track: {error}",
   p_olaDialogSub: "A factor value between 0 and 100. The higher, the better launch/initial speed.",
   p_hillDialogSub: "The higher value, the easier for the car to climb hills.",

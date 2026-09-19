@@ -13857,7 +13857,7 @@ export default {
         this.$router.push({ name: "MainMatchSimulator", params: { event: this.event, cars, oppos } });
       }
       if (this.mode === 'clubs') {
-        this.$router.push({ name: "MainMatchSimulator", params: { event: {...this.clubReqsGroupModel, ...this.clubTracksGroupModel}, cars, oppos } });
+        this.$router.push({ name: "MainMatchSimulator", params: { event: {...this.clubReqsGroupModel, ...this.clubTracksGroupModel, rqLimit: this.eventBestTeamsTarget.rqLimit }, cars, oppos } });
       }
 
     },

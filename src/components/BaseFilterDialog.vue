@@ -1013,7 +1013,7 @@ export default {
       activeKeys: {},
       searchFilters: {
         yearStart: 1910,
-        yearEnd: 2025,
+        yearEnd: 2026,
         yearModel: [],
         year2Model: [],
         seats2Model: [],
@@ -2189,7 +2189,7 @@ export default {
         console.log(type);
         debugger;
       }
-      // if (type === "yearModel") return [1910, 2025];
+      // if (type === "yearModel") return [1910, 2026];
       // if (type === "rqModel") return [10, 120];
       // if (type === "topSpeedModel") return [25, 330];
       // if (type === "acelModel") return [1.5, 40];

@@ -81,6 +81,26 @@
 
       </div>
     </div>
+    <div v-if="showCopy" class="BaseCarsTeam_CopyPaste">
+      <button
+        :class="{ BaseCarsTeam_CopyDone: copySuccess }"
+        class="D_Button BaseCarsTeam_CopyButton"
+        @click="copyTeam()">
+        <span>C</span>
+      </button>
+      <button
+        v-if="canAdd"
+        :class="{ BaseCarsTeam_CopyDone: pasteSuccess, BaseCarsTeam_CopyError: pasteError }"
+        class="D_Button BaseCarsTeam_CopyButton"
+        @click="pasteTeam()">
+        <span>P</span>
+      </button>
+      <!-- <button
+        class="D_Button Cg_SelectTrackButton"
+        @click="">
+        <i class="ticon-txt" aria-hidden="true"/>
+      </button> -->
+    </div>
 
     <!-- <BaseFilterDialog
       v-if="g_carPickerDialogLoad"
@@ -114,6 +134,9 @@ var lastDragNum = 0;
 var width = 0;
 var height = 0;
 var skip = false;
+
+var teamCarKeys = ["rid", "selectedTune", "tun", "tunZ"];
+var copiedCars = null;
 
 export default {
   name: 'BaseCarsTeam',
@@ -156,6 +179,10 @@ export default {
       default: true
     },
     showTune: {
+      type: Boolean,
+      default: false
+    },
+    showCopy: {
       type: Boolean,
       default: false
     },
@@ -210,7 +237,10 @@ export default {
       Vue: Vue,
       T_S: tdrStore(),
       index: 0,
-      showDragCards: true
+      showDragCards: true,
+      copySuccess: false,
+      pasteSuccess: false,
+      pasteError: false
     }
   },
   watch: {},
@@ -265,6 +295,100 @@ export default {
       this.T_S._g_carPicker.dialog = false;
       // this.g_carPickerDialog = false;
       this.$emit("changed");
+    },
+
+
+
+
+    copyTeam() {
+      let toCopy = this.cars.map(car => {
+        if (!car || !car.rid) return {};
+        return this.pickTeamCarKeys(car);
+      });
+      copiedCars = JSON.parse(JSON.stringify(toCopy));
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(JSON.stringify(toCopy))
+          .catch(err => {
+            console.error('Failed to write clipboard contents: ', err);
+          });
+      }
+      this.copySuccess = true;
+      setTimeout(() => { this.copySuccess = false }, 1500);
+      this.$store.commit("DEFINE_SNACK", {
+        active: true,
+        correct: true,
+        text: this.$tc('m_copy', 1)
+      });
+    },
+    pasteTeam() {
+      if (navigator.clipboard && navigator.clipboard.readText) {
+        navigator.clipboard.readText()
+          .then(text => {
+            let parsed;
+            try {
+              parsed = JSON.parse(text);
+            } catch (error) {
+              // clipboard holds something else, use the last copy made here
+              parsed = copiedCars;
+            }
+            this.pasteTeamApply(parsed);
+          })
+          .catch(err => {
+            console.error('Failed to read clipboard contents: ', err);
+            this.pasteTeamApply(copiedCars);
+          });
+        return;
+      }
+      this.pasteTeamApply(copiedCars);
+    },
+    pasteTeamApply(parsed) {
+      let newCars = this.pasteTeamResolve(parsed);
+
+      if (!newCars) {
+        this.pasteError = true;
+        setTimeout(() => { this.pasteError = false }, 1500);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: this.$t("p_nothingToPaste"),
+          type: "error"
+        });
+        return;
+      }
+
+      newCars.forEach((car, icar) => {
+        Vue.set(this.cars, icar, car);
+      })
+      this.pasteSuccess = true;
+      setTimeout(() => { this.pasteSuccess = false }, 1500);
+      this.$emit("changed");
+      this.$store.commit("DEFINE_SNACK", {
+        active: true,
+        correct: true,
+        text: this.$t('m_paste')
+      });
+    },
+    pasteTeamResolve(parsed) {
+      if (!parsed || !Array.isArray(parsed)) return null;
+
+      let found = false;
+      let newCars = this.cars.map((old, icar) => {
+        let car = parsed[icar];
+        if (!car || typeof car !== "object" || !Vue.all_carsObj[car.rid]) return {};
+        found = true;
+        return this.pickTeamCarKeys(car);
+      });
+
+      if (!found) return null;
+      return newCars;
+    },
+    pickTeamCarKeys(car) {
+      let obj = {};
+      teamCarKeys.forEach(key => {
+        if (car[key] === undefined) return;
+        obj[key] = car[key];
+      })
+      return JSON.parse(JSON.stringify(obj));
     },
 
 
@@ -551,5 +675,26 @@ export default {
 .BaseCarsTeam_Marked3 #BaseCarsTeam_CareventRt3,
 .BaseCarsTeam_Marked4 #BaseCarsTeam_CareventRt4 {
   box-shadow: 0px 0px 0px 2px rgb(var(--d-text-yellow));
+}
+.BaseCarsTeam_CopyPaste {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + (var(--gap)) * 2 + (var(--widthF)) * 2.5);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+.BaseCarsTeam_CopyButton {
+  color: #fff4;
+  font-size: 18px;
+  transition-duration: 0.1s;
+}
+.D_Button.BaseCarsTeam_CopyDone {
+  color: rgb(var(--d-text-green));
+  background-color: rgba(var(--d-text-green), 0.15);
+}
+.D_Button.BaseCarsTeam_CopyError {
+  color: rgb(var(--d-text-red2));
+  background-color: rgba(var(--d-text-red), 0.15);
 }
 </style>
