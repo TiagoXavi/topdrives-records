@@ -455,7 +455,7 @@ export default {
       clearFilters: {},
       searchFilters: {
         yearStart: 1910,
-        yearEnd: 2025,
+        yearEnd: 2026,
         yearModel: [],
         rqStart: 10,
         rqEnd: 120,
@@ -1027,7 +1027,7 @@ export default {
       }, 200);
     },
     defaultFilters(type) {
-      if (type === "yearModel") return [1910, 2025];
+      if (type === "yearModel") return [1910, 2026];
       if (type === "rqModel") return [10, 119];
       if (type === "topSpeedModel") return [25, 330];
       if (type === "acelModel") return [1.5, 40];
