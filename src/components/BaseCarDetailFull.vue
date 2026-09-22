@@ -221,8 +221,7 @@
               </button>
               <div class="BaseCarStats_Tile">
                 <div v-if="!medals.garage.oldestDays" class="BaseCarStats_TileValue">?</div>
-                <!-- calcute date now subtract oldestDays and return date in date format -->
-                <div v-else class="BaseCarStats_TileValue">{{ new Date(new Date().getTime() - medals.garage.oldestDays * 24 * 60 * 60 * 1000).toISOString().slice(0,10) }}</div>
+                <div v-else class="BaseCarStats_TileValue">{{ medals.garage.oldestDays }}</div>
                 <div class="BaseCarStats_TileLabel">{{ $t("m_oldest") }}</div>
               </div>
             </div>
