@@ -367,6 +367,7 @@ export default {
   m_start: "Start",
   m_finish: "Finish",
   m_length: "Length",
+  m_retain: "Retain",
 
 
 

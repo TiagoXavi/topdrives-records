@@ -1690,6 +1690,7 @@ export default {
       this.all_cars.map(car => {
         if (!buckets[car.class]) return;
         if (!this.matchFilter(car)) return;
+        if (Vue.archivedBrands.includes(car.brand)) return;
         buckets[car.class].push(car);
       })
       Object.keys(buckets).map(key => {
@@ -1704,6 +1705,7 @@ export default {
       this.all_cars.map(car => {
         if (!buckets[car.class]) return;
         if (car.prize) return;
+        if (Vue.archivedBrands.includes(car.brand)) return;
         buckets[car.class].push(car);
       })
       Object.keys(buckets).map(key => {

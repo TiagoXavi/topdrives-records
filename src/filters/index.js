@@ -309,6 +309,10 @@ const brands = {
   "Radford": "Radford"
 }
 
+const archivedBrands = [
+  "McLaren"
+]
+
 const importantTags = [
   "LiveOps 1",
   // "LiveOps 2",
@@ -810,6 +814,7 @@ export default {
         Vue.loadGarage = loadGarage;
         Vue.tryLoadGarageFromStorage = tryLoadGarageFromStorage;
         Vue.brands = brands;
+        Vue.archivedBrands = archivedBrands;
         Vue.importantTags = importantTags;
         Vue.updateInventory = updateInventory;
         Vue.inventory = inventory;

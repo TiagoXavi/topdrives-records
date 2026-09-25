@@ -5387,13 +5387,14 @@ a:visited:not(.D_Button) {
   backdrop-filter: blur(4px);
 }
 .Car_TuneTip {
-  background-color: rgb(55, 54, 49, 0.6);
-  right: calc(var(--card-right-width) + 1.6%);
-  bottom: 10%;
-  font-size: 1.4em;
-  font-weight: bold;
-  padding: 2px 4px;
-  border-radius: 3px;
+  bottom: 2%;
+  font-size: 1.1em;
+  left: calc(var(--card-left-width) + 2%);
+  gap: 0.17em;
+  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: 'JurisT' !important;
 }
 .Car_TuneTipGallery {
   bottom: 2%;
@@ -5402,6 +5403,15 @@ a:visited:not(.D_Button) {
   font-weight: 400;
   display: block;
   line-height: 1;
+}
+.Car_TuneNumber {
+  background-color: rgb(55, 54, 49, 0.5);
+  border-radius: 0.18em;
+  padding: 0.08em 0;
+}
+.Car_TuneNumberD {
+  background-color: var(--class-color);
+  color: black;
 }
 .Main_Compact .Car_HeaderBlockRQ {
   background-color: hsla(30, 10%, 24%, 1);

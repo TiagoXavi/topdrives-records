@@ -162,6 +162,45 @@
 .ticon-question-circle-o:before {
   content: "\f29c";
 }
+.ticon-A:before {
+  content: "\41";
+}
+.ticon-B:before {
+  content: "\42";
+}
+.ticon-C:before {
+  content: "\43";
+}
+.ticon-0:before {
+  content: "\30";
+}
+.ticon-1:before {
+  content: "\31";
+}
+.ticon-2:before {
+  content: "\32";
+}
+.ticon-3:before {
+  content: "\33";
+}
+.ticon-4:before {
+  content: "\34";
+}
+.ticon-5:before {
+  content: "\35";
+}
+.ticon-6:before {
+  content: "\36";
+}
+.ticon-7:before {
+  content: "\37";
+}
+.ticon-8:before {
+  content: "\38";
+}
+.ticon-9:before {
+  content: "\39";
+}
 .ticon-hand:before {
   content: "\e982";
 }

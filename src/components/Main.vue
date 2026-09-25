@@ -915,6 +915,7 @@
               class="D_Button D_ButtonDark D_ButtonTier4"
               @click="cgDashToggleMyGarage()"><i class="ticon-car D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_myGarage") }}</button>
             <BaseSwitch v-if="Vue.garageObj.loaded" :value="cgDashUseMyGarage" :label="`${$t('m_myGarage')}`" :horizontal="false" @change="cgDashToggleMyGarage($event)" />
+            <BaseSwitch v-model="cgDashRetainCars" name="cgDashRetainCars" :label="$t('m_retain')" :horizontal="false" />
             <BaseSwitch v-model="cgDashShowOpponents" name="cgDashShowOpponents" :label="$t('m_opponents')" :horizontal="false" />
             <BaseSwitch v-model="cgDashShowTrackset" name="cgDashShowTrackset" :label="$t('m_trackset')" :horizontal="false" />
             <BaseSwitch v-model="cgDashShowOpponentsTimes" name="cgDashShowOpponentsTimes" :label="$t('m_times')" :horizontal="false" />
@@ -4004,6 +4005,7 @@ export default {
       cgDashSolutionsDialogRace: 0,
       cgDashLoaded: false,
       cgDashListGarageUpgrade: Vue.garageListUpgraded,
+      cgDashRetainCars: false,
       cgReloadIndex: -1,
       cgCats: {},
       cgCatsLastSave: null,
@@ -4584,6 +4586,10 @@ export default {
       if (this.$route.name === "Records") {
         this.loadParams();
       }
+    },
+    cgDashRetainCars: function() {
+      if (this.cgCurrentRound !== 'd' || !this.cg.rounds || !this.cg.rounds['d']) return;
+      this.cgInitDash(this.cgDashUseMyGarage);
     },
     cgNeedSave: function() {
       if (this.cgNeedSave) {
@@ -9189,7 +9195,10 @@ export default {
           }
         });
         if (nextChap) {
-          if (newCg.name.includes(` (${nextChap+1})`)) {
+          if (newCg.name.toLowerCase().includes(prefix.toLowerCase())) {
+            newCg.name = `${prefix}: (${nextChap+1})`;
+          }
+          else if (newCg.name.includes(` (${nextChap+1})`)) {
             newCg.name = `${prefix}: ${newCg.name}`;
           } else {
             newCg.name = `${prefix}: ${newCg.name} (${nextChap+1})`;
@@ -9198,7 +9207,6 @@ export default {
       }
 
       this.cgSaveLoading = true;
-
 
       let url = Vue.preUrl + "/setCgPredict";
       if (createNew) url = Vue.preUrl + "/createCgByJson";
@@ -9668,10 +9676,14 @@ export default {
         obj.rounds.push(_r);
       })
 
-      if (useGarage) obj.problemRounds = this.cgResolveProblemRounds(obj.rounds);
-      
       Vue.set(this.cg.rounds, "d", obj);
       this.cg.dashboard = obj;
+
+      if (this.cgDashRetainCars) {
+        this.cgDashRetainRun(obj, useGarage);
+      }
+
+      if (useGarage) obj.problemRounds = this.cgResolveProblemRounds(obj.rounds);
 
       this.cgDashLoaded = true;
       setTimeout(() => {
@@ -9843,6 +9855,256 @@ export default {
           })
         });
       }
+    },
+    cgDashRetainRun(obj, useGarage) {
+      if (!obj || !obj.rounds || obj.rounds.length < 2) return;
+
+      // rounds without a complete valid solution are skipped (they keep whatever they have)
+      let idxs = [];
+      obj.rounds.map((_r, ri) => {
+        if (!_r || !_r.bestSolution || !_r.solutions) return;
+        if (!_r.bestSolution.every(car => car && car.rid)) return;
+        idxs.push(ri);
+      });
+      if (idxs.length < 2) return;
+
+      let pools = {};
+      let rqCaps = {};
+      idxs.map(ri => {
+        pools[ri] = this.cgDashRetainBuildPool(obj.rounds[ri], useGarage);
+        let rqLimit = this.cg.rounds[ri] ? this.cg.rounds[ri].rqLimit : 0;
+        // never allow retain mode to make the rq sum worse than it already is
+        rqCaps[ri] = rqLimit ? Math.max(rqLimit, this.cgSumRQ(obj.rounds[ri].bestSolution)) : Infinity;
+      });
+
+      // in how many rounds each car (rid + tune) can be used, used as a tie breaker so the
+      // algorithm prefers cars that will still be usable in the upcoming rounds
+      let availRounds = {};
+      idxs.map(ri => {
+        let seen = {};
+        pools[ri].map(list => list.map(c => { seen[c.key] = true; }));
+        Object.keys(seen).map(k => { availRounds[k] = (availRounds[k] || 0) + 1; });
+      });
+
+      let assign = {};
+      let broken = false;
+      idxs.map(ri => {
+        assign[ri] = pools[ri].map(list => list.find(c => c.bank === -1));
+        if (assign[ri].some(c => !c)) broken = true;
+      });
+      if (broken) return;
+
+      let countsOf = (arr) => {
+        let m = {};
+        arr.map(c => { m[c.key] = (m[c.key] || 0) + 1; });
+        return m;
+      };
+
+      // coordinate descent: re-solving one round with both neighbours frozen can only lower
+      // (or keep) the total amount of changes, so sweeping back and forth converges
+      let changed = true;
+      let sweep = 0;
+      while (changed && sweep < 12) {
+        changed = false;
+        let order = sweep % 2 === 0 ? idxs : idxs.slice().reverse();
+        order.map(ri => {
+          let pos = idxs.indexOf(ri);
+          let prev = pos > 0 ? countsOf(assign[idxs[pos-1]]) : {};
+          let next = pos < idxs.length - 1 ? countsOf(assign[idxs[pos+1]]) : {};
+          if (!Object.keys(prev).length && !Object.keys(next).length) return;
+
+          let res = this.cgDashRetainSolveRound(pools[ri], assign[ri], prev, next, availRounds, rqCaps[ri]);
+          if (!res) return;
+          if (!res.some((c, i) => c !== assign[ri][i])) return;
+          assign[ri] = res;
+          changed = true;
+        });
+        sweep++;
+      }
+
+      idxs.map(ri => {
+        this.cgDashRetainApplyRound(obj, ri, assign[ri], useGarage);
+      });
+    },
+    cgDashRetainBuildPool(_r, useGarage) {
+      // every car that can legally be placed in each race of this round,
+      // the one currently in bestSolution included (bank === -1)
+      return _r.bestSolution.map((cur, irace) => {
+        let list = [];
+        let seen = {};
+
+        let pushCand = (rid, tune, points, cardRecordId, bank) => {
+          if (!rid || !Vue.all_carsObj[rid]) return;
+          // same rid but different tune counts as a different car
+          let key = `${rid}|${tune || ""}`;
+          // a bestSolution cannot repeat a cardRecordId (garage) / a rid (no garage)
+          let dup = useGarage ? (cardRecordId || `k_${key}`) : rid;
+          let sig = `${dup}#${key}`;
+          if (seen[sig]) return;
+          seen[sig] = true;
+          list.push({
+            rid,
+            tune,
+            points,
+            cardRecordId,
+            key,
+            dup,
+            rq: Vue.all_carsObj[rid].rq || 0,
+            bank
+          });
+        };
+
+        pushCand(cur.rid, cur.selectedTune || cur.tune, cur.points, cur.cardRecordId, -1);
+
+        (_r.solutions[irace] || []).map((c, ibank) => {
+          if (!c || !c.rid) return;
+          if (c.originalTune) return; // not owned yet, would need an upgrade simulation
+          if (!(c.points > 0)) return;
+          if (useGarage && !c.cardRecordId) return;
+          pushCand(c.rid, c.tune, c.points, c.cardRecordId, ibank);
+        });
+
+        return list;
+      });
+    },
+    cgDashRetainSolveRound(pool, current, prevCounts, nextCounts, availRounds, rqCap) {
+      // picks one car per race maximizing how many of them are also used by the
+      // previous and the next round, never breaking the duplicate / rq limit rules
+      let n = pool.length;
+      let MAX_NODES = 40000;
+
+      let annotate = (c) => {
+        let pot = 0;
+        if (prevCounts[c.key]) pot++;
+        if (nextCounts[c.key]) pot++;
+        return { ...c, pot, av: availRounds[c.key] || 0 };
+      };
+
+      let trimmed = pool.map(list => {
+        let annotated = list.map(annotate);
+        annotated.sort((a,b) => {
+          if (b.pot !== a.pot) return b.pot - a.pot;
+          if (b.av !== a.av) return b.av - a.av;
+          if (a.rq !== b.rq) return a.rq - b.rq;
+          return (b.points || 0) - (a.points || 0);
+        });
+        let out = annotated.filter(c => c.pot > 0).slice(0, 14)
+          .concat(annotated.filter(c => c.pot === 0).slice(0, 7));
+        if (!out.some(c => c.bank === -1)) {
+          let cur = annotated.find(c => c.bank === -1);
+          if (cur) out.push(cur);
+        }
+        return out;
+      });
+      if (trimmed.some(list => list.length === 0)) return null;
+
+      // suffix bounds for pruning
+      let sufPot = new Array(n + 1).fill(0);
+      let sufRq = new Array(n + 1).fill(0);
+      for (let i = n - 1; i >= 0; i--) {
+        sufPot[i] = sufPot[i+1] + trimmed[i].reduce((m,c) => Math.max(m, c.pot), 0);
+        sufRq[i] = sufRq[i+1] + trimmed[i].reduce((m,c) => Math.min(m, c.rq), Infinity);
+      }
+
+      // score first, then prefer cars usable in more rounds, then lower rq, then fewer changes
+      let cmp = (a, b) => {
+        if (a.score !== b.score) return a.score - b.score;
+        if (a.av !== b.av) return a.av - b.av;
+        if (a.rq !== b.rq) return b.rq - a.rq;
+        return b.changes - a.changes;
+      };
+
+      let gainOf = (c, usedKey) => {
+        let used = usedKey[c.key] || 0;
+        let gain = 0;
+        if ((prevCounts[c.key] || 0) > used) gain++;
+        if ((nextCounts[c.key] || 0) > used) gain++;
+        return gain;
+      };
+
+      // the current assignment is the baseline, so the result can never get worse
+      let best = null;
+      let curDups = {};
+      let curKeys = {};
+      let curScore = 0;
+      let curRq = 0;
+      let curAv = 0;
+      let curOk = true;
+      current.map(annotate).map(c => {
+        if (curDups[c.dup]) curOk = false;
+        curDups[c.dup] = true;
+        curScore += gainOf(c, curKeys);
+        curKeys[c.key] = (curKeys[c.key] || 0) + 1;
+        curRq += c.rq;
+        curAv += c.av;
+      });
+      if (curOk && curRq <= rqCap) {
+        best = { score: curScore, av: curAv, rq: curRq, changes: 0, pick: current.slice() };
+      }
+
+      let nodes = 0;
+      let usedDup = {};
+      let usedKey = {};
+      let pick = new Array(n).fill(null);
+
+      let dfs = (i, score, rq, av, changes) => {
+        if (nodes++ > MAX_NODES) return;
+        if (i === n) {
+          let cand = { score, av, rq, changes, pick: pick.slice() };
+          if (!best || cmp(cand, best) > 0) best = cand;
+          return;
+        }
+        if (best && score + sufPot[i] < best.score) return;
+        if (rq + sufRq[i] > rqCap) return;
+
+        let list = trimmed[i];
+        for (let k = 0; k < list.length; k++) {
+          let c = list[k];
+          if (usedDup[c.dup]) continue;
+          if (rq + c.rq + sufRq[i+1] > rqCap) continue;
+
+          let used = usedKey[c.key] || 0;
+          let gain = gainOf(c, usedKey);
+
+          usedDup[c.dup] = true;
+          usedKey[c.key] = used + 1;
+          pick[i] = c;
+          dfs(i + 1, score + gain, rq + c.rq, av + c.av, changes + (c.bank === -1 ? 0 : 1));
+          usedKey[c.key] = used;
+          delete usedDup[c.dup];
+          pick[i] = null;
+          if (nodes > MAX_NODES) return;
+        }
+      };
+      dfs(0, 0, 0, 0, 0);
+
+      if (!best || !best.pick) return null;
+      // map back to the original (non annotated) pool entries
+      return best.pick.map((c, irace) => {
+        return pool[irace].find(x => x.dup === c.dup && x.key === c.key) || c;
+      });
+    },
+    cgDashRetainApplyRound(obj, iround, target, useGarage) {
+      let _r = obj.rounds[iround];
+      let moves = [];
+
+      for (let irace = 0; irace < target.length; irace++) {
+        let t = target[irace];
+        if (!t || t.bank === -1) continue;
+
+        let bank = (_r.solutions[irace] || []).findIndex(c => {
+          if (!c || !c.rid || c.originalTune) return false;
+          if (useGarage) return c.cardRecordId === t.cardRecordId && c.tune === t.tune;
+          return c.rid === t.rid && c.tune === t.tune;
+        });
+        if (bank === -1) return; // cannot place the whole plan, leave this round untouched
+        moves.push({ irace, bank });
+      }
+
+      // each race owns its own solutions list, so the indexes above stay valid
+      moves.map(move => {
+        this.cgDashSolutionClick(_r.solutions[move.irace][move.bank], iround, move.irace, move.bank);
+      });
     },
     cgSumRQ(bestSolution) {
       let rqSum = 0;
@@ -10333,7 +10595,7 @@ export default {
       // if car is normal, just add/replace to bestSolution
       let dashRound = this.cg.rounds['d'].rounds[iround];
       let backupSolutionCar = dashRound.bestSolution[irace] && dashRound.bestSolution[irace].rid ? JSON.parse(JSON.stringify(dashRound.bestSolution[irace])) : null;
-      console.log(car?.cardRecordId, car?.rid);
+      // console.log(car?.cardRecordId, car?.rid);
 
       if (car && car.originalTune) {
         // upgrade simulation
@@ -10362,6 +10624,10 @@ export default {
           customData: {},
           points: car.points
         });
+        if (car.cardRecordId) {
+          Vue.set(dashRound.bestSolution[irace], "tune", car.tune);
+          Vue.set(dashRound.bestSolution[irace], "cardRecordId", car.cardRecordId);
+        }
       } else {
         // remove best solution
         Vue.set(dashRound.bestSolution, irace, {});

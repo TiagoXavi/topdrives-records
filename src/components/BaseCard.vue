@@ -24,13 +24,12 @@
         <span class="Car_HeaderBlockTiresValue">{{ $t(`c_${(resolveCar.tyres || "?").toLowerCase()}`) || "-" }}</span>
         <span class="Car_HeaderBlockTiresLabel"> {{ $tc("c_tyre", 2) }}</span>
       </div>
-      <div :class="[`Car_NumberStars${fTune}`, fTuneStarsClass]" class="Car_HeaderBlockStars">
+      <!-- <div :class="[`Car_NumberStars${fTune}`, fTuneStarsClass]" class="Car_HeaderBlockStars">
         <i v-for="n in 3" class="ticon-star Car_Star" aria-hidden="true"/>
+      </div> -->
+      <div v-if="showTune && fTune969" class="Car_TuneTip">
+        <div v-for="number in fTune969" :class="{ Car_TuneNumberD: number == 9 }" class="Car_TuneNumber">{{ number }}</div>
       </div>
-      <template v-if="cgOppo">
-        <div v-if="fTune && fTune.includes('Other') && fTune !== 'Other'" class="Car_TuneTip">{{ fTune.slice(5) }}</div>
-        <div v-else class="Car_TuneTip">{{ fTune }}</div>
-      </template>
       <div v-if="options" class="Car_HeaderToolsHoverContainer" />
       <div v-if="options" class="Car_HeaderTools">
         <button v-if="showResetTune" class="D_Button Car_HeaderButton" @click="$emit('refreshTune')">
@@ -200,6 +199,10 @@ export default {
       type: Boolean,
       default: true
     },
+    showTune: {
+      type: Boolean,
+      default: true
+    },
     selectedTune: {},
     count: {},
   },
@@ -256,9 +259,15 @@ export default {
     fTune() {
       return this.selectedTune || "";
     },
-    fTuneStarsClass() {
-      return Vue.resolveTuneStarsClass(this.fTune);
-    }
+    fTune969() {
+      if (typeof this.fTune === "string") {
+        return this.fTune.to969TuneIfPossible();
+      }
+      return "";
+    },
+    // fTuneStarsClass() {
+    //   return Vue.resolveTuneStarsClass(this.fTune);
+    // }
   },
   methods: {
     load() {
