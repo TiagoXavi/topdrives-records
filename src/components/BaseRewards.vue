@@ -94,10 +94,6 @@ export default {
       type: Array,
       default: () => []
     },
-    tag: {
-      type: String,
-      default: "Daily Event"
-    },
     rs: {
       type: Number,
       default: 260
@@ -105,25 +101,13 @@ export default {
   },
   data() {
     return {
-      Vue: Vue,
-      rewardTiers: Object.freeze([
-        { color: "#37EBAC" },
-      ]),
-      currencyTypes: Object.freeze({
-        softCurrency1: { icon: "cash", color: "hsla(160, 100%, 50%, 1)" },
-        hardCurrency1: { icon: "gold", color: "hsla(45, 100%, 50%, 1)" },
-        hardCurrency2: { icon: "renown", color: "hsla(270, 100%, 50%, 1)" },
-      })
+      Vue: Vue
     }
   },
   watch: {},
   beforeMount() {},
   mounted() {},
-  computed: {
-    prizesCalc() {
-      return this.prizes;
-    }
-  },
+  computed: {},
   methods: {
     cardClick(rid) {
       Vue.globalRidFullDetail(rid);

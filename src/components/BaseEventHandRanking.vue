@@ -208,7 +208,7 @@
         <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
       </div>
     </div>
-    <div class="Main_TeamsEngineLabel">Engine v1.18</div>
+    <div class="Main_TeamsEngineLabel">Engine v1.19</div>
   </div>
 </template>
 

@@ -236,11 +236,12 @@
                         class="D_Button Main_ArrowDownSelect"
                         @click="cgRoundSelectorDialog = true;">
                         <span v-if="cgCurrentRound === 'd'">{{ $t("m_dashboard") }}</span>
+                        <span v-else-if="cgCurrentRound === 'i'">{{ $t("m_info") }}</span>
                         <span v-else>{{ $tc("m_round", 1) }} {{ cgCurrentRound+1+cgCurrentRoundSum }}</span>
                         <i class="ticon-keyboard_arrow_down" aria-hidden="true"/>
                       </button>
                     </div>
-                    <div v-if="cgCurrentRound !== 'd' && cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
+                    <div v-if="cgCurrentRound !== 'd' && cgCurrentRound !== 'i' && cgRound && !cgIsApproving && !isRoundEmptyForUser && !cgNewSubmitByMod">
                       <template v-if="cgRound.creator">
                         <span class="Main_SearchResultUserBy Cg_Creator">{{ $t("m_by") }}&nbsp;</span>
                         <span
@@ -251,7 +252,7 @@
                         <span class="Main_ViewsCount">{{ (Vue.utils.statistics[`cg_${cgCurrentId}_${cgCurrentRound}`] || {}).c || 0 }} views</span>
                       </span>
                     </div>
-                    <div v-if="cgCurrentRound !== 'd'" class="Cg_CenterBottom Cg_CenterBottomCg">
+                    <div v-if="cgCurrentRound !== 'd' && cgCurrentRound !== 'i'" class="Cg_CenterBottom Cg_CenterBottomCg">
                       <div
                         :style="`color: ${ cgRound.rqFill > cgRound.rqLimit ? '#a90000' : '' }`"
                         class="Cg_RqText">
@@ -336,6 +337,7 @@
               <template v-if="cg.rounds">
                 <template v-for="tab in cgTabs">
                   <BaseChip
+                    v-if="tab !== 'info' || (cg?.info?.rungPrizes)"
                     :inputValue="cgTab"
                     :disabled="cgLoadingAny"
                     class="BaseChip_MinWidth BaseChip_DontCrop BaseChip_AsTab"
@@ -404,7 +406,7 @@
               
               
               <button
-                :disabled="cgCurrentRound === 'd' || cgCurrentRound === 0 || cgLoadingAny || cgNeedSave"
+                :disabled="cgCurrentRound === 'd' || cgCurrentRound === 'i' || cgCurrentRound === 0 || cgLoadingAny || cgNeedSave"
                 class="D_Button Row_DialogButtonTune Row_DialogButtonTuneBorderRadius"
                 @click="loadPrevRound()">
                 <i class="ticon-arrow_left_3" aria-hidden="true"/>
@@ -1225,6 +1227,12 @@
 
       </div>
 
+      <div v-else-if="cgCurrentRound === 'i'" class="Cg_Mid">
+        <div class="Cg_MidInfos">
+          <BaseChallengeInfos v-if="cg && cg.info" :cg="cg" :rs="300" />
+        </div>
+      </div>
+
       <div v-else-if="cgList.length > 0" class="Cg_Mid">
         <!-- CG LIST ROOT -->
         <div class="Cg_ListSelect">
@@ -1670,7 +1678,7 @@
               <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
             </div>
             <template v-else>
-              <BaseRewards v-if="event.prizes && event.prizes.length" :prizes="event.prizes" :tag="event.tag" :rs="300" />
+              <BaseRewards v-if="event.prizes && event.prizes.length" :prizes="event.prizes" :rs="300" />
               <div class="Main_EventInfoBottom">
                 <div class="Main_EventInfoGrid">
                   <div class="Main_EventInfoLabel">{{ $t('m_ticketRegeneration') }}</div>
@@ -3837,6 +3845,7 @@ export default {
     BaseCover,
     BaseRewards: () => import('@/components/BaseRewards.vue'),
     BaseEventHandRanking: () => import('@/components/BaseEventHandRanking.vue'),
+    BaseChallengeInfos: () => import('@/components/BaseChallengeInfos.vue'),
     BaseTimeCell,
     BaseCarsTuneSelector
   },
@@ -4106,7 +4115,7 @@ export default {
       eventTabs: ["trackset", "hands", "info"],
       eventTab: "trackset",
       eventRaw: null,
-      cgTabs: ["round", "dashboard"], // info later
+      cgTabs: ["round", "dashboard", "info"],
       cgTab: "round",
       cgTabRoundMemory: null,
       clubTabs: ["trackset", "hands"], // info later (map)
@@ -5092,6 +5101,7 @@ export default {
       if (!this.user || !this.user.mod) return false;
       if (this.cgNeedSave) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cgRound) return false;
       if (this.cgNewSubmitByMod) return false;
       if (this.cgNewSubmitByModTemplate) return false;
@@ -5118,6 +5128,7 @@ export default {
       if (!this.user) return false;
       if (this.user.mod) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cgRound) return false;
       if (!this.cgRound.lastAnalyze) {
         return true
@@ -5128,6 +5139,7 @@ export default {
       if (!this.user) return false;
       if (!this.user.mod) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cg.date || !this.cg.rounds[this.cgCurrentRound]) return false;
       if (this.cg.rounds[this.cgCurrentRound].reservedTo) return false;
       if (this.cg.rounds[this.cgCurrentRound].creator) return false;
@@ -5137,6 +5149,7 @@ export default {
     isRoundReadyForSaveUser() {
       if (!this.isRoundEmptyForUser) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       let ready = true;
       this.cgRound.races.map(race => {
         if (!race.rid || race.time === undefined || race.time === null) ready = false;
@@ -5149,6 +5162,7 @@ export default {
     isRoundComplete() {
       if (this.mode !== 'challenges') return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cgRound) return false;
       if (!this.cgRound.date) return false;
       if (!Array.isArray(this.cgRound.races)) return false;
@@ -5166,6 +5180,7 @@ export default {
       if (!this.user) return false;
       if (!this.cgRound.date) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (this.cgRound.lastAnalyze) return false;
       if (this.cgRound.isPreview) return false;
       if (this.cgNewSubmitByMod) return false;
@@ -5184,6 +5199,7 @@ export default {
       if (!this.user) return false;
       if (!this.user.mod) return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cgRound.date) return false;
       if (this.cgRound.reservedTo === this.user.username) return true;
       if (this.cgRound.lastAnalyze) return true;
@@ -5191,6 +5207,7 @@ export default {
     cgBlockDownloadAssets() {
       if (this.mode !== 'challenges') return false;
       if (this.cgCurrentRound === 'd') return false;
+      if (this.cgCurrentRound === 'i') return false;
       if (!this.cgRound || !this.cgRound.races) return true;
       let isEmpty = true;
       this.cgRound.races.find(race => {
@@ -7262,12 +7279,13 @@ export default {
       this.cgSeletorDialog = false;
       this.cgSentForReview = false;
 
-      axios.post(Vue.preUrlCharlie + "/getCgById", {
+      axios.post(Vue.preUrl + "/getCgById", {
         date: date
       })
       .then(res => {
         this.cgLoadedAssets = [];
         let cg = this.cgList.find(x => x.date === date);
+        Vue.updateInventory(res.data.inventory);
         this.lookForChangedCars(res.data);
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
@@ -7308,7 +7326,7 @@ export default {
           else round = Number(lastRound);
         }
       }
-      if (isNaN(round) && round !== "d") round = 0;
+      if (isNaN(round) && round !== "d" && round !== "i") round = 0;
 
       this.cgSeletorDialog = false;
       this.cgRoundSelectorDialog = false;
@@ -7326,6 +7344,10 @@ export default {
 
       if (round === "d" && !cg.rounds["d"]) {
         this.cgInitDashDefault();
+      }
+      if (round === "i") {
+        this.cgTab = "info";
+        this.cgInitInfo();
       }
       window.scrollTo({ top: 0 });
       this.cgCurrentId = cg.date;
@@ -7537,6 +7559,7 @@ export default {
     },
     cgResolveRoundCars(download = true, retry = 0) {
       if (this.cgCurrentRound === "d") return;
+      if (this.cgCurrentRound === "i") return;
       if (Vue.utils.lastestcars.length === 0) {
         if (retry > 20) return;
         console.log("retry", retry);
@@ -9142,7 +9165,9 @@ export default {
         maxTickets: json.ladder.maxTickets,
         rungPrizes: json.ladder.rungPrizes.map(rung => {
           return rung.map(prize => {
-            return [prize.prizeType, prize.prizeValue, prize.prizeMaxClaims];
+            let res = [prize.prizeType, prize.prizeValue, prize.prizeMaxClaims];
+            if (prize.prizeAmount) res.push(prize.prizeAmount);
+            return res;
           });
         }),
         hideOnCompletion: json.ladder.hideOnCompletion,
@@ -9607,6 +9632,10 @@ export default {
       })
 
       this.$router.push({ name: "Packs", params: { cars } })
+    },
+    cgInitInfo() {
+      Vue.set(this.cgRound, "rqFill", 0);
+      Vue.set(this.cg.rounds, "i", {});
     },
     cgLoadDash() {
       if (!this.cg || !this.cg.date) return;
@@ -10704,6 +10733,10 @@ export default {
       if (tab === "dashboard") {
         this.cgTabRoundMemory = this.cgCurrentRound;
         this.loadCgRound(this.cg.date, 'd');
+      }
+      if (tab === "info") {
+        this.cgTabRoundMemory = this.cgCurrentRound;
+        this.loadCgRound(this.cg.date, 'i');
       }
       if (tab === "round") {
         let round = 0;
@@ -13943,6 +13976,19 @@ export default {
               console.log(parsed);
             }
             this.eventBestTeamsBigArray = parsed.arr;
+
+            const uniques = new Set([]);
+            this.eventBestTeamsBigArray.map(item => {
+              if (!item[6]) return;
+              item[6].map((rid, ix) => {
+                uniques.add(`${rid}~T${item[5][ix]}`);
+              })
+            })
+            uniques.forEach((item, iItem) => {
+              if (iItem > 50) return;
+              let [rid, tune] = item.split("~T");
+              Vue.timeCell(rid, tune, "drag100_a00");
+            })
             // this.eventBestTeamsDialog = true;
             this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
           }

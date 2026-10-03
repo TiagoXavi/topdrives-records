@@ -136,7 +136,7 @@ export default {
             this.isNegative = false;
           }
 
-          if (import.meta.env.DEV) console.log("BaseRemainingTime", nextUpdateInMs);
+          if (import.meta.env.DEV && nextUpdateInMs) console.log("BaseRemainingTime", nextUpdateInMs);
 
           if (!this.result) {
             this.quickMs = null;

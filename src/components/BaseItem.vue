@@ -2,7 +2,7 @@
   <button :style="`--size: ${size}px`" class="D_Button BaseItem_Layout" @click="itemClick()">
     <img
       :src="imgUrl"
-      :key="item[2]"
+      :key="item[0]"
       class="BaseItem_Img"
       alt=""
       loading="lazy"
@@ -21,7 +21,7 @@ export default {
   },
   props: {
     item: {
-      type: [Array, Object],
+      type: [Array, Object, String],
       default: () => ([null, 1])
     },
     size: {
@@ -43,8 +43,12 @@ export default {
     imgUrl() {
       if (!this.item) return '';
       let fileName;
-      if (this.item[0]) fileName = Vue.inventory[this.item[0]]?.image;
-      if (this.item.image) fileName = this.item.image;
+      
+      if (typeof this.item === 'string') fileName = Vue.inventory[this.item]?.image;
+      else {
+        if (this.item[0]) fileName = Vue.inventory[this.item[0]]?.image;
+        if (this.item.image) fileName = this.item.image;
+      }
 
       if (!fileName) fileName = "InventoryItemKeyGrey";
       

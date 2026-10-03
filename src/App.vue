@@ -646,7 +646,11 @@ export default {
 
       if (mutation.type == "OPEN_ITEM_DETAIL") {
         let item;
-        if (mutation.payload && mutation.payload[0] && Vue.inventory[mutation.payload[0]]) {
+        if (!mutation.payload) return;
+        if (typeof mutation.payload === "string") {
+          mutation.payload = [mutation.payload];
+        }
+        if (mutation.payload[0] && Vue.inventory[mutation.payload[0]]) {
           item = Vue.inventory[mutation.payload[0]]
         } else if (mutation.payload && mutation.payload[0]) {
           item = {
@@ -4676,6 +4680,11 @@ a:visited:not(.D_Button) {
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_HeaderBlockTiresLabel {
   display: none;
+}
+.Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) .Car_Header:not(.Car_AddHeader):not(.Row_DialogCardCard) .Car_TuneTip {
+  bottom: 10%;
+  left: unset;
+  right: calc(var(--card-right-width) + 1.6%);
 }
 .Main_Compact .BaseCard_Layout:not(.BaseCard_NoCompact) {
   width: 120px;

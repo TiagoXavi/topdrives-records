@@ -2,13 +2,13 @@
   <button :style="`--size: ${size}px`" class="D_Button BasePackBmp_Layout" @click="itemClick()">
     <img
       :src="imgUrl"
-      :key="pack.type"
+      :key="packResolved.type"
       class="BasePackBmp_Img"
       alt=""
       loading="lazy"
       onerror="this.onerror=null; this.src='/h_packs/default.png'; this.classList.add('BasePackBmp_Error');" 
     >
-    <div v-if="pack.qty > 1" class="BasePackBmp_Qty">x{{ pack.qty }}</div>
+    <div v-if="packResolved.qty > 1" class="BasePackBmp_Qty">x{{ packResolved.qty }}</div>
   </button>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   props: {
     pack: {
-      type: Object,
+      type: [Object, Array],
       default: () => ({ type: "ceramic", qty: 1 })
     },
     size: {
@@ -38,15 +38,20 @@ export default {
   mounted() {},
   computed: {
     imgUrl() {
-      if (!this.pack) return '';
-      let fileName = this.pack.type;
+      if (!this.packResolved.type) return '';
+      let fileName = this.packResolved.type;
 
       return '/h_packs/' + fileName + '.png';
     },
+    packResolved() {
+      if (!this.pack) return {};
+      if (this.pack.type) return this.pack;
+      else return { type: this.pack[4], qty: this.pack[3] };
+    }
   },
   methods: {
     itemClick() {
-      this.$store.commit('OPEN_PACK_DETAIL', this.pack);
+      this.$store.commit('OPEN_PACK_DETAIL', this.packResolved);
     }
   },
 }
