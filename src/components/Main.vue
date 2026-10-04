@@ -745,6 +745,10 @@
                       :compare="windowWidth < 1200"
                       :mini="Vue.utils.windowWidth < 1200"
                       :externalSetTune="true"
+                      :tuneWinsCheck="true"
+                      :track="race.track"
+                      :count="count"
+                      :oppoTime="race.time"
                       @changeToTune="cgChangeTuneYou(race, $event)"
                       @cog="cgShowTuneDialog(race, false, irace)"
                     />
@@ -10444,6 +10448,7 @@ export default {
         ...(car.alt || [])
       ]
 
+
       let better;
       arrTunes.find(tune => {
         if (is999tune && tune) {
@@ -10454,6 +10459,7 @@ export default {
           }
         }
         better = tune.split('').every((v,i) => Number(fTun[i]) >= Number(v));
+        if (car.bad && car.bad.includes(fTun)) better = false;
 
         if (better) {
           this.lastIsBetterResult = "better";
@@ -10763,6 +10769,9 @@ export default {
               if (car[3]) {
                 Vue.set(race.cars[icar], "alt", car[3] );
               }
+              if (car[4]) {
+                Vue.set(race.cars[icar], "bad", car[4] );
+              }
             } else {
               Vue.set(car, "selectedTune", car.tune);
             }
@@ -10873,7 +10882,9 @@ export default {
     garageEditSimulatedUpgradedCar(index, car) {
       // debugger;
       let vm = this;
-      car.selectedTune = car.tun;
+      // car is already observed (pushed into Vue.garageListUpgraded), so a plain
+      // assignment would add selectedTune as a non-reactive key. Vue.set makes it reactive.
+      Vue.set(car, "selectedTune", car.tun);
       this.T_S.$patch((state) => {
         state._g_car.car = car;
         state._g_car.tuneDialogCarIndex = index;
@@ -10888,8 +10899,9 @@ export default {
           })
         };
         state._g_car.changed = (tune) => {
-          car.tun = tune;
-          car.tunZ = tune.split('').map(x => Number(x)*3).join('');
+          Vue.set(car, "tun", tune);
+          Vue.set(car, "selectedTune", tune);
+          Vue.set(car, "tunZ", tune.split('').map(x => Number(x)*3).join(''));
 
           vm.cgDashLoaded = true;
           setTimeout(() => {

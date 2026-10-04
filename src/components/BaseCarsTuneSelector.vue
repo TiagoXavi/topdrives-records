@@ -6,8 +6,8 @@
         v-for="item in tunes"
         :class="{
           Row_DialogButtonTuneActive: carConfig.selectedTune === item,
-          Row_DialogButtonTuneWin: false,
-          Row_DialogButtonTuneLose: false
+          Row_DialogButtonTuneWin: tuneWinsCheck && tuneWins.w.includes(item),
+          Row_DialogButtonTuneLose: tuneWinsCheck && tuneWins.l.includes(item),
         }"
         class="D_Button Row_DialogButtonTune Row_TuneChooseButton"
         @click="setTune(item)">
@@ -44,7 +44,11 @@ export default {
     mini: {},
     compare: {},
     externalSetTune: {},
-    showPerc: {}
+    showPerc: {},
+    tuneWinsCheck: {},
+    track: {},
+    count: {},
+    oppoTime: {},
   },
   data() {
     return {
@@ -68,7 +72,51 @@ export default {
     },
     miniCalc() {
       return (this.mini && (!this.compare)) || (this.internalMini && this.compare && this.carConfig.selectedTune);
-    }
+    },
+    tuneWins() {
+      const result = { w:[], l: [] };
+      if (!this.tuneWinsCheck) return result;
+      this.count;
+
+      let arrTunes = [
+        this.carConfig.selectedTune,
+        ...(this.carConfig.alt || [])
+      ]
+
+      this.tunes.forEach(tune => {
+        if (tune === this.carConfig.selectedTune) return;
+
+        let better;
+        arrTunes.find(fTun => {
+          better = tune.split('').every((v,i) => Number(v) >= Number(fTun[i]));
+          if (this.carConfig.bad && this.carConfig.bad.includes(tune)) better = false;
+
+          return better;
+        });
+
+        if (!better) {
+          result.l.push(tune);
+        } else {
+          result.w.push(tune);
+        }
+
+        // if (this.carConfig.bad && this.carConfig.bad.includes(tune)) {
+        //   result.l.push(tune);
+        // } else {
+        //   result.w.push(tune);
+        // };
+
+        // let time = Vue.timeCell(this.car.rid, tune, this.track);
+        // if (time === null || time === "!loading") return;
+        // if (Vue.timeIsBest(time, this.oppoTime, this.track)) {
+        //   result.w.push(tune);
+        // } else if (time !== this.oppoTime) {
+        //   result.l.push(tune);
+        // }
+      });
+
+      return result;
+    },
   },
   methods: {
     setTune(selectedTune) {
@@ -91,6 +139,7 @@ export default {
     mouseLeaveTune(e) {
       this.internalMini = true;
     },
+    
   },
 }
 </script>
