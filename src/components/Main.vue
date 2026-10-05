@@ -5922,7 +5922,7 @@ export default {
           if (isFromJson) console.log(`race.carIndex ${race.carIndex} ${(race.cars[race.carIndex] || {}).rid}`);
         } else {
           if (isFromJson) console.log(`found`);
-          race.cars.push( { rid: newCar.rid } );
+          race.cars.push( { rid: newCar.rid, isFront: true } );
           race.carIndex = race.cars.length-1;
           // Vue.set(race.cars[race.carIndex], "photo", Vue.carPhoto(newCar));
           // Vue.set(race.cars[race.carIndex], "car", JSON.parse(JSON.stringify(newCar)));

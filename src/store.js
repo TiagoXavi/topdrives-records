@@ -164,9 +164,7 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [
-      "Winter Wonderland",
-    ],
+    upcomingTags: [],
     showDataFromPast: false,
     showCustomTunes: false,
     showOldTags: false,

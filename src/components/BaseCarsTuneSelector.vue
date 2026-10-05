@@ -75,7 +75,7 @@ export default {
     },
     tuneWins() {
       const result = { w:[], l: [] };
-      if (!this.tuneWinsCheck) return result;
+      if (!this.tuneWinsCheck || !this.carConfig?.selectedTune || this.carConfig.isFront) return result;
       this.count;
 
       let arrTunes = [
