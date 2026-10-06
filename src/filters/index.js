@@ -1053,7 +1053,7 @@ export default {
             else if (tyre === "Off-road") return "OFF";
             else if (tyre === "Slick") return "SLK";
         };
-        Vue.mra = function (time, acel, multiplier = 100, cases = 3) {
+        Vue.mra = function (time, acel, multiplier = 100, cases = 2) {
             acel = Number(acel);
             // if (time && acel) {
             //     debugger;
@@ -1067,7 +1067,7 @@ export default {
         Vue.brake = function (timeWithBrake, time) {
             
             if ( time && typeof time === 'number' && timeWithBrake && timeWithBrake > time ) {
-                return (timeWithBrake - time).toFixed(3)
+                return (timeWithBrake - time).toFixed(2)
             } else {
                 return ''
             }
