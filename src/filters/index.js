@@ -317,7 +317,7 @@ const importantTags = [
   "LiveOps 1",
   // "LiveOps 2",
   "LiveOps 3",
-  "LiveOps 4",
+  // "LiveOps 4",
   "LiveOps 5",
   "Tri-Series",
   "Tri-Series-Final",
@@ -845,6 +845,7 @@ export default {
         };
 
         Vue.toTimeString = function(input, id) {
+        console.log("toTimeString", input);
           if (input === null || input === undefined || input === "") return "";
           let num = Number(input);
           if (input == 0) return "DNF";
@@ -864,7 +865,7 @@ export default {
           var hours = Math.floor(sec_num / 3600);
           var minutes = Math.floor((sec_num - hours * 3600) / 60);
           var seconds = sec_num - hours * 3600 - minutes * 60;
-          var milesi = parseInt(Vue.options.filters.clearNumber((input - parseInt(input)) * 100));
+          var milesi = parseInt(Vue.options.filters.clearNumber((input - parseInt(input)) * 1000));
 
           if (hours < 10) {
             hours = '0' + hours;
@@ -876,9 +877,11 @@ export default {
             seconds = '0' + seconds;
           }
           if (milesi < 10) {
+            milesi = '00' + milesi;
+          } else if (milesi < 100) {
             milesi = '0' + milesi;
           }
-          return minutes + ':' + seconds + ':' + milesi;
+          return minutes + ':' + seconds + '.' + milesi;
         };
         Vue.toTimeStringTrCode = function(input, trCode) {
             if (!trCode) return "";
@@ -892,6 +895,7 @@ export default {
         };
 
         Vue.toTimeNumber = function(input, id = "") {
+          console.log("toTimeNumber", input);
           if (input === "DNF" || input === "dnf" || input === "0" || input === "99:99:99") return 0;
           if (input === "") return "";
 
@@ -941,10 +945,10 @@ export default {
             arr.map(x => {
               if (isNaN(x)) throw new Error("includes NaN");
             });
-            if (typeof arr[0] === 'number' && arr[0] <= 99) {
-              result = Vue.options.filters.clearNumber(result + arr[0]*0.01);
+            if (typeof arr[0] === 'number' && arr[0] <= 999) {
+              result = Vue.options.filters.clearNumber(result + arr[0]*0.001);
             } else if (arr[0] !== undefined) {
-              throw new Error("0: not number or bigger than 99")
+              throw new Error("0: not number or bigger than 999")
             }
             if (typeof arr[1] === 'number' && arr[1] <= 59) {
               result = Vue.options.filters.clearNumber(result + arr[1]);
@@ -965,7 +969,7 @@ export default {
           return result;
         };
         Vue.clearNumber = function(input) {
-          return Number((input).toFixed(2));
+          return Number((input).toFixed(3));
         };
         
         Vue.resolveStat = function (rid, type, selectedTune) {
@@ -1049,7 +1053,7 @@ export default {
             else if (tyre === "Off-road") return "OFF";
             else if (tyre === "Slick") return "SLK";
         };
-        Vue.mra = function (time, acel, multiplier = 100, cases = 2) {
+        Vue.mra = function (time, acel, multiplier = 100, cases = 3) {
             acel = Number(acel);
             // if (time && acel) {
             //     debugger;
@@ -1063,7 +1067,7 @@ export default {
         Vue.brake = function (timeWithBrake, time) {
             
             if ( time && typeof time === 'number' && timeWithBrake && timeWithBrake > time ) {
-                return (timeWithBrake - time).toFixed(2)
+                return (timeWithBrake - time).toFixed(3)
             } else {
                 return ''
             }
@@ -1377,7 +1381,7 @@ export default {
 
             result = (factor * -1) * (wt / lt) + factor;
             // console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );
-            let decimal = Number((result % 1).toFixed(2));
+            let decimal = Number((result % 1).toFixed(3));
             let isImprecise = false;
             if (decimal < 0.13 || decimal > 0.87) {
                 isImprecise = true;

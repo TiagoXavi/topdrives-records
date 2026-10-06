@@ -23,7 +23,7 @@ export default {
 
 <style>
 .BaseLogo {
-  fill: #515151;
+  fill: #FFC717;
 }
 .BaseLogo_Compact {
   

@@ -97,6 +97,7 @@ export default new Vuex.Store({
       "5th Anniversary",
       "Around the World",
       "As Seen on YT",
+      "Audi Sport Racing Legends",
       "Boss Rush Collection",
       "Call of the Wild",
       "Chariots of the Gods",

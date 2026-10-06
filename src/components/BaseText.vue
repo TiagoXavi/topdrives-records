@@ -50,7 +50,7 @@ const VALIDATORS = {
   hand: e => TOP_HAND.test(e),
   integer: e => INTEGER.test(e),
   tune: e => {
-    if (/^[ABC]+$/.test(e) && e.length === 3) {
+    if (/^[0ABC]+$/.test(e) && e.length === 3) {
       return true;
     }
     return TUNE.test(e) && !INVALID_TUNES.includes(e) && [...e].reduce((a, b) => Number(a) + Number(b)) <= 24;
