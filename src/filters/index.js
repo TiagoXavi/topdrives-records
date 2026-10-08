@@ -845,7 +845,6 @@ export default {
         };
 
         Vue.toTimeString = function(input, id) {
-        console.log("toTimeString", input);
           if (input === null || input === undefined || input === "") return "";
           let num = Number(input);
           if (input == 0) return "DNF";

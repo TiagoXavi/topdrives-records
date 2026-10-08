@@ -91,6 +91,24 @@
             :rqLimit="eventBestTeamsTarget.rqLimit"
             prefix="Oppo"
           />
+          <div
+            :class="{ BaseEventHandRanking_TuneSelectorsMini: windowWidth < 1200 }"
+            class="BaseEventHandRanking_TuneSelectors">
+            <div
+              v-for="(car, icar) in eventBestTeamsConfig.forceOppoCars"
+              :key="icar"
+              class="BaseEventHandRanking_TuneSelector">
+              <BaseCarsTuneSelector
+                v-if="car && car.rid"
+                :car="Vue.all_carsObj[car.rid]"
+                :carConfig="car"
+                :mini="windowWidth < 1200"
+                :externalSetTune="true"
+                @changeToTune="oppoChangeTune(car, $event)"
+                @cog="handRankingShowTuneDialog(car, icar)"
+              />
+            </div>
+          </div>
         </div>
       </BaseExpandDiv>
 
@@ -219,6 +237,7 @@ import BaseExpandDiv from './BaseExpandDiv.vue';
 import BaseCarsTeam from './BaseCarsTeam.vue';
 import BaseCarList from './BaseCarList.vue';
 import BaseSwitch from './BaseSwitch.vue';
+import BaseCarsTuneSelector from './BaseCarsTuneSelector.vue';
 
 export default {
   name: 'BaseEventHandRanking',
@@ -228,7 +247,8 @@ export default {
     BaseCarsTeam,
     BaseCarList,
     BaseSwitch,
-    BaseDualSlider
+    BaseDualSlider,
+    BaseCarsTuneSelector
   },
   props: {
     eventBestTeamsConfig: {},
@@ -242,6 +262,7 @@ export default {
     eventBestTeamsLastCache: {},
     getHandRanking: {},
     handRankingExportClick: {},
+    handRankingShowTuneDialog: {},
   },
   data() {
     return {
@@ -252,9 +273,40 @@ export default {
   beforeMount() {},
   mounted() {},
   computed: {},
-  methods: {},
+  methods: {
+    oppoChangeTune(car, tune) {
+      // click on the active tune clears it
+      if (tune === car.selectedTune) tune = undefined;
+      Vue.set(car, "selectedTune", tune);
+      Vue.set(car, "TCode", Vue.getTCod(car.rid, tune));
+    },
+  },
 }
 </script>
 
 <style>
+.BaseEventHandRanking_TuneSelectors {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 4px;
+}
+.BaseEventHandRanking_TuneSelector {
+  width: 228px;
+  min-height: 40px;
+}
+.BaseEventHandRanking_TuneSelectorsMini .BaseEventHandRanking_TuneSelector {
+  width: 113px;
+}
+.BaseEventHandRanking_TuneSelector .BaseCarsTuneSelector_Layout {
+  height: 40px;
+  background-color: transparent;
+  box-shadow: none;
+}
+.BaseEventHandRanking_TuneSelector .BaseCarsTuneSelector_Layout .BaseCarsTuneSelector_ChooseBox {
+  position: static;
+  flex-direction: row;
+  padding: 0;
+  background-color: transparent;
+}
 </style>

@@ -58,7 +58,7 @@
               `${correctIndex === ix ? 'Row_ItemCorrect ' : '' }`+
               `${type === 'times' ? 'Row_ColorByIndex ' : '' }`+
               `${item.text == 0 ? 'Row_DNF ' : '' }`+
-              `${hoverIndex == ix+1 ? 'Row_Hover ' : '' }`+
+              `${hoverIndex == ix ? 'Row_Hover ' : '' }`+
               `${detailIndex === ix ? 'Row_DetailsActive ' : '' }`+
               `${lastIndex > 0 ? 'Row_ColorHighFirst ' : '' }`+
               `Type_${type === 'tracks' ? item.trackType : ''} `+

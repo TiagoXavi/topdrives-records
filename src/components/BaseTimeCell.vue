@@ -7,6 +7,7 @@
         `${count === -3 ? 'Row_ItemError ' : '' }`+
         `${count === -4 ? 'Row_ItemCorrect ' : '' }`+
         `${count === -5 ? 'Row_DetailsActive ' : '' }`+
+        `${hoverIndex == iTrack ? 'Row_Hover ' : '' }`+
         `${time == 0 ? 'Row_DNF ' : '' }`+
         `${false ? 'Row_ForceNormalSizeCell ' : ''}`+
         `${time === null || time === undefined || time === '' ? 'Row_ContentEmpty ' : '' }`+
@@ -59,6 +60,7 @@ export default {
     countPerTrack: {},
     showPoints: {},
     isReferencePoints: {},
+    iTrack: {},
     hoverIndex: {},
     points: {},
     lastIndex: {}

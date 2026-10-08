@@ -111,7 +111,11 @@
         <div class="Main_BacktopBox">
           <div class="Main_Backtop"></div>
         </div>
-        <div v-if="showCarsFix" class="Main_CarList" @click.stop="mainCarsListGeneralClick($event)" @mouseleave="hoverIndex = -1;">
+        <div
+          v-if="showCarsFix" class="Main_CarList"
+          @click.stop="mainCarsListGeneralClick($event)"
+          @mouseover="mainCarsListGeneralHover($event)"
+          @mouseleave="hoverIndex = -1;">
           <template v-for="(car, carIx) in carDetailsList">
             <Car
               :car="car"
@@ -876,6 +880,11 @@
               v-if="user && user.mod && user.username === 'TiagoXavi'"
               :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
               class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
+              @click="cgAnalyseAllRounds()">Analyse all rounds</button>
+            <button
+              v-if="user && user.mod && user.username === 'TiagoXavi'"
+              :class="{ D_Button_Loading: cgSaveLoading || cgAnalyseLoading || cgBankToSaveLoading || saveLoading }"
+              class="D_Button D_ButtonDark D_ButtonDark2 D_ButtonRed"
               @click="cgSpreadFilterToAllRounds()">Spread filter to all rounds</button>
           </div>
 
@@ -957,6 +966,13 @@
                   />
                 </button>
               </template>
+              <button
+                v-if="cgDashListGarageUpgrade.length > 0"
+                class="D_Button D_ButtonDark D_ButtonDarkTransparent BaseCarList_CarButton"
+                style="align-self: center;"
+                @click="garageClearSimulatedUpgrades()">
+                {{ $t("m_clear") }}
+              </button>
             </div>
           </div>
         </BaseExpandDiv>
@@ -1728,6 +1744,7 @@
               :eventBestTeamsLastCache="eventBestTeamsLastCache"
               :getHandRanking="getHandRanking"
               :handRankingExportClick="handRankingExportClick"
+              :handRankingShowTuneDialog="handRankingShowTuneDialog"
             />
           </template> <!-- end hands -->
 
@@ -2183,6 +2200,7 @@
               :eventBestTeamsLastCache="eventBestTeamsLastCache"
               :getHandRanking="getHandRanking"
               :handRankingExportClick="handRankingExportClick"
+              :handRankingShowTuneDialog="handRankingShowTuneDialog"
             />
           </template> <!-- end hands -->
 
@@ -7779,6 +7797,7 @@ export default {
       this.tuneDialogCarRid = race.cars[race.carIndex].rid;
       this.tuneDialogCarConfig = race.cars[race.carIndex];
       this.calcRaceResult(race);
+      this.cgSaveRoundHand();
     },
     cgTryGetPointsFromCache(race) {
       let youRid = race.cars[race.carIndex].rid;
@@ -8507,15 +8526,37 @@ export default {
         this.cgShowResetSavedHand = true;
         saveHand = JSON.parse(saveHand);
         saveHand.map((ridTune, ridIx) => {
-          let index = this.cgRound.races[ridIx].cars.findIndex(car => {
+          let race = this.cgRound.races[ridIx];
+          if (!race || !ridTune) return;
+
+          let index = race.cars.findIndex(car => {
             return `${car.rid}_${car.tune}` === ridTune;
           })
-          if (index === -1) index = undefined;
-          if (index === undefined) return;
+          if (index === -1) {
+            // saved car/tune is not in the list, include it
+            let splitAt = ridTune.lastIndexOf("_");
+            let rid = ridTune.substr(0, splitAt);
+            let tune = ridTune.substr(splitAt + 1);
+            if (tune === "undefined") tune = undefined;
+            if (!Vue.all_carsObj[rid]) return;
 
-          let race = this.cgRound.races[ridIx];
+            let sameRid = race.cars.find(car => car.rid === rid);
+            if (sameRid) {
+              race.cars.push( JSON.parse(JSON.stringify( sameRid )) );
+            } else {
+              race.cars.push( { rid: rid, isFront: true } );
+            }
+            index = race.cars.length-1;
+            Vue.set(race, "carIndex", index);
+            if (tune || sameRid) {
+              Vue.set(race.cars[index], "tune", tune);
+              Vue.set(race.cars[index], "selectedTune", tune);
+              Vue.set(race.cars[index], "points", this.cgTryGetPointsFromCache(race));
+            }
+          }
+
           Vue.set(race, "carIndex", index);
-          
+
           this.cgResolveIfDownloadRidOrNot(race.cars[race.carIndex].rid, null, null, false);
           // let found;
           // found = Vue.all_cacheObj[race.cars[race.carIndex].rid];
@@ -10861,7 +10902,32 @@ export default {
       };
 
       this.cgSaveLoading = true;
-      axios.post(Vue.preUrl + "/spreadFilterAnalyse", params)
+      axios.post(Vue.preUrl + "/analyseAllRounds", params)
+      .then(res => {
+        this.cgSaveLoading = false;
+      })
+      .catch(error => {
+        this.cgSaveLoading = false;
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+        if ((error.response || {}).status === 401) {
+          this.$store.commit('OPEN_LOGIN');
+        }
+      })
+    },
+    cgAnalyseAllRounds() {
+      let params = {
+        date: this.cg.date,
+        rounds: this.cg.rounds
+      };
+
+      this.cgSaveLoading = true;
+      axios.post(Vue.preUrl + "/analyseAllRounds", params)
       .then(res => {
         this.cgSaveLoading = false;
       })
@@ -10922,6 +10988,11 @@ export default {
       this.$nextTick().then(() => {
         this.T_S._g_car.dialog = true;
       })
+    },
+    garageClearSimulatedUpgrades() {
+      for (let index = Vue.garageListUpgraded.length - 1; index >= 0; index--) {
+        Vue.removeFromGarageUpgraded(index);
+      }
     },
     generateRandom(maxInt, stringParam) {
       let sum = 0;
@@ -13916,7 +13987,10 @@ export default {
         config.forceCars = this.eventBestTeamsConfig.forceCars.map(car => car.rid);
       }
       if (this.eventBestTeamsConfig.forceOppoBool && this.eventBestTeamsConfig.forceOppoCars.some(car => car.rid)) {
-        config.forceOppoCars = this.eventBestTeamsConfig.forceOppoCars.map(car => car.rid);
+        config.forceOppoCars = this.eventBestTeamsConfig.forceOppoCars.map(car => {
+          if (car.selectedTune) return { rid: car.rid, selectedTune: car.selectedTune };
+          return { rid: car.rid };
+        });
         config.balanced = false;
       }
       if (this.eventBestTeamsConfig.blackListBool && this.eventBestTeamsConfig.blackList.length > 0) {
@@ -14154,6 +14228,38 @@ export default {
         this.eventAnalyseLoading = false;
       });
     },
+    handRankingShowTuneDialog(car, index) {
+      this.T_S.$patch((state) => {
+        state._g_car.car = car;
+        state._g_car.tuneDialogCarIndex = index;
+        state._g_car.carDetailsList = [];
+        state._g_car.showMove = false;
+        state._g_car.showDelete = true;
+        state._g_car.showTunes = true;
+        state._g_car.externalController = true;
+        state._g_car.close = () => {
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          })
+        };
+        state._g_car.changed = (tune) => {
+          // click on the active tune clears it
+          if (tune === car.selectedTune) tune = undefined;
+          Vue.set(car, "selectedTune", tune);
+          Vue.set(car, "TCode", Vue.getTCod(car.rid, tune));
+        };
+        state._g_car.newIndex = () => {};
+        state._g_car.delete = () => {
+          this.T_S.$patch((state) => {
+            state._g_car.dialog = false;
+          });
+          Vue.set(this.eventBestTeamsConfig.forceOppoCars, index, {});
+        };
+      })
+      this.$nextTick().then(() => {
+        this.T_S._g_car.dialog = true;
+      })
+    },
     handRankingExportClick(index) {
       let cars = [];
       let oppos = [];
@@ -14168,7 +14274,7 @@ export default {
       if (this.eventBestTeamsConfig.forceOppoBool && this.eventBestTeamsConfig.forceOppoCars) {
         this.eventBestTeamsConfig.forceOppoCars.map(car => {
           if (car.rid) {
-            oppos.push({ rid: car.rid })
+            oppos.push({ rid: car.rid, selectedTune: car.selectedTune })
           }
         })
       } else if (this.eventBestTeamsBigArray[oppoIndex][6]) {
@@ -14334,6 +14440,27 @@ export default {
       }
       
       console.log(code);
+    },
+    mainCarsListGeneralHover(e) {
+      this.hoverIndex = -1;
+      let currEl = e.target;
+      let code;
+      while (true) {
+        if (!currEl) break;
+        if (currEl.classList.contains("BaseTimeCell_Layout")) {
+          code = currEl.getAttribute("data");
+          break;
+        }
+        if (currEl.classList.contains("Main_CarList") || currEl === document.body) break;
+        currEl = currEl.parentElement;
+      }
+
+      if (code) {
+        let trackIndex = code.split("_")[1];
+        
+        this.hoverIndex = Number(trackIndex);
+        return;
+      }
     },
     compareLimitProtection() {
       if (this.currentTracks.length > this.maxTrackNumber) {

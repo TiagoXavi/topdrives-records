@@ -51,6 +51,7 @@
           :showPoints="showPoints"
           :isReferencePoints="isReferencePoints"
           :hoverIndex="hoverIndex"
+          :iTrack="iTrack"
           :points="points"
           :lastIndex="lastIndex"
         />
