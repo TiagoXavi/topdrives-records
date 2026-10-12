@@ -25,6 +25,7 @@ const MainMatchSimulator = () => import("./components/MainMatchSimulator.vue");
 const MainCars = () => import("./components/MainCars.vue");
 const MainTracks = () => import("./components/MainTracks.vue");
 const MainHome = () => import("./components/MainHome.vue");
+const MainLook = () => import("./components/MainLook.vue");
 
 const MainTemplateGuidelines = () => import("./components/MainTemplateGuidelines.vue");
 const MainLogin = () => import("./components/MainLogin.vue");
@@ -183,9 +184,9 @@ const routes = [
     component: MainTestPoints,
   },
   {
-    path: '/testPoints/temp', // não funciona
-    name: 'MainTestPoints2',
-    component: MainTestPoints,
+    path: '/look',
+    name: 'Look',
+    component: MainLook,
   },
   {
     path: '/downTimes',
