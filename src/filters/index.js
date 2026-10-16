@@ -673,14 +673,22 @@ function loadTimesFromKing(car, track) {
 
 
 
-function loadGarage(params, force, callBack, errorCallBack) {
+function loadGarage(params, force, isOtherUser, callBack, errorCallBack) {
   if (garageObj.loaded && !force) return;
   garageObj.loading = true;
   
   window.axios.post(Vue.preUrl + "/getGarage", params)
   .then(res => {
     if (!params.year) {
-      if (res.data.value?.playerDeck) {
+      // a new garage of the same user: the simulated upgrades were for the old one, like when saving it
+      let cached = null;
+      try {
+        cached = JSON.parse(window.localStorage.getItem('cacheGarage'));
+      } catch (error) {}
+      if (cached && cached.value && res.data.value && cached.u === res.data.u && cached.value.date !== res.data.value.date) {
+        window.localStorage.removeItem('garageUpgrades');
+      }
+      if (res.data.value?.playerDeck && !isOtherUser) {
         resolveGarageRes(res.data);
       }
       try {
@@ -698,7 +706,10 @@ function loadGarage(params, force, callBack, errorCallBack) {
   .then(() => {
     if (!params.year) {
       garageObj.loading = false;
-      garageObj.loaded = true;
+
+      if (!isOtherUser) {
+        garageObj.loaded = true;
+      }
     }
   });
 }
@@ -717,6 +728,8 @@ function loadGarage(params, force, callBack, errorCallBack) {
 // }]
 function resolveGarageRes(data) {
   let car;
+  Object.keys(garageByRid).forEach(key => delete garageByRid[key]);
+  Object.keys(garageByHid).forEach(key => delete garageByHid[key]);
   for (let Z = 0; Z < data.value.playerDeck.length; Z++) {
     car = data.value.playerDeck[Z];
     if (!garageByRid[car.rid]) garageByRid[car.rid] = [];
@@ -753,6 +766,8 @@ function tryLoadGarageFromStorage() {
     try {
       let parsed = JSON.parse(storedGarage);
       if (parsed.u !== window.user.username) return; // different user
+      // the garage was saved again (maybe in other browser), or the server doesn't know its date yet
+      if (!window.user.garageDate || parsed.value.date !== window.user.garageDate) return;
       if (parsed.value.playerDeck) {
         resolveGarageRes(parsed);
         garageObj.loaded = true;

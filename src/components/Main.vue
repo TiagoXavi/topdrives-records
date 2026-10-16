@@ -10787,7 +10787,7 @@ export default {
       }
       if (tab === "round") {
         let round = 0;
-        if (this.cgTabRoundMemory && this.cgTabRoundMemory !== 'd') round = this.cgTabRoundMemory;
+        if (this.cgTabRoundMemory && this.cgTabRoundMemory !== 'd' && this.cgTabRoundMemory !== 'i') round = this.cgTabRoundMemory;
         this.loadCgRound(this.cg.date, round);
       }
     },

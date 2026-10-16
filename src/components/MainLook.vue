@@ -93,8 +93,8 @@
           </div>
         </div>
         <div class="MainLook_OppoHeader">
+          <div class="MainLook_OppoNumber">{{ iOppo+1 }}</div>
           <div class="MainLook_OppoHeaderTop">
-            <div class="MainLook_OppoNumber">{{ iOppo+1 }}/{{ match.opponents.length }}</div>
             <div class="MainLook_OppoName">{{ oppo.name }}<span v-if="oppo.elo !== undefined"> ({{ oppo.elo }})</span></div>
           </div>
           <div class="MainLook_OppoHeaderBottom">
@@ -619,14 +619,24 @@ export default {
 .MainLook_OppoHeader {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
   width: 120px;
   text-align: right;
+  position: relative;
 }
 .MainLook_OppoNumber {
-  font-size: 32px;
+  font-size: 200px;
   color: var(--d-text-b);
+  position: absolute;
+  font-weight: 700;
+  line-height: 0;
+  right: 0px;
+  opacity: 0.1;
+}
+.MainLook_OppoHeaderTop,
+.MainLook_OppoHeaderBottom {
+  position: relative;
 }
 .MainLook_OppoName {
   font-size: 14px;

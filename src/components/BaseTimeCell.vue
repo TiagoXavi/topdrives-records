@@ -61,7 +61,10 @@ export default {
     showPoints: {},
     isReferencePoints: {},
     iTrack: {},
-    hoverIndex: {},
+    hoverIndex: {
+      type: Number,
+      default: -1
+    },
     points: {},
     lastIndex: {}
   },

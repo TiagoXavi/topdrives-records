@@ -166,8 +166,8 @@ export default new Vuex.Store({
       "Year of the Snake"
     ],
     upcomingTags: [],
-    showDataFromPast: false,
-    showCustomTunes: false,
+    showDataFromPast: true,
+    showCustomTunes: true,
     showOldTags: false,
     showUpcomingTags: false,
     homePointsToggle: false,

@@ -1181,9 +1181,10 @@ export default {
       if (forceYear && forceYear != new Date().getFullYear()) {
         this.current = false;
       }
+      let isOtherUser = this.$route.name === "BaseMyGarageUser";
 
 
-      Vue.loadGarage(params, true, res => {
+      Vue.loadGarage(params, true, isOtherUser, res => {
         this.loading = false;
         this.saved = false;
         if (res.status === 200 && !res.data) {

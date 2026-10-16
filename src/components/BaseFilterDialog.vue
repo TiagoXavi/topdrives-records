@@ -1816,10 +1816,14 @@ export default {
           if (this.useMyGarage && Vue.garageObj.loaded) {
             // create a new copy for every unique tune of the car
             // if custom tune, check possibility or add without tune
+            // if (x.rid === "Skoda_966_Supersport_1953") debugger;
             let tunes = [];
             Vue.garageByRid[x.rid].map(hCar => {
               if (hCar.tun && !tunes.includes(hCar.tun)) {
                 tunes.push(hCar.tun);
+              }
+              if (!hCar.tun && !tunes.includes(hCar.tunZ)) {
+                tunes.push(hCar.tunZ);
               }
             })
             if (tunes.filter(x => x !== "000").length > 0) {

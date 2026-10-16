@@ -59,8 +59,8 @@
         @close="closeAdvancedOptions()">
         <div class="Main_AdvancedDialogBox">
           <div class="Main_DialogTitle">{{ $t("m_options") }}</div>
-          <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
-          <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" />
+          <!-- <BaseConfigCheckBox v-model="showDataFromPast" name="showDataFromPast" :label="$t('m_showDataFromPast')" />
+          <BaseConfigCheckBox v-model="showCustomTunes" name="showCustomTunes" :label="$t('m_showCustomTunes')" /> -->
           <BaseConfigCheckBox v-model="homePointsToggle" name="homePointsToggle" :label="`${$t('m_home')}: ${$t('m_homePointsToggle')}`"/>
           <BaseConfigCheckBox v-model="showPointsCgForce" name="showPointsCgForce" :label="`${$t('m_challenges')}: ${$t('m_showPointsCgForce')}`" />
           <BaseConfigCheckBox v-model="showPrizeBoard" name="showPrizeBoard" :label="`${$t('m_events')}: ${$t('m_showPrizeBoard')}`" />
@@ -189,8 +189,8 @@ export default {
     window.addEventListener('resize', this.handleResize);
     this.isMobile = Vue.options.filters.isMobile();
 
-    this.localStorageRead("showDataFromPast");
-    this.localStorageRead("showCustomTunes");
+    // this.localStorageRead("showDataFromPast");
+    // this.localStorageRead("showCustomTunes");
     this.localStorageRead("showOldTags");
     this.localStorageRead("homePointsToggle");
     this.localStorageRead("showPointsCgForce");
