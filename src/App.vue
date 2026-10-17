@@ -3181,9 +3181,11 @@ body .Main_UserTw3:before {
 }
 .Main_KingDialogBox {
   --width: 240px;
+  min-height: 440px;
 }
 .Main_KingFixed {
   --width: 180px;
+  min-height: unset;
 }
 .Main_KingFilter {
   height: 140px;
@@ -3203,7 +3205,10 @@ body .Main_UserTw3:before {
   margin: 0 auto;
 }
 .Main_KingTrackBoxSelected {
-  box-shadow: inset 2px 2px 0px 0px #ffffff07;
+  box-shadow: 0px 0px 0px 2px #ffffff07;
+}
+.Main_KingTrackBoxSelected .Row_Cell {
+  box-shadow: unset;
 }
 .Main_KingAnalyzeButton {
   width: var(--width);
@@ -3235,7 +3240,66 @@ body .Main_UserTw3:before {
   margin-bottom: 5px;
 }
 .Main_KingTuneSelector {
-  
+
+}
+.Main_KingBody {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+.Main_KingFooter {
+  display: flex;
+}
+.Main_KingTabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: -20px;
+  margin-bottom: 15px;
+}
+.Main_KingTab.D_Button {
+  font-size: 19px;
+  --cl: 70%;
+  color: hsl(var(--back-h), var(--back-s), var(--cl));
+  background-color: #262626;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 0 9px;
+  height: 46px;
+  border-radius: 0 0 6px 6px;
+  transition-duration: 0.15s;
+}
+.Main_KingTabActive.D_Button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(var(--d-text-yellow));
+  pointer-events: none;
+  cursor: initial;
+}
+.Main_KingTracksCount {
+  text-align: center;
+  font-size: 18px;
+  line-height: var(--cell-height);
+  box-shadow: 0px 0px 0px 2px #ffffff07;
+}
+.Main_KingTracksCountError {
+  color: rgb(var(--d-text-red2));
+}
+.Main_KingCarBox {
+  display: flex;
+  justify-content: center;
+  width: var(--width);
+  margin: 15px auto;
+}
+.Main_KingCarBox .BaseCarsTeam_CarEnterCarPropRQ {
+  /* the RQ left per empty slot means nothing without an RQ limit */
+  display: none;
+}
+.Main_KingFixed .Main_KingCarBox {
+  margin-top: 0px;
+}
+.Main_KingTrackBoxCheck {
+  justify-content: center;
 }
 .Main_EventListDividir {
   text-align: center;

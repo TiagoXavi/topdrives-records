@@ -2226,13 +2226,21 @@
       :transparent="false"
       :disableScroll="true"
       :fixed="kingFixed"
-      :max-width="kingFixed ? `200px` : `360px`"
+      :max-width="kingFixed ? `200px` : `420px`"
       min-width="150px"
       @close="closeKingOfDialog()">
       <div :class="{ Main_KingFixed: kingFixed }" class="Main_AdvancedDialogBox Main_KingDialogBox">
+        <div v-if="!kingFixed" class="Main_KingTabs">
+          <button
+            v-for="tab in kingTabs"
+            :key="tab"
+            :class="{ Main_KingTabActive: kingTab === tab }"
+            class="D_Button Main_KingTab"
+            @click="kingTab = tab">{{ $t(`m_${tab}`) }}</button>
+        </div>
         <div class="Main_DialogTitleDual">
-          <div class="Main_DialogTitle">{{ $t("m_bestOf") }}</div>
-          <div v-if="whatTier && whatTier <= 4">
+          <div class="Main_DialogTitle">{{ $t(`m_${kingTab}`) }}</div>
+          <div v-if="whatTier && whatTier <= kingTabTier">
             <button class="D_Button Main_KingPinButton" @click="kingFixed = !kingFixed; kingFixed ? kingAnalyse() : ''">
               <i class="ticon-internal Main_KingPinIcon" aria-hidden="true"/>
             </button>
@@ -2241,77 +2249,94 @@
             </button>
           </div>
         </div>
-        <div :class="{ Main_KingTrackBoxSelected: kingTrack }" class="Main_KingTrackBox">
-          <div class="Cg_Track">
-            <Row
-              v-if="kingTrack"
-              :list="[kingTrack]"
-              :loggedin="!!user"
-              :user="user"
-              :cg="true"
-              :normalSize="true"
-              class="Cg_TrackBox"
-              type="tracks" />
-            <button
-              :class="{ Cg_SelectTrackButtonEdit: kingTrack }"
-              class="D_Button Car_AddButton Cg_SelectTrackButton"
-              @click="openDialogTrackSearch(false, 'king');">
-              <i v-if="kingTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
-              <span v-else>{{ $t("m_selectTrack") }}</span>
-            </button>
+        <div class="Main_KingBody">
+          <div
+            v-if="kingTab === 'metaSeeker'"
+            :class="{ Main_KingTracksCountError: !metaSeekerTracksOk }"
+            class="Main_KingTrackBox Main_KingTracksCount">{{ $tc("m_tracksSelected", currentTracks.length, { count: currentTracks.length }) }}</div>
+          <div v-else :class="{ Main_KingTrackBoxSelected: kingTrack }" class="Main_KingTrackBox">
+            <div class="Cg_Track">
+              <Row
+                v-if="kingTrack"
+                :list="[kingTrack]"
+                :loggedin="!!user"
+                :user="user"
+                :cg="true"
+                :normalSize="true"
+                class="Cg_TrackBox"
+                type="tracks" />
+              <button
+                :class="{ Cg_SelectTrackButtonEdit: kingTrack }"
+                class="D_Button Car_AddButton Cg_SelectTrackButton"
+                @click="openDialogTrackSearch(false, 'king');">
+                <i v-if="kingTrack" class="ticon-pencil Cg_SelectTrackButtonIcon" aria-hidden="true"/>
+                <span v-else>{{ $t("m_selectTrack") }}</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <BaseFilterDescription
-          :filter="kingFilter"
-          :loading="kingLoading"
-          :user="user"
-          :ready="true"
-          :isKing="true"
-          :asFilterLabel="true"
-          class="Main_KingFilter"
-          @changeClick="openKingFilterDialog()" />
+          <template v-if="kingTab === 'bestOf' || kingTab === 'rqSavers' || kingTab === 'metaSeeker'">
+            <BaseFilterDescription
+              :filter="kingFilter"
+              :loading="kingLoading"
+              :user="user"
+              :ready="true"
+              :isKing="true"
+              :asFilterLabel="true"
+              class="Main_KingFilter"
+              @changeClick="openKingFilterDialog()" />
 
-        <div v-if="!whatTier || whatTier > 4" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
-          <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder D_LinkButton' @click="testBestOf()">{{ $t('m_here') }}</a></span>
-        </div>
-        <!-- <div
-          v-if="!kingFixed"
-          class="Main_KingTrackBox Main_FilterChipsInside"
-          style="margin-top: 4px;">
-          <template v-for="(item, ix) in ['332', '323', '233', '111']">
-            <BaseChip
-              v-model="kingTunes"
-              class="BaseChip_MinWidth BaseChip_TuneStyle"
-              :value="item" />
+            
           </template>
-        </div> -->
-        <!-- <BaseConfigCheckBox
-          v-if="!kingFixed"
-          v-model="kingShowDownvoted"
-          style="margin-top: 3px;"
-          class="Main_KingTrackBox"
-          name="kingShowDownvoted"
-          :label="$t('m_includeDownvote')" /> -->
-        <BaseConfigCheckBox
-          v-if="!inverted"
-          v-model="kingForceVerticalView"
-          class="Main_KingTrackBox"
-          name="kingForceVerticalView"
-          :label="$t('m_kingForceVertical')" />
-        <BaseSwitch
-          v-model="eventMyGarage"
-          :label="`${$t('m_myGarage')}`"
-          :horizontal="true"
-          style="margin: 8px auto 0 auto;"
-          name="eventMyGarage"
-        />
-        <button
-          v-if="whatTier && whatTier <= 4 && !kingFixed"
-          :class="{ D_Button_Loading: kingLoading }"
-          :disabled="kingLoading || !kingTrack"
-          class="D_Button D_ButtonDark D_ButtonTier4 Main_KingAnalyzeButton"
-          @click="kingAnalyse()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t("m_findBest") }}</button>
+          <template v-else-if="kingTab === 'tuneSeeker'">
+            <div class="Main_KingCarBox">
+              <BaseCarsTeam
+                :cars="tuneSeekerCars"
+                :pickFunc="openTuneSeekerCarPicker"
+                :width="kingFixed ? 180 : 240"
+                :fsize="kingFixed ? 10 : 12"
+                :canDrag="false"
+                prefix="TuneSeeker"
+                @delete="tuneSeekerRid = null" />
+            </div>
+
+            
+          </template>
+          <BaseConfigCheckBox
+            v-if="!inverted && kingTab !== 'metaSeeker'"
+            v-model="kingForceVerticalView"
+            class="Main_KingTrackBox Main_KingTrackBoxCheck"
+            name="kingForceVerticalView"
+            :label="$t('m_kingForceVertical')" />
+          <BaseSwitch
+            v-if="kingTab === 'bestOf' || kingTab === 'rqSavers' || kingTab === 'metaSeeker'"
+            v-model="eventMyGarage"
+            :label="`${$t('m_myGarage')}`"
+            :horizontal="true"
+            style="margin: 8px auto 0 auto;"
+            name="eventMyGarage"
+          />
+        </div>
+        <div class="Main_KingFooter">
+          <div v-if="kingTab === 'bestOf' && (!whatTier || whatTier > 4) && !kingFixed" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+            <span>{{ $t("p_patronsOnly", { tier: 4 }) }}<br>{{ $t("p_bestOfDescription") }} <a class='D_Link D_LinkUnder D_LinkButton' @click="testBestOf()">{{ $t('m_here') }}</a></span>
+          </div>
+          <div v-if="kingTab === 'rqSavers' && (!whatTier || whatTier > 3) && !kingFixed" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+            <span>{{ $t("p_patronsOnly", { tier: 3 }) }} {{ $t("p_demonstration") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/YRts7CpP_kc'>Youtube</a></span>
+          </div>
+          <div v-if="kingTab === 'metaSeeker' && (!whatTier || whatTier > 3) && !kingFixed" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+            <span>{{ $t("p_patronsOnly", { tier: 3 }) }} {{ $t("p_demonstration") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/YRts7CpP_kc'>Youtube</a></span>
+          </div>
+          <div v-if="kingTab === 'tuneSeeker' && (!whatTier || whatTier > 2) && !kingFixed" style="margin-top: 20px;" class="Main_SaveGalleryGuide">
+            <span>{{ $t("p_patronsOnly", { tier: 2 }) }} {{ $t("p_demonstration") }} <a class='D_Link D_LinkUnder' target='_blank' href='https://youtu.be/YRts7CpP_kc'>Youtube</a></span>
+          </div>
+          <button
+            v-if="whatTier && whatTier <= kingTabTier && !kingFixed"
+            :class="[`D_ButtonTier${kingTabTier}`, { D_Button_Loading: kingLoading }]"
+            :disabled="kingLoading || !kingAnalyseReady"
+            class="D_Button D_ButtonDark Main_KingAnalyzeButton"
+            @click="kingAnalyse()"><i class="ticon-crown D_ButtonIcon D_ButtonIcon24" aria-hidden="true"/> {{ $t(kingAnalyseLabel) }}</button>
+        </div>
       </div>
     </BaseDialog>
 
@@ -4233,6 +4258,9 @@ export default {
       kingAddindTrack: false,
       kingForceVerticalView: true,
       kingClearFilter: {},
+      kingTabs: ["bestOf", "rqSavers", "metaSeeker", "tuneSeeker"],
+      kingTab: "bestOf",
+      tuneSeekerRid: null,
       memoryRenameDialog: false,
       memoryRenameNewName: null,
       memoryRenameNewNameIndex: 0,
@@ -4947,6 +4975,35 @@ export default {
     maxCarNumber() {
       if (this.currentTracks.length < 2) return 30;
       return 15;
+    },
+    kingTabTier() {
+      // max tier allowed to use the selected tab, 0 for nobody
+      if (this.kingTab === "bestOf") return 4;
+      if (this.kingTab === "rqSavers") return 3;
+      if (this.kingTab === "metaSeeker") return 3;
+      if (this.kingTab === "tuneSeeker") return 2;
+      return 0;
+    },
+    metaSeekerTracksOk() {
+      // the backend takes 2 to 50 tracks
+      return this.currentTracks.length >= 2 && this.currentTracks.length <= 50;
+    },
+    tuneSeekerCars() {
+      // BaseCarsTeam with a single slot, empty ({}) until a car is picked
+      return [this.tuneSeekerRid ? { rid: this.tuneSeekerRid } : {}];
+    },
+    kingAnalyseLabel() {
+      // i18n key of the run button of the selected tab
+      if (this.kingTab === "rqSavers") return "m_findRqSavers";
+      if (this.kingTab === "metaSeeker") return "m_seekMeta";
+      if (this.kingTab === "tuneSeeker") return "m_seekTunes";
+      return "m_findBest";
+    },
+    kingAnalyseReady() {
+      // what the selected tab needs before it can run
+      if (this.kingTab === "metaSeeker") return this.metaSeekerTracksOk;
+      if (this.kingTab === "tuneSeeker") return !!this.kingTrack && !!this.tuneSeekerRid;
+      return !!this.kingTrack;
     },
     optionsDialogComputed() {
       if (this.T_S._g_track.dialog) return false;
@@ -12910,6 +12967,13 @@ export default {
       this.optionsDialogActive = true;
     },
     openKingOfDialog() {
+      // a single car or a single track in the grid is probably the one to use
+      let rids = [...new Set(this.carDetailsList.map(x => x.rid))];
+      if (rids.length === 1) this.tuneSeekerRid = rids[0];
+      if (this.currentTracks.length === 1) {
+        let track = this.resolveTrack({ track: this.currentTracks[0].code }, false, false);
+        if (track) this.kingTrack = track;
+      }
       this.kingDialog = true;
     },
     closeKingOfDialog(closeOptionsDialogToo = false) {
@@ -12923,8 +12987,209 @@ export default {
       if (this.kingFixed) this.kingAnalyse();
     },
     kingAnalyse() {
+      if (this.kingTab === "metaSeeker") {
+        this.metaSeekerAnalyse();
+        return;
+      }
       if (!this.kingTrack.code) return;
+      if (this.kingTab === "rqSavers") {
+        this.rqSaversAnalyse();
+        return;
+      }
+      if (this.kingTab === "tuneSeeker") {
+        if (this.tuneSeekerRid) this.tuneSeekerAnalyse();
+        return;
+      }
       this.kingAnalyseFinish();
+    },
+    rqSaversAnalyse() {
+      if (this.eventMyGarage && !this.user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+
+      this.kingLoading = true;
+      if (this.kingFixed) this.downloadLoading = true;
+      let track = this.kingTrack.code;
+
+      axios.post(Vue.preUrl + "/rqSavers", {
+        track: track,
+        filter: this.kingClearFilter || {},
+        myGarage: this.eventMyGarage
+      })
+      .then(res => {
+        this.clearAllTracks();
+        this.clearAllCars();
+        this.pushTrackSet([track]);
+
+        // in the order of the RQ saver score, not of the time
+        res.data.map(car => {
+          Vue.loadTimesFromKing({ rid: car.rid, tun: car.tune, time: car.time, stats: car.stats }, track);
+          this.addCar({ rid: car.rid, selectedTune: car.tune });
+        })
+
+        this.updateOptions();
+        if (!this.kingFixed) this.kingDialog = false;
+        if (this.kingForceVerticalView) {
+          this.display("vertical", false);
+          this.colorsChange("full", false);
+        }
+
+        if (res.data.length === 0) {
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "No times found",
+            type: "error"
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.kingLoading = false;
+        this.downloadLoading = false;
+      });
+    },
+    metaSeekerAnalyse() {
+      if (!this.metaSeekerTracksOk) return;
+      if (this.eventMyGarage && !this.user.hasGarage) {
+        this.noGarageUploaded();
+        return;
+      }
+
+      this.kingLoading = true;
+      if (this.kingFixed) this.downloadLoading = true;
+
+      axios.post(Vue.preUrl + "/metaSeeker", {
+        tracks: this.currentTracks.map(x => x.code),
+        filter: this.kingClearFilter || {},
+        myGarage: this.eventMyGarage
+      })
+      .then(res => {
+        // the tracks stay, the cars are replaced by the ones winning more tracks
+        this.clearAllCars();
+        res.data.map(car => {
+          this.addCar({ rid: car.rid, selectedTune: car.tune });
+        })
+
+        this.updateOptions();
+        if (!this.kingFixed) this.kingDialog = false;
+        if (this.kingForceVerticalView && this.kingTab !== 'metaSeeker') {
+          this.display("vertical", false);
+          this.colorsChange("full", false);
+        }
+
+        if (res.data.length === 0) {
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "No times found",
+            type: "error"
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.kingLoading = false;
+        this.downloadLoading = false;
+      });
+    },
+    openTuneSeekerCarPicker() {
+      this.T_S.$patch((state) => {
+        state._g_carPicker.dialogLoad = true;
+        state._g_carPicker.filter = {};
+        state._g_carPicker.filter2 = false;
+        state._g_carPicker.filter3 = false;
+        state._g_carPicker.filterOnly = false;
+        state._g_carPicker.requirementFilter = false;
+        state._g_carPicker.useWhatFilter = 0;
+        state._g_carPicker.sortEnabled = true;
+        state._g_carPicker.keepMemory = true;
+        state._g_carPicker.enableCounters = false;
+        state._g_carPicker.type = "carPicker";
+        state._g_carPicker.index = null;
+        state._g_carPicker.addCar = this.tuneSeekerPickCar;
+        state._g_carPicker.clearFilterUpdate = () => {};
+        state._g_carPicker.useFilter = () => {};
+        state._g_carPicker.dual = () => {};
+        state._g_carPicker.config = {};
+      })
+      this.$nextTick().then(() => {
+        this.T_S.$patch((state) => {
+          state._g_carPicker.dialog = true;
+        })
+      })
+    },
+    tuneSeekerPickCar(car) {
+      this.tuneSeekerRid = car.rid;
+      this.T_S._g_carPicker.dialog = false;
+      if (this.kingFixed) this.kingAnalyse();
+    },
+    tuneSeekerAnalyse() {
+      this.kingLoading = true;
+      if (this.kingFixed) this.downloadLoading = true;
+      let track = this.kingTrack.code;
+
+      axios.post(Vue.preUrl + "/tuneSeeker", {
+        track: track,
+        rid: this.tuneSeekerRid
+      })
+      .then(res => {
+        this.clearAllTracks();
+        this.clearAllCars();
+        this.pushTrackSet([track]);
+
+        // same car once per tune, the best first. The times and stats come along, most tunes aren't in the db
+        res.data.map(car => {
+          Vue.loadTimesFromKing({ rid: car.rid, tun: car.tune, time: car.time, stats: car.stats }, track);
+          this.addCar({ rid: car.rid, selectedTune: car.tune });
+        })
+
+        this.updateOptions();
+        if (!this.kingFixed) this.kingDialog = false;
+        if (this.kingForceVerticalView) {
+          this.display("vertical", false);
+          this.colorsChange("full", false);
+        }
+
+        if (res.data.length === 0) {
+          this.$store.commit("DEFINE_SNACK", {
+            active: true,
+            error: true,
+            text: "No times found",
+            type: "error"
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.$store.commit("DEFINE_SNACK", {
+          active: true,
+          error: true,
+          text: error,
+          type: "error"
+        });
+      })
+      .then(() => {
+        this.kingLoading = false;
+        this.downloadLoading = false;
+      });
     },
     kingAnalyseFinish() {
       if (this.eventMyGarage && !this.user.hasGarage) {
@@ -14122,12 +14387,13 @@ export default {
         this.clearAllCars();
         this.pushTrackSet(["tCircuit_a00"]);
 
-        let result = [];
+        // let result = [];
         res.data.map(car => {
+          Vue.loadTimesFromKing(car, this.kingTrack.code);
           this.addCar({ rid: car.rid, selectedTune: car.tune });
         })
-        Vue.set(this, "carDetailsList", result);
-        this.applyNewData(res.data, this.mode === 'challenges', this.mode);
+        // Vue.set(this, "carDetailsList", result);
+        // this.applyNewData(res.data, this.mode === 'challenges', this.mode);
         this.updateOptions();
         // this.updateCarLocalStorage();
         this.kingDialog = false;
@@ -14136,7 +14402,7 @@ export default {
           this.colorsChange("full", false);
         }
 
-        if (result.length === 0) {
+        if (res.data.length === 0) {
           this.$store.commit("DEFINE_SNACK", {
             active: true,
             error: true,

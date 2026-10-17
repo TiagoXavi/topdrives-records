@@ -1361,7 +1361,14 @@ export default {
 
             if (trackCode === "rosSlalom_a01") factor = 1000;
 
-
+            if (userTime <= 0 && oppoTime <= 0) {
+              result = 50;
+              if (oppoTime < userTime) result = result * -1;
+              return { v: result, i: false };
+            }
+            if (userTime == oppoTime) return { v: 0, i: false };
+            if ((userTime <= 0) && oppoTime > 0) return { v: -250, i: false };
+            if ((oppoTime <= 0) && userTime > 0) return { v: 250, i: false };
 
             if (trackCode.includes("testBowl")) {
                 let wt = Math.max(userTime, oppoTime);
@@ -1383,15 +1390,6 @@ export default {
                 if (isLose) result = result * -1;
                 return { v: result, i: true };
             }
-
-            if (userTime < -1 && oppoTime < -1) {
-              result = 50;
-              if (oppoTime < userTime) result = result * -1;
-              return { v: result, i: false };
-            }
-            if (userTime == oppoTime) return { v: 0, i: false };
-            if ((userTime < -1 || userTime === 0) && oppoTime > 0) return { v: -250, i: false };
-            if ((oppoTime < -1 || oppoTime === 0) && userTime > 0) return { v: 250, i: false };
 
             result = (factor * -1) * (wt / lt) + factor;
             // console.log("real points:", isLose ? result*-1 : result, `resultSub`, Math.floor(Number(result.toFixed(1))), track );

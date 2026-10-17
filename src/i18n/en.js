@@ -368,6 +368,11 @@ export default {
   m_finish: "Finish",
   m_length: "Length",
   m_retain: "Retain",
+  m_metaSeeker: "Meta Finder",
+  m_tuneSeeker: "Tune Finder",
+  m_seekTunes: "Find tunes",
+  m_seekMeta: "Find meta",
+  m_tracksSelected: "{count} track selected | {count} tracks selected",
 
 
 
@@ -384,6 +389,7 @@ export default {
   p_lockRoundPhrase: "Lock this round to you to start doing it",
   p_modDoingRound: "{mod} is doing this round",
   p_patronsOnly: "This feature is available for patrons only (Tier {tier}).",
+  p_demonstration: "For a demonstration:",
   p_patronsPreviewCg: "Patrons at least tier 3 can preview solutions",
   p_patronsUnreleased: "Patrons at least tier 4 can view unreleased cars",
   p_bestOfDescription: "It returns a list of the best cars for the given track and filter. An example:",

@@ -2019,7 +2019,7 @@ export default {
 @media only screen and (max-width: 1200px) {
   .Row_Tracks:not(.Row_IgnoreSmall).Row_Cg .Row_Content {
     white-space: normal;
-    font-size: 0.7em;
+    /* font-size: 0.7em; */
   }
   
 }
