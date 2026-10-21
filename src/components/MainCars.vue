@@ -54,7 +54,8 @@
         <button
           class="D_Button D_ButtonDark D_ButtonNoActive Main_FiltersButton"
           @click="openFilter();">
-          <span>Filters</span>
+          <div>{{ $tc("m_filter", 2) }}</div>
+          <div v-if="cars && cars.length > 0" style="font-size: 0.5em;">({{ cars.length }})</div>
           <span v-if="Object.keys(this._Mcars.filter).length > 0" class="Main_FiltersButtonCount">{{ Object.keys(this._Mcars.filter).length }}</span>
         </button>
       </div>
@@ -290,7 +291,7 @@
       :filterOnly="true"
       :config="{
         tunes: true,
-        garage: garageWorking
+        garage: garageReady
       }"
       :raceFilter="_Mcars.filter"
       :enableCounters="true"
@@ -345,6 +346,7 @@ export default {
       T_S: tdrStore(),
       filterDialog: false,
       ready: false,
+      garageNotOwned: false,
       sizes: [
         { width: 68, aspect: '415 / 256', fsize: 5 },
         { width: 200, aspect: '415 / 256', fsize: 10 },
@@ -510,8 +512,13 @@ export default {
       result += `${emC}em + ${marginL}px + ${marginR}px)`;
       return result;
     },
-    garageWorking() {
+    // My garage on with the garage loaded: the filter dialog shows the garage filters
+    garageReady() {
       return this._Mcars.isGarage && this.T_S._user && this.T_S._user.hasGarage && Vue.garageObj.loaded;
+    },
+    // the list is the garage copies ("Not owned" lists cars, the same as without My garage)
+    garageWorking() {
+      return this.garageReady && !this.garageNotOwned;
     },
     wCalc() {
       return Math.floor(Math.min(this._Mcars.expanded ? 4000 : 915, Vue.utils.windowWidth-50) / (this._Mcars.width + 5));
@@ -553,12 +560,15 @@ export default {
     loadCars(initial) {
       if (!this.ready) return;
       Vue.tryLoadGarageFromStorage();
+      // "Not owned" garage filter mode: the cars out of the garage, filtered as without My garage
+      this.garageNotOwned = false;
       if (this._Mcars.isGarage) {
         if (!this.T_S._user || !this.T_S._user.hasGarage) {
           this._Mcars.isGarage = false;
         }
         if (Vue.garageObj.loaded) {
-          return this.loadByGarage();
+          this.garageNotOwned = this.$refs.mainCarsFiltRef?.garageMode === "notOwned";
+          if (!this.garageNotOwned) return this.loadByGarage();
         }
       }
 
@@ -569,6 +579,7 @@ export default {
 
       let input = this._Mcars.input ? this._Mcars.input.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "") : null;
       Vue.all_carsArr.map(car => {
+        if (this.garageNotOwned && Vue.garageByRid[car.rid]) return;
         if (hasFilter) {
           if (!this.matchFilter(car)) return;
         }
@@ -595,7 +606,9 @@ export default {
         return;
       }
       let result = [];
-      let hasFilter = Object.keys(this._Mcars.filter).length > 0;
+      // the counter garage filter modes pick one copy per car in matchFilter, even without a filter
+      let garageMode = this.$refs.mainCarsFiltRef?.garageMode;
+      let hasFilter = Object.keys(this._Mcars.filter).length > 0 || garageMode === "ownedCounter" || garageMode === "5fuseCounter";
       let input = this._Mcars.input ? this._Mcars.input.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "") : null;
 
       keys.map(rid => {

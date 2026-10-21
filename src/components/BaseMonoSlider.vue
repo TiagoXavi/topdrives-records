@@ -1,14 +1,14 @@
 <template>
   <div class="BaseDualSlider_Layout">
     <div :style="`
-        --posL: ${(internal0 - min) * 100 / ((max - min) * 1.0 ) + 0 }%;
-        --posR: ${(internal1 - max) * -100 / ((max - min) * 1.0 ) + 0 }%;
-        --fillL: ${(internal1 - min) * 100 / ((max - min))}%;
-        --fillR: ${(internal0 - max) * -100 / ((max - min))}%;
+        --posL: ${pctL}%;
+        --posR: ${100 - pctR}%;
+        --fillL: ${pctR}%;
+        --fillR: ${100 - pctL}%;
       `"
       :class="{
-        BaseDualSlider_Tight: (internal1 - internal0) * 100 / ((max - min)) < 50,
-        BaseDualSlider_MoreLeft: (internal0 - min) * 100 / ((max - min)) > (internal1 - max) * -100 / ((max - min))
+        BaseDualSlider_Tight: pctR - pctL < 50,
+        BaseDualSlider_MoreLeft: pctL > 100 - pctR
       }"
       class="BaseDualSlider_InputBox">
       <!-- <div class="BaseDualSlider_Track BaseDualSlider_TrackUnder"></div> -->
@@ -29,14 +29,14 @@
         @mousedown="checkMouseDown($event)"
         @change="changed" /> -->
       <input
-        v-model="internal1"
+        v-model="pos1"
         class="BaseDualSlider_Input BaseDualSlider_Max"
         type="range"
         :class="{ BaseDualSlider_InputAbove: elementAbove === 1 }"
         :style="`width: calc( var(--fillR) + 30px;`"
-        :min="min"
-        :max="max"
-        :step="step"
+        :min="posMin"
+        :max="posMax"
+        :step="posStep"
         @change="changed" />
       <div class="BaseDualSlider_Track BaseDualSlider_TrackUpper BaseMonoSlider_Track"></div>
       <div style="left: var(--posL); right: var(--posR);" class="BaseDualSlider_Fill BaseDualSlider_TrackUpper">
@@ -52,6 +52,7 @@
 
 <script>
 import BaseDualSlider from "./BaseDualSlider.vue"; // CSS
+import { SLIDER_POSITIONS, sliderValue, sliderPosition } from "@/utils/sliderScale.js";
 
 export default {
   name: 'BaseMonoSlider',
@@ -83,6 +84,16 @@ export default {
     logarithm: {
       type: Boolean,
       default: false
+    },
+    // logarithm: "start" gives more room to the low values, "end" to the high ones
+    logSmooth: {
+      type: String,
+      default: "start"
+    },
+    // logarithm: how strong, 0 is linear
+    logPower: {
+      type: Number,
+      default: 3
     },
     name: {
       type: String,
@@ -117,6 +128,34 @@ export default {
     internal0() {
       return this.min;
     },
+    scale() {
+      return { min: this.min, max: this.max, step: this.step, smooth: this.logSmooth, power: this.logPower };
+    },
+    // the range input moves in values, or in positions of the logarithmic scale
+    posMin() {
+      return this.logarithm ? 0 : this.min;
+    },
+    posMax() {
+      return this.logarithm ? SLIDER_POSITIONS : this.max;
+    },
+    posStep() {
+      return this.logarithm ? 1 : this.step;
+    },
+    pos1: {
+      get() {
+        return this.logarithm ? Math.round(sliderPosition(this.internal1, this.scale)) : this.internal1;
+      },
+      set(pos) {
+        this.internal1 = this.logarithm ? sliderValue(Number(pos), this.scale) : pos;
+      }
+    },
+    // where each end is, 0 to 100
+    pctL() {
+      return this.fraction(this.internal0) * 100;
+    },
+    pctR() {
+      return this.fraction(this.internal1) * 100;
+    },
     // input0: {
     //   get: function() {
     //     return this.value[0];
@@ -138,6 +177,11 @@ export default {
     // },
   },
   methods: {
+    // 0 to 1 along the slider
+    fraction(value) {
+      if (this.logarithm) return sliderPosition(Number(value), this.scale) / SLIDER_POSITIONS;
+      return (value - this.min) / (this.max - this.min);
+    },
     update(index, e) {
       console.log(index, e.target.value);
     },

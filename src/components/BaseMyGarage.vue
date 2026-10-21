@@ -1672,6 +1672,7 @@ export default {
       if ( context.acelModel && !this.filterCheckBetween(car.acel, context.acelModel) ) return false;
       if ( context.handModel && !this.filterCheckBetween(car.hand, context.handModel) ) return false;
       if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return false;
+      if ( context.rScoreModel && !this.filterCheckBetween(car.R_Medals_score || 0, context.rScoreModel) ) return false;
       if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return false;
       if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
       if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return false;
@@ -1699,8 +1700,7 @@ export default {
 
 
       if ( context.prizesModel && context.prizesModel.length > 0 ) {
-        if ( car.prize && !context.prizesModel.includes("Prize Cars") ) return false;
-        if ( !car.prize && !context.prizesModel.includes("Non-Prize Cars") ) return false;
+        if ( !Vue.filterCheckPrizes(car, context.prizesModel) ) return false;
       }
 
       if ( context.tunesModel && context.tunesModel.length > 0 ) {

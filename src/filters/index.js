@@ -669,6 +669,33 @@ function loadTimesFromKing(car, track) {
   }
 }
 
+// Released prize cars, utils.releasedPrizes has their rns (from /getUser). Same rule as isCarReleased of the
+// backend: a non-prize car is always released, a "_$" variant is released if its base car is not a prize or is released
+let releasedPrizesFrom = null;
+let releasedPrizesRids = new Set();
+function isCarReleased(car) {
+  if (!car || !car.prize) return true;
+  if (utils.releasedPrizes !== releasedPrizesFrom) {
+    releasedPrizesFrom = utils.releasedPrizes;
+    releasedPrizesRids = new Set((releasedPrizesFrom || []).map(rn => rn_to_rid[rn]));
+  }
+  if (releasedPrizesRids.has(car.rid)) return true;
+  if (car.rid.includes("_$")) {
+    let baseRid = car.rid.split("_$")[0];
+    let base = Vue.all_carsObj[baseRid];
+    if (base && (!base.prize || releasedPrizesRids.has(baseRid))) return true;
+  }
+  return false;
+}
+// "Prize Cars", "Non-Prize Cars", and "Released Cars" / "Unreleased Cars" that split the prize cars.
+// The car passes if it is in any of the selected ones
+function filterCheckPrizes(car, prizesModel) {
+  if (!car.prize) return prizesModel.includes("Non-Prize Cars");
+  if (prizesModel.includes("Prize Cars")) return true;
+  if (isCarReleased(car)) return prizesModel.includes("Released Cars");
+  return prizesModel.includes("Unreleased Cars");
+}
+
 
 
 
@@ -843,6 +870,8 @@ export default {
         Vue.statsParse = statsParse;
         Vue.unreleased = unreleased;
         Vue.loadTimesFromKing = loadTimesFromKing;
+        Vue.isCarReleased = isCarReleased;
+        Vue.filterCheckPrizes = filterCheckPrizes;
         Vue.extraTunes = extraTunes;
         Vue.bumpTracks = bumpTracks;
         Vue.bumpTracksHigh = bumpTracksHigh;
@@ -909,7 +938,7 @@ export default {
         };
 
         Vue.toTimeNumber = function(input, id = "") {
-          console.log("toTimeNumber", input);
+          // console.log("toTimeNumber", input);
           if (input === "DNF" || input === "dnf" || input === "0" || input === "99:99:99") return 0;
           if (input === "") return "";
 
@@ -1361,12 +1390,12 @@ export default {
 
             if (trackCode === "rosSlalom_a01") factor = 1000;
 
+            if (userTime == oppoTime) return { v: 0, i: false };
             if (userTime <= 0 && oppoTime <= 0) {
               result = 50;
               if (oppoTime < userTime) result = result * -1;
               return { v: result, i: false };
             }
-            if (userTime == oppoTime) return { v: 0, i: false };
             if ((userTime <= 0) && oppoTime > 0) return { v: -250, i: false };
             if ((oppoTime <= 0) && userTime > 0) return { v: 250, i: false };
 

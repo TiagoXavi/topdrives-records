@@ -2084,6 +2084,9 @@ button.Main_FiltersButton:hover:not(.D_ButtonActive):not([disabled]) {
 .Main_SearchItemValue_year {
   --w: 3em;
 }
+.Main_SearchItemValue_rScore {
+  --w: 3em;
+}
 .Main_SearchItemValue_Special {
   --w: 3em;
 }

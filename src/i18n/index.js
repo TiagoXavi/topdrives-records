@@ -34,6 +34,7 @@ export default {
     c_mra: "MRA | MRA",
     c_ola: "OLA | OLA",
     c_hill: "HCB | HCB",
+    c_rScore: "R Score | R Score",
     'c_?': "?",
     'c_?Engine': "?",
     m_count332: "332",

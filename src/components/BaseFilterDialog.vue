@@ -117,7 +117,7 @@
           </div>
 
 
-          <template v-if="config.garage || config.garageRT">
+          <template v-if="config.garage || config.garageRT || isGarageReady">
             <div class="Main_FilterDual">
               <BaseDualSlider
                 v-model="searchFilters.upgradesModel"
@@ -188,14 +188,15 @@
                       v-model="garageMode"
                       :value="item" 
                       :label="$t(`m_${item}`)"
+                      :counter="counters[`garage_${item}`]"
                       required="true"
                       class="BaseChip_MinWidth BaseChip_DontCrop"
                     />
                   </template>
-                  <BaseMonoSlider :value="1" style="display: none;"/>
+                  <!-- <BaseMonoSlider :value="1" style="display: none;"/> -->
                 </div>
               </BaseExpandDiv>
-              <BaseExpandDiv :active="showCustomGarageFilterMode && garageMode !== 'normal'">
+              <BaseExpandDiv :active="showCustomGarageFilterMode && (garageMode === 'showAllCopies' || garageMode === 'hideAllCopies')">
                 <div class="BaseFilterDialog_GarageModeInner">
                   <div class="BaseFilterDialog_GarageModeLeft">{{ $t('m_ifMatches') }}</div>
                   <div class="BaseFilterDialog_GarageModeRight">
@@ -296,6 +297,8 @@
               :max="searchFilters.acelEnd"
               :step="0.1"
               :logarithm="true"
+              logSmooth="start"
+              :logPower="5"
               label="0-60mph"
               class="Main_FilterSlider" />
           </div>
@@ -376,7 +379,7 @@
               <BaseChip
                 v-model="searchFilters.prizesModel"
                 class="BaseChip_MinWidth BaseChip_DontCrop"
-                :counter="counters[`${item === 'Prize Cars' ? 'prizes_true' : 'prizes_false'}`]"
+                :counter="counters[prizesCounterKey(item)]"
                 :label="$t(`c_${item.toLowerCase()}`)"
                 :value="item" />
             </template>
@@ -577,6 +580,18 @@
               </BaseChip>
             </template>
           </div>
+          <BaseDualSlider
+            v-if="config.rScore !== false"
+            v-model="searchFilters.rScoreModel"
+            :min="searchFilters.rScoreStart"
+            :max="searchFilters.rScoreEnd"
+            :step="20"
+            :label="$t('c_R_Medals_score')"
+            :logarithm="true"
+            logSmooth="start"
+            :logPower="5"
+            class="Main_FilterSlider"
+          />
           <div v-if="config.customTags !== false && type === 'compare'" class="Main_FilterChipsFlex">
             <template v-for="(item, ix) in customTagsList">
               <BaseChip
@@ -733,6 +748,7 @@
               <template v-if="sortModel === 'acel' && typeof Vue.all_carsObj[item.rid][sortModel] === 'number'">{{ Vue.all_carsObj[item.rid][sortModel].toFixed(1) }}</template>
               <template v-else-if="sortModel === 'mra' && typeof Vue.all_carsObj[item.rid][sortModel] === 'number'">{{ Vue.all_carsObj[item.rid][sortModel].toFixed(2) }}</template>
               <template v-else-if="sortModelSpecial">{{ item[sortModel] }}</template>
+              <template v-else-if="sortModel === 'rScore'">{{ Vue.all_carsObj[item.rid].R_Medals_score }}</template>
               <template v-else>{{ Vue.all_carsObj[item.rid][sortModel] }}</template>
             </div>
             <div v-if="!showStats || showingLastest" class="Main_SearchItemRight">
@@ -951,13 +967,14 @@ export default {
       extraTunesExpanded: false,
       showCustomGarageFilterMode: false,
       garageMode: "normal",
-      garageModes: ["normal", "showAllCopies", "hideAllCopies"],
+      garageModes: ["normal", "showAllCopies", "hideAllCopies", "ownedCounter", "5fuseCounter", "notOwned"],
       garageModeQty: 1,
       added: null,
       addedTimeout: null,
       garageCarFuseList: ["engine", "weight", "chassis"],
       counters: {},
       countersDefault: null,
+      rScorePreparing: null,
       countersBetween: {
         rq: 0,
         year: 0,
@@ -991,6 +1008,7 @@ export default {
         "seats",
         "ola",
         "hill",
+        "rScore",
         ["mra", "acel"],
         ["mra", "acel", "topSpeed"],
         ["mra", "topSpeed"],
@@ -1044,6 +1062,9 @@ export default {
         olaStart: 0,
         olaEnd: 100,
         olaModel: [],
+        rScoreStart: 0,
+        rScoreEnd: 4000,
+        rScoreModel: [],
         tunes: ["332", "323", "233", "111", "000", "Best"],
         tunesModel: [],
         classes: ["F","E","D","C","B","A","S"],
@@ -1057,7 +1078,7 @@ export default {
         clearancesModel: [],
         countrys: ["DE", "GB", "US", "JP", "FR", "IT", "AU", "SE", "KR", "CZ", "CN", "NL", "BR", "MY", "AT", "DK", "IN", "HR", "ZA", "AE", "NZ", "AR", "CH", "MX"],
         countrysModel: [],
-        prizes: ["Prize Cars", "Non-Prize Cars"],
+        prizes: ["Prize Cars", "Non-Prize Cars", "Released Cars", "Unreleased Cars"],
         prizesModel: [],
 
         garageThings: ["Can be upgraded", "Can be fused"],
@@ -1424,13 +1445,13 @@ export default {
 
     if (this.enableCounters) {
       this.createCounters();
-      this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+      this.watchCounters();
     }
     if (this.isApp) {
       this.$watch('enableCounters', () => {
         if (this.enableCounters === true && Object.keys(this.counters).length === 0) {
           this.createCounters();
-          this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+          this.watchCounters();
         }
       }, { immediate: false, deep: false });
     }
@@ -1572,6 +1593,17 @@ export default {
       if (this.useWhatFilter === 2) {
         return this.initialFilterString3;
       }
+    },
+    isGarageReady() {
+      return this.config.garageSwitch && this.T_S._user && this.T_S._user.hasGarage && this.useMyGarage;
+    },
+    // the garage filters (upgrades, fuses... and the garage filter modes) apply: a garage page (config.garage),
+    // or My garage on in a dialog with the switch
+    garageFiltersOn() {
+      return !!(this.config.garage || this.isGarageReady);
+    },
+    garageCounterMode() {
+      return this.garageMode === "ownedCounter" || this.garageMode === "5fuseCounter";
     }
   },
   methods: {
@@ -1695,15 +1727,10 @@ export default {
       //     vm.internalConfig[key] = false;
       //   })
       // }
-      // for these types closeFilterText() calls changeFilter() back, so calling it here
-      // would recurse forever, they fall through to the regular path below instead
-      let closeTextRecurses = this.type === 'carPicker' || (this.type === 'cg' && (this.cgAddingYouCar || this.cgAddingOppoCar));
-      if (!closeTextRecurses && searchStr === "" && this.filterCount === 0 && Vue.utils.lastestcars.length) {
-        this.searchLoading = false;
-        this.closeFilterText();
-        return [];
-      }
-      if (!this.filterOnly && searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
+      // nothing typed or filtered (the first time and when cleared): the default list, every car. With My garage
+      // on, the garage cars instead, built below
+      let garageList = this.garageListOn();
+      if (!this.filterOnly && !garageList && searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
         this.searchMax = 60;
         this.searchResult = Vue.all_carsArr;
         this.searchResultLength = Vue.all_carsArr.length;
@@ -1748,15 +1775,9 @@ export default {
         // "" matched everything / null is out / "classes" failed only that counter group
         let failedGroup = null;
 
-        if (this.filterCount > 0 || Vue.utils.lastestcars.length === 0) {
-          if (strIndex > -1 || strIndex === -2) {
-            failedGroup = this.matchFilterFail(x, undefined, undefined, this.enableCounters, filterContext);
-            if (failedGroup === "") {
-              shouldPush = true;
-            }
-          }
-        } else {
-          if (strIndex > -1) {
+        if (strIndex > -1 || strIndex === -2) {
+          failedGroup = this.matchFilterFail(x, undefined, undefined, this.enableCounters, filterContext);
+          if (failedGroup === "") {
             shouldPush = true;
           }
         }
@@ -1778,8 +1799,31 @@ export default {
           }
         }
 
-        if (this.useMyGarage && Vue.garageObj.loaded) {
+        // the garage filter mode chips count what every mode would list, for the cars that pass the other filters
+        if (this.enableCounters && shouldPush && this.garageFiltersOn && Vue.garageObj.loaded) {
+          this.garageModesToCounters(x, filterContext);
+        }
+
+        // "Not owned" (My garage on) works as without the garage
+        let garageNotOwned = this.garageFiltersOn && this.garageMode === "notOwned";
+        if (this.useMyGarage && Vue.garageObj.loaded && !garageNotOwned) {
           if (!Vue.garageByRid[x.rid]) {
+            shouldPush = false;
+            failedGroup = null;
+          }
+        }
+        if (this.garageFiltersOn && Vue.garageObj.loaded && !this.garageModeKeepsCar(x)) {
+          shouldPush = false;
+          failedGroup = null;
+        }
+        // My garage on: the copies that pass the garage filters (upgrades, fuses... and the counter modes), the
+        // list shows their tunes. No copy passing, the car is out
+        let garageCopies = null;
+        if (this.useMyGarage && Vue.garageObj.loaded && !garageNotOwned && Vue.garageByRid[x.rid] && (shouldPush || failedGroup !== null)) {
+          garageCopies = Vue.garageByRid[x.rid].filter(hCar => {
+            return this.garageCopyPasses(filterContext, hCar) && (!this.garageCounterMode || this.garageCopyCounts(filterContext, hCar));
+          });
+          if (garageCopies.length === 0) {
             shouldPush = false;
             failedGroup = null;
           }
@@ -1813,22 +1857,11 @@ export default {
           if (x.acel) bestAccel.push(x.acel);
           if (x.mra) bestMra.push(x.mra);
 
-          if (this.useMyGarage && Vue.garageObj.loaded) {
+          if (this.useMyGarage && Vue.garageObj.loaded && !garageNotOwned) {
             // create a new copy for every unique tune of the car
             // if custom tune, check possibility or add without tune
             // if (x.rid === "Skoda_966_Supersport_1953") debugger;
-            let tunes = [];
-            Vue.garageByRid[x.rid].map(hCar => {
-              if (hCar.tun && !tunes.includes(hCar.tun)) {
-                tunes.push(hCar.tun);
-              }
-              if (!hCar.tun && !tunes.includes(hCar.tunZ)) {
-                tunes.push(hCar.tunZ);
-              }
-            })
-            if (tunes.filter(x => x !== "000").length > 0) {
-              tunes = tunes.filter(x => x !== "000");
-            }
+            let tunes = this.garageTunes(garageCopies || Vue.garageByRid[x.rid]);
             tunes.sort().reverse();
             tunes.map(tune => {
               let pushObj = JSON.parse(JSON.stringify(prePush));
@@ -1889,6 +1922,7 @@ export default {
       })
 
       let kSort = this.sortModel;
+      if (kSort === "rScore") kSort = "R_Medals_score"; // the car value of the rScore sort
       let reversed = this.sortInverted;
       // inteligent sort (default)
       if (searchStr && searchStr !== "" && kSort === null) {
@@ -2127,9 +2161,20 @@ export default {
       Vue.set(this.counters, `tcs_false`, 0);
       Vue.set(this.counters, `prizes_true`, 0);
       Vue.set(this.counters, `prizes_false`, 0);
+      Vue.set(this.counters, `prizes_released`, 0);
+      Vue.set(this.counters, `prizes_unreleased`, 0);
+      this.garageModes.map(mode => {
+        Vue.set(this.counters, `garage_${mode}`, 0);
+      })
 
       // console.log(this.counters);
       this.countersDefault = JSON.stringify(this.counters);
+    },
+    // the counters follow the filters and the garage filter mode (the copies qty of show / hide all copies too)
+    watchCounters() {
+      this.$watch('searchFilters', this.debounceCounter, { immediate: false, deep: true });
+      this.$watch('garageMode', this.debounceCounter);
+      this.$watch('garageModeQty', this.debounceCounter);
     },
     resetCounters() {
       if (!this.enableCounters) return;
@@ -2168,6 +2213,7 @@ export default {
       if (!onlyKey || onlyKey === "prizes") {
         if (car.prize) this.counters[`prizes_true`] += 1;
         else this.counters[`prizes_false`] += 1;
+        if (car.prize) this.counters[Vue.isCarReleased(car) ? `prizes_released` : `prizes_unreleased`] += 1;
       }
 
 
@@ -2178,6 +2224,41 @@ export default {
       // this.counters[`classes_${car.mra}`] += 1 // between
       // this.counters[`classes_${car.weight}`] += 1 // between
       // this.counters[`classes_${car.seats}`] += 1 // between
+    },
+    // the garage filter mode chips: the rows each mode would list, the other filters as they are. A row per copy
+    // (per tune of the copies with My garage on, as the list), one per car on the counter modes, the cars out of the
+    // garage on "Not owned"
+    garageModesToCounters(car, context) {
+      let copies = Vue.garageByRid[car.rid];
+      if (!copies) {
+        this.counters.garage_notOwned += 1;
+        return;
+      }
+      let rows = list => this.useMyGarage ? this.garageTunes(list).length : list.length;
+      let passing = copies.filter(hCar => this.garageCopyPasses(context, hCar, "normal"));
+      this.counters.garage_normal += rows(passing);
+      this.counters.garage_showAllCopies += rows(copies.filter(hCar => this.garageCopyPasses(context, hCar, "showAllCopies")));
+      this.counters.garage_hideAllCopies += rows(copies.filter(hCar => this.garageCopyPasses(context, hCar, "hideAllCopies")));
+      if (passing.length > 0) this.counters.garage_ownedCounter += 1;
+      if (passing.some(hCar => this.carNumFuses(hCar) >= 5)) this.counters.garage_5fuseCounter += 1;
+    },
+    // the R score of each car (R_Medals_score) comes from carsCompile, the same as MainCars. Only loaded
+    // when the R score filter or sort is used, once; the open filter runs again when it arrives
+    prepareRScore() {
+      if (Vue.utils.R_MedalsLoaded) return Promise.resolve();
+      if (!this.rScorePreparing) {
+        this.rScorePreparing = Vue.carsCompile("R_Medals").then(() => {
+          this.rScorePreparing = null;
+          if (this.active && (this.isFiltering || this.filterOnly)) this.changeFilter();
+        });
+      }
+      return this.rScorePreparing;
+    },
+    prizesCounterKey(item) {
+      if (item === "Prize Cars") return "prizes_true";
+      if (item === "Released Cars") return "prizes_released";
+      if (item === "Unreleased Cars") return "prizes_unreleased";
+      return "prizes_false";
     },
     calcCounters() {
       if (!this.enableCounters) return;
@@ -2214,6 +2295,7 @@ export default {
       this.searchFilters.mraModel = this.defaultFilters("mraModel");
       this.searchFilters.hillModel = this.defaultFilters("hillModel");
       this.searchFilters.olaModel = this.defaultFilters("olaModel");
+      this.searchFilters.rScoreModel = this.defaultFilters("rScoreModel");
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.upgradesModel = this.defaultFilters("upgradesModel");
@@ -2259,6 +2341,7 @@ export default {
         mraModel: this.defaultFilters("mraModel"),
         hillModel: this.defaultFilters("hillModel"),
         olaModel: this.defaultFilters("olaModel"),
+        rScoreModel: this.defaultFilters("rScoreModel"),
         weightModel: this.defaultFilters("weightModel"),
         seatsModel: this.defaultFilters("seatsModel"),
 
@@ -2374,6 +2457,10 @@ export default {
       if ( context.mraModel && !this.filterCheckBetween(car.mra, context.mraModel) ) return null;
       if ( context.hillModel && !this.filterCheckBetween(car.hill, context.hillModel) ) return null;
       if ( context.olaModel && !this.filterCheckBetween(car.ola, context.olaModel) ) return null;
+      if ( context.rScoreModel ) {
+        if (!Vue.utils.R_MedalsLoaded) this.prepareRScore();
+        if ( !this.filterCheckBetween(car.R_Medals_score || 0, context.rScoreModel) ) return null;
+      }
       if ( context.weightModel && !this.filterCheckBetween(car.weight, context.weightModel) ) return null;
       if ( context.seatsModel && !this.filterCheckBetween(car.seats, context.seatsModel) ) return null;
 
@@ -2448,38 +2535,19 @@ export default {
       }
 
       if ( context.prizesModel ) {
-        if ( (car.prize && !context.prizesModel.includes("Prize Cars")) || (!car.prize && !context.prizesModel.includes("Non-Prize Cars")) ) {
+        if ( !Vue.filterCheckPrizes(car, context.prizesModel) ) {
           if (!trackGroups || failed) return null;
           failed = "prizes";
         }
       }
 
-      if ( (this.config.garage || this.config.garageRT) && hCar && context.tunesModel ) {
-        let isCustom = false;
-        if (
-          context.tunesModel.includes("Custom") &&
-          (hCar.tun !== "332" &&
-          hCar.tun !== "323" &&
-          hCar.tun !== "233" &&
-          hCar.tun !== "111" &&
-          hCar.tun !== "000")
-        ) {
-          isCustom = true;
-        }
-        if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return null;
-      }
+      if ( (this.garageFiltersOn || this.config.garageRT) && hCar && !this.garageCopyPasses(context, hCar) ) return null;
 
-
-
-      // garage (normal)
-
-      if ( this.config.garage && hCar) {
-        if ( !this.filterGarageIsValidEntry(context, hCar, "upgradesModel", this.carNumUps) ) return null;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "fusesModel", this.carNumFuses) ) return null;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "racesModel", this.carNumRaces) ) return null;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "winRateModel", this.carWinRate) ) return null;
-        if ( !this.filterGarageIsValidEntry(context, hCar, "daysModel", this.carNumDays) ) return null;
-        if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return null;
+      // garage filter modes: "Not owned" lists the cars out of the garage (never a copy), the counters only
+      // the copy that counts for its rid
+      if ( this.garageFiltersOn && hCar ) {
+        if ( this.garageMode === "notOwned" ) return null;
+        if ( this.garageCounterMode && !this.garageCopyCounts(context, hCar) ) return null;
       }
 
       // {
@@ -2577,10 +2645,66 @@ export default {
         return valuesSet.has(x);
       });
     },
-    filterGarageIsValidEntry(context, hCar, stringModel, checkFunction) {
+    // the checks of one garage copy: its tune and the garage sliders (the car filters are the same for every copy).
+    // mode: the garage filter mode to check with, the chosen one by default
+    garageCopyPasses(context, hCar, mode = this.garageMode) {
+      if ( context.tunesModel ) {
+        let isCustom = false;
+        if (
+          context.tunesModel.includes("Custom") &&
+          (hCar.tun !== "332" &&
+          hCar.tun !== "323" &&
+          hCar.tun !== "233" &&
+          hCar.tun !== "111" &&
+          hCar.tun !== "000")
+        ) {
+          isCustom = true;
+        }
+        if ( !context.tunesModel.includes(hCar.tun) && !isCustom ) return false;
+      }
+
+      // garage (normal)
+      if ( this.garageFiltersOn ) {
+        if ( !this.filterGarageIsValidEntry(context, hCar, "upgradesModel", this.carNumUps, mode) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "fusesModel", this.carNumFuses, mode) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "racesModel", this.carNumRaces, mode) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "winRateModel", this.carWinRate, mode) ) return false;
+        if ( !this.filterGarageIsValidEntry(context, hCar, "daysModel", this.carNumDays, mode) ) return false;
+        if ( context.unitsModel && !this.filterCheckBetween(this.carNumUnits(hCar), context.unitsModel) ) return false;
+      }
+      return true;
+    },
+    // "Owned counter" / "5+ fuse counter": one copy per rid, the most upgraded (then the most fused) of the copies
+    // that pass the filters, with 5+ fuses on "5+ fuse counter". On a tie, the first copy
+    garageCopyCounts(context, hCar) {
+      let best = null;
+      (Vue.garageByRid[hCar.rid] || []).forEach(gCar => {
+        if (this.garageMode === "5fuseCounter" && this.carNumFuses(gCar) < 5) return;
+        if (gCar.cardRecordId !== hCar.cardRecordId && !this.garageCopyPasses(context, gCar)) return;
+        if (
+          !best ||
+          this.carNumUps(gCar) > this.carNumUps(best) ||
+          (this.carNumUps(gCar) === this.carNumUps(best) && this.carNumFuses(gCar) > this.carNumFuses(best))
+        ) {
+          best = gCar;
+        }
+      });
+      return !!best && best.cardRecordId === hCar.cardRecordId;
+    },
+    // the cars (not copies) of the garage filter modes: "Not owned" the ones out of the garage, the counters the
+    // owned ones (with a 5+ fuse copy on "5+ fuse counter")
+    garageModeKeepsCar(car) {
+      let copies = Vue.garageByRid[car.rid];
+      if (this.garageMode === "notOwned") return !copies;
+      if (this.garageMode === "ownedCounter") return !!copies;
+      if (this.garageMode === "5fuseCounter") return !!copies && copies.some(gCar => this.carNumFuses(gCar) >= 5);
+      return true;
+    },
+    filterGarageIsValidEntry(context, hCar, stringModel, checkFunction, mode = this.garageMode) {
       if (!context[stringModel]) return true;
 
-      if (this.garageMode === "normal") {
+      // every mode but show / hide all copies checks the copy itself
+      if (mode !== "showAllCopies" && mode !== "hideAllCopies") {
         if (stringModel === "winRateModel" && !this.carNumRaces(hCar)) return false;
         return this.filterCheckBetween(checkFunction(hCar), context[stringModel]);
       };
@@ -2607,8 +2731,20 @@ export default {
         }
       });
 
-      if (this.garageMode === "hideAllCopies") return !valid;
+      if (mode === "hideAllCopies") return !valid;
       return valid;
+    },
+    // the tunes of garage copies, once each (the list has a row per tune). "000" only when it's the only one
+    garageTunes(copies) {
+      let tunes = [];
+      copies.map(hCar => {
+        let tune = hCar.tun || hCar.tunZ;
+        if (!tunes.includes(tune)) tunes.push(tune);
+      })
+      if (tunes.filter(x => x !== "000").length > 0) {
+        tunes = tunes.filter(x => x !== "000");
+      }
+      return tunes;
     },
     closeFilterText() {
       this.searchInput = '';
@@ -2617,25 +2753,15 @@ export default {
       } else if (this.type === 'carPicker') {
         this.changeFilter();
       } else if (this.type === 'compare') {
-        // this.searchResult = this.lastestContributionsResolved;
-        this.showLastest();
-        
+        // back to the default list (every car, or the garage cars with My garage)
+        this.changeFilter();
+        return;
       }
       this.alreadySearched = false;
     },
-    showLastest() {
-      this.showingLastest = true;
-      this.showAllFilter = false;
-
-      this.searchResult = Vue.utils.lastestcars;
-      if (this.searchResult[0] && this.searchResult[0].s_id === undefined) {
-        this.searchResult = this.searchResult.map(x => {
-          return {
-            ...x,
-            s_id: x.rid
-          }
-        })
-      }
+    // My garage on in the list (not in the filter panel) with a garage uploaded: the list is the garage cars
+    garageListOn() {
+      return !this.filterOnly && !this.isFiltering && !!(this.useMyGarage && this.T_S._user && this.T_S._user.hasGarage);
     },
     addCar(index, e, item) {
       if (e.shiftKey && (e.ctrlKey || e.metaKey)) {
@@ -2774,6 +2900,11 @@ export default {
         this.sortModel = null;
         this.sortInverted = false;
         this.sortModelSpecial = null;
+      }
+      // the R score of the cars comes from carsCompile, only loaded when this sort is asked
+      if (this.sortModel === "rScore" && !Vue.utils.R_MedalsLoaded) {
+        this.prepareRScore().then(() => this.changeFilter());
+        return;
       }
       this.changeFilter();
     },

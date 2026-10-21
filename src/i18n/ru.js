@@ -179,6 +179,8 @@ export default {
   "c_prizeCar": "Призовая тачка",
   "c_prize cars": "Призовые тачки",
   "c_non-prize cars": "Непризовые тачки",
+  "c_released cars": "Вышедшие тачки",
+  "c_unreleased cars": "Невыпущенные тачки",
   "c_mid": "Средний",
   "c_low": "Низкий",
   "c_high": "Высокий",
@@ -748,6 +750,8 @@ export default {
   "m_normal": "Обычный",
   "m_showAllCopies": "Показать все копии",
   "m_hideAllCopies": "Скрыть все копии",
+  "m_ownedCounter": "Счётчик имеющихся",
+  "m_5fuseCounter": "Счётчик 5+ сплавлений",
   "m_ifMatches": "Если подходит",
   "m_hands": "Руки",
   "m_balanced": "Сбалансированно",
@@ -782,5 +786,6 @@ export default {
   "c_winRate": "Процент побед",
   "c_races": "Заезды",
   "c_days": "Дни",
-  "c_R_Medals_score": null
+  "c_R_Medals_score": null,
+  "c_rScore": null,
 }
