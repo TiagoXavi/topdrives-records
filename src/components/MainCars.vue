@@ -1260,6 +1260,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 5px;
+  max-width: 50%;
 }
 .MainCars_RightSearchBox .D_SearchInputClose {
   position: static;

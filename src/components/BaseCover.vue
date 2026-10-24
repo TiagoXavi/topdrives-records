@@ -30,19 +30,6 @@
 <script>
 import BaseRemainingTime from './BaseRemainingTime.vue';
 
-const inS3 = [
-  "Challenge01LegrandCS",
-  "Challenge02LegrandCS",
-  "Challenge03LegrandCS",
-  "Challenge04LegrandCS",
-  "ChallengeMiamiGetawayAudi01",
-  "ChallengeMiamiGetawayAudi02",
-  "ChallengeMiamiGetawayAudi03",
-  "ChallengeMiamiGetawayAudi04",
-  "ChallengeMiamiGetawayAudi05",
-  "EventHalloween25"
-]
-
 export default {
   name: 'BaseCover',
   components: {

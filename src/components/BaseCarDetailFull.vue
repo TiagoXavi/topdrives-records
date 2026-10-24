@@ -219,11 +219,16 @@
                 <div :class="{ Row_DialogCardStatCorrect: medals.clubsReqs?.c > 19 }" class="BaseCarStats_TileValue">{{ medals.clubsReqs?.c || 0 }}</div>
                 <div class="BaseCarStats_TileLabel">{{ $t("m_clubs") }}</div>
               </button>
-              <div class="BaseCarStats_Tile">
+              <button
+                :disabled="!medals.garage.oldestDays"
+                :class="{ D_ButtonDisabledVisible: !medals.garage.oldestDays }"
+                class="BaseCarStats_Tile BaseCarStats_TileButton D_Button"
+                @click="oldestAsDays = !oldestAsDays">
                 <div v-if="!medals.garage.oldestDays" class="BaseCarStats_TileValue">?</div>
+                <div v-else-if="oldestAsDays" class="BaseCarStats_TileValue">{{ daysSince(medals.garage.oldestDays) }} {{ $t("c_days") }}</div>
                 <div v-else class="BaseCarStats_TileValue">{{ medals.garage.oldestDays }}</div>
                 <div class="BaseCarStats_TileLabel">{{ $t("m_oldest") }}</div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -302,7 +307,8 @@ export default {
       cgWatchDownloadCache: null,
       bestTunePerTrack: null,
       showTracksCount: 10,
-      similars: []
+      similars: [],
+      oldestAsDays: false
     }
   },
   watch: {},
@@ -545,6 +551,10 @@ export default {
       similars = similars.slice(0, limit);
       console.log(JSON.parse(JSON.stringify(similars)));
       this.similars = similars;
+    },
+    // whole days since a "YYYY-MM-DD" date (UTC), counted as the garage Days filter
+    daysSince(dateStr) {
+      return Math.floor((Date.now() - new Date(dateStr)) / (1000 * 60 * 60 * 24));
     },
     clampDiff(value1, value2, diffToMakeItZero = 100) {
       if (typeof value1 !== 'number' || typeof value2 !== 'number') return 0;
