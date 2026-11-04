@@ -7,7 +7,7 @@
     }"
     class="BaseEventTrackbox_Contents">
     <div
-      v-for="(trackset, itrackset) in event.resolvedTrackset"
+      v-for="{ trackset, itrackset } in tracksetRows"
       :class="{
         BaseEventTrackbox_LineInactive: (check || check===0) && check != itrackset,
         BaseEventTrackbox_LineActive: (check || check===0) && check == itrackset
@@ -230,6 +230,7 @@ export default {
       }
     },
     index: {},
+    forceItrackset: {},
     showMatchPoints: {
       type: Boolean,
       default: false
@@ -260,7 +261,14 @@ export default {
       this.runAnimation = false;
     }
   },
-  computed: {},
+  computed: {
+    tracksetRows() {
+      return (this.event.resolvedTrackset || []).map((trackset, i) => ({
+        trackset,
+        itrackset: this.forceItrackset !== undefined ? this.forceItrackset : i
+      }));
+    }
+  },
   methods: {
     changeRunAnimation() {
       this.runAnimation = false;

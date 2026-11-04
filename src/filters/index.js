@@ -36,6 +36,55 @@ const bumpTracksHigh = {
   moto: true,
   desertRallyDirt: true,
 }
+const dragTracks = [
+  "testBowl",
+  "testBowlr",
+  "drag170",
+  "drag150",
+  "drag100150",
+  "drag50150",
+  "mile1",
+  "mile1r",
+  "mile1H50",
+  "mile1H60",
+  "mile1H70",
+  "mile1Z50",
+  "mileOne50",
+  "mileOne60",
+  "drag30130",
+  "drag75125",
+  "drag150b",
+  "drag124",
+  "drag120",
+  "hClimb",
+  "hClimbr",
+  "miCauseDrag",
+  "oceanLongDrag",
+  "runwayDrag",
+  "tokyoDrag",
+  "mile2",
+  "mile2Z50",
+  "mojMile2",
+  "trLapsDrag",
+  "nwDrag",
+  "speedbump1km",
+  "drag62",
+  "drag60b",
+  "drag60",
+  "waterDrag",
+  "miBeachDrag",
+  "mile4",
+  "mile4r",
+  "mojMile4",
+  "rosDrag",
+  "speedbump12km",
+  "speedbump14km",
+  "oceanShortDrag",
+  "jpDrag",
+  "drag100",
+  "drag100b",
+  "drag200"
+];
 var ignore50points = false;
 
 function resolveClass(rq, classe, type, rgb = false) {
@@ -314,11 +363,11 @@ const archivedBrands = [
 ]
 
 const importantTags = [
-  "LiveOps 1",
+  "LiveOps 0",
   // "LiveOps 2",
-  "LiveOps 3",
+  // "LiveOps 3",
   // "LiveOps 4",
-  "LiveOps 5",
+  // "LiveOps 5",
   "Tri-Series",
   "Tri-Series-Final",
   "Endurance",
@@ -875,6 +924,7 @@ export default {
         Vue.extraTunes = extraTunes;
         Vue.bumpTracks = bumpTracks;
         Vue.bumpTracksHigh = bumpTracksHigh;
+        Vue.dragTracks = dragTracks;
 
         Vue.carByRid = function (rid) {
           return resolvedRids[rid];

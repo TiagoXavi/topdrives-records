@@ -14292,40 +14292,39 @@ export default {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
 
-        
-        while (true) { // Loop until the stream is done
-          const { done, value } = await reader.read();
-          if (done) {
-            // console.log('--- Stream finished ---');
-            break;
-          }
-
-          let chunkText = decoder.decode(value, { stream: true });
-          if (chunkText.includes("}{\"")) {
-            let splited = chunkText.split("}{");
-            chunkText = "{" + splited[splited.length - 1];
-          }
-          let parsed;
-          try {
-            // console.log(chunkText);
-            parsed = JSON.parse(chunkText)
-          } catch (error) {
-            console.error('Error parsing chunk:', error);
-          }
-          if (parsed && parsed.message) {
+        // Cars come as their rn_to_rid number: [6], and the rids of [3] and of the
+        // [18].matches keys when not garage (there they are card ids). Older
+        // responses with rids still work.
+        const toRid = car => typeof car === "number" ? Vue.rn_to_rid[car] : car;
+        const keyToRids = key => key.split("~").map(part => /^\d+$/.test(part) ? Vue.rn_to_rid[Number(part)] : part).join("~");
+        const isGarage = !!config.myGarage;
+        const handleMessage = parsed => {
+          if (parsed.message) {
             throw new Error(parsed.message);
-          } else if (parsed && parsed.temp) {
+          } else if (parsed.temp) {
             if (parsed.queue !== undefined) {
               this.eventBestLastLoadingMsg = `Resolving...`;
               if (parsed.queue > 0) this.eventBestLastLoadingMsg = `Queue: ${parsed.queue}`;
             } else if (parsed.partial) {
               this.eventBestLastLoadingMsg = parsed.partial;
             }
-          } else if (parsed && parsed.arr) {
+          } else if (parsed.arr) {
             console.log("getHandRanking", parsed.stats);
             if (!import.meta.env.PROD) {
               console.log(parsed);
             }
+            parsed.arr.map(item => {
+              if (item[6]) item[6] = item[6].map(toRid);
+              if (isGarage) return;
+              if (item[3]) item[3] = keyToRids(item[3]);
+              if (item[18] && item[18].matches) {
+                const matches = {};
+                Object.keys(item[18].matches).map(key => {
+                  matches[keyToRids(key)] = item[18].matches[key];
+                });
+                item[18].matches = matches;
+              }
+            });
             this.eventBestTeamsBigArray = parsed.arr;
 
             const uniques = new Set([]);
@@ -14343,7 +14342,43 @@ export default {
             // this.eventBestTeamsDialog = true;
             this.eventBestTeamsLastCache = JSON.stringify({ ...this.eventBestTeamsTarget, ...this.eventBestTeamsConfig });
           }
+        };
+
+        // A read is not a message: a big message (the result) can arrive split
+        // over several reads and one read can hold several messages ("}{"
+        // between them). Text that does not parse yet waits for the next read.
+        let pending = "";
+        while (true) { // Loop until the stream is done
+          const { done, value } = await reader.read();
+          if (done) {
+            // console.log('--- Stream finished ---');
+            break;
+          }
+
+          pending += decoder.decode(value, { stream: true });
+          const texts = pending.split("}{").map((text, i, all) => {
+            if (all.length === 1) return text;
+            if (i === 0) return text + "}";
+            if (i === all.length - 1) return "{" + text;
+            return "{" + text + "}";
+          });
+          pending = "";
+          for (let i = 0; i < texts.length; i++) {
+            let parsed;
+            try {
+              parsed = JSON.parse(texts[i]);
+            } catch (error) {
+              if (i === texts.length - 1) {
+                pending = texts[i]; // incomplete, the rest is in the next read
+              } else {
+                console.error('Error parsing chunk:', error);
+              }
+              continue;
+            }
+            if (parsed) handleMessage(parsed);
+          }
         }
+        if (pending) console.error('Hand ranking response ended incomplete:', pending.slice(0, 200));
 
         this.eventBestTeamsLoading = false;
         window.onbeforeunload = null;

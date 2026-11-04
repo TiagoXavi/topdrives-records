@@ -175,6 +175,7 @@
               <i v-else class="ticon-close_3" style="color: rgb(var(--d-text-red2));" aria-hidden="true"/>
               {{ Math.round(item[11][1]) }} / {{ Math.round(item[11][2]) }} / {{ Math.round(item[11][3]) }} / {{ Math.round(item[11][4]) }}
             </div>
+            <div v-else-if="item[18]?.points" class="Main_Teams_IndexPts">{{ item[18].points }} / {{ item[18].pointsRaw }}</div>
             <div v-else class="Main_Teams_IndexPts">{{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
             <div class="Main_Teams_ExportBox">
               <button
@@ -226,7 +227,7 @@
         <i class="ticon-line Main_SearchEmptyAddIcon" aria-hidden="true"/>
       </div>
     </div>
-    <div class="Main_TeamsEngineLabel">Engine v1.19</div>
+    <div class="Main_TeamsEngineLabel">Engine v1.20</div>
   </div>
 </template>
 
