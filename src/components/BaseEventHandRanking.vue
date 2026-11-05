@@ -175,7 +175,7 @@
               <i v-else class="ticon-close_3" style="color: rgb(var(--d-text-red2));" aria-hidden="true"/>
               {{ Math.round(item[11][1]) }} / {{ Math.round(item[11][2]) }} / {{ Math.round(item[11][3]) }} / {{ Math.round(item[11][4]) }}
             </div>
-            <div v-else-if="item[18]?.points" class="Main_Teams_IndexPts">{{ item[18].points }} / {{ item[18].pointsRaw }}</div>
+            <div v-else-if="item[18]?.points" class="Main_Teams_IndexPts">{{ item[18].points }} / {{ item[18].pointsRaw }} / {{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
             <div v-else class="Main_Teams_IndexPts">{{ Number(item[2]).toFixed(0) }} / {{ Number(item[7]).toFixed(0) }}</div>
             <div class="Main_Teams_ExportBox">
               <button
@@ -203,6 +203,7 @@
               :gap="2"
               :showTune="true"
               :loading="Vue.utils.cacheLoading"
+              @cog="cgDashcogClick(item, $event, index)"
               style="--gap: 2px;"
               prefix="Main_Teams_ListItem"
             />
@@ -239,6 +240,7 @@ import BaseCarsTeam from './BaseCarsTeam.vue';
 import BaseCarList from './BaseCarList.vue';
 import BaseSwitch from './BaseSwitch.vue';
 import BaseCarsTuneSelector from './BaseCarsTuneSelector.vue';
+import { tdrStore } from '@/tdrStore.js';
 
 export default {
   name: 'BaseEventHandRanking',
@@ -268,6 +270,7 @@ export default {
   data() {
     return {
       Vue: Vue,
+      T_S: tdrStore(),
     }
   },
   watch: {},
@@ -280,6 +283,15 @@ export default {
       if (tune === car.selectedTune) tune = undefined;
       Vue.set(car, "selectedTune", tune);
       Vue.set(car, "TCode", Vue.getTCod(car.rid, tune));
+    },
+    cgDashcogClick(car, index, iround) {
+      let rid = car[6][index];
+
+      this.T_S._g_cFull.car = Vue.all_carsObj[rid];
+      this.T_S._g_cFull.dialog = true;
+      this.T_S._g_cFull.close = () => {
+        this.T_S._g_cFull.dialog = false;
+      };
     },
   },
 }
