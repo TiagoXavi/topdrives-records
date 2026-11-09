@@ -7336,6 +7336,7 @@ export default {
           this.loadChallengeFull(this.cgCurrentId, this.cgCurrentRound);
         } else {
           this.cgLoading = false;
+          this.cgCurrentRound = 0;
         }
       })
       .catch(error => {

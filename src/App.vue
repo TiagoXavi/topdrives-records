@@ -45,13 +45,7 @@
     <div id="App_PrintContainer">
       <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
     </div>
-
-    <!-- Tem car picker que não fecha ao pegar um carro -->
-    <!-- Tem car picker que fecha ao pegar um carro -->
-    <!-- Tem picker só de filtro -->
-    <!-- Tem quem usa raceFilter123 -->
-    <!-- Tem quem usa initialFilterString123 -->
-    <!-- Tem quem usa ridsMutationName, que pode ser deprecatedo -->
+    <BaseBottomAnnouncement />
 
     <BaseFilterDialog
       v-if="_g_carPicker.dialogLoad"
@@ -417,6 +411,7 @@ export default {
     BaseText,
     BaseFilterDialog,
     BaseSearchTrackDialog,
+    BaseBottomAnnouncement: () => import('@/components/BaseBottomAnnouncement.vue'),
     BaseButtonTouch: () => import('@/components/BaseButtonTouch.vue'),
     BaseCarDetailDialog: () => import('@/components/BaseCarDetailDialog.vue'),
     BaseCarDetailFull: () => import('@/components/BaseCarDetailFull.vue'),
