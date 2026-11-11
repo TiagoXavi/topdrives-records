@@ -45,7 +45,7 @@
     <div id="App_PrintContainer">
       <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
     </div>
-    <BaseBottomAnnouncement />
+    <!-- <BaseBottomAnnouncement /> -->
 
     <BaseFilterDialog
       v-if="_g_carPicker.dialogLoad"

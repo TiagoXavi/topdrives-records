@@ -795,6 +795,7 @@ import BaseBestTune from './BaseBestTune.vue'
 import BaseGameTag from './BaseGameTag.vue' //css
 import custom_tags from '../database/custom_tags.json'
 import { tdrStore } from '@/tdrStore.js';
+import { debug } from 'logrocket'
 
 var id = 0;
 
@@ -1155,6 +1156,7 @@ export default {
           "Legrand's Collection",
           "Lina's Collection",
           "Lina's Collection 2",
+          "Lotus Grand Prix Legends",
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",
           "Marilyn's Collection 2",
@@ -1191,6 +1193,7 @@ export default {
           "Ximena's Collection",
           "Ximena's Collection 2",
           "Year of the Dragon",
+          "Year of the G.O.A.T",
           "Year of the Horsepower",
           "Year of the Ox",
           "Year of the Rabbit",
@@ -1199,6 +1202,7 @@ export default {
           "Year of the Tiger",
         ],
         tags_expansion: [
+          "Arte Della Corsa",
           "Detroit Motor City",
           "Midnight Racers",
           "Rogue Agents",
@@ -1230,15 +1234,16 @@ export default {
         ],
         tags_permanent: [
           "5000 Cars Special",
-          "Audi Variant",
           "Concept",
+          "Christmas Variants",
           "Drivers Choice",
           "Eco Friendly",
-          "Halloween 2026 Variant",
+          "Halloween 2026 Variants",
           "Hot Hatch",
           "Hypercar",
           "Iconic Variant",
           "Innovative",
+          "Lotus Variants",
           "Motorsport",
           "Muscle Car",
           "None",
@@ -1251,7 +1256,6 @@ export default {
           "Team Favourite",
           "Track",
           "Ultra Expensive",
-          "VW GTI Variants",
           "Wild Ride",
         ],
         tags_color: [
@@ -1730,7 +1734,7 @@ export default {
       // nothing typed or filtered (the first time and when cleared): the default list, every car. With My garage
       // on, the garage cars instead, built below
       let garageList = this.garageListOn();
-      if (!this.filterOnly && !garageList && searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters)) {
+      if (!this.filterOnly && !garageList && searchStr === "" && this.filterCount === 0 && (!this.isFiltering || !this.enableCounters) && !this.sortModel) {
         this.searchMax = 60;
         this.searchResult = Vue.all_carsArr;
         this.searchResultLength = Vue.all_carsArr.length;

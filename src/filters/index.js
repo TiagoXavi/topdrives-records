@@ -26,6 +26,7 @@ const bumpTracks = {
   csMedZ50: true,
   csSmallZ50: true,
   oceanCityZ50: true,
+  tusBump: true,
   mojFreeway: true,
   mojExtended: true,
   mojMile2Bump: true,
@@ -1796,6 +1797,7 @@ export default {
         };
 
         Vue.tagsDate = {
+          "Arte Della Corsa": "2026-11-11",
           "Midnight Racers": "2026-06-09",
           "Rogue Agents": "2026-03-23",
           "Crown Pursuit": "2026-01-26",

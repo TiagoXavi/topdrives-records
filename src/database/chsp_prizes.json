@@ -86,7 +86,7 @@
       ["Ram_Dodge_1st_Gen_1981", "Ram_Dodge_Ramcharger_1981"],
       ["Cadillac_Escalade_1999", "Cadillac_SRX_2006"],
       ["Ford_Evos_2011", "Chevrolet_Monte_Carlo_SS_2006"],
-      ["Ram_Dodge_Li'l_Red_Express_Truck_1978", "Dodge_Durango_GT_2018"]
+      ["Ram_Dodge_Li'l_Red_Express_Truck_1978", "Ram_Dodge_Ramcharger_1974"]
     ]
   },
   {
@@ -188,10 +188,10 @@
       ["Vauxhall_Cascada_2016", "Mini_JCW_Convertible_2016"],
       ["Citroen_C4_Picasso_THP_165_2016", "Citroen_C-Crosser_2.2_L_HDi_2007"],
       ["Mazda_6_2016", "Volvo_C70_T5_2013"],
-      ["Ford_Kuga_2016", "Nissan_Xterra_(WD22)_1999"],
+      ["Ford_Kuga_2016", "Nissan_X-Trail_2010"],
       ["Land_Rover_Defender_90_2011", "Buick_Regal_GS_2012"],
       ["Mitsubishi_ASX_2010", "Mitsubishi_Outlander_PHEV_2016"],
-      ["Mercedes-Benz_A_200_2012", "Mitsubishi_Montero_Black_Edition_2011"]
+      ["Mercedes-Benz_A_200_2012", "Mitsubishi_Pajero_2002"]
     ]
   },
   {
@@ -199,7 +199,7 @@
     "matches": [
       ["AMC_AMX_390_1968", "Chevrolet_Camaro_IROC_Z28_1990", "Chevrolet_Camaro_SS_Convertible_2012"],
       ["Mazda_BT-50_2018", "Subaru_Outback_2008", "Subaru_Baja_Turbo_2003"],
-      ["Land_Rover_Range_Rover_Mk_1_1970", "Audi_quattro_1980", "BMW_X5_2008"],
+      ["Land_Rover_Range_Rover_Mk_1_1970", "Audi_quattro_1980", "BMW_X3_xDrive_28d_2016"],
       ["Maserati_Merak_SS_1976", "Honda_Integra_Type_R_1995", "BMW_335i_2008"],
       ["Ford_Maya_1984", "Chrysler_Aviat_1994", "Vauxhall_Opel_GTC_Concept_2007"],
       ["Vauxhall_Astra_GTE_1988", "Ford_Fiesta_ST_2016", "Mini_John_Cooper_Works_2016"],

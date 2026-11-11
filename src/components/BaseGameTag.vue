@@ -706,7 +706,7 @@ export default {
   --tag-s: 0%;
   --tag-l: 100%;
 }
-.BaseGameTag_Halloween_2026_Variant {
+.BaseGameTag_Halloween_2026_Variants {
   --tag-h: 0;
   --tag-s: 0%;
   --tag-l: 100%;
@@ -715,5 +715,30 @@ export default {
   --tag-h: 273;
   --tag-s: 54%;
   --tag-l: 56%;
+}
+.BaseGameTag_Lotus_Grand_Prix_Legends {
+  --tag-h: 57;
+  --tag-s: 100%;
+  --tag-l: 50%;
+}
+.BaseGameTag_Lotus_Variants {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Christmas_Variants {
+  --tag-h: 0;
+  --tag-s: 0%;
+  --tag-l: 100%;
+}
+.BaseGameTag_Year_of_the_G\.O\.A\.T {
+  --tag-h: 43;
+  --tag-s: 79%;
+  --tag-l: 65%;
+}
+.BaseGameTag_Arte_Della_Corsa {
+  --tag-h: 357;
+  --tag-s: 72%;
+  --tag-l: 47%;
 }
 </style>

@@ -112,6 +112,7 @@ export default new Vuex.Store({
       "Gaz's Collection",
       "Gaz's Collection 2",
       "Gunter's Collection",
+      "Halloween '26",
       "Harriet's Collection",
       "Heavy Metal",
       "Hugo's Collection",
@@ -165,7 +166,9 @@ export default new Vuex.Store({
       "Year of the Rabbit",
       "Year of the Snake"
     ],
-    upcomingTags: [],
+    upcomingTags: [
+      "Year of the G.O.A.T"
+    ],
     showDataFromPast: true,
     showCustomTunes: true,
     showOldTags: false,

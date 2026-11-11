@@ -61,6 +61,7 @@
                   circuit.id === 'csMedZ50' ||
                   circuit.id === 'csSmallZ50' ||
                   circuit.id === 'oceanCityZ50' ||
+                  circuit.id === 'tusBump' ||
                   circuit.id === 'mojFreeway' ||
                   circuit.id === 'mojExtended' ||
                   circuit.id === 'mojMile2Bump' ||

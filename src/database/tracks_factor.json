@@ -294,5 +294,14 @@
   "valRun": 1000,
   "valSwitchback": 1000,
   "valTour": 1000,
-  "valSlalom": 1000
+  "valSlalom": 1000,
+  "tusArch": 1000,
+  "tusFall": 1000,
+  "tusFoun": 1000,
+  "tusDrive": 1000,
+  "tusBack": 1000,
+  "tusBump": 1000,
+  "tusCircuit": 1000,
+  "tusSlalom": 1000,
+  "tusGforce": 1000
 }

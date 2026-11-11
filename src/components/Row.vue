@@ -145,42 +145,8 @@
       </div>
 
       <div v-if="type === 'times'" class="Row_xRA">{{ item | cellSub(car, tun) }}</div>
-
-      <!-- <div v-if="item.trackCode === 'drag100_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).info || {}).acel || {}).t) }}</div>
-      <div v-if="item.trackCode === 'drag150_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="item.trackCode === 'drag170_a00' && type === 'times'" class="Row_xRA">{{ item.text | mra(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t, 25) }}</div>
-      <div v-if="item.trackCode === 'drag100b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a00'] || {}).t) }}</div>
-      <div v-if="item.trackCode === 'drag100b_a01' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a01'] || {}).t) }}</div>
-      <div v-if="item.trackCode === 'drag100b_a10' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag100_a10'] || {}).t) }}</div>
-      <div v-if="item.trackCode === 'drag150b_a00' && type === 'times'" class="Row_xRA">{{ item.text | brake(((((car.data || {})[tun] || {}).times || {})['drag150_a00'] || {}).t) }}</div>
-      <div v-if="item.text && type === 'times' && car.clearance === 'Low' && (
-        item.id === 'csSmall' ||
-        item.id === 'dockCity' ||
-        item.id === 'csMed' ||
-        item.id === 'oceanCity' ||
-        item.id === 'speedbump12km' ||
-        item.id === 'speedbump1km' ||
-        item.id === 'desertHill' ||
-        item.id === 'miStreets2'||
-        item.id === 'itBump' ||
-        item.id === 'dsTnFreeway' ||
-        item.id === 'dsTnLove' ||
-        item.id === 'dsTnMile2bump'
-        )"
-        class="Row_xRA">low</div>
-      <div v-else-if="item.text && type === 'times' && (car.clearance === 'Low' || car.clearance === 'Mid') && (
-        item.id === 'moto' ||
-        item.id === 'desertRallyDirt'
-        )"
-        class="Row_xRA">{{ $t(`c_${car.clearance.toLowerCase()}`).toLowerCase() }}</div> -->
-
       
       <div v-if="type === 'tracks'" class="Row_Conditions">
-        <!-- <BaseTypeName :type="item.trackType" :trackId="item.id" /> -->
-        <!-- <BaseIconSvg v-if="item.textEng.includes('(R)')" type="n_roll" /> -->
-        <!-- <span v-if="type === 'tracks' && (item.textEng.includes('(R)') || item.id.includes('forestRiver') )" class="Row_IconSpan"> -->
-          <!-- <BaseIconSvg v-else :type="item.cond === '1' ? 'rain' : 'sun'"/> -->
-        <!-- </span> -->
         <i
           v-if="item.trackType !== '00' && (item.trackType !== '01' || item.id === 'figureEight')"
           :class="`tdicon-${item.trackType}`"

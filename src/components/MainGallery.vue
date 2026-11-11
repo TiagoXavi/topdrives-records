@@ -406,8 +406,8 @@
 
 <script>
 import BaseCardGallery from './BaseCardGallery.vue'
-import data_cars from '../database/cars_final_PL32_1-fixed.json'
-import plOld from '../database/cars_final_PL32.json'
+import data_cars from '../database/cars_final_PL33-fixed.json'
+import plOld from '../database/cars_final_PL32_5.json'
 import BaseDualSlider from './BaseDualSlider.vue'
 import BaseChip from './BaseChip.vue'
 import BaseFlag from './BaseFlag.vue'
@@ -525,6 +525,7 @@ export default {
           "Christmas Collection 22",
           "Coast to Coast",
           "Concept",
+          "Christmas Variants",
           "Cutting Edge",
           "Desperados",
           "Drivers Choice",
@@ -549,17 +550,18 @@ export default {
           "Great Exhibition",
           "Hot Hatch",
           "Hypercar",
-          "Iconic Variant",
           "Immortalised in Carbon",
           "In the Shadows",
           "In the Shadows 24",
           "Innovative",
+          "Lotus Variants",
           "Interstellar",
           "Italian Renaissance",
           "Japan Pro Tour",
           "Learn the Savannah Way",
           "Lina's Collection",
           "Lina's Collection 2",
+          "Lotus Grand Prix Legends",
           "Loch to Loch",
           "Loves Me, Loves Me Not",
           "Marilyn's Collection",
@@ -613,6 +615,7 @@ export default {
           "Wild Ride",
           "World Expo",
           "Year of the Dragon",
+          "Year of the G.O.A.T",
           "Year of the Horsepower",
           "Year of the Ox",
           "Year of the Rabbit",
@@ -740,7 +743,7 @@ export default {
   },
   watch: {},
   beforeCreate() {
-    window.localStorage.setItem("changes_v32", "t");
+    window.localStorage.setItem("changes_v33", "t");
   },
   beforeMount() {
     // // check new cars
@@ -1046,11 +1049,10 @@ export default {
       this.searchFilters.weightModel = this.defaultFilters("weightModel");
       this.searchFilters.seatsModel = this.defaultFilters("seatsModel");
       this.searchFilters.classesModel = [];
-      this.searchFilters.onlyAnyChangeModel = [true];
+      this.searchFilters.onlyAnyChangeModel = [];
       this.searchFilters.onlyNewRarityModel = [];
       this.searchFilters.onlyNewPerformanceModel = [];
-      this.searchFilters.onlyRelevantChangesModel = [];
-      // this.searchFilters.onlyRelevantChangesModel = [true];
+      this.searchFilters.onlyRelevantChangesModel = [true];
       this.searchFilters.onlyNewTyresModel = [];
       this.searchFilters.onlyNewDriveModel = [];
       this.searchFilters.onlyNewClearanceModel = [];
@@ -1226,7 +1228,7 @@ export default {
             oldCar.tyres === car.tyres &&
             oldCar.drive === car.drive &&
             oldCar.clearance === car.clearance &&
-            Math.abs(oldCar.rq - car.rq) < 2 &&
+            Math.abs(oldCar.rq - car.rq) < 3 &&
             oldCar.abs === car.abs &&
             oldCar.tcs === car.tcs &&
             oldCar.prize === car.prize &&

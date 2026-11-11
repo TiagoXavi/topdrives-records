@@ -3982,7 +3982,7 @@ export default {
       memory: [],
       backToOptionsDialog: true,
       hoverIndex: -1,
-      gameVersion: "Game v32.4",
+      gameVersion: "Game v33.0",
       showPoints: false,
       pointsResolved: [],
       carHoverIndex: -1,
@@ -8715,7 +8715,7 @@ export default {
         'speedbump12km',
         'speedbump1km',
         'miStreets2',
-        'itBump',
+        'tusBump',
         'dsTnFreeway',
         'dsTnLove',
         'dsTnMile2bump'
