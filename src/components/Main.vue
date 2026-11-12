@@ -4568,13 +4568,13 @@ export default {
             {
               type: "00",
               active: false,
-              tracks: ["csSmall_a00","csMed_a00","miStreets2_a00","dockCity_a00","oceanCity_a00","mojFreeway_a00","mojExtended_a40",]
+              tracks: ["csSmall_a00","csMed_a00","miStreets2_a00","dockCity_a00","oceanCity_a00","mojFreeway_a00","mojExtended_a40","tusBump_a00"]
             },
             {
               type: "01",
               span: 2,
               active: false,
-              tracks: ["csSmall_a01","csMed_a01","miStreets2_a01","dockCity_a01","oceanCity_a01","mojFreeway_a01","csSmallZ50_aA1","csMedZ50_aA1","oceanCityZ50_aA1","csSmallZ50_aB1","csMedZ50_aB1","oceanCityZ50_aB1","mojExtended_a41",]
+              tracks: ["csSmall_a01","csMed_a01","miStreets2_a01","dockCity_a01","oceanCity_a01","mojFreeway_a01","tusBump_a01","csSmallZ50_aA1","csMedZ50_aA1","oceanCityZ50_aA1","csSmallZ50_aB1","csMedZ50_aB1","oceanCityZ50_aB1","mojExtended_a41",]
             },
             {
               type: "10",

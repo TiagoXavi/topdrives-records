@@ -82,6 +82,10 @@ export default {
       this.brand = null;
       if (!this.cover) return '';
       if (this.cover.startsWith('http')) return this.cover;
+      if (this.cover.startsWith('zz')) {
+        return '/h_cgs/' + this.cover + '.jpg';
+      }
+      return `https://tdrcovers.s3.us-east-1.amazonaws.com/${this.cover}.jpg`;
 
       let fileName = this.cover;
       if (fileName.startsWith('Event')) {
