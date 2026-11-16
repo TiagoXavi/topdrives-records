@@ -8578,8 +8578,7 @@ export default {
       // }
     },
     cgRemoveDuplicateSolution() {
-      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`;
-      let saveHand = window.localStorage.getItem(saveName);
+      let saveHand = this.cgGetSavedHand();
       if (saveHand) {
         this.cgShowResetSavedHand = true;
         saveHand = JSON.parse(saveHand);
@@ -9028,8 +9027,41 @@ export default {
       }
 
     },
+    cgSavedHandPrefix() {
+      return `hand_${this.cg.date}_R${this.cgCurrentRound}`;
+    },
+    cgSavedHandKeys() {
+      // legacy keys have no stamp, new ones end with _yyyy-mm-dd
+      let prefix = this.cgSavedHandPrefix();
+      return Object.keys(window.localStorage).filter(key => {
+        return key === prefix || (key.startsWith(prefix) && /^_\d{4}-\d{2}-\d{2}$/.test(key.slice(prefix.length)));
+      });
+    },
+    cgGetSavedHand() {
+      // cg.date can be reused by a different challenge later, so old saves are discarded
+      let prefix = this.cgSavedHandPrefix();
+      let today = new Date().toISOString().slice(0, 10);
+      let limit = new Date();
+      limit.setMonth(limit.getMonth() - 2);
+      limit = limit.toISOString().slice(0, 10);
+
+      let result = null;
+      let resultStamp = "";
+      this.cgSavedHandKeys().map(key => {
+        let stamp = key.slice(prefix.length + 1);
+        let outdated = stamp ? stamp < limit : today >= "2027-01-01";
+        if (outdated) {
+          window.localStorage.removeItem(key);
+          return;
+        }
+        if (result === null || stamp > resultStamp) {
+          result = window.localStorage.getItem(key);
+          resultStamp = stamp;
+        }
+      })
+      return result;
+    },
     cgSaveRoundHand() {
-      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
       let handRids = [];
       this.cgRound.races.map(race => {
         if (isNaN(race.carIndex)) {
@@ -9038,11 +9070,12 @@ export default {
           handRids.push(`${race.cars[race.carIndex].rid}_${race.cars[race.carIndex].tune}`);
         }
       })
+      this.cgSavedHandKeys().map(key => window.localStorage.removeItem(key));
+      let saveName = `${this.cgSavedHandPrefix()}_${new Date().toISOString().slice(0, 10)}`;
       window.localStorage.setItem(saveName, JSON.stringify(handRids));
     },
     cgResetSaveHand() {
-      let saveName = `hand_${this.cg.date}_R${this.cgCurrentRound}`
-      localStorage.removeItem(saveName);
+      this.cgSavedHandKeys().map(key => localStorage.removeItem(key));
       this.loadCgRound(this.cgCurrentId, this.cgCurrentRound);
       this.cgShowResetSavedHand = false;
     },

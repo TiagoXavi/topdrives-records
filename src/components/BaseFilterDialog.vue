@@ -1083,7 +1083,7 @@ export default {
         prizesModel: [],
 
         garageThings: ["Can be upgraded", "Can be fused"],
-        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "No one full", "Not every full", "Duplicate", "Triplicate", "Quadriplicate+"],
+        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "No one full", "No one 5+ fuses", "Not every full", "Duplicate", "Legacy Up", "Legacy Down", "5+ fuses", "4- fuses", "Triplicate", "Quadriplicate+"],
         garageThingsModel: [],
 
         upgradesStart: 0,
@@ -2591,11 +2591,17 @@ export default {
         if ( context.garageThingsModel.includes("Counter owned") && !this.$parent.carIsUniqueInResult(hCar) ) return null;
         if ( context.garageThingsModel.includes("Counter 5+ fuse") && (this.$parent.carNumFuses(hCar) < 5 || !this.$parent.carIsUniqueInResult(hCar)) ) return null;
         if ( context.garageThingsModel.includes("No one full") && (this.$parent.atLeastOneCopyFull(hCar) || !carIsReady) ) return null;
+        if ( context.garageThingsModel.includes("No one 5+ fuses") && this.$parent.atLeastOneCopy5Fuses(hCar) ) return null;
 
         if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return null;
         if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return null;
         if ( context.garageThingsModel.includes("Triplicate") && !this.$parent.carIsUnique(hCar, 3) ) return null;
         if ( context.garageThingsModel.includes("Quadriplicate+") && !this.$parent.carIsUnique(hCar, 4, true) ) return null;
+
+        if ( context.garageThingsModel.includes("Legacy Up") && this.$parent.carLegacyChange(hCar) <= 0 ) return null;
+        if ( context.garageThingsModel.includes("Legacy Down") && this.$parent.carLegacyChange(hCar) >= 0 ) return null;
+        if ( context.garageThingsModel.includes("5+ fuses") && this.$parent.carNumFuses(hCar) < 5 ) return null;
+        if ( context.garageThingsModel.includes("4- fuses") && this.$parent.carNumFuses(hCar) >= 5 ) return null;
 
         // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
         // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);

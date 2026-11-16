@@ -91,7 +91,7 @@
                   <BaseIconSvg type="slot" :useMargin="false" class="BaseChallengeInfos_CurrencyIcon" />
                   <span>{{ reward[1] }}</span>
                 </div>
-                <div v-if="reward[0] === 3" class="BaseChallengeInfos_RewardItem BaseChallengeInfos_Car">
+                <div v-if="reward[0] === 3" class="BaseChallengeInfos_RewardItem BaseChallengeInfos_Car BaseCard_AsGalleryBox" style="margin-top: 6px;">
                   <BaseCard
                     :car="Vue.all_carsObj[Vue.ridByGuid[reward[1]]]"
                     :fix-back="false"
