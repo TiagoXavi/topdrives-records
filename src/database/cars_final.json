@@ -173973,6 +173973,7 @@
         "abs": true,
         "tcs": true,
         "clearance": "High",
+        "country": "DZ",
         "topSpeed": 106,
         "acel": 15,
         "hand": 70,

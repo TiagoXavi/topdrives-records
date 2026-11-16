@@ -48,6 +48,12 @@
         <div class="BaseTopMenuUserDialog_FooterBox">
           
           <div class="BaseTopMenuUserDialog_FooterRight Main_OptionsFooterButtons">
+            <button v-if="($store.state.userLoaded || user) && (!user?.tier)" class="D_Button BaseBlackFridayButton_Box" @click="openBlackFriday()">
+              <div class="BaseBlackFridayButton_BlackLogo">
+                <div class="BaseBlackFridayButton_BlackText">BLACK</div>
+                <div class="BaseBlackFridayButton_BlackText">FRIDAY</div>
+              </div>
+            </button>
             <BaseLanguageButton @openLanguage="$emit('openLanguage')" />
             <button
               class="D_Button Main_OptionsButton Main_OptionsButton42"
@@ -117,6 +123,9 @@ export default {
   mounted() {},
   computed: {},
   methods: {
+    openBlackFriday() {
+      this.$store.commit("OPEN_BLACK_FRIDAY");
+    },
     tabClick(item) {
       if (item.path) {
         this.$router.push({ path: item.path });

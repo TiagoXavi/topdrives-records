@@ -45,7 +45,7 @@
     <div id="App_PrintContainer">
       <canvas id="printCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
     </div>
-    <!-- <BaseBottomAnnouncement /> -->
+    <BaseBottomAnnouncement v-if="(userLoaded || user) && (!user?.tier)" />
 
     <BaseFilterDialog
       v-if="_g_carPicker.dialogLoad"
@@ -438,6 +438,7 @@ export default {
       snackShake: false,
       shakeTimeout: null,
       user: null,
+      userLoaded: false,
       logRocketInitialized: false,
       isMobile: false,
       loginDialog: false,
@@ -743,6 +744,8 @@ export default {
       .then(res => {
 
         Vue.loadLastest(res.data);
+        this.userLoaded = true;
+        this.$store.state.userLoaded = true;
 
         if (res.data.username) {
           this.user = res.data;

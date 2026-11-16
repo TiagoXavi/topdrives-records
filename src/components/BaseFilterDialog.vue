@@ -1077,7 +1077,7 @@ export default {
         drivesModel: [],
         clearances: ["Low", "Mid", "High"],
         clearancesModel: [],
-        countrys: ["DE", "US", "GB", "JP", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "BR", "NL", "MY", "IN", "AT", "DK", "ZA", "MX", "HR", "AR", "AE", "NZ", "CH"],
+        countrys: ["DE", "US", "GB", "JP", "IT", "FR", "AU", "SE", "KR", "CZ", "CN", "BR", "NL", "MY", "IN", "AT", "DK", "ZA", "MX", "HR", "AR", "AE", "NZ", "CH", "DZ"],
         countrysModel: [],
         prizes: ["Prize Cars", "Non-Prize Cars", "Released Cars", "Unreleased Cars"],
         prizesModel: [],
@@ -2593,7 +2593,7 @@ export default {
         if ( context.garageThingsModel.includes("No one full") && (this.$parent.atLeastOneCopyFull(hCar) || !carIsReady) ) return null;
         if ( context.garageThingsModel.includes("No one 5+ fuses") && this.$parent.atLeastOneCopy5Fuses(hCar) ) return null;
 
-        if ( context.garageThingsModel.includes("Unique") && !this.$parent.carIsUnique(hCar) ) return null;
+        if ( context.garageThingsModel.includes("Unique") && !this.$parent.carNoOneIsLocked(hCar) ) return null;
         if ( context.garageThingsModel.includes("Duplicate") && !this.$parent.carIsUnique(hCar, 2) ) return null;
         if ( context.garageThingsModel.includes("Triplicate") && !this.$parent.carIsUnique(hCar, 3) ) return null;
         if ( context.garageThingsModel.includes("Quadriplicate+") && !this.$parent.carIsUnique(hCar, 4, true) ) return null;
