@@ -236,6 +236,18 @@
       </div>
     </BaseDialog>
     <BaseDialog
+      :active="packDetailDialog"
+      :transparent="false"
+      :lazy="true"
+      :disableScroll="true"
+      max-width="450px"
+      min-width="240px"
+      zindex="102"
+      @close="packDetailDialog = false;">
+      <BasePackDetail v-if="packDetailPack" :pack="packDetailPack" />
+    </BaseDialog>
+    
+    <BaseDialog
       :active="$store.state.confirmDialog.active"
       :transparent="!!$store.state.confirmDialog.transparent"
       :scrollParent="true"
@@ -383,7 +395,110 @@
         <mask id="triangleMask" x="0" y="0" width="1" height="1" >
           <rect x="0" y="0" width="400" height="400" fill="url(#trianglePattern)" />
         </mask>
+
+
+        
+        <path id="SVGID_2_" d="M10.7,187.6l-4-4.2l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4
+        l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4
+        l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4L6.7,62l3.8-3.4l-3.8-3.4l3.8-3.4
+        l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4L6.7,35l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4l-3.8-3.4l3.8-3.4L6.7,8l3.8-4.6
+        c0,0,8,0.1,13.8,0.7c5.5,0.6,6.8,5.2,12.5,5.2c12.3,0,92.9,0,92.9,0H185c0,0,80.7,0,92.9,0c5.8,0,7-4.6,12.5-5.2
+        c5.8-0.6,13.8-0.7,13.8-0.7l3.8,4.6l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4
+        l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4
+        l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4
+        l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4l-3.8,3.4l3.8,3.4
+        l-4,4.2l-13.6-0.6c-5.5-0.6-6.8-5.2-12.5-5.2c-12.3,0-92.9,0-92.9,0h-55.3c0,0-80.7,0-92.9,0c-5.8,0-7,4.6-12.5,5.2L10.7,187.6z"
+        />
+        <!-- Light reflections: values sampled from the bitmap pack template (src/assets/packs_samples) -->
+        <radialGradient id="tdGlossUpperRight" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(280 58) scale(215 88)">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+          <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0.6"/>
+          <stop offset="0.7" stop-color="#FFFFFF" stop-opacity="0.18"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="tdGlowLeft" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(28.5 112) scale(30 95)">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.78"/>
+          <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0.39"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="tdGlowRight" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(286.2 118) scale(40 100)">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.84"/>
+          <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0.42"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tdSheen" gradientUnits="userSpaceOnUse" x1="0" y1="9.3" x2="0" y2="181.8">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.07"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.015"/>
+        </linearGradient>
+        <linearGradient id="tdEdgeTop" gradientUnits="userSpaceOnUse" x1="0" y1="3.4" x2="0" y2="15">
+          <stop offset="0" stop-color="#000000" stop-opacity="0.5"/>
+          <stop offset="1" stop-color="#000000" stop-opacity="0.0"/>
+        </linearGradient>
+        <linearGradient id="tdEdgeBottom" gradientUnits="userSpaceOnUse" x1="0" y1="175" x2="0" y2="191">
+          <stop offset="0" stop-color="#000000" stop-opacity="0.0"/>
+          <stop offset="1" stop-color="#000000" stop-opacity="0.7"/>
+        </linearGradient>
+        <linearGradient id="tdRimTop" gradientUnits="userSpaceOnUse" x1="28.5" y1="0" x2="286.2" y2="0">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+          <stop offset="0.044" stop-color="#FFFFFF" stop-opacity="0.75"/>
+          <stop offset="0.123" stop-color="#FFFFFF" stop-opacity="0.62"/>
+          <stop offset="0.18" stop-color="#FFFFFF" stop-opacity="0.82"/>
+          <stop offset="0.3" stop-color="#FFFFFF" stop-opacity="0.74"/>
+          <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0.95"/>
+          <stop offset="0.54" stop-color="#FFFFFF" stop-opacity="0.86"/>
+          <stop offset="0.61" stop-color="#FFFFFF" stop-opacity="0.72"/>
+          <stop offset="0.69" stop-color="#FFFFFF" stop-opacity="0.66"/>
+          <stop offset="0.75" stop-color="#FFFFFF" stop-opacity="0.7"/>
+          <stop offset="0.85" stop-color="#FFFFFF" stop-opacity="0.55"/>
+          <stop offset="0.93" stop-color="#FFFFFF" stop-opacity="0.42"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.3"/>
+        </linearGradient>
+        <linearGradient id="tdRimBottom" gradientUnits="userSpaceOnUse" x1="28.5" y1="0" x2="286.2" y2="0">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+          <stop offset="0.05" stop-color="#FFFFFF" stop-opacity="0.2"/>
+          <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.3"/>
+          <stop offset="0.9" stop-color="#FFFFFF" stop-opacity="0.42"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.5"/>
+        </linearGradient>
+        <linearGradient id="tdSeamLeft" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="176">
+          <stop offset="0.026" stop-color="#FFFFFF" stop-opacity="0.35"/>
+          <stop offset="0.128" stop-color="#FFFFFF" stop-opacity="0.42"/>
+          <stop offset="0.256" stop-color="#FFFFFF" stop-opacity="0.6"/>
+          <stop offset="0.417" stop-color="#FFFFFF" stop-opacity="0.68"/>
+          <stop offset="0.897" stop-color="#FFFFFF" stop-opacity="0.68"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.5"/>
+        </linearGradient>
+        <linearGradient id="tdSeamRight" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="176">
+          <stop offset="0.026" stop-color="#FFFFFF" stop-opacity="0.42"/>
+          <stop offset="0.256" stop-color="#FFFFFF" stop-opacity="0.55"/>
+          <stop offset="0.513" stop-color="#FFFFFF" stop-opacity="0.6"/>
+          <stop offset="0.833" stop-color="#FFFFFF" stop-opacity="0.66"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.7"/>
+        </linearGradient>
+        <linearGradient id="tdCrimpTop" gradientUnits="userSpaceOnUse" x1="0" y1="3.4" x2="0" y2="187.6">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.6"/>
+          <stop offset="0.28" stop-color="#FFFFFF" stop-opacity="0.3"/>
+          <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.1"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.08"/>
+        </linearGradient>
+        <linearGradient id="tdCrimpBottom" gradientUnits="userSpaceOnUse" x1="0" y1="85" x2="0" y2="187.6">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+          <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0.35"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.4"/>
+        </linearGradient>
+        <radialGradient id="tdCrimpSeamLeft" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(28.5 150) scale(4.5 40)">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.4"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="tdCrimpSeamRight" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(286.2 150) scale(3.5 38)">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
       </defs>
+      
+      <clipPath id="SVGID_1_">
+        <use xlink:href="#SVGID_2_" style="overflow:visible;"/>
+      </clipPath>
     </svg>
 
   </div>
@@ -417,7 +532,8 @@ export default {
     BaseCarDetailFull: () => import('@/components/BaseCarDetailFull.vue'),
     BaseCheckBox: () => import('@/components/BaseCheckBox.vue'),
     BaseCardMini: () => import('@/components/BaseCardMini.vue'),
-    BaseItem: () => import('@/components/BaseItem.vue')
+    BaseItem: () => import('@/components/BaseItem.vue'),
+    BasePackDetail: () => import('@/components/BasePackDetail.vue')
   },
   props: {},
   data() {
@@ -446,7 +562,9 @@ export default {
       olaDialog: false,
       hillDialog: false,
       inventoryItemDetailDialog: false,
-      inventoryItemDetailItem: null
+      inventoryItemDetailItem: null,
+      packDetailDialog: false,
+      packDetailPack: null
     }
   },
   watch: {
@@ -659,6 +777,9 @@ export default {
         this.inventoryItemDetailItem = item;
       }
       if (mutation.type == "OPEN_PACK_DETAIL") {
+        if (!mutation.payload) return;
+        this.packDetailPack = mutation.payload;
+        this.packDetailDialog = true;
       }
 
     });

@@ -1083,7 +1083,7 @@ export default {
         prizesModel: [],
 
         garageThings: ["Can be upgraded", "Can be fused"],
-        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "No one full", "No one 5+ fuses", "Not every full", "Duplicate", "Legacy Up", "Legacy Down", "5+ fuses", "4- fuses", "Triplicate", "Quadriplicate+"],
+        garageThingsRT: ["Locked", "Unlocked", "Upgraded", "Fused", "Fusing", "Servicing", "Full", "Not full", "Unique", "Can be upgraded", "Can be fused", "Counter owned", "Counter 5+ fuse", "No one full", "No one 5+ fuses", "Not every full", "Duplicate", "Legacy Up", "Legacy Down", "5+ fuses", "4- fuses", "E. can upgraded", "Triplicate", "Quadriplicate+"],
         garageThingsModel: [],
 
         upgradesStart: 0,
@@ -2602,6 +2602,7 @@ export default {
         if ( context.garageThingsModel.includes("Legacy Down") && this.$parent.carLegacyChange(hCar) >= 0 ) return null;
         if ( context.garageThingsModel.includes("5+ fuses") && this.$parent.carNumFuses(hCar) < 5 ) return null;
         if ( context.garageThingsModel.includes("4- fuses") && this.$parent.carNumFuses(hCar) >= 5 ) return null;
+        if ( context.garageThingsModel.includes("E. can upgraded") && !this.$parent.carEveryCopyCanBeUpgraded(hCar) ) return null;
 
         // if ( hCar.minors context.garageThingsModel.includes("Fuse completed") ) return false;
         // let numFuses = Math.floor(hCar.tunZ.split("").reduce((a,b) => Number(a)+Number(b), 0) / 3);

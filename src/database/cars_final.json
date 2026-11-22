@@ -236285,7 +236285,7 @@
     {
         "class": "F",
         "rq": 13,
-        "onlyName": "Giulia GTС",
+        "onlyName": "Giulia GTC",
         "brand": "Alfa Romeo",
         "year": 1964,
         "abs": false,
@@ -236299,7 +236299,7 @@
         "tyres": "Performance",
         "mra": 44.27,
         "weight": 905,
-        "name": "Alfa Romeo Giulia GTС ",
+        "name": "Alfa Romeo Giulia GTC",
         "rid": "Alfa_Romeo_Giulia_GT__1964",
         "prize": false,
         "bodyTypes": [

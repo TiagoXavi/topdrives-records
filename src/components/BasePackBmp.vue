@@ -1,6 +1,12 @@
 <template>
   <button :style="`--size: ${size}px`" class="D_Button BasePackBmp_Layout" @click="itemClick()">
+    <BasePackSvg
+      v-if="packResolved.uuid && !uuidAsImage"
+      class="BasePackBmp_Svg"
+      :uuid="packResolved.uuid"
+    />
     <img
+      v-else
       :src="imgUrl"
       :key="packResolved.type"
       class="BasePackBmp_Img"
@@ -13,12 +19,12 @@
 </template>
 
 <script>
-// import BaseDetalheHeader from '@/components/shared/BaseDetalheHeader/BaseDetalheHeader.vue';
+import BasePackSvg from './BasePackSvg.vue';
 
 export default {
   name: 'BasePackBmp',
   components: {
-    // BaseDetalheHeader
+    BasePackSvg
   },
   props: {
     pack: {
@@ -28,6 +34,10 @@ export default {
     size: {
       type: Number,
       default: 100
+    },
+    clicable: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -38,19 +48,37 @@ export default {
   mounted() {},
   computed: {
     imgUrl() {
+      if (this.uuidAsImage) return this.uuidAsImage;
       if (!this.packResolved.type) return '';
       let fileName = this.packResolved.type;
+      if (fileName === "carbon") fileName = "carbonfiber";
+      if (fileName === "ceramic") fileName = "ceramic";
+      if (fileName === "aluminium") fileName = "aluminium";
+      if (fileName === "steel") fileName = "steel";
+      if (fileName === "plastic") fileName = "plastic";
+
+      return `https://tdrpacks.s3.us-east-1.amazonaws.com/${fileName}panel.png`;
 
       return '/h_packs/' + fileName + '.png';
     },
     packResolved() {
       if (!this.pack) return {};
       if (this.pack.type) return this.pack;
+      if (this.pack.uuid) return this.pack;
+      if (this.pack[1] && this.pack[1].length === 36) return { uuid: this.pack[1], qty: this.pack[3] };
       else return { type: this.pack[4], qty: this.pack[3] };
+    },
+    uuidAsImage() {
+      if (!this.packResolved.uuid) return null;
+      const pack = Vue.packs[this.packResolved.uuid];
+      if (!pack) return null;
+      if (!pack.imageName || pack.uiElements) return null;
+      return `https://tdrpacks.s3.us-east-1.amazonaws.com/${pack.imageName.toLowerCase()}panel.png`;
     }
   },
   methods: {
     itemClick() {
+      if (!this.clicable) return;
       this.$store.commit('OPEN_PACK_DETAIL', this.packResolved);
     }
   },
@@ -76,5 +104,9 @@ export default {
   color: #000000;
   padding: 2px 5px;
   border-radius: 3px;
+}
+.BasePackBmp_Svg {
+  height: var(--size);
+  aspect-ratio: 1.61;
 }
 </style>

@@ -40,7 +40,7 @@
               v-for="pal in packPalettes"
               :key="pal.key"
               :class="{ MainPacks_EditorColorActive: packEditor.paletteKey === pal.key }"
-              :style="`--b1: ${pal.packColor.gBackground1}; --b2: ${pal.packColor.gBackground2}; --g1: ${pal.packColor.gStrip1}; --g2: ${pal.packColor.gStrip2}`"
+              :style="`--b1: ${pal.packColor.gBackground1}; --b2: ${pal.packColor.gBackground2}; --g1: ${pal.packColor.gBottom1}; --g2: ${pal.packColor.gBottom2}`"
               class="D_Button MainPacks_EditorColor"
               @click="packEditor.paletteKey = pal.key" />
           </div>
@@ -115,7 +115,7 @@
 
     <div v-if="packModel && packModel.name && !editing" class="MainPacks_PacksOdsBox">
       <div class="MainPacks_CustomizePackLayout">
-        <div class="MainPacks_CustomizePackBox" :class="packSvgClass" :style="`--cor: ${packModel.packColor.gStrip1}`">
+        <div class="MainPacks_CustomizePackBox" :class="packSvgClass" :style="`--cor: ${packModel.packColor.gBottom1}`">
           <button
             class="D_Button MainPacks_CustomizeButton"
             :disabled="running"
@@ -459,11 +459,11 @@ export default {
           cardsCriteria: [1, 1, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#bd1616",
-            gStrip2: "#510033",
+            gBottom1: "#bd1616",
+            gBottom2: "#510033",
             name: "CARBON FIBER"
           },
           cards: [
@@ -489,12 +489,13 @@ export default {
           cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#b5c0c3",
             gBackground2: "#606869",
-            gStrip1: "#ffe93a",
-            gStrip2: "#c19900",
-            name: "CERAMIC"
+            gBottom1: "#ffe93a",
+            gBottom2: "#c19900",
+            name: "CERAMIC",
+            lightOpacity: 0.4
           },
           cards: [
             { S: 0.65, A: 2.50, B: 14.00, C: 82.85 },
@@ -528,12 +529,13 @@ export default {
           cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#8b8b8b",
             gBackground2: "#e1e1e1",
-            gStrip1: "#009eb9",
-            gStrip2: "#049dc1",
-            name: "ALUMINIUM"
+            gBottom1: "#009eb9",
+            gBottom2: "#049dc1",
+            name: "ALUMINIUM",
+            lightOpacity: 0.5
           },
           cards: [
             { B: 1.50, C: 18.50, D: 80.00 },
@@ -558,12 +560,13 @@ export default {
           cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#ffffff",
             gBackground2: "#a3a3a3",
-            gStrip1: "#0d8700",
-            gStrip2: "#499324",
-            name: "STEEL"
+            gBottom1: "#0d8700",
+            gBottom2: "#499324",
+            name: "STEEL",
+            lightOpacity: 0.5
           },
           cards: [
             { C: 1.00, D: 37.50, E: 61.50 },
@@ -588,11 +591,11 @@ export default {
           cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#414447",
             gBackground2: "#6b6b6b",
-            gStrip1: "#3b3b3b",
-            gStrip2: "#4d4d4d",
+            gBottom1: "#3b3b3b",
+            gBottom2: "#4d4d4d",
             name: "PLASTIC"
           },
           cards: [
@@ -623,8 +626,8 @@ export default {
             background: "#212121",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#6f4f1d",
-            gStrip2: "#a99655",
+            gBottom1: "#6f4f1d",
+            gBottom2: "#a99655",
             name: "BLACK DIAMOND"
           },
           cards: [
@@ -645,8 +648,8 @@ export default {
             background: "#212121",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#6f4f1d",
-            gStrip2: "#a99655",
+            gBottom1: "#6f4f1d",
+            gBottom2: "#a99655",
             name: "DIAMOND"
           },
           cards: [
@@ -667,8 +670,8 @@ export default {
             background: "#212121",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#7244dd",
-            gStrip2: "#4c38b3",
+            gBottom1: "#7244dd",
+            gBottom2: "#4c38b3",
             name: "SAPPHIRE"
           },
           cards: [
@@ -687,11 +690,11 @@ export default {
           cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#7244dd",
-            gStrip2: "#4c38b3",
+            gBottom1: "#7244dd",
+            gBottom2: "#4c38b3",
             name: "TITANIUM"
           },
           cards: [
@@ -710,11 +713,11 @@ export default {
           cardsCriteria: [1, 1, 1, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#bd1616",
-            gStrip2: "#510033",
+            gBottom1: "#bd1616",
+            gBottom2: "#510033",
             name: "PLATINUM"
           },
           cards: [
@@ -733,11 +736,11 @@ export default {
           cardsCriteria: [1, 1, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#bd1616",
-            gStrip2: "#510033",
+            gBottom1: "#bd1616",
+            gBottom2: "#510033",
             name: "SUPER CARBON"
           },
           cards: [
@@ -756,11 +759,11 @@ export default {
           cardsCriteria: [1, 0, 0, 0, 0],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#b5c0c3",
             gBackground2: "#606869",
-            gStrip1: "#ffe93a",
-            gStrip2: "#c19900",
+            gBottom1: "#ffe93a",
+            gBottom2: "#c19900",
             name: "PREMIUM LITE"
           },
           cards: [
@@ -779,11 +782,11 @@ export default {
           cardsCriteria: [1],
           packColor: {
             background: "#212121",
-            bottomStrip: "#890a0a",
+            bottom: "#890a0a",
             gBackground1: "#1e1e1e",
             gBackground2: "#353535",
-            gStrip1: "#009eb9",
-            gStrip2: "#049dc1",
+            gBottom1: "#009eb9",
+            gBottom2: "#049dc1",
             name: "RACING PACK"
           },
           cards: [
@@ -1021,7 +1024,7 @@ export default {
       let seen = {};
       [...this.packTypes, ...this.otherPackTypes].map(pack => {
         let c = pack.packColor;
-        let key = `${c.gBackground1}_${c.gBackground2}_${c.gStrip1}_${c.gStrip2}`;
+        let key = `${c.gBackground1}_${c.gBackground2}_${c.gBottom1}_${c.gBottom2}`;
         if (seen[key]) return;
         seen[key] = true;
         list.push({
@@ -1031,11 +1034,11 @@ export default {
           svgClass: `BasePackSvg_C_${c.name.replaceAll(' ', '_')}`,
           packColor: {
             background: c.background,
-            bottomStrip: c.bottomStrip,
+            bottom: c.bottom,
             gBackground1: c.gBackground1,
             gBackground2: c.gBackground2,
-            gStrip1: c.gStrip1,
-            gStrip2: c.gStrip2
+            gBottom1: c.gBottom1,
+            gBottom2: c.gBottom2
           }
         });
       })

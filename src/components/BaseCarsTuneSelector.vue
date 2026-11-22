@@ -80,7 +80,8 @@ export default {
 
       let arrTunes = [
         this.carConfig.selectedTune,
-        ...(this.carConfig.alt || [])
+        ...(this.carConfig.alt || []),
+        this.carConfig.tune
       ]
 
       this.tunes.forEach(tune => {
@@ -99,20 +100,6 @@ export default {
         } else {
           result.w.push(tune);
         }
-
-        // if (this.carConfig.bad && this.carConfig.bad.includes(tune)) {
-        //   result.l.push(tune);
-        // } else {
-        //   result.w.push(tune);
-        // };
-
-        // let time = Vue.timeCell(this.car.rid, tune, this.track);
-        // if (time === null || time === "!loading") return;
-        // if (Vue.timeIsBest(time, this.oppoTime, this.track)) {
-        //   result.w.push(tune);
-        // } else if (time !== this.oppoTime) {
-        //   result.l.push(tune);
-        // }
       });
 
       return result;

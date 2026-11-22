@@ -401,6 +401,7 @@ const extraTunes = [
 ]
 
 const inventory = Vue.observable({});
+const packs = Vue.observable({});
 
 function updateInventory(newInventory) {
   if (!newInventory) return;
@@ -408,6 +409,13 @@ function updateInventory(newInventory) {
     Vue.set(inventory, key, newInventory[key]);
   });
   console.log(inventory);
+}
+function updatePacks(newPacks) {
+  if (!newPacks) return;
+  Object.keys(newPacks).forEach(key => {
+    Vue.set(packs, key, newPacks[key]);
+  });
+  console.log(packs);
 }
 
 
@@ -857,6 +865,7 @@ function tryLoadGarageFromStorage() {
 
 
 function formatUTCDateString(isoString) {
+  if (!isoString) return "";
   const date = new Date(isoString);
 
   // 1. Format the date part (YYYY-MM-DD)
@@ -909,7 +918,9 @@ export default {
         Vue.archivedBrands = archivedBrands;
         Vue.importantTags = importantTags;
         Vue.updateInventory = updateInventory;
+        Vue.updatePacks = updatePacks;
         Vue.inventory = inventory;
+        Vue.packs = packs;
         Vue.formatUTCDateString = formatUTCDateString;
         Vue.getTimeFromCache = getTimeFromCache;
         Vue.getTCodFull = getTCodFull;

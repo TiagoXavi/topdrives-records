@@ -7366,6 +7366,8 @@ export default {
         this.cgLoadedAssets = [];
         let cg = this.cgList.find(x => x.date === date);
         Vue.updateInventory(res.data.inventory);
+        Vue.updatePacks(res.data.packs);
+
         this.lookForChangedCars(res.data);
         if (cg.date === res.data.date) {
           Vue.set(cg, "rounds", res.data.rounds);
@@ -7846,7 +7848,7 @@ export default {
       } else {
         race.cars.push( JSON.parse(JSON.stringify( race.cars[race.carIndex] )) );
         race.carIndex = race.cars.length-1;
-        race.cars[race.carIndex].tune = newTune;
+        // race.cars[race.carIndex].tune = newTune;
         race.cars[race.carIndex].selectedTune = newTune;
         race.cars[race.carIndex].points = this.cgTryGetPointsFromCache(race);
 
@@ -8606,7 +8608,7 @@ export default {
             index = race.cars.length-1;
             Vue.set(race, "carIndex", index);
             if (tune || sameRid) {
-              Vue.set(race.cars[index], "tune", tune);
+              // Vue.set(race.cars[index], "tune", tune);
               Vue.set(race.cars[index], "selectedTune", tune);
               Vue.set(race.cars[index], "points", this.cgTryGetPointsFromCache(race));
             }
@@ -9067,7 +9069,7 @@ export default {
         if (isNaN(race.carIndex)) {
           handRids.push(undefined);
         } else {
-          handRids.push(`${race.cars[race.carIndex].rid}_${race.cars[race.carIndex].tune}`);
+          handRids.push(`${race.cars[race.carIndex].rid}_${race.cars[race.carIndex].selectedTune || race.cars[race.carIndex].tune}`);
         }
       })
       this.cgSavedHandKeys().map(key => window.localStorage.removeItem(key));
@@ -10894,7 +10896,7 @@ export default {
             if (Array.isArray(car) && typeof car[0] === "number") {
               Vue.set(race.cars, icar, {
                 rid: Vue.rn_to_rid[car[0]],
-                tune: car[1],
+                tune: car[1], // original tune of bank list. Should not be touched
                 selectedTune: car[1],
                 points: car[2]
               });
@@ -11211,6 +11213,8 @@ export default {
       .then(res => {
         let event = this.eventList.find(x => x.date === date);
         Vue.updateInventory(res.data.inventory);
+        Vue.updatePacks(res.data.packs);
+        
         if (event.date === res.data.date) {
           Object.keys( res.data ).forEach(key => {
             // if (key === "flexConfig") {
@@ -12453,6 +12457,7 @@ export default {
             this.eventNewDialog = false;
             this.eventNewLoading = false;
             Vue.updateInventory(res.data.inventory);
+            Vue.updatePacks(res.data.packs);
 
             this.eventParsedList = res.data.events;
             let now = new Date().toISOString();
