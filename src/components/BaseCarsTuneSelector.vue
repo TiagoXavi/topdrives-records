@@ -79,10 +79,11 @@ export default {
       this.count;
 
       let arrTunes = [
-        this.carConfig.selectedTune,
         ...(this.carConfig.alt || []),
         this.carConfig.tune
       ]
+      if (this.carConfig.points > 0) arrTunes.push(this.carConfig.selectedTune);
+      else result.l.push(this.carConfig.selectedTune);
 
       this.tunes.forEach(tune => {
         if (tune === this.carConfig.selectedTune) return;

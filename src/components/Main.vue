@@ -5991,7 +5991,7 @@ export default {
         Vue.set(race, "car", newCar);
         if (isFromJson) console.log(`this.cgAddingOppoCar`);
       } else if (this.cgAddingYouCar) {
-        let found = race.cars.findIndex(x => x.rid === (race.cars[race.carIndex] || {}).rid && x.tune === undefined);
+        let found = race.cars.findIndex(x => x.rid === (race.cars[race.carIndex] || {}).rid && x.selectedTune === undefined);
         if (found > -1) {
           race.carIndex = found;
           if (isFromJson) console.log(`race.carIndex ${race.carIndex} ${(race.cars[race.carIndex] || {}).rid}`);
@@ -7842,7 +7842,7 @@ export default {
       // Vue.set(car, "selectedTune", tune);
 
       //chaged tune of you car
-      let found = race.cars.findIndex(x => x.rid === race.cars[race.carIndex].rid && x.tune === newTune);
+      let found = race.cars.findIndex(x => x.rid === race.cars[race.carIndex].rid && x.selectedTune === newTune);
       if (found > -1) {
         race.carIndex = found;
       } else {
@@ -7850,6 +7850,7 @@ export default {
         race.carIndex = race.cars.length-1;
         // race.cars[race.carIndex].tune = newTune;
         race.cars[race.carIndex].selectedTune = newTune;
+        debugger;
         race.cars[race.carIndex].points = this.cgTryGetPointsFromCache(race);
 
       }
@@ -7861,7 +7862,7 @@ export default {
     },
     cgTryGetPointsFromCache(race) {
       let youRid = race.cars[race.carIndex].rid;
-      let youTune = race.cars[race.carIndex].tune;
+      let youTune = race.cars[race.carIndex].selectedTune;
       let points = undefined;
       let time = Vue.getTimeFromCache(youRid, youTune, race.track);
       if (time === undefined) return points;
@@ -8600,12 +8601,17 @@ export default {
             if (!Vue.all_carsObj[rid]) return;
 
             let sameRid = race.cars.find(car => car.rid === rid);
-            if (sameRid) {
-              race.cars.push( JSON.parse(JSON.stringify( sameRid )) );
+            let alreadyExist = race.cars.find(car => car.rid === rid && car.selectedTune === tune);
+            if (alreadyExist) {
+              index = race.cars.findIndex(car => car.rid === rid && car.selectedTune === tune);
             } else {
-              race.cars.push( { rid: rid, isFront: true } );
+              if (sameRid) {
+                race.cars.push( JSON.parse(JSON.stringify( sameRid )) );
+              } else {
+                race.cars.push( { rid: rid, isFront: true } );
+              }
+              index = race.cars.length-1;
             }
-            index = race.cars.length-1;
             Vue.set(race, "carIndex", index);
             if (tune || sameRid) {
               // Vue.set(race.cars[index], "tune", tune);
@@ -10921,7 +10927,7 @@ export default {
             race.time = time;
           }
           if (race.carIndex > -1 && race.cars[race.carIndex] && race.cars[race.carIndex].points === undefined) {
-            let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].tune, race.track);
+            let time2 = Vue.timeCell(race.cars[race.carIndex].rid, race.cars[race.carIndex].selectedTune, race.track);
             if (typeof time2 !== "number") {
               Vue.set(race.cars[race.carIndex], "points", undefined);
             } else {

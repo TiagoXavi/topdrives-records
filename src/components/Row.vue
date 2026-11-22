@@ -1488,6 +1488,10 @@ export default {
   box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-green), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-green));
   color: rgb(var(--d-text-green-b));
 }
+.D_Button.Row_DialogButtonTuneActive.Row_DialogButtonTuneLose {
+  box-shadow: inset 0px -33px 15px -20px rgba(var(--d-text-red), 0.4), inset 0px -2px 0px 0px rgb(var(--d-text-red));
+  color: #e7c2c2;
+}
 .Row_DialogButtonTune s {
   text-decoration: none;
   opacity: 0.6;
