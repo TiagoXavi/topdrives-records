@@ -16,7 +16,7 @@
         <div class="BaseChallengeInfos_ItemInner">
 
           <div class="BaseChallengeInfos_Header">
-            <div class="BaseChallengeInfos_HeaderLeft">{{ $tc("m_round", 1) }} {{ iT + 1 }}</div>
+            <div class="BaseChallengeInfos_HeaderLeft">{{ $tc("m_round", 1) }} {{ iT + 1 + (cg.startNumer || 0) }}</div>
             <div class="BaseChallengeInfos_HeaderRight">
               <span class="Cg_RqRq"><i class="tdicon-rq" style="color: #05b2ec;" aria-hidden="true"/></span>
               <span>{{ cg.rounds[iT].rqLimit }}</span>

@@ -2,7 +2,7 @@
   <BaseDialog
     :active="active"
     :transparent="false"
-    :style="`--class-color: ${carClassColor}; --fire-size: 140px;`"
+    :style="`--class-color: ${carClassColor}; --fire-size: 140px; --dialog-index: 120;`"
     :useColor="true"
     :lazy="true"
     :disableScroll="true"

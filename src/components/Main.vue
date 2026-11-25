@@ -4913,7 +4913,7 @@ export default {
       if (mutation.type == "HOVER_INDEX") {
         if (mutation.payload) {
           if (!document.querySelector("[class*='_DraggingParent']")) {
-            vm.hoverIndex = mutation.payload;
+            vm.hoverIndex = mutation.payload - 1;
           }
         }
       }
@@ -7374,6 +7374,7 @@ export default {
           Vue.set(cg, "info", res.data.info);
           this.cgNormalizeFormat(cg);
           this.cgCurrentRoundSum = res.data.startNumer || 0;
+          Vue.set(cg, "startNumer", res.data.startNumer || 0);
           this.cgLoading = false;
           this.cgTabRoundMemory = null;
           this.loadCgRound(date, round);
