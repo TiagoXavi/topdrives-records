@@ -170,7 +170,7 @@ export default {
       // Parts: { text }, { text, tag: true }, { icon } (BaseIconSvg type) or { ticon, color } (ticon-* font icon)
       // Items: { label, rows: [parts, parts...] }, label spans all rows
       announcement: {
-        id: "2026_11_BlackFriday",
+        id: "2026_11_BlackFriday2",
         ticker: [
           { text: "Black Friday:", tag: "TickYellow" },
           { text: "80% OFF" },
