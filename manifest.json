@@ -1,0 +1,25 @@
+{
+  "name": "Top Drives Records",
+  "short_name": "TDR",
+  "icons": [
+    {
+      "src": "fav.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    },
+    {
+      "src": "favicon/fav_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/fav_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#333333",
+  "theme_color": "#2e2700"
+}
